@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Agent ID。
+   * The agent ID.
    * 
    * @example
    * agent_00000000000000000000000000000001
@@ -13,7 +13,7 @@ export class UpdateAgentResponseBody extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The Agent name.
+   * The name of the agent.
    * 
    * @example
    * code-review-agent
@@ -21,7 +21,7 @@ export class UpdateAgentResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID, used for Tracing Analysis and troubleshooting.
+   * The request ID, which is used for Tracing Analysis and troubleshooting.
    * 
    * @example
    * 0A1B2C3D-4E5F-6789-ABCD-EF0123456789
@@ -29,7 +29,7 @@ export class UpdateAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the Agent was successfully updated. A successful response always returns `true`. A failure returns an error response.
+   * Indicates whether the agent was successfully updated. A success response always returns `true`. An error response is returned upon failure.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class UpdateAgentResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The most recent update time, as a UNIX timestamp in milliseconds.
+   * The time of the most recent update. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788332700000

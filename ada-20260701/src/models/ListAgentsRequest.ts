@@ -21,7 +21,7 @@ export class ListAgentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next page token returned in the previous response.
+   * The next token returned in the previous response.
    * 
    * @example
    * eyJwYWdlIjoyfQ.example
@@ -45,15 +45,15 @@ export class ListAgentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search keyword. Matches the name, display name, or description.
+   * The search keyword used to match the name, display name, or description.
    * 
    * @example
-   * code review
+   * Code review
    */
   q?: string;
   /**
    * @remarks
-   * Filters agents by runtime label.
+   * Filters agents by the runtime tag.
    * 
    * @example
    * qwen
@@ -61,7 +61,7 @@ export class ListAgentsRequest extends $dara.Model {
   requiredRuntime?: string;
   /**
    * @remarks
-   * The query scope. Valid values: `SYSTEM` and `CUSTOM`.
+   * The query scope. Valid values: SYSTEM and CUSTOM.
    * 
    * @example
    * CUSTOM
@@ -69,7 +69,7 @@ export class ListAgentsRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Filters agents by visibility scope. Valid values: `user` and `tenant`.
+   * Filters agents by visibility scope. Valid values: user and tenant.
    * 
    * @example
    * user

@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the Agent.
+   * The description of the agent.
    * 
    * @example
-   * Analyzes code changes and generates CR review comments
+   * Analyze code changes and generate code review comments
    */
   description?: string;
   /**
    * @remarks
-   * The display name of the Agent.
+   * The display name of the agent.
    * 
    * @example
-   * CR Code Review Agent
+   * Code review agent
    */
   displayName?: string;
   /**
    * @remarks
-   * The knowledge base reference list, which contains at most one element.
+   * The list of knowledge base references, which can contain at most one element.
    * 
    * @example
    * [{"name":"code-review-guidelines"}]
@@ -29,7 +29,7 @@ export class CreateAgentRequest extends $dara.Model {
   knowledgeBases?: any;
   /**
    * @remarks
-   * The Agent name, which is also the unique identifier that cannot be modified after creation.
+   * The name of the agent, which is also the unique identifier that cannot be modified after creation.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateAgentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Skill reference list. For specific fields, see "Supplementary description of request parameters".
+   * The list of skill references. For specific fields, refer to the supplementary description of request parameters.
    * 
    * @example
    * [{"name":"code-review"}]
@@ -50,12 +50,12 @@ export class CreateAgentRequest extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * Check the correctness, security, and maintainability of code changes in the CR, and provide review comments by severity
+   * Check the correctness, security, and maintainability of code changes in the code review, and provide review comments based on severity
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The reference list of MCP Server and Connector names. The same array supports both types of entries. Each entry specifies one type of reference. If items is omitted for an MCP Server, all public tools are included. Previously specified items retain their original values.
+   * The list of references to MCP server and connector names. The same array supports both types of entries. Specify only one type of reference for each entry. For MCP, omitting items indicates all public tools, and historically specified items retain their original values.
    * 
    * @example
    * [{"mcpServerName":"code-repository-mcp"},{"connectorName":"code-review-data"}]
@@ -63,11 +63,7 @@ export class CreateAgentRequest extends $dara.Model {
   tools?: any;
   /**
    * @remarks
-   * The visibility scope of the Agent. Valid values:
-   * - user
-   * - tenant
-   * 
-   * Default value: user.
+   * The visibility scope of the agent. Valid values: user and tenant. Default value: user.
    * 
    * @example
    * user

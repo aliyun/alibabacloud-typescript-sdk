@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the Skill to delete.
+   * The name of the skill to delete.
    * 
    * This parameter is required.
    * 

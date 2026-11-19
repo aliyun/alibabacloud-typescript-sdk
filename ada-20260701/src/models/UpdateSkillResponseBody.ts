@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Skill name.
+   * The name of the skill.
    * 
    * @example
    * code-review
@@ -21,7 +21,7 @@ export class UpdateSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Skill ID。
+   * The skill ID.
    * 
    * @example
    * skill_example123
@@ -29,7 +29,7 @@ export class UpdateSkillResponseBody extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * Returns `true` when the Skill update and optional bundle replacement have been fully committed and confirmed by read-back.
+   * Indicates whether the operation is successful. A value of `true` is returned when the skill update and optional bundle replacement are fully submitted and confirmed by read-back.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class UpdateSkillResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The time when the Skill was updated, in UNIX millisecond timestamp.
+   * The time when the skill was updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1760000200000

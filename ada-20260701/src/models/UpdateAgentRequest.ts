@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description. If not specified, the existing value is retained.
+   * The new description. If this parameter is not passed, the original value is retained.
    * 
    * @example
-   * Analyzes CR code changes and checks for correctness, security, and maintainability
+   * Analyze CR code changes and check for correctness, security, and maintainability
    */
   description?: string;
   /**
    * @remarks
-   * The new display name. If not specified, the existing value is retained.
+   * The new display name. If this parameter is not passed, the original value is retained.
    * 
    * @example
    * CR Code and Security Review Agent
@@ -21,7 +21,7 @@ export class UpdateAgentRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The expected current configuration revision number. This parameter is omitted by default. For concurrency protection, pass in the `AgentVersion` returned by the most recent `GetAgent` call.
+   * The expected current configuration revision number. This parameter is omitted by default. Pass the `AgentVersion` returned by the most recent `GetAgent` call when concurrency protection is required.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class UpdateAgentRequest extends $dara.Model {
   expectedVersion?: number;
   /**
    * @remarks
-   * The list of knowledge base bindings, which contains at most one element. If not specified, the existing value is retained. A non-empty array replaces the entire value. Passing `[ ]` removes all bindings.
+   * The list of knowledge base bindings, which can contain at most one element. If this parameter is not passed, the original value is retained. If a non-empty array is passed, it replaces the original value entirely. If `[ ]` is passed, all bindings are removed.
    * 
    * @example
    * [{"name":"code-review-guidelines"}]
@@ -37,7 +37,7 @@ export class UpdateAgentRequest extends $dara.Model {
   knowledgeBases?: any;
   /**
    * @remarks
-   * The name of the Agent to update.
+   * The name of the agent to be updated.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class UpdateAgentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of Skill references. If not specified, the existing value is retained. A non-empty array replaces the entire value. Passing `[ ]` removes all bindings.
+   * The list of skill references. If this parameter is not passed, the original value is retained. If a non-empty array is passed, it replaces the original value entirely. If `[ ]` is passed, all bindings are removed.
    * 
    * @example
    * [{"name":"code-review"}]
@@ -55,15 +55,15 @@ export class UpdateAgentRequest extends $dara.Model {
   skills?: any;
   /**
    * @remarks
-   * The new system prompt. If not specified, the existing value is retained.
+   * The new system prompt. If this parameter is not passed, the original value is retained.
    * 
    * @example
-   * Check the CR for code defects, security risks, and compatibility issues, and provide actionable suggestions for fixes
+   * Check for code defects, security risks, and compatibility issues in the CR, and provide actionable modification suggestions
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The list of MCP Server and Connector name references. The same array supports both types of entries. Each entry specifies one type of reference. If items is omitted for an MCP entry, all public tools are included. Previously specified items retain their existing values.
+   * The list of MCP server and connector name references. The same array supports the coexistence of both types of entries. Specify only one type of reference for each entry. For MCP, omitting items indicates all public tools, and historically specified items retain their original values.
    * 
    * @example
    * [{"mcpServerName":"code-repository-mcp"},{"connectorName":"code-review-data"}]
@@ -71,11 +71,7 @@ export class UpdateAgentRequest extends $dara.Model {
   tools?: any;
   /**
    * @remarks
-   * The new visibility scope. Valid values:
-   * - user
-   * - tenant
-   * 
-   * If not specified, the existing value is retained.
+   * The new visibility scope. Valid values: `user` and `tenant`. If this parameter is not passed, the original value is retained.
    * 
    * @example
    * tenant

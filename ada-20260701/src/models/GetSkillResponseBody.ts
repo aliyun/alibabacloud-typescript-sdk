@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the current caller can delete the Skill.
+   * Indicates whether the current caller can delete the skill.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetSkillResponseBody extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * Indicates whether the current caller can modify the Skill.
+   * Indicates whether the current caller can modify the skill.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetSkillResponseBody extends $dara.Model {
   canModify?: boolean;
   /**
    * @remarks
-   * The creation time of the Skill, in Unix millisecond timestamp.
+   * The creation time of the skill. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1760000000000
@@ -29,15 +29,15 @@ export class GetSkillResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The description in the current Skill main record.
+   * The description in the current primary record of the skill.
    * 
    * @example
-   * A Skill for performing code review and risk alerts
+   * A skill for performing code review and risk alerts
    */
   description?: string;
   /**
    * @remarks
-   * The bundle download URL. Returned when a network type is specified, an accessible Artifact exists, and pre-signing succeeds.
+   * The download URL of the bundle. This field is returned when the network is specified, an accessible artifact exists, and presigning is successful.
    * 
    * @example
    * https://example.com/artifacts/code-review-v2.zip?signature=example
@@ -45,7 +45,7 @@ export class GetSkillResponseBody extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The network type used to generate the download URL.
+   * The network type actually used to generate the download URL.
    * 
    * @example
    * public
@@ -53,7 +53,7 @@ export class GetSkillResponseBody extends $dara.Model {
   downloadUrlNetwork?: string;
   /**
    * @remarks
-   * The Skill icon URL, sourced from the iconUrl in the metadata. This field may be empty if no icon is configured.
+   * The URL of the skill icon, which is derived from the iconUrl in the metadata. This field may be empty if no icon is configured.
    * 
    * @example
    * https://example.com/icons/code-review.png
@@ -61,7 +61,7 @@ export class GetSkillResponseBody extends $dara.Model {
   iconUrl?: string;
   /**
    * @remarks
-   * The Skill metadata, mapped to the metadata field in the backend response.
+   * The metadata of the skill, which is mapped to the metadata field in the backend response.
    * 
    * @example
    * {"skillMd":"# Code Review\\nCheck code quality.","artifactId":"artifact_example003"}
@@ -69,7 +69,7 @@ export class GetSkillResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The Skill name.
+   * The name of the skill.
    * 
    * @example
    * code-review
@@ -77,7 +77,7 @@ export class GetSkillResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the Skill is an official Skill.
+   * Indicates whether the skill is an official skill.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class GetSkillResponseBody extends $dara.Model {
   official?: boolean;
   /**
    * @remarks
-   * The request ID, used for Tracing Analysis and troubleshooting.
+   * The request ID, which is used for Tracing Analysis and troubleshooting.
    * 
    * @example
    * 0A1B2C3D-4E5F-6789-ABCD-EF0123456789
@@ -93,7 +93,7 @@ export class GetSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Skill ID。
+   * The skill ID.
    * 
    * @example
    * skill_example123
@@ -101,7 +101,7 @@ export class GetSkillResponseBody extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * The current Skill status. Common values are DRAFT and PUBLISHED.
+   * The current status of the skill. Common values are DRAFT and PUBLISHED.
    * 
    * @example
    * PUBLISHED
@@ -109,7 +109,7 @@ export class GetSkillResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time of the Skill, in Unix millisecond timestamp.
+   * The update time of the skill. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1760000300000
@@ -117,7 +117,7 @@ export class GetSkillResponseBody extends $dara.Model {
   updatedAt?: number;
   /**
    * @remarks
-   * The visibility of the current Skill. Common values are user and tenant.
+   * The visibility of the current skill. Common values are user and tenant.
    * 
    * @example
    * user

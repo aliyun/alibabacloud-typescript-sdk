@@ -1,0 +1,54 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DeleteAgentSessionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response object. The business result is located in `result`.
+   * 
+   * @example
+   * {"jsonrpc":"2.0","id":"request-001","result":{"sessionId":"0123456789abcdef0123456789abcdef"}}
+   */
+  jsonRpcResponse?: any;
+  /**
+   * @remarks
+   * The server-side request ID, which is used to troubleshoot this call.
+   * 
+   * @example
+   * 0A1B2C3D-4E5F-6789-ABCD-EF0123456789
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful. Determine the final execution state based on the description of this operation.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      jsonRpcResponse: 'JsonRpcResponse',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jsonRpcResponse: 'any',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

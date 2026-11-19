@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Agent ID。
+   * The agent ID.
    * 
    * @example
    * agent_00000000000000000000000000000001
@@ -21,7 +21,7 @@ export class GetAgentResponseBody extends $dara.Model {
   agentVersion?: number;
   /**
    * @remarks
-   * Indicates whether the current identity can delete the agent.
+   * Specifies whether the current identity can delete the agent.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetAgentResponseBody extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * Indicates whether the current identity can modify the agent.
+   * Specifies whether the current identity can modify the agent.
    * 
    * @example
    * true
@@ -56,7 +56,7 @@ export class GetAgentResponseBody extends $dara.Model {
    * The display name of the agent. This field may not be returned if it is not configured.
    * 
    * @example
-   * CR Code Review Agent
+   * CR code review agent
    */
   displayName?: string;
   /**
@@ -69,7 +69,7 @@ export class GetAgentResponseBody extends $dara.Model {
   knowledgeBases?: any;
   /**
    * @remarks
-   * The display metadata of the agent. For specific fields, see "Supplementary description of response elements".
+   * The display metadata of the agent. For specific fields, see the supplementary description of response parameters.
    * 
    * @example
    * {"iconUrl":"https://example.com/icons/code-review-agent.png"}
@@ -77,7 +77,7 @@ export class GetAgentResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The saved model configuration. This field is returned only for official agents. The value supports an object array and is compatible with legacy single objects and strings. An empty array returns [ \\]. Object arrays preserve the original order, duplicate names, and object fields.
+   * The saved model configuration. This information is returned only for official agents. Object arrays are supported, and historical single objects and strings are compatible. An empty array returns [ \\]. Object arrays retain the original order, duplicate names, and object fields.
    * 
    * @example
    * [{"name":"base","default":true},{"name":"base"},{"name":"base","settings":{"thinking":false,"topK":5}}]
@@ -93,7 +93,7 @@ export class GetAgentResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the agent is an official agent provided by the platform.
+   * Specifies whether the agent is an official agent provided by the platform.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class GetAgentResponseBody extends $dara.Model {
   official?: boolean;
   /**
    * @remarks
-   * The request ID, which is used for Tracing Analysis and troubleshooting.
+   * The request ID. It is used for Tracing Analysis and troubleshooting.
    * 
    * @example
    * 0A1B2C3D-4E5F-6789-ABCD-EF0123456789
@@ -109,7 +109,7 @@ export class GetAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of skill references. For specific fields, see "Supplementary description of response elements".
+   * The list of skill references. For specific fields, see the supplementary description of response parameters.
    * 
    * @example
    * [{"name":"code-review"}]
@@ -128,12 +128,12 @@ export class GetAgentResponseBody extends $dara.Model {
    * The system prompt. This field may not be returned if it is not configured.
    * 
    * @example
-   * Check the correctness, security, and maintainability of code changes in the CR, and provide review comments by severity
+   * Please check the correctness, security, and maintainability of the code changes in the CR, and provide review comments based on severity
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * The list of MCP Server and Connector name references. For element fields, see the following section.
+   * The list of MCP server and connector name references. For element fields, see the following sections.
    * 
    * @example
    * [{"mcpServerName":"code-repository-mcp"},{"connectorName":"code-review-data"}]
@@ -141,7 +141,7 @@ export class GetAgentResponseBody extends $dara.Model {
   tools?: any;
   /**
    * @remarks
-   * The most recent update time. The value is a UNIX timestamp in milliseconds.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788332700000

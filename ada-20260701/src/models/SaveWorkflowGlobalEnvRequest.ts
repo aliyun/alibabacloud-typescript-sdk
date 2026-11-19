@@ -1,0 +1,36 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class SaveWorkflowGlobalEnvRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration content.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MODE=demo
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

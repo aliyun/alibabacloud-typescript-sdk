@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used for Tracing Analysis and troubleshooting.
+   * The request ID used for Tracing Analysis and troubleshooting.
    * 
    * @example
    * 0A1B2C3D-4E5F-6789-ABCD-EF0123456789
@@ -13,7 +13,7 @@ export class DeleteAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the Agent is deleted. The value `true` is returned for a successful response. An error response is returned for a failed request.
+   * Indicates whether the agent was successfully deleted. A successful response always returns `true`. If the operation fails, an error response is returned.
    * 
    * @example
    * true

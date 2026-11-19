@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of agent summaries. For field details, see "Supplementary description of response parameters".
+   * The list of agent summaries. For field details of each element, see the supplementary description of response parameters.
    */
   agents?: any[];
   /**
    * @remarks
-   * The actual cursor-based pagination size used.
+   * The actual page size used for cursor-based pagination.
    * 
    * @example
    * 20
@@ -18,7 +18,7 @@ export class ListAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next page token. An empty string is returned if there is no next page.
+   * The next token. An empty string is returned if there are no more pages.
    * 
    * @example
    * eyJwYWdlIjoyfQ.example
@@ -42,7 +42,7 @@ export class ListAgentsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, used for Tracing Analysis and troubleshooting.
+   * The request ID, which is used for Tracing Analysis and troubleshooting.
    * 
    * @example
    * 0A1B2C3D-4E5F-6789-ABCD-EF0123456789

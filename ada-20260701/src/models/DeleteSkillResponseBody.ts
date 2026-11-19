@@ -13,7 +13,7 @@ export class DeleteSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns `true` when both the logical deletion of the Skill and the optional logical archiving of the Artifact are complete.
+   * Indicates whether the operation is successful. Returns `true` when the logical deletion of the skill and the optional logical archiving of artifacts are complete.
    * 
    * @example
    * true

@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitUploadPolicyResponseBodyPolicyInfo extends $dara.Model {
   /**
    * @remarks
-   * The `OSSAccessKeyId` field in the PostObject form. Protect this value together with the entire `PolicyInfo`.
+   * The OSSAccessKeyId in the PostObject form. This field must be properly protected along with the entire PolicyInfo.
    * 
    * @example
    * <REDACTED>
@@ -15,7 +15,7 @@ export class CreateTransitUploadPolicyResponseBodyPolicyInfo extends $dara.Model
   accessId?: string;
   /**
    * @remarks
-   * The object storage key. The value is the same as the top-level `FilePath`.
+   * The object storage key. The value is the same as the top-level FilePath.
    * 
    * @example
    * skill-bundle/tenant-demo/user-demo/20260904120000_0123456789abcdef0123456789abcdef.zip
@@ -23,7 +23,7 @@ export class CreateTransitUploadPolicyResponseBodyPolicyInfo extends $dara.Model
   dir?: string;
   /**
    * @remarks
-   * The target URL to which the client sends the PostObject request.
+   * The destination URL for the client to execute the PostObject request.
    * 
    * @example
    * https://upload.example.invalid
@@ -31,7 +31,7 @@ export class CreateTransitUploadPolicyResponseBodyPolicyInfo extends $dara.Model
   host?: string;
   /**
    * @remarks
-   * The Base64-encoded PostObject upload policy. Protect this value together with the entire `PolicyInfo`.
+   * The Base64-encoded PostObject upload policy. This field must be properly protected along with the entire PolicyInfo.
    * 
    * @example
    * <REDACTED>
@@ -39,7 +39,7 @@ export class CreateTransitUploadPolicyResponseBodyPolicyInfo extends $dara.Model
   policy?: string;
   /**
    * @remarks
-   * The `x-oss-security-token` field in the PostObject form when STS credentials are used. This field may be empty when STS is not used. This field contains sensitive authorization information.
+   * The x-oss-security-token in the PostObject form when Security Token Service (STS) credentials are used. This field may be empty if STS is not used. This field contains sensitive authorization information.
    * 
    * @example
    * <REDACTED>
@@ -47,7 +47,7 @@ export class CreateTransitUploadPolicyResponseBodyPolicyInfo extends $dara.Model
   securityToken?: string;
   /**
    * @remarks
-   * The signature field in the PostObject form. This field contains sensitive authorization information.
+   * The signature of the PostObject form. This field contains sensitive authorization information.
    * 
    * @example
    * <REDACTED>
@@ -87,7 +87,7 @@ export class CreateTransitUploadPolicyResponseBodyPolicyInfo extends $dara.Model
 export class CreateTransitUploadPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The object storage key, which is also the `key` field in the PostObject form.
+   * The object storage key, which is also the key in the PostObject form.
    * 
    * @example
    * skill-bundle/tenant-demo/user-demo/20260904120000_0123456789abcdef0123456789abcdef.zip
@@ -95,12 +95,12 @@ export class CreateTransitUploadPolicyResponseBody extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The upload policy object. For the complete list of subfields, see the following table.
+   * The upload policy object. For more information about the complete sub-fields, see the following table.
    */
   policyInfo?: CreateTransitUploadPolicyResponseBodyPolicyInfo;
   /**
    * @remarks
-   * The request ID, used for Tracing Analysis and troubleshooting.
+   * The request ID, which is used for Tracing Analysis and troubleshooting.
    * 
    * @example
    * 0A1B2C3D-4E5F-6789-ABCD-EF0123456789
@@ -108,7 +108,7 @@ export class CreateTransitUploadPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the upload policy is generated. A successful response always returns `true`. An error response is returned upon failure.
+   * Indicates whether the upload policy is successfully generated. A success response always returns true. An error response is returned upon failure.
    * 
    * @example
    * true
@@ -116,7 +116,7 @@ export class CreateTransitUploadPolicyResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the newly created Transit record, used for subsequent queries and storage operations.
+   * The ID of the newly created transit record, which can be used for subsequent queries and storage.
    * 
    * @example
    * transit_0123456789abcdef0123456789abcdef

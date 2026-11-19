@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The updated description of the Skill.
+   * The updated description of the skill.
    * 
    * @example
-   * A Skill for performing code reviews, security checks, and risk alerts
+   * A skill used to perform code review, security checks, and risk alerts
    */
   description?: string;
   /**
@@ -21,7 +21,7 @@ export class UpdateSkillRequest extends $dara.Model {
   expectedVersion?: number;
   /**
    * @remarks
-   * The updated Skill metadata. The JSON object is replaced as a whole. The content supports exactly one of Transit ID, bundleUrl, or skillMd.
+   * The updated metadata of the skill. The JSON object is replaced as a whole. The content supports one of the following: Transit ID, bundleUrl, or skillMd.
    * 
    * @example
    * {"transitId":"transit_example456"}
@@ -29,7 +29,7 @@ export class UpdateSkillRequest extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The name of the Skill to update. This parameter is used only to locate the Skill and cannot be used to modify the name.
+   * The name of the skill to be updated. This parameter is used only to locate the skill and cannot be used to modify the name.
    * 
    * This parameter is required.
    * 

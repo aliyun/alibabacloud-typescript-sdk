@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the Skill.
+   * The unique identifier of the skill.
    * 
    * @example
    * code-review
@@ -21,7 +21,7 @@ export class CreateSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Skill ID。
+   * The skill ID.
    * 
    * @example
    * skill_example123
@@ -29,7 +29,7 @@ export class CreateSkillResponseBody extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * Indicates whether the Skill and its body or bundle are fully created and readable. A value of true is returned upon success. Business failures are returned as error responses.
+   * Indicates whether the operation is successful. true is returned when the skill and its body or bundle are fully created and readable. Business failures are returned in error responses.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class CreateSkillResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The time when the Skill was last updated after creation. The value is a UNIX timestamp in milliseconds.
+   * The update time after the skill is created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1760000100000

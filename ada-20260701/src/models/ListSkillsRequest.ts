@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters Skills by creator ID.
+   * Filters skills by the creator ID.
    * 
    * @example
    * example-user
@@ -13,7 +13,7 @@ export class ListSkillsRequest extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The number of entries per page for cursor-based pagination. Valid values: 1 to 100. Default value: `20`. If explicitly specified, cursor-based pagination takes precedence.
+   * The number of entries per page for cursor-based pagination. Valid values: 1 to 100. Default value: `20`. If this parameter is explicitly specified, cursor-based pagination takes precedence.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListSkillsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned by the server for the next page. Do not pass this parameter for the first query. For subsequent queries, use the value returned in the previous response.
+   * The next token returned by the server. Do not specify this parameter for the first query. For subsequent queries, use the value from the previous response.
    * 
    * @example
    * eyJzIjoiZDc3ZGRhYmE3MDMwYWM1NCIsInAiOjJ9.vkKVySx9G26993sTNLZqwGSmgciRsrRm2SgsjOMJoCQ
@@ -29,7 +29,7 @@ export class ListSkillsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number for compatible page-number-based pagination. Pages start from 1. Default value: `1`.
+   * The compatible page number parameter for page number-based pagination. Pages start from 1. Default value: `1`.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListSkillsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for compatible page-number-based pagination. Valid values: 1 to 100. Default value: `20`.
+   * The compatible number of entries per page for page number-based pagination. Valid values: 1 to 100. Default value: `20`.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class ListSkillsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Performs a fuzzy match on the Skill name or description.
+   * Performs a fuzzy match on the skill name or description.
    * 
    * @example
    * review
@@ -53,7 +53,7 @@ export class ListSkillsRequest extends $dara.Model {
   q?: string;
   /**
    * @remarks
-   * The query scope for Skills. Valid values: `SYSTEM` and `CUSTOM`. If omitted, both official and custom Skills are queried.
+   * The query scope for skills. Valid values: `SYSTEM` and `CUSTOM`. If this parameter is omitted, both official and custom skills are queried.
    * 
    * @example
    * CUSTOM
@@ -61,7 +61,7 @@ export class ListSkillsRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Filters Skills by visibility. Common values are `user` and `tenant`.
+   * Filters skills by visibility. Common values are `user` and `tenant`.
    * 
    * @example
    * user

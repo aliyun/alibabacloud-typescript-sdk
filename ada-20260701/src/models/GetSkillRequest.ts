@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The Skill name.
+   * The name of the skill.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetSkillRequest extends $dara.Model {
   network?: string;
   /**
    * @remarks
-   * The release history version number to query. If omitted, the current Skill main record is returned.
+   * Specifies the published historical version number to query. If omitted, the current primary record of the skill is returned.
    * 
    * @example
    * 2
