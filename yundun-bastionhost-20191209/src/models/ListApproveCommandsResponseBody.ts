@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model {
   /**
    * @remarks
-   * The approval status. Valid values:
-   * - 1: Pending.
-   * - 2: Processed.
+   * The status of the approval request. Valid values:
+   * 
+   * - **1**: Pending approval.
+   * 
+   * - **2**: Approved.
    * 
    * @example
    * 1
@@ -23,7 +25,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   approveCommandId?: string;
   /**
    * @remarks
-   * The name of the asset account used for O&M.
+   * The name of the O&M asset account.
    * 
    * @example
    * root
@@ -31,7 +33,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   assetAccountName?: string;
   /**
    * @remarks
-   * The IP address of the asset for O&M.
+   * The IP address of the O&M asset.
    * 
    * @example
    * 10.167.XX.XX
@@ -39,7 +41,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   assetIp?: string;
   /**
    * @remarks
-   * The name of the asset for O&M.
+   * The name of the O&M asset.
    * 
    * @example
    * poros-test
@@ -47,7 +49,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   assetName?: string;
   /**
    * @remarks
-   * The source IP address from which the application is submitted.
+   * The source IP address from which the request was submitted.
    * 
    * @example
    * 172.18.XX.XX
@@ -55,7 +57,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   clientIp?: string;
   /**
    * @remarks
-   * The Bastionhost user who submitted the application.
+   * The Bastionhost user who submitted the request.
    * 
    * @example
    * test
@@ -71,7 +73,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   command?: string;
   /**
    * @remarks
-   * The time when the application was submitted. Unit: seconds. The value is a UNIX timestamp.
+   * The time when the request was submitted. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1679393152
@@ -79,7 +81,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The name of the protocol used for O&M.
+   * The name of the O&M protocol.
    * 
    * @example
    * SSH
@@ -95,8 +97,8 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   sessionId?: string;
   /**
    * @remarks
-   * The approval status. Valid values:
-   * - **Wait**: Pending.
+   * The approval status. Valid value:
+   * - **Wait**: Pending approval.
    * 
    * @example
    * Wait

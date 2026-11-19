@@ -231,6 +231,9 @@ export { AttachProjectsToReviewRuleResponse } from './AttachProjectsToReviewRule
 export { AttachReviewersToReviewRuleRequest } from './AttachReviewersToReviewRuleRequest';
 export { AttachReviewersToReviewRuleResponseBody } from './AttachReviewersToReviewRuleResponseBody';
 export { AttachReviewersToReviewRuleResponse } from './AttachReviewersToReviewRuleResponse';
+export { CancelOperationTicketRequest } from './CancelOperationTicketRequest';
+export { CancelOperationTicketResponseBody } from './CancelOperationTicketResponseBody';
+export { CancelOperationTicketResponse } from './CancelOperationTicketResponse';
 export { ConfigInstanceSecurityGroupsRequest } from './ConfigInstanceSecurityGroupsRequest';
 export { ConfigInstanceSecurityGroupsResponseBody } from './ConfigInstanceSecurityGroupsResponseBody';
 export { ConfigInstanceSecurityGroupsResponse } from './ConfigInstanceSecurityGroupsResponse';

@@ -5,9 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListApproveCommandsRequest extends $dara.Model {
   /**
    * @remarks
-   * The approval status. Valid values:
-   * - 1: Pending.
-   * - 2: Processed.
+   * The status of the approval request. Valid values:
+   * 
+   * - **1**: Pending approval.
+   * 
+   * - **2**: Approved.
+   * > If this parameter is not specified, the default value is 1, and only approval requests in the pending approval status are queried.
    * 
    * @example
    * 1
@@ -15,7 +18,7 @@ export class ListApproveCommandsRequest extends $dara.Model {
   approvalStatus?: number;
   /**
    * @remarks
-   * The ID of the command approval.
+   * The ID of the command approval request.
    * 
    * @example
    * 1
@@ -23,8 +26,8 @@ export class ListApproveCommandsRequest extends $dara.Model {
   approveCommandId?: string;
   /**
    * @remarks
-   * The instance ID of the Bastionhost.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -34,7 +37,7 @@ export class ListApproveCommandsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the current page for a paged query. Default value: **1**.
+   * The page number of the current page in a paging query. Default value: **1**.
    * 
    * This parameter is required.
    * 
@@ -44,9 +47,9 @@ export class ListApproveCommandsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page for a paged query.  
-   * The maximum value of the PageSize parameter is 1000. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
-   * > Specify a value for the PageSize parameter.
+   * The maximum number of entries to return on each page in a paging query.  
+   * The maximum value of the PageSize parameter is 1000. The default value is 20. If this parameter is left empty, 20 entries are returned by default.
+   * > Do not leave the PageSize parameter empty.
    * 
    * This parameter is required.
    * 
@@ -65,7 +68,7 @@ export class ListApproveCommandsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-beijing

@@ -1202,6 +1202,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Withdraws a submitted O&M request.
+   * 
+   * @param request - CancelOperationTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelOperationTicketResponse
+   */
+  async cancelOperationTicketWithOptions(request: $_model.CancelOperationTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelOperationTicketResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.operationTicketId)) {
+      query["OperationTicketId"] = request.operationTicketId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelOperationTicket",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelOperationTicketResponse>(await this.callApi(params, req, runtime), new $_model.CancelOperationTicketResponse({}));
+  }
+
+  /**
+   * Withdraws a submitted O&M request.
+   * 
+   * @param request - CancelOperationTicketRequest
+   * @returns CancelOperationTicketResponse
+   */
+  async cancelOperationTicket(request: $_model.CancelOperationTicketRequest): Promise<$_model.CancelOperationTicketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelOperationTicketWithOptions(request, runtime);
+  }
+
+  /**
    * Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
    * 
    * @param request - ConfigInstanceSecurityGroupsRequest
@@ -5828,11 +5878,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of commands that require approval.
+   * Queries a list of commands pending approval.
    * 
    * @remarks
-   * This operation allows administrators to retrieve the list of commands that require approval.
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+   * This operation allows administrators to retrieve a list of commands pending approval.
+   * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - ListApproveCommandsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5887,11 +5937,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of commands that require approval.
+   * Queries a list of commands pending approval.
    * 
    * @remarks
-   * This operation allows administrators to retrieve the list of commands that require approval.
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+   * This operation allows administrators to retrieve a list of commands pending approval.
+   * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - ListApproveCommandsRequest
    * @returns ListApproveCommandsResponse
@@ -7768,11 +7818,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of O&M tickets pending approval.
+   * Retrieves a list of O&M tickets pending approval.
    * 
    * @remarks
-   * This operation is used by administrators to query the list of O&M tickets pending approval.
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+   * This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - ListOperationTicketsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7831,11 +7881,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of O&M tickets pending approval.
+   * Retrieves a list of O&M tickets pending approval.
    * 
    * @remarks
-   * This operation is used by administrators to query the list of O&M tickets pending approval.
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+   * This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - ListOperationTicketsRequest
    * @returns ListOperationTicketsResponse
