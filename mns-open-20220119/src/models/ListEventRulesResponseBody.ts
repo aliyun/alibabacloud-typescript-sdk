@@ -7,10 +7,8 @@ export class ListEventRulesResponseBodyDataPageDataEndpoint extends $dara.Model 
   /**
    * @remarks
    * The endpoint type. Valid values:
-   * 
-   * - **topic**: A topic can deliver messages to multiple subscribers. You can add or remove subscribers later.
-   * 
-   * - **queue**: Messages are delivered directly to a queue. This simplifies the delivery path, but you cannot add new subscribers later.
+   * - **topic**: The topic type. A topic supports delivery to multiple subscription endpoints. You can add or remove subscription endpoints later.
+   * - **queue**: The queue type. Messages are delivered directly to a queue. This reduces the link path, but you cannot add new subscription endpoints later.
    * 
    * @example
    * topic
@@ -18,7 +16,7 @@ export class ListEventRulesResponseBodyDataPageDataEndpoint extends $dara.Model 
   endpointType?: string;
   /**
    * @remarks
-   * The actual value of the endpoint.
+   * The actual value of the receiving endpoint.
    * 
    * @example
    * test-topic
@@ -58,7 +56,7 @@ export class ListEventRulesResponseBodyDataPageDataSubscriptions extends $dara.M
   endpointType?: string;
   /**
    * @remarks
-   * The actual value of the endpoint.
+   * The actual value of the receiving endpoint.
    * 
    * @example
    * wyx-vp-complete-queue
@@ -90,7 +88,7 @@ export class ListEventRulesResponseBodyDataPageDataSubscriptions extends $dara.M
 export class ListEventRulesResponseBodyDataPageData extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * --
@@ -98,7 +96,7 @@ export class ListEventRulesResponseBodyDataPageData extends $dara.Model {
   deliveryMode?: string;
   /**
    * @remarks
-   * The endpoint of the subscription.
+   * The endpoint address of the subscription.
    */
   endpoint?: ListEventRulesResponseBodyDataPageDataEndpoint;
   /**
@@ -108,7 +106,7 @@ export class ListEventRulesResponseBodyDataPageData extends $dara.Model {
   eventTypes?: string[];
   /**
    * @remarks
-   * The event matching rules. The rules have an OR relationship.
+   * The event matching rules with an OR relationship.
    */
   matchRules?: EventMatchRule[][];
   /**
@@ -121,7 +119,7 @@ export class ListEventRulesResponseBodyDataPageData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The subscribers. A maximum of 20 entries are returned. If there are more subscribers, see [List Subscriptions](https://help.aliyun.com/document_detail/2804757.html).
+   * The subscription endpoints. A maximum of 20 entries are returned. If the number exceeds 20, use the [subscription list](https://help.aliyun.com/document_detail/2804757.html) to query.
    */
   subscriptions?: ListEventRulesResponseBodyDataPageDataSubscriptions[];
   /**
@@ -180,7 +178,7 @@ export class ListEventRulesResponseBodyDataPageData extends $dara.Model {
 export class ListEventRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. The maximum number of entries is based on Total.
+   * **[Deprecated]** Use Total for the maximum number of entries in paged queries.
    * 
    * @example
    * 1
@@ -188,7 +186,7 @@ export class ListEventRulesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is deprecated. Paged queries are based on PageNum.
+   * **[Deprecated]** Use PageNum for paging.
    * 
    * @example
    * a88f58d504b8b4c4e0b5e8707e68181f
@@ -209,7 +207,7 @@ export class ListEventRulesResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 50
@@ -225,7 +223,7 @@ export class ListEventRulesResponseBodyData extends $dara.Model {
   pages?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 20
@@ -301,7 +299,7 @@ export class ListEventRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123E62C
@@ -309,7 +307,7 @@ export class ListEventRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the response.
+   * The response status.
    * 
    * @example
    * Success
@@ -317,7 +315,7 @@ export class ListEventRulesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

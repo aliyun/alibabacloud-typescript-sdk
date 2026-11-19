@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQueueRequestDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The target queue to which dead-letter messages are delivered.
+   * The destination queue for dead-letter messages.
    * 
    * @example
    * deadLetterQueue
@@ -21,7 +21,7 @@ export class CreateQueueRequestDlqPolicy extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of times a message can be delivered.
+   * The maximum number of receive attempts for a message.
    * 
    * @example
    * 3
@@ -55,7 +55,7 @@ export class CreateQueueRequestDlqPolicy extends $dara.Model {
 export class CreateQueueRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * tag1
@@ -63,7 +63,7 @@ export class CreateQueueRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * test
@@ -138,9 +138,7 @@ export class CreateQueueRequestTenantRateLimitPolicy extends $dara.Model {
 export class CreateQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The delay period for all messages sent to the queue. A message sent to the queue can be consumed only after the delay period specified by this parameter elapses.
-   * Valid values: 0 to 604800. Unit: seconds.
-   * Default value: 0.
+   * The delay time for all messages sent to the queue. A message can be consumed only after the specified delay time elapses from the time it is sent to the queue. Valid values: 0 to 604800. Unit: seconds. Default value: 0.
    * 
    * @example
    * 0
@@ -165,13 +163,22 @@ export class CreateQueueRequest extends $dara.Model {
    * true
    */
   enableLogging?: boolean;
+  /**
+   * @remarks
+   * Specifies whether log broker encryption is enabled. Valid values: true and false.
+   */
   enableSSE?: boolean;
+  /**
+   * @remarks
+   * The KMS key ID. This parameter is required only when SseType is set to KMS.
+   * 
+   * @example
+   * key-xxx
+   */
   kmsKeyId?: string;
   /**
    * @remarks
-   * The maximum size of a message body that can be sent to the queue.
-   * Valid values: 1024 to 65536. Unit: bytes.
-   * Default value: 65536.
+   * The maximum size of a message body that can be sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
    * 
    * @example
    * 65536
@@ -179,9 +186,7 @@ export class CreateQueueRequest extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the queue. After the specified duration elapses since a message is sent to the queue, the message is deleted regardless of whether it has been consumed.
-   * Valid values: 60 to 604800. Unit: seconds.
-   * Default value: 345600.
+   * The maximum retention period of a message in the queue. After the specified period elapses from the time the message is sent to the queue, the message is deleted regardless of whether it has been received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
    * 
    * @example
    * 345600
@@ -189,9 +194,7 @@ export class CreateQueueRequest extends $dara.Model {
   messageRetentionPeriod?: number;
   /**
    * @remarks
-   * The maximum duration for which a ReceiveMessage request waits when the queue has no messages.
-   * Valid values: 0 to 30. Unit: seconds.
-   * Default value: 0.
+   * The maximum wait time for a ReceiveMessage request when no messages are available in the queue. Valid values: 0 to 30. Unit: seconds. Default value: 0.
    * 
    * @example
    * 0
@@ -210,14 +213,28 @@ export class CreateQueueRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the queue. Valid values:
-   *    * normal: standard queue.
+   *    * normal: Standard queue.
    *    * fifo: FIFO queue.
    * 
    * @example
    * normal
    */
   queueType?: string;
+  /**
+   * @remarks
+   * The storage encryption algorithm. AES-256-GCM is supported. If you do not specify this parameter, the default algorithm is used.
+   * 
+   * @example
+   * AES-256-GCM
+   */
   sseAlgorithm?: string;
+  /**
+   * @remarks
+   * The storage encryption method. Valid values: SMQ and KMS.
+   * 
+   * @example
+   * KMS
+   */
   sseType?: string;
   /**
    * @remarks
@@ -231,9 +248,7 @@ export class CreateQueueRequest extends $dara.Model {
   tenantRateLimitPolicy?: CreateQueueRequestTenantRateLimitPolicy;
   /**
    * @remarks
-   * The duration for which a message stays in the Inactive state after it is consumed from the queue and changes from the Active state to the Inactive state.
-   * Valid values: 1 to 43200. Unit: seconds.
-   * Default value: 30.
+   * The duration for which a message remains in the inactive state after it is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
    * 
    * @example
    * 60

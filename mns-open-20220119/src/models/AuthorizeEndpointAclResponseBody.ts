@@ -29,7 +29,7 @@ export class AuthorizeEndpointAclResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the response.
+   * The response status.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class AuthorizeEndpointAclResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

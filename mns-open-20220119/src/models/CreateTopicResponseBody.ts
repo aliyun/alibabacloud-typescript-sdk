@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code of the response.
    * 
    * @example
    * 200
@@ -16,7 +16,7 @@ export class CreateTopicResponseBodyData extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * N/A
    */
   message?: string;
   /**
@@ -55,7 +55,7 @@ export class CreateTopicResponseBodyData extends $dara.Model {
 export class CreateTopicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code of the response.
    * 
    * @example
    * 200
@@ -76,7 +76,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123E62C
@@ -84,7 +84,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success

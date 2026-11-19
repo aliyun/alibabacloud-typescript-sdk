@@ -8,11 +8,18 @@ import { EventMatchRule } from "./EventMatchRule";
 export class CreateEventRuleRequestEndpoint extends $dara.Model {
   /**
    * @remarks
+   * The ARN of the role for cross-account delivery. This parameter is required when EndpointType is set to queue and EndpointValue is set to the ARN of a cross-account queue, which means the account that owns the queue is different from the current account. Format: acs:ram::<UID of the account that owns the queue>:role/<Role name>. The role must be created by the account that owns the queue. The trust policy must allow the delivery account to assume the role, and the role must be granted permissions to send messages to the destination queue.
+   * 
+   * @example
+   * acs:ram:1234567890:role/CrossAccountQueueRole
+   */
+  endpointRoleName?: string;
+  /**
+   * @remarks
    * The endpoint type. Valid values:
    * 
-   * - **topic**: The endpoint is a topic. A topic can deliver messages to multiple subscribers. You can add or remove subscribers later.
-   * 
-   * - **queue**: The endpoint is a queue. Messages are delivered directly to the queue. This simplifies the delivery path, but you cannot add new subscribers later.
+   * - **topic**: Topic type. Topics support delivery to multiple subscription endpoints. You can add or remove subscription endpoints later.
+   * - **queue**: Queue type. Messages are delivered directly to the queue. This reduces the routing path, but you cannot add new subscription endpoints later.
    * 
    * @example
    * topic
@@ -20,7 +27,7 @@ export class CreateEventRuleRequestEndpoint extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The value of the endpoint.
+   * The actual value of the endpoint. If EndpointType is set to topic, this parameter specifies the topic name. If EndpointType is set to queue, this parameter specifies the queue name.
    * 
    * @example
    * test-topic
@@ -28,6 +35,7 @@ export class CreateEventRuleRequestEndpoint extends $dara.Model {
   endpointValue?: string;
   static names(): { [key: string]: string } {
     return {
+      endpointRoleName: 'EndpointRoleName',
       endpointType: 'EndpointType',
       endpointValue: 'EndpointValue',
     };
@@ -35,6 +43,7 @@ export class CreateEventRuleRequestEndpoint extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endpointRoleName: 'string',
       endpointType: 'string',
       endpointValue: 'string',
     };
@@ -52,7 +61,7 @@ export class CreateEventRuleRequestEndpoint extends $dara.Model {
 export class CreateEventRuleRequestEndpoints extends $dara.Model {
   /**
    * @remarks
-   * Deprecated. Use Endpoint.EndpointType instead.
+   * **[Deprecated]** This field is deprecated. Use Endpoint.EndpointType instead.
    * 
    * @example
    * http
@@ -60,7 +69,7 @@ export class CreateEventRuleRequestEndpoints extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * Deprecated. Use Endpoint.EndpointValue instead.
+   * **[Deprecated]** This field is deprecated. Use Endpoint.EndpointValue instead.
    * 
    * @example
    * test-xxx-queue
@@ -92,9 +101,7 @@ export class CreateEventRuleRequestEndpoints extends $dara.Model {
 export class CreateEventRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token to ensure the idempotence of the request.
-   * 
-   * Generate a unique value for this parameter from your client for each request.
+   * The client token that is used to ensure the idempotence of the request. You can generate a value for this parameter on the client side and ensure that the value is unique across different requests.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -102,7 +109,7 @@ export class CreateEventRuleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This field is deprecated.
    * 
    * @example
    * --
@@ -115,26 +122,26 @@ export class CreateEventRuleRequest extends $dara.Model {
   endpoint?: CreateEventRuleRequestEndpoint;
   /**
    * @remarks
-   * This parameter is deprecated. Use Endpoint instead.
+   * **[Deprecated]** This field is deprecated. Use the Endpoint parameter instead.
    */
   endpoints?: CreateEventRuleRequestEndpoints[];
   /**
    * @remarks
-   * A list of event types.
+   * The list of event types. Valid values depend on the selected cloud service. For example, if OSS is selected, common values include ObjectCreated:PutObject and ObjectRemoved:DeleteObject. For more information, see the event notification documentation for each cloud service.
    * 
    * This parameter is required.
    */
   eventTypes?: string[];
   /**
    * @remarks
-   * A list of matching rules. The logical relationship between the rules is OR.
+   * The list of matching rules. A maximum of 10 rules can be specified at the outer level. The rules are connected by the OR operator.
    * 
    * This parameter is required.
    */
   matchRules?: EventMatchRule[][];
   /**
    * @remarks
-   * The name of the Alibaba Cloud product for which you want to receive event notifications.
+   * The name of the cloud service for event notification. Currently, only OSS is supported.
    * 
    * This parameter is required.
    * 
@@ -144,7 +151,7 @@ export class CreateEventRuleRequest extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * The name of the event rule.
+   * The name of the event notification rule. This parameter is required.
    * 
    * This parameter is required.
    * 

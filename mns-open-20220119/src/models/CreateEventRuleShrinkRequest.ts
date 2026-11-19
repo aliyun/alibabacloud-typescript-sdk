@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token to ensure the idempotence of the request.
-   * 
-   * Generate a unique value for this parameter from your client for each request.
+   * The client token that is used to ensure the idempotence of the request. You can generate a value for this parameter on the client side and ensure that the value is unique across different requests.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -15,7 +13,7 @@ export class CreateEventRuleShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This field is deprecated.
    * 
    * @example
    * --
@@ -28,26 +26,26 @@ export class CreateEventRuleShrinkRequest extends $dara.Model {
   endpointShrink?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use Endpoint instead.
+   * **[Deprecated]** This field is deprecated. Use the Endpoint parameter instead.
    */
   endpointsShrink?: string;
   /**
    * @remarks
-   * A list of event types.
+   * The list of event types. Valid values depend on the selected cloud service. For example, if OSS is selected, common values include ObjectCreated:PutObject and ObjectRemoved:DeleteObject. For more information, see the event notification documentation for each cloud service.
    * 
    * This parameter is required.
    */
   eventTypesShrink?: string;
   /**
    * @remarks
-   * A list of matching rules. The logical relationship between the rules is OR.
+   * The list of matching rules. A maximum of 10 rules can be specified at the outer level. The rules are connected by the OR operator.
    * 
    * This parameter is required.
    */
   matchRulesShrink?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud product for which you want to receive event notifications.
+   * The name of the cloud service for event notification. Currently, only OSS is supported.
    * 
    * This parameter is required.
    * 
@@ -57,7 +55,7 @@ export class CreateEventRuleShrinkRequest extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * The name of the event rule.
+   * The name of the event notification rule. This parameter is required.
    * 
    * This parameter is required.
    * 

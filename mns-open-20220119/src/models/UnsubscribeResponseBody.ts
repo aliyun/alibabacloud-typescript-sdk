@@ -16,12 +16,12 @@ export class UnsubscribeResponseBodyData extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -84,7 +84,7 @@ export class UnsubscribeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the response.
+   * The response status.
    * 
    * @example
    * Success
@@ -92,7 +92,7 @@ export class UnsubscribeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

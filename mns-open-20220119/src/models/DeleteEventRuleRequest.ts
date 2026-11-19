@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the cloud service for the event notification.
+   * The name of the cloud service for event notifications.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteEventRuleRequest extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * The name of the event rule.
+   * The name of the event notification rule.
    * 
    * This parameter is required.
    * 

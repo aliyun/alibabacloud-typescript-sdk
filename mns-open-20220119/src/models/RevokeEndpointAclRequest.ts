@@ -7,7 +7,7 @@ export class RevokeEndpointAclRequest extends $dara.Model {
    * @remarks
    * The ACL policy. Valid values:
    * 
-   * - **allow**: The operation is for a Classless Inter-Domain Routing (CIDR) whitelist. Currently, only \\`allow\\` is supported.
+   * - **allow**: CIDR whitelist. Currently, only allow is supported.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class RevokeEndpointAclRequest extends $dara.Model {
   aclStrategy?: string;
   /**
    * @remarks
-   * The list of network segments.
+   * The list of CIDR blocks. Specify at least one CIDR block. Example: 192.168.1.0/24.
    * 
    * This parameter is required.
    */
@@ -26,7 +26,7 @@ export class RevokeEndpointAclRequest extends $dara.Model {
    * @remarks
    * The endpoint type. Valid values:
    * 
-   * - **public**: The Internet endpoint. Currently, only \\`public\\` is supported.
+   * - **public**: Internet-facing endpoint. Currently, only public is supported.
    * 
    * This parameter is required.
    * 

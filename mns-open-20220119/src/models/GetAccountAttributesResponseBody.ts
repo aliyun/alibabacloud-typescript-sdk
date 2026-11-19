@@ -21,7 +21,7 @@ export class GetAccountAttributesResponseBodyData extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * Indicates whether the message trace feature is enabled.
+   * Indicates whether the message tracing feature is enabled.
    * 
    * @example
    * true
@@ -86,7 +86,7 @@ export class GetAccountAttributesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****

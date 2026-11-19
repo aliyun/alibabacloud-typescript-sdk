@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetSubscriptionAttributesRequestDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The destination queue for dead-letter messages.
+   * The destination queue for dead-letter message delivery.
    * 
    * @example
    * deadLetterTargetQueue
@@ -13,7 +13,7 @@ export class SetSubscriptionAttributesRequestDlqPolicy extends $dara.Model {
   deadLetterTargetQueue?: string;
   /**
    * @remarks
-   * Whether to enable dead-letter message delivery.
+   * Specifies whether dead-letter message delivery is enabled.
    * 
    * @example
    * true
@@ -76,17 +76,20 @@ export class SetSubscriptionAttributesRequest extends $dara.Model {
   dlqPolicy?: SetSubscriptionAttributesRequestDlqPolicy;
   /**
    * @remarks
-   * The retry policy for message delivery failures to the endpoint. Valid values:
+   * The retry policy used when an error occurs while pushing messages to the endpoint. Valid values:
    * 
-   * - BACKOFF_RETRY: backoff retry.
+   * - BACKOFF_RETRY: backoff retry
    * 
-   * - EXPONENTIAL_DECAY_RETRY: exponential decay retry.
+   * - EXPONENTIAL_DECAY_RETRY: exponential decay retry
    * 
    * @example
    * BACKOFF_RETRY
    */
   notifyStrategy?: string;
   /**
+   * @remarks
+   * The STS role ARN.
+   * 
    * @example
    * acs:ram::1234567890:role/roleName
    */

@@ -7,7 +7,7 @@ export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
    * @remarks
    * The ACL policy. Valid values:
    * 
-   * - **allow**: The endpoint allows access from the corresponding CIDR block. Currently, only allow is supported.
+   * - **allow**: allows access from the corresponding CIDR block to the current endpoint. Currently, only allow is supported.
    * 
    * @example
    * allow

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Mns-open";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("mns-open", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
+   * Creates one or more ACL rules for an access point of a specified type.
    * 
    * @param tmpReq - AuthorizeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75,7 +79,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
+   * Creates one or more ACL rules for an access point of a specified type.
    * 
    * @param request - AuthorizeEndpointAclRequest
    * @returns AuthorizeEndpointAclResponse
@@ -174,7 +178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateQueue operation to create a queue.
+   * Creates a queue.
    * 
    * @param tmpReq - CreateQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -271,7 +275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateQueue operation to create a queue.
+   * Creates a queue.
    * 
    * @param request - CreateQueueRequest
    * @returns CreateQueueResponse
@@ -282,7 +286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateTopic operation to create a topic.
+   * Creates a topic by calling the CreateTopic operation.
    * 
    * @param request - CreateTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -347,7 +351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateTopic operation to create a topic.
+   * Creates a topic by calling the CreateTopic operation.
    * 
    * @param request - CreateTopicRequest
    * @returns CreateTopicResponse
@@ -404,7 +408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DeleteQueue operation to delete a created queue.
+   * Deletes a queue.
    * 
    * @param request - DeleteQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -435,7 +439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DeleteQueue operation to delete a created queue.
+   * Deletes a queue.
    * 
    * @param request - DeleteQueueRequest
    * @returns DeleteQueueResponse
@@ -446,7 +450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DeleteTopic operation to delete a topic.
+   * Deletes a topic.
    * 
    * @param request - DeleteTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -477,7 +481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DeleteTopic operation to delete a topic.
+   * Deletes a topic.
    * 
    * @param request - DeleteTopicRequest
    * @returns DeleteTopicResponse
@@ -488,7 +492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
+   * Disables access points of a specified type. After the access points are disabled, all requests originating from the corresponding access points are intercepted and an error is returned.
    * 
    * @param request - DisableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -519,7 +523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
+   * Disables access points of a specified type. After the access points are disabled, all requests originating from the corresponding access points are intercepted and an error is returned.
    * 
    * @param request - DisableEndpointRequest
    * @returns DisableEndpointResponse
@@ -530,7 +534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
+   * Enables an access point of a specified type. After the access point is enabled, requests from the corresponding access point that are in the ACL whitelist are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -561,7 +565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
+   * Enables an access point of a specified type. After the access point is enabled, requests from the corresponding access point that are in the ACL whitelist are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @returns EnableEndpointResponse
@@ -572,7 +576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the log configuration of a user.
+   * Retrieves the user log configuration.
    * 
    * @param request - GetAccountAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -596,7 +600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the log configuration of a user.
+   * Retrieves the user log configuration.
    * 
    * @param request - GetAccountAttributesRequest
    * @returns GetAccountAttributesResponse
@@ -649,7 +653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an event notification rule.
+   * Retrieves event notification rules.
    * 
    * @param request - GetEventRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -684,7 +688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an event notification rule.
+   * Retrieves event notification rules.
    * 
    * @param request - GetEventRuleRequest
    * @returns GetEventRuleResponse
@@ -873,7 +877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of event notification rules.
+   * Queries the list of event notifications.
    * 
    * @param tmpReq - ListEventRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -942,7 +946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of event notification rules.
+   * Queries the list of event notifications.
    * 
    * @param request - ListEventRulesRequest
    * @returns ListEventRulesResponse
@@ -1011,7 +1015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
+   * Queries a paginated list of subscriptions under a specific topic.
    * 
    * @param request - ListSubscriptionByTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1062,7 +1066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
+   * Queries a paginated list of subscriptions under a specific topic.
    * 
    * @param request - ListSubscriptionByTopicRequest
    * @returns ListSubscriptionByTopicResponse
@@ -1131,7 +1135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
+   * Deletes one or more ACL rules for an endpoint of a specified type.
    * 
    * @param tmpReq - RevokeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1176,7 +1180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
+   * Deletes one or more ACL rules for an endpoint of a specified type.
    * 
    * @param request - RevokeEndpointAclRequest
    * @returns RevokeEndpointAclResponse
@@ -1187,7 +1191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the user log configuration.
+   * Configures user log settings.
    * 
    * @param request - SetAccountAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1234,7 +1238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the user log configuration.
+   * Configures user log settings.
    * 
    * @param request - SetAccountAttributesRequest
    * @returns SetAccountAttributesResponse
@@ -1345,7 +1349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
+   * Modifies the attributes of a subscription.
    * 
    * @param tmpReq - SetSubscriptionAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1406,7 +1410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
+   * Modifies the attributes of a subscription.
    * 
    * @param request - SetSubscriptionAttributesRequest
    * @returns SetSubscriptionAttributesResponse
@@ -1417,7 +1421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the SetTopicAttributes operation to modify the attributes of a topic.
+   * Modifies the attributes of a topic.
    * 
    * @param request - SetTopicAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1472,7 +1476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the SetTopicAttributes operation to modify the attributes of a topic.
+   * Modifies the attributes of a topic.
    * 
    * @param request - SetTopicAttributesRequest
    * @returns SetTopicAttributesResponse
@@ -1483,7 +1487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the Subscribe operation to create a subscription for a topic.
+   * Creates a subscription for a topic.
    * 
    * @param tmpReq - SubscribeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1584,7 +1588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the Subscribe operation to create a subscription for a topic.
+   * Creates a subscription for a topic.
    * 
    * @param request - SubscribeRequest
    * @returns SubscribeResponse
@@ -1595,7 +1599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call Unsubscribe to cancel an existing subscription.
+   * Cancels an existing subscription.
    * 
    * @param request - UnsubscribeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1630,7 +1634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call Unsubscribe to cancel an existing subscription.
+   * Cancels an existing subscription.
    * 
    * @param request - UnsubscribeRequest
    * @returns UnsubscribeResponse

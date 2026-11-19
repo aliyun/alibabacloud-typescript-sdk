@@ -6,10 +6,8 @@ export class ListEventRulesRequestSubscription extends $dara.Model {
   /**
    * @remarks
    * The endpoint type. Valid values:
-   * 
-   * - **topic**: A topic can deliver messages to multiple subscribers. You can add or remove subscribers later.
-   * 
-   * - **queue**: Messages are delivered directly to a queue. This simplifies the delivery path, but you cannot add new subscribers later.
+   * - **topic**: The topic type. A topic supports delivery to multiple subscription endpoints. You can add or remove subscription endpoints later.
+   * - **queue**: The queue type. Messages are delivered directly to a queue. This reduces the link path, but you cannot add new subscription endpoints later.
    * 
    * @example
    * topic
@@ -17,7 +15,7 @@ export class ListEventRulesRequestSubscription extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The actual value of the endpoint.
+   * The actual value of the receiving endpoint. When EndpointType is set to topic, this is the topic name. When EndpointType is set to queue, this is the queue name.
    * 
    * @example
    * test-topic
@@ -49,7 +47,7 @@ export class ListEventRulesRequestSubscription extends $dara.Model {
 export class ListEventRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Use PageSize for paged queries.
+   * **[Deprecated]** Use PageSize for paging.
    * 
    * @example
    * 50
@@ -57,7 +55,7 @@ export class ListEventRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is deprecated. Use PageNum for paged queries.
+   * **[Deprecated]** Use PageNum for paging.
    * 
    * @example
    * cd7NlPlX4kgKCdsCWMiMR/+HnVzPLQ4/XLvjR64jZ7F9AQ+Mr3T59J6IVkuXeV3w
@@ -65,9 +63,7 @@ export class ListEventRulesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the results to return.
-   * Valid values: 1 to 100000.
-   * If you set this parameter to a value less than 1, the system uses 1. If you set this parameter to a value greater than 100000, the system uses 100000.
+   * The page number of the returned results. Valid values: 1 to 100000. If the specified value is less than 1, the system defaults to 1. If the specified value is greater than 100000, the system defaults to 100000.
    * 
    * @example
    * 1
@@ -75,9 +71,7 @@ export class ListEventRulesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
-   * Valid values: 10 to 50.
-   * If you set this parameter to a value less than 10, the system uses 10. If you set this parameter to a value greater than 50, the system uses 50.
+   * The number of entries to return on each page. Valid values: 10 to 50. If the specified value is less than 10, the system defaults to 10. If the specified value is greater than 50, the system defaults to 50.
    * 
    * @example
    * 20
@@ -85,7 +79,7 @@ export class ListEventRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the Alibaba Cloud service for which event notifications are configured.
+   * The name of the cloud service for event notifications.
    * 
    * @example
    * oss
@@ -93,7 +87,7 @@ export class ListEventRulesRequest extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * The resource name in the matching rule. This parameter is used to filter rules. For example, for Object Storage Service (OSS), this is the bucket name.
+   * The resource name in the matching rules, used to filter rules. For example, in OSS, this is the OSS bucket name.
    * 
    * @example
    * test-bucket
@@ -101,7 +95,7 @@ export class ListEventRulesRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The filter condition for the rule name.
    * 
    * @example
    * rule-xsXDW
@@ -109,7 +103,7 @@ export class ListEventRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The subscriber.
+   * The subscription endpoint.
    */
   subscription?: ListEventRulesRequestSubscription;
   /**

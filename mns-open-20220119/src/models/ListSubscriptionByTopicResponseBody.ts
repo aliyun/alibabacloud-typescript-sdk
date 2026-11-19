@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The destination queue for dead-letter messages.
+   * The destination queue for dead-letter message delivery.
    * 
    * @example
    * dead-letter-queue
@@ -45,7 +45,7 @@ export class ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy extends $d
 export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model {
   /**
    * @remarks
-   * The time when the subscription was created, in Unix time format.
+   * The time when the subscription was created. The value is a UNIX timestamp representing the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
    * 
    * @example
    * 1449554806
@@ -53,12 +53,12 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
   createTime?: number;
   /**
    * @remarks
-   * The dead-letter queue policy.
+   * The dead-letter policy.
    */
   dlqPolicy?: ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy;
   /**
    * @remarks
-   * The endpoint of the subscription.
+   * The endpoint address of the subscription.
    * 
    * @example
    * http://example.com
@@ -66,7 +66,7 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
   endpoint?: string;
   /**
    * @remarks
-   * The tag for message filtering in the subscription. Only messages with the same tag are pushed.
+   * The tag used to filter messages in the subscription. Only messages with matching tags are pushed.
    * 
    * @example
    * important
@@ -74,7 +74,7 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
   filterTag?: string;
   /**
    * @remarks
-   * The time when the subscription properties were last modified. This value is a UNIX timestamp.
+   * The time when the subscription attributes were last modified. The value is a UNIX timestamp representing the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
    * 
    * @example
    * 1449554806
@@ -82,8 +82,7 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
   lastModifyTime?: number;
   /**
    * @remarks
-   * The format of the message content pushed to the endpoint.
-   * Valid values:
+   * The format of the message content pushed to the endpoint. Valid values:
    * 
    * - XML
    * 
@@ -97,11 +96,11 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
   notifyContentFormat?: string;
   /**
    * @remarks
-   * The retry policy for message push failures to the endpoint. Valid values:
+   * The retry strategy used when a message fails to be pushed to the endpoint. Valid values:
    * 
-   * - BACKOFF_RETRY: backoff retry.
+   * - BACKOFF_RETRY: backoff retry
    * 
-   * - EXPONENTIAL_DECAY_RETRY: exponential decay retry.
+   * - EXPONENTIAL_DECAY_RETRY: exponential decay retry
    * 
    * @example
    * BACKOFF_RETRY
@@ -109,7 +108,7 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
   notifyStrategy?: string;
   /**
    * @remarks
-   * The subscription name.
+   * The name of the subscription.
    * 
    * @example
    * MySubscription
@@ -125,7 +124,7 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
   topicName?: string;
   /**
    * @remarks
-   * The AccountId of the owner of the topic to which the subscription belongs.
+   * The account ID of the topic owner to which the subscription belongs.
    * 
    * @example
    * 123456789098****
@@ -176,12 +175,12 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
 export class ListSubscriptionByTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The entries on the current page.
+   * The results returned on the current page.
    */
   pageData?: ListSubscriptionByTopicResponseBodyDataPageData[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -205,7 +204,7 @@ export class ListSubscriptionByTopicResponseBodyData extends $dara.Model {
   pages?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 20
@@ -277,7 +276,7 @@ export class ListSubscriptionByTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -293,7 +292,7 @@ export class ListSubscriptionByTopicResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

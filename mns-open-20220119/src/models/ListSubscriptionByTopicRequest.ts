@@ -3,13 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSubscriptionByTopicRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the subscription endpoint used to filter results. For queue push, set the value to queue.
+   * 
+   * @example
+   * queue
+   */
   endpointType?: string;
+  /**
+   * @remarks
+   * The address of the subscription endpoint used to filter results. For queue push, specify the queue name.
+   * 
+   * @example
+   * test-queue
+   */
   endpointValue?: string;
   /**
    * @remarks
-   * The page number of the results to return.
-   * Valid values: 1 to 100000000.
-   * If the value is less than 1, the system uses 1. If the value is greater than 100000000, the system uses 100000000.
+   * The page number of the returned results. Valid values: 1 to 100000000. If the specified value is less than 1, the system defaults to 1. If the specified value is greater than 100000000, the system defaults to 100000000.
    * 
    * @example
    * 1
@@ -17,9 +29,7 @@ export class ListSubscriptionByTopicRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
-   * Valid values: 10 to 50.
-   * If the value is less than 10, the system uses 10. If the value is greater than 50, the system uses 50.
+   * The number of entries to return on each page. Valid values: 10 to 50. If the specified value is less than 10, the system defaults to 10. If the specified value is greater than 50, the system defaults to 50.
    * 
    * @example
    * 20
@@ -27,7 +37,7 @@ export class ListSubscriptionByTopicRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The subscription name.
+   * The name of the subscription.
    * 
    * @example
    * demo-subscription
@@ -35,7 +45,7 @@ export class ListSubscriptionByTopicRequest extends $dara.Model {
   subscriptionName?: string;
   /**
    * @remarks
-   * The topic name.
+   * The name of the topic.
    * 
    * @example
    * test

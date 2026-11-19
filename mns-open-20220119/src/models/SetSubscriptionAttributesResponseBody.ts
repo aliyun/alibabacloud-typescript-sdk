@@ -16,12 +16,12 @@ export class SetSubscriptionAttributesResponseBodyData extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * Whether the request succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -76,7 +76,7 @@ export class SetSubscriptionAttributesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -84,7 +84,7 @@ export class SetSubscriptionAttributesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success
@@ -92,7 +92,7 @@ export class SetSubscriptionAttributesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Whether the request succeeded.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
