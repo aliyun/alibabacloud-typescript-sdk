@@ -15,7 +15,7 @@ export class DescribeDBNodesParametersRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the node. You can specify multiple node IDs. Separate the IDs with a comma (,).
+   * The node IDs. You can specify multiple node IDs separated by commas (,).
    * 
    * This parameter is required.
    * 

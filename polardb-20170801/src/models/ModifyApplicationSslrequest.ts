@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApplicationSSLRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyApplicationSSLRequest extends $dara.Model {
   caPem?: string;
   /**
    * @remarks
-   * The server certificate in PEM format. This parameter is provided when you use a bring-your-own (BYO) certificate. It must match KeyPem and override the instance connection domain name. This parameter is allowed only when CA SSL is enabled for the instance.
+   * The server certificate in PEM format. Provide this parameter when you bring your own (BYO) certificate. The certificate must match the KeyPem parameter and override the instance connection domain name. This parameter is allowed only when CA SSL is enabled for the instance.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----

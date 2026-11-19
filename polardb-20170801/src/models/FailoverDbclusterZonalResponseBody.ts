@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FailoverDBClusterZonalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******

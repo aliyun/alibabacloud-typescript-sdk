@@ -33,9 +33,7 @@ export declare class DescribeDBInitializeVariableResponseBody extends $dara.Mode
      * The database type. Valid values:
      *
      * - Oracle
-     *
      * - PostgreSQL
-     *
      * - MySQL
      *
      * @example

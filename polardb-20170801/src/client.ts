@@ -13024,6 +13024,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the performance of an AgenticDB instance.
+   * 
+   * @remarks
+   * > This operation is applicable only to PolarDB for MySQL.
+   * 
+   * @param request - DescribeAgenticDBPerformanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgenticDBPerformanceResponse
+   */
+  async describeAgenticDBPerformanceWithOptions(request: $_model.DescribeAgenticDBPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBPerformanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aggregate)) {
+      query["Aggregate"] = request.aggregate;
+    }
+
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgenticDBPerformance",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgenticDBPerformanceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBPerformanceResponse({}));
+  }
+
+  /**
+   * Queries the performance of an AgenticDB instance.
+   * 
+   * @remarks
+   * > This operation is applicable only to PolarDB for MySQL.
+   * 
+   * @param request - DescribeAgenticDBPerformanceRequest
+   * @returns DescribeAgenticDBPerformanceResponse
+   */
+  async describeAgenticDBPerformance(request: $_model.DescribeAgenticDBPerformanceRequest): Promise<$_model.DescribeAgenticDBPerformanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgenticDBPerformanceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of an AgenticDB project.
    * 
    * @param request - DescribeAgenticDBProjectRequest
@@ -17580,7 +17652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the supported character sets, collations, and other properties of a PolarDB database.
+   * Queries the attributes supported by PolarDB databases, such as character sets and collations.
    * 
    * @param request - DescribeDBInitializeVariableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17627,7 +17699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the supported character sets, collations, and other properties of a PolarDB database.
+   * Queries the attributes supported by PolarDB databases, such as character sets and collations.
    * 
    * @param request - DescribeDBInitializeVariableRequest
    * @returns DescribeDBInitializeVariableResponse
@@ -18108,7 +18180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters for specified nodes in a cluster.
+   * Queries the parameters of a specified node in a cluster.
    * 
    * @param request - DescribeDBNodesParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18159,7 +18231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters for specified nodes in a cluster.
+   * Queries the parameters of a specified node in a cluster.
    * 
    * @param request - DescribeDBNodesParametersRequest
    * @returns DescribeDBNodesParametersResponse
@@ -26396,7 +26468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+   * Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
    * 
    * @param request - FailoverDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26459,7 +26531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+   * Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
    * 
    * @param request - FailoverDBClusterRequest
    * @returns FailoverDBClusterResponse
@@ -26470,12 +26542,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a manual primary/secondary switchover for an edge cluster.
+   * Performs a primary/secondary switchover.
    * 
    * @remarks
-   * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+   * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
    * ## Before you begin
-   * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+   * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
    * 
    * @param request - FailoverDBClusterZonalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26538,12 +26610,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a manual primary/secondary switchover for an edge cluster.
+   * Performs a primary/secondary switchover.
    * 
    * @remarks
-   * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+   * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
    * ## Before you begin
-   * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+   * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
    * 
    * @param request - FailoverDBClusterZonalRequest
    * @returns FailoverDBClusterZonalResponse
@@ -32085,7 +32157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+   * Modifies the SCC settings of a node.
    * 
    * @param request - ModifyDBNodeSccModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32140,7 +32212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+   * Modifies the SCC settings of a node.
    * 
    * @param request - ModifyDBNodeSccModeRequest
    * @returns ModifyDBNodeSccModeResponse
@@ -36587,7 +36659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Temporarily changes the specifications of a cluster.
+   * Temporarily modifies the configuration.
    * 
    * @param request - TempModifyDBNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36662,7 +36734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Temporarily changes the specifications of a cluster.
+   * Temporarily modifies the configuration.
    * 
    * @param request - TempModifyDBNodeRequest
    * @returns TempModifyDBNodeResponse

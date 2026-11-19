@@ -22,9 +22,9 @@ export declare class ModifyDBNodesParametersRequest extends $dara.Model {
     DBNodeIds?: string;
     /**
      * @remarks
-     * Specifies whether to execute the parameter modification and restart immediately or at a scheduled time. Valid values:
-     * - false: executes the task at a scheduled time. This is the default value.
-     * - true: executes the task immediately.
+     * Specifies whether to immediately execute or schedule the parameter modification and restart. Valid values:
+     * - false: schedules the task. This is the default value.
+     * - true: immediately executes the task.
      *
      * @example
      * false
@@ -50,7 +50,7 @@ export declare class ModifyDBNodesParametersRequest extends $dara.Model {
     parameters?: string;
     /**
      * @remarks
-     * The latest time to start the scheduled task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * The latest time to start the scheduled task. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example
      * 2022-04-28T14:30:00Z
@@ -58,7 +58,7 @@ export declare class ModifyDBNodesParametersRequest extends $dara.Model {
     plannedEndTime?: string;
     /**
      * @remarks
-     * The earliest time to execute the scheduled kernel version upgrade task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * The earliest time to start the scheduled kernel version upgrade task within the specified time window. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example
      * 2022-04-28T14:00:00Z

@@ -29,7 +29,7 @@ export class ModifyDBNodeSccModeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The SCC mode to set for the node.
+   * SCC
    * 
    * This parameter is required.
    * 

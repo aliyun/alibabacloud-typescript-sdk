@@ -25,7 +25,7 @@ export class DescribePolarClawAgentToolsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Specifies whether to include plugin tools.
+   * Specifies whether to include plug-in tools.
    * 
    * @example
    * true

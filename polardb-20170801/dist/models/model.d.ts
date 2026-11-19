@@ -87,6 +87,10 @@ export { DescribeAgenticDBClustersRequestTag } from './DescribeAgenticDbclusters
 export { DescribeAgenticDBClustersResponseBodyItemsTags } from './DescribeAgenticDbclustersResponseBody';
 export { DescribeAgenticDBClustersResponseBodyItems } from './DescribeAgenticDbclustersResponseBody';
 export { DescribeAgenticDBComputeClustersResponseBodyItems } from './DescribeAgenticDbcomputeClustersResponseBody';
+export { DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceKeysPointsPoints } from './DescribeAgenticDbperformanceResponseBody';
+export { DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceKeysPoints } from './DescribeAgenticDbperformanceResponseBody';
+export { DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceKeys } from './DescribeAgenticDbperformanceResponseBody';
+export { DescribeAgenticDBPerformanceResponseBodyPerformanceKeys } from './DescribeAgenticDbperformanceResponseBody';
 export { DescribeAgenticDBProjectsResponseBodyItems } from './DescribeAgenticDbprojectsResponseBody';
 export { DescribeAgenticDBTenantApiKeysResponseBodyItems } from './DescribeAgenticDbtenantApiKeysResponseBody';
 export { DescribeApikeyAttributeResponseBodyItemsConsumer } from './DescribeApikeyAttributeResponseBody';
@@ -1069,6 +1073,9 @@ export { DescribeAgenticDBClustersResponse } from './DescribeAgenticDbclustersRe
 export { DescribeAgenticDBComputeClustersRequest } from './DescribeAgenticDbcomputeClustersRequest';
 export { DescribeAgenticDBComputeClustersResponseBody } from './DescribeAgenticDbcomputeClustersResponseBody';
 export { DescribeAgenticDBComputeClustersResponse } from './DescribeAgenticDbcomputeClustersResponse';
+export { DescribeAgenticDBPerformanceRequest } from './DescribeAgenticDbperformanceRequest';
+export { DescribeAgenticDBPerformanceResponseBody } from './DescribeAgenticDbperformanceResponseBody';
+export { DescribeAgenticDBPerformanceResponse } from './DescribeAgenticDbperformanceResponse';
 export { DescribeAgenticDBProjectRequest } from './DescribeAgenticDbprojectRequest';
 export { DescribeAgenticDBProjectResponseBody } from './DescribeAgenticDbprojectResponseBody';
 export { DescribeAgenticDBProjectResponse } from './DescribeAgenticDbprojectResponse';

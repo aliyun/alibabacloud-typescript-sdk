@@ -45,7 +45,7 @@ export declare class DescribePolarClawAgentToolsResponseBodyGroupsTools extends 
      * The tool description.
      *
      * @example
-     * 读取指定文件内容
+     * Read the content of the specified file
      */
     description?: string;
     /**
@@ -61,7 +61,7 @@ export declare class DescribePolarClawAgentToolsResponseBodyGroupsTools extends 
      * The tool name.
      *
      * @example
-     * 读取文件
+     * Read file
      */
     label?: string;
     /**
@@ -97,12 +97,12 @@ export declare class DescribePolarClawAgentToolsResponseBodyGroups extends $dara
      * The group name.
      *
      * @example
-     * 文件操作
+     * File operations
      */
     label?: string;
     /**
      * @remarks
-     * The source, which is core or a plugin ID.
+     * The source: core or plug-in ID.
      *
      * @example
      * core
@@ -138,7 +138,7 @@ export declare class DescribePolarClawAgentToolsResponseBodyProfiles extends $da
      * The display name.
      *
      * @example
-     * 全部工具
+     * All tools
      */
     label?: string;
     static names(): {

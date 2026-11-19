@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters extends $dara.Model {
   /**
    * @remarks
-   * The valid values of the parameter.
+   * The value range of the parameter.
    * 
    * @example
    * [utf8|latin1|gbk|utf8mb4]
@@ -13,13 +13,13 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   checkingCode?: string;
   /**
    * @remarks
-   * The data type of the parameter. Valid values:
+   * The data type of the parameter value. Valid values:
    * 
-   * - **INT**: Integer
+   * - **INT**: integer
    * 
-   * - **STRING**: String
+   * - **STRING**: string
    * 
-   * - **B**: Byte
+   * - **B**: byte
    * 
    * @example
    * INT
@@ -35,7 +35,7 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   defaultParameterValue?: string;
   /**
    * @remarks
-   * The divisor. For integer and byte type parameters, the parameter value must be a multiple of this factor. The factor cannot be 0.
+   * The divisibility factor. For parameters of the integer and byte types, the parameter value must not only fall within the valid range but also be a multiple of the factor (which cannot be 0).
    * 
    * @example
    * 20
@@ -43,11 +43,11 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   factor?: string;
   /**
    * @remarks
-   * Indicates whether a restart is required for the parameter modification to take effect. Valid values:
+   * Specifies whether a restart is required for the parameter to take effect. Valid values:
    * 
-   * - **false**: No
+   * - **false**: no
    * 
-   * - **true**: Yes
+   * - **true**: yes
    * 
    * @example
    * true
@@ -55,11 +55,11 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   forceRestart?: boolean;
   /**
    * @remarks
-   * Indicates whether the parameter can be modified. Valid values:
+   * Specifies whether the parameter is modifiable. Valid values:
    * 
-   * - **false**: No
+   * - **false**: not modifiable
    * 
-   * - **true**: Yes
+   * - **true**: modifiable
    * 
    * @example
    * true
@@ -67,11 +67,11 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   isModifiable?: boolean;
   /**
    * @remarks
-   * Indicates whether the parameter is a global parameter. Valid values:
+   * Specifies whether the parameter is a global parameter. Valid values:
    * 
-   * - **0**: The parameter is a global parameter. Modifications to the parameter are applied to other nodes by default and cannot be canceled.
+   * - **0**: The parameter is a global parameter. Parameter modifications have a default application to other nodes and cannot be canceled.
    * 
-   * - **1**: The parameter is not a global parameter. You can specify the nodes to which you want to apply the parameter modifications.
+   * - **1**: The parameter is not a global parameter. You can specify the nodes to which modifications to this parameter are applied.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
   isNodeAvailable?: string;
   /**
    * @remarks
-   * The dependency of the parameter.
+   * The parameter dependency.
    * 
    * @example
    * utf8
@@ -105,9 +105,9 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
    * @remarks
    * The status of the parameter. Valid values:
    * 
-   * - **normal**: Normal
-   * 
-   * - **modifying**: Modifying
+   * - **normal**: normal
+   *  
+   * - **modifying**: modifying
    * 
    * @example
    * normal
@@ -167,7 +167,7 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters ext
 export class DescribeDBNodesParametersResponseBodyDBNodeIds extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * pi-bp1r4qe3s534*****
@@ -175,7 +175,7 @@ export class DescribeDBNodesParametersResponseBodyDBNodeIds extends $dara.Model 
   DBNodeId?: string;
   /**
    * @remarks
-   * The list of parameters that are running on the node.
+   * The list of running parameters for the current node.
    */
   runningParameters?: DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParameters[];
   static names(): { [key: string]: string } {
@@ -212,7 +212,7 @@ export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   DBNodeIds?: DescribeDBNodesParametersResponseBodyDBNodeIds[];
   /**
    * @remarks
-   * The type of the database. The value is fixed as **MySQL**.
+   * The database type. The value is fixed as **MySQL**.
    * 
    * @example
    * MySQL
@@ -220,7 +220,7 @@ export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version of the MySQL database. Valid values:
+   * The MySQL version. Valid values:
    * 
    * - **5.6**
    * 
@@ -234,7 +234,7 @@ export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The database engine of the cluster.
+   * The cluster engine.
    * 
    * @example
    * POLARDB
@@ -242,7 +242,7 @@ export class DescribeDBNodesParametersResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9B7BFB11-C077-4FE3-B051-F69CEB******

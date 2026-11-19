@@ -3280,6 +3280,27 @@ export default class Client extends OpenApi {
      */
     describeAgenticDBComputeClusters(request: $_model.DescribeAgenticDBComputeClustersRequest): Promise<$_model.DescribeAgenticDBComputeClustersResponse>;
     /**
+     * Queries the performance of an AgenticDB instance.
+     *
+     * @remarks
+     * > This operation is applicable only to PolarDB for MySQL.
+     *
+     * @param request - DescribeAgenticDBPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAgenticDBPerformanceResponse
+     */
+    describeAgenticDBPerformanceWithOptions(request: $_model.DescribeAgenticDBPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBPerformanceResponse>;
+    /**
+     * Queries the performance of an AgenticDB instance.
+     *
+     * @remarks
+     * > This operation is applicable only to PolarDB for MySQL.
+     *
+     * @param request - DescribeAgenticDBPerformanceRequest
+     * @returns DescribeAgenticDBPerformanceResponse
+     */
+    describeAgenticDBPerformance(request: $_model.DescribeAgenticDBPerformanceRequest): Promise<$_model.DescribeAgenticDBPerformanceResponse>;
+    /**
      * Queries the details of an AgenticDB project.
      *
      * @param request - DescribeAgenticDBProjectRequest
@@ -4390,7 +4411,7 @@ export default class Client extends OpenApi {
      */
     describeDBClustersZonal(request: $_model.DescribeDBClustersZonalRequest): Promise<$_model.DescribeDBClustersZonalResponse>;
     /**
-     * Queries the supported character sets, collations, and other properties of a PolarDB database.
+     * Queries the attributes supported by PolarDB databases, such as character sets and collations.
      *
      * @param request - DescribeDBInitializeVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4398,7 +4419,7 @@ export default class Client extends OpenApi {
      */
     describeDBInitializeVariableWithOptions(request: $_model.DescribeDBInitializeVariableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInitializeVariableResponse>;
     /**
-     * Queries the supported character sets, collations, and other properties of a PolarDB database.
+     * Queries the attributes supported by PolarDB databases, such as character sets and collations.
      *
      * @param request - DescribeDBInitializeVariableRequest
      * @returns DescribeDBInitializeVariableResponse
@@ -4529,7 +4550,7 @@ export default class Client extends OpenApi {
      */
     describeDBNodePerformance(request: $_model.DescribeDBNodePerformanceRequest): Promise<$_model.DescribeDBNodePerformanceResponse>;
     /**
-     * Queries the parameters for specified nodes in a cluster.
+     * Queries the parameters of a specified node in a cluster.
      *
      * @param request - DescribeDBNodesParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4537,7 +4558,7 @@ export default class Client extends OpenApi {
      */
     describeDBNodesParametersWithOptions(request: $_model.DescribeDBNodesParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBNodesParametersResponse>;
     /**
-     * Queries the parameters for specified nodes in a cluster.
+     * Queries the parameters of a specified node in a cluster.
      *
      * @param request - DescribeDBNodesParametersRequest
      * @returns DescribeDBNodesParametersResponse
@@ -6730,7 +6751,7 @@ export default class Client extends OpenApi {
      */
     executeCrossCloudOpenAPI(request: $_model.ExecuteCrossCloudOpenAPIRequest): Promise<$_model.ExecuteCrossCloudOpenAPIResponse>;
     /**
-     * Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+     * Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
      *
      * @param request - FailoverDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6738,19 +6759,19 @@ export default class Client extends OpenApi {
      */
     failoverDBClusterWithOptions(request: $_model.FailoverDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FailoverDBClusterResponse>;
     /**
-     * Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+     * Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
      *
      * @param request - FailoverDBClusterRequest
      * @returns FailoverDBClusterResponse
      */
     failoverDBCluster(request: $_model.FailoverDBClusterRequest): Promise<$_model.FailoverDBClusterResponse>;
     /**
-     * Performs a manual primary/secondary switchover for an edge cluster.
+     * Performs a primary/secondary switchover.
      *
      * @remarks
-     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
      * ## Before you begin
-     * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+     * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
      *
      * @param request - FailoverDBClusterZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6758,12 +6779,12 @@ export default class Client extends OpenApi {
      */
     failoverDBClusterZonalWithOptions(request: $_model.FailoverDBClusterZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FailoverDBClusterZonalResponse>;
     /**
-     * Performs a manual primary/secondary switchover for an edge cluster.
+     * Performs a primary/secondary switchover.
      *
      * @remarks
-     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
      * ## Before you begin
-     * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+     * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
      *
      * @param request - FailoverDBClusterZonalRequest
      * @returns FailoverDBClusterZonalResponse
@@ -8083,7 +8104,7 @@ export default class Client extends OpenApi {
      */
     modifyDBNodeRouterWeight(request: $_model.ModifyDBNodeRouterWeightRequest): Promise<$_model.ModifyDBNodeRouterWeightResponse>;
     /**
-     * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+     * Modifies the SCC settings of a node.
      *
      * @param request - ModifyDBNodeSccModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8091,7 +8112,7 @@ export default class Client extends OpenApi {
      */
     modifyDBNodeSccModeWithOptions(request: $_model.ModifyDBNodeSccModeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodeSccModeResponse>;
     /**
-     * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+     * Modifies the SCC settings of a node.
      *
      * @param request - ModifyDBNodeSccModeRequest
      * @returns ModifyDBNodeSccModeResponse
@@ -9226,7 +9247,7 @@ export default class Client extends OpenApi {
      */
     tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse>;
     /**
-     * Temporarily changes the specifications of a cluster.
+     * Temporarily modifies the configuration.
      *
      * @param request - TempModifyDBNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9234,7 +9255,7 @@ export default class Client extends OpenApi {
      */
     tempModifyDBNodeWithOptions(request: $_model.TempModifyDBNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TempModifyDBNodeResponse>;
     /**
-     * Temporarily changes the specifications of a cluster.
+     * Temporarily modifies the configuration.
      *
      * @param request - TempModifyDBNodeRequest
      * @returns TempModifyDBNodeResponse
