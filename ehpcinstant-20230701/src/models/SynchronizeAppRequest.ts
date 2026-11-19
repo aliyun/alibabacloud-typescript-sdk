@@ -15,7 +15,7 @@ export class SynchronizeAppRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The list of arrays that are synchronized to the specified region. If \\"all\\" is included, it is synchronized to all other unsynchronized regions by default.
+   * The list of target region IDs. If the list includes \\"all\\", the application is synchronized to all other unsynchronized regions by default.
    */
   targetRegionIds?: string[];
   static names(): { [key: string]: string } {

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListImagesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the image. Valid values:
-   * 
-   * *   Public: public images provided by Alibaba Cloud.
-   * *   Custom: the custom image that you added.
+   * The image source. Valid values:
+   * - Public: public images provided by Alibaba Cloud
+   * - Custom: custom images added by you
    * 
    * @example
    * Custom
@@ -26,12 +25,12 @@ export class ListImagesShrinkRequest extends $dara.Model {
   imageNamesShrink?: string;
   /**
    * @remarks
-   * The type of the images. Valid values:
+   * The image type. Valid values:
    * 
-   * *   VM: virtual machine image.
-   * *   Container: the container image.
+   * - VM: virtual machine image
+   * - Container: container image
    * 
-   * Default value: VM
+   * Default value: VM.
    * 
    * @example
    * VM
@@ -41,8 +40,8 @@ export class ListImagesShrinkRequest extends $dara.Model {
    * @remarks
    * The query mode. Valid values:
    * 
-   * *   List: queries the list of all corresponding image versions.
-   * *   Merge: merges images to query the latest version list.
+   * - List: Queries the list of all image versions.
+   * - Merge: Queries the list of the latest versions for each image.
    * 
    * @example
    * Merge
@@ -50,7 +49,7 @@ export class ListImagesShrinkRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The number of the page to return.\\
+   * The current page number.    
    * Default value: 1.
    * 
    * @example
@@ -59,7 +58,7 @@ export class ListImagesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of pieces per page.\\
+   * The number of entries per page.    
    * Default value: 20.
    * 
    * @example

@@ -13,7 +13,7 @@ export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model
   content?: string;
   /**
    * @remarks
-   * The Executor ID. Format: JobId-TaskName-ArrayIndex.
+   * The executor ID. Format: JobId-TaskName-ArrayIndex.
    * 
    * @example
    * job-xxxx-Task0-1
@@ -29,7 +29,7 @@ export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model
   jobId?: string;
   /**
    * @remarks
-   * The runtime event level. Valid values:
+   * The level of the runtime event. Valid values:
    * - Normal
    * - Warning
    * - Error
@@ -91,7 +91,7 @@ export class ListExecutorEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging.
+   * The paging Settings for the number of entries per page in a paged query.
    * 
    * @example
    * 50

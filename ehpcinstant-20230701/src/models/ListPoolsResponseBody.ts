@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPoolsResponseBodyPoolListTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * TestValue
    */
@@ -39,7 +45,7 @@ export class ListPoolsResponseBodyPoolListTags extends $dara.Model {
 export class ListPoolsResponseBodyPoolList extends $dara.Model {
   /**
    * @remarks
-   * The time when the resource pool was created.
+   * The time when the resource pool was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-04-20 11:09:59
@@ -47,11 +53,10 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the resource pool is the default pool. Valid values:
+   * Specifies whether the resource pool is the default resource pool. Valid values:
    * 
-   * - **true**: The resource pool is the default pool.
-   * 
-   * - **false**: The resource pool is not the default pool.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -59,7 +64,7 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The number of running executor nodes in the resource pool.
+   * The number of running executor nodes in a resource pool.
    * 
    * @example
    * 100
@@ -67,11 +72,9 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
   maxExecutorNum?: number;
   /**
    * @remarks
-   * The name of the resource pool.
-   * 
-   * - Maximum length: 15 characters.
-   * 
-   * - Allowed characters: digits, letters, underscores (_), and periods (.).
+   * The resource pool name.
+   * - The name can be up to 15 characters in length.
+   * - The name can contain digits, uppercase letters, lowercase letters, underscores (_), and periods (.).
    * 
    * @example
    * PoolTest
@@ -81,9 +84,8 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
    * @remarks
    * The priority of the resource pool.
    * 
-   * - Valid values: 1 to 99. Default value: 1 (lowest priority).
-   * 
-   * - Jobs in a resource pool with a higher priority are scheduled before those in a pool with a lower priority. The pool\\"s priority overrides the priority of an individual job.
+   * - Valid values: 1 to 99. Default value: 1, which indicates the lowest priority.
+   * - Jobs submitted to a resource pool with a higher priority level are scheduled before pending jobs in a resource pool with a lower priority level. The priority level of a resource pool takes precedence over the priority of a job.
    * 
    * @example
    * 1
@@ -99,26 +101,26 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
   schedulingPolicyId?: string;
   /**
    * @remarks
-   * The status of the resource pool. Valid values:
+   * The resource pool status. Valid values:
    * 
    * - Creating: The resource pool is being created.
-   * 
    * - Updating: The resource pool is being updated.
-   * 
    * - Deleting: The resource pool is being deleted.
-   * 
-   * - Working: The resource pool is operational.
-   * 
-   * - Deleted: The resource pool has been deleted.
+   * - Working: The resource pool is working.
+   * - Deleted: The resource pool is deleted.
    * 
    * @example
    * Working
    */
   status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
   tags?: ListPoolsResponseBodyPoolListTags[];
   /**
    * @remarks
-   * The time when the resource pool was last updated.
+   * The time when the resource pool was updated. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-04-20 11:09:59
@@ -167,7 +169,7 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
 export class ListPoolsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -175,7 +177,7 @@ export class ListPoolsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Maximum value: 50. Default value: 10.
+   * The number of entries per page in a paging query. Maximum value: 50. Default value: 10.
    * 
    * @example
    * 10
@@ -183,12 +185,12 @@ export class ListPoolsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * An array of resource pools.
+   * The list of resource pools.
    */
   poolList?: ListPoolsResponseBodyPoolList[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****

@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddImageRequestContainerImageSpecRegistryCredential extends $dara.Model {
   /**
    * @remarks
-   * The password of the logon user.
+   * The logon password.
    * 
    * @example
    * userpassword
@@ -15,7 +15,7 @@ export class AddImageRequestContainerImageSpecRegistryCredential extends $dara.M
   password?: string;
   /**
    * @remarks
-   * The registered address of the image repository.
+   * The registry address of the image repository.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
@@ -23,7 +23,7 @@ export class AddImageRequestContainerImageSpecRegistryCredential extends $dara.M
   server?: string;
   /**
    * @remarks
-   * The username of the logon user.
+   * The logon username.
    * 
    * @example
    * username
@@ -57,10 +57,10 @@ export class AddImageRequestContainerImageSpecRegistryCredential extends $dara.M
 export class AddImageRequestContainerImageSpec extends $dara.Model {
   /**
    * @remarks
-   * Whether the instance is an Alibaba Cloud image repository Enterprise Edition.
+   * Specifies whether the image is stored in Alibaba Cloud Container Registry Enterprise Edition. Valid values:
    * 
-   * *   True
-   * *   False
+   * - True: yes
+   * - False: no
    * 
    * @example
    * True
@@ -68,10 +68,10 @@ export class AddImageRequestContainerImageSpec extends $dara.Model {
   isACREnterprise?: boolean;
   /**
    * @remarks
-   * Whether it is an Alibaba Cloud image repository.
+   * Specifies whether the image is stored in Alibaba Cloud Container Registry. Valid values:
    * 
-   * *   True
-   * *   False
+   * - True: yes
+   * - False: no
    * 
    * @example
    * True
@@ -79,12 +79,12 @@ export class AddImageRequestContainerImageSpec extends $dara.Model {
   isACRRegistry?: boolean;
   /**
    * @remarks
-   * The authentication of the private image repository.
+   * The authentication credentials for the private image repository.
    */
   registryCredential?: AddImageRequestContainerImageSpecRegistryCredential;
   /**
    * @remarks
-   * The ID of the Container Registry Enterprise Edition image repository.
+   * The ID of the Container Registry Enterprise Edition instance.
    * 
    * @example
    * cri-xyz795ygf8k9****
@@ -92,7 +92,7 @@ export class AddImageRequestContainerImageSpec extends $dara.Model {
   registryCriId?: string;
   /**
    * @remarks
-   * The endpoint of the container image.
+   * The access URL of the container image.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/ehpc_open/nginx:latest
@@ -163,12 +163,12 @@ export class AddImageRequestVMImageSpec extends $dara.Model {
 export class AddImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the container image.
+   * The container image configuration.
    */
   containerImageSpec?: AddImageRequestContainerImageSpec;
   /**
    * @remarks
-   * The description of the image.
+   * The image description.
    * 
    * @example
    * Test image
@@ -176,10 +176,10 @@ export class AddImageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the images. Valid values:
+   * The image type. Valid values:
    * 
-   * *   VM: virtual machine image.
-   * *   Container: the container image.
+   * - VM: virtual machine image
+   * - Container: container image
    * 
    * @example
    * VM
@@ -187,7 +187,7 @@ export class AddImageRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The version of the image.
+   * The image version.
    * 
    * @example
    * V1.0
@@ -195,7 +195,7 @@ export class AddImageRequest extends $dara.Model {
   imageVersion?: string;
   /**
    * @remarks
-   * The name of the custom image.
+   * The image name.
    * 
    * This parameter is required.
    * 
@@ -205,7 +205,7 @@ export class AddImageRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The image configuration of the virtual machine.
+   * The virtual machine image configuration.
    */
   VMImageSpec?: AddImageRequestVMImageSpec;
   static names(): { [key: string]: string } {

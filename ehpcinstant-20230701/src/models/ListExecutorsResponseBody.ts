@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorsResponseBodyExecutorsResourceDisks extends $dara.Model {
   /**
    * @remarks
-   * The size of the cloud disk.
+   * The cloud disk size.
    * 
    * @example
    * 10
@@ -13,11 +13,9 @@ export class ListExecutorsResponseBodyExecutorsResourceDisks extends $dara.Model
   size?: number;
   /**
    * @remarks
-   * The type of the cloud disk. The following types are supported:
-   * 
-   * - System: The system disk.
-   * 
-   * - Data: The data disk.
+   * The cloud disk type. Valid values:
+   * - System: System cloud disk.
+   * - Data: Data cloud disk.
    * 
    * @example
    * System
@@ -49,7 +47,7 @@ export class ListExecutorsResponseBodyExecutorsResourceDisks extends $dara.Model
 export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores.
+   * The number of CPUs.
    * 
    * @example
    * 1
@@ -57,7 +55,7 @@ export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
   cores?: number;
   /**
    * @remarks
-   * An array of cloud disks.
+   * The array of cloud disks.
    */
   disks?: ListExecutorsResponseBodyExecutorsResourceDisks[];
   /**
@@ -70,7 +68,7 @@ export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The total amount of memory resources. Unit: GiB.
+   * The total memory resources. Unit: GiB.
    * 
    * @example
    * 4
@@ -109,7 +107,7 @@ export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
 export class ListExecutorsResponseBodyExecutorsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the executor.
+   * The executor tag key.
    * 
    * @example
    * TestKey
@@ -117,7 +115,7 @@ export class ListExecutorsResponseBodyExecutorsTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the executor.
+   * The executor tag value.
    * 
    * @example
    * TestValue
@@ -149,13 +147,10 @@ export class ListExecutorsResponseBodyExecutorsTags extends $dara.Model {
 export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   /**
    * @remarks
-   * The resource type.
-   * 
+   * The resource type. Valid values:
    * - Standard: Standard.
-   * 
-   * - Dedicated: Dedicated. This type requires whitelisting.
-   * 
-   * - Economic: Economy. This type requires whitelisting.
+   * - Dedicated: Dedicated. A whitelist is required.
+   * - Economic: Economic. A whitelist is required.
    * 
    * @example
    * Standard
@@ -171,7 +166,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The executor number.
+   * The executor index.
    * 
    * @example
    * 0
@@ -179,7 +174,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   arrayIndex?: number;
   /**
    * @remarks
-   * The duration for which the compute resources are reserved.
+   * The retention period of compute resources.
    * 
    * @example
    * 24
@@ -187,7 +182,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   blockDuration?: number;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-02-20 10:04:10
@@ -195,7 +190,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-02-20 10:04:18
@@ -211,17 +206,20 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   executorId?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time is returned in the YYYY-MM-DD HH:mm:ss format based on the UTC+8 time zone.
+   * 
+   * @example
+   * 202******:00
    */
   expirationTime?: string;
   /**
    * @remarks
-   * A list of public IP addresses of the node.
+   * The list of public IP addresses of the node.
    */
   externalIpAddress?: string[];
   /**
    * @remarks
-   * A list of hostnames.
+   * The list of hostnames.
    */
   hostName?: string[];
   /**
@@ -234,7 +232,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * A list of private IP addresses.
+   * The list of internal IP addresses.
    */
   ipAddress?: string[];
   /**
@@ -253,6 +251,10 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
    * testJob
    */
   jobName?: string;
+  /**
+   * @remarks
+   * Indicates whether the execution instance is preemptible.
+   */
   preemptible?: boolean;
   /**
    * @remarks
@@ -269,7 +271,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-02-20 10:04:13
@@ -277,29 +279,18 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the executor. Possible values:
-   * 
-   * - Pending: The executor is waiting in a queue.
-   * 
-   * - Initing: The executor is being initialized.
-   * 
-   * - Succeeded: The executor ran successfully.
-   * 
-   * - Failed: The executor failed to run.
-   * 
-   * - Running: The executor is running.
-   * 
-   * - Exception: A scheduling error occurred.
-   * 
-   * - Retrying: The system is retrying the executor.
-   * 
-   * - Expired: The executor timed out.
-   * 
-   * - Suspended: The job is in hibernation.
-   * 
-   * - Restarting: The job is restarting.
-   * 
-   * - Deleted: The executor is deleted.
+   * The executor status. Valid values:
+   * - Pending: Queued.
+   * - Initing: Initializing.
+   * - Succeeded: Succeeded.
+   * - Failed: Failed.
+   * - Running: Running.
+   * - Exception: Scheduling exception.
+   * - Retrying: Retrying.
+   * - Expired: Timed out.
+   * - Suspended: Job suspended.
+   * - Restarting: Job restarting.
+   * - Deleted: Deleted.
    * 
    * @example
    * Running
@@ -315,7 +306,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * A list of executor tags.
+   * The list of executor tags.
    */
   tags?: ListExecutorsResponseBodyExecutorsTags[];
   /**
@@ -336,7 +327,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   taskSustainable?: boolean;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-xxx
@@ -442,7 +433,7 @@ export class ListExecutorsResponseBody extends $dara.Model {
   executors?: ListExecutorsResponseBodyExecutors[];
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -450,7 +441,7 @@ export class ListExecutorsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in the paging Settings for a paged query.
    * 
    * @example
    * 50
@@ -466,7 +457,7 @@ export class ListExecutorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 40

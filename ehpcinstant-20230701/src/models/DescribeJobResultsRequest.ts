@@ -8,15 +8,14 @@ export class DescribeJobResultsRequest extends $dara.Model {
    * The executor index.
    * 
    * @example
-   * 0_1
+   * 0
    */
   arrayIndex?: number;
   /**
    * @remarks
-   * The encoding method for the CommandContent and Output fields in the response. Valid values:
-   * 
-   * - PlainText: returns the original script content and output.
-   * - Base64: returns Base64-encoded script content and output.
+   * Specifies the encoding method for the CommandContent and Output fields in the response. Valid values:
+   * - PlainText: Returns the original script content and output.
+   * - Base64: Returns the Base64-encoded script content and output.
    * 
    * Default value: Base64.
    * 
@@ -34,7 +33,7 @@ export class DescribeJobResultsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The maximum size of the log. Unit: bytes. Valid values: 1 to 1048576 (1 MB).
+   * The limit on the total size of the logs. Unit: bytes. Valid values: 1 to 1048576 (1 MB).
    * 
    * @example
    * 1048576

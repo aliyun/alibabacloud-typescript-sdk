@@ -10,7 +10,7 @@ export class ListPoolsShrinkRequest extends $dara.Model {
   filterShrink?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -18,7 +18,7 @@ export class ListPoolsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 50. Default value: 10.
+   * The number of entries per page in a paging query. Maximum value: 50. Default value: 10.
    * 
    * @example
    * 10

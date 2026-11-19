@@ -45,7 +45,7 @@ export class ListJobsResponseBodyJobListTags extends $dara.Model {
 export class ListJobsResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
-   * Additional information about the application.
+   * The additional information about the application.
    * 
    * @example
    * {\\"xxx\\": \\"xxxxx\\"}
@@ -53,7 +53,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   appExtraInfo?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * Alphafold3
@@ -61,7 +61,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The time when the job was submitted. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-01-25 12:29:21
@@ -69,7 +69,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the job ended.
+   * The time when the job ended. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-01-25 12:35:23
@@ -77,7 +77,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of running nodes.
+   * The number of execution nodes.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   executorCount?: number;
   /**
    * @remarks
-   * The description of the job.
+   * The job description.
    * 
    * @example
    * Demo
@@ -93,7 +93,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * job-xxx
@@ -101,7 +101,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * testJob
@@ -109,7 +109,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The UID of the user who created the job.
+   * The UID of the creator.
    * 
    * @example
    * 129**********
@@ -117,7 +117,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   ownerUid?: string;
   /**
    * @remarks
-   * The time when the job started.
+   * The time when the job started. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-01-25 12:29:23
@@ -125,28 +125,18 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the job. Possible values:
+   * The job status. Valid values:
    * 
-   * - Pending: The job is in the queue.
-   * 
-   * - Initing: The job is initializing.
-   * 
-   * - Succeeded: The job was successful.
-   * 
-   * - Failed: The job failed.
-   * 
+   * - Pending: The job is queued.
+   * - Initing: The job is being initialized.
+   * - Succeeded: The job ran successfully.
+   * - Failed: The job failed to run.
    * - Running: The job is running.
-   * 
    * - Exception: A scheduling exception occurred.
-   * 
    * - Retrying: The job is being retried.
-   * 
    * - Expired: The job timed out.
-   * 
-   * - Suspended: The job is in hibernation.
-   * 
-   * - Restarting: The job is restarting.
-   * 
+   * - Suspended: The job is hibernated.
+   * - Restarting: The job is being restarted.
    * - Deleted: The job is deleted.
    * 
    * @example
@@ -168,7 +158,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   taskCount?: number;
   /**
    * @remarks
-   * Indicates whether the job is a long-running job.
+   * Specifies whether the job is a long-running job.
    * 
    * @example
    * true
@@ -240,7 +230,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The paging Settings for the number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -248,7 +238,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
@@ -256,8 +246,7 @@ export class ListJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that meet the filter conditions.
-   * This parameter is optional and may not be returned.
+   * The total number of entries that meet the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 1

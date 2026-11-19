@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class GetAppVersionsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The source of the image. Valid values:
+   * The image source. Valid values:
    * 
-   * Public: public images provided by Alibaba Cloud.
+   * - Public: public images provided by Alibaba Cloud.
    * 
-   * Custom: the custom image that you added.
+   * - Custom: custom images added by you.
    * 
    * @example
    * Public
@@ -27,11 +27,11 @@ export class GetAppVersionsRequest extends $dara.Model {
   imageCategory?: string;
   /**
    * @remarks
-   * The type of the images. Valid values:
+   * The image type. Valid values:
    * 
-   * VM: Virtual Machine Image
+   * - VM: virtual machine images.
    * 
-   * Container: container image
+   * - Container: container images.
    * 
    * @example
    * VM
@@ -39,7 +39,7 @@ export class GetAppVersionsRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class GetAppVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 10

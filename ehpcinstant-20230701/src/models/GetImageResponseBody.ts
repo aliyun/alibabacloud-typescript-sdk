@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetImageResponseBodyImageAdditionalRegionsInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The image ID in the additional region.
+   * 
+   * @example
+   * m-f8abcdef0123456789ab
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The additional region ID.
+   * 
+   * @example
+   * cn-heyuan
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The status of the image in the additional region.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +55,7 @@ export class GetImageResponseBodyImageAdditionalRegionsInfo extends $dara.Model 
 export class GetImageResponseBodyImageContainerImageSpecRegistryCredential extends $dara.Model {
   /**
    * @remarks
-   * Password for the username.
+   * The logon password.
    * 
    * @example
    * userpassword
@@ -42,7 +63,7 @@ export class GetImageResponseBodyImageContainerImageSpecRegistryCredential exten
   password?: string;
   /**
    * @remarks
-   * Registry server address.
+   * The server address of the image registry.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
@@ -50,7 +71,7 @@ export class GetImageResponseBodyImageContainerImageSpecRegistryCredential exten
   server?: string;
   /**
    * @remarks
-   * Username to log on to the registry.
+   * The logon username.
    * 
    * @example
    * username
@@ -82,14 +103,20 @@ export class GetImageResponseBodyImageContainerImageSpecRegistryCredential exten
 }
 
 export class GetImageResponseBodyImageContainerImageSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The architecture type.
+   * 
+   * @example
+   * x86_64
+   */
   architecture?: string;
   /**
    * @remarks
-   * Indicates whether the image is stored in an ACR Enterprise Edition instance. Valid values:
+   * Indicates whether the image is stored in Container Registry Enterprise Edition. Valid values:
    * 
-   * - True: yes.
-   * 
-   * - False: no.
+   * - True: Yes.
+   * - False: No.
    * 
    * @example
    * True
@@ -97,26 +124,39 @@ export class GetImageResponseBodyImageContainerImageSpec extends $dara.Model {
   isACREnterprise?: boolean;
   /**
    * @remarks
-   * Indicates whether the image is stored in an Alibaba Cloud Container Registry (ACR) instance. Valid values:
+   * Indicates whether the image is stored in Container Registry. Valid values:
    * 
-   * - True: yes.
-   * 
-   * - False: no.
+   * - True: Yes.
+   * - False: No.
    * 
    * @example
    * True
    */
   isACRRegistry?: boolean;
+  /**
+   * @remarks
+   * The specific version identifier of the operating system.
+   * 
+   * @example
+   * CentOS  7.6 64 bit
+   */
   osTag?: string;
+  /**
+   * @remarks
+   * The platform type.
+   * 
+   * @example
+   * CentOS
+   */
   platform?: string;
   /**
    * @remarks
-   * Authentication for a private image registry.
+   * The authentication information for the private image registry.
    */
   registryCredential?: GetImageResponseBodyImageContainerImageSpecRegistryCredential;
   /**
    * @remarks
-   * ACR Enterprise Edition instance ID.
+   * The ID of the Container Registry Enterprise Edition instance.
    * 
    * @example
    * cri-xyz795ygf8k9****
@@ -124,7 +164,7 @@ export class GetImageResponseBodyImageContainerImageSpec extends $dara.Model {
   registryCriId?: string;
   /**
    * @remarks
-   * Container image registry URL.
+   * The access URL of the container image.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/ehpc_open/nginx:latest
@@ -169,8 +209,29 @@ export class GetImageResponseBodyImageContainerImageSpec extends $dara.Model {
 }
 
 export class GetImageResponseBodyImageDocumentInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the application document.
+   * 
+   * @example
+   * VGhpcyBpcyBhbiBleGFtcGxlIGFwcGxpY2F0aW9uIGRvY3VtZW50Lg==
+   */
   document?: string;
+  /**
+   * @remarks
+   * The application document ID.
+   * 
+   * @example
+   * 1001
+   */
   documentId?: string;
+  /**
+   * @remarks
+   * The encoding method of the application document. Base64 and PlainText are supported.
+   * 
+   * @example
+   * Base64
+   */
   encodingMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -200,7 +261,7 @@ export class GetImageResponseBodyImageDocumentInfo extends $dara.Model {
 export class GetImageResponseBodyImageVMImageSpec extends $dara.Model {
   /**
    * @remarks
-   * Architecture type.
+   * The architecture type.
    * 
    * @example
    * x86_64
@@ -208,7 +269,7 @@ export class GetImageResponseBodyImageVMImageSpec extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * Image ID.
+   * The image ID.
    * 
    * @example
    * m-uf60twafjtaart******
@@ -216,7 +277,7 @@ export class GetImageResponseBodyImageVMImageSpec extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * OS version identifier.
+   * The specific version identifier of the operating system.
    * 
    * @example
    * CentOS  7.6 64 bit
@@ -224,7 +285,7 @@ export class GetImageResponseBodyImageVMImageSpec extends $dara.Model {
   osTag?: string;
   /**
    * @remarks
-   * Platform type.
+   * The platform type.
    * 
    * @example
    * CentOS
@@ -258,16 +319,27 @@ export class GetImageResponseBodyImageVMImageSpec extends $dara.Model {
 }
 
 export class GetImageResponseBodyImage extends $dara.Model {
+  /**
+   * @remarks
+   * The list of status information of the image in additional regions.
+   */
   additionalRegionsInfo?: GetImageResponseBodyImageAdditionalRegionsInfo[];
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * ci-vm-0123456789abcdef
+   */
   appId?: string;
   /**
    * @remarks
-   * Container image configuration details.
+   * The configuration details of the container image.
    */
   containerImageSpec?: GetImageResponseBodyImageContainerImageSpec;
   /**
    * @remarks
-   * Image creation time.
+   * The time when the image was created. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format, where Z represents UTC.
    * 
    * @example
    * 2022-12-23T09:51:39Z
@@ -275,16 +347,20 @@ export class GetImageResponseBodyImage extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Image description.
+   * The image description.
    * 
    * @example
-   * 应用测试镜像。
+   * Application test image
    */
   description?: string;
+  /**
+   * @remarks
+   * The application document information associated with the image.
+   */
   documentInfo?: GetImageResponseBodyImageDocumentInfo;
   /**
    * @remarks
-   * Image type.
+   * The image type.
    * 
    * This parameter is required.
    * 
@@ -294,7 +370,7 @@ export class GetImageResponseBodyImage extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * Image name.
+   * The image name.
    * 
    * @example
    * app-image
@@ -302,21 +378,28 @@ export class GetImageResponseBodyImage extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Image size, in GiB.
+   * The image size. Unit: GiB.
    * 
    * @example
    * 40 GiB
    */
   size?: string;
+  /**
+   * @remarks
+   * The image status.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
   /**
    * @remarks
-   * Virtual machine image configuration details.
+   * The configuration details of the virtual machine image.
    */
   VMImageSpec?: GetImageResponseBodyImageVMImageSpec;
   /**
    * @remarks
-   * Version.
+   * The version.
    * 
    * @example
    * v1.0
@@ -380,12 +463,12 @@ export class GetImageResponseBodyImage extends $dara.Model {
 export class GetImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Image details.
+   * The image details.
    */
   image?: GetImageResponseBodyImage;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -393,11 +476,10 @@ export class GetImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values:
+   * Indicates whether the process of executing the command and obtaining the result is successful. Valid values:
    * 
-   * - true: succeeded.
-   * 
-   * - false: failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -405,7 +487,7 @@ export class GetImageResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of items returned for this request.
+   * The total number of items that meet the request conditions.
    * 
    * @example
    * 10

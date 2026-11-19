@@ -13,10 +13,10 @@ export class RemoveImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the command execution and result retrieval were successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation succeeded.
+   * - false: The operation failed.
    * 
    * @example
    * true

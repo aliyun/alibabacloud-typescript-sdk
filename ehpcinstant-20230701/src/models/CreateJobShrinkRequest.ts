@@ -23,7 +23,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The job name. The name must be 2 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The job name. The name must be 2 to 64 characters in length and can contain Chinese characters, English letters, and digits. It can also contain hyphens (-) and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   securityPolicyShrink?: string;
   /**
    * @remarks
-   * The task list. Currently, only one task is supported.
+   * The list of tasks. Only one task is supported.
    * 
    * This parameter is required.
    */

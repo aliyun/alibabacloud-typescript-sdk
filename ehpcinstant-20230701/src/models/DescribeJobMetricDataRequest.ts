@@ -18,7 +18,7 @@ export class DescribeJobMetricDataRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The metrics of the job.
+   * The job monitoring metric.
    * 
    * @example
    * cpu_utilization
@@ -26,7 +26,7 @@ export class DescribeJobMetricDataRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * Task0

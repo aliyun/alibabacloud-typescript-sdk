@@ -15,7 +15,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the storage resource was created.
+   * The creation time. The time is in the YYYY-MM-DDTHH:mm:ssZ format, where Z represents UTC.
    * 
    * @example
    * 2022-12-09T07:06:34Z
@@ -23,10 +23,10 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the image.
+   * The image description.
    * 
    * @example
-   * 应用测试镜像。
+   * Application test image
    */
   description?: string;
   /**
@@ -49,7 +49,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the image.
+   * The image type.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * app-image
@@ -67,7 +67,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the specific OS version.
+   * The specific OS version identifier.
    * 
    * @example
    * Ubuntu  22.04 64 bit
@@ -75,7 +75,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   osTag?: string;
   /**
    * @remarks
-   * The time when the image was updated.
+   * The image update time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-09-25 14:15:28
@@ -83,7 +83,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The version of the image.
+   * The image version.
    * 
    * @example
    * v1.0
@@ -146,7 +146,7 @@ export class ListImagesResponseBody extends $dara.Model {
   images?: ListImagesResponseBodyImages[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class ListImagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -170,10 +170,10 @@ export class ListImagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the process of executing the command and obtaining the result was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -181,7 +181,7 @@ export class ListImagesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of items that meet the request conditions.
    * 
    * @example
    * 1

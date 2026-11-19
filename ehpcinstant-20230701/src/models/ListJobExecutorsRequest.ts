@@ -13,7 +13,7 @@ export class ListJobExecutorsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The page number of the paged query.
+   * The page number for paging.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListJobExecutorsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListJobExecutorsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * Task0

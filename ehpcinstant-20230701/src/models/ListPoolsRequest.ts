@@ -21,7 +21,7 @@ export class ListPoolsRequestFilter extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * Returns only resource pools created after the specified time. The time must be a Unix timestamp in UTC+8.
+   * The UNIX timestamp. Only resource pools created after the specified time are queried. The time is converted to a UNIX timestamp based on the time zone of the region where the resource pool resides. For regions in the Chinese mainland, the time zone is UTC+8.
    * 
    * @example
    * 1703819914
@@ -29,7 +29,7 @@ export class ListPoolsRequestFilter extends $dara.Model {
   timeCreatedAfter?: number;
   /**
    * @remarks
-   * Returns only resource pools created before the specified time. The time must be a Unix timestamp in UTC+8.
+   * The UNIX timestamp. Only resource pools created before the specified time are queried. The time is converted to a UNIX timestamp based on the time zone of the region where the resource pool resides. For regions in the Chinese mainland, the time zone is UTC+8.
    * 
    * @example
    * 1703820113
@@ -76,7 +76,7 @@ export class ListPoolsRequest extends $dara.Model {
   filter?: ListPoolsRequestFilter;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class ListPoolsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 50. Default value: 10.
+   * The number of entries per page in a paging query. Maximum value: 50. Default value: 10.
    * 
    * @example
    * 10

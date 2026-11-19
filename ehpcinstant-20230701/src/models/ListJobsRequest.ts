@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListJobsRequestFilterTag extends $dara.Model {
   /**
+   * @remarks
+   * The key of the job tag.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the job tag.
+   * 
    * @example
    * TestValue
    */
@@ -39,65 +45,69 @@ export class ListJobsRequestFilterTag extends $dara.Model {
 export class ListJobsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * job-xxxx
    */
   jobId?: string;
+  /**
+   * @remarks
+   * Filters jobs by a list of job IDs. A maximum of 100 job IDs are supported.
+   */
   jobIds?: string[];
   /**
    * @remarks
-   * The name of the job. Fuzzy search is supported.
+   * The job name. Fuzzy match is supported.
    * 
    * @example
    * testJob
    */
   jobName?: string;
   /**
+   * @remarks
+   * The ID of the job template.
+   * 
    * @example
    * jt-xxxx
    */
   jobTemplateId?: string;
   /**
+   * @remarks
+   * The name of the resource pool.
+   * 
    * @example
    * MyPool
    */
   poolName?: string;
   /**
    * @remarks
-   * The status of the job. Valid values:
+   * The job status. Valid values:
    * 
-   * - Pending: The job is in the queue.
-   * 
-   * - Initing: The job is initializing.
-   * 
-   * - Succeeded: The job was successful.
-   * 
-   * - Failed: The job failed.
-   * 
+   * - Pending: The job is queued.
+   * - Initing: The job is being initialized.
+   * - Succeeded: The job ran successfully.
+   * - Failed: The job failed to run.
    * - Running: The job is running.
-   * 
    * - Exception: A scheduling exception occurred.
-   * 
    * - Retrying: The job is being retried.
-   * 
    * - Expired: The job timed out.
-   * 
-   * - Suspended: The job is in hibernation.
-   * 
-   * - Restarting: The job is restarting.
-   * 
+   * - Suspended: The job is hibernated.
+   * - Restarting: The job is being restarted.
    * - Deleted: The job is deleted.
    * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of job tags.
+   */
   tag?: ListJobsRequestFilterTag[];
   /**
    * @remarks
-   * The time after which the jobs were submitted. This is a UNIX timestamp based on the local time of the region. For sites in the Chinese mainland, the time zone is UTC+8.
+   * The time after which jobs were submitted. The time is converted to a UNIX timestamp based on the time zone of the region. For regions in the Chinese mainland, the time zone is UTC+8.
    * 
    * @example
    * 1703819914
@@ -105,7 +115,7 @@ export class ListJobsRequestFilter extends $dara.Model {
   timeCreatedAfter?: number;
   /**
    * @remarks
-   * The time before which the jobs were submitted. This is a UNIX timestamp based on the local time of the region. For sites in the Chinese mainland, the time zone is UTC+8.
+   * The time before which jobs were submitted. The time is converted to a UNIX timestamp based on the time zone of the region. For regions in the Chinese mainland, the time zone is UTC+8.
    * 
    * @example
    * 1703820113
@@ -157,10 +167,9 @@ export class ListJobsRequestFilter extends $dara.Model {
 export class ListJobsRequestSortBy extends $dara.Model {
   /**
    * @remarks
-   * The field to sort by. Valid values:
+   * The sorting label. Valid values:
    * 
    * - time_start
-   * 
    * - job_name
    * 
    * @example
@@ -169,11 +178,10 @@ export class ListJobsRequestSortBy extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The sorting order. Valid values:
    * 
-   * - ASC (default): Ascending
-   * 
-   * - DESC: Descending
+   * - ASC: ascending order. This is the default value.
+   * - DESC: descending order.
    * 
    * @example
    * ASC
@@ -210,11 +218,7 @@ export class ListJobsRequest extends $dara.Model {
   filter?: ListJobsRequestFilter;
   /**
    * @remarks
-   * The current page number.
-   * 
-   * Start value: 1
-   * 
-   * Default value: 1
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -222,7 +226,7 @@ export class ListJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is 50. The maximum value is 100.
+   * The paging Settings for the number of entries per page in a paged query. Default value: 50. Maximum value: 100.
    * 
    * @example
    * 50

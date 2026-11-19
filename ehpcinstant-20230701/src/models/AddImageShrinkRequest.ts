@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the container image.
+   * The container image configuration.
    */
   containerImageSpecShrink?: string;
   /**
    * @remarks
-   * The description of the image.
+   * The image description.
    * 
    * @example
    * Test image
@@ -18,10 +18,10 @@ export class AddImageShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the images. Valid values:
+   * The image type. Valid values:
    * 
-   * *   VM: virtual machine image.
-   * *   Container: the container image.
+   * - VM: virtual machine image
+   * - Container: container image
    * 
    * @example
    * VM
@@ -29,7 +29,7 @@ export class AddImageShrinkRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The version of the image.
+   * The image version.
    * 
    * @example
    * V1.0
@@ -37,7 +37,7 @@ export class AddImageShrinkRequest extends $dara.Model {
   imageVersion?: string;
   /**
    * @remarks
-   * The name of the custom image.
+   * The image name.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class AddImageShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The image configuration of the virtual machine.
+   * The virtual machine image configuration.
    */
   VMImageSpecShrink?: string;
   static names(): { [key: string]: string } {

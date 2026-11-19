@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobMetricDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Monitoring statistics points.
+   * The monitoring statistics data points.
    * 
    * @example
    * [{"timestamp":1709540685000,"Minimum":28.45,"Maximum":28.45,"Average":28.45}]

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,24 +12,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "EhpcInstant";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shenzhen': "ehpcinstant.cn-shenzhen.aliyuncs.com",
-      'cn-wulanchabu': "ehpcinstant.cn-wulanchabu.aliyuncs.com",
-      'cn-beijing': "ehpcinstant.cn-beijing.aliyuncs.com",
-      'ap-northeast-2': "ehpcinstant.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "ehpcinstant.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "ehpcinstant.cn-chengdu.aliyuncs.com",
-      'cn-shanghai': "ehpcinstant.cn-shanghai.aliyuncs.com",
-      'cn-guangzhou': "ehpcinstant.cn-guangzhou.aliyuncs.com",
-      'cn-hongkong': "ehpcinstant.cn-hongkong.aliyuncs.com",
-      'cn-heyuan': "ehpcinstant.cn-heyuan.aliyuncs.com",
-      'ap-southeast-1': "ehpcinstant.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "ehpcinstant.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-5': "ehpcinstant.ap-southeast-5.aliyuncs.com",
-      'cn-hangzhou': "ehpcinstant.cn-hangzhou.aliyuncs.com",
-      'eu-central-1': "ehpcinstant.eu-central-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ehpcinstant", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -47,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a custom image.
+   * Adds a custom image.
    * 
    * @param tmpReq - AddImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -108,7 +95,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a custom image.
+   * Adds a custom image.
    * 
    * @param request - AddImageRequest
    * @returns AddImageResponse
@@ -119,10 +106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an E-HPC execution plan.
+   * Creates an execution plan for Elastic High Performance Computing (E-HPC).
    * 
    * @remarks
-   * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+   * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
    * 
    * @param tmpReq - CreateActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -203,10 +190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an E-HPC execution plan.
+   * Creates an execution plan for Elastic High Performance Computing (E-HPC).
    * 
    * @remarks
-   * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+   * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
    * 
    * @param request - CreateActionPlanRequest
    * @returns CreateActionPlanResponse
@@ -302,6 +289,62 @@ export default class Client extends OpenApi {
   async createJob(request: $_model.CreateJobRequest): Promise<$_model.CreateJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a job template.
+   * 
+   * @param tmpReq - CreateJobTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateJobTemplateResponse
+   */
+  async createJobTemplateWithOptions(tmpReq: $_model.CreateJobTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateJobTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateJobTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.jobTemplateConfig)) {
+      request.jobTemplateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobTemplateConfig, "JobTemplateConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.jobTemplateConfigShrink)) {
+      query["JobTemplateConfig"] = request.jobTemplateConfigShrink;
+    }
+
+    if (!$dara.isNull(request.jobTemplateDescription)) {
+      query["JobTemplateDescription"] = request.jobTemplateDescription;
+    }
+
+    if (!$dara.isNull(request.jobTemplateName)) {
+      query["JobTemplateName"] = request.jobTemplateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateJobTemplate",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateJobTemplateResponse({}));
+  }
+
+  /**
+   * Creates a job template.
+   * 
+   * @param request - CreateJobTemplateRequest
+   * @returns CreateJobTemplateResponse
+   */
+  async createJobTemplate(request: $_model.CreateJobTemplateRequest): Promise<$_model.CreateJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createJobTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -471,6 +514,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a job template.
+   * 
+   * @param request - DeleteJobTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteJobTemplateResponse
+   */
+  async deleteJobTemplateWithOptions(request: $_model.DeleteJobTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteJobTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobTemplateId)) {
+      query["JobTemplateId"] = request.jobTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteJobTemplate",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteJobTemplateResponse({}));
+  }
+
+  /**
+   * Deletes a job template.
+   * 
+   * @param request - DeleteJobTemplateRequest
+   * @returns DeleteJobTemplateResponse
+   */
+  async deleteJobTemplate(request: $_model.DeleteJobTemplateRequest): Promise<$_model.DeleteJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteJobTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes one or more jobs from a specified cluster.
    * 
    * @param tmpReq - DeleteJobsRequest
@@ -573,7 +658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+   * Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
    * 
    * @param tmpReq - DescribeJobMetricDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -622,7 +707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+   * Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
    * 
    * @param request - DescribeJobMetricDataRequest
    * @returns DescribeJobMetricDataResponse
@@ -633,7 +718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+   * Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
    * 
    * @param tmpReq - DescribeJobMetricLastRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -678,7 +763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+   * Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
    * 
    * @param request - DescribeJobMetricLastRequest
    * @returns DescribeJobMetricLastResponse
@@ -793,7 +878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the application version list.
+   * Retrieves a list of application versions.
    * 
    * @param request - GetAppVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -840,7 +925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the application version list.
+   * Retrieves a list of application versions.
    * 
    * @param request - GetAppVersionsRequest
    * @returns GetAppVersionsResponse
@@ -851,7 +936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get image details.
+   * Retrieves the details of an image.
    * 
    * @param tmpReq - GetImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -900,7 +985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get image details.
+   * Retrieves the details of an image.
    * 
    * @param request - GetImageRequest
    * @returns GetImageResponse
@@ -911,7 +996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a job.
+   * Retrieves the details of a job execution.
    * 
    * @param request - GetJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -942,7 +1027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a job.
+   * Retrieves the details of a job execution.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -953,7 +1038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the job record retention period.
+   * Retrieves the retention period of job records.
    * 
    * @param request - GetJobRecordDurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -977,7 +1062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the job record retention period.
+   * Retrieves the retention period of job records.
    * 
    * @param request - GetJobRecordDurationRequest
    * @returns GetJobRecordDurationResponse
@@ -985,6 +1070,48 @@ export default class Client extends OpenApi {
   async getJobRecordDuration(request: $_model.GetJobRecordDurationRequest): Promise<$_model.GetJobRecordDurationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getJobRecordDurationWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a job template.
+   * 
+   * @param request - GetJobTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobTemplateResponse
+   */
+  async getJobTemplateWithOptions(request: $_model.GetJobTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetJobTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobTemplateId)) {
+      query["JobTemplateId"] = request.jobTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJobTemplate",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetJobTemplateResponse({}));
+  }
+
+  /**
+   * Queries the details of a job template.
+   * 
+   * @param request - GetJobTemplateRequest
+   * @returns GetJobTemplateResponse
+   */
+  async getJobTemplate(request: $_model.GetJobTemplateRequest): Promise<$_model.GetJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getJobTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1136,10 +1263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the runtime event list of one or more Executors.
+   * Queries the runtime events of one or more executors.
    * 
    * @remarks
-   * Queries the Executor information of a job.
+   * Queries the executor information of a job.
    * 
    * @param tmpReq - ListExecutorEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1184,10 +1311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the runtime event list of one or more Executors.
+   * Queries the runtime events of one or more executors.
    * 
    * @remarks
-   * Queries the Executor information of a job.
+   * Queries the executor information of a job.
    * 
    * @param request - ListExecutorEventsRequest
    * @returns ListExecutorEventsResponse
@@ -1198,7 +1325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about global executors.
+   * Queries global executor information.
    * 
    * @param tmpReq - ListExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1243,7 +1370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about global executors.
+   * Queries global executor information.
    * 
    * @param request - ListExecutorsRequest
    * @returns ListExecutorsResponse
@@ -1390,7 +1517,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of jobs.
+   * Queries job templates.
+   * 
+   * @param request - ListJobTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobTemplatesResponse
+   */
+  async listJobTemplatesWithOptions(request: $_model.ListJobTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListJobTemplates",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListJobTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListJobTemplatesResponse({}));
+  }
+
+  /**
+   * Queries job templates.
+   * 
+   * @param request - ListJobTemplatesRequest
+   * @returns ListJobTemplatesResponse
+   */
+  async listJobTemplates(request: $_model.ListJobTemplatesRequest): Promise<$_model.ListJobTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listJobTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of jobs.
    * 
    * @param tmpReq - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1443,7 +1616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of jobs.
+   * Queries a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -1454,7 +1627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists resource pools.
+   * Queries the list of resource pools.
    * 
    * @param tmpReq - ListPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1499,7 +1672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists resource pools.
+   * Queries the list of resource pools.
    * 
    * @param request - ListPoolsRequest
    * @returns ListPoolsResponse
@@ -1568,7 +1741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove a custom image
+   * Removes a custom image.
    * 
    * @param request - RemoveImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1603,7 +1776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove a custom image
+   * Removes a custom image.
    * 
    * @param request - RemoveImageRequest
    * @returns RemoveImageResponse
@@ -1614,7 +1787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Application cross-region synchronization
+   * Synchronizes an application across regions.
    * 
    * @param tmpReq - SynchronizeAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1655,7 +1828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Application cross-region synchronization
+   * Synchronizes an application across regions.
    * 
    * @param request - SynchronizeAppRequest
    * @returns SynchronizeAppResponse
@@ -1770,7 +1943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adjust the resource scale of the execution plan or modify the execution status
+   * Modifies the resource scale or status of an execution plan.
    * 
    * @param request - UpdateActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1813,7 +1986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adjust the resource scale of the execution plan or modify the execution status
+   * Modifies the resource scale or status of an execution plan.
    * 
    * @param request - UpdateActionPlanRequest
    * @returns UpdateActionPlanResponse
@@ -1824,7 +1997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the job record duration.
+   * Updates the job retention period.
    * 
    * @param request - UpdateJobRecordDurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1855,7 +2028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the job record duration.
+   * Updates the job retention period.
    * 
    * @param request - UpdateJobRecordDurationRequest
    * @returns UpdateJobRecordDurationResponse
@@ -1863,6 +2036,66 @@ export default class Client extends OpenApi {
   async updateJobRecordDuration(request: $_model.UpdateJobRecordDurationRequest): Promise<$_model.UpdateJobRecordDurationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateJobRecordDurationWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a job template.
+   * 
+   * @param tmpReq - UpdateJobTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateJobTemplateResponse
+   */
+  async updateJobTemplateWithOptions(tmpReq: $_model.UpdateJobTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateJobTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateJobTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.jobTemplateConfig)) {
+      request.jobTemplateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobTemplateConfig, "JobTemplateConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.jobTemplateConfigShrink)) {
+      query["JobTemplateConfig"] = request.jobTemplateConfigShrink;
+    }
+
+    if (!$dara.isNull(request.jobTemplateDescription)) {
+      query["JobTemplateDescription"] = request.jobTemplateDescription;
+    }
+
+    if (!$dara.isNull(request.jobTemplateId)) {
+      query["JobTemplateId"] = request.jobTemplateId;
+    }
+
+    if (!$dara.isNull(request.jobTemplateName)) {
+      query["JobTemplateName"] = request.jobTemplateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateJobTemplate",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateJobTemplateResponse({}));
+  }
+
+  /**
+   * Updates a job template.
+   * 
+   * @param request - UpdateJobTemplateRequest
+   * @returns UpdateJobTemplateResponse
+   */
+  async updateJobTemplate(request: $_model.UpdateJobTemplateRequest): Promise<$_model.UpdateJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateJobTemplateWithOptions(request, runtime);
   }
 
   /**

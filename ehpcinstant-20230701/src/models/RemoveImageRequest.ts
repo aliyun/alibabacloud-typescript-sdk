@@ -15,10 +15,10 @@ export class RemoveImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the images. Valid values:
+   * The image type. Valid values:
    * 
-   * *   VM: Virtual Machine Image
-   * *   Container: container image
+   * - VM: virtual machine image
+   * - Container: container image
    * 
    * @example
    * VM

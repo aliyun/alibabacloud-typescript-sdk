@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The list of executor IDs contained in the task.
+   * The list of executor IDs included in the task.
    */
   executorIds?: string[];
   /**
@@ -61,7 +61,7 @@ export class CreateJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task list.
+   * The list of tasks.
    */
   tasks?: CreateJobResponseBodyTasks[];
   static names(): { [key: string]: string } {

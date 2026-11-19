@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobMetricLastRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of array job indexes.
+   * The list of job array indexes.
    */
   arrayIndex?: number[];
   /**
@@ -18,7 +18,7 @@ export class DescribeJobMetricLastRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * Task0

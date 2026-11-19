@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppVersionsResponseBodyAppVersions extends $dara.Model {
   /**
    * @remarks
-   * The image ID of the application.
+   * The ID of the application image.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAppVersionsResponseBodyAppVersions extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * V-Ray
@@ -62,7 +62,7 @@ export class GetAppVersionsResponseBody extends $dara.Model {
   appVersions?: GetAppVersionsResponseBodyAppVersions[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -70,7 +70,7 @@ export class GetAppVersionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class GetAppVersionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE7****
@@ -86,11 +86,11 @@ export class GetAppVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the process of executing the command and retrieving the result was successful. Valid values:
    * 
-   * true
+   * - true: Successful.
    * 
-   * false
+   * - false: Failed.
    * 
    * @example
    * true
@@ -98,7 +98,7 @@ export class GetAppVersionsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the request conditions.
    * 
    * @example
    * 1

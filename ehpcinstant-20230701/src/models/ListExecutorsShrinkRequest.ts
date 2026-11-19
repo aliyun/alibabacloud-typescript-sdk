@@ -10,7 +10,7 @@ export class ListExecutorsShrinkRequest extends $dara.Model {
   filterShrink?: string;
   /**
    * @remarks
-   * The current page number.<br>Start value: 1<br>Default value: 1<br><br>
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -18,7 +18,7 @@ export class ListExecutorsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. Default value: 50. Maximum value: 100.
+   * The number of entries per page in the paging Settings for a paged query. Default value: 50. Maximum value: 100.
    * 
    * @example
    * 50

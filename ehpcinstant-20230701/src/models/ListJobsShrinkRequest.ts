@@ -10,11 +10,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   filterShrink?: string;
   /**
    * @remarks
-   * The current page number.
-   * 
-   * Start value: 1
-   * 
-   * Default value: 1
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -22,7 +18,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is 50. The maximum value is 100.
+   * The paging Settings for the number of entries per page in a paged query. Default value: 50. Maximum value: 100.
    * 
    * @example
    * 50

@@ -3,7 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetJobResponseBodyJobInfoDependencyPolicyJobDependency extends $dara.Model {
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * job-bjxxxxxxxxxxxx
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The dependency type. Valid values:
+   * 
+   * - AfterSucceeded: All subtasks of the dependent job or array job run successfully (the exit code is 0).
+   * - AfterFailed: Any subtask of the dependent job or array job fails (the exit code is not 0).
+   * - AfterAny: The dependent job finishes running, regardless of success or failure.
+   * - AfterCorresponding: The corresponding subtask of the dependent array job runs successfully (the exit code is 0).
+   * 
+   * Default value: AfterSucceeded.
+   * 
+   * @example
+   * AfterSucceeded
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +50,10 @@ export class GetJobResponseBodyJobInfoDependencyPolicyJobDependency extends $dar
 }
 
 export class GetJobResponseBodyJobInfoDependencyPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The job dependencies. A maximum of 10 dependencies are supported.
+   */
   jobDependency?: GetJobResponseBodyJobInfoDependencyPolicyJobDependency[];
   static names(): { [key: string]: string } {
     return {
@@ -57,11 +82,11 @@ export class GetJobResponseBodyJobInfoDependencyPolicy extends $dara.Model {
 export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether resources are created in the zone that corresponds to the specified vSwitch.
+   * Specifies whether the resource is created in the zone corresponding to the specified vSwitch parameter. Valid values:
    * 
-   * - true: Resources are created in the zone that corresponds to the specified vSwitch.
+   * - true: The resource is created in the zone corresponding to the specified vSwitch parameter.
    * 
-   * - false: Resources are created in any zone that has available resources.
+   * - false: The resource is created in any zone with available resources.
    * 
    * @example
    * false
@@ -69,7 +94,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $dara.Mode
   enableENIMapping?: boolean;
   /**
    * @remarks
-   * Indicates whether a public IP address is created.
+   * Specifies whether to create a public IP address.
    * 
    * @example
    * false
@@ -160,8 +185,8 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
   /**
    * @remarks
    * The computing power level. Valid values:
-   * - General: general-purpose.
-   * - Performance: performance-optimized.
+   * - General: General-purpose.
+   * - Performance: Performance-optimized.
    * 
    * Default value: General.
    * 
@@ -171,7 +196,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The network configuration.
+   * The network configuration information.
    */
   network?: GetJobResponseBodyJobInfoDeploymentPolicyNetwork;
   /**
@@ -185,11 +210,14 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
   /**
    * @remarks
    * The priority.
+   * 
+   * @example
+   * 1
    */
   priority?: number;
   /**
    * @remarks
-   * The job tag list.
+   * The list of job tags.
    */
   tags?: GetJobResponseBodyJobInfoDeploymentPolicyTags[];
   static names(): { [key: string]: string } {
@@ -230,6 +258,10 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
 }
 
 export class GetJobResponseBodyJobInfoSecurityPolicySecurityGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The security group ID array.
+   */
   securityGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -256,6 +288,10 @@ export class GetJobResponseBodyJobInfoSecurityPolicySecurityGroup extends $dara.
 }
 
 export class GetJobResponseBodyJobInfoSecurityPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The security group.
+   */
   securityGroup?: GetJobResponseBodyJobInfoSecurityPolicySecurityGroup;
   static names(): { [key: string]: string } {
     return {
@@ -284,7 +320,7 @@ export class GetJobResponseBodyJobInfoSecurityPolicy extends $dara.Model {
 export class GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec extends $dara.Model {
   /**
    * @remarks
-   * The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to IndexStart.
+   * The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
    * 
    * @example
    * 9
@@ -300,8 +336,8 @@ export class GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec extends $dara
   indexStart?: number;
   /**
    * @remarks
-   * The interval of the array job index.
-   * > If the array job properties are IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three subtasks with indexes 1, 3, and 5.
+   * The step size of the array job index.
+   * > If the array job attributes are IndexStart=1, IndexEnd=5, and IndexStep=2, the array job contains three subtasks with indexes 1, 3, and 5.
    * 
    * @example
    * 1
@@ -340,7 +376,7 @@ export class GetJobResponseBodyJobInfoTasksExecutorPolicy extends $dara.Model {
   arraySpec?: GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec;
   /**
    * @remarks
-   * The maximum number of nodes for running the job.
+   * The maximum number of nodes for job execution.
    * 
    * @example
    * 10
@@ -375,7 +411,7 @@ export class GetJobResponseBodyJobInfoTasksExecutorPolicy extends $dara.Model {
 export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $dara.Model {
   /**
    * @remarks
-   * The subtask ID.
+   * The sub-job ID.
    * 
    * @example
    * 0
@@ -383,7 +419,7 @@ export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $dara.Model {
   arrayId?: number;
   /**
    * @remarks
-   * The job creation time.
+   * The time when the job was created. The example uses the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-02-04 13:54:10
@@ -391,7 +427,7 @@ export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The job end time.
+   * The time when the job ended. The example uses the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-02-04 13:54:10
@@ -399,7 +435,7 @@ export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The job start time.
+   * The time when the job started. The example uses the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-02-04 13:54:10
@@ -415,7 +451,7 @@ export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status reason description.
+   * The description of the status reason.
    * 
    * @example
    * Creating executor
@@ -465,8 +501,8 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks extends $dara.M
    * @remarks
    * The cloud disk type. Valid values:
    * 
-   * - System: system cloud disk.
-   * - Data: data cloud disk.
+   * - System: System cloud disk.
+   * - Data: Data cloud disk.
    * 
    * @example
    * System
@@ -509,8 +545,30 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
    * The cloud disk array.
    */
   disks?: GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks[];
+  /**
+   * @remarks
+   * Specifies whether to enable hyper-threading for the runtime environment. Default value: true.
+   * 
+   * @example
+   * true
+   */
   enableHT?: boolean;
+  /**
+   * @remarks
+   * The hostname prefix of the runtime environment. The limits are as follows:
+   * 
+   * - A period (.) and a hyphen (-) cannot be used as the first or last character, and cannot be used consecutively.
+   * - Windows environment: The length cannot exceed 10 characters. Periods (.) are not supported, and the name cannot contain only digits. Uppercase and lowercase letters, digits, and hyphens (-) are allowed.
+   * - Linux environment: The length cannot exceed 32 characters. Multiple periods (.) are supported. The string between periods is considered a segment, and each segment can contain uppercase and lowercase letters, digits, and hyphens (-).
+   * 
+   * @example
+   * compute
+   */
   hostNamePrefix?: string;
+  /**
+   * @remarks
+   * The instance types of the runtime environment. A maximum of 5 instance types are supported.
+   */
   instanceTypes?: string[];
   /**
    * @remarks
@@ -558,7 +616,25 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions extends $dara.Model {
+  /**
+   * @remarks
+   * The next action for the task. Valid values:
+   * 
+   * - Retry: The job starts a new retry when a specific exit code is matched.
+   * 
+   * - Exit: The job exits when a specific exit code is matched.
+   * 
+   * @example
+   * Exit
+   */
   action?: string;
+  /**
+   * @remarks
+   * The task exit code, which is used together with Action to form a job retry rule. Valid values: 0 to 255.
+   * 
+   * @example
+   * 1
+   */
   exitCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -584,7 +660,18 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions ex
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The retry rules. A maximum of 10 rules are supported.
+   */
   exitCodeActions?: GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions[];
+  /**
+   * @remarks
+   * The number of retries. Valid values: 1 to 10. Default value: 3.
+   * 
+   * @example
+   * 3
+   */
   retryCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -623,7 +710,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.
   image?: string;
   /**
    * @remarks
-   * The pre-processing script. The script must be Base64-encoded.
+   * The pre-processing script. Base64 encoding is required.
    * 
    * @example
    * ZWNobyAiMTIzNCIgPiBgZGF0ZSArJXNg
@@ -631,7 +718,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.
   prologScript?: string;
   /**
    * @remarks
-   * The job execution script. The script must be Base64-encoded.
+   * The script used to run the job. Base64 encoding is required.
    * 
    * @example
    * ZWNobyAiMTIzNCIgPiBgZGF0ZSArJXNg
@@ -665,7 +752,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.
 export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor extends $dara.Model {
   /**
    * @remarks
-   * The ECS instance configuration.
+   * The ECS instance used.
    */
   VM?: GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM;
   static names(): { [key: string]: string } {
@@ -693,8 +780,38 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor extends $dara.Mo
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecVolumeMount extends $dara.Model {
+  /**
+   * @remarks
+   * The list of mount parameters for the data volume. The parameters are key-value pairs in JSON format.
+   * - Format for mounting a NAS file system: {"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
+   * > server specifies the mount target address of the NAS file system. path specifies the subdirectory under the NAS path, which must start with / and must already exist. vers specifies the NFS protocol version used to mount the NAS file system. Use v3. options specifies the custom parameters used when mounting the NAS file system, in the format of "xxx,xxx,xxx".
+   * 
+   * - Format for mounting an OSS bucket: {"bucket":"xxxxx", "url":"oss-cn-heyuan-internal.aliyuncs.com","path":"/data","akId":"xxxxx","akSecret":"xxxxx"}
+   * > bucket specifies the name of the OSS bucket. url specifies the endpoint of the OSS bucket. You can log on to the OSS console and obtain the endpoint on the Overview page of the bucket. path specifies the directory structure relative to the root directory of the bucket when mounting. The default value is /, and the directory must already exist. akId specifies the AccessKey ID used for direct authorization with an AccessKey pair. akSecret specifies the AccessKey secret used for direct authorization with an AccessKey pair.
+   * 
+   * @example
+   * {"bucket":"demo-bucket","otherOpts":"-o allow_other","url":"oss-cn-hangzhou.aliyuncs.com"}
+   */
   mountOptions?: string;
+  /**
+   * @remarks
+   * The directory where the data volume is mounted to the task.
+   * 
+   * > The content in the mount directory will be directly overwritten by the content of the volume. Use this parameter with caution.
+   * 
+   * @example
+   * /cromwell_inputs/1234abcd
+   */
   mountPath?: string;
+  /**
+   * @remarks
+   * The supported data volume types. Valid values:
+   * - alicloud/nas: Mount a NAS file system.
+   * - alicloud/oss: Mount an OSS bucket.
+   * 
+   * @example
+   * alicloud/nas
+   */
   volumeDriver?: string;
   static names(): { [key: string]: string } {
     return {
@@ -727,12 +844,20 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
    * The resource information.
    */
   resource?: GetJobResponseBodyJobInfoTasksTaskSpecResource;
+  /**
+   * @remarks
+   * The task retry policy.
+   */
   retryPolicy?: GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy;
   /**
    * @remarks
    * The task execution configuration.
    */
   taskExecutor?: GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor[];
+  /**
+   * @remarks
+   * The list of data volumes mounted to the task. A maximum of 10 data volumes are supported.
+   */
   volumeMount?: GetJobResponseBodyJobInfoTasksTaskSpecVolumeMount[];
   static names(): { [key: string]: string } {
     return {
@@ -799,7 +924,7 @@ export class GetJobResponseBodyJobInfoTasks extends $dara.Model {
   taskSpec?: GetJobResponseBodyJobInfoTasksTaskSpec;
   /**
    * @remarks
-   * Indicates whether the job is a long-running job.
+   * Specifies whether the job is a long-running job.
    * 
    * @example
    * true
@@ -846,7 +971,7 @@ export class GetJobResponseBodyJobInfoTasks extends $dara.Model {
 export class GetJobResponseBodyJobInfo extends $dara.Model {
   /**
    * @remarks
-   * The application additional information.
+   * The additional application information.
    * 
    * @example
    * {\\"xxx\\": \\"xxxxx\\"}
@@ -854,12 +979,16 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
   appExtraInfo?: string;
   /**
    * @remarks
-   * The job submission time.
+   * The time when the job was submitted. The example uses the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-03-05 20:00:46
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The dependency policy.
+   */
   dependencyPolicy?: GetJobResponseBodyJobInfoDependencyPolicy;
   /**
    * @remarks
@@ -868,7 +997,7 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
   deploymentPolicy?: GetJobResponseBodyJobInfoDeploymentPolicy;
   /**
    * @remarks
-   * The job end time.
+   * The time when the job ended. The example uses the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-03-05 20:01:48
@@ -899,10 +1028,14 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
    */
   jobName?: string;
   jobScheduler?: string;
+  /**
+   * @remarks
+   * The security policy.
+   */
   securityPolicy?: GetJobResponseBodyJobInfoSecurityPolicy;
   /**
    * @remarks
-   * The job start time.
+   * The time when the job started. The example uses the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-03-05 20:00:48
@@ -915,13 +1048,13 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
    * - Pending: The job is queued.
    * - Initing: The job is being initialized.
    * - Succeed: The job ran successfully.
-   * - Failed: The job failed.
+   * - Failed: The job failed to run.
    * - Running: The job is running.
    * - Exception: A scheduling exception occurred.
    * - Retrying: The job is being retried.
    * - Expired: The job timed out.
-   * - Deleted: The job has been deleted.
-   * - Suspended: The job is in hibernation.
+   * - Deleted: The job is deleted.
+   * - Suspended: The job is hibernated.
    * - Restarting: The job is being restarted.
    * 
    * @example
