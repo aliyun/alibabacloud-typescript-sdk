@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "ModelStudio";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("modelstudio", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -191,7 +195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+   * Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
    * 
    * @param request - CreateApiKeyRequest
    * @param headers - map
@@ -234,7 +238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+   * Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
    * 
    * @param request - CreateApiKeyRequest
    * @returns CreateApiKeyResponse
@@ -713,7 +717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the billing trends.
+   * Queries billing trends.
    * 
    * @param tmpReq - GetBillingTrendRequest
    * @param headers - map
@@ -792,7 +796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the billing trends.
+   * Queries billing trends.
    * 
    * @param request - GetBillingTrendRequest
    * @returns GetBillingTrendResponse
@@ -888,7 +892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on seat details.
+   * Performs a paged query on seat details with paging.
    * 
    * @param request - GetSubscriptionSeatDetailsRequest
    * @param headers - map
@@ -898,6 +902,10 @@ export default class Client extends OpenApi {
   async getSubscriptionSeatDetailsWithOptions(request: $_model.GetSubscriptionSeatDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSubscriptionSeatDetailsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceCode)) {
+      query["InstanceCode"] = request.instanceCode;
+    }
+
     if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
@@ -941,7 +949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on seat details.
+   * Performs a paged query on seat details with paging.
    * 
    * @param request - GetSubscriptionSeatDetailsRequest
    * @returns GetSubscriptionSeatDetailsResponse
@@ -1194,7 +1202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries model throttling for a workspace.
+   * Queries the model throttling configurations for a workspace.
    * 
    * @param request - ListModelLimitsRequest
    * @param headers - map
@@ -1243,7 +1251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries model throttling for a workspace.
+   * Queries the model throttling configurations for a workspace.
    * 
    * @param request - ListModelLimitsRequest
    * @returns ListModelLimitsResponse
@@ -1652,7 +1660,7 @@ export default class Client extends OpenApi {
    * Resets an API key.
    * 
    * @remarks
-   * Only the API key value changes. The API key ID remains unchanged.
+   * Only the API key changes. The API key ID remains unchanged.
    * 
    * @param request - ResetApiKeyRequest
    * @param headers - map
@@ -1682,7 +1690,7 @@ export default class Client extends OpenApi {
    * Resets an API key.
    * 
    * @remarks
-   * Only the API key value changes. The API key ID remains unchanged.
+   * Only the API key changes. The API key ID remains unchanged.
    * 
    * @param request - ResetApiKeyRequest
    * @returns ResetApiKeyResponse
@@ -1733,7 +1741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets a UAC API key.
+   * Resets the UAC API key.
    * 
    * @remarks
    * Only the API key changes. The API key ID remains unchanged.
@@ -1769,7 +1777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets a UAC API key.
+   * Resets the UAC API key.
    * 
    * @remarks
    * Only the API key changes. The API key ID remains unchanged.

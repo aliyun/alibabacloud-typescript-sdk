@@ -18,7 +18,7 @@ export class GetBillingOverviewResponseBodyDataGroups extends $dara.Model {
   articleCodes?: string[];
   /**
    * @remarks
-   * The value of the grouping dimension. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+   * The value of the grouping dimension. If the value is empty, DIMENSION_FILTER_NULL_VALUE is returned.
    * 
    * @example
    * inference
@@ -26,7 +26,7 @@ export class GetBillingOverviewResponseBodyDataGroups extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+   * The display name of the group, which is affected by the locale parameter. If the value is empty, a hyphen (-) is displayed.
    * 
    * @example
    * Model invocation
@@ -158,7 +158,7 @@ export class GetBillingOverviewResponseBody extends $dara.Model {
   data?: GetBillingOverviewResponseBodyData;
   /**
    * @remarks
-   * The description of the request result.
+   * The result message of the request.
    * 
    * @example
    * null

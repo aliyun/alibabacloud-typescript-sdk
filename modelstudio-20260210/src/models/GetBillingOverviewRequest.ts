@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillingOverviewRequestFilterDimensions extends $dara.Model {
   /**
    * @remarks
-   * The filter field. For more information, see the "Additional notes" section below.
+   * The filter field. For more information, see the supplementary notes below.
    * 
    * @example
    * CHARGE_TYPE
@@ -85,7 +85,7 @@ export class GetBillingOverviewRequestFilter extends $dara.Model {
 export class GetBillingOverviewRequestGroupBy extends $dara.Model {
   /**
    * @remarks
-   * The code of the grouping dimension. For more information, see the "Additional notes" section below.
+   * The code of the grouping dimension. For more information, see the supplementary notes below.
    * 
    * @example
    * BASE_MODEL
@@ -115,7 +115,7 @@ export class GetBillingOverviewRequestGroupBy extends $dara.Model {
 export class GetBillingOverviewRequestTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. This time point is included in the query range. The format is determined by granularity.
+   * The end time of the query. This time point is included. The format is determined by `granularity`.
    * 
    * @example
    * 202609
@@ -123,7 +123,7 @@ export class GetBillingOverviewRequestTimePeriod extends $dara.Model {
   end?: string;
   /**
    * @remarks
-   * The start time of the query. This time point is included in the query range. The format is determined by granularity.
+   * The start time of the query. This time point is included. The format is determined by `granularity`.
    * 
    * @example
    * 202609
@@ -176,7 +176,7 @@ export class GetBillingOverviewRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
+   * The list of grouping conditions. Currently, exactly one grouping dimension must be specified.
    */
   groupBy?: GetBillingOverviewRequestGroupBy[];
   /**
@@ -197,7 +197,7 @@ export class GetBillingOverviewRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The query time range, which includes the start and end times. Both the start and end times are included in the query range. The time format must be consistent with the granularity, and the start time cannot be later than the end time.
+   * The query time range, which includes start and end. Both the start time and end time are included in the query range. The time format must be consistent with granularity, and start cannot be later than end.
    */
   timePeriod?: GetBillingOverviewRequestTimePeriod;
   /**

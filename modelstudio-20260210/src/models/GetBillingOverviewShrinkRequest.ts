@@ -26,7 +26,7 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
+   * The list of grouping conditions. Currently, exactly one grouping dimension must be specified.
    */
   groupByShrink?: string;
   /**
@@ -47,7 +47,7 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The query time range, which includes the start and end times. Both the start and end times are included in the query range. The time format must be consistent with the granularity, and the start time cannot be later than the end time.
+   * The query time range, which includes start and end. Both the start time and end time are included in the query range. The time format must be consistent with granularity, and start cannot be later than end.
    */
   timePeriodShrink?: string;
   /**

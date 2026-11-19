@@ -13,7 +13,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList extends $
   cycleEndTime?: number;
   /**
    * @remarks
-   * The entitlement code (subscription code). Consumption is not required in the credits scenario.
+   * The entitlement code. This is the subscription code and is not required for consumption in the credits scenario.
    * 
    * @example
    * 123456
@@ -103,7 +103,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
   accountEmail?: string;
   /**
    * @remarks
-   * The ID of the attached member accounts.
+   * The ID of the member accounts to attach.
    * 
    * @example
    * acc_123456789
@@ -121,8 +121,8 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
    * @remarks
    * The assignment status. Valid values:
    * 
-   * - ASSIGNED
-   * - UNASSIGNED
+   * - ASSIGNED: Assigned.
+   * - UNASSIGNED: Unassigned.
    * 
    * @example
    * ASSIGNED
@@ -138,7 +138,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
   endTime?: number;
   /**
    * @remarks
-   * The active entitlement instances. For the TokenPlan product, this list contains only one active entitlement instance.
+   * The currently active entitlement instances. For the TokenPlan product, this list contains only one active entitlement instance.
    */
   equityList?: GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList[];
   /**
@@ -161,9 +161,9 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
    * @remarks
    * The seat type. Valid values: 
    * 
-   * - standard: standard seat
-   * - pro: advanced seat
-   * - max: premium seat
+   * - standard: Standard seat.
+   * - pro: Pro seat.
+   * - max: Premium seat.
    * 
    * @example
    * standard
@@ -181,12 +181,12 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
    * @remarks
    * The seat status. Valid values:
    * 
-   * - CREATING: creating
-   * - NORMAL: valid
-   * - LIMIT: restricted due to overdue payment
-   * - RELEASE: released upon expiration
-   * - STOP: stopped upon expiration
-   * - REFUNDED: refunded
+   * - CREATING: Creating.
+   * - NORMAL: Valid.
+   * - LIMIT: Restricted due to overdue payment.
+   * - RELEASE: Released upon expiration.
+   * - STOP: Stopped upon expiration.
+   * - REFUNDED: Refunded.
    * 
    * @example
    * NORMAL
@@ -320,10 +320,10 @@ export class GetSubscriptionSeatDetailsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * - true: successful
-   * - false: failed
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True

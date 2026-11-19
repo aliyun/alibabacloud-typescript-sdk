@@ -203,7 +203,7 @@ export class GetBillingTrendResponseBodyDataHistoryPeriodGroupByTotal extends $d
   amount?: string;
   /**
    * @remarks
-   * The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+   * The dimension value of the group. A null value returns DIMENSION_FILTER_NULL_VALUE.
    * 
    * @example
    * qwen-plus
@@ -211,7 +211,7 @@ export class GetBillingTrendResponseBodyDataHistoryPeriodGroupByTotal extends $d
   key?: string;
   /**
    * @remarks
-   * The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+   * The display name of the group, which is affected by the locale parameter. A null value is displayed as a hyphen (-).
    * 
    * @example
    * qwen-plus
@@ -273,7 +273,7 @@ export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTimePeriodDetai
   amount?: string;
   /**
    * @remarks
-   * The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+   * The dimension value of the group. A null value returns DIMENSION_FILTER_NULL_VALUE.
    * 
    * @example
    * qwen-plus
@@ -281,7 +281,7 @@ export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTimePeriodDetai
   key?: string;
   /**
    * @remarks
-   * The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+   * The display name of the group, which is affected by the locale parameter. A null value is displayed as a hyphen (-).
    * 
    * @example
    * qwen-plus
@@ -289,7 +289,7 @@ export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTimePeriodDetai
   name?: string;
   /**
    * @remarks
-   * The percentage of the group amount.
+   * The proportion of the group amount.
    * 
    * @example
    * 0.5
@@ -418,7 +418,7 @@ export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTime extends $d
   periodDetails?: GetBillingTrendResponseBodyDataHistoryPeriodResultByTimePeriodDetails[];
   /**
    * @remarks
-   * The total costs of the current period.
+   * The total cost of the current period.
    */
   total?: GetBillingTrendResponseBodyDataHistoryPeriodResultByTimeTotal;
   static names(): { [key: string]: string } {
@@ -455,12 +455,12 @@ export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTime extends $d
 export class GetBillingTrendResponseBodyDataHistoryPeriod extends $dara.Model {
   /**
    * @remarks
-   * The total costs within the historical range, including the top N items and Other.
+   * The total cost within the historical range, including the top N groups and Others.
    */
   costTotals?: GetBillingTrendResponseBodyDataHistoryPeriodCostTotals;
   /**
    * @remarks
-   * The total costs of the top N groups and the optional Other group within the historical period.
+   * The total cost of the top N groups and the optional Others group within the historical period.
    */
   groupByTotal?: GetBillingTrendResponseBodyDataHistoryPeriodGroupByTotal[];
   /**
@@ -505,7 +505,7 @@ export class GetBillingTrendResponseBodyDataHistoryPeriod extends $dara.Model {
 export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $dara.Model {
   /**
    * @remarks
-   * The amount of the group in the current period.
+   * The amount of the group within the current period.
    * 
    * @example
    * 20
@@ -513,7 +513,7 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
   amount?: string;
   /**
    * @remarks
-   * The dimension value of the group. For data other than the top N items, DIMENSION_GROUP_OTHERS_VALUE is used.
+   * The dimension value of the group. Data other than the top N uses DIMENSION_GROUP_OTHERS_VALUE.
    * 
    * @example
    * qwen-plus
@@ -529,7 +529,7 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
   name?: string;
   /**
    * @remarks
-   * The ratio of the current group amount to the total amount of the current period.
+   * The proportion of the current group amount to the total amount of the current period.
    * 
    * @example
    * 0.6667
@@ -537,7 +537,7 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
   percentage?: string;
   /**
    * @remarks
-   * The pretax amount of the group in the current period.
+   * The pretax amount of the group within the current period.
    * 
    * @example
    * 18.87
@@ -545,7 +545,7 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
   pretaxAmount?: string;
   /**
    * @remarks
-   * The tax amount of the group in the current period.
+   * The tax amount of the group within the current period.
    * 
    * @example
    * 1.13
@@ -593,7 +593,7 @@ export class GetBillingTrendResponseBodyDataResultByTimeTotal extends $dara.Mode
   amount?: string;
   /**
    * @remarks
-   * The currency of the amount in the current period.
+   * The currency of the amount for the current period.
    * 
    * @example
    * CNY
@@ -658,7 +658,7 @@ export class GetBillingTrendResponseBodyDataResultByTime extends $dara.Model {
   periodDetails?: GetBillingTrendResponseBodyDataResultByTimePeriodDetails[];
   /**
    * @remarks
-   * The total costs of the current period.
+   * The total cost of the current period.
    */
   total?: GetBillingTrendResponseBodyDataResultByTimeTotal;
   static names(): { [key: string]: string } {
@@ -695,12 +695,12 @@ export class GetBillingTrendResponseBodyDataResultByTime extends $dara.Model {
 export class GetBillingTrendResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total costs within the entire query time range, including the top N items and Other.
+   * The total cost within the entire query time range, including the top N groups and Others.
    */
   costTotals?: GetBillingTrendResponseBodyDataCostTotals;
   /**
    * @remarks
-   * The total costs of the top N groups and the optional Other group within the period.
+   * The total cost of the top N groups and the optional Others group within the period.
    */
   groupByTotal?: GetBillingTrendResponseBodyDataGroupByTotal[];
   /**
@@ -755,7 +755,7 @@ export class GetBillingTrendResponseBodyData extends $dara.Model {
 export class GetBillingTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request result code.
+   * The result code of the request.
    * 
    * @example
    * 200
@@ -768,7 +768,7 @@ export class GetBillingTrendResponseBody extends $dara.Model {
   data?: GetBillingTrendResponseBodyData;
   /**
    * @remarks
-   * The description of the request result.
+   * The result message of the request.
    * 
    * @example
    * null

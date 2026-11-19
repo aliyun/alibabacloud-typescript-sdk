@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillingTrendShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The dimension filter condition.
+   * The dimension filter conditions.
    */
   filterShrink?: string;
   /**
@@ -47,7 +47,7 @@ export class GetBillingTrendShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time range to query, including the start time and end time. This parameter is required.
+   * The time range for the query, which includes the start time and end time. This parameter is required.
    */
   timePeriodShrink?: string;
   /**

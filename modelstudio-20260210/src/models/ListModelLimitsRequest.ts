@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelLimitsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results. Valid values: 0 to 200.
+   * The maximum number of results to return. Valid values: 0 to 200.
    * 
    * @example
    * 30
@@ -13,7 +13,7 @@ export class ListModelLimitsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The single model for exact match.
+   * The model for exact match.
    * 
    * @example
    * qwen-plus
@@ -29,7 +29,7 @@ export class ListModelLimitsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page token.
+   * The next token.
    * 
    * @example
    * lwytFRtLdNk=

@@ -14,7 +14,7 @@ export class CreateApiKeyResponseBodyApiKey extends $dara.Model {
   /**
    * @remarks
    * The value of the API key.
-   * >Notice: Copy your API key immediately. Keep it secure. Anyone who obtains this key can initiate service requests and incur charges on your behalf. If the key is lost, you can reset it or create a new one.
+   * >Notice: Copy your API key immediately and keep it secure. Anyone who obtains this key can initiate service requests and incur charges on your behalf. If the key is lost, you can reset it or create a new one.
    * 
    * @example
    * sk-ws-djI.8O7dkfkW2aICctnid4u4
@@ -123,7 +123,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request is successful.
    * - true: The request is successful.
    * - false: The request fails.
    * 

@@ -125,7 +125,7 @@ export class ListModelsResponseBodyModelsModelInfo extends $dara.Model {
 export class ListModelsResponseBodyModelsPricesPrices extends $dara.Model {
   /**
    * @remarks
-   * The price. The currency unit depends on the account type: ￥ for accounts in the Chinese mainland and $ for international accounts.
+   * The price. The currency depends on the account type: CNY (￥) for accounts in the Chinese mainland and USD ($) for international accounts.
    * 
    * @example
    * 12
@@ -141,7 +141,7 @@ export class ListModelsResponseBodyModelsPricesPrices extends $dara.Model {
   priceName?: string;
   /**
    * @remarks
-   * The billing method.
+   * The pricing unit.
    * 
    * @example
    * Per 1M tokens
@@ -152,7 +152,7 @@ export class ListModelsResponseBodyModelsPricesPrices extends $dara.Model {
    * The time band. Valid values:
    * - peak: Peak hours.
    * - offpeak: Off-peak hours.
-   * - standard: No time-based tiering.
+   * - standard: No time band distinction.
    * 
    * @example
    * standard
@@ -193,7 +193,7 @@ export class ListModelsResponseBodyModelsPrices extends $dara.Model {
   prices?: ListModelsResponseBodyModelsPricesPrices[];
   /**
    * @remarks
-   * The tier name. If tiered pricing is not used, the value is Default.
+   * The name of the pricing tier. If tiered pricing is not used, the value is Default.
    * 
    * @example
    * Default
@@ -348,7 +348,7 @@ export class ListModelsResponseBodyModels extends $dara.Model {
 export class ListModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This field is empty when the call is successful.
+   * The error code. This field is empty if the call is successful.
    * 
    * @example
    * 200
@@ -356,7 +356,7 @@ export class ListModelsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This field is empty when the call is successful.
+   * The error message. This field is empty if the call is successful.
    * 
    * @example
    * The specified parameter is invalid

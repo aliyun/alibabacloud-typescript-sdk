@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetApiKeyResponseBodyApiKey extends $dara.Model {
   /**
    * @remarks
-   * API Key ID。
+   * The API key ID.
    * 
    * @example
    * 2965964
@@ -92,9 +92,9 @@ export class ResetApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

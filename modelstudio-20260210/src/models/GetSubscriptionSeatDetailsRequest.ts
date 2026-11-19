@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1. Valid values: positive integers.
+   * The instance code of the seat.
+   * 
+   * @example
+   * subs_xxxxx
+   */
+  instanceCode?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1. Valid values: a positive integer.
    * 
    * @example
    * 1
@@ -21,11 +29,11 @@ export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The filter for the seat assignment status. Valid values:
+   * Specifies whether to filter by seat assignment status. Valid values:
    * 
-   * - true: assigned
-   * - false: unassigned
-   * - null: all
+   * - true: Assigned.
+   * - false: Unassigned.
+   * - null: All.
    * 
    * @example
    * true
@@ -41,11 +49,11 @@ export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
   seatId?: string;
   /**
    * @remarks
-   * The seat type (specType). Valid values:
+   * The seat type. Valid values:
    * 
-   * - standard: standard seat
-   * - pro: advanced seat
-   * - max: premium seat
+   * - standard: Standard seat.
+   * - pro: Pro seat.
+   * - max: Premium seat.
    * 
    * @example
    * standard
@@ -58,6 +66,7 @@ export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
   statusList?: string[];
   static names(): { [key: string]: string } {
     return {
+      instanceCode: 'InstanceCode',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       queryAssigned: 'QueryAssigned',
@@ -69,6 +78,7 @@ export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceCode: 'string',
       pageNo: 'number',
       pageSize: 'number',
       queryAssigned: 'boolean',

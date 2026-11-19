@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillingTrendRequestFilterDimensions extends $dara.Model {
   /**
    * @remarks
-   * The filter dimension code. For more information, see the "Additional notes" section below.
+   * The code of the filter dimension. For more information, see the "Additional notes" section below.
    * 
    * @example
    * CHARGE_TYPE
@@ -85,7 +85,7 @@ export class GetBillingTrendRequestFilter extends $dara.Model {
 export class GetBillingTrendRequestGroupBy extends $dara.Model {
   /**
    * @remarks
-   * The grouping dimension code. For more information, see the "Additional notes" section below.
+   * The code of the grouping dimension. For more information, see the "Additional notes" section below.
    * 
    * @example
    * BASE_MODEL
@@ -155,7 +155,7 @@ export class GetBillingTrendRequestTimePeriod extends $dara.Model {
 export class GetBillingTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The dimension filter condition.
+   * The dimension filter conditions.
    */
   filter?: GetBillingTrendRequestFilter;
   /**
@@ -197,7 +197,7 @@ export class GetBillingTrendRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time range to query, including the start time and end time. This parameter is required.
+   * The time range for the query, which includes the start time and end time. This parameter is required.
    */
   timePeriod?: GetBillingTrendRequestTimePeriod;
   /**

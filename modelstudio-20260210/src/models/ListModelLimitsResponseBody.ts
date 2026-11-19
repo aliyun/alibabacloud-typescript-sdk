@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of concurrent requests.
+   * The maximum concurrency.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   asyncUserConcurrencyLimit?: number;
   /**
    * @remarks
-   * The number of queued requests.
+   * The queue limit.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   asyncUserQueueLimit?: number;
   /**
    * @remarks
-   * The request throttling value.
+   * The request throttling limit.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   requestLimit?: number;
   /**
    * @remarks
-   * The time period for request throttling. Unit: seconds.
+   * The time period for request throttling, in seconds.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   requestLimitPeriod?: number;
   /**
    * @remarks
-   * The usage throttling value.
+   * The usage throttling limit.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   usageLimit?: number;
   /**
    * @remarks
-   * The usage throttling unit.
+   * The unit for usage throttling.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
   usageLimitField?: string;
   /**
    * @remarks
-   * The time period for usage throttling. Unit: seconds.
+   * The time period for usage throttling, in seconds.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class ListModelLimitsResponseBodyLimitsModelLimit extends $dara.Model {
 export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of concurrent requests.
+   * The maximum concurrency.
    * 
    * @example
    * 10
@@ -103,7 +103,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   asyncUserConcurrencyLimit?: number;
   /**
    * @remarks
-   * The number of queued requests.
+   * The queue limit.
    * 
    * @example
    * 10
@@ -111,7 +111,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   asyncUserQueueLimit?: number;
   /**
    * @remarks
-   * The request throttling value.
+   * The request throttling limit.
    * 
    * @example
    * 10
@@ -119,7 +119,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   requestLimit?: number;
   /**
    * @remarks
-   * The time period for request throttling. Unit: seconds.
+   * The time period for request throttling, in seconds.
    * 
    * @example
    * 1
@@ -127,7 +127,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   requestLimitPeriod?: number;
   /**
    * @remarks
-   * The usage throttling value.
+   * The usage throttling limit.
    * 
    * @example
    * 10
@@ -135,7 +135,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   usageLimit?: number;
   /**
    * @remarks
-   * The usage throttling unit.
+   * The unit for usage throttling.
    * 
    * @example
    * token
@@ -143,7 +143,7 @@ export class ListModelLimitsResponseBodyLimitsWorkspaceLimit extends $dara.Model
   usageLimitField?: string;
   /**
    * @remarks
-   * The time period for usage throttling. Unit: seconds.
+   * The time period for usage throttling, in seconds.
    * 
    * @example
    * 1
@@ -193,7 +193,7 @@ export class ListModelLimitsResponseBodyLimits extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The model throttling for the current user account.
+   * The model throttling configurations for the current user account.
    */
   modelLimit?: ListModelLimitsResponseBodyLimitsModelLimit;
   /**
@@ -214,7 +214,7 @@ export class ListModelLimitsResponseBodyLimits extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The custom model throttling for the current workspace.
+   * The custom model throttling configurations for the current workspace.
    */
   workspaceLimit?: ListModelLimitsResponseBodyLimitsWorkspaceLimit;
   static names(): { [key: string]: string } {
@@ -308,7 +308,7 @@ export class ListModelLimitsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true
