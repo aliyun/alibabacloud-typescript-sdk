@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "mPaaS";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "mpaas.aliyuncs.com",
@@ -3315,6 +3319,10 @@ export default class Client extends OpenApi {
       body["TargetMsgkey"] = request.targetMsgkey;
     }
 
+    if (!$dara.isNull(request.targetVendorTemplate)) {
+      body["TargetVendorTemplate"] = request.targetVendorTemplate;
+    }
+
     if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
@@ -3343,8 +3351,16 @@ export default class Client extends OpenApi {
       body["Uri"] = request.uri;
     }
 
+    if (!$dara.isNull(request.useVoip)) {
+      body["UseVoip"] = request.useVoip;
+    }
+
     if (!$dara.isNull(request.vendorTemplate)) {
       body["VendorTemplate"] = request.vendorTemplate;
+    }
+
+    if (!$dara.isNull(request.voipMap)) {
+      body["VoipMap"] = request.voipMap;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -3463,6 +3479,10 @@ export default class Client extends OpenApi {
       body["TargetMsgkey"] = request.targetMsgkey;
     }
 
+    if (!$dara.isNull(request.targetVendorTemplate)) {
+      body["TargetVendorTemplate"] = request.targetVendorTemplate;
+    }
+
     if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
@@ -3491,8 +3511,16 @@ export default class Client extends OpenApi {
       body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
     }
 
+    if (!$dara.isNull(request.useVoip)) {
+      body["UseVoip"] = request.useVoip;
+    }
+
     if (!$dara.isNull(request.vendorTemplate)) {
       body["VendorTemplate"] = request.vendorTemplate;
+    }
+
+    if (!$dara.isNull(request.voipMap)) {
+      body["VoipMap"] = request.voipMap;
     }
 
     if (!$dara.isNull(request.workspaceId)) {

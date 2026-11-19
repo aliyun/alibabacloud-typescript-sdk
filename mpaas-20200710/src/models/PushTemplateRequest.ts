@@ -36,6 +36,7 @@ export class PushTemplateRequest extends $dara.Model {
    * This parameter is required.
    */
   targetMsgkey?: string;
+  targetVendorTemplate?: string;
   taskName?: string;
   templateKeyValue?: string;
   /**
@@ -47,7 +48,9 @@ export class PushTemplateRequest extends $dara.Model {
   thirdChannelCategory?: { [key: string]: any };
   transparentMessagePayload?: any;
   transparentMessageUrgency?: string;
+  useVoip?: boolean;
   vendorTemplate?: string;
+  voipMap?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -72,6 +75,7 @@ export class PushTemplateRequest extends $dara.Model {
       strategyContent: 'StrategyContent',
       strategyType: 'StrategyType',
       targetMsgkey: 'TargetMsgkey',
+      targetVendorTemplate: 'TargetVendorTemplate',
       taskName: 'TaskName',
       templateKeyValue: 'TemplateKeyValue',
       templateName: 'TemplateName',
@@ -79,7 +83,9 @@ export class PushTemplateRequest extends $dara.Model {
       thirdChannelCategory: 'ThirdChannelCategory',
       transparentMessagePayload: 'TransparentMessagePayload',
       transparentMessageUrgency: 'TransparentMessageUrgency',
+      useVoip: 'UseVoip',
       vendorTemplate: 'VendorTemplate',
+      voipMap: 'VoipMap',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -103,6 +109,7 @@ export class PushTemplateRequest extends $dara.Model {
       strategyContent: 'string',
       strategyType: 'number',
       targetMsgkey: 'string',
+      targetVendorTemplate: 'string',
       taskName: 'string',
       templateKeyValue: 'string',
       templateName: 'string',
@@ -110,7 +117,9 @@ export class PushTemplateRequest extends $dara.Model {
       thirdChannelCategory: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       transparentMessagePayload: 'any',
       transparentMessageUrgency: 'string',
+      useVoip: 'boolean',
       vendorTemplate: 'string',
+      voipMap: 'string',
       workspaceId: 'string',
     };
   }
