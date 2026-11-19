@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuotaUsage extends $dara.Model {
   /**
    * @remarks
-   * The consumed CPU quota in vCPUs, not the CPU utilization.
+   * The consumed CPU quota in vCPUs, which does not represent CPU utilization.
    * 
    * @example
    * 1
@@ -21,17 +21,26 @@ export class QuotaUsage extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The consumed memory quota in GB, not the actual memory used by processes.
+   * The consumed memory quota in GB, which does not represent the actual memory used by processes.
    * 
    * @example
    * 1.5
    */
   memoryGB?: number;
+  /**
+   * @remarks
+   * The number of cores consumed from the team\\"s exclusive CPU creation quota that have not yet been naturally replenished. This is not the cumulative creation volume over the last minute. This field is omitted when no valid exclusive bucket snapshot is available, and actual zeros and decimals are retained.
+   * 
+   * @example
+   * 19.875
+   */
+  scalingCpuCoresPerMinute?: number;
   static names(): { [key: string]: string } {
     return {
       cpuCores: 'cpuCores',
       instanceCount: 'instanceCount',
       memoryGB: 'memoryGB',
+      scalingCpuCoresPerMinute: 'scalingCpuCoresPerMinute',
     };
   }
 
@@ -40,6 +49,7 @@ export class QuotaUsage extends $dara.Model {
       cpuCores: 'number',
       instanceCount: 'number',
       memoryGB: 'number',
+      scalingCpuCoresPerMinute: 'number',
     };
   }
 

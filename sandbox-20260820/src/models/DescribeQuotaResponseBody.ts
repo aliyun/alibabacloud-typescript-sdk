@@ -15,7 +15,7 @@ export class DescribeQuotaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. A value of success indicates success.
+   * The response message. A value of success indicates a successful request.
    * 
    * @example
    * success
