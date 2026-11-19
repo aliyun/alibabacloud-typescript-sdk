@@ -15,12 +15,14 @@ export class PushMultipleRequestTargetMsg extends $dara.Model {
    */
   target?: string;
   templateKeyValue?: string;
+  vendorTemplate?: string;
   static names(): { [key: string]: string } {
     return {
       extendedParams: 'ExtendedParams',
       msgKey: 'MsgKey',
       target: 'Target',
       templateKeyValue: 'TemplateKeyValue',
+      vendorTemplate: 'VendorTemplate',
     };
   }
 
@@ -30,6 +32,7 @@ export class PushMultipleRequestTargetMsg extends $dara.Model {
       msgKey: 'string',
       target: 'string',
       templateKeyValue: 'string',
+      vendorTemplate: 'string',
     };
   }
 

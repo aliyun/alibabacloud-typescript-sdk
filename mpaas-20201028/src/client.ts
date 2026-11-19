@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "mPaaS";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "mpaas.aliyuncs.com",
@@ -6666,6 +6670,10 @@ export default class Client extends OpenApi {
       body["TargetMsgkey"] = request.targetMsgkey;
     }
 
+    if (!$dara.isNull(request.targetVendorTemplate)) {
+      body["TargetVendorTemplate"] = request.targetVendorTemplate;
+    }
+
     if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
@@ -6694,8 +6702,16 @@ export default class Client extends OpenApi {
       body["Uri"] = request.uri;
     }
 
+    if (!$dara.isNull(request.useVoip)) {
+      body["UseVoip"] = request.useVoip;
+    }
+
     if (!$dara.isNull(request.vendorTemplate)) {
       body["VendorTemplate"] = request.vendorTemplate;
+    }
+
+    if (!$dara.isNull(request.voipMap)) {
+      body["VoipMap"] = request.voipMap;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -6832,6 +6848,10 @@ export default class Client extends OpenApi {
       body["TargetMsgkey"] = request.targetMsgkey;
     }
 
+    if (!$dara.isNull(request.targetVendorTemplate)) {
+      body["TargetVendorTemplate"] = request.targetVendorTemplate;
+    }
+
     if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
@@ -6860,8 +6880,16 @@ export default class Client extends OpenApi {
       body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
     }
 
+    if (!$dara.isNull(request.useVoip)) {
+      body["UseVoip"] = request.useVoip;
+    }
+
     if (!$dara.isNull(request.vendorTemplate)) {
       body["VendorTemplate"] = request.vendorTemplate;
+    }
+
+    if (!$dara.isNull(request.voipMap)) {
+      body["VoipMap"] = request.voipMap;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -8752,6 +8780,64 @@ export default class Client extends OpenApi {
   async startUserAppAsyncEnhanceInMsa(request: $_model.StartUserAppAsyncEnhanceInMsaRequest): Promise<$_model.StartUserAppAsyncEnhanceInMsaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startUserAppAsyncEnhanceInMsaWithOptions(request, runtime);
+  }
+
+  /**
+   * 同步小游戏实际上线状态
+   * 
+   * @param request - SyncMiniGameOnlineStatusByAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncMiniGameOnlineStatusByAppResponse
+   */
+  async syncMiniGameOnlineStatusByAppWithOptions(request: $_model.SyncMiniGameOnlineStatusByAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncMiniGameOnlineStatusByAppResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.miniProgramCode)) {
+      body["MiniProgramCode"] = request.miniProgramCode;
+    }
+
+    if (!$dara.isNull(request.onlineStatus)) {
+      body["OnlineStatus"] = request.onlineStatus;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncMiniGameOnlineStatusByApp",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncMiniGameOnlineStatusByAppResponse>(await this.callApi(params, req, runtime), new $_model.SyncMiniGameOnlineStatusByAppResponse({}));
+  }
+
+  /**
+   * 同步小游戏实际上线状态
+   * 
+   * @param request - SyncMiniGameOnlineStatusByAppRequest
+   * @returns SyncMiniGameOnlineStatusByAppResponse
+   */
+  async syncMiniGameOnlineStatusByApp(request: $_model.SyncMiniGameOnlineStatusByAppRequest): Promise<$_model.SyncMiniGameOnlineStatusByAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncMiniGameOnlineStatusByAppWithOptions(request, runtime);
   }
 
   /**

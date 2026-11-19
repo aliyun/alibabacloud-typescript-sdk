@@ -268,6 +268,7 @@ export { SaveOrderRelationInfoToMsenceResponseBodyMpaasSaveOrderRelationResponse
 export { StartUserAppAsyncEnhanceInMsaResponseBodyResultContentDataEnhanceMapping } from './StartUserAppAsyncEnhanceInMsaResponseBody';
 export { StartUserAppAsyncEnhanceInMsaResponseBodyResultContentData } from './StartUserAppAsyncEnhanceInMsaResponseBody';
 export { StartUserAppAsyncEnhanceInMsaResponseBodyResultContent } from './StartUserAppAsyncEnhanceInMsaResponseBody';
+export { SyncMiniGameOnlineStatusByAppResponseBodyContent } from './SyncMiniGameOnlineStatusByAppResponseBody';
 export { UpdateGatewayApiRequestCacheRule } from './UpdateGatewayApiRequest';
 export { UpdateGatewayApiRequestDefaultLimitRule } from './UpdateGatewayApiRequest';
 export { UpdateGatewayApiRequestHeaderRules } from './UpdateGatewayApiRequest';
@@ -692,6 +693,9 @@ export { SaveOrderRelationInfoToMsenceResponse } from './SaveOrderRelationInfoTo
 export { StartUserAppAsyncEnhanceInMsaRequest } from './StartUserAppAsyncEnhanceInMsaRequest';
 export { StartUserAppAsyncEnhanceInMsaResponseBody } from './StartUserAppAsyncEnhanceInMsaResponseBody';
 export { StartUserAppAsyncEnhanceInMsaResponse } from './StartUserAppAsyncEnhanceInMsaResponse';
+export { SyncMiniGameOnlineStatusByAppRequest } from './SyncMiniGameOnlineStatusByAppRequest';
+export { SyncMiniGameOnlineStatusByAppResponseBody } from './SyncMiniGameOnlineStatusByAppResponseBody';
+export { SyncMiniGameOnlineStatusByAppResponse } from './SyncMiniGameOnlineStatusByAppResponse';
 export { UpdateGatewayApiRequest } from './UpdateGatewayApiRequest';
 export { UpdateGatewayApiShrinkRequest } from './UpdateGatewayApiShrinkRequest';
 export { UpdateGatewayApiResponseBody } from './UpdateGatewayApiResponseBody';

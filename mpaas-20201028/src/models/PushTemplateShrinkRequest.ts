@@ -40,6 +40,7 @@ export class PushTemplateShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   targetMsgkey?: string;
+  targetVendorTemplate?: string;
   taskName?: string;
   templateKeyValue?: string;
   /**
@@ -51,7 +52,9 @@ export class PushTemplateShrinkRequest extends $dara.Model {
   thirdChannelCategoryShrink?: string;
   transparentMessagePayload?: any;
   transparentMessageUrgency?: string;
+  useVoip?: boolean;
   vendorTemplate?: string;
+  voipMap?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -80,6 +83,7 @@ export class PushTemplateShrinkRequest extends $dara.Model {
       strategyContent: 'StrategyContent',
       strategyType: 'StrategyType',
       targetMsgkey: 'TargetMsgkey',
+      targetVendorTemplate: 'TargetVendorTemplate',
       taskName: 'TaskName',
       templateKeyValue: 'TemplateKeyValue',
       templateName: 'TemplateName',
@@ -87,7 +91,9 @@ export class PushTemplateShrinkRequest extends $dara.Model {
       thirdChannelCategoryShrink: 'ThirdChannelCategory',
       transparentMessagePayload: 'TransparentMessagePayload',
       transparentMessageUrgency: 'TransparentMessageUrgency',
+      useVoip: 'UseVoip',
       vendorTemplate: 'VendorTemplate',
+      voipMap: 'VoipMap',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -115,6 +121,7 @@ export class PushTemplateShrinkRequest extends $dara.Model {
       strategyContent: 'string',
       strategyType: 'number',
       targetMsgkey: 'string',
+      targetVendorTemplate: 'string',
       taskName: 'string',
       templateKeyValue: 'string',
       templateName: 'string',
@@ -122,7 +129,9 @@ export class PushTemplateShrinkRequest extends $dara.Model {
       thirdChannelCategoryShrink: 'string',
       transparentMessagePayload: 'any',
       transparentMessageUrgency: 'string',
+      useVoip: 'boolean',
       vendorTemplate: 'string',
+      voipMap: 'string',
       workspaceId: 'string',
     };
   }
