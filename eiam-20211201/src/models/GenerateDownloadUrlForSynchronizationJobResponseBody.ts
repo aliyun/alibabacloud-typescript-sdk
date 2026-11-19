@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateDownloadUrlForSynchronizationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the template.
+   * The template download URL.
    * 
    * @example
    * https://test.oss.aliyuncs.com/idaas_ly77wa2oexrciw5v672vxxxx/tmp/eiam_user_export_1766469463365.csv

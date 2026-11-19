@@ -20,7 +20,7 @@ export class DeleteUsersRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * u_001
+   * ["u_001"]
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

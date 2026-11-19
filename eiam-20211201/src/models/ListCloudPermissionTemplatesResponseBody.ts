@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesApplicableScope extends $dara.Model {
   /**
    * @remarks
-   * The list of specified group IDs. This parameter has a value only when ScopeType is set to custom.
+   * The list of specified group IDs. This parameter is returned only when ScopeType is set to custom.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * The list of specified organizational unit IDs. This parameter has a value only when ScopeType is set to custom.
+   * The list of specified organizational unit IDs. This parameter is returned only when ScopeType is set to custom.
    */
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * The type of the applicable scope. Valid values: global and custom.
+   * The type of the application scope. Valid values: global and custom.
    * 
    * @example
    * custom
@@ -23,7 +23,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesApp
   scopeType?: string;
   /**
    * @remarks
-   * The list of specified user IDs. This parameter has a value only when ScopeType is set to custom.
+   * The list of specified user IDs. This parameter is returned only when ScopeType is set to custom.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -76,7 +76,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesClo
    * The name of the creator.
    * 
    * @example
-   * John Doe
+   * Zhang San
    */
   creatorName?: string;
   /**
@@ -126,7 +126,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesClo
    * The error message returned when initialization fails.
    * 
    * @example
-   * Failed to initialize the permission template. Try again later
+   * Permission template initialization failed. Try again later
    */
   errorMessage?: string;
   /**
@@ -165,17 +165,17 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesClo
 export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplates extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether users are allowed to apply for the permission template.
+   * Specifies whether users are allowed to apply.
    */
   allowRequest?: boolean;
   /**
    * @remarks
-   * The applicable scope of the permission template.
+   * The application scope of the permission template.
    */
   applicableScope?: ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesApplicableScope;
   /**
    * @remarks
-   * The ID of the cloud account to which the resource belongs.
+   * The ID of the associated cloud account.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -233,7 +233,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplates ex
   cloudPermissionTemplateSharingMode?: string;
   /**
    * @remarks
-   * The usage type of the permission template. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications).
+   * The usage type of the permission template. Valid values: user (privilege elevation for human users) and application (privilege elevation for M2M applications).
    * 
    * @example
    * user
@@ -281,7 +281,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplates ex
   permissionEntityId?: string;
   /**
    * @remarks
-   * The type of the permission entity. Fixed value: cloud_account_role.
+   * The type of the permission entity. Valid value: cloud_account_role.
    * 
    * @example
    * cloud_account_role
@@ -372,12 +372,12 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplates ex
 export class ListCloudPermissionTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud permission templates.
+   * The list of permission templates.
    */
   cloudPermissionTemplates?: ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplates[];
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of entries per page during paging in a paged query.
    * 
    * @example
    * 20
@@ -385,7 +385,7 @@ export class ListCloudPermissionTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current call for subsequent queries.
+   * The pagination token returned by the current request for subsequent queries.
    * 
    * @example
    * NTxxxexample
@@ -401,7 +401,7 @@ export class ListCloudPermissionTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 100

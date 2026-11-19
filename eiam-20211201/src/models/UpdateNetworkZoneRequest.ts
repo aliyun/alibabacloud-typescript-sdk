@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNetworkZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token.
+   * The client token used to ensure idempotence.
    * 
    * @example
    * client-token-examplexxxx

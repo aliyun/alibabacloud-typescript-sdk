@@ -15,7 +15,7 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return per page in a paging query. Maximum value: 100.
+   * The number of entries per page for paging in a paged query. The maximum value is 100.
    * 
    * @example
    * 20
@@ -25,12 +25,12 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
    * @remarks
    * The status of the network access endpoint. Valid values:
    *  
-   * - pending: pending initialization.
-   * - creating: being created.
-   * - running: running.
-   * - deleting: being deleted.
+   * - pending: pending initialization
+   * - creating: being created
+   * - running: running
+   * - deleting: being deleted
    * 
-   * This filter parameter does not take effect when NetworkAccessEndpointType is set to shared.
+   * This filter does not take effect when NetworkAccessEndpointType is set to shared.
    * 
    * @example
    * running
@@ -40,8 +40,8 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
    * @remarks
    * The type of the network access endpoint. Valid values:
    * 
-   * - shared: shared network access endpoint.
-   * - private: private network access endpoint.
+   * - shared: shared network access endpoint
+   * - private: private network access endpoint
    * 
    * Default value: private.
    * 
@@ -51,7 +51,7 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
   networkAccessEndpointType?: string;
   /**
    * @remarks
-   * The pagination token. Set the value to the NextToken value returned from the previous API call. Leave this parameter empty for the first call.
+   * The pagination token. Set this parameter to the value of NextToken returned from the previous API call. Leave this parameter empty for the first call.
    * 
    * @example
    * NTxxxxxexample

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTrustedOriginRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token.
+   * The client token.
    * 
    * @example
    * client-token-example

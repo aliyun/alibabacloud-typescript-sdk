@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud account ID.
+   * The ID of the cloud account.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   cloudPermissionTemplateNamePrefix?: string;
   /**
    * @remarks
-   * Filters the results by permission template sharing mode. Valid values: shared and exclusive. If this parameter is not specified, no filtering is applied.
+   * Filters the results by permission template sharing mode. Valid values: shared and exclusive. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * shared
@@ -57,7 +57,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page for paging. Default value: 20. Maximum value: 100.
+   * The maximum number of entries to return per page in a paged query. This parameter is used for paging. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -65,7 +65,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned from the previous API call.
+   * The query token, which is the value of the NextToken parameter returned by the previous API call.
    * 
    * @example
    * NTxxxxxexample

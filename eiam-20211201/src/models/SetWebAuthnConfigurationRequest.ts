@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetWebAuthnConfigurationRequestAaguids extends $dara.Model {
   /**
    * @remarks
-   * AAGUID.
+   * AAGUID
    * 
    * @example
    * adce0002-35bc-c60a-648b-0b25f1f05503
@@ -13,7 +13,7 @@ export class SetWebAuthnConfigurationRequestAaguids extends $dara.Model {
   aaguid?: string;
   /**
    * @remarks
-   * AAGUID name.
+   * The AAGUID name.
    * 
    * @example
    * Touch ID
@@ -45,12 +45,12 @@ export class SetWebAuthnConfigurationRequestAaguids extends $dara.Model {
 export class SetWebAuthnConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * List of AAGUIDs and their names.
+   * The list of AAGUIDs and their names.
    */
   aaguids?: SetWebAuthnConfigurationRequestAaguids[];
   /**
    * @remarks
-   * Enable AAGUID verification.
+   * Specifies whether AAGUID verification is enabled.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class SetWebAuthnConfigurationRequest extends $dara.Model {
   enableAaguidVerification?: boolean;
   /**
    * @remarks
-   * Enable WebAuthn authenticator MDS verification.
+   * Specifies whether MDS verification is enabled for WebAuthn authenticators.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class SetWebAuthnConfigurationRequest extends $dara.Model {
   enableMetadataServiceVerification?: boolean;
   /**
    * @remarks
-   * Allow user self-registration of WebAuthn authenticators.
+   * Specifies whether users are allowed to self-register WebAuthn authenticators.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class SetWebAuthnConfigurationRequest extends $dara.Model {
   enableUserSelfRegistration?: boolean;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

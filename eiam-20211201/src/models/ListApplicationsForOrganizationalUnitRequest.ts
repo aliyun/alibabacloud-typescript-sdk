@@ -8,7 +8,7 @@ export class ListApplicationsForOrganizationalUnitRequest extends $dara.Model {
    * The list of application IDs. You can specify up to 100 application IDs in a single request.
    * 
    * @example
-   * app_mkv7rgt4d7i4u7zqtzev2mxxxx
+   * ["app_mkv7rgt4d7i4u7zqtzev2mxxxx"]
    */
   applicationIds?: string[];
   /**

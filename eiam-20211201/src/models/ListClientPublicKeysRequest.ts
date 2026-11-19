@@ -25,7 +25,7 @@ export class ListClientPublicKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -33,7 +33,7 @@ export class ListClientPublicKeysRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call. Leave this parameter empty for the first query.
+   * The pagination token for the next page. Set the value to the NextToken value returned from the previous API call. Leave this parameter empty for the first query.
    * 
    * @example
    * NTxxxxxexample

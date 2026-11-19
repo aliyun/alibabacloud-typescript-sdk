@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time when the authorization expires. The value is a UNIX timestamp in milliseconds.
+   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListAuthorizationRulesForGroupResponseBodyAuthorizationRulesValidit
   endTime?: number;
   /**
    * @remarks
-   * The start time when the authorization takes effect. The value is a UNIX timestamp in milliseconds.
+   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -112,7 +112,7 @@ export class ListAuthorizationRulesForGroupResponseBody extends $dara.Model {
   authorizationRules?: ListAuthorizationRulesForGroupResponseBodyAuthorizationRules[];
   /**
    * @remarks
-   * The number of entries per page for paging.
+   * The maximum number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -120,7 +120,7 @@ export class ListAuthorizationRulesForGroupResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current call for the next query.
+   * The token returned in the current response, which is used to query the next page.
    * 
    * @example
    * NTxxxexample

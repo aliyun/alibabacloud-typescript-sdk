@@ -53,7 +53,7 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigAz
   principalId?: string;
   /**
    * @remarks
-   * The Azure resource group name.
+   * The name of the Azure resource group.
    * 
    * @example
    * user_default
@@ -118,7 +118,7 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGc
   projectId?: string;
   /**
    * @remarks
-   * The sub claim corresponding to the service account.
+   * The sub corresponding to the service account.
    * 
    * @example
    * 123456789
@@ -185,7 +185,7 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGe
 export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The K8s namespace.
+   * The Kubernetes namespace.
    * 
    * @example
    * default
@@ -201,7 +201,7 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigKu
   podNamePrefix?: string;
   /**
    * @remarks
-   * The K8s service account name.
+   * The Kubernetes service account name.
    * 
    * @example
    * my-sa

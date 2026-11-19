@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceModuleInfoResponseBodyModuleFeatures extends $dara.Model {
   /**
    * @remarks
-   * The level-2 module identifier.
+   * The identifier of the level-2 module.
    * 
    * @example
    * urn:alibaba:idaas:license:module:application:standard:oidc
@@ -13,7 +13,7 @@ export class GetInstanceModuleInfoResponseBodyModuleFeatures extends $dara.Model
   featureKey?: string;
   /**
    * @remarks
-   * The level-2 module status.
+   * The status of the level-2 module.
    * 
    * @example
    * enabled
@@ -50,7 +50,7 @@ export class GetInstanceModuleInfoResponseBodyModule extends $dara.Model {
   features?: GetInstanceModuleInfoResponseBodyModuleFeatures[];
   /**
    * @remarks
-   * The level-1 module identifier.
+   * The identifier of the level-1 module.
    * 
    * @example
    * urn:alibaba:idaas:license:module:application
@@ -58,7 +58,7 @@ export class GetInstanceModuleInfoResponseBodyModule extends $dara.Model {
   moduleKey?: string;
   /**
    * @remarks
-   * The level-1 module status.
+   * The status of the level-1 module.
    * 
    * @example
    * enabled

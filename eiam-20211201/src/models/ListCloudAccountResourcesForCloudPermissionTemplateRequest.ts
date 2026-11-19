@@ -15,7 +15,7 @@ export class ListCloudAccountResourcesForCloudPermissionTemplateRequest extends 
   cloudAccountId?: string;
   /**
    * @remarks
-   * The resource entity type used for filtering. Valid values: ram_policy.
+   * Filters results by resource entity type. Valid values: ram_policy.
    * 
    * @example
    * ram_policy
@@ -43,7 +43,7 @@ export class ListCloudAccountResourcesForCloudPermissionTemplateRequest extends 
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Default value: 20. Maximum value: 100.
+   * The number of entries to return per page in a paging query. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -51,7 +51,7 @@ export class ListCloudAccountResourcesForCloudPermissionTemplateRequest extends 
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned from the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * NTxxxxxexample

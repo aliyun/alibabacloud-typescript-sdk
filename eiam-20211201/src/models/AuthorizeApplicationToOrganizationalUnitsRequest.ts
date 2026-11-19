@@ -33,12 +33,12 @@ export class AuthorizeApplicationToOrganizationalUnitsRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The list of organizational unit IDs. A single operation supports up to 100 organizational unit IDs.
+   * The list of organizational unit IDs. A maximum of 100 organizational unit IDs are supported in a single operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * ou_wovwffm62xifdziem7an7xxxxx
+   * ["ou_wovwffm62xifdziem7an7xxxxx"]
    */
   organizationalUnitIds?: string[];
   static names(): { [key: string]: string } {

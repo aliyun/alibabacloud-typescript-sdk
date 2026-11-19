@@ -21,7 +21,7 @@ export class UpdateCloudPermissionTemplateRequestApplicableScope extends $dara.M
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * The application scope type. Valid values: global, custom.
+   * The type of the application scope. Valid values: global and custom.
    * 
    * @example
    * global

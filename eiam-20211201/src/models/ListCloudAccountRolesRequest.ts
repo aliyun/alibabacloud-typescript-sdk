@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAccountRolesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter field name. Valid values:
+   * The name of the filter field. Valid values:
    * - CloudAccountRoleId: the cloud role ID.
    * - CloudAccountRoleName: the cloud role name.
-   * - CloudAccountRoleExternalId: the cloud role external identifier.
-   * - CloudAccountRoleUsageType: the cloud role usage type.
+   * - CloudAccountRoleExternalId: the business identifier of the cloud role.
+   * - CloudAccountRoleUsageType: the usage type of the cloud role.
    * 
    * @example
    * CloudAccountRoleId
@@ -74,9 +74,9 @@ export class ListCloudAccountRolesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of records per page.
+   * The maximum number of entries to return per page.
    * 
-   * - If this parameter is not specified, the default value is 20.
+   * - If you do not specify this parameter, the default value is 20.
    * 
    * - The maximum value is 100.
    * 
@@ -86,9 +86,9 @@ export class ListCloudAccountRolesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the start position of the next page.
+   * The token that specifies the starting position of the next page.
    * 
-   * - If this parameter is not specified, the query starts from the first page.
+   * - If you do not specify this parameter, the query starts from the first page by default.
    * 
    * @example
    * NTxxxxxexample

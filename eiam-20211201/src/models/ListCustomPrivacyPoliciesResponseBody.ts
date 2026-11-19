@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom privacy policy.
+   * The custom privacy policy ID.
    * 
    * @example
    * pp_xxxxx
@@ -13,7 +13,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   customPrivacyPolicyId?: string;
   /**
    * @remarks
-   * The name of the custom privacy policy.
+   * The custom privacy policy name.
    * 
    * @example
    * Custom Privacy Policy Name
@@ -21,7 +21,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * The default language code for the privacy policy. The valid values are the LanguageCode values returned by the ListLanguages operation.
+   * The default language code. The valid values are the LanguageCode values returned by the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -90,7 +90,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   customPrivacyPolicies?: ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies[];
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query.
+   * The maximum number of entries per page for a paging query.
    * 
    * @example
    * 20
@@ -98,7 +98,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current request.
+   * The next token returned in the current call.
    * 
    * @example
    * NTxxxexample
@@ -106,7 +106,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by the current request.
+   * The next token returned in the current call.
    * 
    * @example
    * PTxxxexample
@@ -122,7 +122,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 100

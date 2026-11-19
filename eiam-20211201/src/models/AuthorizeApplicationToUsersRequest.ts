@@ -33,12 +33,12 @@ export class AuthorizeApplicationToUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of account IDs. A single operation supports a maximum of 100 account IDs.
+   * The list of account IDs. You can specify up to 100 account IDs in a single operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * user_d6sbsuumeta4h66ec3il7yxxxx
+   * ["user_d6sbsuumeta4h66ec3il7yxxxx"]
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

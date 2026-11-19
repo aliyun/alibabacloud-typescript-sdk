@@ -15,7 +15,7 @@ export class GetClientPublicKeyRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the application ClientPublicKey.
+   * The ID of the client public key for the application.
    * 
    * This parameter is required.
    * 

@@ -33,10 +33,10 @@ export class ListOrganizationalUnitsForApplicationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The organizational unit IDs. A maximum of 100 organizational unit IDs can be specified in a single operation.
+   * The organizational unit IDs. You can specify up to 100 organizational unit IDs in a single request.
    * 
    * @example
-   * ou_wovwffm62xifdziem7an7xxxxx
+   * ["ou_wovwffm62xifdziem7an7xxxxx"]
    */
   organizationalUnitIds?: string[];
   /**

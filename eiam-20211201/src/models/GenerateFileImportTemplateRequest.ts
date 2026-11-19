@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateFileImportTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether field selection mode is enabled.
+   * Specifies whether the field selection mode is enabled.
    */
   fieldSelectionEnabled?: boolean;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the display name. A left-match query is performed.
+   * The display name prefix for a left-match query.
    * 
    * @example
    * name
@@ -31,7 +31,7 @@ export class ListUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page for a paging query.
+   * The number of entries per page for paging.
    * 
    * @example
    * 20
@@ -71,7 +71,7 @@ export class ListUsersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The phone number of the account.
+   * The mobile phone number of the account.
    * 
    * @example
    * 156xxxxxxx
@@ -79,7 +79,7 @@ export class ListUsersRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The phone region code. Example: 86 for the Chinese mainland, without 00 or +.
+   * The region code of the mobile phone number. Example: 86 for the Chinese mainland, without 00 or +.
    * 
    * @example
    * 86
@@ -88,8 +88,8 @@ export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the account. Valid values:
-   * - enabled: Enabled.
-   * - disabled: Disabled.
+   * - enabled: enabled.
+   * - disabled: disabled.
    * 
    * @example
    * enable
@@ -110,14 +110,14 @@ export class ListUsersRequest extends $dara.Model {
    * The list of account IDs.
    * 
    * @example
-   * 20
+   * ["user_d6sbsuumeta4h66ec3il7yxxxx"]
    */
   userIds?: string[];
   /**
    * @remarks
    * The source ID of the account.
    * 
-   * For the build-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, for the DingTalk source, the value is the corpId of the DingTalk enterprise.
+   * For the built-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, the DingTalk source corresponds to the corpId of the DingTalk enterprise.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -126,11 +126,11 @@ export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
    * The source type of the account. Valid values:
-   * - build_in: Built-in.
-   * - ding_talk: Imported from DingTalk.
-   * - ad: Imported from AD.
-   * - ldap: Imported from LDAP.
-   * - we_com: Imported from WeCom.
+   * - build_in: built-in.
+   * - ding_talk: imported from DingTalk.
+   * - ad: imported from AD.
+   * - ldap: imported from LDAP.
+   * - we_com: imported from WeCom.
    * 
    * @example
    * build_in
@@ -138,7 +138,7 @@ export class ListUsersRequest extends $dara.Model {
   userSourceType?: string;
   /**
    * @remarks
-   * The prefix of the username. A left-match query is performed.
+   * The username prefix for a left-match query.
    * 
    * @example
    * name_001

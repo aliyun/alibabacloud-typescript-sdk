@@ -210,7 +210,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The permissions on the user portal side.
+   * The user portal permissions.
    * 
    * @example
    * read_only

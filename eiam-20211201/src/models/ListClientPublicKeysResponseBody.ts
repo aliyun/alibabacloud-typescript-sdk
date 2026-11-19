@@ -21,7 +21,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the application ClientPublicKey.
+   * The ID of the ClientPublicKey.
    * 
    * @example
    * KEYEqDnDJhztiEAwSin7MZoxGcihzCAuxxxx
@@ -53,7 +53,7 @@ export class ListClientPublicKeysResponseBodyClientPublicKeys extends $dara.Mode
   lastUsedTime?: number;
   /**
    * @remarks
-   * Indicates whether this key is used with priority.
+   * Specifies whether the ClientPublicKey is prioritized.
    * 
    * @example
    * true
@@ -128,7 +128,7 @@ export class ListClientPublicKeysResponseBody extends $dara.Model {
   clientPublicKeys?: ListClientPublicKeysResponseBodyClientPublicKeys[];
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -136,7 +136,7 @@ export class ListClientPublicKeysResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxexample
@@ -152,7 +152,7 @@ export class ListClientPublicKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

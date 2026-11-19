@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAccountResourceMeta extends $dara.Model {
   /**
    * @remarks
-   * The JSON string of the Tencent Cloud CAM policy document. This parameter is returned only for Tencent Cloud accounts.
+   * The JSON document of the Tencent Cloud CAM policy. This is returned only for Tencent Cloud accounts.
    * 
    * @example
    * {"Version":"1","Statement":[]}
@@ -13,7 +13,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAcco
   camPolicyDocument?: string;
   /**
    * @remarks
-   * The type of the Tencent Cloud CAM policy. Valid values: qcs and local. This parameter is returned only for Tencent Cloud accounts.
+   * The type of the Tencent Cloud CAM policy. Valid values: qcs and local. This is returned only for Tencent Cloud accounts.
    * 
    * @example
    * qcs
@@ -21,7 +21,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAcco
   camPolicyType?: string;
   /**
    * @remarks
-   * The JSON string of the AWS IAM policy document. This parameter is returned only for AWS cloud accounts.
+   * The JSON document of the AWS IAM policy. This is returned only for AWS cloud accounts.
    * 
    * @example
    * {"Version":"2012-10-17","Statement":[]}
@@ -29,7 +29,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAcco
   iamPolicyDocument?: string;
   /**
    * @remarks
-   * The type of the AWS IAM policy. Valid values: aws and local. This parameter is returned only for AWS cloud accounts.
+   * The type of the AWS IAM policy. Valid values: aws and local. This is returned only for AWS cloud accounts.
    * 
    * @example
    * aws
@@ -37,7 +37,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAcco
   iamPolicyType?: string;
   /**
    * @remarks
-   * The JSON string of the RAM policy document. This parameter is returned only by the Get operation.
+   * The JSON document of the RAM policy. This is returned only by the Get API operation.
    * 
    * @example
    * {"Version":"1","Statement":[]}
@@ -93,7 +93,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResources extends 
   cloudAccountId?: string;
   /**
    * @remarks
-   * The unique remote identifier of the resource entity.
+   * The identifier of the resource entity, which is a unique remote identifier.
    * 
    * @example
    * System:AliyunIntelligentcockpitReadOnlyAccessexample
@@ -101,7 +101,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResources extends 
   cloudAccountResourceEntityId?: string;
   /**
    * @remarks
-   * The type of the resource entity. Valid values: ram_role.
+   * The resource entity type. Valid values: ram_role.
    * 
    * @example
    * ram_role
@@ -200,7 +200,7 @@ export class ListCloudAccountResourcesResponseBody extends $dara.Model {
   cloudAccountResources?: ListCloudAccountResourcesResponseBodyCloudAccountResources[];
   /**
    * @remarks
-   * The maximum number of entries returned per page during paging in a paged query.
+   * The maximum number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -208,7 +208,7 @@ export class ListCloudAccountResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token returned by the current call for the next pagination query.
+   * The pagination token returned in the current call. You can use this token for the next paginated query.
    * 
    * @example
    * NTxxxexample

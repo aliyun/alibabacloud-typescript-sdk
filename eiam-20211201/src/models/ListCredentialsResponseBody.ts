@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientContent extends $dara.Model {
   /**
    * @remarks
-   * The client ID of the OAuth protocol.
+   * The client ID in the OAuth protocol.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -35,7 +35,7 @@ export class ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientC
 export class ListCredentialsResponseBodyCredentialsCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The content of an OAuth client credential.
+   * The content of an OAuth client authentication credential.
    */
   OAuthClientContent?: ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -121,7 +121,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   /**
    * @remarks
    * The Scenarios label of the credential. Valid values:
-   * - llm: Large model.
+   * - llm: Large language model.
    * - saas: Third-party SaaS service.
    * 
    * @example
@@ -131,8 +131,8 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   /**
    * @remarks
    * The credential sharing scope. Valid values:
-   * - common: General.
-   * - user_exclusive: Account-specific.
+   * - common: Common.
+   * - user_exclusive: Account-exclusive.
    * 
    * @example
    * common
@@ -148,7 +148,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * The subject type to which the credential belongs. Valid values:
+   * The subject type of the credential. Valid values:
    * - authentication_token_provider: Authentication token provider.
    * 
    * @example
@@ -158,8 +158,8 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * - api_key: API key credential.
-   * - oauth_client: OAuth client credential.
+   * - api_key: API key authentication credential.
+   * - oauth_client: OAuth client authentication credential.
    * 
    * @example
    * api_key
@@ -175,7 +175,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the exclusive user for the credential.
+   * The ID of the exclusive account for the credential.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -271,7 +271,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   credentials?: ListCredentialsResponseBodyCredentials[];
   /**
    * @remarks
-   * The number of entries per page for paging in a paged query.
+   * The maximum number of entries per page for paging in a paged query.
    * 
    * @example
    * 20

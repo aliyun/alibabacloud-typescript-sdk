@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig extends $dara.Model {
   /**
    * @remarks
-   * The object class for organizations.
+   * The organization object class.
    * 
    * @example
    * ou,top
@@ -13,7 +13,7 @@ export class SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig exten
   organizationUnitObjectClass?: string;
   /**
    * @remarks
-   * The RDN for organizations.
+   * The organization RDN.
    * 
    * @example
    * ou
@@ -29,7 +29,7 @@ export class SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig exten
   passwordSyncStatus?: string;
   /**
    * @remarks
-   * The object class for users.
+   * The user object class.
    * 
    * @example
    * user,top
@@ -37,7 +37,7 @@ export class SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig exten
   userObjectClass?: string;
   /**
    * @remarks
-   * The Relative Distinguished Name (RDN) for users.
+   * The user RDN.
    * 
    * @example
    * cn
@@ -83,12 +83,12 @@ export class SetIdentityProviderUdPushConfigurationRequestPeriodicSyncConfig ext
   periodicSyncCron?: string;
   /**
    * @remarks
-   * A collection of time points.
+   * The collection of time points.
    */
   periodicSyncTimes?: number[];
   /**
    * @remarks
-   * The type of periodic synchronization.
+   * The type.
    * 
    * @example
    * cron
@@ -125,7 +125,7 @@ export class SetIdentityProviderUdPushConfigurationRequestPeriodicSyncConfig ext
 export class SetIdentityProviderUdPushConfigurationRequestUdSyncScopeConfigs extends $dara.Model {
   /**
    * @remarks
-   * The source nodes for synchronization.
+   * The source node for synchronization.
    */
   sourceScopes?: string[];
   /**
@@ -165,7 +165,7 @@ export class SetIdentityProviderUdPushConfigurationRequestUdSyncScopeConfigs ext
 export class SetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the identity provider.
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -195,17 +195,17 @@ export class SetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations for LDAP push synchronization.
+   * The configuration for LDAP synchronization.
    */
   ldapUdPushConfig?: SetIdentityProviderUdPushConfigurationRequestLdapUdPushConfig;
   /**
    * @remarks
-   * The configuration for periodic synchronization.
+   * The periodic check configuration.
    */
   periodicSyncConfig?: SetIdentityProviderUdPushConfigurationRequestPeriodicSyncConfig;
   /**
    * @remarks
-   * The status of periodic synchronization.
+   * The periodic check status.
    * 
    * @example
    * disabled
@@ -213,7 +213,7 @@ export class SetIdentityProviderUdPushConfigurationRequest extends $dara.Model {
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * The push synchronization configurations.
+   * The outbound synchronization configuration.
    */
   udSyncScopeConfigs?: SetIdentityProviderUdPushConfigurationRequestUdSyncScopeConfigs[];
   static names(): { [key: string]: string } {

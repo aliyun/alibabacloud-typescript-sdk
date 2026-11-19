@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindTotpAuthenticatorRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UnbindTotpAuthenticatorRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * User ID
+   * UserID
    * 
    * This parameter is required.
    * 

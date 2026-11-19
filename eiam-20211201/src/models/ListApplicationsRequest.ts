@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsRequestCustomFields extends $dara.Model {
   /**
    * @remarks
-   * The custom field identifier. Valid values:
+   * The extended field identifier. Valid values:
    * - agent_type: The agent type.
    * 
    * @example
@@ -14,7 +14,7 @@ export class ListApplicationsRequestCustomFields extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The custom field value.
+   * The extended field value.
    * 
    * @example
    * x-claw
@@ -62,15 +62,15 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationIdentityType?: string;
   /**
    * @remarks
-   * The list of application IDs.
+   * The application IDs.
    * 
    * @example
-   * Ram Account SSO
+   * ["Ram Account SSO"]
    */
   applicationIds?: string[];
   /**
    * @remarks
-   * The application name. Only left fuzzy match is supported.
+   * The application name. Only left-fuzzy matching is supported.
    * 
    * @example
    * Ram Account SSO
@@ -86,7 +86,7 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationTemplateId?: string;
   /**
    * @remarks
-   * The application access authorization type. Valid values:
+   * The access authorization type of the application. Valid values:
    * - authorize_required: Explicit authorization is required for access.
    * - default_all: All members have access permissions by default.
    * 
@@ -96,7 +96,7 @@ export class ListApplicationsRequest extends $dara.Model {
   authorizationType?: string;
   /**
    * @remarks
-   * The list of custom fields.
+   * The extended fields.
    */
   customFields?: ListApplicationsRequestCustomFields[];
   /**
@@ -111,7 +111,7 @@ export class ListApplicationsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the M2M Client identity is enabled.
+   * Specifies whether the M2M client identity is enabled.
    * 
    * @example
    * enabled
@@ -119,7 +119,7 @@ export class ListApplicationsRequest extends $dara.Model {
   m2MClientStatus?: string;
   /**
    * @remarks
-   * The ServiceCode of the cloud service that manages the application template.
+   * The service code of the cloud service that manages the application template.
    * 
    * @example
    * waf
@@ -135,7 +135,7 @@ export class ListApplicationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -143,7 +143,7 @@ export class ListApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether the ResourceServer capability is enabled.
+   * Specifies whether the resource server capability is enabled.
    * 
    * @example
    * enabled
@@ -159,7 +159,7 @@ export class ListApplicationsRequest extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The SSO type filter condition. Multiple types can be separated by commas. Example: oauth2/m2m,oidc+oauth2/m2m.
+   * The SSO type search condition. You can specify multiple types separated by commas (,). Example: oauth2/m2m,oidc+oauth2/m2m.
    * 
    * @example
    * oauth2/m2m

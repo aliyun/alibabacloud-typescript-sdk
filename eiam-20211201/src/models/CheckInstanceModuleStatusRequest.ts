@@ -41,7 +41,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   resourceLabelKey?: string;
   /**
    * @remarks
-   * The name of the resource label.
+   * The resource label name.
    * 
    * @example
    * apt_ram_user_sso

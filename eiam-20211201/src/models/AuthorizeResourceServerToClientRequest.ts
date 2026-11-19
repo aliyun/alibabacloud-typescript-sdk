@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeResourceServerToClientRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the Client application.
+   * The unique identifier of the client application.
    * 
    * This parameter is required.
    * 

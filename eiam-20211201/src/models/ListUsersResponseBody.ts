@@ -24,7 +24,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
    * The description of the account.
    * 
    * @example
-   * xxxx
+   * Test account
    */
   description?: string;
   /**
@@ -101,7 +101,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   phoneNumberVerified?: boolean;
   /**
    * @remarks
-   * The phone region code. Example: 86 for the Chinese mainland, without 00 or +.
+   * The region code of the mobile phone number. Example: 86 for the Chinese mainland, without 00 or +.
    * 
    * @example
    * 86
@@ -118,8 +118,8 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
    * The status of the account. Valid values:
-   * - enabled: enabled
-   * - disabled: disabled
+   * - enabled: The account is enabled.
+   * - disabled: The account is disabled.
    * 
    * @example
    * enabled
@@ -135,7 +135,9 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The external ID of the account. This ID is used to map external data to IDaaS accounts. The default value is the IDaaS account ID. Note: The external ID must be unique within the same source type and source ID.
+   * The external ID of the account. This ID is used to map external data to IDaaS accounts. The default value is the IDaaS account ID.
+   * 
+   * Note: The external ID must be unique within the same source type and source ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -153,7 +155,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
    * @remarks
    * The source ID of the account.
    * 
-   * For the build-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, for the DingTalk source, the value is the corpId of the DingTalk enterprise.
+   * For the built-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, the DingTalk source corresponds to the corpId of the DingTalk enterprise.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -162,10 +164,10 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
    * The source type of the account. Valid values:
-   * - build_in: self-managed
-   * - ding_talk: imported from DingTalk
-   * - ad: imported from AD
-   * - ldap: imported from LDAP
+   * - build_in: The account is self-managed.
+   * - ding_talk: The account is imported from DingTalk.
+   * - ad: The account is imported from AD.
+   * - ldap: The account is imported from LDAP.
    * 
    * @example
    * build_in
@@ -243,7 +245,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
 export class ListUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20

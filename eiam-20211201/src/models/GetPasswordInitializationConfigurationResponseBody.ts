@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializationConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The status of forced password update. Valid values:
-   * 
+   * The password forced update status. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -19,13 +18,12 @@ export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializ
    * The list of password initialization notification channels.
    * 
    * @example
-   * email
+   * ["email"]
    */
   passwordInitializationNotificationChannels?: string[];
   /**
    * @remarks
-   * The status of the password initialization configuration. Valid values:
-   * 
+   * The password initialization configuration status. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -36,7 +34,6 @@ export class GetPasswordInitializationConfigurationResponseBodyPasswordInitializ
   /**
    * @remarks
    * The password initialization method. Valid values:
-   * 
    * - random: Random.
    * 
    * @example

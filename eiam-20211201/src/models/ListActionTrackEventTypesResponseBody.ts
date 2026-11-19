@@ -40,7 +40,7 @@ export class ListActionTrackEventTypesResponseBody extends $dara.Model {
   eventTypes?: ListActionTrackEventTypesResponseBodyEventTypes[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page for paging.
    * 
    * @example
    * 100
@@ -48,7 +48,7 @@ export class ListActionTrackEventTypesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The next token.
    * 
    * @example
    * NTxxxexample
@@ -56,7 +56,7 @@ export class ListActionTrackEventTypesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token to retrieve the previous page of results.
+   * The previous token.
    * 
    * @example
    * PTxxxexample
@@ -72,7 +72,7 @@ export class ListActionTrackEventTypesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 100

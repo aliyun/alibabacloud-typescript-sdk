@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFederatedCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the federated credential provider.
+   * The ID of the federated trust source.
    * 
    * This parameter is required.
    * 

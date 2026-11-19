@@ -55,12 +55,12 @@ export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityPr
 export class ListIdentityProvidersForNetworkAccessEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IdPs under the network access endpoint.
+   * The collection of identity providers (IdPs) for the network access endpoint.
    */
   identityProvidersForNetworkAccessEndpoint?: ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityProvidersForNetworkAccessEndpoint[];
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The next token returned in the response.
    * 
    * @example
    * NTxxxexample
@@ -76,7 +76,7 @@ export class ListIdentityProvidersForNetworkAccessEndpointResponseBody extends $
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of results.
    * 
    * @example
    * 100

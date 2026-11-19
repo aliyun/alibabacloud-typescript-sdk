@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTrustedOriginResponseBodyTrustedOrigin extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is in RFC 3339 format and in the UTC time zone.
+   * The creation time. The time is in the RFC 3339 format and the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -55,12 +55,12 @@ export class GetTrustedOriginResponseBodyTrustedOrigin extends $dara.Model {
   trustedOriginId?: string;
   /**
    * @remarks
-   * The trusted origin scenes.
+   * The trusted origin scenario.
    */
   trustedOriginScene?: string[];
   /**
    * @remarks
-   * The update time. The time is in RFC 3339 format and in the UTC time zone.
+   * The update time. The time is in the RFC 3339 format and the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -109,7 +109,7 @@ export class GetTrustedOriginResponseBodyTrustedOrigin extends $dara.Model {
 export class GetTrustedOriginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0441BD79-example

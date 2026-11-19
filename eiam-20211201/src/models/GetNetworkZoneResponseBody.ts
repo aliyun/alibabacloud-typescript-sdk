@@ -21,12 +21,12 @@ export class GetNetworkZoneResponseBodyNetworkZone extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IPv4 CIDR blocks of the network zone.
+   * The IPv4 network zone.
    */
   ipv4Cidrs?: string[];
   /**
    * @remarks
-   * The IPv6 CIDR blocks of the network zone.
+   * The IPv6 network zone.
    */
   ipv6Cidrs?: string[];
   /**

@@ -25,7 +25,7 @@ export class CreateApplicationTokenRequest extends $dara.Model {
   applicationTokenType?: string;
   /**
    * @remarks
-   * The expiration time. Specify a UNIX timestamp in milliseconds.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1735530123762

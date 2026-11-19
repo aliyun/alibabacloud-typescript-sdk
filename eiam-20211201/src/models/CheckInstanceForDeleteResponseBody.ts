@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenarios extends $dara.Model {
   /**
    * @remarks
-   * The console URL that provides helpful information.
+   * The helpful console URL.
    * 
    * @example
    * https://console-rpa.aliyun.com/
@@ -21,7 +21,7 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenar
   resourceId?: string;
   /**
    * @remarks
-   * The restriction reason.
+   * The reason for the restriction.
    * 
    * @example
    * cloud_product_dependency
@@ -63,7 +63,7 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResult extends $dara
   deletable?: boolean;
   /**
    * @remarks
-   * The restriction information for instances that cannot be deleted.
+   * The restriction information that prevents deletion.
    */
   restrictScenarios?: CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenarios[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class CheckInstanceForDeleteResponseBodyCheckInstanceResult extends $dara
 export class CheckInstanceForDeleteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The check result.
+   * The returned result.
    */
   checkInstanceResult?: CheckInstanceForDeleteResponseBodyCheckInstanceResult;
   /**

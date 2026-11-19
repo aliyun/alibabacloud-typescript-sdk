@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceServerScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ResourceServer application.
+   * The application ID of the resource server.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateResourceServerScopeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the scope permission for the resource server.
+   * The scope permission ID of the resource server.
    * 
    * This parameter is required.
    * 

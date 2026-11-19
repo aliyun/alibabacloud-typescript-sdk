@@ -13,7 +13,7 @@ export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPr
   customPrivacyPolicyItemName?: string;
   /**
    * @remarks
-   * The endpoint of the custom privacy policy item.
+   * The URL of the custom privacy policy item.
    * 
    * @example
    * http://www.xxxx.com
@@ -45,12 +45,12 @@ export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPr
 export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends $dara.Model {
   /**
    * @remarks
-   * The items of the custom privacy policy.
+   * The custom privacy policy items.
    */
   customPrivacyPolicyItems?: CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems[];
   /**
    * @remarks
-   * The prompt for the custom privacy policy.
+   * The custom privacy policy tip.
    * 
    * @example
    * Please read and agree：
@@ -58,7 +58,7 @@ export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
   customPrivacyPolicyTip?: string;
   /**
    * @remarks
-   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
+   * The language code of the custom privacy policy. The value is obtained from the LanguageCode parameter returned by the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -95,7 +95,7 @@ export class CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
 export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token used to ensure the idempotence of the request. The client generates this value to make sure that it is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * client-token-example
@@ -118,7 +118,7 @@ export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * The default language of the privacy policy.
+   * The default language code of the custom privacy policy.
    * 
    * @example
    * zh-Hans-CN
@@ -144,7 +144,7 @@ export class CreateCustomPrivacyPolicyRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The consent type for the privacy policy.
+   * The user consent type.
    * 
    * @example
    * implied_consent

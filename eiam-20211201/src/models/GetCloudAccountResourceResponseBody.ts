@@ -146,7 +146,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $da
   description?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649916625000

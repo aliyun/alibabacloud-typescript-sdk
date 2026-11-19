@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForUserResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application role.
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -13,7 +13,7 @@ export class ListApplicationsForUserResponseBodyApplicationsApplicationRoles ext
   applicationRoleId?: string;
   /**
    * @remarks
-   * Indicates whether the role is directly assigned to the user.
+   * Indicates whether direct authorization exists.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListApplicationsForUserResponseBodyApplicationsApplicationRoles ext
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * Indicates whether the role is inherited from an organization or a group to which the user belongs.
+   * Indicates whether inherited authorization exists.
    * 
    * @example
    * false
@@ -63,15 +63,14 @@ export class ListApplicationsForUserResponseBodyApplications extends $dara.Model
   applicationId?: string;
   /**
    * @remarks
-   * The list of application roles.
+   * The list of application roles. No roles are returned for SAML applications.
    */
   applicationRoles?: ListApplicationsForUserResponseBodyApplicationsApplicationRoles[];
   /**
    * @remarks
-   * Indicates whether a direct authorization exists. Valid values:
+   * Indicates whether direct authorization exists. Valid values:
    * 
    * - true: A direct authorization record exists between the application and the account.
-   * 
    * - false: No direct authorization record exists between the application and the account.
    * 
    * @example
@@ -80,11 +79,10 @@ export class ListApplicationsForUserResponseBodyApplications extends $dara.Model
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * Indicates whether an inherited authorization exists. Valid values:
+   * Indicates whether inherited authorization exists. Valid values:
    * 
-   * - true: A direct authorization record exists between the application and a parent organization or a group to which the account belongs.
-   * 
-   * - false: No direct authorization record exists between the application and any of the parent organizations or groups to which the account belongs.
+   * - true: A direct authorization record exists between the application and at least one parent organization of the account or a group to which the account belongs.
+   * - false: No direct authorization record exists between the application and any parent organization of the account or any group to which the account belongs.
    * 
    * @example
    * false

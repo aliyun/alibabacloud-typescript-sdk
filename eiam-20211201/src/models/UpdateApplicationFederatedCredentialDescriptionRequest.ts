@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationFederatedCredentialDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application\\"s federated credential.
+   * The application federated credential ID.
    * 
    * This parameter is required.
    * 

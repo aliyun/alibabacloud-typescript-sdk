@@ -35,7 +35,7 @@ export class CheckInstanceModuleStatusResponseBodyModule extends $dara.Model {
 export class CheckInstanceModuleStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The modification status information.
+   * The module status information.
    */
   module?: CheckInstanceModuleStatusResponseBodyModule;
   /**

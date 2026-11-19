@@ -112,7 +112,7 @@ export class ListApplicationsForAuthorizationRuleResponseBody extends $dara.Mode
   applications?: ListApplicationsForAuthorizationRuleResponseBodyApplications[];
   /**
    * @remarks
-   * The number of entries per page in a paging query.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -120,7 +120,7 @@ export class ListApplicationsForAuthorizationRuleResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in the response, which is used to query the next page.
+   * The token returned in the current response for querying the next page.
    * 
    * @example
    * NTxxxexample

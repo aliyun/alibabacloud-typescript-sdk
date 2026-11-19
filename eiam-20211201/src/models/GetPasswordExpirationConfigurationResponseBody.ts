@@ -7,20 +7,19 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
    * @remarks
    * The list of effective authentication source IDs. Default value: ["ia_all"].
    * 
-   * - ia_all: All authentication sources. If this value is specified, no other values can be specified.
+   * - ia_all: All. If you specify this value, you cannot specify other values.
    * - ia_password: Account password logon.
    * - ia_otp_sms: SMS verification code logon.
    * - ia_webauthn: WebAuthn authenticator logon.
-   * - idp_xxx: Authentication method of a specific identity provider.
+   * - idp_xxx: A specific identity provider (IdP) authentication method.
    */
   effectiveAuthenticationSourceIds?: string[];
   /**
    * @remarks
-   * The action to take when a password expires. Valid values:
-   * 
-   * - forbid_login: Forbid logon.
-   * - force_update_password: Force password change.
-   * - remind_update_password: Remind password change.
+   * The password expiration action. Valid values:
+   * - forbid_login: Prohibits logon.
+   * - force_update_password: Forces a password change.
+   * - remind_update_password: Reminds the user to change the password.
    * 
    * @example
    * forbid_login
@@ -31,12 +30,12 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
    * The list of password expiration notification channels.
    * 
    * @example
-   * login
+   * ["login"]
    */
   passwordExpirationNotificationChannels?: string[];
   /**
    * @remarks
-   * The advance notice period before password expiration. Unit: days.
+   * The password expiration notification period, in days.
    * 
    * @example
    * 7
@@ -44,8 +43,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationNotificationDuration?: number;
   /**
    * @remarks
-   * The status of password expiration notification. Valid values:
-   * 
+   * The password expiration notification status. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -55,8 +53,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationNotificationStatus?: string;
   /**
    * @remarks
-   * The status of the password expiration configuration. Valid values:
-   * 
+   * The password expiration status. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -66,7 +63,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordExpirationStatus?: string;
   /**
    * @remarks
-   * The grace period for forced password change after expiration. Unit: days.
+   * The forced password change period, in days.
    * 
    * @example
    * 3
@@ -74,7 +71,7 @@ export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationCon
   passwordForcedUpdateDuration?: number;
   /**
    * @remarks
-   * The maximum validity period of a password. Unit: days.
+   * The password validity period, in days.
    * 
    * @example
    * 180

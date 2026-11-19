@@ -21,7 +21,7 @@ export class ListApplicationRolesResponseBodyApplicationRoles extends $dara.Mode
   applicationRoleId?: string;
   /**
    * @remarks
-   * The name of the application role.
+   * The application role name.
    * 
    * @example
    * Admin Role
@@ -29,7 +29,7 @@ export class ListApplicationRolesResponseBodyApplicationRoles extends $dara.Mode
   applicationRoleName?: string;
   /**
    * @remarks
-   * The value of the application role.
+   * The application role value.
    * 
    * @example
    * admin_role
@@ -90,7 +90,7 @@ export class ListApplicationRolesResponseBody extends $dara.Model {
   applicationRoles?: ListApplicationRolesResponseBodyApplicationRoles[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -98,7 +98,7 @@ export class ListApplicationRolesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxxexample
@@ -114,7 +114,7 @@ export class ListApplicationRolesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

@@ -105,7 +105,7 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
 export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The IdP certificate list.
+   * The list of IdP certificates.
    */
   certificates?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfigurationCertificates[];
   /**
@@ -118,7 +118,7 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
   idPEntityId?: string;
   /**
    * @remarks
-   * The IdP logon URL.
+   * The IdP SSO URL.
    * 
    * @example
    * https://dc.test.com/adfs/ls/

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationLdapUdPushConfig extends $dara.Model {
   /**
    * @remarks
-   * Organization ObjectClass
+   * The organization object class.
    * 
    * @example
    * ou,top
@@ -13,7 +13,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   organizationUnitObjectClass?: string;
   /**
    * @remarks
-   * Organization RDN
+   * The organization RDN.
    * 
    * @example
    * ou
@@ -21,7 +21,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   organizationalUnitRdn?: string;
   /**
    * @remarks
-   * Password synchronization status
+   * Specifies whether to synchronize passwords.
    * 
    * @example
    * enabled
@@ -29,7 +29,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   passwordSyncStatus?: string;
   /**
    * @remarks
-   * User ObjectClass
+   * The user object class.
    * 
    * @example
    * user,top
@@ -37,7 +37,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   userObjectClass?: string;
   /**
    * @remarks
-   * User RDN
+   * The user RDN.
    * 
    * @example
    * cn
@@ -75,7 +75,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationPeriodicSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * Cron expression
+   * The cron expression.
    * 
    * @example
    * 0 45 1 * * ?
@@ -83,12 +83,12 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   periodicSyncCron?: string;
   /**
    * @remarks
-   * Collection of time points
+   * The collection of time points.
    */
   periodicSyncTimes?: string[];
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * @example
    * cron
@@ -125,12 +125,12 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationUdSyncScopeConfigs extends $dara.Model {
   /**
    * @remarks
-   * Source nodes for synchronization
+   * The source synchronization node.
    */
   sourceScopes?: string[];
   /**
    * @remarks
-   * Target node for synchronization
+   * The target synchronization node.
    * 
    * @example
    * 604352338
@@ -165,7 +165,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Identity provider ID
+   * The identity provider ID.
    * 
    * @example
    * idp_na2rzpyc67zr7ixdfy35zgrxxx
@@ -173,7 +173,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   identityProviderId?: string;
   /**
    * @remarks
-   * Incremental callback status. Indicates whether incremental callback data from the IdP is processed.
+   * Indicates whether to process incremental callback data from the IdP.
    * 
    * @example
    * enabled
@@ -181,7 +181,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   incrementalCallbackStatus?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * idaas_7vdv3olzk36gymwtlaq6fixxxx
@@ -189,17 +189,17 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   instanceId?: string;
   /**
    * @remarks
-   * LDAP synchronization-side configuration
+   * The LDAP synchronization configuration information.
    */
   ldapUdPushConfig?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationLdapUdPushConfig;
   /**
    * @remarks
-   * Periodic verification configuration
+   * The periodic verification configuration.
    */
   periodicSyncConfig?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationPeriodicSyncConfig;
   /**
    * @remarks
-   * Periodic verification status
+   * The periodic verification status.
    * 
    * @example
    * disabled
@@ -207,7 +207,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * Outbound synchronization configuration details
+   * The outbound synchronization configuration information.
    */
   udSyncScopeConfigs?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurationUdSyncScopeConfigs[];
   static names(): { [key: string]: string } {
@@ -255,7 +255,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfigurati
 export class GetIdentityProviderUdPushConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -263,7 +263,7 @@ export class GetIdentityProviderUdPushConfigurationResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * Outbound synchronization configuration
+   * The outbound synchronization configuration.
    */
   udPushConfiguration?: GetIdentityProviderUdPushConfigurationResponseBodyUdPushConfiguration;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique among different requests. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must ensure that the parameter value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
   cloudAccountExternalId?: string;
   /**
    * @remarks
-   * The cloud account name.
+   * The name of the cloud account.
    * 
    * @example
    * cloud_accout_xxxx
@@ -33,7 +33,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * The identity provider name.
+   * The name of the identity provider.
    * 
    * @example
    * idaas-eiam-oidc-provider
@@ -41,7 +41,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
   cloudAccountProviderName?: string;
   /**
    * @remarks
-   * The cloud account site. Valid values:
+   * The site of the cloud account. Valid values:
    * 
    * - global: International site.
    * - china_mainland: China site.
@@ -52,14 +52,14 @@ export class CreateCloudAccountRequest extends $dara.Model {
   cloudAccountSite?: string;
   /**
    * @remarks
-   * The cloud account type. Valid values:
+   * The type of the cloud account. Valid values:
    * 
    * - alibaba_cloud: Alibaba Cloud.
    * 
    * This parameter is required.
    * 
    * @example
-   * alibaba_cloud(Alibaba Cloud)
+   * alibaba_cloud
    */
   cloudAccountVendorType?: string;
   /**

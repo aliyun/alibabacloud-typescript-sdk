@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetInstanceControlConfigurationRequestControlElementsHumanVerificationConfig extends $dara.Model {
   /**
    * @remarks
-   * The CAPTCHA type.
+   * The Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) check type.
    * 
    * @example
    * urn:alibaba:idaas:humanverification:alibaba-cloud-slider-verification
@@ -43,7 +43,7 @@ export class SetInstanceControlConfigurationRequestControlElements extends $dara
   elementName?: string;
   /**
    * @remarks
-   * The CAPTCHA authenticate configuration.
+   * The Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) configuration.
    */
   humanVerificationConfig?: SetInstanceControlConfigurationRequestControlElementsHumanVerificationConfig;
   /**

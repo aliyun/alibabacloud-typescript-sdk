@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditionCredentialCondition extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether same-name identity accounts are supported.
+   * Specifies whether identity accounts with the same name are supported.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditi
 export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesCondition extends $dara.Model {
   /**
    * @remarks
-   * The effective condition when used as a credential.
+   * The effective conditions when the authorization resource is used as a credential.
    */
   credentialCondition?: ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditionCredentialCondition;
   static names(): { [key: string]: string } {
@@ -74,7 +74,8 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   /**
    * @remarks
    * The type of the resource entity associated with the authorization resource. Valid values:
-   * - cloud_account_role: cloud role.
+   * 
+   * - cloud_account_role: cloud role
    * 
    * @example
    * cloud_account_role
@@ -98,7 +99,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the cloud account to which the resource entity associated with the authorization resource belongs.
+   * The ID of the Alibaba Cloud account to which the resource entity associated with the authorization resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -181,7 +182,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   authorizationResources?: ListAuthorizationResourcesResponseBodyAuthorizationResources[];
   /**
    * @remarks
-   * The maximum number of entries returned per page for paging in a paged query.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -189,7 +190,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in the current response for the next paged query.
+   * The next token returned in the current response for the next paged query.
    * 
    * @example
    * NTxxxexample

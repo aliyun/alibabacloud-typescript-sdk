@@ -480,7 +480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM groups access to an application.
+   * Grants multiple EIAM groups access to an application in batches.
    * 
    * @param request - AuthorizeApplicationToGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -523,7 +523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM groups access to an application.
+   * Grants multiple EIAM groups access to an application in batches.
    * 
    * @param request - AuthorizeApplicationToGroupsRequest
    * @returns AuthorizeApplicationToGroupsResponse
@@ -588,7 +588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM accounts access to an application in batches.
+   * Grants multiple EIAM accounts access to an application.
    * 
    * @param request - AuthorizeApplicationToUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -631,7 +631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM accounts access to an application in batches.
+   * Grants multiple EIAM accounts access to an application.
    * 
    * @param request - AuthorizeApplicationToUsersRequest
    * @returns AuthorizeApplicationToUsersResponse
@@ -754,7 +754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the scope permissions of a specified resource server to an organizational unit.
+   * Grants scope permissions of a specified resource server to an organization.
    * 
    * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -801,7 +801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants the scope permissions of a specified resource server to an organizational unit.
+   * Grants scope permissions of a specified resource server to an organization.
    * 
    * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
    * @returns AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -812,7 +812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants scope permissions of a specified resource server to an account.
+   * Grants scope permissions under a specified resource server to an account.
    * 
    * @param request - AuthorizeResourceServerScopesToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -859,7 +859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants scope permissions of a specified resource server to an account.
+   * Grants scope permissions under a specified resource server to an account.
    * 
    * @param request - AuthorizeResourceServerScopesToUserRequest
    * @returns AuthorizeResourceServerScopesToUserResponse
@@ -870,7 +870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants a specified ResourceServer to a Client application.
+   * Authorizes a specified ResourceServer for a client application.
    * 
    * @param request - AuthorizeResourceServerToClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -909,7 +909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants a specified ResourceServer to a Client application.
+   * Authorizes a specified ResourceServer for a client application.
    * 
    * @param request - AuthorizeResourceServerToClientRequest
    * @returns AuthorizeResourceServerToClientResponse
@@ -920,7 +920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a third-party logon account.
+   * Binds a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -963,7 +963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a third-party logon account.
+   * Binds a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @returns BindUserAuthnSourceMappingResponse
@@ -974,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the primary organization for application synchronization is within the application synchronization scope.
+   * Checks whether the primary organizational unit for application synchronization is within the application synchronization scope.
    * 
    * @param request - CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1013,7 +1013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the primary organization for application synchronization is within the application synchronization scope.
+   * Checks whether the primary organizational unit for application synchronization is within the application synchronization scope.
    * 
    * @param request - CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @returns CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -1638,7 +1638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a ClientPublicKey for an application. When an M2M client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the client\\"s token endpoint request.
+   * Creates a ClientPublicKey for an application. When a machine-to-machine (M2M) client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the request.
    * 
    * @param request - CreateClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1685,7 +1685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a ClientPublicKey for an application. When an M2M client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the client\\"s token endpoint request.
+   * Creates a ClientPublicKey for an application. When a machine-to-machine (M2M) client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the request.
    * 
    * @param request - CreateClientPublicKeyRequest
    * @returns CreateClientPublicKeyResponse
@@ -1699,8 +1699,8 @@ export default class Client extends OpenApi {
    * Creates a cloud account resource under a specified EIAM instance.
    * 
    * @remarks
-   * <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
-   * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
+   * <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+   * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
    * 
    * @param request - CreateCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1762,8 +1762,8 @@ export default class Client extends OpenApi {
    * Creates a cloud account resource under a specified EIAM instance.
    * 
    * @remarks
-   * <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
-   * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
+   * <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+   * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
    * 
    * @param request - CreateCloudAccountRequest
    * @returns CreateCloudAccountResponse
@@ -1774,7 +1774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud role resource under the specified cloud account resource.
+   * Creates a cloud role resource under a specified cloud account resource.
    * 
    * @param request - CreateCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1825,7 +1825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud role resource under the specified cloud account resource.
+   * Creates a cloud role resource under a specified cloud account resource.
    * 
    * @param request - CreateCloudAccountRoleRequest
    * @returns CreateCloudAccountRoleResponse
@@ -2240,7 +2240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create custom terms.
+   * Creates a custom privacy policy.
    * 
    * @param request - CreateCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2295,7 +2295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create custom terms.
+   * Creates a custom privacy policy.
    * 
    * @param request - CreateCustomPrivacyPolicyRequest
    * @returns CreateCustomPrivacyPolicyResponse
@@ -2640,7 +2640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a status check job for an identity provider.
+   * Creates an IdP status check job.
    * 
    * @param request - CreateIdentityProviderStatusCheckJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2675,7 +2675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a status check job for an identity provider.
+   * Creates an IdP status check job.
    * 
    * @param request - CreateIdentityProviderStatusCheckJobRequest
    * @returns CreateIdentityProviderStatusCheckJobResponse
@@ -2732,7 +2732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a trial License for an instance.
+   * Creates a trial license for an instance.
    * 
    * @param request - CreateInstanceTrialLicenseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2763,7 +2763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a trial License for an instance.
+   * Creates a trial license for an instance.
    * 
    * @param request - CreateInstanceTrialLicenseRequest
    * @returns CreateInstanceTrialLicenseResponse
@@ -2774,7 +2774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network access endpoint.
+   * Creates a dedicated network endpoint.
    * 
    * @param request - CreateNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2825,7 +2825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network access endpoint.
+   * Creates a dedicated network endpoint.
    * 
    * @param request - CreateNetworkAccessEndpointRequest
    * @returns CreateNetworkAccessEndpointResponse
@@ -2964,7 +2964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scope permission for a specified resource server.
+   * Creates a scope permission under the specified resource server.
    * 
    * @param request - CreateResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3015,7 +3015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scope permission for a specified resource server.
+   * Creates a scope permission under the specified resource server.
    * 
    * @param request - CreateResourceServerScopeRequest
    * @returns CreateResourceServerScopeResponse
@@ -3186,7 +3186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes privileged access for a cloud account.
+   * Removes privileged access hosting for a cloud account.
    * 
    * @param request - DeactivateCloudAccountPrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3225,7 +3225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes privileged access for a cloud account.
+   * Removes privileged access hosting for a cloud account.
    * 
    * @param request - DeactivateCloudAccountPrivilegeRequest
    * @returns DeactivateCloudAccountPrivilegeResponse
@@ -3338,7 +3338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a federated identity credential of an application.
+   * Deletes a federated identity credential for an application.
    * 
    * @param request - DeleteApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3377,7 +3377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a federated identity credential of an application.
+   * Deletes a federated identity credential for an application.
    * 
    * @param request - DeleteApplicationFederatedCredentialRequest
    * @returns DeleteApplicationFederatedCredentialResponse
@@ -3438,7 +3438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ApplicationToken.
+   * Deletes an application token.
    * 
    * @param request - DeleteApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3477,7 +3477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ApplicationToken.
+   * Deletes an application token.
    * 
    * @param request - DeleteApplicationTokenRequest
    * @returns DeleteApplicationTokenResponse
@@ -3488,7 +3488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an authorized resource.
+   * Deletes an authorization resource.
    * 
    * @param request - DeleteAuthorizationResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3527,7 +3527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an authorized resource.
+   * Deletes an authorization resource.
    * 
    * @param request - DeleteAuthorizationResourceRequest
    * @returns DeleteAuthorizationResourceResponse
@@ -3538,7 +3538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an authorization rule. The authorization rule can be deleted only when it is in the disabled state.
+   * Deletes an authorization rule. An authorization rule can be deleted only when it is disabled.
    * 
    * @param request - DeleteAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3573,7 +3573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an authorization rule. The authorization rule can be deleted only when it is in the disabled state.
+   * Deletes an authorization rule. An authorization rule can be deleted only when it is disabled.
    * 
    * @param request - DeleteAuthorizationRuleRequest
    * @returns DeleteAuthorizationRuleResponse
@@ -3584,7 +3584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Brand
+   * Deletes a brand.
    * 
    * @param request - DeleteBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3619,7 +3619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Brand
+   * Deletes a brand.
    * 
    * @param request - DeleteBrandRequest
    * @returns DeleteBrandResponse
@@ -3680,7 +3680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Alibaba Cloud account resource.
+   * Deletes a cloud account resource.
    * 
    * @param request - DeleteCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3715,7 +3715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Alibaba Cloud account resource.
+   * Deletes a cloud account resource.
    * 
    * @param request - DeleteCloudAccountRequest
    * @returns DeleteCloudAccountResponse
@@ -3726,10 +3726,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cloud role from a specified Alibaba Cloud account.
+   * Deletes a cloud role resource under a specified cloud account resource.
    * 
    * @remarks
-   * You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
+   * Before deleting a specified cloud role, ensure that the cloud role is disabled. After the cloud role is deleted, all data related to the cloud role is deleted and cannot be recovered.
    * 
    * @param request - DeleteCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3768,10 +3768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cloud role from a specified Alibaba Cloud account.
+   * Deletes a cloud role resource under a specified cloud account resource.
    * 
    * @remarks
-   * You must disable the cloud role before you delete it. After you delete the role, all related data is also deleted and cannot be recovered.
+   * Before deleting a specified cloud role, ensure that the cloud role is disabled. After the cloud role is deleted, all data related to the cloud role is deleted and cannot be recovered.
    * 
    * @param request - DeleteCloudAccountRoleRequest
    * @returns DeleteCloudAccountRoleResponse
@@ -3976,7 +3976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an extended character field.
+   * Deletes an extension field.
    * 
    * @param request - DeleteCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4011,7 +4011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an extended character field.
+   * Deletes an extension field.
    * 
    * @param request - DeleteCustomFieldRequest
    * @returns DeleteCustomFieldResponse
@@ -4022,7 +4022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom clause.
+   * Deletes custom terms.
    * 
    * @param request - DeleteCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4057,7 +4057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom clause.
+   * Deletes custom terms.
    * 
    * @param request - DeleteCustomPrivacyPolicyRequest
    * @returns DeleteCustomPrivacyPolicyResponse
@@ -4164,7 +4164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a federated credential provider.
+   * Deletes a federated trust source.
    * 
    * @param request - DeleteFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4199,7 +4199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a federated credential provider.
+   * Deletes a federated trust source.
    * 
    * @param request - DeleteFederatedCredentialProviderRequest
    * @returns DeleteFederatedCredentialProviderResponse
@@ -4534,7 +4534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scope permission under a specified ResourceServer.
+   * Deletes the scope permissions of a specified resource server.
    * 
    * @param request - DeleteResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4573,7 +4573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scope permission under a specified ResourceServer.
+   * Deletes the scope permissions of a specified resource server.
    * 
    * @param request - DeleteResourceServerScopeRequest
    * @returns DeleteResourceServerScopeResponse
@@ -4930,7 +4930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an application federated credential.
+   * Disables a federated identity credential for an application.
    * 
    * @param request - DisableApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4969,7 +4969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an application federated credential.
+   * Disables a federated identity credential for an application.
    * 
    * @param request - DisableApplicationFederatedCredentialRequest
    * @returns DisableApplicationFederatedCredentialResponse
@@ -4980,7 +4980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
+   * Disables the machine-to-machine (M2M) client capability for an application. When this feature is enabled, the application can act as a caller (that is, an OAuth client) to initiate access to resources.
    * 
    * @param request - DisableApplicationM2MClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5015,7 +5015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the machine-to-machine (M2M) client feature for an application. This feature enables an application to act as an OAuth client and make calls to access resources.
+   * Disables the machine-to-machine (M2M) client capability for an application. When this feature is enabled, the application can act as a caller (that is, an OAuth client) to initiate access to resources.
    * 
    * @param request - DisableApplicationM2MClientRequest
    * @returns DisableApplicationM2MClientResponse
@@ -5072,7 +5072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the ResourceServer capability of a specified application.
+   * Disables the ResourceServer capability for a specified application.
    * 
    * @param request - DisableApplicationResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5107,7 +5107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the ResourceServer capability of a specified application.
+   * Disables the ResourceServer capability for a specified application.
    * 
    * @param request - DisableApplicationResourceServerRequest
    * @returns DisableApplicationResourceServerResponse
@@ -5167,7 +5167,7 @@ export default class Client extends OpenApi {
    * Disables an application token.
    * 
    * @remarks
-   * When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
+   * When an application is disabled, all its features such as SSO and account synchronization become unavailable. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - DisableApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5209,7 +5209,7 @@ export default class Client extends OpenApi {
    * Disables an application token.
    * 
    * @remarks
-   * When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
+   * When an application is disabled, all its features such as SSO and account synchronization become unavailable. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - DisableApplicationTokenRequest
    * @returns DisableApplicationTokenResponse
@@ -5318,7 +5318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a specified application ClientPublicKey.
+   * Disables the specified application ClientPublicKey.
    * 
    * @param request - DisableClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5361,7 +5361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a specified application ClientPublicKey.
+   * Disables the specified application ClientPublicKey.
    * 
    * @param request - DisableClientPublicKeyRequest
    * @returns DisableClientPublicKeyResponse
@@ -5372,7 +5372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables privileges for a cloud account.
+   * Disables the privileges of a cloud account.
    * 
    * @param request - DisableCloudAccountPrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5411,7 +5411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables privileges for a cloud account.
+   * Disables the privileges of a cloud account.
    * 
    * @param request - DisableCloudAccountPrivilegeRequest
    * @returns DisableCloudAccountPrivilegeResponse
@@ -5720,7 +5720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a custom term.
+   * Disables custom terms.
    * 
    * @param request - DisableCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5755,7 +5755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a custom term.
+   * Disables custom terms.
    * 
    * @param request - DisableCustomPrivacyPolicyRequest
    * @returns DisableCustomPrivacyPolicyResponse
@@ -5816,7 +5816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a federated trust source.
+   * Disables a federated credential provider.
    * 
    * @param request - DisableFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5851,7 +5851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a federated trust source.
+   * Disables a federated credential provider.
    * 
    * @param request - DisableFederatedCredentialProviderRequest
    * @returns DisableFederatedCredentialProviderResponse
@@ -5862,7 +5862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the advanced configuration.
+   * Disables advanced configuration.
    * 
    * @param request - DisableIdentityProviderAdvancedAbilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5897,7 +5897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the advanced configuration.
+   * Disables advanced configuration.
    * 
    * @param request - DisableIdentityProviderAdvancedAbilityRequest
    * @returns DisableIdentityProviderAdvancedAbilityResponse
@@ -5911,7 +5911,7 @@ export default class Client extends OpenApi {
    * Disables authentication.
    * 
    * @remarks
-   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+   * When you change an application from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - DisableIdentityProviderAuthnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5949,7 +5949,7 @@ export default class Client extends OpenApi {
    * Disables authentication.
    * 
    * @remarks
-   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+   * When you change an application from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - DisableIdentityProviderAuthnRequest
    * @returns DisableIdentityProviderAuthnResponse
@@ -6048,7 +6048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the internal authentication source.
+   * Disables an internal authentication source.
    * 
    * @param request - DisableInternalAuthenticationSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6083,7 +6083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the internal authentication source.
+   * Disables an internal authentication source.
    * 
    * @param request - DisableInternalAuthenticationSourceRequest
    * @returns DisableInternalAuthenticationSourceResponse
@@ -6094,7 +6094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the custom subject feature for a specified resource server.
+   * Disables the custom subject capability of a specified resource server.
    * 
    * @param request - DisableResourceServerCustomSubjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6129,7 +6129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the custom subject feature for a specified resource server.
+   * Disables the custom subject capability of a specified resource server.
    * 
    * @param request - DisableResourceServerCustomSubjectRequest
    * @returns DisableResourceServerCustomSubjectResponse
@@ -6430,7 +6430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
+   * Enables the machine-to-machine (M2M) client capability for an application. After this feature is enabled, the application can act as a caller (an OAuth client) to access resources.
    * 
    * @param request - EnableApplicationM2MClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6465,7 +6465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the machine-to-machine (M2M) client feature for an application. This allows the application to act as a caller (an OAuth client) to access resources.
+   * Enables the machine-to-machine (M2M) client capability for an application. After this feature is enabled, the application can act as a caller (an OAuth client) to access resources.
    * 
    * @param request - EnableApplicationM2MClientRequest
    * @returns EnableApplicationM2MClientResponse
@@ -6522,7 +6522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the ResourceServer feature for a specified application.
+   * Enables the ResourceServer capability for a specified application.
    * 
    * @param request - EnableApplicationResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6557,7 +6557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the ResourceServer feature for a specified application.
+   * Enables the ResourceServer capability for a specified application.
    * 
    * @param request - EnableApplicationResourceServerRequest
    * @returns EnableApplicationResourceServerResponse
@@ -6866,7 +6866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a cloud role under a specified cloud account.
+   * Enables a cloud role for a specified cloud account.
    * 
    * @param request - EnableCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6909,7 +6909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a cloud role under a specified cloud account.
+   * Enables a cloud role for a specified cloud account.
    * 
    * @param request - EnableCloudAccountRoleRequest
    * @returns EnableCloudAccountRoleResponse
@@ -7121,8 +7121,8 @@ export default class Client extends OpenApi {
    * Enables a field.
    * 
    * @remarks
-   * <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
-   * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
+   * <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+   * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
    * 
    * @param request - EnableCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7160,8 +7160,8 @@ export default class Client extends OpenApi {
    * Enables a field.
    * 
    * @remarks
-   * <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
-   * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
+   * <props="china">**Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+   * <props="intl">**Before calling this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
    * 
    * @param request - EnableCustomFieldRequest
    * @returns EnableCustomFieldResponse
@@ -7268,7 +7268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a federated credential provider.
+   * Enables a federated trust source.
    * 
    * @param request - EnableFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7303,7 +7303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a federated credential provider.
+   * Enables a federated trust source.
    * 
    * @param request - EnableFederatedCredentialProviderRequest
    * @returns EnableFederatedCredentialProviderResponse
@@ -7363,7 +7363,7 @@ export default class Client extends OpenApi {
    * Enables authentication.
    * 
    * @remarks
-   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
+   * When a conditional access policy is changed from the enabled state to the disabled state, the policy no longer blocks requests. Confirm that you are aware of the potential risks of this operation.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7401,7 +7401,7 @@ export default class Client extends OpenApi {
    * Enables authentication.
    * 
    * @remarks
-   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
+   * When a conditional access policy is changed from the enabled state to the disabled state, the policy no longer blocks requests. Confirm that you are aware of the potential risks of this operation.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @returns EnableIdentityProviderAuthnResponse
@@ -7546,7 +7546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
+   * Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated credential for the application.
    * 
    * @param request - EnableResourceServerCustomSubjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7581,7 +7581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
+   * Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated credential for the application.
    * 
    * @param request - EnableResourceServerCustomSubjectRequest
    * @returns EnableResourceServerCustomSubjectResponse
@@ -7794,7 +7794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a download URL for file import results.
+   * Generates the download URL for the file import result.
    * 
    * @param request - GenerateDownloadUrlForSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7829,7 +7829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a download URL for file import results.
+   * Generates the download URL for the file import result.
    * 
    * @param request - GenerateDownloadUrlForSynchronizationJobRequest
    * @returns GenerateDownloadUrlForSynchronizationJobResponse
@@ -7894,7 +7894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an access token for accessing a resource server by using a specified application as the client identity.
+   * Obtains an access token to access a resource server by using a specified application as the client identity.
    * 
    * @param request - GenerateOauthTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7953,7 +7953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an access token for accessing a resource server by using a specified application as the client identity.
+   * Obtains an access token to access a resource server by using a specified application as the client identity.
    * 
    * @param request - GenerateOauthTokenRequest
    * @returns GenerateOauthTokenResponse
@@ -7964,7 +7964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves upload authentication.
+   * Retrieves upload credentials.
    * 
    * @param request - GenerateUploadAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8003,7 +8003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves upload authentication.
+   * Retrieves upload credentials.
    * 
    * @param request - GenerateUploadAuthRequest
    * @returns GenerateUploadAuthResponse
@@ -8014,7 +8014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a WebAuthn authenticator registration URL.
+   * Generates the WebAuthn authenticator registration URL.
    * 
    * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8053,7 +8053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a WebAuthn authenticator registration URL.
+   * Generates the WebAuthn authenticator registration URL.
    * 
    * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
    * @returns GenerateWebAuthnAuthenticatorRegistrationUrlResponse
@@ -8116,7 +8116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the advanced configuration of an application.
+   * Retrieves the advanced configurations of an application.
    * 
    * @param request - GetApplicationAdvancedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8151,7 +8151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the advanced configuration of an application.
+   * Retrieves the advanced configurations of an application.
    * 
    * @param request - GetApplicationAdvancedConfigRequest
    * @returns GetApplicationAdvancedConfigResponse
@@ -8162,7 +8162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the federated identity credential of an application.
+   * Retrieves an application federated credential.
    * 
    * @param request - GetApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8201,7 +8201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the federated identity credential of an application.
+   * Retrieves an application federated credential.
    * 
    * @param request - GetApplicationFederatedCredentialRequest
    * @returns GetApplicationFederatedCredentialResponse
@@ -8492,7 +8492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves application template information.
+   * Retrieves the details of an application template.
    * 
    * @param request - GetApplicationTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8523,7 +8523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves application template information.
+   * Retrieves the details of an application template.
    * 
    * @param request - GetApplicationTemplateRequest
    * @returns GetApplicationTemplateResponse
@@ -8534,7 +8534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an authorization resource.
+   * Queries the details of an authorization resource.
    * 
    * @param request - GetAuthorizationResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8573,7 +8573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an authorization resource.
+   * Queries the details of an authorization resource.
    * 
    * @param request - GetAuthorizationResourceRequest
    * @returns GetAuthorizationResourceResponse
@@ -8722,7 +8722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ClientPublicKey of a specified application.
+   * Queries the client public key of a specified application.
    * 
    * @param request - GetClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8761,7 +8761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ClientPublicKey of a specified application.
+   * Queries the client public key of a specified application.
    * 
    * @param request - GetClientPublicKeyRequest
    * @returns GetClientPublicKeyResponse
@@ -8818,7 +8818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified cloud account resource.
+   * Retrieves the details of a specified cloud account resource.
    * 
    * @param request - GetCloudAccountResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8857,7 +8857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified cloud account resource.
+   * Retrieves the details of a specified cloud account resource.
    * 
    * @param request - GetCloudAccountResourceRequest
    * @returns GetCloudAccountResourceResponse
@@ -8868,7 +8868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource information of a cloud role.
+   * Queries the information about a cloud role resource.
    * 
    * @param request - GetCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8907,7 +8907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource information of a cloud role.
+   * Queries the information about a cloud role resource.
    * 
    * @param request - GetCloudAccountRoleRequest
    * @returns GetCloudAccountRoleResponse
@@ -9020,7 +9020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a credential resource.
+   * Queries the details of a credential resource.
    * 
    * @param request - GetCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9055,7 +9055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a credential resource.
+   * Queries the details of a credential resource.
    * 
    * @param request - GetCredentialRequest
    * @returns GetCredentialResponse
@@ -9158,7 +9158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the custom privacy policy.
+   * Retrieves a custom privacy policy.
    * 
    * @param request - GetCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9193,7 +9193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the custom privacy policy.
+   * Retrieves a custom privacy policy.
    * 
    * @param request - GetCustomPrivacyPolicyRequest
    * @returns GetCustomPrivacyPolicyResponse
@@ -9465,7 +9465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an identity provider.
+   * Retrieves the identity provider.
    * 
    * @param request - GetIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9500,7 +9500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an identity provider.
+   * Retrieves the identity provider.
    * 
    * @param request - GetIdentityProviderRequest
    * @returns GetIdentityProviderResponse
@@ -9653,7 +9653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the IdP outbound synchronization configuration.
+   * Retrieves the outbound synchronization configuration of an IdP.
    * 
    * @param request - GetIdentityProviderUdPushConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9688,7 +9688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the IdP outbound synchronization configuration.
+   * Retrieves the outbound synchronization configuration of an IdP.
    * 
    * @param request - GetIdentityProviderUdPushConfigurationRequest
    * @returns GetIdentityProviderUdPushConfigurationResponse
@@ -9741,7 +9741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance control items.
+   * Queries the instance control elements.
    * 
    * @param request - GetInstanceControlConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9776,7 +9776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance control items.
+   * Queries the instance control elements.
    * 
    * @param request - GetInstanceControlConfigurationRequest
    * @returns GetInstanceControlConfigurationResponse
@@ -9829,10 +9829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the license information that is currently effective for an instance.
+   * Queries the active license information of an instance.
    * 
    * @remarks
-   * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+   * Ensure that your current instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
    * 
    * @param request - GetInstanceLicenseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9863,10 +9863,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the license information that is currently effective for an instance.
+   * Queries the active license information of an instance.
    * 
    * @remarks
-   * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+   * Ensure that your current instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
    * 
    * @param request - GetInstanceLicenseRequest
    * @returns GetInstanceLicenseResponse
@@ -9923,7 +9923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quota of a single type for an instance.
+   * Retrieves a single type of quota for an instance.
    * 
    * @param request - GetInstanceQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9958,7 +9958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quota of a single type for an instance.
+   * Retrieves a single type of quota for an instance.
    * 
    * @param request - GetInstanceQuotaRequest
    * @returns GetInstanceQuotaResponse
@@ -10011,7 +10011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a resource synchronization task.
+   * Queries resource synchronization tasks.
    * 
    * @param request - GetInventorySynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10046,7 +10046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a resource synchronization task.
+   * Queries resource synchronization tasks.
    * 
    * @param request - GetInventorySynchronizationJobRequest
    * @returns GetInventorySynchronizationJobResponse
@@ -10103,7 +10103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified network endpoint.
+   * Queries the details of a specified network access endpoint.
    * 
    * @param request - GetNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10138,7 +10138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified network endpoint.
+   * Queries the details of a specified network access endpoint.
    * 
    * @param request - GetNetworkAccessEndpointRequest
    * @returns GetNetworkAccessEndpointResponse
@@ -10283,7 +10283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the password expiration policy of a specified EIAM instance.
+   * Queries the password expiration policy for a specified EIAM instance.
    * 
    * @param request - GetPasswordExpirationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10314,7 +10314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the password expiration policy of a specified EIAM instance.
+   * Queries the password expiration policy for a specified EIAM instance.
    * 
    * @param request - GetPasswordExpirationConfigurationRequest
    * @returns GetPasswordExpirationConfigurationResponse
@@ -10367,7 +10367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the password initialization policy of Employee Identity and Access Management (EIAM).
+   * Queries the EIAM password initialization policy.
    * 
    * @param request - GetPasswordInitializationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10398,7 +10398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the password initialization policy of Employee Identity and Access Management (EIAM).
+   * Queries the EIAM password initialization policy.
    * 
    * @param request - GetPasswordInitializationConfigurationRequest
    * @returns GetPasswordInitializationConfigurationResponse
@@ -10409,7 +10409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scope permissions under a specified ResourceServer.
+   * Queries the scope permissions of a specified resource server.
    * 
    * @param request - GetResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10448,7 +10448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scope permissions under a specified ResourceServer.
+   * Queries the scope permissions of a specified resource server.
    * 
    * @param request - GetResourceServerScopeRequest
    * @returns GetResourceServerScopeResponse
@@ -10589,10 +10589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a trusted origin in a specified EIAM instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @remarks
-   * Queries a trusted origin in a specified EIAM instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @param request - GetTrustedOriginRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10627,10 +10627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a trusted origin in a specified EIAM instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @remarks
-   * Queries a trusted origin in a specified EIAM instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @param request - GetTrustedOriginRequest
    * @returns GetTrustedOriginResponse
@@ -10687,7 +10687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the list of invocation events.
+   * Lists invocation events.
    * 
    * @param request - ListActionTrackEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10730,7 +10730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the list of invocation events.
+   * Lists invocation events.
    * 
    * @param request - ListActionTrackEventTypesRequest
    * @returns ListActionTrackEventTypesResponse
@@ -10741,7 +10741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application accounts under an application by paging.
+   * Queries the list of application accounts for an application by using paging.
    * 
    * @param request - ListApplicationAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10784,7 +10784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application accounts under an application by paging.
+   * Queries the list of application accounts for an application by using paging.
    * 
    * @param request - ListApplicationAccountsRequest
    * @returns ListApplicationAccountsResponse
@@ -10795,10 +10795,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all accounts of a specified user in the current application.
+   * Queries all accounts of a specified user under the current application.
    * 
    * @remarks
-   * This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListApplicationAccountsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10837,10 +10837,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all accounts of a specified user in the current application.
+   * Queries all accounts of a specified user under the current application.
    * 
    * @remarks
-   * This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListApplicationAccountsForUserRequest
    * @returns ListApplicationAccountsForUserResponse
@@ -10897,7 +10897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of application federated identity credentials.
+   * Queries the list of application federated credentials.
    * 
    * @param request - ListApplicationFederatedCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10948,7 +10948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of application federated identity credentials.
+   * Queries the list of application federated credentials.
    * 
    * @param request - ListApplicationFederatedCredentialsRequest
    * @returns ListApplicationFederatedCredentialsResponse
@@ -11017,7 +11017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of application roles using a cursor.
+   * Queries a list of application roles by using a cursor.
    * 
    * @param request - ListApplicationRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11064,7 +11064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of application roles using a cursor.
+   * Queries a list of application roles by using a cursor.
    * 
    * @param request - ListApplicationRolesRequest
    * @returns ListApplicationRolesResponse
@@ -11075,7 +11075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of account synchronization types supported by an application.
+   * Queries the account synchronization types supported by an application.
    * 
    * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11110,7 +11110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of account synchronization types supported by an application.
+   * Queries the account synchronization types supported by an application.
    * 
    * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
    * @returns ListApplicationSupportedProvisionProtocolTypesResponse
@@ -11121,7 +11121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of application tokens.
+   * Retrieves a list of application tokens.
    * 
    * @param request - ListApplicationTokensRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11160,7 +11160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of application tokens.
+   * Retrieves a list of application tokens.
    * 
    * @param request - ListApplicationTokensRequest
    * @returns ListApplicationTokensResponse
@@ -11171,7 +11171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more EIAM applications by using paging.
+   * Queries the information of one or more EIAM applications by using paging.
    * 
    * @param request - ListApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11262,7 +11262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more EIAM applications by using paging.
+   * Queries the information of one or more EIAM applications by using paging.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse
@@ -11331,7 +11331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of applications accessible to an EIAM group.
+   * Queries the list of applications that an EIAM group can access.
    * 
    * @param request - ListApplicationsForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11378,7 +11378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of applications accessible to an EIAM group.
+   * Queries the list of applications that an EIAM group can access.
    * 
    * @param request - ListApplicationsForGroupRequest
    * @returns ListApplicationsForGroupResponse
@@ -11389,7 +11389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves application information under a network access endpoint.
+   * Retrieves the applications associated with a network access endpoint.
    * 
    * @param request - ListApplicationsForNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11432,7 +11432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves application information under a network access endpoint.
+   * Retrieves the applications associated with a network access endpoint.
    * 
    * @param request - ListApplicationsForNetworkAccessEndpointRequest
    * @returns ListApplicationsForNetworkAccessEndpointResponse
@@ -11501,10 +11501,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
+   * Invokes the ListApplicationsForOrganizationalUnit operation to query a list of applications accessible to an EIAM organizational unit by using paging. The returned result includes application IDs. To obtain detailed application information, invoke the GetApplication operation.
    * 
    * @remarks
-   * This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+   * This operation queries only the direct permissions of the organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11551,10 +11551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
+   * Invokes the ListApplicationsForOrganizationalUnit operation to query a list of applications accessible to an EIAM organizational unit by using paging. The returned result includes application IDs. To obtain detailed application information, invoke the GetApplication operation.
    * 
    * @remarks
-   * This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+   * This operation queries only the direct permissions of the organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @returns ListApplicationsForOrganizationalUnitResponse
@@ -11565,7 +11565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
+   * Calls the ListApplicationsForUser operation to perform a paging query on the list of applications accessible to an EIAM account. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
    * 
    * @param request - ListApplicationsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11616,7 +11616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applications that an EIAM account can access and returns a paginated list of application IDs. To retrieve detailed information about a specific application, call the GetApplication operation.
+   * Calls the ListApplicationsForUser operation to perform a paging query on the list of applications accessible to an EIAM account. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
    * 
    * @param request - ListApplicationsForUserRequest
    * @returns ListApplicationsForUserResponse
@@ -12011,7 +12011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of ClientPublicKeys for a specified application by using a cursor.
+   * Queries the ClientPublicKeys of a specified application by using a cursor.
    * 
    * @param request - ListClientPublicKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12054,7 +12054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of ClientPublicKeys for a specified application by using a cursor.
+   * Queries the ClientPublicKeys of a specified application by using a cursor.
    * 
    * @param request - ListClientPublicKeysRequest
    * @returns ListClientPublicKeysResponse
@@ -12065,7 +12065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
+   * Invokes ListCloudAccountResources to perform a paged query for cloud account resources with paging.
    * 
    * @param request - ListCloudAccountResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12120,7 +12120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes ListCloudAccountResources to perform a paged query of cloud account resources through paging.
+   * Invokes ListCloudAccountResources to perform a paged query for cloud account resources with paging.
    * 
    * @param request - ListCloudAccountResourcesRequest
    * @returns ListCloudAccountResourcesResponse
@@ -12131,7 +12131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
+   * Queries the list of cloud account resources associated with a specified cloud permission template by using a paging query.
    * 
    * @param request - ListCloudAccountResourcesForCloudPermissionTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12182,7 +12182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cloud account resources associated with a specified cloud permission template by using paging.
+   * Queries the list of cloud account resources associated with a specified cloud permission template by using a paging query.
    * 
    * @param request - ListCloudAccountResourcesForCloudPermissionTemplateRequest
    * @returns ListCloudAccountResourcesForCloudPermissionTemplateResponse
@@ -12193,7 +12193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more cloud roles by using paging.
+   * Queries the information of one or more cloud roles by using paging.
    * 
    * @param request - ListCloudAccountRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12240,7 +12240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more cloud roles by using paging.
+   * Queries the information of one or more cloud roles by using paging.
    * 
    * @param request - ListCloudAccountRolesRequest
    * @returns ListCloudAccountRolesResponse
@@ -12251,7 +12251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more cloud accounts by using paging.
+   * Queries the information about one or more cloud accounts by using paging.
    * 
    * @param request - ListCloudAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12294,7 +12294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more cloud accounts by using paging.
+   * Queries the information about one or more cloud accounts by using paging.
    * 
    * @param request - ListCloudAccountsRequest
    * @returns ListCloudAccountsResponse
@@ -12305,7 +12305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more permission templates by using paging.
+   * Performs a paged query to retrieve the information of one or more permission templates. This operation supports paging.
    * 
    * @param request - ListCloudPermissionTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12364,7 +12364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more permission templates by using paging.
+   * Performs a paged query to retrieve the information of one or more permission templates. This operation supports paging.
    * 
    * @param request - ListCloudPermissionTemplatesRequest
    * @returns ListCloudPermissionTemplatesResponse
@@ -12435,7 +12435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of conditional access policies associated with an application.
+   * Retrieves the conditional access policies associated with an application.
    * 
    * @param request - ListConditionalAccessPoliciesForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12470,7 +12470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of conditional access policies associated with an application.
+   * Retrieves the conditional access policies associated with an application.
    * 
    * @param request - ListConditionalAccessPoliciesForApplicationRequest
    * @returns ListConditionalAccessPoliciesForApplicationResponse
@@ -12533,7 +12533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of conditional access policies associated with a user.
+   * Retrieves the conditional access policies associated with a user.
    * 
    * @param request - ListConditionalAccessPoliciesForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12568,7 +12568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of conditional access policies associated with a user.
+   * Retrieves the conditional access policies associated with a user.
    * 
    * @param request - ListConditionalAccessPoliciesForUserRequest
    * @returns ListConditionalAccessPoliciesForUserResponse
@@ -13004,7 +13004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists events.
+   * Queries the event list.
    * 
    * @param request - ListEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13039,7 +13039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists events.
+   * Queries the event list.
    * 
    * @param request - ListEventTypesRequest
    * @returns ListEventTypesResponse
@@ -13050,7 +13050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of federated trust sources.
+   * Queries federated trust sources.
    * 
    * @param request - ListFederatedCredentialProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13101,7 +13101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of federated trust sources.
+   * Queries federated trust sources.
    * 
    * @param request - ListFederatedCredentialProvidersRequest
    * @returns ListFederatedCredentialProvidersResponse
@@ -13178,7 +13178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
+   * Performs a paging query on the list of groups that are authorized to access an application. The response includes group IDs. To obtain detailed group information, call the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13229,7 +13229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
+   * Performs a paging query on the list of groups that are authorized to access an application. The response includes group IDs. To obtain detailed group information, call the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @returns ListGroupsForApplicationResponse
@@ -13298,7 +13298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
+   * Queries the scopes authorized to groups for the current resource server by using a cursor.
    * 
    * @param request - ListGroupsForResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13349,7 +13349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the scopes authorized for groups on a specified resource server. This operation supports cursor-based pagination.
+   * Queries the scopes authorized to groups for the current resource server by using a cursor.
    * 
    * @param request - ListGroupsForResourceServerRequest
    * @returns ListGroupsForResourceServerResponse
@@ -13468,7 +13468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the IdP information for a network access endpoint.
+   * Retrieves the identity provider (IdP) information for a network access endpoint.
    * 
    * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13511,7 +13511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the IdP information for a network access endpoint.
+   * Retrieves the identity provider (IdP) information for a network access endpoint.
    * 
    * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
    * @returns ListIdentityProvidersForNetworkAccessEndpointResponse
@@ -13596,9 +13596,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can use one of the following two methods to view the returned data:
-   * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
-   * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
-   * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+   * - Method 1: When querying the first page during paging in a paged query, you only need to apply the Settings for MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and apply the Settings for MaxResults to limit the number of returned entries. If there are no more pages, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Use the PageSize Settings to specify the number of entries returned per page during paging, and use the PageNumber Settings to specify the page number.
+   * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If the Settings for MaxResults or NextToken are applied, the PageSize and PageNumber request parameters become invalid.
    * 
    * @param request - ListInventorySynchronizationJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13657,9 +13657,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can use one of the following two methods to view the returned data:
-   * - Method 1: When paged query the first page, set only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
-   * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
-   * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+   * - Method 1: When querying the first page during paging in a paged query, you only need to apply the Settings for MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and apply the Settings for MaxResults to limit the number of returned entries. If there are no more pages, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Use the PageSize Settings to specify the number of entries returned per page during paging, and use the PageNumber Settings to specify the page number.
+   * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If the Settings for MaxResults or NextToken are applied, the PageSize and PageNumber request parameters become invalid.
    * 
    * @param request - ListInventorySynchronizationJobsRequest
    * @returns ListInventorySynchronizationJobsResponse
@@ -13959,7 +13959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query for EIAM organizational units.
+   * Queries EIAM organizational units by using paging.
    * 
    * @param request - ListOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14014,7 +14014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query for EIAM organizational units.
+   * Queries EIAM organizational units by using paging.
    * 
    * @param request - ListOrganizationalUnitsRequest
    * @returns ListOrganizationalUnitsResponse
@@ -14025,7 +14025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
+   * Calls the ListOrganizationalUnitsForApplication operation to query the list of organizational units that an application is authorized to access by using paging. The response includes organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
    * 
    * @param request - ListOrganizationalUnitsForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14076,7 +14076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
+   * Calls the ListOrganizationalUnitsForApplication operation to query the list of organizational units that an application is authorized to access by using paging. The response includes organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
    * 
    * @param request - ListOrganizationalUnitsForApplicationRequest
    * @returns ListOrganizationalUnitsForApplicationResponse
@@ -14087,7 +14087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
+   * Queries the list of scopes authorized by the current resource server to organizations by using a cursor.
    * 
    * @param request - ListOrganizationalUnitsForResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14138,7 +14138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
+   * Queries the list of scopes authorized by the current resource server to organizations by using a cursor.
    * 
    * @param request - ListOrganizationalUnitsForResourceServerRequest
    * @returns ListOrganizationalUnitsForResourceServerResponse
@@ -14180,7 +14180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scope permissions under a specified ResourceServer by using a cursor.
+   * Queries the scope permissions of a specified resource server by using a cursor.
    * 
    * @param request - ListResourceServerScopesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14247,7 +14247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scope permissions under a specified ResourceServer by using a cursor.
+   * Queries the scope permissions of a specified resource server by using a cursor.
    * 
    * @param request - ListResourceServerScopesRequest
    * @returns ListResourceServerScopesResponse
@@ -14258,7 +14258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor-based approach.
+   * Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor.
    * 
    * @param request - ListResourceServersForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14305,7 +14305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor-based approach.
+   * Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor.
    * 
    * @param request - ListResourceServersForUserRequest
    * @returns ListResourceServersForUserResponse
@@ -14319,10 +14319,10 @@ export default class Client extends OpenApi {
    * Lists the details of synchronization tasks.
    * 
    * @remarks
-   * You can view the returned data in one of the following ways:
-   * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
-   * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
-   * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
+   * You can use one of the following methods to view the returned data:
+   * - Method 1: When using paging in a paged query for the first page, you only need to configure the Settings for MaxResults to limit the number of returned entries. The NextToken in the response is used as the token for querying the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query token, and configure the Settings for MaxResults to limit the number of returned entries. If there is no next page, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Specify the Settings for PageSize to determine the number of entries returned per page during paging, and specify the Settings for PageNumber to determine the page number.
+   * You can use only one of the two methods. When a large number of entries are returned, Method 1 is recommended. If the Settings for MaxResults or NextToken are configured, the PageSize and PageNumber request parameters become invalid.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14400,10 +14400,10 @@ export default class Client extends OpenApi {
    * Lists the details of synchronization tasks.
    * 
    * @remarks
-   * You can view the returned data in one of the following ways:
-   * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
-   * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
-   * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
+   * You can use one of the following methods to view the returned data:
+   * - Method 1: When using paging in a paged query for the first page, you only need to configure the Settings for MaxResults to limit the number of returned entries. The NextToken in the response is used as the token for querying the next page. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query token, and configure the Settings for MaxResults to limit the number of returned entries. If there is no next page, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Specify the Settings for PageSize to determine the number of entries returned per page during paging, and specify the Settings for PageNumber to determine the page number.
+   * You can use only one of the two methods. When a large number of entries are returned, Method 1 is recommended. If the Settings for MaxResults or NextToken are configured, the PageSize and PageNumber request parameters become invalid.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @returns ListSynchronizationJobsResponse
@@ -14414,10 +14414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @remarks
-   * Queries the list of trusted origins in a specified EIAM instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @param request - ListTrustedOriginsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14472,10 +14472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @remarks
-   * Queries the list of trusted origins in a specified EIAM instance.
+   * Queries the trusted origins in a specified EIAM instance.
    * 
    * @param request - ListTrustedOriginsRequest
    * @returns ListTrustedOriginsResponse
@@ -14486,7 +14486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding relationships of third-party logon accounts.
+   * Queries the bindings of third-party logon accounts.
    * 
    * @remarks
    * This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
@@ -14544,7 +14544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding relationships of third-party logon accounts.
+   * Queries the bindings of third-party logon accounts.
    * 
    * @remarks
    * This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
@@ -14558,10 +14558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of EIAM account information.
+   * Queries EIAM account information by using paging.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+   * This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14652,10 +14652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of EIAM account information.
+   * Queries EIAM account information by using paging.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
+   * This operation queries only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -14666,7 +14666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
+   * Invokes the ListUsersForApplication operation to perform a paging query on the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, invoke the GetUser operation.
    * 
    * @param request - ListUsersForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14717,7 +14717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
+   * Invokes the ListUsersForApplication operation to perform a paging query on the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, invoke the GetUser operation.
    * 
    * @param request - ListUsersForApplicationRequest
    * @returns ListUsersForApplicationResponse
@@ -14786,7 +14786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the users in a specified EIAM account group.
+   * Queries the accounts in a specified EIAM account group.
    * 
    * @param request - ListUsersForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14833,7 +14833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the users in a specified EIAM account group.
+   * Queries the accounts in a specified EIAM account group.
    * 
    * @param request - ListUsersForGroupRequest
    * @returns ListUsersForGroupResponse
@@ -14844,7 +14844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
+   * Queries the scopes authorized by the current resource server to accounts by using a cursor.
    * 
    * @param request - ListUsersForResourceServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14895,7 +14895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
+   * Queries the scopes authorized by the current resource server to accounts by using a cursor.
    * 
    * @param request - ListUsersForResourceServerRequest
    * @returns ListUsersForResourceServerResponse
@@ -14956,10 +14956,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified application token.
+   * Queries the specified application token.
    * 
    * @remarks
-   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
+   * When an application is changed from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - ObtainApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14998,10 +14998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified application token.
+   * Queries the specified application token.
    * 
    * @remarks
-   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
+   * When an application is changed from the enabled state to the disabled state, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - ObtainApplicationTokenRequest
    * @returns ObtainApplicationTokenResponse
@@ -15108,10 +15108,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application account of a specified employee under the current application.
+   * Deletes the application account of a specified employee under the current application.
    * 
    * @remarks
-   * This operation only queries the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation retrieves only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - RemoveApplicationAccountFromUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15154,10 +15154,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application account of a specified employee under the current application.
+   * Deletes the application account of a specified employee under the current application.
    * 
    * @remarks
-   * This operation only queries the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation retrieves only the direct permissions of the organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - RemoveApplicationAccountFromUserRequest
    * @returns RemoveApplicationAccountFromUserResponse
@@ -15218,7 +15218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes custom terms associated with a brand.
+   * Removes custom privacy policies associated with a brand.
    * 
    * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15257,7 +15257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes custom terms associated with a brand.
+   * Removes custom privacy policies associated with a brand.
    * 
    * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
    * @returns RemoveCustomPrivacyPoliciesFromBrandResponse
@@ -15468,7 +15468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a Free Edition instance.
+   * Renews the Free Edition.
    * 
    * @param request - RenewFreeLicenseEndTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15499,7 +15499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a Free Edition instance.
+   * Renews the Free Edition.
    * 
    * @param request - RenewFreeLicenseEndTimeRequest
    * @returns RenewFreeLicenseEndTimeResponse
@@ -15510,7 +15510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes application access permissions for multiple EIAM groups.
+   * Revokes access to an application for multiple EIAM groups in batches.
    * 
    * @param request - RevokeApplicationFromGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15553,7 +15553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes application access permissions for multiple EIAM groups.
+   * Revokes access to an application for multiple EIAM groups in batches.
    * 
    * @param request - RevokeApplicationFromGroupsRequest
    * @returns RevokeApplicationFromGroupsResponse
@@ -15618,7 +15618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes access to an application for multiple EIAM accounts.
+   * Revokes the access permissions of multiple EIAM accounts to an application.
    * 
    * @param request - RevokeApplicationFromUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15661,7 +15661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes access to an application for multiple EIAM accounts.
+   * Revokes the access permissions of multiple EIAM accounts to an application.
    * 
    * @param request - RevokeApplicationFromUsersRequest
    * @returns RevokeApplicationFromUsersResponse
@@ -15672,7 +15672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the authorization granted by a specified ResourceServer to a Client application.
+   * Revokes the authorization granted by a specified resource server to a client application.
    * 
    * @param request - RevokeResourceServerFromClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15711,7 +15711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the authorization granted by a specified ResourceServer to a Client application.
+   * Revokes the authorization granted by a specified resource server to a client application.
    * 
    * @param request - RevokeResourceServerFromClientRequest
    * @returns RevokeResourceServerFromClientResponse
@@ -15722,7 +15722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the Scope permissions of a specified ResourceServer from a Client application.
+   * Revokes the authorization granted to a client application for scope permissions under a specified resource server.
    * 
    * @param request - RevokeResourceServerScopesFromClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15765,7 +15765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the Scope permissions of a specified ResourceServer from a Client application.
+   * Revokes the authorization granted to a client application for scope permissions under a specified resource server.
    * 
    * @param request - RevokeResourceServerScopesFromClientRequest
    * @returns RevokeResourceServerScopesFromClientResponse
@@ -15776,7 +15776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the authorization of Scope permissions under a specified ResourceServer from a group.
+   * Revokes the authorization of scope permissions under a specified resource server for a group.
    * 
    * @param request - RevokeResourceServerScopesFromGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15819,7 +15819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the authorization of Scope permissions under a specified ResourceServer from a group.
+   * Revokes the authorization of scope permissions under a specified resource server for a group.
    * 
    * @param request - RevokeResourceServerScopesFromGroupRequest
    * @returns RevokeResourceServerScopesFromGroupResponse
@@ -15830,7 +15830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the authorization of Scope permissions under a specified ResourceServer from an organizational unit.
+   * Revokes the authorization of scope permissions under a specified resource server for an organization.
    * 
    * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15873,7 +15873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the authorization of Scope permissions under a specified ResourceServer from an organizational unit.
+   * Revokes the authorization of scope permissions under a specified resource server for an organization.
    * 
    * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
    * @returns RevokeResourceServerScopesFromOrganizationalUnitResponse
@@ -15884,7 +15884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the Scope permissions under a specified ResourceServer from an account.
+   * Revokes the authorization of scope permissions under a specified resource server for an account.
    * 
    * @param request - RevokeResourceServerScopesFromUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15927,7 +15927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the Scope permissions under a specified ResourceServer from an account.
+   * Revokes the authorization of scope permissions under a specified resource server for an account.
    * 
    * @param request - RevokeResourceServerScopesFromUserRequest
    * @returns RevokeResourceServerScopesFromUserResponse
@@ -16232,7 +16232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the primary organizational unit for an application\\"s user provisioning.
+   * Configures the primary organizational unit for application user synchronization.
    * 
    * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16271,7 +16271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the primary organizational unit for an application\\"s user provisioning.
+   * Configures the primary organizational unit for application user synchronization.
    * 
    * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
    * @returns SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -16282,7 +16282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
+   * Sets the unique identifier of the resource server. This field specifies the value of the aud (audience) claim in the payload of a JSON Web Token (JWT), which indicates the intended recipient or service of the JWT.
    * 
    * @param request - SetApplicationResourceServerIdentifierRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16325,7 +16325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the unique identifier for a resource server. This identifier is used as the aud (audience) claim in a JSON Web Token (JWT) to specify the service that is intended to accept the token.
+   * Sets the unique identifier of the resource server. This field specifies the value of the aud (audience) claim in the payload of a JSON Web Token (JWT), which indicates the intended recipient or service of the JWT.
    * 
    * @param request - SetApplicationResourceServerIdentifierRequest
    * @returns SetApplicationResourceServerIdentifierResponse
@@ -16336,10 +16336,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the single sign-on (SSO) configuration properties of an EIAM application.
+   * Configures the single sign-on (SSO) configuration properties for an EIAM application.
    * 
    * @remarks
-   * In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
+   * In EIAM, application management supports adding applications with various single sign-on (SSO) logon protocols (SAML 2.0 and OIDC). However, an application can support only one SSO protocol, which cannot be changed after it is specified during creation. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
    * 
    * @param request - SetApplicationSsoConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16394,10 +16394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the single sign-on (SSO) configuration properties of an EIAM application.
+   * Configures the single sign-on (SSO) configuration properties for an EIAM application.
    * 
    * @remarks
-   * In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
+   * In EIAM, application management supports adding applications with various single sign-on (SSO) logon protocols (SAML 2.0 and OIDC). However, an application can support only one SSO protocol, which cannot be changed after it is specified during creation. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
    * 
    * @param request - SetApplicationSsoConfigRequest
    * @returns SetApplicationSsoConfigResponse
@@ -16504,7 +16504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Authentication Information
+   * Modifies authentication information.
    * 
    * @param request - SetIdentityProviderAuthnConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16555,7 +16555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Authentication Information
+   * Modifies authentication information.
    * 
    * @param request - SetIdentityProviderAuthnConfigurationRequest
    * @returns SetIdentityProviderAuthnConfigurationResponse
@@ -16640,7 +16640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the push configuration for an identity provider (IdP).
+   * Modifies the outbound synchronization configuration of an IdP.
    * 
    * @param request - SetIdentityProviderUdPushConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16695,7 +16695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the push configuration for an identity provider (IdP).
+   * Modifies the outbound synchronization configuration of an IdP.
    * 
    * @param request - SetIdentityProviderUdPushConfigurationRequest
    * @returns SetIdentityProviderUdPushConfigurationResponse
@@ -16706,7 +16706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the control elements of an instance.
+   * Configures the control elements of an instance.
    * 
    * @param request - SetInstanceControlConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16741,7 +16741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the control elements of an instance.
+   * Configures the control elements of an instance.
    * 
    * @param request - SetInstanceControlConfigurationRequest
    * @returns SetInstanceControlConfigurationResponse
@@ -16752,7 +16752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the language and time zone information for an instance.
+   * Sets the language and time zone of an instance.
    * 
    * @param request - SetInstanceGlobalizationConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16791,7 +16791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the language and time zone information for an instance.
+   * Sets the language and time zone of an instance.
    * 
    * @param request - SetInstanceGlobalizationConfigRequest
    * @returns SetInstanceGlobalizationConfigResponse
@@ -16802,7 +16802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set login redirect application for brand
+   * Sets the post-logon redirect application for a brand.
    * 
    * @param request - SetLoginRedirectApplicationForBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16841,7 +16841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set login redirect application for brand
+   * Sets the post-logon redirect application for a brand.
    * 
    * @param request - SetLoginRedirectApplicationForBrandRequest
    * @returns SetLoginRedirectApplicationForBrandResponse
@@ -17030,7 +17030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the password initialization policy for a specified EIAM instance.
+   * Sets the password initialization policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordInitializationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17077,7 +17077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the password initialization policy for a specified EIAM instance.
+   * Sets the password initialization policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordInitializationConfigurationRequest
    * @returns SetPasswordInitializationConfigurationResponse
@@ -17192,7 +17192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the WebAuthn configuration.
+   * Configures WebAuthn settings.
    * 
    * @param request - SetWebAuthnConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17239,7 +17239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the WebAuthn configuration.
+   * Configures WebAuthn settings.
    * 
    * @param request - SetWebAuthnConfigurationRequest
    * @returns SetWebAuthnConfigurationResponse
@@ -17250,7 +17250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches the TOTP authenticator for a specified user.
+   * Disassociates the TOTP from a specified user.
    * 
    * @param request - UnbindTotpAuthenticatorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17285,7 +17285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches the TOTP authenticator for a specified user.
+   * Disassociates the TOTP from a specified user.
    * 
    * @param request - UnbindTotpAuthenticatorRequest
    * @returns UnbindTotpAuthenticatorResponse
@@ -17296,7 +17296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates a third-party logon account.
+   * Disassociates a third-party logon account.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17339,7 +17339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates a third-party logon account.
+   * Disassociates a third-party logon account.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @returns UnbindUserAuthnSourceMappingResponse
@@ -17600,7 +17600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an application federated identity credential.
+   * Updates an application federated credential.
    * 
    * @param request - UpdateApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17655,7 +17655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an application federated identity credential.
+   * Updates an application federated credential.
    * 
    * @param request - UpdateApplicationFederatedCredentialRequest
    * @returns UpdateApplicationFederatedCredentialResponse
@@ -17666,7 +17666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a federated credential for an application.
+   * Updates the description of an application federated credential.
    * 
    * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17709,7 +17709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a federated credential for an application.
+   * Updates the description of an application federated credential.
    * 
    * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
    * @returns UpdateApplicationFederatedCredentialDescriptionResponse
@@ -17790,7 +17790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an application role.
+   * Modifies an application role.
    * 
    * @param request - UpdateApplicationRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17837,7 +17837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an application role.
+   * Modifies an application role.
    * 
    * @param request - UpdateApplicationRoleRequest
    * @returns UpdateApplicationRoleResponse
@@ -17902,10 +17902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the SSO parameters for an application template.
+   * Updates the single sign-on (SSO) parameters of a template application.
    * 
    * @remarks
-   * Updates the single sign-on (SSO) parameters for an application template from the marketplace.
+   * Updates the single sign-on (SSO) parameters of an application template created in the marketplace.
    * 
    * @param request - UpdateApplicationSsoFormParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17944,10 +17944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the SSO parameters for an application template.
+   * Updates the single sign-on (SSO) parameters of a template application.
    * 
    * @remarks
-   * Updates the single sign-on (SSO) parameters for an application template from the marketplace.
+   * Updates the single sign-on (SSO) parameters of an application template created in the marketplace.
    * 
    * @param request - UpdateApplicationSsoFormParamsRequest
    * @returns UpdateApplicationSsoFormParamsResponse
@@ -17958,7 +17958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the expiration time of an ApplicationToken.
+   * Updates the expiration time of an application token.
    * 
    * @param request - UpdateApplicationTokenExpirationTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18001,7 +18001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the expiration time of an ApplicationToken.
+   * Updates the expiration time of an application token.
    * 
    * @param request - UpdateApplicationTokenExpirationTimeRequest
    * @returns UpdateApplicationTokenExpirationTimeResponse
@@ -18072,7 +18072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the relationship properties between an authorization rule and an application.
+   * Updates the relationship attributes between an authorization rule and an application.
    * 
    * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18125,7 +18125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the relationship properties between an authorization rule and an application.
+   * Updates the relationship attributes between an authorization rule and an application.
    * 
    * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
    * @returns UpdateAuthorizationRuleApplicationAttachmentResponse
@@ -18320,7 +18320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of an authorization server.
+   * Updates the authorization server configuration.
    * 
    * @param request - UpdateAuthorizationServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18373,7 +18373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of an authorization server.
+   * Updates the authorization server configuration.
    * 
    * @param request - UpdateAuthorizationServerRequest
    * @returns UpdateAuthorizationServerResponse
@@ -18384,7 +18384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of an authorization server.
+   * Update the description of an authorization server
    * 
    * @param request - UpdateAuthorizationServerDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18429,7 +18429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of an authorization server.
+   * Update the description of an authorization server
    * 
    * @param request - UpdateAuthorizationServerDescriptionRequest
    * @returns UpdateAuthorizationServerDescriptionResponse
@@ -18440,7 +18440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a brand.
+   * Updates a brand.
    * 
    * @param request - UpdateBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18479,7 +18479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a brand.
+   * Updates a brand.
    * 
    * @param request - UpdateBrandRequest
    * @returns UpdateBrandResponse
@@ -18490,7 +18490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information of an Alibaba Cloud account.
+   * Updates the basic information of a cloud account.
    * 
    * @param request - UpdateCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18533,7 +18533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information of an Alibaba Cloud account.
+   * Updates the basic information of a cloud account.
    * 
    * @param request - UpdateCloudAccountRequest
    * @returns UpdateCloudAccountResponse
@@ -18544,7 +18544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of an Alibaba Cloud account.
+   * Updates the description of a cloud account.
    * 
    * @param request - UpdateCloudAccountDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18587,7 +18587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of an Alibaba Cloud account.
+   * Updates the description of a cloud account.
    * 
    * @param request - UpdateCloudAccountDescriptionRequest
    * @returns UpdateCloudAccountDescriptionResponse
@@ -19042,7 +19042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the description of a credential provider.
+   * Updates the description of a credential provider.
    * 
    * @param request - UpdateCredentialProviderDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19081,7 +19081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the description of a credential provider.
+   * Updates the description of a credential provider.
    * 
    * @param request - UpdateCredentialProviderDescriptionRequest
    * @returns UpdateCredentialProviderDescriptionResponse
@@ -19092,7 +19092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom privacy policy.
+   * Updates custom terms.
    * 
    * @param request - UpdateCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19143,7 +19143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom privacy policy.
+   * Updates custom terms.
    * 
    * @param request - UpdateCustomPrivacyPolicyRequest
    * @returns UpdateCustomPrivacyPolicyResponse
@@ -19154,7 +19154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the brand associated with a domain name.
+   * Modifies the brand associated with a domain name.
    * 
    * @param request - UpdateDomainBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19193,7 +19193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the brand associated with a domain name.
+   * Modifies the brand associated with a domain name.
    * 
    * @param request - UpdateDomainBrandRequest
    * @returns UpdateDomainBrandResponse
@@ -19204,7 +19204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the ICP filing number of a domain.
+   * Updates the ICP filing number of a domain name.
    * 
    * @param request - UpdateDomainIcpNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19243,7 +19243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the ICP filing number of a domain.
+   * Updates the ICP filing number of a domain name.
    * 
    * @param request - UpdateDomainIcpNumberRequest
    * @returns UpdateDomainIcpNumberResponse
@@ -19926,7 +19926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a scope permission for a specified resource server.
+   * Modifies the scope permissions of a specified resource server.
    * 
    * @param request - UpdateResourceServerScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19969,7 +19969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a scope permission for a specified resource server.
+   * Modifies the scope permissions of a specified resource server.
    * 
    * @param request - UpdateResourceServerScopeRequest
    * @returns UpdateResourceServerScopeResponse
@@ -20172,7 +20172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+   * Updates the password of a specified EIAM account. The password must comply with the password policy configured in the console.
    * 
    * @param request - UpdateUserPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20219,7 +20219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+   * Updates the password of a specified EIAM account. The password must comply with the password policy configured in the console.
    * 
    * @param request - UpdateUserPasswordRequest
    * @returns UpdateUserPasswordResponse

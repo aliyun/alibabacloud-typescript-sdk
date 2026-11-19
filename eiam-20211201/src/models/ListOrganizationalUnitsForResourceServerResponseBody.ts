@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnitsResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * The scope permission ID.
+   * The scope ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,7 +13,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The scope permission name.
+   * The scope name.
    * 
    * @example
    * Read User Info
@@ -61,7 +61,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The list of scope permissions.
+   * The list of scopes.
    */
   resourceServerScopes?: ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnitsResourceServerScopes[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalU
 export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of rows per page in a paged query.
+   * The number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The query token for the next page.
    * 
    * @example
    * NTxxxexample
@@ -111,7 +111,7 @@ export class ListOrganizationalUnitsForResourceServerResponseBody extends $dara.
   nextToken?: string;
   /**
    * @remarks
-   * The list of organizational units.
+   * The list of organizations.
    */
   organizationalUnits?: ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnits[];
   /**

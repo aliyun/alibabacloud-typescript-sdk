@@ -55,7 +55,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItems extends $dara.Model {
   /**
    * @remarks
-   * The error reason.
+   * The error cause.
    */
   errorReason?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItemsErrorReason;
   /**
@@ -115,7 +115,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJob extends $dara.Model {
   /**
    * @remarks
-   * The job check result.
+   * The check result of the job.
    * 
    * @example
    * success
@@ -155,7 +155,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   instanceId?: string;
   /**
    * @remarks
-   * The status check sub-item task result information.
+   * The status check subkey node task result information.
    */
   jobCheckItems?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJobJobCheckItems[];
   /**
@@ -168,7 +168,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
   startTime?: number;
   /**
    * @remarks
-   * The job check status.
+   * The check status of the job.
    * 
    * @example
    * success
@@ -215,7 +215,7 @@ export class GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatus
 export class GetIdentityProviderStatusCheckJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IdP status check job information.
+   * The IdP status check information.
    */
   identityProviderStatusCheckJob?: GetIdentityProviderStatusCheckJobResponseBodyIdentityProviderStatusCheckJob;
   /**

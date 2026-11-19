@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
   /**
    * @remarks
-   * The display name of the configuration item.
-   * Maximum length: 128 characters.
+   * The display name of the configuration item. The maximum length is 128 characters.
    * 
    * @example
    * string
@@ -15,10 +14,10 @@ export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
   /**
    * @remarks
    * The status of the configuration item. Valid values:
-   * - enabled: Enabled.
-   * - disabled: Disabled.
+   * - enabled: enabled.
+   * - disabled: disabled.
    * 
-   * If a configuration item is disabled, it cannot be used when creating or updating entity field values.
+   * If a configuration item is disabled, it is unavailable when you create or update the field value of the entity.
    * 
    * @example
    * string
@@ -26,8 +25,7 @@ export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The display value of the configuration item.
-   * Maximum length: 64 characters.
+   * The value of the configuration item. The maximum length is 64 characters.
    * 
    * @example
    * string
@@ -61,10 +59,10 @@ export class CreateCustomFieldRequestFieldDataConfigItems extends $dara.Model {
 export class CreateCustomFieldRequestFieldDataConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of field configuration items. Maximum number of items: 100.
+   * The list of field configuration items. The maximum number of items is 100.
    * 
    * @example
-   * string
+   * [{"DisplayName":"Option 1","Value":"option1","Status":"enabled"}]
    */
   items?: CreateCustomFieldRequestFieldDataConfigItems[];
   static names(): { [key: string]: string } {
@@ -94,8 +92,7 @@ export class CreateCustomFieldRequestFieldDataConfig extends $dara.Model {
 export class CreateCustomFieldRequest extends $dara.Model {
   /**
    * @remarks
-   * The default value of the field.
-   * If configuration items exist for the type, the default value must be one of the configuration items and must be in the enabled state. Maximum length: 1024 characters.
+   * The default value of the field. If the data type has configuration items, the default value must be one of the enabled configuration items. The maximum length is 1,024 characters.
    * 
    * @example
    * string
@@ -103,17 +100,15 @@ export class CreateCustomFieldRequest extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * The field description.
-   * Maximum length: 512 characters.
+   * The description of the field. The maximum length is 512 characters.
    * 
    * @example
-   * 字段测试
+   * Test field
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the field.
-   * If this parameter is set to true, the data value is encrypted at the storage layer.
+   * Specifies whether the field is encrypted. If you set this parameter to true, the underlying system encrypts and stores the data value.
    * 
    * @example
    * false
@@ -132,15 +127,15 @@ export class CreateCustomFieldRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The field value configuration items.
+   * The configuration items for the field value.
    */
   fieldDataConfig?: CreateCustomFieldRequestFieldDataConfig;
   /**
    * @remarks
    * The data type of the field. Valid values:
    * - string: string.
-   * - number: number. Maximum length: 32 characters. Positive integers and decimals are supported.
-   * - boolean: Boolean.
+   * - number: number. The maximum length is 32 characters. Positive integers and decimals are supported.
+   * - boolean: Boolean value.
    * 
    * This parameter is required.
    * 
@@ -150,8 +145,7 @@ export class CreateCustomFieldRequest extends $dara.Model {
   fieldDataType?: string;
   /**
    * @remarks
-   * The field display name.
-   * Maximum length: 64 characters.
+   * The field display name. The maximum length is 64 characters.
    * 
    * This parameter is required.
    * 
@@ -162,9 +156,9 @@ export class CreateCustomFieldRequest extends $dara.Model {
   /**
    * @remarks
    * The field display type. Valid values:
-   * - input: text input box. Supported data types: string and number.
-   * - select: drop-down list. Supported data types: string and boolean.
-   * - checkbox: multi-select box. Supported data types: string.
+   * - input: text box. The supported data types are string and number.
+   * - select: drop-down list. The supported data types are string and boolean.
+   * - checkbox: check box. The supported data type is string.
    * 
    * This parameter is required.
    * 
@@ -174,8 +168,7 @@ export class CreateCustomFieldRequest extends $dara.Model {
   fieldDisplayType?: string;
   /**
    * @remarks
-   * The field identifier.
-   * Maximum length: 40 characters. The value can contain lowercase letters and underscores, and cannot start with an underscore.
+   * The field identifier. The maximum length is 40 characters. The value can contain lowercase English letters and underscores, and cannot start with an underscore.
    * 
    * This parameter is required.
    * 
@@ -203,8 +196,7 @@ export class CreateCustomFieldRequest extends $dara.Model {
   required?: boolean;
   /**
    * @remarks
-   * Specifies whether the field value is unique.
-   * If this parameter is set to true, the field value must be unique within the corresponding entity type and cannot be duplicated.
+   * Specifies whether the field value is unique. If you set this parameter to true, the value of this field must be unique within the corresponding entity type and cannot be duplicated.
    * 
    * @example
    * false
@@ -212,10 +204,10 @@ export class CreateCustomFieldRequest extends $dara.Model {
   unique?: boolean;
   /**
    * @remarks
-   * The field permission on the portal side. Valid values:
-   * - hide: Not visible on the portal side.
-   * - read_only: Visible on the portal side but cannot be edited or updated.
-   * - read_write: Visible and editable on the portal side.
+   * The field permissions on the user portal. Valid values:
+   * - hide: invisible on the user portal
+   * - read_only: visible but not editable on the user portal
+   * - read_write: visible and editable on the user portal
    * 
    * @example
    * false

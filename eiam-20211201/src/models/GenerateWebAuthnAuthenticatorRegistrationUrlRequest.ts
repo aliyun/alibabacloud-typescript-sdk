@@ -23,7 +23,7 @@ export class GenerateWebAuthnAuthenticatorRegistrationUrlRequest extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * UserID
+   * The user ID.
    * 
    * This parameter is required.
    * 

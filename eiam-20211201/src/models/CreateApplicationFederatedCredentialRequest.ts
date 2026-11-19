@@ -110,7 +110,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigGc
   instanceIds?: string[];
   /**
    * @remarks
-   * The GCP project ID to which the resource belongs.
+   * The GCP project ID.
    * 
    * @example
    * turnkey-axiom-475109-xx
@@ -118,7 +118,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigGc
   projectId?: string;
   /**
    * @remarks
-   * The sub claim corresponding to the service account.
+   * The sub corresponding to the service account.
    * 
    * @example
    * 123456789
@@ -185,7 +185,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigGe
 export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The K8s namespace.
+   * The Kubernetes namespace.
    * 
    * @example
    * default
@@ -201,7 +201,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigKu
   podNamePrefix?: string;
   /**
    * @remarks
-   * The K8s service account name.
+   * The Kubernetes service account name.
    * 
    * @example
    * my-sa
@@ -309,7 +309,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfig e
 export class CreateApplicationFederatedCredentialRequestPkcs7VerificationConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of instance IDs.
+   * The list of instances.
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {

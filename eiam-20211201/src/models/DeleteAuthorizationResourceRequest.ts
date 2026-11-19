@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAuthorizationResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorized resource ID.
+   * The authorization resource ID.
    * 
    * This parameter is required.
    * 

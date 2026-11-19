@@ -40,7 +40,7 @@ export class ListUsersForApplicationResponseBodyUsers extends $dara.Model {
   applicationRoles?: ListUsersForApplicationResponseBodyUsersApplicationRoles[];
   /**
    * @remarks
-   * The account ID.
+   * The user ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -91,7 +91,7 @@ export class ListUsersForApplicationResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of account IDs.
+   * The list of users.
    */
   users?: ListUsersForApplicationResponseBodyUsers[];
   static names(): { [key: string]: string } {

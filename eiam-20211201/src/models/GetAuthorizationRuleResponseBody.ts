@@ -6,18 +6,17 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   /**
    * @remarks
    * The authorization resource scope. Valid values:
-   * - global: Global resources under the project.
-   * - custom: Resources under a specified project scope.
+   * - custom: Resources within the specified project scope.
    * 
    * @example
-   * global
+   * custom
    */
   authorizationResourceScope?: string;
   /**
    * @remarks
    * The creation type of the authorization rule. Valid values:
    * - system_init: Created by the system.
-   * - user_custom: Created by a user.
+   * - user_custom: Created by the user.
    * 
    * @example
    * user_custom
@@ -42,11 +41,11 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   /**
    * @remarks
    * The scenario label of the authorization rule. Valid values:
-   * - privileged_cloud_account: Privileged cloud account scenario.
-   * - asset: Asset scenario.
+   * - privileged_cloud_account (Privileged cloud account scenario)
+   * - asset (Asset scenario)
    * 
    * @example
-   * Asset
+   * privileged_cloud_account
    */
   authorizationRuleScenarioLabel?: string;
   /**
@@ -60,8 +59,8 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   /**
    * @remarks
    * The subject scope of the authorization rule. Valid values:
-   * - shared: Shared type, which supports all subjects, including accounts and applications.
-   * - exclusive: Exclusive type.
+   * - shared: Shared. A single rule can be used by multiple subjects that meet the rule constraints.
+   * - exclusive: Exclusive. A single rule can only be used by the specified subject.
    * 
    * @example
    * shared
@@ -69,9 +68,10 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleSubjectScope?: string;
   /**
    * @remarks
-   * The subject type associated with the authorization rule. This parameter is valid only when the subject scope of the authorization rule is exclusive. Valid values:
+   * The subject category to which the authorization rule applies. For an exclusive rule, this field indicates the type of the specified subject. For a shared rule with a configured subject category, this field indicates the subject category that the rule allows to be associated with. Valid values:
    * - application: Application.
-   * - user: Account.
+   * - user: Account. For a shared privileged cloud account rule, this value indicates the human user category, which can be associated with accounts, user groups, and organizations.
+   * If no subject category is configured for the rule, this field may be empty. The actual subjects associated with a shared rule are determined by the subject association query results.
    * 
    * @example
    * user
@@ -111,7 +111,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   projectId?: string;
   /**
    * @remarks
-   * The status of the authorization rule. Valid values:
+   * The authorization rule status. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 

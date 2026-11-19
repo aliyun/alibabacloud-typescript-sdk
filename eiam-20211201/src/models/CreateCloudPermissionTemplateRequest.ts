@@ -8,7 +8,7 @@ export class CreateCloudPermissionTemplateRequestApplicableScope extends $dara.M
    * The list of group IDs.
    * 
    * @example
-   * group_d6sbsusdfa4h66ec3il7yxxxx
+   * ["group_d6sbsusdfa4h66ec3il7yxxxx"]
    */
   groupIds?: string[];
   /**
@@ -16,7 +16,7 @@ export class CreateCloudPermissionTemplateRequestApplicableScope extends $dara.M
    * The list of organizational unit IDs.
    * 
    * @example
-   * ou_d6sbsuudfgf4h66ec3il7yxxxx
+   * ["ou_d6sbsuudfgf4h66ec3il7yxxxx"]
    */
   organizationalUnitIds?: string[];
   /**
@@ -32,7 +32,7 @@ export class CreateCloudPermissionTemplateRequestApplicableScope extends $dara.M
    * The list of user IDs.
    * 
    * @example
-   * user_d6sbsuumeta4h66ec3il7yxxxx
+   * ["user_d6sbsuumeta4h66ec3il7yxxxx"]
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -112,12 +112,12 @@ export class CreateCloudPermissionTemplateRequest extends $dara.Model {
   allowRequest?: boolean;
   /**
    * @remarks
-   * The applicable scope of the permission template, including the scope type and the specified users, groups, or organizational units.
+   * The applicable scope of the permission template, including the scope type and specified users, groups, or organizational units.
    */
   applicableScope?: CreateCloudPermissionTemplateRequestApplicableScope;
   /**
    * @remarks
-   * Ensures the idempotence of the request. You can generate the value from your client to ensure that the value is unique across different requests. The client token supports only ASCII characters and can be up to 64 characters in length.
+   * Ensures the idempotence of the request. You can generate a client token on your client to ensure that the value is unique across different requests. The client token can only contain ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * client-token-example

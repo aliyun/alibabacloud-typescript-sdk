@@ -13,7 +13,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   errorCode?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * There is no permission.
@@ -45,12 +45,12 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
 export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResult extends $dara.Model {
   /**
    * @remarks
-   * The error reason. This field is returned when the health check status is unhealthy.
+   * The error cause. This field is returned only when the health check status is unhealthy.
    */
   errorReason?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The last check time, in UNIX timestamp format, measured in milliseconds.
+   * The time of the last health check. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -59,8 +59,8 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   /**
    * @remarks
    * The health check result of the cloud account. Valid values:
-   * - success: Succeeded.
-   * - failed: Failed.
+   * - success: success
+   * - failed: failed
    * 
    * @example
    * success
@@ -97,7 +97,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
 export class ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code of the failure.
    * 
    * @example
    * Error
@@ -105,7 +105,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError ext
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message of the failure.
    * 
    * @example
    * test message
@@ -146,9 +146,9 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   /**
    * @remarks
    * The health status of the cloud account. Valid values:
-   * - healthy: Healthy.
-   * - unhealthy: Unhealthy.
-   * - unknown: Unknown.
+   * - healthy: healthy
+   * - unhealthy: unhealthy
+   * - unknown: unknown
    * 
    * @example
    * healthy
@@ -161,7 +161,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountHealthCheckResult?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResult;
   /**
    * @remarks
-   * The cloud account ID.
+   * The ID of the cloud account.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -169,7 +169,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * The cloud account name.
+   * The name of the cloud account.
    * 
    * @example
    * cloud_accout_xxxx
@@ -177,7 +177,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * The identity provider name.
+   * The name of the identity provider.
    * 
    * @example
    * idaas-eiam-oidc-provider
@@ -185,9 +185,9 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountProviderName?: string;
   /**
    * @remarks
-   * The cloud account site. Valid values:
-   * - china_mainland: The Chinese mainland.
-   * - global: Global.
+   * The site of the cloud account. Valid values:
+   * - china_mainland: the Chinese mainland
+   * - global: global
    * 
    * @example
    * china_mainland
@@ -195,8 +195,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountSite?: string;
   /**
    * @remarks
-   * The cloud account type. Valid values:
-   * 
+   * The type of the cloud account. Valid values:
    * - alibaba_cloud: Alibaba Cloud.
    * 
    * @example
@@ -205,7 +204,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountVendorType?: string;
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format, measured in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -213,7 +212,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The cloud account description.
+   * The description of the cloud account.
    * 
    * @example
    * cloud_accout_description
@@ -229,23 +228,23 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of associated privilege application IDs.
+   * The list of IDs of the associated privilege applications.
    */
   privilegeApplicationIds?: string[];
   /**
    * @remarks
-   * The reason for the privilege hosting or removal failure.
+   * The cause of the privilege hosting or removal failure.
    */
   privilegeHostingError?: ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError;
   /**
    * @remarks
-   * The hosting state of the cloud account. The default value is unmanaged. Valid values:
+   * The hosting status of the cloud account. Default value: hosting_unmanaged. Valid values:
    * - hosting_unmanaged: Unmanaged. The cloud account has not initiated hosting and is in the initial state.
-   * - hosting_pending: Hosting in progress. The hosting task has been submitted and is being executed asynchronously. Wait for the hosting process to complete before the final state is reached.
-   * - hosting_completed: Hosting completed. The cloud account hosting process was executed successfully, and the related permission templates and hosting bindings have taken effect.
-   * - hosting_failed: Hosting failed. The hosting process encountered an exception. View the failure reason and re-initiate hosting.
-   * - hosting_removing: Removal in progress. The removal task has been submitted and is being executed asynchronously. Wait for the removal process to complete before the final state is reached.
-   * - hosting_remove_failed: Removal failed. The removal process encountered an exception. View the failure reason and re-initiate removal.
+   * - hosting_pending: Hosting. The hosting task has been submitted and is being executed asynchronously. Wait for the hosting process to complete before it enters the final state.
+   * - hosting_completed: Hosting completed. The hosting process of the cloud account is executed successfully, and the relevant permission templates and hosting bindings have taken effect.
+   * - hosting_failed: Hosting failed. The hosting process encounters an exception. You can view the cause of the failure and initiate hosting again.
+   * - hosting_removing: Removing. The task to remove hosting has been submitted and is being executed asynchronously. Wait for the removal process to complete before it enters the final state.
+   * - hosting_remove_failed: Removal failed. The removal process encounters an exception. You can view the cause of the failure and initiate removal again.
    * 
    * @example
    * hosting_unmanaged
@@ -253,9 +252,9 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   privilegeHostingState?: string;
   /**
    * @remarks
-   * The privilege switch status. Valid values:
-   * - enabled: Enabled. The resource is active and can be used normally.
-   * - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore functionality.
+   * The status of the privilege switch. Valid values:
+   * - enabled: Enabled. The resource is in effect and can be used normally.
+   * - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore the resource.
    * 
    * @example
    * enabled
@@ -263,7 +262,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   privilegeStatus?: string;
   /**
    * @remarks
-   * The last update time, in UNIX timestamp format, measured in milliseconds.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000
@@ -337,7 +336,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   cloudAccounts?: ListCloudAccountsResponseBodyCloudAccounts[];
   /**
    * @remarks
-   * The number of rows per page for paging.
+   * The number of entries per page in paging.
    * 
    * @example
    * 20
@@ -345,7 +344,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned for this request.
+   * The token returned for the next query.
    * 
    * @example
    * NTxxxexample
@@ -361,7 +360,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

@@ -30,7 +30,7 @@ export class RemoveUsersFromGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [ou_001]
+   * ["ou_001"]
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

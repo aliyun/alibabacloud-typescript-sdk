@@ -53,7 +53,7 @@ export class ListAuthorizationServersResponseBodyAuthorizationServers extends $d
   instanceId?: string;
   /**
    * @remarks
-   * The currently active issuer address.
+   * The currently effective issuer address.
    * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2/token
@@ -140,7 +140,7 @@ export class ListAuthorizationServersResponseBody extends $dara.Model {
   authorizationServers?: ListAuthorizationServersResponseBodyAuthorizationServers[];
   /**
    * @remarks
-   * The number of entries to return per page in a paging query.
+   * The maximum number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 20

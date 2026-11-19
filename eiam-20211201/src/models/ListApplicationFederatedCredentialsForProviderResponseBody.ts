@@ -145,7 +145,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
 export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentialsOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The K8s namespace.
+   * The Kubernetes namespace.
    * 
    * @example
    * default
@@ -161,7 +161,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   podNamePrefix?: string;
   /**
    * @remarks
-   * The name of the K8s service account.
+   * The name of the Kubernetes service account.
    * 
    * @example
    * default
@@ -476,7 +476,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   applicationFederatedCredentials?: ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentials[];
   /**
    * @remarks
-   * The maximum number of rows per page in a paging query.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -484,7 +484,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current call.
+   * The query token returned by the current call.
    * 
    * @example
    * NTxxxexample
@@ -492,7 +492,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by the current call.
+   * The query token returned by the current call.
    * 
    * @example
    * PTxxxexample
@@ -508,7 +508,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   requestId?: string;
   /**
    * @remarks
-   * The total number of items.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialProvidersRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter condition name. Valid values:
+   * The filter name. Valid values:
    * 
-   * - CredentialProviderName: the credential provider name.
-   * - CredentialProviderIdentifier: the credential provider identifier.
+   * - CredentialProviderName: the credential provider name
+   * - CredentialProviderIdentifier: the credential provider identifier
    * 
    * @example
    * CredentialProviderName
@@ -16,7 +16,7 @@ export class ListCredentialProvidersRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of filter condition values.
+   * The list of filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -58,7 +58,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   credentialProviderTypes?: string[];
   /**
    * @remarks
-   * The list of filter conditions.
+   * The list of filters.
    */
   filter?: ListCredentialProvidersRequestFilter[];
   /**
@@ -73,7 +73,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of rows per page in a paged query.
    * 
    * @example
    * 20
@@ -81,7 +81,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample

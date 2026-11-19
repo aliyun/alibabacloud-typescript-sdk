@@ -10,7 +10,7 @@ export class SetForgetPasswordConfigurationRequest extends $dara.Model {
    * - sms: SMS.
    * 
    * @example
-   * email
+   * ["email"]
    */
   authenticationChannels?: string[];
   /**

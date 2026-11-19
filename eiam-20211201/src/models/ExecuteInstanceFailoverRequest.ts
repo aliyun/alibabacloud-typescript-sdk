@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteInstanceFailoverRequest extends $dara.Model {
   /**
    * @remarks
-   * The failover status. Valid values:
-   * - inactive: The primary instance is active.
-   * - active: The replica instance is active.
+   * The failover status.
    * 
    * This parameter is required.
    * 

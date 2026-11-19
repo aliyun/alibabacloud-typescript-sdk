@@ -23,7 +23,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of results per page in a paging query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20

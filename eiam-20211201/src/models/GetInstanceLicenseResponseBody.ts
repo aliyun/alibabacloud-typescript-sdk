@@ -29,7 +29,7 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
   m2mApplicationQuota?: number;
   /**
    * @remarks
-   * The machine identity license status.
+   * The machine identity status.
    * 
    * @example
    * enabled
@@ -45,7 +45,31 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
   networkAccessEndpointQuota?: number;
   /**
    * @remarks
-   * The PAM privileged access management license status.
+   * The base quota of monthly active PAM users included in the plan, excluding additional purchases. The value is 0 if PAM is not activated.
+   * 
+   * @example
+   * 50
+   */
+  pamActiveUserBaseQuota?: number;
+  /**
+   * @remarks
+   * The number of additionally purchased monthly active PAM users. The value is 0 if no additional users are purchased or PAM is not activated.
+   * 
+   * @example
+   * 10
+   */
+  pamActiveUserPurchasedQuota?: number;
+  /**
+   * @remarks
+   * Specifies whether pay-as-you-go billing for monthly PAM overages is enabled. Returns false if PAM is not activated or elastic billing is disabled.
+   * 
+   * @example
+   * true
+   */
+  pamElasticBillingEnabled?: boolean;
+  /**
+   * @remarks
+   * The Privileged Access Management (PAM) license status.
    * 
    * @example
    * enabled
@@ -53,7 +77,7 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
   pamLicenseStatus?: string;
   /**
    * @remarks
-   * The number of prepaid active users.
+   * The number of active subscription users.
    * 
    * @example
    * 100
@@ -74,6 +98,9 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
       m2mApplicationQuota: 'M2mApplicationQuota',
       mimApplicationLicenseStatus: 'MimApplicationLicenseStatus',
       networkAccessEndpointQuota: 'NetworkAccessEndpointQuota',
+      pamActiveUserBaseQuota: 'PamActiveUserBaseQuota',
+      pamActiveUserPurchasedQuota: 'PamActiveUserPurchasedQuota',
+      pamElasticBillingEnabled: 'PamElasticBillingEnabled',
       pamLicenseStatus: 'PamLicenseStatus',
       prepaidActiveUserNumber: 'PrepaidActiveUserNumber',
       userQuota: 'UserQuota',
@@ -87,6 +114,9 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
       m2mApplicationQuota: 'number',
       mimApplicationLicenseStatus: 'string',
       networkAccessEndpointQuota: 'number',
+      pamActiveUserBaseQuota: 'number',
+      pamActiveUserPurchasedQuota: 'number',
+      pamElasticBillingEnabled: 'boolean',
       pamLicenseStatus: 'string',
       prepaidActiveUserNumber: 'number',
       userQuota: 'number',
@@ -113,7 +143,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * The end date of the license validity period, in timestamp format.
+   * The end date of the license validity period. The value is a UNIX timestamp.
    * 
    * @example
    * 1723996800000
@@ -126,7 +156,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   instanceLicenseDetail?: GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail;
   /**
    * @remarks
-   * The billing type of the license.
+   * The billing method of the license.
    * 
    * @example
    * prepay
@@ -134,7 +164,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseChargeType?: string;
   /**
    * @remarks
-   * The detailed license configuration as a JSON string.
+   * The JSON string of the detailed license configuration.
    * 
    * @example
    * {"modules":[{"features":[{"name":"urn:alibaba:idaas:license:module:ud:customField","status":"enabled"}]……{"name":"urn:alibaba:idaas:license:tag:enterprise","status":"enabled"}],"version":"1.0"}
@@ -142,7 +172,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseConfigJson?: string;
   /**
    * @remarks
-   * The creation time of the license, in timestamp format.
+   * The creation time of the license. The value is a UNIX timestamp.
    * 
    * @example
    * 1720509699000
@@ -158,7 +188,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   licenseId?: string;
   /**
    * @remarks
-   * The status of the license.
+   * The license status.
    * 
    * @example
    * valid
@@ -174,7 +204,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   purchaseChannel?: string;
   /**
    * @remarks
-   * The unique identifier of the external commodity associated with the license.
+   * The unique identifier of the external product corresponding to the license.
    * 
    * @example
    * eiam-cn-xxxxx
@@ -182,7 +212,7 @@ export class GetInstanceLicenseResponseBodyLicense extends $dara.Model {
   purchaseInstanceId?: string;
   /**
    * @remarks
-   * The start date of the license validity period, in timestamp format.
+   * The start date of the license validity period. The value is a UNIX timestamp.
    * 
    * @example
    * 1720509699000

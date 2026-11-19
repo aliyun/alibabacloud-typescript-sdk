@@ -37,15 +37,15 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The scope permission name.
+   * The name of the scope permission.
    * 
    * @example
-   * 读取全部用户
+   * Read all users
    */
   resourceServerScopeName?: string;
   /**
    * @remarks
-   * The scope permission type.
+   * The type of the scope permission.
    * 
    * @example
    * urn:alibaba:idaas:resourceserver:scope:delegated
@@ -53,7 +53,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * The scope permission value.
+   * The value of the scope permission.
    * 
    * @example
    * User:Write:ALL
@@ -95,7 +95,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
 export class ListResourceServerScopesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -127,12 +127,12 @@ export class ListResourceServerScopesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of scope permissions under the ResourceServer.
+   * The list of scope permissions under the resource server.
    */
   resourceServerScopes?: ListResourceServerScopesResponseBodyResourceServerScopes[];
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

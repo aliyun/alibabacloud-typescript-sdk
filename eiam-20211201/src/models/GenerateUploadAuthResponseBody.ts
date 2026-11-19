@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUploadAuthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Access ID for authentication.
+   * The access ID for authentication.
    * 
    * @example
    * STS.NYgAmE3cyPoMDxtWgtwG3xxxx
@@ -21,7 +21,7 @@ export class GenerateUploadAuthResponseBody extends $dara.Model {
   downLoadUrl?: string;
   /**
    * @remarks
-   * The encrypted file encryption configuration key for the instance.
+   * The encrypted key for the file encryption configuration of the instance.
    * 
    * @example
    * eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwia2lkIjoia2V5X3Z1ZWhjbmh2NWppcGhmZGJwcWpqd3dsemFhIn0..YetpxsPdqdLvAy6G.0Zy5meoTzvCuNfA_0w7E9ItY2uGu1v1BxR9i98KeHXv_P-sm9w1q0XPf5Fw.55V_jFq2t2ZHdjg5c7uxxxx
@@ -45,7 +45,7 @@ export class GenerateUploadAuthResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The key for authentication.
+   * The authentication key.
    * 
    * @example
    * idaas-csv://idaas_ly77wa2oexrciw5v672vizxxxx
@@ -62,7 +62,7 @@ export class GenerateUploadAuthResponseBody extends $dara.Model {
   plaintextKey?: string;
   /**
    * @remarks
-   * The policy for authentication.
+   * The authentication policy.
    * 
    * @example
    * eyJleHBpcmF0aW9uIjoiMjAyNS0xMi0yM1QwNjoxODozNi4zNTZaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjBdLHsiYnVja2V0IjoidGVtcC1pZGFhcy1laWFtLWNuLWhhbmd6aG91In0seyJrZXkiOiJpZGFhc19seTc3d2Eyb2V4cmNpdzV2Njcydml6eG12ZS9maWxlX2ltcG9ydC82ODg2NmQyMS0wYWI3LTQ1MGQtYjllNi01YjFlYWZlMDYzZTEifSx7Ingtb3NzLWZvcmJpZC1vdmVyd3JpdGUiOiJ0cnVlIn0seyJ4LW9zcy1vYmplY3QtYWNsIjoicHJpdmF0ZSJxxxx
@@ -86,7 +86,7 @@ export class GenerateUploadAuthResponseBody extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The signature for authentication.
+   * The authentication signature.
    * 
    * @example
    * t3JyykEKg3kHQuUrhaXYxtboUxxxxx

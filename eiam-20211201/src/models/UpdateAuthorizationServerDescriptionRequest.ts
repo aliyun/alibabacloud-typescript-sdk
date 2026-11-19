@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuthorizationServerDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization server ID.
+   * The ID of the authorization server.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateAuthorizationServerDescriptionRequest extends $dara.Model {
   authorizationServerId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, refer to References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure idempotence. You can generate a client token on your client and make sure that the token is unique across different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateAuthorizationServerDescriptionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

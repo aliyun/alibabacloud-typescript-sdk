@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the custom privacy policy item.
+   * The name of the custom terms item.
    * 
    * @example
    * Item Name
@@ -13,7 +13,7 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPr
   customPrivacyPolicyItemName?: string;
   /**
    * @remarks
-   * The access URL of the custom privacy policy item. The URL must start with https://.
+   * The URL of the custom terms item. The URL must start with https://.
    * 
    * @example
    * https://example.com
@@ -45,12 +45,12 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPr
 export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends $dara.Model {
   /**
    * @remarks
-   * The items of the custom privacy policy.
+   * The items of the custom terms.
    */
   customPrivacyPolicyItems?: UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems[];
   /**
    * @remarks
-   * The tip for the custom privacy policy content.
+   * The prompt for the custom terms.
    * 
    * @example
    * Please read and agree：
@@ -58,7 +58,7 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
   customPrivacyPolicyTip?: string;
   /**
    * @remarks
-   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages API operation.
+   * The language of the custom terms. The value is returned by the LanguageCode parameter in the response of the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -95,12 +95,12 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
 export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The details of the custom privacy policy content.
+   * The details of the custom terms.
    */
   customPrivacyPolicyContents?: UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents[];
   /**
    * @remarks
-   * The ID of the custom privacy policy.
+   * The ID of the custom terms.
    * 
    * This parameter is required.
    * 
@@ -110,7 +110,7 @@ export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
   customPrivacyPolicyId?: string;
   /**
    * @remarks
-   * The name of the custom privacy policy.
+   * The name of the custom terms.
    * 
    * @example
    * Custom Privacy Policy Name
@@ -118,7 +118,7 @@ export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * The default language code for the privacy policy items. The value is the LanguageCode returned by the ListLanguages API operation.
+   * The default language code for the terms. The value is returned by the LanguageCode parameter in the response of the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -136,7 +136,7 @@ export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The consent type for the custom privacy policy.
+   * The consent type for the custom terms.
    * 
    * @example
    * implied_consent

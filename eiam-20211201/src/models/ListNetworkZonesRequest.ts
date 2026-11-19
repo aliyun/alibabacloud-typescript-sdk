@@ -15,7 +15,7 @@ export class ListNetworkZonesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page for paging.
+   * The maximum number of entries to return per page when paging in a paged query.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListNetworkZonesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The network zone IDs.
+   * The IDs of the network zones.
    */
   networkZoneIds?: string[];
   /**

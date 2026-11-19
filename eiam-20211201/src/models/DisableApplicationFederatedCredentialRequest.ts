@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableApplicationFederatedCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The application federated credential ID.
+   * The ID of the application federated identity credential.
    * 
    * This parameter is required.
    * 

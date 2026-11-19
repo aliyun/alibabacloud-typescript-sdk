@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForResourceServerResponseBodyGroupsResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the scope.
+   * The scope ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,7 +13,7 @@ export class ListGroupsForResourceServerResponseBodyGroupsResourceServerScopes e
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The name of the scope.
+   * The scope name.
    * 
    * @example
    * Read User Info
@@ -45,7 +45,7 @@ export class ListGroupsForResourceServerResponseBodyGroupsResourceServerScopes e
 export class ListGroupsForResourceServerResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the group.
+   * The group ID.
    * 
    * @example
    * group_nbsomva32b6utec3hgi7scxxxx
@@ -53,7 +53,7 @@ export class ListGroupsForResourceServerResponseBodyGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_qsw77zl5vrllwzyrrfwbmpxxxx
@@ -100,7 +100,7 @@ export class ListGroupsForResourceServerResponseBody extends $dara.Model {
   groups?: ListGroupsForResourceServerResponseBodyGroups[];
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries returned per page in a paging query.
    * 
    * @example
    * 20
@@ -108,7 +108,7 @@ export class ListGroupsForResourceServerResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. A null or empty value indicates that all results have been returned.
+   * The next token.
    * 
    * @example
    * NTxxxexample
@@ -116,7 +116,7 @@ export class ListGroupsForResourceServerResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -124,7 +124,7 @@ export class ListGroupsForResourceServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that meet the filter criteria.
+   * The total number of entries.
    * 
    * @example
    * 100

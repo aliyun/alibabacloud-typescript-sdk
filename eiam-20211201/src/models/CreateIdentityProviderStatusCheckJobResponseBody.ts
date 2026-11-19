@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIdentityProviderStatusCheckJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * async_000xxxx
@@ -13,7 +13,7 @@ export class CreateIdentityProviderStatusCheckJobResponseBody extends $dara.Mode
   identityProviderStatusCheckJobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

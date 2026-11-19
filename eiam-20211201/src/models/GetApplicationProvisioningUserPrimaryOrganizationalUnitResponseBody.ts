@@ -13,7 +13,7 @@ export class GetApplicationProvisioningUserPrimaryOrganizationalUnitResponseBody
   requestId?: string;
   /**
    * @remarks
-   * The user primary organizational unit for application synchronization.
+   * The primary organizational unit of the user for application synchronization.
    * 
    * @example
    * ou_12121xxxxxx

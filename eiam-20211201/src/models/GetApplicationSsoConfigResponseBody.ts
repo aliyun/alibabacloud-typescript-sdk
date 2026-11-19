@@ -53,7 +53,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
   accessTokenEffectiveTime?: number;
   /**
    * @remarks
-   * Specifies whether the application is allowed to act as a public client to request the IDaaS EIAM authorization server. This is supported only when the authorization code mode and device mode are enabled. Default value: false.
+   * Specifies whether the application is allowed to act as a public client when requesting the IDaaS EIAM authorization server. This is supported only when the authorization code mode and device authorization mode are enabled. Default value: false.
    * 
    * @example
    * true
@@ -74,18 +74,18 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
   customClaims?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfigCustomClaims[];
   /**
    * @remarks
-   * The standard scope parameter for the OIDC protocol, which specifies the range of user attributes that the userinfo endpoint or ID token can return.
+   * The standard OIDC scope parameter. It specifies the range of user attributes that the userinfo endpoint or ID token can return.
    * 
    * @example
-   * profile，email
+   * ["profile","email"]
    */
   grantScopes?: string[];
   /**
    * @remarks
-   * The list of supported OIDC protocol grant types.
+   * The list of supported OIDC grant types.
    * 
    * @example
-   * authorization_code
+   * ["authorization_code"]
    */
   grantTypes?: string[];
   /**
@@ -117,7 +117,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
    * The algorithm used to calculate the code challenge in PKCE.
    * 
    * @example
-   * S256
+   * ["S256"]
    */
   pkceChallengeMethods?: string[];
   /**
@@ -151,7 +151,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
    * The response types supported by the application when OidcSsoConfig.GrantTypes includes the implicit mode.
    * 
    * @example
-   * token id_token
+   * ["token id_token"]
    */
   responseTypes?: string[];
   /**
@@ -237,7 +237,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
 export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndpointDomain extends $dara.Model {
   /**
    * @remarks
-   * The OAuth 2.0 authorization endpoint. Returned only when the application SSO protocol is OIDC.
+   * The OAuth 2.0 authorization endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://l1seshcn.aliyunidaas.com/login/app/app_mltta64q65enci54slingvvsgq/oauth2/authorize
@@ -245,7 +245,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oauth2AuthorizationEndpoint?: string;
   /**
    * @remarks
-   * The OAuth 2.0 device authorization endpoint. Returned only when the application SSO protocol is OIDC.
+   * The OAuth 2.0 device authorization endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://eiam-api-cn-hangzhou.aliyuncs.com/v2/idaas_ue2jvisn35ea5lmthk2676rypm/app_mltta64q65enci54slingvvsgq/oauth2/device/code
@@ -253,7 +253,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oauth2DeviceAuthorizationEndpoint?: string;
   /**
    * @remarks
-   * The OAuth 2.0 token revocation endpoint. Returned only when the application SSO protocol is OIDC.
+   * The OAuth 2.0 token revocation endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://eiam-api-cn-hangzhou.aliyuncs.com/v2/idaas_ue2jvisn35ea5lmthk2676rypm/app_mltta64q65enci54slingvvsgq/oauth2/revoke
@@ -261,7 +261,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oauth2RevokeEndpoint?: string;
   /**
    * @remarks
-   * The OAuth 2.0 token endpoint. Returned only when the application SSO protocol is OIDC.
+   * The OAuth 2.0 token endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://eiam-api-cn-hangzhou.aliyuncs.com/v2/idaas_ue2jvisn35ea5lmthk2676rypm/app_mltta64q65enci54slingvvsgq/oauth2/token
@@ -269,7 +269,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oauth2TokenEndpoint?: string;
   /**
    * @remarks
-   * The OIDC userinfo endpoint. Returned only when the application SSO protocol is OIDC.
+   * The OIDC userinfo endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://eiam-api-cn-hangzhou.aliyuncs.com/v2/idaas_ue2jvisn35ea5lmthk2676rypm/app_mltta64q65enci54slingvvsgq/oauth2/userinfo
@@ -277,7 +277,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oauth2UserinfoEndpoint?: string;
   /**
    * @remarks
-   * The OIDC issuer information. Returned only when the application SSO protocol is OIDC.
+   * The OIDC issuer information. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://eiam-api-cn-hangzhou.aliyuncs.com/v2/idaas_ue2jvisn35ea5lmthk2676rypm/app_mltta64q65enci54slingvvsgq/oidc
@@ -285,7 +285,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oidcIssuer?: string;
   /**
    * @remarks
-   * The OIDC JWKS URL. Returned only when the application SSO protocol is OIDC.
+   * The OIDC JSON Web Key Set (JWKS) URL. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://eiam-api-cn-hangzhou.aliyuncs.com/v2/idaas_ue2jvisn35ea5lmthk2676rypm/app_mltta64q65enci54slingvvsgq/oidc/jwks
@@ -293,7 +293,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oidcJwksEndpoint?: string;
   /**
    * @remarks
-   * The OIDC RP-initiated logout endpoint. Returned only when the application SSO protocol is OIDC.
+   * The OIDC RP-initiated logout endpoint. This parameter is returned only when the SSO protocol of the application is OIDC.
    * 
    * @example
    * https://l1seshcn.aliyunidaas.com/login/app/app_mltta64q65enci54slingvvsgq/oauth2/logout
@@ -301,7 +301,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   oidcLogoutEndpoint?: string;
   /**
    * @remarks
-   * The metadata URL for the SAML protocol. Returned only when the application SSO protocol is SAML 2.0.
+   * The metadata URL for the SAML protocol. This parameter is returned only when the SSO protocol of the application is SAML 2.0.
    * 
    * @example
    * https://l1seshcn.aliyunidaas.com/api/v2/app_mltuxdwd4lq4eer6tmtlmaxm5e/saml2/meta
@@ -317,7 +317,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndp
   samlSloEndpoint?: string;
   /**
    * @remarks
-   * The endpoint that accepts SAML AuthnRequest requests. Returned only when the application SSO protocol is SAML 2.0.
+   * The endpoint that receives SAML AuthnRequest requests. This parameter is returned only when the SSO protocol of the application is SAML 2.0.
    * 
    * @example
    * https://l1seshcn.aliyunidaas.com/login/app/app_mltuxdwd4lq4eer6tmtlmaxm5e/saml2/sso
@@ -415,7 +415,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
   displayName?: string;
   /**
    * @remarks
-   * The optional RelayState value. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After a user clicks an option and completes SSO, the user is automatically redirected to the corresponding URL.
+   * The optional RelayState value. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After the user clicks and completes SSO, they are automatically redirected to the corresponding URL.
    * 
    * @example
    * https://home.console.aliyun.com
@@ -462,7 +462,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
   attributeStatements?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigAttributeStatements[];
   /**
    * @remarks
-   * The default RelayState value. When a user\\"s single sign-on (SSO) request is initiated by EIAM, the SAML response provided by EIAM sets the RelayState to this value.
+   * The default RelayState value. When a user\\"s single sign-on logon request is initiated by EIAM, the SAML response provided by EIAM specifies the RelayState as this value.
    * 
    * @example
    * https://home.console.aliyun.com
@@ -498,7 +498,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
   nameIdValueExpression?: string;
   /**
    * @remarks
-   * The optional RelayState values. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After a user clicks an option and completes SSO, the user is automatically redirected to the corresponding URL. You must specify a default redirect URL before you can specify optional redirect URLs.
+   * The optional RelayState values. On the application card in the application portal, display names for multiple optional redirect URLs are shown. After the user clicks and completes SSO, they are automatically redirected to the corresponding URL. You must specify a default redirect URL before specifying optional ones.
    */
   optionalRelayStates?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates[];
   /**
@@ -529,7 +529,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The SAML entity ID of the application, which acts as the SP.
+   * The SAML entity ID of the application (service provider).
    * 
    * @example
    * urn:alibaba:cloudcomputing
@@ -540,12 +540,12 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
    * The array of configured SP signature verification certificates in PEM format. A maximum of two certificates can be returned for the console or API caller to read and display.
    * 
    * @example
-   * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX -----END CERTIFICATE-----
+   * ["-----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX -----END CERTIFICATE-----"]
    */
   spSigningCertificates?: string[];
   /**
    * @remarks
-   * The configured single logout (SLO) response URL of the SP.
+   * The configured single logout (SLO) response URL for the service provider.
    * 
    * @example
    * https://example.com/api/slo/response
@@ -553,7 +553,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
   spSloResponseUrl?: string;
   /**
    * @remarks
-   * The SAML assertion consumer service (ACS) URL of the application, which acts as the service provider (SP).
+   * The SAML assertion consumer service (ACS) URL of the application (service provider).
    * 
    * @example
    * https://signin.aliyun.com/saml-role/sso
@@ -618,9 +618,9 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
 export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $dara.Model {
   /**
    * @remarks
-   * The initial single sign-on (SSO) method. Valid values:
-   * - only_app_init_sso: SSO is initiated only by the application. This is the default value for OIDC applications. If this method is specified for a SAML application, InitLoginUrl must be specified.
-   * - idaas_or_app_init_sso: SSO can be initiated by the IDaaS portal or the application. This is the default value for SAML applications. If this method is specified for an OIDC application, InitLoginUrl must be specified.
+   * The initial single sign-on (SSO) logon method. Valid values:
+   * - only_app_init_sso: SSO is initiated only by the application. This is the default value for applications using the OIDC protocol. If this value is specified for a SAML application, InitLoginUrl must be specified.
+   * - idaas_or_app_init_sso: SSO can be initiated by the IDaaS portal or the application. This is the default value for applications using the SAML protocol. If this value is specified for an application using the OIDC protocol, InitLoginUrl must be specified.
    * 
    * @example
    * only_app_init_sso
@@ -628,7 +628,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $da
   initLoginType?: string;
   /**
    * @remarks
-   * The URL used to initiate single sign-on (SSO). This parameter is required when the InitLoginType of an OIDC application is set to idaas_or_app_init_sso, or when the InitLoginType of a SAML application is set to only_app_init_sso.
+   * The trigger URL for the initial single sign-on (SSO) logon. This parameter is required when the InitLoginType of an application using the OIDC protocol is set to idaas_or_app_init_sso, or when the InitLoginType of an application using the SAML protocol is set to only_app_init_sso.
    * 
    * @example
    * http://127.0.0.1:8000/start_login?enterprise_code=ABCDEF
@@ -636,7 +636,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $da
   initLoginUrl?: string;
   /**
    * @remarks
-   * The application SSO attribute configuration parameters for the OpenID Connect (OIDC) protocol. This parameter is returned only when the application SSO protocol is OIDC.
+   * The SSO attribute configuration parameters for the OIDC protocol. Returned only when the application SSO protocol is OIDC.
    */
   oidcSsoConfig?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfig;
   /**
@@ -646,14 +646,14 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $da
   protocolEndpointDomain?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndpointDomain;
   /**
    * @remarks
-   * The application SSO attribute configuration parameters for the SAML protocol. This parameter is returned only when the application SSO protocol is SAML 2.0.
+   * The SSO attribute configuration parameters for the SAML protocol. Returned only when the application SSO protocol is SAML 2.0.
    */
   samlSsoConfig?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfig;
   /**
    * @remarks
-   * The enabling status of the application SSO feature. Valid values:
-   * - enabled: Enabled.
-   * - disabled: Disabled.
+   * The status of the SSO feature for the application. Valid values:
+   * - enabled: The feature is enabled.
+   * - disabled: The feature is disabled.
    * 
    * @example
    * enabled

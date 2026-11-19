@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForResourceServerRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The name of the filter condition. The only valid value is GroupIds.
+   * The name of the filter condition.
    * 
    * @example
    * GroupIds
@@ -13,7 +13,7 @@ export class ListGroupsForResourceServerRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The values for the filter condition.
+   * The list of filter condition values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListGroupsForResourceServerRequestFilter extends $dara.Model {
 export class ListGroupsForResourceServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource server application.
+   * The application ID of the resource server.
    * 
    * This parameter is required.
    * 
@@ -55,12 +55,12 @@ export class ListGroupsForResourceServerRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The filter conditions.
+   * The list of filter conditions.
    */
   filter?: ListGroupsForResourceServerRequestFilter[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class ListGroupsForResourceServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The number of entries to return on each page in a paging query.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class ListGroupsForResourceServerRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. You do not need to provide this parameter for the first request. For subsequent requests, set this to the `NextToken` value from the previous response.
+   * The next token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * NTxxxxxexample
@@ -86,7 +86,7 @@ export class ListGroupsForResourceServerRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the scope.
+   * The scope ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx

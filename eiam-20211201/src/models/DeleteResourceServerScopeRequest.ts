@@ -25,7 +25,7 @@ export class DeleteResourceServerScopeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The scope permission ID under the ResourceServer.
+   * The ID of the scope permission.
    * 
    * This parameter is required.
    * 

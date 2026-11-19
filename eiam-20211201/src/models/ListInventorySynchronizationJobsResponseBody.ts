@@ -245,22 +245,22 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatistics extends $dara.Model {
   /**
    * @remarks
-   * The statistics of the creation result.
+   * The statistics on the creation results.
    */
   created?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsCreated;
   /**
    * @remarks
-   * The statistics of the deletion result.
+   * The statistics on the deletion results.
    */
   deleted?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsDeleted;
   /**
    * @remarks
-   * The statistics of unchanged items.
+   * The statistics on the unchanged results.
    */
   same?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsSame;
   /**
    * @remarks
-   * The statistics of the update result.
+   * The statistics on the update results.
    */
   updated?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -545,22 +545,22 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatistics extends $dara.Model {
   /**
    * @remarks
-   * The statistics of the creation result.
+   * The statistics on the creation results.
    */
   created?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsCreated;
   /**
    * @remarks
-   * The statistics of the deletion result.
+   * The statistics on the deletion results.
    */
   deleted?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsDeleted;
   /**
    * @remarks
-   * The statistics of unchanged items.
+   * The statistics on the unchanged results.
    */
   same?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsSame;
   /**
    * @remarks
-   * The statistics of the update result.
+   * The statistics on the update results.
    */
   updated?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -605,12 +605,12 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResult extends $dara.Model {
   /**
    * @remarks
-   * The statistics of the agent synchronization result.
+   * The statistics on the agent synchronization results.
    */
   agentStatistics?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatistics;
   /**
    * @remarks
-   * The statistics of the asset synchronization result.
+   * The statistics on the asset synchronization results.
    */
   assetStatistics?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatistics;
   /**
@@ -673,7 +673,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   description?: string;
   /**
    * @remarks
-   * The end time of the synchronization job.
+   * The end time of the synchronization. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1761533214
@@ -702,7 +702,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   result?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResult;
   /**
    * @remarks
-   * The start time of the synchronization job.
+   * The start time of the synchronization. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1761531256
@@ -718,7 +718,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   status?: string;
   /**
    * @remarks
-   * The trigger type of the synchronization job.
+   * The trigger type of the synchronization.
    * 
    * @example
    * manual
@@ -765,7 +765,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The inventory synchronization jobs.
+   * The synchronization jobs.
    */
   inventorySynchronizationJobs?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobs[];
   /**
@@ -778,7 +778,7 @@ export class ListInventorySynchronizationJobsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current call for subsequent paged queries.
+   * The pagination token returned by the current call for the next query.
    * 
    * @example
    * NTxxxexample
@@ -794,7 +794,7 @@ export class ListInventorySynchronizationJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 100

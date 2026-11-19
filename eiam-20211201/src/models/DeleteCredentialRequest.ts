@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * Credential ID.
+   * The credential ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteCredentialRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

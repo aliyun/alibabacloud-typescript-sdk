@@ -23,12 +23,12 @@ export class AuthorizeApplicationToGroupsRequest extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * The list of group IDs. You can specify up to 100 group IDs in a single operation.
+   * The list of group IDs. A single operation supports up to 100 group IDs.
    * 
    * This parameter is required.
    * 
    * @example
-   * group_miu8e4t4d7i4u7uwezgr54xxxx
+   * ["group_miu8e4t4d7i4u7uwezgr54xxxx"]
    */
   groupIds?: string[];
   /**

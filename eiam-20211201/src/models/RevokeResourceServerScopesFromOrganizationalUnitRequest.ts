@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeResourceServerScopesFromOrganizationalUnitRequest extends $dara.Model {
   /**
    * @remarks
-   * The ResourceServer application ID.
+   * The resource server application ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RevokeResourceServerScopesFromOrganizationalUnitRequest extends $da
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The list of Scope permission IDs under the ResourceServer.
+   * The list of scope permission IDs under the resource server.
    * 
    * This parameter is required.
    * 

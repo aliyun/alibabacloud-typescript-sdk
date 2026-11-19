@@ -29,7 +29,7 @@ export class ListApplicationAccountsForUserResponseBodyApplicationAccounts exten
   applicationUsername?: string;
   /**
    * @remarks
-   * The time when the account was created. The value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754359439000
@@ -98,7 +98,7 @@ export class ListApplicationAccountsForUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

@@ -33,7 +33,7 @@ export class ListResourceServerScopesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -41,7 +41,7 @@ export class ListResourceServerScopesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token (NextToken) used to retrieve the next page of results. Set this parameter to the NextToken value returned in the previous API call. Leave this parameter empty for the first query.
+   * The pagination token for the next page. Set this parameter to the value of the NextToken parameter returned from the previous API call. Leave this parameter empty for the first query.
    * 
    * @example
    * NTxxxxxexample
@@ -49,7 +49,7 @@ export class ListResourceServerScopesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token for the previous page. Set this parameter to the PreviousToken value returned in the previous API call.
+   * The pagination token for the previous page. Set this parameter to the value of the PreviousToken parameter returned from the previous API call.
    * 
    * @example
    * PTxxxxxexample
@@ -62,15 +62,15 @@ export class ListResourceServerScopesRequest extends $dara.Model {
   resourceServerScopeIds?: string[];
   /**
    * @remarks
-   * The scope permission name.
+   * The name of the scope permission.
    * 
    * @example
-   * 读取全部用户
+   * Read all users
    */
   resourceServerScopeName?: string;
   /**
    * @remarks
-   * The scope permission type.
+   * The type of the scope permission.
    * 
    * @example
    * urn:alibaba:idaas:resourceserver:scope:delegated
@@ -78,7 +78,7 @@ export class ListResourceServerScopesRequest extends $dara.Model {
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * The scope permission value.
+   * The value of the scope permission.
    * 
    * @example
    * User:Write:ALL

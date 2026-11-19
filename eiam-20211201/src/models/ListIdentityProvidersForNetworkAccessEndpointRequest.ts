@@ -15,7 +15,7 @@ export class ListIdentityProvidersForNetworkAccessEndpointRequest extends $dara.
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -33,7 +33,7 @@ export class ListIdentityProvidersForNetworkAccessEndpointRequest extends $dara.
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample

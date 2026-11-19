@@ -13,7 +13,7 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
   appKey?: string;
   /**
    * @remarks
-   * The AppSecret of the DingTalk first-party application.
+   * The app_secret of the DingTalk first-party application.
    * 
    * @example
    * REOQ6Cl55kriOd8NOBeqWYLKpHR4p6fdZxxxx

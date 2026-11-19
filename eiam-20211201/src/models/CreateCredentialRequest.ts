@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCredentialRequestCredentialContentApiKeyContent extends $dara.Model {
   /**
    * @remarks
-   * The content of the API key.
+   * The API key content.
    * 
    * @example
    * nsklnertyt5ddwizncxxxx
@@ -35,7 +35,7 @@ export class CreateCredentialRequestCredentialContentApiKeyContent extends $dara
 export class CreateCredentialRequestCredentialContentOAuthClientContent extends $dara.Model {
   /**
    * @remarks
-   * The client_id of the OAuth protocol.
+   * The client_id in the OAuth protocol.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -43,7 +43,7 @@ export class CreateCredentialRequestCredentialContentOAuthClientContent extends 
   clientId?: string;
   /**
    * @remarks
-   * The client_secret of the OAuth protocol.
+   * The client_secret in the OAuth protocol.
    * 
    * @example
    * nsklncmwizncxxxx
@@ -75,12 +75,12 @@ export class CreateCredentialRequestCredentialContentOAuthClientContent extends 
 export class CreateCredentialRequestCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The credential content of the API key credential type.
+   * The credential content for the API key credential type.
    */
   apiKeyContent?: CreateCredentialRequestCredentialContentApiKeyContent;
   /**
    * @remarks
-   * The credential content of the OAuth client authentication credential type.
+   * The credential content for the OAuth client authentication credential type.
    */
   OAuthClientContent?: CreateCredentialRequestCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class CreateCredentialRequestCredentialContent extends $dara.Model {
 export class CreateCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -125,7 +125,7 @@ export class CreateCredentialRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The content of the credential.
+   * The credential content.
    * 
    * This parameter is required.
    */
@@ -160,7 +160,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * The Scenarios label of the credential. Valid values:
+   * The scenarios label of the credential. Valid values:
    * - llm: large language model.
    * - saas: third-party SaaS service.
    * 
@@ -170,7 +170,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialScenarioLabel?: string;
   /**
    * @remarks
-   * The sharing scope of the credential.
+   * The credential sharing scope.
    * 
    * @example
    * user_exclusive
@@ -178,7 +178,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialSharingScope?: string;
   /**
    * @remarks
-   * The subject ID to which the credential belongs.
+   * The subject ID of the credential.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -186,7 +186,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * The subject type to which the credential belongs. Valid values:
+   * The subject type of the credential. Valid values:
    * - authentication_token_provider: authentication token provider.
    * 
    * @example
@@ -207,7 +207,7 @@ export class CreateCredentialRequest extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The description of the credential.
+   * The credential description.
    * 
    * @example
    * credential_description
@@ -215,7 +215,7 @@ export class CreateCredentialRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The exclusive user ID of the credential.
+   * The exclusive account ID of the credential.
    * 
    * @example
    * user_xxxx

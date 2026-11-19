@@ -45,7 +45,7 @@ export class ListOrganizationalUnitsForResourceServerRequestFilter extends $dara
 export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ResourceServer application ID.
+   * The ID of the resource server application.
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The number of rows per page in a paged query.
+   * The number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The query token for the next page. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * NTxxxxxexample
@@ -86,7 +86,7 @@ export class ListOrganizationalUnitsForResourceServerRequest extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * The permission ID.
+   * The scope ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx

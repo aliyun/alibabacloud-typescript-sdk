@@ -10,7 +10,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   allowedTokenIssuers?: string[];
   /**
    * @remarks
-   * Indicates whether the JWT derived short token feature is enabled.
+   * Specifies whether the JWT derived short token capability is enabled.
    * 
    * @example
    * false
@@ -18,7 +18,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   derivedShortTokenEnabled?: boolean;
   /**
    * @remarks
-   * The validity period of the JWT. Unit: seconds.
+   * The validity period of the JWT, in seconds.
    * 
    * @example
    * 900
@@ -26,7 +26,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   expiration?: number;
   /**
    * @remarks
-   * Indicates whether JWT expiration cleanup is enabled.
+   * Specifies whether JWT expiration cleanup is enabled.
    * 
    * @example
    * true
@@ -34,7 +34,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   expirationCleanupEnabled?: boolean;
   /**
    * @remarks
-   * JWT issuer。
+   * The JWT issuer.
    * 
    * @example
    * https://test.issuer.com
@@ -42,7 +42,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   issuer?: string;
   /**
    * @remarks
-   * The JWKs endpoint URL.
+   * The JWKS endpoint address.
    * 
    * @example
    * https://example123456.aliyunidaas.com/api/v2/auths_ngz2wj35ixxxdyat55nexxxxxx/oauth2/jwks
@@ -85,7 +85,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
 export class GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigOAuthProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The authorization endpoint of the OAuth protocol.
+   * The authorization endpoint in the OAuth protocol.
    * 
    * @example
    * https://example.com/authorize
@@ -103,7 +103,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   authorizationFlow?: string;
   /**
    * @remarks
-   * The client_id in the OAuth protocol, which is the client ID.
+   * The client ID in the OAuth protocol.
    * 
    * @example
    * client_id_example_xxx
@@ -119,7 +119,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   discoveryUrl?: string;
   /**
    * @remarks
-   * The issuer endpoint of the OAuth protocol.
+   * The issuer endpoint in the OAuth protocol.
    * 
    * @example
    * https://example.com/issuer
@@ -128,8 +128,8 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   /**
    * @remarks
    * The algorithm used to calculate the code challenge in PKCE. Valid values:
-   * - S256.
-   * - plain.
+   * - S256: S256.
+   * - plain: plain.
    * 
    * @example
    * S256
@@ -137,7 +137,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   pkceChallengeMethod?: string;
   /**
    * @remarks
-   * Indicates whether Proof Key for Code Exchange (PKCE) is enabled.
+   * Specifies whether PKCE is enabled.
    * 
    * @example
    * true
@@ -159,9 +159,9 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   providerVendor?: string;
   /**
    * @remarks
-   * The scope in the OAuth protocol, which specifies the permission scope.
+   * The scope in the OAuth protocol.
    * 
-   * > The scope configuration of the OAuth credential provider serves as the default value. If the scope parameter is not specified when you call the DeveloperAPI to obtain an OAuth access token, the scope configuration of the credential provider is used for token issuance.
+   * > The scope configuration of the OAuth credential provider serves as a fallback value. If the scope parameter is not specified when calling the Developer API to obtain an OAuth access token, the token is issued based on the scope configuration of the credential provider.
    * 
    * >Notice: Multiple scope values are separated by spaces.
    * 
@@ -179,7 +179,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   systemRedirectUri?: string;
   /**
    * @remarks
-   * The token endpoint of the OAuth protocol.
+   * The token endpoint in the OAuth protocol.
    * 
    * @example
    * https://example.com/token
@@ -239,9 +239,9 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   OAuthProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigOAuthProviderConfig;
   /**
    * @remarks
-   * The list of credential IDs that correspond to the sensitive configurations of the credential provider.
+   * The list of credential IDs for the sensitive configurations of the credential provider.
    * 
-   * > The system securely stores the sensitive configuration information of the credential provider in the form of credentials.
+   * > The system securely stores the sensitive configuration information of the credential provider as credentials.
    */
   providerCredentialIds?: string[];
   static names(): { [key: string]: string } {
@@ -289,12 +289,12 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The configuration of the credential provider.
+   * The credential provider configuration.
    */
   credentialProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfig;
   /**
    * @remarks
-   * The creation type of the credential provider. Valid values:
+   * The credential provider creation type. Valid values:
    * 
    * - system_init: Created by the system.
    * - user_custom: Created by the user.
@@ -313,7 +313,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderId?: string;
   /**
    * @remarks
-   * The business identifier of the credential provider.
+   * The credential provider identifier.
    * 
    * @example
    * test_example_identifier
@@ -321,7 +321,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderIdentifier?: string;
   /**
    * @remarks
-   * The name of the credential provider.
+   * The credential provider name.
    * 
    * @example
    * test_example_name
@@ -329,10 +329,10 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderName?: string;
   /**
    * @remarks
-   * The type of the credential provider. Valid values:
+   * The credential provider type. Valid values:
    * 
-   * - oauth: OAuth credential provider.
-   * - jwt: JWT credential provider.
+   * - oauth: OAuth credential provider
+   * - jwt: JWT credential provider
    * 
    * @example
    * oauth
@@ -356,7 +356,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The status of the credential provider. Valid values:
+   * The credential provider status. Valid values:
    * 
    * - enabled: Enabled.
    * - disabled: Disabled.

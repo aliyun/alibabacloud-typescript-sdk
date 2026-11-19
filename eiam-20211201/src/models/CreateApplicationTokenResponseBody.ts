@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationTokenResponseBodyApplicationTokens extends $dara.Model {
   /**
    * @remarks
-   * The application token.
+   * The application tokens.
    * 
    * @example
    * SATFwqX8zxGf83pJcJw78KFGjmrft4erWeZYBGS8oE7NN6qoE217yaJpUdMb1UuuGqhDiF43sCA4CF91CTL5iGntqwyLuaAcS9FJ9HfGadE5a7TjiwVafwrBYkt3XXX
@@ -55,7 +55,7 @@ export class CreateApplicationTokenResponseBodyApplicationTokens extends $dara.M
 export class CreateApplicationTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The application token.
+   * The application tokens.
    */
   applicationTokens?: CreateApplicationTokenResponseBodyApplicationTokens;
   /**

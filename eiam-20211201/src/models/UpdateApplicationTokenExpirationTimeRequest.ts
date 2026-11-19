@@ -25,7 +25,7 @@ export class UpdateApplicationTokenExpirationTimeRequest extends $dara.Model {
   applicationTokenId?: string;
   /**
    * @remarks
-   * The expiration time. Specify a UNIX timestamp in milliseconds.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 

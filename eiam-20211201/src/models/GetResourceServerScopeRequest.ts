@@ -25,7 +25,7 @@ export class GetResourceServerScopeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The scope permission ID.
+   * The ID of the scope permission.
    * 
    * This parameter is required.
    * 

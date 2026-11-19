@@ -13,7 +13,7 @@ export class ListSynchronizationJobsRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the dynamic parameter.
+   * The values of the dynamic parameter.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -80,7 +80,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100.
+   * The maximum number of entries per page during paging in a paged query. Maximum value: 100.
    * 
    * @example
    * 20
@@ -88,7 +88,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to query the next page. If no more pages exist, this parameter is not returned.
+   * The token used to query the next page. If no next page exists, this parameter is not returned.
    * 
    * @example
    * NTxxxxxexample
@@ -104,7 +104,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The page size. Maximum value: 100.
    * 
    * @example
    * 10
@@ -141,12 +141,12 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
    * The list of synchronization target IDs. Example: [idp_111XXXX,idp_222XXXX].
    * 
    * @example
-   * target_001
+   * ["target_001"]
    */
   targetIds?: string[];
   /**
    * @remarks
-   * The type of the synchronization target. Valid values:
+   * The synchronization target type. Valid values:
    * 
    * - identity_provider: identity provider
    * 

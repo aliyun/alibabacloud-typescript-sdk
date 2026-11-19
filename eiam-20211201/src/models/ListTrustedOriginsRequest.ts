@@ -23,7 +23,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * NT_example
@@ -39,10 +39,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The status filter. Valid values:
-   * 
-   * - Enabled: Enabled.
-   * - Disabled: Disabled.
+   * The status filter.
    * 
    * @example
    * Enabled
@@ -53,7 +50,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
    * The name filter.
    * 
    * @example
-   * Qoder Production Console
+   * Qoder production console
    */
   trustOriginName?: string;
   /**
@@ -61,7 +58,7 @@ export class ListTrustedOriginsRequest extends $dara.Model {
    * The trusted origin scene filter.
    * 
    * @example
-   * iframe_embed
+   * ["iframe_embed"]
    */
   trustedOriginScene?: string[];
   static names(): { [key: string]: string } {

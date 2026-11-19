@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dara.Model {
   /**
    * @remarks
-   * The time when the organizational unit was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the organizational unit was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -16,7 +16,7 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
    * The description of the organizational unit.
    * 
    * @example
-   * Test organization
+   * Test organizational unit
    */
   description?: string;
   /**
@@ -37,9 +37,7 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   leaf?: boolean;
   /**
    * @remarks
-   * The external ID of the organizational unit. This ID is used to map the data of the organizational unit to the data of an external system. By default, the value of this parameter is the organizational unit ID.
-   * 
-   * Note: The external ID must be unique within the same source type and source ID.
+   * The external ID of the organizational unit, which is used to map external data to IDaaS organizational units. Default value: the IDaaS organizational unit ID. Note: The external ID must be unique under the same source type and source ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -47,7 +45,7 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   organizationalUnitExternalId?: string;
   /**
    * @remarks
-   * The organizational unit ID.
+   * The ID of the organizational unit.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -72,12 +70,11 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   /**
    * @remarks
    * The source type of the organizational unit. Valid values:
-   * 
-   * - build_in: The organizational unit is created in IDaaS.
-   * - ding_talk: The organizational unit is imported from DingTalk.
-   * - ad: The organizational unit is imported from Active Directory (AD).
-   * - ldap: The organizational unit is imported from a Lightweight Directory Access Protocol (LDAP) directory.
-   * - we_com: The organizational unit is imported from WeCom.
+   * - build_in: built-in.
+   * - ding_talk: imported from DingTalk.
+   * - ad: imported from AD.
+   * - ldap: imported from LDAP.
+   * - we_com: imported from WeCom.
    * 
    * @example
    * build_in
@@ -93,7 +90,7 @@ export class ListOrganizationalUnitsResponseBodyOrganizationalUnits extends $dar
   parentId?: string;
   /**
    * @remarks
-   * The time when the organizational unit was last updated. The value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the organizational unit was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -156,7 +153,7 @@ export class ListOrganizationalUnitsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that are returned. This value is the total number of matched entries. The maximum number of entries that can be returned in a single request is specified by PageSize.
+   * The total number of entries. This value indicates the total number of matched entries. The maximum number of entries returned per page is specified by the PageSize parameter.
    * 
    * @example
    * 1000

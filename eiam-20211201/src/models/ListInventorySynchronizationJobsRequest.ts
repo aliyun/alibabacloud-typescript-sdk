@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInventorySynchronizationJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1234567890
@@ -28,7 +28,7 @@ export class ListInventorySynchronizationJobsRequest extends $dara.Model {
   inventorySourceIds?: string[];
   /**
    * @remarks
-   * The number of entries to return per page in paging. Default value: 20. Maximum value: 100.
+   * The number of entries to return per page during paging in a paged query. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -36,7 +36,7 @@ export class ListInventorySynchronizationJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned in the previous API call.
+   * The query token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * NTxxxxxexample
@@ -44,7 +44,7 @@ export class ListInventorySynchronizationJobsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1234567890

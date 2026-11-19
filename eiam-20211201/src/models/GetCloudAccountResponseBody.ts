@@ -50,7 +50,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
   errorReason?: GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The last check time. The value is a UNIX timestamp in milliseconds.
+   * The last check time in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -158,7 +158,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
 export class GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError extends $dara.Model {
   /**
    * @remarks
-   * The failure error code.
+   * The error code of the failure.
    * 
    * @example
    * Error
@@ -271,7 +271,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountVendorType?: string;
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp in milliseconds.
+   * The creation time in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830225000
@@ -305,13 +305,13 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   privilegeHostingError?: GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError;
   /**
    * @remarks
-   * The cloud account hosting status. Default value: hosting_unmanaged. Valid values:
+   * The cloud account hosting state. Default value: hosting_unmanaged. Valid values:
    * - hosting_unmanaged: Unmanaged. The cloud account has not initiated hosting and is in the initial state.
-   * - hosting_pending: Hosting. The hosting task is submitted and executed asynchronously. You must wait for the hosting process to complete to enter the final state.
-   * - hosting_completed: Hosting completed. The hosting process is executed successfully, and the relevant permission templates and hosting bindings take effect.
-   * - hosting_failed: Hosting failed. An exception occurs during the hosting process. You can view the failure cause and initiate hosting again.
-   * - hosting_removing: Removing. The removal task is submitted and executed asynchronously. You must wait for the removal process to complete to enter the final state.
-   * - hosting_remove_failed: Removal failed. An exception occurs during the removal process. You can view the failure cause and initiate removal again.
+   * - hosting_pending: Hosting. The hosting task is submitted and being executed asynchronously. Wait for the hosting process to complete before entering the final state.
+   * - hosting_completed: Hosting completed. The cloud account hosting process is executed successfully, and the related permission templates and hosting bindings are in effect.
+   * - hosting_failed: Hosting failed. The hosting process encounters an exception. You can view the cause of the failure and initiate hosting again.
+   * - hosting_removing: Removing. The remove hosting task is submitted and being executed asynchronously. Wait for the removal process to complete before entering the final state.
+   * - hosting_remove_failed: Removal failed. The removal process encounters an exception. You can view the cause of the failure and initiate removal again.
    * 
    * @example
    * hosting_unmanaged
@@ -319,9 +319,9 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   privilegeHostingState?: string;
   /**
    * @remarks
-   * The privilege switch status. Valid values:
-   * - enabled: Enabled. The resource is active and can be used normally.
-   * - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore the resource.
+   * The privilege status. Valid values:
+   * - enabled: Enabled. The resource is in effect and can be used normally.
+   * - disabled: Disabled. The resource is deactivated and no longer in effect. You can re-enable it to restore it.
    * 
    * @example
    * enabled
@@ -329,7 +329,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   privilegeStatus?: string;
   /**
    * @remarks
-   * The last update time. The value is a UNIX timestamp in milliseconds.
+   * The last update time in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830227000

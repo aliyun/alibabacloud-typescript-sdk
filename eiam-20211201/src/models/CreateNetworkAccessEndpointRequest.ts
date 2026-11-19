@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkAccessEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
+   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * @example
    * client-token-example
@@ -13,7 +13,7 @@ export class CreateNetworkAccessEndpointRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,25 +23,25 @@ export class CreateNetworkAccessEndpointRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Network access endpoint name.
+   * The name of the dedicated network endpoint.
    * 
    * This parameter is required.
    * 
    * @example
-   * xx业务VPC访问端点
+   * XX business VPC access endpoint
    */
   networkAccessEndpointName?: string;
   /**
    * @remarks
-   * List of specified vSwitches connected to the network access endpoint.
+   * The list of specified vSwitches to which the dedicated network endpoint is connected.
    * 
    * @example
-   * vsw-examplexxx
+   * ["vsw-examplexxx"]
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * VPC ID connected to the network access endpoint.
+   * The ID of the VPC to which the dedicated network endpoint is connected.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreateNetworkAccessEndpointRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Region of the VPC ID connected to the network access endpoint.
+   * The region of the VPC to which the dedicated network endpoint is connected.
    * 
    * This parameter is required.
    * 

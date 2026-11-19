@@ -35,7 +35,7 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance control item.
+   * The name of the instance control element.
    * 
    * @example
    * human_verification
@@ -43,12 +43,12 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
   elementName?: string;
   /**
    * @remarks
-   * The Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) authentication configuration.
+   * The human-machine authentication configuration.
    */
   humanVerificationConfig?: GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElementsHumanVerificationConfig;
   /**
    * @remarks
-   * The status of the instance control item.
+   * The status of the instance control element.
    * 
    * @example
    * enabled
@@ -85,7 +85,7 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 export class GetInstanceControlConfigurationResponseBodyInstanceControlConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The instance control configuration.
+   * The instance control configuration items.
    */
   controlElements?: GetInstanceControlConfigurationResponseBodyInstanceControlConfigurationControlElements[];
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class GetInstanceControlConfigurationResponseBodyInstanceControlConfigura
 export class GetInstanceControlConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance control configuration.
+   * The instance control configuration items.
    */
   instanceControlConfiguration?: GetInstanceControlConfigurationResponseBodyInstanceControlConfiguration;
   /**

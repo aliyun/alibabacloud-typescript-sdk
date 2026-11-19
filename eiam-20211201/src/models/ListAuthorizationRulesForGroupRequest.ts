@@ -37,9 +37,9 @@ export class ListAuthorizationRulesForGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to identify the starting position of the next page.
+   * The token that specifies the starting position of the next page.
    * 
-   * - If this parameter is not specified, the query starts from the first page by default.
+   * - If you do not specify this parameter, the query starts from the first page by default.
    * 
    * @example
    * NTxxxxxexample

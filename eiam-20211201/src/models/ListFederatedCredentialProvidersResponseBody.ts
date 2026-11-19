@@ -58,7 +58,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   dynamicJwks?: string;
   /**
    * @remarks
-   * The token issuer identifier (Issuer).
+   * The token issuer identifier.
    * 
    * @example
    * https://example.com
@@ -260,7 +260,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * The signature effective time. The value indicates the duration for which the signature is valid, in seconds.
+   * The signature validity period. The value indicates the duration for which the signature is valid, in seconds.
    * 
    * @example
    * 3600
@@ -419,12 +419,12 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The root certificates.
+   * The root certificate.
    */
   certificates?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * The method used to retrieve the root certificate.
+   * The method used to obtain the root certificate.
    * 
    * @example
    * custom
@@ -624,7 +624,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   federatedCredentialProviders?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProviders[];
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The number of rows per page in a paging query.
    * 
    * @example
    * 20
@@ -632,7 +632,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token (Token) value returned by this call.
+   * The pagination token returned by the current request.
    * 
    * @example
    * NTxxxexample
@@ -640,7 +640,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The query token (Token) value returned by this call.
+   * The pagination token returned by the current request.
    * 
    * @example
    * PTxxxexample
@@ -656,7 +656,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of items.
    * 
    * @example
    * 100

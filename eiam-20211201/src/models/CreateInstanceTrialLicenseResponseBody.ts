@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceTrialLicenseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the License.
+   * The unique identifier of the license.
    * 
    * @example
    * license_463hfmewi2njxxxx

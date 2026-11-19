@@ -6,13 +6,12 @@ export class CreateCredentialProviderRequestCredentialProviderConfigJwtProviderC
   /**
    * @remarks
    * The list of allowed JWT issuers.
-   * 
-   * > The list cannot contain more than 200 entries.
+   * > The list can contain up to 200 items.
    */
   allowedTokenIssuers?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the JWT derived short token feature.
+   * Specifies whether to enable the capability to derive short tokens from JWTs.
    * 
    * @example
    * false
@@ -28,7 +27,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigJwtProviderC
   expiration?: number;
   /**
    * @remarks
-   * Specifies whether to enable JWT expiration cleanup.
+   * Specifies whether to enable cleanup of expired JWTs.
    * 
    * @example
    * true
@@ -67,7 +66,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigJwtProviderC
 export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The authorization endpoint of the OAuth protocol.
+   * The authorization endpoint in the OAuth protocol.
    * 
    * @example
    * https://example.com/authorize
@@ -76,8 +75,8 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   /**
    * @remarks
    * The OAuth authorization flow type. Valid values:
-   * - m2m: Machine-to-machine.
-   * - user_federation: User federation.
+   * - m2m: Machine-to-machine
+   * - user_federation: User federation
    * 
    * @example
    * m2m
@@ -85,9 +84,8 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   authorizationFlow?: string;
   /**
    * @remarks
-   * The client_id in the OAuth protocol, which is the client ID.
-   * 
-   * > The length cannot exceed 128 characters.
+   * The client ID in the OAuth protocol.
+   * > The client ID can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -97,9 +95,8 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   clientId?: string;
   /**
    * @remarks
-   * The client_secret in the OAuth protocol, which is the client secret.
-   * 
-   * > The length cannot exceed 1024 characters.
+   * The client secret in the OAuth protocol.
+   * > The client secret can be up to 1,024 characters in length.
    * 
    * This parameter is required.
    * 
@@ -109,7 +106,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   clientSecret?: string;
   /**
    * @remarks
-   * The URL of the OAuth Discovery document.
+   * The URL of the OAuth discovery document.
    * 
    * @example
    * https://example.com/.well-known/openid-configuration
@@ -117,7 +114,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   discoveryUrl?: string;
   /**
    * @remarks
-   * The Issuer endpoint of the OAuth protocol.
+   * The issuer endpoint in the OAuth protocol.
    * 
    * @example
    * https://example.com/issuer
@@ -125,9 +122,9 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   issuer?: string;
   /**
    * @remarks
-   * The algorithm used to calculate the Code Challenge in PKCE. Valid values:
-   * - S256.
-   * - plain.
+   * The algorithm used to calculate the code challenge in PKCE. Valid values:
+   * - S256
+   * - plain
    * 
    * @example
    * S256
@@ -135,7 +132,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   pkceChallengeMethod?: string;
   /**
    * @remarks
-   * Specifies whether to enable PKCE.
+   * Specifies whether to enable Proof Key for Code Exchange (PKCE).
    * 
    * @example
    * true
@@ -144,12 +141,12 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   /**
    * @remarks
    * The OAuth provider vendor type. Valid values:
-   * - custom: Custom.
-   * - dingtalk: DingTalk.
-   * - feishu: Lark.
-   * - github: GitHub.
-   * - microsoft: Microsoft.
-   * - google: Google.
+   * - custom: Custom
+   * - dingtalk: DingTalk
+   * - feishu: Lark
+   * - github: GitHub
+   * - microsoft: Microsoft
+   * - google: Google
    * 
    * @example
    * custom
@@ -157,17 +154,14 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   providerVendor?: string;
   /**
    * @remarks
-   * The scope in the OAuth protocol, which specifies the permission scope.
-   * 
-   * > The Scope configuration on the credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
-   * 
-   * >Notice: Separate multiple Scope values with spaces.
-   * 
-   * The following restrictions apply to each individual Scope value:
-   * 1. Allowed characters: lowercase letters, digits, and the special characters `|/:_-.`.
-   * 2. Must contain at least one lowercase letter or digit.
-   * 3. Must start with the special character `.`, a lowercase letter, or a digit.
-   * 4. The length cannot exceed 1024 characters.
+   * The scope in the OAuth protocol.
+   * > The scope configuration of the OAuth credential provider serves as a fallback value. If the scope parameter is not specified when you call the Developer API to obtain an OAuth access token, the scope configuration of the credential provider is used to issue the token.
+   * >Notice: Separate multiple scope values with spaces.</notice>
+   * Limits on a single scope value:
+   * 1. Valid characters: lowercase letters, digits, and the following special characters: `|/:_-.`.
+   * 2. The value must contain lowercase letters or digits.
+   * 3. The value must start with a period (`.`), a lowercase letter, or a digit.
+   * 4. The value can be up to 1,024 characters in length.
    * 
    * @example
    * example:test_01 example:test_02
@@ -175,9 +169,8 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   scope?: string;
   /**
    * @remarks
-   * The token endpoint of the OAuth protocol.
-   * 
-   * > The value must start with `http://` or `https://`, and the length cannot exceed 1024 characters.
+   * The token endpoint in the OAuth protocol.
+   * > The endpoint must start with `http://` or `https://` and can be up to 1,024 characters in length.
    * 
    * @example
    * https://example.com/token
@@ -267,9 +260,9 @@ export class CreateCredentialProviderRequestCredentialProviderConfig extends $da
 export class CreateCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token that ensures the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a unique parameter value from your client to ensure that different requests have unique values. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -279,14 +272,13 @@ export class CreateCredentialProviderRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The configuration of the credential provider.
+   * The credential provider configuration.
    */
   credentialProviderConfig?: CreateCredentialProviderRequestCredentialProviderConfig;
   /**
    * @remarks
-   * The business identifier of the credential provider.
-   * 
-   * > Allowed characters include uppercase and lowercase letters, digits, and the special characters `.-_`. The length cannot exceed 64 characters.
+   * The credential provider identifier.
+   * > Valid characters: uppercase and lowercase letters, digits, and the following special characters: `.-_`. The identifier can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -296,9 +288,8 @@ export class CreateCredentialProviderRequest extends $dara.Model {
   credentialProviderIdentifier?: string;
   /**
    * @remarks
-   * The name of the credential provider.
-   * 
-   * > The length cannot exceed 64 characters.
+   * The credential provider name.
+   * > The name can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -308,10 +299,9 @@ export class CreateCredentialProviderRequest extends $dara.Model {
   credentialProviderName?: string;
   /**
    * @remarks
-   * The type of the credential provider. Valid values:
-   * 
-   * - oauth: OAuth credential provider.
-   * - jwt: JWT credential provider.
+   * The credential provider type. Valid values:
+   * - oauth: OAuth credential provider
+   * - jwt: JWT credential provider
    * 
    * This parameter is required.
    * 
@@ -322,8 +312,7 @@ export class CreateCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
    * The description.
-   * 
-   * > The length cannot exceed 128 characters.
+   * > The description can be up to 128 characters in length.
    * 
    * @example
    * This is an example description

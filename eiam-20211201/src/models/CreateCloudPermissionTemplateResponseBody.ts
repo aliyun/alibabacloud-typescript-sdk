@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudPermissionTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the permission template.
+   * The permission template ID.
    * 
    * @example
    * cpt_01l8dagf2iablhigj75l1n99xxxxx

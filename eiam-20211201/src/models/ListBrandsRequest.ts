@@ -15,7 +15,7 @@ export class ListBrandsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of results per page during paging in a paged query.
    * 
    * @example
    * 20

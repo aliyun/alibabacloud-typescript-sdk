@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForAuthorizationRuleResponseBodyGroupsValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The effective end time. The value is a UNIX timestamp in milliseconds.
+   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListGroupsForAuthorizationRuleResponseBodyGroupsValidityPeriod exte
   endTime?: number;
   /**
    * @remarks
-   * The effective start time. The value is a UNIX timestamp in milliseconds.
+   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -66,7 +66,8 @@ export class ListGroupsForAuthorizationRuleResponseBodyGroups extends $dara.Mode
   validityPeriod?: ListGroupsForAuthorizationRuleResponseBodyGroupsValidityPeriod;
   /**
    * @remarks
-   * The validity period type of the relationship. Valid values:
+   * The validity type of the relationship. Valid values:
+   * 
    * - permanent: permanent
    * - time_bound: custom time range
    * 
@@ -112,7 +113,7 @@ export class ListGroupsForAuthorizationRuleResponseBody extends $dara.Model {
   groups?: ListGroupsForAuthorizationRuleResponseBodyGroups[];
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -120,7 +121,7 @@ export class ListGroupsForAuthorizationRuleResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next token returned in the current response, which is used to query the next page.
+   * The token returned in the current response, which is used to query the next page.
    * 
    * @example
    * NTxxxexample

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Application ID list. A maximum of 100 application IDs are supported.
+   * The list of application IDs. You can specify up to 100 application IDs.
    * 
    * @example
-   * app_mkv7rgt4d7i4u7zqtzev2mxxxx
+   * ["app_mkv7rgt4d7i4u7zqtzev2mxxxx"]
    */
   applicationIds?: string[];
   /**
    * @remarks
-   * Group ID.
+   * The group ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListApplicationsForGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListApplicationsForGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class ListApplicationsForGroupRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 20

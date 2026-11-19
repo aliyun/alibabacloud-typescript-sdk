@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The identity provider ID.
+   * The ID of the identity provider.
    * 
    * @example
    * idp_1234567890
@@ -35,7 +35,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderOidcProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The audience list of the OIDC credential.
+   * The list of audiences for the OIDC credential.
    */
   audiences?: string[];
   /**
@@ -48,7 +48,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   dynamicJwks?: string;
   /**
    * @remarks
-   * The token issuer identifier (Issuer).
+   * The issuer identifier of the token.
    * 
    * @example
    * http://test.idaas.com/v2/oauth
@@ -190,7 +190,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   certificateMetadata?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The root certificate content.
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -200,7 +200,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   content?: string;
   /**
    * @remarks
-   * The root certificate fingerprint.
+   * The fingerprint of the root certificate.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -237,7 +237,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The PKCS7 certificate list.
+   * The list of PKCS7 certificates.
    */
   certificates?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificates[];
   /**
@@ -250,7 +250,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * The signature effective time. The value indicates the duration for which the signature is valid. Unit: seconds.
+   * The signature validity period. The value indicates the validity duration of the signature in seconds.
    * 
    * @example
    * 3600
@@ -266,7 +266,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   signingTimeValueExpression?: string;
   /**
    * @remarks
-   * The certificate trust anchor source.
+   * The source of the certificate trust anchor.
    * 
    * @example
    * alibaba_cloud
@@ -362,7 +362,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   certificateMetadata?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The root certificate content.
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -372,7 +372,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   content?: string;
   /**
    * @remarks
-   * The root certificate fingerprint.
+   * The fingerprint of the root certificate.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -414,7 +414,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   certificates?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * The method used to retrieve the root certificate.
+   * The method to obtain the root certificate.
    * 
    * @example
    * custom
@@ -422,7 +422,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The trust condition of the root certificate.
+   * The trust conditions for the root certificate.
    * 
    * @example
    * IsNullOrEmpty("certNo")
@@ -480,7 +480,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   description?: string;
   /**
    * @remarks
-   * The federated trust source ID.
+   * The ID of the federated trust source.
    * 
    * @example
    * fcp_asd123XXX

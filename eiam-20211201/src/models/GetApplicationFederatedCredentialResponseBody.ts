@@ -45,7 +45,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigAzureVmConfig extends $dara.Model {
   /**
    * @remarks
-   * The identity identifier.
+   * The principal ID.
    * 
    * @example
    * 5dee234a-1b4c-4ad7-a19f-fxxxxx
@@ -53,7 +53,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   principalId?: string;
   /**
    * @remarks
-   * The Azure resource group name.
+   * The name of the Azure resource group.
    * 
    * @example
    * user_default
@@ -110,7 +110,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   instanceIds?: string[];
   /**
    * @remarks
-   * The GCP project ID to which the resource belongs.
+   * The GCP project ID.
    * 
    * @example
    * turnkey-axiom-475109-xx
@@ -118,7 +118,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   projectId?: string;
   /**
    * @remarks
-   * The sub claim that corresponds to the service account.
+   * The sub claim corresponding to the service account.
    * 
    * @example
    * 123456789
@@ -185,7 +185,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The K8s namespace.
+   * The Kubernetes namespace.
    * 
    * @example
    * default
@@ -201,7 +201,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   podNamePrefix?: string;
   /**
    * @remarks
-   * The K8s service account name.
+   * The Kubernetes service account name.
    * 
    * @example
    * default

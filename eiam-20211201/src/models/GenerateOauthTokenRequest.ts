@@ -51,7 +51,7 @@ export class GenerateOauthTokenRequest extends $dara.Model {
   requestedTokenType?: string;
   /**
    * @remarks
-   * The permission scope.
+   * The permission scopes.
    * 
    * This parameter is required.
    */

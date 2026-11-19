@@ -22,8 +22,8 @@ export class SetPasswordExpirationConfigurationRequest extends $dara.Model {
    * @remarks
    * The action to take when the password expires. This parameter is required when PasswordExpirationStatus is set to enabled. Valid values:
    * - forbid_login: Forbid logon.
-   * - force_update_password: Force password update.
-   * - remind_update_password: Remind to update password.
+   * - force_update_password: Force password change.
+   * - remind_update_password: Remind to change password.
    * 
    * @example
    * force_update_password
@@ -34,12 +34,12 @@ export class SetPasswordExpirationConfigurationRequest extends $dara.Model {
    * The list of password expiration notification channels. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
    * 
    * @example
-   * login
+   * ["login"]
    */
   passwordExpirationNotificationChannels?: string[];
   /**
    * @remarks
-   * The password expiration notification duration, in days. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
+   * The password expiration notification duration in days. This parameter is required when PasswordExpirationNotificationStatus is set to enabled.
    * 
    * @example
    * 7
@@ -57,7 +57,7 @@ export class SetPasswordExpirationConfigurationRequest extends $dara.Model {
   passwordExpirationNotificationStatus?: string;
   /**
    * @remarks
-   * The password expiration status. Valid values:
+   * The password expiration configuration status. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -69,7 +69,7 @@ export class SetPasswordExpirationConfigurationRequest extends $dara.Model {
   passwordExpirationStatus?: string;
   /**
    * @remarks
-   * The password forced update duration, in days. The value of this parameter must be greater than the value of PasswordExpirationNotificationDuration.
+   * The password forced update duration in days. The value of this parameter must be greater than the value of PasswordExpirationNotificationDuration.
    * 
    * @example
    * 7
@@ -77,7 +77,7 @@ export class SetPasswordExpirationConfigurationRequest extends $dara.Model {
   passwordForcedUpdateDuration?: number;
   /**
    * @remarks
-   * The maximum validity period of the password, in days. This parameter is required when PasswordExpirationStatus is set to enabled.
+   * The password validity period in days. This parameter is required when PasswordExpirationStatus is set to enabled.
    * 
    * @example
    * 180

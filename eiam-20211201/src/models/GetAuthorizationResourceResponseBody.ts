@@ -65,7 +65,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResourceCondition 
 export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $dara.Model {
   /**
    * @remarks
-   * The resource entity ID associated with the authorization resource.
+   * The ID of the resource entity associated with the authorization resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -73,8 +73,8 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * The resource entity type associated with the authorization resource. Valid values:
-   * - cloud_account_role: cloud role.
+   * The type of the resource entity associated with the authorization resource. Valid values:
+   * - cloud_account_role: Cloud role.
    * 
    * @example
    * cloud_account_role
@@ -98,7 +98,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The cloud account ID to which the resource entity associated with the authorization resource belongs.
+   * The ID of the cloud account to which the resource entity associated with the authorization resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -106,12 +106,12 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   cloudAccountId?: string;
   /**
    * @remarks
-   * The condition restriction.
+   * The condition restrictions.
    */
   condition?: GetAuthorizationResourceResponseBodyAuthorizationResourceCondition;
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787023451494
@@ -127,7 +127,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   instanceId?: string;
   /**
    * @remarks
-   * The update time, in UNIX timestamp format. Unit: milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787023451494

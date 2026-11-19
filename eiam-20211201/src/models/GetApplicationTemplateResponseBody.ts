@@ -67,7 +67,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   description?: string;
   /**
    * @remarks
-   * The help document URL of the application template.
+   * The URL of the help document for the application template.
    * 
    * @example
    * https://example.com/document_detail/409xxx.html
@@ -75,7 +75,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   helpDocumentUrl?: string;
   /**
    * @remarks
-   * The logo URL of the application template.
+   * The URL of the application template logo.
    * 
    * @example
    * https://example.com/imgextra/i4/O1CN01xTLxLb1WtyKksHW1H_!!6000000002847-2-tps-xxx-xxx.png
@@ -91,12 +91,12 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   managedServiceCode?: string;
   /**
    * @remarks
-   * The sale information of the application template.
+   * The sales information of the application template.
    */
   saleInfo?: GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo;
   /**
    * @remarks
-   * The console URL of the cloud service that manages the application template.
+   * The URL of the console for the cloud service that manages the application template.
    * 
    * @example
    * https://example.com/?p=bastion

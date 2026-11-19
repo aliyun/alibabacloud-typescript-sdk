@@ -35,7 +35,7 @@ export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnit
 export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits extends $dara.Model {
   /**
    * @remarks
-   * The application roles.
+   * The application roles. No roles are returned for SAML applications.
    */
   applicationRoles?: ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles[];
   /**
@@ -75,7 +75,7 @@ export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnit
 export class ListOrganizationalUnitsForApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of organizational unit IDs.
+   * The organizational units.
    */
   organizationalUnits?: ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits[];
   /**

@@ -53,7 +53,7 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The enabling status of system notifications.
+   * The system notification status.
    * 
    * @example
    * enabled
@@ -100,7 +100,7 @@ export class ListBrandsResponseBody extends $dara.Model {
   brands?: ListBrandsResponseBodyBrands[];
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of results per page during paging in a paged query.
    * 
    * @example
    * 20

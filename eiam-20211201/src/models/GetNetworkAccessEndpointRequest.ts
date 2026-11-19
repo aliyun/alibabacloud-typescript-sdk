@@ -15,7 +15,7 @@ export class GetNetworkAccessEndpointRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The dedicated network access endpoint ID.
+   * The network access endpoint ID.
    * 
    * This parameter is required.
    * 

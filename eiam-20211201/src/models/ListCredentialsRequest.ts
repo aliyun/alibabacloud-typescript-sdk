@@ -14,7 +14,7 @@ export class ListCredentialsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The values for the filter field.
+   * The list of filter field values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -51,17 +51,17 @@ export class ListCredentialsRequest extends $dara.Model {
   credentialExternalIds?: string[];
   /**
    * @remarks
-   * The credential IDs.
+   * The list of credential IDs.
    */
   credentialIds?: string[];
   /**
    * @remarks
-   * The credential sharing scopes.
+   * The list of credential sharing scopes.
    */
   credentialSharingScopes?: string[];
   /**
    * @remarks
-   * The credential types.
+   * The list of credential types.
    */
   credentialTypes?: string[];
   /**
@@ -81,7 +81,9 @@ export class ListCredentialsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of records per page. Default value: 20. Maximum value: 100.
+   * The maximum number of records per page.
+   * - Default value: 20.
+   * - Maximum value: 100.
    * 
    * @example
    * 20
@@ -89,7 +91,7 @@ export class ListCredentialsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The query token.
    * 
    * @example
    * NTxxxxxexample
@@ -97,7 +99,7 @@ export class ListCredentialsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The credential statuses.
+   * The list of credential statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

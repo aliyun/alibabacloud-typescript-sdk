@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The application creation type.
+   * The creation type of the application.
    * 
    * @example
    * user_custom
@@ -21,7 +21,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The application identity type.
+   * The identity type of the application.
    * 
    * @example
    * application
@@ -29,7 +29,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   applicationIdentityType?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * SAML Application
@@ -37,9 +37,9 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The application creation source. Valid values:
-   * - urn:alibaba:idaas:app:source:template: Application template.
-   * - urn:alibaba:idaas:app:source:standard: Standard protocol.
+   * The source from which the application is created. Valid values:
+   * - urn:alibaba:idaas:app:source:template: application template
+   * - urn:alibaba:idaas:app:source:standard: standard protocol
    * 
    * @example
    * urn:alibaba:idaas:app:source:standard
@@ -47,7 +47,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   applicationSourceType?: string;
   /**
    * @remarks
-   * The application template ID.
+   * The ID of the application template.
    * 
    * @example
    * apt_xxx_xxx
@@ -63,7 +63,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The application creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the application was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -71,7 +71,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The application description.
+   * The description of the application.
    * 
    * @example
    * A test application
@@ -80,13 +80,13 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
    * The features supported by the application, returned as a JSON array string. Valid values:
-   * - sso: Single sign-on.
-   * - slo: Single logout.
-   * - provision: Account synchronization.
-   * - api_invoke: API access. 
-   * - m2m_client: M2M Client capability.
-   * - resource_server: API service capability.
-   * - other: Fallback.
+   * - sso: single sign-on
+   * - slo: single logout
+   * - provision: account synchronization
+   * - api_invoke: API publication 
+   * - m2m_client: M2M client
+   * - resource_server: resource server
+   * - other: other
    * 
    * @example
    * ["sso", "provision"]
@@ -110,7 +110,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * The ServiceCode of the cloud service that manages the application template.
+   * The service code of the cloud service that manages the application template.
    * 
    * @example
    * rpa
@@ -118,7 +118,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   managedServiceCode?: string;
   /**
    * @remarks
-   * The unique identifier of the ResourceServer.
+   * The unique identifier of the resource server.
    * 
    * @example
    * https://example.com
@@ -126,7 +126,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   resourceServerIdentifier?: string;
   /**
    * @remarks
-   * The resource server source type.
+   * The source type of the resource server.
    * 
    * @example
    * urn:cloud:idaas:resourceserver:source:custom
@@ -134,7 +134,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   resourceServerSourceType?: string;
   /**
    * @remarks
-   * The resource server status.
+   * The status of the resource server.
    * 
    * @example
    * enabled
@@ -150,11 +150,11 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The single sign-on protocol. Valid values:
-   * - saml2: SAML 2.0 protocol.
-   * - oidc: OpenID Connect protocol.
-   * - oauth2/m2m: OAuth 2.0 protocol.
-   * - oidc+oauth2/m2m: OpenID Connect and OAuth 2.0 protocols.
+   * The single sign-on (SSO) protocol. Valid values:
+   * - saml2: SAML 2.0 protocol
+   * - oidc: OpenID Connect protocol
+   * - oauth2/m2m: OAuth 2.0 protocol
+   * - oidc+oauth2/m2m: OpenID Connect and OAuth 2.0 protocols
    * 
    * @example
    * saml2
@@ -162,10 +162,10 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   ssoType?: string;
   /**
    * @remarks
-   * The application status. Valid values:
-   * - enabled: Enabled.
-   * - disabled: Disabled.
-   * - deleted: Soft deleted.
+   * The status of the application. Valid values:
+   * - enabled: enabled
+   * - disabled: disabled
+   * - deleted: soft deleted
    * 
    * @example
    * enabled
@@ -173,7 +173,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the application was last updated, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the application was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -254,7 +254,7 @@ export class ListApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of items in the list.
    * 
    * @example
    * 100

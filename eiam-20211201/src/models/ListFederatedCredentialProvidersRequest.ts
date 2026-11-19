@@ -31,7 +31,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The number of rows per page in a paging query.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample
@@ -47,7 +47,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token for the previous page.
+   * The previous token.
    * 
    * @example
    * PTxxxxxexample

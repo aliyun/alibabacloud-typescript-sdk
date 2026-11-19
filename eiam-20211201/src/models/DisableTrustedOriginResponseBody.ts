@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableTrustedOriginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0441BD79-example

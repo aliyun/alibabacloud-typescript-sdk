@@ -15,7 +15,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return per page for paging in a paged query.
+   * The number of entries per page for paging.
    * 
    * @example
    * 20

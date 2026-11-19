@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The token endpoint of the authorization server.
+   * The OAuth2 token endpoint of the authorization server.
    * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2/token
@@ -13,7 +13,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoi
   oauth2TokenEndpoint?: string;
   /**
    * @remarks
-   * The JWKS endpoint of the authorization server.
+   * The OIDC JWKS endpoint of the authorization server.
    * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2/jwks
@@ -61,7 +61,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   authorizationServerName?: string;
   /**
    * @remarks
-   * The time when the authorization server was created. The value is a UNIX timestamp in milliseconds.
+   * The creation time of the authorization server. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754620108295
@@ -77,7 +77,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   creationType?: string;
   /**
    * @remarks
-   * The authorization server description.
+   * The description of the authorization server.
    * 
    * @example
    * description of authorization server
@@ -93,7 +93,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The authorization token issuer.
+   * The issuer of the authorization token.
    * 
    * @example
    * https://xxxx.aliyunidaas.com/api/v2/iauths_system/oauth2
@@ -117,7 +117,7 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   issuerMode?: string;
   /**
    * @remarks
-   * The time when the authorization server was last updated. The value is a UNIX timestamp in milliseconds.
+   * The last update time of the authorization server. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1781608572164
@@ -125,12 +125,12 @@ export class GetAuthorizationServerResponseBodyAuthorizationServer extends $dara
   lastUpdateTime?: number;
   /**
    * @remarks
-   * The authorization server endpoint configuration.
+   * The protocol endpoint configuration of the authorization server.
    */
   protocolEndpoint?: GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoint;
   /**
    * @remarks
-   * The authorization server status.
+   * The status of the authorization server.
    * 
    * @example
    * ENABLE

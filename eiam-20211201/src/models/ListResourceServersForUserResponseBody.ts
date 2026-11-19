@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceServersForUserResponseBodyResourceServersResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether direct authorization exists. Valid values:
-   * - true: Yes.
-   * - false: No.
+   * Indicates whether direct authorization exists.
    * 
    * @example
    * true
@@ -15,7 +13,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * Indicates whether inherited authorization exists.
+   * Indicates whether inherited permissions exist.
    * 
    * @example
    * false
@@ -127,7 +125,7 @@ export class ListResourceServersForUserResponseBodyResourceServers extends $dara
 export class ListResourceServersForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of rows per page in a paged query.
+   * The number of entries per page for paging.
    * 
    * @example
    * 20
@@ -135,7 +133,7 @@ export class ListResourceServersForUserResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The query token for the next page.
    * 
    * @example
    * NTxxxexample

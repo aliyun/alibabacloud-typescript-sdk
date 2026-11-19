@@ -13,7 +13,7 @@ export class ListApplicationRolesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The values of the filter condition.
+   * The list of filter condition values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class ListApplicationRolesRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The filter conditions.
+   * The list of filter conditions.
    */
   filter?: ListApplicationRolesRequestFilter[];
   /**
@@ -70,7 +70,7 @@ export class ListApplicationRolesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -78,7 +78,7 @@ export class ListApplicationRolesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. Set this parameter to the value of NextToken that is returned in the last API call. Leave this parameter empty for the first query.
+   * The pagination token for the next page. Set this parameter to the NextToken value returned from the previous API call. Leave this parameter empty for the first call.
    * 
    * @example
    * NTxxxxexample

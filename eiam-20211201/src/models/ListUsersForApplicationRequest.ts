@@ -49,10 +49,10 @@ export class ListUsersForApplicationRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of account IDs. You can specify up to 100 account IDs in a single operation.
+   * The list of user IDs. You can specify up to 100 user IDs in a single request.
    * 
    * @example
-   * user_d6sbsuumeta4h66ec3il7yxxxx
+   * ["user_d6sbsuumeta4h66ec3il7yxxxx"]
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

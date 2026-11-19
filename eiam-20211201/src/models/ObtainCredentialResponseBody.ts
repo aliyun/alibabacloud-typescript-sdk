@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainCredentialResponseBodyCredentialCredentialContentApiKeyContent extends $dara.Model {
   /**
    * @remarks
-   * The API key value.
+   * The content of the API key.
    * 
    * @example
    * nsklncmwizncxxxx
@@ -75,12 +75,12 @@ export class ObtainCredentialResponseBodyCredentialCredentialContentOAuthClientC
 export class ObtainCredentialResponseBodyCredentialCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The content of the API key credential.
+   * The credential content for the API key credential type.
    */
   apiKeyContent?: ObtainCredentialResponseBodyCredentialCredentialContentApiKeyContent;
   /**
    * @remarks
-   * The content of the OAuth client credential.
+   * The credential content for the OAuth client authentication credential type.
    */
   OAuthClientContent?: ObtainCredentialResponseBodyCredentialCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ObtainCredentialResponseBodyCredentialCredentialContent extends $da
 export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -123,14 +123,14 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The content of the credential.
+   * The credential content.
    */
   credentialContent?: ObtainCredentialResponseBodyCredentialCredentialContent;
   /**
    * @remarks
    * The creation type of the credential. Valid values:
    * - system_init: Created by the system.
-   * - user_custom: Created by the user.
+   * - user_custom: Created by a user.
    * 
    * @example
    * user_custom
@@ -196,7 +196,7 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * The type of the subject to which the credential belongs. Valid values:
+   * The subject type to which the credential belongs. Valid values:
    * - authentication_token_provider: Authentication token provider.
    * 
    * @example
@@ -206,8 +206,8 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * - api_key: API key credential.
-   * - oauth_client: OAuth client credential.
+   * - api_key: API key authentication credential.
+   * - oauth_client: OAuth client authentication credential.
    * 
    * @example
    * api_key
@@ -223,7 +223,7 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the account to which the credential is exclusively assigned.
+   * The ID of the exclusive user for the credential.
    * 
    * @example
    * user_1234567890
@@ -249,7 +249,7 @@ export class ObtainCredentialResponseBodyCredential extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time, in UNIX timestamp format. Unit: milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000

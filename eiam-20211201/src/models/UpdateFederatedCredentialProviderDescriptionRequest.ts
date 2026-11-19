@@ -13,7 +13,7 @@ export class UpdateFederatedCredentialProviderDescriptionRequest extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The federated trust source ID.
+   * The ID of the federated trust source.
    * 
    * This parameter is required.
    * 

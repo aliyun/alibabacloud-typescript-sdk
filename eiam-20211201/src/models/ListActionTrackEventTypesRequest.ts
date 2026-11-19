@@ -15,7 +15,7 @@ export class ListActionTrackEventTypesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page for paging.
    * 
    * @example
    * 100
@@ -23,7 +23,7 @@ export class ListActionTrackEventTypesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * You can use this parameter to specify the query token.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample
@@ -31,7 +31,7 @@ export class ListActionTrackEventTypesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the previous page of results.
+   * The previous token.
    * 
    * @example
    * PTxxxxxexample

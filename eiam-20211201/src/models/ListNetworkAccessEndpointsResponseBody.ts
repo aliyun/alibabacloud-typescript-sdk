@@ -23,7 +23,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupV
   backupSecurityGroupId?: string;
   /**
    * @remarks
-   * The IDs of the vSwitches for the backup network access endpoint.
+   * The vSwitches for the backup network access endpoint.
    */
   backupVSwitchIds?: string[];
   /**
@@ -90,7 +90,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   backupVpcEndpoint?: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint;
   /**
    * @remarks
-   * The time when the network access endpoint was created. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
+   * The time when the network access endpoint was created. The time is displayed as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -114,7 +114,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The name of the network access endpoint, such as the xx business VPC access endpoint.
+   * The name of the network access endpoint, such as xx business VPC access endpoint.
    * 
    * @example
    * VPC access endpoint for xx service
@@ -124,8 +124,8 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
    * @remarks
    * The type of the network access endpoint. Valid values:
    * 
-   * - shared: shared network access endpoint.
-   * - private: private network access endpoint.
+   * - shared: shared network access endpoint
+   * - private: private network access endpoint
    * 
    * @example
    * private
@@ -143,10 +143,10 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
    * @remarks
    * The status of the network access endpoint. Valid values:
    *  
-   * - pending: pending initialization.
-   * - creating: being created.
-   * - running: running.
-   * - deleting: being deleted.
+   * - pending: pending initialization
+   * - creating: being created
+   * - running: running
+   * - deleting: being deleted
    * 
    * @example
    * running
@@ -154,7 +154,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   status?: string;
   /**
    * @remarks
-   * The time when the network access endpoint was last updated. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
+   * The time when the network access endpoint was last updated. The time is displayed as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -162,10 +162,10 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   updateTime?: number;
   /**
    * @remarks
-   * The IDs of the vSwitches to which the private network access endpoint is connected.
+   * The vSwitches to which the private network access endpoint is connected.
    * 
    * @example
-   * vsw-examplexxx
+   * ["vsw-examplexxx"]
    */
   vSwitchIds?: string[];
   /**
@@ -249,7 +249,7 @@ export class ListNetworkAccessEndpointsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

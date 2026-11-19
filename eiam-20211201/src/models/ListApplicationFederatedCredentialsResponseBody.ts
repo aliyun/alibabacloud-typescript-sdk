@@ -13,7 +13,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   principalId?: string;
   /**
    * @remarks
-   * The Azure resource group name.
+   * The name of the Azure resource group.
    * 
    * @example
    * user_default
@@ -70,7 +70,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   instanceIds?: string[];
   /**
    * @remarks
-   * The GCP project ID to which the resource belongs.
+   * The ID of the GCP project to which the resource belongs.
    * 
    * @example
    * 6193072600270353961
@@ -78,7 +78,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   projectId?: string;
   /**
    * @remarks
-   * The subject (sub) that corresponds to the service account.
+   * The sub claim corresponding to the service account.
    * 
    * @example
    * 123456789
@@ -145,7 +145,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The K8s namespace.
+   * The Kubernetes namespace.
    * 
    * @example
    * default
@@ -161,7 +161,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   podNamePrefix?: string;
   /**
    * @remarks
-   * The K8s service account name.
+   * The name of the Kubernetes service account.
    * 
    * @example
    * default
@@ -299,7 +299,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentials extends $dara.Model {
   /**
    * @remarks
-   * The application federated credential ID.
+   * The ID of the application federated credential.
    * 
    * @example
    * afc_adsa1sdaxxxxx
@@ -307,7 +307,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationFederatedCredentialId?: string;
   /**
    * @remarks
-   * The application federated credential name.
+   * The name of the application federated credential.
    * 
    * @example
    * test
@@ -315,7 +315,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationFederatedCredentialName?: string;
   /**
    * @remarks
-   * The application federated credential type.
+   * The type of the application federated credential.
    * 
    * @example
    * oidc
@@ -339,7 +339,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   createTime?: number;
   /**
    * @remarks
-   * The application federated credential description.
+   * The description of the application federated credential.
    * 
    * @example
    * test
@@ -347,7 +347,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   description?: string;
   /**
    * @remarks
-   * The federated trust source ID.
+   * The ID of the federated trust source.
    * 
    * @example
    * fcp_das1asda1xxxx
@@ -381,7 +381,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   pkcs7VerificationConfig?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsPkcs7VerificationConfig;
   /**
    * @remarks
-   * The application federated credential status.
+   * The status of the application federated credential.
    * 
    * @example
    * enabled
@@ -476,7 +476,7 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   applicationFederatedCredentials?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentials[];
   /**
    * @remarks
-   * The maximum number of rows per page in a paged query.
+   * The maximum number of items per page in a paging query.
    * 
    * @example
    * 20
@@ -484,7 +484,7 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * NTxxxexample
@@ -492,7 +492,7 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * PTxxxexample
@@ -508,7 +508,7 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of items.
    * 
    * @example
    * 100

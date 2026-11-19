@@ -35,7 +35,7 @@ export class UpdateApplicationClientSecretExpirationTimeRequest extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The client secret ID.
+   * The client secret.
    * 
    * This parameter is required.
    * 

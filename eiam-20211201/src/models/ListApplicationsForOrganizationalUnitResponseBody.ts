@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * The application role identifier.
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -75,7 +75,7 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplications exten
 export class ListApplicationsForOrganizationalUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of applications that the organization is authorized to access.
+   * The list of authorized applications.
    */
   applications?: ListApplicationsForOrganizationalUnitResponseBodyApplications[];
   /**

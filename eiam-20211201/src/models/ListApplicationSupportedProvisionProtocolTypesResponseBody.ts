@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationSupportedProvisionProtocolTypesResponseBodyApplicationSupportedProvisionProtocolType extends $dara.Model {
   /**
    * @remarks
-   * The account synchronization type supported by the application. Valid values:
-   * - idaas_callback: Event callback type.
-   * - scim2: System for Cross-domain Identity Management protocol type.
+   * The account synchronization protocol type supported by the application. Valid values:
+   * - idaas_callback: Event callback.
+   * - scim2: System for Cross-domain Identity Management protocol.
    */
   provisionProtocolType?: string[];
   static names(): { [key: string]: string } {

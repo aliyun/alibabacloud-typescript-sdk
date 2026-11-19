@@ -245,22 +245,22 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
 export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAgentStatistics extends $dara.Model {
   /**
    * @remarks
-   * The creation statistics.
+   * The creation result statistics.
    */
   created?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAgentStatisticsCreated;
   /**
    * @remarks
-   * The deletion statistics.
+   * The deletion result statistics.
    */
   deleted?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAgentStatisticsDeleted;
   /**
    * @remarks
-   * The statistics of unchanged assets.
+   * The unchanged result statistics.
    */
   same?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAgentStatisticsSame;
   /**
    * @remarks
-   * The update statistics.
+   * The update result statistics.
    */
   updated?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAgentStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -545,22 +545,22 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
 export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAssetStatistics extends $dara.Model {
   /**
    * @remarks
-   * The creation statistics.
+   * The creation result statistics.
    */
   created?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAssetStatisticsCreated;
   /**
    * @remarks
-   * The deletion statistics.
+   * The deletion result statistics.
    */
   deleted?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAssetStatisticsDeleted;
   /**
    * @remarks
-   * The statistics of unchanged assets.
+   * The unchanged result statistics.
    */
   same?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAssetStatisticsSame;
   /**
    * @remarks
-   * The update statistics.
+   * The update result statistics.
    */
   updated?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAssetStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -605,12 +605,12 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
 export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResult extends $dara.Model {
   /**
    * @remarks
-   * The agent synchronization statistics.
+   * The agent synchronization result statistics.
    */
   agentStatistics?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAgentStatistics;
   /**
    * @remarks
-   * The asset synchronization statistics.
+   * The asset synchronization result statistics.
    */
   assetStatistics?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResultAssetStatistics;
   /**
@@ -665,7 +665,7 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
 export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJob extends $dara.Model {
   /**
    * @remarks
-   * The description.
+   * The synchronization job description.
    * 
    * @example
    * No Description
@@ -673,7 +673,7 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
   description?: string;
   /**
    * @remarks
-   * The end time.
+   * The synchronization end time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1761531556
@@ -702,7 +702,7 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
   result?: GetInventorySynchronizationJobResponseBodyInventorySynchronizationJobResult;
   /**
    * @remarks
-   * The start time.
+   * The synchronization start time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1761531256
@@ -710,7 +710,7 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
   startTime?: number;
   /**
    * @remarks
-   * The status.
+   * The synchronization job status.
    * 
    * @example
    * success
@@ -718,7 +718,7 @@ export class GetInventorySynchronizationJobResponseBodyInventorySynchronizationJ
   status?: string;
   /**
    * @remarks
-   * The trigger type.
+   * The synchronization trigger type.
    * 
    * @example
    * manual

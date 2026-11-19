@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceControlConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance control item.
+   * The name of the instance control element.
    * 
    * @example
    * representative-value-2026

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationSsoFormParamsRequestApplicationTemplateParams extends $dara.Model {
   /**
    * @remarks
-   * The name of a parameter for creating the application template.
+   * The name of the application template creation parameter.
    * 
    * @example
    * aliyunUid
@@ -13,7 +13,7 @@ export class UpdateApplicationSsoFormParamsRequestApplicationTemplateParams exte
   templateParamName?: string;
   /**
    * @remarks
-   * The value of the parameter for creating the application template.
+   * The value of the application template creation parameter.
    * 
    * @example
    * 123456789
@@ -45,7 +45,7 @@ export class UpdateApplicationSsoFormParamsRequestApplicationTemplateParams exte
 export class UpdateApplicationSsoFormParamsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -55,14 +55,14 @@ export class UpdateApplicationSsoFormParamsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The parameters for creating the application template.
+   * The application template creation parameters.
    * 
    * This parameter is required.
    */
   applicationTemplateParams?: UpdateApplicationSsoFormParamsRequestApplicationTemplateParams[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

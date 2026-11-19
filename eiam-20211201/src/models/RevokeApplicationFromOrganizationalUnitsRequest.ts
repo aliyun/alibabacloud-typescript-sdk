@@ -33,12 +33,12 @@ export class RevokeApplicationFromOrganizationalUnitsRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The list of organizational unit IDs. You can specify up to 100 organizational unit IDs in a single request.
+   * The list of organizational unit IDs. You can specify up to 100 organizational unit IDs in a single operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * ou_wovwffm62xifdziem7an7xxxxx
+   * ["ou_wovwffm62xifdziem7an7xxxxx"]
    */
   organizationalUnitIds?: string[];
   static names(): { [key: string]: string } {

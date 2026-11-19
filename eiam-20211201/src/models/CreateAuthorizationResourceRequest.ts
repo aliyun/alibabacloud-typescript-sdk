@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAuthorizationResourceRequestConditionCredentialCondition extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether same-name identity accounts are supported.
+   * Specifies whether to allow identity accounts with the same name.
    */
   allowSameNameIdentity?: boolean;
   static names(): { [key: string]: string } {
@@ -73,7 +73,6 @@ export class CreateAuthorizationResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the resource entity associated with the authorization resource. Valid values:
-   * 
    * - cloud_account_role: cloud role
    * 
    * This parameter is required.
@@ -94,7 +93,7 @@ export class CreateAuthorizationResourceRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can generate a parameter value on your client and ensure that the parameter value is unique across different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCredentialProviderDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the credential provider.
+   * The credential provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class UpdateCredentialProviderDescriptionRequest extends $dara.Model {
   credentialProviderId?: string;
   /**
    * @remarks
-   * A description of the credential provider.
+   * The description.
    * 
-   * > The description can be up to 128 characters long.
+   * > The length cannot exceed 128 characters.
    * 
    * @example
    * This is an example description
@@ -25,7 +25,7 @@ export class UpdateCredentialProviderDescriptionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

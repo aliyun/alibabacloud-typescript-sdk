@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * The scope permission ID.
+   * The scope ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -13,7 +13,7 @@ export class ListUsersForResourceServerResponseBodyUsersResourceServerScopes ext
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The scope permission name.
+   * The scope name.
    * 
    * @example
    * Read All User
@@ -53,7 +53,7 @@ export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of granted scope permissions.
+   * The list of authorized scopes.
    */
   resourceServerScopes?: ListUsersForResourceServerResponseBodyUsersResourceServerScopes[];
   /**
@@ -95,7 +95,7 @@ export class ListUsersForResourceServerResponseBodyUsers extends $dara.Model {
 export class ListUsersForResourceServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class ListUsersForResourceServerResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The token for the next page.
    * 
    * @example
    * NTxxxexample
@@ -119,7 +119,7 @@ export class ListUsersForResourceServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

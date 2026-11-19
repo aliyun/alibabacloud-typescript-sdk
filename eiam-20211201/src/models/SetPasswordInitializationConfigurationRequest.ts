@@ -28,7 +28,7 @@ export class SetPasswordInitializationConfigurationRequest extends $dara.Model {
    * The list of password initialization notification channels.
    * 
    * @example
-   * email
+   * ["email"]
    */
   passwordInitializationNotificationChannels?: string[];
   /**

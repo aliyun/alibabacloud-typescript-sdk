@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings extends $dara.Model {
   /**
    * @remarks
-   * The source IdP authentication source type.
+   * The authentication source type of the source IdP.
    * 
    * @example
    * urn:alibaba:idaas:authntype:oidc
@@ -105,7 +105,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
 export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query.
+   * The maximum number of entries to return per page when paging.
    * 
    * @example
    * 20
@@ -113,7 +113,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current call.
+   * The next token returned in the response.
    * 
    * @example
    * NTxxxexample
@@ -121,7 +121,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by the current call.
+   * The next token returned in the response.
    * 
    * @example
    * PTxxxexample
@@ -137,7 +137,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

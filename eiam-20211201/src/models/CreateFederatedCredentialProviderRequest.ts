@@ -40,7 +40,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   audiences?: string[];
   /**
    * @remarks
-   * The token issuer identifier (Issuer).
+   * The identifier of the token issuer.
    * 
    * @example
    * https://example.com
@@ -48,7 +48,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   issuer?: string;
   /**
    * @remarks
-   * The source of the JWKS.
+   * The JWKS source.
    * 
    * @example
    * static
@@ -82,7 +82,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   staticJwks?: string;
   /**
    * @remarks
-   * The trust condition.
+   * The trust conditions.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -194,7 +194,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The trust condition.
+   * The trust conditions.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -274,7 +274,7 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   certificates?: CreateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * The method used to retrieve the root certificate.
+   * The method to retrieve the root certificate.
    * 
    * @example
    * custom
@@ -282,7 +282,7 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The trust condition of the root certificate.
+   * The trust conditions for the root certificate.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")

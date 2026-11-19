@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationInfoRequestApplicationOwner extends $dara.Model {
   /**
    * @remarks
-   * The list of group IDs.
+   * The list of user group IDs.
    */
   groupIds?: string[];
   /**
@@ -45,7 +45,7 @@ export class UpdateApplicationInfoRequestApplicationOwner extends $dara.Model {
 export class UpdateApplicationInfoRequestCustomFields extends $dara.Model {
   /**
    * @remarks
-   * The name of the application extension field.
+   * The name of the extended field for the application.
    * 
    * @example
    * agent_type
@@ -53,7 +53,7 @@ export class UpdateApplicationInfoRequestCustomFields extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The value of the application extension field. If FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. If FieldName is set to agentExternalId, enter the relevant value.
+   * The value of the extended field for the application. If FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. If FieldName is set to agentExternalId, enter the relevant value.
    * 
    * @example
    * bailian
@@ -61,7 +61,7 @@ export class UpdateApplicationInfoRequestCustomFields extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The operation type for the application extension field.
+   * The operation type for the extended field of the application.
    * 
    * @example
    * add
@@ -113,12 +113,12 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The application owner.
+   * The owner of the application.
    */
   applicationOwner?: UpdateApplicationInfoRequestApplicationOwner;
   /**
    * @remarks
-   * The application visibility settings.
+   * The application visibility collection.
    */
   applicationVisibility?: string[];
   /**
@@ -131,7 +131,7 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The list of application extension fields.
+   * The list of extended fields for the application.
    */
   customFields?: UpdateApplicationInfoRequestCustomFields[];
   /**

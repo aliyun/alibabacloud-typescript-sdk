@@ -35,7 +35,7 @@ export class GetCredentialResponseBodyCredentialCredentialContentOAuthClientCont
 export class GetCredentialResponseBodyCredentialCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The credential content of the OAuth client authentication credential type.
+   * The credential content for the OAuth client authentication credential type.
    */
   OAuthClientContent?: GetCredentialResponseBodyCredentialCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class GetCredentialResponseBodyCredentialCredentialContent extends $dara.
 export class GetCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -130,7 +130,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialScenarioLabel?: string;
   /**
    * @remarks
-   * The credential sharing scope.
+   * The sharing scope of the credential.
    * 
    * @example
    * common
@@ -138,7 +138,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialSharingScope?: string;
   /**
    * @remarks
-   * The subject ID to which the credential belongs.
+   * The ID of the subject to which the credential belongs.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -173,7 +173,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The exclusive account ID of the credential.
+   * The ID of the exclusive user for the credential.
    * 
    * @example
    * user_1234567890
@@ -199,7 +199,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time, in UNIX timestamp format. Unit: milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000

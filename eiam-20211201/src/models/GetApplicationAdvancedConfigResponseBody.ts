@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfigScimServerAdvancedConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of IDs of the supported custom user fields.
+   * The list of supported user-defined field IDs.
    */
   supportedUserCustomFieldIds?: string[];
   /**
    * @remarks
-   * The namespace of the user extension fields.
+   * The namespace for user extension fields.
    * 
    * @example
    * urn:ietf:params:scim:schemas:extension:customfield:2.0:User
@@ -53,7 +53,7 @@ export class GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig e
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The IDaaS EIAM instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -61,7 +61,7 @@ export class GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig e
   instanceId?: string;
   /**
    * @remarks
-   * The advanced configuration of the SCIM server.
+   * The SCIM server advanced configurations.
    */
   scimServerAdvancedConfig?: GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfigScimServerAdvancedConfig;
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig e
 export class GetApplicationAdvancedConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The advanced configuration of the application.
+   * The advanced application configurations.
    */
   applicationAdvancedConfig?: GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig;
   /**

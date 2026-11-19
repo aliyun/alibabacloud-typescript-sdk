@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrustedOriginsResponseBodyTrustedOrigins extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is in RFC 3339 format and in the UTC time zone.
+   * The creation time. The time follows the RFC 3339 standard and is in the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -42,7 +42,7 @@ export class ListTrustedOriginsResponseBodyTrustedOrigins extends $dara.Model {
    * The trusted origin name.
    * 
    * @example
-   * Qoder Production Console
+   * Qoder production console
    */
   trustOriginName?: string;
   /**
@@ -60,7 +60,7 @@ export class ListTrustedOriginsResponseBodyTrustedOrigins extends $dara.Model {
   trustedOriginScene?: string[];
   /**
    * @remarks
-   * The update time. The time is in RFC 3339 format and in the UTC time zone.
+   * The update time. The time follows the RFC 3339 standard and is in the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -109,7 +109,7 @@ export class ListTrustedOriginsResponseBodyTrustedOrigins extends $dara.Model {
 export class ListTrustedOriginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results per page that takes effect for this request.
+   * The actual maximum number of results per page.
    * 
    * @example
    * 20
@@ -117,7 +117,7 @@ export class ListTrustedOriginsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next token.
    * 
    * @example
    * NT_example
@@ -133,7 +133,7 @@ export class ListTrustedOriginsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 2

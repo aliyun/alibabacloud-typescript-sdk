@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod extend
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -61,14 +61,14 @@ export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model 
   userId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter takes effect only when ValidityType is set to time_bound.
+   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
    */
   validityPeriod?: ListUsersForAuthorizationRuleResponseBodyUsersValidityPeriod;
   /**
    * @remarks
    * The validity type of the relationship. Valid values:
    * - permanent: permanent
-   * - time_bound: custom time range.
+   * - time_bound: custom time range
    * 
    * @example
    * permanent
@@ -107,7 +107,7 @@ export class ListUsersForAuthorizationRuleResponseBodyUsers extends $dara.Model 
 export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query. This is the paging size.
+   * The maximum number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -115,7 +115,7 @@ export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned for the next page of results. Use this token in the next request to retrieve the next page.
+   * The token returned by this call for the next pagination query.
    * 
    * @example
    * NTxxxexample
@@ -131,7 +131,7 @@ export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 100
@@ -139,7 +139,7 @@ export class ListUsersForAuthorizationRuleResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of account data.
+   * The list of accounts.
    */
   users?: ListUsersForAuthorizationRuleResponseBodyUsers[];
   static names(): { [key: string]: string } {

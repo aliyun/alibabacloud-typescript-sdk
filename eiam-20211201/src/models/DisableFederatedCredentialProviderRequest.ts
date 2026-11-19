@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableFederatedCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The federated trust source ID.
+   * The ID of the federated credential provider.
    * 
    * This parameter is required.
    * 

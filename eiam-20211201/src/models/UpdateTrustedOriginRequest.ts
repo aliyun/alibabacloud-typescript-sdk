@@ -26,7 +26,7 @@ export class UpdateTrustedOriginRequest extends $dara.Model {
    * The trusted origin name.
    * 
    * @example
-   * Qoder Production Console
+   * Qoder production console
    */
   trustOriginName?: string;
   /**
@@ -44,7 +44,7 @@ export class UpdateTrustedOriginRequest extends $dara.Model {
    * The trusted origin scenario.
    * 
    * @example
-   * iframe_embed
+   * ["iframe_embed"]
    */
   trustedOriginScene?: string[];
   static names(): { [key: string]: string } {

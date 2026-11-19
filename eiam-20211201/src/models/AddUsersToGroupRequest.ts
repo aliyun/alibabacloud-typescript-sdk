@@ -25,12 +25,12 @@ export class AddUsersToGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of account IDs. The list can contain up to 100 elements.
+   * The list of account IDs. The list can contain a maximum of 100 elements.
    * 
    * This parameter is required.
    * 
    * @example
-   * [ou_001]
+   * ["ou_001"]
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

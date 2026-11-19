@@ -108,7 +108,7 @@ export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicy extends $dara
   customPrivacyPolicyId?: string;
   /**
    * @remarks
-   * The custom privacy policy name.
+   * The name of the custom privacy policy.
    * 
    * @example
    * Custom Privacy Policy Name

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensure idempotence. Generate a unique value on your client for each request. ClientToken supports only ASCII characters and must be no longer than 64 characters. For more information, see [How to Ensure Idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DisableCredentialRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the credential.
+   * The credential ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DisableCredentialRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

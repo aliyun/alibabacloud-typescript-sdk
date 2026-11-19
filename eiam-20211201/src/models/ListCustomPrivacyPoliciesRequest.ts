@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomPrivacyPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the custom privacy policy name for fuzzy matching.
+   * The custom privacy policy name. Left fuzzy match is supported.
    * 
    * @example
    * Custom
@@ -23,7 +23,7 @@ export class ListCustomPrivacyPoliciesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query.
+   * The maximum number of entries per page for a paging query.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class ListCustomPrivacyPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample
@@ -39,7 +39,7 @@ export class ListCustomPrivacyPoliciesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token for the previous page.
+   * The previous token.
    * 
    * @example
    * PTxxxxxexample
