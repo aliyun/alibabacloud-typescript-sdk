@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetSwitchInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * The dataset ID.
    * 
    * This parameter is required.
    * 

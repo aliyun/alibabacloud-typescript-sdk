@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
@@ -13,10 +13,10 @@ export class CancelCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution result of the interface is returned. Valid values:
+   * The execution result of the API operation. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request fails.
+   * - true: The execution succeeded.
+   * - false: The execution failed.
    * 
    * @example
    * true
@@ -24,10 +24,10 @@ export class CancelCollectionResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

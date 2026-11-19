@@ -5,28 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCopilotEmbedConfigResponseBodyResultDataRange extends $dara.Model {
   /**
    * @remarks
-   * Whether all question resources are selected.
+   * Indicates whether all data query resources are selected.
    * 
    * @example
-   * true/false
+   * true
    */
   allCube?: boolean;
   /**
    * @remarks
-   * Whether all analysis themes are selected.
+   * Indicates whether all analysis topics are selected.
    * 
    * @example
-   * true/false
+   * true
    */
   allTheme?: boolean;
   /**
    * @remarks
-   * Collection of question resource IDs.
+   * The set of data query resource IDs.
    */
   llmCubes?: string[];
   /**
    * @remarks
-   * Collection of analysis theme IDs.
+   * The set of analysis topic IDs.
    */
   themes?: string[];
   static names(): { [key: string]: string } {
@@ -65,15 +65,15 @@ export class QueryCopilotEmbedConfigResponseBodyResultDataRange extends $dara.Mo
 export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Robot\\"s nickname.
+   * The nickname of the chatbot.
    * 
    * @example
-   * little Q
+   * Xiao Q
    */
   agentName?: string;
   /**
    * @remarks
-   * Embedding ID.
+   * The embedding ID.
    * 
    * @example
    * 9c079710-ddbe-48b3-b495-7c83c8d57cc4
@@ -81,7 +81,7 @@ export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
   copilotId?: string;
   /**
    * @remarks
-   * ID of the creator.
+   * The user ID of the creator.
    * 
    * @example
    * qweqw12312423521
@@ -89,20 +89,20 @@ export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * Nickname of the creator.
+   * The nickname of the creator.
    * 
    * @example
-   * zhangsan
+   * Zhuge
    */
   createUserName?: string;
   /**
    * @remarks
-   * Data range (analysis themes and question resources).
+   * The data scope, including analysis topics and data query resources.
    */
   dataRange?: QueryCopilotEmbedConfigResponseBodyResultDataRange;
   /**
    * @remarks
-   * ID of the modifier.
+   * The user ID of the modifier.
    * 
    * @example
    * asda1231231dfs
@@ -110,15 +110,15 @@ export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
   modifyUser?: string;
   /**
    * @remarks
-   * Module name.
+   * The module name.
    * 
    * @example
-   * little Q
+   * Xiao Q
    */
   moduleName?: string;
   /**
    * @remarks
-   * Name of the embedded module.
+   * The name of the embedding module.
    * 
    * @example
    * 0327
@@ -165,7 +165,7 @@ export class QueryCopilotEmbedConfigResponseBodyResult extends $dara.Model {
 export class QueryCopilotEmbedConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1FC71085-D5FD-08E0-813A-4D4BD1031BC5
@@ -173,15 +173,15 @@ export class QueryCopilotEmbedConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of embedded configurations.
+   * The list of embedding configurations.
    */
   result?: QueryCopilotEmbedConfigResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeVisibilityModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the BI portal.
+   * The ID of the data portal.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class ChangeVisibilityModelRequest extends $dara.Model {
   dataPortalId?: string;
   /**
    * @remarks
-   * The menu ID of the BI portal leaf node.
+   * The IDs of the leaf node menus in the data portal.
    * 
-   * *   The directory menu cannot be authorized.
-   * *   You can upload multiple parameters at a time. Separate multiple IDs with commas (,). The maximum number of parameters that can be modified at a time is 100.
+   * - You can specify multiple IDs. Separate multiple IDs with commas (,). A maximum of 100 IDs can be modified at a time.
    * 
    * This parameter is required.
    * 
@@ -28,10 +27,10 @@ export class ChangeVisibilityModelRequest extends $dara.Model {
   menuIds?: string;
   /**
    * @remarks
-   * Whether only authorization is visible. Valid values:
+   * Specifies whether the menus are visible only to authorized users. Valid values:
    * 
-   * *   true: Only the authorization is visible.
-   * *   false: Both are visible.
+   * - true: The menus are visible only to authorized users.
+   * - false: The menus are visible to all users.
    * 
    * This parameter is required.
    * 

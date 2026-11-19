@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $dara.Model {
   /**
    * @remarks
-   * The ID of the owning location.
+   * The ID of the area.
    * 
    * @example
    * area_column
@@ -13,7 +13,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $d
   areaId?: string;
   /**
    * @remarks
-   * The name of the owning location.
+   * The name of the area.
    * 
    * @example
    * Column (Measure)
@@ -21,7 +21,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $d
   areaName?: string;
   /**
    * @remarks
-   * The display name of the field.
+   * The original name of the field.
    * 
    * @example
    * order_number
@@ -29,18 +29,18 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $d
   caption?: string;
   /**
    * @remarks
-   * The type of the field. Valid values:
+   * The field type. Valid values:
    * 
-   * *   string: string type
-   * *   date: a date type that contains only the year, month, and day parts
-   * *   datetime: a common date type
-   * *   time: a date type that contains only hours, minutes, and seconds.
-   * *   number: numeric
-   * *   boolean: Boolean type
-   * *   geographical: geographical location
-   * *   url: string type
-   * *   imageUrl: the type of the image link.
-   * *   multivalue: a multi-value column
+   * - string: String type.
+   * - date: Date type that includes only the year, month, and day.
+   * - datetime: General date type.
+   * - time: Time type that includes only the hour, minute, and second.
+   * - number: Numeric type.
+   * - boolean: Boolean type.
+   * - geographic: Geographic location.
+   * - url: URL string type.
+   * - imageUrl: Image URL type.
+   * - multivalue: Multi-value column.
    * 
    * @example
    * number
@@ -48,17 +48,18 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $d
   dataType?: string;
   /**
    * @remarks
-   * Calculate field expression.
+   * The expression of the calculated field.
    * 
    * @example
-   * BI_DATEADD([date], 100, \\"day\\")
+   * BI_DATEADD([Time], 100, \\"day\\")
    */
   expression?: string;
   /**
    * @remarks
-   * Indices whether the metric. Valid values:
+   * Indicates whether the field is a measure. Valid values:
    * 
-   * true false
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true
@@ -118,7 +119,7 @@ export class QueryWorksBloodRelationshipResponseBodyResultQueryParams extends $d
 export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the component that you want to modify.
+   * The component ID.
    * 
    * @example
    * 0696083a-ca72-4d89-8e7a-c017910e0***
@@ -126,15 +127,15 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
   componentId?: string;
   /**
    * @remarks
-   * The name of the component.
+   * The component name.
    * 
    * @example
-   * Line
+   * Line chart
    */
   componentName?: string;
   /**
    * @remarks
-   * The type of the image component.
+   * The component type.
    * 
    * @example
    * 3
@@ -142,15 +143,15 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
   componentType?: number;
   /**
    * @remarks
-   * Chinese name of the component type
+   * The Chinese name of the component type.
    * 
    * @example
-   * ddd
+   * Cross table
    */
   componentTypeCnName?: string;
   /**
    * @remarks
-   * The name of the component type.
+   * The component type name.
    * 
    * @example
    * LINE
@@ -158,7 +159,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
   componentTypeName?: string;
   /**
    * @remarks
-   * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+   * The dataset ID.
    * 
    * @example
    * dc78a4ed-880d-452e-b017-90cfc10c83e5_company_sales_record
@@ -166,7 +167,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * A list of query parameter reference columns.
+   * The list of columns referenced by query parameters.
    */
   queryParams?: QueryWorksBloodRelationshipResponseBodyResultQueryParams[];
   static names(): { [key: string]: string } {
@@ -208,7 +209,7 @@ export class QueryWorksBloodRelationshipResponseBodyResult extends $dara.Model {
 export class QueryWorksBloodRelationshipResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -216,15 +217,15 @@ export class QueryWorksBloodRelationshipResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of work blood information.
+   * The list of data work lineage information.
    */
   result?: QueryWorksBloodRelationshipResponseBodyResult[];
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

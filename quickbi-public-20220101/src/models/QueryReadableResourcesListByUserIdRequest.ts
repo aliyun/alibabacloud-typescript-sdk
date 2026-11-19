@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryReadableResourcesListByUserIdRequest extends $dara.Model {
   /**
    * @remarks
-   * Quick BI the user ID.
+   * The Quick BI user ID.
    * 
    * This parameter is required.
    * 

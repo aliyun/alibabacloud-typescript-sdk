@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataLevelPermissionWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
@@ -13,10 +13,9 @@ export class AddDataLevelPermissionWhiteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution result of the API operation. Valid values:
+   * The execution result of the operation. Valid values:
    * 
-   * - true: The request was successful.
-   * 
+   * - true: The request succeeded.
    * - false: The request failed.
    * 
    * @example
@@ -27,8 +26,7 @@ export class AddDataLevelPermissionWhiteListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The request was successful.
-   * 
+   * - true: The request succeeded.
    * - false: The request failed.
    * 
    * @example

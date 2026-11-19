@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDashboardNl2sqlRequest extends $dara.Model {
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryDashboardNl2sqlRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

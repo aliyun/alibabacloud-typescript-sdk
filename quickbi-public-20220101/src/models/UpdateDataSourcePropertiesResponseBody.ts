@@ -4,16 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataSourcePropertiesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D787E1*****DF8D885
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the modification was successful. Valid values:
+   * 
+   * - true: The modification was successful.
+   * - false: The modification failed.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

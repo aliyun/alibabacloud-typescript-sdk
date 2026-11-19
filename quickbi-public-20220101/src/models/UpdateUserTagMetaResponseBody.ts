@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserTagMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -13,10 +13,10 @@ export class UpdateUserTagMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the interface was executed successfully. Possible values:
+   * Indicates whether the API operation was executed successfully. Valid values:
    * 
-   * - true: Execution succeeded
-   * - false: Execution failed
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -24,8 +24,10 @@ export class UpdateUserTagMetaResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
-   * - true: The request succeeded - false: The request failed
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

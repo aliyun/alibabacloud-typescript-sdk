@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthConfigByResourceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The array of permissions granted.
+   * The array of owned permissions.
    */
   authorities?: string[];
   /**
@@ -26,7 +26,7 @@ export class ListAuthConfigByResourceResponseBodyResult extends $dara.Model {
   authorizedName?: string;
   /**
    * @remarks
-   * The expiration time. This value is a UNIX timestamp in milliseconds.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788969600000
@@ -34,7 +34,7 @@ export class ListAuthConfigByResourceResponseBodyResult extends $dara.Model {
   expireDate?: string;
   /**
    * @remarks
-   * The time when the permission record was created, in the yyyy-MM-dd mm:hh:ss format.
+   * The creation time of the permission record. The format is yyyy-MM-dd mm:hh:ss.
    * 
    * @example
    * 2024-04-16 13:17:39
@@ -52,14 +52,14 @@ export class ListAuthConfigByResourceResponseBodyResult extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * - dashboard: dashboard
-   * - screen: data screen
-   * - report: electron
-   * - ANALYSIS: ad hoc analysis
-   * - dashboardOfflineQuery: self-service data retrieval
-   * - dataForm: data form
-   * - cube: dataset
-   * - datasource: data source
+   * - dashboard: Dashboard.
+   * - screen: Data screen.
+   * - report: Workbook.
+   * - ANALYSIS: Ad hoc analysis.
+   * - dashboardOfflineQuery: Self-service data retrieval.
+   * - dataForm: Data entry.
+   * - cube: Dataset.
+   * - datasource: Data source.
    * 
    * @example
    * cube
@@ -69,10 +69,10 @@ export class ListAuthConfigByResourceResponseBodyResult extends $dara.Model {
    * @remarks
    * The authorization scope. Valid values:
    * 
-   * - 0: user
-   * - 1: user group
-   * - 2: organization
-   * - 3: workspace
+   * - 0: User.
+   * - 1: User group.
+   * - 2: Organization.
+   * - 3: Workspace.
    * 
    * @example
    * 0
@@ -132,7 +132,7 @@ export class ListAuthConfigByResourceResponseBody extends $dara.Model {
   result?: ListAuthConfigByResourceResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

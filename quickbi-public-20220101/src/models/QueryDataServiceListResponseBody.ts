@@ -5,15 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDataServiceListResponseBodyResultDataContentFilter extends $dara.Model {
   /**
    * @remarks
-   * Combined conditions.
+   * The combined conditions.
+   * 
+   * @example
+   * [{
+   * 	"field": {
+   * 		"fid": "1c1f88cb7d",
+   * 		"granularity": "yearRegion",
+   * 		"dataType": "datetime",
+   * 		"column": "s_date",
+   * 		"caption": "Date (year)",
+   * 		"type": "dimension"
+   * 	},
+   * 	"defaultValue": ["2024"],
+   * 	"alias": "s_date",
+   * 	"type": "basic",
+   * 	"operator": "equal-to",
+   * 	"essential": true
+   * }]
    */
   filters?: { [key: string]: any }[];
   /**
    * @remarks
-   * Logical relationship between multiple SQL text keywords.
+   * The logical relationship between multiple SQL text keywords.
    * 
-   * - **or**: or
-   * - **and**: and
+   * - **or**: OR.
+   * - **and**: AND.
    * 
    * @example
    * and
@@ -21,10 +38,10 @@ export class QueryDataServiceListResponseBodyResultDataContentFilter extends $da
   logicalOperator?: string;
   /**
    * @remarks
-   * Type.
+   * The type.
    * 
-   * - basic: basic
-   * - combined: complex
+   * - basic: Basic.
+   * - combined: Complex.
    * 
    * @example
    * basic
@@ -61,10 +78,10 @@ export class QueryDataServiceListResponseBodyResultDataContentFilter extends $da
 export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField extends $dara.Model {
   /**
    * @remarks
-   * Display name in the cube model (can be in Chinese or English).
+   * The display name in the cube model, which can be in Chinese or English.
    * 
    * @example
-   * date(year)
+   * Date (year)
    */
   caption?: string;
   /**
@@ -77,16 +94,16 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField 
   column?: string;
   /**
    * @remarks
-   * Data type.
+   * The data type.
    * 
-   * - number: numeric
-   * - string: string
-   * - date: date
-   * - datetime: datetime
-   * - time: time
-   * - geographic: geographic
-   * - boolean: boolean
-   * - url: URL
+   * - number: Number.
+   * - string: String.
+   * - date: Date.
+   * - datetime: Datetime.
+   * - time: Time.
+   * - geographic: Geographic.
+   * - boolean: Boolean.
+   * - url: URL.
    * 
    * @example
    * datetime
@@ -94,7 +111,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField 
   dataType?: string;
   /**
    * @remarks
-   * Unique identifier for the original field.
+   * The unique ID of the original field.
    * 
    * @example
    * 1c1f88cb7d
@@ -102,7 +119,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField 
   fid?: string;
   /**
    * @remarks
-   * This attribute is included for date and geographic dimensions, indicating the supported granularity.
+   * The supported granularity. This property is included in date and geographic dimensions.
    * 
    * @example
    * yearRegion
@@ -110,7 +127,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField 
   granularity?: string;
   /**
    * @remarks
-   * Unique name of the cube field, mainly used for unique positioning in the returned result.
+   * The unique name of the cube field, which is primarily used to uniquely locate the returned result.
    * 
    * @example
    * sss
@@ -118,10 +135,10 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField 
   name?: string;
   /**
    * @remarks
-   * Type.
+   * The type.
    * 
-   * - Dimension: Dimension
-   * - Measure: Measure
+   * - Dimension: Dimension.
+   * - Measure: Measure.
    * 
    * @example
    * dimension
@@ -163,7 +180,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField 
 export class QueryDataServiceListResponseBodyResultDataContentReturnFields extends $dara.Model {
   /**
    * @remarks
-   * Aggregation operator. For example, SUM, AVG, and MAX.
+   * The aggregate operation (aggregation), such as SUM, AVG, and MAX.
    * 
    * @example
    * SUM
@@ -171,7 +188,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFields exten
   aggregator?: string;
   /**
    * @remarks
-   * Field parameter name.
+   * The field parameter name.
    * 
    * @example
    * s_number
@@ -179,24 +196,24 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFields exten
   alias?: string;
   /**
    * @remarks
-   * Remark for the returned field.
+   * The description of the returned field.
    * 
    * @example
-   * Theme Configuration already exists
+   * The theme configuration already exists
    */
   desc?: string;
   /**
    * @remarks
-   * Corresponding cube field information.
+   * The corresponding cube field information.
    */
   field?: QueryDataServiceListResponseBodyResultDataContentReturnFieldsField;
   /**
    * @remarks
-   * Sorting.
+   * The sort order.
    * 
-   * - asc: Ascending
-   * - desc: Descending
-   * - no: No sorting
+   * - asc: Ascending.
+   * - desc: Descending.
+   * - no: Unsorted.
    * 
    * @example
    * no
@@ -237,7 +254,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFields exten
 export class QueryDataServiceListResponseBodyResultDataContent extends $dara.Model {
   /**
    * @remarks
-   * Cube identifier ID.
+   * The cube ID.
    * 
    * @example
    * 56f9f34a-bdba-496a-91a3-a18b1ff73a80
@@ -245,15 +262,15 @@ export class QueryDataServiceListResponseBodyResultDataContent extends $dara.Mod
   cubeId?: string;
   /**
    * @remarks
-   * Dataset name.
+   * The name of the dataset.
    * 
    * @example
-   * test data source
+   * Test dataset
    */
   cubeName?: string;
   /**
    * @remarks
-   * Detail or Summary
+   * The detail or aggregate type.
    * 
    * @example
    * true
@@ -261,12 +278,12 @@ export class QueryDataServiceListResponseBodyResultDataContent extends $dara.Mod
   detail?: boolean;
   /**
    * @remarks
-   * Request parameter information.
+   * The request parameter information.
    */
   filter?: QueryDataServiceListResponseBodyResultDataContentFilter;
   /**
    * @remarks
-   * Return information.
+   * The returned information.
    */
   returnFields?: QueryDataServiceListResponseBodyResultDataContentReturnFields[];
   static names(): { [key: string]: string } {
@@ -312,7 +329,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   content?: QueryDataServiceListResponseBodyResultDataContent;
   /**
    * @remarks
-   * Creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 7cb94cd48701
@@ -320,15 +337,15 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * Creator\\"s name.
+   * The name of the creator.
    * 
    * @example
-   * zhangsan
+   * Zhang Zilong
    */
   creatorName?: string;
   /**
    * @remarks
-   * Cube identifier ID.
+   * The cube ID.
    * 
    * @example
    * d14e7448-0eb3-40d3-9375-4afef8de29fd
@@ -336,23 +353,23 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
-   * Dataset name.
+   * The name of the dataset.
    * 
    * @example
-   * test data source
+   * Test dataset
    */
   cubeName?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
-   * test
+   * For testing
    */
   desc?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2023-05-18 14:00:02.0
@@ -360,7 +377,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2023-03-21 18:02:36
@@ -368,7 +385,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Modifier\\"s userId.
+   * The user ID of the modifier.
    * 
    * @example
    * 7cb94cd48701
@@ -376,23 +393,23 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   modifierId?: string;
   /**
    * @remarks
-   * Modifier\\"s name
+   * The name of the modifier.
    * 
    * @example
-   * zhangsan
+   * Zhang Zilong
    */
   modifierName?: string;
   /**
    * @remarks
-   * Data service name.
+   * The service name.
    * 
    * @example
-   * test report
+   * Test report
    */
   name?: string;
   /**
    * @remarks
-   * Owner ID
+   * The ID of the owner.
    * 
    * @example
    * 862801339
@@ -400,15 +417,15 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * Owner\\"s name
+   * The name of the owner.
    * 
    * @example
-   * lisi
+   * Li Si
    */
   ownerName?: string;
   /**
    * @remarks
-   * Unique ID of the data service.
+   * The unique ID of the data service.
    * 
    * @example
    * dtsuq3i31f5j8v848b
@@ -416,7 +433,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   sid?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 7350a155-0e94-4c6c-8620-57bbec38****
@@ -424,10 +441,10 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * Workspace name.
+   * The name of the workspace.
    * 
    * @example
-   * test workspace
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -487,12 +504,12 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
 export class QueryDataServiceListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Data service information.
+   * The data service information.
    */
   data?: QueryDataServiceListResponseBodyResultData[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -500,7 +517,7 @@ export class QueryDataServiceListResponseBodyResult extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -508,7 +525,7 @@ export class QueryDataServiceListResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of rows.
+   * The total number of rows.
    * 
    * @example
    * 1
@@ -516,7 +533,7 @@ export class QueryDataServiceListResponseBodyResult extends $dara.Model {
   totalNum?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -557,7 +574,7 @@ export class QueryDataServiceListResponseBodyResult extends $dara.Model {
 export class QueryDataServiceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 78C1AA2D-9201-599E-A0BA-6FC462E57A95
@@ -565,14 +582,15 @@ export class QueryDataServiceListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    */
   result?: QueryDataServiceListResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Value range:
-   * - true: The request was successful 
-   * - false: The request failed
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

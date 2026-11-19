@@ -13,10 +13,11 @@ export class AddUserGroupMemberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of adding members to a user group is returned. Valid values:
+   * Indicates whether the members were added to the user group. Valid values:
    * 
-   * *   true: The task is added.
-   * *   false: The tag failed to be added.
+   * - true: The members were added.
+   * 
+   * - false: The members were not added.
    * 
    * @example
    * true
@@ -24,10 +25,11 @@ export class AddUserGroupMemberResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

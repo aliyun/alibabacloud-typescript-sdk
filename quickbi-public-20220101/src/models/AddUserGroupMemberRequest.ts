@@ -15,7 +15,7 @@ export class AddUserGroupMemberRequest extends $dara.Model {
   userGroupId?: string;
   /**
    * @remarks
-   * The ID of the Quick BI user. Separate multiple IDs with commas (,). Example: abc,efg. You can enter a maximum of 1000 entries.
+   * The IDs of Quick BI users. Separate multiple IDs with commas (,). Example: abc,efg. You can specify up to 1,000 IDs.
    * 
    * This parameter is required.
    * 

@@ -6,14 +6,10 @@ export class QueryAuditLogRequest extends $dara.Model {
   /**
    * @remarks
    * The access source. Valid values:
-   * 
-   * - COMMON: standard access
-   * 
-   * - IMBEDDED: embedded report
-   * 
-   * - PUBLIC: public report
-   * 
-   * - IMBEDDED_COMPONENT: embedded card
+   * - COMMON: Regular access.
+   * - IMBEDDED: Embedded report.
+   * - PUBLIC: Public report.
+   * - IMBEDDED_COMPONENT: Embedded card.
    * 
    * @example
    * PUBLIC
@@ -24,7 +20,7 @@ export class QueryAuditLogRequest extends $dara.Model {
   accessSourceFlag?: string;
   /**
    * @remarks
-   * The end date for the query. Use the yyyyMMdd format.
+   * The end date of the query. Format: yyyyMMdd.
    * 
    * This parameter is required.
    * 
@@ -35,12 +31,9 @@ export class QueryAuditLogRequest extends $dara.Model {
   /**
    * @remarks
    * The log type. Valid values:
-   * 
-   * - dataView: access logs
-   * 
-   * - function: operation logs
-   * 
-   * - permission: permission logs
+   * - dataView: Access.
+   * - function: Operation.
+   * - permission: Permission.
    * 
    * This parameter is required.
    * 
@@ -58,9 +51,7 @@ export class QueryAuditLogRequest extends $dara.Model {
   operatorId?: string;
   /**
    * @remarks
-   * The permission, access, or operation type. If left empty, all types are queried by default.
-   * 
-   * For valid values, see audit log codes. To specify multiple types, separate them with commas.
+   * The permission, access, or operation type. If this parameter is left empty, all types are queried by default. For more information, see the audit log code values. Separate multiple values with commas (,).
    * 
    * @example
    * MODIFY
@@ -68,7 +59,7 @@ export class QueryAuditLogRequest extends $dara.Model {
   operatorTypes?: string;
   /**
    * @remarks
-   * The resource type. For more information, see work types.
+   * The resource type. For more information, see the asset type.
    * 
    * @example
    * cube
@@ -76,7 +67,7 @@ export class QueryAuditLogRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The start date for the query. Use the yyyyMMdd format. The date cannot be more than 90 days before the current date.
+   * The start date of the query. Format: yyyyMMdd. The date cannot be more than 90 days before the current date.
    * 
    * This parameter is required.
    * 
@@ -86,11 +77,9 @@ export class QueryAuditLogRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The device used for access. Valid values:
-   * 
-   * - MOBILE: mobile device
-   * 
-   * - PC: PC
+   * The access device. Valid values:
+   * - MOBILE: Mobile client.
+   * - PC: PC client.
    * 
    * @example
    * PC
@@ -101,7 +90,7 @@ export class QueryAuditLogRequest extends $dara.Model {
   userAccessDevice?: string;
   /**
    * @remarks
-   * The ID of the workspace that contains the logs to query.
+   * The ID of the workspace to which the logs to be queried belong.
    * 
    * @example
    * 95296e95-ca89-4c7d-8af9-dedf0ad0****

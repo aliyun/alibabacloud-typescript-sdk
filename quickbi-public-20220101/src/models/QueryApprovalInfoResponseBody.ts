@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Applicant\\"s user ID, qbi user ID.
+   * The QBI user ID of the applicant.
    * 
    * @example
    * 1359508
@@ -13,7 +13,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   applicantId?: string;
   /**
    * @remarks
-   * Applicant\\"s nickname.
+   * The nickname of the applicant.
    * 
    * @example
    * Li Fei
@@ -21,7 +21,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   applicantName?: string;
   /**
    * @remarks
-   * Application ID.
+   * The ID of the application.
    * 
    * @example
    * 64813ef6da58e80eef8ed2f9
@@ -29,15 +29,15 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Application reason.
+   * The reason for the application.
    * 
    * @example
-   * Development needs
+   * Required for development
    */
   applyReason?: string;
   /**
    * @remarks
-   * Approver\\"s user ID, qbi user ID.
+   * The QBI user ID of the approver.
    * 
    * @example
    * sdasascasxasd
@@ -45,7 +45,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   approverId?: string;
   /**
    * @remarks
-   * Approver\\"s nickname.
+   * The nickname of the approver.
    * 
    * @example
    * data_fusion_002
@@ -53,9 +53,9 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   approverName?: string;
   /**
    * @remarks
-   * Whether the resource has been deleted:
-   * - true: Deleted
-   * - false: Not deleted
+   * Indicates whether the resource has been deleted. Valid values:
+   * - true: The resource has been deleted.
+   * - false: The resource has not been deleted.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   deleteFlag?: boolean;
   /**
    * @remarks
-   * Permission expiration date, timestamp.
+   * The expiration time of the permission.
    * 
    * @example
    * 1708568097135
@@ -71,10 +71,10 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   expireDate?: number;
   /**
    * @remarks
-   * Permission approval status:
-   * - 0: Under review, corresponding to 0 in the request parameters
-   * - 1: Approved, corresponding to 1 in the request parameters
-   * - 2: Rejected, corresponding to 1 in the request parameters
+   * The approval status of the permission. Valid values:
+   * - 0: Pending approval, which corresponds to 0 in the request parameters.
+   * - 1: Approved, which corresponds to 1 in the request parameters.
+   * - 2: Rejected, which corresponds to 1 in the request parameters.
    * 
    * @example
    * 0
@@ -82,7 +82,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   flagStatus?: number;
   /**
    * @remarks
-   * Application creation time, timestamp.
+   * The time when the application was created.
    * 
    * @example
    * 1687315758
@@ -90,7 +90,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Application modification time, timestamp.
+   * The time when the application was modified.
    * 
    * @example
    * 1640595729000
@@ -98,15 +98,15 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * Handling reason.
+   * The reason for handling the application.
    * 
    * @example
-   * Development needs
+   * Required for development
    */
   handleReason?: string;
   /**
    * @remarks
-   * The ID of the resource for which permission is requested.
+   * The ID of the resource for which permissions are requested.
    * 
    * @example
    * acl-ct4t2e4u2x4ej1bzur
@@ -114,10 +114,10 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource for which permission is requested (e.g., report name, space name...).
+   * The name of the resource for which permissions are requested, such as the report name or workspace name.
    * 
    * @example
-   * Test Resources
+   * Test resource
    */
   resourceName?: string;
   /**
@@ -133,7 +133,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
    * The name of the workspace.
    * 
    * @example
-   * Test Workspace
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -190,7 +190,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
 export class QueryApprovalInfoResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Array of approval flow information.
+   * The array of approval flow information.
    */
   data?: QueryApprovalInfoResponseBodyResultData[];
   /**
@@ -203,7 +203,7 @@ export class QueryApprovalInfoResponseBodyResult extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of records requested per page.
+   * The number of records on the current page.
    * 
    * @example
    * 1000
@@ -211,7 +211,7 @@ export class QueryApprovalInfoResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The starting position of the current page.
+   * The start position of the current page.
    * 
    * @example
    * 0
@@ -219,7 +219,7 @@ export class QueryApprovalInfoResponseBodyResult extends $dara.Model {
   start?: number;
   /**
    * @remarks
-   * The total number of items.
+   * The total number of records.
    * 
    * @example
    * 3
@@ -270,7 +270,7 @@ export class QueryApprovalInfoResponseBodyResult extends $dara.Model {
 export class QueryApprovalInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -278,14 +278,14 @@ export class QueryApprovalInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return the result of the interface execution.
+   * The result of the API operation.
    */
   result?: QueryApprovalInfoResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Possible values are:
-   * - true: success
-   * - false: failure
+   * Indicates whether the API operation is successful. Valid values:
+   * - true: The operation is successful.
+   * - false: The operation fails.
    * 
    * @example
    * true

@@ -4,16 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAiproEmbedConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 46e53746***70
    */
   requestId?: string;
   /**
+   * @remarks
+   * The execution result of the operation. Valid values:
+   * 
+   * - true: The operation is successful.
+   * - false: The operation fails.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful.
+   * - false: The request fails.
+   * 
    * @example
    * true
    */

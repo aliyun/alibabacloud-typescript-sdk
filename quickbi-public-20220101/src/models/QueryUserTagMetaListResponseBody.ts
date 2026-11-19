@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserTagMetaListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The description of the tag.
+   * The tag description.
    * 
    * @example
-   * Used to distinguish some positions
+   * Used to distinguish certain positions
    */
   tagDescription?: string;
   /**
    * @remarks
-   * The ID of the label.
+   * The tag ID.
    * 
    * @example
    * pop_001
@@ -21,7 +21,7 @@ export class QueryUserTagMetaListResponseBodyResult extends $dara.Model {
   tagId?: string;
   /**
    * @remarks
-   * The name of the tag.
+   * The tag name.
    * 
    * @example
    * Position
@@ -55,7 +55,7 @@ export class QueryUserTagMetaListResponseBodyResult extends $dara.Model {
 export class QueryUserTagMetaListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -63,15 +63,15 @@ export class QueryUserTagMetaListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns a list of user tags in an organization.
+   * The list of user tags in the organization.
    */
   result?: QueryUserTagMetaListResponseBodyResult[];
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

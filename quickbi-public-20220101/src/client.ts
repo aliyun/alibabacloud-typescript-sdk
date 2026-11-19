@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "quickbi-public";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("quickbi-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,10 +34,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds specified users and user groups to a row-level permission rule.
+   * Adds selected users and user groups to a specific row-column permission rule.
    * 
    * @remarks
-   * > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
+   * > Note: This operation supports only the new row-column permission model of Quick BI. If you are still using the legacy row-column permissions, migrate to the new row-column permission model before you call this operation. To migrate to the new row-column permission model, go to **Organization Management** > **Security Configuration** > **Row-Column Permission Upgrade**, and click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - AddDataLevelPermissionRuleUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64,10 +68,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds specified users and user groups to a row-level permission rule.
+   * Adds selected users and user groups to a specific row-column permission rule.
    * 
    * @remarks
-   * > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
+   * > Note: This operation supports only the new row-column permission model of Quick BI. If you are still using the legacy row-column permissions, migrate to the new row-column permission model before you call this operation. To migrate to the new row-column permission model, go to **Organization Management** > **Security Configuration** > **Row-Column Permission Upgrade**, and click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - AddDataLevelPermissionRuleUsersRequest
    * @returns AddDataLevelPermissionRuleUsersResponse
@@ -78,10 +82,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the whitelist for row-level and column-level permissions of a specified dataset.
+   * Modifies the whitelist for row and column permissions of a specified dataset.
    * 
    * @remarks
-   * > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
+   * > : This operation only supports the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, perform a one-click migration to the new row and column permission model before calling this operation. To perform a one-click migration to the new row and column permission model, go to **Organization management** > **Security configuration** > **Row and column permission upgrade**, and click **One-click upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - AddDataLevelPermissionWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -128,10 +132,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the whitelist for row-level and column-level permissions of a specified dataset.
+   * Modifies the whitelist for row and column permissions of a specified dataset.
    * 
    * @remarks
-   * > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
+   * > : This operation only supports the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, perform a one-click migration to the new row and column permission model before calling this operation. To perform a one-click migration to the new row and column permission model, go to **Organization management** > **Security configuration** > **Row and column permission upgrade**, and click **One-click upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - AddDataLevelPermissionWhiteListRequest
    * @returns AddDataLevelPermissionWhiteListResponse
@@ -142,7 +146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a data source.
+   * Creates a data source connection.
    * 
    * @param request - AddDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -173,7 +177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a data source.
+   * Creates a data source connection.
    * 
    * @param request - AddDataSourceRequest
    * @returns AddDataSourceResponse
@@ -314,7 +318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an organization member to a specified user group.
+   * Adds organization members to a specified user group.
    * 
    * @param request - AddUserGroupMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -349,7 +353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an organization member to a specified user group.
+   * Adds organization members to a specified user group.
    * 
    * @param request - AddUserGroupMemberRequest
    * @returns AddUserGroupMemberResponse
@@ -360,7 +364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add users to a specified user group at a time.
+   * Adds multiple users to a specified user group.
    * 
    * @param request - AddUserGroupMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -395,7 +399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add users to a specified user group at a time.
+   * Adds multiple users to a specified user group.
    * 
    * @param request - AddUserGroupMembersRequest
    * @returns AddUserGroupMembersResponse
@@ -406,7 +410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add organization member tag metadata.
+   * Creates metadata for an organization member tag.
    * 
    * @param request - AddUserTagMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -441,7 +445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add organization member tag metadata.
+   * Creates metadata for an organization member tag.
    * 
    * @param request - AddUserTagMetaRequest
    * @returns AddUserTagMetaResponse
@@ -502,7 +506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an authorization for a work.
+   * Creates a collaborative authorization record for a resource.
    * 
    * @param request - AddWorksAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -553,7 +557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an authorization for a work.
+   * Creates a collaborative authorization record for a resource.
    * 
    * @param request - AddWorksAuthorizationRequest
    * @returns AddWorksAuthorizationResponse
@@ -614,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trigger the collection acceleration of the Quick engine for datasets.
+   * Triggers the extraction acceleration of the Quick engine for a dataset.
    * 
    * @param request - AllotDatasetAccelerationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -645,7 +649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trigger the collection acceleration of the Quick engine for datasets.
+   * Triggers the extraction acceleration of the Quick engine for a dataset.
    * 
    * @param request - AllotDatasetAccelerationTaskRequest
    * @returns AllotDatasetAccelerationTaskResponse
@@ -656,7 +660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch authorization of BI portal menu will be skipped automatically.
+   * Grants batch permissions for data portal menus. Already authorized menus are automatically skipped.
    * 
    * @param request - AuthorizeMenuRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch authorization of BI portal menu will be skipped automatically.
+   * Grants batch permissions for data portal menus. Already authorized menus are automatically skipped.
    * 
    * @param request - AuthorizeMenuRequest
    * @returns AuthorizeMenuResponse
@@ -714,7 +718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds Lark users in batches.
+   * Adds multiple Lark users.
    * 
    * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
    * 
@@ -763,7 +767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds Lark users in batches.
+   * Adds multiple Lark users.
    * 
    * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
    * 
@@ -777,7 +781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel the authorization records for specified users and user groups based on the portal menu ID.
+   * Revokes authorization records for specified users and user groups based on portal menu IDs.
    * 
    * @param request - CancelAuthorizationMenuRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -820,7 +824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel the authorization records for specified users and user groups based on the portal menu ID.
+   * Revokes authorization records for specified users and user groups based on portal menu IDs.
    * 
    * @param request - CancelAuthorizationMenuRequest
    * @returns CancelAuthorizationMenuResponse
@@ -831,7 +835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel the data works from the user\\"s collection.
+   * Removes a data work from a user\\"s favorites.
    * 
    * @param request - CancelCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -866,7 +870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel the data works from the user\\"s collection.
+   * Removes a data work from a user\\"s favorites.
    * 
    * @param request - CancelCollectionRequest
    * @returns CancelCollectionResponse
@@ -877,7 +881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a share authorization for a data work.
+   * Deletes a sharing authorization for a data work.
    * 
    * @param request - CancelReportShareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -916,7 +920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a share authorization for a data work.
+   * Deletes a sharing authorization for a data work.
    * 
    * @param request - CancelReportShareRequest
    * @returns CancelReportShareResponse
@@ -927,7 +931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+   * Modifies the visibility of data portal menus and specifies whether the menus are visible only to authorized users.
    * 
    * @param request - ChangeVisibilityModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -966,7 +970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+   * Modifies the visibility of data portal menus and specifies whether the menus are visible only to authorized users.
    * 
    * @param request - ChangeVisibilityModelRequest
    * @returns ChangeVisibilityModelResponse
@@ -1019,7 +1023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks if a user is a member of an organization.
+   * Checks whether a user belongs to an organization.
    * 
    * @param request - CheckOrganizationMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1050,7 +1054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks if a user is a member of an organization.
+   * Checks whether a user belongs to an organization.
    * 
    * @param request - CheckOrganizationMemberRequest
    * @returns CheckOrganizationMemberResponse
@@ -1107,7 +1111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the cached tag value for a single configuration.
+   * Deletes the tag value cache for a single configuration.
    * 
    * @param request - ClearDynamicTagCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1138,7 +1142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the cached tag value for a single configuration.
+   * Deletes the tag value cache for a single configuration.
    * 
    * @param request - ClearDynamicTagCacheRequest
    * @returns ClearDynamicTagCacheResponse
@@ -1357,7 +1361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成AIPro超级框嵌入ticket
+   * Generates an AIPro Super Box embedding ticket.
    * 
    * @param request - CreateTicket4AiProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1416,7 +1420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成AIPro超级框嵌入ticket
+   * Generates an AIPro Super Box embedding ticket.
    * 
    * @param request - CreateTicket4AiProRequest
    * @returns CreateTicket4AiProResponse
@@ -2411,6 +2415,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves or generates a personal identification number for a user.
+   * 
+   * @param request - GetPersonalICodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPersonalICodeResponse
+   */
+  async getPersonalICodeWithOptions(request: $_model.GetPersonalICodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPersonalICodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.quickBIUserId)) {
+      query["QuickBIUserId"] = request.quickBIUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPersonalICode",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPersonalICodeResponse>(await this.callApi(params, req, runtime), new $_model.GetPersonalICodeResponse({}));
+  }
+
+  /**
+   * Retrieves or generates a personal identification number for a user.
+   * 
+   * @param request - GetPersonalICodeRequest
+   * @returns GetPersonalICodeResponse
+   */
+  async getPersonalICode(request: $_model.GetPersonalICodeRequest): Promise<$_model.GetPersonalICodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPersonalICodeWithOptions(request, runtime);
+  }
+
+  /**
    * Searches for user group information by user group name keyword.
    * 
    * @param request - GetUserGroupInfoRequest
@@ -2675,7 +2721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the collaborative authorization records of a resource.
+   * Queries the list of collaborative authorization records for a resource.
    * 
    * @param request - ListAuthConfigByResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2722,7 +2768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the collaborative authorization records of a resource.
+   * Queries the list of collaborative authorization records for a resource.
    * 
    * @param request - ListAuthConfigByResourceRequest
    * @returns ListAuthConfigByResourceResponse
@@ -3613,7 +3659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改AI Pro嵌入配置
+   * Creates or updates an AIPro embedding configuration.
    * 
    * @param request - ModifyAiproEmbedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3668,7 +3714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改AI Pro嵌入配置
+   * Creates or updates an AIPro embedding configuration.
    * 
    * @param request - ModifyAiproEmbedConfigRequest
    * @returns ModifyAiproEmbedConfigResponse
@@ -3893,7 +3939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * Retrieves a list of AIPro embed configurations.
    * 
    * @param request - QueryAiproEmbedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3924,7 +3970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 概述
+   * Retrieves a list of AIPro embed configurations.
    * 
    * @param request - QueryAiproEmbedConfigRequest
    * @returns QueryAiproEmbedConfigResponse
@@ -3935,7 +3981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get approval flow information based on the approver.
+   * Retrieves the approval flow information based on the approver.
    * 
    * @param request - QueryApprovalInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3978,7 +4024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get approval flow information based on the approver.
+   * Retrieves the approval flow information based on the approver.
    * 
    * @param request - QueryApprovalInfoRequest
    * @returns QueryApprovalInfoResponse
@@ -4129,7 +4175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the List of Configurations for Activating XiaoQ Embedding
+   * Retrieves the list of configurations for Xiao Q embedding.
    * 
    * @param request - QueryCopilotEmbedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4160,7 +4206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the List of Configurations for Activating XiaoQ Embedding
+   * Retrieves the list of configurations for Xiao Q embedding.
    * 
    * @param request - QueryCopilotEmbedConfigRequest
    * @returns QueryCopilotEmbedConfigResponse
@@ -4275,7 +4321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Dashboard\\"s Question Resource Information
+   * Queries the NL2SQL resource information of a dashboard.
    * 
    * @param request - QueryDashboardNl2sqlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4310,7 +4356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Dashboard\\"s Question Resource Information
+   * Queries the NL2SQL resource information of a dashboard.
    * 
    * @param request - QueryDashboardNl2sqlRequest
    * @returns QueryDashboardNl2sqlResponse
@@ -4321,15 +4367,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls a DataService Studio API to query data.
+   * Calls an API created in Data Service.
    * 
    * @remarks
-   * ### Prerequisites
-   * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+   * ### Before you begin
+   * You must first create an API in the Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
    * ### Limits
-   * - Requires Quick BI Professional Edition.
-   * - API call timeout: 60s. QPS limit per API: 10.
-   * - Row-level permissions on the referenced dataset also apply to API calls.
+   * * The Data Service feature is available only to Professional Edition users.
+   * * For Data Service API calls, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+   * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the row-level access policy also intercepts the request when you make the API call.
    * 
    * @param request - QueryDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4372,15 +4418,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls a DataService Studio API to query data.
+   * Calls an API created in Data Service.
    * 
    * @remarks
-   * ### Prerequisites
-   * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+   * ### Before you begin
+   * You must first create an API in the Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
    * ### Limits
-   * - Requires Quick BI Professional Edition.
-   * - API call timeout: 60s. QPS limit per API: 10.
-   * - Row-level permissions on the referenced dataset also apply to API calls.
+   * * The Data Service feature is available only to Professional Edition users.
+   * * For Data Service API calls, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+   * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the row-level access policy also intercepts the request when you make the API call.
    * 
    * @param request - QueryDataRequest
    * @returns QueryDataResponse
@@ -4391,7 +4437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Data Range Catalog List
+   * Retrieves the list of data scope directories for the embedded configuration page.
    * 
    * @param request - QueryDataRangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4426,7 +4472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Data Range Catalog List
+   * Retrieves the list of data scope directories for the embedded configuration page.
    * 
    * @param request - QueryDataRangeRequest
    * @returns QueryDataRangeResponse
@@ -4437,15 +4483,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke an already created API in the data service.
+   * Calls an API created in Data Service.
    * 
    * @remarks
-   * #### Prerequisites
-   * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
-   * #### Usage Restrictions
-   * * The data service feature is only available to professional edition customers. 
-   * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
-   * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+   * #### Before you begin
+   * You have created an API in Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+   * #### Limits
+   * * The Data Service feature is available only to Quick BI Professional Edition users. 
+   * * When you invoke a Data Service API, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+   * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the invocation may be blocked by the row-level access policy.
    * 
    * @deprecated OpenAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead.
    * 
@@ -4486,15 +4532,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke an already created API in the data service.
+   * Calls an API created in Data Service.
    * 
    * @remarks
-   * #### Prerequisites
-   * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
-   * #### Usage Restrictions
-   * * The data service feature is only available to professional edition customers. 
-   * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
-   * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+   * #### Before you begin
+   * You have created an API in Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+   * #### Limits
+   * * The Data Service feature is available only to Quick BI Professional Edition users. 
+   * * When you invoke a Data Service API, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+   * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the invocation may be blocked by the row-level access policy.
    * 
    * @deprecated OpenAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead.
    * 
@@ -4508,7 +4554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Data Service API List
+   * Queries the list of data service APIs.
    * 
    * @param request - QueryDataServiceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4551,7 +4597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Data Service API List
+   * Queries the list of data service APIs.
    * 
    * @param request - QueryDataServiceListRequest
    * @returns QueryDataServiceListResponse
@@ -4562,10 +4608,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
+   * Queries the details of a specified dataset, including the associated data source, folder, and dataset model.
    * 
    * @remarks
-   * The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
+   * The details include the associated data source, folder, and dataset model, which contains information such as dimensions, measures, physical fields, custom SQL text, and associations.
    * 
    * @param request - QueryDatasetDetailInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4596,10 +4642,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
+   * Queries the details of a specified dataset, including the associated data source, folder, and dataset model.
    * 
    * @remarks
-   * The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
+   * The details include the associated data source, folder, and dataset model, which contains information such as dimensions, measures, physical fields, custom SQL text, and associations.
    * 
    * @param request - QueryDatasetDetailInfoRequest
    * @returns QueryDatasetDetailInfoResponse
@@ -4610,9 +4656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether the table is a custom SQL table. Valid values:
-   * \\\\*   true: custom SQL table
-   * \\\\*   false: non-custom SQL table
+   * Queries the information of a specified dataset.
    * 
    * @param request - QueryDatasetInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4643,9 +4687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether the table is a custom SQL table. Valid values:
-   * \\\\*   true: custom SQL table
-   * \\\\*   false: non-custom SQL table
+   * Queries the information of a specified dataset.
    * 
    * @param request - QueryDatasetInfoRequest
    * @returns QueryDatasetInfoResponse
@@ -4760,10 +4802,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the row-level permission switch status for a specified dataset.
+   * Retrieves the status of the row-level permission switch for a specified dataset.
    * 
    * @remarks
-   * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+   * > : This operation supports only the new row- and column-level permission model of Quick BI. If you are still using the legacy row- and column-level permissions, migrate to the new row- and column-level permission model before you call this operation. To migrate to the new model, go to **Organization management** > **Security settings** > **Upgrade row- and column-level permissions to new version**, and click **One-click upgrade**.
    * 
    * @param request - QueryDatasetSwitchInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4794,10 +4836,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the row-level permission switch status for a specified dataset.
+   * Retrieves the status of the row-level permission switch for a specified dataset.
    * 
    * @remarks
-   * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+   * > : This operation supports only the new row- and column-level permission model of Quick BI. If you are still using the legacy row- and column-level permissions, migrate to the new row- and column-level permission model before you call this operation. To migrate to the new model, go to **Organization management** > **Security settings** > **Upgrade row- and column-level permissions to new version**, and click **One-click upgrade**.
    * 
    * @param request - QueryDatasetSwitchInfoRequest
    * @returns QueryDatasetSwitchInfoResponse
@@ -4923,7 +4965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check which datasets and analysis themes the user has question authorization for
+   * Queries the smart query authorizations for datasets and analysis themes of a user.
    * 
    * @param request - QueryLlmCubeWithThemeListByUserIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4954,7 +4996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check which datasets and analysis themes the user has question authorization for
+   * Queries the smart query authorizations for datasets and analysis themes of a user.
    * 
    * @param request - QueryLlmCubeWithThemeListByUserIdRequest
    * @returns QueryLlmCubeWithThemeListByUserIdResponse
@@ -5061,7 +5103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+   * Queries the list of works that a user has permission to view, including reports in workspaces and those shared through authorization.
    * 
    * @deprecated OpenAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead.
    * 
@@ -5094,7 +5136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+   * Queries the list of works that a user has permission to view, including reports in workspaces and those shared through authorization.
    * 
    * @deprecated OpenAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead.
    * 
@@ -5354,7 +5396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specified ticket for a report that is not embedded in the report.
+   * Retrieves the details of a specified ticket for logon-free embedded reports.
    * 
    * @param request - QueryTicketInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5385,7 +5427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a specified ticket for a report that is not embedded in the report.
+   * Retrieves the details of a specified ticket for logon-free embedded reports.
    * 
    * @param request - QueryTicketInfoRequest
    * @returns QueryTicketInfoResponse
@@ -5396,7 +5438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a UserId by the bound third-party account ID.
+   * Queries the user ID based on the bound third-party account ID.
    * 
    * @param request - QueryUserByMobileAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5431,7 +5473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a UserId by the bound third-party account ID.
+   * Queries the user ID based on the bound third-party account ID.
    * 
    * @param request - QueryUserByMobileAccountRequest
    * @returns QueryUserByMobileAccountResponse
@@ -5484,7 +5526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of members under a user group.
+   * Retrieves the list of members in a user group.
    * 
    * @param request - QueryUserGroupMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5519,7 +5561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of members under a user group.
+   * Retrieves the list of members in a user group.
    * 
    * @param request - QueryUserGroupMemberRequest
    * @returns QueryUserGroupMemberResponse
@@ -5702,7 +5744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metadata list of member tags in an organization.
+   * Queries the list of member tag metadata in an organization.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUserTagMetaListResponse
@@ -5724,7 +5766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metadata list of member tags in an organization.
+   * Queries the list of member tag metadata in an organization.
    * @returns QueryUserTagMetaListResponse
    */
   async queryUserTagMetaList(): Promise<$_model.QueryUserTagMetaListResponse> {
@@ -5813,7 +5855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+   * Retrieves the lineage of a data work, including the datasets referenced by each component and the query field information. Currently, only dashboards, workbooks, and ad hoc queries are supported.
    * 
    * @param request - QueryWorksBloodRelationshipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5844,7 +5886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+   * Retrieves the lineage of a data work, including the datasets referenced by each component and the query field information. Currently, only dashboards, workbooks, and ad hoc queries are supported.
    * 
    * @param request - QueryWorksBloodRelationshipRequest
    * @returns QueryWorksBloodRelationshipResponse
@@ -6753,7 +6795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据源基础属性
+   * Updates the basic properties of a data source.
    * 
    * @param request - UpdateDataSourcePropertiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6796,7 +6838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据源基础属性
+   * Updates the basic properties of a data source.
    * 
    * @param request - UpdateDataSourcePropertiesRequest
    * @returns UpdateDataSourcePropertiesResponse
@@ -6850,6 +6892,48 @@ export default class Client extends OpenApi {
   async updateEmbeddedStatus(request: $_model.UpdateEmbeddedStatusRequest): Promise<$_model.UpdateEmbeddedStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEmbeddedStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the personal identification number of a user.
+   * 
+   * @param request - UpdatePersonalICodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePersonalICodeResponse
+   */
+  async updatePersonalICodeWithOptions(request: $_model.UpdatePersonalICodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePersonalICodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.quickBIUserId)) {
+      query["QuickBIUserId"] = request.quickBIUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePersonalICode",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePersonalICodeResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePersonalICodeResponse({}));
+  }
+
+  /**
+   * Updates the personal identification number of a user.
+   * 
+   * @param request - UpdatePersonalICodeRequest
+   * @returns UpdatePersonalICodeResponse
+   */
+  async updatePersonalICode(request: $_model.UpdatePersonalICodeRequest): Promise<$_model.UpdatePersonalICodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePersonalICodeWithOptions(request, runtime);
   }
 
   /**
@@ -7019,7 +7103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Used for updating the metadata of organization member tags
+   * Updates the metadata of an organization member tag.
    * 
    * @param request - UpdateUserTagMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7058,7 +7142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Used for updating the metadata of organization member tags
+   * Updates the metadata of an organization member tag.
    * 
    * @param request - UpdateUserTagMetaRequest
    * @returns UpdateUserTagMetaResponse

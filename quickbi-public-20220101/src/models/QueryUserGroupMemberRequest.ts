@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserGroupMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyword for the username or nickname of the user group member.
+   * The keyword used to search for the username or nickname of a user group member.
    * 
    * @example
-   * test
+   * Xiao Liu
    */
   keyword?: string;
   /**
    * @remarks
-   * User group ID.
+   * The ID of the user group.
    * 
    * This parameter is required.
    * 

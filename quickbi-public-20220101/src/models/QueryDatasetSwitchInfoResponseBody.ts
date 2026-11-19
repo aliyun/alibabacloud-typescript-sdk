@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetSwitchInfoResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * The dataset ID.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
@@ -13,10 +13,10 @@ export class QueryDatasetSwitchInfoResponseBodyResult extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
-   * Status of the column-level field permission switch. Possible values:
+   * The status of the column-level field permission switch. Valid values:
    * 
-   * - 1: Enabled
-   * - 0: Disabled
+   * - 1: Enabled.
+   * - 0: Disabled.
    * 
    * @example
    * 1
@@ -24,10 +24,10 @@ export class QueryDatasetSwitchInfoResponseBodyResult extends $dara.Model {
   isOpenColumnLevelPermission?: number;
   /**
    * @remarks
-   * Status of the row-level permission switch.
+   * The status of the row-level permission switch. Valid values:
    * 
-   * - 1: Enabled
-   * - 0: Disabled
+   * - 1: Enabled.
+   * - 0: Disabled.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class QueryDatasetSwitchInfoResponseBodyResult extends $dara.Model {
 export class QueryDatasetSwitchInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * FAECEFA8-09BB-58AB-BC58-C8ACEFE4D232
@@ -69,15 +69,15 @@ export class QueryDatasetSwitchInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the dataset\\"s row and column permission switches.
+   * The details of the row- and column-level permission switches for the dataset.
    */
   result?: QueryDatasetSwitchInfoResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

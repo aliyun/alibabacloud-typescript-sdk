@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAuditLogResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the log was generated.
+   * The log time.
    * 
    * @example
    * 2024-04-16 13:17:39
@@ -13,7 +13,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The account name of the operator.
+   * The account of the operator.
    * 
    * @example
    * wukaibis
@@ -113,16 +113,14 @@ export class QueryAuditLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of log objects.
+   * The log array.
    */
   result?: QueryAuditLogResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

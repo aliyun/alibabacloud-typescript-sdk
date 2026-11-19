@@ -13,9 +13,8 @@ export class ClearDynamicTagCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the cache is purged.
-   * 
-   * - true: The cache is purged.
+   * Indicates whether the cache is cleared successfully. Valid values:
+   * - true: The cache is cleared successfully.
    * - false: No cache exists.
    * 
    * @example

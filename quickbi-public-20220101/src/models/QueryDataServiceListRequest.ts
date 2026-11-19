@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDataServiceListRequest extends $dara.Model {
   /**
    * @remarks
-   * Data service name.
+   * The service name.
    * 
    * @example
-   * test
+   * Test SQL
    */
   name?: string;
   /**
    * @remarks
-   * Page number. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class QueryDataServiceListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of items per page in a paginated query:
+   * The number of entries per page for a paged query.
    * 
    * - Default value: 10
    * - Maximum value: 1000
@@ -32,7 +32,7 @@ export class QueryDataServiceListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * dasdfdsa-csddf-dsadsa

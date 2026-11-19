@@ -21,7 +21,7 @@ export class AddWorksAuthorizationResponseBody extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

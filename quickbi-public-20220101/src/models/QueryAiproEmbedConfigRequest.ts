@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAiproEmbedConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The keyword used for fuzzy search by showName.
+   * 
    * @example
    * test
    */

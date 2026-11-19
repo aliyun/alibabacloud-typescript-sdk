@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataSourcePropertiesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * ssss
    */
   description?: string;
   /**
    * @remarks
+   * The data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class UpdateDataSourcePropertiesRequest extends $dara.Model {
    */
   dsId?: string;
   /**
+   * @remarks
+   * The owner of the data source. Set this parameter to the user ID in Quick BI.
+   * 
    * @example
    * sss
    */
   quickBIOwnerId?: string;
   /**
+   * @remarks
+   * The display name of the data source.
+   * 
    * @example
    * wls
    */

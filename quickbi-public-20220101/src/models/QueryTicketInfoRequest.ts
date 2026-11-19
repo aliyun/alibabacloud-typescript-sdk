@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTicketInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The value of the bill.
+   * The ticket value.
    * 
    * This parameter is required.
    * 

@@ -5,17 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDataRangeRequest extends $dara.Model {
   /**
    * @remarks
-   * Name, for fuzzy search.
+   * The name. Fuzzy search is supported.
    * 
    * @example
-   * test
+   * Test
    */
   keyword?: string;
   /**
    * @remarks
-   * Data range type:
-   * 
-   * - llmCube: LlmCube resource.
+   * The data scope type. Valid values:
+   * - llmCube: Data query resource.
    * - llmCubeTheme: Analysis theme.
    * 
    * This parameter is required.

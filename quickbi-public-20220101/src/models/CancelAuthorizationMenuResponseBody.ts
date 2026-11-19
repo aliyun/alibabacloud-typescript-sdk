@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelAuthorizationMenuResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
@@ -13,7 +13,7 @@ export class CancelAuthorizationMenuResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Number of menus successfully unauthorized.
+   * The number of menus for which authorization was successfully revoked.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class CancelAuthorizationMenuResponseBody extends $dara.Model {
   result?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
    * - true: The request was successful.
    * - false: The request failed.

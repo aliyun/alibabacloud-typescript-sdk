@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryApprovalInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number, default is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class QueryApprovalInfoRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Number of rows per page, default is 1000.
+   * The number of entries per page. Default value: 1000.
    * 
    * @example
    * 1000
@@ -21,9 +21,9 @@ export class QueryApprovalInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Approval status:
-   * - 0: Pending
-   * - 1: Processed
+   * The approval status. Valid values:
+   * - 0: Pending.
+   * - 1: Processed.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class QueryApprovalInfoRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Current approver user ID, qbi user ID.
+   * The QBI user ID of the current approver.
    * 
    * This parameter is required.
    * 

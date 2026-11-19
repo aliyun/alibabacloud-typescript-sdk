@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries information about a specified dataset.
+   * The unique ID of the dataset.
    * 
    * This parameter is required.
    * 

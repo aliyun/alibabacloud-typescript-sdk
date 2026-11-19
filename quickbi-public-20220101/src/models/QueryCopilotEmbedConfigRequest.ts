@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCopilotEmbedConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Name of the embedded configuration module, supports fuzzy search.
+   * The name of the embedding configuration module. Fuzzy search is supported.
    * 
    * @example
    * 06-ELive

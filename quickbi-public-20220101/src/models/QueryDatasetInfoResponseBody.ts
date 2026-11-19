@@ -4,37 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryDatasetInfoResponseBodyResultCubeTableListChildTables extends $dara.Model {
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * 1
    */
   caption?: string;
   /**
+   * @remarks
+   * Specifies whether the table is a custom dataset.
+   * 
    * @example
-   * test
+   * true
    */
   customsql?: boolean;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * test
    */
   datasourceId?: string;
   /**
+   * @remarks
+   * The data source type.
+   * 
    * @example
    * test
    */
   dsType?: string;
+  /**
+   * @remarks
+   * Specifies whether the table is the primary table.
+   */
   factTable?: boolean;
   /**
+   * @remarks
+   * The SQL statement for the custom SQL dataset.
+   * 
    * @example
    * test
    */
   sql?: string;
   /**
+   * @remarks
+   * The physical table name.
+   * 
    * @example
    * test
    */
   tableName?: string;
   /**
+   * @remarks
+   * The unique ID.
+   * 
    * @example
    * test
    */
@@ -77,19 +102,23 @@ export class QueryDatasetInfoResponseBodyResultCubeTableListChildTables extends 
 export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the data source table is valid. Valid values:
-   * 
-   * *   true: data source table
-   * *   false: custom table
+   * The display name of the table.
    * 
    * @example
    * odps_40
    */
   caption?: string;
+  /**
+   * @remarks
+   * The actual physical tables used by the merged table.
+   */
   childTables?: QueryDatasetInfoResponseBodyResultCubeTableListChildTables[];
   /**
    * @remarks
-   * The display name of the table.
+   * Specifies whether the table is a custom SQL table. Valid values:
+   * 
+   * - true: The table is a custom SQL table.
+   * - false: The table is not a custom SQL table.
    * 
    * @example
    * false
@@ -97,7 +126,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   customsql?: boolean;
   /**
    * @remarks
-   * The name of the table.
+   * The data source ID.
    * 
    * @example
    * dfefd7f4-fc6e-42c9-b4******
@@ -105,7 +134,12 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   datasourceId?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source type. Valid values:
+   * 
+   * - mysql
+   * - odps
+   * - oracle
+   * - Other data source types supported by Quick BI.
    * 
    * @example
    * maxcompute
@@ -113,7 +147,10 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   dsType?: string;
   /**
    * @remarks
-   * The unique ID of the table.
+   * Specifies whether the table is a data source table. Valid values:
+   * 
+   * - true: The table is a data source table.
+   * - false: The table is a custom table.
    * 
    * @example
    * true
@@ -121,10 +158,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   factTable?: boolean;
   /**
    * @remarks
-   * Indicates whether the table is a custom SQL table. Valid values:
-   * 
-   * *   true: custom SQL table
-   * *   false: non-custom SQL table
+   * The specific SQL statement when the table is a custom SQL table.
    * 
    * @example
    * select * from ****
@@ -132,7 +166,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   sql?: string;
   /**
    * @remarks
-   * The list of tables used by the dataset.
+   * The table name.
    * 
    * @example
    * viewdasb8494aab2612473cb74992159fe****
@@ -140,12 +174,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
   tableName?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values:
-   * 
-   * *   mysql
-   * *   odps
-   * *   oracle
-   * *   ... and other data source types supported by Quick BI
+   * The unique ID of the table.
    * 
    * @example
    * 7a62530b36
@@ -194,7 +223,7 @@ export class QueryDatasetInfoResponseBodyResultCubeTableList extends $dara.Model
 export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the field that is referenced by the group measure. Non-NULL if and only if the metric is a grouping metric.
+   * The display name of the dimension.
    * 
    * @example
    * city
@@ -202,7 +231,11 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   caption?: string;
   /**
    * @remarks
-   * A list of all dimensions in the dataset.
+   * The data type. Valid values:
+   * 
+   * - string: String.
+   * - number: Number.
+   * - datetime: Datetime.
    * 
    * @example
    * string
@@ -210,7 +243,11 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   dataType?: string;
   /**
    * @remarks
-   * The actual physical field.
+   * The dimension type. Valid values:
+   * 
+   * - standard_dimension: Standard dimension.
+   * - calculate_dimension: Calculated dimension.
+   * - group_dimension: Grouped dimension.
    * 
    * @example
    * group_dimension
@@ -218,11 +255,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   dimensionType?: string;
   /**
    * @remarks
-   * Data type; value:
-   * 
-   * *   string: character
-   * *   number: a number
-   * *   datetime: time
+   * The expression for the calculated dimension. This parameter is valid only for calculated dimensions.
    * 
    * @example
    * example_expression
@@ -230,7 +263,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   expression?: string;
   /**
    * @remarks
-   * Expression for the flattened calculation dimensions.
+   * The flattened expression for the calculated dimension.
    * 
    * @example
    * example_expression
@@ -241,7 +274,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   expressionV2?: string;
   /**
    * @remarks
-   * Expression for a calculated dimension; valid only for calculated dimensions.
+   * The actual physical field.
    * 
    * @example
    * city
@@ -249,7 +282,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   factColumn?: string;
   /**
    * @remarks
-   * The description of the field.
+   * The field description.
    * 
    * @example
    * hhhh
@@ -257,11 +290,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   fieldDescription?: string;
   /**
    * @remarks
-   * The type of the dimension. Valid values:
-   * 
-   * *   standard_dimension: General Dimension
-   * *   calculate_dimension: calculating dimensions
-   * *   group_dimension: grouping dimensions
+   * The granularity.
    * 
    * @example
    * example_granularity
@@ -269,7 +298,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   granularity?: string;
   /**
    * @remarks
-   * The granularity.
+   * The unique ID of the referenced field for a grouped measure. This parameter is not null only when the measure is a grouped measure.
    * 
    * @example
    * 308f7****
@@ -277,7 +306,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   refUid?: string;
   /**
    * @remarks
-   * The ARN.
+   * The unique ID of the table to which the dimension belongs. This corresponds to the UniqueId in CubeTypeList.
    * 
    * @example
    * 7a62530***
@@ -285,7 +314,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
   tableUniqueId?: string;
   /**
    * @remarks
-   * The display name of the dimension.
+   * The unique ID.
    * 
    * @example
    * a69774***
@@ -335,7 +364,7 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
 export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
   /**
    * @remarks
-   * Test directory
+   * The folder ID.
    * 
    * @example
    * a3eecab7-618d-4f9f-*****
@@ -343,15 +372,15 @@ export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Test directory
+   * The folder name.
    * 
    * @example
-   * The name of the directory.
+   * Test folder
    */
   name?: string;
   /**
    * @remarks
-   * The information about the directory to which the dataset belongs.
+   * The path of the folder ID, such as aa/bb/cc/dd.
    * 
    * @example
    * 88b680****
@@ -359,10 +388,10 @@ export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
   pathId?: string;
   /**
    * @remarks
-   * The path of the directory ID, for example, aa/bb/cc/dd.
+   * The path name of the folder ID, such as Level 1 folder/Level 2 folder.
    * 
    * @example
-   * The path name of the directory ID, for example, one-level directory /two-level directory.
+   * Test folder
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -395,7 +424,7 @@ export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
 export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   /**
    * @remarks
-   * The actual physical field.
+   * The display name of the measure.
    * 
    * @example
    * profit_amt
@@ -403,7 +432,11 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   caption?: string;
   /**
    * @remarks
-   * A list of all measures for the dataset.
+   * The data type. Valid values:
+   * 
+   * - string: String.
+   * - number: Number.
+   * - datetime: Datetime.
    * 
    * @example
    * string
@@ -411,11 +444,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Data type; value:
-   * 
-   * *   string: character
-   * *   number: a number
-   * *   datetime: time
+   * The expression for the calculated measure. This parameter is valid only for calculated measures.
    * 
    * @example
    * example_expression
@@ -423,7 +452,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * Expression for flattened computation metrics.
+   * The flattened expression for the calculated measure.
    * 
    * @example
    * example_expression
@@ -434,10 +463,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   expressionV2?: string;
   /**
    * @remarks
-   * The type of the measure. Valid values:
-   * 
-   * *   standard_measure: General Metrics
-   * *   calculate_measure: Calculating Measures
+   * The actual physical field.
    * 
    * @example
    * profit_amt
@@ -445,7 +471,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   factColumn?: string;
   /**
    * @remarks
-   * The description of the field.
+   * The field description.
    * 
    * @example
    * asadsda
@@ -453,7 +479,10 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   fieldDescription?: string;
   /**
    * @remarks
-   * An expression that calculates a measure; valid only for calculated measures.
+   * The metric type. Valid values:
+   * 
+   * - standard_measure: Standard measure.
+   * - calculate_measure: Calculated measure.
    * 
    * @example
    * calculate_measure
@@ -461,7 +490,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   measureType?: string;
   /**
    * @remarks
-   * The display name of the metric.
+   * The unique ID of the table to which the dimension belongs. This corresponds to the UniqueId in CubeTypeList.
    * 
    * @example
    * 7a62530b36
@@ -469,7 +498,7 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
   tableUniqueId?: string;
   /**
    * @remarks
-   * The unique ID of the table to which the table belongs, which corresponds to the UniqueId of the CubeTypeList.
+   * The unique ID of the measure.
    * 
    * @example
    * 88b680****
@@ -515,12 +544,15 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
 export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the dataset.
+   * The list of tables used by the dataset.
    */
   cubeTableList?: QueryDatasetInfoResponseBodyResultCubeTableList[];
   /**
    * @remarks
-   * The unique ID of the workspace to which the dataset belongs.
+   * Specifies whether custom SQL is used. Valid values:
+   * 
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -528,12 +560,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   custimzeSql?: boolean;
   /**
    * @remarks
-   * The type of the data source. Valid values:
-   * 
-   * *   mysql
-   * *   odps
-   * *   oracle
-   * *   ... Data source types supported by Quick BI such as
+   * The unique ID of the dataset.
    * 
    * @example
    * a201c85c-******
@@ -541,7 +568,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The user ID of the dataset owner in the Quick BI.
+   * The dataset name.
    * 
    * @example
    * opds_40
@@ -549,17 +576,17 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * A list of all dimensions in the dataset.
+   * The list of all dimensions in the dataset.
    */
   dimensionList?: QueryDatasetInfoResponseBodyResultDimensionList[];
   /**
    * @remarks
-   * The unique ID of the metric.
+   * The folder information of the dataset.
    */
   directory?: QueryDatasetInfoResponseBodyResultDirectory;
   /**
    * @remarks
-   * The name of the data source.
+   * The unique ID of the data source.
    * 
    * @example
    * a201c85c-******
@@ -567,7 +594,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   dsId?: string;
   /**
    * @remarks
-   * The time when the dataset was last modified.
+   * The data source name.
    * 
    * @example
    * odps
@@ -575,7 +602,12 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   dsName?: string;
   /**
    * @remarks
-   * The point in time when the training dataset was created.
+   * The data source type. Valid values:
+   * 
+   * - mysql
+   * - odps
+   * - oracle
+   * - Other data source types supported by Quick BI.
    * 
    * @example
    * odps
@@ -583,10 +615,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   dsType?: string;
   /**
    * @remarks
-   * Indicates whether to customize SQL statements. Valid values:
-   * 
-   * *   true
-   * *   false
+   * The time when the dataset was created.
    * 
    * @example
    * 1629450382000
@@ -594,7 +623,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The information about the dataset.
+   * The time when the dataset was last modified.
    * 
    * @example
    * 1629450382000
@@ -602,15 +631,15 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   gmtModify?: string;
   /**
    * @remarks
-   * A list of all measures for the dataset.
+   * The list of all measures in the dataset.
    */
   measureList?: QueryDatasetInfoResponseBodyResultMeasureList[];
   /**
    * @remarks
-   * Whether to enable extraction acceleration. Valid values:
+   * Specifies whether extract acceleration is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -618,7 +647,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   openOfflineAcceleration?: boolean;
   /**
    * @remarks
-   * Test Space
+   * The user ID of the dataset owner in Quick BI.
    * 
    * @example
    * b8494aab26124*****
@@ -626,15 +655,18 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The unique ID of the data source.
+   * The name of the dataset owner.
    * 
    * @example
-   * The name of the dataset owner.
+   * Dawa
    */
   ownerName?: string;
   /**
    * @remarks
-   * The name of the training dataset.
+   * Specifies whether row-level permissions are enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -642,10 +674,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   rowLevel?: boolean;
   /**
    * @remarks
-   * Whether row-level permissions are enabled. Valid values:
-   * 
-   * *   true: The VIP Netty channel is enabled.
-   * *   false: The VIP Netty channel is disabled.
+   * The unique ID of the workspace to which the dataset belongs.
    * 
    * @example
    * 420abef4-a79b-4289-b12****
@@ -653,10 +682,10 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * Big Baby
+   * The name of the workspace to which the dataset belongs.
    * 
    * @example
-   * The name of the workspace in which the dataset resides.
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -729,10 +758,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
 export class QueryDatasetInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether the operation is successfully returned. Valid values:
-   * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * The request ID.
    * 
    * @example
    * a4d1a221d-41za1-****
@@ -745,7 +771,10 @@ export class QueryDatasetInfoResponseBody extends $dara.Model {
   result?: QueryDatasetInfoResponseBodyResult;
   /**
    * @remarks
-   * The unique ID of the dataset.
+   * Specifies whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

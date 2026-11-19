@@ -13,10 +13,9 @@ export class AllotDatasetAccelerationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the IP address whitelist is updated. Valid values:
-   * 
-   * *   true: The task is triggered.
-   * *   false: The task fails to be triggered.
+   * The execution result. Valid values:
+   * - true: The task is triggered successfully.
+   * - false: The task fails to be triggered.
    * 
    * @example
    * true
@@ -24,10 +23,10 @@ export class AllotDatasetAccelerationTaskResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

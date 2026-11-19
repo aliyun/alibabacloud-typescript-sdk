@@ -5,17 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class QueryLlmCubeWithThemeListByUserIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Dataset map.
+   * The dataset map.
+   * - key: The dataset ID.
+   * - value: The dataset name.
    * 
-   * - key - Dataset ID
-   * - value - Dataset name
+   * @example
+   * {"4d93*******0-9614-c97adea37911":"common***value"}
    */
   cubeIds?: { [key: string]: string };
   /**
    * @remarks
-   * Analysis theme map.
-   * - key - Analysis theme ID 
-   * - value - Analysis theme name
+   * The analysis theme map.
+   * - key: The analysis theme ID. 
+   * - value: The analysis theme name.
+   * 
+   * @example
+   * {"9aefb3************75abecbe":"www*********eeee"}
    */
   themeIds?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -50,7 +55,7 @@ export class QueryLlmCubeWithThemeListByUserIdResponseBodyResult extends $dara.M
 export class QueryLlmCubeWithThemeListByUserIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2EE822B***************F-F5B42DDADC12
@@ -58,15 +63,15 @@ export class QueryLlmCubeWithThemeListByUserIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of datasets and analysis themes.
+   * The list of datasets and analysis themes.
    */
   result?: QueryLlmCubeWithThemeListByUserIdResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful
-   * - false: The request failed
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

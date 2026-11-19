@@ -5,19 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserTagMetaRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag description.
-   * 
-   * - Format check: Maximum length is 255 characters.
+   * The description of the tag. The maximum length is 255 characters.
    * 
    * @example
-   * Job Positions within the Department
+   * Job positions within the department
    */
   tagDescription?: string;
   /**
    * @remarks
-   * The specified TagID.
-   * 
-   * - Format check: Maximum length is 64 characters.
+   * The specified tag ID. The maximum length is 64 characters.
    * 
    * This parameter is required.
    * 
@@ -27,14 +23,12 @@ export class UpdateUserTagMetaRequest extends $dara.Model {
   tagId?: string;
   /**
    * @remarks
-   * The tag name.
-   * - Format check: Maximum length is 50 characters.
-   * - Only Chinese, English, numbers, and /\\|[]() symbols are allowed.
+   * The name of the tag. The maximum length is 50 characters. Only letters, digits, and the /, \\, |, [, ], (, and ) symbols are allowed.
    * 
    * This parameter is required.
    * 
    * @example
-   * Department
+   * Position
    */
   tagName?: string;
   static names(): { [key: string]: string } {

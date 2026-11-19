@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDataRangeResponseBodyResultApiCopilotLlmCubeModels extends $dara.Model {
   /**
    * @remarks
-   * Alias of the LlmCube resource.
+   * The alias of the data query resource.
    * 
    * @example
-   * test
+   * Test
    */
   alias?: string;
   /**
    * @remarks
-   * Nickname of the creator.
+   * The nickname of the creator.
    * 
    * @example
-   * zhuge
+   * Zhuge
    */
   createUser?: string;
   /**
    * @remarks
-   * LlmCube resource ID.
+   * The ID of the data query resource.
    * 
    * @example
    * sdasdafas23342342342
@@ -55,23 +55,23 @@ export class QueryDataRangeResponseBodyResultApiCopilotLlmCubeModels extends $da
 export class QueryDataRangeResponseBodyResultApiCopilotThemeModelsApiCopilotLlmCubeModels extends $dara.Model {
   /**
    * @remarks
-   * Alias of the LLM cube resource.
+   * The alias of the data query resource.
    * 
    * @example
-   * test
+   * TestHa
    */
   alias?: string;
   /**
    * @remarks
-   * Nickname of the creator.
+   * The nickname of the creator.
    * 
    * @example
-   * zhuge
+   * Zhuge
    */
   createUser?: string;
   /**
    * @remarks
-   * LlmCube resource ID.
+   * The ID of the data query resource.
    * 
    * @example
    * 1231242231asdasda
@@ -105,20 +105,20 @@ export class QueryDataRangeResponseBodyResultApiCopilotThemeModelsApiCopilotLlmC
 export class QueryDataRangeResponseBodyResultApiCopilotThemeModels extends $dara.Model {
   /**
    * @remarks
-   * Array of LlmCube resources.
+   * The array of data query resources.
    */
   apiCopilotLlmCubeModels?: QueryDataRangeResponseBodyResultApiCopilotThemeModelsApiCopilotLlmCubeModels[];
   /**
    * @remarks
-   * Nickname of the creator.
+   * The nickname of the creator.
    * 
    * @example
-   * zhuge
+   * Zhuge
    */
   createUser?: string;
   /**
    * @remarks
-   * Analysis theme ID.
+   * The ID of the analysis theme.
    * 
    * @example
    * 36631232342312312
@@ -126,10 +126,10 @@ export class QueryDataRangeResponseBodyResultApiCopilotThemeModels extends $dara
   themeId?: string;
   /**
    * @remarks
-   * Nickname of the analysis theme.
+   * The nickname of the analysis theme.
    * 
    * @example
-   * test theme
+   * Test theme
    */
   themeName?: string;
   static names(): { [key: string]: string } {
@@ -165,12 +165,12 @@ export class QueryDataRangeResponseBodyResultApiCopilotThemeModels extends $dara
 export class QueryDataRangeResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Array of LlmCube resources.
+   * The array of data query resources.
    */
   apiCopilotLlmCubeModels?: QueryDataRangeResponseBodyResultApiCopilotLlmCubeModels[];
   /**
    * @remarks
-   * Array of analysis themes.
+   * The array of analysis themes.
    */
   apiCopilotThemeModels?: QueryDataRangeResponseBodyResultApiCopilotThemeModels[];
   static names(): { [key: string]: string } {
@@ -205,22 +205,22 @@ export class QueryDataRangeResponseBodyResult extends $dara.Model {
 export class QueryDataRangeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
-   * D787E1A3-A93C-****-B626-C2B05DF8D885
+   * D787E1A3-A93C-424A-B626-C2B05DF8D885
    */
   requestId?: string;
   /**
    * @remarks
-   * Data range object.
+   * The data scope object.
    */
   result?: QueryDataRangeResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

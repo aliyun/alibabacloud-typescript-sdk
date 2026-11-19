@@ -21,7 +21,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResultDirectory exten
   name?: string;
   /**
    * @remarks
-   * The hierarchical structure of the directory ID, which is separated with \\"/\\".
+   * The hierarchical structure of directory IDs, separated by forward slashes (/).
    * 
    * @example
    * e4276ea5-b232-4fb1-8f0f-efcee4a2****
@@ -29,7 +29,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResultDirectory exten
   pathId?: string;
   /**
    * @remarks
-   * The hierarchical structure of the directory name, which is separated with \\"/\\".
+   * The hierarchical structure of directory names, separated by forward slashes (/).
    * 
    * @example
    * Test directory
@@ -65,7 +65,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResultDirectory exten
 export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the creation time in milliseconds.
+   * The millisecond timestamp of the creation time.
    * 
    * @example
    * 1611023338000
@@ -73,20 +73,20 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * Remarks on the work.
+   * The description of the work.
    * 
    * @example
-   * Description
+   * Remarks
    */
   description?: string;
   /**
    * @remarks
-   * The directory structure in which the work is located.
+   * The directory structure where the work is located.
    */
   directory?: QueryReadableResourcesListByUserIdResponseBodyResultDirectory;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account to which the modifier belongs.
+   * The Alibaba Cloud account name of the user who last modified the work.
    * 
    * @example
    * Li Si
@@ -94,7 +94,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
   modifyName?: string;
   /**
    * @remarks
-   * The timestamp of the modification time in milliseconds.
+   * The millisecond timestamp of the last modification time.
    * 
    * @example
    * 1611023338000
@@ -102,7 +102,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
   modifyTime?: string;
   /**
    * @remarks
-   * The Quick BI UserID of the work owner.
+   * The Quick BI user ID of the work owner.
    * 
    * @example
    * 46e5374665ba4b679ee22e2a2927****
@@ -110,25 +110,21 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
   ownerId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name of the owner.
+   * The Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * Tom
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * Security policies for collaborative authorization of works. Valid values:
+   * The security policy for collaborative authorization of the work. Valid values:
+   * - 0: private
+   * - 12: authorized to specified members
+   * - 1 or 11: authorized to all workspace members
    * 
-   * *   0: private
-   * *   12: Authorize specified members
-   * *   1 or 11: Authorize all workspace members
-   * 
-   * > 
-   * 
-   * *   If you use legacy permissions, the return value is 1.
-   * 
-   * *   If you use the new permissions, the return value is 11.
+   * > - If you use the legacy permission model, the value 1 is returned.
+   * > - If you use the new permission model, the value 11 is returned.
    * 
    * @example
    * 0
@@ -138,10 +134,10 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * @remarks
    * The status of the report. Valid values:
    * 
-   * *   0: unpublished
-   * *   1: published
-   * *   2: modified but not published
-   * *   3: unpublished
+   * - 0: unpublished
+   * - 1: published
+   * - 2: modified but unpublished
+   * - 3: offline
    * 
    * @example
    * 1
@@ -149,10 +145,10 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
   status?: number;
   /**
    * @remarks
-   * Third-party embedding status. Valid values:
+   * The third-party embedding status. Valid values:
    * 
-   * *   0: The embed service is not enabled.
-   * *   1: Embed is enabled.
+   * - 0: Embedding is not enabled.
+   * - 1: Embedding is enabled.
    * 
    * @example
    * 1
@@ -163,17 +159,22 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * The name of the work.
    * 
    * @example
-   * Company Region Table
+   * Company region table
    */
   workName?: string;
   /**
    * @remarks
    * The type of the work. Valid values:
    * 
-   * *   DATAPRODUCT: BI portal
-   * *   PAGE: Dashboard
-   * *   FULLPAGE: full-screen dashboards
-   * *   REPORT: workbook
+   * - DATAPRODUCT: Data portal
+   * - PAGE: Dashboard (legacy)
+   * - FULLPAGE: Full-screen dashboard
+   * - REPORT: Workbook
+   * - DASHBOARD: Dashboard (new)
+   * - DATAFORM: Data entry form
+   * - dashboardOfflineQuery: Ad hoc query
+   * - ANALYSIS: Ad hoc analysis
+   * - SCREEN: Data screen
    * 
    * @example
    * PAGE
@@ -200,7 +201,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * Test Workspace
+   * Test workspace
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -258,7 +259,7 @@ export class QueryReadableResourcesListByUserIdResponseBodyResult extends $dara.
 export class QueryReadableResourcesListByUserIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -273,8 +274,8 @@ export class QueryReadableResourcesListByUserIdResponseBody extends $dara.Model 
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

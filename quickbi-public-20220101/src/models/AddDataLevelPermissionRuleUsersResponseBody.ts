@@ -13,11 +13,9 @@ export class AddDataLevelPermissionRuleUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the API operation. Valid values:
-   * 
-   * - true: The request is successful.
-   * 
-   * - false: The request fails.
+   * The execution result of the operation. Valid values:
+   * - true: The request succeeded.
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -27,9 +25,8 @@ export class AddDataLevelPermissionRuleUsersResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request is successful.
-   * 
-   * - false: The request fails.
+   * - true: The request succeeded.
+   * - false: The request failed.
    * 
    * @example
    * true

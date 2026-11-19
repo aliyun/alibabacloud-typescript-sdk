@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Notes.
+   * The ticket.
    * 
    * @example
    * a27a9aec-****-****-bd40-1a21ea41d7c5
@@ -13,7 +13,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   accessTicket?: string;
   /**
    * @remarks
-   * The ID of the component in the report.
+   * The component ID in the report.
    * 
    * @example
    * sfdgsds-****-****-a608-mghdgd
@@ -21,7 +21,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   cmptId?: string;
   /**
    * @remarks
-   * Global parameters.
+   * The global parameters.
    * 
    * @example
    * [{&quot;paramKey&quot;:&quot;price&quot;,&quot;joinType&quot;:&quot;and&quot;,&quot;conditionList&quot;:[{&quot;operate&quot;:&quot;&gt;&quot;,&quot;value&quot;:&quot;0&quot;}]},{&quot;paramKey&quot;:&quot;product_type&quot;,&quot;joinType&quot;:&quot;and&quot;,&quot;conditionList&quot;:[{&quot;operate&quot;:&quot;in&quot;,&quot;value&quot;:[&quot;]}]}]\\n
@@ -29,7 +29,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   globalParam?: string;
   /**
    * @remarks
-   * Expiration time of the note.
+   * The expiration time of the ticket.
    * 
    * @example
    * 2022-01-30 03:03:49
@@ -37,7 +37,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   invalidTime?: string;
   /**
    * @remarks
-   * The maximum number of supported bills.
+   * The maximum number of supported tickets.
    * 
    * @example
    * 9999
@@ -45,7 +45,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   maxTicketNum?: number;
   /**
    * @remarks
-   * The ID of the organization.
+   * The organization ID.
    * 
    * @example
    * 2fe4fbd8-****-****-b3e1-e92c7af083ea
@@ -61,7 +61,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   registerTime?: string;
   /**
    * @remarks
-   * The number of bills that have been consumed.
+   * The number of consumed tickets.
    * 
    * @example
    * 47
@@ -69,7 +69,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   usedTicketNum?: number;
   /**
    * @remarks
-   * The user ID of the Quick BI.
+   * The Quick BI user ID.
    * 
    * @example
    * 974e50**********9033f46
@@ -77,7 +77,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Set the watermarking parameters.
+   * The watermark parameters.
    * 
    * @example
    * ticket
@@ -85,7 +85,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
   watermarkParam?: string;
   /**
    * @remarks
-   * The ID of the operations report.
+   * The report ID.
    * 
    * @example
    * ccd3428c-****-****-a608-26bae29dffee
@@ -135,7 +135,7 @@ export class QueryTicketInfoResponseBodyResult extends $dara.Model {
 export class QueryTicketInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -149,10 +149,8 @@ export class QueryTicketInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

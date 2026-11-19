@@ -13,9 +13,9 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
   feishuUsers?: string;
   /**
    * @remarks
-   * Specifies whether the user is an admin user. Valid values:
-   * - true
-   * - false
+   * Specifies whether the user is an administrator. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * Default value: false.
    * 
@@ -27,8 +27,8 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
    * @remarks
    * Specifies whether the user is a permission management administrator. Valid values:
    * 
-   * - true
-   * - false
+   * - true: Yes.
+   * - false: No.
    * 
    * Default value: false.
    * 
@@ -38,7 +38,7 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
   isAuthAdmin?: boolean;
   /**
    * @remarks
-   * The user groups to which the users belong.
+   * The IDs of the user groups to which the users belong.
    * 
    * @example
    * "0d5fb19b-5555-41f0-99da-1248fc27ca51,0f868dd6_68dd_4d13_8422_c5dca3bd4b61"
@@ -47,9 +47,9 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
   /**
    * @remarks
    * The user type. Valid values:
-   * - 1: developer
-   * - 2: visitor
-   * - 3: analyst
+   * - 1: Developer.
+   * - 2: Visitor.
+   * - 3: Analyst.
    * 
    * @example
    * 1

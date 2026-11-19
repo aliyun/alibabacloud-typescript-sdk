@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserTagMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -13,7 +13,7 @@ export class AddUserTagMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns the ID of the successfully added tag.
+   * The ID of the successfully added tag.
    * 
    * @example
    * 0822a7d9-****-****-****-f20163ab9b0d
@@ -21,9 +21,10 @@ export class AddUserTagMetaResponseBody extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Value range:
-   * - true: The request succeeded 
-   * - false: The request failed
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

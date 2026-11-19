@@ -87,7 +87,7 @@ export class GetMailTaskListResponseBodyResult extends $dara.Model {
    * The next page number. A value of null or 0 indicates that there is no next page.
    * 
    * @example
-   * null
+   * 0
    */
   next?: number;
   /**
@@ -111,7 +111,7 @@ export class GetMailTaskListResponseBodyResult extends $dara.Model {
    * The previous page number. A value of null or 0 indicates that there is no previous page.
    * 
    * @example
-   * null
+   * 0
    */
   pre?: number;
   /**

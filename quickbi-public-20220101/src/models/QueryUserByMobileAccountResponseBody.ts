@@ -13,7 +13,7 @@ export class QueryUserByMobileAccountResponseBodyResult extends $dara.Model {
   boundUserId?: string;
   /**
    * @remarks
-   * The mobile account name.
+   * The name of the mobile account.
    * 
    * @example
    * test
@@ -58,10 +58,9 @@ export class QueryUserByMobileAccountResponseBody extends $dara.Model {
   result?: QueryUserByMobileAccountResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

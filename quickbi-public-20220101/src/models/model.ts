@@ -8,6 +8,7 @@ export { GetDataSourceConnectionInfoResponseBodyResult } from './GetDataSourceCo
 export { GetMailTaskListResponseBodyResultData } from './GetMailTaskListResponseBody';
 export { GetMailTaskListResponseBodyResult } from './GetMailTaskListResponseBody';
 export { GetMailTaskStatusResponseBodyResult } from './GetMailTaskStatusResponseBody';
+export { GetPersonalICodeResponseBodyResult } from './GetPersonalIcodeResponseBody';
 export { GetUserGroupInfoResponseBodyResult } from './GetUserGroupInfoResponseBody';
 export { GetWorksEmbedListResponseBodyResultData } from './GetWorksEmbedListResponseBody';
 export { GetWorksEmbedListResponseBodyResult } from './GetWorksEmbedListResponseBody';
@@ -58,6 +59,8 @@ export { QueryCubeOptimizationResponseBodyResult } from './QueryCubeOptimization
 export { QueryCubePerformanceResponseBodyResult } from './QueryCubePerformanceResponseBody';
 export { QueryDashboardNl2sqlResponseBodyResult } from './QueryDashboardNl2sqlResponseBody';
 export { QueryDataResponseBodyResultHeaders } from './QueryDataResponseBody';
+export { QueryDataResponseBodyResultValuesV2RowValue } from './QueryDataResponseBody';
+export { QueryDataResponseBodyResultValuesV2 } from './QueryDataResponseBody';
 export { QueryDataResponseBodyResult } from './QueryDataResponseBody';
 export { QueryDataRangeResponseBodyResultApiCopilotLlmCubeModels } from './QueryDataRangeResponseBody';
 export { QueryDataRangeResponseBodyResultApiCopilotThemeModelsApiCopilotLlmCubeModels } from './QueryDataRangeResponseBody';
@@ -131,6 +134,7 @@ export { SmartqAuthorizeResponseBodyResult } from './SmartqAuthorizeResponseBody
 export { SmartqQueryAbilityResponseBodyResultMetaType } from './SmartqQueryAbilityResponseBody';
 export { SmartqQueryAbilityResponseBodyResultValues } from './SmartqQueryAbilityResponseBody';
 export { SmartqQueryAbilityResponseBodyResult } from './SmartqQueryAbilityResponseBody';
+export { UpdatePersonalICodeResponseBodyResult } from './UpdatePersonalIcodeResponseBody';
 export { UpdateWorkspaceUsersRoleResponseBodyResult } from './UpdateWorkspaceUsersRoleResponseBody';
 export { AddDataLevelPermissionRuleUsersRequest } from './AddDataLevelPermissionRuleUsersRequest';
 export { AddDataLevelPermissionRuleUsersResponseBody } from './AddDataLevelPermissionRuleUsersResponseBody';
@@ -270,6 +274,9 @@ export { GetMailTaskListResponse } from './GetMailTaskListResponse';
 export { GetMailTaskStatusRequest } from './GetMailTaskStatusRequest';
 export { GetMailTaskStatusResponseBody } from './GetMailTaskStatusResponseBody';
 export { GetMailTaskStatusResponse } from './GetMailTaskStatusResponse';
+export { GetPersonalICodeRequest } from './GetPersonalIcodeRequest';
+export { GetPersonalICodeResponseBody } from './GetPersonalIcodeResponseBody';
+export { GetPersonalICodeResponse } from './GetPersonalIcodeResponse';
 export { GetUserGroupInfoRequest } from './GetUserGroupInfoRequest';
 export { GetUserGroupInfoResponseBody } from './GetUserGroupInfoResponseBody';
 export { GetUserGroupInfoResponse } from './GetUserGroupInfoResponse';
@@ -537,6 +544,9 @@ export { UpdateDataSourcePropertiesResponse } from './UpdateDataSourceProperties
 export { UpdateEmbeddedStatusRequest } from './UpdateEmbeddedStatusRequest';
 export { UpdateEmbeddedStatusResponseBody } from './UpdateEmbeddedStatusResponseBody';
 export { UpdateEmbeddedStatusResponse } from './UpdateEmbeddedStatusResponse';
+export { UpdatePersonalICodeRequest } from './UpdatePersonalIcodeRequest';
+export { UpdatePersonalICodeResponseBody } from './UpdatePersonalIcodeResponseBody';
+export { UpdatePersonalICodeResponse } from './UpdatePersonalIcodeResponse';
 export { UpdateTicketNumRequest } from './UpdateTicketNumRequest';
 export { UpdateTicketNumResponseBody } from './UpdateTicketNumResponseBody';
 export { UpdateTicketNumResponse } from './UpdateTicketNumResponse';

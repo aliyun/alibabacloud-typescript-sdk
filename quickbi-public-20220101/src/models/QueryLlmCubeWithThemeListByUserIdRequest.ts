@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryLlmCubeWithThemeListByUserIdRequest extends $dara.Model {
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * This parameter is required.
    * 

@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTicket4AiProResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D787E1A**********DF8D885
    */
   requestId?: string;
   /**
+   * @remarks
+   * The embedding ticket.
+   * 
    * @example
    * true
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */

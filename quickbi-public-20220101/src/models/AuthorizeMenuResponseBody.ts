@@ -13,7 +13,7 @@ export class AuthorizeMenuResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of authorized menus.
+   * The number of menus that are successfully authorized.
    * 
    * @example
    * 2
@@ -23,8 +23,8 @@ export class AuthorizeMenuResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDataServiceResponseBodyResultHeaders extends $dara.Model {
   /**
    * @remarks
-   * Aggregation operator. Only present for measure fields, such as SUM, AVG, and MAX.
+   * The aggregation operator. This parameter is returned only for measure fields, such as SUM, AVG, and MAX.
    * 
    * @example
    * SUM
@@ -13,15 +13,15 @@ export class QueryDataServiceResponseBodyResultHeaders extends $dara.Model {
   aggregator?: string;
   /**
    * @remarks
-   * Field name, corresponding to the physical table field name.
+   * The name of the field, which corresponds to the field name in the physical table.
    * 
    * @example
-   * The alias of the field. The key of the map data row in the result parameter values.
+   * A specific physical field name
    */
   column?: string;
   /**
    * @remarks
-   * The data type of the field. Common types include number, string, date, datetime, time, and geographic.
+   * The data type of the field. Common values include number, string, date, datetime, time, and geographic.
    * 
    * @example
    * string
@@ -29,12 +29,11 @@ export class QueryDataServiceResponseBodyResultHeaders extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The granularity of the dimension field.
-   * This field is returned only when the requested field is a date or geographic dimension, with the following possible values:
+   * The granularity of the dimension field. This parameter is returned only when the requested field is a date dimension or geographic dimension field. Valid values:
    * 
-   * - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
+   * - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), and secRegion (second).
    * 
-   * - Geographic granularity: COUNTRY (country level), PROVINCE (province level), CITY (city level), XIAN (district/county level), REGION (region)
+   * - Geographic information granularity: COUNTRY (country level), PROVINCE (province level), CITY (city level), XIAN (district or county level), and REGION (region level).
    * 
    * @example
    * yearRegion
@@ -42,7 +41,7 @@ export class QueryDataServiceResponseBodyResultHeaders extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * Alias for the field, serving as the key in the map data row of the values parameter.
+   * The alias of the field, which is the key of the map data row in the Values response parameter.
    * 
    * @example
    * area
@@ -50,7 +49,7 @@ export class QueryDataServiceResponseBodyResultHeaders extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * Field type, used to distinguish between dimension and measure fields.
+   * The type of the field, which is used to distinguish whether the field is a dimension or a measure.
    * 
    * @example
    * StandardDimension
@@ -90,20 +89,23 @@ export class QueryDataServiceResponseBodyResultHeaders extends $dara.Model {
 export class QueryDataServiceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Column headers.
+   * The column headers.
    */
   headers?: QueryDataServiceResponseBodyResultHeaders[];
   /**
    * @remarks
-   * The SQL of the query request.
+   * The SQL statement of the query request.
    * 
    * @example
-   * SELECT COMPANY_T_1_.`area` AS D_AREA_2_, COMPANY_T_1_.`city` AS D_CITY_3_, SUM(COMPANY_T_1_.`profit_amt`) AS D_PROFIT_4_ FROM `quickbi_test`.`company_sales_record_copy` AS COMPANY_T_1_   LIMIT 0, 10
+   * SELECT COMPANY_T_1_.`area` AS D_AREA_2_, COMPANY_T_1_.`city` AS D_CITY_3_, SUM(COMPANY_T_1_.`profit_amt`) AS D_PROFIT_4_ FROM `quickbi_test`.`company_sales_record_copy` AS COMPANY_T_1_ WHERE COMPANY_T_1_.`area` LIKE \\"%East China%\\" GROUP BY COMPANY_T_1_.`area`, COMPANY_T_1_.`city` HAVING SUM(COMPANY_T_1_.`order_amt`) > 1 LIMIT 0, 10
    */
   sql?: string;
   /**
    * @remarks
-   * The queried results returned.
+   * The returned query results.
+   * 
+   * @example
+   * [{"area":"East China","city":"Sanming"},{"area":"East China","city":"Shanghai"}]
    */
   values?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -140,7 +142,7 @@ export class QueryDataServiceResponseBodyResult extends $dara.Model {
 export class QueryDataServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 78C1AA2D-9201-599E-A0BA-6FC462E57A95
@@ -148,16 +150,16 @@ export class QueryDataServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns the result of the interface query.
+   * The query result returned by the API.
    */
   result?: QueryDataServiceResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful
+   * - true: The request is successful.
    * 
-   * - false: The request failed
+   * - false: The request fails.
    * 
    * @example
    * true

@@ -13,7 +13,7 @@ export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $
   code?: string;
   /**
    * @remarks
-   * The error code description.
+   * The description of the error code.
    * 
    * @example
    * test
@@ -55,7 +55,7 @@ export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $
 export class BatchAddFeishuUsersResponseBodyResultFailResults extends $dara.Model {
   /**
    * @remarks
-   * The error causes.
+   * The causes of the errors.
    */
   failInfos?: BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class BatchAddFeishuUsersResponseBodyResultFailResults extends $dara.Mode
 export class BatchAddFeishuUsersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The number of users that failed validation.
+   * The number of failures.
    * 
    * @example
    * 10
@@ -98,7 +98,7 @@ export class BatchAddFeishuUsersResponseBodyResult extends $dara.Model {
   failResults?: BatchAddFeishuUsersResponseBodyResultFailResults[];
   /**
    * @remarks
-   * The number of users that were added.
+   * The number of successes.
    * 
    * @example
    * 1
@@ -143,11 +143,11 @@ export class BatchAddFeishuUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of adding user group members. Valid values:
+   * Indicates whether the user group members are added. Valid values:
    * 
-   * - true: The users were added.
+   * - true: The user group members are added.
    * 
-   * - false: The users failed to be added.
+   * - false: The user group members fail to be added.
    * 
    * @example
    * True
@@ -155,10 +155,10 @@ export class BatchAddFeishuUsersResponseBody extends $dara.Model {
   result?: BatchAddFeishuUsersResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * True
