@@ -8,15 +8,38 @@ import { WeiboItem } from "./WeiboItem";
 
 
 export class GenericSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * The web content list.
+   */
   pageItems?: ScorePageItem[];
+  /**
+   * @remarks
+   * The query context information.
+   */
   queryContext?: QueryContext;
   /**
+   * @remarks
+   * requestId
+   * 
    * @example
    * 123456
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of scenario-specific query results, such as structured results for time and weather.
+   */
   sceneItems?: SceneItem[];
+  /**
+   * @remarks
+   * The search information.
+   */
   searchInformation?: SearchInformation;
+  /**
+   * @remarks
+   * The Weibo list.
+   */
   weiboItems?: WeiboItem[];
   static names(): { [key: string]: string } {
     return {

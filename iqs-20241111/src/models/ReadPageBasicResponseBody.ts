@@ -6,22 +6,22 @@ import { ReadPageItem } from "./ReadPageItem";
 export class ReadPageBasicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Parsing result of the target URL
+   * The parsing result of the destination URL.
    */
   data?: ReadPageItem;
   /**
    * @remarks
-   * Error code
+   * The error code.
    */
   errorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Request ID. Provide this information when troubleshooting issues.
+   * The request ID. Provide this ID for troubleshooting.
    */
   requestId?: string;
   static names(): { [key: string]: string } {

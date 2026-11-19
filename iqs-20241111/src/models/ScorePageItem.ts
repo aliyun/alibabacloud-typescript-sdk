@@ -6,51 +6,85 @@ import { IncludeImage } from "./IncludeImage";
 export class ScorePageItem extends $dara.Model {
   /**
    * @remarks
+   * The search result template. Different templates return different fields.
+   * 
    * This parameter is required.
    * 
    * @example
    * structure_web_info
    */
   cardType?: string;
+  /**
+   * @remarks
+   * The relevance tag. A value of 0 indicates low relevance, and 1 indicates non-low relevance.
+   * 
+   * @example
+   * 1
+   */
   correlationTag?: number;
   /**
    * @remarks
+   * The abbreviated URL of this search result.
+   * 
    * This parameter is required.
    * 
    * @example
    * baijiahao.baidu.com
    */
   displayLink?: string;
+  /**
+   * @remarks
+   * The dynamic authority score, which ranges from 0 to 2 and is calculated based on the relevance of the query content.
+   * 
+   * @example
+   * 1.923339
+   */
   hostAuthorityScore?: number;
   /**
+   * @remarks
+   * The site logo.
+   * 
    * @example
    * https://s2.zimgs.cn/ims?kt=url&at=smstruct&key=aHR0cHM6Ly9ndy5hbGljZG4uY29tL0wxLzcyMy8xNTY1MjU2NjAwLzJhL2YwL2I0LzJhZjBiNDQxMGI5YmVlMDVjOGVlNGJmODk3MTNkNTFjLnBuZw==&sign=yx:CUlNNQVJQjFrk3Kxt2F3KWhTOFU=&tv=400_400
    */
   hostLogo?: string;
   /**
+   * @remarks
+   * The site name.
+   * 
    * @example
-   * 新华网
+   * Xinhua News
    */
   hostname?: string;
   /**
    * @remarks
+   * The description snippet of the search result in HTML format.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 100km/h-0制动能力上，仅有33.3m，不黑不吹，单看这个，<em>小米SU7</em>确实表现不错。而续航方面，101kWh电池容量，实现CLTC续航800km，还有现5分钟补能220km，15分钟补能510km的800V高压平台。而在...
+   * In terms of 100 km/h-0 braking capability, it is only 33.3m. Without bias, just looking at this, the <em>Xiaomi SU7</em> indeed performs well. As for range, with a 101 kWh battery capacity, it achieves a CLTC range of 800 km, and features an 800V high-voltage platform that can add 220 km of range in 5 minutes and 510 km in 15 minutes. And..
    */
   htmlSnippet?: string;
   /**
    * @remarks
+   * The search result title in HTML format.
+   * 
    * This parameter is required.
    * 
    * @example
-   * <em>小米</em>SU7售价22.99万元起 高管亲自辟谣：发布前不会有<em>价格</em>-百家号
+   * <em>Xiaomi</em> SU7 priced from 229,900 yuan, executive personally dispels rumors: no <em>price</em> before launch - Baijiahao
    */
   htmlTitle?: string;
+  /**
+   * @remarks
+   * The image information.
+   */
   images?: IncludeImage[];
   /**
    * @remarks
+   * The full URL that the search result points to.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,54 +92,106 @@ export class ScorePageItem extends $dara.Model {
    */
   link?: string;
   /**
+   * @remarks
+   * The full text of the search result, which is available in some scenarios.
+   * 
    * @example
-   * 昨天	，	小米	汽车	没有	发布	，	但	相关	的	信息	透露	的	差	不	多	了	。		
-   * 		在	发布	会	现场	，	雷军	直接	称	小米	S	U	7	对	标	特斯拉	保时捷	，	有	100	项	行业	领先	，	可见	“	遥遥	领先	”	已经	不再	是	华为	专利	了	？		
-   * 	
-   * 		而	在	介绍	技术	时	，	雷军	也	从	电机	、	电池	、	大	压铸	、	自动	驾驶	、	智能	座舱	等	五	大	方面	展开	，	充分	展示	了	小米	汽车	的	技术	以及	技术	储备	，		 		能	堆	的	料	，	全都	堆	上去	了	…	…		
-   * 		大家	比较	感	兴趣	的	性能	方面	，	2	.	78	s	的	0	-	100	km	/	h	加速	，	265	km	/	h	的	最高	时速
+   * Yesterday, Xiaomi Auto was not launched, but related information has been mostly revealed. At the launch event, Lei Jun directly stated that Xiaomi SU7 benchmarks Tesla and Porsche, with 100 industry-leading features. It seems that "far ahead" is no longer a Huawei patent? When introducing the technology, Lei Jun also expanded on five major aspects: motor, battery, mega casting, autonomous driving, and smart cockpit, fully demonstrating Xiaomi Auto\\"s technology and technical reserves. All the materials that can be stacked are stacked... Regarding the performance that everyone is interested in, 0-100 km/h acceleration in 2.78s, and a top speed of 265 km/h
    */
   mainText?: string;
+  /**
+   * @remarks
+   * The web page body in Markdown format.
+   * 
+   * @example
+   * # 2022 Apsara Conference Homepage
+   */
   markdownText?: string;
   /**
+   * @remarks
+   * The MIME type of the search result.
+   * 
    * @example
    * text/html
    */
   mime?: string;
+  /**
+   * @remarks
+   * The supplementary page information.
+   * 
+   * @example
+   * {}
+   */
   pageMap?: { [key: string]: string };
   /**
    * @remarks
+   * The publish time.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1704426524000
    */
   publishTime?: number;
+  /**
+   * @remarks
+   * The full rich text body, which preserves the order of text, images, audio, video, tables, and code in the web page.
+   * 
+   * @example
+   * <quark-ocr> 24 hx 3 </quark-ocr>
+   */
   richMainBody?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 0.234325235
    */
   score?: number;
   /**
+   * @remarks
+   * The site label. Two types are currently supported:
+   * * Authoritative media
+   *  * Party and government organs
+   * 
    * @example
-   * 权威媒体
+   * Authoritative media
    */
   siteLabel?: string;
   /**
+   * @remarks
+   * The description snippet of the search result in text format.
+   * 
    * @example
-   * 100km/h-0制动能力上，仅有33.3m，不黑不吹，单看这个，小米SU7确实表现不错。而续航方面，101kWh电池容量，实现CLTC续航800km，还有现5分钟补能220km，15分钟补能510km的800V高压平台。而在...
+   * In terms of 100 km/h-0 braking capability, it is only 33.3m. Without bias, just looking at this, the Xiaomi SU7 indeed performs well. As for range, with a 101 kWh battery capacity, it achieves a CLTC range of 800 km, and features an 800V high-voltage platform that can add 220 km of range in 5 minutes and 510 km in 15 minutes. And..
    */
   snippet?: string;
+  /**
+   * @remarks
+   * The enhanced summary.
+   * 
+   * @example
+   * Tomorrow
+   */
   summary?: string;
   /**
    * @remarks
+   * The search result title in plain text.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 小米SU7售价22.99万元起 高管亲自辟谣：发布前不会有价格
+   * Xiaomi SU7 priced from 229,900 yuan, executive personally dispels rumors: no price before launch
    */
   title?: string;
+  /**
+   * @remarks
+   * The static authority score, which is determined solely by the authority of the website itself and is independent of the query content.
+   * 
+   * @example
+   * 3
+   */
   websiteAuthorityScore?: number;
   static names(): { [key: string]: string } {
     return {

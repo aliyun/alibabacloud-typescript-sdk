@@ -5,17 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class GenericAdvancedSearchRequest extends $dara.Model {
   /**
    * @remarks
-   * The industry. After you specify this parameter, only content from websites within the specified industries is recalled. Separate multiple industries with commas.
+   * The industry. If you specify this parameter, only website content specific to the specified industry is recalled. Separate multiple industries with commas.
+   * 
+   * @example
+   * medical
    */
   industry?: string;
   /**
    * @remarks
-   * The query text to search for.
+   * The search query.
    * 
    * This parameter is required.
    * 
    * @example
-   * 苹果手机
+   * iPhone
    */
   query?: string;
   /**
@@ -28,7 +31,7 @@ export class GenericAdvancedSearchRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The time range for filtering web pages by publish time.
+   * The relative query range for the web page publication time. Valid values: OneDay, OneWeek, OneMonth, OneYear, and NoLimit. A value of NoLimit indicates that no time limit is applied.
    * 
    * @example
    * OneWeek

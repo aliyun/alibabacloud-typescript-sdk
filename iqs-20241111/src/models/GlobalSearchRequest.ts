@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalSearchRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number, starting from 1
+   * The page number. The value starts from 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GlobalSearchRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -21,17 +21,17 @@ export class GlobalSearchRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Search query content
+   * The search query.
    * 
    * This parameter is required.
    * 
    * @example
-   * 特朗普最新关税消息
+   * Latest Trump tariff news
    */
   query?: string;
   /**
    * @remarks
-   * Web page publish time range
+   * The relative time range of the webpage publication time. Specify a value based on the relative time options.
    * 
    * @example
    * OneWeek

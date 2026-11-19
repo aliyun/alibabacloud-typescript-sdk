@@ -9,15 +9,15 @@ export class GlobalSceneItem extends $dara.Model {
    * 
    * @example
    * {
-   * "snippet": "截至2025年3月7日，SpaceX星舰已经发射了8次，并取得4次成功及4次失败。",
-   * "snippetHighlighted": ["8次"],
-   * "title": "星舰发射任务列表"
+   * "snippet": "As of March 7, 2025, SpaceX Starship has been launched 8 times, with 4 successes and 4 failures.",
+   * "snippetHighlighted": ["8 times"],
+   * "title": "List of Starship launch missions"
    * }
    */
   detail?: string;
   /**
    * @remarks
-   * The type of the vertical data.
+   * The type of vertical data.
    * 
    * @example
    * answerBox

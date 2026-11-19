@@ -4,6 +4,10 @@ import { CommonAgentQuery } from "./CommonAgentQuery";
 
 
 export class CommonQueryBySceneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: CommonAgentQuery;
   static names(): { [key: string]: string } {
     return {

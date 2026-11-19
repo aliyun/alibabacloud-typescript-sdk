@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetIqsUsageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud RAM user or the API key caller identifier to query.
+   * 
+   * @example
+   * 138608930460****
+   */
   callerId?: string;
   /**
    * @remarks
-   * End Date.
+   * The end date for the usage query, inclusive. The format is YYYYMMDD. The date must be within the last 60 days.
    * 
    * @example
    * 20241017
@@ -14,7 +21,7 @@ export class GetIqsUsageRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Start Date.
+   * The start date for the usage query, inclusive. The format is YYYYMMDD. The date must be within the last 60 days.
    * 
    * @example
    * 20241011

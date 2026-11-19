@@ -6,12 +6,12 @@ import { ReadPageItem } from "./ReadPageItem";
 export class ReadPageScrapeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Parsing result of the target URL
+   * The parsing result of the target URL.
    */
   data?: ReadPageItem;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * null
@@ -19,7 +19,7 @@ export class ReadPageScrapeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
    * null
@@ -27,7 +27,7 @@ export class ReadPageScrapeResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Request ID. Provide this information when troubleshooting issues.
+   * The request ID. You can provide this ID for troubleshooting.
    * 
    * @example
    * 7cd43c86-731a-4d4c-8385-d070cfc509a4

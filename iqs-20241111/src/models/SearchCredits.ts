@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchCredits extends $dara.Model {
   /**
    * @remarks
-   * The number of basic edition text search requests.
+   * The number of basic edition text searches.
    * 
    * @example
    * 1
@@ -13,7 +13,10 @@ export class SearchCredits extends $dara.Model {
   genericTextSearch?: number;
   /**
    * @remarks
-   * The number of LiteAdvanced search requests.
+   * The number of LiteAdvanced searches.
+   * 
+   * @example
+   * 1
    */
   liteAdvancedTextSearch?: number;
   static names(): { [key: string]: string } {

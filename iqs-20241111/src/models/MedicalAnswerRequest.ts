@@ -6,7 +6,7 @@ import { MedicalAnswerInput } from "./MedicalAnswerInput";
 export class MedicalAnswerRequest extends $dara.Model {
   /**
    * @remarks
-   * Search information
+   * The search information.
    */
   body?: MedicalAnswerInput;
   static names(): { [key: string]: string } {

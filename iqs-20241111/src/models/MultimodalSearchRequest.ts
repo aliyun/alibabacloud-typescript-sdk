@@ -6,7 +6,7 @@ import { MultimodalSearchBody } from "./MultimodalSearchBody";
 export class MultimodalSearchRequest extends $dara.Model {
   /**
    * @remarks
-   * Query parameters and site blocking parameters
+   * The query parameters and blocked site parameters.
    */
   body?: MultimodalSearchBody;
   static names(): { [key: string]: string } {

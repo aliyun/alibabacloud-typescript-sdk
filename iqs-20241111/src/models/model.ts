@@ -91,7 +91,5 @@ export { ReadPageBasicResponse } from './ReadPageBasicResponse';
 export { ReadPageScrapeRequest } from './ReadPageScrapeRequest';
 export { ReadPageScrapeResponseBody } from './ReadPageScrapeResponseBody';
 export { ReadPageScrapeResponse } from './ReadPageScrapeResponse';
-export { ScanFileRequest } from './ScanFileRequest';
-export { ScanFileResponse } from './ScanFileResponse';
 export { UnifiedSearchRequest } from './UnifiedSearchRequest';
 export { UnifiedSearchResponse } from './UnifiedSearchResponse';

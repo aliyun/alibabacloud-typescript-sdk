@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,10 +12,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "IQS";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-zhangjiakou': "iqs.cn-zhangjiakou.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("iqs", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -33,11 +34,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+   * Describes how to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK and provides parameter descriptions.
    * 
    * @remarks
-   * Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
-   * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
+   * Provides streaming results in two stages, common_search and post_retrieval, for customers to use on demand. General search results (common_search): the original search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publish time. Post-retrieval processing (post_retrieval): reranks and filters the common_search results from the previous stage by using a rerank model. The mean average precision (mAP) metric for context relevancy of search results is improved by about 5%, and the latency is increased by about 110 ms.
    * 
    * @param request - AiSearchRequest
    * @param headers - map
@@ -100,11 +100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+   * Describes how to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK and provides parameter descriptions.
    * 
    * @remarks
-   * Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
-   * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
+   * Provides streaming results in two stages, common_search and post_retrieval, for customers to use on demand. General search results (common_search): the original search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publish time. Post-retrieval processing (post_retrieval): reranks and filters the common_search results from the previous stage by using a rerank model. The mean average precision (mAP) metric for context relevancy of search results is improved by about 5%, and the latency is increased by about 110 ms.
    * 
    * @param request - AiSearchRequest
    * @param headers - map
@@ -153,11 +152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the method to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK, including parameter descriptions.
+   * Describes how to invoke the multi-stage streaming API V3 for general search by using the Alibaba Cloud OpenAPI SDK and provides parameter descriptions.
    * 
    * @remarks
-   * Provides streaming results in two stages, common_search and post_retrieval, for on-demand use.
-   * General search results (common_search): The raw search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publication time. Post-retrieval processing (post_retrieval): Uses a rerank model to rerank and filter the common_search results from the previous stage. The mAP metric for context relevancy improves by approximately 5%, with an additional latency of approximately 110 ms.
+   * Provides streaming results in two stages, common_search and post_retrieval, for customers to use on demand. General search results (common_search): the original search results. Covers key fields such as web page title, dynamic summary, body text, source website, and publish time. Post-retrieval processing (post_retrieval): reranks and filters the common_search results from the previous stage by using a rerank model. The mean average precision (mAP) metric for context relevancy of search results is improved by about 5%, and the latency is increased by about 110 ms.
    * 
    * @param request - AiSearchRequest
    * @returns AiSearchResponse
@@ -169,10 +167,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自然语言通用查询
+   * Performs general natural language queries.
    * 
    * @remarks
-   * 自然语言搜索通用接口
+   * The general API for natural language search.
    * 
    * @param request - CommonQueryBySceneRequest
    * @param headers - map
@@ -200,10 +198,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自然语言通用查询
+   * Performs general natural language queries.
    * 
    * @remarks
-   * 自然语言搜索通用接口
+   * The general API for natural language search.
    * 
    * @param request - CommonQueryBySceneRequest
    * @returns CommonQueryBySceneResponse
@@ -215,7 +213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to invoke the enhanced search operation (GenericAdvancedSearch) by using the Alibaba Cloud OpenAPI SDK, including the method and metric description. Compared with GenericSearch, GenericAdvancedSearch provides better recall of authoritative websites, with a maximum recall count of 40, delivering improved authoritativeness and data diversity. The response parameters and format of the enhanced operation are consistent with those of GenericAdvancedSearch.
+   * This topic describes how to call the GenericAdvancedSearch operation by using Alibaba Cloud OpenAPI SDKs and provides parameter descriptions. Compared with GenericSearch, GenericAdvancedSearch provides better recall from authoritative websites and returns up to 40 results, delivering more authoritative and diverse data. The response parameters and format of the enhanced operation are the same as those of GenericAdvancedSearch.
    * 
    * @remarks
    * GenericAdvancedSearch is currently in the testing phase. New specifications will be available for purchase in the future.
@@ -263,7 +261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to invoke the enhanced search operation (GenericAdvancedSearch) by using the Alibaba Cloud OpenAPI SDK, including the method and metric description. Compared with GenericSearch, GenericAdvancedSearch provides better recall of authoritative websites, with a maximum recall count of 40, delivering improved authoritativeness and data diversity. The response parameters and format of the enhanced operation are consistent with those of GenericAdvancedSearch.
+   * This topic describes how to call the GenericAdvancedSearch operation by using Alibaba Cloud OpenAPI SDKs and provides parameter descriptions. Compared with GenericSearch, GenericAdvancedSearch provides better recall from authoritative websites and returns up to 40 results, delivering more authoritative and diverse data. The response parameters and format of the enhanced operation are the same as those of GenericAdvancedSearch.
    * 
    * @remarks
    * GenericAdvancedSearch is currently in the testing phase. New specifications will be available for purchase in the future.
@@ -278,7 +276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a general-purpose search.
+   * Performs a general search.
    * 
    * @param tmpReq - GenericSearchRequest
    * @param headers - map
@@ -357,7 +355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a general-purpose search.
+   * Performs a general search.
    * 
    * @param request - GenericSearchRequest
    * @returns GenericSearchResponse
@@ -369,7 +367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query daily usage by dimension for the Information Query Service API
+   * Queries the daily usage of the information query service API.
    * 
    * @param request - GetIqsUsageRequest
    * @param headers - map
@@ -410,7 +408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query daily usage by dimension for the Information Query Service API
+   * Queries the daily usage of the information query service API.
    * 
    * @param request - GetIqsUsageRequest
    * @returns GetIqsUsageResponse
@@ -422,10 +420,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * IQS Search - Global Edition (Global Information Search)
+   * Searches for global information by using the Global Edition search.
    * 
    * @remarks
-   * This document describes the usage and parameter specifications of GlobalSearch, the global edition of IQS Search.
+   * This topic describes how to use the Global Edition search (GlobalSearch) and provides parameter descriptions.
    * 
    * @param request - GlobalSearchRequest
    * @param headers - map
@@ -470,10 +468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * IQS Search - Global Edition (Global Information Search)
+   * Searches for global information by using the Global Edition search.
    * 
    * @remarks
-   * This document describes the usage and parameter specifications of GlobalSearch, the global edition of IQS Search.
+   * This topic describes how to use the Global Edition search (GlobalSearch) and provides parameter descriptions.
    * 
    * @param request - GlobalSearchRequest
    * @returns GlobalSearchResponse
@@ -485,7 +483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Medical Q&A
+   * Provides medical Q&A.
    * 
    * @param request - MedicalAnswerRequest
    * @param headers - map
@@ -513,7 +511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Medical Q&A
+   * Provides medical Q&A.
    * 
    * @param request - MedicalAnswerRequest
    * @returns MedicalAnswerResponse
@@ -525,7 +523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Health Graph
+   * Queries the health graph.
    * 
    * @param request - MedicalKnowledgeRequest
    * @param headers - map
@@ -553,7 +551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Health Graph
+   * Queries the health graph.
    * 
    * @param request - MedicalKnowledgeRequest
    * @returns MedicalKnowledgeResponse
@@ -565,7 +563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Multimodal search
+   * Performs a multimodal search.
    * 
    * @param request - MultimodalSearchRequest
    * @param headers - map
@@ -593,7 +591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Multimodal search
+   * Performs a multimodal search.
    * 
    * @param request - MultimodalSearchRequest
    * @returns MultimodalSearchResponse
@@ -605,7 +603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
+   * This topic describes the SearchStream streaming API for intelligent search and AI chat. Based on retrieval augmented generation (RAG) and large language models, this API accepts natural language questions from users and can automatically execute intent recognition, query rewrite, and content generation, and retrieve data from multiple sources. The API uses the Server-Sent Events (SSE) streaming protocol to return data, supporting real-time output of the infer status, reference sources, and token-by-token generated answers. This API is suitable for AI chat and search scenarios that require low latency and high interpretability.
    * 
    * @param request - OmniAnswerRequest
    * @param headers - map
@@ -647,7 +645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
+   * This topic describes the SearchStream streaming API for intelligent search and AI chat. Based on retrieval augmented generation (RAG) and large language models, this API accepts natural language questions from users and can automatically execute intent recognition, query rewrite, and content generation, and retrieve data from multiple sources. The API uses the Server-Sent Events (SSE) streaming protocol to return data, supporting real-time output of the infer status, reference sources, and token-by-token generated answers. This API is suitable for AI chat and search scenarios that require low latency and high interpretability.
    * 
    * @param request - OmniAnswerRequest
    * @param headers - map
@@ -675,7 +673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes the intelligent search Q&A streaming API (SearchStream). Based on retrieval-augmented generation (RAG) and large language model technologies, this API accepts natural language questions from users and automatically performs intent recognition, query rewrite, multi-source retrieval, and content generation. The API returns data using the Server-Sent Events (SSE) streaming protocol, supporting real-time output of inference status, reference sources, and token-by-token generated answers. It is suitable for AI chat and search scenarios that require low latency and high interpretability.
+   * This topic describes the SearchStream streaming API for intelligent search and AI chat. Based on retrieval augmented generation (RAG) and large language models, this API accepts natural language questions from users and can automatically execute intent recognition, query rewrite, and content generation, and retrieve data from multiple sources. The API uses the Server-Sent Events (SSE) streaming protocol to return data, supporting real-time output of the infer status, reference sources, and token-by-token generated answers. This API is suitable for AI chat and search scenarios that require low latency and high interpretability.
    * 
    * @param request - OmniAnswerRequest
    * @returns OmniAnswerResponse
@@ -687,12 +685,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Quickly retrieve HTML and parse static web page content.
+   * Retrieves HTML and parses static web page content.
    * 
    * @remarks
-   * 1. When the HTTP status code (httpcode) of the target address is less than 500, it is counted as one valid request.  
-   * 2. If the content type (Content-Type) in the response header of the target address is application/pdf, the system automatically triggers PDF parsing (PDF file size must not exceed 20 MB). This operation is counted as an additional valid request.  
-   * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
+   * 1. A request is counted as valid when the HTTP response code of the destination URL is less than 500.
+   * 2. If the content type in the response header of the destination URL is application/pdf, the system automatically triggers PDF parsing (the maximum PDF size is 20 MB). This operation is counted as an additional valid request.
+   * 3. Trial instructions: During the trial period, the API rate limit is 5 QPS, and the trial quota is 1,000 requests per 30 days.
    * 
    * @param request - ReadPageBasicRequest
    * @param headers - map
@@ -720,12 +718,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Quickly retrieve HTML and parse static web page content.
+   * Retrieves HTML and parses static web page content.
    * 
    * @remarks
-   * 1. When the HTTP status code (httpcode) of the target address is less than 500, it is counted as one valid request.  
-   * 2. If the content type (Content-Type) in the response header of the target address is application/pdf, the system automatically triggers PDF parsing (PDF file size must not exceed 20 MB). This operation is counted as an additional valid request.  
-   * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
+   * 1. A request is counted as valid when the HTTP response code of the destination URL is less than 500.
+   * 2. If the content type in the response header of the destination URL is application/pdf, the system automatically triggers PDF parsing (the maximum PDF size is 20 MB). This operation is counted as an additional valid request.
+   * 3. Trial instructions: During the trial period, the API rate limit is 5 QPS, and the trial quota is 1,000 requests per 30 days.
    * 
    * @param request - ReadPageBasicRequest
    * @returns ReadPageBasicResponse
@@ -737,13 +735,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 1. Read HTML and parse web page content through the browser sandbox environment.  
-   * 2. The API starts parsing after all resources on the target page are fully loaded (the maximum waiting duration can be adjusted via the pageTimeout parameter). The overall Duration of the API call is significantly affected by the resource loading performance of the target site.
+   * Reads HTML and parses web page content in a browser sandbox environment. The operation starts parsing after the resources on the target page are fully loaded. You can adjust the maximum wait time by using the pageTimeout parameter. The overall execution duration is significantly affected by the resource loading status of the target site.
    * 
    * @remarks
-   * 1. A request is counted as valid when the HTTP status code (httpcode) of the target URL is less than 500.  
-   * 2. If the content type (Content-Type) in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (PDF files up to 20 MB are supported). This operation is counted as an additional valid request.  
-   * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
+   * 1. A request is counted as a valid request when the HTTP status code of the target URL is less than 500.
+   * 2. If the Content-Type in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (the maximum size of a PDF file that can be processed is 20 MB). This operation is counted as an additional valid request.
+   * 3. Trial description: During the trial period, the API operation is limited to 5 QPS. The trial quota is 1,000 requests per 30 days.
    * 
    * @param request - ReadPageScrapeRequest
    * @param headers - map
@@ -771,13 +768,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 1. Read HTML and parse web page content through the browser sandbox environment.  
-   * 2. The API starts parsing after all resources on the target page are fully loaded (the maximum waiting duration can be adjusted via the pageTimeout parameter). The overall Duration of the API call is significantly affected by the resource loading performance of the target site.
+   * Reads HTML and parses web page content in a browser sandbox environment. The operation starts parsing after the resources on the target page are fully loaded. You can adjust the maximum wait time by using the pageTimeout parameter. The overall execution duration is significantly affected by the resource loading status of the target site.
    * 
    * @remarks
-   * 1. A request is counted as valid when the HTTP status code (httpcode) of the target URL is less than 500.  
-   * 2. If the content type (Content-Type) in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (PDF files up to 20 MB are supported). This operation is counted as an additional valid request.  
-   * 3. Trial terms: During the trial period, the API is limited to 5 queries per second (QPS); the trial quota is 1,000 requests per 30 days.
+   * 1. A request is counted as a valid request when the HTTP status code of the target URL is less than 500.
+   * 2. If the Content-Type in the response header of the target URL is application/pdf, the system automatically triggers PDF parsing (the maximum size of a PDF file that can be processed is 20 MB). This operation is counted as an additional valid request.
+   * 3. Trial description: During the trial period, the API operation is limited to 5 QPS. The trial quota is 1,000 requests per 30 days.
    * 
    * @param request - ReadPageScrapeRequest
    * @returns ReadPageScrapeResponse
@@ -789,47 +785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 扫描文件
-   * 
-   * @param request - ScanFileRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ScanFileResponse
-   */
-  async scanFileWithOptions(request: $_model.ScanFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ScanFileResponse> {
-    request.validate();
-    let req = new $OpenApiUtil.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(request.body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ScanFile",
-      version: "2024-11-11",
-      protocol: "HTTPS",
-      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/scan/file`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ScanFileResponse>(await this.callApi(params, req, runtime), new $_model.ScanFileResponse({}));
-  }
-
-  /**
-   * 扫描文件
-   * 
-   * @param request - ScanFileRequest
-   * @returns ScanFileResponse
-   */
-  async scanFile(request: $_model.ScanFileRequest): Promise<$_model.ScanFileResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.scanFileWithOptions(request, headers, runtime);
-  }
-
-  /**
-   * Provides access to the Tongxiao unified search API, enabling quick and easy integration of web-wide general search capabilities.
+   * Provides the Tongxiao unified search API to quickly and easily integrate web-wide general search capabilities.
    * 
    * @param request - UnifiedSearchRequest
    * @param headers - map
@@ -857,7 +813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides access to the Tongxiao unified search API, enabling quick and easy integration of web-wide general search capabilities.
+   * Provides the Tongxiao unified search API to quickly and easily integrate web-wide general search capabilities.
    * 
    * @param request - UnifiedSearchRequest
    * @returns UnifiedSearchResponse

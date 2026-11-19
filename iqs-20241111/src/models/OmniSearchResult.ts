@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class OmniSearchResult extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 35E5608A-A737-2038-AFB6-D9D34C6BFD9E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

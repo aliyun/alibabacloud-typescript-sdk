@@ -8,7 +8,7 @@ export class UnifiedOriginalQuery extends $dara.Model {
    * The request query.
    * 
    * @example
-   * 杭州美食
+   * Hangzhou cuisine
    */
   query?: string;
   /**

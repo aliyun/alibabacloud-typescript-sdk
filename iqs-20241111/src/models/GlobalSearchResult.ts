@@ -9,7 +9,7 @@ import { GlobalSearchInformation } from "./GlobalSearchInformation";
 export class GlobalSearchResult extends $dara.Model {
   /**
    * @remarks
-   * The list of web page content.
+   * The web page content list.
    */
   pageItems?: GlobalPageItem[];
   /**
@@ -19,7 +19,7 @@ export class GlobalSearchResult extends $dara.Model {
   queryContext?: GlobalQueryContext;
   /**
    * @remarks
-   * The request ID.
+   * requestId
    * 
    * @example
    * 123456
@@ -27,7 +27,7 @@ export class GlobalSearchResult extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scenario-specific vertical API recall results.
+   * The scenario-specific vertical API recall.
    */
   sceneItems?: GlobalSceneItem[];
   /**

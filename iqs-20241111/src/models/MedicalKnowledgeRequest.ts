@@ -6,7 +6,7 @@ import { MedicalKnowInput } from "./MedicalKnowInput";
 export class MedicalKnowledgeRequest extends $dara.Model {
   /**
    * @remarks
-   * Health Graph query conditions
+   * The query conditions for the health graph.
    */
   body?: MedicalKnowInput;
   static names(): { [key: string]: string } {

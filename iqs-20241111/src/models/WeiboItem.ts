@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class WeiboItem extends $dara.Model {
   /**
    * @remarks
+   * The search result template. Fixed as weibo_strong for Weibo scenarios.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +14,34 @@ export class WeiboItem extends $dara.Model {
    */
   cardType?: string;
   /**
+   * @remarks
+   * The Weibo homepage of the user.
+   * 
    * @example
    * https://m.weibo.cn/u/7761793874?luicode=20000061&lfid=5024099350350075
    */
   homepageLink?: string;
   /**
    * @remarks
+   * The content of the Weibo post.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 【小调查：你会买<em>小米SU7</em>吗？】#小米SU7路测覆盖300多城市#4月17日，@小米汽车 发文称SU7道路测试覆盖全国300多个城市，涵盖极寒，极热天气，总里程数高达540万公里，目前仍在进行中。  网页链接
+   * [Quick poll: Would you buy the Xiaomi SU7?]
+   * #Xiaomi SU7 road tests now cover more than 300 cities#
+   * On April 17, @Xiaomi Auto posted that SU7 road testing now covers over 300 cities nationwide, including tests in extremely cold and extremely hot weather. The total test mileage has reached 5.4 million kilometers and is still ongoing. Web link
    */
   htmlSnippet?: string;
+  /**
+   * @remarks
+   * The image information.
+   */
   images?: string[];
   /**
    * @remarks
+   * The Weibo URL of the search result.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,15 +50,20 @@ export class WeiboItem extends $dara.Model {
   link?: string;
   /**
    * @remarks
+   * The publish time.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1小时前
+   * An hour ago
    */
   publishDisplayTime?: string;
   /**
+   * @remarks
+   * The Weibo username.
+   * 
    * @example
-   * 白鹿科技
+   * Bailu Tech
    */
   username?: string;
   static names(): { [key: string]: string } {

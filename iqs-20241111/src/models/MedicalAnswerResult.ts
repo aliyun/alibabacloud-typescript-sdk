@@ -6,9 +6,28 @@ import { UnifiedSearchInformation } from "./UnifiedSearchInformation";
 
 
 export class MedicalAnswerResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of medical Q&A answers. An empty array is returned if the question is empty or no content is matched.
+   */
   messages?: MedicalAnswerMessage[];
+  /**
+   * @remarks
+   * The query context information, such as the original query content.
+   */
   queryContext?: MultimodalQueryContext;
+  /**
+   * @remarks
+   * The ID of the request. You can provide this ID for troubleshooting.
+   * 
+   * @example
+   * 35E5608A-A737-2038-AFB6-D9D34C6BFD9E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The search information, such as the execution duration.
+   */
   searchInformation?: UnifiedSearchInformation;
   static names(): { [key: string]: string } {
     return {

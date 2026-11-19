@@ -10,18 +10,22 @@ export class RequestContents extends $dara.Model {
   mainText?: boolean;
   /**
    * @remarks
-   * Specifies whether to return markdown. Default value: false.
+   * Specifies whether to return Markdown. Default value: false.
    */
   markdownText?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable Rerank and return the RerankScore. Default value: true.
+   * Specifies whether to enable reranking and return the rerank score. Default value: true.
    */
   rerankScore?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the full rich text content.
+   */
   richMainBody?: boolean;
   /**
    * @remarks
-   * Specifies whether to return an enhanced summary. Default value: false. The summary feature is billed separately.
+   * Specifies whether to return the enhanced summary. Default value: false. The summary feature is billed separately.
    */
   summary?: boolean;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MultimodalSearchBody extends $dara.Model {
   /**
    * @remarks
-   * Additional query parameters, such as blocked sites
+   * The additional query items, such as blocked sites.
    * 
    * @example
    * {
@@ -13,13 +13,20 @@ export class MultimodalSearchBody extends $dara.Model {
    *   }
    */
   advancedParams?: { [key: string]: any };
+  /**
+   * @remarks
+   * The search engine type.
+   * 
+   * @example
+   * Generic
+   */
   engineType?: string;
   /**
    * @remarks
-   * Query content
+   * The query content.
    * 
    * @example
-   * 阿里巴巴
+   * Alibaba
    */
   query?: string;
   static names(): { [key: string]: string } {

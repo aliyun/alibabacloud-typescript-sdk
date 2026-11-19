@@ -6,21 +6,33 @@ export class AiSearchResponseBodyHeaderQueryContextOriginalQuery extends $dara.M
   /**
    * @remarks
    * The industry.
+   * 
+   * @example
+   * medical
    */
   industry?: string;
   /**
    * @remarks
    * The page number.
+   * 
+   * @example
+   * 1
    */
   page?: number;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
+   * 
+   * @example
+   * Hangzhou cuisine
    */
   query?: string;
   /**
    * @remarks
    * The time range.
+   * 
+   * @example
+   * NoLimit
    */
   timeRange?: string;
   static names(): { [key: string]: string } {
@@ -53,12 +65,15 @@ export class AiSearchResponseBodyHeaderQueryContextOriginalQuery extends $dara.M
 export class AiSearchResponseBodyHeaderQueryContextRewrite extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether query rewriting is enabled.
+   * Specifies whether query rewrite is enabled.
    */
   enabled?: boolean;
   /**
    * @remarks
    * The rewritten time range.
+   * 
+   * @example
+   * OneMonth
    */
   timeRange?: string;
   static names(): { [key: string]: string } {
@@ -148,7 +163,7 @@ export class AiSearchResponseBodyHeader extends $dara.Model {
   queryContext?: AiSearchResponseBodyHeaderQueryContext;
   /**
    * @remarks
-   * The response time, in milliseconds.
+   * The time taken (ms).
    * 
    * @example
    * 1293
@@ -187,12 +202,12 @@ export class AiSearchResponseBodyHeader extends $dara.Model {
 export class AiSearchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The header of the response.
+   * The header of the returned result.
    */
   header?: AiSearchResponseBodyHeader;
   /**
    * @remarks
-   * The payload of the response. The value is a JSON structure that varies by event type.
+   * The payload of the returned result in JSON format. The structure varies based on the event.
    * 
    * @example
    * {"header":{"eventId":"6f617de0-204f-406f-a9be-34779c06d498","event":"on_common_search_start","responseTime":120},"payload":"","requestId":"715d01a0-de7e-42c3-abca-b901fcd79b39"}

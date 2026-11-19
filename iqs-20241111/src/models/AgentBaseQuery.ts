@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AgentBaseQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The natural language question used to retrieve nearby locations.
+   * 
+   * @example
+   * Luxury hotels within 5 km of Lingyin Temple in Hangzhou
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {

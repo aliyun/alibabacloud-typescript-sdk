@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalQueryContextOriginalQuery extends $dara.Model {
   /**
    * @remarks
-   * 页码
+   * The page number.
    * 
    * @example
    * 1
@@ -13,15 +13,15 @@ export class GlobalQueryContextOriginalQuery extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * 查询关键字
+   * The query keyword.
    * 
    * @example
-   * 特朗普关税最新消息
+   * Latest news on Trump tariffs
    */
   query?: string;
   /**
    * @remarks
-   * 时间范围
+   * The time range.
    * 
    * @example
    * NoLimit

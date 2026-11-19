@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ScanFileInputConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The automatic trim.
+   * 
+   * @example
+   * true
+   */
   autoCrop?: string;
+  /**
+   * @remarks
+   * The automatic rotation.
+   * 
+   * @example
+   * true
+   */
   autoRotate?: string;
   static names(): { [key: string]: string } {
     return {

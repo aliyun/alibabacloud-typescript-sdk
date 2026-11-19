@@ -6,9 +6,28 @@ import { UnifiedSearchInformation } from "./UnifiedSearchInformation";
 
 
 export class MedicalKnowResult extends $dara.Model {
+  /**
+   * @remarks
+   * The list of recognized entity property results. An empty array is returned if no entities are recognized.
+   */
   messages?: MedicalKnowledgeInfo[];
+  /**
+   * @remarks
+   * The query context information, such as the original query content.
+   */
   queryContext?: MultimodalQueryContext;
+  /**
+   * @remarks
+   * The ID of the request, which can be provided for troubleshooting.
+   * 
+   * @example
+   * 35E5608A-A737-2038-AFB6-D9D34C6BFD9E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The search information for the query, such as the search duration.
+   */
   searchInformation?: UnifiedSearchInformation;
   static names(): { [key: string]: string } {
     return {

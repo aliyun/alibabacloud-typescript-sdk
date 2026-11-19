@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MultimodalOriginalQuery extends $dara.Model {
+  /**
+   * @remarks
+   * The query conditions.
+   * 
+   * @example
+   * Alibaba
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {

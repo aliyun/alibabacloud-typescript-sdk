@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchInformation extends $dara.Model {
+  /**
+   * @remarks
+   * The search time, in milliseconds (ms).
+   * 
+   * @example
+   * 700
+   */
   searchTime?: number;
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 13
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
