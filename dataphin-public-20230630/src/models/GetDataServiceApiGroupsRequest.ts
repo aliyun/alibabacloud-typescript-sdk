@@ -14,13 +14,16 @@ export class GetDataServiceApiGroupsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The Data Service project ID.
+   * The data service project ID.
    * 
    * This parameter is required.
    * 

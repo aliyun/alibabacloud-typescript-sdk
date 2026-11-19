@@ -15,7 +15,7 @@ export class ParseBatchTaskDependencyRequestParseCommand extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The catalog for a database SQL node. This parameter takes effect only for data source types that require a catalog, such as Presto.
+   * The data source catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
    * 
    * @example
    * mysql_catalog
@@ -23,7 +23,7 @@ export class ParseBatchTaskDependencyRequestParseCommand extends $dara.Model {
   dataSourceCatalog?: string;
   /**
    * @remarks
-   * The data source ID for a database SQL node.
+   * The data source ID for database SQL nodes.
    * 
    * @example
    * 12131111
@@ -31,7 +31,7 @@ export class ParseBatchTaskDependencyRequestParseCommand extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The schema for a database SQL node. This parameter takes effect only for data source types that require a schema, such as Oracle.
+   * The data source schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
    * 
    * @example
    * erp
@@ -39,12 +39,12 @@ export class ParseBatchTaskDependencyRequestParseCommand extends $dara.Model {
   dataSourceSchema?: string;
   /**
    * @remarks
-   * Specifies whether to include dependency information for input tables that have no corresponding nodes. Default value: false.
+   * Specifies whether to include dependency information for input tables that do not have corresponding nodes. Default value: false.
    */
   includeAllInputTables?: boolean;
   /**
    * @remarks
-   * Specifies whether to query data lineage when querying upstream dependencies. Default value: false.
+   * Specifies whether to query lineage data when querying upstream dependencies. Default value: false.
    */
   needQueryLineages?: boolean;
   /**
@@ -114,13 +114,16 @@ export class ParseBatchTaskDependencyRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The parse request.
+   * The parsing request.
    * 
    * This parameter is required.
    */

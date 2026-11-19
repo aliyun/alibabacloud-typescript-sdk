@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKgNeighborResponseBodyDataEdgeListPropertyList extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The code of the property.
    * 
    * @example
    * company_name
@@ -13,7 +13,13 @@ export class GetKgNeighborResponseBodyDataEdgeListPropertyList extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+   * The data type of the property. Valid values:
+   * - STRING: String.
+   * - INTEGER: Integer.
+   * - FLOAT: Floating-point number.
+   * - BOOLEAN: Boolean.
+   * - DATE: Date.
+   * - LIST: List.
    * 
    * @example
    * STRING
@@ -21,7 +27,7 @@ export class GetKgNeighborResponseBodyDataEdgeListPropertyList extends $dara.Mod
   dataType?: string;
   /**
    * @remarks
-   * The property value.
+   * The value of the property.
    * 
    * @example
    * Alibaba
@@ -55,12 +61,12 @@ export class GetKgNeighborResponseBodyDataEdgeListPropertyList extends $dara.Mod
 export class GetKgNeighborResponseBodyDataEdgeList extends $dara.Model {
   /**
    * @remarks
-   * The relation record property list.
+   * The list of properties for the relation record.
    */
   propertyList?: GetKgNeighborResponseBodyDataEdgeListPropertyList[];
   /**
    * @remarks
-   * The relation record ID.
+   * The ID of the relation record.
    * 
    * @example
    * abc-xxx
@@ -68,7 +74,7 @@ export class GetKgNeighborResponseBodyDataEdgeList extends $dara.Model {
   relationId?: string;
   /**
    * @remarks
-   * The relation type code.
+   * The code of the relation type.
    * 
    * @example
    * BELONG_TO
@@ -76,7 +82,7 @@ export class GetKgNeighborResponseBodyDataEdgeList extends $dara.Model {
   relationType?: string;
   /**
    * @remarks
-   * The source entity ID.
+   * The ID of the source entity.
    * 
    * @example
    * abc-xxx
@@ -84,7 +90,7 @@ export class GetKgNeighborResponseBodyDataEdgeList extends $dara.Model {
   sourceEntityId?: string;
   /**
    * @remarks
-   * The target entity ID.
+   * The ID of the target entity.
    * 
    * @example
    * abd-xxx
@@ -125,7 +131,7 @@ export class GetKgNeighborResponseBodyDataEdgeList extends $dara.Model {
 export class GetKgNeighborResponseBodyDataNodeListPropertyList extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The code of the property.
    * 
    * @example
    * company_name
@@ -133,7 +139,13 @@ export class GetKgNeighborResponseBodyDataNodeListPropertyList extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+   * The data type of the property. Valid values:
+   * - STRING: String.
+   * - INTEGER: Integer.
+   * - FLOAT: Floating-point number.
+   * - BOOLEAN: Boolean.
+   * - DATE: Date.
+   * - LIST: List.
    * 
    * @example
    * STRING
@@ -141,7 +153,7 @@ export class GetKgNeighborResponseBodyDataNodeListPropertyList extends $dara.Mod
   dataType?: string;
   /**
    * @remarks
-   * The property value.
+   * The value of the property.
    * 
    * @example
    * Alibaba
@@ -175,7 +187,7 @@ export class GetKgNeighborResponseBodyDataNodeListPropertyList extends $dara.Mod
 export class GetKgNeighborResponseBodyDataNodeList extends $dara.Model {
   /**
    * @remarks
-   * The entity record ID.
+   * The ID of the entity record.
    * 
    * @example
    * abc-xxx
@@ -183,7 +195,7 @@ export class GetKgNeighborResponseBodyDataNodeList extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The entity type code.
+   * The code of the entity type.
    * 
    * @example
    * Company
@@ -191,7 +203,7 @@ export class GetKgNeighborResponseBodyDataNodeList extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity record property list.
+   * The list of properties for the entity record.
    */
   propertyList?: GetKgNeighborResponseBodyDataNodeListPropertyList[];
   static names(): { [key: string]: string } {
@@ -225,12 +237,12 @@ export class GetKgNeighborResponseBodyDataNodeList extends $dara.Model {
 export class GetKgNeighborResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The edge list.
+   * The list of edges.
    */
   edgeList?: GetKgNeighborResponseBodyDataEdgeList[];
   /**
    * @remarks
-   * The node list.
+   * The list of nodes.
    */
   nodeList?: GetKgNeighborResponseBodyDataNodeList[];
   static names(): { [key: string]: string } {
@@ -302,7 +314,7 @@ export class GetKgNeighborResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

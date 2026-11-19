@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStreamOpsRecordsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * deploymentId
+   * The deployment ID of the task. This ID is used to identify the deployment and is different from the specific running instance ID deploymentInstanceId.
    * 
    * @example
    * ac6e5a34bbd44d7f8b7851ef28c90d12
@@ -13,7 +13,7 @@ export class ListStreamOpsRecordsResponseBodyData extends $dara.Model {
   deploymentId?: string;
   /**
    * @remarks
-   * deploymentInstanceId
+   * The deployment instance ID associated with this operation. This ID corresponds to the DeploymentInstanceId request parameter in the log and TaskManager query operations.
    * 
    * @example
    * 7db678957dc449aab0086b931c9f8218
@@ -21,7 +21,7 @@ export class ListStreamOpsRecordsResponseBodyData extends $dara.Model {
   deploymentInstanceId?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time of the operation. The time is in the yyyy-MM-dd HH:mm:ss format. If the operation has not ended, the value may be null.
    * 
    * @example
    * 2026-10-15 13:46:40
@@ -29,7 +29,7 @@ export class ListStreamOpsRecordsResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The log content.
+   * The operation logs. In the ListStreamOpsRecords response, this field may contain a log storage identity. After you invoke the GetStreamOpsRecord operation, the log content or operation information is returned.
    * 
    * @example
    * 2026-10-15 13:46:26 INFO Starting Flink deployment
@@ -37,7 +37,7 @@ export class ListStreamOpsRecordsResponseBodyData extends $dara.Model {
   logContent?: string;
   /**
    * @remarks
-   * The instance status. Valid values: START, PAUSE, RESUME, and STOP. Displayed as Start, Pause, Recover, or Stop.
+   * The type of the operation. Valid values: START, PAUSE, RESUME, and STOP. This field does not represent the running status of the task.
    * 
    * @example
    * START
@@ -45,7 +45,7 @@ export class ListStreamOpsRecordsResponseBodyData extends $dara.Model {
   operate?: string;
   /**
    * @remarks
-   * opsRecordId
+   * The ID of the operation record. This ID corresponds to the OpsRecordId request parameter of the GetStreamOpsRecord operation.
    * 
    * @example
    * 646
@@ -53,7 +53,7 @@ export class ListStreamOpsRecordsResponseBodyData extends $dara.Model {
   opsRecordId?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time of the operation. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-10-15 13:46:26
@@ -103,7 +103,7 @@ export class ListStreamOpsRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The start and stop operation records of real-time tasks.
+   * The start and stop operation records for real-time tasks. You can use the log storage identifiers in the list to query the log content by calling the GetStreamOpsRecord operation.
    */
   data?: ListStreamOpsRecordsResponseBodyData[];
   /**

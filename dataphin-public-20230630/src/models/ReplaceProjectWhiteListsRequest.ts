@@ -8,7 +8,7 @@ export class ReplaceProjectWhiteListsRequestReplaceCommandWhiteLists extends $da
    * The description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
@@ -110,6 +110,9 @@ export class ReplaceProjectWhiteListsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

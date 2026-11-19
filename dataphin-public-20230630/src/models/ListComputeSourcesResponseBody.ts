@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the compute source is bound to a project.
+   * Specifies whether the compute source is bound to a project.
    */
   bindProject?: boolean;
   /**
@@ -26,7 +26,7 @@ export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $
   bindProjectName?: string;
   /**
    * @remarks
-   * The ID of the creator.
+   * The creator.
    * 
    * @example
    * 30012211
@@ -34,15 +34,15 @@ export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $
   creator?: string;
   /**
    * @remarks
-   * The name of the creator.
+   * The creator.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   creatorName?: string;
   /**
    * @remarks
-   * The description of the compute source.
+   * The description.
    * 
    * @example
    * test
@@ -50,7 +50,7 @@ export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $
   description?: string;
   /**
    * @remarks
-   * The display name of the compute source.
+   * The display name.
    * 
    * @example
    * test1011
@@ -58,7 +58,7 @@ export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $
   displayName?: string;
   /**
    * @remarks
-   * The time when the compute source was created, in the yyyy-MM-dd HH:mm:ss format.
+   * The creation time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -66,7 +66,7 @@ export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the compute source was last modified, in the yyyy-MM-dd HH:mm:ss format.
+   * The update time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -90,7 +90,7 @@ export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $
   name?: string;
   /**
    * @remarks
-   * The ID of the compute source owner.
+   * The owner of the compute source.
    * 
    * @example
    * 30012211
@@ -98,15 +98,15 @@ export class ListComputeSourcesResponseBodyPageResultComputeSourceList extends $
   owner?: string;
   /**
    * @remarks
-   * The name of the compute source owner.
+   * The owner of the compute source.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The type of the compute source.
+   * The compute source type.
    * 
    * @example
    * MaxCompute
@@ -167,7 +167,7 @@ export class ListComputeSourcesResponseBodyPageResult extends $dara.Model {
   computeSourceList?: ListComputeSourcesResponseBodyPageResultComputeSourceList[];
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 68
@@ -202,7 +202,7 @@ export class ListComputeSourcesResponseBodyPageResult extends $dara.Model {
 export class ListComputeSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -218,7 +218,7 @@ export class ListComputeSourcesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -226,12 +226,12 @@ export class ListComputeSourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paginated query result.
+   * The paging query result.
    */
   pageResult?: ListComputeSourcesResponseBodyPageResult;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
@@ -239,7 +239,7 @@ export class ListComputeSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

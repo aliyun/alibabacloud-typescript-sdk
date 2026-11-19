@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends $dara.Model {
   /**
    * @remarks
-   * The approval flow ID.
+   * The ID of the approval process.
    * 
    * @example
    * 221323121212
@@ -13,7 +13,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   approvalId?: string;
   /**
    * @remarks
-   * The approval status. For more information, refer to the query business entity details operation.
+   * The approval status. For more information, see the operation for querying business entity details.
    * 
    * @example
    * APPROVING
@@ -21,7 +21,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   approvalStatus?: string;
   /**
    * @remarks
-   * The list of child business objects of the business object.
+   * The list of IDs of child business objects.
    */
   childBizEntityIdList?: number[];
   /**
@@ -42,7 +42,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   displayName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the business object was created.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -50,7 +50,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the business object was last updated.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -58,7 +58,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   gmtModified?: string;
   /**
    * @remarks
-   * The business object ID.
+   * The ID of the business object.
    * 
    * @example
    * 1011
@@ -77,12 +77,12 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
    * The name of the user who last modified the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
    * @remarks
-   * The code name of the business object.
+   * The code of the business object.
    * 
    * @example
    * create_object_code_name
@@ -90,7 +90,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   name?: string;
   /**
    * @remarks
-   * The online status. For more information, refer to the query business entity details operation.
+   * The online status. For more information, see the operation for querying business entity details.
    * 
    * @example
    * 1
@@ -98,15 +98,15 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   onlineStatus?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the owner of the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the owner of the business object.
    * 
    * @example
    * 30010010
@@ -114,7 +114,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   ownerUserId?: string;
   /**
    * @remarks
-   * The parent entity that the business object inherits from. Only common business objects support inheritance, and the parent entity must be online.
+   * The ID of the parent entity inherited by the business object. Only common business objects can be configured to inherit entities, and they can only inherit online business objects.
    * 
    * @example
    * 116306
@@ -122,7 +122,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   parentId?: number;
   /**
    * @remarks
-   * The list of associated online business entity IDs.
+   * The list of IDs of associated online business entities.
    */
   refBizEntityIdList?: number[];
   /**
@@ -135,7 +135,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   refDimTableCount?: number;
   /**
    * @remarks
-   * The number of associated aggregate tables.
+   * The number of associated logical aggregate tables.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   refSummaryTableCount?: number;
   /**
    * @remarks
-   * The status. For more information, refer to the query business entity details operation.
+   * The status. For more information, see the operation for querying business entity details.
    * 
    * @example
    * 100
@@ -151,7 +151,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
   status?: string;
   /**
    * @remarks
-   * The object type of the business object. For more information, refer to the query business entity details operation.
+   * The object type of the business object. For more information, see the operation for querying business entity details.
    * 
    * @example
    * NORMAL
@@ -225,7 +225,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject extends
 export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extends $dara.Model {
   /**
    * @remarks
-   * The approval flow ID.
+   * The ID of the approval process.
    * 
    * @example
    * 221323121212
@@ -233,7 +233,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   approvalId?: string;
   /**
    * @remarks
-   * The approval status. For more information, refer to the query business entity details operation.
+   * The approval status. For more information, see the operation for querying business entity details.
    * 
    * @example
    * APPROVING
@@ -241,12 +241,12 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   approvalStatus?: string;
   /**
    * @remarks
-   * The list of business event activity IDs contained in the business flow activity. This parameter is valid only when the type is a business flow activity.
+   * The list of business event activity IDs included in the business process activity. This field is valid only when the entity is a business process activity.
    */
   bizEventEntityIdList?: number[];
   /**
    * @remarks
-   * The description of the business process.
+   * The description of the business activity.
    * 
    * @example
    * test
@@ -254,15 +254,15 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   description?: string;
   /**
    * @remarks
-   * The display name of the business process.
+   * The display name of the business activity.
    * 
    * @example
-   * 业务活动测试
+   * Business activity test
    */
   displayName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the business object was created.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -270,7 +270,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the business object was last updated.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -278,12 +278,12 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the business process is depended on by other entities.
+   * Indicates whether the business process activity has dependents.
    */
   hasDependent?: boolean;
   /**
    * @remarks
-   * The business process ID.
+   * The ID of the business activity.
    * 
    * @example
    * 1011
@@ -302,12 +302,12 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
    * The name of the user who last modified the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
    * @remarks
-   * The name of the business process.
+   * The name of the business activity.
    * 
    * @example
    * create_process_code_name
@@ -315,7 +315,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   name?: string;
   /**
    * @remarks
-   * The online status. For more information, refer to the query business entity details operation.
+   * The online status. For more information, see the operation for querying business entity details.
    * 
    * @example
    * 1
@@ -323,15 +323,15 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   onlineStatus?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the owner of the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the owner of the business object.
    * 
    * @example
    * 30010010
@@ -339,17 +339,17 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   ownerUserId?: string;
   /**
    * @remarks
-   * The preceding business flow activities of the business flow activity.
+   * The preceding business process activities of the current business process activity.
    */
   preBizProcessIdList?: number[];
   /**
    * @remarks
-   * The list of associated online business entity IDs.
+   * The list of IDs of associated online business entities.
    */
   refBizEntityIdList?: number[];
   /**
    * @remarks
-   * The number of associated fact tables.
+   * The number of associated logical fact tables.
    * 
    * @example
    * 1
@@ -357,7 +357,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   refFactTableCount?: number;
   /**
    * @remarks
-   * The status. For more information, refer to the query business entity details operation.
+   * The status. For more information, see the operation for querying business entity details.
    * 
    * @example
    * 100
@@ -365,7 +365,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess extend
   status?: string;
   /**
    * @remarks
-   * The type of the business process. For more information, refer to the query business entity details operation.
+   * The type of the business activity. For more information, see the operation for querying business entity details.
    * 
    * @example
    * BIZ_EVENT
@@ -447,12 +447,12 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfo extends $dara.Mo
   bizObject?: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizObject;
   /**
    * @remarks
-   * The business process.
+   * The business activity.
    */
   bizProcess?: GetBizEntityInfoByVersionResponseBodyBizEntityInfoBizProcess;
   /**
    * @remarks
-   * The business unit ID of the business object.
+   * The ID of the business unit to which the business object belongs.
    * 
    * @example
    * 6798087749072704
@@ -460,7 +460,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfo extends $dara.Mo
   bizUnitId?: number;
   /**
    * @remarks
-   * The ID of the subject domain to which the entity belongs.
+   * The ID of the data domain to which the entity belongs.
    * 
    * @example
    * 20101011
@@ -468,7 +468,7 @@ export class GetBizEntityInfoByVersionResponseBodyBizEntityInfo extends $dara.Mo
   dataDomainId?: number;
   /**
    * @remarks
-   * The type of the business entity. For more information, refer to the query business entity details operation.
+   * The business entity type. For more information, see the Query business entity details API operation.
    * 
    * @example
    * BIZ_OBJECT
@@ -517,7 +517,7 @@ export class GetBizEntityInfoByVersionResponseBody extends $dara.Model {
   bizEntityInfo?: GetBizEntityInfoByVersionResponseBodyBizEntityInfo;
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -549,7 +549,7 @@ export class GetBizEntityInfoByVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

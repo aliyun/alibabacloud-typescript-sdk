@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTransferInfoResponseBodyDataCreator extends $dara.Model {
   /**
    * @remarks
-   * The username.
+   * The display name of the user.
    * 
    * @example
    * zhangsan
@@ -45,7 +45,7 @@ export class GetTransferInfoResponseBodyDataCreator extends $dara.Model {
 export class GetTransferInfoResponseBodyDataLastModifier extends $dara.Model {
   /**
    * @remarks
-   * The username.
+   * The display name of the user.
    * 
    * @example
    * zhangsan
@@ -85,7 +85,7 @@ export class GetTransferInfoResponseBodyDataLastModifier extends $dara.Model {
 export class GetTransferInfoResponseBodyDataNewOwner extends $dara.Model {
   /**
    * @remarks
-   * The username.
+   * The display name of the user.
    * 
    * @example
    * zhangsan
@@ -125,7 +125,7 @@ export class GetTransferInfoResponseBodyDataNewOwner extends $dara.Model {
 export class GetTransferInfoResponseBodyDataOldOwner extends $dara.Model {
   /**
    * @remarks
-   * The username.
+   * The display name of the user.
    * 
    * @example
    * zhangsan
@@ -173,7 +173,7 @@ export class GetTransferInfoResponseBodyDataPrivilegeTransferResultEntries exten
   errMsg?: string;
   /**
    * @remarks
-   * The name of the transfer module.
+   * The name of the transferred module.
    * 
    * @example
    * table owner
@@ -181,7 +181,7 @@ export class GetTransferInfoResponseBodyDataPrivilegeTransferResultEntries exten
   privilegeDisplayName?: string;
   /**
    * @remarks
-   * The status of the transfer module.
+   * The status of the transferred module.
    * 
    * @example
    * SUCCESS
@@ -259,9 +259,7 @@ export class GetTransferInfoResponseBodyData extends $dara.Model {
   oldOwner?: GetTransferInfoResponseBodyDataOldOwner;
   /**
    * @remarks
-   * The transfer mode. Valid values:
-   * - ONE_STOP: one-click transfer.
-   * - FUNCTION_MODULE_BASED: transfer by function module.
+   * The transfer mode. Valid values: ONE_STOP: one-click transfer. FUNCTION_MODULE_BASED: transfer by feature module.
    * 
    * @example
    * ONE_STOP
@@ -269,12 +267,12 @@ export class GetTransferInfoResponseBodyData extends $dara.Model {
   privilegeTransferMode?: string;
   /**
    * @remarks
-   * The transfer details of function modules.
+   * The transfer details of feature modules.
    */
   privilegeTransferResultEntries?: GetTransferInfoResponseBodyDataPrivilegeTransferResultEntries[];
   /**
    * @remarks
-   * The approval ID.
+   * The approval ticket ID.
    * 
    * @example
    * 1
@@ -282,7 +280,7 @@ export class GetTransferInfoResponseBodyData extends $dara.Model {
   proposalId?: number;
   /**
    * @remarks
-   * The approval title.
+   * The title of the approval ticket.
    * 
    * @example
    * transefer title
@@ -367,7 +365,7 @@ export class GetTransferInfoResponseBodyData extends $dara.Model {
 export class GetTransferInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -404,7 +402,7 @@ export class GetTransferInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

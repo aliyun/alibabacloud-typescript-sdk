@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Business unit ID of the input table.
+   * The ID of the business unit to which the input table belongs.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputBizUnitId?: number;
   /**
    * @remarks
-   * GUID of the input column.
+   * The GUID of the input field.
    * 
    * @example
    * odps.123.test_project.input_table.id
@@ -21,7 +21,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputColumnId?: string;
   /**
    * @remarks
-   * Input column name.
+   * The name of the input field.
    * 
    * @example
    * id
@@ -29,7 +29,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputColumnName?: string;
   /**
    * @remarks
-   * Data source ID of the input table.
+   * The ID of the data source to which the input table belongs.
    * 
    * @example
    * 123
@@ -37,7 +37,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputDataSourceId?: number;
   /**
    * @remarks
-   * Storage type of the input table.
+   * The storage format of the input table.
    * 
    * @example
    * MAX_COMPUTE
@@ -45,7 +45,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputDataSourceType?: string;
   /**
    * @remarks
-   * Database type of the input table.
+   * The type of the input data source.
    * 
    * @example
    * MAX_COMPUTE
@@ -53,7 +53,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputDbType?: string;
   /**
    * @remarks
-   * Environment of the input table: DEV or PROD.
+   * The environment of the input table. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -61,7 +61,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputEnv?: string;
   /**
    * @remarks
-   * Project ID of the input table.
+   * The ID of the project to which the input table belongs.
    * 
    * @example
    * 123
@@ -74,11 +74,10 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputTableDeleted?: boolean;
   /**
    * @remarks
-   * GUID of the input table. Each asset has a unique GUID in the following format: 
-   * 
-   * - Logical table: dp_table.[TenantId].[BizUnitName].[TableName]
-   * - Compute source physical table: [EngineType].[TenantId].[ProjectName].[TableName]
-   * - Data source table: dp_ds_table.[TenantId].[DataSourceId].[SchemaName].[TableName]
+   * The GUID of the input table. Each asset has a unique GUID in one of the following formats:
+   * - Logical table: dp_table.[Tenant ID].[Business unit name].[Table name]
+   * - Physical table of a compute source: [Engine type].[Tenant ID].[Project name].[Table name]
+   * - Data source table: dp_ds_table.[Tenant ID].[Data source ID].[Schema name].[Table name]
    * 
    * @example
    * odps.123.test_project.order
@@ -86,7 +85,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputTableId?: string;
   /**
    * @remarks
-   * Input table name.
+   * The name of the input table.
    * 
    * @example
    * order
@@ -94,18 +93,18 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputTableName?: string;
   /**
    * @remarks
-   * Input table type. Valid values:
-   * - PHYSICAL_TABLE: Physical table (compute source)
-   * - DIM_LOGIC_TABLE: Dimension logical table
-   * - FACT_LOGIC_TABLE: Fact logical table
-   * - SUM_LOGIC_TABLE: Summary logical table
-   * - REAL_TIME_LOGIC_TABLE: Real-time meta table
-   * - REAL_TIME_MIRROR_TABLE: Real-time mirror table
-   * - PHYSICAL_VIEW: Physical view
-   * - LOGICAL_VIEW: Logical view
-   * - DATA_SOURCE_PHYSICAL_TABLE: Data source table
-   * - DATA_SOURCE_VIEW: Data source view
-   * - DATA_SOURCE_MATERIALIZED_VIEW: Data source materialized view
+   * The type of the input table. Valid values:
+   * - PHYSICAL_TABLE: physical table (compute source)
+   * - DIM_LOGIC_TABLE: logical dimension table
+   * - FACT_LOGIC_TABLE: logical fact table
+   * - SUM_LOGIC_TABLE: logical aggregate table
+   * - REAL_TIME_LOGIC_TABLE: real-time metadata table
+   * - REAL_TIME_MIRROR_TABLE: real-time mirror table
+   * - PHYSICAL_VIEW: physical view
+   * - LOGICAL_VIEW: logical view
+   * - DATA_SOURCE_PHYSICAL_TABLE: data source table
+   * - DATA_SOURCE_VIEW: data source view
+   * - DATA_SOURCE_MATERIALIZED_VIEW: data source materialized view
    * 
    * @example
    * PHYSICAL_TABLE
@@ -113,7 +112,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   inputTableType?: string;
   /**
    * @remarks
-   * Business unit ID of the output table.
+   * The ID of the business unit to which the output table belongs.
    * 
    * @example
    * 123
@@ -121,7 +120,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputBizUnitId?: number;
   /**
    * @remarks
-   * GUID of the output column.
+   * The GUID of the output field.
    * 
    * @example
    * odps.123.test_project.input_table.id
@@ -129,7 +128,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputColumnId?: string;
   /**
    * @remarks
-   * Output column name.
+   * The name of the output field.
    * 
    * @example
    * id
@@ -137,7 +136,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputColumnName?: string;
   /**
    * @remarks
-   * Data source ID of the output table.
+   * The ID of the data source to which the output table belongs.
    * 
    * @example
    * 123
@@ -145,7 +144,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputDataSourceId?: number;
   /**
    * @remarks
-   * Storage type of the output table.
+   * The storage format of the output table.
    * 
    * @example
    * MAX_COMPUTE
@@ -153,7 +152,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputDataSourceType?: string;
   /**
    * @remarks
-   * Database type of the output table.
+   * The type of the output data source.
    * 
    * @example
    * MAX_COMPUTE
@@ -161,7 +160,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputDbType?: string;
   /**
    * @remarks
-   * Environment of the output table: DEV or PROD.
+   * The environment of the output table. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -169,7 +168,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputEnv?: string;
   /**
    * @remarks
-   * Project ID of the output table.
+   * The ID of the project to which the output table belongs.
    * 
    * @example
    * 123
@@ -182,7 +181,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputTableDeleted?: boolean;
   /**
    * @remarks
-   * GUID of the output table. Each asset has a unique GUID. For the format, see InputTableId.
+   * The GUID of the output table. Each asset has a unique GUID. For the format, see InputTableId.
    * 
    * @example
    * odps.123.test_project.order
@@ -190,7 +189,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputTableId?: string;
   /**
    * @remarks
-   * Output table name.
+   * The name of the output table.
    * 
    * @example
    * order
@@ -198,7 +197,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputTableName?: string;
   /**
    * @remarks
-   * Output table type. For valid values, see InputTableType.
+   * The type of the output table. For valid values, see InputTableType.
    * 
    * @example
    * PHYSICAL_TABLE
@@ -206,7 +205,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   outputTableType?: string;
   /**
    * @remarks
-   * Environment of the task (node) associated with the lineage: DEV or PROD.
+   * The environment of the task (node) associated with the lineage. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -214,7 +213,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   taskEnv?: string;
   /**
    * @remarks
-   * Task (node) ID associated with the lineage.
+   * The ID of the task (node) associated with the lineage.
    * 
    * @example
    * n_123
@@ -222,7 +221,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * @example
    * 12345
@@ -304,7 +303,7 @@ export class GetTableColumnLineageByTaskIdResponseBodyData extends $dara.Model {
 export class GetTableColumnLineageByTaskIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -312,12 +311,12 @@ export class GetTableColumnLineageByTaskIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Query results.
+   * The query result.
    */
   data?: GetTableColumnLineageByTaskIdResponseBodyData[];
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -325,7 +324,7 @@ export class GetTableColumnLineageByTaskIdResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * successful
@@ -333,7 +332,7 @@ export class GetTableColumnLineageByTaskIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -341,7 +340,7 @@ export class GetTableColumnLineageByTaskIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

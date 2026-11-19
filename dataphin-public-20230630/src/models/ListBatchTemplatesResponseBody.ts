@@ -29,7 +29,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateListDataSourceConfi
   schema?: string;
   /**
    * @remarks
-   * The data source type of the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
+   * The type of the data source for the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
    * 
    * @example
    * MYSQL
@@ -122,7 +122,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateListParams extends 
 export class ListBatchTemplatesResponseBodyPageResultTemplateListPythonModuleList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Python third-party package.
+   * The ID of the third-party Python package.
    * 
    * @example
    * 1001
@@ -138,7 +138,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateListPythonModuleLis
   installTime?: string;
   /**
    * @remarks
-   * The name of the Python third-party package.
+   * The name of the third-party Python package.
    * 
    * @example
    * numpy
@@ -154,7 +154,13 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateListPythonModuleLis
   pythonVersion?: string;
   /**
    * @remarks
-   * The status of the third-party package. Valid values: INSTALL_SUCCESS (installed successfully), INSTALL_FAILED (installation failed), INSTALLING (installing), UPGRADE_SUCCESS (upgraded successfully), UPGRADE_FAILED (upgrade failed), and UPGRADING (upgrading).
+   * The status of the third-party package. Valid values:
+   * - INSTALL_SUCCESS: Installation succeeded.
+   * - INSTALL_FAILED: Installation failed.
+   * - INSTALLING: Installation in progress.
+   * - UPGRADE_SUCCESS: Upgrade succeeded.
+   * - UPGRADE_FAILED: Upgrade failed.
+   * - UPGRADING: Upgrade in progress.
    * 
    * @example
    * INSTALL_SUCCESS
@@ -202,7 +208,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateListPythonModuleLis
 export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.Model {
   /**
    * @remarks
-   * The template submission comment.
+   * The submission comment for the template.
    * 
    * @example
    * Initial submission
@@ -219,7 +225,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   content?: string;
   /**
    * @remarks
-   * The latest version.
+   * The current latest version.
    * 
    * @example
    * 1
@@ -227,7 +233,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   currentVersion?: number;
   /**
    * @remarks
-   * The datasource config of the database SQL template.
+   * The datasource config for the database SQL template.
    */
   dataSourceConfig?: ListBatchTemplatesResponseBodyPageResultTemplateListDataSourceConfig;
   /**
@@ -251,7 +257,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
    * The name of the resource group in the development environment.
    * 
    * @example
-   * Default resource group for the project
+   * Project default resource group
    */
   devResourceGroupName?: string;
   /**
@@ -280,7 +286,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the template. This ID is the same as the menu tree node ID.
+   * The template ID, which is the same as the menu tree node ID.
    * 
    * @example
    * 1001
@@ -304,7 +310,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   modifierId?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * Data processing template
@@ -312,7 +318,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   name?: string;
   /**
    * @remarks
-   * The type of the node. Valid values: 10 (Shell) and 21 (Python).
+   * The node type. Valid values: 10 (Shell) and 21 (Python).
    * 
    * @example
    * 10
@@ -320,7 +326,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   operatorType?: number;
   /**
    * @remarks
-   * The owner of the template.
+   * The template owner.
    * 
    * @example
    * Zhang San
@@ -341,7 +347,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   params?: ListBatchTemplatesResponseBodyPageResultTemplateListParams[];
   /**
    * @remarks
-   * The ID of the project.
+   * The project ID.
    * 
    * @example
    * 123456
@@ -349,7 +355,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   projectId?: number;
   /**
    * @remarks
-   * The list of dependent Python third-party packages.
+   * The list of dependent third-party Python packages.
    */
   pythonModuleList?: ListBatchTemplatesResponseBodyPageResultTemplateListPythonModuleList[];
   /**
@@ -365,7 +371,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
    * The name of the resource group in the production environment.
    * 
    * @example
-   * Default resource group for the project
+   * Project default resource group
    */
   resourceGroupName?: string;
   /**
@@ -375,7 +381,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
   shareRuntimeResource?: boolean;
   /**
    * @remarks
-   * The status of the template. Valid values: 0 (draft), 2 (submitted), and 100 (in development).
+   * The template status. Valid values: 0 (Draft), 2 (Submitted), and 100 (In development).
    * 
    * @example
    * 2
@@ -460,7 +466,7 @@ export class ListBatchTemplatesResponseBodyPageResultTemplateList extends $dara.
 export class ListBatchTemplatesResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The paginated template record list.
+   * The list of paged template records.
    */
   templateList?: ListBatchTemplatesResponseBodyPageResultTemplateList[];
   /**
@@ -524,7 +530,7 @@ export class ListBatchTemplatesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paging query result.
+   * The paged query result.
    */
   pageResult?: ListBatchTemplatesResponseBodyPageResult;
   /**

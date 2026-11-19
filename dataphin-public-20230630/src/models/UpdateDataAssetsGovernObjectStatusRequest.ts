@@ -13,6 +13,9 @@ export class UpdateDataAssetsGovernObjectStatusRequestUpdateCommand extends $dar
    * The list of governance object IDs.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * [12345, 12346]
    */
   governObjectIds?: number[];
   /**

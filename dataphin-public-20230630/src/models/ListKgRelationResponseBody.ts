@@ -13,7 +13,7 @@ export class ListKgRelationResponseBodyPageResultRelationListPropertyList extend
   code?: string;
   /**
    * @remarks
-   * The data type of the property. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
+   * The data type of the property, such as STRING, INTEGER, FLOAT, BOOLEAN, DATE, or LIST.
    * 
    * @example
    * STRING
@@ -55,12 +55,12 @@ export class ListKgRelationResponseBodyPageResultRelationListPropertyList extend
 export class ListKgRelationResponseBodyPageResultRelationList extends $dara.Model {
   /**
    * @remarks
-   * The list of properties for the relationship record.
+   * The list of properties for the relation record.
    */
   propertyList?: ListKgRelationResponseBodyPageResultRelationListPropertyList[];
   /**
    * @remarks
-   * The relationship record ID.
+   * The relation record ID.
    * 
    * @example
    * abc-xxx
@@ -68,7 +68,7 @@ export class ListKgRelationResponseBodyPageResultRelationList extends $dara.Mode
   relationId?: string;
   /**
    * @remarks
-   * The relationship type code.
+   * The relation type code.
    * 
    * @example
    * BELONG_TO
@@ -125,7 +125,7 @@ export class ListKgRelationResponseBodyPageResultRelationList extends $dara.Mode
 export class ListKgRelationResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of paged relationship records.
+   * The paged list of relation records.
    */
   relationList?: ListKgRelationResponseBodyPageResultRelationList[];
   /**
@@ -202,7 +202,7 @@ export class ListKgRelationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

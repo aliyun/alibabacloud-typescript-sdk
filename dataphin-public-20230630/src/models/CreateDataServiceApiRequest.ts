@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Model {
   /**
    * @remarks
-   * The data volume per batch. Valid values:
-   * - When the data volume type is single record, this parameter cannot be set.
-   * - When the data volume type is batch:
-   *   - If the transaction processing mode is 1, this parameter cannot be set.
+   * The number of records processed in a single batch. Valid values:
+   * - When the data volume is set to single record, this parameter cannot be specified.
+   * - When the data volume is set to batch:
+   *   - If the transaction processing mode is 1, this parameter cannot be specified.
    *   - If the transaction processing mode is 2, the value ranges from 1 to 1000000.
    * 
    * @example
@@ -17,9 +17,9 @@ export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Mod
   batchInputDataSize?: number;
   /**
    * @remarks
-   * The data volume type. Valid values:
-   * - 1: single record
-   * - 2: batch.
+   * The data volume. Valid values:
+   * - 1: Single record.
+   * - 2: Batch.
    * 
    * @example
    * 2
@@ -28,12 +28,12 @@ export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Mod
   /**
    * @remarks
    * The error handling method. Valid values:
-   * - 1: partial success allowed
-   * - 2: all must succeed
+   * - 1: Allow partial success.
+   * - 2: Require full success.
    * 
-   * Parameter rules:
-   * - When the data volume type is single record, this parameter cannot be set.
-   * - When the data volume type is batch, the value is 1 or 2.
+   * Parameter passing rules:
+   * - When the data volume is set to single record, this parameter cannot be specified.
+   * - When the data volume is set to batch, the value can be 1 or 2.
    * 
    * @example
    * 1
@@ -42,8 +42,8 @@ export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Mod
   /**
    * @remarks
    * The maximum number of input records. Valid values:
-   * - When the data volume type is single record, this parameter cannot be set.
-   * - When the data volume type is batch, the value ranges from 1 to 1000000.
+   * - When the data volume is set to single record, this parameter cannot be specified.
+   * - When the data volume is set to batch, the value ranges from 1 to 1000000.
    * 
    * @example
    * 10000
@@ -52,9 +52,9 @@ export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Mod
   /**
    * @remarks
    * The degree of parallelism. Valid values:
-   * - When the data volume type is single record, this parameter cannot be set.
-   * - When the data volume type is batch:
-   *   - If the transaction processing mode is 1, this parameter cannot be set.
+   * - When the data volume is set to single record, this parameter cannot be specified.
+   * - When the data volume is set to batch:
+   *   - If the transaction processing mode is 1, this parameter cannot be specified.
    *   - If the transaction processing mode is 2, the value ranges from 1 to 5.
    * 
    * @example
@@ -64,15 +64,15 @@ export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Mod
   /**
    * @remarks
    * The transaction processing mode. Valid values:
-   * - 0: no transaction
-   * - 1: no batching
-   * - 2: batch processing
+   * - 0: No transaction.
+   * - 1: No batching.
+   * - 2: Batch processing.
    * 
-   * Parameter rules:
-   * - When the data volume type is single record, the transaction processing mode is 0.
-   * - When the data volume type is batch:
-   *   - If the error handling method is 1, the transaction processing mode is 1 or 2.
-   *   - If the error handling method is 2, the transaction processing mode can only be 1.
+   * Parameter passing rules:
+   * - When the data volume is set to single record, the value must be 0.
+   * - When the data volume is set to batch:
+   *   - If the error handling method is 1, the value can be 1 or 2.
+   *   - If the error handling method is 2, the value must be 1.
    * 
    * @example
    * 2
@@ -112,7 +112,7 @@ export class CreateDataServiceApiRequestCreateCommandDmlConfig extends $dara.Mod
 export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The default value of the input parameter for operation-type APIs. This parameter takes effect when the parameter is not required. If not specified, the value is null.
+   * The default value of the input parameter for an operation API. This parameter takes effect only when the parameter is not required. If this parameter is not specified, the value is null.
    * 
    * @example
    * test
@@ -152,7 +152,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestP
    * - "BINARY"
    * - "ARRAY"
    * - "Array(int)"
-   * - "Array(string)".
+   * - "Array(string)"
    * 
    * This parameter is required.
    * 
@@ -162,15 +162,15 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestP
   parameterDataType?: string;
   /**
    * @remarks
-   * The parameter description.
+   * The description of the parameter.
    * 
    * @example
-   * 字段d
+   * Field d
    */
   parameterDescription?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * This parameter is required.
    * 
@@ -180,10 +180,9 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptRequestP
   parameterName?: string;
   /**
    * @remarks
-   * The value type of the parameter. Valid values:
-   * 
-   * - 1 (single value): A fixed value used for operators such as =, >=, <=, >, <, !=, and between. 
-   * - 2 (multiple values): The input parameter contains multiple values separated by commas (,). Used for In and Not In operators.
+   * The type of the parameter value. Valid values:
+   * - 1: Single value. A fixed value used for operators such as =, >=, <=, >, <, !=, and between.
+   * - 2: Multiple values. The input parameter contains multiple values separated by commas (,). Used for the In and Not In operators.
    * 
    * This parameter is required.
    * 
@@ -249,7 +248,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponse
    * - "BINARY"
    * - "ARRAY"
    * - "Array(int)"
-   * - "Array(string)".
+   * - "Array(string)"
    * 
    * This parameter is required.
    * 
@@ -259,17 +258,17 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponse
   parameterDataType?: string;
   /**
    * @remarks
-   * The parameter description.
+   * The description of the parameter.
    * 
    * @example
-   * 字段a
+   * Field a
    */
   parameterDescription?: string;
   /**
    * @remarks
-   * The location of the response parameter for operation-type APIs. This parameter must be set when the API is an operation-type API with batch data volume. Valid values:
-   * - success: the response data of a successful operation
-   * - failed: the response data of a failed operation.
+   * The location of the response parameter for an operation API. This parameter must be specified when the API is an operation API and the data volume is batch. Valid values:
+   * - success: The returned result data for a successful operation.
+   * - failed: The returned result data for a failed operation.
    * 
    * @example
    * success
@@ -277,7 +276,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponse
   parameterLocation?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * This parameter is required.
    * 
@@ -317,16 +316,16 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponse
 export class CreateDataServiceApiRequestCreateCommandScriptDetails extends $dara.Model {
   /**
    * @remarks
-   * The ID of the datasource. This parameter is required when the API mode is direct datasource connection.
+   * The ID of the datasource. This parameter is required when the API mode is set to direct connection to a datasource.
    * 
    * @example
-   * 6668888888888812345L
+   * 6668888888888812345
    */
   datasourceID?: number;
   /**
    * @remarks
    * The data type on which the API is based. Valid values:
-   * - 1: datasource.
+   * - 1: Datasource.
    * 
    * This parameter is required.
    * 
@@ -336,7 +335,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetails extends $dara
   datasourceType?: number;
   /**
    * @remarks
-   * Specifies whether to paginate the results. This parameter is required only when RequestType is set to List. Default value: false. Pagination is not supported in asynchronous call mode.
+   * Specifies whether the results are paginated. This parameter is required only when the RequestType mode is set to List. Default value: false. This parameter is not supported in asynchronous call mode.
    * 
    * @example
    * false
@@ -364,9 +363,8 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetails extends $dara
   scriptResponseParameters?: CreateDataServiceApiRequestCreateCommandScriptDetailsScriptResponseParameters[];
   /**
    * @remarks
-   * The sorting priority. This parameter takes effect only when the SQL mode is basic mode. Default value: 2. Valid values:
-   * 
-   * - 1: SQL script 
+   * The sort priority. This parameter takes effect only when the SQL mode is set to Basic mode. Default value: 2. Valid values:
+   * - 1: SQL script.
    * - 2: OrderByList request parameter.
    * 
    * @example
@@ -376,9 +374,8 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetails extends $dara
   /**
    * @remarks
    * The SQL mode. Valid values:
-   * 
-   * - 1: basic mode
-   * - 2: advanced mode.
+   * - 1: Basic mode.
+   * - 2: Advanced mode.
    * 
    * This parameter is required.
    * 
@@ -430,7 +427,7 @@ export class CreateDataServiceApiRequestCreateCommandScriptDetails extends $dara
 export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The group ID of the API.
+   * The ID of the API group.
    * 
    * This parameter is required.
    * 
@@ -440,12 +437,12 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
   apiGroupId?: number;
   /**
    * @remarks
-   * The group name of the API.
+   * The name of the API group.
    * 
    * This parameter is required.
    * 
    * @example
-   * 默认API分组
+   * Default API group
    */
   apiGroupName?: string;
   /**
@@ -462,7 +459,7 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * @remarks
    * The type of the API. Valid values:
    * 
-   * - 3: datasource SQL mode.
+   * - 3: data source SQL mode
    * 
    * This parameter is required.
    * 
@@ -472,8 +469,8 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
   apiType?: number;
   /**
    * @remarks
-   * The protocol. Different gateway types support different protocols. For more information, see the documentation. Valid values:
-   * - 0: HTTP 
+   * The protocol. Different gateway types support different protocols. For more information, refer to the documentation. Valid values:
+   * - 0: HTTP. 
    * - 1: HTTPS.
    * 
    * This parameter is required.
@@ -492,7 +489,7 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * The call mode of the API. Default value: 1. Valid values:
    * 
    * - 1: synchronous call
-   * - 2: asynchronous call.
+   * - 2: asynchronous call
    * 
    * @example
    * 1
@@ -503,7 +500,7 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * The custom update frequency. This parameter is required when the update frequency is set to custom.
    * 
    * @example
-   * 每天8点
+   * Every day at 8:00 AM
    */
   customUpdateRate?: string;
   /**
@@ -516,12 +513,12 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The configuration of the operation-type API. This parameter is not required when creating a query-type API.
+   * The configuration information for an operation API. This parameter is not required when you create a query API.
    */
   dmlConfig?: CreateDataServiceApiRequestCreateCommandDmlConfig;
   /**
    * @remarks
-   * The execution timeout period for asynchronous API calls. This parameter takes effect only for asynchronous API calls and is required when the call mode is asynchronous.
+   * The execution timeout period for asynchronous API calls. This parameter applies only to asynchronous API calls and is required when the call mode is set to asynchronous.
    * 
    * @example
    * 30
@@ -531,8 +528,8 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * @remarks
    * The development mode of the API. Valid values:
    * 
-   * - 0: Basic mode 
-   * - 1: Dev-Prod mode.
+   * - 0: basic mode 
+   * - 1: dev-prod mode
    * 
    * This parameter is required.
    * 
@@ -554,11 +551,11 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * @remarks
    * The request method of the API. Valid values:
    * 
-   * - 0 (GET): Returns a single record. The query result is unique. 
+   * - 0 (GET): Returns a single record with a unique query result. 
    * - 1 (LIST): Returns multiple records.
-   * - 2 (CREATE): Creates objects. Supports single or batch creation.
-   * - 3 (UPDATE): Updates objects. Supports single or batch updates.
-   * - 4 (DELETE): Deletes objects. Supports single or batch deletions.
+   * - 2 (CREATE): Creates an object, supporting single or batch creation.
+   * - 3 (UPDATE): Updates an object, supporting single or batch updates.
+   * - 4 (DELETE): Deletes an object, supporting single or batch deletion.
    * 
    * This parameter is required.
    * 
@@ -568,7 +565,7 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
   requestType?: number;
   /**
    * @remarks
-   * Specifies whether to return the SQL in the result.
+   * Specifies whether to return the SQL statement in the result.
    * 
    * @example
    * true
@@ -603,7 +600,7 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
    * - 0: custom
    * - 1: day
    * - 2: hour
-   * - 3: minute.
+   * - 3: minute
    * 
    * @example
    * 1
@@ -693,7 +690,7 @@ export class CreateDataServiceApiRequestCreateCommand extends $dara.Model {
 export class CreateDataServiceApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The request for creating an API.
+   * The request to create an API.
    * 
    * This parameter is required.
    */
@@ -709,6 +706,9 @@ export class CreateDataServiceApiRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operation user.
+   * 
    * @example
    * 30001011
    */

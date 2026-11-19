@@ -6,7 +6,7 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
   /**
    * @remarks
    * The application key.
-   * >Notice: Deprecated. Use AppKeyStr instead.</notice>.
+   * >Notice: Deprecated. Use AppKeyStr instead.</notice>
    * 
    * @example
    * 12345
@@ -32,7 +32,7 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
   id?: number;
   /**
    * @remarks
-   * The app name.
+   * The application name.
    * 
    * @example
    * test
@@ -68,7 +68,7 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList extend
 export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of API groups.
+   * The API group list.
    */
   appInfoList?: GetDataServiceAuthorizedAppsByGroupIdResponseBodyAppInfoList[];
   /**
@@ -89,7 +89,7 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -105,7 +105,7 @@ export class GetDataServiceAuthorizedAppsByGroupIdResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

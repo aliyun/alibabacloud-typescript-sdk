@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncDepartmentRequestSyncDepartmentCommandDepartmentList extends $dara.Model {
   /**
    * @remarks
-   * The department ID (unique identifier of the department).
+   * The unique identifier of the department.
    * 
    * This parameter is required.
    * 
@@ -20,12 +20,12 @@ export class SyncDepartmentRequestSyncDepartmentCommandDepartmentList extends $d
    * This parameter is required.
    * 
    * @example
-   * 研发中心
+   * R&D Center
    */
   departmentName?: string;
   /**
    * @remarks
-   * The parent department ID (unique identifier of the parent department). Set to null if no parent department exists.
+   * The unique identifier of the parent department. If the department has no parent, the value is null.
    * 
    * @example
    * 10001
@@ -100,6 +100,9 @@ export class SyncDepartmentRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

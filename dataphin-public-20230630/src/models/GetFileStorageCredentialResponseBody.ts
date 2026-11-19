@@ -21,7 +21,7 @@ export class GetFileStorageCredentialResponseBodyStorageCredential extends $dara
   accessKey?: string;
   /**
    * @remarks
-   * The file storage bucket.
+   * The bucket for file storage.
    * 
    * @example
    * dataphin
@@ -61,7 +61,7 @@ export class GetFileStorageCredentialResponseBodyStorageCredential extends $dara
   region?: string;
   /**
    * @remarks
-   * The security token.
+   * The temporary security token.
    * 
    * @example
    * temp.token
@@ -69,7 +69,7 @@ export class GetFileStorageCredentialResponseBodyStorageCredential extends $dara
   securityToken?: string;
   /**
    * @remarks
-   * The type of the storage cluster. Valid values: oss and ceph.
+   * The type of the storage cluster, such as oss or ceph.
    * 
    * @example
    * oss

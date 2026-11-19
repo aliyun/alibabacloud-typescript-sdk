@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceList extends $dara.Model {
   /**
    * @remarks
-   * Field instance ID.
+   * The field instance ID.
    * 
    * @example
    * t_23211
@@ -13,7 +13,7 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceL
   fieldInstanceId?: string;
   /**
    * @remarks
-   * Run status.
+   * The run status.
    * 
    * @example
    * SUCCESS
@@ -21,7 +21,7 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceL
   runStatus?: string;
   /**
    * @remarks
-   * Selection status of the instance.
+   * The selection status of the instance.
    * 
    * @example
    * OPTIONAL
@@ -55,7 +55,7 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceL
 export class GetInstanceDownStreamResponseBodyInstanceRelationListInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * t_232411
@@ -63,15 +63,15 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationListInstanceInfo e
   id?: string;
   /**
    * @remarks
-   * Instance name.
+   * The instance name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
    * @remarks
-   * Node type.
+   * The node type.
    * 
    * @example
    * DATA_PROCESS
@@ -105,7 +105,7 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationListInstanceInfo e
 export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara.Model {
   /**
    * @remarks
-   * Depth level.
+   * The level.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara
   downStreamDepth?: number;
   /**
    * @remarks
-   * Extended information of the node instance.
+   * The extended information of the node instance.
    * 
    * @example
    * {"a":"x"}
@@ -121,17 +121,17 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara
   extendInfo?: string;
   /**
    * @remarks
-   * Field instance list.
+   * The list of field instances.
    */
   fieldInstanceList?: GetInstanceDownStreamResponseBodyInstanceRelationListFieldInstanceList[];
   /**
    * @remarks
-   * Instance information.
+   * The instance information.
    */
   instanceInfo?: GetInstanceDownStreamResponseBodyInstanceRelationListInstanceInfo;
   /**
    * @remarks
-   * Run status of the instance.
+   * The run status of the instance.
    * 
    * @example
    * RUNNING
@@ -139,11 +139,11 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara
   runStatus?: string;
   /**
    * @remarks
-   * Selection status of the instance, primarily used for logical fields.
-   * - OPTIONAL: Optional.
-   * - SELECTED: Required.
-   * - DISABLE: Not selectable.
-   * - GROUP_SELECTED: Select all or deselect all.
+   * The selection status of the instance. This is mainly used for logical fields. Valid values:
+   * - OPTIONAL: optional.
+   * - SELECTED: required.
+   * - DISABLE: unavailable.
+   * - GROUP_SELECTED: all selected or all unselected.
    * 
    * @example
    * OPTIONAL
@@ -151,7 +151,7 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara
   selectStatus?: string;
   /**
    * @remarks
-   * Reason why the instance is selected.
+   * The reason why the instance is selected. Valid values:
    * - PK_CHANGE
    * - LOGIC_CHANGE
    * - RELATION
@@ -211,7 +211,7 @@ export class GetInstanceDownStreamResponseBodyInstanceRelationList extends $dara
 export class GetInstanceDownStreamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. OK indicates a successful request.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -219,7 +219,7 @@ export class GetInstanceDownStreamResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code returned by the backend.
+   * The HTTP status code of the backend response.
    * 
    * @example
    * 200
@@ -227,12 +227,12 @@ export class GetInstanceDownStreamResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Downstream instances and dependency relationships.
+   * The downstream and dependency relationships.
    */
   instanceRelationList?: GetInstanceDownStreamResponseBodyInstanceRelationList[];
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * successful
@@ -240,7 +240,7 @@ export class GetInstanceDownStreamResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -248,7 +248,7 @@ export class GetInstanceDownStreamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

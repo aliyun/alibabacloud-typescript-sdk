@@ -15,9 +15,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   classifyId?: number;
   /**
    * @remarks
-   * The deduplication strategy. Valid values:
-   * - COVER_ALL: overwrites all online tags.
-   * - COVER_UNLOCKED: overwrites only unlocked online tags.
+   * The conflict strategy. Valid values: COVER_ALL (overwrites all online tags) and COVER_UNLOCKED (overwrites only unlocked online tags).
    * 
    * This parameter is required.
    * 
@@ -27,7 +25,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   conflictStrategy?: string;
   /**
    * @remarks
-   * The datasource environment identifier. This parameter is required only for datasource tables.
+   * The environment identifier of the datasource. This parameter is required only for datasource tables.
    * 
    * @example
    * DEV
@@ -35,7 +33,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   datasourceEnv?: string;
   /**
    * @remarks
-   * The datasource name. This parameter is required only for datasource tables.
+   * The name of the datasource. This parameter is required only for datasource tables.
    * 
    * @example
    * test
@@ -43,10 +41,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   datasourceName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the result. Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
-   * Default value: true.
+   * The enabled status. Valid values: true (enabled) and false (disabled). Default value: true.
    * 
    * @example
    * true
@@ -54,7 +49,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   enable?: boolean;
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * This parameter is required.
    * 
@@ -72,7 +67,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   isDatasourceTable?: boolean;
   /**
    * @remarks
-   * The table catalog. For a datasource table, specify the database or schema name. For a Dataphin physical table, specify the project name in English. For a Dataphin logical table, specify the business unit name in English.
+   * The catalog of the table. For a datasource table, specify the name of the database or schema to which the table belongs. For a Dataphin physical table, specify the English name of the project. For a Dataphin logical table, specify the English name of the business unit.
    * 
    * This parameter is required.
    * 
@@ -82,7 +77,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
   tableCatalog?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * This parameter is required.
    * 
@@ -130,7 +125,7 @@ export class CreateSecurityIdentifyResultRequestCreateCommand extends $dara.Mode
 export class CreateSecurityIdentifyResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The create request.
+   * The creation request.
    * 
    * This parameter is required.
    */
@@ -146,6 +141,9 @@ export class CreateSecurityIdentifyResultRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

@@ -14,6 +14,9 @@ export class GetTransferInfoRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

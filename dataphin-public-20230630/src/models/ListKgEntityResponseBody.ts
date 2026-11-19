@@ -13,13 +13,7 @@ export class ListKgEntityResponseBodyPageResultEntityListPropertyList extends $d
   code?: string;
   /**
    * @remarks
-   * The property data type. Valid values:
-   * - STRING: string.
-   * - INTEGER: integer.
-   * - FLOAT: floating-point number.
-   * - BOOLEAN: Boolean.
-   * - DATE: date.
-   * - LIST: list.
+   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean value), DATE (date), and LIST (list).
    * 
    * @example
    * STRING
@@ -77,7 +71,7 @@ export class ListKgEntityResponseBodyPageResultEntityList extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity record property list.
+   * The property list of the entity record.
    */
   propertyList?: ListKgEntityResponseBodyPageResultEntityListPropertyList[];
   static names(): { [key: string]: string } {
@@ -188,7 +182,7 @@ export class ListKgEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

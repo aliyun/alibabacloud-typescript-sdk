@@ -49,7 +49,7 @@ export class UpdateKgRelationRequestUpdateCommandPropertyList extends $dara.Mode
 export class UpdateKgRelationRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of relationship record properties.
+   * The relationship record property list.
    */
   propertyList?: UpdateKgRelationRequestUpdateCommandPropertyList[];
   /**
@@ -112,6 +112,9 @@ export class UpdateKgRelationRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

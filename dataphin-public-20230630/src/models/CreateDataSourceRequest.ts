@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreateConfigItemList extends $dara.Model {
   /**
    * @remarks
-   * Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+   * The configuration item key. For the key values required by different databases, refer to the supplementary instructions below.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
   key?: string;
   /**
    * @remarks
-   * Configuration item value
+   * The value of the configuration item.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
 export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreate extends $dara.Model {
   /**
    * @remarks
-   * Whether to check connectivity
+   * Specifies whether to check the connectivity.
    * 
    * @example
    * true
@@ -57,14 +57,14 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
   checkActivity?: boolean;
   /**
    * @remarks
-   * List of connection configuration items
+   * The list of connection configuration items.
    * 
    * This parameter is required.
    */
   configItemList?: CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreateConfigItemList[];
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * datasource for xxx in dev
@@ -72,7 +72,7 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
   description?: string;
   /**
    * @remarks
-   * Data source name
+   * The name of the data source.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
   name?: string;
   /**
    * @remarks
-   * Data source type
+   * The data source type.
    * 
    * This parameter is required.
    * 
@@ -125,12 +125,12 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCr
 export class CreateDataSourceRequestCreateCommandDevDataSourceCreate extends $dara.Model {
   /**
    * @remarks
-   * Development environment data source
+   * The development environment data source.
    */
   dataSourceCreate?: CreateDataSourceRequestCreateCommandDevDataSourceCreateDataSourceCreate;
   /**
    * @remarks
-   * Associated production environment data source ID. This parameter cannot be empty when only creating a development environment compute source.
+   * The ID of the associated production environment data source. This parameter is required if you only create a compute source for the development environment.
    * 
    * @example
    * 1011
@@ -165,7 +165,7 @@ export class CreateDataSourceRequestCreateCommandDevDataSourceCreate extends $da
 export class CreateDataSourceRequestCreateCommandProdDataSourceCreateConfigItemList extends $dara.Model {
   /**
    * @remarks
-   * Configuration item. For the key values required by different databases, see the supplementary description at the bottom of the document.
+   * The configuration item key. For the key values required by different databases, refer to the supplementary instructions below.
    * 
    * This parameter is required.
    * 
@@ -175,7 +175,7 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreateConfigItemL
   key?: string;
   /**
    * @remarks
-   * Configuration item value
+   * The value of the configuration item.
    * 
    * This parameter is required.
    * 
@@ -209,7 +209,7 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreateConfigItemL
 export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $dara.Model {
   /**
    * @remarks
-   * Whether to check connectivity
+   * Specifies whether to check the connectivity.
    * 
    * @example
    * true
@@ -217,14 +217,14 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $d
   checkActivity?: boolean;
   /**
    * @remarks
-   * List of connection configuration items
+   * The list of connection configuration items.
    * 
    * This parameter is required.
    */
   configItemList?: CreateDataSourceRequestCreateCommandProdDataSourceCreateConfigItemList[];
   /**
    * @remarks
-   * Data source description
+   * The description of the data source.
    * 
    * @example
    * datasource for xx
@@ -232,7 +232,7 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $d
   description?: string;
   /**
    * @remarks
-   * Data source name
+   * The name of the data source.
    * 
    * This parameter is required.
    * 
@@ -242,7 +242,7 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $d
   name?: string;
   /**
    * @remarks
-   * Data source type:
+   * The data source type. Valid values:
    * - MAX_COMPUTE
    * - HDFS
    * - LOG_HUB
@@ -265,7 +265,7 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $d
    * - ORACLE
    * - VERTICA
    * - DB2
-   * - TERA_DATA, etc.
+   * - TERA_DATA
    * 
    * This parameter is required.
    * 
@@ -308,12 +308,12 @@ export class CreateDataSourceRequestCreateCommandProdDataSourceCreate extends $d
 export class CreateDataSourceRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * Development environment data source
+   * The development environment data source.
    */
   devDataSourceCreate?: CreateDataSourceRequestCreateCommandDevDataSourceCreate;
   /**
    * @remarks
-   * Production environment data source
+   * The production environment data source.
    */
   prodDataSourceCreate?: CreateDataSourceRequestCreateCommandProdDataSourceCreate;
   static names(): { [key: string]: string } {
@@ -348,12 +348,12 @@ export class CreateDataSourceRequestCreateCommand extends $dara.Model {
 export class CreateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Request object
+   * The request object.
    */
   createCommand?: CreateDataSourceRequestCreateCommand;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -362,6 +362,9 @@ export class CreateDataSourceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

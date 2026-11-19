@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The name of the classification folder.
+   * The name of the classification catalog.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The list of administrator IDs. This parameter takes effect only when the parent folder is the root folder.
+   * The list of administrator IDs. This parameter is valid only when the parent catalog is the root catalog.
    */
   ownerList?: string[];
   /**
    * @remarks
-   * The full path of the parent classification folder. Default value: /.
+   * The full path of the parent classification catalog. Default value: /.
    * 
    * @example
    * /d1/
@@ -28,7 +28,7 @@ export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Mod
   parentPath?: string;
   /**
    * @remarks
-   * The original full path of the folder.
+   * The original full path of the catalog.
    * 
    * This parameter is required.
    * 
@@ -38,12 +38,7 @@ export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * The visibility scope of the classification. Valid values:
-   * 
-   * - PUBLIC: visible to all users.
-   * - PRIVATE: visible only to administrators.
-   * 
-   * Default value: PUBLIC. This parameter takes effect only when the parent folder is the root folder.
+   * The classification visibility scope. Valid values: PUBLIC (public) and PRIVATE (visible only to administrators). Default value: PUBLIC. This parameter is valid only when the parent catalog is the root catalog.
    * 
    * @example
    * PUBLIC
@@ -93,13 +88,16 @@ export class UpdateSecurityClassifyCatalogRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The update command.
    * 
    * This parameter is required.
    */

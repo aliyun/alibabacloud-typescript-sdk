@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectRolesResponseBodyRoleList extends $dara.Model {
   /**
    * @remarks
-   * The JSON string of the permission set.
+   * The JSON string of permission points.
    * 
    * @example
    * {}
@@ -145,7 +145,7 @@ export class ListProjectRolesResponseBodyRoleList extends $dara.Model {
 export class ListProjectRolesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. OK indicates that the request is successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK

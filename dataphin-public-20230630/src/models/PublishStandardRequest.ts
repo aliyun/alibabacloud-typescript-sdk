@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PublishStandardRequestPublishCommand extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically publish after approval. Default value: true.
+   * Specifies whether to automatically publish the standard after the approval succeeds. Default value: true.
    */
   autoPublishAfterApproval?: boolean;
   /**
    * @remarks
-   * The review comment. Maximum length: 128 characters.
+   * The review comment. The comment can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class PublishStandardRequestPublishCommand extends $dara.Model {
   standardStage?: string;
   /**
    * @remarks
-   * The version number. Default value: -1 (latest version).
+   * The version number. Default value: -1, which indicates the latest version.
    * 
    * @example
    * 1
@@ -95,6 +95,9 @@ export class PublishStandardRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

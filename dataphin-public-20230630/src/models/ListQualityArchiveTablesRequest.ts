@@ -37,7 +37,7 @@ export class ListQualityArchiveTablesRequestListQuery extends $dara.Model {
 export class ListQualityArchiveTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The input parameters for querying the anomaly archived table list.
+   * The query parameters for the exception archived table list.
    * 
    * This parameter is required.
    */
@@ -54,7 +54,7 @@ export class ListQualityArchiveTablesRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

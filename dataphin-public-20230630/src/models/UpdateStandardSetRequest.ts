@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStandardSetRequestUpdateCommandApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * Approval process type. Valid values: BY_DEFAULT (default approval type) and BY_TEMPLATE (template-based approval).
+   * The approval process type. Valid values:
+   * - BY_DEFAULT: Default approval type.
+   * - BY_TEMPLATE: Based on an approval template.
    * 
    * This parameter is required.
    * 
@@ -22,14 +24,14 @@ export class UpdateStandardSetRequestUpdateCommandApprovalConfig extends $dara.M
   enableApproval?: boolean;
   /**
    * @remarks
-   * Specifies whether to submit approvals in batch.
+   * Specifies whether to submit approvals in batches.
    * 
    * This parameter is required.
    */
   isSubmitInBatch?: boolean;
   /**
    * @remarks
-   * Approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+   * The ID of the approval template. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
    * 
    * @example
    * 1121
@@ -65,7 +67,7 @@ export class UpdateStandardSetRequestUpdateCommandApprovalConfig extends $dara.M
 export class UpdateStandardSetRequestUpdateCommandDirectoryReference extends $dara.Model {
   /**
    * @remarks
-   * Directory.
+   * The parent folder.
    * 
    * This parameter is required.
    * 
@@ -97,7 +99,9 @@ export class UpdateStandardSetRequestUpdateCommandDirectoryReference extends $da
 export class UpdateStandardSetRequestUpdateCommandOfflineApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * Approval process type. Valid values: BY_DEFAULT (default approval type) and BY_TEMPLATE (template-based approval).
+   * The approval process type. Valid values:
+   * - BY_DEFAULT: Default approval type.
+   * - BY_TEMPLATE: Based on an approval template.
    * 
    * This parameter is required.
    * 
@@ -114,14 +118,14 @@ export class UpdateStandardSetRequestUpdateCommandOfflineApprovalConfig extends 
   enableApproval?: boolean;
   /**
    * @remarks
-   * Specifies whether to submit approvals in batch.
+   * Specifies whether to submit approvals in batches.
    * 
    * This parameter is required.
    */
   isSubmitInBatch?: boolean;
   /**
    * @remarks
-   * Approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+   * The ID of the approval template. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
    * 
    * @example
    * 1121
@@ -157,12 +161,15 @@ export class UpdateStandardSetRequestUpdateCommandOfflineApprovalConfig extends 
 export class UpdateStandardSetRequestUpdateCommandVisibilityConfig extends $dara.Model {
   /**
    * @remarks
-   * List of specified visible users. This parameter takes effect only when the visibility type is set to SPECIFIED.
+   * The list of specified users who have visibility. This parameter takes effect only when the visibility type is set to SPECIFIED.
    */
   specifiedUserList?: string[];
   /**
    * @remarks
-   * Visibility type. Valid values: PUBLIC (public access), PRIVATE (private access, visible only to standard set members and administrators), and SPECIFIED (visible to specified users).
+   * The visibility type. Valid values:
+   * - PUBLIC: Public.
+   * - PRIVATE: Private. Visible only to standard set members and administrators.
+   * - SPECIFIED: Visible to specified users.
    * 
    * This parameter is required.
    * 
@@ -199,12 +206,12 @@ export class UpdateStandardSetRequestUpdateCommandVisibilityConfig extends $dara
 export class UpdateStandardSetRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * Publishing approval configuration.
+   * The online approval configuration.
    */
   approvalConfig?: UpdateStandardSetRequestUpdateCommandApprovalConfig;
   /**
    * @remarks
-   * Standard set code.
+   * The code of the standard set.
    * 
    * This parameter is required.
    * 
@@ -214,7 +221,7 @@ export class UpdateStandardSetRequestUpdateCommand extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Default standard template ID.
+   * The ID of the default standard template.
    * 
    * @example
    * 1001
@@ -222,7 +229,7 @@ export class UpdateStandardSetRequestUpdateCommand extends $dara.Model {
   defaultStandardTemplateId?: number;
   /**
    * @remarks
-   * Standard set description.
+   * The description of the standard set.
    * 
    * @example
    * test
@@ -230,27 +237,27 @@ export class UpdateStandardSetRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Parent directory.
+   * The parent folder.
    */
   directoryReference?: UpdateStandardSetRequestUpdateCommandDirectoryReference;
   /**
    * @remarks
-   * Maintainers.
+   * The maintainers.
    */
   maintainerList?: string[];
   /**
    * @remarks
-   * Member group list.
+   * The member group list.
    */
   memberGroupList?: string[];
   /**
    * @remarks
-   * Member list.
+   * The member list.
    */
   memberList?: string[];
   /**
    * @remarks
-   * Standard set name.
+   * The name of the standard set.
    * 
    * This parameter is required.
    * 
@@ -260,12 +267,12 @@ export class UpdateStandardSetRequestUpdateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Unpublishing approval configuration.
+   * The offline approval configuration.
    */
   offlineApprovalConfig?: UpdateStandardSetRequestUpdateCommandOfflineApprovalConfig;
   /**
    * @remarks
-   * Standard set ID.
+   * The ID of the standard set.
    * 
    * This parameter is required.
    * 
@@ -275,7 +282,7 @@ export class UpdateStandardSetRequestUpdateCommand extends $dara.Model {
   standardSetId?: number;
   /**
    * @remarks
-   * Visibility configuration.
+   * The visibility configuration.
    */
   visibilityConfig?: UpdateStandardSetRequestUpdateCommandVisibilityConfig;
   static names(): { [key: string]: string } {
@@ -345,7 +352,7 @@ export class UpdateStandardSetRequestUpdateCommand extends $dara.Model {
 export class UpdateStandardSetRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -354,13 +361,16 @@ export class UpdateStandardSetRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Update command.
+   * The update command.
    * 
    * This parameter is required.
    */

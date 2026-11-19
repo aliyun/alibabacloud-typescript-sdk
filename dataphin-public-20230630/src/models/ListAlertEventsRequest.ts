@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertEventsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The end date of the alert.
+   * The alert end date.
    * 
    * This parameter is required.
    * 
@@ -20,12 +20,12 @@ export class ListAlertEventsRequestListQuery extends $dara.Model {
   alertObjectTypeList?: string[];
   /**
    * @remarks
-   * The list of alert reasons.
+   * The list of alert causes.
    */
   alertReasonList?: string[];
   /**
    * @remarks
-   * The start date of the alert.
+   * The alert start date.
    * 
    * This parameter is required.
    * 
@@ -35,12 +35,12 @@ export class ListAlertEventsRequestListQuery extends $dara.Model {
   alertStartTime?: string;
   /**
    * @remarks
-   * The list of business units.
+   * The list of business unit names.
    */
   bizNameList?: string[];
   /**
    * @remarks
-   * The keyword for the query.
+   * The search keyword.
    * 
    * @example
    * test
@@ -73,23 +73,20 @@ export class ListAlertEventsRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of projects.
+   * The list of project names.
    */
   projectNameList?: string[];
   /**
    * @remarks
    * The source system. Valid values:
-   * 
-   * - ALL: all
-   * - DQE: data quality
-   * - OS: data service
-   * - STREAM: real-time computing
-   * - VDM_BATCH: offline computing
-   * - SOP: O&M platform
-   * - REAL_TIME_PIPELINE: real-time integration
-   * - KGB: baseline monitoring
-   * 
-   * and more.
+   * - ALL: All.
+   * - DQE: Data quality.
+   * - OS: Data service.
+   * - STREAM: Real-time computing.
+   * - VDM_BATCH: Offline computing.
+   * - SOP: O&M platform.
+   * - REAL_TIME_PIPELINE: Real-time integration.
+   * - KGB: Baseline monitoring.
    * 
    * This parameter is required.
    * 
@@ -192,6 +189,9 @@ export class ListAlertEventsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

@@ -6,17 +6,16 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
    * The category. Valid values:
-   * 
-   * - 1: window function
-   * - 2: aggregate function
-   * - 3: numerical function
-   * - 4: string function
-   * - 5: time function
-   * - 6: IP address utility function
-   * - 7: URL-related function
-   * - 8: encoding and decoding function
-   * - 9: business-related function
-   * - 10: other.
+   * - 1: Window function.
+   * - 2: Aggregate function.
+   * - 3: Numerical function.
+   * - 4: String function.
+   * - 5: Time function.
+   * - 6: IP address helper function.
+   * - 7: URL-related function.
+   * - 8: Encoding and decoding function.
+   * - 9: Business-related function.
+   * - 10: Other.
    * 
    * This parameter is required.
    * 
@@ -26,7 +25,7 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   category?: number;
   /**
    * @remarks
-   * The class name that implements the function in the resource.
+   * The name of the class that implements the function in the resource.
    * 
    * This parameter is required.
    * 
@@ -36,7 +35,7 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The command format for function calling to invoke.
+   * The command format for function invocation.
    * 
    * This parameter is required.
    * 
@@ -46,12 +45,12 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   commandHelp?: string;
   /**
    * @remarks
-   * The commit remarks.
+   * The submission comment.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试
+   * Test
    */
   comment?: string;
   /**
@@ -61,12 +60,12 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the user-defined function.
+   * The ID of the custom function.
    * 
    * This parameter is required.
    * 
@@ -76,7 +75,7 @@ export class UpdateUdfRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * This parameter is required.
    * 
@@ -141,6 +140,9 @@ export class UpdateUdfRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

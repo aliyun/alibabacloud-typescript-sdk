@@ -6,9 +6,9 @@ export class GetSupplementDagrunRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * 
    * - DEV: development environment.
-   * - PROD (default): production environment.
+   * - PROD: production environment.
+   * Default value: PROD.
    * 
    * @example
    * PROD
@@ -25,13 +25,16 @@ export class GetSupplementDagrunRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The ID of the data backfill instance.
+   * The data backfill ID.
    * 
    * This parameter is required.
    * 

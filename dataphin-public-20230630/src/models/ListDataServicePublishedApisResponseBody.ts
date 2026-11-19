@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoList extends $dara.Model {
   /**
    * @remarks
-   * Application ID.
+   * The application ID.
    * 
    * @example
    * 10211
@@ -13,8 +13,8 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoLis
   appId?: number;
   /**
    * @remarks
-   * Application key.
-   * >Notice: Deprecated. Use AppKeyStr instead.
+   * The application key. **[Deprecated]** Use AppKeyStr instead.
+   * >Notice: **[Deprecated]** Use AppKeyStr instead.</notice>
    * 
    * @example
    * 200000000
@@ -24,7 +24,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoLis
   appKey?: number;
   /**
    * @remarks
-   * Application key.
+   * The application key.
    * 
    * @example
    * APP_200000000
@@ -32,7 +32,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoLis
   appKeyStr?: string;
   /**
    * @remarks
-   * Application name.
+   * The application name.
    * 
    * @example
    * test
@@ -68,7 +68,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoLis
 export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $dara.Model {
   /**
    * @remarks
-   * API ID.
+   * The API code.
    * 
    * @example
    * 1022
@@ -76,7 +76,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   apiId?: number;
   /**
    * @remarks
-   * API name.
+   * The API name.
    * 
    * @example
    * test
@@ -84,7 +84,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   apiName?: string;
   /**
    * @remarks
-   * Number of bound applications.
+   * The number of bound applications.
    * 
    * @example
    * 1
@@ -92,12 +92,15 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   appCount?: number;
   /**
    * @remarks
-   * List of referenced application information.
+   * The list of referenced applications.
    */
   appInfoList?: ListDataServicePublishedApisResponseBodyPageResultApiListAppInfoList[];
   /**
    * @remarks
-   * Application status. Valid values: 0 (not all applied), 1 (applied), 2 (no app, need to apply for an app first).
+   * The application status. Valid values:
+   * - 0: Not fully applied.
+   * - 1: Applied.
+   * - 2: No application. You must apply for an application first.
    * 
    * @example
    * 1
@@ -105,7 +108,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   applyStatus?: number;
   /**
    * @remarks
-   * Number of calls.
+   * The number of calls.
    * 
    * @example
    * 21
@@ -113,7 +116,10 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   callCount?: number;
   /**
    * @remarks
-   * Creation type. Valid values: 0 (custom mode), 1 (wizard mode), 2 (direct connection API).
+   * The creation type. Valid values:
+   * - 0: Custom mode.
+   * - 1: Wizard mode.
+   * - 2: Direct API connection.
    * 
    * @example
    * 1
@@ -121,7 +127,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   createType?: number;
   /**
    * @remarks
-   * Custom update frequency content.
+   * The custom content for the update frequency.
    * 
    * @example
    * 0 0 0/1 * * *
@@ -129,7 +135,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   customUpdateRate?: string;
   /**
    * @remarks
-   * Publish time. Time format: yyyy-MM-dd HH:mm:ss.
+   * The publish time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -137,7 +143,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   deployTime?: string;
   /**
    * @remarks
-   * API description.
+   * The API description.
    * 
    * @example
    * test xx
@@ -145,7 +151,9 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   description?: string;
   /**
    * @remarks
-   * Call type. Valid values: 1 (synchronous), 2 (asynchronous).
+   * The execution mode. Valid values:
+   * - 1: Synchronous.
+   * - 2: Asynchronous.
    * 
    * @example
    * 1
@@ -153,7 +161,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   executeMode?: number;
   /**
    * @remarks
-   * Group ID.
+   * The group ID.
    * 
    * @example
    * 102131
@@ -161,7 +169,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   groupId?: number;
   /**
    * @remarks
-   * API group name.
+   * The API group name.
    * 
    * @example
    * test
@@ -169,7 +177,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   groupName?: string;
   /**
    * @remarks
-   * Service unit number.
+   * The service unit number.
    * 
    * @example
    * 1022
@@ -177,7 +185,9 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   logicUnitNo?: number;
   /**
    * @remarks
-   * Mode. Valid values: 0 (basic), 1 (dev_prod).
+   * The mode. Valid values:
+   * - 0: basic.
+   * - 1: dev_prod.
    * 
    * @example
    * 1
@@ -185,7 +195,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   mode?: number;
   /**
    * @remarks
-   * Owner ID.
+   * The owner ID.
    * 
    * @example
    * 30012011
@@ -193,15 +203,15 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   owner?: string;
   /**
    * @remarks
-   * Owner name.
+   * The owner.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerUserName?: string;
   /**
    * @remarks
-   * Data service project ID.
+   * The data service project ID.
    * 
    * @example
    * 102101
@@ -209,7 +219,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   projectId?: number;
   /**
    * @remarks
-   * Service project name.
+   * The service project name.
    * 
    * @example
    * test
@@ -217,7 +227,11 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   projectName?: string;
   /**
    * @remarks
-   * Update frequency. Valid values: 0 (custom), 1 (daily), 2 (hourly), 3 (per minute).
+   * The update frequency. Valid values:
+   * - 0: Custom.
+   * - 1: Daily.
+   * - 2: Hourly.
+   * - 3: Every minute.
    * 
    * @example
    * 1
@@ -225,7 +239,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   updateRate?: number;
   /**
    * @remarks
-   * Modification time. Time format: yyyy-MM-dd HH:mm:ss.
+   * The update time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -233,7 +247,7 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
   updateTime?: string;
   /**
    * @remarks
-   * API version.
+   * The API version.
    * 
    * @example
    * 1.0
@@ -308,12 +322,12 @@ export class ListDataServicePublishedApisResponseBodyPageResultApiList extends $
 export class ListDataServicePublishedApisResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * Paginated API list.
+   * The paged API list.
    */
   apiList?: ListDataServicePublishedApisResponseBodyPageResultApiList[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 68
@@ -348,7 +362,7 @@ export class ListDataServicePublishedApisResponseBodyPageResult extends $dara.Mo
 export class ListDataServicePublishedApisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -356,7 +370,7 @@ export class ListDataServicePublishedApisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP response code.
    * 
    * @example
    * 200
@@ -364,7 +378,7 @@ export class ListDataServicePublishedApisResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend exception details.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -372,7 +386,7 @@ export class ListDataServicePublishedApisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paginated query result.
+   * The paged query results.
    */
   pageResult?: ListDataServicePublishedApisResponseBodyPageResult;
   /**
@@ -385,7 +399,7 @@ export class ListDataServicePublishedApisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

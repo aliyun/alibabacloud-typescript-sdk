@@ -13,7 +13,7 @@ export class ListKgEntityShrinkRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The paged query filter conditions.
+   * The paged search filter conditions.
    */
   listQueryShrink?: string;
   /**
@@ -27,6 +27,9 @@ export class ListKgEntityShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

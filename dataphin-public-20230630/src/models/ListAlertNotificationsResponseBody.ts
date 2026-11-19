@@ -14,17 +14,15 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertObject extends
   /**
    * @remarks
    * The source system. Valid values:
-   * 
-   * - ALL: all.
-   * - DQE: data quality.
-   * - OS: data service.
-   * - STREAM: real-time computing.
-   * - VDM_BATCH: offline computing.
+   * - ALL: All.
+   * - DQE: Data quality.
+   * - OS: Data service.
+   * - STREAM: Real-time computing.
+   * - VDM_BATCH: Offline computing.
    * - SOP: O&M platform.
-   * - REAL_TIME_PIPELINE: real-time integration.
-   * - KGB: baseline monitoring.
-   * 
-   * And more.
+   * - REAL_TIME_PIPELINE: Real-time integration.
+   * - KGB: Baseline monitoring.
+   * etc.
    * 
    * @example
    * VDM_BATCH
@@ -34,9 +32,9 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertObject extends
    * @remarks
    * The alert object type. Valid values:
    * - OS_API: API operation.
-   * - OS_APPLICATION_SERVICE: service application.
-   * - STREAM_TASK: real-time computing.
-   * - REAL_TIME_PIPELINE_TASK: real-time integration.
+   * - OS_APPLICATION_SERVICE: Service application.
+   * - STREAM_TASK: Real-time computing.
+   * - REAL_TIME_PIPELINE_TASK: Real-time integration.
    * - VDM_BATCH_SHELL: SHELL.
    * - VDM_BATCH_PYTHON: PYTHON.
    * - VDM_BATCH_DATAX: DATAX.
@@ -52,15 +50,13 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertObject extends
    * - VDM_BATCH_SPARK_JAR_ON_HIVE: SPARK_JAR_ON_HIVE.
    * - VDM_BATCH_SPARK_SQL_ON_HIVE: SPARK_SQL_ON_HIVE.
    * - VDM_BATCH_SPARK_SQL: VDM_BATCH_SPARK_SQL.
-   * - DQE_LOGICAL_TABLE: logical table.
-   * - DQE_PHYSICAL_TABLE: physical table.
-   * - DQE_REALTIME_TABLE: real-time meta table.
-   * - DQE_DATA_SOURCE: data source.
-   * - DQE_INDEX: metric.
+   * - DQE_LOGICAL_TABLE: Logical table.
+   * - DQE_PHYSICAL_TABLE: Physical table.
+   * - DQE_REALTIME_TABLE: Real-time metadata table.
+   * - DQE_DATA_SOURCE: Data source.
+   * - DQE_INDEX: Metric.
    * - QD_DECISION_INVOKE: QD decision invocation.
-   * - BASELINE: baseline.
-   * 
-   * And more.
+   * - BASELINE: Baseline.
    * 
    * @example
    * VDM_BATCH_SHELL
@@ -148,42 +144,41 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertReason extends
   /**
    * @remarks
    * The alert reason type. Valid values:
-   * - DQE_COLUMN: field rule exception.
-   * - DQE_DATA_SOURCE: data source rule exception.
-   * - DQE_CUSTOMIZE: custom rule exception.
-   * - DQE_TABLE: table rule exception.
-   * - DQE_REALTIME_TABLE: real-time table rule exception.
-   * - DQE_INDEX: metric rule exception.
-   * - OS_AVG_RESPONSE: average response time exception.
-   * - OS_CALL_TIMES: call count exception.
-   * - OS_ERROR_RATE: error rate exception.
+   * - DQE_COLUMN: Field rule exception.
+   * - DQE_DATA_SOURCE: Data source rule exception.
+   * - DQE_CUSTOMIZE: Custom rule exception.
+   * - DQE_TABLE: Table rule exception.
+   * - DQE_REALTIME_TABLE: Real-time table rule exception.
+   * - DQE_INDEX: Metric rule exception.
+   * - OS_AVG_RESPONSE: Average response time exception.
+   * - OS_CALL_TIMES: Call count exception.
+   * - OS_ERROR_RATE: Error rate exception.
    * - OS_OFFLINE: Offline percentage exception.
-   * - STREAM_BIZ_DELAY: business delay too high.
-   * - STREAM_DATA_RETENTION: data retention exceeds configuration.
-   * - STREAM_MORE_THAN_FAILURE: failure frequency exceeds configuration.
+   * - STREAM_BIZ_DELAY: High business delay.
+   * - STREAM_DATA_RETENTION: Data retention exceeds configuration.
+   * - STREAM_MORE_THAN_FAILURE: Failure frequency exceeds configuration.
    * - STREAM_TPS_OUT_RANGE: TPS out of range.
-   * - STREAM_CHECKPOINT_FAILURE: checkpoint failures exceed configuration.
-   * - STREAM_BACKPRESSURE: backpressure duration exceeds configuration.
-   * - STREAM_JOB_FAILURE: job execution failed.
-   * - VDM_BATCH_ERROR: error.
-   * - VDM_BATCH_FINISH: completed.
-   * - VDM_BATCH_TIME_OUT: execution timed out.
-   * - VDM_BATCH_UNDONE: not completed.
-   * - VDM_BATCH_LOGIC_DATA_DELAY: data delay.
-   * - QD_DECISION_CALL_TIMES: decision call count exception.
-   * - QD_DECISION_MAX_RESPONSE: maximum response time exception.
-   * - QD_DECISION_ERROR_RATE: error rate exception.
-   * - QD_DECISION_PARAM_COUNT: decision parameter count exception.
-   * - QD_DECISION_PARAM_PERCENTAGE: decision parameter percentage exception.
-   * - QD_DECISION_PARAM_SUM: decision parameter sum exception.
-   * - QD_DECISION_PARAM_AVG: decision parameter average exception.
-   * - LOGICAL_INSTANCE_GENERATION: logical instance generation monitoring.
-   * - KGB_TASK_ERROR: baseline task error.
-   * - KGB_TASK_SLOW_DOWN: baseline task slowdown.
-   * - KGB_EARLY_WARNING: baseline early warning.
-   * - KGB_BROKEN_LINE: baseline broken line.
-   * 
-   * And more.
+   * - STREAM_CHECKPOINT_FAILURE: Checkpoint failures exceed configuration.
+   * - STREAM_BACKPRESSURE: Backpressure duration exceeds configuration.
+   * - STREAM_JOB_FAILURE: Execution failed.
+   * - VDM_BATCH_ERROR: Error occurred.
+   * - VDM_BATCH_FINISH: Completed.
+   * - VDM_BATCH_TIME_OUT: Execution timed out.
+   * - VDM_BATCH_UNDONE: Incomplete.
+   * - VDM_BATCH_LOGIC_DATA_DELAY: Data delay.
+   * - QD_DECISION_CALL_TIMES: Decision call count exception.
+   * - QD_DECISION_MAX_RESPONSE: Maximum response time exception.
+   * - QD_DECISION_ERROR_RATE: Error rate exception.
+   * - QD_DECISION_PARAM_COUNT: Decision parameter statistics count exception.
+   * - QD_DECISION_PARAM_PERCENTAGE: Decision parameter statistics percentage exception.
+   * - QD_DECISION_PARAM_SUM: Decision parameter sum exception.
+   * - QD_DECISION_PARAM_AVG: Decision parameter average exception.
+   * - LOGICAL_INSTANCE_GENERATION: Logical instance generation monitoring.
+   * - KGB_TASK_ERROR: Baseline task error.
+   * - KGB_TASK_SLOW_DOWN: Baseline task slowed down.
+   * - KGB_EARLY_WARNING: Baseline early warning.
+   * - KGB_BROKEN_LINE: Baseline SLA breached.
+   * etc.
    * 
    * @example
    * VDM_BATCH_FINISH
@@ -230,7 +225,7 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertReason extends
 export class ListAlertNotificationsResponseBodyListResultDataAlertReceiverUser extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert receiver.
+   * The alert recipient name.
    * 
    * @example
    * ADMIN
@@ -261,15 +256,15 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertReceiver exten
   /**
    * @remarks
    * The push channel type. Valid values:
-   * - VOICE: phone call.
-   * - SMS: text message.
-   * - MAIL: email.
+   * - VOICE: Voice calls.
+   * - SMS: Text messages.
+   * - MAIL: Email.
    * - DINGTALK_ROBOT: DingTalk robot.
    * - DINGDING: DingTalk work notification.
-   * - CUSTOM: custom message channel.
+   * - CUSTOM: Custom message channel.
    * - WECHAT: WeCom.
    * - FEISHU: Lark.
-   * - SILENCE: do not send.
+   * - SILENCE: No notification.
    * 
    * @example
    * SMS
@@ -301,10 +296,10 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertReceiver exten
   onCallTableName?: string;
   /**
    * @remarks
-   * The alert receiver type. Valid values:
-   * - ON_CALL_TABLE: on-call schedule.
-   * - USER_DEFINED: custom user.
-   * - OWNER: owner.
+   * The alert recipient type. Valid values:
+   * - ON_CALL_TABLE: On-call schedule.
+   * - USER_DEFINED: Custom user.
+   * - OWNER: Owner.
    * 
    * @example
    * OWNER
@@ -355,12 +350,12 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertSend extends $
    * The alert reason.
    * 
    * @example
-   * 不合法
+   * Invalid
    */
   failReason?: string;
   /**
    * @remarks
-   * The push content.
+   * The delivery content.
    * 
    * @example
    * test
@@ -368,7 +363,7 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertSend extends $
   sendContent?: string;
   /**
    * @remarks
-   * The push time.
+   * The delivery time.
    * 
    * @example
    * 2024-11-25 10:02:47
@@ -376,10 +371,10 @@ export class ListAlertNotificationsResponseBodyListResultDataAlertSend extends $
   sendTime?: string;
   /**
    * @remarks
-   * The push status. Valid values:
-   * - SUCCESS: Sent successfully.
-   * - FAILE: Failed to send.
-   * - SENDING: Sending in progress.
+   * The delivery status. Valid values:
+   * - SUCCESS: Delivered successfully.
+   * - FAILE: Delivery failed.
+   * - SENDING: Delivering.
    * 
    * @example
    * SUCCESS
@@ -433,12 +428,12 @@ export class ListAlertNotificationsResponseBodyListResultData extends $dara.Mode
   alertReason?: ListAlertNotificationsResponseBodyListResultDataAlertReason;
   /**
    * @remarks
-   * The receiver information.
+   * The recipient information.
    */
   alertReceiver?: ListAlertNotificationsResponseBodyListResultDataAlertReceiver;
   /**
    * @remarks
-   * The alert sending information.
+   * The alert delivery information.
    */
   alertSend?: ListAlertNotificationsResponseBodyListResultDataAlertSend;
   static names(): { [key: string]: string } {
@@ -490,7 +485,7 @@ export class ListAlertNotificationsResponseBodyListResult extends $dara.Model {
   data?: ListAlertNotificationsResponseBodyListResultData[];
   /**
    * @remarks
-   * The total number of records.
+   * The total count.
    * 
    * @example
    * 5
@@ -525,7 +520,7 @@ export class ListAlertNotificationsResponseBodyListResult extends $dara.Model {
 export class ListAlertNotificationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -562,7 +557,7 @@ export class ListAlertNotificationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

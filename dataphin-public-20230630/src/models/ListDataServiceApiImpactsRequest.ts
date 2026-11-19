@@ -15,7 +15,7 @@ export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * test
@@ -33,7 +33,7 @@ export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The column used for sorting. Valid values: CALL_COUNT: the number of calls. ERROR_COUNT: the number of errors. ERROR_RATE: the error rate. Default value: CALL_COUNT.
+   * The column by which to sort the results. Valid values: CALL_COUNT (number of calls), ERROR_COUNT (number of exceptions), and ERROR_RATE (error rate). Default value: CALL_COUNT.
    * 
    * @example
    * CALL_COUNT
@@ -41,7 +41,7 @@ export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: 1: ascending order. 2: descending order. Default value: 1.
+   * The sort order. Valid values: 1 (ascending order) and 2 (descending order). Default value: 1.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListDataServiceApiImpactsRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -127,13 +127,16 @@ export class ListDataServiceApiImpactsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The ID of the data service project.
+   * The ID of the Data Service project.
    * 
    * This parameter is required.
    * 

@@ -111,7 +111,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The ID of the user who created the lookup table.
+   * The ID of the creator.
    * 
    * @example
    * 30012021
@@ -119,7 +119,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   creator?: string;
   /**
    * @remarks
-   * The username of the user who created the lookup table.
+   * The username of the creator.
    * 
    * @example
    * test
@@ -140,7 +140,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   directoryReference?: GetStandardLookupTableResponseBodyLookupTableInfoDirectoryReference;
   /**
    * @remarks
-   * The ID of the lookup table.
+   * The lookup table ID.
    * 
    * @example
    * 1234
@@ -148,7 +148,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the lookup table.
+   * The ID of the last modifier.
    * 
    * @example
    * 30012021
@@ -156,7 +156,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   lastModifier?: string;
   /**
    * @remarks
-   * The username of the user who last modified the lookup table.
+   * The username of the last modifier.
    * 
    * @example
    * test
@@ -276,7 +276,7 @@ export class GetStandardLookupTableResponseBody extends $dara.Model {
   lookupTableInfo?: GetStandardLookupTableResponseBodyLookupTableInfo;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

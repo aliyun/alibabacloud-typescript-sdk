@@ -45,7 +45,7 @@ export class SubmitBatchTaskResponseBodySubmitResult extends $dara.Model {
 export class SubmitBatchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned for the request. A value of OK indicates that the request is normal.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -61,7 +61,7 @@ export class SubmitBatchTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned for the request.
+   * The error message.
    * 
    * @example
    * successful
@@ -69,7 +69,7 @@ export class SubmitBatchTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -77,7 +77,7 @@ export class SubmitBatchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The edit result.
+   * The submission result.
    */
   submitResult?: SubmitBatchTaskResponseBodySubmitResult;
   /**

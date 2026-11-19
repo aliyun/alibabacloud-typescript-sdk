@@ -14,6 +14,9 @@ export class RevokeDataServiceApiShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */
@@ -30,7 +33,7 @@ export class RevokeDataServiceApiShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The revoke instruction.
+   * The authorization command.
    * 
    * This parameter is required.
    */

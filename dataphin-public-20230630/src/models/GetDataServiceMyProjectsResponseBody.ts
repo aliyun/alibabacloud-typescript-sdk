@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceMyProjectsResponseBodyProjectList extends $dara.Model {
   /**
    * @remarks
-   * The data service project ID.
+   * The ID of the data service project.
    * 
    * @example
    * 102011
@@ -13,7 +13,7 @@ export class GetDataServiceMyProjectsResponseBodyProjectList extends $dara.Model
   projectId?: number;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * test
@@ -21,12 +21,7 @@ export class GetDataServiceMyProjectsResponseBodyProjectList extends $dara.Model
   projectName?: string;
   /**
    * @remarks
-   * The role. Valid values:
-   * - 1: super administrator
-   * - 2: developer
-   * - 3: application member
-   * - 4: service project administrator
-   * - 5: O&M engineer.
+   * The role. Valid values: 1: Super administrator, 2: Developer, 3: Application member, 4: Service project administrator, 5: O&M user.
    * 
    * @example
    * 1
@@ -76,7 +71,7 @@ export class GetDataServiceMyProjectsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend error details.
    * 
    * @example
    * internal error
@@ -97,7 +92,7 @@ export class GetDataServiceMyProjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

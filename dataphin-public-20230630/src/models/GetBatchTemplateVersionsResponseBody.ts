@@ -29,7 +29,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionListDataSour
   schema?: string;
   /**
    * @remarks
-   * The data source type of the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
+   * The type of the data source for the database SQL template. Valid values: MYSQL, ORACLE, ADB_FOR_PG, OUSHUDB, PRESTO, POSTGRE_SQL, STARROCKS, CLICKHOUSE, ANALYTICDB, ADB_FOR_MYSQL_V3, GAUSSDB, SELECTDB, DORIS, SQL_SERVER, HOLOGRES, OPENGAUSS, DAMENG, OCEANBASE, TRINO, POLARDB_X2, LINDORM, EMR_SPARK_SERVERLESS, TDSQL_FOR_PG, TDSQL_FOR_MYSQL, GBASE_8A, and TDENGINE.
    * 
    * @example
    * MYSQL
@@ -73,12 +73,12 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionListParams e
   description?: string;
   /**
    * @remarks
-   * Indicates whether encryption is enabled for the parameter.
+   * Specifies whether encryption is enabled for the parameter.
    */
   encryptEnabled?: boolean;
   /**
    * @remarks
-   * The key of the parameter.
+   * The parameter key.
    * 
    * @example
    * param1
@@ -122,7 +122,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionListParams e
 export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionListPythonModuleList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Python third-party package.
+   * The ID of the third-party Python package.
    * 
    * @example
    * 1001
@@ -138,7 +138,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionListPythonMo
   installTime?: string;
   /**
    * @remarks
-   * The name of the Python third-party package.
+   * The name of the third-party Python package.
    * 
    * @example
    * numpy
@@ -154,7 +154,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionListPythonMo
   pythonVersion?: string;
   /**
    * @remarks
-   * The status of the third-party package. Valid values: INSTALL_SUCCESS (installed), INSTALL_FAILED (installation failed), INSTALLING (installing), UPGRADE_SUCCESS (upgraded), UPGRADE_FAILED (upgrade failed), and UPGRADING (upgrading).
+   * The status of the third-party package. Valid values: INSTALL_SUCCESS (installation succeeded), INSTALL_FAILED (installation failed), INSTALLING (installing), UPGRADE_SUCCESS (upgrade succeeded), UPGRADE_FAILED (upgrade failed), and UPGRADING (upgrading).
    * 
    * @example
    * INSTALL_SUCCESS
@@ -202,7 +202,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionListPythonMo
 export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends $dara.Model {
   /**
    * @remarks
-   * The template submission comment.
+   * The comment for the template submission.
    * 
    * @example
    * Initial submission
@@ -219,7 +219,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   content?: string;
   /**
    * @remarks
-   * The data source configuration of the database SQL template.
+   * The datasource config for the database SQL template.
    */
   dataSourceConfig?: GetBatchTemplateVersionsResponseBodyDataTemplateVersionListDataSourceConfig;
   /**
@@ -243,12 +243,12 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
    * The name of the resource group in the development environment.
    * 
    * @example
-   * Default resource group for the project
+   * Project default resource group
    */
   devResourceGroupName?: string;
   /**
    * @remarks
-   * The version of the compute engine. Valid values: Python 2.7 and Python 3.7.
+   * The version of the compute engine. Currently, Python 2.7 and Python 3.7 are supported.
    * 
    * @example
    * Python 3.7
@@ -272,7 +272,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the template, which is the same as the menu tree node ID.
+   * The template ID, which is the same as the menu tree node ID.
    * 
    * @example
    * 1001
@@ -280,7 +280,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   id?: number;
   /**
    * @remarks
-   * The last user who updated the template.
+   * The user who last updated the template.
    * 
    * @example
    * Li Si
@@ -288,7 +288,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   modifier?: string;
   /**
    * @remarks
-   * The ID of the last user who updated the template.
+   * The ID of the user who last updated the template.
    * 
    * @example
    * 100002
@@ -296,7 +296,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   modifierId?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * Data processing template
@@ -312,7 +312,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   operatorType?: number;
   /**
    * @remarks
-   * The owner of the template.
+   * The template owner.
    * 
    * @example
    * Zhang San
@@ -333,7 +333,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   params?: GetBatchTemplateVersionsResponseBodyDataTemplateVersionListParams[];
   /**
    * @remarks
-   * The ID of the project.
+   * The project ID.
    * 
    * @example
    * 123456
@@ -341,7 +341,7 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
   projectId?: number;
   /**
    * @remarks
-   * The list of dependent Python third-party packages.
+   * The list of dependent third-party Python packages.
    */
   pythonModuleList?: GetBatchTemplateVersionsResponseBodyDataTemplateVersionListPythonModuleList[];
   /**
@@ -357,17 +357,17 @@ export class GetBatchTemplateVersionsResponseBodyDataTemplateVersionList extends
    * The name of the resource group in the production environment.
    * 
    * @example
-   * Default resource group for the project
+   * Project default resource group
    */
   resourceGroupName?: string;
   /**
    * @remarks
-   * Indicates whether runtime resources are shared.
+   * Specifies whether runtime resources are shared.
    */
   shareRuntimeResource?: boolean;
   /**
    * @remarks
-   * The status of the template. Valid values: 0 (draft), 2 (submitted), and 100 (in development).
+   * The template status. Valid values: 0 (Draft), 2 (Submitted), and 100 (In development).
    * 
    * @example
    * 2
@@ -511,7 +511,7 @@ export class GetBatchTemplateVersionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

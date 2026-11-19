@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand extends $dara.Model {
   /**
    * @remarks
-   * The rule ID.
+   * The rule IDs.
    * 
    * This parameter is required.
    */
   ruleIdList?: number[];
   /**
    * @remarks
-   * The schedule ID.
+   * The schedule IDs.
    * 
    * This parameter is required.
    */
@@ -24,7 +24,7 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand extend
    * This parameter is required.
    * 
    * @example
-   * 平均值
+   * Average
    */
   watchId?: number;
   static names(): { [key: string]: string } {
@@ -61,7 +61,7 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand extend
 export class AssignQualityRuleOfAllRuleScopeSchedulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The assignment binding command.
+   * The binding assignment command.
    * 
    * This parameter is required.
    */
@@ -78,7 +78,7 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesRequest extends $dara.Model
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The operator user ID.
    * 
    * @example
    * 30001011

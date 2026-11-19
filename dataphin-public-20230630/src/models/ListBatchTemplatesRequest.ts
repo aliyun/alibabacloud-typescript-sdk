@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchTemplatesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The keyword in the template name.
+   * The keyword for the template name.
    * 
    * @example
    * Data processing template
@@ -21,7 +21,7 @@ export class ListBatchTemplatesRequestListQuery extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20

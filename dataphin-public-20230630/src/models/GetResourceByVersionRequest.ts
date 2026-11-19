@@ -25,7 +25,7 @@ export class GetResourceByVersionRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011
@@ -43,7 +43,7 @@ export class GetResourceByVersionRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The version number.
+   * The version ID.
    * 
    * This parameter is required.
    * 

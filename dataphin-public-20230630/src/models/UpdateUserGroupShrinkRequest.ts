@@ -14,13 +14,16 @@ export class UpdateUserGroupShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to edit the user group.
+   * The update user group command.
    */
   updateCommandShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportKgSchemaResponseBodySchemaInfo extends $dara.Model {
   /**
    * @remarks
-   * The knowledge graph definition content converted based on the specified format.
+   * The content of the knowledge graph definition converted based on the specified format.
    * 
    * @example
    * workspaceId: f1d4559a4db044158305e2d89bccf81f
@@ -62,7 +62,7 @@ export class ExportKgSchemaResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -78,12 +78,12 @@ export class ExportKgSchemaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The knowledge graph definition details.
+   * The details of the knowledge graph definition.
    */
   schemaInfo?: ExportKgSchemaResponseBodySchemaInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

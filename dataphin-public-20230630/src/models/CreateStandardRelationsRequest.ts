@@ -37,7 +37,7 @@ export class CreateStandardRelationsRequestCreateCommandStandardRefList extends 
 export class CreateStandardRelationsRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The standard association relationship type: RELATIVE.
+   * The standard association type. Valid value: RELATIVE.
    * 
    * This parameter is required.
    * 
@@ -109,6 +109,9 @@ export class CreateStandardRelationsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

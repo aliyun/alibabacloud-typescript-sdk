@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "dataphin-public";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dataphin-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -624,8 +628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds specified quality rules to schedule settings.
-   * Release version: v5.4.2.
+   * Binds quality rules to scheduling settings. Available since v5.4.2.
    * 
    * @param tmpReq - AssignQualityRuleOfAllRuleScopeSchedulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -672,8 +675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds specified quality rules to schedule settings.
-   * Release version: v5.4.2.
+   * Binds quality rules to scheduling settings. Available since v5.4.2.
    * 
    * @param request - AssignQualityRuleOfAllRuleScopeSchedulesRequest
    * @returns AssignQualityRuleOfAllRuleScopeSchedulesResponse
@@ -684,7 +686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph entity records in batches. Released in version v6.1.1.
+   * Creates knowledge graph entity records in batches. Available since version v6.1.1.
    * 
    * @param tmpReq - BatchCreateKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -735,7 +737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph entity records in batches. Released in version v6.1.1.
+   * Creates knowledge graph entity records in batches. Available since version v6.1.1.
    * 
    * @param request - BatchCreateKgEntityRequest
    * @returns BatchCreateKgEntityResponse
@@ -746,7 +748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph relationship records in batches. Released in version v6.1.1.
+   * Creates knowledge graph relation records in batches. Available since version v6.1.1.
    * 
    * @param tmpReq - BatchCreateKgRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -797,7 +799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph relationship records in batches. Released in version v6.1.1.
+   * Creates knowledge graph relation records in batches. Available since version v6.1.1.
    * 
    * @param request - BatchCreateKgRelationRequest
    * @returns BatchCreateKgRelationResponse
@@ -1656,7 +1658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data domain.
+   * Creates a business unit.
    * 
    * @param tmpReq - CreateBizUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1703,7 +1705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data domain.
+   * Creates a business unit.
    * 
    * @param request - CreateBizUnitRequest
    * @returns CreateBizUnitResponse
@@ -1888,7 +1890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data service API and submits it.
+   * Creates and submits a new data service API.
    * 
    * @param tmpReq - CreateDataServiceApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1935,7 +1937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data service API and submits it.
+   * Creates and submits a new data service API.
    * 
    * @param request - CreateDataServiceApiRequest
    * @returns CreateDataServiceApiResponse
@@ -2058,7 +2060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
+   * Creates a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
    * 
    * @param tmpReq - CreateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2105,7 +2107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
+   * Creates a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
    * 
    * @param request - CreateDataSourceRequest
    * @returns CreateDataSourceResponse
@@ -2256,7 +2258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
+   * Creates a menu tree directory to support features such as compute tasks, data integration, and synchronization tasks.
    * 
    * @param tmpReq - CreateDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2303,7 +2305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
+   * Creates a menu tree directory to support features such as compute tasks, data integration, and synchronization tasks.
    * 
    * @param request - CreateDirectoryRequest
    * @returns CreateDirectoryResponse
@@ -2314,7 +2316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a knowledge graph entity record. Online version: v6.1.1.
+   * Creates a knowledge graph entity record. Released in version v6.1.1.
    * 
    * @param tmpReq - CreateKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2365,7 +2367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a knowledge graph entity record. Online version: v6.1.1.
+   * Creates a knowledge graph entity record. Released in version v6.1.1.
    * 
    * @param request - CreateKgEntityRequest
    * @returns CreateKgEntityResponse
@@ -2376,7 +2378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a knowledge graph relationship record. Online version: v6.1.1.
+   * Creates a knowledge graph relationship record. Available since v6.1.1.
    * 
    * @param tmpReq - CreateKgRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2427,7 +2429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a knowledge graph relationship record. Online version: v6.1.1.
+   * Creates a knowledge graph relationship record. Available since v6.1.1.
    * 
    * @param request - CreateKgRelationRequest
    * @returns CreateKgRelationResponse
@@ -2566,7 +2568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously create a pipeline/unstructured workflow.
+   * Asynchronously creates a pipeline or unstructured workflow.
    * 
    * @param tmpReq - CreatePipelineByAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2621,7 +2623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously create a pipeline/unstructured workflow.
+   * Asynchronously creates a pipeline or unstructured workflow.
    * 
    * @param request - CreatePipelineByAsyncRequest
    * @returns CreatePipelineByAsyncResponse
@@ -3044,8 +3046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a security identification result.
-   * Release version: v5.4.2.
+   * Creates a security identification result. Available since version 5.4.2.
    * 
    * @param tmpReq - CreateSecurityIdentifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3092,8 +3093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a security identification result.
-   * Release version: v5.4.2.
+   * Creates a security identification result. Available since version 5.4.2.
    * 
    * @param request - CreateSecurityIdentifyResultRequest
    * @returns CreateSecurityIdentifyResultResponse
@@ -3278,8 +3278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates standard mapping relationships, including valid mappings and invalid mappings.
-   * Release version: v5.4.2.
+   * Creates standard mapping relationships, including valid and invalid mappings. Release version: v5.4.2.
    * 
    * @param tmpReq - CreateStandardMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3326,8 +3325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates standard mapping relationships, including valid mappings and invalid mappings.
-   * Release version: v5.4.2.
+   * Creates standard mapping relationships, including valid and invalid mappings. Release version: v5.4.2.
    * 
    * @param request - CreateStandardMappingRequest
    * @returns CreateStandardMappingResponse
@@ -3338,8 +3336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard association relationship.
-   * Online version: v5.4.2.
+   * Creates a standard association. Release version: v5.4.2.
    * 
    * @param tmpReq - CreateStandardRelationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3386,8 +3383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard association relationship.
-   * Online version: v5.4.2.
+   * Creates a standard association. Release version: v5.4.2.
    * 
    * @param request - CreateStandardRelationsRequest
    * @returns CreateStandardRelationsResponse
@@ -3398,8 +3394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard set.
-   * Available since: v5.4.2.
+   * Creates a standard set. Released in version 5.4.2.
    * 
    * @param tmpReq - CreateStandardSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3446,8 +3441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard set.
-   * Available since: v5.4.2.
+   * Creates a standard set. Released in version 5.4.2.
    * 
    * @param request - CreateStandardSetRequest
    * @returns CreateStandardSetResponse
@@ -3632,7 +3626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-defined function.
+   * Creates a custom function.
    * 
    * @param tmpReq - CreateUdfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3679,7 +3673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-defined function.
+   * Creates a custom function.
    * 
    * @param request - CreateUdfRequest
    * @returns CreateUdfResponse
@@ -3814,7 +3808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ad hoc query file from the menu tree.
+   * Deletes the ad hoc query file in the menu tree.
    * 
    * @param request - DeleteAdHocFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3857,7 +3851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ad hoc query file from the menu tree.
+   * Deletes the ad hoc query file in the menu tree.
    * 
    * @param request - DeleteAdHocFileRequest
    * @returns DeleteAdHocFileResponse
@@ -3984,8 +3978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a business metric.
-   * Release version: v5.5.0.
+   * Deletes a business metric. Release version: v5.5.0.
    * 
    * @param tmpReq - DeleteBizMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4032,8 +4025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a business metric.
-   * Release version: v5.5.0.
+   * Deletes a business metric. Release version: v5.5.0.
    * 
    * @param request - DeleteBizMetricRequest
    * @returns DeleteBizMetricResponse
@@ -4044,7 +4036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data domain.
+   * Deletes a data block.
    * 
    * @param request - DeleteBizUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4083,7 +4075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data domain.
+   * Deletes a data block.
    * 
    * @param request - DeleteBizUnitRequest
    * @returns DeleteBizUnitResponse
@@ -4194,7 +4186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a subject domain.
+   * Deletes a subject area.
    * 
    * @param request - DeleteDataDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4237,7 +4229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a subject domain.
+   * Deletes a subject area.
    * 
    * @param request - DeleteDataDomainRequest
    * @returns DeleteDataDomainResponse
@@ -4248,8 +4240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
-   * Online version: v6.0.0.
+   * Deletes a data service application. Only super administrators, system administrators, or application owners can perform this operation. Release version: v6.0.0.
    * 
    * @param request - DeleteDataServiceAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4288,8 +4279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
-   * Online version: v6.0.0.
+   * Deletes a data service application. Only super administrators, system administrators, or application owners can perform this operation. Release version: v6.0.0.
    * 
    * @param request - DeleteDataServiceAppRequest
    * @returns DeleteDataServiceAppResponse
@@ -4300,8 +4290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data service application group. Only superusers and system administrators can perform this operation.
-   * Online version: v6.0.0.
+   * Deletes a data service application group. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
    * 
    * @param request - DeleteDataServiceAppGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4340,8 +4329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data service application group. Only superusers and system administrators can perform this operation.
-   * Online version: v6.0.0.
+   * Deletes a data service application group. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
    * 
    * @param request - DeleteDataServiceAppGroupRequest
    * @returns DeleteDataServiceAppGroupResponse
@@ -4464,7 +4452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file directory from the menu tree.
+   * Deletes a folder in the menu tree.
    * 
    * @param request - DeleteDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4507,7 +4495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file directory from the menu tree.
+   * Deletes a folder in the menu tree.
    * 
    * @param request - DeleteDirectoryRequest
    * @returns DeleteDirectoryResponse
@@ -4518,7 +4506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an entity record. Online version: v6.1.1.
+   * Deletes an entity record. Available since version 6.1.1.
    * 
    * @param request - DeleteKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4565,7 +4553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an entity record. Online version: v6.1.1.
+   * Deletes an entity record. Available since version 6.1.1.
    * 
    * @param request - DeleteKgEntityRequest
    * @returns DeleteKgEntityResponse
@@ -4916,7 +4904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes registered data lineage. Available since v5.4.0.
+   * Deletes registered lineage. Available since version 5.4.0.
    * 
    * @param tmpReq - DeleteRegisterLineageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4963,7 +4951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes registered data lineage. Available since v5.4.0.
+   * Deletes registered lineage. Available since version 5.4.0.
    * 
    * @param request - DeleteRegisterLineageRequest
    * @returns DeleteRegisterLineageResponse
@@ -5264,7 +5252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data classification level. Available since v5.4.2.
+   * Deletes a data classification level. Released in version 5.4.2.
    * 
    * @param tmpReq - DeleteSecurityLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5311,7 +5299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data classification level. Available since v5.4.2.
+   * Deletes a data classification level. Released in version 5.4.2.
    * 
    * @param request - DeleteSecurityLevelRequest
    * @returns DeleteSecurityLevelResponse
@@ -5546,8 +5534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a standard set.
-   * Online version: v5.4.2.
+   * Deletes a standard set. Release version: v5.4.2.
    * 
    * @param request - DeleteStandardSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5586,8 +5573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a standard set.
-   * Online version: v5.4.2.
+   * Deletes a standard set. Release version: v5.4.2.
    * 
    * @param request - DeleteStandardSetRequest
    * @returns DeleteStandardSetResponse
@@ -5656,8 +5642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data standard root word.
-   * Online version: v5.4.2.
+   * Deletes a data standard word root. Release version: v5.4.2.
    * 
    * @param request - DeleteStandardWordRootRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5696,8 +5681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data standard root word.
-   * Online version: v5.4.2.
+   * Deletes a data standard word root. Release version: v5.4.2.
    * 
    * @param request - DeleteStandardWordRootRequest
    * @returns DeleteStandardWordRootResponse
@@ -5816,7 +5800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a custom Cypher query. Online version: v6.2.0.
+   * Executes a custom Cypher query. Available since v6.2.0.
    * 
    * @param tmpReq - ExecKgCypherRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5867,7 +5851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a custom Cypher query. Online version: v6.2.0.
+   * Executes a custom Cypher query. Available since v6.2.0.
    * 
    * @param request - ExecKgCypherRequest
    * @returns ExecKgCypherResponse
@@ -6188,7 +6172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports knowledge graph metadata definitions. Online version: v6.1.1.
+   * Exports the metadata definition of a knowledge graph. Release version: v6.1.1.
    * 
    * @param request - ExportKgSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6235,7 +6219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports knowledge graph metadata definitions. Online version: v6.1.1.
+   * Exports the metadata definition of a knowledge graph. Release version: v6.1.1.
    * 
    * @param request - ExportKgSchemaRequest
    * @returns ExportKgSchemaResponse
@@ -6246,7 +6230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
+   * Reruns downstream nodes to repair pipeline data. Supports forced reruns. Impact: incurs computing costs and affects data output.
    * 
    * @param tmpReq - FixDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6297,7 +6281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
+   * Reruns downstream nodes to repair pipeline data. Supports forced reruns. Impact: incurs computing costs and affects data output.
    * 
    * @param request - FixDataRequest
    * @returns FixDataResponse
@@ -6366,7 +6350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a custom query file in the directory tree.
+   * Queries ad hoc query files in the directory tree.
    * 
    * @param request - GetAdHocFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6409,7 +6393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a custom query file in the directory tree.
+   * Queries ad hoc query files in the directory tree.
    * 
    * @param request - GetAdHocFileRequest
    * @returns GetAdHocFileResponse
@@ -6698,7 +6682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
+   * Queries the mapping relationships based on the asset object GUID. Release version: v5.4.2.
    * 
    * @param tmpReq - GetAssetMappingRelationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6745,7 +6729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
+   * Queries the mapping relationships based on the asset object GUID. Release version: v5.4.2.
    * 
    * @param request - GetAssetMappingRelationsRequest
    * @returns GetAssetMappingRelationsResponse
@@ -7034,7 +7018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the versions of a specified offline template. Available since v6.2.0.
+   * Retrieves the version list for a specified offline template ID. Available since version: v6.2.0.
    * 
    * @param request - GetBatchTemplateVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7081,7 +7065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the versions of a specified offline template. Available since v6.2.0.
+   * Retrieves the version list for a specified offline template ID. Available since version: v6.2.0.
    * 
    * @param request - GetBatchTemplateVersionsRequest
    * @returns GetBatchTemplateVersionsResponse
@@ -7092,7 +7076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
+   * Queries the mapping relationships based on the GUID of the parent asset. Released in version 5.4.2.
    * 
    * @param tmpReq - GetBelongAssetMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7139,7 +7123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
+   * Queries the mapping relationships based on the GUID of the parent asset. Released in version 5.4.2.
    * 
    * @param request - GetBelongAssetMappingRequest
    * @returns GetBelongAssetMappingResponse
@@ -7204,7 +7188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a business entity of a specified version.
+   * Queries the details of a specific version of a business entity.
    * 
    * @param request - GetBizEntityInfoByVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7251,7 +7235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a business entity of a specified version.
+   * Queries the details of a specific version of a business entity.
    * 
    * @param request - GetBizEntityInfoByVersionRequest
    * @returns GetBizEntityInfoByVersionResponse
@@ -7370,7 +7354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries asset details. Online version: v6.1.0.
+   * Queries asset details. Release version: v6.1.0.
    * 
    * @param tmpReq - GetCatalogAssetDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7417,7 +7401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries asset details. Online version: v6.1.0.
+   * Queries asset details. Release version: v6.1.0.
    * 
    * @param request - GetCatalogAssetDetailsRequest
    * @returns GetCatalogAssetDetailsResponse
@@ -7428,10 +7412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a data source connectivity check task by task ID. Available since version 6.3.2.
+   * Queries a data source connectivity check task by task ID. Release version: v6.3.2.
    * 
    * @remarks
-   * Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
+   * Queries the latest status and fault message of a data source connectivity check node by node ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the node does not exist, Data is empty.
    * 
    * @param request - GetCheckConnectivityJobByJobIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7470,10 +7454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a data source connectivity check task by task ID. Available since version 6.3.2.
+   * Queries a data source connectivity check task by task ID. Release version: v6.3.2.
    * 
    * @remarks
-   * Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
+   * Queries the latest status and fault message of a data source connectivity check node by node ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the node does not exist, Data is empty.
    * 
    * @param request - GetCheckConnectivityJobByJobIdRequest
    * @returns GetCheckConnectivityJobByJobIdResponse
@@ -7484,10 +7468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
+   * Queries the connectivity check tasks for a specified data source ID. Includes null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
    * 
    * @remarks
-   * Queries the details of tested connectivity tasks based on the data source ID.
+   * Queries the details of tested connectivity tasks for a data source ID.
    * 
    * @param request - GetCheckConnectivityJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7526,10 +7510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
+   * Queries the connectivity check tasks for a specified data source ID. Includes null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
    * 
    * @remarks
-   * Queries the details of tested connectivity tasks based on the data source ID.
+   * Queries the details of tested connectivity tasks for a data source ID.
    * 
    * @param request - GetCheckConnectivityJobsRequest
    * @returns GetCheckConnectivityJobsResponse
@@ -7598,10 +7582,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cluster details. Available since v6.3.0.
+   * Queries the details of a cluster. Available since version 6.3.0.
    * 
    * @remarks
-   * Queries the details of a tested connectivity task based on the datasource ID.
+   * Queries the details of tested connectivity tasks based on the data source ID.
    * 
    * @param request - GetComputeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7640,10 +7624,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cluster details. Available since v6.3.0.
+   * Queries the details of a cluster. Available since version 6.3.0.
    * 
    * @remarks
-   * Queries the details of a tested connectivity task based on the datasource ID.
+   * Queries the details of tested connectivity tasks based on the data source ID.
    * 
    * @param request - GetComputeClusterRequest
    * @returns GetComputeClusterResponse
@@ -7704,10 +7688,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+   * Retrieves the details of a specified issue checklist object based on the governance item ID. Available since v6.3.0.
    * 
    * @remarks
-   * Retrieves the details of a Query Governance object by governance item ID.
+   * Queries the details of a governance object based on the Query Governance project ID.
    * 
    * @param tmpReq - GetDataAssetsGovernObjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7754,10 +7738,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+   * Retrieves the details of a specified issue checklist object based on the governance item ID. Available since v6.3.0.
    * 
    * @remarks
-   * Retrieves the details of a Query Governance object by governance item ID.
+   * Queries the details of a governance object based on the Query Governance project ID.
    * 
    * @param request - GetDataAssetsGovernObjectRequest
    * @returns GetDataAssetsGovernObjectResponse
@@ -7876,7 +7860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Service Monitoring: Analyzes API access trends.
+   * Queries the API access trend analysis for Service Monitoring.
    * 
    * @param request - GetDataServiceApiCallTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7923,7 +7907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Service Monitoring: Analyzes API access trends.
+   * Queries the API access trend analysis for Service Monitoring.
    * 
    * @param request - GetDataServiceApiCallTrendRequest
    * @returns GetDataServiceApiCallTrendResponse
@@ -8046,7 +8030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of API groups in Data Service.
+   * Queries the list of data service API groups.
    * 
    * @param request - GetDataServiceApiGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8085,7 +8069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of API groups in Data Service.
+   * Queries the list of data service API groups.
    * 
    * @param request - GetDataServiceApiGroupsRequest
    * @returns GetDataServiceApiGroupsResponse
@@ -8200,7 +8184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of application groups for a data service project.
+   * Queries the list of application groups in a data service project.
    * 
    * @param request - GetDataServiceAppGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8239,7 +8223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of application groups for a data service project.
+   * Queries the list of application groups in a data service project.
    * 
    * @param request - GetDataServiceAppGroupsRequest
    * @returns GetDataServiceAppGroupsResponse
@@ -8250,8 +8234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
-   * Online version: v6.0.0.
+   * Queries the members of a data service application, including regular members and owners. Only application owners can perform this query. Available since v6.0.0.
    * 
    * @param request - GetDataServiceAppMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8290,8 +8273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
-   * Online version: v6.0.0.
+   * Queries the members of a data service application, including regular members and owners. Only application owners can perform this query. Available since v6.0.0.
    * 
    * @param request - GetDataServiceAppMembersRequest
    * @returns GetDataServiceAppMembersResponse
@@ -8356,7 +8338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications that the account has permissions to access based on the app group ID.
+   * Queries the applications that the account has permissions to access based on the application group ID.
    * 
    * @param request - GetDataServiceAuthorizedAppsByGroupIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8399,7 +8381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications that the account has permissions to access based on the app group ID.
+   * Queries the applications that the account has permissions to access based on the application group ID.
    * 
    * @param request - GetDataServiceAuthorizedAppsByGroupIdRequest
    * @returns GetDataServiceAuthorizedAppsByGroupIdResponse
@@ -8410,7 +8392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of projects that the user has access to.
+   * Queries the list of projects that the user is authorized to access.
    * 
    * @param request - GetDataServiceAuthorizedProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8445,7 +8427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of projects that the user has access to.
+   * Queries the list of projects that the user is authorized to access.
    * 
    * @param request - GetDataServiceAuthorizedProjectsRequest
    * @returns GetDataServiceAuthorizedProjectsResponse
@@ -8456,7 +8438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of projects for which the current user is the owner.
+   * Retrieves the list of projects where the current user is the owner.
    * 
    * @param request - GetDataServiceMyProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8491,7 +8473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of projects for which the current user is the owner.
+   * Retrieves the list of projects where the current user is the owner.
    * 
    * @param request - GetDataServiceMyProjectsRequest
    * @returns GetDataServiceMyProjectsResponse
@@ -8605,7 +8587,7 @@ export default class Client extends OpenApi {
    * Retrieves a dataset. Release version: v6.2.0.
    * 
    * @remarks
-   * Queries the details of a tested connectivity task based on the data source ID.
+   * Queries the details of tested connectivity tasks based on the data source ID.
    * 
    * @param request - GetDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8651,7 +8633,7 @@ export default class Client extends OpenApi {
    * Retrieves a dataset. Release version: v6.2.0.
    * 
    * @remarks
-   * Queries the details of a tested connectivity task based on the data source ID.
+   * Queries the details of tested connectivity tasks based on the data source ID.
    * 
    * @param request - GetDatasetRequest
    * @returns GetDatasetResponse
@@ -8778,7 +8760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves temporary read and write authorization for file storage.
+   * Obtains temporary read and write authorization for file storage.
    * 
    * @param request - GetFileStorageCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8825,7 +8807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves temporary read and write authorization for file storage.
+   * Obtains temporary read and write authorization for file storage.
    * 
    * @param request - GetFileStorageCredentialRequest
    * @returns GetFileStorageCredentialResponse
@@ -8904,7 +8886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the downstream instances of a specified instance.
+   * Queries the downstream instances of a specified starting instance.
    * 
    * @param tmpReq - GetInstanceDownStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8963,7 +8945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the downstream instances of a specified instance.
+   * Queries the downstream instances of a specified starting instance.
    * 
    * @param request - GetInstanceDownStreamRequest
    * @returns GetInstanceDownStreamResponse
@@ -9152,7 +9134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves neighbor nodes of a graph model entity. Online version: v6.2.0.
+   * Retrieves the neighbor nodes of a graph model. Available since version v6.2.0.
    * 
    * @param tmpReq - GetKgNeighborRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9211,7 +9193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves neighbor nodes of a graph model entity. Online version: v6.2.0.
+   * Retrieves the neighbor nodes of a graph model. Available since version v6.2.0.
    * 
    * @param request - GetKgNeighborRequest
    * @returns GetKgNeighborResponse
@@ -9222,7 +9204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
+   * Retrieves the details of a knowledge graph relation record. Available since version 6.1.1.
    * 
    * @param request - GetKgRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9269,7 +9251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
+   * Retrieves the details of a knowledge graph relation record. Available since version 6.1.1.
    * 
    * @param request - GetKgRelationRequest
    * @returns GetKgRelationResponse
@@ -9392,7 +9374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+   * Queries specific large model service providers and available models by name. Release version: v6.3.0.
    * 
    * @param request - GetLlmModelProviderByNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9431,7 +9413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+   * Queries specific large model service providers and available models by name. Release version: v6.3.0.
    * 
    * @param request - GetLlmModelProviderByNameRequest
    * @returns GetLlmModelProviderByNameResponse
@@ -10558,7 +10540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves alert settings by monitored object ID. Release version: v5.4.2.
+   * Retrieves the alert configuration by monitored object ID. Available in version 5.4.2.
    * 
    * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10597,7 +10579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves alert settings by monitored object ID. Release version: v5.4.2.
+   * Retrieves the alert configuration by monitored object ID. Available in version 5.4.2.
    * 
    * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
    * @returns GetQualityAlertOfAllRuleScopeByWatchIdResponse
@@ -10608,7 +10590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+   * Queries the execution progress and results of an asynchronous task for creating or modifying an exception archive table based on the progress ID. Release version: v6.3.0.
    * 
    * @param request - GetQualityArchiveTableProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10647,7 +10629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+   * Queries the execution progress and results of an asynchronous task for creating or modifying an exception archive table based on the progress ID. Release version: v6.3.0.
    * 
    * @param request - GetQualityArchiveTableProgressRequest
    * @returns GetQualityArchiveTableProgressResponse
@@ -10658,7 +10640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quality rule object. Release version: v5.4.2.
+   * Retrieves a quality rule object. Released in version v5.4.2.
    * 
    * @param request - GetQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10697,7 +10679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quality rule object. Release version: v5.4.2.
+   * Retrieves a quality rule object. Released in version v5.4.2.
    * 
    * @param request - GetQualityRuleRequest
    * @returns GetQualityRuleResponse
@@ -10708,7 +10690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a quality task object. Released in version 5.4.2.
+   * Retrieves the details of a quality task object. Released in v5.4.2.
    * 
    * @param request - GetQualityRuleTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10747,7 +10729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a quality task object. Released in version 5.4.2.
+   * Retrieves the details of a quality task object. Released in v5.4.2.
    * 
    * @param request - GetQualityRuleTaskRequest
    * @returns GetQualityRuleTaskResponse
@@ -10758,8 +10740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the log content of a quality node task object.
-   * Online version: v5.4.2.
+   * Retrieves the log content of a quality task object. Released in v5.4.2.
    * 
    * @param request - GetQualityRuleTaskLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10798,8 +10779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the log content of a quality node task object.
-   * Online version: v5.4.2.
+   * Retrieves the log content of a quality task object. Released in v5.4.2.
    * 
    * @param request - GetQualityRuleTaskLogRequest
    * @returns GetQualityRuleTaskLogResponse
@@ -10810,7 +10790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quality scheduling object. Available since v5.4.2.
+   * Retrieves a quality schedule object. Released in version 5.4.2.
    * 
    * @param request - GetQualityScheduleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10849,7 +10829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quality scheduling object. Available since v5.4.2.
+   * Retrieves a quality schedule object. Released in version 5.4.2.
    * 
    * @param request - GetQualityScheduleRequest
    * @returns GetQualityScheduleResponse
@@ -10860,7 +10840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
+   * Retrieves the list of scheduling settings by monitored object ID. Release version: v5.4.2.
    * 
    * @param request - GetQualitySchedulesByWatchIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10899,7 +10879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
+   * Retrieves the list of scheduling settings by monitored object ID. Release version: v5.4.2.
    * 
    * @param request - GetQualitySchedulesByWatchIdRequest
    * @returns GetQualitySchedulesByWatchIdResponse
@@ -10910,7 +10890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality template object. Released in version 5.4.2.
+   * Retrieves a quality template object. Released in version v5.4.2.
    * 
    * @param request - GetQualityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10949,7 +10929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality template object. Released in version 5.4.2.
+   * Retrieves a quality template object. Released in version v5.4.2.
    * 
    * @param request - GetQualityTemplateRequest
    * @returns GetQualityTemplateResponse
@@ -11012,7 +10992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
+   * Retrieves quality watchtask records by the original ID of the monitored object, such as a data source ID, table ID, or metric ID. Released in version v5.4.2.
    * 
    * @param request - GetQualityWatchByObjectIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11055,7 +11035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
+   * Retrieves quality watchtask records by the original ID of the monitored object, such as a data source ID, table ID, or metric ID. Released in version v5.4.2.
    * 
    * @param request - GetQualityWatchByObjectIdRequest
    * @returns GetQualityWatchByObjectIdResponse
@@ -11116,8 +11096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the log content of a monitoring task object.
-   * Online version: v5.4.2.
+   * Retrieves the log content of the monitoring task object. Released in v5.4.2.
    * 
    * @param request - GetQualityWatchTaskLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11156,8 +11135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the log content of a monitoring task object.
-   * Online version: v5.4.2.
+   * Retrieves the log content of the monitoring task object. Released in v5.4.2.
    * 
    * @param request - GetQualityWatchTaskLogRequest
    * @returns GetQualityWatchTaskLogResponse
@@ -11462,7 +11440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data classification. Release version: v5.4.2.
+   * Queries the details of a data classification. Release version: v5.4.2.
    * 
    * @param request - GetSecurityClassifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11501,7 +11479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data classification. Release version: v5.4.2.
+   * Queries the details of a data classification. Release version: v5.4.2.
    * 
    * @param request - GetSecurityClassifyRequest
    * @returns GetSecurityClassifyResponse
@@ -11512,7 +11490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a recognition result. Release version: v5.4.2.
+   * Retrieves the details of the recognition result. Release version: v5.4.2.
    * 
    * @param request - GetSecurityIdentifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11551,7 +11529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a recognition result. Release version: v5.4.2.
+   * Retrieves the details of the recognition result. Release version: v5.4.2.
    * 
    * @param request - GetSecurityIdentifyResultRequest
    * @returns GetSecurityIdentifyResultResponse
@@ -11562,7 +11540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data classification level. Available since v5.4.2.
+   * Retrieves the details of a data classification level. Release version: v5.4.2.
    * 
    * @param request - GetSecurityLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11601,7 +11579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data classification level. Available since v5.4.2.
+   * Retrieves the details of a data classification level. Release version: v5.4.2.
    * 
    * @param request - GetSecurityLevelRequest
    * @returns GetSecurityLevelResponse
@@ -11612,7 +11590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a key value by key name. Online version: v5.4.2.
+   * Retrieves the value of a key by its name. Available since v5.4.2.
    * 
    * @param request - GetSecuritySecretKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11651,7 +11629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a key value by key name. Online version: v5.4.2.
+   * Retrieves the value of a key by its name. Available since v5.4.2.
    * 
    * @param request - GetSecuritySecretKeyRequest
    * @returns GetSecuritySecretKeyResponse
@@ -11896,7 +11874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard lookup table. Released in version 5.4.2.
+   * Retrieves the details of a data standard lookup table. Available in v5.4.2 and later.
    * 
    * @param request - GetStandardLookupTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11939,7 +11917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard lookup table. Released in version 5.4.2.
+   * Retrieves the details of a data standard lookup table. Available in v5.4.2 and later.
    * 
    * @param request - GetStandardLookupTableRequest
    * @returns GetStandardLookupTableResponse
@@ -12130,7 +12108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data standard word root. Release version: v5.4.2.
+   * Retrieves the details of a data standard word root. Released in v5.4.2.
    * 
    * @param request - GetStandardWordRootRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12173,7 +12151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data standard word root. Release version: v5.4.2.
+   * Retrieves the details of a data standard word root. Released in v5.4.2.
    * 
    * @param request - GetStandardWordRootRequest
    * @returns GetStandardWordRootResponse
@@ -12184,7 +12162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of real-time development nodes.
+   * Queries a list of real-time development tasks.
    * 
    * @param request - GetStreamJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12227,7 +12205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of real-time development nodes.
+   * Queries a list of real-time development tasks.
    * 
    * @param request - GetStreamJobsRequest
    * @returns GetStreamJobsResponse
@@ -12430,7 +12408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves dagrun information for all business dates of a data backfill instance workflow.
+   * Retrieves the dagrun information for all business dates of a data backfill workflow.
    * 
    * @param request - GetSupplementDagrunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12473,7 +12451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves dagrun information for all business dates of a data backfill instance workflow.
+   * Retrieves the dagrun information for all business dates of a data backfill workflow.
    * 
    * @param request - GetSupplementDagrunRequest
    * @returns GetSupplementDagrunResponse
@@ -12538,7 +12516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a table asset inventory. Release version: v6.3.2.
+   * Queries the details of the table asset inventory. Released in version 6.3.2.
    * 
    * @param request - GetTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12577,7 +12555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a table asset inventory. Release version: v6.3.2.
+   * Queries the details of the table asset inventory. Released in version 6.3.2.
    * 
    * @param request - GetTableRequest
    * @returns GetTableResponse
@@ -12588,7 +12566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries table column lineage information.
+   * Queries the column lineage information of tables.
    * 
    * @param tmpReq - GetTableColumnLineageByTaskIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12635,7 +12613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries table column lineage information.
+   * Queries the column lineage information of tables.
    * 
    * @param request - GetTableColumnLineageByTaskIdRequest
    * @returns GetTableColumnLineageByTaskIdResponse
@@ -12646,8 +12624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the column-level data lineage of an asset table.
-   * Online version: v5.4.2.
+   * Queries the lineage information of asset table fields. Release version: v5.4.2.
    * 
    * @param tmpReq - GetTableColumnLineagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12698,8 +12675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the column-level data lineage of an asset table.
-   * Online version: v5.4.2.
+   * Queries the lineage information of asset table fields. Release version: v5.4.2.
    * 
    * @param request - GetTableColumnLineagesRequest
    * @returns GetTableColumnLineagesResponse
@@ -12826,8 +12802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries lineage information of an asset table.
-   * Release version: v5.4.2.
+   * Queries the lineage information of asset tables. Available since v5.4.2.
    * 
    * @param tmpReq - GetTableLineagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12878,8 +12853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries lineage information of an asset table.
-   * Release version: v5.4.2.
+   * Queries the lineage information of asset tables. Available since v5.4.2.
    * 
    * @param request - GetTableLineagesRequest
    * @returns GetTableLineagesResponse
@@ -12890,7 +12864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress of a transfer task by transfer task ID.
+   * Queries the progress of a transfer task based on the transfer task ID.
    * 
    * @param request - GetTransferInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12929,7 +12903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress of a transfer task by transfer task ID.
+   * Queries the progress of a transfer task based on the transfer task ID.
    * 
    * @param request - GetTransferInfoRequest
    * @returns GetTransferInfoResponse
@@ -12940,7 +12914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a user-defined function.
+   * Retrieves the details of a custom function.
    * 
    * @param request - GetUdfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12983,7 +12957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a user-defined function.
+   * Retrieves the details of a custom function.
    * 
    * @param request - GetUdfRequest
    * @returns GetUdfResponse
@@ -13052,7 +13026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+   * Retrieves the current user information based on the AccessKey ID and AccessKey secret used for request signing. Released in version 6.3.0.
    * 
    * @param request - GetUserByAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13087,7 +13061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+   * Retrieves the current user information based on the AccessKey ID and AccessKey secret used for request signing. Released in version 6.3.0.
    * 
    * @param request - GetUserByAccessKeyRequest
    * @returns GetUserByAccessKeyResponse
@@ -13202,7 +13176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves user information in batches by user ID.
+   * Retrieves user information in batches based on user IDs.
    * 
    * @param tmpReq - GetUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13249,7 +13223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves user information in batches by user ID.
+   * Retrieves user information in batches based on user IDs.
    * 
    * @param request - GetUsersRequest
    * @returns GetUsersResponse
@@ -13546,7 +13520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query to list multiple alerting events.
+   * Queries multiple alerting events based on a conditional query.
    * 
    * @param tmpReq - ListAlertEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13593,7 +13567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query to list multiple alerting events.
+   * Queries multiple alerting events based on a conditional query.
    * 
    * @param request - ListAlertEventsRequest
    * @returns ListAlertEventsResponse
@@ -13604,7 +13578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query to list multiple push records.
+   * Queries multiple push records based on conditions.
    * 
    * @param tmpReq - ListAlertNotificationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13651,7 +13625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query to list multiple push records.
+   * Queries multiple push records based on conditions.
    * 
    * @param request - ListAlertNotificationsRequest
    * @returns ListAlertNotificationsResponse
@@ -14024,7 +13998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on offline computing templates. Released in version v6.2.0.
+   * Queries offline computing templates by paging. Online version: v6.2.0.
    * 
    * @param tmpReq - ListBatchTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14079,7 +14053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on offline computing templates. Released in version v6.2.0.
+   * Queries offline computing templates by paging. Online version: v6.2.0.
    * 
    * @param request - ListBatchTemplatesRequest
    * @returns ListBatchTemplatesResponse
@@ -14324,7 +14298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of compute sources.
+   * Queries a list of compute sources.
    * 
    * @param tmpReq - ListComputeSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14371,7 +14345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of compute sources.
+   * Queries a list of compute sources.
    * 
    * @param request - ListComputeSourcesRequest
    * @returns ListComputeSourcesResponse
@@ -14382,7 +14356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data domains.
+   * Queries the list of data domains.
    * 
    * @param tmpReq - ListDataDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14429,7 +14403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data domains.
+   * Queries the list of data domains.
    * 
    * @param request - ListDataDomainsRequest
    * @returns ListDataDomainsResponse
@@ -14564,7 +14538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operations analysis: analyzes the impact of abnormal API calls.
+   * Analyzes the impact of API call exceptions for operations and maintenance.
    * 
    * @param tmpReq - ListDataServiceApiImpactsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14615,7 +14589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Operations analysis: analyzes the impact of abnormal API calls.
+   * Analyzes the impact of API call exceptions for operations and maintenance.
    * 
    * @param request - ListDataServiceApiImpactsRequest
    * @returns ListDataServiceApiImpactsResponse
@@ -14626,8 +14600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
-   * Release version: v6.0.0.
+   * Queries all applications under a data service tenant. All tenant members can perform this operation. Available since v6.0.0.
    * 
    * @param tmpReq - ListDataServiceAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14674,8 +14647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
-   * Release version: v6.0.0.
+   * Queries all applications under a data service tenant. All tenant members can perform this operation. Available since v6.0.0.
    * 
    * @param request - ListDataServiceAppsRequest
    * @returns ListDataServiceAppsResponse
@@ -14686,7 +14658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications that the current user has permissions to access.
+   * Queries the applications that the current user is authorized to access.
    * 
    * @param tmpReq - ListDataServiceAuthorizedAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14737,7 +14709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications that the current user has permissions to access.
+   * Queries the applications that the current user is authorized to access.
    * 
    * @param request - ListDataServiceAuthorizedAppsRequest
    * @returns ListDataServiceAuthorizedAppsResponse
@@ -14748,7 +14720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the list of API permissions managed by me.
+   * Retrieves the list of API permissions managed by the current user.
    * 
    * @param tmpReq - ListDataServiceMyApiPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14799,7 +14771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the list of API permissions managed by me.
+   * Retrieves the list of API permissions managed by the current user.
    * 
    * @param request - ListDataServiceMyApiPermissionsRequest
    * @returns ListDataServiceMyApiPermissionsResponse
@@ -14872,7 +14844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of published APIs by page.
+   * Performs a paging query on the list of published APIs.
    * 
    * @param tmpReq - ListDataServicePublishedApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14923,7 +14895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of published APIs by page.
+   * Performs a paging query on the list of published APIs.
    * 
    * @param request - ListDataServicePublishedApisRequest
    * @returns ListDataServicePublishedApisResponse
@@ -14992,11 +14964,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
+   * Performs a conditional query to retrieve the list of datasets in a project. Online version: v6.2.0.
    * 
    * @remarks
    * ## Request description
-   * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
+   * This API allows you to retrieve dataset information in a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query. The returned data packets include the basic information of the datasets and their version details. Note that `ProjectId` is required, while other parameters are options, and you can configure the Settings as needed to filter the results.
    * 
    * @param tmpReq - ListDatasetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15043,11 +15015,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
+   * Performs a conditional query to retrieve the list of datasets in a project. Online version: v6.2.0.
    * 
    * @remarks
    * ## Request description
-   * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
+   * This API allows you to retrieve dataset information in a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query. The returned data packets include the basic information of the datasets and their version details. Note that `ProjectId` is required, while other parameters are options, and you can configure the Settings as needed to filter the results.
    * 
    * @param request - ListDatasetsRequest
    * @returns ListDatasetsResponse
@@ -15058,7 +15030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the directory tree file list.
+   * Queries the list of files in a directory tree.
    * 
    * @param tmpReq - ListFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15105,7 +15077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the directory tree file list.
+   * Queries the list of files in a directory tree.
    * 
    * @param request - ListFilesRequest
    * @returns ListFilesResponse
@@ -15116,11 +15088,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+   * Queries the issue list based on governance types and filter conditions. Available since v6.3.0.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+   * ## Request description
+   * This API operation allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other options such as keywords and type lists. It supports paging and paged query. The returned data packet includes the basic information and version details of the datasets. Note that `ProjectId` is required. Other parameters are options and can be configured in Settings to filter the results as needed.
    * 
    * @param tmpReq - ListGovernObjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15167,11 +15139,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+   * Queries the issue list based on governance types and filter conditions. Available since v6.3.0.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+   * ## Request description
+   * This API operation allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other options such as keywords and type lists. It supports paging and paged query. The returned data packet includes the basic information and version details of the datasets. Note that `ProjectId` is required. Other parameters are options and can be configured in Settings to filter the results as needed.
    * 
    * @param request - ListGovernObjectsRequest
    * @returns ListGovernObjectsResponse
@@ -15244,7 +15216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+   * Retrieves the list of custom K8s resource groups under a tenant. Available since v6.4.0.
    * 
    * @param request - ListK8SResourceGroupIdsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15279,7 +15251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+   * Retrieves the list of custom K8s resource groups under a tenant. Available since v6.4.0.
    * 
    * @param request - ListK8SResourceGroupIdsRequest
    * @returns ListK8SResourceGroupIdsResponse
@@ -15290,7 +15262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries knowledge graph entity records with paging. Online version: v6.1.1.
+   * Queries knowledge graph entity records by paging. Online version: v6.1.1.
    * 
    * @param tmpReq - ListKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15345,7 +15317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries knowledge graph entity records with paging. Online version: v6.1.1.
+   * Queries knowledge graph entity records by paging. Online version: v6.1.1.
    * 
    * @param request - ListKgEntityRequest
    * @returns ListKgEntityResponse
@@ -15356,7 +15328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries knowledge graph relationship records by paging. Online version: v6.1.1.
+   * Performs a paged query on knowledge graph relation records. Paging is available online in version v6.1.1.
    * 
    * @param tmpReq - ListKgRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15411,7 +15383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries knowledge graph relationship records by paging. Online version: v6.1.1.
+   * Performs a paged query on knowledge graph relation records. Paging is available online in version v6.1.1.
    * 
    * @param request - ListKgRelationRequest
    * @returns ListKgRelationResponse
@@ -15735,14 +15707,10 @@ export default class Client extends OpenApi {
    * Retrieves a list of project roles. Release version: v6.3.2.
    * 
    * @remarks
-   * Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
-   * - BUILD_IN: built-in role.
-   * - CUSTOM: custom role.
-   * The ProjectType request parameter is required. Valid values:
-   * - BASIC: basic mode project.
-   * - DEV: development environment project.
-   * - PROD: production environment project.
-   * - TAG: tag platform project.
+   * Retrieves a list of project roles under a specified project type for a tenant. The roleType field in the returned role list identifies the role type:
+   * - BUILD_IN: built-in role
+   * - CUSTOM: custom role
+   * The ProjectType request parameter is required. Valid values: BASIC (basic mode project), DEV (development environment project), PROD (production environment project), and TAG (tag platform project).
    * 
    * @param request - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15784,14 +15752,10 @@ export default class Client extends OpenApi {
    * Retrieves a list of project roles. Release version: v6.3.2.
    * 
    * @remarks
-   * Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
-   * - BUILD_IN: built-in role.
-   * - CUSTOM: custom role.
-   * The ProjectType request parameter is required. Valid values:
-   * - BASIC: basic mode project.
-   * - DEV: development environment project.
-   * - PROD: production environment project.
-   * - TAG: tag platform project.
+   * Retrieves a list of project roles under a specified project type for a tenant. The roleType field in the returned role list identifies the role type:
+   * - BUILD_IN: built-in role
+   * - CUSTOM: custom role
+   * The ProjectType request parameter is required. Valid values: BASIC (basic mode project), DEV (development environment project), PROD (production environment project), and TAG (tag platform project).
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse
@@ -15976,7 +15940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+   * Queries the list of exception archived tables for a specified monitored object. Release version: v6.3.0.
    * 
    * @param tmpReq - ListQualityArchiveTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16023,7 +15987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+   * Queries the list of exception archived tables for a specified monitored object. Release version: v6.3.0.
    * 
    * @param request - ListQualityArchiveTablesRequest
    * @returns ListQualityArchiveTablesResponse
@@ -16034,7 +15998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of quality rule nodes. Online version: v5.4.2.
+   * Performs a paged query on quality rule nodes with paging. Online version: v5.4.2.
    * 
    * @param tmpReq - ListQualityRuleTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16081,7 +16045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of quality rule nodes. Online version: v5.4.2.
+   * Performs a paged query on quality rule nodes with paging. Online version: v5.4.2.
    * 
    * @param request - ListQualityRuleTasksRequest
    * @returns ListQualityRuleTasksResponse
@@ -16208,8 +16172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality monitoring nodes by paging.
-   * Online version: v5.4.2.
+   * Performs a paged query on quality monitoring nodes with paging. Online version: v5.4.2.
    * 
    * @param tmpReq - ListQualityWatchTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16256,8 +16219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality monitoring nodes by paging.
-   * Online version: v5.4.2.
+   * Performs a paged query on quality monitoring nodes with paging. Online version: v5.4.2.
    * 
    * @param request - ListQualityWatchTasksRequest
    * @returns ListQualityWatchTasksResponse
@@ -17074,10 +17036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+   * Retrieves a list of start and stop operation records for real-time tasks. Available since version 6.4.0.
    * 
    * @remarks
-   * Retrieves the start and stop operation records of real-time tasks in the production environment.
+   * Retrieves a list of start and stop operation records for real-time tasks in the production environment.
    * 
    * @param request - ListStreamOpsRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17120,10 +17082,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+   * Retrieves a list of start and stop operation records for real-time tasks. Available since version 6.4.0.
    * 
    * @remarks
-   * Retrieves the start and stop operation records of real-time tasks in the production environment.
+   * Retrieves a list of start and stop operation records for real-time tasks in the production environment.
    * 
    * @param request - ListStreamOpsRecordsRequest
    * @returns ListStreamOpsRecordsResponse
@@ -17316,8 +17278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metadata of asset tables by page.
-   * Available in version v5.4.2.
+   * Queries the metadata of asset tables through paging. Online version: v5.4.2.
    * 
    * @param tmpReq - ListTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17364,8 +17325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metadata of asset tables by page.
-   * Available in version v5.4.2.
+   * Queries the metadata of asset tables through paging. Online version: v5.4.2.
    * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse
@@ -17434,12 +17394,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of tenant roles. Release version: v6.3.2.
+   * Retrieves the list of tenant roles. Available since version v6.3.2.
    * 
    * @remarks
    * Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
-   * - BUILD_IN: built-in role
-   * - CUSTOM: custom role (created by the tenant)
+   * - BUILD_IN: built-in role.
+   * - CUSTOM: custom role (created by the tenant).
    * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
    * 
    * @param request - ListTenantRolesRequest
@@ -17475,12 +17435,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of tenant roles. Release version: v6.3.2.
+   * Retrieves the list of tenant roles. Available since version v6.3.2.
    * 
    * @remarks
    * Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
-   * - BUILD_IN: built-in role
-   * - CUSTOM: custom role (created by the tenant)
+   * - BUILD_IN: built-in role.
+   * - CUSTOM: custom role (created by the tenant).
    * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
    * 
    * @param request - ListTenantRolesRequest
@@ -17782,7 +17742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offline a business entity.
+   * Takes a business entity offline.
    * 
    * @param tmpReq - OfflineBizEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17829,7 +17789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offline a business entity.
+   * Takes a business entity offline.
    * 
    * @param request - OfflineBizEntityRequest
    * @returns OfflineBizEntityResponse
@@ -18150,7 +18110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
+   * Parses the logical table dependencies of a batch task. Note that the upstream dependency information in the parsing result may contain self-dependent nodes (where the upstream node ID is the same as the node ID of the parsed code), which you must handle manually.
    * 
    * @param tmpReq - ParseBatchTaskDependencyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18197,7 +18157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
+   * Parses the logical table dependencies of a batch task. Note that the upstream dependency information in the parsing result may contain self-dependent nodes (where the upstream node ID is the same as the node ID of the parsed code), which you must handle manually.
    * 
    * @param request - ParseBatchTaskDependencyRequest
    * @returns ParseBatchTaskDependencyResponse
@@ -18208,7 +18168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
+   * Pauses the scheduling of physical nodes. This pauses node scheduling and prevents downstream nodes from being triggered. Currently, only offline code nodes and integration nodes are supported.
    * 
    * @param tmpReq - PausePhysicalNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18259,7 +18219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
+   * Pauses the scheduling of physical nodes. This pauses node scheduling and prevents downstream nodes from being triggered. Currently, only offline code nodes and integration nodes are supported.
    * 
    * @param request - PausePhysicalNodeRequest
    * @returns PausePhysicalNodeResponse
@@ -18448,8 +18408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a standard.
-   * Release version: v5.4.2.
+   * Publishes a standard. Release version: v5.4.2.
    * 
    * @param tmpReq - PublishStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18496,8 +18455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a standard.
-   * Release version: v5.4.2.
+   * Publishes a standard. Release version: v5.4.2.
    * 
    * @param request - PublishStandardRequest
    * @returns PublishStandardResponse
@@ -18570,8 +18528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove regular members from a data service application. Only the application owner can perform this operation.
-   * Released version: v6.0.0.
+   * Deletes a regular member from a data service application. Only the application owner can perform this operation. Available since v6.0.0.
    * 
    * @param tmpReq - RemoveDataServiceAppMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18618,8 +18575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove regular members from a data service application. Only the application owner can perform this operation.
-   * Released version: v6.0.0.
+   * Deletes a regular member from a data service application. Only the application owner can perform this operation. Available since v6.0.0.
    * 
    * @param request - RemoveDataServiceAppMemberRequest
    * @returns RemoveDataServiceAppMemberResponse
@@ -18692,8 +18648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the bindings between quality rules and schedules in batches.
-   * Release version: v5.4.2.
+   * Deletes the bindings between quality rules and schedules in batches. Released in v5.4.2.
    * 
    * @param tmpReq - RemoveQualityRuleSchedulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18740,8 +18695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the bindings between quality rules and schedules in batches.
-   * Release version: v5.4.2.
+   * Deletes the bindings between quality rules and schedules in batches. Released in v5.4.2.
    * 
    * @param request - RemoveQualityRuleSchedulesRequest
    * @returns RemoveQualityRuleSchedulesResponse
@@ -18926,7 +18880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the whitelist of a project.
+   * Updates the project whitelist.
    * 
    * @param tmpReq - ReplaceProjectWhiteListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18977,7 +18931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the whitelist of a project.
+   * Updates the project whitelist.
    * 
    * @param request - ReplaceProjectWhiteListsRequest
    * @returns ReplaceProjectWhiteListsResponse
@@ -19286,7 +19240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes resource authorization from a user.
+   * Revokes resource authorization for a user.
    * 
    * @param tmpReq - RevokeResourcePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19333,7 +19287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes resource authorization from a user.
+   * Revokes resource authorization for a user.
    * 
    * @param request - RevokeResourcePermissionRequest
    * @returns RevokeResourcePermissionResponse
@@ -20129,7 +20083,7 @@ export default class Client extends OpenApi {
    * Synchronizes department information.
    * 
    * @remarks
-   * Queries the details of a published API operation by AppKey.
+   * Queries the details of published APIs based on the appKey.
    * 
    * @param tmpReq - SyncDepartmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20179,7 +20133,7 @@ export default class Client extends OpenApi {
    * Synchronizes department information.
    * 
    * @remarks
-   * Queries the details of a published API operation by AppKey.
+   * Queries the details of published APIs based on the appKey.
    * 
    * @param request - SyncDepartmentRequest
    * @returns SyncDepartmentResponse
@@ -20552,7 +20506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the custom data lineage of a batch task.
+   * Updates the custom lineage of an offline computing task.
    * 
    * @param tmpReq - UpdateBatchTaskUdfLineagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20599,7 +20553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the custom data lineage of a batch task.
+   * Updates the custom lineage of an offline computing task.
    * 
    * @param request - UpdateBatchTaskUdfLineagesRequest
    * @returns UpdateBatchTaskUdfLineagesResponse
@@ -20846,7 +20800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a cluster. Online version: v6.3.0.
+   * Modifies a cluster. Available in v6.3.0 and later.
    * 
    * @param tmpReq - UpdateComputeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20897,7 +20851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a cluster. Online version: v6.3.0.
+   * Modifies a cluster. Available in v6.3.0 and later.
    * 
    * @param request - UpdateComputeClusterRequest
    * @returns UpdateComputeClusterResponse
@@ -21090,8 +21044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
-   * Release version: v6.0.0.
+   * Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation. Released in version: v6.0.0.
    * 
    * @param tmpReq - UpdateDataServiceAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21138,8 +21091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
-   * Release version: v6.0.0.
+   * Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation. Released in version: v6.0.0.
    * 
    * @param request - UpdateDataServiceAppRequest
    * @returns UpdateDataServiceAppResponse
@@ -21208,8 +21160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the regular members of a data service application. Only the application owner can perform this operation.
-   * Online version: v6.0.0.
+   * Updates the regular members of a data service application. Only the application owner can perform this operation. Release version: v6.0.0.
    * 
    * @param tmpReq - UpdateDataServiceAppMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21256,8 +21207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the regular members of a data service application. Only the application owner can perform this operation.
-   * Online version: v6.0.0.
+   * Updates the regular members of a data service application. Only the application owner can perform this operation. Release version: v6.0.0.
    * 
    * @param request - UpdateDataServiceAppMemberRequest
    * @returns UpdateDataServiceAppMemberResponse
@@ -21268,7 +21218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
+   * Modifies the basic information of a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators can perform this operation.
    * 
    * @param tmpReq - UpdateDataSourceBasicInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21315,7 +21265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
+   * Modifies the basic information of a data source. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators can perform this operation.
    * 
    * @param request - UpdateDataSourceBasicInfoRequest
    * @returns UpdateDataSourceBasicInfoResponse
@@ -21522,7 +21472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves the file position in the menu tree.
+   * Moves a menu tree file to a new location.
    * 
    * @param request - UpdateFileDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21569,7 +21519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves the file position in the menu tree.
+   * Moves a menu tree file to a new location.
    * 
    * @param request - UpdateFileDirectoryRequest
    * @returns UpdateFileDirectoryResponse
@@ -21580,7 +21530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a file name.
+   * Updates the file name.
    * 
    * @param request - UpdateFileNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21627,7 +21577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a file name.
+   * Updates the file name.
    * 
    * @param request - UpdateFileNameRequest
    * @returns UpdateFileNameResponse
@@ -21638,7 +21588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a knowledge graph entity record. Online version: v6.1.1.
+   * Edits a knowledge graph entity record. Available since v6.1.1.
    * 
    * @param tmpReq - UpdateKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21689,7 +21639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a knowledge graph entity record. Online version: v6.1.1.
+   * Edits a knowledge graph entity record. Available since v6.1.1.
    * 
    * @param request - UpdateKgEntityRequest
    * @returns UpdateKgEntityResponse
@@ -21700,7 +21650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a knowledge graph relationship record. Online version: v6.1.1.
+   * Updates a knowledge graph relationship record. Release version: v6.1.1.
    * 
    * @param tmpReq - UpdateKgRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21751,7 +21701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a knowledge graph relationship record. Online version: v6.1.1.
+   * Updates a knowledge graph relationship record. Release version: v6.1.1.
    * 
    * @param request - UpdateKgRelationRequest
    * @returns UpdateKgRelationResponse
@@ -22304,8 +22254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data classification.
-   * Release version: v5.4.2.
+   * Updates a data classification. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateSecurityClassifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22352,8 +22301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data classification.
-   * Release version: v5.4.2.
+   * Updates a data classification. Release version: v5.4.2.
    * 
    * @param request - UpdateSecurityClassifyRequest
    * @returns UpdateSecurityClassifyResponse
@@ -22364,7 +22312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data classification folder. Release version: v5.4.2.
+   * Updates the data classification catalog. Released in version 5.4.2.
    * 
    * @param tmpReq - UpdateSecurityClassifyCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22411,7 +22359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data classification folder. Release version: v5.4.2.
+   * Updates the data classification catalog. Released in version 5.4.2.
    * 
    * @param request - UpdateSecurityClassifyCatalogRequest
    * @returns UpdateSecurityClassifyCatalogResponse
@@ -22480,8 +22428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates data classification.
-   * Online version: v5.4.2.
+   * Updates the data classification level. Released in version 5.4.2.
    * 
    * @param tmpReq - UpdateSecurityLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22528,8 +22475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates data classification.
-   * Online version: v5.4.2.
+   * Updates the data classification level. Released in version 5.4.2.
    * 
    * @param request - UpdateSecurityLevelRequest
    * @returns UpdateSecurityLevelResponse
@@ -22714,8 +22660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update standard set.
-   * Release version: v5.4.2.
+   * Updates a standard set. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateStandardSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22762,8 +22707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update standard set.
-   * Release version: v5.4.2.
+   * Updates a standard set. Release version: v5.4.2.
    * 
    * @param request - UpdateStandardSetRequest
    * @returns UpdateStandardSetResponse
@@ -22774,8 +22718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data standard template.
-   * Release version: v5.4.2.
+   * Updates a data standard template. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateStandardTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22822,8 +22765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data standard template.
-   * Release version: v5.4.2.
+   * Updates a data standard template. Release version: v5.4.2.
    * 
    * @param request - UpdateStandardTemplateRequest
    * @returns UpdateStandardTemplateResponse
@@ -22834,8 +22776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data standard root word.
-   * Online version: v5.4.2.
+   * Updates a data standard word root. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateStandardWordRootRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22882,8 +22823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data standard root word.
-   * Online version: v5.4.2.
+   * Updates a data standard word root. Release version: v5.4.2.
    * 
    * @param request - UpdateStandardWordRootRequest
    * @returns UpdateStandardWordRootResponse
@@ -23010,7 +22950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a user-defined function.
+   * Modifies a custom function.
    * 
    * @param tmpReq - UpdateUdfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23057,7 +22997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a user-defined function.
+   * Modifies a custom function.
    * 
    * @param request - UpdateUdfRequest
    * @returns UpdateUdfResponse
@@ -23068,7 +23008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a user group.
+   * Updates a user group.
    * 
    * @param tmpReq - UpdateUserGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23115,7 +23055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a user group.
+   * Updates a user group.
    * 
    * @param request - UpdateUserGroupRequest
    * @returns UpdateUserGroupResponse
@@ -23530,8 +23470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates alert settings for a monitored object.
-   * Release version: v5.4.2.
+   * Creates or modifies the alert settings for a monitored object. Released in version 5.4.2.
    * 
    * @param tmpReq - UpsertQualityWatchAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23578,8 +23517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates alert settings for a monitored object.
-   * Release version: v5.4.2.
+   * Creates or modifies the alert settings for a monitored object. Released in version 5.4.2.
    * 
    * @param request - UpsertQualityWatchAlertRequest
    * @returns UpsertQualityWatchAlertResponse

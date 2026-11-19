@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecurityLevelRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The classification description.
+   * The description of the classification level.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class UpdateSecurityLevelRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The classification order. If this parameter is not specified, the classification name is used for matching.
+   * The order of the classification level. If this parameter is not specified, the classification level is matched by name.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpdateSecurityLevelRequestUpdateCommand extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The classification name.
+   * The name of the classification level.
    * 
    * @example
    * test
@@ -64,13 +64,16 @@ export class UpdateSecurityLevelRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The update command.
    * 
    * This parameter is required.
    */

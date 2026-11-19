@@ -55,7 +55,7 @@ export class ExecKgCypherRequestExecCommandParams extends $dara.Model {
 export class ExecKgCypherRequestExecCommand extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return.
+   * The limit on the number of returned records.
    * 
    * @example
    * 100
@@ -63,7 +63,7 @@ export class ExecKgCypherRequestExecCommand extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The input parameters of the query statement.
+   * The input parameters for the query statement.
    */
   params?: ExecKgCypherRequestExecCommandParams[];
   /**
@@ -105,7 +105,7 @@ export class ExecKgCypherRequestExecCommand extends $dara.Model {
 export class ExecKgCypherRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom Cypher query instruction.
+   * The custom Cypher query command.
    * 
    * This parameter is required.
    */
@@ -121,6 +121,9 @@ export class ExecKgCypherRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operating user.
+   * 
    * @example
    * 30001011
    */

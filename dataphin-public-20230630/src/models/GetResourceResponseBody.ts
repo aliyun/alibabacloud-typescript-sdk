@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceResponseBodyResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The compute engine type.
+   * The compute engine source type.
    * 
    * @example
    * MAX_COMPUTE
@@ -24,12 +24,12 @@ export class GetResourceResponseBodyResourceInfo extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * The directory where the resource is stored.
+   * The storage directory.
    * 
    * @example
    * /
@@ -37,7 +37,7 @@ export class GetResourceResponseBodyResourceInfo extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The creation time, in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the resource was created. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -45,7 +45,7 @@ export class GetResourceResponseBodyResourceInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time, in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the resource was updated. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -187,12 +187,12 @@ export class GetResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource file details.
+   * The details of the resource file.
    */
   resourceInfo?: GetResourceResponseBodyResourceInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

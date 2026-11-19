@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTablesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The asset catalog: project name and business unit name.
+   * The asset catalog: project name, business unit name, or data source ID. If this parameter is not specified, all table assets are queried.
    * 
    * @example
    * LD_test01_dev
@@ -45,7 +45,7 @@ export class ListTablesRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The table types. If you do not specify this parameter or pass an empty list, all table types are queried. Valid values:
+   * The table types. If this parameter is not specified or an empty list is passed, all table types are queried. Valid values:
    * - PHYSICAL_TABLE: Physical table of the compute source.
    * - PHYSICAL_VIEW: View of the compute source.
    * - PHYSICAL_MATERIALIZED_VIEW: Materialized view of the compute source.
@@ -97,7 +97,7 @@ export class ListTablesRequestListQuery extends $dara.Model {
 export class ListTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query conditions.
+   * The paging query conditions.
    */
   listQuery?: ListTablesRequestListQuery;
   /**

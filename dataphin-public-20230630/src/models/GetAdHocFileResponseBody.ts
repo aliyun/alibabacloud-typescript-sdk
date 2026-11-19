@@ -21,7 +21,7 @@ export class GetAdHocFileResponseBodyFileInfo extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The directory where the file is located.
+   * The directory of the file.
    * 
    * @example
    * /xx1/xx2/
@@ -48,7 +48,7 @@ export class GetAdHocFileResponseBodyFileInfo extends $dara.Model {
    * The file name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
@@ -95,7 +95,7 @@ export class GetAdHocFileResponseBodyFileInfo extends $dara.Model {
 export class GetAdHocFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -103,7 +103,7 @@ export class GetAdHocFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the custom query file.
+   * The details of the ad hoc query file.
    */
   fileInfo?: GetAdHocFileResponseBodyFileInfo;
   /**
@@ -132,7 +132,7 @@ export class GetAdHocFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

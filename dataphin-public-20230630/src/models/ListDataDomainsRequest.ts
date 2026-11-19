@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataDomainsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the business units to which the data domains belong.
+   * The IDs of the business units.
    */
   bizUnitIdList?: number[];
   /**
    * @remarks
-   * The search keyword. You can search by data domain name, code, or description.
+   * The search keyword, which can be the data domain name, code, or description.
    * 
    * @example
    * test
@@ -71,6 +71,9 @@ export class ListDataDomainsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

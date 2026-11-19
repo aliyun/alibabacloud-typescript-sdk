@@ -15,7 +15,7 @@ export class GetQualityArchiveTableProgressRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator.
+   * The operator ID.
    * 
    * @example
    * 30001011
@@ -23,7 +23,7 @@ export class GetQualityArchiveTableProgressRequest extends $dara.Model {
   opUserId?: string;
   /**
    * @remarks
-   * The asynchronous task progress ID returned by the UpsertQualityArchiveTable operation.
+   * The progress ID of the asynchronous task, which is returned by the UpsertQualityArchiveTable operation.
    * 
    * This parameter is required.
    * 

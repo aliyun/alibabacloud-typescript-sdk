@@ -15,16 +15,18 @@ export class GetCatalogAssetDetailsRequestGetCatalogAssetDetailsQuery extends $d
   guid?: string;
   /**
    * @remarks
-   * Specifies whether to include the field list. Default value: false. Valid values:
-   * - false: Not included.
+   * Specifies whether to include the column list. Valid values:
    * - true: Included.
+   * - false: Not included.
+   * Default value: false.
    */
   includeColumns?: boolean;
   /**
    * @remarks
-   * Specifies whether to include detailed data. Default value: false. Valid values:
-   * - false: Not included.
+   * Specifies whether to include detailed data. Valid values:
    * - true: Included.
+   * - false: Not included.
+   * Default value: false.
    */
   includeDetailedAttributes?: boolean;
   static names(): { [key: string]: string } {
@@ -55,7 +57,7 @@ export class GetCatalogAssetDetailsRequestGetCatalogAssetDetailsQuery extends $d
 export class GetCatalogAssetDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query for the listed asset catalog.
+   * The paging query for the list of listed asset catalogs.
    * 
    * This parameter is required.
    */
@@ -72,7 +74,7 @@ export class GetCatalogAssetDetailsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

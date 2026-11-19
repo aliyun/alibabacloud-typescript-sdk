@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataSourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Request object
+   * The request object.
    */
   createCommandShrink?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -19,6 +19,9 @@ export class CreateDataSourceShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

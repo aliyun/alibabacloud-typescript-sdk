@@ -15,7 +15,7 @@ export class GetKgRelationRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator user ID.
+   * The operator ID.
    * 
    * @example
    * 30001011

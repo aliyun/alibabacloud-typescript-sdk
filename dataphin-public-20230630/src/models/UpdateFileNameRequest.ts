@@ -15,7 +15,7 @@ export class UpdateFileNameRequest extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The new file name.
+   * The updated file name.
    * 
    * This parameter is required.
    * 
@@ -34,6 +34,9 @@ export class UpdateFileNameRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

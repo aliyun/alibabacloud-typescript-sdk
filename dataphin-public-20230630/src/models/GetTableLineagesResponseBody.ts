@@ -37,7 +37,7 @@ export class GetTableLineagesResponseBodyTableLineageList extends $dara.Model {
   inputProjectId?: number;
   /**
    * @remarks
-   * Indicates whether the input table has been deleted.
+   * Indicates whether the input table is deleted.
    */
   inputTableDeleted?: boolean;
   /**
@@ -50,7 +50,7 @@ export class GetTableLineagesResponseBodyTableLineageList extends $dara.Model {
   inputTableEnv?: string;
   /**
    * @remarks
-   * The GUID of the input table. Each asset has a unique identifier.
+   * The GUID of the input table, which is the unique identifier of each asset.
    * 
    * @example
    * 123211
@@ -66,7 +66,7 @@ export class GetTableLineagesResponseBodyTableLineageList extends $dara.Model {
   inputTableName?: string;
   /**
    * @remarks
-   * The environment to which the task belongs. Valid values: dev and prod.
+   * The environment to which the node belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -74,7 +74,7 @@ export class GetTableLineagesResponseBodyTableLineageList extends $dara.Model {
   nodeEnv?: string;
   /**
    * @remarks
-   * The task ID associated with the lineage.
+   * The ID of the node corresponding to the lineage.
    * 
    * @example
    * 110021
@@ -114,7 +114,7 @@ export class GetTableLineagesResponseBodyTableLineageList extends $dara.Model {
   outputProjectId?: number;
   /**
    * @remarks
-   * Indicates whether the output table has been deleted.
+   * Indicates whether the output table is deleted.
    */
   outputTableDeleted?: boolean;
   /**
@@ -127,7 +127,7 @@ export class GetTableLineagesResponseBodyTableLineageList extends $dara.Model {
   outputTableEnv?: string;
   /**
    * @remarks
-   * The GUID of the output table. Each asset has a unique identifier.
+   * The GUID of the output table, which is the unique identifier of each asset.
    * 
    * @example
    * 2231
@@ -199,7 +199,7 @@ export class GetTableLineagesResponseBodyTableLineageList extends $dara.Model {
 export class GetTableLineagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -215,7 +215,7 @@ export class GetTableLineagesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -231,7 +231,7 @@ export class GetTableLineagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**

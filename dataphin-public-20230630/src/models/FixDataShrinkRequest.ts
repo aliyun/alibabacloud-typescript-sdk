@@ -6,8 +6,8 @@ export class FixDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment. 
-   * - PROD (default): production environment.
+   * - DEV: development environment 
+   * - PROD: production environment (default)
    * 
    * @example
    * PROD
@@ -15,7 +15,7 @@ export class FixDataShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The command to rerun downstream nodes to fix data link issues. You can choose to force a rerun.
+   * Reruns downstream nodes to repair pipeline data and allows you to force the rerun.
    * 
    * This parameter is required.
    */
@@ -31,6 +31,9 @@ export class FixDataShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

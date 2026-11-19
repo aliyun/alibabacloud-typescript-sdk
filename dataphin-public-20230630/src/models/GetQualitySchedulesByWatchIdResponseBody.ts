@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -50,7 +50,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   modifier?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -74,12 +74,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   partitionExpression?: string;
   /**
    * @remarks
-   * The partition type. Valid values:
-   * - EVERY_DAY: every day
-   * - PRE_DAY: previous day
-   * - TODAY: current day
-   * - FIRST_DAY_OF_WEEK: first day of the week (Sunday)
-   * - CUSTOM: custom
+   * The partition type. Valid values: EVERY_DAY: every day, PRE_DAY: previous day, TODAY: current day, FIRST_DAY_OF_WEEK: first day of the week (Sunday), and CUSTOM: custom.
    * 
    * @example
    * CUSTOM
@@ -87,12 +82,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   partitionType?: string;
   /**
    * @remarks
-   * The schedule interval type for timed scheduling. Valid values:
-   * - DAILY: day
-   * - WEEKLY: week
-   * - MONTHLY: month
-   * - HOURLY: hour
-   * - MINUTELY: minute
+   * The interval type for timed scheduling. Valid values: DAILY: day, WEEKLY: week, MONTHLY: month, HOURLY: hour, and MINUTELY: minute.
    * 
    * @example
    * DAILY
@@ -100,15 +90,12 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   periodScheduleIntervalType?: string;
   /**
    * @remarks
-   * The schedule interval values for timed scheduling.
+   * The interval values for timed scheduling.
    */
   periodScheduleParamList?: string[];
   /**
    * @remarks
-   * The trigger method for static task triggers. Valid values:
-   * - ALL_TASKS_FINISHED: all tasks finished
-   * - ONE_TASKS_FINISHED: one task finished
-   * - PRE_ONE_TASKS_START: previous one task started
+   * The trigger method for static task triggers. Valid values: ALL_TASKS_FINISHED, ONE_TASKS_FINISHED, and PRE_ONE_TASKS_START.
    * 
    * @example
    * ONE_TASKS_FINISHED
@@ -121,9 +108,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   triggerNodeList?: string[];
   /**
    * @remarks
-   * The trigger type for trigger scheduling. Valid values:
-   * - STATIC_TASK_TRIGGER: static task trigger
-   * - CODE_CHECK_TRIGGER: code check trigger
+   * The trigger method for trigger scheduling. Valid values: STATIC_TASK_TRIGGER: static task trigger, and CODE_CHECK_TRIGGER: code check trigger.
    * 
    * @example
    * STATIC_TASK_TRIGGER
@@ -131,12 +116,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   triggerType?: string;
   /**
    * @remarks
-   * The scheduling type. Valid values:
-   * - PERIOD_SCHEDULE: timed scheduling
-   * - MANUAL_SCHEDULE: manual trigger
-   * - CODE_CHECK_TRIGGER: code check trigger
-   * - STATIC_TASK_TRIGGER: static task trigger
-   * - DEPENDENCY_SCHEDULE: dependency scheduling
+   * The scheduling type. Valid values: PERIOD_SCHEDULE: timed scheduling, MANUAL_SCHEDULE: manual trigger, CODE_CHECK_TRIGGER: code check trigger, STATIC_TASK_TRIGGER: static task trigger, and DEPENDENCY_SCHEDULE: dependency scheduling.
    * 
    * @example
    * PERIOD_SCHEDULE
@@ -144,9 +124,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   type?: string;
   /**
    * @remarks
-   * The validation scope. Valid values:
-   * - TASK_REFERRED_PARTITION: task updated partition
-   * - USER_DEFINED_PARTITION: user-defined partition
+   * The validation scope. Valid values: TASK_REFERRED_PARTITION: task updated partition, and USER_DEFINED_PARTITION: user-defined partition.
    * 
    * @example
    * TASK_REFERRED_PARTITION
@@ -248,7 +226,7 @@ export class GetQualitySchedulesByWatchIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The list of scheduling objects.
+   * The scheduling object list.
    */
   qualityScheduleList?: GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList[];
   /**

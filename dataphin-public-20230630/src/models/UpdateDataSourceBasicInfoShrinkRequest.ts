@@ -14,13 +14,16 @@ export class UpdateDataSourceBasicInfoShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The basic information to edit for the data source.
+   * The update of the basic information for a data source.
    * 
    * This parameter is required.
    */

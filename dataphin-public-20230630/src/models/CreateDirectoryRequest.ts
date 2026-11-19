@@ -6,17 +6,17 @@ export class CreateDirectoryRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
    * The menu tree category. Valid values:
-   * - tempCode: custom query
-   * - codeManage: code node
-   * - offlinePipeline: offline pipeline
-   * - offlinePipelineCustomPlugin: pipeline custom component
-   * - dataX: synchronization task
-   * - streamMeta: real-time meta table
-   * - streamCustomDataSource: real-time custom source
-   * - streamTemplate: real-time compute template
-   * - resourceManage: resource management
-   * - udfResource: offline function
-   * - streamFunction: real-time function.
+   * - tempCode: Ad hoc query.
+   * - codeManage: Code task.
+   * - offlinePipeline: Offline pipeline.
+   * - offlinePipelineCustomPlugin: Custom pipeline component.
+   * - dataX: Synchronization task.
+   * - streamMeta: Real-time meta table.
+   * - streamCustomDataSource: Real-time custom data source.
+   * - streamTemplate: Real-time compute template.
+   * - resourceManage: Resource management.
+   * - udfResource: Offline function.
+   * - streamFunction: Real-time function.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class CreateDirectoryRequestCreateCommand extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The parent directory of the new file directory.
+   * The parent directory of the new directory.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class CreateDirectoryRequestCreateCommand extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The name of the new file directory.
+   * The name of the new directory.
    * 
    * This parameter is required.
    * 
@@ -100,6 +100,9 @@ export class CreateDirectoryRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

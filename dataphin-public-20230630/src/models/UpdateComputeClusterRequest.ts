@@ -13,12 +13,12 @@ export class UpdateComputeClusterRequestClusterConfigClusterSafetyControl extend
   clusterSafetyAuthType?: string;
   /**
    * @remarks
-   * The list of whitelist user group IDs.
+   * The list of whitelisted user group IDs.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The list of whitelist user IDs.
+   * The list of whitelisted user IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -134,7 +134,7 @@ export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 时区名称，例如 Asia/Shanghai。更新时不传则保留原值。
+   * The time zone name, such as Asia/Shanghai. If this parameter is not specified during an update, the original value is retained.
    * 
    * @example
    * Asia/Shanghai
@@ -232,7 +232,7 @@ export class UpdateComputeClusterRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

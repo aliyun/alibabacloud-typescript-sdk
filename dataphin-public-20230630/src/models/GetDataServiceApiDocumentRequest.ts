@@ -33,7 +33,7 @@ export class GetDataServiceApiDocumentRequest extends $dara.Model {
   opUserId?: string;
   /**
    * @remarks
-   * The version.
+   * The version ID.
    * 
    * @example
    * 1

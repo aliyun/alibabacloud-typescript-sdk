@@ -21,7 +21,7 @@ export class GetStandardWordRootResponseBodyWordRootInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The user ID of the creator.
+   * The ID of the creator.
    * 
    * @example
    * 30012021
@@ -53,7 +53,7 @@ export class GetStandardWordRootResponseBodyWordRootInfo extends $dara.Model {
   fullName?: string;
   /**
    * @remarks
-   * The user ID of the last modifier.
+   * The ID of the last modifier.
    * 
    * @example
    * 30012021
@@ -141,7 +141,7 @@ export class GetStandardWordRootResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -162,7 +162,7 @@ export class GetStandardWordRootResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The word root details.
+   * The details of the word root.
    */
   wordRootInfo?: GetStandardWordRootResponseBodyWordRootInfo;
   static names(): { [key: string]: string } {

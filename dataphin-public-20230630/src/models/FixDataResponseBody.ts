@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FixDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class FixDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The submit ID of this submission.
+   * The submit ID of the current submission. If downstreamRange is set to a shortcut mode, this field returns the submit ID. You can call the [QueryOperationSubmitJobStatus] operation to query the submit status of the current submission. You can ignore this field if you manually select downstream instances.
    * 
    * @example
    * 12324234
@@ -45,7 +45,7 @@ export class FixDataResponseBody extends $dara.Model {
   submitId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

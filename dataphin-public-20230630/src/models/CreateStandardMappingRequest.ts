@@ -13,9 +13,8 @@ export class CreateStandardMappingRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
    * The processing policy for invalid mappings when importing mapping relationships. Valid values:
-   * - SET_INVALID_TO_VALID: sets invalid mappings to valid mappings.
-   * - KEEP_INVALID_AND_SKIP: retains invalid mappings and skips them.
-   * 
+   * - SET_INVALID_TO_VALID: Changes invalid mappings to valid mappings.
+   * - KEEP_INVALID_AND_SKIP: Retains invalid mappings and skips them.
    * Default value: SET_INVALID_TO_VALID.
    * 
    * @example
@@ -25,9 +24,8 @@ export class CreateStandardMappingRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
    * The mapping relationship type. Valid values:
-   * - VALID: valid mapping.
-   * - INVALID: invalid mapping.
-   * 
+   * - VALID: Valid mapping.
+   * - INVALID: Invalid mapping.
    * Default value: VALID.
    * 
    * @example
@@ -77,7 +75,7 @@ export class CreateStandardMappingRequestCreateCommand extends $dara.Model {
 export class CreateStandardMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -93,6 +91,9 @@ export class CreateStandardMappingRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

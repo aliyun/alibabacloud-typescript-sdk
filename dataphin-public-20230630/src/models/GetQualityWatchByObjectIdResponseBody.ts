@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -45,7 +45,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   id?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -61,7 +61,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   name?: string;
   /**
    * @remarks
-   * The user ID of the owner.
+   * The owner ID.
    * 
    * @example
    * 30012011
@@ -69,7 +69,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   owner?: string;
   /**
    * @remarks
-   * The username of the owner.
+   * The owner name.
    * 
    * @example
    * test
@@ -149,7 +149,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   catalog?: string;
   /**
    * @remarks
-   * The name of the cell summary logical table.
+   * The unit aggregate table name.
    * 
    * @example
    * dws_all
@@ -157,7 +157,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   cellSumLogicTableName?: string;
   /**
    * @remarks
-   * The compute type of the metric. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
+   * The metric computation type. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
    * 
    * @example
    * AUTO
@@ -165,7 +165,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   computeType?: string;
   /**
    * @remarks
-   * The data type of the metric.
+   * The metric data type.
    * 
    * @example
    * bigint
@@ -181,7 +181,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   description?: string;
   /**
    * @remarks
-   * The display name of the metric.
+   * The metric display name.
    * 
    * @example
    * logic
@@ -192,7 +192,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
    * The statistical granularity name.
    * 
    * @example
-   * Site-wide summary table
+   * Global aggregate table
    */
   granularityDisplayName?: string;
   /**
@@ -229,7 +229,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   name?: string;
   /**
    * @remarks
-   * The user ID of the owner.
+   * The owner ID.
    * 
    * @example
    * 30012011
@@ -237,7 +237,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   owner?: string;
   /**
    * @remarks
-   * The username of the owner.
+   * The owner name.
    * 
    * @example
    * test
@@ -402,7 +402,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   name?: string;
   /**
    * @remarks
-   * The user ID of the owner.
+   * The owner ID.
    * 
    * @example
    * 30012011
@@ -410,7 +410,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   owner?: string;
   /**
    * @remarks
-   * The username of the owner.
+   * The owner name.
    * 
    * @example
    * test
@@ -434,7 +434,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   projectName?: string;
   /**
    * @remarks
-   * The type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metadata table).
+   * The type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metatable).
    * 
    * @example
    * LOGIC_DIM_TABLE
@@ -492,7 +492,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
 export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -566,7 +566,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   modifier?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -619,7 +619,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   tableInfo?: GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo;
   /**
    * @remarks
-   * The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metadata table).
+   * The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metatable).
    * 
    * @example
    * TABLE

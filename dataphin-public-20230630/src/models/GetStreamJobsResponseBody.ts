@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStreamJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The environment identifier. Valid values:
-   * - DEV: development.
-   * - PROD: production.
+   * The environment identifier. Valid values: DEV for development and PROD for production.
    * 
    * @example
    * DEV
@@ -15,7 +13,7 @@ export class GetStreamJobsResponseBodyData extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The mapping ID of the real-time node.
+   * The mapping ID of the real-time task.
    * 
    * @example
    * 716555
@@ -23,7 +21,7 @@ export class GetStreamJobsResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the real-time node.
+   * The name of the real-time task.
    * 
    * @example
    * flink_order_detail
@@ -31,7 +29,7 @@ export class GetStreamJobsResponseBodyData extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The ID of the user who last modified the node.
+   * The ID of the last modifier.
    * 
    * @example
    * 300006788
@@ -55,12 +53,7 @@ export class GetStreamJobsResponseBodyData extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The node status. Valid values:
-   * - 0: draft.
-   * - 1: submitting.
-   * - 2: submitted.
-   * - 3: published.
-   * - 100: in development.
+   * The task status. Valid values: 0 (Draft), 1 (Submitting), 2 (Submitted), 3 (Published), and 100 (Developing).
    * 
    * @example
    * 0
@@ -68,9 +61,7 @@ export class GetStreamJobsResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The node type. Valid values:
-   * - FLINK_SQL
-   * - FLINK_DATASTREAM.
+   * The task type. Valid values: FLINK_SQL and FLINK_DATASTREAM.
    * 
    * @example
    * FLINK_SQL
@@ -114,7 +105,7 @@ export class GetStreamJobsResponseBodyData extends $dara.Model {
 export class GetStreamJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backend response code.
+   * The backend status code.
    * 
    * @example
    * OK
@@ -135,7 +126,7 @@ export class GetStreamJobsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -151,7 +142,7 @@ export class GetStreamJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTablesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query conditions.
+   * The paging query conditions.
    */
   listQueryShrink?: string;
   /**

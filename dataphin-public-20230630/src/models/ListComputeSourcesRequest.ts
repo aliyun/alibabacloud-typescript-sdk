@@ -10,7 +10,7 @@ export class ListComputeSourcesRequestListQuery extends $dara.Model {
   bindProject?: boolean;
   /**
    * @remarks
-   * The keyword used for filtering.
+   * The keyword.
    * 
    * @example
    * test
@@ -26,7 +26,7 @@ export class ListComputeSourcesRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -34,7 +34,7 @@ export class ListComputeSourcesRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the compute source.
+   * The compute source type.
    * 
    * @example
    * MaxCompute
@@ -79,7 +79,7 @@ export class ListComputeSourcesRequest extends $dara.Model {
   listQuery?: ListComputeSourcesRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -88,6 +88,9 @@ export class ListComputeSourcesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

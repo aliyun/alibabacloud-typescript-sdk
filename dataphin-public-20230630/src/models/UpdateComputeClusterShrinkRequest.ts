@@ -32,7 +32,7 @@ export class UpdateComputeClusterShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

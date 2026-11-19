@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataSourceResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * Development environment data source ID
+   * The ID of the development environment data source.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class CreateDataSourceResponseBodyCreateResult extends $dara.Model {
   devDataSourceId?: number;
   /**
    * @remarks
-   * Production environment data source ID
+   * The ID of the production environment data source.
    * 
    * @example
    * 12345
@@ -45,7 +45,7 @@ export class CreateDataSourceResponseBodyCreateResult extends $dara.Model {
 export class CreateDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. OK indicates that the request is successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -53,12 +53,12 @@ export class CreateDataSourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data source creation result
+   * The result of creating the data source.
    */
   createResult?: CreateDataSourceResponseBodyCreateResult;
   /**
    * @remarks
-   * HTTP status code returned by the backend
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class CreateDataSourceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * successful
@@ -74,7 +74,7 @@ export class CreateDataSourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -82,7 +82,7 @@ export class CreateDataSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,14 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGovernObjectsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The governance item type. Valid values:
-   * 
-   * - TABLE
-   * - DATASOURCE_TABLE
-   * - DATASOURCE
-   * - INDEX
-   * - REALTIME_LOGICAL_TABLE
-   * - QD_FEATURE
+   * The governance item type. Valid values: TABLE, DATASOURCE_TABLE, DATASOURCE, INDEX, REALTIME_LOGICAL_TABLE, and QD_FEATURE.
    * 
    * This parameter is required.
    * 
@@ -54,26 +47,17 @@ export class ListGovernObjectsRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of project names used to filter results.
+   * The list of project names used for filtering.
    */
   projectNames?: string[];
   /**
    * @remarks
-   * The list of governance object statuses. Valid values:
-   * 
-   * - NEW
-   * - VERIFY
-   * - FINISHED
-   * - IGNORE
+   * The list of governance object statuses. Valid values: NEW, VERIFY, FINISHED, and IGNORE.
    */
   statusList?: string[];
   /**
    * @remarks
-   * The view type. Valid values:
-   * 
-   * - ALL
-   * - OWNER
-   * - PROJECT
+   * The view type. Valid values: ALL, OWNER, and PROJECT.
    * 
    * @example
    * ALL
@@ -140,7 +124,7 @@ export class ListGovernObjectsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

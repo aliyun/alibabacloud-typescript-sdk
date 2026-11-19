@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBizMetricResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The exception information.
+   * The exception message.
    * 
    * @example
    * success
@@ -13,9 +13,7 @@ export class DeleteBizMetricResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the deletion was successful. Valid values:
-   * - true: Succeeded.
-   * - false: Failed.
+   * Indicates whether the deletion is successful. A value of true indicates that the deletion is successful. A value of false indicates that the deletion failed.
    * 
    * @example
    * true
@@ -47,7 +45,7 @@ export class DeleteBizMetricResponseBodyData extends $dara.Model {
 export class DeleteBizMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -84,7 +82,7 @@ export class DeleteBizMetricResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

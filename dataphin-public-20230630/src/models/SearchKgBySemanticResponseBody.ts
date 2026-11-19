@@ -21,7 +21,7 @@ export class SearchKgBySemanticResponseBodyDataSearchResults extends $dara.Model
   itemTypeCode?: string;
   /**
    * @remarks
-   * The property code that matched the semantic search.
+   * The code of the matched semantic search property.
    * 
    * @example
    * name
@@ -32,12 +32,12 @@ export class SearchKgBySemanticResponseBodyDataSearchResults extends $dara.Model
    * The actual value of the matched property.
    * 
    * @example
-   * 张三
+   * John Doe
    */
   matchedPropertyValue?: string;
   /**
    * @remarks
-   * The similarity score ranging from 0.0 to 1.0, based on cosine similarity.
+   * The similarity score based on cosine similarity. Valid values: 0.0 to 1.0.
    * 
    * @example
    * 0.88
@@ -152,7 +152,7 @@ export class SearchKgBySemanticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -59,7 +59,7 @@ export class CreateKgEntityRequestCreateCommand extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity record property list.
+   * The property list of the entity record.
    * 
    * This parameter is required.
    */
@@ -93,7 +93,7 @@ export class CreateKgEntityRequestCreateCommand extends $dara.Model {
 export class CreateKgEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -109,6 +109,9 @@ export class CreateKgEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

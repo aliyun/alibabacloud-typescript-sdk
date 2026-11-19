@@ -13,7 +13,7 @@ export class GetKgRelationResponseBodyRelationInfoPropertyList extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
+   * The property data type. Valid values include STRING, INTEGER, FLOAT, BOOLEAN, DATE, and LIST.
    * 
    * @example
    * STRING

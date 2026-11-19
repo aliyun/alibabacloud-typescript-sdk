@@ -20,7 +20,7 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   customChannelIdList?: string[];
   /**
    * @remarks
-   * The keyword for the query.
+   * The search keyword.
    * 
    * @example
    * test
@@ -33,7 +33,7 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   monitoredItemIdList?: string[];
   /**
    * @remarks
-   * The end time of the push.
+   * The push end time.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   notifyEndTime?: string;
   /**
    * @remarks
-   * The start time of the push.
+   * The push start time.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -74,17 +74,15 @@ export class ListAlertNotificationsRequestListQuery extends $dara.Model {
   /**
    * @remarks
    * The source system. Valid values:
-   * 
-   * - ALL: all.
-   * - DQE: data quality.
-   * - OS: data service.
-   * - STREAM: real-time computing.
-   * - VDM_BATCH: offline computing.
+   * - ALL: All.
+   * - DQE: Data quality.
+   * - OS: Data service.
+   * - STREAM: Real-time computing.
+   * - VDM_BATCH: Offline computing.
    * - SOP: O&M platform.
-   * - REAL_TIME_PIPELINE: real-time integration.
-   * - KGB: baseline monitoring.
-   * 
-   * And more.
+   * - REAL_TIME_PIPELINE: Real-time integration.
+   * - KGB: Baseline monitoring.
+   * etc.
    * 
    * This parameter is required.
    * 
@@ -180,6 +178,9 @@ export class ListAlertNotificationsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

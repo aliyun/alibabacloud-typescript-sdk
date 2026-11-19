@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data classification.
+   * The data classification ID.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   classifyId?: number;
   /**
    * @remarks
-   * The name of the data classification.
+   * The data classification name.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   classifyName?: string;
   /**
    * @remarks
-   * The comment of the field.
+   * The field comment.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID.
    * 
    * @example
    * 3301
@@ -53,7 +53,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * MAX_COMPUTE
@@ -85,7 +85,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The environment to which the field belongs. Valid values: dev and prod.
+   * The environment to which the table belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -101,22 +101,22 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   guid?: string;
   /**
    * @remarks
-   * Indicates whether the field is a foreign key.
+   * Specifies whether the column is a foreign key.
    */
   isForeignKey?: boolean;
   /**
    * @remarks
-   * Indicates whether the field is a partition key.
+   * Specifies whether the column is a partition key.
    */
   isPartitionColumn?: boolean;
   /**
    * @remarks
-   * Indicates whether the field is a primary key.
+   * Specifies whether the column is a primary key.
    */
   isPrimaryKey?: boolean;
   /**
    * @remarks
-   * The user who last modified the field.
+   * The last modifier.
    * 
    * @example
    * 30012011
@@ -124,7 +124,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * The abbreviation of the data security level.
+   * The abbreviation of the data classification level.
    * 
    * @example
    * L1
@@ -140,7 +140,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The name of the field.
+   * The field name.
    * 
    * @example
    * age
@@ -148,12 +148,12 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field can be null.
+   * Specifies whether the column can be null.
    */
   nullable?: boolean;
   /**
    * @remarks
-   * The sequence number.
+   * The ordinal number.
    * 
    * @example
    * 1
@@ -169,7 +169,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * t_test
@@ -274,7 +274,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The details of the backend response exception.
    * 
    * @example
    * internal error
@@ -290,7 +290,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Specifies whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

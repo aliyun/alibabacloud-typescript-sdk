@@ -8,7 +8,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns 
    * The mapping column description.
    * 
    * @example
-   * Business ID.
+   * Business ID
    */
   columnDesc?: string;
   /**
@@ -96,7 +96,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpression
   type?: string;
   /**
    * @remarks
-   * The expression operation values.
+   * The expression operand value.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -213,7 +213,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappin
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRules extends $dara.Model {
   /**
    * @remarks
-   * The rule expressions.
+   * The rule expression.
    * 
    * This parameter is required.
    */
@@ -319,7 +319,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends 
   mappingColumnName?: string;
   /**
    * @remarks
-   * The GUID of the table.
+   * The table GUID.
    * 
    * This parameter is required.
    * 
@@ -365,7 +365,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.
    * The row-level permission description.
    * 
    * @example
-   * Control business data.
+   * Control business data
    */
   rowPermissionDesc?: string;
   /**
@@ -385,7 +385,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.
    * This parameter is required.
    * 
    * @example
-   * BusinessControl.
+   * Business control
    */
   rowPermissionName?: string;
   /**
@@ -450,6 +450,9 @@ export class UpdateRowPermissionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

@@ -8,7 +8,7 @@ export class GetBatchTemplateVersionsRequest extends $dara.Model {
    * The environment. Valid values:
    * - DEV: development environment.
    * - PROD: production environment.
-   * Default value: DEV for dev_prod projects.
+   * Default value for dev_prod projects: DEV.
    * 
    * @example
    * DEV
@@ -26,7 +26,7 @@ export class GetBatchTemplateVersionsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator user ID.
+   * The ID of the operating user.
    * 
    * @example
    * 30001011

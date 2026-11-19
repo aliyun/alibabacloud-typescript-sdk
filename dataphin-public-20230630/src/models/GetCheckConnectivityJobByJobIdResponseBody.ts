@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCheckConnectivityJobByJobIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data source. This parameter is empty if the check is performed before creation.
+   * The ID of the data source. This field is empty when the check is performed before creation.
    * 
    * @example
    * 192
@@ -29,7 +29,7 @@ export class GetCheckConnectivityJobByJobIdResponseBodyData extends $dara.Model 
   jobId?: string;
   /**
    * @remarks
-   * The job type.
+   * The type of the task.
    * 
    * @example
    * application/cluster
@@ -37,7 +37,7 @@ export class GetCheckConnectivityJobByJobIdResponseBodyData extends $dara.Model 
   jobType?: string;
   /**
    * @remarks
-   * The job status. Valid values: NEW, IN_PROCESS, SUCCESS, and FAILED.
+   * The status of the task. Valid values: NEW, IN_PROCESS, SUCCESS, and FAILED.
    * 
    * @example
    * SUCCESS

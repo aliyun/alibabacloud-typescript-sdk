@@ -15,7 +15,7 @@ export class GetFileStorageCredentialRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the user who performs the operation.
+   * The ID of the operator.
    * 
    * @example
    * 30001011
@@ -31,7 +31,11 @@ export class GetFileStorageCredentialRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The purpose of the authorization. Valid values: RESOURCE (creating resource files), COMPUTE_SOURCE_SETTING (configuring storage and compute sources), and NONE (no specific purpose). Default value: NONE.
+   * The purpose of the authorization. Valid values:
+   * - RESOURCE: Creates resource files.
+   * - COMPUTE_SOURCE_SETTING: Configures storage and compute sources.
+   * - NONE: Indicates no specific purpose.
+   * Default value: NONE.
    * 
    * @example
    * RESOURCE
@@ -39,7 +43,7 @@ export class GetFileStorageCredentialRequest extends $dara.Model {
   purpose?: string;
   /**
    * @remarks
-   * Specifies whether to use the internal endpoint. Default value: false.
+   * Specifies whether to use the internal network address. Default value: false.
    */
   useVpcEndpoint?: boolean;
   static names(): { [key: string]: string } {

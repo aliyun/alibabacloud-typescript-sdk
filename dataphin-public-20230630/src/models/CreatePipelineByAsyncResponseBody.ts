@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineByAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code
+   * The backend response code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class CreatePipelineByAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Asynchronous execution query ID
+   * The ID used to query the asynchronous execution status.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class CreatePipelineByAsyncResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * HTTP response code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class CreatePipelineByAsyncResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend response exception details
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -45,7 +45,7 @@ export class CreatePipelineByAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

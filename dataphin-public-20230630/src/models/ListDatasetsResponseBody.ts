@@ -124,7 +124,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoReque
   paramType?: string;
   /**
    * @remarks
-   * The example value.
+   * The sample value.
    * 
    * @example
    * test
@@ -239,7 +239,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRespo
   paramType?: string;
   /**
    * @remarks
-   * The example value.
+   * The sample value.
    * 
    * @example
    * test
@@ -311,7 +311,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   execTimeout?: number;
   /**
    * @remarks
-   * The execution mode. Valid values: 1: Synchronous, 2: Asynchronous.
+   * The execution mode: 1-synchronous, 2-asynchronous.
    * 
    * This parameter is required.
    * 
@@ -357,7 +357,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   osProjectName?: string;
   /**
    * @remarks
-   * The protocol type. Valid values: 1: HTTPS, 2: HTTP, 3: HTTP and HTTPS.
+   * The protocol type: 1. HTTPS, 2. HTTP, 3. HTTP and HTTPS.
    * 
    * This parameter is required.
    * 
@@ -367,7 +367,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   protocol?: number;
   /**
    * @remarks
-   * The request method. Valid values: 1: GET, 2: LIST.
+   * The request method: 1-GET, 2-LIST.
    * 
    * This parameter is required.
    * 
@@ -377,14 +377,14 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   requestMethod?: number;
   /**
    * @remarks
-   * The list of request parameters.
+   * The request parameter list.
    * 
    * This parameter is required.
    */
   requestParamList?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRequestParamList[];
   /**
    * @remarks
-   * The list of response parameters.
+   * The response parameter list.
    */
   responseParamList?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoResponseParamList[];
   /**
@@ -525,7 +525,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfigTableSchemaColumnsVectorIndexConfig extends $dara.Model {
   /**
    * @remarks
-   * The embedding dimension.
+   * The vector dimension.
    * 
    * This parameter is required.
    * 
@@ -545,7 +545,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   embeddingModel?: string;
   /**
    * @remarks
-   * The index building parameters.
+   * The index build parameters.
    */
   indexParams?: { [key: string]: any };
   /**
@@ -560,7 +560,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   indexType?: string;
   /**
    * @remarks
-   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+   * The similarity type. Valid values: COSINE, L2, and IP. Default value: COSINE.
    * 
    * This parameter is required.
    * 
@@ -611,7 +611,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   comment?: string;
   /**
    * @remarks
-   * The subtype of the array element. Valid only when type is ARRAY.
+   * The subtype of array elements. Valid only when type=ARRAY.
    * 
    * @example
    * INT64
@@ -619,7 +619,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   elementType?: string;
   /**
    * @remarks
-   * The maximum capacity of the array. Valid only when type is ARRAY. Default value: 4096.
+   * The maximum capacity of the array. Valid only when type=ARRAY. Default value: 4096.
    * 
    * @example
    * 20
@@ -637,7 +637,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   name?: string;
   /**
    * @remarks
-   * Specifies whether the column is a primary key.
+   * Indicates whether the column is a primary key.
    * 
    * This parameter is required.
    * 
@@ -657,7 +657,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   type?: string;
   /**
    * @remarks
-   * Specifies whether the column is a URL.
+   * Indicates whether the column is a URL.
    * 
    * @example
    * false
@@ -709,7 +709,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The list of columns.
+   * The column list.
    */
   columns?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -757,7 +757,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   dataSourceName?: string;
   /**
    * @remarks
-   * The development database or schema.
+   * The development database/schema.
    * 
    * @example
    * HTML content extraction/test423/
@@ -783,7 +783,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   metadataStorageType?: string;
   /**
    * @remarks
-   * The production database or schema.
+   * The production database/schema.
    * 
    * This parameter is required.
    * 
@@ -847,7 +847,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchemaColumnsVectorIndexConfig extends $dara.Model {
   /**
    * @remarks
-   * The embedding dimension.
+   * The vector dimension.
    * 
    * This parameter is required.
    * 
@@ -867,7 +867,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   embeddingModel?: string;
   /**
    * @remarks
-   * The index building parameters.
+   * The index build parameters.
    */
   indexParams?: { [key: string]: any };
   /**
@@ -882,7 +882,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   indexType?: string;
   /**
    * @remarks
-   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+   * The similarity type. Valid values: COSINE, L2, and IP. Default value: COSINE.
    * 
    * This parameter is required.
    * 
@@ -925,7 +925,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchemaColumns extends $dara.Model {
   /**
    * @remarks
-   * **The field description.**
+   * **Field description**
    * 
    * @example
    * Entry time
@@ -933,7 +933,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   comment?: string;
   /**
    * @remarks
-   * **The subtype of the array element. Valid only when type is ARRAY.**
+   * **The subtype of array elements. Valid only when type=ARRAY.**
    * 
    * @example
    * INT64
@@ -941,7 +941,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   elementType?: string;
   /**
    * @remarks
-   * **The maximum capacity of the array. Valid only when type is ARRAY. Default value: 4096.**
+   * **The maximum capacity of the array. Valid only when type=ARRAY. Default value: 4096.**
    * 
    * @example
    * 35
@@ -959,7 +959,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   name?: string;
   /**
    * @remarks
-   * Specifies whether the column is a primary key.
+   * Indicates whether the column is a primary key.
    * 
    * This parameter is required.
    * 
@@ -979,7 +979,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   type?: string;
   /**
    * @remarks
-   * Specifies whether the column is a URL.
+   * Indicates whether the column is a URL.
    * 
    * @example
    * false
@@ -1031,7 +1031,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The list of columns.
+   * The column list.
    */
   columns?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -1061,7 +1061,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfig extends $dara.Model {
   /**
    * @remarks
-   * The data source type of the metatable. Only KAFKA is supported in the current release.
+   * The data source type of the metatable. Only KAFKA is currently supported.
    * 
    * This parameter is required.
    * 
@@ -1081,7 +1081,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   metaTableName?: string;
   /**
    * @remarks
-   * The ID of the project to which the metatable belongs. Cross-project access is supported.
+   * The project ID of the metatable. Cross-project access is supported.
    * 
    * This parameter is required.
    * 
@@ -1091,7 +1091,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   projectId?: number;
   /**
    * @remarks
-   * The table schema configuration. This configuration reuses `MetadataStorageConfigDTO.TableSchemaDTO`.
+   * The table schema configuration. Reuses `MetadataStorageConfigDTO.TableSchemaDTO`.
    */
   tableSchema?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchema;
   static names(): { [key: string]: string } {
@@ -1137,7 +1137,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   metadataStorageConfig?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfig;
   /**
    * @remarks
-   * The real-time metatable configuration. This configuration is valid only when `metadataStorageType` is `REALTIME_META_TABLE`.
+   * The real-time metatable configuration. Effective only when `metadataStorageType=REALTIME_META_TABLE`.
    */
   realtimeMetaTableConfig?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfig;
   /**
@@ -1187,7 +1187,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $dara.Model {
   /**
    * @remarks
-   * The API information of the online dataset.
+   * The API information for the online dataset.
    */
   apiInfo?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo;
   /**
@@ -1221,7 +1221,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $da
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * @example
    * 1749450490000
@@ -1359,7 +1359,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * @example
    * 2026-05-18 17:07:54.237771
@@ -1383,7 +1383,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   lockOwner?: string;
   /**
    * @remarks
-   * The name of the development owner (interface display field).
+   * The name of the development owner (Displayed Fields on the interface).
    * 
    * @example
    * Zhang San
@@ -1399,7 +1399,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   metadataStorageType?: string;
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * audio_dataset
@@ -1428,7 +1428,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The scenarios of the dataset. Valid values: OFFLINE (offline, default) and REALTIME (real-time).
+   * The Scenarios in which the dataset is used. Valid values: OFFLINE (offline, default) and REALTIME (real-time).
    * 
    * @example
    * OFFLINE

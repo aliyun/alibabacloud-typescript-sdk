@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnsRequest extends $dara.Model {
   /**
    * @remarks
-   * The catalog of the asset table, which is the name of the business unit or project workspace.
+   * The catalog of the asset table, which is the name of the business unit or project space.
    * 
    * @example
    * LD_test01_dev
@@ -23,7 +23,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator.
+   * The ID of the operating user.
    * 
    * @example
    * 30001011
@@ -31,7 +31,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   opUserId?: string;
   /**
    * @remarks
-   * The GUID of the table. If this parameter is specified, it takes precedence in the query, and the Catalog and TableName parameters are ignored even if they are provided.
+   * The GUID of the table. If this parameter is specified, it is used for priority query, and the Catalog and TableName parameters are not required and will be ignored even if specified.
    * 
    * @example
    * dp_ds_table_xxx
@@ -39,7 +39,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * t_test01

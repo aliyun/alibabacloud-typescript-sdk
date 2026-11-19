@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardRelationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of standard IDs that do not exist.
+   * The list of non-existent standard IDs.
    */
   notExistStandardIdList?: number[];
   /**
    * @remarks
-   * The number of successfully added associations.
+   * The number of successful additions.
    * 
    * @example
    * 2
@@ -82,7 +82,7 @@ export class CreateStandardRelationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

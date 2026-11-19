@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateKgRelationResponseBodyCreateResultSuccessRelationList extends $dara.Model {
   /**
    * @remarks
-   * The relationship record ID.
+   * The relation record ID.
    * 
    * @example
    * abc-xxx
@@ -13,16 +13,34 @@ export class BatchCreateKgRelationResponseBodyCreateResultSuccessRelationList ex
   relationId?: string;
   /**
    * @remarks
-   * The relationship type code.
+   * The relation type code.
    * 
    * @example
    * BELONG_TO
    */
   relationType?: string;
+  /**
+   * @remarks
+   * The source entity ID.
+   * 
+   * @example
+   * e1d4559a4db044158305e2d89bccf81f
+   */
+  sourceEntityId?: string;
+  /**
+   * @remarks
+   * The target entity ID.
+   * 
+   * @example
+   * e1d4559a4db044158305e2d89bccf82f
+   */
+  targetEntityId?: string;
   static names(): { [key: string]: string } {
     return {
       relationId: 'RelationId',
       relationType: 'RelationType',
+      sourceEntityId: 'SourceEntityId',
+      targetEntityId: 'TargetEntityId',
     };
   }
 
@@ -30,6 +48,8 @@ export class BatchCreateKgRelationResponseBodyCreateResultSuccessRelationList ex
     return {
       relationId: 'string',
       relationType: 'string',
+      sourceEntityId: 'string',
+      targetEntityId: 'string',
     };
   }
 
@@ -45,7 +65,7 @@ export class BatchCreateKgRelationResponseBodyCreateResultSuccessRelationList ex
 export class BatchCreateKgRelationResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed records.
+   * The number of failed creations.
    * 
    * @example
    * 0
@@ -53,7 +73,7 @@ export class BatchCreateKgRelationResponseBodyCreateResult extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The number of successfully created records.
+   * The number of successful creations.
    * 
    * @example
    * 10
@@ -61,7 +81,7 @@ export class BatchCreateKgRelationResponseBodyCreateResult extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The list of successfully created entity records.
+   * The list of successfully created relation records.
    */
   successRelationList?: BatchCreateKgRelationResponseBodyCreateResultSuccessRelationList[];
   static names(): { [key: string]: string } {
@@ -103,7 +123,7 @@ export class BatchCreateKgRelationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of creating relationship records in batches.
+   * The result of creating relation records in batches.
    */
   createResult?: BatchCreateKgRelationResponseBodyCreateResult;
   /**

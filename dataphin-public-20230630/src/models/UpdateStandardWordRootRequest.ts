@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStandardWordRootRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The abbreviation of the root word.
+   * The abbreviation of the word root.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateStandardWordRootRequestUpdateCommand extends $dara.Model {
   abbreviation?: string;
   /**
    * @remarks
-   * The description of the root word.
+   * The description of the word root.
    * 
    * @example
    * test
@@ -23,7 +23,7 @@ export class UpdateStandardWordRootRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The full name of the root word.
+   * The full name of the word root.
    * 
    * This parameter is required.
    * 
@@ -33,22 +33,22 @@ export class UpdateStandardWordRootRequestUpdateCommand extends $dara.Model {
   fullName?: string;
   /**
    * @remarks
-   * The name of the root word.
+   * The name of the word root.
    * 
    * This parameter is required.
    * 
    * @example
-   * 平均值
+   * Average
    */
   name?: string;
   /**
    * @remarks
-   * The name of the root word before the update.
+   * The original name of the word root.
    * 
    * This parameter is required.
    * 
    * @example
-   * 平均值
+   * Average
    */
   oldName?: string;
   static names(): { [key: string]: string } {
@@ -92,13 +92,16 @@ export class UpdateStandardWordRootRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The update command.
    * 
    * This parameter is required.
    */

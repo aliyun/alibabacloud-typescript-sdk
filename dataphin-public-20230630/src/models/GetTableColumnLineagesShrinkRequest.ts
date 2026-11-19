@@ -19,13 +19,16 @@ export class GetTableColumnLineagesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The GUID of the table, which is the unique identifier of the asset.
+   * The GUID of the table, which uniquely identifies the asset.
    * 
    * This parameter is required.
    * 

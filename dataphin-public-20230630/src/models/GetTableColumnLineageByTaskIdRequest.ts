@@ -10,7 +10,7 @@ export class GetTableColumnLineageByTaskIdRequestTableColumnLineageByTaskIdQuery
   needNotExistObject?: boolean;
   /**
    * @remarks
-   * Environment of the task to query: DEV or PROD.
+   * The environment to which the node belongs, such as DEV or PROD.
    * 
    * @example
    * DEV
@@ -18,7 +18,7 @@ export class GetTableColumnLineageByTaskIdRequestTableColumnLineageByTaskIdQuery
   taskEnv?: string;
   /**
    * @remarks
-   * Task (node) ID used to filter the query.
+   * The ID of the node used to filter the query.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class GetTableColumnLineageByTaskIdRequestTableColumnLineageByTaskIdQuery
 export class GetTableColumnLineageByTaskIdRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -63,13 +63,16 @@ export class GetTableColumnLineageByTaskIdRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Data structure for querying table column lineage.
+   * The data structure used to query table column lineage.
    * 
    * This parameter is required.
    */

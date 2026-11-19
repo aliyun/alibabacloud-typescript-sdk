@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityArchiveTableProgressResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The archived table ID. This parameter is returned after the task succeeds and can be used to switch the active table.
+   * The ID of the archive table. This parameter is returned after the task succeeds and can be used to switch the active table later.
    * 
    * @example
    * 88012
@@ -13,7 +13,7 @@ export class GetQualityArchiveTableProgressResponseBodyData extends $dara.Model 
   archiveTableId?: number;
   /**
    * @remarks
-   * The full name of the archived table. This parameter is returned after the task succeeds. When creating a table, the name includes the automatically appended _exception_data suffix.
+   * The full name of the archive table. This parameter is returned after the task succeeds. When a table is created, the _exception_data suffix is automatically appended to the name.
    * 
    * @example
    * Train.a01_reanme3_exception_data
@@ -21,19 +21,19 @@ export class GetQualityArchiveTableProgressResponseBodyData extends $dara.Model 
   archiveTableName?: string;
   /**
    * @remarks
-   * The reason for the task failure. This parameter is returned only when Status is FAILED.
+   * The cause of the task failure. This parameter is returned only when Status is FAILED.
    * 
    * @example
-   * The archived table name already exists!
+   * The archive table name already exists!
    */
   errorMessage?: string;
   /**
    * @remarks
    * The task status. Valid values:
-   * - PROGRESS: In progress.
-   * - SUCCESS: Succeeded.
-   * - FAILED: Failed.
-   * - CANCEL: Canceled.
+   * - PROGRESS: The task is in progress.
+   * - SUCCESS: The task is successful.
+   * - FAILED: The task failed.
+   * - CANCEL: The task is canceled.
    * 
    * @example
    * SUCCESS
@@ -77,7 +77,7 @@ export class GetQualityArchiveTableProgressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous task progress details.
+   * The progress details of the asynchronous task.
    */
   data?: GetQualityArchiveTableProgressResponseBodyData;
   /**
@@ -90,7 +90,7 @@ export class GetQualityArchiveTableProgressResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -106,7 +106,7 @@ export class GetQualityArchiveTableProgressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

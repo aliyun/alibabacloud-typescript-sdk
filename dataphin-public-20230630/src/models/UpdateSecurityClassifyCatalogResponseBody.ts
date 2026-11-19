@@ -13,7 +13,7 @@ export class UpdateSecurityClassifyCatalogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The full path of the updated folder.
+   * The full path of the updated catalog.
    * 
    * @example
    * /d1/d3/
@@ -29,7 +29,7 @@ export class UpdateSecurityClassifyCatalogResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -45,7 +45,7 @@ export class UpdateSecurityClassifyCatalogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

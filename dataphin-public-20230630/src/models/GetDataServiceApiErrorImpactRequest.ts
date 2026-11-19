@@ -24,13 +24,16 @@ export class GetDataServiceApiErrorImpactRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The data service project ID.
+   * The ID of the data service project.
    * 
    * This parameter is required.
    * 

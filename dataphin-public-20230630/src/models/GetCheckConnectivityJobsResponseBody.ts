@@ -13,7 +13,7 @@ export class GetCheckConnectivityJobsResponseBodyData extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The error message that provides a detailed description when a task fails.
+   * The error message, which provides a detailed description when the task fails.
    * 
    * @example
    * notFoundIp
@@ -29,7 +29,7 @@ export class GetCheckConnectivityJobsResponseBodyData extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The task type (application-level or cluster-level).
+   * The task type, which can be application-level or cluster-level.
    * 
    * @example
    * application/cluster
@@ -53,7 +53,7 @@ export class GetCheckConnectivityJobsResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The Voldemort task ID used to associate the underlying execution task.
+   * The Voldemort task ID, which is used to associate the underlying execution task.
    * 
    * @example
    * t_7572319950395080706_20251225_7572319950395080707
@@ -116,7 +116,7 @@ export class GetCheckConnectivityJobsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend response error.
+   * The details of the backend response exception.
    * 
    * @example
    * internal error

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishStandardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class PublishStandardResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The backend exception details.
    * 
    * @example
    * internal error

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList extends $dara.Model {
   /**
    * @remarks
+   * The business ID of the entity record.
+   * 
+   * @example
+   * 12345
+   */
+  bizId?: string;
+  /**
+   * @remarks
    * The ID of the entity record.
    * 
    * @example
@@ -21,6 +29,7 @@ export class BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList extend
   entityType?: string;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       entityId: 'EntityId',
       entityType: 'EntityType',
     };
@@ -28,6 +37,7 @@ export class BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList extend
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       entityId: 'string',
       entityType: 'string',
     };
@@ -45,7 +55,7 @@ export class BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList extend
 export class BatchCreateKgEntityResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed records.
+   * The number of failed creations.
    * 
    * @example
    * 0
@@ -53,7 +63,7 @@ export class BatchCreateKgEntityResponseBodyCreateResult extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The number of successfully created records.
+   * The number of successful creations.
    * 
    * @example
    * 10
@@ -61,7 +71,7 @@ export class BatchCreateKgEntityResponseBodyCreateResult extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The list of IDs of successfully created entity records.
+   * The list of IDs for successfully created entity records.
    */
   successEntityList?: BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList[];
   static names(): { [key: string]: string } {
@@ -116,7 +126,7 @@ export class BatchCreateKgEntityResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -132,7 +142,7 @@ export class BatchCreateKgEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -14,10 +14,9 @@ export class GetKgNeighborRequestNeighborsQuery extends $dara.Model {
   /**
    * @remarks
    * The direction type. Valid values:
-   * - in: the current entity is the target node.
-   * - out: the current entity is the source node.
-   * - both: the current entity is both the source node and the target node.
-   * 
+   * - in: Uses the current entity as the target node.
+   * - out: Uses the current entity as the source node.
+   * - both: Uses the current entity as both the source and target nodes.
    * Default value: both.
    * 
    * @example
@@ -60,7 +59,7 @@ export class GetKgNeighborRequestNeighborsQuery extends $dara.Model {
 export class GetKgNeighborRequest extends $dara.Model {
   /**
    * @remarks
-   * The entity record data ID.
+   * The data ID of the entity record.
    * 
    * This parameter is required.
    * 
@@ -80,7 +79,7 @@ export class GetKgNeighborRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity record neighbor node query instruction.
+   * The neighbor node query instruction for entity records.
    */
   neighborsQuery?: GetKgNeighborRequestNeighborsQuery;
   /**
@@ -94,6 +93,9 @@ export class GetKgNeighborRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

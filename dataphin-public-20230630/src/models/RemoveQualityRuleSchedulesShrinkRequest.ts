@@ -14,13 +14,16 @@ export class RemoveQualityRuleSchedulesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The unbinding instruction.
+   * The unbind command.
    * 
    * This parameter is required.
    */

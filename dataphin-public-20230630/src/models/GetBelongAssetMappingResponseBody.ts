@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBelongAssetMappingResponseBodyMappingRelationList extends $dara.Model {
   /**
    * @remarks
-   * The asset type. Valid values: COLUMN (field) and INDEX (metric).
+   * The asset type. Valid values: COLUMN for field, INDEX for metric.
    * 
    * @example
    * COLUMN

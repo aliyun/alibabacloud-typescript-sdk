@@ -377,14 +377,14 @@ export class GetDatasetResponseBodyDatasetDTOVersionListApiInfo extends $dara.Mo
   requestMethod?: number;
   /**
    * @remarks
-   * The request parameter list.
+   * The list of request parameters.
    * 
    * This parameter is required.
    */
   requestParamList?: GetDatasetResponseBodyDatasetDTOVersionListApiInfoRequestParamList[];
   /**
    * @remarks
-   * The response parameter list.
+   * The list of response parameters.
    */
   responseParamList?: GetDatasetResponseBodyDatasetDTOVersionListApiInfoResponseParamList[];
   /**
@@ -459,7 +459,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigFileSto
   dataSourceId?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * Test data source
@@ -525,7 +525,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigFileSto
 export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadataStorageConfigTableSchemaColumnsVectorIndexConfig extends $dara.Model {
   /**
    * @remarks
-   * The embedding dimension.
+   * The vector dimension.
    * 
    * This parameter is required.
    * 
@@ -545,7 +545,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadat
   embeddingModel?: string;
   /**
    * @remarks
-   * The index building parameters. Specify different parameters based on the index type. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
+   * The index build parameters. Specify different parameters based on the index type. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
    * 
    * @example
    * {M:30, efConstruction:360}
@@ -614,7 +614,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadat
   comment?: string;
   /**
    * @remarks
-   * The subtype of the array element. This parameter is valid only when the type is ARRAY.
+   * The subtype of the array element. Valid only when the type is ARRAY.
    * 
    * @example
    * INT64
@@ -622,7 +622,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadat
   elementType?: string;
   /**
    * @remarks
-   * The maximum capacity of the array. This parameter is valid only when the type is ARRAY. Default value: 4096.
+   * The maximum capacity of the array. Valid only when the type is ARRAY. Default value: 4096.
    * 
    * @example
    * 35
@@ -712,7 +712,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadat
 export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadataStorageConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The column list.
+   * The list of columns.
    */
   columns?: GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadataStorageConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -752,7 +752,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadat
   dataSourceId?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * Test data source
@@ -768,7 +768,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadat
   devSchema?: string;
   /**
    * @remarks
-   * The storage destination, which can be a new table or an existing table.
+   * The storage destination (new table or existing table).
    * 
    * This parameter is required.
    * 
@@ -850,7 +850,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadat
 export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtimeMetaTableConfigTableSchemaColumnsVectorIndexConfig extends $dara.Model {
   /**
    * @remarks
-   * The embedding dimension.
+   * The vector dimension.
    * 
    * This parameter is required.
    * 
@@ -870,7 +870,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtim
   embeddingModel?: string;
   /**
    * @remarks
-   * The index building parameters.
+   * The index construction parameters.
    */
   indexParams?: { [key: string]: any };
   /**
@@ -1034,7 +1034,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtim
 export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtimeMetaTableConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The column list.
+   * The list of columns.
    */
   columns?: GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtimeMetaTableConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -1064,7 +1064,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtim
 export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtimeMetaTableConfig extends $dara.Model {
   /**
    * @remarks
-   * The data source type of the meta table. Only KAFKA is supported in the current phase.
+   * The data source type of the metadata table. Only KAFKA is available in the current phase.
    * 
    * This parameter is required.
    * 
@@ -1074,17 +1074,17 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtim
   datasourceType?: string;
   /**
    * @remarks
-   * The meta table name.
+   * The metadata table name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test meta table
+   * Test metadata table
    */
   metaTableName?: string;
   /**
    * @remarks
-   * The ID of the project to which the meta table belongs. Cross-project access is supported.
+   * The ID of the project to which the metadata table belongs. Cross-project access is supported.
    * 
    * This parameter is required.
    * 
@@ -1094,7 +1094,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtim
   projectId?: number;
   /**
    * @remarks
-   * The table schema configuration. This configuration reuses MetadataStorageConfigDTO.TableSchemaDTO.
+   * The table schema configuration. Reuses MetadataStorageConfigDTO.TableSchemaDTO.
    */
   tableSchema?: GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtimeMetaTableConfigTableSchema;
   static names(): { [key: string]: string } {
@@ -1140,7 +1140,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfig extend
   metadataStorageConfig?: GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigMetadataStorageConfig;
   /**
    * @remarks
-   * The real-time meta table configuration. This configuration takes effect only when metadataStorageType is set to REALTIME_META_TABLE.
+   * The real-time metadata table configuration. Valid only when metadataStorageType is REALTIME_META_TABLE.
    */
   realtimeMetaTableConfig?: GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfigRealtimeMetaTableConfig;
   /**
@@ -1190,7 +1190,7 @@ export class GetDatasetResponseBodyDatasetDTOVersionListDataVersionConfig extend
 export class GetDatasetResponseBodyDatasetDTOVersionList extends $dara.Model {
   /**
    * @remarks
-   * The API information for the online dataset.
+   * The API information of the online dataset.
    */
   apiInfo?: GetDatasetResponseBodyDatasetDTOVersionListApiInfo;
   /**
@@ -1314,7 +1314,7 @@ export class GetDatasetResponseBodyDatasetDTO extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The subject domain ID.
+   * The subject area ID.
    * 
    * @example
    * 78201
@@ -1322,10 +1322,10 @@ export class GetDatasetResponseBodyDatasetDTO extends $dara.Model {
   dataCellId?: string;
   /**
    * @remarks
-   * The name of the subject domain.
+   * The subject area name.
    * 
    * @example
-   * Offline data subject domain
+   * Offline data subject area
    */
   dataCellName?: string;
   /**
@@ -1370,7 +1370,7 @@ export class GetDatasetResponseBodyDatasetDTO extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The dataset ID, which serves as the business primary key.
+   * The dataset ID, which is the business primary key.
    * 
    * @example
    * 7255018404425088

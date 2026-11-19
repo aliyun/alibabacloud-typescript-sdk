@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardSetRequestCreateCommandApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * The approval process type. Valid values:
-   * - BY_DEFAULT: the default approval type.
-   * - BY_TEMPLATE: approval based on an approval template.
+   * The approval flow type. Valid values: BY_DEFAULT: Default approval type. BY_TEMPLATE: Based on an approval template.
    * 
    * This parameter is required.
    * 
@@ -31,7 +29,7 @@ export class CreateStandardSetRequestCreateCommandApprovalConfig extends $dara.M
   isSubmitInBatch?: boolean;
   /**
    * @remarks
-   * The ID of the approval template. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+   * The ID of the approval template. This parameter takes effect only when the approval flow type is set to BY_TEMPLATE.
    * 
    * @example
    * 1121
@@ -67,7 +65,7 @@ export class CreateStandardSetRequestCreateCommandApprovalConfig extends $dara.M
 export class CreateStandardSetRequestCreateCommandDirectoryReference extends $dara.Model {
   /**
    * @remarks
-   * The directory to which the standard set belongs.
+   * The folder.
    * 
    * This parameter is required.
    * 
@@ -99,9 +97,7 @@ export class CreateStandardSetRequestCreateCommandDirectoryReference extends $da
 export class CreateStandardSetRequestCreateCommandOfflineApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * The approval process type. Valid values:
-   * - BY_DEFAULT: the default approval type.
-   * - BY_TEMPLATE: approval based on an approval template.
+   * The approval flow type. Valid values: BY_DEFAULT: Default approval type. BY_TEMPLATE: Based on an approval template.
    * 
    * This parameter is required.
    * 
@@ -125,7 +121,7 @@ export class CreateStandardSetRequestCreateCommandOfflineApprovalConfig extends 
   isSubmitInBatch?: boolean;
   /**
    * @remarks
-   * The ID of the approval template. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+   * The ID of the approval template. This parameter takes effect only when the approval flow type is set to BY_TEMPLATE.
    * 
    * @example
    * 1121
@@ -166,10 +162,7 @@ export class CreateStandardSetRequestCreateCommandVisibilityConfig extends $dara
   specifiedUserList?: string[];
   /**
    * @remarks
-   * The visibility type. Valid values:
-   * - PUBLIC: visible to all users.
-   * - PRIVATE: visible only to standard set members and administrators.
-   * - SPECIFIED: visible only to specified users.
+   * The visibility type. Valid values: PUBLIC: Public. PRIVATE: Private, visible only to standard set members and administrators. SPECIFIED: Visible to specified users.
    * 
    * This parameter is required.
    * 
@@ -206,7 +199,7 @@ export class CreateStandardSetRequestCreateCommandVisibilityConfig extends $dara
 export class CreateStandardSetRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The approval configuration for going online.
+   * The online approval configuration.
    */
   approvalConfig?: CreateStandardSetRequestCreateCommandApprovalConfig;
   /**
@@ -237,22 +230,22 @@ export class CreateStandardSetRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory to which the standard set belongs.
+   * The parent folder.
    */
   directoryReference?: CreateStandardSetRequestCreateCommandDirectoryReference;
   /**
    * @remarks
-   * The list of maintainers.
+   * The maintainers.
    */
   maintainerList?: string[];
   /**
    * @remarks
-   * The list of member groups.
+   * The member group list.
    */
   memberGroupList?: string[];
   /**
    * @remarks
-   * The list of members.
+   * The member list.
    */
   memberList?: string[];
   /**
@@ -267,7 +260,7 @@ export class CreateStandardSetRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The approval configuration for going offline.
+   * The offline approval configuration.
    */
   offlineApprovalConfig?: CreateStandardSetRequestCreateCommandOfflineApprovalConfig;
   /**
@@ -340,7 +333,7 @@ export class CreateStandardSetRequestCreateCommand extends $dara.Model {
 export class CreateStandardSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The create instruction.
+   * The create command.
    * 
    * This parameter is required.
    */
@@ -356,6 +349,9 @@ export class CreateStandardSetRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

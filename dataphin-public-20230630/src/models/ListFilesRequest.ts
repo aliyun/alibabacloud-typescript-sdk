@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Menu tree category
-   * - Ad hoc query: tempCode
-   * - Code task: codeManage
-   * - Offline pipeline: offlinePipeline
-   * - Pipeline custom component: offlinePipelineCustomPlugin
-   * - Sync task: dataX
-   * - Real-time meta table: streamMeta
-   * - Real-time custom source: streamCustomDataSource
-   * - Real-time computing template: streamTemplate
-   * - Resource management: resourceManage
-   * - Offline function: udfResource
-   * - Real-time function: streamFunction
+   * The menu tree category. Valid values:
+   * - tempCode: Ad hoc query.
+   * - codeManage: Code task.
+   * - offlinePipeline: Offline pipeline.
+   * - offlinePipelineCustomPlugin: Custom pipeline component.
+   * - dataX: Synchronization task.
+   * - streamMeta: Real-time metatable.
+   * - streamCustomDataSource: Real-time custom data source.
+   * - streamTemplate: Real-time computing template.
+   * - resourceManage: Resource management.
+   * - udfResource: Offline function.
+   * - streamFunction: Real-time function.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ListFilesRequestListQuery extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * File directory
+   * The file directory.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ListFilesRequestListQuery extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * Environment identifier
+   * The environment identifier. Valid values:
    * - DEV
    * - PROD
    * 
@@ -48,7 +48,7 @@ export class ListFilesRequestListQuery extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -58,9 +58,9 @@ export class ListFilesRequestListQuery extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Whether to recursively traverse and query
-   * - true: Yes, returns all nodes under the directory
-   * - false: No, returns only the first-level nodes under the directory
+   * Specifies whether to recursively traverse and query the directory. Valid values:
+   * - true: Yes. Returns all nodes under the directory.
+   * - false: No. Returns only the first-level nodes under the directory.
    * 
    * This parameter is required.
    * 
@@ -100,14 +100,14 @@ export class ListFilesRequestListQuery extends $dara.Model {
 export class ListFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * Query conditions
+   * The query conditions.
    * 
    * This parameter is required.
    */
   listQuery?: ListFilesRequestListQuery;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -116,6 +116,9 @@ export class ListFilesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

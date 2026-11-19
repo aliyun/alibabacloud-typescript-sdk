@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUdfByVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom function ID.
+   * The ID of the custom function.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetUdfByVersionRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator ID.
+   * The ID of the user who performs the operation.
    * 
    * @example
    * 30001011

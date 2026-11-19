@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineByAsyncRequestContext extends $dara.Model {
   /**
    * @remarks
-   * Current operating environment env: DEV - indicates the development environment, PROD - indicates the production environment (for workflows, only PROD is currently supported)
+   * The current operation environment. Valid values: DEV: development environment. PROD: production environment. For workflows, only PROD is currently supported.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePipelineByAsyncRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Project ID to which the integration pipeline/workflow task belongs
+   * The ID of the project to which the integration pipeline or workflow task belongs.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreatePipelineByAsyncRequestContext extends $dara.Model {
 export class CreatePipelineByAsyncRequestCreateCommandNodeInfo extends $dara.Model {
   /**
    * @remarks
-   * Integration pipeline task node directory (defaults to the root directory). The directory must exist. If it does not exist, call the relevant API to create a directory of type offlinePipeline
+   * The node directory of the integration pipeline task. Default value: root directory. The directory must exist. If it does not exist, call the relevant API operation to create a directory of the offlinePipeline type.
    * 
    * @example
    * /
@@ -57,7 +57,7 @@ export class CreatePipelineByAsyncRequestCreateCommandNodeInfo extends $dara.Mod
   directory?: string;
   /**
    * @remarks
-   * Pipeline file ID. Leave empty for the first creation. When updating a pipeline task, at least one of pipelineId, fileId, or nodeId must be configured
+   * The ID of the pipeline file. Leave this parameter empty when creating a task for the first time. When updating a pipeline task, you must configure at least one of the following parameters: pipelineId, fileId, and nodeId.
    * 
    * @example
    * 123
@@ -65,7 +65,7 @@ export class CreatePipelineByAsyncRequestCreateCommandNodeInfo extends $dara.Mod
   fileId?: number;
   /**
    * @remarks
-   * Pipeline task scheduling node ID. Leave empty for the first creation. When updating a pipeline task, at least one of pipelineId, fileId, or nodeId must be configured
+   * The ID of the schedule node for the pipeline task. Leave this parameter empty when creating a task for the first time. When updating a pipeline task, you must configure at least one of the following parameters: pipelineId, fileId, and nodeId.
    * 
    * @example
    * n_123
@@ -73,7 +73,7 @@ export class CreatePipelineByAsyncRequestCreateCommandNodeInfo extends $dara.Mod
   nodeId?: string;
   /**
    * @remarks
-   * Integration pipeline task name
+   * The name of the integration pipeline task.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class CreatePipelineByAsyncRequestCreateCommandNodeInfo extends $dara.Mod
   nodeName?: string;
   /**
    * @remarks
-   * Pipeline task ID. Leave empty for the first creation. When updating a pipeline task, at least one of pipelineId, fileId, or nodeId must be configured
+   * The ID of the pipeline task. Leave this parameter empty when creating a task for the first time. When updating a pipeline task, you must configure at least one of the following parameters: pipelineId, fileId, and nodeId.
    * 
    * @example
    * 123
@@ -121,12 +121,12 @@ export class CreatePipelineByAsyncRequestCreateCommandNodeInfo extends $dara.Mod
 export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigHops extends $dara.Model {
   /**
    * @remarks
-   * For conditional distribution components, set to true when the downstream connection condition is true, otherwise set to false. This is not applicable to workflow tasks.
+   * For conditional distribution components, set this parameter to true if the downstream connection condition is true. Otherwise, set it to false. Ignore this parameter for workflow tasks.
    */
   sendTo?: boolean;
   /**
    * @remarks
-   * Input step name, i.e., Steps[*].StepName
+   * The name of the input step, which corresponds to Steps[*].StepName.
    * 
    * This parameter is required.
    * 
@@ -136,7 +136,7 @@ export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigHops extends
   source?: string;
   /**
    * @remarks
-   * Output step name, i.e., Steps[*].StepName
+   * The name of the output step, which corresponds to Steps[*].StepName.
    * 
    * This parameter is required.
    * 
@@ -172,12 +172,12 @@ export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigHops extends
 export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigSteps extends $dara.Model {
   /**
    * @remarks
-   * Indicates the data distribution method when the current component has multiple downstream components: true - indicates that the data of the current component is sent to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records. The default value is true. false - indicates that the data of the current component is sent in full to all downstream components. For example, if the current component has 100 records and two downstream components, both downstream components receive 100 records. This value is not applicable to workflow tasks.
+   * The data distribution method when the current component has multiple downstream components. Valid values: true: distributes data from the current component to all downstream components in turn. For example, if the current component has 100 data records and two downstream components, each downstream component receives 50 data records. Default value: true. false: sends all data from the current component to all downstream components. For example, if the current component has 100 data records and two downstream components, both downstream components receive all 100 data records. Ignore this parameter for workflow tasks.
    */
   isDistribute?: boolean;
   /**
    * @remarks
-   * Plugin ID. Each plugin/operator has a unique identifier. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepKey. Developers should extend the component/operator configuration class to implement the corresponding component/operator configuration. Each component/operator configuration has the same structure as a configuration created on the Dataphin page
+   * The plugin ID. Each plugin or operator has a unique identifier. Refer to the stepKey field in the com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig utility class. Developers must inherit this component or operator configuration class to implement the corresponding configuration. The structure of each component or operator configuration must be identical to the configuration structure created on the Dataphin page.
    * 
    * This parameter is required.
    * 
@@ -187,7 +187,7 @@ export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigSteps extend
   key?: string;
   /**
    * @remarks
-   * Specific component configuration in JSON string format. Refer to the utility class: subclasses of com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig (for workflow operators, use com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.unstructured.BaseOAUnstructuredNeuronConfig) and their toJsonString methods. Developers should extend the component/operator configuration class to implement the corresponding component/operator configuration. Each component/operator configuration has the same structure as a task configuration created on the Dataphin page
+   * The specific component configuration in JSON string format. Refer to the toJsonString method of the relevant subclasses of com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig (for workflow operators, use com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.unstructured.BaseOAUnstructuredNeuronConfig). Developers must inherit this component or operator configuration class to implement the corresponding configuration. The structure of each component or operator configuration must be identical to the task configuration structure created on the Dataphin page.
    * 
    * This parameter is required.
    * 
@@ -197,7 +197,7 @@ export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigSteps extend
   pluginConfig?: string;
   /**
    * @remarks
-   * Step name. Step names must be unique within the same pipeline task
+   * The step name. Step names must be unique within the same pipeline task.
    * 
    * This parameter is required.
    * 
@@ -207,7 +207,7 @@ export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigSteps extend
   stepName?: string;
   /**
    * @remarks
-   * Component type: input - indicates an input component, output - indicates an output component, transform - indicates a transform component, process - indicates a flow control component. For workflow tasks, it indicates the operator type, for example: image - image, text - text. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepType. Developers should extend the component/operator configuration class to implement the corresponding component/operator configuration. Each component/operator configuration has the same structure as a configuration created on the Dataphin page
+   * The component type. Valid values: input: input component. output: output component. transfrom: transform component. process: flow control component. For workflow tasks, this indicates the operator type, such as image for images and text for text. Refer to the stepType field in the com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig utility class. Developers must inherit this component or operator configuration class to implement the corresponding configuration. The structure of each component or operator configuration must be identical to the configuration structure created on the Dataphin page.
    * 
    * This parameter is required.
    * 
@@ -247,14 +247,14 @@ export class CreatePipelineByAsyncRequestCreateCommandPipelineConfigSteps extend
 export class CreatePipelineByAsyncRequestCreateCommandPipelineConfig extends $dara.Model {
   /**
    * @remarks
-   * DAG (Directed Acyclic Graph) link configuration: describes the connection relationships of all components
+   * The directed acyclic graph (DAG) link configuration that describes the connection relationships among all components.
    * 
    * This parameter is required.
    */
   hops?: CreatePipelineByAsyncRequestCreateCommandPipelineConfigHops[];
   /**
    * @remarks
-   * Component/operator configuration: contains detailed configurations of all components/operators used
+   * The component or operator configurations, including the detailed configurations of all used components or operators.
    * 
    * This parameter is required.
    */
@@ -291,7 +291,7 @@ export class CreatePipelineByAsyncRequestCreateCommandPipelineConfig extends $da
 export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * Comment
+   * The comment.
    * 
    * @example
    * comment
@@ -299,7 +299,7 @@ export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Integration pipeline configuration mode: PIPELINE - indicates pipeline mode (default), JSON - indicates script mode. This is not applicable to workflows.
+   * The integration pipeline configuration mode. Valid values: PIPELINE: pipeline mode (default). JSON: script mode. Ignore this parameter for workflows.
    * 
    * @example
    * PIPELINE
@@ -307,21 +307,21 @@ export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Integration pipeline task basic information
+   * The basic information of the integration pipeline task.
    * 
    * This parameter is required.
    */
   nodeInfo?: CreatePipelineByAsyncRequestCreateCommandNodeInfo;
   /**
    * @remarks
-   * Integration pipeline component/workflow operator configuration
+   * The integration pipeline component or workflow operator configuration.
    * 
    * This parameter is required.
    */
   pipelineConfig?: CreatePipelineByAsyncRequestCreateCommandPipelineConfig;
   /**
    * @remarks
-   * In script mode: integration pipeline configuration (in JSON string format). Workflow tasks do not support script mode
+   * The integration pipeline configuration in JSON string format for script mode. Workflow tasks do not support script mode.
    * 
    * @example
    * {}
@@ -329,7 +329,7 @@ export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
   pipelineJson?: string;
   /**
    * @remarks
-   * Task type: 0 - indicates offline integration (default), 1 - indicates real-time integration, 14 - indicates a workflow task
+   * The task type. Valid values: 0: offline integration (default). 1: real-time integration. 14: offline workflow task. 15: real-time workflow.
    * 
    * @example
    * 0
@@ -337,7 +337,7 @@ export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
   pipelineType?: number;
   /**
    * @remarks
-   * Scheduling configuration in JSON string format. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method
+   * The schedule configuration in JSON string format. Refer to the toJsonString method in the com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig utility class.
    * 
    * This parameter is required.
    * 
@@ -347,7 +347,7 @@ export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
   scheduleConfig?: string;
   /**
    * @remarks
-   * Channel configuration in JSON string format. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting#toJsonString method
+   * The channel configuration in JSON string format. Refer to the toJsonString method in the com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting utility class.
    * 
    * @example
    * {}
@@ -355,7 +355,7 @@ export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
   settings?: string;
   /**
    * @remarks
-   * Whether to submit. The default is to submit
+   * Specifies whether to submit the task. By default, the task is submitted.
    */
   submit?: boolean;
   static names(): { [key: string]: string } {
@@ -404,21 +404,21 @@ export class CreatePipelineByAsyncRequestCreateCommand extends $dara.Model {
 export class CreatePipelineByAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * Request context information
+   * The request context information.
    * 
    * This parameter is required.
    */
   context?: CreatePipelineByAsyncRequestContext;
   /**
    * @remarks
-   * Create pipeline/workflow task configuration
+   * The configuration for creating a pipeline or workflow task.
    * 
    * This parameter is required.
    */
   createCommand?: CreatePipelineByAsyncRequestCreateCommand;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -427,6 +427,9 @@ export class CreatePipelineByAsyncRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

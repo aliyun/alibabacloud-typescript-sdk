@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceAuthorizedAppsByGroupIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The app group ID.
+   * The application group ID.
    * 
    * @example
    * 202102
@@ -22,6 +22,9 @@ export class GetDataServiceAuthorizedAppsByGroupIdRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

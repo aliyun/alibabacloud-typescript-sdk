@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLlmModelProviderByNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the large language model service provider.
+   * The name of the large model service provider.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetLlmModelProviderByNameRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

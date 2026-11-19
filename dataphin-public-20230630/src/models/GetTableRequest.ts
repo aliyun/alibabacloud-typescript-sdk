@@ -15,7 +15,7 @@ export class GetTableRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator user ID.
+   * The ID of the operating user.
    * 
    * @example
    * 30001011

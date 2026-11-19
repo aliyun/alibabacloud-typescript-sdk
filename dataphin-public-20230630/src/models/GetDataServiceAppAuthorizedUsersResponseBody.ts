@@ -61,7 +61,7 @@ export class GetDataServiceAppAuthorizedUsersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details of the backend response.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -82,7 +82,7 @@ export class GetDataServiceAppAuthorizedUsersResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The user list.
+   * The list of users.
    */
   userList?: GetDataServiceAppAuthorizedUsersResponseBodyUserList[];
   static names(): { [key: string]: string } {

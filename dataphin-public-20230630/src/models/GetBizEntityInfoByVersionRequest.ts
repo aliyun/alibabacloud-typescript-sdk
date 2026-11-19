@@ -24,6 +24,9 @@ export class GetBizEntityInfoByVersionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */
@@ -40,7 +43,7 @@ export class GetBizEntityInfoByVersionRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version.
+   * The version ID.
    * 
    * This parameter is required.
    * 

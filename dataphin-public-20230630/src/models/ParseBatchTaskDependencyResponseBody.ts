@@ -10,7 +10,7 @@ export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeListSchedu
   fieldList?: string[];
   /**
    * @remarks
-   * The node ID. A value of -1 is returned if no node is found for the corresponding input table.
+   * The node ID. The value is -1 when the node corresponding to the input table is not found.
    * 
    * @example
    * n_11013121
@@ -18,7 +18,7 @@ export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeListSchedu
   nodeId?: string;
   /**
    * @remarks
-   * The node name. This parameter is empty if no node is found for the corresponding input table.
+   * The node name. This parameter is empty when the node corresponding to the input table is not found.
    * 
    * @example
    * test11
@@ -34,15 +34,15 @@ export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeListSchedu
   outputName?: string;
   /**
    * @remarks
-   * The owner of the node. This parameter is empty if no node is found for the corresponding input table.
+   * The owner of the node. This parameter is empty when the node corresponding to the input table is not found.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The owner of the node. This parameter is empty if no node is found for the corresponding input table.
+   * The owner of the node. This parameter is empty when the node corresponding to the input table is not found.
    * 
    * @example
    * 201122301
@@ -95,7 +95,7 @@ export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeListSchedu
 export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeList extends $dara.Model {
   /**
    * @remarks
-   * The input/output type. Valid values: input (dependent node) and output (node output name).
+   * The input and output type. Valid values: input (dependent node) and output (node output name).
    * 
    * @example
    * input
@@ -103,7 +103,7 @@ export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeList exten
   nodeIoType?: string;
   /**
    * @remarks
-   * The list of schedule nodes.
+   * The list of scheduled nodes.
    */
   scheduleNodeInfoList?: ParseBatchTaskDependencyResponseBodyParseResultDependNodeListScheduleNodeInfoList[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class ParseBatchTaskDependencyResponseBodyParseResultDependNodeList exten
 export class ParseBatchTaskDependencyResponseBodyParseResult extends $dara.Model {
   /**
    * @remarks
-   * The list of dependent nodes.
+   * The dependent nodes.
    */
   dependNodeList?: ParseBatchTaskDependencyResponseBodyParseResultDependNodeList[];
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class ParseBatchTaskDependencyResponseBodyParseResult extends $dara.Model
 export class ParseBatchTaskDependencyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -202,7 +202,7 @@ export class ParseBatchTaskDependencyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

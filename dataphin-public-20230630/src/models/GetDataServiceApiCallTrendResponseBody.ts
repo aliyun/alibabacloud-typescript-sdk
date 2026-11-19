@@ -10,7 +10,7 @@ export class GetDataServiceApiCallTrendResponseBodyDataCallErrorImpactTrendList 
   apiIdList?: number[];
   /**
    * @remarks
-   * The number of APIs with call errors.
+   * The number of APIs with call exceptions.
    * 
    * @example
    * 5
@@ -26,7 +26,7 @@ export class GetDataServiceApiCallTrendResponseBodyDataCallErrorImpactTrendList 
   errorAppCount?: number;
   /**
    * @remarks
-   * The time scale in minutes, in the format of yyyy-MM-dd HH:mm.
+   * The time scale in minutes. Format: yyyy-MM-dd HH:mm.
    * 
    * @example
    * 2025-06-30 08:00
@@ -73,7 +73,7 @@ export class GetDataServiceApiCallTrendResponseBodyDataCallErrorTrendList extend
   callCount?: number;
   /**
    * @remarks
-   * The number of call errors.
+   * The number of call exceptions.
    * 
    * @example
    * 102
@@ -81,7 +81,7 @@ export class GetDataServiceApiCallTrendResponseBodyDataCallErrorTrendList extend
   errorCount?: number;
   /**
    * @remarks
-   * The minute in the format of yyyy_MMdd_HHmm.
+   * The minute. Format: yyyy_MMdd_HHmm.
    * 
    * @example
    * 3
@@ -115,12 +115,12 @@ export class GetDataServiceApiCallTrendResponseBodyDataCallErrorTrendList extend
 export class GetDataServiceApiCallTrendResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The call error impact trends, sorted by minute in ascending order.
+   * The call exception impact trends in ascending order by minute.
    */
   callErrorImpactTrendList?: GetDataServiceApiCallTrendResponseBodyDataCallErrorImpactTrendList[];
   /**
    * @remarks
-   * The call error trends, sorted by minute in ascending order.
+   * The call exception trends in ascending order by minute.
    */
   callErrorTrendList?: GetDataServiceApiCallTrendResponseBodyDataCallErrorTrendList[];
   static names(): { [key: string]: string } {
@@ -163,7 +163,7 @@ export class GetDataServiceApiCallTrendResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The access trend data.
+   * The access trends.
    */
   data?: GetDataServiceApiCallTrendResponseBodyData;
   /**
@@ -176,7 +176,7 @@ export class GetDataServiceApiCallTrendResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -192,7 +192,7 @@ export class GetDataServiceApiCallTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

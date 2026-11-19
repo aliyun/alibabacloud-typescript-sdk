@@ -92,7 +92,7 @@ export class ListDatasetsRequestDatasetQuery extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The dataset types. If this parameter is left empty, all types are queried.
+   * The dataset type. If this parameter is left empty, all types are queried.
    */
   typeList?: string[];
   static names(): { [key: string]: string } {
@@ -159,7 +159,7 @@ export class ListDatasetsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator ID.
+   * The operator user ID.
    * 
    * @example
    * 30001011

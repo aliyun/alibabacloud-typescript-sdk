@@ -45,7 +45,7 @@ export class GetDataServiceApiGroupsResponseBodyApiGroupList extends $dara.Model
 export class GetDataServiceApiGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of API groups.
+   * The API group list.
    */
   apiGroupList?: GetDataServiceApiGroupsResponseBodyApiGroupList[];
   /**
@@ -66,7 +66,7 @@ export class GetDataServiceApiGroupsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -82,7 +82,7 @@ export class GetDataServiceApiGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

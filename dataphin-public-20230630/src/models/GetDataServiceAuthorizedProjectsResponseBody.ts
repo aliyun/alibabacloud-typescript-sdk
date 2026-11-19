@@ -76,7 +76,7 @@ export class GetDataServiceAuthorizedProjectsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error

@@ -37,7 +37,7 @@ export class GetDataAssetsGovernObjectRequestCommand extends $dara.Model {
 export class GetDataAssetsGovernObjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The query instruction.
+   * The query command.
    * 
    * This parameter is required.
    */
@@ -54,7 +54,7 @@ export class GetDataAssetsGovernObjectRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operation user.
+   * The operator user ID.
    * 
    * @example
    * 30001011

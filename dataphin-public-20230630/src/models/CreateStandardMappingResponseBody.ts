@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardMappingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of asset GUIDs that failed to be created.
+   * The list of GUIDs for assets that failed to be created.
    */
   failedGuidList?: string[];
   /**
    * @remarks
-   * The number of successfully added mappings.
+   * The number of successfully added items.
    * 
    * @example
    * 2
@@ -66,7 +66,7 @@ export class CreateStandardMappingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -82,7 +82,7 @@ export class CreateStandardMappingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -14,6 +14,9 @@ export class ExportKgSchemaRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
@@ -28,7 +31,7 @@ export class ExportKgSchemaRequest extends $dara.Model {
   outputFormat?: string;
   /**
    * @remarks
-   * The version number. If this parameter is empty or set to -1, the model metadata in draft state is returned. If this parameter is set to 0, the model metadata of the latest version is returned.
+   * The version ID. An empty value or -1 indicates the draft model metadata. 0 indicates the latest model metadata.
    * 
    * @example
    * 0

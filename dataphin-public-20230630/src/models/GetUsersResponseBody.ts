@@ -29,7 +29,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The display name of the user without the status.
+   * The display name of the user, excluding the status.
    * 
    * @example
    * xx test
@@ -48,7 +48,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
    * The Lark bot.
    * 
    * @example
-   * xx
+   * https://example.com/webhook/feishu
    */
   feiShuRobot?: string;
   /**
@@ -61,7 +61,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the user was modified.
    * 
    * @example
    * 1717343597000
@@ -109,7 +109,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the user belongs.
+   * The ID of the primary account to which the user belongs.
    * 
    * @example
    * 231231
@@ -125,7 +125,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   realName?: string;
   /**
    * @remarks
-   * The ID of the user source.
+   * The source ID of the user.
    * 
    * @example
    * 123@xx.com
@@ -144,15 +144,15 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
    * The WeCom bot.
    * 
    * @example
-   * xx
+   * https://example.com/webhook/wecom
    */
   weChatRobot?: string;
   /**
    * @remarks
-   * The whitelist.
+   * The IP address whitelist.
    * 
    * @example
-   * *
+   * 192.168.0.1
    */
   whiteIp?: string;
   static names(): { [key: string]: string } {
@@ -215,7 +215,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
 export class GetUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. OK indicates that the request is successful.
+   * The error code of the request. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -231,7 +231,7 @@ export class GetUsersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message of the request.
    * 
    * @example
    * successful

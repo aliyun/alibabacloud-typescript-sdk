@@ -8,7 +8,7 @@ export class ListGovernObjectsResponseBodyPageResultDataOwners extends $dara.Mod
    * The display name of the user.
    * 
    * @example
-   * Yang Jing 2088252351182803
+   * Yang Jing2088252351182803
    */
   displayName?: string;
   /**
@@ -61,7 +61,7 @@ export class ListGovernObjectsResponseBodyPageResultDataProblem extends $dara.Mo
   parentObjectId?: string;
   /**
    * @remarks
-   * The contact email for the governance issue.
+   * The contact email for governance issues.
    * 
    * @example
    * 126983612986391@gamail.com
@@ -69,15 +69,15 @@ export class ListGovernObjectsResponseBodyPageResultDataProblem extends $dara.Mo
   problemContactMail?: string;
   /**
    * @remarks
-   * The other contact information for the governance issue.
+   * Other contact information for the governance problem.
    * 
    * @example
-   * Jane
+   * Li Si
    */
   problemContactOther?: string;
   /**
    * @remarks
-   * The contact phone number for the governance issue.
+   * The contact phone number for the governance problem.
    * 
    * @example
    * 16278902467
@@ -85,15 +85,15 @@ export class ListGovernObjectsResponseBodyPageResultDataProblem extends $dara.Mo
   problemContactPhone?: string;
   /**
    * @remarks
-   * The description of the governance issue.
+   * The description of the governance problem.
    * 
    * @example
-   * Governance issue description
+   * Governance problem description
    */
   problemDesc?: string;
   /**
    * @remarks
-   * The submission type of the issue.
+   * The submission method of the problem.
    * 
    * @example
    * SYSTEM
@@ -101,7 +101,7 @@ export class ListGovernObjectsResponseBodyPageResultDataProblem extends $dara.Mo
   problemSubmitType?: string;
   /**
    * @remarks
-   * The user who submitted the issue.
+   * The user who submitted the problem.
    * 
    * @example
    * 123456
@@ -109,15 +109,15 @@ export class ListGovernObjectsResponseBodyPageResultDataProblem extends $dara.Mo
   problemSubmitter?: string;
   /**
    * @remarks
-   * The username of the issue submitter.
+   * The username of the user who submitted the problem.
    * 
    * @example
-   * John
+   * Zhang San
    */
   problemSubmitterUserName?: string;
   /**
    * @remarks
-   * The types of the governance issue.
+   * The type of the governance problem.
    */
   problemTypes?: string[];
   static names(): { [key: string]: string } {
@@ -165,10 +165,10 @@ export class ListGovernObjectsResponseBodyPageResultDataProblem extends $dara.Mo
 export class ListGovernObjectsResponseBodyPageResultDataRelatedKnowledge extends $dara.Model {
   /**
    * @remarks
-   * The cause of the issue.
+   * The cause of the problem.
    * 
    * @example
-   * Host exception. The instance was migrated with data loss
+   * Host exception, lossy instance migration
    */
   cause?: string;
   /**
@@ -176,12 +176,12 @@ export class ListGovernObjectsResponseBodyPageResultDataRelatedKnowledge extends
    * The description.
    * 
    * @example
-   * Store scheduled power on/off business domain canary list\\n
+   * Canary release list for the scheduled startup and shutdown business domain of stores\\n
    */
   desc?: string;
   /**
    * @remarks
-   * The knowledge entry ID.
+   * The knowledge ID.
    * 
    * @example
    * -341426256859
@@ -197,7 +197,7 @@ export class ListGovernObjectsResponseBodyPageResultDataRelatedKnowledge extends
   owner?: string;
   /**
    * @remarks
-   * The name of the owner.
+   * The owner name.
    * 
    * @example
    * buc_459782
@@ -208,7 +208,7 @@ export class ListGovernObjectsResponseBodyPageResultDataRelatedKnowledge extends
    * The Solutions.
    * 
    * @example
-   * {\\"Type\\":\\"text\\",\\"Value\\":\\"OSS public network access\\"}
+   * {"Type":"text","Value":"OSS public network access"}
    */
   solution?: string;
   /**
@@ -255,7 +255,7 @@ export class ListGovernObjectsResponseBodyPageResultDataRelatedKnowledge extends
 export class ListGovernObjectsResponseBodyPageResultData extends $dara.Model {
   /**
    * @remarks
-   * The time when the record was reported.
+   * The submission time.
    * 
    * @example
    * 2026-08-31 10:10:59
@@ -289,7 +289,7 @@ export class ListGovernObjectsResponseBodyPageResultData extends $dara.Model {
   owners?: ListGovernObjectsResponseBodyPageResultDataOwners[];
   /**
    * @remarks
-   * The governance issue object.
+   * The governance problem object.
    */
   problem?: ListGovernObjectsResponseBodyPageResultDataProblem;
   /**
@@ -400,7 +400,7 @@ export class ListGovernObjectsResponseBodyPageResultData extends $dara.Model {
   rectifyId?: number;
   /**
    * @remarks
-   * The name of the rectification.
+   * The rectification name.
    * 
    * @example
    * Test rectification
@@ -416,7 +416,7 @@ export class ListGovernObjectsResponseBodyPageResultData extends $dara.Model {
   rectifyStatus?: string;
   /**
    * @remarks
-   * The related knowledge base entries.
+   * The related knowledge base.
    */
   relatedKnowledge?: ListGovernObjectsResponseBodyPageResultDataRelatedKnowledge[];
   /**
@@ -533,7 +533,7 @@ export class ListGovernObjectsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP response code.
    * 
    * @example
    * 200
@@ -541,7 +541,7 @@ export class ListGovernObjectsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The backend response exception details.
    * 
    * @example
    * internal error
@@ -562,7 +562,7 @@ export class ListGovernObjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

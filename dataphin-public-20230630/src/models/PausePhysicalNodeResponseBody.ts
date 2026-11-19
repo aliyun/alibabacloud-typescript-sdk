@@ -55,7 +55,7 @@ export class PausePhysicalNodeResponseBodyNodeOperateResultList extends $dara.Mo
 export class PausePhysicalNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code of the request. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -63,7 +63,7 @@ export class PausePhysicalNodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned by the backend.
+   * The HTTP status code of the backend response.
    * 
    * @example
    * 200
@@ -71,7 +71,7 @@ export class PausePhysicalNodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message of the request.
    * 
    * @example
    * successful
@@ -79,7 +79,7 @@ export class PausePhysicalNodeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The results of the pause scheduling operations on the nodes.
+   * The results of pausing node scheduling.
    */
   nodeOperateResultList?: PausePhysicalNodeResponseBodyNodeOperateResultList[];
   /**
@@ -92,7 +92,7 @@ export class PausePhysicalNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -15,7 +15,7 @@ export class GetQualityRuleTaskRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator.
+   * The operator user ID.
    * 
    * @example
    * 30001011

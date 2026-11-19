@@ -14,13 +14,16 @@ export class UpdateDataServiceAppMemberShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to update regular members of a data service application.
+   * Updates the regular members of a data service application.
    * 
    * This parameter is required.
    */

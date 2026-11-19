@@ -12,7 +12,7 @@ export class ListComputeSourcesShrinkRequest extends $dara.Model {
   listQueryShrink?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -21,6 +21,9 @@ export class ListComputeSourcesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStreamTaskManagerLogsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The log file name. This name can be used as the logName input parameter for the logContent operation.
+   * The original name of the log file. This value corresponds to the LogName request parameter of the GetStreamLogContent operation. Pass this value as is.
    * 
    * @example
    * flink--standalonesession-0-dataphin-session-7db678957dc449aab0086b931c9f8218-jobmanager.log
@@ -13,7 +13,7 @@ export class ListStreamTaskManagerLogsResponseBodyData extends $dara.Model {
   logName?: string;
   /**
    * @remarks
-   * The last modified time in milliseconds.
+   * The last modified time of the log file. The value is a timestamp in milliseconds since the UNIX epoch.
    * 
    * @example
    * 1792033500000
@@ -21,7 +21,7 @@ export class ListStreamTaskManagerLogsResponseBodyData extends $dara.Model {
   mtime?: number;
   /**
    * @remarks
-   * The file size in bytes.
+   * The size of the log file. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -63,7 +63,7 @@ export class ListStreamTaskManagerLogsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of log files for the specified TaskManager.
+   * The log file entries for the JobManager or TaskManager. You can use the LogName field to retrieve the log content.
    */
   data?: ListStreamTaskManagerLogsResponseBodyData[];
   /**
@@ -76,7 +76,7 @@ export class ListStreamTaskManagerLogsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -92,7 +92,7 @@ export class ListStreamTaskManagerLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

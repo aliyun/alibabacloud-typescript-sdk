@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInputLineageList extends $dara.Model {
   /**
    * @remarks
-   * The list of lineage fields.
+   * The list of lineage columns.
    * 
    * This parameter is required.
    */
@@ -29,7 +29,7 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInput
   fullTable?: boolean;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInput
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutputLineageList extends $dara.Model {
   /**
    * @remarks
-   * The list of lineage fields.
+   * The list of lineage columns.
    * 
    * This parameter is required.
    */
@@ -94,7 +94,7 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutpu
   fullTable?: boolean;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * This parameter is required.
    * 
@@ -135,14 +135,14 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListOutpu
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList extends $dara.Model {
   /**
    * @remarks
-   * The collection of lineage input tables.
+   * The collection of input tables for lineage.
    * 
    * This parameter is required.
    */
   inputLineageList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupListInputLineageList[];
   /**
    * @remarks
-   * The collection of lineage output tables.
+   * The collection of output tables for lineage.
    * 
    * This parameter is required.
    */
@@ -179,7 +179,7 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList exte
 export class UpdateBatchTaskUdfLineagesRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The node ID in the logical definition subtree.
+   * The node ID in the task directory tree.
    * 
    * This parameter is required.
    * 
@@ -196,7 +196,7 @@ export class UpdateBatchTaskUdfLineagesRequestUpdateCommand extends $dara.Model 
   lineageGroupList?: UpdateBatchTaskUdfLineagesRequestUpdateCommandLineageGroupList[];
   /**
    * @remarks
-   * The project to which the node belongs.
+   * The project to which the task belongs.
    * 
    * This parameter is required.
    * 
@@ -244,13 +244,16 @@ export class UpdateBatchTaskUdfLineagesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The update command.
    * 
    * This parameter is required.
    */

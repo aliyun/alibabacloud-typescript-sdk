@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataServiceAppShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class UpdateDataServiceAppShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to update the data service application.
+   * The update command.
    * 
    * This parameter is required.
    */

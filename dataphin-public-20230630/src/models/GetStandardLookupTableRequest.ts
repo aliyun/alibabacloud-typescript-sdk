@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardLookupTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the lookup table.
+   * The lookup table ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetStandardLookupTableRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Specifies whether to allow a null value to be returned if the lookup table does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
+   * Specifies whether to allow a null value to be returned when the lookup table does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
    */
   nullable?: boolean;
   /**

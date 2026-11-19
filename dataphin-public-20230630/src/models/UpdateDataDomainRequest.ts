@@ -15,7 +15,7 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
   abbreviation?: string;
   /**
    * @remarks
-   * The ID of the data board.
+   * The business unit ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The ID of the data domain.
+   * The data domain ID.
    * 
    * This parameter is required.
    * 
@@ -48,12 +48,12 @@ export class UpdateDataDomainRequestUpdateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 主题域测试
+   * Data domain test
    */
   displayName?: string;
   /**
    * @remarks
-   * The code of the data domain.
+   * The data domain code.
    * 
    * This parameter is required.
    * 
@@ -114,6 +114,9 @@ export class UpdateDataDomainRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

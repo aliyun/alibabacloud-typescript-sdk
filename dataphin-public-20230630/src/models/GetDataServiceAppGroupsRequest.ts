@@ -14,6 +14,9 @@ export class GetDataServiceAppGroupsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operating user ID.
+   * 
    * @example
    * 30001011
    */
@@ -21,7 +24,7 @@ export class GetDataServiceAppGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The data service project ID.
-   * >Notice: This field is deprecated.</notice>.
+   * >Notice: This field is deprecated.
    * 
    * @example
    * 102102

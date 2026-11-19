@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Query conditions
+   * The query conditions.
    * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -21,6 +21,9 @@ export class ListFilesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

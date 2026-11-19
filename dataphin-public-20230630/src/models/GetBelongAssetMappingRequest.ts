@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBelongAssetMappingRequestAssetMappingQuery extends $dara.Model {
   /**
    * @remarks
-   * The GUID of the owning asset.
+   * The GUID of the parent asset.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetBelongAssetMappingRequestAssetMappingQuery extends $dara.Model {
   belongGuid?: string;
   /**
    * @remarks
-   * The type of the mapping relationship. Valid values: VALID (mapped) and INVALID (invalid mapping).
+   * The mapping relationship type. Valid values: VALID for mapped, INVALID for invalid mapping.
    * 
    * @example
    * VALID

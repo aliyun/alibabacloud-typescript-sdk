@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRegisterLineageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The command for deleting registered data lineage.
+   * The command to delete registered lineage.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class DeleteRegisterLineageShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

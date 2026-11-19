@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo extends $dara.Model {
   /**
    * @remarks
-   * The business date. Format: YYYY-MM-DD.
+   * The business date in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-06-30
@@ -13,7 +13,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   bizDate?: string;
   /**
    * @remarks
-   * The Chinese name of the business unit.
+   * The Chinese display name of the business unit.
    * 
    * @example
    * LD_test
@@ -37,7 +37,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   bizUnitName?: string;
   /**
    * @remarks
-   * The classification abbreviation.
+   * The abbreviation of the classification.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   classifyAbbreviation?: string;
   /**
    * @remarks
-   * The classification ID.
+   * The ID of the classification.
    * 
    * @example
    * 33
@@ -53,7 +53,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   classifyId?: number;
   /**
    * @remarks
-   * The classification name.
+   * The name of the classification.
    * 
    * @example
    * test
@@ -61,7 +61,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   classifyName?: string;
   /**
    * @remarks
-   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 10:30:30
@@ -93,7 +93,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   datasourceName?: string;
   /**
    * @remarks
-   * The field description.
+   * The description of the field.
    * 
    * @example
    * test
@@ -117,12 +117,12 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   fieldName?: string;
   /**
    * @remarks
-   * Indicates whether a better match is available.
+   * Indicates whether a better matched result exists.
    */
   hasBetterRule?: boolean;
   /**
    * @remarks
-   * The recognition result ID.
+   * The ID of the recognition result.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   identifyRecordId?: number;
   /**
    * @remarks
-   * Indicates whether a custom identification rule is used.
+   * Indicates whether a custom tagging rule is used.
    */
   isCustomIdentify?: boolean;
   /**
@@ -148,7 +148,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   isLocked?: boolean;
   /**
    * @remarks
-   * The abbreviation of the classification level.
+   * The abbreviation of the level.
    * 
    * @example
    * test
@@ -156,7 +156,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   levelAbbreviation?: string;
   /**
    * @remarks
-   * The color of the classification level.
+   * The color of the level.
    * 
    * @example
    * 1
@@ -164,7 +164,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   levelColor?: number;
   /**
    * @remarks
-   * The classification level.
+   * The grading level.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   levelIndex?: number;
   /**
    * @remarks
-   * The name of the classification level.
+   * The name of the level.
    * 
    * @example
    * test
@@ -196,7 +196,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   modifyTime?: string;
   /**
    * @remarks
-   * The Chinese name of the project.
+   * The Chinese display name of the project.
    * 
    * @example
    * test
@@ -236,7 +236,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   status?: string;
   /**
    * @remarks
-   * The table catalog.
+   * The catalog of the table.
    * 
    * @example
    * testdb
@@ -244,7 +244,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   tableCatalog?: string;
   /**
    * @remarks
-   * The table description.
+   * The description of the table.
    * 
    * @example
    * test
@@ -252,7 +252,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   tableDescription?: string;
   /**
    * @remarks
-   * The table environment.
+   * The environment of the table.
    * 
    * @example
    * DEV
@@ -284,15 +284,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   tableTaskId?: number;
   /**
    * @remarks
-   * The table type. Valid values:
-   * - LOGIC_TABLE: logical table
-   * - LOGIC_DIM_TABLE: logical dimension table
-   * - LOGIC_FACT_TABLE: logical fact table
-   * - LOGIC_SUM_TABLE: logical aggregate table
-   * - LOGIC_ODM_SOURCE: source table
-   * - LOGIC_LABEL_TABLE: logical label table
-   * - PHYSICAL_TABLE: physical table
-   * - REAL_TIME_LOGIC_TABLE: real-time configured logical table
+   * The type of the table. Valid values: LOGIC_TABLE (logical table), LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_ODM_SOURCE (source table), LOGIC_LABEL_TABLE (logical label table), PHYSICAL_TABLE (physical table), and REAL_TIME_LOGIC_TABLE (real-time configured logical table).
    * 
    * @example
    * LOGIC_TABLE

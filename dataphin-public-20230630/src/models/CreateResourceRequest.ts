@@ -5,20 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The commit remarks.
+   * The submission comment.
    * 
    * This parameter is required.
    * 
    * @example
-   * xx 测试
+   * xx test
    */
   comment?: string;
   /**
    * @remarks
-   * The compute engine type. Valid values:
-   * - MAX_COMPUTE
-   * - HADOOP
-   * - NONE.
+   * The compute engine type. Valid values: MAX_COMPUTE, HADOOP, and NONE.
    * 
    * This parameter is required.
    * 
@@ -28,17 +25,17 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   computeEngineType?: string;
   /**
    * @remarks
-   * The description of the resource file.
+   * The resource description.
    * 
    * This parameter is required.
    * 
    * @example
-   * xx 测试
+   * xx test
    */
   description?: string;
   /**
    * @remarks
-   * The folder in which the resource file is stored.
+   * The storage folder.
    * 
    * This parameter is required.
    * 
@@ -68,11 +65,7 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the resource file. Valid values:
-   * - FILE: common file.
-   * - JAR: JAR file.
-   * - PYTHON: Python file.
-   * - OTHERS: other type of file.
+   * The resource type. Valid values: FILE: common file, JAR: JAR file, PYTHON: Python file, and OTHERS: other types of files.
    * 
    * This parameter is required.
    * 
@@ -82,7 +75,7 @@ export class CreateResourceRequestCreateCommand extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The storage address of the resource file.
+   * The storage address of the resource.
    * 
    * This parameter is required.
    * 
@@ -144,6 +137,9 @@ export class CreateResourceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

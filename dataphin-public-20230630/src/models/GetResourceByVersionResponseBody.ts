@@ -37,7 +37,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The creation time, in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the resource was created. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -45,7 +45,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time, in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the resource was updated. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -93,7 +93,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The size of the resource, in bytes.
+   * The size of the resource. Unit: bytes.
    * 
    * @example
    * 102400
@@ -171,7 +171,7 @@ export class GetResourceByVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -187,12 +187,12 @@ export class GetResourceByVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the resource file.
+   * The resource file details.
    */
   resourceInfo?: GetResourceByVersionResponseBodyResourceInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

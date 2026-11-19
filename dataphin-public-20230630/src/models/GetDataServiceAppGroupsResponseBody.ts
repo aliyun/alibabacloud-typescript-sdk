@@ -45,7 +45,7 @@ export class GetDataServiceAppGroupsResponseBodyAppGroupList extends $dara.Model
 export class GetDataServiceAppGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of application groups.
+   * The application group list.
    */
   appGroupList?: GetDataServiceAppGroupsResponseBodyAppGroupList[];
   /**
@@ -58,7 +58,7 @@ export class GetDataServiceAppGroupsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP response code.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class GetDataServiceAppGroupsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend error details.
    * 
    * @example
    * internal error
@@ -82,7 +82,7 @@ export class GetDataServiceAppGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

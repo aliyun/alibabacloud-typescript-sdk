@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class CreateUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class CreateUserGroupResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * 2313131

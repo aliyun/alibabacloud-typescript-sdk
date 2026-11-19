@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList extends $dara.Model {
   /**
    * @remarks
-   * 条件名称
+   * The condition name.
    * 
    * @example
    * workday
@@ -13,7 +13,7 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList
   conditionName?: string;
   /**
    * @remarks
-   * 命中后的cron表达式
+   * The cron expression used after a condition is matched.
    * 
    * @example
    * 0 0 5 * * ?
@@ -21,7 +21,7 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList
   cronExpression?: string;
   /**
    * @remarks
-   * 是否启用该条件
+   * Specifies whether to enable the condition.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList
   enable?: boolean;
   /**
    * @remarks
-   * 是否跟随主调度参数
+   * Specifies whether to follow the primary scheduling parameters.
    * 
    * @example
    * true
@@ -37,7 +37,10 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList
   followScheduleParam?: boolean;
   /**
    * @remarks
-   * 命中后的调度状态：1正常，2暂停，3空跑
+   * The scheduling status used after a condition is matched. Valid values:
+   * - 1: Normal.
+   * - 2: Paused.
+   * - 3: Dry run.
    * 
    * @example
    * 1
@@ -45,7 +48,7 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList
   nodeStatus?: number;
   /**
    * @remarks
-   * 条件表达式树JSON字符串，内部键名使用小驼峰
+   * The JSON character string of the conditional expression tree. Internal key names use lower camel case.
    * 
    * @example
    * {}
@@ -53,7 +56,7 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList
   scheduleConditionJson?: string;
   /**
    * @remarks
-   * 命中后的调度时间
+   * The scheduling time used after a condition is matched.
    * 
    * @example
    * 05:00
@@ -95,7 +98,7 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList
 export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * 是否启用条件调度。传入ConditionScheduleConfig对象时必须提供，由后端校验；false关闭并清除旧配置。
+   * Specifies whether to enable conditional scheduling. This parameter is required when the ConditionScheduleConfig object is passed and is verified by the backend. If this parameter is set to false, conditional scheduling is disabled and the previous configuration is cleared.
    * 
    * @example
    * true
@@ -103,12 +106,12 @@ export class SubmitBatchTaskRequestSubmitCommandConditionScheduleConfig extends 
   enable?: boolean;
   /**
    * @remarks
-   * 自定义条件列表；与TemplateId互斥，空列表清除旧条件
+   * The list of custom conditions. This parameter is mutually exclusive with TemplateId. An empty list clears the previous conditions.
    */
   paramList?: SubmitBatchTaskRequestSubmitCommandConditionScheduleConfigParamList[];
   /**
    * @remarks
-   * 条件调度模板ID，与ParamList互斥
+   * The ID of the conditional scheduling template. This parameter is mutually exclusive with ParamList.
    * 
    * @example
    * 1002
@@ -166,8 +169,8 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
   /**
    * @remarks
    * The interval unit. Valid values:
-   * - MINUTE: Minute.
-   * - HOUR: Hour.
+   * - MINUTE: Minutes.
+   * - HOUR: Hours.
    * 
    * This parameter is required.
    * 
@@ -177,7 +180,7 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
   intervalUnit?: string;
   /**
    * @remarks
-   * The schedule period. Valid values:
+   * The scheduling period. Valid values:
    * - YEARLY: Yearly.
    * - MONTHLY: Monthly.
    * - WEEKLY: Weekly.
@@ -233,7 +236,7 @@ export class SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig extends $da
 export class SubmitBatchTaskRequestSubmitCommandExecuteRerunConfig extends $dara.Model {
   /**
    * @remarks
-   * 自定义失败重试间隔。
+   * The custom retry interval for failures.
    * 
    * @example
    * 60
@@ -241,7 +244,7 @@ export class SubmitBatchTaskRequestSubmitCommandExecuteRerunConfig extends $dara
   customRerunInterval?: string;
   /**
    * @remarks
-   * 自定义失败重试次数。
+   * The custom number of retries for failures.
    * 
    * @example
    * 3
@@ -249,7 +252,7 @@ export class SubmitBatchTaskRequestSubmitCommandExecuteRerunConfig extends $dara
   customRerunTimes?: string;
   /**
    * @remarks
-   * 是否跟随系统配置。
+   * Specifies whether to follow the system configuration.
    * 
    * @example
    * false
@@ -283,7 +286,7 @@ export class SubmitBatchTaskRequestSubmitCommandExecuteRerunConfig extends $dara
 export class SubmitBatchTaskRequestSubmitCommandExecuteTimeOutConfig extends $dara.Model {
   /**
    * @remarks
-   * 自定义超时时间。
+   * The custom timeout period.
    * 
    * @example
    * 1800
@@ -291,7 +294,7 @@ export class SubmitBatchTaskRequestSubmitCommandExecuteTimeOutConfig extends $da
   customValues?: string;
   /**
    * @remarks
-   * 是否跟随系统配置。
+   * Specifies whether to follow the system configuration.
    * 
    * @example
    * false
@@ -323,7 +326,7 @@ export class SubmitBatchTaskRequestSubmitCommandExecuteTimeOutConfig extends $da
 export class SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams extends $dara.Model {
   /**
    * @remarks
-   * The description of the parameter.
+   * The parameter description.
    * 
    * @example
    * Parameter description
@@ -336,7 +339,7 @@ export class SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams extend
   encryptEnabled?: boolean;
   /**
    * @remarks
-   * The key of the parameter.
+   * The parameter key.
    * 
    * @example
    * paramKey
@@ -344,7 +347,7 @@ export class SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams extend
   key?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The parameter value.
    * 
    * @example
    * paramValue
@@ -380,7 +383,7 @@ export class SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams extend
 export class SubmitBatchTaskRequestSubmitCommandParamList extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * This parameter is required.
    * 
@@ -390,7 +393,7 @@ export class SubmitBatchTaskRequestSubmitCommandParamList extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The parameter value.
    * 
    * This parameter is required.
    * 
@@ -424,7 +427,7 @@ export class SubmitBatchTaskRequestSubmitCommandParamList extends $dara.Model {
 export class SubmitBatchTaskRequestSubmitCommandScheduleTemplate extends $dara.Model {
   /**
    * @remarks
-   * 基础调度模板ID，必须为正数
+   * The ID of the basic scheduling template. The value must be a positive number.
    * 
    * @example
    * 1001
@@ -495,10 +498,10 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamListDependPeriod extends
   /**
    * @remarks
    * The dependency period type. Valid values:
-   * - CURRENT_PERIOD: Current period.
-   * - LAST_PERIOD: Last period.
-   * - LAST_N_PERIOD: Last N days.
-   * - LAST_24_HOUR: Last 24 hours.
+   * - CURRENT_PERIOD: current period
+   * - LAST_PERIOD: last period
+   * - LAST_N_PERIOD: last N days
+   * - LAST_24_HOUR: last 24 hours
    * 
    * This parameter is required.
    * 
@@ -538,10 +541,10 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $dara.Model
   /**
    * @remarks
    * The dependency strategy. Valid values:
-   * - ALL: All.
-   * - FIRST: First.
-   * - LAST: Last.
-   * - NEAR: Nearest.
+   * - ALL: all
+   * - FIRST: first
+   * - LAST: last
+   * - NEAR: nearest
    * 
    * @example
    * ALL
@@ -555,8 +558,8 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $dara.Model
   /**
    * @remarks
    * The upstream dependency node type. Valid values:
-   * - PHYSICAL: Physical node.
-   * - LOGICAL: Logical table dependency.
+   * - PHYSICAL: physical node
+   * - LOGICAL: logical table dependency
    * 
    * @example
    * PHYSICAL
@@ -564,7 +567,7 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $dara.Model
   nodeType?: string;
   /**
    * @remarks
-   * The period difference. A value of 0 indicates a dependency on the same period. A positive number indicates a dependency on the previous N periods.
+   * The period difference. A value of 0 indicates a dependency on the same period. A positive value indicates a dependency on the previous N periods.
    * 
    * This parameter is required.
    * 
@@ -647,7 +650,7 @@ export class SubmitBatchTaskRequestSubmitCommandUpStreamList extends $dara.Model
 export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   /**
    * @remarks
-   * The code of the task.
+   * The task code.
    * 
    * This parameter is required.
    * 
@@ -657,7 +660,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The version number of the code template.
+   * The code template version number.
    * 
    * @example
    * 1
@@ -675,12 +678,12 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * 条件调度；不传保留，Enable=false关闭并清除原条件，仅周期任务支持
+   * The conditional scheduling configuration. If this parameter is not specified, the current configuration is retained. If Enable is set to false, conditional scheduling is disabled and the original conditions are cleared. This parameter is supported only for periodic tasks.
    */
   conditionScheduleConfig?: SubmitBatchTaskRequestSubmitCommandConditionScheduleConfig;
   /**
    * @remarks
-   * 不传时保留任务当前配置。
+   * The amount of CPU resources. If this parameter is not specified, the current configuration of the task is retained.
    * 
    * @example
    * 0.5
@@ -696,12 +699,12 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The custom schedule interval configuration.
+   * The custom scheduling interval configuration.
    */
   customScheduleConfig?: SubmitBatchTaskRequestSubmitCommandCustomScheduleConfig;
   /**
    * @remarks
-   * The execution engine of the task. Valid values for Python tasks:
+   * The task execution engine. For Python tasks, valid values:
    * - PYTHON2_7
    * - PYTHON3_7
    * - PYTHON3_11
@@ -712,12 +715,12 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * 失败重试配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+   * The failure retry configuration. If this parameter is not specified, the current configuration of the task is retained. If this parameter is specified, the entire configuration object is replaced.
    */
   executeRerunConfig?: SubmitBatchTaskRequestSubmitCommandExecuteRerunConfig;
   /**
    * @remarks
-   * 执行超时配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+   * The execution timeout configuration. If this parameter is not specified, the current configuration of the task is retained. If this parameter is specified, the entire configuration object is replaced.
    */
   executeTimeOutConfig?: SubmitBatchTaskRequestSubmitCommandExecuteTimeOutConfig;
   /**
@@ -732,7 +735,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * 不传时保留任务当前配置。
+   * The amount of CPU resources. If this parameter is not specified, the current configuration of the task is retained.
    * 
    * @example
    * 1024
@@ -750,7 +753,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description of the task.
+   * The task description.
    * 
    * @example
    * xx test
@@ -763,7 +766,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   nodeOutputNameList?: string[];
   /**
    * @remarks
-   * The status of the node. Valid values:
+   * The node status. Valid values:
    * - 1: Normal.
    * - 2: Paused.
    * - 3: Dry run.
@@ -782,7 +785,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   offlineCodeTemplateId?: string;
   /**
    * @remarks
-   * The list of parameters for the offline code template.
+   * The list of offline code template parameters.
    */
   offlineCodeTemplateParams?: SubmitBatchTaskRequestSubmitCommandOfflineCodeTemplateParams[];
   /**
@@ -792,7 +795,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   paramList?: SubmitBatchTaskRequestSubmitCommandParamList[];
   /**
    * @remarks
-   * The scheduling priority of the task. Valid values: 1 to 9. A larger value indicates a lower priority.
+   * The task scheduling priority. Valid values: 1 to 9. A larger value indicates a lower priority.
    * 
    * @example
    * 1
@@ -800,7 +803,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the project to which the task belongs.
+   * The ID of the project to which the node belongs.
    * 
    * This parameter is required.
    * 
@@ -810,17 +813,17 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The Python third-party packages required by the task.
+   * The list of Python third-party packages on which the node depends.
    */
   pythonModuleList?: string[];
   /**
    * @remarks
-   * 资源引用列表，元素为资源名称。不传时使用原有任务的资源引用；传入列表时整体替换，空列表表示清空引用。
+   * The list of referenced resources. Each element is a resource name. If this parameter is not specified, the resource references of the original node are used. If a list is specified, the existing references are completely replaced. An empty list clears all references.
    */
   resourceReferenceList?: string[];
   /**
    * @remarks
-   * 超时重试开关。不传时保留任务当前配置。显式传入false时关闭。
+   * Specifies whether to enable retry on timeout. If this parameter is not specified, the current configuration of the node is retained. If this parameter is explicitly set to false, the feature is disabled.
    * 
    * @example
    * false
@@ -828,13 +831,13 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   retryOnTimeoutEnable?: boolean;
   /**
    * @remarks
-   * The schedule period. Valid values:
-   * - YEARLY: Yearly.
-   * - MONTHLY: Monthly.
-   * - WEEKLY: Weekly.
-   * - DAILY: Daily.
-   * - HOURLY: Hourly.
-   * - MINUTELY: Minutely.
+   * The scheduling period. Valid values:
+   * - YEARLY: yearly
+   * - MONTHLY: monthly
+   * - WEEKLY: weekly
+   * - DAILY: daily
+   * - HOURLY: hourly
+   * - MINUTELY: minutely
    * 
    * @example
    * DAILY
@@ -842,7 +845,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   schedulePeriod?: string;
   /**
    * @remarks
-   * 基础调度模板；不传保留，空对象解除绑定，仅周期任务支持
+   * The basic scheduling template. If this parameter is not specified, the current template is retained. An empty object unbinds the template. This parameter is supported only for periodic nodes.
    */
   scheduleTemplate?: SubmitBatchTaskRequestSubmitCommandScheduleTemplate;
   /**
@@ -852,7 +855,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   sparkClientInfo?: SubmitBatchTaskRequestSubmitCommandSparkClientInfo;
   /**
    * @remarks
-   * 不传时保留任务当前配置。显式传入false时关闭。
+   * Specifies whether to enable dynamic resources for Spark. If this parameter is not specified, the current configuration of the node is retained. If this parameter is explicitly set to false, the feature is disabled.
    * 
    * @example
    * false
@@ -860,7 +863,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   sparkDynamicResourceSwitch?: boolean;
   /**
    * @remarks
-   * ONLY_PROD表示仅生产环境，PROD_AND_DEV表示生产和开发环境。不传时保留任务当前配置。
+   * The effective scope of the Spark resource configuration. ONLY_PROD indicates the production environment only. PROD_AND_DEV indicates both the production and development environments. If this parameter is not specified, the current configuration of the node is retained.
    * 
    * @example
    * ONLY_PROD
@@ -868,7 +871,7 @@ export class SubmitBatchTaskRequestSubmitCommand extends $dara.Model {
   sparkResourceEffectScope?: string;
   /**
    * @remarks
-   * Spark SQL资源配置，键为配置项名称，值为字符串。不传时保留任务当前配置。传入空Map时清空配置。
+   * The Spark SQL resource configurations. The key is the configuration item name, and the value is a string. If this parameter is not specified, the current configurations of the node are retained. An empty map clears all configurations.
    */
   sparkSqlResourceConfigMap?: { [key: string]: string };
   /**
@@ -1009,7 +1012,7 @@ export class SubmitBatchTaskRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator user ID.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

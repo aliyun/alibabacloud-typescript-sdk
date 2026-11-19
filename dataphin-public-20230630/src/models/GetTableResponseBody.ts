@@ -29,7 +29,7 @@ export class GetTableResponseBodyDataInstructions extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 30011211
@@ -37,10 +37,10 @@ export class GetTableResponseBodyDataInstructions extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The creator nickname.
+   * The nickname of the creator.
    * 
    * @example
-   * Zhang San
+   * John Doe
    */
   ownerNickName?: string;
   /**
@@ -93,7 +93,7 @@ export class GetTableResponseBodyDataSimpleNodeInfosBizUnit extends $dara.Model 
   bizUnitDisplayName?: string;
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 2011
@@ -101,7 +101,7 @@ export class GetTableResponseBodyDataSimpleNodeInfosBizUnit extends $dara.Model 
   bizUnitId?: string;
   /**
    * @remarks
-   * The business unit name.
+   * The name of the business unit.
    * 
    * @example
    * LD_test01
@@ -138,7 +138,7 @@ export class GetTableResponseBodyDataSimpleNodeInfosOwners extends $dara.Model {
    * The display name of the user.
    * 
    * @example
-   * Zhang San
+   * John Doe
    */
   displayName?: string;
   /**
@@ -230,7 +230,7 @@ export class GetTableResponseBodyDataSimpleNodeInfos extends $dara.Model {
   bizUnit?: GetTableResponseBodyDataSimpleNodeInfosBizUnit;
   /**
    * @remarks
-   * The environment to which the node belongs. Valid values: DEV and PROD.
+   * The environment. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -254,7 +254,7 @@ export class GetTableResponseBodyDataSimpleNodeInfos extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The scheduling type of the node. Valid values: NORMAL (periodic scheduling) and MANUAL (manual scheduling).
+   * The scheduling type. Valid values: NORMAL (periodic scheduling) and MANUAL (manual scheduling).
    * 
    * @example
    * NORMAL
@@ -262,7 +262,7 @@ export class GetTableResponseBodyDataSimpleNodeInfos extends $dara.Model {
   nodeScheduleType?: string;
   /**
    * @remarks
-   * The O&M owners of the node.
+   * The O&M owners.
    */
   owners?: GetTableResponseBodyDataSimpleNodeInfosOwners[];
   /**
@@ -272,7 +272,7 @@ export class GetTableResponseBodyDataSimpleNodeInfos extends $dara.Model {
   project?: GetTableResponseBodyDataSimpleNodeInfosProject;
   /**
    * @remarks
-   * The type of the node. Valid values: DLINK (offline integration) and PYTHON37 (Python computing node).
+   * The node type. Valid values: DLINK (offline integration) and PYTHON37 (Python compute node).
    * 
    * @example
    * DLINK
@@ -370,7 +370,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   assetTags?: string[];
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 2011
@@ -378,7 +378,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The business unit name.
+   * The name of the business unit.
    * 
    * @example
    * LD_test01
@@ -386,7 +386,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   bizUnitName?: string;
   /**
    * @remarks
-   * The table comment.
+   * The comment of the table.
    * 
    * @example
    * test
@@ -402,7 +402,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 30011211
@@ -410,7 +410,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The data domain ID.
+   * The ID of the data domain.
    * 
    * @example
    * 211
@@ -418,7 +418,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   dataDomainId?: number;
   /**
    * @remarks
-   * The subject domain name.
+   * The name of the subject domain.
    * 
    * @example
    * Course domain
@@ -426,7 +426,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   dataDomainName?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 3301
@@ -434,7 +434,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The table display name.
+   * The display name of the table.
    * 
    * @example
    * Student
@@ -442,7 +442,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The environment. Valid values: dev and prod.
+   * The environment to which the table belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -450,7 +450,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The file ID, which is used to redirect to the ODM model.
+   * The ID of the file, which is used to navigate to the ODM model.
    * 
    * @example
    * 2
@@ -458,7 +458,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The table GUID.
+   * The GUID of the table.
    * 
    * @example
    * dp_ds_table.300023201.7311626611751680256.load_test.abc
@@ -481,7 +481,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   isPartitionTable?: boolean;
   /**
    * @remarks
-   * The time when the table DDL was last modified.
+   * The time when the DDL of the table was last modified.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -497,7 +497,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   lastDmlTime?: string;
   /**
    * @remarks
-   * The time when the data was last viewed.
+   * The time when the data was last queried.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -513,7 +513,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   lifeCycle?: number;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * t_test01
@@ -534,7 +534,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The parent model ID, which is used to redirect to the ODM model.
+   * The ID of the parent model, which is used to navigate to the ODM model.
    * 
    * @example
    * 1
@@ -542,7 +542,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   parentModelId?: string;
   /**
    * @remarks
-   * The logical project ID.
+   * The ID of the logical project.
    * 
    * @example
    * 1011
@@ -550,7 +550,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The logical project name.
+   * The name of the logical project.
    * 
    * @example
    * testPrj
@@ -569,12 +569,12 @@ export class GetTableResponseBodyData extends $dara.Model {
    * The abbreviation of the security classification name.
    * 
    * @example
-   * High
+   * H
    */
   securityLevelAbbreviation?: string;
   /**
    * @remarks
-   * The name of the security classification.
+   * The security classification name.
    * 
    * @example
    * High
@@ -582,7 +582,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   securityLevelName?: string;
   /**
    * @remarks
-   * The list of output nodes.
+   * The list of output node information.
    */
   simpleNodeInfos?: GetTableResponseBodyDataSimpleNodeInfos[];
   /**
@@ -595,7 +595,7 @@ export class GetTableResponseBodyData extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The dynamic properties of the real-time metatable.
+   * The dynamic properties of the real-time metatable class.
    */
   streamTableConfig?: GetTableResponseBodyDataStreamTableConfig[];
   /**
@@ -740,7 +740,7 @@ export class GetTableResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend response exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

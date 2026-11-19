@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveDataServiceAppMemberRequestRemoveCommand extends $dara.Model {
   /**
    * @remarks
-   * Application ID
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveDataServiceAppMemberRequestRemoveCommand extends $dara.Model 
   appId?: number;
   /**
    * @remarks
-   * List of application member IDs
+   * The IDs of the application members.
    * 
    * This parameter is required.
    */
@@ -49,7 +49,7 @@ export class RemoveDataServiceAppMemberRequestRemoveCommand extends $dara.Model 
 export class RemoveDataServiceAppMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -58,13 +58,16 @@ export class RemoveDataServiceAppMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Remove regular members from a data service application
+   * Deletes a regular member from a data service application.
    * 
    * This parameter is required.
    */

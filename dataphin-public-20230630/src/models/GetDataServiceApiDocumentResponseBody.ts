@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication method of the API data source. Valid values:
-   * - 1: BearToken.
-   * - 2: ApiKey.
-   * - 3: None.
-   * - 4: AppKeyAuth.
-   * - 5: BasicAuth.
+   * The authentication method of the API data source. Valid values: 1 (BearToken), 2 (ApiKey), 3 (None), 4 (AppKeyAuth), and 5 (BasicAuth).
    * 
    * @example
    * 3
@@ -34,9 +29,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   datasourceName?: string;
   /**
    * @remarks
-   * The HTTP method of the registered API. Valid values:
-   * - 1: GET.
-   * - 2: POST.
+   * The request method of the registered API. Valid values: 1 (GET) and 2 (POST).
    * 
    * @example
    * 2
@@ -44,9 +37,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   httpMethod?: number;
   /**
    * @remarks
-   * The mode. Valid values:
-   * - 0: basic
-   * - 1: dev_prod
+   * The mode. Valid values: 0: basic, 1: dev_prod.
    * 
    * @example
    * 1
@@ -132,9 +123,7 @@ export class GetDataServiceApiDocumentResponseBodyDataPublicParamList extends $d
   description?: string;
   /**
    * @remarks
-   * Indicates whether the request parameter is required. Valid values:
-   * - 1: required
-   * - 0: optional
+   * Indicates whether the request parameter is required. Valid values: 1: required, 0: optional.
    */
   isRequired?: boolean;
   /**
@@ -209,9 +198,7 @@ export class GetDataServiceApiDocumentResponseBodyDataRequestParamList extends $
   description?: string;
   /**
    * @remarks
-   * Indicates whether the request parameter is required. Valid values:
-   * - 1: required
-   * - 0: optional
+   * Indicates whether the request parameter is required. Valid values: 1: required, 0: optional.
    */
   isRequired?: boolean;
   /**
@@ -353,7 +340,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   apiTimeout?: number;
   /**
    * @remarks
-   * The business unit name. This value is available only for logical tables.
+   * The business unit name, which is available only for logical tables.
    * 
    * @example
    * bizUnit_test
@@ -369,10 +356,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   cacheTime?: string;
   /**
    * @remarks
-   * The creation type. Valid values:
-   * - 0: custom mode
-   * - 1: wizard mode
-   * - 2: direct API connection
+   * The creation type. Valid values: 0: custom mode, 1: wizard mode, 2: direct API connection.
    * 
    * @example
    * 1
@@ -388,7 +372,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The data source ID of the direct API.
+   * The ID of the data source for the direct API.
    * 
    * @example
    * 1
@@ -396,7 +380,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   directDatasourceId?: number;
   /**
    * @remarks
-   * The data source name of the direct API.
+   * The name of the data source for the direct API.
    * 
    * @example
    * test
@@ -404,9 +388,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   directDatasourceName?: string;
   /**
    * @remarks
-   * The environment. Valid values:
-   * - 0: dev
-   * - 1: prod
+   * The environment. Valid values: 0: dev, 1: prod.
    * 
    * @example
    * 1
@@ -435,23 +417,17 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   isLogicalTable?: boolean;
   /**
    * @remarks
-   * Specifies whether the query is a paged query. Valid values:
-   * - 1: yes.
-   * - 0: no.
+   * Specifies whether the query is a paged query. Valid values: 1 (yes) and 0 (no).
    */
   isPagedQuery?: boolean;
   /**
    * @remarks
-   * Indicates whether the SQL is special. Valid values:
-   * - 0: no
-   * - 1: yes
+   * Indicates whether the SQL statement is special. Valid values: 0: no, 1: yes.
    */
   isSpecialSql?: boolean;
   /**
    * @remarks
-   * The mode. Valid values:
-   * - 0: basic
-   * - 1: dev_prod
+   * The mode. Valid values: 0: basic, 1: dev_prod.
    * 
    * @example
    * 1
@@ -467,9 +443,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether the cache is enabled. Valid values:
-   * - 0: disabled.
-   * - 1: enabled.
+   * Specifies whether the cache is enabled. Valid values: 0 (disabled) and 1 (enabled).
    */
   openCache?: boolean;
   /**
@@ -490,10 +464,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
-   * - 1: https
-   * - 2: http
-   * - 3: http and https
+   * The protocol. Valid values: 1: HTTPS, 2: HTTP, 3: both HTTP and HTTPS.
    * 
    * @example
    * 1
@@ -506,9 +477,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   publicParamList?: GetDataServiceApiDocumentResponseBodyDataPublicParamList[];
   /**
    * @remarks
-   * The request method. Valid values:
-   * - 1: get
-   * - 2: list
+   * The request method. Valid values: 1: get, 2: list.
    * 
    * @example
    * 1
@@ -558,8 +527,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   returnLimit?: number;
   /**
    * @remarks
-   * The return data type. Valid values:
-   * - 1: JSON
+   * The return data type. Valid values: 1: JSON.
    * 
    * @example
    * 1
@@ -567,10 +535,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   returnType?: number;
   /**
    * @remarks
-   * The script type. Valid values:
-   * - NORMAL_SQL: basic SQL.
-   * - MYBATIS_SQL: advanced SQL.
-   * - AVIATOR: Aviator expression.
+   * The script type. Valid values: NORMAL_SQL (basic SQL), MYBATIS_SQL (advanced SQL), and AVIATOR (Aviator expression).
    * 
    * @example
    * NORMAL_SQL
@@ -586,7 +551,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   sql?: string;
   /**
    * @remarks
-   * The logical table name. This value is available only for logical tables.
+   * The logical table name, which is available only for logical tables.
    * 
    * @example
    * t_logical_test1
@@ -602,11 +567,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   timeout?: string;
   /**
    * @remarks
-   * The update frequency. Valid values:
-   * - 0: custom
-   * - 1: daily
-   * - 2: hourly
-   * - 3: every minute
+   * The update frequency. Valid values: 0: custom, 1: daily, 2: hourly, 3: every minute.
    * 
    * @example
    * 1
@@ -614,7 +575,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   updateRate?: number;
   /**
    * @remarks
-   * The version.
+   * The version ID.
    * 
    * @example
    * 1.0

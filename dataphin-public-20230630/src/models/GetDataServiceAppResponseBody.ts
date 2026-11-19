@@ -93,7 +93,7 @@ export class GetDataServiceAppResponseBodyData extends $dara.Model {
   ipWhitelist?: string;
   /**
    * @remarks
-   * Indicates whether the IP address whitelist is enabled. Valid values:
+   * Specifies whether the IP address whitelist is enabled. Valid values:
    * - true: Enabled.
    * - false: Disabled.
    */
@@ -175,7 +175,7 @@ export class GetDataServiceAppResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

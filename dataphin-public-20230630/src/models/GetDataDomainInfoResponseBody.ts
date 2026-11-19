@@ -32,7 +32,7 @@ export class GetDataDomainInfoResponseBodyDataDomainInfo extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 测试
+   * Test
    */
   displayName?: string;
   /**
@@ -72,7 +72,7 @@ export class GetDataDomainInfoResponseBodyDataDomainInfo extends $dara.Model {
    * The name of the user who last modified the data domain.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
@@ -85,15 +85,15 @@ export class GetDataDomainInfoResponseBodyDataDomainInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the business object owner.
+   * The ID of the owner of the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The ID of the business object owner.
+   * The ID of the owner of the business object.
    * 
    * @example
    * 30010010
@@ -155,7 +155,7 @@ export class GetDataDomainInfoResponseBodyDataDomainInfo extends $dara.Model {
 export class GetDataDomainInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -192,7 +192,7 @@ export class GetDataDomainInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

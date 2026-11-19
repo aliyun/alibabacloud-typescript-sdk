@@ -21,7 +21,7 @@ export class GetSecurityClassifyResponseBodySecurityClassifyInfo extends $dara.M
   id?: number;
   /**
    * @remarks
-   * The security level abbreviation.
+   * The level abbreviation.
    * 
    * @example
    * lv_test
@@ -29,7 +29,7 @@ export class GetSecurityClassifyResponseBodySecurityClassifyInfo extends $dara.M
   levelAbbreviation?: string;
   /**
    * @remarks
-   * The security level index.
+   * The level index.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class GetSecurityClassifyResponseBodySecurityClassifyInfo extends $dara.M
   levelIndex?: number;
   /**
    * @remarks
-   * The security level name.
+   * The level name.
    * 
    * @example
    * lv_teat
@@ -111,7 +111,7 @@ export class GetSecurityClassifyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -132,7 +132,7 @@ export class GetSecurityClassifyResponseBody extends $dara.Model {
   securityClassifyInfo?: GetSecurityClassifyResponseBodySecurityClassifyInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

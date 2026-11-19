@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListK8SResourceGroupIdsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom Kubernetes resource group.
+   * The ID of the custom K8s resource group, which can be used to select the compute queue for real-time tasks.
    * 
    * @example
    * 1052061
@@ -13,15 +13,15 @@ export class ListK8SResourceGroupIdsResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the custom Kubernetes resource group.
+   * The name of the custom K8s resource group.
    * 
    * @example
-   * Dedicated to real-time R&D
+   * Dedicated for real-time development
    */
   name?: string;
   /**
    * @remarks
-   * The status of the resource group.
+   * The status of the resource group. NORMAL indicates that the resource group is available.
    * 
    * @example
    * NORMAL
@@ -63,7 +63,7 @@ export class ListK8SResourceGroupIdsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of custom Kubernetes resource groups.
+   * The custom K8s resource groups used for Flink tasks under the tenant. The ListK8SResourceGroupIds operation returns only available resource groups.
    */
   data?: ListK8SResourceGroupIdsResponseBodyData[];
   /**
@@ -76,7 +76,7 @@ export class ListK8SResourceGroupIdsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend response error.
+   * The details of the backend response exception.
    * 
    * @example
    * internal error

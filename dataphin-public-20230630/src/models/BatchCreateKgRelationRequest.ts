@@ -49,12 +49,12 @@ export class BatchCreateKgRelationRequestCreateCommandRelationListPropertyList e
 export class BatchCreateKgRelationRequestCreateCommandRelationList extends $dara.Model {
   /**
    * @remarks
-   * The relationship record property list.
+   * The property list of the relation record.
    */
   propertyList?: BatchCreateKgRelationRequestCreateCommandRelationListPropertyList[];
   /**
    * @remarks
-   * The relationship type code.
+   * The relation type code.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class BatchCreateKgRelationRequestCreateCommandRelationList extends $dara
 export class BatchCreateKgRelationRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The relationship list.
+   * The relation list.
    * 
    * This parameter is required.
    */

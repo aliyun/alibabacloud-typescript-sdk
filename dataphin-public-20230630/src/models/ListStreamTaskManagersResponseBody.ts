@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStreamTaskManagersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The communication address or machine information.
+   * The communication address or host machine information of the TaskManager returned by the engine. This is not the log download URL.
    * 
    * @example
    * akka.tcp://flink@10.0.0.12:6122/user/rpc/taskmanager_0
@@ -13,7 +13,7 @@ export class ListStreamTaskManagersResponseBodyData extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * taskmanagerId
+   * The identifier of the TaskManager. This corresponds to the TaskmanagerId input parameter of ListStreamTaskManagerLogs and GetStreamLogContent.
    * 
    * @example
    * dataphin-session-7db678957dc449aab0086b931c9f8218-taskmanazjkxq
@@ -53,7 +53,7 @@ export class ListStreamTaskManagersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of TaskManagers for the real-time task.
+   * The TaskManager information retrieved in real time. You can use the taskmanagerId to query the logs of the TaskManager.
    */
   data?: ListStreamTaskManagersResponseBodyData[];
   /**
@@ -66,7 +66,7 @@ export class ListStreamTaskManagersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend response exception.
+   * The details of the backend exception.
    * 
    * @example
    * internal error

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoStrongRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to be executed.
+   * The number of failed rules.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   errorRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that have been executed.
+   * The number of completed rules.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were successfully executed.
+   * The number of successful rules.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoValidateRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to be executed.
+   * The number of failed rules.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   errorRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that have been executed.
+   * The number of completed rules.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were successfully executed.
+   * The number of successful rules.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoWeakRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to be executed.
+   * The number of failed rules.
    * 
    * @example
    * 0
@@ -133,7 +133,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   errorRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that have been executed.
+   * The number of completed rules.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were successfully executed.
+   * The number of successful rules.
    * 
    * @example
    * 1
@@ -185,17 +185,17 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfo extends $dara.Model {
   /**
    * @remarks
-   * The strong rule count information.
+   * The strong rule count.
    */
   strongRuleCount?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoStrongRuleCount;
   /**
    * @remarks
-   * The validation rule count information.
+   * The validation rule count.
    */
   validateRuleCount?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoValidateRuleCount;
   /**
    * @remarks
-   * The weak rule count information.
+   * The weak rule count.
    */
   weakRuleCount?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoWeakRuleCount;
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList extends $dara.Model {
   /**
    * @remarks
-   * The business date.
+   * The business date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2025-06-30
@@ -251,7 +251,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   bizDateFormat?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -291,7 +291,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -315,12 +315,12 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   qualityOwnerName?: string;
   /**
    * @remarks
-   * The quality rule count information.
+   * The quality rule count.
    */
   ruleCountInfo?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfo;
   /**
    * @remarks
-   * The list of quality rule IDs.
+   * The IDs of the quality rules.
    */
   ruleIdList?: number[];
   /**
@@ -333,15 +333,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   startTime?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * - NOT_RUN: not executed.
-   * - WAITING: waiting.
-   * - RUNNING: running.
-   * - SUCCESS: succeeded.
-   * - FAILED: failed.
-   * - CANCEL: canceled.
-   * - TIMEOUT: timed out.
-   * - OFFLINE: offline.
+   * The task status. Valid values: NOT_RUN (not run), WAITING (waiting), RUNNING (running), SUCCESS (successful), FAILED (failed), CANCEL (canceled), TIMEOUT (timed out), and OFFLINE (offline).
    * 
    * @example
    * RUNNING
@@ -413,7 +405,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
 export class ListQualityWatchTasksResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of quality watchtasks.
+   * The paged quality template list.
    */
   qualityWatchTaskList?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList[];
   /**
@@ -490,7 +482,7 @@ export class ListQualityWatchTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

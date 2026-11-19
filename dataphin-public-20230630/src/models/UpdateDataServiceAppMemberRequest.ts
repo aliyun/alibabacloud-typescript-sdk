@@ -59,7 +59,7 @@ export class UpdateDataServiceAppMemberRequestUpdateCommand extends $dara.Model 
   appId?: number;
   /**
    * @remarks
-   * The list of members.
+   * The member list.
    * 
    * This parameter is required.
    */
@@ -102,13 +102,16 @@ export class UpdateDataServiceAppMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to update regular members of a data service application.
+   * Updates the regular members of a data service application.
    * 
    * This parameter is required.
    */

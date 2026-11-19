@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList extends $dara.Model {
   /**
    * @remarks
-   * API ID.
+   * The API ID.
    * 
    * @example
    * 1322
@@ -13,7 +13,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   apiId?: number;
   /**
    * @remarks
-   * API name.
+   * The API name.
    * 
    * @example
    * teset
@@ -21,7 +21,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   apiName?: string;
   /**
    * @remarks
-   * Creator name.
+   * The name of the creator.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   createUserName?: string;
   /**
    * @remarks
-   * Creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 1121
@@ -37,7 +37,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   creator?: string;
   /**
    * @remarks
-   * Owner ID.
+   * The ID of the owner.
    * 
    * @example
    * 1121
@@ -45,7 +45,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   owner?: string;
   /**
    * @remarks
-   * Owner name.
+   * The name of the owner.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   ownerUserName?: string;
   /**
    * @remarks
-   * The user to whom the privilege belongs.
+   * The owner of the permission.
    * 
    * @example
    * 1121
@@ -61,7 +61,8 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   privilegeBelongTo?: string;
   /**
    * @remarks
-   * Authorization source. Valid value: 0, which indicates the owner.
+   * The authorization source. Valid values:
+   * - 0: Owner.
    * 
    * @example
    * 0
@@ -69,7 +70,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   privilegeFrom?: number;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * @example
    * 102122
@@ -77,7 +78,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   projectId?: number;
   /**
    * @remarks
-   * Project name.
+   * The project name.
    * 
    * @example
    * test
@@ -85,7 +86,8 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
   projectName?: string;
   /**
    * @remarks
-   * Role. Valid value: 0, which indicates the owner.
+   * The role. Valid values:
+   * - 0: Owner.
    * 
    * @example
    * 0
@@ -135,12 +137,12 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList
 export class ListDataServiceMyApiPermissionsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * Paginated permission list.
+   * The paged permission list.
    */
   permissionList?: ListDataServiceMyApiPermissionsResponseBodyPageResultPermissionList[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 68
@@ -175,7 +177,7 @@ export class ListDataServiceMyApiPermissionsResponseBodyPageResult extends $dara
 export class ListDataServiceMyApiPermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -183,7 +185,7 @@ export class ListDataServiceMyApiPermissionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -191,7 +193,7 @@ export class ListDataServiceMyApiPermissionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend response exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -199,7 +201,7 @@ export class ListDataServiceMyApiPermissionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paginated query result.
+   * The paged query result.
    */
   pageResult?: ListDataServiceMyApiPermissionsResponseBodyPageResult;
   /**
@@ -212,7 +214,7 @@ export class ListDataServiceMyApiPermissionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request is successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

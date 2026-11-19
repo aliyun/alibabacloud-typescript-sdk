@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStreamTaskManagersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Flink deployment instance.
+   * The deployment instance ID. You can obtain the value from the deploymentInstanceId returned in the operation record or historical run instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListStreamTaskManagersRequest extends $dara.Model {
   deploymentInstanceId?: string;
   /**
    * @remarks
-   * The ID of the operating tenant. After the gateway verifies that the current identity has access to the tenant, it injects the tenant ID into the backend.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListStreamTaskManagersRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The optional ID of the operating user. This parameter follows the identity verification rules of the gateway and is not directly bound to the backend user ID.
+   * The ID of the operator.
    * 
    * @example
    * 30001011
@@ -33,7 +33,7 @@ export class ListStreamTaskManagersRequest extends $dara.Model {
   opUserId?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the Dataphin project to which the task belongs. This parameter is used for permission verification in the production environment.
    * 
    * This parameter is required.
    * 

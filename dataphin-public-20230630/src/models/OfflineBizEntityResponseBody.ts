@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineBizEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code of the request. OK indicates a successful request.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class OfflineBizEntityResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code returned by the backend
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class OfflineBizEntityResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message of the request
+   * The error message.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class OfflineBizEntityResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -37,7 +37,7 @@ export class OfflineBizEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

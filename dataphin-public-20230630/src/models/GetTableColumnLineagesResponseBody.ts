@@ -13,7 +13,7 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   inputBizUnitId?: number;
   /**
    * @remarks
-   * The GUID of the input column. Format: TableGuid.ColumnName.
+   * The GUID of the input column. Format: table GUID.column name.
    * 
    * @example
    * 1121.col1
@@ -53,12 +53,12 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   inputProjectId?: number;
   /**
    * @remarks
-   * Indicates whether the input table has been deleted.
+   * Indicates whether the input table is deleted.
    */
   inputTableDeleted?: boolean;
   /**
    * @remarks
-   * The environment of the input table. Valid values: dev and prod.
+   * The environment to which the input table belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -66,7 +66,7 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   inputTableEnv?: string;
   /**
    * @remarks
-   * The GUID of the input table. Each asset has a unique identifier.
+   * The GUID of the input table, which uniquely identifies the asset.
    * 
    * @example
    * 123211
@@ -82,7 +82,7 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   inputTableName?: string;
   /**
    * @remarks
-   * The environment of the node. Valid values: dev and prod.
+   * The environment to which the node belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -90,7 +90,7 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   nodeEnv?: string;
   /**
    * @remarks
-   * The node ID associated with the lineage.
+   * The ID of the node corresponding to the lineage.
    * 
    * @example
    * 110021
@@ -106,7 +106,7 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   outputBizUnitId?: number;
   /**
    * @remarks
-   * The GUID of the output column. Format: TableId.ColumnName.
+   * The GUID of the output column. Format: table ID.column name.
    * 
    * @example
    * 2231.col2
@@ -146,12 +146,12 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   outputProjectId?: number;
   /**
    * @remarks
-   * Indicates whether the output table has been deleted.
+   * Indicates whether the output table is deleted.
    */
   outputTableDeleted?: boolean;
   /**
    * @remarks
-   * The environment of the output table. Valid values: dev and prod.
+   * The environment to which the output table belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -159,7 +159,7 @@ export class GetTableColumnLineagesResponseBodyTableColumnLineageList extends $d
   outputTableEnv?: string;
   /**
    * @remarks
-   * The GUID of the output table. Each asset has a unique identifier.
+   * The GUID of the output table, which uniquely identifies the asset.
    * 
    * @example
    * 2231
@@ -271,12 +271,12 @@ export class GetTableColumnLineagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**
    * @remarks
-   * The list of table column lineage records.
+   * The list of table column lineage.
    */
   tableColumnLineageList?: GetTableColumnLineagesResponseBodyTableColumnLineageList[];
   static names(): { [key: string]: string } {

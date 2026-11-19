@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The standard set ID.
+   * The ID of the standard set.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,9 @@ export class DeleteStandardSetRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator user.
+   * 
    * @example
    * 30001011
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupplementDagrunResponseBodyDagrunList extends $dara.Model {
   /**
    * @remarks
-   * The business date. The time format must conform to the partition format specified by the business unit.
+   * The business date. The time format must comply with the partition format specified by the business unit.
    * 
    * @example
    * 2024-04-01
@@ -21,7 +21,7 @@ export class GetSupplementDagrunResponseBodyDagrunList extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The execution end timestamp.
+   * The end execution timestamp.
    * 
    * @example
    * 1717081789000
@@ -37,7 +37,7 @@ export class GetSupplementDagrunResponseBodyDagrunList extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The execution start timestamp.
+   * The start execution timestamp.
    * 
    * @example
    * 1717081729000
@@ -45,16 +45,15 @@ export class GetSupplementDagrunResponseBodyDagrunList extends $dara.Model {
   startExecuteTime?: number;
   /**
    * @remarks
-   * The status of the data backfill instance workflow. Valid values:
-   * 
-   * - INIT: dagrun init.
-   * - CREATE_FAILED: dagrun creation failed.
-   * - CREATED: dagrun created.
-   * - READY: dagrun ready for exec.
-   * - RUNNING: dagrun running.
-   * - KILLED: dagrun stopped.
-   * - FAILED: dagrun failed.
-   * - SUCCESS: dagrun succeeded.
+   * The status of the data backfill workflow. Valid values:
+   * - INIT: The dagrun is initialized.
+   * - CREATE_FAILED: The dagrun fails to be created.
+   * - CREATED: The dagrun is created.
+   * - READY: The dagrun is ready for execution.
+   * - RUNNING: The dagrun is running.
+   * - KILLED: The dagrun is stopped.
+   * - FAILED: The dagrun fails.
+   * - SUCCESS: The dagrun succeeds.
    * 
    * @example
    * RUNNING
@@ -62,7 +61,7 @@ export class GetSupplementDagrunResponseBodyDagrunList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the data backfill instance workflow.
+   * The ID of the data backfill workflow.
    * 
    * @example
    * f_8241792_20201202_2099680
@@ -104,7 +103,7 @@ export class GetSupplementDagrunResponseBodyDagrunList extends $dara.Model {
 export class GetSupplementDagrunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -112,7 +111,7 @@ export class GetSupplementDagrunResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of dagruns.
+   * The dagrun list.
    */
   dagrunList?: GetSupplementDagrunResponseBodyDagrunList[];
   /**
@@ -141,7 +140,7 @@ export class GetSupplementDagrunResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

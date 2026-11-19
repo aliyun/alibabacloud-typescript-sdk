@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilesResponseBodyFileList extends $dara.Model {
   /**
    * @remarks
-   * File category
+   * The file category.
    * 
    * @example
    * tempCode
@@ -13,7 +13,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * File content
+   * The file content.
    * 
    * @example
    * select 1;
@@ -21,7 +21,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Creator
+   * The creator.
    * 
    * @example
    * 1212111
@@ -29,7 +29,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * File directory
+   * The file directory.
    * 
    * @example
    * /xx/x
@@ -37,7 +37,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * File type, such as directory
+   * The file type, such as directory.
    * 
    * @example
    * directory
@@ -45,7 +45,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1717483193830
@@ -53,7 +53,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Modification time
+   * The last modification time.
    * 
    * @example
    * 1717483193830
@@ -61,7 +61,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * File ID
+   * The file ID.
    * 
    * @example
    * 111231112
@@ -69,7 +69,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Last modifier
+   * The last modifier.
    * 
    * @example
    * 1212111
@@ -77,15 +77,15 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * File name
+   * The file name.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   name?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * @example
    * 312112121
@@ -135,7 +135,7 @@ export class ListFilesResponseBodyFileList extends $dara.Model {
 export class ListFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request error code. OK indicates a normal request.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -143,12 +143,12 @@ export class ListFilesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * File list
+   * The list of files.
    */
   fileList?: ListFilesResponseBodyFileList[];
   /**
    * @remarks
-   * Backend response HTTP code
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -156,7 +156,7 @@ export class ListFilesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request error message
+   * The error message.
    * 
    * @example
    * successful
@@ -164,7 +164,7 @@ export class ListFilesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -172,7 +172,7 @@ export class ListFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

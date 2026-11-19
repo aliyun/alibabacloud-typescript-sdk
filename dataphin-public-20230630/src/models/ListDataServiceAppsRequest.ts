@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceAppsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Application group ID.
+   * The application group ID.
    * 
    * @example
    * 12345
@@ -13,15 +13,15 @@ export class ListDataServiceAppsRequestListQuery extends $dara.Model {
   appGroupId?: number;
   /**
    * @remarks
-   * Application name search keyword.
+   * The keyword used to search for application names.
    * 
    * @example
-   * 营销看板
+   * Marketing dashboard
    */
   keyword?: string;
   /**
    * @remarks
-   * Page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListDataServiceAppsRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of records per page. Default value: 20.
+   * The number of records per page. Default value: 20.
    * 
    * @example
    * 20
@@ -65,14 +65,14 @@ export class ListDataServiceAppsRequestListQuery extends $dara.Model {
 export class ListDataServiceAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query the list of all applications under the tenant.
+   * The query parameters for listing all applications under the tenant.
    * 
    * This parameter is required.
    */
   listQuery?: ListDataServiceAppsRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -81,6 +81,9 @@ export class ListDataServiceAppsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

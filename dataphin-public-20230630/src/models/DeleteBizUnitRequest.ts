@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBizUnitRequest extends $dara.Model {
   /**
    * @remarks
-   * The business domain ID.
+   * The business block ID.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,9 @@ export class DeleteBizUnitRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

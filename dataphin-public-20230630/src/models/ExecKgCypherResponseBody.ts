@@ -53,7 +53,7 @@ export class ExecKgCypherResponseBodyDataEdgeList extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The list of relationship record properties.
+   * The list of properties for the relationship record.
    */
   properties?: ExecKgCypherResponseBodyDataEdgeListProperties[];
   /**
@@ -191,7 +191,7 @@ export class ExecKgCypherResponseBodyDataNodeList extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The list of entity record properties.
+   * The list of properties for the entity record.
    */
   properties?: ExecKgCypherResponseBodyDataNodeListProperties[];
   static names(): { [key: string]: string } {
@@ -265,7 +265,7 @@ export class ExecKgCypherResponseBodyDataRowListColumns extends $dara.Model {
 export class ExecKgCypherResponseBodyDataRowList extends $dara.Model {
   /**
    * @remarks
-   * The list of columns in the row.
+   * The list of columns.
    */
   columns?: ExecKgCypherResponseBodyDataRowListColumns[];
   static names(): { [key: string]: string } {
@@ -300,7 +300,7 @@ export class ExecKgCypherResponseBodyData extends $dara.Model {
   edgeList?: ExecKgCypherResponseBodyDataEdgeList[];
   /**
    * @remarks
-   * The transformed execution statement.
+   * The converted execution statement.
    * 
    * @example
    * MATCH p=()-[:Product]->() RETURN p, count(*) LIMIT 25
@@ -392,7 +392,7 @@ export class ExecKgCypherResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

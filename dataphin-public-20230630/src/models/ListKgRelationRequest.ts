@@ -80,7 +80,7 @@ export class ListKgRelationRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The operator user ID.
    * 
    * @example
    * 30001011
@@ -88,7 +88,7 @@ export class ListKgRelationRequest extends $dara.Model {
   opUserId?: string;
   /**
    * @remarks
-   * The relationship type code.
+   * The relation type code.
    * 
    * This parameter is required.
    * 

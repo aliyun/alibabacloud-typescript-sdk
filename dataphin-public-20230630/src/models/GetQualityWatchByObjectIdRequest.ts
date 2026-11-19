@@ -15,7 +15,7 @@ export class GetQualityWatchByObjectIdRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator.
+   * The operator user ID.
    * 
    * @example
    * 30001011
@@ -23,7 +23,7 @@ export class GetQualityWatchByObjectIdRequest extends $dara.Model {
   opUserId?: string;
   /**
    * @remarks
-   * The ID of the object, such as the table ID, data source ID, or metric ID.
+   * The object ID, such as the table ID, data source ID, or metric ID.
    * 
    * This parameter is required.
    * 
@@ -33,12 +33,7 @@ export class GetQualityWatchByObjectIdRequest extends $dara.Model {
   watchObjectId?: string;
   /**
    * @remarks
-   * The monitored object type. Valid values:
-   * - TABLE: Dataphin table.
-   * - DATASOURCE_TABLE: Global table.
-   * - DATASOURCE: Data source.
-   * - INDEX: Metric.
-   * - REALTIME_LOGICAL_TABLE: Real-time metatable.
+   * The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time logical table).
    * 
    * This parameter is required.
    * 

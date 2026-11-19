@@ -22,12 +22,12 @@ export class RemoveQualityRuleSchedulesRequestRemoveCommand extends $dara.Model 
   scheduleIdList?: number[];
   /**
    * @remarks
-   * The ID of the monitored object.
+   * The monitored object ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 平均值
+   * Average value
    */
   watchId?: number;
   static names(): { [key: string]: string } {
@@ -70,13 +70,16 @@ export class RemoveQualityRuleSchedulesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The unbinding instruction.
+   * The unbind command.
    * 
    * This parameter is required.
    */

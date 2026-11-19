@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceDownStreamShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of levels to expand downstream in the DAG query. Valid values: 1 to 6.
+   * The number of levels to expand the DAG downwards. Valid values: 1 to 6.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class GetInstanceDownStreamShrinkRequest extends $dara.Model {
   downStreamDepth?: number;
   /**
    * @remarks
-   * Environment identifier.
-   * - DEV: Development environment.
-   * - PROD (default): Production environment.
+   * The environment identifier. Valid values:
+   * - DEV: development environment. 
+   * - PROD: production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -25,14 +25,14 @@ export class GetInstanceDownStreamShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The request body.
+   * The get request.
    * 
    * This parameter is required.
    */
   instanceGetShrink?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -41,13 +41,16 @@ export class GetInstanceDownStreamShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Run status of the instance.
+   * The run status of the instance. Valid values:
    * - INIT
    * - WATING
    * - RUNNING

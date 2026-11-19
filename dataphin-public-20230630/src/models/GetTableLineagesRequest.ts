@@ -10,7 +10,7 @@ export class GetTableLineagesRequestFilterQuery extends $dara.Model {
   needDownstream?: boolean;
   /**
    * @remarks
-   * Specifies whether to return tables that do not exist in the asset list. Default value: false.
+   * Specifies whether to return tables that do not exist in the asset inventory. Default value: false.
    */
   needNotExistObject?: boolean;
   /**
@@ -20,7 +20,7 @@ export class GetTableLineagesRequestFilterQuery extends $dara.Model {
   needUpstream?: boolean;
   /**
    * @remarks
-   * The environment to which the task belongs. This parameter is used for filtering. Valid values: dev and prod.
+   * The environment of the node to be queried. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -28,7 +28,7 @@ export class GetTableLineagesRequestFilterQuery extends $dara.Model {
   nodeEnv?: string;
   /**
    * @remarks
-   * The list of task IDs used for filtering.
+   * The list of node IDs to be queried.
    */
   nodeIdList?: string[];
   static names(): { [key: string]: string } {
@@ -71,7 +71,7 @@ export class GetTableLineagesRequest extends $dara.Model {
   filterQuery?: GetTableLineagesRequestFilterQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -80,6 +80,9 @@ export class GetTableLineagesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

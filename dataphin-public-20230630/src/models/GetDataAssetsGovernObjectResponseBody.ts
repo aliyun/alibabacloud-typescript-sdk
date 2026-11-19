@@ -8,7 +8,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfoOwners extends
    * The display name of the user.
    * 
    * @example
-   * 龚恒菊2088822037866701
+   * Gong Hengju2088822037866701
    */
   displayName?: string;
   /**
@@ -53,7 +53,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfoProblem extend
   objectId?: string;
   /**
    * @remarks
-   * The ID of the parent object.
+   * The parent object ID.
    * 
    * @example
    * 913836
@@ -69,10 +69,10 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfoProblem extend
   problemContactMail?: string;
   /**
    * @remarks
-   * The other contact information for the governance issue.
+   * Other contact information for the governance issue.
    * 
    * @example
-   * Jane
+   * Li Si
    */
   problemContactOther?: string;
   /**
@@ -93,7 +93,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfoProblem extend
   problemDesc?: string;
   /**
    * @remarks
-   * The submission method of the issue.
+   * The submission method for the issue.
    * 
    * @example
    * SYSTEM
@@ -112,12 +112,12 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfoProblem extend
    * The username of the user who submitted the issue.
    * 
    * @example
-   * John
+   * Zhang San
    */
   problemSubmitterUserName?: string;
   /**
    * @remarks
-   * The types of the governance issue.
+   * The type of the governance issue.
    */
   problemTypes?: string[];
   static names(): { [key: string]: string } {
@@ -181,7 +181,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfoRelatedKnowled
   desc?: string;
   /**
    * @remarks
-   * The ID of the knowledge entry.
+   * The knowledge ID.
    * 
    * @example
    * 522072057231
@@ -255,7 +255,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfoRelatedKnowled
 export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfo extends $dara.Model {
   /**
    * @remarks
-   * The time when the governance object was reported.
+   * The submission time.
    * 
    * @example
    * 2026-08-31 10:06:01
@@ -392,7 +392,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfo extends $dara
   properties?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the rectification.
+   * The rectification ID.
    * 
    * @example
    * 49169072991
@@ -400,7 +400,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfo extends $dara
   rectifyId?: number;
   /**
    * @remarks
-   * The name of the rectification.
+   * The rectification name.
    * 
    * @example
    * Rectification process 1
@@ -416,7 +416,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfo extends $dara
   rectifyStatus?: string;
   /**
    * @remarks
-   * The ID of the user who performs the rectification.
+   * The ID of the rectification user.
    * 
    * @example
    * 566777
@@ -427,7 +427,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfo extends $dara
    * The display name of the rectification user.
    * 
    * @example
-   * John
+   * Zhang San
    */
   rectifyUserName?: string;
   /**
@@ -525,7 +525,7 @@ export class GetDataAssetsGovernObjectResponseBodyGovernObjectInfo extends $dara
 export class GetDataAssetsGovernObjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -538,7 +538,7 @@ export class GetDataAssetsGovernObjectResponseBody extends $dara.Model {
   governObjectInfo?: GetDataAssetsGovernObjectResponseBodyGovernObjectInfo;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP response code.
    * 
    * @example
    * 200
@@ -562,7 +562,7 @@ export class GetDataAssetsGovernObjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

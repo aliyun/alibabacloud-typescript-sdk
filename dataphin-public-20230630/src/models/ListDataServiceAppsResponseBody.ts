@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceAppsResponseBodyDataAppListOwnerList extends $dara.Model {
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 12345
@@ -13,10 +13,10 @@ export class ListDataServiceAppsResponseBodyDataAppListOwnerList extends $dara.M
   id?: string;
   /**
    * @remarks
-   * Username.
+   * The username.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,15 +45,15 @@ export class ListDataServiceAppsResponseBodyDataAppListOwnerList extends $dara.M
 export class ListDataServiceAppsResponseBodyDataAppList extends $dara.Model {
   /**
    * @remarks
-   * Application group name.
+   * The application group name.
    * 
    * @example
-   * 默认分组
+   * Default group
    */
   appGroup?: string;
   /**
    * @remarks
-   * Application ID.
+   * The application ID.
    * 
    * @example
    * 12345
@@ -61,10 +61,10 @@ export class ListDataServiceAppsResponseBodyDataAppList extends $dara.Model {
   appId?: number;
   /**
    * @remarks
-   * Application name.
+   * The application name.
    * 
    * @example
-   * 默认应用
+   * Default application
    */
   appName?: string;
   /**
@@ -74,7 +74,7 @@ export class ListDataServiceAppsResponseBodyDataAppList extends $dara.Model {
   isMember?: boolean;
   /**
    * @remarks
-   * Owner list.
+   * The list of owners.
    */
   ownerList?: ListDataServiceAppsResponseBodyDataAppListOwnerList[];
   static names(): { [key: string]: string } {
@@ -112,12 +112,12 @@ export class ListDataServiceAppsResponseBodyDataAppList extends $dara.Model {
 export class ListDataServiceAppsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Application list.
+   * The list of applications.
    */
   appList?: ListDataServiceAppsResponseBodyDataAppList[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 68
@@ -152,7 +152,7 @@ export class ListDataServiceAppsResponseBodyData extends $dara.Model {
 export class ListDataServiceAppsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -160,12 +160,12 @@ export class ListDataServiceAppsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of all applications under the tenant.
+   * The query parameters for listing all applications under the tenant.
    */
   data?: ListDataServiceAppsResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -173,7 +173,7 @@ export class ListDataServiceAppsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Details of the backend exception.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -189,7 +189,7 @@ export class ListDataServiceAppsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -21,7 +21,7 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
   appKey?: number;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
   clientFailCount?: number;
   /**
    * @remarks
-   * The source IP address of the access request.
+   * The IP address of the client.
    * 
    * @example
    * 192.168.1.1
@@ -53,7 +53,7 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
   clientIp?: string;
   /**
    * @remarks
-   * The number of abnormal API calls.
+   * The number of API call exceptions.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
   errorApiCount?: number;
   /**
    * @remarks
-   * The number of errors.
+   * The number of exceptions.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
   errorRate?: string;
   /**
    * @remarks
-   * The most recent call time. Format: yyyy-MM-dd HH:mm:ss.
+   * The time of the last call. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -85,7 +85,7 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
   lastCallTime?: string;
   /**
    * @remarks
-   * The gateway statistics time. Format: yyyy_MMdd_HHmm.
+   * The time when the gateway statistics are collected. Format: yyyy_MMdd_HHmm.
    * 
    * @example
    * 2025_0611_1011
@@ -93,7 +93,7 @@ export class ListDataServiceApiImpactsResponseBodyPageResultImpactList extends $
   minute?: string;
   /**
    * @remarks
-   * The number of offline instances.
+   * The offline count.
    * 
    * @example
    * 1
@@ -252,7 +252,7 @@ export class ListDataServiceApiImpactsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

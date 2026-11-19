@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The updated file folder after the move.
+   * The new directory of the file.
    * 
    * This parameter is required.
    * 
    * @example
-   * /xx测试/目录new
+   * /xxTest/directoryNew
    */
   directory?: string;
   /**
@@ -34,6 +34,9 @@ export class UpdateFileDirectoryRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

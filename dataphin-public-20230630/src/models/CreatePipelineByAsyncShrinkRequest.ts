@@ -5,21 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineByAsyncShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Request context information
+   * The request context information.
    * 
    * This parameter is required.
    */
   contextShrink?: string;
   /**
    * @remarks
-   * Create pipeline/workflow task configuration
+   * The configuration for creating a pipeline or workflow task.
    * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -28,6 +28,9 @@ export class CreatePipelineByAsyncShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

@@ -10,7 +10,7 @@ export class GetTableLineagesShrinkRequest extends $dara.Model {
   filterQueryShrink?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -19,6 +19,9 @@ export class GetTableLineagesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

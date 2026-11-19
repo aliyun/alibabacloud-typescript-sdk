@@ -25,7 +25,7 @@ export class GetComputeClusterRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operating user.
    * 
    * @example
    * 30001011

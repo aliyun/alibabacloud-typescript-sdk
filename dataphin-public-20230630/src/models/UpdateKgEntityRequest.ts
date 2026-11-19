@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKgEntityRequestUpdateCommandPropertyList extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The code of the property.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateKgEntityRequestUpdateCommandPropertyList extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The property value.
+   * The value of the property.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class UpdateKgEntityRequestUpdateCommandPropertyList extends $dara.Model 
 export class UpdateKgEntityRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The entity record ID.
+   * The ID of the entity record.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class UpdateKgEntityRequestUpdateCommand extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The entity type code.
+   * The code of the entity type.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class UpdateKgEntityRequestUpdateCommand extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity record property list.
+   * The property list of the entity record.
    * 
    * This parameter is required.
    */
@@ -114,6 +114,9 @@ export class UpdateKgEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

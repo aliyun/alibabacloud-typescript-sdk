@@ -13,7 +13,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The ID of the creator.
+   * The user ID of the creator.
    * 
    * @example
    * 30012011
@@ -29,7 +29,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   cronExpression?: string;
   /**
    * @remarks
-   * The ID of the scheduling object.
+   * The ID of the schedule object.
    * 
    * @example
    * 1
@@ -37,12 +37,12 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * Indicates whether the scheduling object is referenced by a rule.
+   * Indicates whether the object is referenced by a rule.
    */
   isRefByRule?: boolean;
   /**
    * @remarks
-   * The ID of the last modifier.
+   * The user ID of the last modifier.
    * 
    * @example
    * 30012011
@@ -50,7 +50,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   modifier?: string;
   /**
    * @remarks
-   * The modification time. The format is YYYY-MM-DD HH:mm:ss.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -58,7 +58,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   modifyTime?: string;
   /**
    * @remarks
-   * The name of the scheduling object.
+   * The name of the schedule object.
    * 
    * @example
    * test
@@ -74,12 +74,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   partitionExpression?: string;
   /**
    * @remarks
-   * The partition type. Valid values:
-   * - EVERY_DAY: Every day.
-   * - PRE_DAY: Previous day.
-   * - TODAY: Current day.
-   * - FIRST_DAY_OF_WEEK: First day of the week (Sunday).
-   * - CUSTOM: Custom.
+   * The partition type. Valid values: EVERY_DAY for daily, PRE_DAY for previous day, TODAY for current day, FIRST_DAY_OF_WEEK for first day of the week (Sunday), and CUSTOM for custom.
    * 
    * @example
    * CUSTOM
@@ -87,12 +82,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   partitionType?: string;
   /**
    * @remarks
-   * The scheduling epoch type for timed scheduling. Valid values:
-   * - DAILY: Daily.
-   * - WEEKLY: Weekly.
-   * - MONTHLY: Monthly.
-   * - HOURLY: Hourly.
-   * - MINUTELY: Minutely.
+   * The schedule cycle type for timed scheduling. Valid values: DAILY for day, WEEKLY for week, MONTHLY for month, HOURLY for hour, and MINUTELY for minute.
    * 
    * @example
    * DAILY
@@ -100,15 +90,12 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   periodScheduleIntervalType?: string;
   /**
    * @remarks
-   * The scheduling epoch values for timed scheduling.
+   * The schedule cycle values for timed scheduling.
    */
   periodScheduleParamList?: string[];
   /**
    * @remarks
-   * The trigger method for fixed task triggers. Valid values:
-   * - ALL_TASKS_FINISHED: All tasks finished.
-   * - ONE_TASKS_FINISHED: One task finished.
-   * - PRE_ONE_TASKS_START: Previous task started.
+   * The trigger method for static task trigger. Valid values: ALL_TASKS_FINISHED, ONE_TASKS_FINISHED, and PRE_ONE_TASKS_START.
    * 
    * @example
    * ONE_TASKS_FINISHED
@@ -121,9 +108,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   triggerNodeList?: string[];
   /**
    * @remarks
-   * The trigger method for trigger scheduling. Valid values:
-   * - STATIC_TASK_TRIGGER: Fixed task trigger.
-   * - CODE_CHECK_TRIGGER: Code check trigger.
+   * The trigger method for trigger scheduling. Valid values: STATIC_TASK_TRIGGER for static task trigger and CODE_CHECK_TRIGGER for code check trigger.
    * 
    * @example
    * STATIC_TASK_TRIGGER
@@ -131,12 +116,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   triggerType?: string;
   /**
    * @remarks
-   * The scheduling type. Valid values:
-   * - PERIOD_SCHEDULE: Timed scheduling.
-   * - MANUAL_SCHEDULE: Manual trigger.
-   * - CODE_CHECK_TRIGGER: Code check trigger.
-   * - STATIC_TASK_TRIGGER: Fixed node trigger.
-   * - DEPENDENCY_SCHEDULE: Dependency scheduling.
+   * The schedule type. Valid values: PERIOD_SCHEDULE for timed scheduling, MANUAL_SCHEDULE for manual trigger, CODE_CHECK_TRIGGER for code check trigger, STATIC_TASK_TRIGGER for static task trigger, and DEPENDENCY_SCHEDULE for dependency scheduling.
    * 
    * @example
    * PERIOD_SCHEDULE
@@ -144,9 +124,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   type?: string;
   /**
    * @remarks
-   * The validation scope. Valid values:
-   * - TASK_REFERRED_PARTITION: Task updated partition.
-   * - USER_DEFINED_PARTITION: User-defined partition.
+   * The validation scope. Valid values: TASK_REFERRED_PARTITION for task updated partition and USER_DEFINED_PARTITION for custom partition.
    * 
    * @example
    * TASK_REFERRED_PARTITION
@@ -248,7 +226,7 @@ export class GetQualityScheduleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The details of the scheduling object.
+   * The schedule object details.
    */
   qualityScheduleInfo?: GetQualityScheduleResponseBodyQualityScheduleInfo;
   /**

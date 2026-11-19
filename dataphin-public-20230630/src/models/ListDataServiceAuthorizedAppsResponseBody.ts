@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppListRemarkForDebugList extends $dara.Model {
   /**
    * @remarks
-   * The configuration item.
+   * The configuration key.
    * 
    * @example
    * k1
@@ -13,7 +13,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   key?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration value.
    * 
    * @example
    * v1
@@ -61,7 +61,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   appName?: string;
   /**
    * @remarks
-   * The ID of the authorized account, which is the ID of the applicant.
+   * The ID of the privilege account, which is the ID of the applicant.
    * 
    * @example
    * 30012101
@@ -69,7 +69,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   applyUserId?: string;
   /**
    * @remarks
-   * The name of the authorized account, which is the name of the applicant.
+   * The name of the privilege account, which is the name of the applicant.
    * 
    * @example
    * Test
@@ -85,7 +85,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   expireDate?: string;
   /**
    * @remarks
-   * The ID of the authorization request.
+   * The ID of the application request.
    * 
    * @example
    * 1121
@@ -114,7 +114,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   ownerUserName?: string;
   /**
    * @remarks
-   * The authorized account type. Valid values:
+   * The privilege account type. Valid values:
    * - 0: Individual account.
    * 
    * @example
@@ -124,8 +124,8 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   /**
    * @remarks
    * The permission type. Valid values:
-   * - 0: Usage permissions.
-   * - 1: Development permissions.
+   * - 0: Usage permission.
+   * - 1: Development permission.
    * 
    * @example
    * 1
@@ -149,12 +149,12 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   projectName?: string;
   /**
    * @remarks
-   * Indicates whether the user actually has the owner permissions for the application. The user may not have the permissions due to expiration or other reasons.
+   * Indicates whether the user actually has the owner permission for the application. The user may not have the permission due to expiration or other reasons.
    */
   realHasOwnerPrivilege?: boolean;
   /**
    * @remarks
-   * Indicates whether the user actually has the permissions.
+   * Indicates whether the user actually has the permission.
    */
   realHasPrivilege?: boolean;
   /**
@@ -170,12 +170,12 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   /**
    * @remarks
    * The detailed status of the revocation button. Valid values:
-   * - -1: Super administrators cannot relinquish the permission.
-   * - -2: Owners cannot relinquish the permission.
-   * - -3: Project managers without actual permissions (grayed out).
-   * - -4: Regular users without permissions cannot relinquish the permission.
-   * - 1: Project managers with actual permissions can relinquish the permission.
-   * - 2: Regular users with permissions can relinquish the permission.
+   * - -1: The super administrator cannot return the permission.
+   * - -2: The owner cannot return the permission.
+   * - -3: The project manager does not have actual permissions, and the button is grayed out.
+   * - -4: The regular user does not have permissions and cannot return the permission.
+   * - 1: The project manager has actual permissions and can return the permission.
+   * - 2: The regular user has permissions and can return the permission.
    * 
    * @example
    * -1
@@ -247,7 +247,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResult extends $dara.M
   authorizedAppList?: ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppList[];
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 68

@@ -49,7 +49,7 @@ export class CreateKgRelationRequestCreateCommandPropertyList extends $dara.Mode
 export class CreateKgRelationRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The relationship record property list.
+   * The property list of the relationship record.
    */
   propertyList?: CreateKgRelationRequestCreateCommandPropertyList[];
   /**
@@ -115,7 +115,7 @@ export class CreateKgRelationRequestCreateCommand extends $dara.Model {
 export class CreateKgRelationRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -131,6 +131,9 @@ export class CreateKgRelationRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

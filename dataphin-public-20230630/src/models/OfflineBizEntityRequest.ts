@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineBizEntityRequestOfflineCommand extends $dara.Model {
   /**
    * @remarks
-   * Business unit ID
+   * The ID of the business unit.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class OfflineBizEntityRequestOfflineCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * Offline comment
+   * The comment for the offline operation.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class OfflineBizEntityRequestOfflineCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Business entity ID
+   * The ID of the business entity.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class OfflineBizEntityRequestOfflineCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Business entity type. For more information, see the "CreateBizEntity" operation.
+   * The type of the business entity. For more information, see the create business entity operation.
    * 
    * This parameter is required.
    * 
@@ -73,14 +73,14 @@ export class OfflineBizEntityRequestOfflineCommand extends $dara.Model {
 export class OfflineBizEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * Offline request
+   * The offline request.
    * 
    * This parameter is required.
    */
   offlineCommand?: OfflineBizEntityRequestOfflineCommand;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -89,6 +89,9 @@ export class OfflineBizEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

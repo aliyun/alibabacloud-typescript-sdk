@@ -30,7 +30,7 @@ export class GetStandardWordRootRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator user ID.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

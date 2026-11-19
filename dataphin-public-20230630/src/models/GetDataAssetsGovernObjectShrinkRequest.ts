@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAssetsGovernObjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The query instruction.
+   * The query command.
    * 
    * This parameter is required.
    */
@@ -22,7 +22,7 @@ export class GetDataAssetsGovernObjectShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operation user.
+   * The operator user ID.
    * 
    * @example
    * 30001011

@@ -29,10 +29,10 @@ export class ListDataDomainsResponseBodyDataDataDomainList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the data domain.
+   * The display name.
    * 
    * @example
-   * 测试
+   * Test
    */
   displayName?: string;
   /**
@@ -53,7 +53,7 @@ export class ListDataDomainsResponseBodyDataDataDomainList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the data domain.
+   * The data domain ID.
    * 
    * @example
    * 1241844456
@@ -61,7 +61,7 @@ export class ListDataDomainsResponseBodyDataDataDomainList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the data domain.
+   * The user ID of the last modifier.
    * 
    * @example
    * 30010010
@@ -69,15 +69,15 @@ export class ListDataDomainsResponseBodyDataDataDomainList extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * The name of the user who last modified the data domain.
+   * The name of the last modifier.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
    * @remarks
-   * The name of the data domain.
+   * The name.
    * 
    * @example
    * dm_code_name
@@ -85,15 +85,15 @@ export class ListDataDomainsResponseBodyDataDataDomainList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the owner of the business object.
+   * The user ID of the business object owner.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The ID of the owner of the business object.
+   * The user ID of the business object owner.
    * 
    * @example
    * 30010010
@@ -155,7 +155,7 @@ export class ListDataDomainsResponseBodyDataDataDomainList extends $dara.Model {
 export class ListDataDomainsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the data domains.
+   * The data domain details.
    */
   dataDomainList?: ListDataDomainsResponseBodyDataDataDomainList[];
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class ListDataDomainsResponseBodyData extends $dara.Model {
 export class ListDataDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -222,7 +222,7 @@ export class ListDataDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

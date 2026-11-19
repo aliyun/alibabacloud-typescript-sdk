@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityArchiveTablesResponseBodyDataArchiveTableList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the archived table. This ID is used when you update, switch to active, or delete the archived table.
+   * The ID of the archived table. This ID is used when you modify, activate, or delete the archived table.
    * 
    * @example
    * 7673533
@@ -13,7 +13,7 @@ export class ListQualityArchiveTablesResponseBodyDataArchiveTableList extends $d
   archiveTableId?: number;
   /**
    * @remarks
-   * The full table name in the format of project_name.table_name.
+   * The full table name, in the format of project name.table name.
    * 
    * @example
    * Train.a01_reanme_exception_data
@@ -21,15 +21,15 @@ export class ListQualityArchiveTablesResponseBodyDataArchiveTableList extends $d
   archiveTableName?: string;
   /**
    * @remarks
-   * The DDL statement for creating the archived table, which includes dataphin_quality_* system fields and the dataphin_quality_validate_date partition field definition.
+   * The DDL statement for creating the archived table, including the definitions of the dataphin_quality_* system fields and the dataphin_quality_validate_date partition field.
    * 
    * @example
-   * create table mfg_fin_cdm.a_shixin_b_exception_data\\n         (  \\n            dataphin_quality_tenant_id varchar(64) comment \\"Tenant ID\\"\\n         , \\n            dataphin_quality_rule_id varchar(64) comment \\"Quality rule ID\\"\\n         , \\n            dataphin_quality_rule_name string comment \\"Quality rule name\\"\\n         , \\n            dataphin_quality_column_name varchar(1024) comment \\"Validation field name\\"\\n         , \\n            dataphin_quality_watch_task_id varchar(128) comment \\"Monitored object task ID\\"\\n         , \\n            dataphin_quality_rule_task_id varchar(64) comment \\"Rule task ID\\"\\n         , \\n            dataphin_quality_validate_time varchar(64) comment \\"Quality validation time\\"\\n         , \\n            dataphin_quality_archive_mode varchar(32) comment \\"Anomaly archiving mode, ONLY_ERROR_FIELD/FULL_RECORD\\"\\n         , \\n            dataphin_quality_error_data string comment \\"Anomaly data\\"\\n         , \\n            执行依据文号 string comment \\"\\"\\n         , \\n            立案时间 string comment \\"\\"\\n         , \\n            案号 string comment \\"\\"\\n         , \\n            执行法院 string comment \\"\\"\\n         , \\n            性别 string comment \\"\\"\\n         , \\n            省份 string comment \\"\\"\\n         , \\n            被执行人的履行情况 string comment \\"\\"\\n         , \\n            发布时间 string comment \\"\\"\\n         , \\n            姓名 string comment \\"\\"\\n         , \\n            身份证号 string comment \\"\\"\\n         , \\n            失信被执行人行为具体情形 string comment \\"\\"\\n         ) \\n        partitioned by (dataphin_quality_validate_date string comment \\"Validation date (partition field)\\")
+   * create table mfg_fin_cdm.a_shixin_b_exception_data\\n         (  \\n            dataphin_quality_tenant_id varchar(64) comment \\"Tenant ID\\"\\n         , \\n            dataphin_quality_rule_id varchar(64) comment \\"Quality rule ID\\"\\n         , \\n            dataphin_quality_rule_name string comment \\"Quality rule name\\"\\n         , \\n            dataphin_quality_column_name varchar(1024) comment \\"Check field name\\"\\n         , \\n            dataphin_quality_watch_task_id varchar(128) comment \\"Monitored object task ID\\"\\n         , \\n            dataphin_quality_rule_task_id varchar(64) comment \\"Rule task ID\\"\\n         , \\n            dataphin_quality_validate_time varchar(64) comment \\"Quality check time\\"\\n         , \\n            dataphin_quality_archive_mode varchar(32) comment \\"Exception archiving mode, ONLY_ERROR_FIELD/FULL_RECORD\\"\\n         , \\n            dataphin_quality_error_data string comment \\"Exception data\\"\\n         , \\n            execution_document_number string comment \\"\\"\\n         , \\n            filing_time string comment \\"\\"\\n         , \\n            case_number string comment \\"\\"\\n         , \\n            executing_court string comment \\"\\"\\n         , \\n            gender string comment \\"\\"\\n         , \\n            province string comment \\"\\"\\n         , \\n            fulfillment_status_of_the_executee string comment \\"\\"\\n         , \\n            publication_time string comment \\"\\"\\n         , \\n            name string comment \\"\\"\\n         , \\n            id_number string comment \\"\\"\\n         , \\n            specific_circumstances_of_dishonesty string comment \\"\\"\\n         ) \\n        partitioned by (dataphin_quality_validate_date string comment \\"Check date (partition field)\\")
    */
   ddl?: string;
   /**
    * @remarks
-   * Indicates whether this is the active archived table. At least one active archived table must exist under the same monitored object.
+   * Indicates whether the archived table is active. At least one archived table must be active under the same monitored object.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListQualityArchiveTablesResponseBodyDataArchiveTableList extends $d
   isDefault?: boolean;
   /**
    * @remarks
-   * The lifecycle in days. An empty value indicates no lifecycle is configured.
+   * The lifecycle in days. An empty value indicates that no lifecycle is configured.
    * 
    * @example
    * 30
@@ -45,7 +45,7 @@ export class ListQualityArchiveTablesResponseBodyDataArchiveTableList extends $d
   lifecycle?: number;
   /**
    * @remarks
-   * The maximum number of records to archive per validation. A value of -1 indicates full archiving.
+   * The maximum number of archived records per check. A value of -1 indicates full archiving.
    * 
    * @example
    * 10000
@@ -85,12 +85,12 @@ export class ListQualityArchiveTablesResponseBodyDataArchiveTableList extends $d
 export class ListQualityArchiveTablesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of anomaly archived tables.
+   * The list of exception archived tables.
    */
   archiveTableList?: ListQualityArchiveTablesResponseBodyDataArchiveTableList[];
   /**
    * @remarks
-   * The number of custom anomaly archived tables.
+   * The number of custom exception archived tables.
    * 
    * @example
    * 2
@@ -133,7 +133,7 @@ export class ListQualityArchiveTablesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of querying the anomaly archived table list.
+   * The query result for the exception archived table list.
    */
   data?: ListQualityArchiveTablesResponseBodyData;
   /**
@@ -162,7 +162,7 @@ export class ListQualityArchiveTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

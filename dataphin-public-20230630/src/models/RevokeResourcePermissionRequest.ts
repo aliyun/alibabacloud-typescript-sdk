@@ -35,20 +35,20 @@ export class RevokeResourcePermissionRequestRevokeCommandResourceList extends $d
 export class RevokeResourcePermissionRequestRevokeCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of operations.
+   * The operation list.
    */
   operateList?: string[];
   /**
    * @remarks
-   * The reason for revoking the authorization.
+   * The revocation reason.
    * 
    * @example
-   * xx
+   * The business authorization has expired
    */
   reason?: string;
   /**
    * @remarks
-   * The list of resources.
+   * The resources.
    * 
    * This parameter is required.
    */
@@ -120,6 +120,9 @@ export class RevokeResourcePermissionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

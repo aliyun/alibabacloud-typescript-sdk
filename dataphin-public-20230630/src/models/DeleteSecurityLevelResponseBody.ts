@@ -13,12 +13,12 @@ export class DeleteSecurityLevelResponseBodyDeleteResult extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The list of data classification IDs that are associated with the current classification level. This parameter is returned only when this error is triggered.
+   * The list of data classification IDs that are bound to the current data classification level. This parameter is returned only when this error is triggered.
    */
   relatedClassifyIdList?: number[];
   /**
    * @remarks
-   * Indicates whether the deletion was successful.
+   * Indicates whether the deletion is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -89,7 +89,7 @@ export class DeleteSecurityLevelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBizUnitResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created data domain.
+   * The ID of the created business unit.
    * 
    * @example
    * 545844456
@@ -35,7 +35,7 @@ export class CreateBizUnitResponseBodyCreateResult extends $dara.Model {
 export class CreateBizUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -72,7 +72,7 @@ export class CreateBizUnitResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

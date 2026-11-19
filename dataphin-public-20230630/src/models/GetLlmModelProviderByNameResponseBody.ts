@@ -13,7 +13,7 @@ export class GetLlmModelProviderByNameResponseBodyDataLlmModels extends $dara.Mo
   cnName?: string;
   /**
    * @remarks
-   * The model description.
+   * The description of the model.
    * 
    * @example
    * General text generation model
@@ -21,7 +21,7 @@ export class GetLlmModelProviderByNameResponseBodyDataLlmModels extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The list of available dimension values for the embedding model. Only embedding models have this value.
+   * The list of available dimension values for the embedding model. This value is available only for embedding models.
    */
   embeddingDimensions?: number[];
   /**
@@ -34,7 +34,7 @@ export class GetLlmModelProviderByNameResponseBodyDataLlmModels extends $dara.Mo
   enabled?: boolean;
   /**
    * @remarks
-   * The model invocation method. Valid values:
+   * The model invocation type. Valid values:
    * - OPEN_AI
    * - DASH_SCOPE
    * 
@@ -44,7 +44,7 @@ export class GetLlmModelProviderByNameResponseBodyDataLlmModels extends $dara.Mo
   invokeType?: string;
   /**
    * @remarks
-   * The model ID.
+   * The ID of the model.
    * 
    * @example
    * 1001
@@ -53,16 +53,16 @@ export class GetLlmModelProviderByNameResponseBodyDataLlmModels extends $dara.Mo
   /**
    * @remarks
    * The list of model modality types. Valid values:
-   * - TEXT: text
-   * - IMAGE: image
-   * - AUDIO: audio
-   * - VIDEO: video
-   * - EMBEDDING: embedding
+   * - TEXT: Text.
+   * - IMAGE: Image.
+   * - AUDIO: Audio.
+   * - VIDEO: Video.
+   * - EMBEDDING: Embedding.
    */
   modelTypes?: string[];
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
    * qwen-max
@@ -79,9 +79,9 @@ export class GetLlmModelProviderByNameResponseBodyDataLlmModels extends $dara.Mo
   /**
    * @remarks
    * The list of model task capabilities. Valid values:
-   * - ASR: speech recognition
-   * - TTS: speech synthesis
-   * - TRANSLATION: speech translation
+   * - ASR: Speech recognition.
+   * - TTS: Speech synthesis.
+   * - TRANSLATION: Speech translation.
    */
   tasks?: string[];
   static names(): { [key: string]: string } {
@@ -143,7 +143,7 @@ export class GetLlmModelProviderByNameResponseBodyData extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * The enabling status.
+   * The enabled status.
    * 
    * @example
    * true
@@ -165,8 +165,8 @@ export class GetLlmModelProviderByNameResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The source of the model service provider. Valid values:
-   * - BUILTIN_MODEL: built-in
-   * - BYOM: user-provided
+   * - BUILTIN_MODEL: Built-in.
+   * - BYOM: Bring your own model.
    * 
    * @example
    * BUILTIN_MODEL
@@ -174,7 +174,7 @@ export class GetLlmModelProviderByNameResponseBodyData extends $dara.Model {
   providerSource?: string;
   /**
    * @remarks
-   * The service provider type. Valid values:
+   * The provider type. Valid values:
    * - BAILIAN
    * - DEEPSEEK
    * - AI_STACK
@@ -241,7 +241,7 @@ export class GetLlmModelProviderByNameResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The large language model service provider and available models.
+   * The large model service provider and available models.
    */
   data?: GetLlmModelProviderByNameResponseBodyData;
   /**
@@ -254,7 +254,7 @@ export class GetLlmModelProviderByNameResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The details of the backend response exception.
    * 
    * @example
    * internal error
@@ -270,7 +270,7 @@ export class GetLlmModelProviderByNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

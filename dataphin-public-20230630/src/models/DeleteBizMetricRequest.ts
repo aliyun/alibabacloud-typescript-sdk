@@ -37,7 +37,7 @@ export class DeleteBizMetricRequestDeleteBizMetricCommand extends $dara.Model {
 export class DeleteBizMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete request.
+   * The deletion request.
    * 
    * This parameter is required.
    */
@@ -53,6 +53,9 @@ export class DeleteBizMetricRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

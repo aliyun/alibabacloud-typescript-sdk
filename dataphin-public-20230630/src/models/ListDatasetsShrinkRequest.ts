@@ -20,7 +20,7 @@ export class ListDatasetsShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator ID.
+   * The operator user ID.
    * 
    * @example
    * 30001011

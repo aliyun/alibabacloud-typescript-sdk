@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserGroupRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of administrator user IDs for the user group.
+   * The user group administrators.
    */
   adminUserIdList?: string[];
   /**
    * @remarks
-   * The description of the user group.
+   * The description.
    * 
    * @example
-   * xx
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the user group.
+   * The user group ID.
    * 
    * This parameter is required.
    * 
@@ -28,10 +28,10 @@ export class UpdateUserGroupRequestUpdateCommand extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the user group.
+   * The user group name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -76,13 +76,16 @@ export class UpdateUserGroupRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to edit the user group.
+   * The update user group command.
    */
   updateCommand?: UpdateUserGroupRequestUpdateCommand;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   authJson?: string;
   /**
    * @remarks
-   * The user ID of the creator.
+   * The ID of the user who created the role.
    * 
    * @example
    * 30121201
@@ -21,7 +21,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the role was created.
    * 
    * @example
    * 2026-01-07 16:45:30
@@ -29,7 +29,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The time when the role was last modified.
    * 
    * @example
    * 2026-01-07 16:45:30
@@ -37,7 +37,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The user ID of the modifier.
+   * The ID of the user who last modified the role.
    * 
    * @example
    * 30121201
@@ -45,7 +45,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The role description.
+   * The description of the role.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   roleDesc?: string;
   /**
    * @remarks
-   * The role key.
+   * The key of the role.
    * 
    * @example
    * test::1212
@@ -61,7 +61,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   roleKey?: string;
   /**
    * @remarks
-   * The role name.
+   * The name of the role.
    * 
    * @example
    * test
@@ -69,9 +69,9 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The role type. Valid values:
-   * - BUILD_IN: built-in role
-   * - CUSTOM: custom role
+   * The type of the role. Valid values:
+   * - BUILD_IN: built-in role.
+   * - CUSTOM: custom role.
    * 
    * @example
    * CUSTOM
@@ -79,10 +79,10 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * The role status. Valid values:
-   * - ON: enabled
-   * - OFF: disabled
-   * - DEL: deleted
+   * The status of the role. Valid values:
+   * - ON: enabled.
+   * - OFF: disabled.
+   * - DEL: deleted.
    * 
    * @example
    * ON
@@ -98,7 +98,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The tenant type.
+   * The type of the tenant.
    * 
    * @example
    * CUSTOM
@@ -150,7 +150,7 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
 export class ListTenantRolesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request error code. OK indicates that the request is successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -158,7 +158,7 @@ export class ListTenantRolesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code of the backend response.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -166,7 +166,7 @@ export class ListTenantRolesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message of the request.
+   * The error message.
    * 
    * @example
    * successful
@@ -182,7 +182,7 @@ export class ListTenantRolesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The role list.
+   * The list of roles.
    */
   roleList?: ListTenantRolesResponseBodyRoleList[];
   /**

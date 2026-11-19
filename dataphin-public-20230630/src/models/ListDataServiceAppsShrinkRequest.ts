@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceAppsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Query the list of all applications under the tenant.
+   * The query parameters for listing all applications under the tenant.
    * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -21,6 +21,9 @@ export class ListDataServiceAppsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

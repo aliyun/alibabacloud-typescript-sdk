@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserByAccessKeyResponseBodyUserInfoTenantRoles extends $dara.Model {
   /**
    * @remarks
-   * The role identifier, such as SUPER_ADMIN or COMMON_USER.
+   * The role key, such as SUPER_ADMIN or COMMON_USER.
    * 
    * @example
    * SUPER_ADMIN
@@ -16,7 +16,7 @@ export class GetUserByAccessKeyResponseBodyUserInfoTenantRoles extends $dara.Mod
    * The role name.
    * 
    * @example
-   * Tenant Administrator
+   * Tenant administrator
    */
   roleName?: string;
   static names(): { [key: string]: string } {
@@ -61,7 +61,7 @@ export class GetUserByAccessKeyResponseBodyUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The email address of the user.
+   * The email address.
    * 
    * @example
    * xx@aliyun.com
@@ -77,7 +77,7 @@ export class GetUserByAccessKeyResponseBodyUserInfo extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The account source type, such as ALIYUN_OAUTH2, PUBLICCLOUD_OAUTH2, BUC, or APSARA.
+   * The source type of the account, such as ALIYUN_OAUTH2, PUBLICCLOUD_OAUTH2, BUC, or APSARA.
    * 
    * @example
    * ALIYUN_OAUTH2
@@ -85,7 +85,7 @@ export class GetUserByAccessKeyResponseBodyUserInfo extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The source account ID of the user during SSO integration.
+   * The source account ID of the user when SSO is integrated.
    * 
    * @example
    * 12345
@@ -93,10 +93,7 @@ export class GetUserByAccessKeyResponseBodyUserInfo extends $dara.Model {
   sourceUserId?: string;
   /**
    * @remarks
-   * The tenant member status. Valid values:
-   * - NORMAL: Normal.
-   * - DEACTIVATE: Deactivated.
-   * - DELETE: Deleted.
+   * The status of the tenant member. Valid values: NORMAL, DEACTIVATE, and DELETE.
    * 
    * @example
    * NORMAL
@@ -104,12 +101,12 @@ export class GetUserByAccessKeyResponseBodyUserInfo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tenant-level roles assigned to the AK/SK owner in the current tenant.
+   * The list of tenant-level roles. These are the roles of the user to whom the AccessKey ID and AccessKey secret belong in the current tenant.
    */
   tenantRoles?: GetUserByAccessKeyResponseBodyUserInfoTenantRoles[];
   /**
    * @remarks
-   * The username of the account.
+   * The username.
    * 
    * @example
    * zhangsan
@@ -158,7 +155,7 @@ export class GetUserByAccessKeyResponseBodyUserInfo extends $dara.Model {
 export class GetUserByAccessKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -174,7 +171,7 @@ export class GetUserByAccessKeyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned for the request.
+   * The error message.
    * 
    * @example
    * successful
@@ -190,7 +187,7 @@ export class GetUserByAccessKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

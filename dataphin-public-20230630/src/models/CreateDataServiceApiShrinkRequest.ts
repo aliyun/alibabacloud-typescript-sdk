@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceApiShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request for creating an API.
+   * The request to create an API.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class CreateDataServiceApiShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operation user.
+   * 
    * @example
    * 30001011
    */

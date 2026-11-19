@@ -5,17 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   /**
    * @remarks
-   * The category. Valid values:
-   * - 1: Window function.
-   * - 2: Statistical function.
-   * - 3: Numerical function.
-   * - 4: String function.
-   * - 5: Time function.
-   * - 6: IP address helper function.
-   * - 7: URL-related function.
-   * - 8: Encoding and decoding function.
-   * - 9: Business-related function.
-   * - 10: Other.
+   * The category of the function. Valid values: 1: Window function. 2: Aggregate function. 3: Numeric function. 4: String function. 5: Time function. 6: IP address helper function. 7: URL-related function. 8: Encoding and decoding function. 9: Business-related function. 10: Other.
    * 
    * @example
    * 10
@@ -23,7 +13,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   category?: number;
   /**
    * @remarks
-   * The registered class name.
+   * The name of the registered class.
    * 
    * @example
    * com.lydaas.dataphin.UdfTest
@@ -47,7 +37,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   computeEngineType?: string;
   /**
    * @remarks
-   * The creator.
+   * The creator of the function.
    * 
    * @example
    * 30012110
@@ -55,7 +45,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the function.
    * 
    * @example
    * test
@@ -63,7 +53,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The storage directory.
+   * The directory where the function is stored.
    * 
    * @example
    * /
@@ -71,7 +61,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The creation time. Format: yyyy-MM-d HH:mm:ss.
+   * The time when the function was created. Format: yyyy-MM-d HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -79,7 +69,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time. Format: yyyy-MM-d HH:mm:ss.
+   * The time when the function was last updated. Format: yyyy-MM-d HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -87,7 +77,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The custom function ID.
+   * The ID of the custom function.
    * 
    * @example
    * 1030111021
@@ -95,7 +85,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The last modifier.
+   * The user who last modified the function.
    * 
    * @example
    * 30012110
@@ -103,7 +93,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * The function name.
+   * The name of the function.
    * 
    * @example
    * udf_to_lower
@@ -192,7 +182,7 @@ export class GetUdfByVersionResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The custom function details.
+   * The details of the custom function.
    */
   udfInfo?: GetUdfByVersionResponseBodyUdfInfo;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class CreateUserGroupRequestCreateCommand extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * The user IDs of the user group administrators.
+   * The IDs of the administrator users in the user group.
    */
   adminUserIdList?: string[];
   /**
@@ -21,7 +21,7 @@ export class CreateUserGroupRequestCreateCommand extends $dara.Model {
    * The description of the user group.
    * 
    * @example
-   * xx
+   * Sample user group description
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class CreateUserGroupRequestCreateCommand extends $dara.Model {
    * The name of the user group.
    * 
    * @example
-   * xx用户组
+   * xx user group
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -79,6 +79,9 @@ export class CreateUserGroupRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

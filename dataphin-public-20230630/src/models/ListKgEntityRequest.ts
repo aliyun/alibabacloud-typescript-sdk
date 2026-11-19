@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKgEntityRequestListQueryFilterList extends $dara.Model {
   /**
    * @remarks
-   * The operator. Valid values:
-   * - eq: equal to.
-   * - neq: not equal to.
-   * - contains: contains.
-   * - gt: greater than.
-   * - gte: greater than or equal to.
-   * - lt: less than.
-   * - lte: less than or equal to.
-   * - like: fuzzy match.
+   * The operator. Valid values: eq (equal to), neq (not equal to), contains (contains), gt (greater than), gte (greater than or equal to), lt (less than), lte (less than or equal to), and like (fuzzy match).
    * 
    * This parameter is required.
    * 
@@ -33,7 +25,7 @@ export class ListKgEntityRequestListQueryFilterList extends $dara.Model {
   propertyCode?: string;
   /**
    * @remarks
-   * The property match value.
+   * The property value.
    * 
    * This parameter is required.
    * 
@@ -74,7 +66,7 @@ export class ListKgEntityRequestListQuery extends $dara.Model {
   filterList?: ListKgEntityRequestListQueryFilterList[];
   /**
    * @remarks
-   * The keyword for searching display properties.
+   * The keyword search for displayed properties.
    * 
    * @example
    * test
@@ -137,7 +129,7 @@ export class ListKgEntityRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The paged query filter conditions.
+   * The paged search filter conditions.
    */
   listQuery?: ListKgEntityRequestListQuery;
   /**
@@ -151,6 +143,9 @@ export class ListKgEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

@@ -73,7 +73,7 @@ export class GetDataSourceDependenciesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dependency records.
+   * The reference records.
    */
   dependencyList?: GetDataSourceDependenciesResponseBodyDependencyList[];
   /**
@@ -102,7 +102,7 @@ export class GetDataSourceDependenciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -15,7 +15,7 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * The ID of the application.
+   * The app ID.
    * 
    * @example
    * 1203
@@ -25,7 +25,7 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
    * @remarks
    * The permission type. Valid values:
    * - USE: use permission
-   * - DELEGATION: delegation permission.
+   * - DELEGATION: delegation permission
    * 
    * @example
    * USE
@@ -35,7 +35,7 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
    * @remarks
    * The API environment. Valid values:
    * - DEV: development environment
-   * - PROD: production environment.
+   * - PROD: production environment
    * 
    * @example
    * PROD
@@ -45,7 +45,7 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
    * @remarks
    * The authorization object type. Valid values:
    * - APP: application
-   * - USER: user.
+   * - USER: user
    * 
    * @example
    * APP
@@ -53,7 +53,7 @@ export class RevokeDataServiceApiRequestRevokeCommand extends $dara.Model {
   granteeType?: string;
   /**
    * @remarks
-   * The reason for the request.
+   * The reason for the application.
    * 
    * This parameter is required.
    * 
@@ -114,6 +114,9 @@ export class RevokeDataServiceApiRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */
@@ -130,7 +133,7 @@ export class RevokeDataServiceApiRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The revoke instruction.
+   * The authorization command.
    * 
    * This parameter is required.
    */

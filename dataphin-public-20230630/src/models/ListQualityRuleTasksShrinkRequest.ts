@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityRuleTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The paging query conditions.
+   * The paging conditions for the paged query.
    */
   listQueryShrink?: string;
   /**
@@ -20,7 +20,7 @@ export class ListQualityRuleTasksShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator user ID.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

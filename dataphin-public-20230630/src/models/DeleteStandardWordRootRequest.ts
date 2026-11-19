@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardWordRootRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the root word.
+   * The word root name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 平均值
+   * Average
    */
   name?: string;
   /**
@@ -24,6 +24,9 @@ export class DeleteStandardWordRootRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

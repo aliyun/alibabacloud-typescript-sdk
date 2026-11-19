@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceAppMembersResponseBodyDataMemberList extends $dara.Model {
   /**
    * @remarks
-   * The authorization expiration time.
+   * The expiration time of the authorization.
    * 
    * @example
    * 2026-12-12
@@ -13,10 +13,9 @@ export class GetDataServiceAppMembersResponseBodyDataMemberList extends $dara.Mo
   effectiveEnd?: string;
   /**
    * @remarks
-   * The role of the user. Valid values:
-   * 
-   * - general: regular member.
-   * - owner: application owner.
+   * The user role. Valid values:
+   * - general: regular member
+   * - owner: application owner
    * 
    * @example
    * general
@@ -96,7 +95,7 @@ export class GetDataServiceAppMembersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The member list of the data service application.
+   * The members of the data service application.
    */
   data?: GetDataServiceAppMembersResponseBodyData;
   /**
@@ -109,7 +108,7 @@ export class GetDataServiceAppMembersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned from the backend.
+   * The details of the backend response exception.
    * 
    * @example
    * internal error
@@ -125,7 +124,7 @@ export class GetDataServiceAppMembersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

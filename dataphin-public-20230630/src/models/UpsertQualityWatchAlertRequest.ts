@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertDutyList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the on-duty alert schedule.
+   * The ID of the on-call schedule.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertDut
   id?: string;
   /**
    * @remarks
-   * The name of the on-duty alert schedule.
+   * The name of the on-call schedule.
    * 
    * @example
    * test
@@ -85,12 +85,12 @@ export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertUse
 export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfo extends $dara.Model {
   /**
    * @remarks
-   * The alert channels for on-duty schedules.
+   * The alert channels for on-call schedules.
    */
   alertDutyChannelList?: string[];
   /**
    * @remarks
-   * The list of on-duty schedules for alerts.
+   * The list of on-call schedules to be alerted.
    */
   alertDutyList?: UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertDutyList[];
   /**
@@ -105,12 +105,12 @@ export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfo extends
   alertUserChannelList?: string[];
   /**
    * @remarks
-   * The list of users to receive alerts.
+   * The list of users to be alerted.
    */
   alertUserList?: UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfoAlertUserList[];
   /**
    * @remarks
-   * Specifies whether to enable alerts for the quality owner.
+   * Specifies whether to enable alerting for the quality owner.
    */
   enableAlertQualityOwner?: boolean;
   static names(): { [key: string]: string } {
@@ -162,7 +162,7 @@ export class UpsertQualityWatchAlertRequestUpsertCommandQualityAlertInfo extends
 export class UpsertQualityWatchAlertRequestUpsertCommand extends $dara.Model {
   /**
    * @remarks
-   * The alert configuration details.
+   * The details of the alert settings.
    * 
    * This parameter is required.
    */
@@ -215,13 +215,16 @@ export class UpsertQualityWatchAlertRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The update command.
    * 
    * This parameter is required.
    */

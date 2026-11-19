@@ -56,7 +56,7 @@ export class UpdateComputeClusterResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The backend response exception details.
    * 
    * @example
    * internal error
@@ -72,7 +72,7 @@ export class UpdateComputeClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

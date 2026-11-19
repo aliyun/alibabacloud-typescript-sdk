@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoAlertDutyList extends $dara.Model {
   /**
    * @remarks
-   * The alert duty roster ID.
+   * The on-call schedule ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoA
   id?: string;
   /**
    * @remarks
-   * The alert duty roster name.
+   * The on-call schedule name.
    * 
    * @example
    * test
@@ -85,12 +85,12 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoA
 export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfo extends $dara.Model {
   /**
    * @remarks
-   * The duty roster alert channels.
+   * The on-call schedule alert channels.
    */
   alertDutyChannelList?: string[];
   /**
    * @remarks
-   * The duty roster alert list.
+   * The on-call schedule alert list.
    */
   alertDutyList?: GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoAlertDutyList[];
   /**
@@ -110,7 +110,7 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfo 
   alertUserList?: GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfoAlertUserList[];
   /**
    * @remarks
-   * Indicates whether alerting is enabled for the quality owner.
+   * Indicates whether alerting for quality owners is enabled.
    */
   enableAlertQualityOwner?: boolean;
   /**
@@ -188,7 +188,7 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBody extends $dara.Mo
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -196,7 +196,7 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBody extends $dara.Mo
   message?: string;
   /**
    * @remarks
-   * The alert settings details.
+   * The alert configuration details.
    */
   qualityAlertInfo?: GetQualityAlertOfAllRuleScopeByWatchIdResponseBodyQualityAlertInfo;
   /**
@@ -209,7 +209,7 @@ export class GetQualityAlertOfAllRuleScopeByWatchIdResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

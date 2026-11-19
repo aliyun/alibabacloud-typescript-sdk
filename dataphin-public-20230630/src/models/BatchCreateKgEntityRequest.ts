@@ -49,6 +49,14 @@ export class BatchCreateKgEntityRequestCreateCommandEntityListPropertyList exten
 export class BatchCreateKgEntityRequestCreateCommandEntityList extends $dara.Model {
   /**
    * @remarks
+   * The business ID of the entity record.
+   * 
+   * @example
+   * 12345
+   */
+  bizId?: string;
+  /**
+   * @remarks
    * The entity type code.
    * 
    * This parameter is required.
@@ -66,6 +74,7 @@ export class BatchCreateKgEntityRequestCreateCommandEntityList extends $dara.Mod
   propertyList?: BatchCreateKgEntityRequestCreateCommandEntityListPropertyList[];
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       entityType: 'EntityType',
       propertyList: 'PropertyList',
     };
@@ -73,6 +82,7 @@ export class BatchCreateKgEntityRequestCreateCommandEntityList extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       entityType: 'string',
       propertyList: { 'type': 'array', 'itemType': BatchCreateKgEntityRequestCreateCommandEntityListPropertyList },
     };

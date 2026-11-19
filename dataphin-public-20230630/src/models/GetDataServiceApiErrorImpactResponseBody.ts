@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceApiErrorImpactResponseBodyDataErrorApiList extends $dara.Model {
   /**
    * @remarks
-   * The API name.
+   * The name of the API.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class GetDataServiceApiErrorImpactResponseBodyDataErrorApiList extends $d
   apiName?: string;
   /**
    * @remarks
-   * The API ID.
+   * The ID of the API.
    * 
    * @example
    * 2012
@@ -71,7 +71,7 @@ export class GetDataServiceApiErrorImpactResponseBodyDataErrorAppList extends $d
   appKey?: number;
   /**
    * @remarks
-   * The app name.
+   * The name of the application.
    * 
    * @example
    * app1
@@ -79,7 +79,7 @@ export class GetDataServiceApiErrorImpactResponseBodyDataErrorAppList extends $d
   appName?: string;
   /**
    * @remarks
-   * The number of exceptions for the app.
+   * The number of exceptions for the application.
    * 
    * @example
    * 10
@@ -115,12 +115,12 @@ export class GetDataServiceApiErrorImpactResponseBodyDataErrorAppList extends $d
 export class GetDataServiceApiErrorImpactResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of APIs affected by exceptions.
+   * The APIs affected by the exceptions.
    */
   errorApiList?: GetDataServiceApiErrorImpactResponseBodyDataErrorApiList[];
   /**
    * @remarks
-   * The list of apps affected by exceptions.
+   * The applications affected by the exceptions.
    */
   errorAppList?: GetDataServiceApiErrorImpactResponseBodyDataErrorAppList[];
   static names(): { [key: string]: string } {
@@ -163,7 +163,7 @@ export class GetDataServiceApiErrorImpactResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The summary of call exception impacts.
+   * The summary of API exception impacts.
    */
   data?: GetDataServiceApiErrorImpactResponseBodyData;
   /**
@@ -192,7 +192,7 @@ export class GetDataServiceApiErrorImpactResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -180,7 +180,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   lastQueryTime?: string;
   /**
    * @remarks
-   * The lifecycle of the table, in days.
+   * The lifecycle of the table in days.
    * 
    * @example
    * 30
@@ -265,7 +265,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   streamTableConfig?: ListTablesResponseBodyPageResultTableListStreamTableConfig[];
   /**
    * @remarks
-   * The total storage size of the table, in bytes.
+   * The total storage size of the table in bytes.
    * 
    * @example
    * 10241024
@@ -417,7 +417,7 @@ export class ListTablesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -433,7 +433,7 @@ export class ListTablesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paged query result.
+   * The paging query result.
    */
   pageResult?: ListTablesResponseBodyPageResult;
   /**

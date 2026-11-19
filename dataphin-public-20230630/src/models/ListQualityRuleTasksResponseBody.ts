@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList extends $dara.Model {
   /**
    * @remarks
-   * The business date.
+   * The business date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2025-06-30
@@ -21,7 +21,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   bizDateFormat?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -37,7 +37,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   creator?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -45,7 +45,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   endTime?: string;
   /**
    * @remarks
-   * The rule task ID.
+   * The ID of the rule task.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the task.
+   * The ID of the user who last updated the task.
    * 
    * @example
    * 30012011
@@ -61,7 +61,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -69,7 +69,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   modifyTime?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 11
@@ -77,7 +77,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   ruleId?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -85,7 +85,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   startTime?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the task.
    * 
    * @example
    * running
@@ -93,7 +93,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   status?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * 11
@@ -130,7 +130,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   validateSuccess?: boolean;
   /**
    * @remarks
-   * The watch ID.
+   * The ID of the associated quality watchtask.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   watchId?: number;
   /**
    * @remarks
-   * The watch task ID. This ID is empty for trial run tasks.
+   * The ID of the watchtask. This ID is empty for trial rule tasks.
    * 
    * @example
    * 1
@@ -202,7 +202,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
 export class ListQualityRuleTasksResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The paged quality rule task list.
+   * The paged list of quality rule tasks.
    */
   qualityRuleTaskList?: ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList[];
   /**
@@ -266,7 +266,7 @@ export class ListQualityRuleTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paged query result.
+   * The paged query results.
    */
   pageResult?: ListQualityRuleTasksResponseBodyPageResult;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecKgCypherShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom Cypher query instruction.
+   * The custom Cypher query command.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class ExecKgCypherShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operating user.
+   * 
    * @example
    * 30001011
    */

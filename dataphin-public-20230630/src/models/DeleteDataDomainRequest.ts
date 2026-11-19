@@ -15,7 +15,7 @@ export class DeleteDataDomainRequest extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The subject domain ID.
+   * The subject area ID.
    * 
    * This parameter is required.
    * 
@@ -34,6 +34,9 @@ export class DeleteDataDomainRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

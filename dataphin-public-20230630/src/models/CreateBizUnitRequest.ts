@@ -37,7 +37,7 @@ export class CreateBizUnitRequestCreateCommandBizUnitAccountList extends $dara.M
 export class CreateBizUnitRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of data domain architects.
+   * The business unit architects.
    * 
    * This parameter is required.
    */
@@ -71,8 +71,8 @@ export class CreateBizUnitRequestCreateCommand extends $dara.Model {
    * - icon-entertainment: Entertainment.
    * - icon-traffic: Travel.
    * - icon-health: Health.
-   * - icon-social-contact: Social and communication.
-   * - con-dining: Dining.
+   * - icon-social-contact: Social and communications.
+   * - con-dining: Catering.
    * - icon-education: Education.
    * - icon-environment: Environment.
    * 
@@ -86,7 +86,7 @@ export class CreateBizUnitRequestCreateCommand extends $dara.Model {
    * @remarks
    * The production mode. Valid values:
    * - BASIC: single-environment mode.
-   * - DEV_PROD: development/production dual-environment mode.
+   * - DEV_PROD: development and production dual-environment mode.
    * 
    * @example
    * DEV_PROD
@@ -94,7 +94,7 @@ export class CreateBizUnitRequestCreateCommand extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For ADB_PG engines, the code name can be up to 40 characters in length.
+   * The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
    * 
    * This parameter is required.
    * 
@@ -139,7 +139,7 @@ export class CreateBizUnitRequestCreateCommand extends $dara.Model {
 export class CreateBizUnitRequest extends $dara.Model {
   /**
    * @remarks
-   * The create request.
+   * The creation request.
    * 
    * This parameter is required.
    */
@@ -155,6 +155,9 @@ export class CreateBizUnitRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */
