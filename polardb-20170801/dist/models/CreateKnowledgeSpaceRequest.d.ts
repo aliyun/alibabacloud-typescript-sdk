@@ -2,6 +2,14 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     /**
      * @remarks
+     * Specifies whether to automatically activate MCP. The specifications are fixed to polar.app.g2.medium with 2 nodes and the pay-as-you-go billing method. If you set this parameter to true, you must also explicitly set EnforceAcl to true.
+     *
+     * @example
+     * false
+     */
+    autoCreateMcpInstance?: boolean;
+    /**
+     * @remarks
      * The type of the database engine.
      *
      * @example
@@ -16,6 +24,14 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
      * testDesc
      */
     description?: string;
+    /**
+     * @remarks
+     * Specifies whether to only validate the creation request without placing an order or creating resources.
+     *
+     * @example
+     * false
+     */
+    dryRun?: boolean;
     /**
      * @remarks
      * The vector dimensions.
@@ -38,7 +54,7 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     embeddingModel?: string;
     /**
      * @remarks
-     * Specifies whether to enforce access control list (ACL) authentication for the knowledge space.
+     * Specifies whether to enforce ACL authentication for the knowledge space.
      *
      * @example
      * false
@@ -104,7 +120,7 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The name of the rerank model.
+     * The name of the reranking model.
      *
      * @example
      * qwen3-rerank
@@ -122,7 +138,7 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     securityGroupId?: string;
     /**
      * @remarks
-     * The shard size, in tokens.
+     * The shard size in tokens.
      *
      * This parameter is required.
      *
@@ -133,8 +149,8 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     /**
      * @remarks
      * The sharding strategy. Valid values:
-     * - hierarchical: hierarchical sharding. This is the default value.
-     * - hybrid: hybrid sharding.
+     * - hierarchical: The default value.
+     * - hybrid.
      *
      * This parameter is required.
      *
@@ -144,7 +160,7 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     shardingStrategy?: string;
     /**
      * @remarks
-     * The vSwitch for automatic creation of the database.
+     * The ID of the vSwitch for the automatic creation of the database.
      *
      * This parameter is required.
      *
@@ -154,7 +170,7 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     vSwitchId?: string;
     /**
      * @remarks
-     * The VPC for automatic creation of the database.
+     * The ID of the VPC for the automatic creation of the database.
      *
      * This parameter is required.
      *
@@ -164,7 +180,7 @@ export declare class CreateKnowledgeSpaceRequest extends $dara.Model {
     vpcId?: string;
     /**
      * @remarks
-     * The active zone for automatic creation of the database.
+     * The active zone for the automatic creation of the database.
      *
      * This parameter is required.
      *

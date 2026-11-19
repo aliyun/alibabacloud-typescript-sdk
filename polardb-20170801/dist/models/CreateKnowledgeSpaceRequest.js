@@ -29,8 +29,10 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class CreateKnowledgeSpaceRequest extends $dara.Model {
     static names() {
         return {
+            autoCreateMcpInstance: 'AutoCreateMcpInstance',
             DBType: 'DBType',
             description: 'Description',
+            dryRun: 'DryRun',
             embeddingDimension: 'EmbeddingDimension',
             embeddingModel: 'EmbeddingModel',
             enforceAcl: 'EnforceAcl',
@@ -51,8 +53,10 @@ class CreateKnowledgeSpaceRequest extends $dara.Model {
     }
     static types() {
         return {
+            autoCreateMcpInstance: 'boolean',
             DBType: 'string',
             description: 'string',
+            dryRun: 'boolean',
             embeddingDimension: 'number',
             embeddingModel: 'string',
             enforceAcl: 'boolean',
