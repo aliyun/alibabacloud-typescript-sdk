@@ -49,7 +49,7 @@ export class DeleteEventsResponseBodyDataResultsError extends $dara.Model {
 export class DeleteEventsResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
-   * The error details for failed items.
+   * The error for the failed item.
    */
   error?: DeleteEventsResponseBodyDataResultsError;
   /**
@@ -64,7 +64,7 @@ export class DeleteEventsResponseBodyDataResults extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * Valid values: DELETED, NOT_FOUND, and FAILED.
+   * The status. Valid values: DELETED, NOT_FOUND, and FAILED.
    * 
    * This parameter is required.
    * 
@@ -143,7 +143,7 @@ export class DeleteEventsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The operation results.
+   * The operation result.
    */
   data?: DeleteEventsResponseBodyData;
   /**
@@ -172,7 +172,7 @@ export class DeleteEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. For batch API operations, you must still check the results of individual items.
+   * Indicates whether the request is successful. For batch operations, you must still check the result of each item.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

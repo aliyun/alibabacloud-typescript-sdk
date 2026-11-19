@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The exact agent ID used for filtering.
+   * The exact filter for the business agent.
    * 
    * @example
    * agent-001
@@ -21,7 +21,7 @@ export class ListEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results for the same query.
+   * The pagination token used to continue reading the same query.
    * 
    * @example
    * eyJvZmZzZXQiOjIwMH0=
@@ -39,7 +39,7 @@ export class ListEventsRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The exact business team ID used for filtering.
+   * The exact filter for the business team.
    * 
    * @example
    * team-001
@@ -47,7 +47,7 @@ export class ListEventsRequest extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The exact business user ID used for filtering. This is not the platform tenant identity.
+   * The exact filter for the business user. This is not the platform tenant identity.
    * 
    * @example
    * user-001

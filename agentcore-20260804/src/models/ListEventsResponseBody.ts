@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventsResponseBodyItemsDataContent extends $dara.Model {
   /**
    * @remarks
-   * The JSON parameter values, required for tool_call blocks. Unparsed raw strings can be retained.
+   * The JSON parameter values, which are required for tool_call blocks. Unparsed raw strings can be retained.
    * 
    * @example
    * {"city":"Hangzhou"}
@@ -13,7 +13,7 @@ export class ListEventsResponseBodyItemsDataContent extends $dara.Model {
   arguments?: any;
   /**
    * @remarks
-   * The logical call ID, required for tool_call blocks.
+   * The logical call ID, which is required for tool_call blocks.
    * 
    * @example
    * call-001
@@ -21,7 +21,7 @@ export class ListEventsResponseBodyItemsDataContent extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The access format identifier, required for opaque blocks. Saving it does not mean its content can be interpreted or used across platforms.
+   * The access format identifier, which is required for opaque blocks. Saving the format does not mean its content can be interpreted or used across platforms.
    * 
    * @example
    * application/json
@@ -29,7 +29,7 @@ export class ListEventsResponseBodyItemsDataContent extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The tool name, required for tool_call blocks. This content block only expresses the call intent.
+   * The tool name, which is required for tool_call blocks. This content block only expresses the call intent.
    * 
    * @example
    * get_weather
@@ -37,7 +37,7 @@ export class ListEventsResponseBodyItemsDataContent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The actual text, required for text and reasoning blocks.
+   * The actual text, which is required for text and reasoning blocks.
    * 
    * @example
    * The user likes hiking
@@ -55,7 +55,7 @@ export class ListEventsResponseBodyItemsDataContent extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The JSON value, required for json and opaque blocks. The data field is not used for opaque blocks.
+   * The JSON value, which is required for json and opaque blocks. The data field is not used for opaque blocks.
    * 
    * @example
    * {"preference":"hiking"}
@@ -105,7 +105,7 @@ export class ListEventsResponseBodyItemsDataParentScope extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The precise session ID.
+   * The exact session ID.
    * 
    * This parameter is required.
    * 
@@ -159,7 +159,7 @@ export class ListEventsResponseBodyItemsDataParentScope extends $dara.Model {
 export class ListEventsResponseBodyItemsData extends $dara.Model {
   /**
    * @remarks
-   * The call ID, required for tool_call, tool_result, or messages with role=tool. It associates the call intent, actual execution, and feedback.
+   * The call ID, which is required for tool_call, tool_result, or messages with role=tool. It associates the call intent, actual execution, and feedback.
    * 
    * @example
    * call-001
@@ -167,7 +167,7 @@ export class ListEventsResponseBodyItemsData extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The ordered content blocks, required for message and tool_result events. Use a text block for plain text. This can be an empty array when the tool has no output.
+   * The ordered content blocks, which are required for message and tool_result events. Use a text block for plain text. This can be an empty array if the tool has no output.
    */
   content?: ListEventsResponseBodyItemsDataContent[];
   /**
@@ -177,7 +177,7 @@ export class ListEventsResponseBodyItemsData extends $dara.Model {
   eventIds?: string[];
   /**
    * @remarks
-   * The parent session anchor, required for session_fork events. The child session continues from the valid context at this anchor and does not inherit interactions after the anchor.
+   * The parent session anchor, which is required for session_fork events. The child session continues from the valid context at this anchor and does not inherit interactions after the anchor.
    * 
    * @example
    * evt-2f5f9c5a8d0e4c3b
@@ -185,12 +185,12 @@ export class ListEventsResponseBodyItemsData extends $dara.Model {
   parentEventId?: string;
   /**
    * @remarks
-   * The business positioning of the parent session, required for session_fork events. The event is written to the child session, and the requested scope is the child session.
+   * The business positioning of the parent session, which is required for session_fork events. The event is written to the child session, and the requested scope is the child session.
    */
   parentScope?: ListEventsResponseBodyItemsDataParentScope;
   /**
    * @remarks
-   * The message role, required for message events.
+   * The message role, which is required for message events.
    * 
    * @example
    * user
@@ -198,7 +198,7 @@ export class ListEventsResponseBodyItemsData extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The readable summary, optional for context_update events.
+   * The readable summary, which is optional for context_update events.
    * 
    * @example
    * The user plans to go hiking on the weekend
@@ -257,7 +257,7 @@ export class ListEventsResponseBodyItemsScope extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The precise session ID.
+   * The exact session ID.
    * 
    * This parameter is required.
    * 
@@ -345,7 +345,7 @@ export class ListEventsResponseBodyItems extends $dara.Model {
   scope?: ListEventsResponseBodyItemsScope;
   /**
    * @remarks
-   * The actual occurrence time provided by the client, in Unix milliseconds. It is the only source for business sorting. Identical values do not indicate a known sequence, and the array position does not imply a business sequence.
+   * The actual occurrence time provided by the client, in Unix milliseconds. This is the only source for business sorting. Identical values do not indicate a known sequence, and the array position does not imply a business sequence.
    * 
    * This parameter is required.
    * 
@@ -355,7 +355,7 @@ export class ListEventsResponseBodyItems extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The event type. It determines the applicable fields and conditional requirements for the data.
+   * The event type. This determines the applicable fields and conditional requirements for the data.
    * 
    * This parameter is required.
    * 
@@ -419,7 +419,7 @@ export class ListEventsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The records on the current page.
+   * The results on the current page.
    */
   items?: ListEventsResponseBodyItems[];
   /**
@@ -432,7 +432,7 @@ export class ListEventsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The description of the request processing.
+   * The request processing message.
    * 
    * @example
    * success
@@ -440,7 +440,7 @@ export class ListEventsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates that all data has been read.
+   * The next page token. An empty value indicates that all data has been read.
    * 
    * @example
    * eyJvZmZzZXQiOjIwMH0=
@@ -448,7 +448,7 @@ export class ListEventsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID, used for troubleshooting.
+   * The request ID used for troubleshooting.
    * 
    * @example
    * 01A00000-0000-0000-0000-000000000001
@@ -461,7 +461,7 @@ export class ListEventsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records. This field is empty when an exact total count is not provided.
+   * The total number of records. This field is empty if the exact total count is not provided.
    * 
    * @example
    * 20

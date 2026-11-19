@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMemoryRuleResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * The strategy-level instruction. It takes effect together with the store-level instruction, and this field takes precedence in case of conflicts.
+   * The strategy-level instruction. It takes effect together with the store-level instruction. In case of a conflict, this field takes precedence.
    * 
    * @example
    * Retain only long-term preferences explicitly expressed by the user

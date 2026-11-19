@@ -64,7 +64,7 @@ export class ListMemoryTasksResponseBodyItemsError extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The format of the event content is incorrect
+   * The event content format is incorrect
    */
   message?: string;
   static names(): { [key: string]: string } {

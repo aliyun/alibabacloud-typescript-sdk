@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMemoryTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The page size.
+   * The maximum number of results per page.
    * 
    * @example
    * 100

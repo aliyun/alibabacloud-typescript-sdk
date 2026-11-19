@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListMemoryRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters rules by enabled status.
+   * Filters by the enabled status.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The page size.
+   * The maximum number of entries per page.
    * 
    * @example
    * 100

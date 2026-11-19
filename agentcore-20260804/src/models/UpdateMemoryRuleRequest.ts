@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMemoryRuleRequestBodyStrategy extends $dara.Model {
   /**
    * @remarks
-   * The custom extraction requirements. Omitted fields retain their original values, and an empty string clears the field.
+   * The custom extraction instruction. If omitted, the original value is retained. An empty string clears the value.
    * 
    * @example
    * Retain only long-term preferences explicitly expressed by the user
@@ -66,7 +66,7 @@ export class UpdateMemoryRuleRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The extraction strategy. Omitted fields retain their original values during a partial merge.
+   * The extraction strategy. Uses partial merging, where omitted fields retain their original values.
    */
   strategy?: UpdateMemoryRuleRequestBodyStrategy;
   static names(): { [key: string]: string } {

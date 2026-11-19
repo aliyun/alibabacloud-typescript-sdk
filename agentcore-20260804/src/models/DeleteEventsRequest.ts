@@ -13,7 +13,7 @@ export class DeleteEventsRequestBodyScope extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The ID of the precisely targeted session.
+   * The ID of the precisely located session.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class DeleteEventsRequestBody extends $dara.Model {
   eventIds?: string[];
   /**
    * @remarks
-   * The scope for precise session targeting.
+   * The scope for precise session location.
    * 
    * This parameter is required.
    */

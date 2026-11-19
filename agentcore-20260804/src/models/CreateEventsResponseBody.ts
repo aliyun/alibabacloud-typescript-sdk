@@ -15,12 +15,12 @@ export class CreateEventsResponseBodyDataResultsError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * This parameter is required.
    * 
    * @example
-   * The format of the event content is incorrect
+   * The event content format is incorrect
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -49,7 +49,7 @@ export class CreateEventsResponseBodyDataResultsError extends $dara.Model {
 export class CreateEventsResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
-   * The error information for the failed item.
+   * The error for the failed item.
    */
   error?: CreateEventsResponseBodyDataResultsError;
   /**
@@ -62,7 +62,7 @@ export class CreateEventsResponseBodyDataResults extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The time when the event reached the server after being successfully saved. The value is a Unix timestamp in milliseconds.
+   * The time when the event reached the server after being successfully saved, in Unix milliseconds.
    * 
    * @example
    * 1758614401000
@@ -70,7 +70,7 @@ export class CreateEventsResponseBodyDataResults extends $dara.Model {
   receivedAt?: number;
   /**
    * @remarks
-   * STORED or FAILED.
+   * The status. Valid values: STORED and FAILED.
    * 
    * This parameter is required.
    * 
@@ -111,7 +111,7 @@ export class CreateEventsResponseBodyDataResults extends $dara.Model {
 export class CreateEventsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The write results for each item. A successful outer response does not indicate that every item was written successfully.
+   * The write result for each item. A successful top-level response does not indicate that every item was successful.
    * 
    * This parameter is required.
    */
@@ -164,7 +164,7 @@ export class CreateEventsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message about the request processing.
+   * The request processing description.
    * 
    * @example
    * success
@@ -172,7 +172,7 @@ export class CreateEventsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used for troubleshooting.
+   * The request ID used for troubleshooting.
    * 
    * @example
    * 01A00000-0000-0000-0000-000000000001

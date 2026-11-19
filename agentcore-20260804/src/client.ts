@@ -786,10 +786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
    * 
    * @remarks
-   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
    * 
    * @param tmpReq - CreateEventsRequest
    * @param headers - map
@@ -828,10 +828,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
    * 
    * @remarks
-   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
    * 
    * @param request - CreateEventsRequest
    * @returns CreateEventsResponse
@@ -1821,7 +1821,7 @@ export default class Client extends OpenApi {
    * Creates a service endpoint.
    * 
    * @remarks
-   * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+   * Creates a named service endpoint in a specified workspace that routes to a specific AgentVersion. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
    * 
    * @param tmpReq - CreateServiceEndpointRequest
    * @param headers - map
@@ -1869,7 +1869,7 @@ export default class Client extends OpenApi {
    * Creates a service endpoint.
    * 
    * @remarks
-   * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+   * Creates a named service endpoint in a specified workspace that routes to a specific AgentVersion. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
    * 
    * @param request - CreateServiceEndpointRequest
    * @returns CreateServiceEndpointResponse
@@ -2064,10 +2064,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+   * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
    * 
    * @remarks
-   * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+   * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
    * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
    * 
    * @param tmpReq - CreateWorkspaceRequest
@@ -2113,10 +2113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+   * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
    * 
    * @remarks
-   * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+   * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
    * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
    * 
    * @param request - CreateWorkspaceRequest
@@ -2533,10 +2533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
    * 
    * @remarks
-   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
    * 
    * @param tmpReq - DeleteEventsRequest
    * @param headers - map
@@ -2575,10 +2575,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
    * 
    * @remarks
-   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
    * 
    * @param request - DeleteEventsRequest
    * @returns DeleteEventsResponse
@@ -2983,10 +2983,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
    * 
    * @remarks
-   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
    * 
    * @param request - DeleteMemoryRuleRequest
    * @param headers - map
@@ -3013,10 +3013,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
    * 
    * @remarks
-   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
    * 
    * @param request - DeleteMemoryRuleRequest
    * @returns DeleteMemoryRuleResponse
@@ -3028,10 +3028,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
    * 
    * @remarks
-   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
    * 
    * @param request - DeleteMemorySessionRequest
    * @param headers - map
@@ -3072,10 +3072,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
    * 
    * @remarks
-   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
    * 
    * @param request - DeleteMemorySessionRequest
    * @returns DeleteMemorySessionResponse
@@ -5651,10 +5651,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox without tracking the rebuild task and subsequent creation tasks separately. Only the SUCCEEDED status indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
+   * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox, without tracking the rebuild task and subsequent creation tasks separately. Only a status of SUCCEEDED indicates completion. UNKNOWN, missing status, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted.
    * 
    * @remarks
-   * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. Do not treat UNKNOWN, missing fields, or query exceptions as success, and do not automatically resubmit the rebuild. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
+   * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. UNKNOWN, missing fields, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
    * 
    * @param request - GetSandboxRebuildOperationRequest
    * @param headers - map
@@ -5687,10 +5687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox without tracking the rebuild task and subsequent creation tasks separately. Only the SUCCEEDED status indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
+   * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox, without tracking the rebuild task and subsequent creation tasks separately. Only a status of SUCCEEDED indicates completion. UNKNOWN, missing status, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted.
    * 
    * @remarks
-   * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. Do not treat UNKNOWN, missing fields, or query exceptions as success, and do not automatically resubmit the rebuild. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
+   * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. UNKNOWN, missing fields, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
    * 
    * @param request - GetSandboxRebuildOperationRequest
    * @returns GetSandboxRebuildOperationResponse
@@ -6976,10 +6976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
    * 
    * @remarks
-   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
    * 
    * @param request - ListEventsRequest
    * @param headers - map
@@ -7032,10 +7032,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
    * 
    * @remarks
-   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
    * 
    * @param request - ListEventsRequest
    * @returns ListEventsResponse
@@ -7825,10 +7825,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
+   * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
    * 
    * @remarks
-   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
+   * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
    * 
    * @param request - ListMemoryRulesRequest
    * @param headers - map
@@ -7873,10 +7873,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
+   * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
    * 
    * @remarks
-   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
+   * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
    * 
    * @param request - ListMemoryRulesRequest
    * @returns ListMemoryRulesResponse
@@ -8079,10 +8079,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
    * 
    * @remarks
-   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
    * 
    * @param request - ListMemoryTasksRequest
    * @param headers - map
@@ -8127,10 +8127,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
    * 
    * @remarks
-   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
    * 
    * @param request - ListMemoryTasksRequest
    * @returns ListMemoryTasksResponse
@@ -9340,10 +9340,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild request if the query times out, returns UNKNOWN, or the result is unclear.
+   * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild if the query times out, returns UNKNOWN, or the result is unclear.
    * 
    * @remarks
-   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
+   * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
    * 
    * @param request - RebuildSandboxRequest
    * @param headers - map
@@ -9376,10 +9376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild request if the query times out, returns UNKNOWN, or the result is unclear.
+   * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild if the query times out, returns UNKNOWN, or the result is unclear.
    * 
    * @remarks
-   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
+   * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
    * 
    * @param request - RebuildSandboxRequest
    * @returns RebuildSandboxResponse
@@ -9586,10 +9586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
    * 
    * @remarks
-   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
    * 
    * @param request - RetryMemoryTaskRequest
    * @param headers - map
@@ -9616,10 +9616,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
    * 
    * @remarks
-   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
    * 
    * @param request - RetryMemoryTaskRequest
    * @returns RetryMemoryTaskResponse
@@ -9631,10 +9631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
    * 
    * @remarks
-   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
    * 
    * @param request - RevokeMemoryRequest
    * @param headers - map
@@ -9661,10 +9661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
    * 
    * @remarks
-   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
    * 
    * @param request - RevokeMemoryRequest
    * @returns RevokeMemoryResponse
@@ -11057,10 +11057,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
    * 
    * @remarks
-   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
    * 
    * @param tmpReq - UpdateMemoryRuleRequest
    * @param headers - map
@@ -11099,10 +11099,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
    * 
    * @remarks
-   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
    * 
    * @param request - UpdateMemoryRuleRequest
    * @returns UpdateMemoryRuleResponse
@@ -11322,7 +11322,7 @@ export default class Client extends OpenApi {
    * Updates a service endpoint.
    * 
    * @remarks
-   * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+   * Updates the name, bound version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to rebind the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Rebinding or modifying the elasticity triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support rebinding the agentVersion to switch to the target version within the namespace where the original gateway runtime instance resides. If the original gateway runtime instance is unavailable, ServiceEndpointTargetNotReady is returned. This type does not support elasticity updates. If updateElasticity is set to true, InvalidParameter is returned, and the elasticity inherits the configuration of the bound version. When a DEFAULT service endpoint is rebound from latest to another version, if the same agent still has a service endpoint bound to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit submission can trigger initial initialization or the retry of a failed task. A successful response does not indicate that the deployment is complete. You must verify the deployment status based on the status of the service endpoint.
    * 
    * @param tmpReq - UpdateServiceEndpointRequest
    * @param headers - map
@@ -11370,7 +11370,7 @@ export default class Client extends OpenApi {
    * Updates a service endpoint.
    * 
    * @remarks
-   * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+   * Updates the name, bound version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to rebind the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Rebinding or modifying the elasticity triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support rebinding the agentVersion to switch to the target version within the namespace where the original gateway runtime instance resides. If the original gateway runtime instance is unavailable, ServiceEndpointTargetNotReady is returned. This type does not support elasticity updates. If updateElasticity is set to true, InvalidParameter is returned, and the elasticity inherits the configuration of the bound version. When a DEFAULT service endpoint is rebound from latest to another version, if the same agent still has a service endpoint bound to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit submission can trigger initial initialization or the retry of a failed task. A successful response does not indicate that the deployment is complete. You must verify the deployment status based on the status of the service endpoint.
    * 
    * @param request - UpdateServiceEndpointRequest
    * @returns UpdateServiceEndpointResponse

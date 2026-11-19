@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
   /**
    * @remarks
-   * The JSON parameter values, which are required for tool_call blocks. Unparsed raw strings can be retained.
+   * The JSON parameter values. This field is required for tool_call blocks. Unparsed raw strings can be retained.
    * 
    * @example
    * {"city":"Hangzhou"}
@@ -13,7 +13,7 @@ export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
   arguments?: any;
   /**
    * @remarks
-   * The logical call ID, which is required for tool_call blocks.
+   * The logical call ID. This field is required for tool_call blocks.
    * 
    * @example
    * call-001
@@ -21,7 +21,7 @@ export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The access format identifier, which is required for opaque blocks. Saving the format does not mean its content can be interpreted or used across platforms.
+   * The access format identifier. This field is required for opaque blocks. Saving the format does not mean that its content can be interpreted or used across platforms.
    * 
    * @example
    * application/json
@@ -29,7 +29,7 @@ export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The tool name, which is required for tool_call blocks. This content block only expresses the call intent.
+   * The tool name. This field is required for tool_call blocks. This content block only expresses the call intent.
    * 
    * @example
    * get_weather
@@ -37,7 +37,7 @@ export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The actual text, which is required for text and reasoning blocks.
+   * The actual text. This field is required for text and reasoning blocks.
    * 
    * @example
    * The user likes hiking
@@ -45,7 +45,7 @@ export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
   text?: string;
   /**
    * @remarks
-   * The content block type, which determines the required fields.
+   * The content block type. This field determines the required fields.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The JSON value, which is required for json and opaque blocks. The data field is not used for opaque blocks.
+   * The JSON value. This field is required for json and opaque blocks. The data field is not used for opaque blocks.
    * 
    * @example
    * {"preference":"hiking"}
@@ -97,7 +97,7 @@ export class CreateEventsRequestBodyEventsDataContent extends $dara.Model {
 export class CreateEventsRequestBodyEventsDataParentScope extends $dara.Model {
   /**
    * @remarks
-   * The ID of the business agent.
+   * The business agent ID.
    * 
    * @example
    * agent-001
@@ -115,7 +115,7 @@ export class CreateEventsRequestBodyEventsDataParentScope extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The ID of the business team.
+   * The business team ID.
    * 
    * @example
    * team-001
@@ -123,7 +123,7 @@ export class CreateEventsRequestBodyEventsDataParentScope extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The ID of the business user. This is not the platform tenant identity.
+   * The business user ID. This is not the platform tenant identity.
    * 
    * @example
    * user-001
@@ -159,7 +159,7 @@ export class CreateEventsRequestBodyEventsDataParentScope extends $dara.Model {
 export class CreateEventsRequestBodyEventsData extends $dara.Model {
   /**
    * @remarks
-   * The call ID, which is required for tool_call, tool_result, or message events with role=tool. It associates the call intent, actual execution, and feedback.
+   * The call ID. This field is required for tool_call and tool_result events, or message events with the role set to tool. It associates the call intent, actual execution, and feedback.
    * 
    * @example
    * call-001
@@ -167,7 +167,7 @@ export class CreateEventsRequestBodyEventsData extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The ordered content blocks, which are required for message and tool_result events. Use a text block for plain text. This can be an empty array when the tool has no output.
+   * The ordered content blocks. This field is required for message and tool_result events. Use a text block for plain text. This can be an empty array if the tool has no output.
    */
   content?: CreateEventsRequestBodyEventsDataContent[];
   /**
@@ -177,7 +177,7 @@ export class CreateEventsRequestBodyEventsData extends $dara.Model {
   eventIds?: string[];
   /**
    * @remarks
-   * The anchor event ID of the parent session, which is required for session_fork events. The child session continues from the valid context at this anchor and does not inherit interactions after the anchor.
+   * The anchor event ID of the parent session. This field is required for session_fork events. The child session continues from the valid context at this anchor and does not inherit interactions after the anchor.
    * 
    * @example
    * evt-2f5f9c5a8d0e4c3b
@@ -185,12 +185,12 @@ export class CreateEventsRequestBodyEventsData extends $dara.Model {
   parentEventId?: string;
   /**
    * @remarks
-   * The business scope of the parent session, which is required for session_fork events. The event is written to the child session, and the requested scope is the child session.
+   * The business scope of the parent session. This field is required for session_fork events. The event is written to the child session, and the requested scope is the child session.
    */
   parentScope?: CreateEventsRequestBodyEventsDataParentScope;
   /**
    * @remarks
-   * The message role, which is required for message events.
+   * The message role. This field is required for message events.
    * 
    * @example
    * user
@@ -198,10 +198,10 @@ export class CreateEventsRequestBodyEventsData extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The human-readable summary, which is optional for context_update events.
+   * The human-readable summary. This field is optional for context_update events.
    * 
    * @example
-   * The user plans a hiking trip for the weekend
+   * The user plans to go hiking on the weekend
    */
   summary?: string;
   static names(): { [key: string]: string } {
@@ -256,7 +256,7 @@ export class CreateEventsRequestBodyEvents extends $dara.Model {
   data?: CreateEventsRequestBodyEventsData;
   /**
    * @remarks
-   * The actual occurrence time provided by the client, as a Unix millisecond integer. This is the sole source for business sorting. Identical values do not indicate a known sequence, and the array position does not imply business order.
+   * The actual occurrence time provided by the client as a Unix timestamp in milliseconds. This is the only source for business sorting. Identical values do not indicate a known sequence, and the array position does not imply a business order.
    * 
    * This parameter is required.
    * 
@@ -266,7 +266,7 @@ export class CreateEventsRequestBodyEvents extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The event type, which determines the applicable fields and conditional requirements for data.
+   * The event type. This determines the applicable fields and conditional requirements for the data.
    * 
    * This parameter is required.
    * 
@@ -305,7 +305,7 @@ export class CreateEventsRequestBodyEvents extends $dara.Model {
 export class CreateEventsRequestBodyScope extends $dara.Model {
   /**
    * @remarks
-   * The ID of the business agent.
+   * The business agent ID.
    * 
    * @example
    * agent-001
@@ -323,7 +323,7 @@ export class CreateEventsRequestBodyScope extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The ID of the business team.
+   * The business team ID.
    * 
    * @example
    * team-001
@@ -331,7 +331,7 @@ export class CreateEventsRequestBodyScope extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The ID of the business user. This is not the platform tenant identity.
+   * The business user ID. This is not the platform tenant identity.
    * 
    * @example
    * user-001
@@ -375,7 +375,7 @@ export class CreateEventsRequestBodySession extends $dara.Model {
   metadata?: { [key: string]: string };
   /**
    * @remarks
-   * The session title, which can be up to 256 characters in length.
+   * The session title. It can be up to 256 characters in length.
    * 
    * @example
    * Travel plan
@@ -424,7 +424,7 @@ export class CreateEventsRequestBody extends $dara.Model {
   scope?: CreateEventsRequestBodyScope;
   /**
    * @remarks
-   * The description saved when the first owned event is successfully written, which is not overwritten thereafter.
+   * The information saved when the first event is successfully written. It is not overwritten by subsequent writes.
    */
   session?: CreateEventsRequestBodySession;
   static names(): { [key: string]: string } {

@@ -85,6 +85,7 @@ class CreateWorkspaceRequestBody extends $dara.Model {
             cmsWorkspace: 'cmsWorkspace',
             name: 'name',
             networkConfiguration: 'networkConfiguration',
+            scanPolicy: 'scanPolicy',
             storageType: 'storageType',
         };
     }
@@ -94,6 +95,7 @@ class CreateWorkspaceRequestBody extends $dara.Model {
             cmsWorkspace: 'string',
             name: 'string',
             networkConfiguration: CreateWorkspaceRequestBodyNetworkConfiguration,
+            scanPolicy: 'string',
             storageType: 'string',
         };
     }

@@ -13,7 +13,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
   enabled?: boolean;
   /**
    * @remarks
-   * The list of vSwitch IDs.
+   * The vSwitch IDs.
    */
   vSwitchIds?: string[];
   /**
@@ -55,7 +55,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dar
 export class CreateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Returns the target configuration value. Updating indicates that the modification is still in progress, and UpdateFailed indicates that the current modification failed. This setting only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egresses, or the public network egress of the user VPC.
+   * Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This parameter only controls the use of the platform public egress for the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class CreateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.M
   publicEgressEnabled?: boolean;
   /**
    * @remarks
-   * Returns the target configuration value. Updating indicates that the modification is in progress, and UpdateFailed indicates that the modification failed. After this setting is disabled, the public network ingress for all agent endpoints in the workspace is closed, and the original public network ingress is restored after it is re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
+   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public ingress for all agent endpoints in the workspace is closed, and the original public ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
    * 
    * @example
    * true
@@ -187,7 +187,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   cmsWorkspaceId?: string;
   /**
    * @remarks
-   * The time when the workspace was created. The time follows the ISO-8601 standard.
+   * The time when the workspace was created. The time is displayed in the ISO 8601 format.
    * 
    * This parameter is required.
    * 
@@ -197,7 +197,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * production-agents
@@ -263,7 +263,7 @@ export class CreateWorkspaceResponseBodyData extends $dara.Model {
   tags?: CreateWorkspaceResponseBodyDataTags[];
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * tenant-123456

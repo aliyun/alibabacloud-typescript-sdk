@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListMemoryRulesResponseBodyItemsStrategy extends $dara.Model {
   /**
    * @remarks
-   * The strategy-level instruction. This instruction takes effect together with the store-level instruction. If a conflict occurs, this field takes precedence.
+   * The strategy-level instruction. It takes effect together with the store-level instruction. This field takes precedence in case of conflicts.
    * 
    * @example
-   * Retains only long-term preferences explicitly expressed by users
+   * Retain only long-term preferences explicitly expressed by the user
    */
   instruction?: string;
   /**
@@ -60,7 +60,7 @@ export class ListMemoryRulesResponseBodyItems extends $dara.Model {
    * description
    * 
    * @example
-   * Extracts long-term preferences explicitly expressed by users
+   * Extract long-term preferences explicitly expressed by the user
    */
   description?: string;
   /**

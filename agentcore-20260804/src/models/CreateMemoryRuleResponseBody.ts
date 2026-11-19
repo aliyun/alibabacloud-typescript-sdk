@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMemoryRuleResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * The strategy-level instruction. It takes effect together with the store-level instruction and takes precedence in case of conflicts.
+   * The strategy-level instruction. It takes effect together with the store-level instruction. If a conflict occurs, this field takes precedence.
    * 
    * @example
-   * Retain only long-term preferences explicitly expressed by the user
+   * Retain only long-term preferences explicitly expressed by users
    */
   instruction?: string;
   /**
@@ -60,7 +60,7 @@ export class CreateMemoryRuleResponseBodyData extends $dara.Model {
    * description
    * 
    * @example
-   * Extract long-term preferences explicitly expressed by the user
+   * Extract long-term preferences explicitly expressed by users
    */
   description?: string;
   /**

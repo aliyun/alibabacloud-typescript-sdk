@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceEndpointRequestBodyAuthentication extends $dara.Model {
   /**
    * @remarks
-   * The saved invocation authentication type. Valid values: NONE: Configured not to use the endpoint API key. API_KEY: Configured to use the endpoint API key. For AGENT_VERSION endpoints of non-EDGE agents, the actual API key verification is determined by the current inbound authentication configuration of the agent and cannot be determined solely based on this field. You must provide type when passing authentication.
+   * The saved invocation authentication type. Valid values:
+   * - NONE: Configured to not use the endpoint API key.
+   * - API_KEY: Configured to use the endpoint API key.
+   * For AGENT_VERSION endpoints of non-EDGE agents, the actual API key verification is determined by the current inbound authentication configuration of the agent and cannot be determined solely based on this field. You must provide type when passing authentication.
    * 
    * This parameter is required.
    * 
@@ -37,7 +40,7 @@ export class UpdateServiceEndpointRequestBodyAuthentication extends $dara.Model 
 export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPoliciesTimePoints extends $dara.Model {
   /**
    * @remarks
-   * The target maximum number of instances. This field is required. Valid values: 1 to 100.
+   * The target maximum number of instances. This parameter is required. Valid values: 1 to 100.
    * 
    * @example
    * 5
@@ -45,7 +48,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   maxInstances?: number;
   /**
    * @remarks
-   * The target minimum number of instances. This field is required. Valid values: 0 to 100. The value cannot be greater than maxInstances in the same item.
+   * The target minimum number of instances. This parameter is required. Valid values: 0 to 100. The value cannot be greater than maxInstances in the same item.
    * 
    * @example
    * 1
@@ -53,12 +56,12 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   minInstances?: number;
   /**
    * @remarks
-   * The list of days in a month. This field is required for each trigger point of monthly policies. It cannot be empty and must be deduplicated. Valid values: integers from 1 to 31. Each row is selected independently. If a date does not exist in a month, the policy is not triggered and is not postponed to the end of the month. This field must be omitted for other cycles.
+   * The days of the month. This parameter is required only for each trigger point of monthly policies. It cannot be empty and must be deduplicated. Valid values are integers from 1 to 31. Each row is selected independently. If a date does not exist in a specific month, the policy is not triggered and is not postponed to the end of the month. This parameter must be omitted for other periods.
    */
   monthDays?: number[];
   /**
    * @remarks
-   * The trigger time. This field is required. Format: HH:mm:ss. It is interpreted in the time zone of the policy, accurate to the minute, and the seconds are fixed at 00.
+   * The trigger time. This parameter is required. Format: HH:mm:ss. It is interpreted in the time zone of the associated policy, accurate to the minute, and the seconds are fixed at 00.
    * 
    * @example
    * 09:00:00
@@ -66,7 +69,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   time?: string;
   /**
    * @remarks
-   * The list of weekdays. This field is required for each trigger point of weekly policies. It cannot be empty and must be deduplicated. Valid values: integers from 1 to 7. 1 indicates Monday, and 7 indicates Sunday. Each row is selected independently. This field must be omitted for other cycles.
+   * The days of the week. This parameter is required only for each trigger point of weekly policies. It cannot be empty and must be deduplicated. Valid values are integers from 1 to 7, where 1 represents Monday and 7 represents Sunday. Each row is selected independently. This parameter must be omitted for other periods.
    */
   weekdays?: number[];
   static names(): { [key: string]: string } {
@@ -107,7 +110,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
 export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period. This field is required only when validity is set to range. The format is the same as startTime, and the seconds are fixed at 00. It must be later than startTime. The interval does not include the end time. If validity is set to forever, the start and end times must be omitted. Valid dates and cross-field constraints are validated by the console.
+   * The end time of the validity period. This parameter is required only when validity is set to range. The format is the same as startTime, and the seconds are fixed at 00. It must be later than startTime. The interval does not include the end time. If validity is set to forever, the start and end times must be omitted. Valid dates and cross-field constraints are verified by the console.
    * 
    * @example
    * 2026-12-01T00:00:00
@@ -115,7 +118,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   endTime?: string;
   /**
    * @remarks
-   * The policy identifier. This field is required and must be unique and stable within the endpoint. It is generated by the frontend when added, and retained during editing and retries.
+   * The policy identifier. This parameter is required and must be unique and stable within the endpoint. It is generated by the frontend when added, and retained during editing and retries.
    * 
    * @example
    * policy-weekday
@@ -123,7 +126,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   id?: string;
   /**
    * @remarks
-   * The policy priority. This field is required. Valid values: 5: Regular. 10: High. New policies default to regular. You must explicitly provide this field upon submission, as the API does not set a default value. When the final dynamicPolicy.enabled is set to true, the validity periods of high-priority policies cannot overlap, except for end-to-end connections. Long-term high-priority policies can overlap with other high-priority policies. When disabled, overlapping drafts can be saved, and the final configuration is validated upon re-enabling. The validity of other fields and trigger conflicts within the policy are always validated. You must explicitly provide priority.
+   * The policy priority. This parameter is required. Valid values: 5 (regular) and 10 (high priority). The default selection for a new policy is regular. You must explicitly provide this parameter upon submission, and no default value is set for the API. When the final dynamicPolicy.enabled is set to true, the validity periods of high-priority policies cannot overlap, but end-to-end connection is allowed. Long-term high-priority policies can overlap with other high-priority policies. When disabled, overlapping drafts can be saved, and the final configuration is verified when re-enabled. The validity of other fields and trigger conflicts within the policy are always verified. You must explicitly provide priority.
    * 
    * @example
    * 5
@@ -131,7 +134,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   priority?: number;
   /**
    * @remarks
-   * The repeat cycle. This field is required. Valid values: daily: Every day. weekly: Every week. monthly: Every month. Only submit the fields corresponding to the cycle.
+   * The repeat period. This parameter is required. Valid values: daily (every day), weekly (every week), and monthly (every month). Only submit the fields corresponding to the specified period.
    * 
    * @example
    * weekly
@@ -139,7 +142,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   repeat?: string;
   /**
    * @remarks
-   * The start time of the validity period. This field is required only when validity is set to range. Format: YYYY-MM-DDTHH:mm:ss in the policy time zone, without a time zone offset. The seconds are fixed at 00. The interval includes the start time. Editing retains the existing past start time and does not reject updates or retries because it is earlier than the current time.
+   * The start time of the validity period. This parameter is required only when validity is set to range. Format: YYYY-MM-DDTHH:mm:ss in the policy time zone, without a time zone offset. The seconds are fixed at 00. The interval includes the start time. When editing, existing past start times are retained, and updates or retries are not rejected because the start time is earlier than the current time.
    * 
    * @example
    * 2026-11-01T00:00:00
@@ -147,12 +150,12 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   startTime?: string;
   /**
    * @remarks
-   * The periodic trigger time points. This field is required and cannot be empty. Each item must be complete. The day of the week or day of the month is configured independently for each item. Within the same policy, daily policies conflict if the time is the same. weekly and monthly policies conflict only when the time is the same and the date sets intersect. This is validated by the console.
+   * The periodic trigger time points. This parameter is required and cannot be empty. Each item must be complete. The day of the week or day of the month is configured independently for each item. Within the same policy, daily policies conflict if the time is the same. weekly and monthly policies conflict only when the time is the same and the date sets intersect. This is verified by the console.
    */
   timePoints?: UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPoliciesTimePoints[];
   /**
    * @remarks
-   * The policy time zone. This field is required and must be a valid IANA time zone. All dates and times in this policy are interpreted in this time zone.
+   * The policy time zone. This parameter is required and must be a valid IANA time zone. All dates and times in this policy are interpreted in this time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -160,7 +163,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
   timeZone?: string;
   /**
    * @remarks
-   * The policy validity period type. This field is required. Valid values: forever: Long-term validity. range: Short-term validity. After expiration, the policy and its trigger results exit the current calculation, and the remaining policies are recalculated. If no candidates exist, the basic values are restored. The saved configuration is not automatically deleted.
+   * The policy validity period type. This parameter is required. Valid values: forever (long-term validity) and range (short-term validity). After expiration, the policy and its trigger results exit the current calculation, and the remaining policies are recalculated. If no candidates are available, the basic values are restored. The saved configuration is not automatically deleted.
    * 
    * @example
    * range
@@ -207,7 +210,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolici
 export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the dynamic policy. This field is required during creation. If omitted during an update, the original value is retained. Disabling it retains existing policies and restores the basic upper and lower limits. Re-enabling it triggers immediate calculation. When finally enabled, policies cannot be empty.
+   * Specifies whether to enable dynamic policies. This parameter is required during creation. If omitted during an update, the original value is retained. Disabling it retains existing policies and restores the basic upper and lower limits. Re-enabling it triggers immediate calculation. When it is finally enabled, policies cannot be empty.
    * 
    * @example
    * true
@@ -215,7 +218,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicy exten
   enabled?: boolean;
   /**
    * @remarks
-   * The complete list of dynamic policies. This field is required during creation. If omitted during an update, the original list is retained. If provided, it replaces the entire list and is not merged by ID. To clear the list, you must ensure that the final enabled is set to false. Each item must be complete. Conditional requirements and cross-field constraints are validated by the server. The display order does not indicate priority.
+   * The complete list of dynamic policies. This parameter is required during creation. If omitted during an update, the original list is retained. If provided, it replaces the entire list and is not merged by ID. To clear the list, you must ensure that the final enabled is set to false. Each item must be complete. Conditional requirements and cross-field constraints are verified by the server. The display order does not indicate priority.
    */
   policies?: UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicyPolicies[];
   static names(): { [key: string]: string } {
@@ -252,7 +255,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicy extends $dara.Mode
   dynamicPolicy?: UpdateServiceEndpointRequestBodyElasticityPolicyDynamicPolicy;
   /**
    * @remarks
-   * Specifies whether to enable the global auto-elasticity mode. This field is independent of dynamicPolicy.enabled. If omitted during an update, the original value is retained.
+   * Specifies whether to enable the overall automatic elasticity mode. This parameter is independent of dynamicPolicy.enabled. If omitted during an update, the original value is retained.
    * 
    * @example
    * true
@@ -260,7 +263,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicy extends $dara.Mode
   enabled?: boolean;
   /**
    * @remarks
-   * The saved basic maximum number of instances. Valid values: 0 to 100. The value cannot be less than minSandboxCount. The basic upper and lower limits are used when dynamic scaling is disabled or no candidates exist.
+   * The saved basic maximum number of instances. Valid values: 0 to 100. The value cannot be less than minSandboxCount. The basic upper and lower limits are used when dynamic elasticity is disabled or no candidates are available.
    * 
    * @example
    * 5
@@ -268,7 +271,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicy extends $dara.Mode
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The saved basic minimum number of instances. Valid values: 0 to 100. The value cannot be greater than maxSandboxCount. It must be submitted in pairs with maxSandboxCount during an update. Omitting both retains the original values. It does not override dynamic results when dynamic candidates exist.
+   * The saved basic minimum number of instances. Valid values: 0 to 100. The value cannot be greater than maxSandboxCount. It must be submitted in pairs with maxSandboxCount during an update. If both are omitted, the original values are retained. It does not override dynamic results when dynamic candidates are available.
    * 
    * @example
    * 1
@@ -307,7 +310,7 @@ export class UpdateServiceEndpointRequestBodyElasticityPolicy extends $dara.Mode
 export class UpdateServiceEndpointRequestBody extends $dara.Model {
   /**
    * @remarks
-   * If omitted, the original binding is retained. If specified, it must be an exact and successful source version of the agent. Otherwise, ServiceEndpointTargetNotReady is returned. When rebinding a DEFAULT service endpoint of the GATEWAY_API type, ServiceEndpointTargetNotReady is also returned if the original gateway runtime instance is unavailable.
+   * If not specified, the original binding is retained. If specified, it must be an exact source version that has been successfully deployed for the agent. Otherwise, ServiceEndpointTargetNotReady is returned. When rebinding a DEFAULT service endpoint of the GATEWAY_API type, ServiceEndpointTargetNotReady is also returned if the original gateway runtime instance is unavailable.
    * 
    * @example
    * v1
@@ -315,17 +318,17 @@ export class UpdateServiceEndpointRequestBody extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * Updates the invocation authentication configuration saved for the service endpoint, specified by type. If omitted, the original configuration is retained. This field is prohibited for DEFAULT endpoints. For AGENT_VERSION endpoints of non-EDGE agents, the actual API key verification is determined by the current inbound authentication configuration of the agent. The management API for updating the service endpoint still uses AccessKey or STS authentication and RAM authorization.
+   * Updates the invocation authentication configuration saved for the service endpoint, specified by type. If not specified, the original configuration is retained. This field is prohibited for DEFAULT endpoints. For AGENT_VERSION endpoints of non-EDGE agents, the actual API key verification is determined by the current inbound authentication configuration of the agent. The management API for updating the service endpoint still uses AccessKey (AK) or Security Token Service (STS) authentication and Resource Access Management (RAM) authorization.
    */
   authentication?: UpdateServiceEndpointRequestBodyAuthentication;
   /**
    * @remarks
-   * Accepted only when updateElasticity is set to true. Omitting subfields retains the original values. The basic minSandboxCount and maxSandboxCount must be submitted in pairs. dynamicPolicy.enabled and policies can be updated separately. If policies is provided, it replaces the entire list. To clear the list, you must ensure that the final dynamicPolicy.enabled is set to false. elasticityPolicy and dynamicPolicy do not accept null, and an empty patch is invalid. Only Router endpoints and DEFAULT endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support elasticity updates. The server merges, validates, and saves the complete configuration without backfilling basic values with the current capacity. The final basic min and max values must be between 0 and 100. If the historical basic capacity exceeds the limit, you must submit valid basic min and max values even if you only modify the dynamic policy. Silent truncation is not allowed.
+   * Accepted only when updateElasticity is set to true. Omitting subfields indicates that the original values are retained. The basic minSandboxCount and maxSandboxCount must be submitted in pairs. dynamicPolicy.enabled and policies can be updated separately. If policies is provided, it replaces the entire list. To clear the list, you must ensure that the final dynamicPolicy.enabled is set to false. elasticityPolicy and dynamicPolicy do not accept null, and an empty patch is invalid. Only Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support elasticity updates. The server merges, verifies, and saves the complete configuration, and does not backfill basic values with the current capacity. The final basic min and max values must be between 0 and 100. If the historical basic capacity exceeds the limit, you must submit valid basic min and max values even if you only modify the dynamic policy. Silent truncation is not allowed.
    */
   elasticityPolicy?: UpdateServiceEndpointRequestBodyElasticityPolicy;
   /**
    * @remarks
-   * Used to modify existing named endpoints that support renaming. If omitted, the original name is retained. Router and hybrid ingress endpoints do not support renaming. You can only omit this field or pass the original name. This field is prohibited for DEFAULT endpoints.
+   * Used to modify existing named endpoints that support renaming. If omitted, the original name is retained. Router and hybrid ingress endpoints do not support renaming. You can only omit this parameter or pass the original name. This field is prohibited for DEFAULT endpoints.
    * 
    * @example
    * production
@@ -333,12 +336,12 @@ export class UpdateServiceEndpointRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable public inbound access for the service endpoint. If omitted, the original value is retained. If set to true or false, the value is replaced. Explicit null or non-boolean values return InvalidParameter and do not provide restore inheritance semantics. Modifying only this field triggers an ingress revision only and does not redeploy the runtime instance. Whether public network access is actually enabled is also subject to the public inbound access limit of the workspace. For more information, see effectivePublicAccessEnabled in the response.
+   * Specifies whether to enable public network inbound access for the service endpoint. If not specified, the original value is retained. If set to true or false, the value is replaced. Explicitly passing null or a non-Boolean value returns InvalidParameter, and no restore inheritance semantics are provided. Modifying only this field triggers an ingress revision only and does not redeploy the runtime instance. Whether public network access is actually enabled is also subject to the public network inbound limit of the workspace. For more information, see effectivePublicAccessEnabled in the response.
    */
   publicAccessEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to explicitly update the elasticity configuration in this request. If omitted or set to false, the elasticityPolicy carried in this request is ignored, and the saved configuration is retained. If set to true, a valid and non-empty elasticityPolicy patch and clientToken must be provided. This field is not persisted, returned, or passed through to the resource manager, and has no default value. Omit this field during regular editing and version rebinding.
+   * Specifies whether to explicitly update the elastic configuration in this request. If omitted or set to false, the elasticityPolicy carried in this request is ignored, and the saved configuration is retained. If set to true, a valid and non-empty elasticityPolicy patch and clientToken must be provided. This parameter is not persisted, returned, or passed through to the resource manager (RM), and no default value is set. Omit this parameter during normal editing and version rebinding.
    */
   updateElasticity?: boolean;
   static names(): { [key: string]: string } {
@@ -381,12 +384,12 @@ export class UpdateServiceEndpointRequestBody extends $dara.Model {
 export class UpdateServiceEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The service endpoint configurations to be modified in this request. Submit the supported modifiable name, bound version, invocation authentication configuration, elastic policy, or public inbound access switch based on the endpoint type. Router and hybrid ingress endpoints cannot be renamed. DEFAULT endpoints do not accept name or authentication configuration updates. When updating the elastic policy, you must specify both updateElasticity=true and clientToken.
+   * The service endpoint configurations to be modified in this request. Submit the supported modifiable name, bound version, invocation authentication configuration, elastic policy, or public network inbound switch based on the endpoint type. Router and hybrid ingress endpoints cannot be renamed. DEFAULT endpoints do not accept name or authentication configuration updates. When updating the elastic policy, you must specify both updateElasticity=true and clientToken.
    */
   body?: UpdateServiceEndpointRequestBody;
   /**
    * @remarks
-   * The idempotent request token. This field is required when updateElasticity is set to true and is validated by the server. Reuse the token and the original request for the same retry. Use a new token if the logical content changes. Using the same token with different content returns InvalidParameter. The token must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), colons (:), and hyphens (-). The scope is the tenant and workspace. The receipt is retained for 7 days from the time of successful acceptance. Replays do not extend the retention period. After expiration, it is revalidated as a new submission.
+   * The client token. This parameter is required when updateElasticity is set to true and is verified by the server. Reuse the token and the original request for the same retry. Use a new token if the logical content changes. Passing different content with the same token returns InvalidParameter. The token must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), colons (:), and hyphens (-). The scope is the tenant and workspace. The receipt is retained for 7 days from the time of successful acceptance. Replays do not extend the retention period. After expiration, it is verified again as a new submission.
    * 
    * @example
    * 550e8400-e29b-41d4-a716-446655440000
