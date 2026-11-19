@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelUrlUploadJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of tasks that were successfully canceled.
+   * The list of successfully canceled tasks.
    */
   canceledJobs?: string[];
   /**

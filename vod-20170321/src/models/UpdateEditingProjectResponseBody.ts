@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEditingProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58

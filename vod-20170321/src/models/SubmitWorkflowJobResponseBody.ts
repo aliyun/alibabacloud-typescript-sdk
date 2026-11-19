@@ -11,6 +11,13 @@ export class SubmitWorkflowJobResponseBody extends $dara.Model {
    * A01C8FF4-C106-4431-418F973DADB7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The workflow job ID. After the job is submitted, it is executed asynchronously. You can pass this ID to GetWorkflowTask to query the job status and result.
+   * 
+   * @example
+   * 0123456789abcdef0123456789abcdef
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

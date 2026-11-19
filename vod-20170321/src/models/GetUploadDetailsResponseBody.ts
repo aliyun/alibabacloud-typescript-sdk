@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   /**
    * @remarks
-   * The completion time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The completion time. The time is displayed in UTC and follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
    * 
    * @example
    * 2019-04-28T09:45:07Z
@@ -13,7 +13,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   completionTime?: string;
   /**
    * @remarks
-   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The creation time. The time is displayed in UTC and follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
    * 
    * @example
    * 2019-04-28T09:42:07Z
@@ -45,7 +45,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The modification time. The time is in the _yyyy-MM-ddTHH:mm:ssZ_ format (UTC).
+   * The update time. The time is displayed in UTC and follows the _yyyy-MM-ddTHH:mm:ssZ_ format.
    * 
    * @example
    * 2019-04-28T09:43:12Z
@@ -53,7 +53,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The video status. For the valid values and descriptions of video statuses, see the value list in [Status: video status](https://help.aliyun.com/document_detail/52839.html).
+   * The video status. For more information about the valid values and descriptions of the video status, see the valid values of [Status: Video status](https://help.aliyun.com/document_detail/52839.html).
    * 
    * @example
    * Uploading
@@ -101,7 +101,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   uploadSource?: string;
   /**
    * @remarks
-   * The upload task status. For the valid values and descriptions of upload statuses, see the value list in [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
+   * The status of the upload task. For more information about the valid values and descriptions of the upload status, see the valid values of [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
    * 
    * @example
    * Uploading
@@ -155,12 +155,12 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
 export class GetUploadDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of media files that cannot be accessed.
+   * The IDs of the media assets that you are not authorized to access.
    */
   forbiddenMediaIds?: string[];
   /**
    * @remarks
-   * The IDs of media files that do not exist.
+   * The IDs of the media assets that do not exist.
    */
   nonExistMediaIds?: string[];
   /**
@@ -173,7 +173,7 @@ export class GetUploadDetailsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The upload details.
+   * The list of upload details.
    */
   uploadDetails?: GetUploadDetailsResponseBodyUploadDetails[];
   static names(): { [key: string]: string } {

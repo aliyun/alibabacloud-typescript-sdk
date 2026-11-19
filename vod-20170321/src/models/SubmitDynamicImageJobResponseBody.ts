@@ -35,7 +35,7 @@ export class SubmitDynamicImageJobResponseBodyDynamicImageJob extends $dara.Mode
 export class SubmitDynamicImageJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the animated image job.
+   * The animated image job information.
    */
   dynamicImageJob?: SubmitDynamicImageJobResponseBodyDynamicImageJob;
   /**

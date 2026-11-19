@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVideoInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the audio and video files that cannot be operated on. This is typically caused by insufficient [permissions](https://help.aliyun.com/document_detail/113600.html).
+   * The IDs of the audio or video files on which operations are forbidden. This is usually caused by a lack of [permissions](https://help.aliyun.com/document_detail/113600.html).
    */
   forbiddenVideoIds?: string[];
   /**
    * @remarks
-   * The list of custom IDs that do not exist.
+   * The custom IDs that do not exist.
    */
   nonExistReferenceIds?: string[];
   /**
    * @remarks
-   * The IDs of the audio and video files that do not exist.
+   * The IDs of the audio or video files that do not exist.
    */
   nonExistVideoIds?: string[];
   /**

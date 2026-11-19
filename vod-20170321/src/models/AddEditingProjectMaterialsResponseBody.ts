@@ -13,7 +13,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   cateId?: number;
   /**
    * @remarks
-   * The material category name.
+   * The name of the media asset category.
    * 
    * @example
    * Category 1
@@ -21,12 +21,12 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   cateName?: string;
   /**
    * @remarks
-   * The thumbnail URL of the material.
+   * The URL of the media asset thumbnail.
    */
   coverURL?: string;
   /**
    * @remarks
-   * The time when the material was created. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
+   * The time when the media asset was created. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2019-10-02T08:26Z
@@ -42,15 +42,15 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   customerId?: number;
   /**
    * @remarks
-   * The material description.
+   * The description of the media asset.
    * 
    * @example
-   * Material description
+   * Media asset description
    */
   description?: string;
   /**
    * @remarks
-   * The material duration. Unit: seconds. The value is accurate to four decimal places.
+   * The duration of the media asset. Unit: seconds. The value is accurate to four decimal places.
    * 
    * @example
    * 3690.2332
@@ -58,7 +58,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   duration?: number;
   /**
    * @remarks
-   * The material ID.
+   * The ID of the media asset.
    * 
    * @example
    * 85befc4118b84c6723e53b80b1****
@@ -66,11 +66,11 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   materialId?: string;
   /**
    * @remarks
-   * The material type. Valid values:
+   * The type of the media asset. Valid values:
    * 
-   * - **video**: video.
-   * - **audio**: audio-only.
-   * - **image**: image.
+   * - **video**: video
+   * - **audio**: audio-only
+   * - **image**: image
    * 
    * @example
    * video
@@ -78,7 +78,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   materialType?: string;
   /**
    * @remarks
-   * The time when the material was last modified. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
+   * The time when the media asset was updated. The time follows the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2022-11-25T07:28:34Z
@@ -94,7 +94,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   size?: number;
   /**
    * @remarks
-   * The array of snapshot URLs for the material.
+   * The array of snapshot URLs for the media asset.
    */
   snapshots?: string[];
   /**
@@ -107,12 +107,12 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   spriteConfig?: string;
   /**
    * @remarks
-   * The array of sprite URLs for the material.
+   * The array of sprite URLs for the media asset.
    */
   sprites?: string[];
   /**
    * @remarks
-   * The material status. Valid values:
+   * The status of the media asset. Valid values:
    * 
    * - **Normal**: Normal.
    * - **Uploading**: Uploading.
@@ -124,7 +124,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The material tags. Multiple tags are separated by commas (,).
+   * The tags of the media asset. Separate multiple tags with commas (,).
    * 
    * @example
    * tag1,tag2
@@ -132,7 +132,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   tags?: string;
   /**
    * @remarks
-   * The material title.
+   * The title of the media asset.
    * 
    * @example
    * test
@@ -200,7 +200,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
 export class AddEditingProjectMaterialsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of materials.
+   * The list of media assets.
    */
   materialList?: AddEditingProjectMaterialsResponseBodyMaterialList[];
   /**

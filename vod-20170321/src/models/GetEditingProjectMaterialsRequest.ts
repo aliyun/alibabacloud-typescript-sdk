@@ -6,7 +6,6 @@ export class GetEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
    * The material type. Valid values:
-   * 
    * - **video**: video
    * - **audio**: audio-only
    * - **image**: image
@@ -19,9 +18,9 @@ export class GetEditingProjectMaterialsRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The online editing project ID. You can obtain the ID by using one of the following methods:
-   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Production Center** > **Video Editing** to view the ID.
-   * - Obtain the value of the ProjectId response parameter when you create a project by calling the **CreateEditingProject** operation.
+   * The ID of the online editing project. You can obtain the ID by using one of the following methods:
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), choose **Production center** > **Video editing**, and view the ID.
+   * - The value of the ProjectId response parameter returned when you create a project by calling the **Create an online editing project** operation.
    * 
    * This parameter is required.
    * 
@@ -34,7 +33,6 @@ export class GetEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
    * The material type. Valid values:
-   * 
    * - **video**: video
    * - **audio**: audio-only
    * 

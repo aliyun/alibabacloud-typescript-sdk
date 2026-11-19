@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The average completion plays per user.
+   * The average number of completions per user.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   avgPerCompletionVv?: number;
   /**
    * @remarks
-   * The average play duration per user, in milliseconds (ms).
+   * The average playback duration per user, in milliseconds.
    * 
    * @example
    * 100000
@@ -21,7 +21,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   avgPerPlayDuration?: number;
   /**
    * @remarks
-   * The average plays per user.
+   * The average number of playbacks per user.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   avgPlayBitrate?: number;
   /**
    * @remarks
-   * The average play duration, in milliseconds (ms).
+   * The average playback duration, in milliseconds.
    * 
    * @example
    * 100000
@@ -45,7 +45,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   avgPlayDuration?: number;
   /**
    * @remarks
-   * The average start bitrate, in bps.
+   * The average startup bitrate, in bps.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   avgStartBitrate?: number;
   /**
    * @remarks
-   * The average video duration, in milliseconds (ms).
+   * The average video duration, in milliseconds.
    * 
    * @example
    * 100000
@@ -69,7 +69,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   completionRate?: number;
   /**
    * @remarks
-   * The completion count.
+   * The completion volume.
    * 
    * @example
    * 500
@@ -85,7 +85,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   dimension?: string;
   /**
    * @remarks
-   * The error count per 100 seconds.
+   * The number of errors per 100 seconds.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   errorCount100s?: number;
   /**
    * @remarks
-   * The first frame time, in milliseconds (ms).
+   * The first frame loading time, in milliseconds.
    * 
    * @example
    * 100
@@ -109,7 +109,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   jumpRate5s?: number;
   /**
    * @remarks
-   * The play failure rate.
+   * The playback failure rate.
    * 
    * @example
    * 0.2
@@ -117,7 +117,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   playFailRate?: number;
   /**
    * @remarks
-   * The actual play count.
+   * The actual playback volume.
    * 
    * @example
    * 1000
@@ -125,7 +125,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   realVv?: number;
   /**
    * @remarks
-   * The instant play rate.
+   * The 1-second startup rate.
    * 
    * @example
    * 0.8
@@ -133,7 +133,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   secondPlayRate?: number;
   /**
    * @remarks
-   * The non-play rate.
+   * The non-startup rate.
    * 
    * @example
    * 0.01
@@ -141,7 +141,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   seedFailRate?: number;
   /**
    * @remarks
-   * The seek duration, in milliseconds (ms).
+   * The seek duration, in milliseconds.
    * 
    * @example
    * 100
@@ -149,7 +149,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   seekDuration?: number;
   /**
    * @remarks
-   * The slow play rate.
+   * The slow startup rate.
    * 
    * @example
    * 0.2
@@ -157,7 +157,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   slowPlayRate?: number;
   /**
    * @remarks
-   * The stuttering count per 100 seconds.
+   * The number of stuttering events per 100 seconds.
    * 
    * @example
    * 2
@@ -173,7 +173,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   stuckCountRate?: number;
   /**
    * @remarks
-   * The stuttering duration per 100 seconds, in milliseconds (ms).
+   * The stuttering duration per 100 seconds, in milliseconds.
    * 
    * @example
    * 200
@@ -181,7 +181,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   stuckDuration100s?: number;
   /**
    * @remarks
-   * The timestamp of the data. Format: yyyy-mm-ddthh:mm:ssz (UTC).
+   * The timestamp of the returned data. Format: yyyy-mm-ddThh:mm:ssZ (UTC).
    * 
    * @example
    * 2025-06-24T00:55:06Z
@@ -189,7 +189,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   timeStamp?: string;
   /**
    * @remarks
-   * The total play duration, in milliseconds (ms).
+   * The total playback duration, in milliseconds.
    * 
    * @example
    * 100000
@@ -205,7 +205,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
   uv?: number;
   /**
    * @remarks
-   * The play count.
+   * The number of playbacks.
    * 
    * @example
    * 800
@@ -285,7 +285,7 @@ export class DescribeVodPlayerMetricDataResponseBodyDataList extends $dara.Model
 export class DescribeVodPlayerMetricDataResponseBodyExtend extends $dara.Model {
   /**
    * @remarks
-   * The latest time with data points within the specified time range. Format: yyyy-mm-ddthh:mm:ssz (UTC).
+   * The latest time with data points within the specified time range. Format: yyyy-mm-ddThh:mm:ssZ (UTC).
    * 
    * @example
    * 2025-06-05T15:59:59Z
@@ -293,7 +293,7 @@ export class DescribeVodPlayerMetricDataResponseBodyExtend extends $dara.Model {
   actualEndTime?: string;
   /**
    * @remarks
-   * The earliest time with data points within the specified time range. Format: yyyy-mm-ddthh:mm:ssz (UTC).
+   * The earliest time with data points within the specified time range. Format: yyyy-mm-ddThh:mm:ssZ (UTC).
    * 
    * @example
    * 2025-06-24T00:55:06Z
@@ -301,7 +301,7 @@ export class DescribeVodPlayerMetricDataResponseBodyExtend extends $dara.Model {
   actualStartTime?: string;
   /**
    * @remarks
-   * The time granularity of the queried data, in seconds (s).
+   * The time granularity of the queried data, in seconds.
    * 
    * @example
    * 3600
@@ -335,7 +335,7 @@ export class DescribeVodPlayerMetricDataResponseBodyExtend extends $dara.Model {
 export class DescribeVodPlayerMetricDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of returned data.
+   * The returned data list.
    */
   dataList?: DescribeVodPlayerMetricDataResponseBodyDataList[];
   /**
@@ -353,7 +353,7 @@ export class DescribeVodPlayerMetricDataResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 5000

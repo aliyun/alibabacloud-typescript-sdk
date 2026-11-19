@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The material IDs, which are media asset IDs such as video VideoId, image ImageId, and auxiliary media asset MediaId. Separate multiple material IDs with commas (,).
+   * The material IDs, which are media asset IDs such as video IDs, image IDs, and auxiliary media asset IDs. Separate multiple material IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class SetEditingProjectMaterialsRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The online editing project ID.
+   * The ID of the online editing project.
    * 
    * This parameter is required.
    * 

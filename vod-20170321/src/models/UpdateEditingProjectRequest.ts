@@ -35,7 +35,7 @@ export class UpdateEditingProjectRequest extends $dara.Model {
   resourceOwnerId?: string;
   /**
    * @remarks
-   * The timeline of the online editing project. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
+   * The timeline of the online editing project. TimelineIn and TimelineOut indicate the in point and out point of a media clip on the timeline in seconds, accurate to four decimal places. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac500c*****a54328bc3443"},{"MediaId":"da87a9cff64*****d88bc6d8326e4"}]}]}

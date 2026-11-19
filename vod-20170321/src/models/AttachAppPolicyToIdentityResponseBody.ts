@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AttachAppPolicyToIdentityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policy names that failed to be attached.
+   * The Policy Name of the failed policy.
    */
   failedPolicyNames?: string[];
   /**
    * @remarks
-   * The list of policy names that do not exist.
+   * The list of non-existent policy names.
    */
   nonExistPolicyNames?: string[];
   /**

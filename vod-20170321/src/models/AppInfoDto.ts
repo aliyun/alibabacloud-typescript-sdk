@@ -5,11 +5,35 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AppInfoDTOPlatforms extends $dara.Model {
+  /**
+   * @remarks
+   * The platform ID.
+   */
   itemId?: string;
+  /**
+   * @remarks
+   * The list of licenses.
+   */
   licenseItemIds?: string[];
+  /**
+   * @remarks
+   * The package name.
+   */
   pkgName?: string;
+  /**
+   * @remarks
+   * The package signature.
+   */
   pkgSignature?: string;
+  /**
+   * @remarks
+   * The platform type.
+   */
   platformType?: number;
+  /**
+   * @remarks
+   * The platform type.
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -46,18 +70,56 @@ export class AppInfoDTOPlatforms extends $dara.Model {
 }
 
 export class AppInfoDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The application name.
+   */
   appName?: string;
   /**
+   * @remarks
+   * The application type. Valid values:
+   * 
+   * - 1: Common application.
+   * - 2: Embedded SDK.
+   * 
    * @example
-   * 1-普通应用，2-内嵌SDK.
+   * 1
    */
   appType?: number;
+  /**
+   * @remarks
+   * The creation time.
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The creation time.
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The update time.
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The application ID.
+   */
   itemId?: string;
+  /**
+   * @remarks
+   * The update time.
+   */
   modificationTime?: string;
+  /**
+   * @remarks
+   * The list of platform information for the application.
+   */
   platforms?: AppInfoDTOPlatforms[];
+  /**
+   * @remarks
+   * The user ID.
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {

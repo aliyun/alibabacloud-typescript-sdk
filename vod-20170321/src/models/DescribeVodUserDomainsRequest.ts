@@ -49,7 +49,7 @@ export class DescribeVodUserDomainsRequestTag extends $dara.Model {
 export class DescribeVodUserDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The accelerated domain name for ApsaraVideo VOD. Fuzzy match filtering is supported.
+   * The ApsaraVideo VOD accelerated domain name. Fuzzy match is supported.
    * 
    * @example
    * example.aliyundoc.com
@@ -57,7 +57,7 @@ export class DescribeVodUserDomainsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The domain name query type. Valid values:
+   * The domain name search type. Valid values:
    * 
    * - **fuzzy_match** (default): fuzzy match.
    * - **pre_match**: prefix match.
@@ -70,14 +70,14 @@ export class DescribeVodUserDomainsRequest extends $dara.Model {
   domainSearchType?: string;
   /**
    * @remarks
-   * The domain name status filter. Valid values:
+   * The domain name status used for filtering. Valid values:
    * 
-   * - **online**: Enabled.
-   * - **offline**: Disabled.
-   * - **configuring**: Being configured.
-   * - **configure_failed**: Configuration failed.
-   * - **checking**: Being reviewed.
-   * - **check_failed**: Review failed.
+   * - **online**: The domain name is enabled.
+   * - **offline**: The domain name is disabled.
+   * - **configuring**: The domain name is being configured.
+   * - **configure_failed**: The domain name failed to be configured.
+   * - **checking**: The domain name is being reviewed.
+   * - **check_failed**: The domain name failed the review.
    * 
    * @example
    * online
@@ -86,7 +86,7 @@ export class DescribeVodUserDomainsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the returned page.
    * 
    * @example
    * 1

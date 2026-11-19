@@ -60,7 +60,7 @@ export class DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval extend
 export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval between consecutive data entries, which is the time granularity of the data. Unit: seconds.
+   * The time interval of each record, which is the time granularity of the data. Unit: seconds.
    * 
    * @example
    * 300
@@ -76,7 +76,7 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range for the returned data.
+   * The end time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2022-08-23T02:02:57Z
@@ -93,7 +93,7 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   srcBpsDataPerInterval?: DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval;
   /**
    * @remarks
-   * The beginning of the time range for the returned data.
+   * The start time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2022-07-12T16:00:00Z

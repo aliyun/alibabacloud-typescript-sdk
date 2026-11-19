@@ -7,7 +7,7 @@ export class ListAIJobRequest extends $dara.Model {
    * @remarks
    * The list of job IDs. You can obtain the JobId from the PlayInfo struct returned by the [GetPlayInfo](https://help.aliyun.com/document_detail/56124.html) operation.
    * 
-   * > Separate multiple IDs with commas (,). You can specify up to 10 job IDs at a time.
+   * > Separate multiple IDs with commas (,). You can query up to 10 job IDs at a time.
    * 
    * This parameter is required.
    * 

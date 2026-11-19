@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAttachedMediaInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the auxiliary media assets that do not exist.
+   * The list of IDs of non-existent auxiliary media assets.
    */
   nonExistMediaIds?: string[];
   /**

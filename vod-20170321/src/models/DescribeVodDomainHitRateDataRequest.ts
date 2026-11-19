@@ -8,8 +8,8 @@ export class DescribeVodDomainHitRateDataRequest extends $dara.Model {
    * The accelerated domain name to query.
    * 
    * - If you do not specify this parameter, the pooled data of all accelerated domain names is returned by default.
-   * - Batch queries are supported. Separate multiple domain names with commas (,). You can specify up to 500 domain names at a time.
-   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names that you have added to ApsaraVideo VOD. You can also call the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
+   * - Batch queries are supported. Separate multiple domain names with commas (,). You can query up to 500 domain names at a time.
+   * - You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management > Distribution Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names added to ApsaraVideo VOD. Alternatively, you can call the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
    * 
    * @example
    * example.com
@@ -17,9 +17,7 @@ export class DescribeVodDomainHitRateDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query.
-   * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the data to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * > The end time must be later than the start time.
    * 
    * @example
@@ -28,11 +26,11 @@ export class DescribeVodDomainHitRateDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time granularity of the data to query. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you do not specify this parameter or specify an unsupported value, the default value is used. The supported time granularity varies based on the time span specified by `StartTime` and `EndTime`:
+   * The time granularity of the data to query. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you do not specify this parameter or specify an unsupported value, the default value is used. Based on the time range specified by `StartTime` and `EndTime`, the supported time granularities are as follows:
    * 
-   * - Less than 3 days (exclusive): **300** (default), **3600**, and **86400**.
-   * - 3 to 31 days (exclusive): **3600** (default) and **86400**.
-   * - 31 days or more: **86400** (default).
+   * - Less than 3 days: **300** (default), **3600**, and **86400**.
+   * - 3 to 31 days (excluding 31 days): **3600** (default) and **86400**.
+   * - More than 31 days: **86400** (default).
    * 
    * @example
    * 300
@@ -41,7 +39,7 @@ export class DescribeVodDomainHitRateDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the data to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2024-01-20T13:59:58Z

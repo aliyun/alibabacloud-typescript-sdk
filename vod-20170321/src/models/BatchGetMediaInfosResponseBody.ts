@@ -29,7 +29,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   cateName?: string;
   /**
    * @remarks
-   * The thumbnail URL of the audio/video file.
+   * The URL of the thumbnail for the audio or video file.
    * 
    * @example
    * https://example.aliyundoc.com/****.jpg
@@ -37,7 +37,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   coverURL?: string;
   /**
    * @remarks
-   * The time when the audio/video file was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The time when the audio or video file was created. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2017-11-14T09:15:50Z
@@ -45,7 +45,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   creationTime?: string;
   /**
    * @remarks
-   * The description of the audio/video file.
+   * The description of the audio or video file.
    * 
    * @example
    * Alibaba Cloud VOD video description
@@ -53,10 +53,10 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The status of the offline download switch. After the offline download feature is enabled, mobile users can cache videos to their local devices for viewing by using ApsaraVideo Player. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
+   * The status of the offline download switch. After you enable the offline download feature, mobile users can use ApsaraVideo Player to cache videos to their local devices for offline viewing. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
    * 
-   * - **on**: Offline download is enabled.
-   * - **off**: Offline download is disabled.
+   * - **on**: The offline download feature is enabled.
+   * - **off**: The offline download feature is disabled.
    * 
    * @example
    * on
@@ -72,7 +72,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   mediaId?: string;
   /**
    * @remarks
-   * The last time when the audio/video file was updated. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The time when the audio or video file was last updated. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2017-06-26T06:38:48Z
@@ -80,7 +80,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   modificationTime?: string;
   /**
    * @remarks
-   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The ID must be 6 to 64 characters in length and is unique at the user level.
+   * The custom ID. The ID must be 6 to 64 characters in length and can contain only lowercase letters, uppercase letters, digits, hyphens (-), and underscores (_). The ID must be unique within the user dimension.
    * 
    * @example
    * 123-123
@@ -88,7 +88,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   referenceId?: string;
   /**
    * @remarks
-   * The expiration time of the media asset restoration.
+   * The expiration time of the restored media asset.
    * 
    * @example
    * 2023-03-30T10:14:14Z
@@ -99,7 +99,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
    * The restoration status of the media asset. Valid values:
    * - **Processing**: The media asset is being restored.
    * - **Success**: The media asset is restored.
-   * - **Failed**: The media asset failed to be restored.
+   * - **Failed**: The restoration failed.
    * 
    * @example
    * Success
@@ -107,7 +107,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   restoreStatus?: string;
   /**
    * @remarks
-   * The video snapshot URL array.
+   * The array of video snapshot URLs.
    */
   snapshots?: string[];
   /**
@@ -115,12 +115,12 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
    * The video status. Valid values:
    * 
    * - **Uploading**: The video is being uploaded.
-   * - **UploadFail**: The video failed to be uploaded.
-   * - **UploadSucc**: The video has been uploaded.
+   * - **UploadFail**: The upload failed.
+   * - **UploadSucc**: The upload is complete.
    * - **Transcoding**: The video is being transcoded.
-   * - **TranscodeFail**: The video failed to be transcoded.
+   * - **TranscodeFail**: The transcoding failed.
    * - **Blocked**: The video is blocked.
-   * - **Normal**: The video is in a normal state.
+   * - **Normal**: The video is normal.
    * 
    * @example
    * Normal
@@ -129,13 +129,13 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   /**
    * @remarks
    * The storage class of the media asset. Valid values:
-   * - **Standard**: standard.
-   * - **IA**: Infrequent Access for media assets.
-   * - **Archive**: Archive for media assets.
-   * - **ColdArchive**: Cold Archive for media assets.
-   * - **SourceIA**: Infrequent Access for source files.
-   * - **SourceArchive**: Archive for source files.
-   * - **SourceColdArchive**: Cold Archive for source files.
+   * - **Standard**: Standard storage.
+   * - **IA**: Infrequent access storage for media assets.
+   * - **Archive**: Archive storage for media assets.
+   * - **ColdArchive**: Cold archive storage for media assets.
+   * - **SourceIA**: Infrequent access storage for source files.
+   * - **SourceArchive**: Archive storage for source files.
+   * - **SourceColdArchive**: Cold archive storage for source files.
    * - **Changing**: The storage class of the media asset is being changed.
    * - **SourceChanging**: The storage class of the source file is being changed.
    * 
@@ -145,7 +145,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   storageClass?: string;
   /**
    * @remarks
-   * The storage address of the audio/video file.
+   * The storage address of the audio or video file.
    * 
    * @example
    * outin-***.oss-cn-shanghai.aliyuncs.com
@@ -153,7 +153,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the audio/video file. Multiple tags are separated by commas (,).
+   * The tags of the audio or video file. Separate multiple tags with commas (,).
    * 
    * @example
    * tag1, tag2
@@ -161,7 +161,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   tags?: string;
   /**
    * @remarks
-   * The transcoding template group ID.
+   * The ID of the transcoding template group.
    * 
    * @example
    * b4039216985f4312a5382a4ed****
@@ -169,7 +169,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   templateGroupId?: string;
   /**
    * @remarks
-   * The title of the audio/video file.
+   * The title of the audio or video file.
    * 
    * @example
    * Alibaba Cloud VOD Video Title
@@ -177,7 +177,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
   title?: string;
   /**
    * @remarks
-   * The custom parameter.
+   * The custom parameters.
    * 
    * @example
    * {"Extend":"xxx","MessageCallback":"xxx"}
@@ -258,8 +258,8 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoAudioStreamLis
    * @remarks
    * The channel layout. Valid values:
    * 
-   * - **mono**: mono.
-   * - **stereo**: stereo.
+   * - **mono**: Mono.
+   * - **stereo**: Stereo.
    * 
    * @example
    * mono
@@ -275,7 +275,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoAudioStreamLis
   channels?: string;
   /**
    * @remarks
-   * The full name of the codec.
+   * The long name of the codec.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -323,7 +323,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoAudioStreamLis
   duration?: string;
   /**
    * @remarks
-   * The sequence number of the audio stream, which identifies the position of the audio stream in the overall media stream.
+   * The index of the audio stream, which indicates the position of the audio stream in all media streams.
    * 
    * @example
    * 0
@@ -347,7 +347,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoAudioStreamLis
   numFrames?: string;
   /**
    * @remarks
-   * The sample format.
+   * The sampling format.
    * 
    * @example
    * fltp
@@ -363,7 +363,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoAudioStreamLis
   sampleRate?: string;
   /**
    * @remarks
-   * The start time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The start time. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -447,7 +447,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
   bitrate?: string;
   /**
    * @remarks
-   * The full name of the codec.
+   * The long name of the codec.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -519,7 +519,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
   HDRType?: string;
   /**
    * @remarks
-   * Indicates whether the video stream contains B-frames.
+   * Indicates whether the video contains B-frames.
    * 
    * @example
    * 0
@@ -527,7 +527,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
   hasBFrames?: string;
   /**
    * @remarks
-   * The height of the video resolution.
+   * The height of the video.
    * 
    * @example
    * 320
@@ -535,7 +535,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
   height?: string;
   /**
    * @remarks
-   * The sequence number of the video stream, which identifies the position of the video stream in the overall media stream.
+   * The index of the video stream, which indicates the position of the video stream in all media streams.
    * 
    * @example
    * 1
@@ -583,7 +583,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
   profile?: string;
   /**
    * @remarks
-   * The video rotation angle. Valid values: [0, 360).
+   * The rotation angle of the video. Value range: [0, 360).
    * 
    * @example
    * 90
@@ -599,7 +599,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
   sar?: string;
   /**
    * @remarks
-   * The start time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The start time. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -615,7 +615,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
   timebase?: string;
   /**
    * @remarks
-   * The width of the video resolution.
+   * The width of the video.
    * 
    * @example
    * 568
@@ -691,7 +691,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamLis
 export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara.Model {
   /**
    * @remarks
-   * The audio stream information.
+   * The information about the audio streams.
    */
   audioStreamList?: BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoAudioStreamList[];
   /**
@@ -704,7 +704,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
   bitrate?: string;
   /**
    * @remarks
-   * The time when the file was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The time when the file was created. The time follows the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2017-11-14T09:15:50Z
@@ -718,6 +718,10 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
    * 42.4930
    */
   duration?: string;
+  /**
+   * @remarks
+   * The MD5 hash value of the source file.
+   */
   fileMD5?: string;
   /**
    * @remarks
@@ -737,7 +741,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
   fileURL?: string;
   /**
    * @remarks
-   * The frame rate of the file, in frames per second.
+   * The frame rate of the file. Unit: frames per second.
    * 
    * @example
    * 25.0000
@@ -745,7 +749,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
   fps?: string;
   /**
    * @remarks
-   * The height of the file. Unit: px.
+   * The height of the file. Unit: pixels.
    * 
    * @example
    * 540
@@ -761,7 +765,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
   mediaId?: string;
   /**
    * @remarks
-   * The size of the file. Unit: bytes.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 4096477
@@ -773,7 +777,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
    * 
    * - **Uploading**: The file is being uploaded. This is the initial status of the file.
    * - **Normal**: The file is uploaded.
-   * - **UploadFail**: The file failed to be uploaded.
+   * - **UploadFail**: The upload failed.
    * - **Deleted**: The file is deleted.
    * 
    * @example
@@ -782,12 +786,12 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
   status?: string;
   /**
    * @remarks
-   * The video stream information.
+   * The information about the video streams.
    */
   videoStreamList?: BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfoVideoStreamList[];
   /**
    * @remarks
-   * The width of the file. Unit: px.
+   * The width of the file. Unit: pixels.
    * 
    * @example
    * 960
@@ -849,7 +853,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
 export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.Model {
   /**
    * @remarks
-   * The color bit depth. The value is an integer.
+   * The color depth. The value is an integer.
    * 
    * @example
    * 8
@@ -873,7 +877,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   codecName?: string;
   /**
    * @remarks
-   * The time when the stream was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The creation time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2022-04-18T07:37:15Z
@@ -883,16 +887,16 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
    * @remarks
    * The definition of the video stream. Valid values:
    * 
-   * - **FD**: low definition.
-   * - **LD**: standard definition.
-   * - **SD**: high definition.
-   * - **HD**: ultra high definition.
-   * - **OD**: original quality.
-   * - **2K**: 2K.
-   * - **4K**: 4K.
-   * - **SQ**: standard sound quality.
-   * - **HQ**: high sound quality.
-   * - **AUTO**: adaptive bitrate streaming.
+   * - **FD**: smooth
+   * - **LD**: standard definition
+   * - **SD**: high definition
+   * - **HD**: ultra-high definition
+   * - **OD**: original quality
+   * - **2K**: 2K
+   * - **4K**: 4K
+   * - **SQ**: standard audio quality
+   * - **HQ**: high audio quality
+   * - **AUTO**: adaptive bitrate
    * 
    * @example
    * LD
@@ -908,10 +912,10 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   duration?: string;
   /**
    * @remarks
-   * Indicates whether the media stream is encrypted. Valid values:
+   * Specifies whether the media stream is encrypted. Valid values:
    * 
-   * - **0**: The stream is not encrypted.
-   * - **1**: The stream is encrypted.
+   * - **0**: no
+   * - **1**: yes
    * 
    * @example
    * 1
@@ -921,9 +925,9 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
    * @remarks
    * The encryption mode of the media stream. Valid values:
    * 
-   * - **License**: local decryption mode.
+   * - **License**: local decryption mode
    * 
-   * > If the encryption mode is **License**, only ApsaraVideo Player SDK can be used for playback.
+   * > If the encryption mode is **License**, the stream can only be played by using the ApsaraVideo Player SDK.
    * 
    * @example
    * License
@@ -933,10 +937,10 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
    * @remarks
    * The encryption type of the media stream. Valid values:
    * 
-   * - **AliyunVoDEncryption**: Alibaba Cloud video encryption.
-   * - **HLSEncryption**: HLS encryption.
+   * - **AliyunVoDEncryption**: Alibaba Cloud video encryption
+   * - **HLSEncryption**: HLS encryption
    * 
-   * > If the encryption type is **AliyunVoDEncryption**, only ApsaraVideo Player SDK can be used for playback.
+   * > If the encryption type is **AliyunVoDEncryption**, the stream can only be played by using the ApsaraVideo Player SDK.
    * 
    * @example
    * AliyunVoDEncryption
@@ -946,7 +950,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
    * @remarks
    * The format of the media stream.
    * - If the media file is a video, valid values are **mp4** and **m3u8**.
-   * - If the media file is audio-only, the value is **mp3**.
+   * - If the media file is audio-only, the valid value is **mp3**.
    * 
    * @example
    * m3u8
@@ -976,7 +980,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   HDRType?: string;
   /**
    * @remarks
-   * The height of the media stream. Unit: px.
+   * The height of the media stream. Unit: pixels.
    * 
    * @example
    * 640
@@ -984,7 +988,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   height?: number;
   /**
    * @remarks
-   * The custom watermark information of the copyright watermark. This field is returned only when `JobType` is `2`.
+   * The custom watermark information for the copyright watermark. This field is returned only when `JobType` is set to `2`.
    * 
    * @example
    * CopyrightMarkTest
@@ -992,7 +996,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   jobExt?: string;
   /**
    * @remarks
-   * The job ID of the media stream transcoding. This value serves as the unique identifier of the media stream.
+   * The ID of the transcoding job for the media stream. This ID uniquely identifies the media stream.
    * 
    * @example
    * 80e9c6580e754a798c3c19c59b16****
@@ -1001,8 +1005,8 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   /**
    * @remarks
    * The digital watermarking type. Valid values:
-   * - **1**: tracing watermark.
-   * - **2**: copyright watermark.
+   * - **1**: tracing watermark
+   * - **2**: copyright watermark
    * 
    * @example
    * 2
@@ -1010,7 +1014,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   jobType?: number;
   /**
    * @remarks
-   * The time when the stream was last updated. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The update time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2022-04-20T06:32:19Z
@@ -1020,9 +1024,9 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
    * @remarks
    * The transcoding type. Valid values:
    * 
-   * - **0**: standard transcoding.
-   * - **1.0**: Narrowband HD 1.0 transcoding.
-   * - **2.0**: Narrowband HD 2.0 transcoding.
+   * - **0**: standard transcoding
+   * - **1.0**: Narrowband HD 1.0 transcoding
+   * - **2.0**: Narrowband HD 2.0 transcoding
    * 
    * @example
    * 0
@@ -1043,7 +1047,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   size?: number;
   /**
    * @remarks
-   * The output specification of the audio/video transcoding. For more information about valid values and descriptions, see [Output specifications: Specification](~~124671#section-6bv-l0g-opq~~).
+   * The output specification of video transcoding. For more information about the valid values and descriptions, see [Output specifications: Specification](~~124671#section-6bv-l0g-opq~~).
    * 
    * @example
    * H264.LD
@@ -1053,8 +1057,8 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
    * @remarks
    * The status of the media stream. Valid values:
    * 
-   * - **Normal**: The stream is in a normal state. This value indicates the status of the latest transcoded stream for each definition and format.
-   * - **Invisible**: The stream is invisible. When multiple duplicate transcoded streams exist for each definition and format, only the latest stream is marked as Normal, and the other streams are marked as Invisible.
+   * - **Normal**: The stream is in the normal state. This state marks the latest transcoded stream for each definition and format.
+   * - **Invisible**: The stream is in the invisible state. If multiple transcoded streams exist for the same definition and format, only the latest stream is marked as Normal, and the other streams are marked as Invisible.
    * 
    * @example
    * Normal
@@ -1071,7 +1075,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   streamType?: string;
   /**
    * @remarks
-   * The transcoding template group ID.
+   * The ID of the transcoding template group.
    * 
    * @example
    * fb0716154b21a4ecb5b70a26ccc8****
@@ -1079,7 +1083,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   templateGroupId?: string;
   /**
    * @remarks
-   * The transcoding template ID.
+   * The ID of the transcoding template.
    * 
    * @example
    * a86a4338dd2e83da45154004a541****
@@ -1087,7 +1091,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   templateId?: string;
   /**
    * @remarks
-   * The watermark template ID associated with the current media stream.
+   * The ID of the watermark template associated with the current media stream.
    * 
    * @example
    * dgfn26457856****
@@ -1095,7 +1099,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList extends $dara.
   watermarkId?: string;
   /**
    * @remarks
-   * The width of the media stream. Unit: px.
+   * The width of the media stream. Unit: pixels.
    * 
    * @example
    * 360
@@ -1185,17 +1189,17 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The basic information of the media asset.
+   * The basic information about the media asset.
    */
   mediaInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaInfo;
   /**
    * @remarks
-   * The source file information.
+   * The information about the source file.
    */
   mezzanineInfo?: BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo;
   /**
    * @remarks
-   * The playback information (stream information) of the audio/video file.
+   * The playback information of the audio and video streams.
    */
   playInfoList?: BatchGetMediaInfosResponseBodyMediaInfosPlayInfoList[];
   static names(): { [key: string]: string } {
@@ -1237,12 +1241,12 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
 export class BatchGetMediaInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of media asset IDs that are forbidden. This is typically because you do not have permissions for multi-application operations. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
+   * The list of media asset IDs for which operations are forbidden. This is typically caused by a lack of multi-application permissions. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
    */
   forbiddenMediaIds?: string[];
   /**
    * @remarks
-   * The media asset list.
+   * The list of media assets.
    */
   mediaInfos?: BatchGetMediaInfosResponseBodyMediaInfos[];
   /**

@@ -69,7 +69,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetailSources extends $dar
 export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the HTTPS certificate. This parameter is returned only if HTTPS secure acceleration is enabled.
+   * The name of the HTTPS certificate if HTTPS secure acceleration is enabled. This parameter is not returned if HTTPS secure acceleration is disabled.
    * 
    * @example
    * testCertName
@@ -77,7 +77,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   certName?: string;
   /**
    * @remarks
-   * The CNAME assigned to the accelerated domain name. You must add a CNAME record with your DNS provider to map the accelerated domain name to this CNAME. For more information, see [Configure a CNAME record](https://help.aliyun.com/document_detail/86075.html).
+   * The CNAME domain name generated for the accelerated domain name. You must add a CNAME record at your DNS provider to resolve the accelerated domain name to this CNAME domain name. For more information, see [Configure CNAME](https://help.aliyun.com/document_detail/86075.html).
    * 
    * @example
    * example.com.w.alikunlun.net
@@ -85,7 +85,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   cname?: string;
   /**
    * @remarks
-   * The description of the VOD acceleration domain name.
+   * The description of the ApsaraVideo VOD accelerated domain name.
    * 
    * @example
    * testDescription
@@ -93,7 +93,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The VOD acceleration domain name.
+   * The ApsaraVideo VOD accelerated domain name.
    * 
    * @example
    * example.com
@@ -101,14 +101,14 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   domainName?: string;
   /**
    * @remarks
-   * The status of the accelerated domain name. Valid values:
+   * The running status of the accelerated domain name. Valid values:
    * 
-   * - **online**: enabled.
-   * - **offline**: disabled.
-   * - **configuring**: being configured.
-   * - **configure_failed**: configuration failed.
-   * - **checking**: being reviewed.
-   * - **check_failed**: review failed.
+   * - **online**: Enabled.
+   * - **offline**: Disabled.
+   * - **configuring**: Configuring.
+   * - **configure_failed**: Configuration failed.
+   * - **checking**: Under review.
+   * - **check_failed**: Review failed.
    * 
    * @example
    * online
@@ -116,7 +116,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   domainStatus?: string;
   /**
    * @remarks
-   * The time when the domain name was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+   * The creation time. The format is <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2017-11-27T06:51:26Z
@@ -124,7 +124,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the domain name was last modified. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+   * The last modification time. The format is <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2017-11-27T06:55:26Z
@@ -132,7 +132,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the SSL certificate is enabled. Valid values:
+   * Specifies whether the SSL certificate is enabled. Valid values:
    * 
    * - **on**: Enabled.
    * - **off**: Disabled.
@@ -143,7 +143,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   SSLProtocol?: string;
   /**
    * @remarks
-   * The public key of the HTTPS certificate. This parameter is returned only if HTTPS secure acceleration is enabled.
+   * The public key of the HTTPS certificate if HTTPS secure acceleration is enabled. This parameter is not returned if HTTPS secure acceleration is disabled.
    * 
    * @example
    * yourSSLPub
@@ -151,11 +151,11 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   SSLPub?: string;
   /**
    * @remarks
-   * The acceleration region. Valid values:
+   * The accelerated region. Valid values:
    * 
-   * - **domestic** (default): the Chinese mainland only.
-   * - **overseas**: global (excluding the Chinese mainland).
-   * - **global**: global.
+   * - **domestic** (default): The Chinese mainland.
+   * - **overseas**: Global (excluding the Chinese mainland).
+   * - **global**: Global.
    * 
    * @example
    * domestic

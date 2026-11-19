@@ -13,7 +13,7 @@ export class UploadMediaByURLResponseBodyUploadJobs extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The source file URL of the upload job.
+   * The source file URL corresponding to the upload job.
    * 
    * @example
    * http://example****.mp4

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCategoryResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
-   * The category ID. This ID can be used as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
+   * The category ID. You can use it as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
    * 
    * @example
    * 10020
@@ -22,9 +22,9 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
    * The category level. Valid values:
-   * - **0**: level-0 category.
-   * - **1**: level-1 category.
-   * - **2**: level-2 category.
+   * - **0**: level-1 category.
+   * - **1**: level-2 category.
+   * - **2**: level-3 category.
    * 
    * @example
    * 1
@@ -32,7 +32,7 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The parent category ID.
+   * The ID of the parent category.
    * 
    * @example
    * 100012
@@ -42,8 +42,8 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
    * @remarks
    * The category type. Valid values:
    * 
-   * - **default**: audio/video/image category.
-   * - **material**: short video material category.
+   * - **default**: audio, video, and image categories.
+   * - **material**: short video material categories.
    * 
    * @example
    * default

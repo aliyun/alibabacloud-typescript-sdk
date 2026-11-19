@@ -31,7 +31,7 @@ export class DescribeVodUserVipsByDomainResponseBodyVips extends $dara.Model {
 export class DescribeVodUserVipsByDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The accelerated domain name for ApsaraVideo VOD.
+   * The ApsaraVideo VOD accelerated domain name.
    * 
    * @example
    * example.com

@@ -7,9 +7,9 @@ export class DescribeVodDomainMax95BpsDataRequest extends $dara.Model {
    * @remarks
    * The cycle for the 95th percentile bandwidth. Default value: day. Valid values:
    * 
-   * - day: queries the 95th percentile bandwidth by day.
+   * - day: Queries the 95th percentile bandwidth by day.
    * 
-   * - month: queries the 95th percentile bandwidth by month.
+   * - month: Queries the 95th percentile bandwidth by month.
    * 
    * @example
    * month
@@ -17,10 +17,10 @@ export class DescribeVodDomainMax95BpsDataRequest extends $dara.Model {
   cycle?: string;
   /**
    * @remarks
-   * The accelerated domain name to query. If this parameter is left empty, the merged data of all accelerated domain names is returned by default.
+   * The accelerated domain name to query. If this parameter is left empty, the aggregated data of all accelerated domain names is returned by default.
    * 
    * 
-   * > Batch domain name queries are not supported.
+   * > Batch query for domain names is not supported.
    * 
    * @example
    * example.com
@@ -28,7 +28,7 @@ export class DescribeVodDomainMax95BpsDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * 
    * > The end time must be later than the start time.
@@ -40,7 +40,7 @@ export class DescribeVodDomainMax95BpsDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -48,7 +48,7 @@ export class DescribeVodDomainMax95BpsDataRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The start time point for data retrieval. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the data. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-12-21T10:00:00Z

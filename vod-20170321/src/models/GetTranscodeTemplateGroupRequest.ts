@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTranscodeTemplateGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The transcoding template group ID.
+   * The ID of the transcoding template group.
    * 
    * This parameter is required.
    * 

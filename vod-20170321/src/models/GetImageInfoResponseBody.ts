@@ -21,7 +21,7 @@ export class GetImageInfoResponseBodyImageInfoMezzanine extends $dara.Model {
   fileURL?: string;
   /**
    * @remarks
-   * The image height. Unit: pixel.
+   * The image height. Unit: pixels.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class GetImageInfoResponseBodyImageInfoMezzanine extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The address of the uploaded source image file.
+   * The URL of the uploaded source image file.
    * 
    * @example
    * ****.gif
@@ -37,7 +37,7 @@ export class GetImageInfoResponseBodyImageInfoMezzanine extends $dara.Model {
   originalFileName?: string;
   /**
    * @remarks
-   * The image width. Unit: pixel.
+   * The image width. Unit: pixels.
    * 
    * @example
    * 200
@@ -99,7 +99,7 @@ export class GetImageInfoResponseBodyImageInfo extends $dara.Model {
   cateName?: string;
   /**
    * @remarks
-   * The time when the image was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+   * The time when the image was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2018-11-21T02:37:23Z
@@ -125,8 +125,8 @@ export class GetImageInfoResponseBodyImageInfo extends $dara.Model {
    * @remarks
    * The image type. Valid values:
    * 
-   * - **default**: regular image.
-   * - **cover**: video thumbnail.
+   * - **default**: regular image
+   * - **cover**: video thumbnail
    * 
    * @example
    * default
@@ -134,14 +134,14 @@ export class GetImageInfoResponseBodyImageInfo extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The mezzanine information of the image.
+   * The image source information.
    */
   mezzanine?: GetImageInfoResponseBodyImageInfoMezzanine;
   /**
    * @remarks
    * The image status. Valid values:
    * 
-   * - **Uploading**: The image is being uploaded. This is the initial status.
+   * - **Uploading**: The initial status, which indicates that the image is being uploaded.
    * - **Normal**: The image is uploaded.
    * - **UploadFail**: The image failed to be uploaded.
    * 
@@ -175,7 +175,7 @@ export class GetImageInfoResponseBodyImageInfo extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The image access URL. If a CDN domain name is configured, the CDN URL is returned. Otherwise, the OSS URL is returned.
+   * The image access URL. If a CDN domain name is configured, the value is a CDN URL. Otherwise, the value is an OSS URL.
    * 
    * @example
    * http://example.aliyundoc.com/image/default/****.gif?auth_key=****
@@ -232,7 +232,7 @@ export class GetImageInfoResponseBodyImageInfo extends $dara.Model {
 export class GetImageInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image information.
+   * The image information list.
    */
   imageInfo?: GetImageInfoResponseBodyImageInfo;
   /**

@@ -13,7 +13,7 @@ export class GetWatermarkResponseBodyWatermarkInfo extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the watermark template was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The creation time of the watermark template. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format and is in UTC.
    * 
    * @example
    * 2018-11-06T08:03:17Z
@@ -21,7 +21,7 @@ export class GetWatermarkResponseBodyWatermarkInfo extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The URL of the watermark file (OSS URL or CDN URL).
+   * The URL of the watermark file, which is an OSS URL or a CDN URL.
    * > This parameter is returned only for image watermark templates.
    * 
    * @example
@@ -30,10 +30,10 @@ export class GetWatermarkResponseBodyWatermarkInfo extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * Indicates whether the watermark template is the default template. Valid values:
+   * Specifies whether the watermark template is the default image or text watermark template. Valid values:
    * 
-   * - **Default**: the default watermark template.
-   * - **NotDefault**: not the default watermark template.
+   * - **Default**: default image or text watermark template.
+   * - **NotDefault**: non-default image or text watermark template.
    * 
    * @example
    * NotDefault
@@ -59,7 +59,7 @@ export class GetWatermarkResponseBodyWatermarkInfo extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The configuration information of the watermark (JSON string), including the display position and effect of the watermark. The configuration parameters differ between image watermarks and text watermarks. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
+   * The configuration information of the image or text watermark in JSON string format, including the display position and effect of the watermark. The configuration parameters for image watermarks and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
    * 
    * @example
    * {"ReferPos": "BottomRight","Height": "55","Width": "55","Dx": "8","Dy": "8" }
@@ -67,7 +67,7 @@ export class GetWatermarkResponseBodyWatermarkInfo extends $dara.Model {
   watermarkConfig?: string;
   /**
    * @remarks
-   * The watermark template ID.
+   * The ID of the watermark template.
    * 
    * @example
    * 505e2e287ea*****ecfddd386d384
@@ -119,7 +119,7 @@ export class GetWatermarkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The watermark template information.
+   * The image or text watermark template information.
    */
   watermarkInfo?: GetWatermarkResponseBodyWatermarkInfo;
   static names(): { [key: string]: string } {

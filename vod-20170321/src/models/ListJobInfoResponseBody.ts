@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was completed.
+   * The time when the task was completed. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:34Z
@@ -13,7 +13,7 @@ export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
   completeTime?: string;
   /**
    * @remarks
-   * The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+   * The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:25Z
@@ -75,7 +75,7 @@ export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
 export class ListJobInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The historical task list within the last 6 months.
+   * The list of historical tasks within the last 6 months.
    */
   jobInfoList?: ListJobInfoResponseBodyJobInfoList[];
   /**
@@ -102,7 +102,7 @@ export class ListJobInfoResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 6708D849-F109-1A6C-AC91-************

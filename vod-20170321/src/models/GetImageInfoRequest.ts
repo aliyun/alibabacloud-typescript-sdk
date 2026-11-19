@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the image access URL. Unit: seconds.
+   * The expiration time of the image access URL. Unit: seconds.
    * 
    * - If OutputType is set to cdn:
-   *     - The image URL expires only if URL signing is enabled. Otherwise, the URL is permanently valid.
+   *     - The image URL expires only if URL authentication is enabled. Otherwise, the URL is permanently valid.
    *     - Minimum value: 1.
    *     - Maximum value: unlimited.
-   *     - Default value: If this parameter is not specified, the default validity period specified in URL signing is used.
+   *     - Default value: If this parameter is not specified, the default validity period configured for URL authentication is used.
    * - If OutputType is set to oss:
    *     - The playback URL expires only if the storage permission is set to private. Otherwise, the URL is permanently valid.
    *     - Minimum value: 1.
-   *     - Maximum value: To reduce security risks to the origin server, the maximum value is **2592000** (30 days) if the image is stored in a VOD system bucket, and **129600** (36 hours) if the image is stored in your own OSS bucket.
+   *     - Maximum value: To reduce security risks of the origin server, the maximum value is **2592000** (30 days) if the image is stored in an ApsaraVideo VOD bucket, and **129600** (36 hours) if the image is stored in a custom OSS bucket.
    *     - Default value: If this parameter is not specified, the value is 3600.
    * 
    * @example
@@ -25,9 +25,9 @@ export class GetImageInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The image ID. You can obtain the image ID by using one of the following methods:
-   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/) and choose **Media Files > Images** to view the ID.
-   * - Obtain the ID from the response of the [CreateUploadImage](~~CreateUploadImage~~) operation when you retrieve the upload URL and credential.
-   * - Obtain the ID from the response of the [SearchMedia](~~SearchMedia~~) operation when you query images.
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/) and choose **Media Assets** > **Images** to view the ID.
+   * - Call the [CreateUploadImage](~~CreateUploadImage~~) operation to obtain the upload URL and credential. The image ID is returned in the response.
+   * - Call the [SearchMedia](~~SearchMedia~~) operation to query images. The image ID is returned in the response.
    * 
    * This parameter is required.
    * 
@@ -37,10 +37,10 @@ export class GetImageInfoRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the image access URL to return. Valid values:
+   * The type of the output image access URL. Valid values:
    * 
-   * - oss: the origin URL.
-   * - cdn (default): the accelerated URL.
+   * - oss: the back-to-origin URL.
+   * - cdn: the accelerated URL. This is the default value.
    * 
    * @example
    * cdn

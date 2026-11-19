@@ -7,7 +7,7 @@ export class GetEditingProjectRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The online editing project ID.
+   * The ID of the online editing project.
    * 
    * This parameter is required.
    * 

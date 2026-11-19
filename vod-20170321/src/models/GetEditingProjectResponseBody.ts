@@ -13,7 +13,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The time when the online editing project was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the online editing project was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-10-23T13:33:40Z
@@ -29,7 +29,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the online editing project was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the online editing project was last modified. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-10-23T14:27:26Z
@@ -37,7 +37,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The online editing project ID.
+   * The ID of the online editing project.
    * 
    * @example
    * fb2101bf24b27*****54cb318787dc
@@ -53,12 +53,12 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the online editing project. Multiple statuses are separated by commas (,). By default, all online editing projects are returned. Valid values:
+   * The status of the online editing project. Multiple statuses are separated by commas (,). By default, all online editing projects are retrieved. Valid values:
    * 
-   * - **Normal**: draft.
-   * - **Producing**: being produced.
-   * - **Produced**: produced.
-   * - **ProduceFailed**: failed to be produced.
+   * - **Normal**: Draft.
+   * - **Producing**: Being produced.
+   * - **Produced**: Produced successfully.
+   * - **ProduceFailed**: Production failed.
    * 
    * @example
    * Normal
@@ -75,7 +75,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The timeline of the online editing project.
+   * The timeline of the online editing project. TimelineIn and TimelineOut indicate the in-point and out-point of a media clip on the timeline, in seconds, accurate to four decimal places.
    * 
    * @example
    * {\\"TimelineIn\\":0,\\"TimelineOut\\":9.42}

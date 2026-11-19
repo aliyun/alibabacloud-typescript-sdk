@@ -16,7 +16,7 @@ export class DescribeVodUserVipsByDomainRequest extends $dara.Model {
   available?: string;
   /**
    * @remarks
-   * The accelerated domain name for ApsaraVideo VOD. Only a single domain name can be queried.
+   * The ApsaraVideo VOD accelerated domain name. You can specify only one domain name.
    * 
    * This parameter is required.
    * 

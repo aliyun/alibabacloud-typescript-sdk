@@ -60,7 +60,7 @@ export class DescribeVodDomainHitRateDataResponseBodyHitRateInterval extends $da
 export class DescribeVodDomainHitRateDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval between data entries, which is the time granularity of the data. Unit: seconds.
+   * The time interval between each data entry, which indicates the time granularity of the data. Unit: seconds.
    * 
    * @example
    * 300
@@ -76,7 +76,7 @@ export class DescribeVodDomainHitRateDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range for the returned data.
+   * The end time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2024-01-20T14:59:58Z
@@ -93,7 +93,7 @@ export class DescribeVodDomainHitRateDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for the returned data.
+   * The start time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2024-01-20T13:59:58Z

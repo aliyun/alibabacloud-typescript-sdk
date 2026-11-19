@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID. Note: To query a transcoding task by TaskId, see [GetTranscodeTask](https://www.alibabacloud.com/help/en/vod/developer-reference/api-vod-2017-03-21-gettranscodetask).
+   * The job ID. Note: To query a transcoding task by TaskId, refer to [GetTranscodeTask](https://www.alibabacloud.com/help/en/vod/developer-reference/api-vod-2017-03-21-gettranscodetask).
    * 
    * This parameter is required.
    * 

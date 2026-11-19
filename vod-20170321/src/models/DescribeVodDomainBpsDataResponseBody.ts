@@ -73,7 +73,7 @@ export class DescribeVodDomainBpsDataResponseBody extends $dara.Model {
   bpsDataPerInterval?: DescribeVodDomainBpsDataResponseBodyBpsDataPerInterval;
   /**
    * @remarks
-   * The time interval between consecutive data entries, which is the time granularity of the data. Unit: seconds.
+   * The time interval between each record, which is the time granularity of the data. Unit: seconds.
    * 
    * @example
    * 300
@@ -89,7 +89,7 @@ export class DescribeVodDomainBpsDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range for the returned data.
+   * The end time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2015-12-10T14:00:00Z
@@ -97,7 +97,7 @@ export class DescribeVodDomainBpsDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the ISP in English.
+   * The English name of the ISP.
    * 
    * @example
    * unicom
@@ -105,7 +105,7 @@ export class DescribeVodDomainBpsDataResponseBody extends $dara.Model {
   ispNameEn?: string;
   /**
    * @remarks
-   * The name of the region in English.
+   * The English name of the region.
    * 
    * @example
    * shanghai
@@ -121,7 +121,7 @@ export class DescribeVodDomainBpsDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for the returned data.
+   * The start time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2015-12-10T13:00:00Z

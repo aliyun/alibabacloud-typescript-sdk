@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddVodTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58
@@ -13,7 +13,8 @@ export class AddVodTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The snapshot or animated image template ID. This ID can be used as a request parameter of the [SubmitSnapshotJob](~~SubmitSnapshotJob~~) or [SubmitDynamicImageJob](~~SubmitDynamicImageJob~~) operation to initiate snapshot or animated image processing.
+   * The ID of the snapshot or animated image template.
+   * You can use this ID as a request parameter in the [SubmitSnapshotJob](~~SubmitSnapshotJob~~) or [SubmitDynamicImageJob](~~SubmitDynamicImageJob~~) operation to initiate snapshot or animated image processing.
    * 
    * @example
    * f5b228fe6930e*****0d6bf55bd87789

@@ -21,7 +21,7 @@ export class GetWorkflowTaskResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The time when the task was completed. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The time when the task was completed. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2025-08-19T02:28:22Z
@@ -29,7 +29,7 @@ export class GetWorkflowTaskResponseBody extends $dara.Model {
   finishTimeUtc?: string;
   /**
    * @remarks
-   * The time when the task was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The time when the task was created. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2025-07-28T02:17:26Z
@@ -61,7 +61,7 @@ export class GetWorkflowTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of this review. This indicates the current manual review result. Valid values:
+   * The review result. Indicates the current manual review result. Valid values:
    * - **running**: Running.
    * - **stopped**: Stopped.
    * - **failed**: Failed.
@@ -90,7 +90,7 @@ export class GetWorkflowTaskResponseBody extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The workflow ID. You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management** > **Media Processing** > **Workflow Management** to view the ID.
+   * The workflow ID. You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration management** > **Media processing configuration** > **Workflow management** to view the ID.
    * 
    * @example
    * 613efff3887ec34af685714cc461****

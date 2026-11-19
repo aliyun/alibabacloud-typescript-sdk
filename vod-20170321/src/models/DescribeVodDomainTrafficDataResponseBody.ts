@@ -72,7 +72,7 @@ export class DescribeVodDomainTrafficDataResponseBodyTrafficDataPerInterval exte
 export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval between the data entries, which is the time granularity of the data. Unit: seconds.
+   * The time interval of each record, which indicates the time granularity of the data. Unit: seconds.
    * 
    * @example
    * 300
@@ -88,7 +88,7 @@ export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range for the returned data.
+   * The end time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2019-01-20T14:59:58Z
@@ -104,7 +104,7 @@ export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for the returned data.
+   * The start time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2019-01-20T13:59:58Z

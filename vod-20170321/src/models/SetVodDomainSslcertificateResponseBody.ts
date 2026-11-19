@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetVodDomainSSLCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F4C6D5BE-BF13-45*****6C-516EA8906DCD

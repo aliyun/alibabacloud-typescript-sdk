@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList extends $dara.Model {
   /**
    * @remarks
-   * The time when the watermark extraction job was created.
+   * The time when the watermark extraction job was created. The time is displayed in UTC and formatted in accordance with ISO 8601 in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-09-16T02:49:04Z
@@ -13,7 +13,7 @@ export class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList ext
   createTime?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only when the watermark extraction job fails (the value of `Status` is `Failed`).
+   * The error message. This parameter is returned only when the watermark extraction job fails (the Status parameter is Failed).
    * 
    * @example
    * query copyright info err
@@ -29,7 +29,7 @@ export class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList ext
   jobId?: string;
   /**
    * @remarks
-   * The time when the watermark extraction job was last updated.
+   * The time when the watermark extraction job was last updated. The time is displayed in UTC and formatted in accordance with ISO 8601 in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-09-17T06:20:45Z
@@ -41,7 +41,7 @@ export class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList ext
    * 
    * - **Success**: The job succeeded.	
    * - **Failed**: The job failed.
-   * - **Processing**: The job is being processed.
+   * - **Processing**: The job is in progress.
    * 
    * @example
    * Failed
@@ -94,7 +94,7 @@ export class GetDigitalWatermarkExtractResultResponseBody extends $dara.Model {
   aiExtractResultList?: GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 42E0554B-80F4-4921-****-ACFB22CAAAD0

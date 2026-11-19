@@ -21,7 +21,7 @@ export class UploadStreamByURLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The input URL of the transcoded stream. This value can be used as a request parameter of the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
+   * The input URL of the transcoded stream. You can use this value as a request parameter of the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
    * 
    * @example
    * https://example.com/lesson-01.mp4
@@ -29,7 +29,7 @@ export class UploadStreamByURLResponseBody extends $dara.Model {
   sourceURL?: string;
   /**
    * @remarks
-   * The job ID of the transcoded stream. This value can be used as a request parameter of the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
+   * The job ID of the transcoded stream. You can use this value as a request parameter of the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
    * 
    * ApsaraVideo VOD uses the job ID to uniquely identify a transcoded stream file. For more information, see [Basic data types - PlayInfo](https://help.aliyun.com/document_detail/52839.html).
    * 

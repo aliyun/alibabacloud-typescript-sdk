@@ -13,19 +13,19 @@ export class GetCategoriesResponseBodyCategory extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The category name.
+   * The name of the category.
    * 
    * @example
-   * Movie
+   * movie
    */
   cateName?: string;
   /**
    * @remarks
    * The category level. Valid values:
    * 
-   * - **0**: level-1 category.
-   * - **1**: level-2 category.
-   * - **2**: level-3 category.
+   * - **0**: Level 1 category.
+   * - **1**: Level 2 category.
+   * - **2**: Level 3 category.
    * 
    * @example
    * 0
@@ -42,8 +42,8 @@ export class GetCategoriesResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
    * The category type. Valid values:
-   * - **default**: audio, video, and image category.
-   * - **material**: short video material category.
+   * - **default**: Audio, video, or image category.
+   * - **material**: Short video material category.
    * 
    * @example
    * default

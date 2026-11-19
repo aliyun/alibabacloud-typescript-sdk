@@ -15,8 +15,8 @@ export class SetAppPlayKeyRequest extends $dara.Model {
   /**
    * @remarks
    * The playback key.
-   * - Only uppercase letters, lowercase letters, and digits are supported. The length must be 8 to 20 characters.
-   * - UTF-8 encoding.
+   * - The value must be 8 to 20 characters in length and can contain only uppercase and lowercase letters and digits.
+   * - The value must be encoded in UTF-8.
    * 
    * @example
    * yzNgTUtAl6HAuosIA

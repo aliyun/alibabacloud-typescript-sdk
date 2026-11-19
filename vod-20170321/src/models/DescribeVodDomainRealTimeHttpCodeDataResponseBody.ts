@@ -115,9 +115,9 @@ export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDa
 export class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval between data entries. Unit: seconds.
+   * The time interval between two consecutive data points. Unit: seconds.
    * 
-   * Based on the time range per query, this parameter returns a fixed value of 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see **Time granularity of returned data** in the **operation description**.
+   * Based on the time range for a single query, this parameter returns a fixed value of 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see the **Time granularity of returned data** section in the **Operation description**.
    * 
    * @example
    * 60
@@ -133,7 +133,7 @@ export class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends $dara.Mod
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range for the returned data.
+   * The end time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-11-30T05:40:00Z
@@ -150,7 +150,7 @@ export class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for the returned data.
+   * The start time of the data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-11-30T05:39:00Z

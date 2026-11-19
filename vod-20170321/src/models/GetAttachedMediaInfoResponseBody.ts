@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAttachedMediaInfoResponseBodyAttachedMediaListCategories extends $dara.Model {
   /**
    * @remarks
-   * The category ID.
+   * The ID of the category.
    * 
    * @example
    * 1000224338
@@ -13,7 +13,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaListCategories extends
   cateId?: number;
   /**
    * @remarks
-   * The category name.
+   * The name of the category.
    * 
    * @example
    * Test
@@ -21,7 +21,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaListCategories extends
   cateName?: string;
   /**
    * @remarks
-   * The category level.
+   * The level of the category.
    * 
    * @example
    * 0
@@ -78,7 +78,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   categories?: GetAttachedMediaInfoResponseBodyAttachedMediaListCategories[];
   /**
    * @remarks
-   * The time when the auxiliary media asset was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the auxiliary media asset was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2019-01-01T10:00:00Z
@@ -87,15 +87,15 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   /**
    * @remarks
    * The description.
-   * >This parameter is returned only if the auxiliary media asset has a description.
+   * > This parameter is returned only if the auxiliary media asset has a description.
    * 
    * @example
-   * Description test
+   * Test description
    */
   description?: string;
   /**
    * @remarks
-   * The auxiliary media asset ID.
+   * The ID of the auxiliary media asset.
    * 
    * @example
    * 0222e203cf80f9c22870a4d2c****
@@ -103,7 +103,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   mediaId?: string;
   /**
    * @remarks
-   * The time when the auxiliary media asset was last updated. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the auxiliary media asset was last updated. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2020-05-31T11:42:20Z
@@ -112,9 +112,9 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   /**
    * @remarks
    * The status of the auxiliary media asset. Valid values:
-   * - **Uploading**: uploading.
+   * - **Uploading**: The auxiliary media asset is being uploaded.
    * - **Normal**: Normal.
-   * - **UploadFail**: upload failed.
+   * - **UploadFail**: The auxiliary media asset failed to be uploaded.
    * 
    * @example
    * Normal
@@ -131,7 +131,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   /**
    * @remarks
    * The tags.
-   * >This parameter is returned only if the auxiliary media asset has tag information.
+   * > This parameter is returned only if the auxiliary media asset has tags.
    * 
    * @example
    * tag1,tag2
@@ -142,13 +142,12 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
    * The title.
    * 
    * @example
-   * Subtitle test
+   * Test subtitle
    */
   title?: string;
   /**
    * @remarks
    * The type of the auxiliary media asset. Valid values:
-   * 
    * - **watermark**: watermark.
    * - **subtitle**: subtitle.
    * - **material**: material.
@@ -160,8 +159,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   /**
    * @remarks
    * The access URL of the auxiliary media asset.
-   * 
-   * > If a CDN domain name is configured in ApsaraVideo VOD, the CDN URL is returned. Otherwise, the OSS URL is returned.
+   * > If a CDN domain name is configured for ApsaraVideo VOD, the CDN URL is returned. Otherwise, the OSS URL is returned.
    * 
    * @example
    * https://al*****.cn/subtitle/9843C2*****4E186F19B6.vtt?auth_key=159099f60e0b7fd59****
@@ -216,7 +214,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
 export class GetAttachedMediaInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the auxiliary media assets.
+   * The list of auxiliary media assets.
    */
   attachedMediaList?: GetAttachedMediaInfoResponseBodyAttachedMediaList[];
   /**

@@ -95,8 +95,8 @@ export class UpdateMediaStorageClassResponseBody extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - **Processing**: Processing.
-   * - **Failed**: Failed.
+   * - **Processing**: The task is being processed.
+   * - **Failed**: The task failed.
    * 
    * @example
    * Processing

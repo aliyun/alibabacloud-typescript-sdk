@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterMediaResponseBodyRegisteredMediaList extends $dara.Model {
   /**
    * @remarks
-   * The OSS file URL.
+   * The URL of the OSS file.
    * 
    * @example
    * http://****.oss-cn-shanghai.aliyuncs.com/vod_sample_01.mp4
@@ -13,7 +13,7 @@ export class RegisterMediaResponseBodyRegisteredMediaList extends $dara.Model {
   fileURL?: string;
   /**
    * @remarks
-   * The VOD media ID. If the registered media file is an audio or video file, this value corresponds to the VideoId in ApsaraVideo VOD.
+   * The media ID in ApsaraVideo VOD. If the registered media file is an audio or video file, this parameter corresponds to the VideoId in ApsaraVideo VOD.
    * 
    * @example
    * d97af32828084d1896683b1aa38****
@@ -21,10 +21,10 @@ export class RegisterMediaResponseBodyRegisteredMediaList extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * Indicates whether the media asset is newly registered or repeatedly registered.
+   * Specifies whether the media asset is newly registered or repeatedly registered.
    * 
-   * - **true**: newly registered.
-   * - **false**: repeatedly registered.
+   * - **true**: The media asset is newly registered.
+   * - **false**: The media asset is repeatedly registered.
    * 
    * @example
    * false
@@ -58,17 +58,17 @@ export class RegisterMediaResponseBodyRegisteredMediaList extends $dara.Model {
 export class RegisterMediaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of file URLs that failed to be registered.
+   * The list of URLs of the files that failed to be registered.
    */
   failedFileURLs?: string[];
   /**
    * @remarks
-   * The list of media assets that are successfully registered, including both newly registered files and previously registered files.
+   * The list of media assets that are successfully registered in this request, including newly registered files and previously registered files.
    */
   registeredMediaList?: RegisterMediaResponseBodyRegisteredMediaList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 14F43C5C-8033-448B-AD04F64E5098****

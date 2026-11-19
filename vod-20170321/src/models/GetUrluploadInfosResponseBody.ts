@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model {
   /**
    * @remarks
-   * The completion time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The completion time. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2019-01-01T01:11:01Z
@@ -13,7 +13,7 @@ export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
   completeTime?: string;
   /**
    * @remarks
-   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The creation time. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2019-01-01T01:01:01Z
@@ -60,13 +60,16 @@ export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The registered media asset ID.
+   * 
    * @example
    * 93ab850b4f654b6e91d24d81d44****
    */
   registeredMediaId?: string;
   /**
    * @remarks
-   * The status of the URL-based upload task. For more information about the status values and descriptions, see [Status](https://help.aliyun.com/document_detail/52839.html).
+   * The status of the URL pull task. For more information about the specific values and descriptions of the pull status, see [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
    * 
    * @example
    * SUCCESS
@@ -74,7 +77,7 @@ export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The URL of the source video file.
+   * The URL of the video source file to upload.
    * 
    * > A maximum of 100 records can be returned.
    * 
@@ -134,7 +137,7 @@ export class GetURLUploadInfosResponseBodyURLUploadInfoList extends $dara.Model 
 export class GetURLUploadInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of upload task IDs or URLs that do not exist.
+   * The list of URL upload task IDs or URLs that do not exist.
    */
   nonExists?: string[];
   /**
@@ -147,7 +150,7 @@ export class GetURLUploadInfosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of URL upload information. For more information about the fields and descriptions, see [URLUploadInfo](https://help.aliyun.com/document_detail/52839.html).
+   * The list of URL upload information. For more information about the specific upload names and descriptions, see [URLUploadInfo: URL upload information](https://help.aliyun.com/document_detail/52839.html).
    */
   URLUploadInfoList?: GetURLUploadInfosResponseBodyURLUploadInfoList[];
   static names(): { [key: string]: string } {

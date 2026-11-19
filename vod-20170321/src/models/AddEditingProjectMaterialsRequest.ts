@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The material IDs. Separate multiple IDs with commas (,). A maximum of 10 material IDs are supported.
-   * >  When you associate multiple materials, ensure that all materials are of the same type and correspond to the MaterialType value.
+   * The IDs of the media assets. Separate multiple IDs with commas (,). You can specify up to 10 media asset IDs.
+   * > When you associate multiple media assets, make sure that they are of the same type and the type matches the value of MaterialType.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class AddEditingProjectMaterialsRequest extends $dara.Model {
   materialIds?: string;
   /**
    * @remarks
-   * The material type. Valid values:
+   * The type of the media asset. Valid values:
    * - **video**: video.
    * - **audio**: audio-only.
    * - **image**: image.
@@ -31,7 +31,7 @@ export class AddEditingProjectMaterialsRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The online editing project ID.
+   * The ID of the online editing project.
    * 
    * This parameter is required.
    * 

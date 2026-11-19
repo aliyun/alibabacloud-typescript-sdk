@@ -3,13 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * businessType
+   */
   businessType?: string;
+  /**
+   * @remarks
+   * featureIds
+   */
   featureIds?: string;
+  /**
+   * @remarks
+   * isTrial
+   */
   isTrial?: boolean;
+  /**
+   * @remarks
+   * sdkId
+   */
   sdkId?: number;
+  /**
+   * @remarks
+   * sdkName
+   */
   sdkName?: string;
+  /**
+   * @remarks
+   * subscription
+   */
   subscription?: string;
+  /**
+   * @remarks
+   * subscriptionImp
+   */
   subscriptionImp?: string;
+  /**
+   * @remarks
+   * subscriptionPkg
+   */
   subscriptionPkg?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,16 +79,60 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
 }
 
 export class LicenseInstanceAppDTO extends $dara.Model {
+  /**
+   * @remarks
+   * appId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * beginOn
+   */
   beginOn?: string;
+  /**
+   * @remarks
+   * contractNo
+   */
   contractNo?: string;
+  /**
+   * @remarks
+   * creationTime
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * expiredOn
+   */
   expiredOn?: string;
+  /**
+   * @remarks
+   * instanceId
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * itemId
+   */
   itemId?: string;
+  /**
+   * @remarks
+   * LicenseConfigDTOS
+   */
   licenseConfigs?: LicenseInstanceAppDTOLicenseConfigs[];
+  /**
+   * @remarks
+   * modificationTime
+   */
   modificationTime?: string;
+  /**
+   * @remarks
+   * status
+   */
   status?: string;
+  /**
+   * @remarks
+   * userId
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {

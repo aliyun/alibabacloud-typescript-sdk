@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobDetailResponseBodyAIJobDetail extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was completed.
+   * The time when the task ended. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:46Z
@@ -13,7 +13,7 @@ export class GetJobDetailResponseBodyAIJobDetail extends $dara.Model {
   completeTime?: string;
   /**
    * @remarks
-   * The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+   * The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:25Z
@@ -21,7 +21,7 @@ export class GetJobDetailResponseBodyAIJobDetail extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 5c9dff751ba**********59d50a967f5
@@ -46,12 +46,12 @@ export class GetJobDetailResponseBodyAIJobDetail extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - reserved: submitted.
-   * - init: started.
-   * - success: execution succeeded.
-   * - fail: execution failed.
-   * - processing: processing in progress.
-   * - analysing: analysis in progress.
+   * - reserved: The task is submitted.
+   * - init: The task is started.
+   * - success: The task succeeded.
+   * - fail: The task failed.
+   * - processing: The task is being processed.
+   * - analysing: The task is being analyzed.
    * 
    * @example
    * success
@@ -69,8 +69,8 @@ export class GetJobDetailResponseBodyAIJobDetail extends $dara.Model {
    * @remarks
    * The trigger method. Valid values:
    * 
-   * - Auto: automatically triggered by a workflow.
-   * - Manual: manually submitted.
+   * - Auto: Automatically triggered by a workflow.
+   * - Manual: Manually submitted.
    * 
    * @example
    * Auto
@@ -124,7 +124,7 @@ export class GetJobDetailResponseBodyAIJobDetail extends $dara.Model {
 export class GetJobDetailResponseBodySnapshotJobDetail extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was completed.
+   * The time when the task was completed. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:45Z
@@ -132,7 +132,7 @@ export class GetJobDetailResponseBodySnapshotJobDetail extends $dara.Model {
   completeTime?: string;
   /**
    * @remarks
-   * The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+   * The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:25Z
@@ -140,7 +140,7 @@ export class GetJobDetailResponseBodySnapshotJobDetail extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 63df12s0**********4hdq249t82kr91
@@ -166,9 +166,9 @@ export class GetJobDetailResponseBodySnapshotJobDetail extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - Processing: processing in progress.
-   * - Fail: task failed.
-   * - Success: task succeeded.
+   * - Processing: The task is being processed.
+   * - Fail: The task failed.
+   * - Success: The task succeeded.
    * 
    * @example
    * Success
@@ -178,8 +178,8 @@ export class GetJobDetailResponseBodySnapshotJobDetail extends $dara.Model {
    * @remarks
    * The trigger method. Valid values:
    * 
-   * - Auto: automatically triggered by a workflow.
-   * - Manual: manually submitted.
+   * - Auto: Automatically triggered by a workflow.
+   * - Manual: Manually submitted.
    * 
    * @example
    * Auto
@@ -241,7 +241,7 @@ export class GetJobDetailResponseBodySnapshotJobDetail extends $dara.Model {
 export class GetJobDetailResponseBodyTranscodeJobDetail extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was completed.
+   * The time when the task was completed. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:34Z
@@ -249,7 +249,7 @@ export class GetJobDetailResponseBodyTranscodeJobDetail extends $dara.Model {
   completeTime?: string;
   /**
    * @remarks
-   * The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+   * The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2024-10-14T07:39:25Z
@@ -265,7 +265,7 @@ export class GetJobDetailResponseBodyTranscodeJobDetail extends $dara.Model {
   definition?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 2dc1634e**********3f1d22d1a0174e
@@ -275,11 +275,11 @@ export class GetJobDetailResponseBodyTranscodeJobDetail extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - Submitted: submitted.
-   * - Transcoding: transcoding in progress.
-   * - TranscodeSuccess: transcoding succeeded.
-   * - TranscodeFail: transcoding failed.
-   * - TranscodeCancelled: transcoding canceled.
+   * - Submitted: The task is submitted.
+   * - Transcoding: The task is being transcoded.
+   * - TranscodeSuccess: Transcoding succeeded.
+   * - TranscodeFail: Transcoding failed.
+   * - TranscodeCancelled: Transcoding is canceled.
    * 
    * @example
    * TranscodeSuccess
@@ -355,7 +355,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetailWorkflow extends $dara.Mo
   appId?: string;
   /**
    * @remarks
-   * The time when the workflow was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+   * The time when the workflow was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2025-03-26T05:50:14Z
@@ -363,7 +363,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetailWorkflow extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The time when the workflow was last modified.
+   * The time when the workflow was modified. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2025-03-26T07:51:55Z
@@ -380,9 +380,9 @@ export class GetJobDetailResponseBodyWorkflowTaskDetailWorkflow extends $dara.Mo
   /**
    * @remarks
    * The workflow status. Valid values:
-   * - Active: activated.
-   * - Inactive: not activated.
-   * - Deleted: deleted.
+   * - Active: The workflow is activated.
+   * - Inactive: The workflow is not activated.
+   * - Deleted: The workflow is deleted.
    * 
    * @example
    * Active
@@ -390,7 +390,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetailWorkflow extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The workflow type. Not populated by default.
+   * The workflow type. By default, this field is not populated.
    */
   type?: string;
   /**
@@ -437,7 +437,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetailWorkflow extends $dara.Mo
 export class GetJobDetailResponseBodyWorkflowTaskDetail extends $dara.Model {
   /**
    * @remarks
-   * The processing results of each workflow node, in JSON format.
+   * The processing results of each node in the workflow, in JSON format.
    * 
    * @example
    * {\\"VodSnapshot_123\\":{\\"ActivityId\\":\\"VodSnapshot\\",\\"ActivityInstanceId\\":\\"c8cf62d53bef4e04bf703976bae6d0b9\\",\\"EndTime\\":\\"2025-03-27T08:15:51Z\\",\\"Result\\":\\"{\\\\\\"RequestId\\\\\\":\\\\\\"8B3649AF-5A6B-1099-BEB6-164D81067398\\\\\\",\\\\\\"EventType\\\\\\":\\\\\\"SnapshotComplete\\\\\\",\\\\\\"UserId\\\\\\":1797131669910763,\\\\\\"MessageBody\\\\\\":{\\\\\\"Status\\\\\\":\\\\\\"success\\\\\\",\\\\\\"VideoId\\\\\\":\\\\\\"00f985a50ae371f0ad1c4106e0ea0102\\\\\\",\\\\\\"EventType\\\\\\":\\\\\\"SnapshotComplete\\\\\\",\\\\\\"EventTime\\\\\\":\\\\\\"2025-03-27T08:15:50Z\\\\\\",\\\\\\"TriggerSource\\\\\\":\\\\\\"{\\\\\\\\\\\\\\"ActivityInstanceId\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"c8cf62d53bef4e04bf703976bae6d0b9\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"BizType\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"ice-workflow\\\\\\\\\\\\\\"}\\\\\\"}}\\",\\"StartTime\\":\\"2025-03-27T08:15:47Z\\",\\"Status\\":\\"Succeed\\"},\\"Translate_zh_en\\":{\\"ActivityId\\":\\"VodTranslation\\",\\"ActivityInstanceId\\":\\"c043a872bb044763a3d293a5c2458b50\\",\\"EndTime\\":\\"2025-03-27T08:20:19Z\\",\\"Result\\":\\"{\\\\\\"Type\\\\\\":\\\\\\"VideoTranslationAll\\\\\\",\\\\\\"Success\\\\\\":false}\\",\\"StartTime\\":\\"2025-03-27T08:15:46Z\\",\\"Status\\":\\"Failed\\"},\\"Act_Start\\":{\\"ActivityId\\":\\"start\\",\\"ActivityInstanceId\\":\\"8a9402f4ff064084bf496707fb2d664a\\",\\"Result\\":\\"{\\\\\\"Type\\\\\\":\\\\\\"Media\\\\\\",\\\\\\"bizType\\\\\\":6,\\\\\\"Media\\\\\\":\\\\\\"00f985a50ae371f0ad1c4106e0ea0102\\\\\\",\\\\\\"Title\\\\\\":\\\\\\"2.mp4\\\\\\",\\\\\\"taskInput\\\\\\":\\\\\\"{\\\\\\\\\\\\\\"Type\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"Media\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"Media\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"00f985a50ae371f0ad1c4106e0ea0102\\\\\\\\\\\\\\"}\\\\\\",\\\\\\"userTaskInput\\\\\\":\\\\\\"{\\\\\\\\\\\\\\"Type\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"Media\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"Media\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"00f985a50ae371f0ad1c4106e0ea0102\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"Title\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"2.mp4\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"StorageLocation\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"yiming-pre.oss-cn-shanghai.aliyuncs.com\\\\\\\\\\\\\\"}\\\\\\",\\\\\\"StorageLocation\\\\\\":\\\\\\"yiming-pre.oss-cn-shanghai.aliyuncs.com\\\\\\",\\\\\\"callerUid\\\\\\":1797131669910763,\\\\\\"CUR_NODE_NAME\\\\\\":\\\\\\"Act_Start\\\\\\"}\\",\\"StartTime\\":\\"2025-03-27T08:15:45Z\\",\\"Status\\":\\"Succeed\\"},\\"VodDynamicImage_123\\":{\\"ActivityId\\":\\"VodDynamicImage\\",\\"ActivityInstanceId\\":\\"26e8dab82ab84110b1150f146caf633c\\",\\"EndTime\\":\\"2025-03-27T08:15:55Z\\",\\"Result\\":\\"{\\\\\\"RequestId\\\\\\":\\\\\\"7120B5D5-430F-14AD-8922-577F072DDD64\\\\\\",\\\\\\"EventType\\\\\\":\\\\\\"DynamicImageComplete\\\\\\",\\\\\\"UserId\\\\\\":1797131669910763,\\\\\\"MessageBody\\\\\\":{\\\\\\"Status\\\\\\":\\\\\\"success\\\\\\",\\\\\\"VideoId\\\\\\":\\\\\\"00f985a50ae371f0ad1c4106e0ea0102\\\\\\",\\\\\\"EventType\\\\\\":\\\\\\"DynamicImageComplete\\\\\\",\\\\\\"EventTime\\\\\\":\\\\\\"2025-03-27T08:15:52Z\\\\\\",\\\\\\"TriggerSource\\\\\\":\\\\\\"{\\\\\\\\\\\\\\"ActivityInstanceId\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"26e8dab82ab84110b1150f146caf633c\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"BizType\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"ice-workflow\\\\\\\\\\\\\\"}\\\\\\"}}\\",\\"StartTime\\":\\"2025-03-27T08:15:47Z\\",\\"Status\\":\\"Succeed\\"}}
@@ -445,7 +445,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetail extends $dara.Model {
   activityResults?: string;
   /**
    * @remarks
-   * The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
+   * The time when the task was created. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2025-03-27T08:15:46Z
@@ -453,7 +453,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetail extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the task was completed.
+   * The time when the task was completed. The time is displayed in UTC in the YYYY-MM-DDTHH:MM:SSZ format.
    * 
    * @example
    * 2025-03-27T08:20:19Z
@@ -463,12 +463,12 @@ export class GetJobDetailResponseBodyWorkflowTaskDetail extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - Init: started.
-   * - Processing: processing in progress.
-   * - Succeed: succeeded.
-   * - Failed: failed.
-   * - Canceled: canceled.
-   * - Skip: skipped.
+   * - Init: The task is started.
+   * - Processing: The task is being processed.
+   * - Succeed: The task succeeded.
+   * - Failed: The task failed.
+   * - Canceled: The task is canceled.
+   * - Skip: The task is skipped.
    * 
    * @example
    * Succeed
@@ -476,7 +476,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetail extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 46ecc024******92c8e26237e51
@@ -492,7 +492,7 @@ export class GetJobDetailResponseBodyWorkflowTaskDetail extends $dara.Model {
   taskInput?: string;
   /**
    * @remarks
-   * The custom settings. The value is a JSON string that supports message callback, upload acceleration, and other settings.
+   * The custom settings. The value is a JSON string that supports settings such as message callbacks and upload acceleration.
    * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
@@ -557,7 +557,7 @@ export class GetJobDetailResponseBody extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 6708D849-F109-1A6C-AC91-************
@@ -565,12 +565,12 @@ export class GetJobDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the snapshot task. This field has a value only when jobType is Snapshot.
+   * The details of the snapshot task. This field has a value only when JobType is Snapshot.
    */
   snapshotJobDetail?: GetJobDetailResponseBodySnapshotJobDetail;
   /**
    * @remarks
-   * The details of the transcoding task. This field has a value only when jobType is Transcode.
+   * The details of the transcoding task. This field has a value only when JobType is Transcode.
    */
   transcodeJobDetail?: GetJobDetailResponseBodyTranscodeJobDetail;
   /**

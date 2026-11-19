@@ -13,7 +13,7 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2017-01-01T12:30:20Z
@@ -21,7 +21,7 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The path used to query. Exact match is used.
+   * The object path. Exact match is supported.
    * 
    * @example
    * http://example.com/***.txt
@@ -30,11 +30,11 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * - **file**: file purge.
-   * - **directory**: directory purge.
-   * - **preload**: file prefetch.
+   * - **file**: file refresh
+   * - **directory**: directory refresh
+   * - **preload**: file prefetch
    * 
-   * > When DomainName or Status is specified, ObjectType is required.
+   * > If you specify DomainName or Status, ObjectType is required.
    * 
    * @example
    * file
@@ -60,9 +60,9 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
-   * > Only data within the last 3 days can be queried.
+   * > You can query only the data generated within the last three days.
    * 
    * @example
    * 2017-01-01T12:12:20Z
@@ -72,9 +72,9 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - **Complete**: completed.
-   * - **Refreshing**: in progress.
-   * - **Failed**: failed.
+   * - **Complete**: The task is complete.
+   * - **Refreshing**: The task is in progress.
+   * - **Failed**: The task failed.
    * 
    * @example
    * Complete
@@ -82,7 +82,7 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID used to query the purge status.
+   * The task ID used to query the refresh status.
    * 
    * @example
    * 70422****

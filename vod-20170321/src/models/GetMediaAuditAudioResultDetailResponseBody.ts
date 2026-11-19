@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetailList extends $dara.Model {
   /**
    * @remarks
-   * The end time of the problematic audio segment. Unit: seconds.
+   * The end time of the flagged audio segment, in seconds.
    * 
    * @example
    * 10
@@ -16,15 +16,15 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
    * The category of the audio review result. Valid values:
    * 
    * - **normal**: Normal.
-   * - **spam**: Contains spam.
-   * - **ad**: Advertisement.
+   * - **spam**: Spam.
+   * - **ad**: Ad.
    * - **politics**: Political content.
-   * - **terrorism**: Terrorist content.
-   * - **abuse**: Abusive content.
-   * - **porn**: Pornographic content.
-   * - **flood**: Junk content.
-   * - **contraband**: Prohibited content.
-   * - **meaningless**: Meaningless content.
+   * - **terrorism**: Terrorism.
+   * - **abuse**: Abuse.
+   * - **porn**: Pornography.
+   * - **flood**: Flooding.
+   * - **contraband**: Contraband.
+   * - **meaningless**: Meaningless.
    * 
    * @example
    * abuse
@@ -32,7 +32,7 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
   label?: string;
   /**
    * @remarks
-   * The start time of the problematic audio segment. Unit: seconds.
+   * The start time of the flagged audio segment, in seconds.
    * 
    * @example
    * 8
@@ -43,7 +43,7 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
    * The text content corresponding to the audio.
    * 
    * @example
-   * Tiananmen
+   * Tian\\"anmen
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -76,7 +76,7 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
 export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetail extends $dara.Model {
   /**
    * @remarks
-   * The result list.
+   * The list of results.
    */
   list?: GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetailList[];
   /**

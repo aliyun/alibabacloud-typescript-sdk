@@ -80,7 +80,7 @@ export class DescribeVodDomainMax95BpsDataResponseBody extends $dara.Model {
   domesticMax95Bps?: string;
   /**
    * @remarks
-   * The end time of the data.
+   * The end time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2017-01-11T13:00:00Z
@@ -112,7 +112,7 @@ export class DescribeVodDomainMax95BpsDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the data.
+   * The start time of the data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2017-01-11T12:00:00Z

@@ -6,7 +6,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   /**
    * @remarks
    * The OSS URL of the AI image.
-   * >This is the task result. The URL does not contain complete authentication information. To obtain authentication information, generate it yourself or call the [ListAIImage](https://help.aliyun.com/document_detail/186924.html) operation to retrieve the media asset result.
+   * > This URL is returned as the task result and does not provide complete authentication information. To obtain authentication information, generate it or call the [ListAIImage](https://help.aliyun.com/document_detail/186924.html) operation to retrieve the media asset result.
    * 
    * @example
    * [{"Score":5.035636554444242,"Url":"http://outin-*****.oss-cn-shanghai.aliyuncs.com/357a8748c577*****789d2726e6436aa/image/ai/b0a7612554d*****5cbe3-00001.gif"}]
@@ -22,7 +22,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the AI image processing task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The creation time of the AI image processing task. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2020-10-15T03:30:03Z
@@ -47,7 +47,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - **success**: The task is successful.
+   * - **success**: The task succeeded.
    * - **fail**: The task failed.
    * 
    * @example
@@ -56,7 +56,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The snapshot of the configuration information of the specified template when the task was submitted.
+   * The snapshot of the configuration of the specified template when the task was submitted.
    * 
    * @example
    * {"Format":"gif","SetDefaultCover":"true"}
@@ -64,7 +64,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The AI template ID.
+   * The ID of the AI template.
    * 
    * @example
    * 5a86a00f15194*****d7fe7de1b4a173
@@ -77,7 +77,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
    * - The value must contain the MessageCallback or Extend parameter.
    * - The maximum length is 512 bytes.
    * 
-   * For more information about the parameter structure, see [UserData](https://help.aliyun.com/document_detail/86952.html).
+   * For more information about how to construct the parameter, see [UserData](https://help.aliyun.com/document_detail/86952.html).
    * 
    * @example
    * {"Extend":{"localId":"****","test":"www"}}

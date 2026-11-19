@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID used to query the refresh status.
+   * The workflow task ID. It is returned by the SubmitWorkflowJob operation and is used to query the execution status and result of the task.
    * 
    * @example
    * 70422****

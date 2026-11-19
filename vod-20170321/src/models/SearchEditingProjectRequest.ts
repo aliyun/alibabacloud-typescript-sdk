@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchEditingProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query based on CreationTime. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end time of the creation time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2017-01-11T13:00:00Z
@@ -15,7 +15,7 @@ export class SearchEditingProjectRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The current page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class SearchEditingProjectRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+   * The number of entries per page. Default value: **10**. Maximum value: **100**.
    * 
    * @example
    * 10
@@ -35,8 +35,8 @@ export class SearchEditingProjectRequest extends $dara.Model {
    * @remarks
    * The sorting method of the results. Valid values:
    * 
-   * - **desc** (default): sorts the results in reverse chronological order based on creation time.
-   * - **asc**: sorts the results in chronological order based on creation time.
+   * - **desc** (default): Sorts the results by creation time in descending order.
+   * - **asc**: Sorts the results by creation time in ascending order.
    * 
    * @example
    * desc
@@ -44,7 +44,7 @@ export class SearchEditingProjectRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start of the time range to query based on CreationTime. Specify the time in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start time of the creation time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -52,12 +52,12 @@ export class SearchEditingProjectRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the online editing project. Separate multiple statuses with commas (,). By default, all online editing projects are returned. Valid values:
+   * The status of the online editing project. Separate multiple values with commas (,). By default, all online editing projects are retrieved. Valid values:
    * 
    * - **Normal**: Draft.
-   * - **Producing**: Being produced.
+   * - **Producing**: Producing.
    * - **Produced**: Produced.
-   * - **ProduceFailed**: Failed to be produced.
+   * - **ProduceFailed**: Production failed.
    * 
    * @example
    * Normal

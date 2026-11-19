@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodPlayerDimensionDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data list.
+   * The list of returned data.
    */
   dataList?: string[];
   /**

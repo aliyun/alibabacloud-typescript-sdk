@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddEditingProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
-   * The time when the online editing project was created. The time follows the format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the online editing project was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -21,7 +21,7 @@ export class AddEditingProjectResponseBodyProject extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The last time when the online editing project was modified. The time follows the format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The time when the online editing project was last modified. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2017-01-11T13:00:00Z
@@ -39,10 +39,10 @@ export class AddEditingProjectResponseBodyProject extends $dara.Model {
    * @remarks
    * The status of the online editing project. Valid values:
    * 
-   * - **Normal**: draft.
-   * - **Producing**: being produced.
-   * - **Produced**: produced.
-   * - **ProduceFailed**: failed to be produced.
+   * - **Normal**: draft
+   * - **Producing**: producing
+   * - **Produced**: produced
+   * - **ProduceFailed**: production failed
    * 
    * @example
    * Normal
@@ -90,12 +90,12 @@ export class AddEditingProjectResponseBodyProject extends $dara.Model {
 export class AddEditingProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The online editing project. For the specific structure definition, see [EditingProject](https://help.aliyun.com/document_detail/52839.html).
+   * The online editing project. For more information about the structure, see [EditingProject](https://help.aliyun.com/document_detail/52839.html).
    */
   project?: AddEditingProjectResponseBodyProject;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E4EBD2BF-5EB0-4476-8829-9D94E1B1****

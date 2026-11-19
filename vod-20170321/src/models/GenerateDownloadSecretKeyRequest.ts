@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateDownloadSecretKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom encryption private key string. The string is 16 to 32 characters in length and consists of letters and digits. The string must contain uppercase letters, lowercase letters, and digits.
+   * The custom encryption private key string. The string must be 16 to 32 characters in length, consist of letters and digits, and contain uppercase letters, lowercase letters, and digits.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,13 @@ export class GenerateDownloadSecretKeyRequest extends $dara.Model {
   appDecryptKey?: string;
   /**
    * @remarks
-   * The unique identity of the app.
+   * The unique app identifier.
    * 
-   * - Android: the SHA-1 value of the keystore file. The obtained SHA-1 value is a character string with colons.
-   * - iOS: the App Bundle ID value.
-   * - Windows: the serial number of the digital signing certificate.
+   * - Android: the SHA-1 value of the keystore file. The obtained SHA-1 value must be a string that contains colons.
+   * - iOS: the app bundle ID.
+   * - Windows: the serial number of the digital signature certificate.
    * 
-   * For information about how to obtain the unique identity of the app, see [Obtain the unique identity of the app](~~86107#section-wtj-9d7-lg2~~).
+   * For more information about how to obtain the unique app identifier, see [Obtain the unique app identifier](~~86107#section-wtj-9d7-lg2~~).
    * 
    * This parameter is required.
    * 

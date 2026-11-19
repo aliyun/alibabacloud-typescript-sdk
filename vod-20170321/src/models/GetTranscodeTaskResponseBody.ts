@@ -13,7 +13,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   audioStreamList?: string;
   /**
    * @remarks
-   * The average bitrate of the transcoding output file. Unit: Kbps.
+   * The average bitrate of the transcoded output file. Unit: Kbps.
    * 
    * @example
    * 964
@@ -21,7 +21,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   bitrate?: string;
   /**
    * @remarks
-   * The duration of the transcoding output file. Unit: seconds.
+   * The duration of the transcoded output file. Unit: seconds.
    * 
    * @example
    * 12
@@ -29,7 +29,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   duration?: string;
   /**
    * @remarks
-   * The encryption configuration used for the transcoding output file. Valid values:
+   * The encryption configuration used for the transcoded output file. Valid values:
    * 
    * - **AliyunVoDEncryption**: Alibaba Cloud video encryption (proprietary encryption).
    * - **HLSEncryption**: HLS encryption.
@@ -40,7 +40,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   encryption?: string;
   /**
    * @remarks
-   * The size of the transcoding output file. Unit: bytes.
+   * The size of the transcoded output file. Unit: bytes.
    * 
    * @example
    * 851076
@@ -48,7 +48,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   filesize?: number;
   /**
    * @remarks
-   * The container format of the transcoding output file.
+   * The container format of the transcoded output file.
    * 
    * @example
    * m3u8
@@ -56,7 +56,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   format?: string;
   /**
    * @remarks
-   * The frame rate of the transcoding output file. Unit: frames per second.
+   * The frame rate of the transcoded output file. Unit: frames per second.
    * 
    * @example
    * 25
@@ -64,7 +64,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   fps?: string;
   /**
    * @remarks
-   * The height of the transcoding output video. Unit: px.
+   * The height of the video frame in the transcoded output file. Unit: px.
    * 
    * @example
    * 360
@@ -72,7 +72,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   height?: string;
   /**
    * @remarks
-   * The OSS URL of the transcoding output file.
+   * The OSS URL of the transcoded output file.
    * 
    * @example
    * http://outin-40564*****e1403e7.oss-cn-shanghai.aliyuncs.com/883f5d*****f20aaa352f/c3be4f073*****7d5193ec8-{DestMd5}-od-S00000001-200000.mp4
@@ -101,7 +101,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
   watermarkIdList?: string[];
   /**
    * @remarks
-   * The width of the transcoding output video. Unit: px.
+   * The width of the video frame in the transcoded output file. Unit: px.
    * 
    * @example
    * 640
@@ -158,7 +158,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends 
 export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Model {
   /**
    * @remarks
-   * The time when the transcoding job was completed. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the transcoding job was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
    * 
    * @example
    * 2019-02-26T08:30:16Z
@@ -166,7 +166,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   completeTime?: string;
   /**
    * @remarks
-   * The time when the transcoding job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the transcoding job was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
    * 
    * @example
    * 2019-02-26T08:27:16Z
@@ -174,20 +174,20 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   creationTime?: string;
   /**
    * @remarks
-   * The video definition. Valid values:
+   * The definition of the video. Valid values:
    * 
-   * - **LD**: fluent.
-   * - **SD**: standard definition.
-   * - **HD**: high definition.
-   * - **FHD**: ultra high definition.
-   * - **OD**: original quality.
-   * - **2K**: 2K.
-   * - **4K**: 4K.
-   * - **SQ**: standard sound quality.
-   * - **HQ**: high sound quality.
-   * - **AUTO**: adaptive bitrate streaming. This definition is available only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
+   * - **LD**: smooth
+   * - **SD**: standard definition
+   * - **HD**: high definition
+   * - **FHD**: ultra high definition
+   * - **OD**: original quality
+   * - **2K**: 2K
+   * - **4K**: 4K
+   * - **SQ**: standard audio quality
+   * - **HQ**: high audio quality
+   * - **AUTO**: Adaptive bitrate. This definition is output only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
    * 
-   * > This value is the definition label configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
+   * > This value is the definition tag configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
    * 
    * @example
    * LD
@@ -195,7 +195,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   definition?: string;
   /**
    * @remarks
-   * The error code returned when the transcoding job failed.
+   * The error code returned when transcoding fails.
    * 
    * @example
    * 200
@@ -203,7 +203,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the transcoding job failed.
+   * The error message returned when transcoding fails.
    * 
    * @example
    * ErrorMessage
@@ -211,7 +211,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   errorMessage?: string;
   /**
    * @remarks
-   * The OSS URL of the transcoding source file.
+   * The OSS URL of the source file for transcoding.
    * 
    * @example
    * http://outin-40564*****e1403e7.oss-cn-shanghai.aliyuncs.com/customerTrans/5b95e568f8e*****47f38e/31f1184c-*****b2a2-f94-c213f.wmv
@@ -219,7 +219,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   inputFileUrl?: string;
   /**
    * @remarks
-   * The information about the transcoding output file.
+   * The information about the transcoded output file.
    */
   outputFile?: GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile;
   /**
@@ -232,7 +232,7 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   priority?: string;
   /**
    * @remarks
-   * The transcoding job ID.
+   * The ID of the transcoding job.
    * 
    * @example
    * 38f0e513c88*****85515f9d50be188
@@ -241,9 +241,9 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   /**
    * @remarks
    * The status of the transcoding job. Valid values:
-   * - **Transcoding**: transcoding in progress.
-   * - **TranscodeSuccess**: transcoding succeeded.
-   * - **TranscodeFail**: transcoding failed.
+   * - **Transcoding**: transcoding
+   * - **TranscodeSuccess**: transcoding succeeded
+   * - **TranscodeFail**: transcoding failed
    * 
    * @example
    * Transcoding
@@ -251,10 +251,10 @@ export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $dara.Mode
   transcodeJobStatus?: string;
   /**
    * @remarks
-   * The transcoding job progress. Value range: `[0,100]`.
+   * The processing progress of the transcoding job. Valid values: `[0,100]`.
    * 
    * @example
-   * 2019-02-26T08:30:16Z
+   * 50
    */
   transcodeProgress?: number;
   /**
@@ -322,7 +322,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   audioStreamList?: string;
   /**
    * @remarks
-   * The average bitrate of the transcoding output file. Unit: Kbps.
+   * The average bitrate of the transcoded output file. Unit: Kbps.
    * 
    * @example
    * 964
@@ -330,7 +330,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   bitrate?: string;
   /**
    * @remarks
-   * The duration of the transcoding output file. Unit: seconds.
+   * The duration of the transcoded output file. Unit: seconds.
    * 
    * @example
    * 12
@@ -338,7 +338,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   duration?: string;
   /**
    * @remarks
-   * The encryption configuration used for the transcoding output file. Valid values:
+   * The encryption configuration used for the transcoded output file. Valid values:
    * 
    * - **AliyunVoDEncryption**: Alibaba Cloud video encryption (proprietary encryption).
    * - **HLSEncryption**: HLS encryption.
@@ -349,7 +349,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   encryption?: string;
   /**
    * @remarks
-   * The size of the transcoding output file. Unit: bytes.
+   * The size of the transcoded output file. Unit: bytes.
    * 
    * @example
    * 851076
@@ -357,7 +357,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   filesize?: number;
   /**
    * @remarks
-   * The container format of the transcoding output file.
+   * The container format of the transcoded output file.
    * 
    * @example
    * m3u8
@@ -365,7 +365,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   format?: string;
   /**
    * @remarks
-   * The frame rate of the transcoding output file. Unit: frames per second.
+   * The frame rate of the transcoded output file. Unit: frames per second.
    * 
    * @example
    * 25
@@ -373,7 +373,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   fps?: string;
   /**
    * @remarks
-   * The height of the transcoding output video. Unit: px.
+   * The height of the video frame in the transcoded output file. Unit: px.
    * 
    * @example
    * 360
@@ -381,7 +381,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   height?: string;
   /**
    * @remarks
-   * The OSS URL of the transcoding output file.
+   * The OSS URL of the transcoded output file.
    * 
    * @example
    * http://outin-40564*****e1403e7.oss-cn-shanghai.aliyuncs.com/883f5d*****f20aaa352f/c3be4f073*****7d5193ec8-{DestMd5}-od-S00000001-200000.mp4
@@ -405,12 +405,12 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
   videoStreamList?: string;
   /**
    * @remarks
-   * The list of watermark IDs used for the transcoding output file.
+   * The list of watermark IDs used for the transcoded output file.
    */
   watermarkIdList?: string[];
   /**
    * @remarks
-   * The width of the transcoding output video. Unit: px.
+   * The width of the video frame in the transcoded output file. Unit: px.
    * 
    * @example
    * 640
@@ -467,7 +467,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutput
 export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList extends $dara.Model {
   /**
    * @remarks
-   * The time when the transcoding job was completed. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the transcoding job was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
    * 
    * @example
    * 2019-02-26T08:30:16Z
@@ -475,7 +475,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   completeTime?: string;
   /**
    * @remarks
-   * The time when the transcoding job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the transcoding job was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
    * 
    * @example
    * 2019-02-26T08:27:16Z
@@ -483,20 +483,20 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   creationTime?: string;
   /**
    * @remarks
-   * The video definition. Valid values:
+   * The definition of the video. Valid values:
    * 
-   * - **LD**: fluent.
-   * - **SD**: standard definition.
-   * - **HD**: high definition.
-   * - **FHD**: ultra high definition.
-   * - **OD**: original quality.
-   * - **2K**: 2K.
-   * - **4K**: 4K.
-   * - **SQ**: standard sound quality.
-   * - **HQ**: high sound quality.
-   * - **AUTO**: adaptive bitrate streaming. This definition is available only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
+   * - **LD**: smooth
+   * - **SD**: standard definition
+   * - **HD**: high definition
+   * - **FHD**: ultra high definition
+   * - **OD**: original quality
+   * - **2K**: 2K
+   * - **4K**: 4K
+   * - **SQ**: standard audio quality
+   * - **HQ**: high audio quality
+   * - **AUTO**: Adaptive bitrate. This definition is output only when packaging is configured in the transcoding template. For more information, see [Transcoding template configuration - PackageSetting](https://help.aliyun.com/document_detail/52839.html).
    * 
-   * > This value is the definition label configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
+   * > This value is the definition tag configured in the transcoding template and does not indicate the actual resolution range of the transcoded output file.
    * 
    * @example
    * LD
@@ -504,7 +504,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   definition?: string;
   /**
    * @remarks
-   * The error code returned when the transcoding job failed.
+   * The error code returned when transcoding fails.
    * 
    * @example
    * 200
@@ -512,7 +512,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the transcoding job failed.
+   * The error message returned when transcoding fails.
    * 
    * @example
    * ErrorMessage
@@ -520,7 +520,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   errorMessage?: string;
   /**
    * @remarks
-   * The OSS URL of the transcoding source file.
+   * The OSS URL of the source file for transcoding.
    * 
    * @example
    * http://outin-40564*****e1403e7.oss-cn-shanghai.aliyuncs.com/customerTrans/5b95e568f8e*****47f38e/31f1184c-*****b2a2-f94-c213f.wmv
@@ -528,7 +528,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   inputFileUrl?: string;
   /**
    * @remarks
-   * The information about the transcoding output file.
+   * The information about the transcoded output file.
    */
   outputFile?: GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutputFile;
   /**
@@ -541,7 +541,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   priority?: string;
   /**
    * @remarks
-   * The transcoding job ID.
+   * The ID of the transcoding job.
    * 
    * @example
    * 38f0e513c88*****85515f9d50be188
@@ -550,9 +550,9 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   /**
    * @remarks
    * The status of the transcoding job. Valid values:
-   * - **Transcoding**: transcoding in progress.
-   * - **TranscodeSuccess**: transcoding succeeded.
-   * - **TranscodeFail**: transcoding failed.
+   * - **Transcoding**: transcoding
+   * - **TranscodeSuccess**: transcoding succeeded
+   * - **TranscodeFail**: transcoding failed
    * 
    * @example
    * Transcoding
@@ -560,7 +560,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
   transcodeJobStatus?: string;
   /**
    * @remarks
-   * The transcoding job progress. Value range: `[0,100]`.
+   * The processing progress of the transcoding job. Valid values: `[0,100]`.
    * 
    * @example
    * 100
@@ -623,7 +623,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList exten
 export class GetTranscodeTaskResponseBodyTranscodeTask extends $dara.Model {
   /**
    * @remarks
-   * The time when the transcoding task was completed. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the transcoding task was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
    * 
    * @example
    * 2019-01-23T12:40:12Z
@@ -631,7 +631,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTask extends $dara.Model {
   completeTime?: string;
   /**
    * @remarks
-   * The time when the transcoding task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the transcoding task was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
    * 
    * @example
    * 2019-01-23T12:35:12Z
@@ -641,11 +641,11 @@ export class GetTranscodeTaskResponseBodyTranscodeTask extends $dara.Model {
    * @remarks
    * The status of the transcoding task. Valid values:
    * 
-   * - **Processing**: processing in progress.
-   * - **Partial**: partially completed.
-   * - **CompleteAllSucc**: all transcoding jobs are completed and succeeded.
-   * - **CompleteAllFail**: all transcoding jobs are completed but failed. If the source file has issues, no transcoding jobs are initiated and the entire transcoding task fails.
-   * - **CompletePartialSucc**: all transcoding jobs are completed but only some succeeded.
+   * - **Processing**: processing
+   * - **Partial**: partially transcoded
+   * - **CompleteAllSucc**: All processing is completed and all transcoding jobs succeeded.
+   * - **CompleteAllFail**: All processing is completed and all transcoding jobs failed. If the source file has issues, no transcoding jobs are initiated and the entire transcoding task fails.
+   * - **CompletePartialSucc**: All transcoding is completed but only some transcoding jobs succeeded.
    * 
    * @example
    * Processing
@@ -658,7 +658,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTask extends $dara.Model {
   transcodeJobInfoList?: GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoList[];
   /**
    * @remarks
-   * The transcoding task ID.
+   * The ID of the transcoding task.
    * 
    * @example
    * b1b65ab107e14*****3dbb900f6c1fe0
@@ -676,8 +676,8 @@ export class GetTranscodeTaskResponseBodyTranscodeTask extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * - **Auto**: automatically triggered after a video is uploaded.
-   * - **Manual**: triggered by calling the SubmitTranscodeJobs operation.
+   * - **Auto**: Automatically triggered when a video is uploaded.
+   * - **Manual**: Triggered by the SubmitTranscodeJobs operation.
    * 
    * @example
    * Auto
@@ -685,7 +685,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTask extends $dara.Model {
   trigger?: string;
   /**
    * @remarks
-   * The audio or video ID.
+   * The ID of the audio or video.
    * 
    * @example
    * 883f5d98107*****b7f20aaa352f
@@ -732,7 +732,7 @@ export class GetTranscodeTaskResponseBodyTranscodeTask extends $dara.Model {
 export class GetTranscodeTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of transcoding jobs that do not exist.
+   * The IDs of the transcoding jobs that do not exist.
    */
   nonExistJobIds?: string[];
   /**

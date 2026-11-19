@@ -7,7 +7,7 @@ export class UploadStreamByURLRequest extends $dara.Model {
    * @remarks
    * The definition of the video stream.
    * 
-   * For valid values of this parameter, see [Media asset parameter description - Definition](https://help.aliyun.com/document_detail/124671.html).
+   * For details, see [Media asset parameter description - Definition](https://help.aliyun.com/document_detail/124671.html).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,9 @@ export class UploadStreamByURLRequest extends $dara.Model {
    * @remarks
    * The file name extension of the transcoded stream file.
    * 
+   * 
    * For supported audio and video file formats, see [Overview](https://help.aliyun.com/document_detail/55396.html).
+   * 
    * 
    * If this parameter is not empty, it overwrites the file name extension in the StreamURL.
    * 
@@ -38,7 +40,7 @@ export class UploadStreamByURLRequest extends $dara.Model {
    * - DolbyVision
    * - HDRVivid
    * - SDR+
-   * > - Case-insensitive.
+   * > - This parameter is case-insensitive.
    * > - Leave this parameter empty for non-HDR videos.
    * 
    * @example
@@ -59,7 +61,7 @@ export class UploadStreamByURLRequest extends $dara.Model {
    * @remarks
    * The URL of the transcoded stream file.
    * 
-   * If the URL of the transcoded stream requires authentication, include the authentication parameters in StreamURL and make sure the URL is accessible through public network access.
+   * If the URL of the transcoded stream requires authentication, include the authentication parameters in StreamURL and make sure that the URL is accessible over public network access.
    * >You can obtain the audio or video URL from the console or by invoking the GetPlayInfo operation.
    * 
    * This parameter is required.
