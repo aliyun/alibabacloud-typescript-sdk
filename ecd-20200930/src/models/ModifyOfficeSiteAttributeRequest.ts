@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The Authority URL of the identity authentication service.
+   * The authority URL of the identity authentication service.
    * 
    * @example
    * https://login.microsoftonline.com
@@ -13,7 +13,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   authorityHost?: string;
   /**
    * @remarks
-   * The client ID registered with the identity provider application.
+   * The client ID registered for the identity provider application.
    * 
    * @example
    * a2c8f7e4-1b3d-4c5e-9f0a-6d7b8c9e****
@@ -21,7 +21,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The client secret registered with the identity provider application.
+   * The client secret registered for the identity provider application.
    * 
    * @example
    * sct-9f3e2d1c****
@@ -29,9 +29,9 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   clientSecret?: string;
   /**
    * @remarks
-   * The access method allowed when connecting to cloud computers.
+   * The access method allowed when connecting to cloud desktops.
    * 
-   * > The VPC connection method depends on the Alibaba Cloud PrivateLink service, which is free of charge. If this parameter is set to `VPC` or `Any`, the system automatically activates the PrivateLink service for you.
+   * > The VPC connection method relies on the Alibaba Cloud PrivateLink service, which is free of charge. If you set this parameter to `VPC` or `Any`, the system automatically activates the PrivateLink service for you.
    * 
    * @example
    * INTERNET
@@ -47,7 +47,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to grant local administrator permissions to cloud computer users.
+   * Specifies whether to grant local administrator permissions to users of cloud desktops.
    * 
    * @example
    * false
@@ -55,7 +55,15 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   enableAdminAccess?: boolean;
   /**
    * @remarks
-   * This parameter applies only to convenience account-based office networks. Specifies whether secondary authentication is required during logon. If logon secondary authentication is enabled, the system checks whether the logon account has security risks when a convenience user logs on to the client. If a risk is detected, the system sends a verification code to the email address associated with the account. The convenience user can log on to the client only after passing the verification code check.
+   * Specifies whether to enable User Profile Management (UPM). Currently, you can only set this parameter to false to unbind UPM from the workspace. To enable UPM, call the CreateAndBindNasFileSystem operation.
+   * 
+   * @example
+   * false
+   */
+  enableUpm?: boolean;
+  /**
+   * @remarks
+   * Applies only to office networks with convenience accounts. Specifies whether secondary authentication is required during logon. If secondary authentication is enabled, the system checks for security risks when a convenience user logs on to the client. If risks are detected, the system sends a verification code to the email address associated with the account. The convenience user can log on to the client only after entering the correct verification code.
    * 
    * @example
    * false
@@ -63,7 +71,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   needVerifyLoginRisk?: boolean;
   /**
    * @remarks
-   * This parameter applies only to convenience account-based office networks. Specifies whether to enable device verification. For AD-based office networks, this parameter is empty.
+   * Applies only to office networks with convenience accounts. Specifies whether to enable device verification. For AD office networks, this parameter is left empty.
    * 
    * @example
    * false
@@ -81,16 +89,16 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The office network name. The name must be 2 to 255 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-).    
+   * The name of the office network. The name must be 2 to 255 characters in length, and can contain letters and Chinese characters. It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-).    
    * Default value: empty.
    * 
    * @example
-   * R&D_Office_Network
+   * R&D Department Office Network
    */
   officeSiteName?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Wuying Workspace.
    * 
    * This parameter is required.
    * 
@@ -108,7 +116,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The vSwitch ID. Only one vSwitch is supported.
+   * The vSwitch ID. Currently, you can configure only one vSwitch.
    */
   vSwitchId?: string[];
   static names(): { [key: string]: string } {
@@ -119,6 +127,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
       desktopAccessType: 'DesktopAccessType',
       domainName: 'DomainName',
       enableAdminAccess: 'EnableAdminAccess',
+      enableUpm: 'EnableUpm',
       needVerifyLoginRisk: 'NeedVerifyLoginRisk',
       needVerifyZeroDevice: 'NeedVerifyZeroDevice',
       officeSiteId: 'OfficeSiteId',
@@ -137,6 +146,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
       desktopAccessType: 'string',
       domainName: 'string',
       enableAdminAccess: 'boolean',
+      enableUpm: 'boolean',
       needVerifyLoginRisk: 'boolean',
       needVerifyZeroDevice: 'boolean',
       officeSiteId: 'string',

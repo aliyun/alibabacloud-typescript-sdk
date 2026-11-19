@@ -47,6 +47,14 @@ export class CreateDriveRequest extends $dara.Model {
   externalDomainId?: string;
   /**
    * @remarks
+   * The list of image platforms for which to initialize VHDs, such as WINDOWS_SERVER_2025. This parameter applies to UPM binding scenarios such as workspaces, desktop pools, and cloud application delivery groups. If you specify this parameter, the VHDs are initialized based on the specified platforms. If you do not specify this parameter, the original platform derivation rules for each scenario are used.
+   * 
+   * @example
+   * ["WINDOWS_11","WINDOWS_SERVER_2025"]
+   */
+  platforms?: string[];
+  /**
+   * @remarks
    * > **[Deprecated]**
    * 
    * @example
@@ -92,6 +100,7 @@ export class CreateDriveRequest extends $dara.Model {
       domainId: 'DomainId',
       driveName: 'DriveName',
       externalDomainId: 'ExternalDomainId',
+      platforms: 'Platforms',
       profileRoaming: 'ProfileRoaming',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
@@ -107,6 +116,7 @@ export class CreateDriveRequest extends $dara.Model {
       domainId: 'string',
       driveName: 'string',
       externalDomainId: 'string',
+      platforms: { 'type': 'array', 'itemType': 'string' },
       profileRoaming: 'boolean',
       regionId: 'string',
       resourceType: 'string',
@@ -116,6 +126,9 @@ export class CreateDriveRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.platforms)) {
+      $dara.Model.validateArray(this.platforms);
+    }
     super.validate();
   }
 

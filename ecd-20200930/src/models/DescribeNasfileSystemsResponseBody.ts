@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-0bz55ibznu9p7****
@@ -13,7 +13,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups exte
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the delivery group.
+   * The delivery group name.
    * 
    * @example
    * DemoDeliveryGroup
@@ -85,7 +85,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends 
 export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $dara.Model {
   /**
    * @remarks
-   * The ID of the office network.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -93,7 +93,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $d
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network.
+   * The office network name.
    * 
    * @example
    * DemoOfficeNetwork
@@ -125,7 +125,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $d
 export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether operations on user directories are supported, such as adding users and deleting data.
+   * Specifies whether operations on the user directory are supported, such as adding users and deleting data.
    * 
    * @example
    * false
@@ -147,9 +147,8 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
    * The total capacity of the NAS file system. Unit: GiB.
-   * 
-   * - If the storage type is Capacity, the capacity is fixed at 10 PiB, which is 10485760 GiB.
-   * - If the storage type is Performance, the capacity is fixed at 1 PiB, which is 1048576 GiB.
+   * - If the storage type is Capacity, the capacity is fixed at 10 PiB, which is 10,485,760 GiB.
+   * - If the storage type is Performance, the capacity is fixed at 1 PiB, which is 1,048,576 GiB.
    * 
    * @example
    * 10485760
@@ -157,7 +156,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The time when the NAS file system was created. The time follows the ISO 8601 standard in the UTC time zone.
+   * The creation time of the NAS file system. The time is displayed in ISO 8601 format in UTC.
    * 
    * @example
    * 2021-05-10T11:39Z
@@ -178,7 +177,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   desktopGroups?: DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups[];
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled.
+   * Specifies whether disk encryption is enabled.
    * 
    * @example
    * false
@@ -186,7 +185,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   encryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the NAS file system.
+   * The NAS file system ID.
    * 
    * @example
    * 04f314****
@@ -210,7 +209,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemStatus?: string;
   /**
    * @remarks
-   * The type of the NAS file system. Currently, only the general-purpose type is supported, which is `standard`.
+   * The type of the NAS file system. Only the standard type is supported.
    * 
    * @example
    * standard
@@ -218,7 +217,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The used capacity of the NAS file system. Unit: Byte.
+   * The used capacity of the NAS file system. Unit: bytes.
    * 
    * @example
    * 0
@@ -234,7 +233,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The status of the mount target.
+   * The mount target status.
    * 
    * @example
    * Active
@@ -242,7 +241,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   mountTargetStatus?: string;
   /**
    * @remarks
-   * **[Deprecated]** The ID of the office network.
+   * The office network ID. **[Deprecated]**
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -250,7 +249,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The name of the office network.
+   * The office network name. **[Deprecated]**
    * 
    * @example
    * test
@@ -271,7 +270,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Indicates whether the User Profile Management (UPM) feature is supported.
+   * Specifies whether the User Profile Management (UPM) feature is supported.
    * 
    * @example
    * false
@@ -280,9 +279,8 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
    * The protocol type of the file system. Valid values:
-   * 
-   * - NFS: NFS protocol
-   * - SMB: SMB protocol
+   * - NFS: NFS protocol.
+   * - SMB: SMB protocol.
    * 
    * @example
    * SMB
@@ -322,7 +320,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * Indicates whether the SMB ACL feature is supported.
+   * Specifies whether the SMB ACL feature is supported.
    * 
    * @example
    * false
@@ -421,12 +419,12 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
 export class DescribeNASFileSystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The NAS file system information.
+   * The collection of NAS file system information.
    */
   fileSystems?: DescribeNASFileSystemsResponseBodyFileSystems[];
   /**
    * @remarks
-   * The pagination token for the next query. An empty NextToken indicates that no more results are available.
+   * The token for the next query. An empty value indicates that no subsequent results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

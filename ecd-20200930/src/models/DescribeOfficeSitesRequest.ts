@@ -13,7 +13,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The number of entries per page for a paginated query.    
+   * The number of entries to return per page in a paging query.    
    * 
    * - Maximum value: 100.    
    * - Default value: 10.
@@ -24,7 +24,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token that is used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -32,10 +32,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The office network ID. You can specify 1 to 100 IDs.
-   * 
-   * @example
-   * cn-hangzhou+dir-363353****
+   * The ID of the office network. You can specify 1 to 100 IDs.
    */
   officeSiteId?: string[];
   /**
@@ -48,7 +45,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by Wuying Workspace.
    * 
    * This parameter is required.
    * 
@@ -58,7 +55,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The security protection configuration of the office network.
+   * The network security protection settings of the office network.
    * 
    * @example
    * SASE
@@ -66,7 +63,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   securityProtection?: string;
   /**
    * @remarks
-   * The office network status.
+   * The status of the office network.
    * 
    * @example
    * REGISTERED
@@ -74,9 +71,9 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The VPC ID of the office network for shared cloud computers.
+   * The ID of the VPC where the office network of the shared cloud desktop resides.
    * 
-   * > This parameter is not yet available for use.
+   * > This parameter is not available.
    * 
    * @example
    * vpc-uf6w8u60n8xbkg5el****

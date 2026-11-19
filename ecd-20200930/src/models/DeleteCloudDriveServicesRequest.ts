@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudDriveServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of Wuying cloud disk IDs.
+   * The IDs of the Wuying cloud disks.
    * 
    * This parameter is required.
    */

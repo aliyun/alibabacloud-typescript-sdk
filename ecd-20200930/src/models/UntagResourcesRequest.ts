@@ -13,7 +13,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by cloud computers.
    * 
    * This parameter is required.
    * 
@@ -23,17 +23,14 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the resources, that is, the IDs of the cloud desktops. You can specify 1 to 50 IDs.
+   * The list of resource IDs, which are the cloud computer IDs. You can specify 1 to 50 IDs.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * ecd-ia2zw38bi6cm7****
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * This parameter is required.
    * 
@@ -44,9 +41,6 @@ export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The tag keys. You can specify 1 to 20 tag keys.
-   * 
-   * @example
-   * TestKey
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

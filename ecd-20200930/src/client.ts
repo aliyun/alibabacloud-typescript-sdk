@@ -4221,6 +4221,10 @@ export default class Client extends OpenApi {
       query["ExternalDomainId"] = request.externalDomainId;
     }
 
+    if (!$dara.isNull(request.platforms)) {
+      query["Platforms"] = request.platforms;
+    }
+
     if (!$dara.isNull(request.profileRoaming)) {
       query["ProfileRoaming"] = request.profileRoaming;
     }
@@ -6463,7 +6467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a drive.
+   * Deletes a cloud drive.
    * 
    * @param request - DeleteDriveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6472,8 +6476,20 @@ export default class Client extends OpenApi {
   async deleteDriveWithOptions(request: $_model.DeleteDriveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDriveResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
     if (!$dara.isNull(request.driveId)) {
       query["DriveId"] = request.driveId;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -6498,7 +6514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a drive.
+   * Deletes a cloud drive.
    * 
    * @param request - DeleteDriveRequest
    * @returns DeleteDriveResponse
@@ -11145,7 +11161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all attributes of an office network, including the ID, name, status, and creation time.
+   * Queries all properties of an office network, including the ID, name, status, and creation time.
    * 
    * @param request - DescribeOfficeSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11208,7 +11224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all attributes of an office network, including the ID, name, status, and creation time.
+   * Queries all properties of an office network, including the ID, name, status, and creation time.
    * 
    * @param request - DescribeOfficeSitesRequest
    * @returns DescribeOfficeSitesResponse
@@ -14744,6 +14760,68 @@ export default class Client extends OpenApi {
   async hibernateDesktops(request: $_model.HibernateDesktopsRequest): Promise<$_model.HibernateDesktopsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.hibernateDesktopsWithOptions(request, runtime);
+  }
+
+  /**
+   * Imports a UPM user VHD.
+   * 
+   * @param request - ImportDriveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportDriveResponse
+   */
+  async importDriveWithOptions(request: $_model.ImportDriveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportDriveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.forceUpdate)) {
+      query["ForceUpdate"] = request.forceUpdate;
+    }
+
+    if (!$dara.isNull(request.mountUrl)) {
+      query["MountUrl"] = request.mountUrl;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportDrive",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportDriveResponse>(await this.callApi(params, req, runtime), new $_model.ImportDriveResponse({}));
+  }
+
+  /**
+   * Imports a UPM user VHD.
+   * 
+   * @param request - ImportDriveRequest
+   * @returns ImportDriveResponse
+   */
+  async importDrive(request: $_model.ImportDriveRequest): Promise<$_model.ImportDriveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importDriveWithOptions(request, runtime);
   }
 
   /**
@@ -18333,7 +18411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
+   * Modifies the basic properties of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to users of cloud desktops.
    * 
    * @param request - ModifyOfficeSiteAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18364,6 +18442,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableAdminAccess)) {
       query["EnableAdminAccess"] = request.enableAdminAccess;
+    }
+
+    if (!$dara.isNull(request.enableUpm)) {
+      query["EnableUpm"] = request.enableUpm;
     }
 
     if (!$dara.isNull(request.needVerifyLoginRisk)) {
@@ -18412,7 +18494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
+   * Modifies the basic properties of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to users of cloud desktops.
    * 
    * @param request - ModifyOfficeSiteAttributeRequest
    * @returns ModifyOfficeSiteAttributeResponse
@@ -22332,7 +22414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+   * Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22379,7 +22461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+   * Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
