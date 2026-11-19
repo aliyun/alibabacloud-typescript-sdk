@@ -231,7 +231,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The explicit deny policy, which has the highest priority. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. If a STAROps operation matches the policy, it is directly denied. The POP side provides a secondary fallback.
+   * The explicit deny policy, which has the highest priority. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are explicitly denied. If a STAROps operation matches the policy, it is directly denied. The POP side provides a secondary fallback.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]
@@ -448,7 +448,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource property field that represents the region ID.
+   * The region ID of the resource.
    * 
    * @example
    * cn-beijing
@@ -488,7 +488,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   sandboxNetworkPolicy?: GetDigitalEmployeeResponseBodySandboxNetworkPolicy;
   /**
    * @remarks
-   * The status of the digital employee. Valid values: 0: Normal. 1: Disabled.
+   * The status of the digital employee. Valid values: 0 (normal) and 1 (disabled).
    * 
    * @example
    * 0

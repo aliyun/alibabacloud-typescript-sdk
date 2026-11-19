@@ -16,7 +16,7 @@ export class GetThreadDataRequest extends $dara.Model {
    * The pagination cursor.
    * 
    * @example
-   * xxxxxxxxxx
+   * XStO-ooc0Y-_8IoNRmC-3YFgg8ITG5****tOSoocIYrcmio15m653yfgGCITgz7T
    */
   nextToken?: string;
   static names(): { [key: string]: string } {

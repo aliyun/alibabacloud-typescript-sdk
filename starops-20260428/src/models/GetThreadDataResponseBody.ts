@@ -229,7 +229,7 @@ export class GetThreadDataResponseBody extends $dara.Model {
    * The token to retrieve the next page of results. If this parameter is not returned, there are no more results.
    * 
    * @example
-   * xxxxxxxxx
+   * aKUAyTHGXpEZRpRTd3OQd4HvmpjgPV****uAYTHgXPeZR5RTD32qDQhVMP-GpvJZ
    */
   nextToken?: string;
   /**

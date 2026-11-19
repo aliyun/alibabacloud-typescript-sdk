@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HookExecution extends $dara.Model {
   /**
    * @remarks
-   * The handling policy for invalid return values. If the return value of the handler remains invalid after retries, it is processed as allow or reject.
+   * The handling policy for invalid return values. If the handler return value remains invalid after retries, it is processed as allow or reject.
    * 
    * @example
    * allow
@@ -13,15 +13,15 @@ export class HookExecution extends $dara.Model {
   failResult?: string;
   /**
    * @remarks
-   * The execution instruction. For the prompt type, it specifies a prompt. For the bash type, it specifies a Bash script. For the python3 type, it specifies a Python 3 script. For the hint type, it specifies contextual text that is directly appended. You must provide non-empty UTF-8 text for all four types.
+   * The execution instruction. For the prompt type, it is a prompt. For the bash type, it is a Bash script. For the python3 type, it is a Python 3 script. For the hint type, it is text directly appended to the contextual text. Non-empty UTF-8 text must be provided for all four types.
    * 
    * @example
-   * 检查当前工具调用是否安全。
+   * Check whether the current tool invoke is safe.
    */
   instruction?: string;
   /**
    * @remarks
-   * The maximum number of additional attempts after a failure. Valid values: 0 to 3.
+   * The maximum number of retries, which specifies the number of additional attempts after a failure. Valid values: 0 to 3.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class HookExecution extends $dara.Model {
   maxRetry?: number;
   /**
    * @remarks
-   * The timeout period in seconds. Valid values: 1 to 30. All attempts and waits for the hook share this timeout period.
+   * The timeout in seconds, ranging from 1 to 30 seconds. All attempts and waits for this Hook share this timeout.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class HookExecution extends $dara.Model {
   timeoutSeconds?: number;
   /**
    * @remarks
-   * The handler type. Valid values: prompt, bash, python3, and hint.
+   * The handler type. Only prompt, bash, python3, and hint are supported.
    * 
    * @example
    * prompt
@@ -75,15 +75,23 @@ export class HookExecution extends $dara.Model {
 export class Hook extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether debug mode is enabled.
+   * 
+   * @example
+   * false
+   */
+  debug?: boolean;
+  /**
+   * @remarks
    * The description.
    * 
    * @example
-   * 检查工具调用中的命令是否安全。
+   * Check whether the command in the tool invoke is safe.
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether the hook is enabled. The hook is executed only when this parameter is set to true. If this parameter is not configured, the hook is disabled.
+   * Specifies whether the Hook is enabled. It is executed only when set to true, and is disabled if not configured.
    * 
    * @example
    * true
@@ -91,7 +99,7 @@ export class Hook extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The event. Each hook processes only one event.
+   * The event. Each Hook processes only one event.
    * 
    * @example
    * ToolStart
@@ -99,12 +107,20 @@ export class Hook extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The execution configuration. This configuration specifies the synchronous execution, total timeout, number of retries, and handling policy for invalid return values of the hook.
+   * The execution configuration, which specifies the synchronous execution, total timeout, number of retries, and handling policy for invalid return values of the Hook.
    */
   execution?: HookExecution;
   /**
    * @remarks
-   * The list of tool names. Only the ToolStart and ToolEnd events perform an exact match on the actual tool names. Tool names such as Read, Write, Bash, and Edit are supported, but wildcards are not supported. An empty array does not restrict the tools, and this field is ignored for other events.
+   * Specifies whether to hide Hook call events. When set to true, Hook call events are not sent to the frontend, regardless of whether debug mode is enabled.
+   * 
+   * @example
+   * false
+   */
+  invisible?: boolean;
+  /**
+   * @remarks
+   * The tool name list. Only ToolStart and ToolEnd perform an exact match on the actual tool names. Tool names such as Read, Write, Bash, and Edit are supported, but wildcards are not supported. An empty array imposes no restrictions on tools, and this field is ignored for other events.
    * 
    * @example
    * ["Read","Write","Bash","Edit"]
@@ -112,7 +128,7 @@ export class Hook extends $dara.Model {
   match?: string[];
   /**
    * @remarks
-   * Only digits, letters, underscores, and hyphens are allowed, and the value cannot be empty. Hooks with the same name are executed independently in the order they appear in the list.
+   * The Hook name. Only digits, letters, underscores, and hyphens are allowed, and it cannot be empty. Hooks with the same name are executed independently in the order they appear in the list.
    * 
    * @example
    * command-guard
@@ -128,7 +144,7 @@ export class Hook extends $dara.Model {
   schemaVersion?: string;
   /**
    * @remarks
-   * The effective scope. A value of all indicates that the hook takes effect in both Chat and Mission scenarios. A value of chat or mission indicates that the hook takes effect only in the corresponding scenario.
+   * The effective scope. A value of all applies to both Chat and Mission scenarios. A value of chat or mission applies only to the corresponding scenario.
    * 
    * @example
    * all
@@ -136,10 +152,12 @@ export class Hook extends $dara.Model {
   scope?: string;
   static names(): { [key: string]: string } {
     return {
+      debug: 'debug',
       description: 'description',
       enable: 'enable',
       event: 'event',
       execution: 'execution',
+      invisible: 'invisible',
       match: 'match',
       name: 'name',
       schemaVersion: 'schemaVersion',
@@ -149,10 +167,12 @@ export class Hook extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      debug: 'boolean',
       description: 'string',
       enable: 'boolean',
       event: 'string',
       execution: HookExecution,
+      invisible: 'boolean',
       match: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       schemaVersion: 'string',
