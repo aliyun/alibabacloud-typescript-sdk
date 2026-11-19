@@ -3,41 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteExporterOutputResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The status code.
-   * 
-   * > A status code of 200 indicates success. Other values indicate failure.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * Success
-   */
   message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2DECF751-7AFA-43BB-8C63-2B6B07E51AE1
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:  
-   * - `true`: The request was successful.
-   * - `false`: The request failed.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

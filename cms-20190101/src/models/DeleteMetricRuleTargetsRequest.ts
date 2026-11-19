@@ -16,7 +16,7 @@ export class DeleteMetricRuleTargetsRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * The target IDs.
    * 
    * This parameter is required.
    * 

@@ -37,7 +37,7 @@ export class ModifySiteMonitorResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > The value 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class ModifySiteMonitorResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the node task result.
+   * The details of the node modification task result.
    */
   data?: ModifySiteMonitorResponseBodyData;
   /**
@@ -68,9 +68,9 @@ export class ModifySiteMonitorResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true

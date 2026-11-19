@@ -6,7 +6,7 @@ import { MetricStat } from "./MetricStat";
 export class BatchExportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the backend requested the data. A larger timestamp indicates that the exported data is closer to the current time.
+   * The timestamp when the backend requests data. A larger timestamp indicates that the exported data is closer to the current time.
    * 
    * @example
    * 1678781819000
@@ -16,7 +16,7 @@ export class BatchExportResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code.
    * 
-   * > A status code of 200 indicates success.
+   * > A status code of 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -26,7 +26,7 @@ export class BatchExportResponseBody extends $dara.Model {
    * @remarks
    * The cursor used for the next call to this operation.
    * 
-   * > If the return value is `null`, the monitoring data export is complete.
+   * > If the value is null, the monitoring data export is complete.
    * 
    * @example
    * v2.5eyJidWNrZXRzIjo0LCJjdXJzb3IiOiIxNjQxNDU0ODAwMDAwMWUxY2YxNWY0NTU0MTliZjllYTY4OWQ2ODI1OTU1Yzc1NmZjMDQ2OTMxMzczMzM2MzUzMTMxMzEzMzM0MzMzODM5MzEzMTMwMjQyYzY5MmQzMjdhNjU2MjY3N2E2NjZhNzczOTY2NmM3Mjc0NjM3MzY5Njg3NDcyMjQyYyIsImN1cnNvclZlcnNpb24iOiJxdWVyeSIsImVuZFRpbWUiOjE2NDE0NTUyMzYxMTIsImV4cG9ydEVuZFRpbWUiOjE2NDE0NTUyMzYxMTIsImV4cG9ydFN0YXJ0VGltZSI6MTY0MTQ1NDYzNjExMiwiZXhwcmVzc1JhbmdlIjpmYWxzZSwiaGFzTmV4dCI6dHJ1ZSwiaW5wdXRNZXRyaWMiOiJDUFVVdGlsaXphdGlvbiIsImlucHV0TmFtZXNwYWNlIjoiYWNzX2Vjc19kYXNoYm9hcmQiLCJsaW1pdCI6MTAwMCwibG9nVGltZU1vZGUiOnRydWUsIm1hdGNoZXJzIjp7ImNoYWluIjpbeyJsYWJlbCI6InVzZXJJZCIsIm9wZXJhdG9yIjoiRVFVQUxTIiwidmFsdWUiOiIxNzM2NTExMTM0Mzg5MTEwIn1dfSwibWV0cmljIjoiQ1BVVXRpbGl6YXRpb24iLCJtZXRyaWNUeXBlIjoiTUVUUklDIiwibmFtZXNwYWNlIjoiYWNzX2Vjc19kYXNoYm9hcmQiLCJuZXh0UGtBZGFwdGVyIjp7fSwib2Zmc2V0IjowLCJwYXJlbnRVaWQiOjEyNzA2NzY2Nzk1NDY3MDQsInN0YXJ0VGltZSI6MTY0MTQ1NDYzNjExMiwic3RlcCI6LTEsInRpbWVvdXQiOjEyMCwid2luZG93Ijo2MH0***
@@ -41,7 +41,7 @@ export class BatchExportResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the data export is complete. Valid values:
    * 
-   * - true: The data export is incomplete.
+   * - true: The data export is not complete.
    * 
    * - false: The data export is complete.
    * 
@@ -75,11 +75,11 @@ export class BatchExportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The call was successful.
    * 
-   * - false: The operation failed.
+   * - false: The call failed.
    * 
    * @example
    * true

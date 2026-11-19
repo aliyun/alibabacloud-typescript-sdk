@@ -13,15 +13,15 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   browser?: string;
   /**
    * @remarks
-   * This parameter is deprecated. You do not need to specify this parameter.
+   * **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
    * 
    * @example
-   * 无
+   * None
    */
   browserInfo?: string;
   /**
    * @remarks
-   * The city ID.
+   * The identifier of the city.
    * 
    * @example
    * 546
@@ -29,7 +29,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   city?: string;
   /**
    * @remarks
-   * The type of the device. This parameter specifies the screen size for impersonation.
+   * The device type, which indicates the simulated screen size type.
    * 
    * @example
    * laptop
@@ -37,13 +37,12 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The end of the time range to query. The following formats are supported:
+   * The end time. Supported formats:
    * 
    * - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
-   * 
    * - UTC format: YYYY-MM-DDThh:mm:ssZ.
    * 
-   * > Use UNIX timestamps to prevent time zone-related issues.
+   * > Use UNIX timestamps to avoid time zone issues.
    * 
    * @example
    * 1638422475687
@@ -51,9 +50,9 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The filter expression for detection results.
+   * The filter condition for detection values.
    * 
-   * Simple expressions are supported. For example, you can use the `TotalTime>100` expression to query the detection data whose total response time exceeds 100 milliseconds.
+   * Simple expressions are supported. For example, `TotalTime>100` filters the detection data whose total response time exceeds 100 milliseconds.
    * 
    * @example
    * TotalTime>100
@@ -61,7 +60,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The carrier ID.
+   * The identifier of the carrier.
    * 
    * @example
    * 465
@@ -69,7 +68,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. Valid values: 1 to 1440.
+   * The number of records to return on each page for paging. Valid values: 1 to 1440.
    * 
    * @example
    * 1000
@@ -87,7 +86,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * If the response is truncated, use the `NextToken` parameter to retrieve the next page of results.
+   * The pagination token. If the response is truncated, you can use `NextToken` to send another request and retrieve the remaining results.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -96,13 +95,13 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The following formats are supported:
+   * The start time. Supported formats:
    * 
    * - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
-   * 
    * - UTC format: YYYY-MM-DDThh:mm:ssZ.
    * 
-   * > * The start time and end time follow the (StartTime, EndTime] pattern. The value of StartTime cannot be the same as or later than the value of EndTime.<br> - Use UNIX timestamps to prevent time zone-related issues.<br>
+   * > - The start time and end time follow the left-open and right-closed interval pattern. The value of StartTime cannot be equal to or greater than the value of EndTime.                                                                                                                   
+   *     - Use UNIX timestamps to avoid time zone issues.
    * 
    * @example
    * 1638422474389
@@ -110,7 +109,7 @@ export class DescribeSiteMonitorLogRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the detection task. You can specify multiple task IDs. Separate them with commas (,).
+   * The IDs of the detection tasks. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 

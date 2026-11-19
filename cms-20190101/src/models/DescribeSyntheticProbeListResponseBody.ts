@@ -69,7 +69,7 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   countryEn?: string;
   /**
    * @remarks
-   * The number of IPv4 nodes in the IDC.
+   * The number of IDC IPv4 nodes.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   idcV4ProbeCount?: number;
   /**
    * @remarks
-   * The number of IPv6 nodes in the IDC.
+   * The number of IDC IPv6 nodes.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   idcV6ProbeCount?: number;
   /**
    * @remarks
-   * The list of node IP addresses.
+   * The list of IP addresses of the node.
    */
   ipPool?: string[];
   /**
@@ -141,7 +141,7 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
    * The Chinese name of the province.
    * 
    * @example
-   * Jiangxi
+   * Jiangxi Province
    */
   regionCn?: string;
   /**
@@ -246,8 +246,8 @@ export class DescribeSyntheticProbeListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation is successful.
-   * - false: The operation fails.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

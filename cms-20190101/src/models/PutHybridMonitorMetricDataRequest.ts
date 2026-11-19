@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class PutHybridMonitorMetricDataRequestMetricListLabels extends $dara.Model {
   /**
    * @remarks
-   * The key of the label of the metric.
+   * The label key of the metric.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * Format: The key can contain uppercase letters, lowercase letters, digits, and underscores (_). The key must start with an uppercase letter, a lowercase letter, or an underscore (_).
+   * Format: The key can contain uppercase letters, lowercase letters, digits, and underscores (_). It must start with an uppercase letter, a lowercase letter, or an underscore.
    * 
-   * > Key and Value must be set at the same time.
+   * > You must specify both Key and Value.
    * 
    * @example
    * IP
@@ -19,11 +19,11 @@ export class PutHybridMonitorMetricDataRequestMetricListLabels extends $dara.Mod
   key?: string;
   /**
    * @remarks
-   * The value of the label of the metric.
+   * The label value of the metric.
    * 
    * Valid values of N: 1 to 100.
    * 
-   * > Key and Value must be set at the same time.
+   * > You must specify both Key and Value.
    * 
    * @example
    * 192.168.XX.XX
@@ -55,12 +55,14 @@ export class PutHybridMonitorMetricDataRequestMetricListLabels extends $dara.Mod
 export class PutHybridMonitorMetricDataRequestMetricList extends $dara.Model {
   /**
    * @remarks
-   * The list of labels of the metric.
+   * The list of labels for the metric.
    * 
    * Valid values of N: 1 to 100.
    * 
+   * Identifiers such as app, ip, and hostName.
+   * 
    * @example
-   * [{"Key":"app","Value":"testApp"},{"Key":"ip","Value":"192.168.XX.XX"},{"Key":"hostName","Value":"host01"}]
+   * [{"Key":"IP","Value":"192.168.XX.XX"}]
    */
   labels?: PutHybridMonitorMetricDataRequestMetricListLabels[];
   /**
@@ -69,7 +71,7 @@ export class PutHybridMonitorMetricDataRequestMetricList extends $dara.Model {
    * 
    * Valid values of N: 1 to 100.
    * 
-   * Format: The name can contain uppercase letters, lowercase letters, digits, and underscores (_). The name must start with an uppercase letter or a lowercase letter.
+   * Format: The name can contain uppercase letters, lowercase letters, digits, and underscores (_). It must start with an uppercase or lowercase letter.
    * 
    * This parameter is required.
    * 
@@ -79,7 +81,7 @@ export class PutHybridMonitorMetricDataRequestMetricList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The timestamp when the monitoring data was reported.
+   * The timestamp when the monitoring data is reported.
    * 
    * Valid values of N: 1 to 100.
    * 
@@ -95,7 +97,7 @@ export class PutHybridMonitorMetricDataRequestMetricList extends $dara.Model {
    * 
    * Valid values of N: 1 to 100.
    * 
-   * Format: an integer or a floating-point number.
+   * Format: integer or floating-point number.
    * 
    * This parameter is required.
    * 
@@ -147,7 +149,7 @@ export class PutHybridMonitorMetricDataRequest extends $dara.Model {
    * @remarks
    * The name of the metric namespace.
    * 
-   * For information about how to obtain the name of a metric namespace, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
+   * For more information about how to obtain the name of a metric namespace, see [DescribeHybridMonitorNamespaceList](https://help.aliyun.com/document_detail/428880.html).
    * 
    * This parameter is required.
    * 

@@ -7,11 +7,11 @@ export class AddTagsRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The value of N can be from 1 to 3. The tag key must be 1 to 64 characters in length.
+   * Valid values of N: 1 to 3. The tag key must be 1 to 64 characters in length.
    * 
-   * Enter a new tag key or use an existing tag key from Cloud Monitor. For information about how to obtain tag keys, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/2513189.html).
+   * You can enter a new tag key or use an existing tag key in CloudMonitor. For more information about how to obtain tag keys, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/2513189.html).
    * 
-   * > The tag key cannot start with `aliyun` or `acs:`. The `Tag.N.Key` and `Tag.N.Value` parameters must be specified together.
+   * > The tag key cannot start with `aliyun` or `acs:`. You must specify both the tag key (`Tag.N.Key`) and the tag value (`Tag.N.Value`).
    * 
    * This parameter is required.
    * 
@@ -23,11 +23,11 @@ export class AddTagsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The value of N can be from 1 to 3. The tag value must be 1 to 64 characters in length.
+   * Valid values of N: 1 to 3. The tag value must be 1 to 64 characters in length.
    * 
-   * Enter a new tag value or use an existing tag value from Cloud Monitor. For information about how to obtain tag values, see [DescribeTagValueList](https://help.aliyun.com/document_detail/2513188.html).
+   * You can enter a new tag value or use an existing tag value in CloudMonitor. For more information about how to obtain tag values, see [DescribeTagValueList](https://help.aliyun.com/document_detail/2513188.html).
    * 
-   * > The tag value cannot start with `aliyun` or `acs:`. The `Tag.N.Key` and `Tag.N.Value` parameters must be specified together.
+   * > The tag value cannot start with `aliyun` or `acs:`. You must specify both the tag key (`Tag.N.Key`) and the tag value (`Tag.N.Value`).
    * 
    * This parameter is required.
    * 
@@ -63,9 +63,9 @@ export class AddTagsRequest extends $dara.Model {
    * @remarks
    * The IDs of the application groups.
    * 
-   * The value of N can be from 1 to 20.
+   * Valid values of N: 1 to 20.
    * 
-   * For information about how to obtain application group IDs, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/2513168.html).
+   * For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/2513168.html).
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class AddTagsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    * 
    * This parameter is required.
    */

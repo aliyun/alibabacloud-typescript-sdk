@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeExporterOutputListRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The page number. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {

@@ -45,7 +45,7 @@ export class DescribeMonitorGroupsRequestTag extends $dara.Model {
 export class DescribeMonitorGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dynamic rule matching.
+   * The ID of the intelligent tag rule.
    * 
    * @example
    * 6b882d9a-5117-42e2-9d0c-4749a0c6****
@@ -53,7 +53,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   dynamicTagRuleId?: string;
   /**
    * @remarks
-   * The tag key used to create the application group by using dynamic rule matching.
+   * The tag key used to create the application group by using intelligent tags.
    * 
    * @example
    * GroupKey1
@@ -61,7 +61,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   groupFounderTagKey?: string;
   /**
    * @remarks
-   * The tag value used to create the application group by using dynamic rule matching.
+   * The tag value used to create the application group by using intelligent tags.
    * 
    * @example
    * GroupValue1
@@ -69,7 +69,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   groupFounderTagValue?: string;
   /**
    * @remarks
-   * The application group ID. Separate multiple application group IDs with commas (,).
+   * The ID of the application group. Separate multiple application group IDs with commas (,).
    * 
    * @example
    * 92****
@@ -77,7 +77,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The application group name.
+   * The name of the application group.
    * 
    * @example
    * testGroup124
@@ -85,9 +85,9 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Specifies whether to include the history of alert templates that have been applied to the application group in the response. Valid values:
-   * - true: Include the history.
-   * - false: Do not include the history.
+   * Specifies whether to include the history of alert templates applied to the application group in the response. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   includeTemplateHistory?: boolean;
   /**
    * @remarks
-   * The resource instance ID. This parameter is used to query the application group to which the specified instance belongs.
+   * The instance ID. This parameter is used to query the application group to which the specified instance belongs.
    * 
    * @example
    * i-abcdefgh12****
@@ -133,8 +133,8 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to include alert contact groups in the response. Valid values:
-   * - true: Include alert contact groups.
-   * - false: Do not include alert contact groups.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true
@@ -148,13 +148,13 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the application group. Valid values:
-   * - custom: a custom application group.
-   * - ehpc_cluster: an application group synchronized from an EHPC cluster.
-   * - kubernetes: an application group synchronized from Container Service for Kubernetes.
-   * - tag: an application group automatically created by using tags.
-   * - resMgr: an application group created from a resource group.
-   * - ess: an application group synchronized from Auto Scaling (ESS).
-   * - aone_group: an application group synchronized from or associated with an Aone application.
+   * - custom: custom application group
+   * - ehpc_cluster: application group from EHPC cluster synchronization
+   * - kubernetes: application group from Container Service for Kubernetes synchronization
+   * - tag: application group from automatic creation by using labels
+   * - resMgr: application group created by using resource groups
+   * - ess: application group from elastic scaling synchronization
+   * - aone_group: application group synchronized from or associated with an Aone application
    * 
    * @example
    * custom
@@ -162,15 +162,15 @@ export class DescribeMonitorGroupsRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The type of the application group. Valid values:
+   * The types of the application groups. Valid values:
    * 
-   * - custom: a custom application group.
-   * - ehpc_cluster: an application group synchronized from an EHPC cluster.
-   * - kubernetes: an application group synchronized from Container Service for Kubernetes.
-   * - tag: an application group automatically created by using tags.
-   * - resMgr: an application group created from a resource group.
-   * - ess: an application group synchronized from Auto Scaling (ESS).
-   * - aone_group: an application group synchronized from or associated with an Aone application.
+   * - custom: custom application group
+   * - ehpc_cluster: application group from EHPC cluster synchronization
+   * - kubernetes: application group from Container Service for Kubernetes synchronization
+   * - tag: application group from automatic creation by using labels
+   * - resMgr: application group created by using resource groups
+   * - ess: application group from elastic scaling synchronization
+   * - aone_group: application group synchronized from or associated with an Aone application
    * 
    * @example
    * custom

@@ -21,7 +21,7 @@ export class DeleteEventRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The UUID of the request, which is used to query logs.
+   * The UUID of the request, which can be used to query logs.
    * 
    * @example
    * 45231A42-5A09-5AFF-953C-A5B3D4ED8925
@@ -29,11 +29,11 @@ export class DeleteEventRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation was successful.
    * 
-   * - false: Failed.
+   * - false: The operation failed.
    * 
    * @example
    * true

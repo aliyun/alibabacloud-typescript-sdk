@@ -33,8 +33,8 @@ export class ModifyHybridMonitorTaskResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation was successful.
-   * - false: The operation failed.
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

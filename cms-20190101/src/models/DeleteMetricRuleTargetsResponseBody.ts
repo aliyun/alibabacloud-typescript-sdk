@@ -57,11 +57,9 @@ export class DeleteMetricRuleTargetsResponseBodyFailIds extends $dara.Model {
 export class DeleteMetricRuleTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * \\*\\*
-   * 
-   * **Description** The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -69,7 +67,7 @@ export class DeleteMetricRuleTargetsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The IDs of the resources that failed to be deleted.
+   * The list of target IDs that failed to be deleted.
    */
   failIds?: DeleteMetricRuleTargetsResponseBodyFailIds;
   /**
@@ -90,11 +88,11 @@ export class DeleteMetricRuleTargetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true
+   * - true: Successful.
    * 
-   * - false
+   * - false: Failed.
    * 
    * @example
    * true

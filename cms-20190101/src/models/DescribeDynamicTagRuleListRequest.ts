@@ -56,7 +56,7 @@ export class DescribeDynamicTagRuleListRequest extends $dara.Model {
    * For more information about how to obtain a tag value, see [DescribeTagValueList](https://help.aliyun.com/document_detail/145557.html).
    * 
    * @example
-   * *
+   * production
    */
   tagValue?: string;
   static names(): { [key: string]: string } {

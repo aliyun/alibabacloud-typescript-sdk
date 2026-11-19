@@ -21,7 +21,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   idcProbe?: boolean;
   /**
    * @remarks
-   * Specifies whether to show only IPv4 nodes.
+   * Specifies whether to display only IPv4 nodes.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   ipv4?: boolean;
   /**
    * @remarks
-   * Specifies whether to show only IPv6 nodes.
+   * Specifies whether to display only IPv6 nodes.
    * 
    * @example
    * false
@@ -64,7 +64,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return all detection points. Valid values:
    * 
-   * - false: Returns only the detection points available to the user. This is the default value.
+   * - false: Returns the detection points available to you. This is the default value.
    * - true: Returns all detection points.
    * 
    * @example

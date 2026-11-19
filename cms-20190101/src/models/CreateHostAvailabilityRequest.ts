@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostAvailabilityRequestAlertConfig extends $dara.Model {
   /**
    * @remarks
-   * The end time of the effective period for alerting.
+   * The end time of the effective period for alerts.
    * 
-   * The value is an integer ranging from 0 to 23. Unit: hours. The value indicates the hour when the effective period ends. The actual end time is 00:00:00 of the specified hour. For example, if you set this parameter to 22, the effective period ends at 22:00:00. The time zone is UTC+8.
+   * The value must be an integer ranging from 0 to 23. Unit: hours. The value specifies the hour when the effective period ends. The actual end time is 00:00:00 of the specified hour. For example, if you set this parameter to 22, the effective period ends at 22:00:00. The time zone is UTC+8 (Beijing time).
    * 
    * > Note: If the current time is not within the effective time window, the system does not send alert notifications even if the threshold is exceeded.
    * 
@@ -17,18 +17,18 @@ export class CreateHostAvailabilityRequestAlertConfig extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The alert notification method. Valid values:
+   * The alert notification type. Valid values:
    * 
-   * <props="china">- 2: phone call, text message, email, and DingTalk chatbot.
+   * <props="china">- 2: Phone call, text message, email, and DingTalk chatbot.
    * 
-   * <props="china">- 1: text message, email, and DingTalk chatbot.
+   * <props="china">- 1: Text message, email, and DingTalk chatbot.
    * 
-   * <props="china">- 0: email and DingTalk chatbot.
+   * <props="china">- 0: Email and DingTalk chatbot.
    * 
    * 
-   * <props="intl">0: email and DingTalk chatbot.
+   * <props="intl">0: Email and DingTalk chatbot.
    * 
-   * <props="partner">0: email and DingTalk chatbot.
+   * <props="partner">0: Email and DingTalk chatbot.
    * 
    * This parameter is required.
    * 
@@ -46,9 +46,9 @@ export class CreateHostAvailabilityRequestAlertConfig extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The start time of the effective period for alerting.
+   * The start time of the effective period for alerts.
    * 
-   * The value is an integer ranging from 0 to 23. Unit: hours. The value indicates the hour when the effective period starts. The actual start time is 00:00:00 of the specified hour. For example, if you set this parameter to 0, the effective period starts at 00:00:00. The time zone is UTC+8.
+   * The value must be an integer ranging from 0 to 23. Unit: hours. The value specifies the hour when the effective period starts. The actual start time is 00:00:00 of the specified hour. For example, if you set this parameter to 0, the effective period starts at 00:00:00. The time zone is UTC+8 (Beijing time).
    * 
    * > Note: If the current time is not within the effective time window, the system does not send alert notifications even if the threshold is exceeded.
    * 
@@ -226,7 +226,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
 export class CreateHostAvailabilityRequestAlertConfigEscalationList extends $dara.Model {
   /**
    * @remarks
-   * The statistical method for the alert. Valid values of N: 1 to 21. Valid values vary based on the metric:
+   * The aggregation method for the alert. Valid values of N: 1 to 21. Valid values vary based on the metric:
    * 
    * - HttpStatus: Value.
    * - HttpLatency: Average.
@@ -234,7 +234,7 @@ export class CreateHostAvailabilityRequestAlertConfigEscalationList extends $dar
    * - TelnetLatency: Average.
    * - PingLostRate: Average.
    * 
-   * > The statistical method for status codes is the original value (Value), and the statistical method for response time or packet loss rate is the average value (Average).
+   * > The aggregation method for status codes is the original value (Value). The aggregation method for response time or packet loss rate is the average value (Average).
    * 
    * @example
    * Value
@@ -318,7 +318,7 @@ export class CreateHostAvailabilityRequestAlertConfigEscalationList extends $dar
 export class CreateHostAvailabilityRequestAlertConfigTargetList extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{service abbreviation}:{regionId}:{userId}:/{resource type}/{resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Parameter description:
+   * The ARN of the resource. Format: `acs:{service abbreviation}:{regionId}:{userId}:/{resource type}/{resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Parameter descriptions:
    * 
    * - {service abbreviation}: The abbreviation of the cloud service. Only Simple Message Queue (formerly MNS) is supported.
    * 
@@ -326,7 +326,7 @@ export class CreateHostAvailabilityRequestAlertConfigTargetList extends $dara.Mo
    * 
    * - {regionId}: The region where the Simple Message Queue (formerly MNS) queue or topic resides.
    * 
-   * - {resource type}: The type of the resource that receives alerts. Valid values:
+   * - {resource type}: The type of the resource that accepts alert notifications. Valid values:
    * 
    *   - **queues**: queue.
    *   - **topics**: topic.
@@ -342,7 +342,7 @@ export class CreateHostAvailabilityRequestAlertConfigTargetList extends $dara.Mo
   arn?: string;
   /**
    * @remarks
-   * The ID of the alert target.
+   * The ID of the alert trigger target.
    * 
    * @example
    * 1
@@ -360,9 +360,9 @@ export class CreateHostAvailabilityRequestAlertConfigTargetList extends $dara.Mo
    * @remarks
    * The alert level. Valid values:
    * 
-   * - INFO: information.
-   * - WARN: warning.
-   * - CRITICAL: critical.
+   * - INFO: Information.
+   * - WARN: Warning.
+   * - CRITICAL: Critical.
    * 
    * @example
    * ["INFO", "WARN", "CRITICAL"]
@@ -407,7 +407,7 @@ export class CreateHostAvailabilityRequest extends $dara.Model {
   alertConfigEscalationList?: CreateHostAvailabilityRequestAlertConfigEscalationList[];
   /**
    * @remarks
-   * The alert targets.
+   * The alert trigger targets.
    */
   alertConfigTargetList?: CreateHostAvailabilityRequestAlertConfigTargetList[];
   /**
@@ -424,7 +424,7 @@ export class CreateHostAvailabilityRequest extends $dara.Model {
    * @remarks
    * The list of ECS instances that initiate the probes. Valid values of N: 1 to 21.
    * 
-   * > You must set this parameter when `TaskScope` is set to `GROUP_SPEC_INSTANCE`.
+   * > You must set this parameter when TaskScope is set to GROUP_SPEC_INSTANCE.
    * 
    * @example
    * i-absdfkwl321****
@@ -445,8 +445,8 @@ export class CreateHostAvailabilityRequest extends $dara.Model {
    * @remarks
    * The probe scope of the availability monitoring task. Valid values:
    * 
-   * - GROUP: All ECS instances in the current application group are used as probes for the task.
-   * - GROUP_SPEC_INSTANCE: Specified ECS instances in the current application group are used as probes for the task. If you set this parameter to GROUP_SPEC_INSTANCE, you must also set the InstanceList parameter, which specifies the list of ECS instances that initiate the probes.
+   * - GROUP: All ECS instances in the current application group are used as probes for the monitoring task.
+   * - GROUP_SPEC_INSTANCE: Specified ECS instances in the current application group are used as probes for the monitoring task. If you set this parameter to GROUP_SPEC_INSTANCE, you must also set the InstanceList parameter, which specifies the list of ECS instances that initiate the probes.
    * 
    * @example
    * GROUP

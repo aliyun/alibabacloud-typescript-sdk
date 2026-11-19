@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * 
-   * > A status code of 200 indicates that the request was successful.
+   * The HTTP status code.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -31,11 +30,11 @@ export class AddTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The call was successful.
    * 
-   * - false: The operation failed.
+   * - false: The call failed.
    * 
    * @example
    * true

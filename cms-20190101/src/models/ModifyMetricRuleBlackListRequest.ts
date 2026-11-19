@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMetricRuleBlackListRequestMetrics extends $dara.Model {
   /**
    * @remarks
-   * The name of the monitoring metrics.
+   * The name of the metric.
    * 
    * Valid values of N: 1 to 10.
    * 
@@ -17,7 +17,7 @@ export class ModifyMetricRuleBlackListRequestMetrics extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The extended dimension information of the instance. For example, `{"device":"C:"}` indicates that the blacklist policy applies to all C drives of the ECS instance of the Alibaba Cloud service.
+   * The extended dimension information of the instance. For example, {"device":"C:"} indicates that the blacklist policy applies to all C drives of the ECS instance.
    * 
    * Valid values of N: 1 to 10.
    * 
@@ -61,11 +61,11 @@ export class ModifyMetricRuleBlackListRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The effective period of the alert blacklist policy. The implications of the settings for this parameter are as follows:
+   * The effective time range of the alert blacklist policy. The behavior varies based on whether you specify this parameter:
    * 
-   * - If you do not configure the settings for this parameter, the alert blacklist policy is permanently valid.
+   * - If you do not specify this parameter, the alert blacklist policy is permanently valid.
    * 
-   * - If you configure the settings for this parameter, the blacklist policy is valid only within the specified time range. The following examples show two formats for this parameter:
+   * - If you specify this parameter, the alert blacklist policy is valid only within the specified time range. This parameter supports the following formats:
    *     - `03:00-04:59`: The alert blacklist policy is valid from 03:00 to 05:00 (excluding 05:00) local time.
    *     - `03:00-04:59 UTC+0700`: The alert blacklist policy is valid from 03:00 to 05:00 (excluding 05:00) UTC+7.
    * 
@@ -75,7 +75,7 @@ export class ModifyMetricRuleBlackListRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The end timestamp of the effective period for the alert blacklist policy.
+   * The end timestamp when the alert blacklist policy takes effect.
    * 
    * Unit: milliseconds.
    * 
@@ -85,7 +85,7 @@ export class ModifyMetricRuleBlackListRequest extends $dara.Model {
   enableEndTime?: string;
   /**
    * @remarks
-   * The start timestamp of the effective period for the alert blacklist policy.
+   * The start timestamp when the alert blacklist policy takes effect.
    * 
    * Unit: milliseconds.
    * 
@@ -97,7 +97,7 @@ export class ModifyMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * The ID of the alert blacklist policy.
    * 
-   * For more information about how to obtain the ID of an alert blacklist policy, see [DescribeMetricRuleBlackList](https://help.aliyun.com/document_detail/457257.html).
+   * For information about how to obtain the ID of an alert blacklist policy, see [DescribeMetricRuleBlackList](https://help.aliyun.com/document_detail/457257.html).
    * 
    * This parameter is required.
    * 
@@ -116,9 +116,9 @@ export class ModifyMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * The monitoring metrics of the instances.
    * 
-   * - If you do not configure the settings for this parameter, the alert blacklist policy applies to all monitoring metrics of the specified Alibaba Cloud service.
+   * - If you do not specify this parameter, the alert blacklist policy applies to all monitoring metrics of the specified Alibaba Cloud service.
    * 
-   * - If you configure the settings for this parameter, the blacklist policy applies only to the current monitoring metrics.
+   * - If you specify this parameter, the alert blacklist policy applies only to the specified monitoring metrics.
    */
   metrics?: ModifyMetricRuleBlackListRequestMetrics[];
   /**
@@ -133,9 +133,9 @@ export class ModifyMetricRuleBlackListRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The data namespace of the cloud service.
+   * The data namespace of the Alibaba Cloud service.
    * 
-   * For more information about the namespaces of cloud services, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about the namespaces of Alibaba Cloud services, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -148,10 +148,10 @@ export class ModifyMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * The effective scope of the alert blacklist policy. Valid values:
    * 
-   * - USER: The alert blacklist policy takes effect only within the current Alibaba Cloud account.
+   * - USER: The alert blacklist policy takes effect only in the current Alibaba Cloud account.
    * 
-   * - GROUP (default): The alert blacklist policy takes effect within the specified application group. You must specify an application group.
-   *   For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * - GROUP (default): The alert blacklist policy takes effect in the specified application group. You must specify an application group.
+   *   For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
    * @example
    * USER

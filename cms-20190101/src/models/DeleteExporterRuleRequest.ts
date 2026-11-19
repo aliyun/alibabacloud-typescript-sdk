@@ -6,12 +6,7 @@ export class DeleteExporterRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the export rules.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * myRuleName
    */
   ruleName?: string;
   static names(): { [key: string]: string } {

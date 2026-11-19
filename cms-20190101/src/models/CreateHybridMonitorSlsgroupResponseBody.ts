@@ -31,10 +31,10 @@ export class CreateHybridMonitorSLSGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
-   * - false: The operation failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

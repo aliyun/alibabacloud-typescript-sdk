@@ -45,9 +45,9 @@ export class BatchCreateInstantSiteMonitorResponseBodyData extends $dara.Model {
 export class BatchCreateInstantSiteMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > A value of 200 indicates that the operation is successful.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -55,7 +55,7 @@ export class BatchCreateInstantSiteMonitorResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the site monitoring tasks.
+   * The site monitoring task information.
    * 
    * @example
    * [{"taskName": "HangZhou_ECS1", "taskId": "679fbe4f-b80b-4706-91b2-5427b43e****"}]
@@ -80,8 +80,8 @@ export class BatchCreateInstantSiteMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation is successful. Valid values:
-   * * true: The operation is successful.
-   * * false: The operation fails.
+   * * true: Successful.
+   * * false: Failed.
    * 
    * @example
    * true

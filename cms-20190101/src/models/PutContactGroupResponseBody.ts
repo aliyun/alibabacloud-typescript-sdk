@@ -7,7 +7,7 @@ export class PutContactGroupResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200

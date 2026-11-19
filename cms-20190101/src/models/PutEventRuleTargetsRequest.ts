@@ -8,7 +8,7 @@ export class PutEventRuleTargetsRequestContactParameters extends $dara.Model {
    * The name of the alert contact group. Valid values of N: 1 to 5.
    * 
    * @example
-   * Default alert contact group
+   * 默认报警联系组
    */
   contactGroupName?: string;
   /**

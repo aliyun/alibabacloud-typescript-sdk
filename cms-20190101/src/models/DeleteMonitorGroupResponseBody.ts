@@ -53,6 +53,13 @@ export class DeleteMonitorGroupResponseBodyGroupContactGroups extends $dara.Mode
 
 export class DeleteMonitorGroupResponseBodyGroup extends $dara.Model {
   contactGroups?: DeleteMonitorGroupResponseBodyGroupContactGroups;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * @example
+   * Production application group
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,10 +88,42 @@ export class DeleteMonitorGroupResponseBodyGroup extends $dara.Model {
 }
 
 export class DeleteMonitorGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code. A value of 200 indicates that the deletion was successful.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The information about the deleted application group.
+   */
   group?: DeleteMonitorGroupResponseBodyGroup;
+  /**
+   * @remarks
+   * The error message returned when the request fails. The example indicates that the required parameter GroupId is missing. No error message is returned when the deletion is successful.
+   * 
+   * @example
+   * GroupId is mandatory for this action.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 550e8400-e29b-41d4-a716-446655440000
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the application group was deleted. A value of true indicates success, and a value of false indicates failure.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

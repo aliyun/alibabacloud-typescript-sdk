@@ -96,7 +96,7 @@ export class ModifyHybridMonitorSLSGroupRequest extends $dara.Model {
    * The description of the Logstore group.
    * 
    * @example
-   * Logstore group of Alibaba Cloud products.
+   * 阿里云产品归属的Logstore组。
    */
   SLSGroupDescription?: string;
   /**

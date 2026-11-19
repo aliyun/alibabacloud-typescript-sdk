@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PutCustomEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The responses code.
-   * 
-   * > The status code 200 indicates that the request was successful.
+   * The status code.
+   * A value of 200 indicates success.
    * 
    * @example
    * 200

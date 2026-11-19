@@ -144,9 +144,7 @@ export class CreateSiteMonitorResponseBodyData extends $dara.Model {
 export class CreateSiteMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * 
-   * > 200 indicates success.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200

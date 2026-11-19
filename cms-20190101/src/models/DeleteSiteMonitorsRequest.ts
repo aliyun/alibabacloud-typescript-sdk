@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSiteMonitorsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete alert rules when you delete the tasks. Valid values:
+   * Specifies whether to delete alert rules when deleting tasks. Valid values:
    * 
-   * - true (default): Deletes the alert rules.
+   * - true (default): Deletes alert rules.
    * 
-   * - false: Does not delete the alert rules.
+   * - false: Does not delete alert rules.
    * 
    * @example
    * true

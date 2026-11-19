@@ -3,43 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PutExporterRuleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The status code.
-   * 
-   * > 200 indicates success.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * The specified resource is not found.
-   */
   message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 461CF2CD-2FC3-4B26-8645-7BD27E7D0F1D
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation is successful. Valid values:
-   * 
-   * - true: Successful.
-   * 
-   * - false: Failed.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

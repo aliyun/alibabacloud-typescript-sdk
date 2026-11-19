@@ -105,58 +105,12 @@ export class DescribeExporterRuleListResponseBodyDatapoints extends $dara.Model 
 }
 
 export class DescribeExporterRuleListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The status code.
-   * 
-   * > A status code of 200 indicates success. Other values indicate failure.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
   datapoints?: DescribeExporterRuleListResponseBodyDatapoints;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * The specified resource is not found.
-   */
   message?: string;
-  /**
-   * @remarks
-   * The page number. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6BA047CA-8BC6-40BC-BC8F-FBECF35F1993
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful. Valid values:  
-   * - `true`: The request is successful.
-   * - `false`: The request fails.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries.
-   * 
-   * @example
-   * 1000
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

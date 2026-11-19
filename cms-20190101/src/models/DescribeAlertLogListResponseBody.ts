@@ -638,7 +638,7 @@ export class DescribeAlertLogListResponseBodyAlertLogList extends $dara.Model {
    * The name of the alert rule.
    * 
    * @example
-   * CPU utilization
+   * CPU使用率
    */
   ruleName?: string;
   /**

@@ -277,7 +277,7 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResource extends $da
    * The description of the alert template.
    * 
    * @example
-   * ECS template
+   * ECS模板
    */
   description?: string;
   /**

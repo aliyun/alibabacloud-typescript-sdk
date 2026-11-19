@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsCritical extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator for the critical-level alert threshold. Valid values:
+   * The comparison operator for the critical-level threshold. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold. 
-   * - GreaterThanThreshold: greater than the threshold. 
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold. 
-   * - LessThanThreshold: less than the threshold. 
-   * - NotEqualToThreshold: not equal to the threshold. 
-   * - GreaterThanYesterday: greater than the metric value at the same time yesterday. 
-   * - LessThanYesterday: less than the metric value at the same time yesterday. 
-   * - GreaterThanLastWeek: greater than the metric value at the same time last week. 
-   * - LessThanLastWeek: less than the metric value at the same time last week. 
-   * - GreaterThanLastPeriod: greater than the metric value in the last period. 
-   * - LessThanLastPeriod: less than the metric value in the last period. 
+   * - GreaterThanOrEqualToThreshold: greater than or equal to 
+   * - GreaterThanThreshold: greater than 
+   * - LessThanOrEqualToThreshold: less than or equal to 
+   * - LessThanThreshold: less than 
+   * - NotEqualToThreshold: not equal to 
+   * - GreaterThanYesterday: greater than the value at the same time yesterday 
+   * - LessThanYesterday: less than the value at the same time yesterday 
+   * - GreaterThanLastWeek: greater than the value at the same time last week 
+   * - LessThanLastWeek: less than the value at the same time last week 
+   * - GreaterThanLastPeriod: greater than the value in the last period 
+   * - LessThanLastPeriod: less than the value in the last period 
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -34,9 +34,9 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsCritical ex
    * 
    * Valid values of N: 1 to 200.
    * 
-   * The valid values of this parameter are determined by the Statistics column that corresponds to the MetricName parameter of the specified cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the `Statistics` column that corresponds to the `MetricName` of the specified cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
-   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters must be configured at the same time.
+   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * Average
@@ -48,7 +48,7 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsCritical ex
    * 
    * Valid values of N: 1 to 200.
    * 
-   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters must be configured at the same time.
+   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 30
@@ -56,11 +56,11 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsCritical ex
   threshold?: string;
   /**
    * @remarks
-   * The number of consecutive times that the monitoring metrics must reach the alert threshold to send a critical alert notification.
+   * The number of consecutive times the monitoring metrics must reach the alert threshold to send a critical-level alert notification.
    * 
    * Valid values of N: 1 to 200.
    * 
-   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters must be configured at the same time.
+   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 3
@@ -98,19 +98,19 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsCritical ex
 export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator for the info-level alert threshold. Valid values:
+   * The comparison operator for the info-level threshold. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold. 
-   * - GreaterThanThreshold: greater than the threshold. 
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold. 
-   * - LessThanThreshold: less than the threshold. 
-   * - NotEqualToThreshold: not equal to the threshold. 
-   * - GreaterThanYesterday: greater than the metric value at the same time yesterday. 
-   * - LessThanYesterday: less than the metric value at the same time yesterday. 
-   * - GreaterThanLastWeek: greater than the metric value at the same time last week. 
-   * - LessThanLastWeek: less than the metric value at the same time last week. 
-   * - GreaterThanLastPeriod: greater than the metric value in the last period. 
-   * - LessThanLastPeriod: less than the metric value in the last period. 
+   * - GreaterThanOrEqualToThreshold: greater than or equal to 
+   * - GreaterThanThreshold: greater than 
+   * - LessThanOrEqualToThreshold: less than or equal to 
+   * - LessThanThreshold: less than 
+   * - NotEqualToThreshold: not equal to 
+   * - GreaterThanYesterday: greater than the value at the same time yesterday 
+   * - LessThanYesterday: less than the value at the same time yesterday 
+   * - GreaterThanLastWeek: greater than the value at the same time last week 
+   * - LessThanLastWeek: less than the value at the same time last week 
+   * - GreaterThanLastPeriod: greater than the value in the last period 
+   * - LessThanLastPeriod: less than the value in the last period 
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -127,9 +127,9 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extend
    * 
    * Valid values of N: 1 to 200.
    * 
-   * The valid values of this parameter are determined by the Statistics column that corresponds to the MetricName parameter of the specified cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the `Statistics` column that corresponds to the `MetricName` of the specified cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
-   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters must be configured at the same time.
+   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * Average
@@ -137,7 +137,7 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extend
   statistics?: string;
   /**
    * @remarks
-   * The info-level alert threshold.
+   * The threshold for info-level alerts.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -149,11 +149,11 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extend
   threshold?: string;
   /**
    * @remarks
-   * The number of consecutive times that the monitoring metrics must reach the alert threshold to send an info-level alert notification.
+   * The number of consecutive times the monitoring metrics must reach the alert threshold to send an info-level alert notification.
    * 
    * Valid values of N: 1 to 200.
    * 
-   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters must be configured at the same time.
+   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 1
@@ -191,19 +191,19 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extend
 export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsWarn extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator for the warning-level alert threshold. Valid values:
+   * The comparison operator for the warn-level threshold. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold. 
-   * - GreaterThanThreshold: greater than the threshold. 
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold. 
-   * - LessThanThreshold: less than the threshold. 
-   * - NotEqualToThreshold: not equal to the threshold. 
-   * - GreaterThanYesterday: greater than the metric value at the same time yesterday. 
-   * - LessThanYesterday: less than the metric value at the same time yesterday. 
-   * - GreaterThanLastWeek: greater than the metric value at the same time last week. 
-   * - LessThanLastWeek: less than the metric value at the same time last week. 
-   * - GreaterThanLastPeriod: greater than the metric value in the last period. 
-   * - LessThanLastPeriod: less than the metric value in the last period. 
+   * - GreaterThanOrEqualToThreshold: greater than or equal to 
+   * - GreaterThanThreshold: greater than 
+   * - LessThanOrEqualToThreshold: less than or equal to 
+   * - LessThanThreshold: less than 
+   * - NotEqualToThreshold: not equal to 
+   * - GreaterThanYesterday: greater than the value at the same time yesterday 
+   * - LessThanYesterday: less than the value at the same time yesterday 
+   * - GreaterThanLastWeek: greater than the value at the same time last week 
+   * - LessThanLastWeek: less than the value at the same time last week 
+   * - GreaterThanLastPeriod: greater than the value in the last period 
+   * - LessThanLastPeriod: less than the value in the last period 
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -216,13 +216,13 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsWarn extend
   n?: number;
   /**
    * @remarks
-   * The statistical method for warning-level alerts.
+   * The statistical method for warning alerts.
    * 
    * Valid values of N: 1 to 200.
    * 
-   * The valid values of this parameter are determined by the Statistics column that corresponds to the MetricName parameter of the specified cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the `Statistics` column that corresponds to the `MetricName` of the specified cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
-   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters must be configured at the same time.
+   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * Average
@@ -230,7 +230,7 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsWarn extend
   statistics?: string;
   /**
    * @remarks
-   * The warning-level alert threshold.
+   * The threshold for warn-level alerts.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -242,11 +242,11 @@ export class CreateMetricRuleTemplateRequestAlertTemplatesEscalationsWarn extend
   threshold?: string;
   /**
    * @remarks
-   * The number of consecutive times that the monitoring metrics must reach the alert threshold to send a warning alert notification.
+   * The number of consecutive times the monitoring metrics must reach the alert threshold to send a warning alert notification.
    * 
    * Valid values of N: 1 to 200.
    * 
-   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters must be configured at the same time.
+   * > You must specify at least one of the following alert levels: Critical, Warn, or Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 1
@@ -323,11 +323,42 @@ export class CreateMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
   escalations?: CreateMetricRuleTemplateRequestAlertTemplatesEscalations;
   /**
    * @remarks
-   * The abbreviation of the cloud service name.
-   * 
-   * Valid values of N: 1 to 200.
-   * 
-   * For more information about how to obtain the abbreviation of a cloud service name, see the metricCategory field in the Labels response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
+   * The Alibaba Cloud service name or product specification abbreviation. Valid values of N: 1 to 200. Valid values:
+   * - ecs: ECS instances and non-Alibaba Cloud hosts
+   * - rds: ApsaraDB RDS database
+   * - ads: AnalyticDB database
+   * - slb: load balancing
+   * - vpc: Elastic IP
+   * - apigateway: API Gateway
+   * - cdn: Content Delivery Network
+   * - cs: Container Service for Swarm
+   * - dcdn: Dynamic Route for CDN
+   * - ddos: Anti-DDoS
+   * - eip: Elastic IP Address
+   * - elasticsearch: Elasticsearch
+   * - emr: E-MapReduce
+   * - ess: elastic scaling
+   * - hbase: ApsaraDB for HBase database
+   * - iot_edge: IoT Edge
+   * - k8s_pod: Kubernetes pod
+   * - kvstore_sharding: ApsaraDB for Redis Cluster Edition
+   * - kvstore_splitrw: ApsaraDB for Redis Read/Write Splitting Edition
+   * - kvstore_standard: ApsaraDB for Redis Standard Edition
+   * - memcache: ApsaraDB for Memcache database
+   * - mns: Message Service
+   * - mongodb: MongoDB replica set
+   * - mongodb_cluster: MongoDB cluster edition
+   * - mongodb_sharding: MongoDB sharded cluster
+   * - mq_topic: Message Service topic
+   * - ocs: legacy ApsaraDB for Memcache database
+   * - opensearch: OpenSearch
+   * - oss: Object Storage Service
+   * - polardb: PolarDB database
+   * - petadata: HybridDB for MySQL
+   * - scdn: secure acceleration
+   * - sharebandwidthpackages: Internet Shared Bandwidth
+   * - sls: Simple Log Service
+   * - vpn: VPN Gateway
    * 
    * This parameter is required.
    * 
@@ -337,11 +368,9 @@ export class CreateMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The name of the metric.
+   * The name of the metric. Valid values of N: 1 to 200.
    * 
-   * Valid values of N: 1 to 200.
-   * 
-   * For more information about how to obtain the metric name, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service metrics](https://help.aliyun.com/document_detail/28619.html).
    * 
    * This parameter is required.
    * 
@@ -351,11 +380,9 @@ export class CreateMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
+   * The namespace of the Alibaba Cloud service. Valid values of N: 1 to 200.
    * 
-   * Valid values of N: 1 to 200.
-   * 
-   * For more information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service metrics](https://help.aliyun.com/document_detail/28619.html).
    * 
    * This parameter is required.
    * 
@@ -367,7 +394,7 @@ export class CreateMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
    * @remarks
    * The aggregation period of the monitoring data. Unit: seconds.
    * 
-   * The default value is the minimum aggregation period of the metric. In most cases, you do not need to specify this parameter.
+   * Default value: the minimum aggregation period of the metric. You do not need to specify this parameter in most cases.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -377,25 +404,17 @@ export class CreateMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The name of the alert rule.
-   * 
-   * Valid values of N: 1 to 200.
+   * The name of the alert rule. Valid values of N: 1 to 200.
    * 
    * This parameter is required.
    * 
    * @example
-   * ECS_Rule1
+   * My CPU monitoring
    */
   ruleName?: string;
   /**
    * @remarks
-   * The options for the extended Dimension field.
-   * 
-   * Valid values of N: 1 to 200.
-   * 
-   * For example, if the alert template is applied to an application group, this parameter is set to `{"disk":"/"}`, and the MetricName parameter is set to DiskUtilization, the root partition (`"/"`) of the disk for all instances in the application group is associated with the corresponding alert rule.
-   * 
-   * > For more information about the valid values of the extended field options, see [DescribeMetricRuleTemplateAttribute](https://help.aliyun.com/document_detail/114979.html).
+   * The options for extended fields. Valid values of N: 1 to 200.
    * 
    * @example
    * {"disk":"/"}
@@ -403,11 +422,7 @@ export class CreateMetricRuleTemplateRequestAlertTemplates extends $dara.Model {
   selector?: string;
   /**
    * @remarks
-   * The webhook URL to which alert notifications are sent.
-   * 
-   * Valid values of N: 1 to 200.
-   * 
-   * Specify a publicly accessible URL. CloudMonitor sends alert notifications to this URL by using HTTP POST requests. Only HTTP is supported.
+   * The webhook URL to which a POST request is sent when an alert is triggered.
    * 
    * @example
    * http://ww.aliyun.com

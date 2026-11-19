@@ -7,7 +7,7 @@ export class CreateMonitorGroupInstancesResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A status code of 200 indicates success.
+   * > 200 indicates success.
    * 
    * @example
    * 200

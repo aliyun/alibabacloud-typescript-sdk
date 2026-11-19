@@ -7,7 +7,7 @@ export class EnableMetricRulesResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates success.
+   * > A status code of 200 indicates success.
    * 
    * @example
    * 200

@@ -7,7 +7,7 @@ export class CreateMonitorGroupResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -41,9 +41,9 @@ export class CreateMonitorGroupResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: Success.
    * 
-   * - false: The operation fails.
+   * - false: Failure.
    * 
    * @example
    * true

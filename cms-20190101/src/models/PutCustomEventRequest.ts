@@ -25,9 +25,9 @@ export class PutCustomEventRequestEventInfo extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The ID of the application group. Valid values of N: 1 to 50.
+   * The ID of the application group. Valid values of N: 0 to 50.
    * 
-   * Default value: 0. This value indicates that the event to be reported does not belong to any application group.
+   * Default value: 0. A value of 0 indicates that the reported event does not belong to any application group.
    * 
    * @example
    * 123456
@@ -35,13 +35,7 @@ export class PutCustomEventRequestEventInfo extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The time when the event occurred.
-   * 
-   * Format: `yyyyMMddTHHmmss.SSSZ`.
-   * 
-   * Valid values of N: 1 to 50.
-   * 
-   * > You can also specify a UNIX timestamp. Example: 1552199984000. Unit: milliseconds.
+   * The time when the event occurred. Valid values of N: 1 to 50.
    * 
    * @example
    * 20171013T170923.456+0800
@@ -77,7 +71,7 @@ export class PutCustomEventRequestEventInfo extends $dara.Model {
 export class PutCustomEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The event details.
+   * The list of event information.
    * 
    * This parameter is required.
    */

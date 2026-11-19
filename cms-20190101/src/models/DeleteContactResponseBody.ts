@@ -6,7 +6,8 @@ export class DeleteContactResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * > 200 indicates success.
+   * 
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -30,7 +31,7 @@ export class DeleteContactResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. A value of true indicates success, and false indicates failure.
+   * Indicates whether the operation is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

@@ -89,9 +89,9 @@ export class PutResourceMetricRulesResponseBodyFailedListResult extends $dara.Mo
 export class PutResourceMetricRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * > 200 indicates success.
+   * > A status code of 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -108,7 +108,7 @@ export class PutResourceMetricRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 15D1440E-BF24-5A41-93E4-36864635179E
@@ -118,9 +118,9 @@ export class PutResourceMetricRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation was successful.
    * 
-   * - false: Failed.
+   * - false: The operation failed.
    * 
    * @example
    * true

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutMonitorGroupDynamicRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * > A value of 200 indicates success.
+   * >A status code of 200 indicates success.
    * 
    * @example
    * 200

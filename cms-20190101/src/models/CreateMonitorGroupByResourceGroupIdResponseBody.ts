@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMonitorGroupByResourceGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * > 200 indicates success.
    * 
@@ -41,9 +41,9 @@ export class CreateMonitorGroupByResourceGroupIdResponseBody extends $dara.Model
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation was successful.
    * 
-   * - false: Failed.
+   * - false: The operation failed.
    * 
    * @example
    * true

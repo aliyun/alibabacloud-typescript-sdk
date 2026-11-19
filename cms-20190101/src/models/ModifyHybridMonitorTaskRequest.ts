@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridMonitorTaskRequestAttachLabels extends $dara.Model {
   /**
    * @remarks
-   * The label key of the metric.
+   * The key of the metric label.
    * 
    * @example
    * app_service
@@ -13,7 +13,7 @@ export class ModifyHybridMonitorTaskRequestAttachLabels extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The label value of the metric.
+   * The value of the metric label.
    * 
    * @example
    * testValue
@@ -45,7 +45,7 @@ export class ModifyHybridMonitorTaskRequestAttachLabels extends $dara.Model {
 export class ModifyHybridMonitorTaskRequestSLSProcessConfigExpress extends $dara.Model {
   /**
    * @remarks
-   * The alias of the arithmetic result of the extended fields for the SLS log statistics result.
+   * The alias for the result of arithmetic operations on the extended fields of the SLS log statistics.
    * 
    * @example
    * SuccRate
@@ -53,7 +53,7 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigExpress extends $dara
   alias?: string;
   /**
    * @remarks
-   * The arithmetic result of the extended fields for the SLS log statistics result.
+   * The result of arithmetic operations on the extended fields of the SLS log statistics.
    * 
    * @example
    * success_count
@@ -85,15 +85,15 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigExpress extends $dara
 export class ModifyHybridMonitorTaskRequestSLSProcessConfigFilterFilters extends $dara.Model {
   /**
    * @remarks
-   * The method used to filter parameter values in the SLS log. Valid values:
-   * - `contain`: contains.
-   * - `notContain`: does not contain.
-   * - `>`: greater than.
-   * - `<`: less than.
-   * - `=`: equal to.
-   * - `!=`: not equal to.
-   * - `>=`: greater than or equal to.
-   * - `<=`: less than or equal to.
+   * The filter method for parameter values in SLS logs. Valid values:
+   * - `contain`: includes
+   * - `notContain`: does not include
+   * - `>`: greater than
+   * - `<`: less than
+   * - `=`: equal to
+   * - `!=`: not equal to
+   * - `>=`: greater than or equal to
+   * - `<=`: less than or equal to
    * 
    * @example
    * =
@@ -101,7 +101,7 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigFilterFilters extends
   operator?: string;
   /**
    * @remarks
-   * The name of the parameter to filter in the SLS log.
+   * The name of the parameter to be filtered in SLS logs.
    * 
    * @example
    * code
@@ -109,7 +109,7 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigFilterFilters extends
   SLSKeyName?: string;
   /**
    * @remarks
-   * The filter value of the parameter in the SLS log.
+   * The filter value of the parameter in SLS logs.
    * 
    * @example
    * 200
@@ -148,10 +148,10 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigFilter extends $dara.
   filters?: ModifyHybridMonitorTaskRequestSLSProcessConfigFilterFilters[];
   /**
    * @remarks
-   * The relationship between multiple filter conditions. Valid values:
+   * The relationship between multiple filter conditions for parameters. Valid values:
    * 
-   * - and (default): The log is processed only when all filter conditions are met.
-   * - or: The log is processed when any filter condition is met.
+   * - and: logs are processed only when all filter conditions are met. This is the default value.
+   * - or: logs are processed when any filter condition is met.
    * 
    * @example
    * and
@@ -186,7 +186,7 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigFilter extends $dara.
 export class ModifyHybridMonitorTaskRequestSLSProcessConfigGroupBy extends $dara.Model {
   /**
    * @remarks
-   * The alias of the SLS log statistics result.
+   * The alias for the SLS log statistics result.
    * 
    * @example
    * ApiResult
@@ -226,7 +226,7 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigGroupBy extends $dara
 export class ModifyHybridMonitorTaskRequestSLSProcessConfigStatistics extends $dara.Model {
   /**
    * @remarks
-   * The alias of the SLS log statistics result.
+   * The alias for the SLS log statistics result.
    * 
    * @example
    * level_count
@@ -234,18 +234,18 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
   alias?: string;
   /**
    * @remarks
-   * The statistical method used to aggregate log data within a statistical period. Valid values:
-   * - count: counts the number of entries.
-   * - sum: calculates the sum.
-   * - avg: calculates the average.
-   * - max: returns the maximum value.
-   * - min: returns the minimum value.
-   * - value: samples within the period.
-   * - countps: calculates the average count per second for the specified field within the statistical period.
-   * - sumps: calculates the average sum per second for the specified field within the statistical period.
-   * - distinct: calculates the number of occurrences of the specified field after deduplication within the statistical period.
-   * - distribution: calculates the number of occurrences of field values within a specified range.
-   * - percentile: calculates the distribution value of field values, for example, P50.
+   * The aggregation method used to process log data within the calculation period. Valid values:
+   * - count: count
+   * - sum: sum
+   * - avg: average value
+   * - max: maximum value
+   * - min: minimum value
+   * - value: sampling within the period
+   * - countps: average count per second of the specified field within the statistical period
+   * - sumps: average sum per second of the specified field within the statistical period
+   * - distinct: count of occurrences of the specified field after deduplication within the statistical period
+   * - distribution: count of occurrences of field values within a specified range
+   * - percentile: percentile of field values, such as P50
    * 
    * @example
    * count
@@ -253,9 +253,9 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
   function?: string;
   /**
    * @remarks
-   * The statistical value of the SLS log.
+   * The statistical value of SLS logs.
    * 
-   * - If `Function` is set to `distribution`, this parameter specifies the lower limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 200.
+   * - If `Function` is set to `distribution`, this parameter specifies the lower limit of the statistical range. For example, to count the number of 2XX `HttpCode` status codes, enter 200.
    * 
    * - If `Function` is set to `percentile`, this parameter specifies the percentile of the statistical distribution. For example, 0.5 indicates P50.
    * 
@@ -265,9 +265,9 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
   parameter1?: string;
   /**
    * @remarks
-   * The statistical value of the SLS log.
+   * The statistical value of SLS logs.
    * 
-   * > This parameter is required only when `Function` is set to `distribution`. This parameter specifies the upper limit of the statistical range. For example, to count the number of 2XX HTTP status codes, set this parameter to 299.
+   * > This parameter is required only when `Function` is set to `distribution`. It specifies the upper limit of the statistical range. For example, to count the number of 2XX `HttpCode` status codes, enter 299.
    * 
    * @example
    * 299
@@ -313,17 +313,17 @@ export class ModifyHybridMonitorTaskRequestSLSProcessConfigStatistics extends $d
 export class ModifyHybridMonitorTaskRequestSLSProcessConfig extends $dara.Model {
   /**
    * @remarks
-   * The arithmetic result of the extended fields for the SLS log statistics result.
+   * The result of arithmetic operations on the extended fields of the SLS log statistics.
    */
   express?: ModifyHybridMonitorTaskRequestSLSProcessConfigExpress[];
   /**
    * @remarks
-   * The filter conditions for parameters in the SLS log.
+   * The filter conditions for parameters in SLS logs.
    */
   filter?: ModifyHybridMonitorTaskRequestSLSProcessConfigFilter;
   /**
    * @remarks
-   * The spatial dimension used to aggregate data, which is equivalent to the GROUP BY clause in SQL.
+   * The spatial dimension for data aggregation, equivalent to the GROUP BY clause in SQL.
    */
   groupBy?: ModifyHybridMonitorTaskRequestSLSProcessConfigGroupBy[];
   /**
@@ -395,7 +395,7 @@ export class ModifyHybridMonitorTaskRequest extends $dara.Model {
    * The description of the monitoring task.
    * 
    * @example
-   * SLS log monitoring data
+   * SLS Log Monitoring data.
    */
   description?: string;
   regionId?: string;
@@ -406,7 +406,7 @@ export class ModifyHybridMonitorTaskRequest extends $dara.Model {
   SLSProcessConfig?: ModifyHybridMonitorTaskRequestSLSProcessConfig;
   /**
    * @remarks
-   * The monitoring task ID.
+   * The ID of the monitoring task.
    * 
    * For information about how to obtain the monitoring task ID, see [DescribeHybridMonitorTaskList](https://help.aliyun.com/document_detail/428624.html).
    * 
@@ -418,7 +418,7 @@ export class ModifyHybridMonitorTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The monitoring task name.
+   * The name of the monitoring task.
    * 
    * For information about how to obtain the monitoring task ID, see [DescribeHybridMonitorTaskList](https://help.aliyun.com/document_detail/428624.html).
    * 

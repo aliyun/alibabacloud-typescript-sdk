@@ -35,7 +35,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsCritical ex
    * 
    * Valid values of N: 1 to 200.
    * 
-   * The valid values of this parameter are determined by the `Statistics` column that corresponds to the `MetricName` parameter of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the Statistics column that corresponds to the MetricName parameter of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * > You must specify at least one of the following alert levels: Critical, Warn, and Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
@@ -45,7 +45,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsCritical ex
   statistics?: string;
   /**
    * @remarks
-   * The threshold for triggering critical-level alert notifications.
+   * The threshold that triggers the critical-level alert notification.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -57,7 +57,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsCritical ex
   threshold?: string;
   /**
    * @remarks
-   * The number of times that the metric must reach the alert threshold to send a critical-level alert notification.
+   * The number of times the monitoring metrics must reach the alert threshold to send a critical-level alert notification.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -131,7 +131,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsInfo extend
    * 
    * Valid values of N: 1 to 200.
    * 
-   * The valid values of this parameter are determined by the `Statistics` column that corresponds to the `MetricName` parameter of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the Statistics column that corresponds to the MetricName parameter of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * > You must specify at least one of the following alert levels: Critical, Warn, and Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
@@ -153,7 +153,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsInfo extend
   threshold?: string;
   /**
    * @remarks
-   * The number of times that the metric must reach the alert threshold to send an info-level alert notification.
+   * The number of times the monitoring metrics must reach the alert threshold to send an info-level alert notification.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -227,7 +227,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsWarn extend
    * 
    * Valid values of N: 1 to 200.
    * 
-   * The valid values of this parameter are determined by the `Statistics` column that corresponds to the `MetricName` parameter of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the Statistics column that corresponds to the MetricName parameter of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For more information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * > You must specify at least one of the following alert levels: Critical, Warn, and Info. For the specified alert level, you must specify the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
@@ -249,7 +249,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsWarn extend
   threshold?: string;
   /**
    * @remarks
-   * The number of times that the metric must reach the alert threshold to send a warning-level alert notification.
+   * The number of times the monitoring metrics must reach the alert threshold to send a warning-level alert notification.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -380,7 +380,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 200.
    * 
-   * For more information about how to obtain the abbreviation of a cloud service name, see the `metricCategory` field in the `Labels` response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
+   * For more information about how to obtain the abbreviation of a cloud service name, see the metricCategory field in the Labels response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
    * 
    * This parameter is required.
    * 
@@ -394,7 +394,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 200.
    * 
-   * For more information about how to obtain alert contact groups, see [DescribeContactGroupList](https://help.aliyun.com/document_detail/114922.html).
+   * For more information about how to obtain an alert contact group, see [DescribeContactGroupList](https://help.aliyun.com/document_detail/114922.html).
    * 
    * @example
    * ECS_Group
@@ -434,9 +434,9 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 200.
    * 
-   * Unit: seconds. The default value is the minimum frequency of the metric.
+   * Unit: seconds. The default value is the minimum reporting frequency of the metric.
    * 
-   * > Set the detection period of the alert rule to the same value as the data reporting period. If the detection period is shorter than the data reporting period, alerts may not be triggered due to insufficient data.
+   * > Set the detection period of the alert rule to the same value as the reporting period of monitoring data. If the detection period is shorter than the reporting period, alerts cannot be triggered due to insufficient data.
    * 
    * @example
    * 60
@@ -449,11 +449,11 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
   labels?: CreateGroupMetricRulesRequestGroupMetricRulesLabels[];
   /**
    * @remarks
-   * The name of the metric.
+   * The name of the monitoring metric.
    * 
    * Valid values of N: 1 to 200.
    * 
-   * For more information about how to obtain the name of a metric, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For more information about how to obtain the name of a monitoring metric, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -467,7 +467,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 200.
    * 
-   * For more information about how to obtain the data namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For more information about how to obtain the data namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -477,11 +477,11 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The handling method when no monitoring data is available. Valid values:
+   * The processing method when no monitoring data is available. Valid values:
    * 
-   * - KEEP_LAST_STATE: No action is taken. This is the default value.
-   * - INSUFFICIENT_DATA: The alert content indicates that no data is available.
-   * - OK: The status is normal.
+   * - KEEP_LAST_STATE: takes no action. This is the default value.
+   * - INSUFFICIENT_DATA: reports an alert indicating that no data is available.
+   * - OK: reports a normal status.
    * 
    * Valid values of N: 1 to 200.
    * 
@@ -491,7 +491,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
   noDataPolicy?: string;
   /**
    * @remarks
-   * The time range during which the alert rule is inactive. Valid values of N: 1 to 200.
+   * The time period during which the alert rule is ineffective. Valid values of N: 1 to 200.
    * 
    * @example
    * 00:00-05:30
@@ -515,7 +515,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 200. 
    * 
-   * The value of `Period` must be 60 or an integer multiple of 60. Unit: seconds. Default value: 300.
+   * The value of Period must be 60 or a multiple of 60. Unit: seconds. Default value: 300.
    * 
    * @example
    * 60

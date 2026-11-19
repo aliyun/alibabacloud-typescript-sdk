@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class PutContactRequestChannels extends $dara.Model {
   /**
    * @remarks
-   * The TradeManager ID of the alert contact.
+   * The TradeManager contact.
    * 
-   * <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-   * <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-   * <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+   * <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+   * <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+   * <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
    * 
    * @example
    * Jim
@@ -17,11 +17,11 @@ export class PutContactRequestChannels extends $dara.Model {
   aliIM?: string;
   /**
    * @remarks
-   * The webhook URL of the DingTalk chatbot.
+   * The DingTalk chatbot.
    * 
-   * <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-   * <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-   * <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+   * <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+   * <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+   * <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=7d49515e8ebf21106a80a9cc4bb3d247771305d52fb15d6201234565****
@@ -29,11 +29,11 @@ export class PutContactRequestChannels extends $dara.Model {
   dingWebHook?: string;
   /**
    * @remarks
-   * The email address of the alert contact. An activation link is sent to the email address. The alert contact is added only after the link is activated.
+   * The email address. The email address receives an activation link. The contact is added only after the link is activated.
    * 
-   * <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-   * <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-   * <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+   * <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+   * <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+   * <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
    * 
    * @example
    * test@aliyun.com
@@ -41,11 +41,11 @@ export class PutContactRequestChannels extends $dara.Model {
   mail?: string;
   /**
    * @remarks
-   * The phone number of the alert contact. An activation link is sent to the phone number. The alert contact is added only after the link is activated.
+   * The mobile phone number. The mobile phone number receives an activation link. The contact is added only after the link is activated.
    * 
-   * <props="china">Specify at least one of the following contact methods: phone number, email address, DingTalk chatbot, or TradeManager.
-   * <props="intl">Specify at least one of the following contact methods: email address or DingTalk chatbot.
-   * <props="partner">Specify at least one of the following contact methods: email address or DingTalk chatbot..
+   * <props="china">You must specify at least one of the following contact methods: mobile phone number, email address, DingTalk chatbot, and TradeManager.
+   * <props="intl">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
+   * <props="partner">You must specify at least one of the following contact methods: email address and DingTalk chatbot.
    * 
    * @example
    * 1333333****
@@ -102,11 +102,19 @@ export class PutContactRequest extends $dara.Model {
   describe?: string;
   /**
    * @remarks
-   * The language in which alert notifications are sent. Valid values:
-   * - zh-cn: simplified Chinese.
+   * Specifies whether to perform only a dry run.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The language of the alert notification. Valid values:
+   * - zh-cn: Simplified Chinese.
    * - en: English.
    * 
-   * > If you do not set this parameter, the language is automatically determined based on the region of the account.
+   * > If you do not specify this parameter, the system automatically determines the language based on the region of the account.
    * 
    * @example
    * zh-cn
@@ -117,6 +125,7 @@ export class PutContactRequest extends $dara.Model {
       channels: 'Channels',
       contactName: 'ContactName',
       describe: 'Describe',
+      dryRun: 'DryRun',
       lang: 'Lang',
     };
   }
@@ -126,6 +135,7 @@ export class PutContactRequest extends $dara.Model {
       channels: PutContactRequestChannels,
       contactName: 'string',
       describe: 'string',
+      dryRun: 'boolean',
       lang: 'string',
     };
   }

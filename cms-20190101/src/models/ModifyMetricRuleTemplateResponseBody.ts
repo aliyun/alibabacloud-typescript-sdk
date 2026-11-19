@@ -6,8 +6,7 @@ export class ModifyMetricRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
-   * 
-   * > The status code 200 indicates that the request was successful.
+   * >A status code of 200 indicates that the call is successful.
    * 
    * @example
    * 200
@@ -31,11 +30,11 @@ export class ModifyMetricRuleTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true
+   * - true: The operation is successful.
    * 
-   * - false
+   * - false: The operation fails.
    * 
    * @example
    * true

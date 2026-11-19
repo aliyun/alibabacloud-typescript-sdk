@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutContactResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The value 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200

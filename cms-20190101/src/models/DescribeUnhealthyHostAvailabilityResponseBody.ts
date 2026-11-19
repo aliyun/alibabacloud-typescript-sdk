@@ -88,7 +88,7 @@ export class DescribeUnhealthyHostAvailabilityResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates that the request was successful.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -112,7 +112,9 @@ export class DescribeUnhealthyHostAvailabilityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values: -true: The operation was successful. -false: The operation failed.
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

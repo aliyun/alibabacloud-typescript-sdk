@@ -5,35 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class PutMetricRuleTargetsRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the resource. Simple Message Queue (formerly MNS), elastic scaling (ESS), Simple Log Service (SLS), and Function Compute (FC) are supported.
+   * The ARN of the resource. Simple Message Queue (formerly MNS), Auto Scaling (ESS), Simple Log Service (SLS), and Function Compute (FC) are supported.
    * 
-   * The following section describes the ARN parameter metric description for Simple Message Queue (formerly MNS):
+   * The ARN parameters for Simple Message Queue (formerly MNS) are as follows:
    * 
-   * `acs:mns:{regionId}:{userId}:/{Resource type}/{Resource name}/message`
+   * `acs:mns:{regionId}:{userId}:/{resource type}/{resource name}/message`.
    * 
-   * - {regionId}: the region where the MSMQ or topic of Simple Message Queue (formerly MNS) resides.
-   * - {userId}: the Alibaba Cloud account that owns the resource.
-   * - {Resource type}: the type of the resource that accepts alert notifications. Valid values:
+   * - {regionId}: the region where the Simple Message Queue (formerly MNS) queue or topic resides.
+   * - {userId}: the Alibaba Cloud account to which the resource belongs.
+   * - {resource type}: the type of the resource that accepts alerts. Valid values:
    * 
-   *   - **queues**: queue.
-   *   - **topics**: topic.
+   *   - **queues**: queue
+   *   - **topics**: topic
    * 
-   * - {Resource name}: the name of the resource.
+   * - {resource name}: the name of the resource.
    * 
    *   - If the resource type is **queues**, the resource name is the queue name.
    *   - If the resource type is **topics**, the resource name is the topic name.
    * 
-   * ARN for elastic scaling:
+   * The ARN for Auto Scaling:
    * 
-   * acs:ess:{regionId}:{userId}:scalingGroupId/{Scaling group ID}:scalingRuleId/{Scaling rule ID}
+   * acs:ess:{regionId}:{userId}:scalingGroupId/{scaling group ID}:scalingRuleId/{scaling rule ID}
    * 
-   * ARN for Simple Log Service:
+   * The ARN for Simple Log Service:
    * 
-   * acs:log:{regionId}:{userId}:project/{Project name}/logstore/{Logstore name}
+   * acs:log:{regionId}:{userId}:project/{project name}/logstore/{Logstore name}
    * 
-   * ARN for Function Compute:
+   * The ARN for Function Compute:
    * 
-   * acs:fc:{regionId}:{userId}:services/{Service name}/functions/{Function name}.
+   * acs:fc:{regionId}:{userId}:services/{service name}/functions/{function name}
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class PutMetricRuleTargetsRequestTargets extends $dara.Model {
    * @remarks
    * The ID of the alert trigger target.
    * 
-   * For information about how to obtain the alert trigger target ID, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+   * For more information about how to obtain the ID of an alert trigger target, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class PutMetricRuleTargetsRequestTargets extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-formatted parameters of the alert callback.
+   * The JSON-formatted parameters for the alert callback.
    * 
    * @example
    * {"customField1":"value1","customField2":"$.name"}
@@ -65,9 +65,9 @@ export class PutMetricRuleTargetsRequestTargets extends $dara.Model {
    * @remarks
    * The alert level. Valid values:
    * 
-   * - INFO: information.
-   * - WARN: warning.
-   * - CRITICAL: critical.
+   * - INFO: information
+   * - WARN: warning
+   * - CRITICAL: critical
    * 
    * @example
    * ["INFO", "WARN", "CRITICAL"]
@@ -101,12 +101,20 @@ export class PutMetricRuleTargetsRequestTargets extends $dara.Model {
 }
 
 export class PutMetricRuleTargetsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
   regionId?: string;
   /**
    * @remarks
    * The ID of the alert rule.
    * 
-   * For information about how to obtain the alert rule ID, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * This parameter is required.
    * 
@@ -123,6 +131,7 @@ export class PutMetricRuleTargetsRequest extends $dara.Model {
   targets?: PutMetricRuleTargetsRequestTargets[];
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       regionId: 'RegionId',
       ruleId: 'RuleId',
       targets: 'Targets',
@@ -131,6 +140,7 @@ export class PutMetricRuleTargetsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       regionId: 'string',
       ruleId: 'string',
       targets: { 'type': 'array', 'itemType': PutMetricRuleTargetsRequestTargets },

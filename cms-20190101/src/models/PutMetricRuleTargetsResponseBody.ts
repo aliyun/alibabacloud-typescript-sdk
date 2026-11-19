@@ -86,9 +86,9 @@ export class PutMetricRuleTargetsResponseBodyFailData extends $dara.Model {
 export class PutMetricRuleTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The value 200 indicates success.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -96,7 +96,7 @@ export class PutMetricRuleTargetsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of failures.
+   * The list of failed items.
    */
   failData?: PutMetricRuleTargetsResponseBodyFailData;
   /**
@@ -119,9 +119,9 @@ export class PutMetricRuleTargetsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: successful.
+   * - true: successful
    * 
-   * - false: failed.
+   * - false: failed
    * 
    * @example
    * true

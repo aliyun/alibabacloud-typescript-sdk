@@ -7,22 +7,22 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
    * @remarks
    * The comparison operator for the Critical level. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
-   * - GreaterThanThreshold: greater than the threshold.
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
-   * - LessThanThreshold: less than the threshold.
-   * - NotEqualToThreshold: not equal to the threshold.
-   * - EqualToThreshold: equal to the threshold.
-   * - GreaterThanYesterday: greater than the value at the same time yesterday.
-   * - LessThanYesterday: less than the value at the same time yesterday.
-   * - GreaterThanLastWeek: greater than the value at the same time last week.
-   * - LessThanLastWeek: less than the value at the same time last week.
-   * - GreaterThanLastPeriod: greater than the value in the previous period.
-   * - LessThanLastPeriod: less than the value in the previous period.
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * - GreaterThanThreshold: greater than the threshold
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * - LessThanThreshold: less than the threshold
+   * - NotEqualToThreshold: not equal to the threshold
+   * - EqualToThreshold: equal to the threshold
+   * - GreaterThanYesterday: greater than the value at the same time yesterday
+   * - LessThanYesterday: less than the value at the same time yesterday
+   * - GreaterThanLastWeek: greater than the value at the same time last week
+   * - LessThanLastWeek: less than the value at the same time last week
+   * - GreaterThanLastPeriod: greater than the value in the last period
+   * - LessThanLastPeriod: less than the value in the last period
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -36,9 +36,9 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
    * 
    * Valid values of N: 1 to 50.
    * 
-   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
-   * > You must configure the Settings for at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * Average
@@ -51,7 +51,7 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
    * Valid values of N: 1 to 50.
    * 
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 90
@@ -63,7 +63,7 @@ export class PutResourceMetricRulesRequestRulesEscalationsCritical extends $dara
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 3
@@ -105,22 +105,22 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
    * @remarks
    * The comparison operator for the Info level. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
-   * - GreaterThanThreshold: greater than the threshold.
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
-   * - LessThanThreshold: less than the threshold.
-   * - NotEqualToThreshold: not equal to the threshold.
-   * - EqualToThreshold: equal to the threshold.
-   * - GreaterThanYesterday: greater than the value at the same time yesterday.
-   * - LessThanYesterday: less than the value at the same time yesterday.
-   * - GreaterThanLastWeek: greater than the value at the same time last week.
-   * - LessThanLastWeek: less than the value at the same time last week.
-   * - GreaterThanLastPeriod: greater than the value in the previous period.
-   * - LessThanLastPeriod: less than the value in the previous period.
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * - GreaterThanThreshold: greater than the threshold
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * - LessThanThreshold: less than the threshold
+   * - NotEqualToThreshold: not equal to the threshold
+   * - EqualToThreshold: equal to the threshold
+   * - GreaterThanYesterday: greater than the value at the same time yesterday
+   * - LessThanYesterday: less than the value at the same time yesterday
+   * - GreaterThanLastWeek: greater than the value at the same time last week
+   * - LessThanLastWeek: less than the value at the same time last week
+   * - GreaterThanLastPeriod: greater than the value in the last period
+   * - LessThanLastPeriod: less than the value in the last period
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -134,9 +134,9 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
    * 
    * Valid values of N: 1 to 50.
    * 
-   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
-   * > You must configure the Settings for at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * Average
@@ -146,7 +146,7 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
    * @remarks
    * The alert threshold for the Info level.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 90
@@ -158,7 +158,7 @@ export class PutResourceMetricRulesRequestRulesEscalationsInfo extends $dara.Mod
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 3
@@ -200,22 +200,22 @@ export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Mod
    * @remarks
    * The comparison operator for the Warn level. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
-   * - GreaterThanThreshold: greater than the threshold.
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
-   * - LessThanThreshold: less than the threshold.
-   * - NotEqualToThreshold: not equal to the threshold.
-   * - EqualToThreshold: equal to the threshold.
-   * - GreaterThanYesterday: greater than the value at the same time yesterday.
-   * - LessThanYesterday: less than the value at the same time yesterday.
-   * - GreaterThanLastWeek: greater than the value at the same time last week.
-   * - LessThanLastWeek: less than the value at the same time last week.
-   * - GreaterThanLastPeriod: greater than the value in the previous period.
-   * - LessThanLastPeriod: less than the value in the previous period.
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * - GreaterThanThreshold: greater than the threshold
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * - LessThanThreshold: less than the threshold
+   * - NotEqualToThreshold: not equal to the threshold
+   * - EqualToThreshold: equal to the threshold
+   * - GreaterThanYesterday: greater than the value at the same time yesterday
+   * - LessThanYesterday: less than the value at the same time yesterday
+   * - GreaterThanLastWeek: greater than the value at the same time last week
+   * - LessThanLastWeek: less than the value at the same time last week
+   * - GreaterThanLastPeriod: greater than the value in the last period
+   * - LessThanLastPeriod: less than the value in the last period
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -229,9 +229,9 @@ export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Mod
    * 
    * Valid values of N: 1 to 50.
    * 
-   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
-   * > You must configure the Settings for at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Settings for the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * Average
@@ -243,7 +243,7 @@ export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Mod
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 90
@@ -255,7 +255,7 @@ export class PutResourceMetricRulesRequestRulesEscalationsWarn extends $dara.Mod
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > You must configure at least one of the following alert levels: Critical, Warn, or Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
+   * > You must configure at least one of the following alert levels: Critical, Warn, and Info. For the configured alert level, you must configure the Statistics, ComparisonOperator, Threshold, and Times parameters at the same time.
    * 
    * @example
    * 3
@@ -343,7 +343,7 @@ export class PutResourceMetricRulesRequestRulesLabels extends $dara.Model {
    * @remarks
    * The label value.
    * 
-   * > Label values support template parameters. The template parameters are replaced with the actual label values.
+   * > The label value supports template parameters. The template parameters are replaced with the actual label values.
    * 
    * @example
    * ECS
@@ -380,7 +380,7 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 50.
    * 
-   * > An alert contact group contains one or more alert contacts. For more information about how to create an alert contact and an alert contact group, see [PutContact](https://help.aliyun.com/document_detail/114923.html) and [PutContactGroup](https://help.aliyun.com/document_detail/114929.html).
+   * > An alert contact group is a group of alert contacts and can contain one or more alert contacts. For more information about how to create alert contacts and alert contact groups, see [PutContact](https://help.aliyun.com/document_detail/114923.html) and [PutContactGroup](https://help.aliyun.com/document_detail/114929.html).
    * 
    * This parameter is required.
    * 
@@ -410,7 +410,7 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   emailSubject?: string;
   /**
    * @remarks
-   * The trigger period of the alert rule.
+   * The trigger epoch of the alert rule.
    * 
    * Unit: seconds.
    * 
@@ -433,7 +433,7 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 50.
    * 
-   * For more information about how to query the name of a metric, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For more information about how to query the metric name, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * cpu_total
@@ -455,11 +455,11 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The processing method when no monitoring data is available. Valid values:
+   * The handling method when no monitoring data is available. Valid values:
    * 
-   * - KEEP_LAST_STATE (default): No action is taken.
+   * - KEEP_LAST_STATE: No action is taken. This is the default value.
    * - INSUFFICIENT_DATA: The alert content indicates that no data is available.
-   * - OK: Normal.
+   * - OK: The status is normal.
    * 
    * Valid values of N: 1 to 50.
    * 
@@ -481,7 +481,7 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
    * @remarks
    * The statistical period of the metric.
    * 
-   * Unit: seconds. Default value: the original reporting period of the metric.
+   * Unit: seconds. The default value is the original reporting period of the metric.
    * 
    * Valid values of N: 1 to 50.
    * 
@@ -493,11 +493,11 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The resource information. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
+   * The resource information, such as [{"instanceId":"i-uf6j91r34rnwawoo****"}] and [{"userId":"100931896542****"}].
    * 
    * Valid values of N: 1 to 50.
    * 
-   * For more information about the dimensions supported by resource information, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For more information about the dimensions supported by the resource information, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -511,7 +511,7 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 50.
    * 
-   * You can enter a new alert rule ID or use an existing alert rule ID in CloudMonitor. For more information about how to query the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * You can enter a new alert rule ID or use an existing alert rule ID in CloudMonitor. For more information about how to query the alert rule ID, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * > If you enter a new alert rule ID, a threshold alert rule is created.
    * 
@@ -527,7 +527,7 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
    * 
    * Valid values of N: 1 to 50.
    * 
-   * You can enter a new alert rule name or use an existing alert rule name in CloudMonitor. For more information about how to query the name of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * You can enter a new alert rule name or use an existing alert rule name in CloudMonitor. For more information about how to query the alert rule name, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * > If you enter a new alert rule name, a threshold alert rule is created.
    * 
@@ -629,12 +629,19 @@ export class PutResourceMetricRulesRequestRules extends $dara.Model {
 }
 
 export class PutResourceMetricRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
+   * 
+   * @example
+   * 6868E9A1-56E6-5FD7-9684-E2963BBAFB5F
+   */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck this request. Valid values:
-   * - **true**: A check request is sent, and no security group is associated with the instance. Check items include whether required parameters are specified, the request format, and service limits. If the check fails, an error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-   * - **false** (default): A normal request is sent. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: The system checks the request without binding the security group to the instance. The system checks whether required parameters are specified, the request format, and service limits. If the request fails the check, the corresponding error is returned. If the request passes the check, the DryRunOperation error code is returned.
+   * - **false**: The system sends a normal request. After the request passes the check, the system returns an HTTP 2xx status code and performs the operation. This is the default value.
    * 
    * @example
    * true

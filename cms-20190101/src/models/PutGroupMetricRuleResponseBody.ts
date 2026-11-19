@@ -35,9 +35,9 @@ export class PutGroupMetricRuleResponseBodyResult extends $dara.Model {
 export class PutGroupMetricRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > A status code of 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -68,9 +68,9 @@ export class PutGroupMetricRuleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: successful.
    * 
-   * - false: The operation fails.
+   * - false: failed.
    * 
    * @example
    * true

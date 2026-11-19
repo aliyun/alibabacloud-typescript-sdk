@@ -10,12 +10,12 @@ export class PutContactGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Attendance system group
+   * Attendance System Group
    */
   contactGroupName?: string;
   /**
    * @remarks
-   * The name of the alert contact.
+   * The names of the alert contacts.
    */
   contactNames?: string[];
   /**
@@ -28,11 +28,19 @@ export class PutContactGroupRequest extends $dara.Model {
   describe?: string;
   /**
    * @remarks
+   * Specifies whether to perform a dry run on the request.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * Specifies whether to enable the subscription feature. Valid values:
    * 
-   * - true: Enabled.
+   * - true: Yes.
    * 
-   * - false: Disabled.
+   * - false: No.
    * 
    * @example
    * true
@@ -43,6 +51,7 @@ export class PutContactGroupRequest extends $dara.Model {
       contactGroupName: 'ContactGroupName',
       contactNames: 'ContactNames',
       describe: 'Describe',
+      dryRun: 'DryRun',
       enableSubscribed: 'EnableSubscribed',
     };
   }
@@ -52,6 +61,7 @@ export class PutContactGroupRequest extends $dara.Model {
       contactGroupName: 'string',
       contactNames: { 'type': 'array', 'itemType': 'string' },
       describe: 'string',
+      dryRun: 'boolean',
       enableSubscribed: 'boolean',
     };
   }

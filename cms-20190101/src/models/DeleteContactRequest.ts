@@ -13,15 +13,25 @@ export class DeleteContactRequest extends $dara.Model {
    * John Doe
    */
   contactName?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run for this request.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
       contactName: 'ContactName',
+      dryRun: 'DryRun',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       contactName: 'string',
+      dryRun: 'boolean',
     };
   }
 

@@ -96,58 +96,12 @@ export class DescribeExporterOutputListResponseBodyDatapoints extends $dara.Mode
 }
 
 export class DescribeExporterOutputListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * > A status code of 200 indicates success, and other values indicate failure.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
   datapoints?: DescribeExporterOutputListResponseBodyDatapoints;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * sucess
-   */
   message?: string;
-  /**
-   * @remarks
-   * The current page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0E657631-CD6C-4C24-9637-98D000B9272C
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful. Valid values:  
-   * - `true`: The call was successful.
-   * - `false`: The call failed.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries.
-   * 
-   * @example
-   * 25
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

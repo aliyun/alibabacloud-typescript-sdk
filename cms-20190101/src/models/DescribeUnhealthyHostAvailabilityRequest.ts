@@ -8,9 +8,6 @@ export class DescribeUnhealthyHostAvailabilityRequest extends $dara.Model {
    * The task ID.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   id?: number[];
   regionId?: string;

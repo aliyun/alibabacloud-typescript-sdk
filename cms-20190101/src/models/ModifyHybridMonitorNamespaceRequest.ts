@@ -8,7 +8,7 @@ export class ModifyHybridMonitorNamespaceRequest extends $dara.Model {
    * The description of the metric store.
    * 
    * @example
-   * Alibaba Cloud product metric repository.
+   * 阿里云产品指标仓库。
    */
   description?: string;
   /**

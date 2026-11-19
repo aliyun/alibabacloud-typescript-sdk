@@ -6,7 +6,7 @@ export class ApplyMetricRuleTemplateResponseBodyResourceAlertResults extends $da
   /**
    * @remarks
    * The HTTP status code.
-   * > A status code of 200 indicates that the request was successful.
+   * >200 indicates success.
    * 
    * @example
    * 200
@@ -121,7 +121,7 @@ export class ApplyMetricRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
-   * > A status code of 200 indicates that the request was successful.
+   * >200 indicates success.
    * 
    * @example
    * 200
@@ -145,7 +145,7 @@ export class ApplyMetricRuleTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources affected by the alert rule.
+   * The resources affected by the alert rules.
    */
   resource?: ApplyMetricRuleTemplateResponseBodyResource;
   /**

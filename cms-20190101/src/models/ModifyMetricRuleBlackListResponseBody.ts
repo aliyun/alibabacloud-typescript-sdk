@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMetricRuleBlackListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
    * > 200 indicates success.
    * 
