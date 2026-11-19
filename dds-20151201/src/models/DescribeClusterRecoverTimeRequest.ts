@@ -15,14 +15,20 @@ export class DescribeClusterRecoverTimeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region where the geo-redundancy backup set resides.
+   * The region where the geo-redundancy backup set is stored.
    * > 
-   * > - This parameter is required when you query a geo-redundancy backup.
+   * > - This parameter is required when you query geo-redundancy backups.
    * 
    * @example
    * cn-hangzhou
    */
   destRegion?: string;
+  /**
+   * @remarks
+   * Specifies whether to query only the restorable time ranges that support database and table restoration. Valid values:
+   * - **true**: returns only the restorable time ranges that support database and table restoration.
+   * - **false** (default): returns all restorable time ranges.
+   */
   onlyDbTableRecovery?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -38,9 +44,9 @@ export class DescribeClusterRecoverTimeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The region where the source instance of the geo-redundancy backup resides.
+   * The region of the source instance for geo-redundancy backups.
    * > 
-   * > - This parameter is required when you query a geo-redundancy backup.
+   * > - This parameter is required when you query geo-redundancy backups.
    * 
    * @example
    * cn-beijing

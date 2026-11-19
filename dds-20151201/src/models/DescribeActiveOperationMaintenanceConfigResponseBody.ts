@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The time when the O\\&M task configuration was created. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format and is displayed in UTC.
+   * The time when the O&M task configuration was created. The time is in the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -13,11 +13,12 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
   createdTime?: string;
   /**
    * @remarks
-   * The days of the cycle.
+   * The cycle time.
    * 
-   * - If CycleType is set to Month, this parameter returns the days of the month. Valid values: 1 to 28. Multiple values are separated by commas (,).
+   * - If CycleType is set to Month, the return value is a number from 1 to 28, which indicates the day of the month. Multiple values are separated by commas (,).
+   * - If CycleType is set to Week, the return value is a number from 1 to 7, which indicates the day of the week. Multiple values are separated by commas (,).
    * 
-   * - If CycleType is set to Week, this parameter returns the days of the week. Valid values: 1 to 7. Multiple values are separated by commas (,).
+   * Value format: This field returns a list of numeric serial numbers separated by commas (,), such as "1,2,3", which indicates the execution days of the O&M cycle. It is not a datetime value and does not involve time formats or time zones.
    * 
    * @example
    * 1,2,3
@@ -25,11 +26,10 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
   cycleTime?: string;
   /**
    * @remarks
-   * The cycle type.
+   * The cycle type. Valid values:
    * 
-   * - Month
-   * 
-   * - Week
+   * - Month: Monthly.
+   * - Week: Weekly.
    * 
    * @example
    * Month
@@ -37,7 +37,7 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
   cycleType?: string;
   /**
    * @remarks
-   * The end time of the O\\&M time window. The time is in the *hh:mm:ss*Z format and is displayed in UTC.
+   * The end time of the O&M time window. The time is in the <i>hh:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 20:00:00Z
@@ -45,7 +45,7 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the O\\&M time window. The time is in the *hh:mm:ss*Z format and is displayed in UTC.
+   * The start time of the O&M time window. The time is in the <i>hh:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 18:00:00Z
@@ -53,7 +53,7 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
   maintainStartTime?: string;
   /**
    * @remarks
-   * The time when the operations and maintenance (O\\&M) task configuration was modified. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format and is displayed in UTC.
+   * The time when the O&M task configuration was modified. The time is in the <i>yyyy-mm-dd</i>T<i>hh:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2024-05-30T14:30:00Z
@@ -61,11 +61,10 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
   modifiedTime?: string;
   /**
    * @remarks
-   * Indicates whether the configuration is enabled.
+   * Indicates whether the configuration is effective. Valid values:
    * 
-   * - 1: Enabled
-   * 
-   * - 2: Disabled
+   * - 1: Effective.
+   * - 2: Invalid.
    * 
    * @example
    * 1
@@ -112,11 +111,10 @@ export class DescribeActiveOperationMaintenanceConfigResponseBody extends $dara.
   config?: DescribeActiveOperationMaintenanceConfigResponseBodyConfig;
   /**
    * @remarks
-   * Indicates whether a configuration is set.
+   * Indicates whether the O&M task is configured. Valid values:
    * 
-   * - 1: A configuration is set.
-   * 
-   * - 0: No configuration is set.
+   * - 1: Configured.
+   * - 0: Not configured.
    * 
    * @example
    * 0
@@ -124,7 +122,7 @@ export class DescribeActiveOperationMaintenanceConfigResponseBody extends $dara.
   hasConfig?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 72651AF9-7897-41A7-8B67-6C15C7F26A0A

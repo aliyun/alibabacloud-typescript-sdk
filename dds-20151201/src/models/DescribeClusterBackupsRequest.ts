@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster backup.
+   * The cluster backup ID.
    * 
    * @example
    * 5664****
@@ -13,7 +13,7 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The ID of the backup job.
+   * The backup job ID.
    * 
    * @example
    * 775051
@@ -21,7 +21,7 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   backupJobId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,9 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region where the geo-redundant backup resides.
+   * The region where the cross-region backup resides.
    * 
-   * > This parameter is required when you query geo-redundant backups.
+   * > This parameter is required when you query cross-region backups.
    * 
    * @example
    * cn-shanghai
@@ -41,9 +41,8 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   destRegion?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-   * 
-   * > This parameter is invalid if you specify the BackupId parameter.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+   * > This parameter does not take effect when BackupId is specified.
    * 
    * @example
    * 2019-03-14T13:10Z
@@ -51,11 +50,9 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to query the information about the child nodes in the cluster backup. Valid values:
-   * 
-   * - **true**: Returns only the basic information about the cluster backup, not the backup information about all child nodes.
-   * 
-   * - **false** (Default): Returns the backup information about all child nodes.
+   * Specifies whether to query the information about child nodes in the cluster backup. Valid values:
+   * - **true**: returns only the basic information about the cluster backup and does not return the backup information about all child nodes.
+   * - **false** (default): returns the backup information about all child nodes.
    * 
    * @example
    * true
@@ -65,7 +62,7 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be a positive integer. Default value: **1**.
+   * The page number. Default value: **1**. Valid values: positive integers.
    * 
    * @example
    * 1
@@ -73,12 +70,10 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries per page. Valid values:
    * 
-   * - **30** (Default)
-   * 
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -87,7 +82,7 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-xxxx
@@ -100,8 +95,7 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
    * The region where the instance resides.
    * 
    * > - This parameter is required when you query the backup sets of a released instance.
-   * >
-   * > - This parameter is required when you query geo-redundant backups.
+   * > - This parameter is required when you query cross-region backups.
    * 
    * @example
    * cn-hangzhou
@@ -109,9 +103,8 @@ export class DescribeClusterBackupsRequest extends $dara.Model {
   srcRegion?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in Coordinated Universal Time (UTC).
-   * 
-   * > This parameter is invalid if you specify the BackupId parameter.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+   * > This parameter does not take effect when BackupId is specified.
    * 
    * @example
    * 2019-03-13T12:11Z

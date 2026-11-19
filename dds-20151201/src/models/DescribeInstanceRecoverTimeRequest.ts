@@ -15,14 +15,18 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region where the geo-redundancy backup set is stored.
+   * The region where the geo-redundancy backup set is located.
    * > 
-   * > - This parameter is required when you query geo-redundancy backups.
+   * > - Required when you query geo-redundancy.
    * 
    * @example
    * cn-hangzhou
    */
   destRegion?: string;
+  /**
+   * @remarks
+   * Specifies whether to query only the restorable time ranges that support database and table restoration. Default value: false.
+   */
   onlyDbTableRecovery?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -39,9 +43,9 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The area where the source instance of the geo-redundancy backup resides.
+   * The area where the source instance of the geo-redundancy backup is located.
    * > 
-   * > - This parameter is required when you query geo-redundancy backups.
+   * > - Required when you query geo-redundancy.
    * 
    * @example
    * cn-beijing

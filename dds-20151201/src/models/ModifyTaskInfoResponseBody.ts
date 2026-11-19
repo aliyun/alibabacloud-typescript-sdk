@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code for the failed task. It is the same as that of the ModifyTaskInfo operation.
+   * The error code for the failure. This is the same as the API error code.
    * 
    * @example
    * ""
@@ -13,7 +13,7 @@ export class ModifyTaskInfoResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the failed task. The operation returns results after a task fails.
+   * The ID of the failed task. The ID is returned when a failure occurs.
    * 
    * @example
    * ""
@@ -29,7 +29,7 @@ export class ModifyTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successful tasks.
+   * The number of successful records.
    * 
    * @example
    * 1

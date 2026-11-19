@@ -6,8 +6,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * 
-   * > **NodeId** is required when specifying a sharded cluster instance ID
+   * > If you specify the ID of a sharded cluster instance for this parameter, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -27,7 +26,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The data granularity of the performance metrics in seconds. Valid values: 5, 30, 60, 600, 1800, 3600, and 86400.
+   * The data granularity. Valid values: 5, 30, 60, 600, 1800, 3600, and 86400.
    * 
    * @example
    * 60
@@ -35,7 +34,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The performance metrics. For more information, see [Metrics](https://help.aliyun.com/document_detail/216973.html).
+   * The performance metrics. For more information, see [Monitoring metrics](https://help.aliyun.com/document_detail/216973.html).
    * 
    * > To specify multiple metrics, separate them with commas (,).
    * 
@@ -47,9 +46,9 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The ID of a mongos or shard node in the sharded cluster instance. This parameter lets you query the performance of a single node.
+   * Instance ID of the mongos or shard node in a sharded cluster instance. You can use this parameter to query the performance of a single node.
    * 
-   * > Available only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+   * > This parameter is available only when you specify instance ID of a sharded cluster instance for the **DBInstanceId** parameter.
    * 
    * @example
    * d-bp2287****
@@ -59,15 +58,12 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The role of a node in a standalone or replica set instance. Valid values:
-   * 
+   * The role of the node in a standalone instance or replica set instance. Valid values:
    * - **Primary**: The primary node.
+   * - **Secondary**: The secondary node.
    * 
-   * - **Secondary**: A secondary node.
-   * 
-   * > * Available only when **DBInstanceId** is set to the ID of a standalone or replica set instance.
-   * >
-   * > * If **DBInstanceId** is set to the ID of a standalone instance, this parameter only supports the value **Primary**.
+   * > - This parameter is available only when you specify instance ID of a standalone instance or replica set instance for the **DBInstanceId** parameter.
+   * > - When you specify instance ID of a standalone instance for the **DBInstanceId** parameter, you can set this parameter only to **Primary**.
    * 
    * @example
    * Primary
@@ -77,9 +73,8 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The role ID of a node in a standalone or replica set instance. To query the role ID, call the [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) operation.
-   * 
-   * > Available only when **DBInstanceId** is set to the ID of a standalone or replica set instance.
+   * The instance ID of the node in a standalone instance or replica set instance. You can call the [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) operation to query the instance ID.
+   * > This parameter is available only when you specify the ID of a standalone instance or replica set instance for the **DBInstanceId** parameter.
    * 
    * @example
    * 6025****
@@ -87,9 +82,8 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   roleId?: string;
   /**
    * @remarks
-   * The Search node ID.
-   * 
-   * > Available only after the Search feature is enabled for the instance.
+   * The ID of the search node.
+   * > - This parameter is available only when the search feature is enabled for the instance.
    * 
    * @example
    * dds-2zec12675c9e****-search
@@ -97,7 +91,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   searchId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransformToPrePaidResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21022019252****
@@ -13,7 +13,7 @@ export class TransformToPrePaidResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2F42BB4E-461F-5B55-A37C-53B1141C****

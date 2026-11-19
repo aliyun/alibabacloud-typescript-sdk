@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the account. Valid values:
+   * The username of the account. The name must meet the following requirements:
    * 
    * - The name must start with a lowercase letter.
    * - The name can contain lowercase letters, digits, and underscores (_).
@@ -21,7 +21,7 @@ export class CreateNodeBatchRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the account. Valid values:
+   * The password of the account. The password must meet the following requirements:
    * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * - Special characters include !@#$%^&*()_+-=.
    * - The password must be 8 to 32 characters in length.
@@ -36,8 +36,8 @@ export class CreateNodeBatchRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **true**: (Default) Automatic payment is enabled. Make sure that your account has sufficient balance.
-   * - **false**: Manual payment is enabled. For more information, see [Manually renew a subscription instance](https://help.aliyun.com/document_detail/85052.html).
+   * - **true**: Enables automatic payment. Make sure that your account has sufficient balance. This is the default value.
+   * - **false**: Disables automatic payment. You must manually pay the order. For more information, see [Manually renew a subscription instance](https://help.aliyun.com/document_detail/85052.html).
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class CreateNodeBatchRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. The value cannot contain non-ASCII characters.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. It cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -62,8 +62,8 @@ export class CreateNodeBatchRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use a coupon. Valid values:
-   * - **default** or **null**: (Default) A coupon is used.
-   * - **youhuiquan_promotion_option_id_for_blank**: No coupon is used.
+   * - **default** or **null**: Uses a coupon. This is the default value.
+   * - **youhuiquan_promotion_option_id_for_blank**: Does not use a coupon.
    * 
    * @example
    * default
@@ -81,9 +81,16 @@ export class CreateNodeBatchRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Specifies whether to perform a dry run on the request. Valid values:
+   * - true: Performs a dry run without calling the operation. The system checks items such as request parameters, request format, service limits, and inventory. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+   * - false: Sends the request. If the check succeeds, the operation is performed. This is the default value.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The source of the request. Valid values:
-   * - **OpenApi**: OpenAPI.
-   * - **mongo_buy**: The console.
+   * - **OpenApi**: The request is sent from OpenAPI Explorer.
+   * - **mongo_buy**: The request is sent from the console.
    * 
    * @example
    * OpenApi
@@ -110,7 +117,7 @@ export class CreateNodeBatchRequest extends $dara.Model {
    * Specifies whether to apply for a direct connection endpoint for the shard node. Valid values:
    * 
    * - **true**: Applies for a direct connection endpoint for the shard node.
-   * - **false**: (Default) Does not apply for a direct connection endpoint for the shard node.
+   * - **false**: Does not apply for a direct connection endpoint for the shard node. This is the default value.
    * 
    * @example
    * false
@@ -125,6 +132,7 @@ export class CreateNodeBatchRequest extends $dara.Model {
       clientToken: 'ClientToken',
       couponNo: 'CouponNo',
       DBInstanceId: 'DBInstanceId',
+      dryRun: 'DryRun',
       fromApp: 'FromApp',
       nodesInfo: 'NodesInfo',
       ownerAccount: 'OwnerAccount',
@@ -144,6 +152,7 @@ export class CreateNodeBatchRequest extends $dara.Model {
       clientToken: 'string',
       couponNo: 'string',
       DBInstanceId: 'string',
+      dryRun: 'boolean',
       fromApp: 'string',
       nodesInfo: 'string',
       ownerAccount: 'string',

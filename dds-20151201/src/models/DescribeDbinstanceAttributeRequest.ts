@@ -24,8 +24,8 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the instance is deleted. Valid values: 
-   * - **false**: The instance is running. Queries the information of a running instance.
-   * - **true**: The instance is deleted. Queries the information of a deleted instance.
+   * - **false**: The instance is running. Queries the information of running instances.
+   * - **true**: The instance is deleted. Queries the information of deleted instances.
    * 
    * @example
    * false
@@ -35,8 +35,8 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID. For more information about resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
-   * >This parameter is supported only on the China site.
+   * The resource group ID. For more information about resource groups, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * > This parameter is supported only on the Alibaba Cloud China site.
    * 
    * @example
    * rg-acfmyiu4ekp****

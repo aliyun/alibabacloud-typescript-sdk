@@ -13,7 +13,7 @@ export class DescribeDBInstanceSwitchLogRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time. The time is in the <i>yyyy-mm-dd</i>T<i>hh:mm</i>Z format (UTC).
    * 
    * @example
    * 2023-05-28T02:00Z
@@ -21,7 +21,7 @@ export class DescribeDBInstanceSwitchLogRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0 and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+   * The page number. Valid values: an integer greater than 0 and less than or equal to the maximum value of the INTEGER data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeDBInstanceSwitchLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30, 50, and 100**. Default value: **30**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -38,7 +38,7 @@ export class DescribeDBInstanceSwitchLogRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm*Z format. The time must be in UTC.
+   * The start time of the query. The time is in the <i>yyyy-mm-dd</i>T<i>hh:mm</i>Z format (UTC).
    * 
    * @example
    * 2023-05-27T02:46Z

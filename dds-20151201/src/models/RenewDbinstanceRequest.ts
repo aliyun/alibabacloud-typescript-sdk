@@ -6,10 +6,9 @@ export class RenewDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
-   * 
-   * - **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-   * 
-   * - **false**: disables automatic payment. You must perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner, click **Expenses** and select **User Center** from the drop-down list. The User Center page appears. In the left-side navigation pane, choose **Order Management** > Renew. On the Renewal tab, find the bill that you want to pay and then click Renew in the Actions column.
+   * - **true**: enables automatic payment. Make sure that your account has sufficient balance.
+   * <props="china">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Billing** > **Expenses and Costs** in the upper-right corner, choose **Orders** > **My Orders** in the left-side navigation pane, and then find the target order on the **Orders** tab to complete the payment.
+   * <props="intl">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Billing** > **Expenses and Costs** in the upper-right corner, click **Order Management** in the left-side navigation pane, and then find the target order on the **Orders** page to complete the payment.
    * 
    * Default value: **true**.
    * 
@@ -20,10 +19,8 @@ export class RenewDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: enables auto-renewal.
+   * - **false**: disables auto-renewal.
    * 
    * Default value: **false**.
    * 
@@ -41,7 +38,7 @@ export class RenewDBInstanceRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxxxxx
@@ -49,11 +46,9 @@ export class RenewDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to use coupons. Default value: null. Valid values:
-   * 
-   * - **default** or **null**: uses coupons.
-   * 
-   * - **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
+   * Specifies whether to use a coupon. Valid values:
+   * - **default** or **null** (default): uses a coupon.
+   * - **youhuiquan_promotion_option_id_for_blank**: does not use a coupon.
    * 
    * @example
    * default
@@ -69,11 +64,18 @@ export class RenewDBInstanceRequest extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run on the request. Valid values:
+   * true: performs a dry run without calling the operation. The system checks the request parameters, request format, service limits, and available resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * false (default): sends the request. If the request passes the dry run, the operation is performed.
+   */
+  dryRun?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The subscription period of the instance. Unit: month. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, and 36**.
+   * The renewal duration of the instance. Unit: months. Valid values: **1 to 9, 12, 24, and 36**.
    * 
    * This parameter is required.
    * 
@@ -91,6 +93,7 @@ export class RenewDBInstanceRequest extends $dara.Model {
       clientToken: 'ClientToken',
       couponNo: 'CouponNo',
       DBInstanceId: 'DBInstanceId',
+      dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       period: 'Period',
@@ -107,6 +110,7 @@ export class RenewDBInstanceRequest extends $dara.Model {
       clientToken: 'string',
       couponNo: 'string',
       DBInstanceId: 'string',
+      dryRun: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       period: 'number',

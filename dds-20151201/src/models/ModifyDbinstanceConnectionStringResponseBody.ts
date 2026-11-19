@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The modified endpoint of the instance.
+   * 
+   * @example
+   * demo-instance-pub.mongodb.rds.aliyuncs.com
+   */
   modifiedConnectionString?: string;
   /**
    * @remarks

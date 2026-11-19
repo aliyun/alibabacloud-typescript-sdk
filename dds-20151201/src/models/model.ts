@@ -5,6 +5,8 @@ export { CreateShardingDBInstanceRequestConfigServer } from './CreateShardingDbi
 export { CreateShardingDBInstanceRequestMongos } from './CreateShardingDbinstanceRequest';
 export { CreateShardingDBInstanceRequestReplicaSet } from './CreateShardingDbinstanceRequest';
 export { CreateShardingDBInstanceRequestTag } from './CreateShardingDbinstanceRequest';
+export { DescribeAccountRolesResponseBodyRolesRole } from './DescribeAccountRolesResponseBody';
+export { DescribeAccountRolesResponseBodyRoles } from './DescribeAccountRolesResponseBody';
 export { DescribeAccountsResponseBodyAccountsAccountRolesRole } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponseBodyAccountsAccountRoles } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponseBodyAccountsAccount } from './DescribeAccountsResponseBody';
@@ -77,6 +79,7 @@ export { DescribeDBInstancesOverviewResponseBodyDBInstancesMongosList } from './
 export { DescribeDBInstancesOverviewResponseBodyDBInstancesShardList } from './DescribeDbinstancesOverviewResponseBody';
 export { DescribeDBInstancesOverviewResponseBodyDBInstancesTags } from './DescribeDbinstancesOverviewResponseBody';
 export { DescribeDBInstancesOverviewResponseBodyDBInstances } from './DescribeDbinstancesOverviewResponseBody';
+export { DescribeDatabasesResponseBodyDatabases } from './DescribeDatabasesResponseBody';
 export { DescribeErrorLogRecordsResponseBodyItemsLogRecords } from './DescribeErrorLogRecordsResponseBody';
 export { DescribeErrorLogRecordsResponseBodyItems } from './DescribeErrorLogRecordsResponseBody';
 export { DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './DescribeGlobalSecurityIpgroupResponseBody';
@@ -230,6 +233,9 @@ export { DeleteGlobalSecurityIPGroupResponse } from './DeleteGlobalSecurityIpgro
 export { DeleteNodeRequest } from './DeleteNodeRequest';
 export { DeleteNodeResponseBody } from './DeleteNodeResponseBody';
 export { DeleteNodeResponse } from './DeleteNodeResponse';
+export { DescribeAccountRolesRequest } from './DescribeAccountRolesRequest';
+export { DescribeAccountRolesResponseBody } from './DescribeAccountRolesResponseBody';
+export { DescribeAccountRolesResponse } from './DescribeAccountRolesResponse';
 export { DescribeAccountsRequest } from './DescribeAccountsRequest';
 export { DescribeAccountsResponseBody } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponse } from './DescribeAccountsResponse';
@@ -329,6 +335,9 @@ export { DescribeDBInstancesResponse } from './DescribeDbinstancesResponse';
 export { DescribeDBInstancesOverviewRequest } from './DescribeDbinstancesOverviewRequest';
 export { DescribeDBInstancesOverviewResponseBody } from './DescribeDbinstancesOverviewResponseBody';
 export { DescribeDBInstancesOverviewResponse } from './DescribeDbinstancesOverviewResponse';
+export { DescribeDatabasesRequest } from './DescribeDatabasesRequest';
+export { DescribeDatabasesResponseBody } from './DescribeDatabasesResponseBody';
+export { DescribeDatabasesResponse } from './DescribeDatabasesResponse';
 export { DescribeErrorLogRecordsRequest } from './DescribeErrorLogRecordsRequest';
 export { DescribeErrorLogRecordsResponseBody } from './DescribeErrorLogRecordsResponseBody';
 export { DescribeErrorLogRecordsResponse } from './DescribeErrorLogRecordsResponse';

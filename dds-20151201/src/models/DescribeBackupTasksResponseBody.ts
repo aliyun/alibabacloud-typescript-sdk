@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   /**
    * @remarks
-   * The status of the backup job.
-   * 
-   * - **Scheduled**: The backup job is scheduled. This includes regular backup jobs that have not started.
-   * 
-   * - **Checking**: The instance is being checked before the backup.
-   * 
-   * - **Backuping**: The backup is in progress.
-   * 
-   * - **Finished**: The backup is complete.
+   * The backup job status. Valid values:
+   * * **Scheduled**: The backup task is scheduled, including routine backup tasks that have not started.
+   * * **Checking**: The instance is being checked before the backup.
+   * * **Backuping**: The backup is in progress.
+   * * **Finished**: The backup is completed.
    * 
    * @example
    * Scheduled
@@ -21,7 +17,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   backupSetStatus?: string;
   /**
    * @remarks
-   * The start time of the backup.
+   * The backup start time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2024-01-16T11:04:56Z
@@ -37,11 +33,9 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   backupjobId?: string;
   /**
    * @remarks
-   * The backup mode. Valid values:
-   * 
-   * - **Automated**: automatic backup.
-   * 
-   * - **Manual**: manual backup.
+   * The backup pattern. Valid values:
+   * * **Automated**: Automatic backup.
+   * * **Manual**: Manual backup.
    * 
    * @example
    * Manual
@@ -49,7 +43,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   jobMode?: string;
   /**
    * @remarks
-   * The backup progress in percentage. The progress is displayed only for running backup jobs.
+   * The backup progress in percentage. The progress is displayed only for running backups.
    * 
    * @example
    * 18%
@@ -87,7 +81,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
 export class DescribeBackupTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the backup jobs.
+   * The backup job details.
    */
   backupJobs?: DescribeBackupTasksResponseBodyBackupJobs[];
   /**

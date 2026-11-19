@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The ID of the generated order.
    * 
    * @example
    * 203317xxxxxxxx
@@ -13,7 +13,7 @@ export class RenewDBInstanceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B118EF45-9633-4EE3-8405-42ED4373721B

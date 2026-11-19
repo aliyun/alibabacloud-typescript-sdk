@@ -15,7 +15,7 @@ export class DescribeDBInstanceEncryptionKeyRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The custom encryption key of the instance. You can call [DescribeUserEncryptionKeyList](https://help.aliyun.com/document_detail/151729.html) to query the custom keys of the instance.
+   * The custom key of the instance. You can call [DescribeUserEncryptionKeyList](https://help.aliyun.com/document_detail/151729.html) to query the custom keys of the instance.
    * 
    * @example
    * 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

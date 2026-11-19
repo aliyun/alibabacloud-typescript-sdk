@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the added Mongos or shard node.
+   * The ID of the newly added Mongos or shard node.
    * 
    * @example
    * d-bp18f7d6b6a7****
@@ -13,7 +13,7 @@ export class CreateNodeBatchResponseBody extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 50179021707****
@@ -21,7 +21,7 @@ export class CreateNodeBatchResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 55D41A94-1ACE-55E8-8BC7-67D622E7****

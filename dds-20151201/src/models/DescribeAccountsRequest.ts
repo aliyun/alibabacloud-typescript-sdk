@@ -31,7 +31,9 @@ export class DescribeAccountsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database to which the account belongs.
+   * The filter condition for the database to which the account belongs. If this parameter is left empty, all accounts are returned. If this parameter is specified, only the accounts in the specified database are returned.
+   * 
+   * > - Rule: When this parameter is not empty, the value must be 1 to 63 characters in length. It cannot contain `/`, `\\`, `.`, spaces, `"`, or `$`, and the value cannot be `local`. Otherwise, the `InvalidParameter` error is reported.
    * 
    * @example
    * admin

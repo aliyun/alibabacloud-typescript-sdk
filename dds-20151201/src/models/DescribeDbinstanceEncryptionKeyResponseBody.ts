@@ -13,7 +13,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The scheduled deletion time of the instance key. If this value is empty, the key is not automatically deleted.
+   * The expected deletion time of the instance key, in the yyyy-MM-ddTHH:mm:ssZ format (UTC). If this value is empty, the key is not automatically deleted.
    * 
    * @example
    * 2020-07-06T18:22:03Z
@@ -37,7 +37,8 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * The status of the instance key. Valid values:
+   * The status of the instance key.
+   * 
    * - **Enabled**: The instance key is available.
    * - **Disabled**: The instance key is unavailable.
    * 
@@ -47,7 +48,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   encryptionKeyStatus?: string;
   /**
    * @remarks
-   * The purpose of the instance key.
+   * The usage of the instance key.
    * 
    * @example
    * ENCRYPT/DECRYPT
@@ -71,7 +72,7 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 783C2062-A2D3-4EA8-88AD-E43F990C23BB

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesOverviewResponseBodyDBInstancesMongosList extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the mongos node.
+   * The node specifications of the mongos node.
    * 
    * @example
    * dds.mongos.standard
@@ -79,7 +79,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstancesShardList extends
   nodeId?: string;
   /**
    * @remarks
-   * The storage capacity of the shard node, in GB.
+   * The storage capacity of the shard node. Unit: GB.
    * 
    * @example
    * 10
@@ -87,7 +87,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstancesShardList extends
   nodeStorage?: number;
   /**
    * @remarks
-   * The number of read-only nodes in the shard. Valid values: **0** to **5**.
+   * The number of read-only nodes in the shard node. Valid values: **0** to **5**.
    * 
    * @example
    * 2
@@ -125,13 +125,11 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstancesShardList extends
 export class DescribeDBInstancesOverviewResponseBodyDBInstancesTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the instance. Valid values of N: **1** to **20**.
    * 
-   * - The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-   * 
-   * - The key can be up to 64 characters in length.
-   * 
-   * - The key cannot be an empty string.
+   * - The tag key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * - The tag key can be up to 64 characters in length.
+   * - The tag key cannot be an empty string.
    * 
    * @example
    * testdatabase
@@ -139,13 +137,11 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstancesTags extends $dar
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the instance. Valid values of N: **1** to **20**.
    * 
-   * - The value cannot start with `aliyun`, `acs`:, `http://`, or `https://`.
-   * 
-   * - The value can be up to 128 characters in length.
-   * 
-   * - The value can be an empty string.
+   * - The tag value cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * - The tag value can be up to 128 characters in length.
+   * - The tag value can be an empty string.
    * 
    * @example
    * apitest
@@ -177,11 +173,10 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstancesTags extends $dar
 export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Model {
   /**
    * @remarks
-   * The read/write throughput of the instance.
+   * The read and write throughput consumed by the instance.
    * 
-   * > - This parameter is returned only for Serverless instances.
-   * >
-   * > - Serverless instances are available only on the China site (aliyun.com).
+   * > - This parameter is returned only if the instance is a serverless instance.
+   * > - Serverless instances are supported only on the Alibaba Cloud China site.
    * 
    * @example
    * 100
@@ -190,10 +185,8 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
-   * - **PrePaid**: subscription
-   * 
-   * - **PostPaid**: pay-as-you-go
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -201,7 +194,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   chargeType?: string;
   /**
    * @remarks
-   * The time when the instance was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is in UTC.
+   * The time when the instance was created. The time is displayed in UTC in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
    * 
    * @example
    * 2022-01-05T03:18:53Z
@@ -209,17 +202,14 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   creationTime?: string;
   /**
    * @remarks
-   * The instance type. For more information about the instance types available for different instance architectures, see:
+   * The instance type. For more information about the instance types of different architectures, see the following topics:
    * 
    * - [Standalone instance types](https://help.aliyun.com/document_detail/311407.html)
-   * 
    * - [Replica set instance types](https://help.aliyun.com/document_detail/311410.html)
-   * 
    * - [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html)
    * 
    * <props="china">
-   * 
-   * > This parameter is not required for Serverless instances.
+   * > You do not need to specify this parameter for serverless instances.
    * 
    * @example
    * dds.mongo.mid
@@ -243,7 +233,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   DBInstanceId?: string;
   /**
    * @remarks
-   * The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+   * The status of the instance. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/63870.html).
    * 
    * @example
    * Running
@@ -251,7 +241,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   DBInstanceStatus?: string;
   /**
    * @remarks
-   * The storage capacity of the instance, in GB.
+   * The storage capacity of the instance. Unit: GB.
    * 
    * @example
    * 20
@@ -259,15 +249,11 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The instance architecture. Valid values:
-   * 
-   * - **sharding**: sharded cluster instance
-   * 
-   * - **replicate**: replica set or standalone instance
-   * 
+   * The architecture of the instance. Valid values: 
+   * - **sharding**: sharded cluster instance.
+   * - **replicate**: replica set or standalone instance.
    * <props="china">
-   * 
-   * - **serverless**: Serverless instance
+   * - **serverless**: serverless instance.
    * 
    * @example
    * replicate
@@ -275,7 +261,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   DBInstanceType?: string;
   /**
    * @remarks
-   * The time when the data of the instance was destroyed. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+   * The data destruction time of the instance. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2021-12-10T16:00:00Z
@@ -299,7 +285,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the subscription instance. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is in UTC.
+   * The time when the instance expires. The time is displayed in UTC in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format.
    * 
    * @example
    * 2022-02-05T16:00Z
@@ -307,15 +293,11 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   expireTime?: string;
   /**
    * @remarks
-   * The instance edition. Valid values:
-   * 
-   * - **0**: physical server
-   * 
+   * The type of the instance. Valid values:
+   * - **0**: physical machine
    * - **1**: ECS
-   * 
-   * - **2**: DOCKER
-   * 
-   * - **18**: instance on the new Kubernetes-based architecture
+   * - **2**: Docker
+   * - **18**: new Kubernetes architecture instance
    * 
    * @example
    * 0
@@ -323,7 +305,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   kindCode?: string;
   /**
    * @remarks
-   * The time when the instance was last downgraded.
+   * The time when the instance was last downgraded. The date is in the YYYY-MM-DD format, such as 2021-05-08.
    * 
    * @example
    * 2021-05-08
@@ -331,19 +313,13 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   lastDowngradeTime?: string;
   /**
    * @remarks
-   * The lock mode of the instance.
-   * 
-   * - **Unlock**: The instance is not locked.
-   * 
-   * - **ManualLock**: The instance is manually locked.
-   * 
-   * - **LockByExpiration**: The instance is automatically locked after it expires.
-   * 
-   * - **LockByRestoration**: The instance is automatically locked before a rollback.
-   * 
-   * - **LockByDiskQuota**: The instance is automatically locked after its storage space is exhausted.
-   * 
-   * - **Released**: The instance is released. You cannot unlock a released instance. You can only restore the data of the instance to a new instance. The restoration may take a long time.
+   * The lock status of the instance.
+   * * **Unlock**: The instance is not locked.
+   * * **ManualLock**: The instance is manually locked.
+   * * **LockByExpiration**: The instance is automatically locked after it expires.
+   * * **LockByRestoration**: The instance is automatically locked before a rollback.
+   * * **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted.
+   * * **Released**: The instance is released. In this case, you cannot unlock the instance. You can only use backup data to create a new instance. The recreation process may take a long time.
    * 
    * @example
    * Unlock
@@ -351,18 +327,16 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   lockMode?: string;
   /**
    * @remarks
-   * The details of the mongos nodes.
+   * The list of mongos nodes.
    * 
-   * > This parameter is returned only for sharded cluster instances.
+   * > This parameter is returned only if the instance is a sharded cluster instance.
    */
   mongosList?: DescribeDBInstancesOverviewResponseBodyDBInstancesMongosList[];
   /**
    * @remarks
    * The network type of the instance. Valid values:
-   * 
-   * - **Classic**: classic network
-   * 
-   * - **VPC**: virtual private cloud (VPC)
+   * - **Classic**: classic network.
+   * - **VPC**: VPC.
    * 
    * @example
    * VPC
@@ -380,7 +354,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
    * @remarks
    * The number of nodes in the instance.
    * 
-   * > This parameter is returned only for replica set instances.
+   * > This parameter is returned only if the instance is a replica set instance.
    * 
    * @example
    * 3
@@ -396,9 +370,8 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   resourceGroupId?: string;
   /**
    * @remarks
-   * The details of the shard nodes.
-   * 
-   * > This parameter is returned only for sharded cluster instances.
+   * The list of shard nodes.
+   * > This parameter is returned only if the instance is a sharded cluster instance.
    */
   shardList?: DescribeDBInstancesOverviewResponseBodyDBInstancesShardList[];
   /**
@@ -408,11 +381,10 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   tags?: DescribeDBInstancesOverviewResponseBodyDBInstancesTags[];
   /**
    * @remarks
-   * Indicates whether password-free access over a VPC is enabled. Valid values:
+   * Indicates whether password-free access within a VPC is enabled. Valid values:
    * 
-   * - **Open**: enabled
-   * 
-   * - **Close**: disabled
+   * - **Open**: enabled.
+   * - **Close**: disabled.
    * 
    * @example
    * Open
@@ -420,7 +392,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
   vpcAuthMode?: string;
   /**
    * @remarks
-   * The zone of the instance.
+   * The zone ID of the instance.
    * 
    * @example
    * cn-hangzhou-i
@@ -507,12 +479,12 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $dara.Mo
 export class DescribeDBInstancesOverviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of instance details.
+   * The list of instances.
    */
   DBInstances?: DescribeDBInstancesOverviewResponseBodyDBInstances[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 52820D2B-B2DD-59F0-BDF2-83EC19C6F1CA
@@ -520,7 +492,7 @@ export class DescribeDBInstancesOverviewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of instances returned.
+   * The total number of instances returned.
    * 
    * @example
    * 1

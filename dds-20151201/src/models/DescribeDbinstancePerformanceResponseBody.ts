@@ -118,7 +118,7 @@ export class DescribeDBInstancePerformanceResponseBodyPerformanceKeys extends $d
 export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+   * The end time of the query. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format in UTC.
    * 
    * @example
    * 2022-06-13T11:58Z
@@ -135,7 +135,7 @@ export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2022-06-13T10:58Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterBackupsResponseBodyClusterBackupsBackupsExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * The specifications of the node.
+   * The node specifications.
    * 
    * @example
    * mdb.shard.4x.large.d
@@ -13,7 +13,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackupsExtraInfo ex
   instanceClass?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * d-2ze75ab1fa5d****
@@ -21,7 +21,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackupsExtraInfo ex
   nodeId?: string;
   /**
    * @remarks
-   * The type of the node.
+   * The node type.
    * 
    * @example
    * db
@@ -29,7 +29,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackupsExtraInfo ex
   nodeType?: string;
   /**
    * @remarks
-   * The storage space of the node, in MB.
+   * The storage space of the node. Unit: MB.
    * 
    * @example
    * 20480
@@ -65,7 +65,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackupsExtraInfo ex
 export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $dara.Model {
   /**
    * @remarks
-   * The public URL from which you can download the backup file. If the backup file is unavailable for download, an empty string is returned.
+   * The public endpoint used to download the backup file. If the backup file cannot be downloaded, an empty string is returned.
    * 
    * @example
    * http://oss.com/xxx
@@ -73,7 +73,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   backupDownloadURL?: string;
   /**
    * @remarks
-   * The time when the backup finished. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+   * The end time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2023-10-16T19:33:20Z
@@ -81,7 +81,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   backupEndTime?: string;
   /**
    * @remarks
-   * The ID of the backup.
+   * The backup ID.
    * 
    * @example
    * 738025367
@@ -89,7 +89,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   backupId?: string;
   /**
    * @remarks
-   * The internal URL from which you can download the backup file. If the backup file is unavailable for download, an empty string is returned.
+   * The internal endpoint used to download the backup file. If the backup file cannot be downloaded, a null value is returned.
    * 
    * @example
    * http://oss.com/xxx
@@ -97,7 +97,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   backupIntranetDownloadURL?: string;
   /**
    * @remarks
-   * The name of the backup.
+   * The backup name.
    * 
    * @example
    * 12345678.tar.gz
@@ -105,7 +105,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   backupName?: string;
   /**
    * @remarks
-   * The size of the backup file, in bytes.
+   * The size of the backup file. Unit: bytes.
    * 
    * @example
    * 77544597650
@@ -113,7 +113,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   backupSize?: string;
   /**
    * @remarks
-   * The time when the backup started. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+   * The start time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2023-10-16T19:33:20Z
@@ -122,10 +122,8 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   /**
    * @remarks
    * The backup status. Valid values:
-   * 
    * - **Success**: The backup is successful.
-   * 
-   * - **Failed**: The backup failed.
+   * - **Failed**: The backup fails.
    * 
    * @example
    * Success
@@ -133,12 +131,12 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   backupStatus?: string;
   /**
    * @remarks
-   * The information about the instance node that is associated with the backup.
+   * The information about the instance node associated with the backup.
    */
   extraInfo?: DescribeClusterBackupsResponseBodyClusterBackupsBackupsExtraInfo;
   /**
    * @remarks
-   * The name of the shard in the MongoDB cluster.
+   * The name of the MongoDB shard.
    * 
    * @example
    * d-bp16cb162771****
@@ -147,10 +145,8 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
   /**
    * @remarks
    * Indicates whether the backup set is available. Valid values:
-   * 
-   * - **0**: unavailable.
-   * 
-   * - **1**: available.
+   * * **0**: unavailable.
+   * * **1**: available.
    * 
    * @example
    * 1
@@ -203,7 +199,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackupsBackups extends $da
 export class DescribeClusterBackupsResponseBodyClusterBackupsExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the backup set was migrated from a historical backup. A value of **1** indicates that the backup was migrated.
+   * Indicates whether the backup set is migrated from a historical backup set. A value of **1** indicates that the backup set is migrated from a historical backup set.
    * 
    * @example
    * 1
@@ -234,18 +230,13 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   /**
    * @remarks
    * The status of the attached log backup. Valid values:
-   * 
-   * - **Init**: initialization.
-   * 
-   * - **No_Need**: No attached log backup is available.
-   * 
+   * - **Init**: The attached log backup is being initialized.
+   * - **No_Need**: No attached log backup is required.
    * - **Running**: The attached log backup is in progress.
-   * 
    * - **Ready**: The attached log backup is complete.
+   * - **Failed**: The attached log backup fails.
    * 
-   * - **Failed**: The attached log backup failed.
-   * 
-   * > If the value of the **ClusterBackupStatus** parameter is OK, it only indicates that the full backup was successful. For a cluster instance for which log backup is enabled, the attached log backup must be complete before you can perform a point-in-time restore or ensure data consistency.
+   * > When the **ClusterBackupStatus** parameter is set to OK, it only indicates that the full backup phase is successful. For cluster instances with log backup enabled, the attached log backup must be complete to perform point-in-time recovery or achieve consistent recovery.
    * 
    * @example
    * Ready
@@ -253,11 +244,10 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   attachLogStatus?: string;
   /**
    * @remarks
-   * The time when the backup expires. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+   * The expire time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
-   * >Notice: 
    * 
-   * A value of "9999-01-01T00:00:00Z" indicates that the backup is permanently retained.
+   * >Notice: A value of "9999-01-01T00:00:00Z" indicates long-term retention (LTR).</notice>
    * 
    * @example
    * 2025-03-29T03:47:12Z
@@ -265,12 +255,12 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   backupExpireTime?: string;
   /**
    * @remarks
-   * The backup sets of each child node in the cluster backup.
+   * The backup sets of child nodes in a single cluster backup set.
    */
   backups?: DescribeClusterBackupsResponseBodyClusterBackupsBackups[];
   /**
    * @remarks
-   * The time when the cluster backup finished.
+   * The end time of the cluster backup. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-10-16T19:33:20Z
@@ -278,7 +268,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   clusterBackupEndTime?: string;
   /**
    * @remarks
-   * The ID of the cluster backup.
+   * The cluster backup set ID.
    * 
    * @example
    * cb-o8c2ugnxo26kx***
@@ -286,7 +276,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   clusterBackupId?: string;
   /**
    * @remarks
-   * The mode of the cluster backup.
+   * The cluster backup mode.
    * 
    * @example
    * Automated
@@ -294,7 +284,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   clusterBackupMode?: string;
   /**
    * @remarks
-   * The size of the cluster backup set, in bytes.
+   * The size of the cluster backup set. Unit: bytes.
    * 
    * @example
    * 107374182400
@@ -302,7 +292,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   clusterBackupSize?: string;
   /**
    * @remarks
-   * The time when the cluster backup started.
+   * The start time of the cluster backup. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-10-16T19:33:20Z
@@ -310,7 +300,7 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   clusterBackupStartTime?: string;
   /**
    * @remarks
-   * The status of the cluster backup.
+   * The status of the cluster backup set.
    * 
    * @example
    * OK
@@ -318,20 +308,14 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   clusterBackupStatus?: string;
   /**
    * @remarks
-   * The database engine version of the instance when the backup was created. Valid values:
+   * The instance version at the time of backup. Valid values:
    * 
    * - **7.0**
-   * 
    * - **6.0**
-   * 
    * - **5.0**
-   * 
    * - **4.4**
-   * 
    * - **4.2**
-   * 
    * - **4.0**
-   * 
    * - **3.4**
    * 
    * @example
@@ -340,16 +324,14 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   engineVersion?: string;
   /**
    * @remarks
-   * The supplementary information. The value is a JSON-formatted string.
+   * The supplementary information in JSON format.
    */
   extraInfo?: DescribeClusterBackupsResponseBodyClusterBackupsExtraInfo;
   /**
    * @remarks
    * Indicates whether the cluster backup set is valid. Valid values:
-   * 
    * - **1**: The cluster backup set is valid.
-   * 
-   * - **0**: The backup sets of child nodes are not complete or have failed.
+   * - **0**: The backup sets of the child nodes are incomplete or failed.
    * 
    * @example
    * 1
@@ -357,8 +339,8 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
   isAvail?: number;
   /**
    * @remarks
-   * The backup progress in percentage.
-   * This parameter is returned only for backups that are in progress.
+   * The backup progress. Unit: %.
+   * The progress is displayed only for running backups.
    * 
    * @example
    * 50
@@ -418,12 +400,12 @@ export class DescribeClusterBackupsResponseBodyClusterBackups extends $dara.Mode
 export class DescribeClusterBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the cluster backup sets. A cluster backup contains the backup sets of all nodes.
+   * The cluster backup sets. A cluster backup set contains the backup sets of all nodes.
    */
   clusterBackups?: DescribeClusterBackupsResponseBodyClusterBackups[];
   /**
    * @remarks
-   * The maximum number of entries returned in this request.
+   * The maximum number of entries returned for the request.
    * 
    * @example
    * 10
@@ -431,7 +413,7 @@ export class DescribeClusterBackupsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -439,7 +421,7 @@ export class DescribeClusterBackupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 30

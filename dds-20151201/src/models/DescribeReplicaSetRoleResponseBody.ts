@@ -7,6 +7,11 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet extends $da
   connectionPort?: string;
   connectionType?: string;
   expiredTime?: string;
+  /**
+   * @example
+   * 10.140.xxx.xx
+   */
+  IPAddress?: string;
   networkType?: string;
   replicaSetRole?: string;
   roleId?: string;
@@ -16,6 +21,7 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet extends $da
       connectionPort: 'ConnectionPort',
       connectionType: 'ConnectionType',
       expiredTime: 'ExpiredTime',
+      IPAddress: 'IPAddress',
       networkType: 'NetworkType',
       replicaSetRole: 'ReplicaSetRole',
       roleId: 'RoleId',
@@ -28,6 +34,7 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet extends $da
       connectionPort: 'string',
       connectionType: 'string',
       expiredTime: 'string',
+      IPAddress: 'string',
       networkType: 'string',
       replicaSetRole: 'string',
       roleId: 'string',
@@ -72,7 +79,7 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSets extends $dara.Model {
 export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The domain name suffix for the connection string.
+   * The domain name suffix of the connection string.
    * 
    * @example
    * .mongodb.rds.aliyuncs.com
@@ -86,10 +93,6 @@ export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * Details of the replica set.
-   */
   replicaSets?: DescribeReplicaSetRoleResponseBodyReplicaSets;
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterRecoverTimeResponseBodyRestoreRanges extends $dara.Model {
   /**
    * @remarks
-   * The beginning of the restorable time range.
+   * The start time of the restorable time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-10-16T19:33:20Z
@@ -13,7 +13,7 @@ export class DescribeClusterRecoverTimeResponseBodyRestoreRanges extends $dara.M
   restoreBeginTime?: string;
   /**
    * @remarks
-   * The end of the restorable time range.
+   * The end time of the restorable time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-10-16T19:43:20Z
@@ -64,7 +64,7 @@ export class DescribeClusterRecoverTimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of cluster backup sets. A cluster backup contains the backup set of each node.
+   * The list of cluster backup sets. A cluster backup contains the backup sets of each node.
    */
   restoreRanges?: DescribeClusterRecoverTimeResponseBodyRestoreRanges[];
   static names(): { [key: string]: string } {
