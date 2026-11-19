@@ -15,6 +15,11 @@ export class QueryTaskConcurrencyRequest extends $dara.Model {
   callerUacAccountId?: string;
   /**
    * @example
+   * 1ab92c
+   */
+  currentWorkspaceCode?: string;
+  /**
+   * @example
    * abc123***
    */
   currentWorkspaceId?: string;
@@ -27,6 +32,7 @@ export class QueryTaskConcurrencyRequest extends $dara.Model {
     return {
       applicationCode: 'ApplicationCode',
       callerUacAccountId: 'CallerUacAccountId',
+      currentWorkspaceCode: 'CurrentWorkspaceCode',
       currentWorkspaceId: 'CurrentWorkspaceId',
       taskId: 'TaskId',
     };
@@ -36,6 +42,7 @@ export class QueryTaskConcurrencyRequest extends $dara.Model {
     return {
       applicationCode: 'string',
       callerUacAccountId: 'string',
+      currentWorkspaceCode: 'string',
       currentWorkspaceId: 'string',
       taskId: 'number',
     };

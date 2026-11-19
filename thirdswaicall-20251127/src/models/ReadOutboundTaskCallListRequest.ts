@@ -2,6 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ReadOutboundTaskCallListRequestStructuredLabelTags extends $dara.Model {
+  /**
+   * @example
+   * 是否有意向
+   */
+  key?: string;
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReadOutboundTaskCallListRequest extends $dara.Model {
   /**
    * @example
@@ -33,6 +66,11 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
    * 1
    */
   current?: number;
+  /**
+   * @example
+   * 1ab92c
+   */
+  currentWorkspaceCode?: string;
   /**
    * @example
    * abc123***
@@ -73,6 +111,7 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
    * 10
    */
   size?: number;
+  structuredLabelTags?: ReadOutboundTaskCallListRequestStructuredLabelTags[];
   /**
    * @example
    * 1
@@ -91,6 +130,7 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       callStartTimeEnd: 'CallStartTimeEnd',
       callerUacAccountId: 'CallerUacAccountId',
       current: 'Current',
+      currentWorkspaceCode: 'CurrentWorkspaceCode',
       currentWorkspaceId: 'CurrentWorkspaceId',
       customerNameOrPhone: 'CustomerNameOrPhone',
       displayStatusList: 'DisplayStatusList',
@@ -99,6 +139,7 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       size: 'Size',
+      structuredLabelTags: 'StructuredLabelTags',
       taskId: 'TaskId',
       userId: 'UserId',
     };
@@ -112,6 +153,7 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       callStartTimeEnd: 'number',
       callerUacAccountId: 'string',
       current: 'number',
+      currentWorkspaceCode: 'string',
       currentWorkspaceId: 'string',
       customerNameOrPhone: 'string',
       displayStatusList: { 'type': 'array', 'itemType': 'string' },
@@ -120,6 +162,7 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       size: 'number',
+      structuredLabelTags: { 'type': 'array', 'itemType': ReadOutboundTaskCallListRequestStructuredLabelTags },
       taskId: 'string',
       userId: 'string',
     };
@@ -134,6 +177,9 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
     }
     if(Array.isArray(this.labelTags)) {
       $dara.Model.validateArray(this.labelTags);
+    }
+    if(Array.isArray(this.structuredLabelTags)) {
+      $dara.Model.validateArray(this.structuredLabelTags);
     }
     super.validate();
   }

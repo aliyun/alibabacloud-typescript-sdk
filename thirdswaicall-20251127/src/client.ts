@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "ThirdswAicall";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("thirdswaicall", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -49,6 +53,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.callerUacAccountId)) {
       body["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
+    if (!$dara.isNull(request.currentWorkspaceCode)) {
+      body["CurrentWorkspaceCode"] = request.currentWorkspaceCode;
     }
 
     if (!$dara.isNull(request.currentWorkspaceId)) {
@@ -121,6 +129,10 @@ export default class Client extends OpenApi {
       body["CallerUacAccountId"] = request.callerUacAccountId;
     }
 
+    if (!$dara.isNull(request.currentWorkspaceCode)) {
+      body["CurrentWorkspaceCode"] = request.currentWorkspaceCode;
+    }
+
     if (!$dara.isNull(request.currentWorkspaceId)) {
       body["CurrentWorkspaceId"] = request.currentWorkspaceId;
     }
@@ -180,6 +192,10 @@ export default class Client extends OpenApi {
       request.labelTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelTags, "LabelTags", "json");
     }
 
+    if (!$dara.isNull(tmpReq.structuredLabelTags)) {
+      request.structuredLabelTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.structuredLabelTags, "StructuredLabelTags", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.callEndTimeBegin)) {
       body["CallEndTimeBegin"] = request.callEndTimeBegin;
@@ -203,6 +219,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.current)) {
       body["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.currentWorkspaceCode)) {
+      body["CurrentWorkspaceCode"] = request.currentWorkspaceCode;
     }
 
     if (!$dara.isNull(request.currentWorkspaceId)) {
@@ -235,6 +255,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.size)) {
       body["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.structuredLabelTagsShrink)) {
+      body["StructuredLabelTags"] = request.structuredLabelTagsShrink;
     }
 
     if (!$dara.isNull(request.taskId)) {

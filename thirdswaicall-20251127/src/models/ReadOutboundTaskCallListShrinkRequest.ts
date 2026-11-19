@@ -35,6 +35,11 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
   current?: number;
   /**
    * @example
+   * 1ab92c
+   */
+  currentWorkspaceCode?: string;
+  /**
+   * @example
    * abc123***
    */
   currentWorkspaceId?: string;
@@ -73,6 +78,7 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
    * 10
    */
   size?: number;
+  structuredLabelTagsShrink?: string;
   /**
    * @example
    * 1
@@ -91,6 +97,7 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
       callStartTimeEnd: 'CallStartTimeEnd',
       callerUacAccountId: 'CallerUacAccountId',
       current: 'Current',
+      currentWorkspaceCode: 'CurrentWorkspaceCode',
       currentWorkspaceId: 'CurrentWorkspaceId',
       customerNameOrPhone: 'CustomerNameOrPhone',
       displayStatusListShrink: 'DisplayStatusList',
@@ -99,6 +106,7 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       size: 'Size',
+      structuredLabelTagsShrink: 'StructuredLabelTags',
       taskId: 'TaskId',
       userId: 'UserId',
     };
@@ -112,6 +120,7 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
       callStartTimeEnd: 'number',
       callerUacAccountId: 'string',
       current: 'number',
+      currentWorkspaceCode: 'string',
       currentWorkspaceId: 'string',
       customerNameOrPhone: 'string',
       displayStatusListShrink: 'string',
@@ -120,6 +129,7 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       size: 'number',
+      structuredLabelTagsShrink: 'string',
       taskId: 'string',
       userId: 'string',
     };

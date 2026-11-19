@@ -50,6 +50,39 @@ export class ReadOutboundTaskCallListResponseBodyRecordsDialogueList extends $da
   }
 }
 
+export class ReadOutboundTaskCallListResponseBodyRecordsStructuredLabelTags extends $dara.Model {
+  /**
+   * @example
+   * 是否有意向
+   */
+  key?: string;
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
   billingDuration?: number;
   /**
@@ -122,6 +155,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
    * 2025-09-23 19:34:12
    */
   gmtModified?: string;
+  hangupDirection?: string;
   /**
    * @example
    * 1
@@ -167,6 +201,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
    * 3
    */
   status?: string;
+  structuredLabelTags?: ReadOutboundTaskCallListResponseBodyRecordsStructuredLabelTags[];
   /**
    * @example
    * 123
@@ -209,6 +244,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
       extInfo: 'ExtInfo',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      hangupDirection: 'HangupDirection',
       id: 'Id',
       instanceId: 'InstanceId',
       labelTags: 'LabelTags',
@@ -218,6 +254,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
       retryCount: 'RetryCount',
       sceneId: 'SceneId',
       status: 'Status',
+      structuredLabelTags: 'StructuredLabelTags',
       taskId: 'TaskId',
       tenantId: 'TenantId',
       ttsVoiceCode: 'TtsVoiceCode',
@@ -243,6 +280,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
       extInfo: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      hangupDirection: 'string',
       id: 'number',
       instanceId: 'string',
       labelTags: { 'type': 'array', 'itemType': 'string' },
@@ -252,6 +290,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
       retryCount: 'number',
       sceneId: 'string',
       status: 'string',
+      structuredLabelTags: { 'type': 'array', 'itemType': ReadOutboundTaskCallListResponseBodyRecordsStructuredLabelTags },
       taskId: 'string',
       tenantId: 'string',
       ttsVoiceCode: 'string',
@@ -266,6 +305,9 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
     }
     if(Array.isArray(this.labelTags)) {
       $dara.Model.validateArray(this.labelTags);
+    }
+    if(Array.isArray(this.structuredLabelTags)) {
+      $dara.Model.validateArray(this.structuredLabelTags);
     }
     super.validate();
   }
