@@ -64,6 +64,9 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the associated data processing pipeline. This field is empty if no pipeline is associated.
+   * 
+   * @example
+   * dify-log
    */
   pipelineName?: string;
   /**

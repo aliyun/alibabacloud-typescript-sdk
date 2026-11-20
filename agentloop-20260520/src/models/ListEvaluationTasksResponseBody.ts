@@ -14,7 +14,7 @@ export class ListEvaluationTasksResponseBodyEvaluationTasks extends $dara.Model 
   config?: { [key: string]: string };
   /**
    * @remarks
-   * The creation time, in seconds-level UNIX timestamp.
+   * The creation time, represented as a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -30,15 +30,15 @@ export class ListEvaluationTasksResponseBodyEvaluationTasks extends $dara.Model 
   dataType?: string;
   /**
    * @remarks
-   * The description of the evaluation task.
+   * The evaluation task description.
    * 
    * @example
-   * Evaluate the task completion of the online Agent trace
+   * Evaluate the completion rate of online agent trace tasks
    */
   description?: string;
   /**
    * @remarks
-   * The evaluator configuration summary, in JSON string format.
+   * The evaluator configuration summary, as a JSON string.
    * 
    * @example
    * [{"evaluatorRef":"Builtin.agent_task_completion"}]
@@ -46,7 +46,7 @@ export class ListEvaluationTasksResponseBodyEvaluationTasks extends $dara.Model 
   evaluators?: string;
   /**
    * @remarks
-   * The structured run strategy configuration, including the parsed backfill strategy and continuous evaluation strategy.
+   * The structured configuration of the run strategy, including the parsed backfill strategy and continuous evaluation strategy.
    * 
    * @example
    * {"backfill":{"enabled":true,"startTime":1782816000000,"endTime":1782902400000},"continuous":{"enabled":true,"intervalUnit":"HOUR","intervalValue":1,"dataDelayMinutes":5}}
@@ -62,7 +62,7 @@ export class ListEvaluationTasksResponseBodyEvaluationTasks extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The key-value pairs of task tags. This parameter is empty if no tags are set.
+   * The key-value pairs of task tags. Empty if not set.
    * 
    * @example
    * {"serviceId":"checkout-service","env":"prod"}
@@ -94,7 +94,7 @@ export class ListEvaluationTasksResponseBodyEvaluationTasks extends $dara.Model 
   taskName?: string;
   /**
    * @remarks
-   * The last update time, in seconds-level UNIX timestamp.
+   * The last update time, represented as a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816600
@@ -163,7 +163,7 @@ export class ListEvaluationTasksResponseBody extends $dara.Model {
   evaluationTasks?: ListEvaluationTasksResponseBodyEvaluationTasks[];
   /**
    * @remarks
-   * The number of entries per page used in this request.
+   * The number of entries per page used for this request.
    * 
    * @example
    * 20
@@ -171,7 +171,7 @@ export class ListEvaluationTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that no more pages are available.
+   * The pagination token for the next page. An empty value indicates that there is no next page.
    * 
    * @example
    * eyJsYXN0SWQiOjEwMSwib2Zmc2V0IjoyMH0=
@@ -187,7 +187,7 @@ export class ListEvaluationTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records. The total count is calculated only on the first page. This value may be empty on subsequent pages.
+   * The total number of records. The backend queries the total count only on the first page, so this field may be empty on subsequent pages.
    * 
    * @example
    * 126

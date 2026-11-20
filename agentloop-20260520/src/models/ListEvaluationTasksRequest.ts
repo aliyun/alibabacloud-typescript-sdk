@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * @example
    * prod-agentspace
@@ -13,7 +13,7 @@ export class ListEvaluationTasksRequest extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The filter condition for the task source. If this parameter is not specified, tasks from the default source are queried.
+   * The filter condition for the task source. If not specified, tasks from the default source are queried.
    * 
    * @example
    * default
@@ -21,7 +21,7 @@ export class ListEvaluationTasksRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The data source type of the evaluation object. Set this parameter to `trace` for trace-based evaluation.
+   * The data source type of the evaluation object. Use trace for trace evaluation.
    * 
    * @example
    * trace
@@ -29,7 +29,7 @@ export class ListEvaluationTasksRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Maximum value: 100.
+   * The number of entries to return per page. The default value is 20, and the maximum value is 100.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class ListEvaluationTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The evaluation task mode. If this parameter is not specified, the default value is `batch`.
+   * The mode of the evaluation task. If not specified, the backend defaults to batch.
    * 
    * @example
    * batch
@@ -61,7 +61,7 @@ export class ListEvaluationTasksRequest extends $dara.Model {
   taskMode?: string;
   /**
    * @remarks
-   * The fuzzy match condition for the task name.
+   * The fuzzy search condition for the task name.
    * 
    * @example
    * trace_task_completion_eval

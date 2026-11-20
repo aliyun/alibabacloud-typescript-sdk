@@ -2727,7 +2727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of evaluation tasks.
+   * Queries the list of evaluation tasks.
    * 
    * @param request - ListEvaluationTasksRequest
    * @param headers - map
@@ -2788,7 +2788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of evaluation tasks.
+   * Queries the list of evaluation tasks.
    * 
    * @param request - ListEvaluationTasksRequest
    * @returns ListEvaluationTasksResponse
@@ -3322,6 +3322,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the resources associated with tags.
+   * 
+   * @param tmpReq - ListTagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(tmpReq: $_model.ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListTagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "resourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["resourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
+  }
+
+  /**
+   * Lists the resources associated with tags.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Pauses a pipeline.
    * 
    * @param request - PausePipelineRequest
@@ -3609,6 +3676,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds or updates tags.
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * Adds or updates tags.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Terminates a pipeline.
    * 
    * @param request - TerminatePipelineRequest
@@ -3651,6 +3771,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.terminatePipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
+  }
+
+  /**
+   * Removes tags.
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(tmpReq: $_model.UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UntagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "resourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagKey)) {
+      request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "tagKey", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["all"] = request.all;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["resourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeyShrink)) {
+      query["tagKey"] = request.tagKeyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * Removes tags.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   /**

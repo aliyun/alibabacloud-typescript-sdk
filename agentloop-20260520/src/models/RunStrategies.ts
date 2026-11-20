@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { BackfillStrategy } from "./BackfillStrategy";
 import { ContinuousStrategy } from "./ContinuousStrategy";
+import { SelectedDataStrategy } from "./SelectedDataStrategy";
 
 
 export class RunStrategies extends $dara.Model {
@@ -21,10 +22,19 @@ export class RunStrategies extends $dara.Model {
    * {"enabled":true,"intervalUnit":"HOUR","intervalValue":1,"dataDelayMinutes":5}
    */
   continuous?: ContinuousStrategy;
+  /**
+   * @remarks
+   * The selection of specified objects for evaluation.
+   * 
+   * @example
+   * {"startTime":1794542191,"endTime":1795146991,"evalIds":["2646a9380bba3c86371f55a0226322941794983634"]}
+   */
+  selectedData?: SelectedDataStrategy;
   static names(): { [key: string]: string } {
     return {
       backfill: 'backfill',
       continuous: 'continuous',
+      selectedData: 'selectedData',
     };
   }
 
@@ -32,6 +42,7 @@ export class RunStrategies extends $dara.Model {
     return {
       backfill: BackfillStrategy,
       continuous: ContinuousStrategy,
+      selectedData: SelectedDataStrategy,
     };
   }
 
@@ -41,6 +52,9 @@ export class RunStrategies extends $dara.Model {
     }
     if(this.continuous && typeof (this.continuous as any).validate === 'function') {
       (this.continuous as any).validate();
+    }
+    if(this.selectedData && typeof (this.selectedData as any).validate === 'function') {
+      (this.selectedData as any).validate();
     }
     super.validate();
   }
