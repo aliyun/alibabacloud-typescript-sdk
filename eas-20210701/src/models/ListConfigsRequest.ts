@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * **Page number**. Default value: 1.
+   * **The page number**. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListConfigsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * **Number of entries per page**. Default value: 100. Maximum value: 200.
+   * **The number of entries per page**. Default value: 100. Maximum value: 200.
    * 
    * @example
    * 100

@@ -13,7 +13,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   currentRevision?: string;
   /**
    * @remarks
-   * The time when the next batch starts updating, in the format of YYYY/MM/DD HH:mm:ss.
+   * The start time of the next batch update, in the YYYY/MM/DD HH:mm:ss format.
    * 
    * @example
    * 2026/05/08 16:10:56
@@ -22,7 +22,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   /**
    * @remarks
    * The rollout phase. Valid values:
-   * - Pending: Waiting to start the rollout.
+   * - Pending: The rollout is waiting to start.
    * - Running: The rollout is in progress.
    * - Paused: The rollout is paused.
    * - Completed: The rollout is completed.
@@ -34,7 +34,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   phase?: string;
   /**
    * @remarks
-   * The total number of replicas for the service.
+   * The total number of replicas. The total number of replicas for the service.
    * 
    * @example
    * 10
@@ -50,7 +50,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   updateRevision?: string;
   /**
    * @remarks
-   * The number of replicas that have been updated to the new version.
+   * The number of updated replicas. The number of replicas that have been updated to the new version.
    * 
    * @example
    * 5
@@ -98,7 +98,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategyBatch extends $dar
   batchSize?: string;
   /**
    * @remarks
-   * The batch interval. The wait time between two consecutive rollout batches.
+   * The batch interval. The waiting time between two rollouts.
    * 
    * @example
    * 5m
@@ -130,7 +130,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategyBatch extends $dar
 export class DescribeServiceRolloutResponseBodyRolloutStrategyPartition extends $dara.Model {
   /**
    * @remarks
-   * The partition value. Specifies the number or percentage of old replicas to retain. For example, \\"50%\\" indicates that 50% of the old replicas are retained.
+   * The partition value. Indicates the number or percentage of old replicas to retain. For example, \\"50%\\" indicates that 50% of the old replicas are retained.
    * 
    * @example
    * 50%
@@ -160,12 +160,12 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategyPartition extends 
 export class DescribeServiceRolloutResponseBodyRolloutStrategy extends $dara.Model {
   /**
    * @remarks
-   * The batch rollout configuration. This field is returned only if a batch-based rollout strategy is used.
+   * The batch rollout configuration. This parameter is returned if a batch rollout strategy is used. Otherwise, it is not returned.
    */
   batch?: DescribeServiceRolloutResponseBodyRolloutStrategyBatch;
   /**
    * @remarks
-   * The partition rollout configuration. This field is returned only if a partition-based rollout strategy is used.
+   * The partition rollout configuration. This parameter is returned if a partition rollout strategy is used. Otherwise, it is not returned.
    */
   partition?: DescribeServiceRolloutResponseBodyRolloutStrategyPartition;
   static names(): { [key: string]: string } {
@@ -200,12 +200,12 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategy extends $dara.Mod
 export class DescribeServiceRolloutResponseBodyRollout extends $dara.Model {
   /**
    * @remarks
-   * The rollout execution status. Contains the current rollout progress and phase information.
+   * The rollout execution status. Includes the current rollout progress and phase information.
    */
   status?: DescribeServiceRolloutResponseBodyRolloutStatus;
   /**
    * @remarks
-   * The rollout strategy configuration. Contains the specific configuration parameters for partition-based or batch-based rollout.
+   * The rollout strategy configuration. Includes the specific configuration parameters for partition or batch rollouts.
    */
   strategy?: DescribeServiceRolloutResponseBodyRolloutStrategy;
   static names(): { [key: string]: string } {
@@ -240,7 +240,7 @@ export class DescribeServiceRolloutResponseBodyRollout extends $dara.Model {
 export class DescribeServiceRolloutResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. A unique identifier returned with each request, used for troubleshooting and tracing.
+   * The request ID. The unique identifier returned for each request, used for troubleshooting and tracking.
    * 
    * @example
    * 40325405-579C-4D82****
@@ -248,7 +248,7 @@ export class DescribeServiceRolloutResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The rollout strategy information. Contains the strategy configuration (Strategy) and execution status (Status).
+   * The rollout information. Includes the strategy configuration and execution status.
    */
   rollout?: DescribeServiceRolloutResponseBodyRollout;
   static names(): { [key: string]: string } {

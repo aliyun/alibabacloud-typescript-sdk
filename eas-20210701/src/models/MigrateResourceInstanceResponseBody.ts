@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateResourceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instances.
+   * The instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The message returned for the request.
+   * The message returned in the response.
    * 
    * @example
    * Success
@@ -18,7 +18,7 @@ export class MigrateResourceInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 40325405-579C-4D82***

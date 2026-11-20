@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceRolloutResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message. Describes the request processing result. Valid values:
-   * - "Rollout updated successfully": The rollout policy is updated.
-   * - "Rollout paused successfully": The rollout is paused.
-   * - "Rollout resumed successfully": The rollout is resumed.
+   * The response message. Describes the request processing result. Valid values:
+   * - "Rollout updated successfully": The policy is updated successfully.
+   * - "Rollout paused successfully": The rollout is paused successfully.
+   * - "Rollout resumed successfully": The rollout is resumed successfully.
    * 
    * @example
    * Rollout updated successfully

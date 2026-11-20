@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The time when the dynamic parameter was created, in UTC in RFC 3339 format.
+   * The creation time of the dynamic parameter, in UTC and RFC 3339 format.
    * 
    * @example
    * 2024-01-01T10:00:00Z
@@ -21,7 +21,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The time when the dynamic parameter was last updated, in UTC in RFC 3339 format.
+   * The update time of the dynamic parameter, in UTC and RFC 3339 format.
    * 
    * @example
    * 2024-01-01T10:00:00Z
@@ -73,7 +73,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   configs?: ListConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * Indicates whether more data exists.
+   * Indicates whether more data is available.
    * 
    * @example
    * true

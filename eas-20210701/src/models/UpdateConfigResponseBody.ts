@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the dynamic parameter was created, in UTC in RFC 3339 format.
+   * The time when the dynamic parameter was created. The time is displayed in UTC and follows the RFC 3339 format.
    * 
    * @example
    * 2024-01-15T10:30:00Z
@@ -13,7 +13,7 @@ export class UpdateConfigResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The dynamic parameter name.
+   * The name of the dynamic parameter.
    * 
    * @example
    * llm_gateway.route_policy
@@ -21,7 +21,7 @@ export class UpdateConfigResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The time when the dynamic parameter was last updated, in UTC in RFC 3339 format.
+   * The time when the dynamic parameter was updated. The time is displayed in UTC and follows the RFC 3339 format.
    * 
    * @example
    * 2024-01-15T11:00:00Z
@@ -29,7 +29,7 @@ export class UpdateConfigResponseBody extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The dynamic parameter value.
+   * The value of the dynamic parameter.
    * 
    * @example
    * {"model": "gpt-4-turbo"}

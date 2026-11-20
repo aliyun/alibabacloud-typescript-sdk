@@ -21,7 +21,7 @@ export class CreateAppServiceResponseBody extends $dara.Model {
   intranetEndpoint?: string;
   /**
    * @remarks
-   * The region where the service is located.
+   * The region where the service is deployed.
    * 
    * @example
    * cn-shanghai

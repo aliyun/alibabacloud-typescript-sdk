@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A message indicating the result of the operation.
+   * The operation result message.
    * 
    * @example
    * Service [foo] in region [cn-shanghai] is scaling

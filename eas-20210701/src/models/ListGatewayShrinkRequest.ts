@@ -13,7 +13,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the private gateway. For information about how to obtain the ID of a private gateway, see the private_gateway_id field in the response of the ListResources operation.
+   * The ID of the private gateway. To obtain the private gateway ID, see the private_gateway_id field in the response of the ListResources operation.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -37,7 +37,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Specifies whether Internet access is enabled.
+   * Specifies whether public network access is enabled.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * The label used to filter gateways.
+   * Filters the results by label.
    * 
    * @example
    * {"key1":"value1","key2":null}
@@ -69,7 +69,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The paging Settings for the number of entries to return per page in a paged query. Default value: 100.
+   * The paging settings for the number of entries to return on each page in a paged query. Default value: 100.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group. For information about how to obtain the ID of a resource group, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+   * The ID of the resource group. To obtain the resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
    * 
    * @example
    * eas-r-4gt8twzwllfo******
@@ -99,6 +99,14 @@ export class ListGatewayShrinkRequest extends $dara.Model {
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the workspace.
+   * 
+   * @example
+   * 123456
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
@@ -113,6 +121,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
       resourceName: 'ResourceName',
       sort: 'Sort',
       status: 'Status',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -130,6 +139,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
       resourceName: 'string',
       sort: 'string',
       status: 'string',
+      workspaceId: 'string',
     };
   }
 

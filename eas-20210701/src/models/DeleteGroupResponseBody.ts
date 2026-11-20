@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message.
+   * The message returned in the response.
    * 
    * @example
    * Delete service group foo successfully

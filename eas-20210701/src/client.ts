@@ -394,10 +394,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - This API operation sends a POST request to a specified path to create a dynamic parameter.
-   * - The dynamic parameter name (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
+   * - This API sends a POST request to a specified path to create a dynamic parameter.
+   * - The name of the dynamic parameter (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
    * - The request body must contain the specific value (Value) of the dynamic parameter.
-   * - After the dynamic parameter is created, the API returns key information about the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
+   * - After the dynamic parameter is created, the API returns the key information of the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
    * 
    * @param request - CreateConfigRequest
    * @param headers - map
@@ -434,10 +434,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - This API operation sends a POST request to a specified path to create a dynamic parameter.
-   * - The dynamic parameter name (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
+   * - This API sends a POST request to a specified path to create a dynamic parameter.
+   * - The name of the dynamic parameter (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
    * - The request body must contain the specific value (Value) of the dynamic parameter.
-   * - After the dynamic parameter is created, the API returns key information about the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
+   * - After the dynamic parameter is created, the API returns the key information of the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
    * 
    * @param request - CreateConfigRequest
    * @returns CreateConfigResponse
@@ -452,7 +452,7 @@ export default class Client extends OpenApi {
    * Creates a fault injection task.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
    * 
    * @param request - CreateFaultInjectionRequest
    * @param headers - map
@@ -492,7 +492,7 @@ export default class Client extends OpenApi {
    * Creates a fault injection task.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
    * 
    * @param request - CreateFaultInjectionRequest
    * @returns CreateFaultInjectionResponse
@@ -549,6 +549,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.replicas)) {
       body["Replicas"] = request.replicas;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1261,16 +1265,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service rollout plan.
+   * Creates a service update plan.
    * 
    * @remarks
    * ## Request description
-   * - **Mutually exclusive policies**: You can choose only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used at the same time.
+   * - **Mutually exclusive policies**: You can select only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used simultaneously.
    * - **Request rate limit**: A maximum of 100 requests per second.
    * - **Authorization information**: You must have the eas:CreateServiceRollout permission to call this operation.
    * - **Resource ARN**: acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}.
    * - **Pause a rollout**: You can pause the rollout process by setting the Paused parameter to true. You can then resume or cancel the rollout by calling the UpdateServiceRollout operation.
-   * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to identify and resolve issues promptly. To roll back, adjust the Partition value or delete the rollout policy.
+   * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to promptly identify and resolve issues. To roll back, adjust the Partition value or delete the rollout policy.
    * 
    * @param request - CreateServiceRolloutRequest
    * @param headers - map
@@ -1311,16 +1315,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service rollout plan.
+   * Creates a service update plan.
    * 
    * @remarks
    * ## Request description
-   * - **Mutually exclusive policies**: You can choose only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used at the same time.
+   * - **Mutually exclusive policies**: You can select only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used simultaneously.
    * - **Request rate limit**: A maximum of 100 requests per second.
    * - **Authorization information**: You must have the eas:CreateServiceRollout permission to call this operation.
    * - **Resource ARN**: acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}.
    * - **Pause a rollout**: You can pause the rollout process by setting the Paused parameter to true. You can then resume or cancel the rollout by calling the UpdateServiceRollout operation.
-   * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to identify and resolve issues promptly. To roll back, adjust the Partition value or delete the rollout policy.
+   * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to promptly identify and resolve issues. To roll back, adjust the Partition value or delete the rollout policy.
    * 
    * @param request - CreateServiceRolloutRequest
    * @returns CreateServiceRolloutResponse
@@ -1483,7 +1487,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to prevent accidental deletion of important configurations.
+   * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to avoid accidental deletion of important configurations.
    * 
    * @param request - DeleteConfigRequest
    * @param headers - map
@@ -1514,7 +1518,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to prevent accidental deletion of important configurations.
+   * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to avoid accidental deletion of important configurations.
    * 
    * @param request - DeleteConfigRequest
    * @returns DeleteConfigResponse
@@ -1529,7 +1533,7 @@ export default class Client extends OpenApi {
    * Deletes a fault injection task.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - DeleteFaultInjectionRequest
    * @param headers - map
@@ -1559,7 +1563,7 @@ export default class Client extends OpenApi {
    * Deletes a fault injection task.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - DeleteFaultInjectionRequest
    * @returns DeleteFaultInjectionResponse
@@ -1717,7 +1721,7 @@ export default class Client extends OpenApi {
    * Deletes gateway labels.
    * 
    * @remarks
-   * *Before you call this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) for Elastic Algorithm Service (EAS).**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param tmpReq - DeleteGatewayLabelRequest
    * @param headers - map
@@ -1759,7 +1763,7 @@ export default class Client extends OpenApi {
    * Deletes gateway labels.
    * 
    * @remarks
-   * *Before you call this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) for Elastic Algorithm Service (EAS).**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - DeleteGatewayLabelRequest
    * @returns DeleteGatewayLabelResponse
@@ -2341,10 +2345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the update plan of a service.
+   * Deletes a service update plan.
    * 
    * @remarks
-   * Deletes the update plan of a specified service.
+   * Deletes the update plan for a specified service.
    * 
    * @param request - DeleteServiceRolloutRequest
    * @param headers - map
@@ -2371,10 +2375,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the update plan of a service.
+   * Deletes a service update plan.
    * 
    * @remarks
-   * Deletes the update plan of a specified service.
+   * Deletes the update plan for a specified service.
    * 
    * @param request - DeleteServiceRolloutRequest
    * @returns DeleteServiceRolloutResponse
@@ -2425,7 +2429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cloud native artifact.
+   * Queries the details of an artifact.
    * 
    * @param request - DescribeArtifactRequest
    * @param headers - map
@@ -2452,7 +2456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cloud native artifact.
+   * Queries the details of an artifact.
    * 
    * @param request - DescribeArtifactRequest
    * @returns DescribeArtifactResponse
@@ -2548,7 +2552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a dedicated gateway.
+   * Queries the details of a private gateway.
    * 
    * @param request - DescribeGatewayRequest
    * @param headers - map
@@ -2575,7 +2579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a dedicated gateway.
+   * Queries the details of a private gateway.
    * 
    * @param request - DescribeGatewayRequest
    * @returns DescribeGatewayResponse
@@ -2876,7 +2880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a service.
+   * Retrieves the details of a specified service.
    * 
    * @param request - DescribeServiceRequest
    * @param headers - map
@@ -2903,7 +2907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a service.
+   * Retrieves the details of a specified service.
    * 
    * @param request - DescribeServiceRequest
    * @returns DescribeServiceResponse
@@ -3291,16 +3295,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the service update plan.
+   * Queries the service rollout plan.
    * 
    * @remarks
-   * ## Operation description
+   * ## Request description
    * - This operation queries the rollout configuration and current execution status of a specific service.
-   * - The returned information includes but is not limited to the specific parameters of the rollout strategy and the current rollout progress.
-   * - Specify `ClusterId` and the service name `ServiceName` as path parameters in the request.
-   * - The request rate limit is 100 requests per second.
-   * - If the service does not exist or no rollout strategy has been created, this operation returns an error.
-   * - The returned status is a real-time query result that may change over time. Adjust the polling interval as needed.
+   * - The returned information includes but is not limited to the specific parameters of the rollout and the current rollout progress.
+   * - You must provide ClusterId and the service name ServiceName as path parameters in the request.
+   * - Note that the request rate limit is up to 100 requests per second.
+   * - If the service does not exist or no rollout is created, calling this operation returns an error.
+   * - The returned status is the result of a real-time query and may change over time. Adjust the polling interval as needed.
    * 
    * @param request - DescribeServiceRolloutRequest
    * @param headers - map
@@ -3327,16 +3331,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the service update plan.
+   * Queries the service rollout plan.
    * 
    * @remarks
-   * ## Operation description
+   * ## Request description
    * - This operation queries the rollout configuration and current execution status of a specific service.
-   * - The returned information includes but is not limited to the specific parameters of the rollout strategy and the current rollout progress.
-   * - Specify `ClusterId` and the service name `ServiceName` as path parameters in the request.
-   * - The request rate limit is 100 requests per second.
-   * - If the service does not exist or no rollout strategy has been created, this operation returns an error.
-   * - The returned status is a real-time query result that may change over time. Adjust the polling interval as needed.
+   * - The returned information includes but is not limited to the specific parameters of the rollout and the current rollout progress.
+   * - You must provide ClusterId and the service name ServiceName as path parameters in the request.
+   * - Note that the request rate limit is up to 100 requests per second.
+   * - If the service does not exist or no rollout is created, calling this operation returns an error.
+   * - The returned status is the result of a real-time query and may change over time. Adjust the polling interval as needed.
    * 
    * @param request - DescribeServiceRolloutRequest
    * @returns DescribeServiceRolloutResponse
@@ -3713,16 +3717,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of dynamic parameters under a specified service.
+   * Queries the list of dynamic parameters for a specified service.
    * 
    * @remarks
-   * ## Operation description
-   * - This API operation queries the list of dynamic parameters under a specific service.
-   * - ClusterId specifies the region to which the service belongs.
-   * - ConfigType currently supports only the `service` type.
-   * - Name specifies the service name.
-   * - Use the Page and PageSize parameters for paged query. By default, 100 records are displayed per page, with a maximum of 200.
-   * - The response includes dynamic parameter details and paging information.
+   * ## Request description
+   * - This operation queries the list of dynamic parameters for a specific service.
+   * - `ClusterId` specifies the region of the service to query.
+   * - `ConfigType` currently supports only the `service` type.
+   * - `Name` specifies the service name.
+   * - You can use the `Page` and `PageSize` parameters to perform a paged query. By default, 100 records are displayed per page, and a maximum of 200 records are supported.
+   * - The response includes the details of the dynamic parameters and paging information.
    * 
    * @param request - ListConfigsRequest
    * @param headers - map
@@ -3759,16 +3763,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of dynamic parameters under a specified service.
+   * Queries the list of dynamic parameters for a specified service.
    * 
    * @remarks
-   * ## Operation description
-   * - This API operation queries the list of dynamic parameters under a specific service.
-   * - ClusterId specifies the region to which the service belongs.
-   * - ConfigType currently supports only the `service` type.
-   * - Name specifies the service name.
-   * - Use the Page and PageSize parameters for paged query. By default, 100 records are displayed per page, with a maximum of 200.
-   * - The response includes dynamic parameter details and paging information.
+   * ## Request description
+   * - This operation queries the list of dynamic parameters for a specific service.
+   * - `ClusterId` specifies the region of the service to query.
+   * - `ConfigType` currently supports only the `service` type.
+   * - `Name` specifies the service name.
+   * - You can use the `Page` and `PageSize` parameters to perform a paged query. By default, 100 records are displayed per page, and a maximum of 200 records are supported.
+   * - The response includes the details of the dynamic parameters and paging information.
    * 
    * @param request - ListConfigsRequest
    * @returns ListConfigsResponse
@@ -3780,7 +3784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of private gateways.
+   * Queries the list of private gateways.
    * 
    * @param tmpReq - ListGatewayRequest
    * @param headers - map
@@ -3844,6 +3848,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3863,7 +3871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of private gateways.
+   * Queries the list of private gateways.
    * 
    * @param request - ListGatewayRequest
    * @returns ListGatewayResponse
@@ -4463,7 +4471,7 @@ export default class Client extends OpenApi {
    * Retrieves fault injection information.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - ListServiceInstanceFaultInjectionInfoRequest
    * @param headers - map
@@ -4493,7 +4501,7 @@ export default class Client extends OpenApi {
    * Retrieves fault injection information.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - ListServiceInstanceFaultInjectionInfoRequest
    * @returns ListServiceInstanceFaultInjectionInfoResponse
@@ -4928,7 +4936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates instances to a specified resource group.
+   * Migrates machine instances in a resource group.
    * 
    * @param request - MigrateResourceInstanceRequest
    * @param headers - map
@@ -4969,7 +4977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates instances to a specified resource group.
+   * Migrates machine instances in a resource group.
    * 
    * @param request - MigrateResourceInstanceRequest
    * @returns MigrateResourceInstanceResponse
@@ -5460,11 +5468,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the value of a single dynamic parameter under a specified cluster and service.
+   * Updates the value of a single dynamic parameter for a specified cluster and service.
    * 
    * @remarks
    * ## Request description
-   * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must contain the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
+   * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must include the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
    * 
    * @param request - UpdateConfigRequest
    * @param headers - map
@@ -5497,11 +5505,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the value of a single dynamic parameter under a specified cluster and service.
+   * Updates the value of a single dynamic parameter for a specified cluster and service.
    * 
    * @remarks
    * ## Request description
-   * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must contain the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
+   * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must include the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
    * 
    * @param request - UpdateConfigRequest
    * @returns UpdateConfigResponse
@@ -5557,6 +5565,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6246,12 +6258,12 @@ export default class Client extends OpenApi {
    * Updates a service rollout plan.
    * 
    * @remarks
-   * ## Request notes
-   * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters in the request.
-   * - **Mutually exclusive parameters**: The `Partition` and `Batch` parameters are mutually exclusive.
+   * ## Request description
+   * - **Provide at least one parameter**: You must specify at least one of the Partition, Batch, or Paused parameters in the request.
+   * - **Mutually exclusive policies**: You cannot provide both Partition and Batch configurations at the same time.
    * - **Immediate effect**: Updates take effect immediately and affect the ongoing service rollout process.
-   * - **Rollback operations**: Increase the `Partition` value to roll back to a previous version. This action does not trigger automatically and requires a manual update of the service image.
-   * - **Pausing does not affect parameters**: Pausing the rollout does not change the configured `Partition` or `Batch` parameters. It only pauses the execution of the current policy.
+   * - **Rollback operation**: You can roll back to a previous version by increasing the Partition value. However, this is not triggered automatically and requires a manual update of the service image.
+   * - **Pause does not affect parameters**: Pausing the rollout does not change the configured Partition or Batch parameters. It only pauses the execution of the current policy.
    * 
    * @param request - UpdateServiceRolloutRequest
    * @param headers - map
@@ -6295,12 +6307,12 @@ export default class Client extends OpenApi {
    * Updates a service rollout plan.
    * 
    * @remarks
-   * ## Request notes
-   * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters in the request.
-   * - **Mutually exclusive parameters**: The `Partition` and `Batch` parameters are mutually exclusive.
+   * ## Request description
+   * - **Provide at least one parameter**: You must specify at least one of the Partition, Batch, or Paused parameters in the request.
+   * - **Mutually exclusive policies**: You cannot provide both Partition and Batch configurations at the same time.
    * - **Immediate effect**: Updates take effect immediately and affect the ongoing service rollout process.
-   * - **Rollback operations**: Increase the `Partition` value to roll back to a previous version. This action does not trigger automatically and requires a manual update of the service image.
-   * - **Pausing does not affect parameters**: Pausing the rollout does not change the configured `Partition` or `Batch` parameters. It only pauses the execution of the current policy.
+   * - **Rollback operation**: You can roll back to a previous version by increasing the Partition value. However, this is not triggered automatically and requires a manual update of the service image.
+   * - **Pause does not affect parameters**: Pausing the rollout does not change the configured Partition or Batch parameters. It only pauses the execution of the current policy.
    * 
    * @param request - UpdateServiceRolloutRequest
    * @returns UpdateServiceRolloutResponse

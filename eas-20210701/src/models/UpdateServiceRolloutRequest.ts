@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceRolloutRequestBatch extends $dara.Model {
   /**
    * @remarks
-   * The batch size. The number of replicas to update in each batch. Integer or percentage formats are supported. Default value: `"25%"`.
+   * The batch size. The number of replicas updated per batch. Integer or percentage formats are supported. Default value: "25%".
    * 
    * @example
    * 25%
@@ -13,7 +13,7 @@ export class UpdateServiceRolloutRequestBatch extends $dara.Model {
   batchSize?: string;
   /**
    * @remarks
-   * The batch interval. The wait time between two rollouts. Supported units: `s` (seconds), `m` (minutes), and `h` (hours).
+   * The batch interval. The wait time between two rollouts. Supported units: s (seconds), m (minutes), and h (hours).
    * 
    * @example
    * 60s
@@ -49,9 +49,9 @@ export class UpdateServiceRolloutRequestPartition extends $dara.Model {
    * * Type: string
    * * Required: yes
    * * Description: The partition value. Two formats are supported:
-   *   1. Integer format: such as "5", which indicates that 5 old replicas are retained.
-   *   2. Percentage format: such as "50%", which indicates that 50% of the old replicas are retained.
-   *   Adjustment strategies:
+   *   1. Integer format: such as "5", which means retaining 5 old replicas.
+   *   2. Percentage format: such as "50%", which means retaining 50% of the old replicas.
+   *   Adjustment policy:
    *   - Increase the value: Roll back to the old version and increase the proportion of old replicas.
    *   - Decrease the value: Proceed to the new version and decrease the proportion of old replicas.
    *   - Set to "0%": Complete the full update and switch all replicas to the new version.
@@ -101,7 +101,7 @@ export class UpdateServiceRolloutRequest extends $dara.Model {
   partition?: UpdateServiceRolloutRequestPartition;
   /**
    * @remarks
-   * Specifies whether to pause the rollout. A value of `true` indicates that the rollout is paused. A value of `false` indicates that the rollout is resumed.
+   * Specifies whether to pause the rollout. A value of true indicates that the rollout is paused. A value of false indicates that the rollout is resumed.
    * 
    * @example
    * true

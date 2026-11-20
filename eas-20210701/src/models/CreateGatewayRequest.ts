@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the resource group. For more information, see the ResourceName field where ResourceType is SelfManaged in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+   * The name of the resource group. For more information, see the ResourceName field returned by the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation when ResourceType is set to SelfManaged.
    * 
    * @example
    * eas-r-4gt8twzwllfo******
@@ -14,15 +14,15 @@ export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
-   * - false: disables auto-renewal. This is the default value.
-   * - true: enables auto-renewal.
+   * - false: Disables auto-renewal. This is the default value.
+   * - true: Enables auto-renewal.
    */
   autoRenewal?: boolean;
   /**
    * @remarks
    * The billing method. Valid values:
-   * - PrePaid: subscription.
-   * - PostPaid: pay-as-you-go.
+   * - PrePaid: Subscription.
+   * - PostPaid: Pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -46,7 +46,7 @@ export class CreateGatewayRequest extends $dara.Model {
   enableIntranet?: boolean;
   /**
    * @remarks
-   * The type of the private gateway. ALB indicates an application-layer dedicated gateway, and FullyManaged indicates a fully managed dedicated gateway.
+   * The type of the private gateway. A value of ALB indicates an application-type dedicated gateway. A value of FullyManaged indicates a fully managed dedicated gateway.
    * 
    * @example
    * ALB
@@ -80,6 +80,14 @@ export class CreateGatewayRequest extends $dara.Model {
    * 2
    */
   replicas?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       resourceName: 'ResourceName',
@@ -91,6 +99,7 @@ export class CreateGatewayRequest extends $dara.Model {
       instanceType: 'InstanceType',
       name: 'Name',
       replicas: 'Replicas',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -105,6 +114,7 @@ export class CreateGatewayRequest extends $dara.Model {
       instanceType: 'string',
       name: 'string',
       replicas: 'number',
+      workspaceId: 'string',
     };
   }
 

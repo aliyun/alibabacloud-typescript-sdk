@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform a cascade delete. If enabled, deleting the service group automatically deletes all services within the service group. This feature is disabled by default.
+   * Specifies whether cascade delete is enabled. If enabled, deleting the service group automatically deletes all services in the service group. Default value: false.
    * 
    * @example
    * false

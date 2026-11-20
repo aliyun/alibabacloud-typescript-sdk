@@ -65,17 +65,25 @@ export class UpdateGatewayRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The list of vSwitches. This parameter applies only to dedicated gateways for applications.
+   * The list of vSwitches. This parameter is only applicable to application dedicated gateways.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC to which the gateway belongs. This parameter applies only to dedicated gateways for applications.
+   * The ID of the VPC to which the gateway belongs. This parameter is only applicable to application dedicated gateways.
    * 
    * @example
    * vpc-bp1jkde2******3mew
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       enableInternet: 'EnableInternet',
@@ -87,6 +95,7 @@ export class UpdateGatewayRequest extends $dara.Model {
       replicas: 'Replicas',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -101,6 +110,7 @@ export class UpdateGatewayRequest extends $dara.Model {
       replicas: 'number',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
+      workspaceId: 'string',
     };
   }
 

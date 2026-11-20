@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The region where the private gateway resides.
+   * The region where the private gateway is located.
    * 
    * @example
    * cn-wulanchabu
@@ -13,7 +13,7 @@ export class CreateGatewayResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the private gateway.
+   * The private gateway ID.
    * 
    * @example
    * gw-1uhcqmsc7x22******

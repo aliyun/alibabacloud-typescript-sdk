@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGatewayResponseBodyLabels extends $dara.Model {
   /**
    * @remarks
-   * The gateway label key.
+   * The key of the gateway label.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class DescribeGatewayResponseBodyLabels extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
-   * The gateway label value.
+   * The value of the gateway label.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class DescribeGatewayResponseBodyLabels extends $dara.Model {
 export class DescribeGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method.
    * 
    * @example
    * PrePaid
@@ -53,7 +53,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the dedicated gateway was created. The time is in UTC.
+   * The time when the private gateway was created. The time is displayed in UTC.
    * 
    * @example
    * 2020-05-19T14:19:42Z
@@ -61,7 +61,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The self-managed cluster ID.
+   * The ID of the self-managed cluster.
    * 
    * @example
    * c935eadf284c14c2da57a2a13ad6******
@@ -69,7 +69,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   externalClusterId?: string;
   /**
    * @remarks
-   * The dedicated gateway ID.
+   * The ID of the private gateway.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -77,7 +77,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The alias of the dedicated gateway.
+   * The alias of the private gateway.
    * 
    * @example
    * mygateway1
@@ -85,7 +85,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   gatewayName?: string;
   /**
    * @remarks
-   * The instance type used by the dedicated gateway.
+   * The instance type used by the private gateway.
    * 
    * @example
    * 2c4g
@@ -93,7 +93,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The public network access domain name.
+   * The domain name for public network access.
    * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
@@ -109,7 +109,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * The status of public network access. Valid values:
+   * The status of public network access.
    * 
    * @example
    * Running
@@ -117,7 +117,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetStatus?: string;
   /**
    * @remarks
-   * The internal access domain name.
+   * The domain name for internal network access.
    * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
@@ -125,7 +125,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   intranetDomain?: string;
   /**
    * @remarks
-   * Indicates whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is not enabled.
+   * Indicates whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is disabled.
    * 
    * @example
    * true
@@ -133,7 +133,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   intranetEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the dedicated gateway is the default gateway.
+   * Indicates whether the private gateway is the default private gateway.
    * 
    * @example
    * true
@@ -146,7 +146,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   labels?: DescribeGatewayResponseBodyLabels[];
   /**
    * @remarks
-   * The number of nodes in the dedicated gateway.
+   * The number of nodes in the private gateway.
    * 
    * @example
    * 2
@@ -162,7 +162,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether HTTP-to-HTTPS redirection is enabled.
+   * Indicates whether HTTP redirection to HTTPS is enabled.
    * 
    * @example
    * true
@@ -170,7 +170,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   SSLRedirectionEnabled?: boolean;
   /**
    * @remarks
-   * The status of the dedicated gateway. Valid values:
+   * The status of the private gateway.
    * 
    * @example
    * Running
@@ -178,12 +178,20 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the dedicated gateway was last updated. The time is in UTC.
+   * The time when the private gateway was updated. The time is displayed in UTC.
    * 
    * @example
    * 2021-02-24T11:52:17Z
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
@@ -204,6 +212,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       SSLRedirectionEnabled: 'SSLRedirectionEnabled',
       status: 'Status',
       updateTime: 'UpdateTime',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -227,6 +236,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       SSLRedirectionEnabled: 'boolean',
       status: 'string',
       updateTime: 'string',
+      workspaceId: 'string',
     };
   }
 

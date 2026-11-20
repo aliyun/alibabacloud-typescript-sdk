@@ -75,12 +75,12 @@ export class CreateServiceRolloutRequestPartition extends $dara.Model {
 export class CreateServiceRolloutRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration for automatic batching.
+   * The automatic batching configuration.
    */
   batch?: CreateServiceRolloutRequestBatch;
   /**
    * @remarks
-   * The configuration for manual batching.
+   * The manual batching configuration.
    */
   partition?: CreateServiceRolloutRequestPartition;
   /**

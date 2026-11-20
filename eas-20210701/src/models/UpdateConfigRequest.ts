@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The dynamic parameter value (required).
+   * The value of the dynamic parameter. This parameter is required.
    * 
    * @example
    * 200

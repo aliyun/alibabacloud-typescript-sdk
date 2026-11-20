@@ -159,6 +159,14 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
    * 2021-02-24T11:52:17Z
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The ID of the workspace.
+   * 
+   * @example
+   * 123456
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
@@ -176,6 +184,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
       SSLRedirectionEnabled: 'SSLRedirectionEnabled',
       status: 'Status',
       updateTime: 'UpdateTime',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -196,6 +205,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
       SSLRedirectionEnabled: 'boolean',
       status: 'string',
       updateTime: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -219,7 +229,7 @@ export class ListGatewayResponseBody extends $dara.Model {
   gateways?: ListGatewayResponseBodyGateways[];
   /**
    * @remarks
-   * The page number of the returned gateway list.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -227,7 +237,7 @@ export class ListGatewayResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of gateways returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 100

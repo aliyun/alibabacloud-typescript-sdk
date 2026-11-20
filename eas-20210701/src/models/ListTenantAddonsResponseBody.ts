@@ -6,6 +6,13 @@ export class ListTenantAddonsResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
    * The plugin attributes.
+   * 
+   * @example
+   * {
+   *  "AccessToken":"ld***.eY***.",
+   *  "InternetEndpoint": "****.com/prometheus",
+   *  "IntranetEndpoint": "****.vpc.com/prometheus"
+   * }
    */
   attributes?: { [key: string]: string };
   /**
