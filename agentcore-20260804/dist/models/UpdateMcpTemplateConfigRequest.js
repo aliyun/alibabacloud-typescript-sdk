@@ -304,6 +304,7 @@ class UpdateMcpTemplateConfigRequestBodyDeploymentConfigMcpConfiguration extends
             sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
             sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
             sessionMaxLifetimeSeconds: 'sessionMaxLifetimeSeconds',
+            sessionMode: 'sessionMode',
         };
     }
     static types() {
@@ -312,6 +313,7 @@ class UpdateMcpTemplateConfigRequestBodyDeploymentConfigMcpConfiguration extends
             sessionConcurrencyPerInstance: 'number',
             sessionIdleTimeoutSeconds: 'number',
             sessionMaxLifetimeSeconds: 'number',
+            sessionMode: 'string',
         };
     }
     validate() {

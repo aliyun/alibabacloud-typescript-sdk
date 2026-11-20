@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessControl extends $dara.Model {
     /**
      * @remarks
-     * The access credential ID. It references an AgentCore credential when the mode is set to CREDENTIAL.
+     * The ID of the AgentCore credential referenced when the mode is CREDENTIAL.
      *
      * @example
      * credential-id
@@ -10,7 +10,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessC
     credentialId?: string;
     /**
      * @remarks
-     * Specifies whether to enable entry point access control.
+     * Specifies whether entry access control is enabled.
      */
     enabled?: boolean;
     /**
@@ -35,12 +35,12 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessC
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentIdentityConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable authorization.
+     * Specifies whether authorization is enabled.
      */
     authorizationEnabled?: boolean;
     /**
      * @remarks
-     * The credential provider ARN.
+     * The ARN of the credential provider.
      *
      * @example
      * acs:agentidentity:cn-hangzhou:1234567890123456:provider/example
@@ -48,7 +48,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentId
     credentialProviderArn?: string;
     /**
      * @remarks
-     * The credential provider type.
+     * The type of the credential provider.
      *
      * @example
      * oauth2
@@ -56,7 +56,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentId
     credentialProviderType?: string;
     /**
      * @remarks
-     * Specifies whether to enable Agent Identity.
+     * Specifies whether agent identity is enabled.
      */
     enabled?: boolean;
     static names(): {
@@ -73,7 +73,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentId
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create or update a code deployment after the presigned upload is completed.
+     * The temporary code package token returned by GetMcpCodePackageUploadUrl, which is used to create or update a code deployment after a presigned upload is completed.
      *
      * @example
      * upload-token
@@ -81,7 +81,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeCon
     codePackageToken?: string;
     /**
      * @remarks
-     * The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
+     * The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and the remaining parameters.
      */
     command?: string[];
     /**
@@ -106,7 +106,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeCon
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The ACR instance ID.
+     * The ID of the ACR instance.
      *
      * @example
      * cri-example
@@ -140,7 +140,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContain
     imageRegistryType?: string;
     /**
      * @remarks
-     * The MCP runtime mode. Custom containers must expose the standard MCP themselves. Valid value: SELF_HOSTED.
+     * The MCP runtime mode. Custom containers must expose the standard MCP themselves. The value is fixed to SELF_HOSTED.
      *
      * @example
      * SELF_HOSTED
@@ -148,7 +148,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContain
     mcpRuntimeMode?: string;
     /**
      * @remarks
-     * The container source type. Currently, this is fixed to CONTAINER_IMAGE.
+     * The container source type. Currently, the value is fixed to CONTAINER_IMAGE.
      *
      * @example
      * CONTAINER_IMAGE
@@ -168,7 +168,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContain
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurationHooks extends $dara.Model {
     /**
      * @remarks
-     * The hook API version.
+     * The API version of the hook.
      *
      * @example
      * 1.0
@@ -176,7 +176,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookCon
     apiVersion?: string;
     /**
      * @remarks
-     * The hook description.
+     * The description of the hook.
      *
      * @example
      * Log MCP tool invocations
@@ -184,7 +184,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookCon
     description?: string;
     /**
      * @remarks
-     * Specifies whether to enable the hook.
+     * Specifies whether the hook is enabled.
      */
     enabled?: boolean;
     /**
@@ -197,14 +197,14 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookCon
     event?: string;
     /**
      * @remarks
-     * The hook request headers.
+     * The request headers of the hook.
      */
     headers?: {
         [key: string]: string;
     };
     /**
      * @remarks
-     * The hook timeout in milliseconds.
+     * The timeout period of the hook, in milliseconds.
      *
      * @example
      * 3000
@@ -212,7 +212,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookCon
     timeout?: number;
     /**
      * @remarks
-     * The hook callback URL.
+     * The callback URL of the hook.
      *
      * @example
      * https://example.com/mcp-hook
@@ -232,7 +232,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookCon
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The ordered list of hooks. Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+     * The ordered list of hooks. Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
      */
     hooks?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurationHooks[];
     static names(): {
@@ -275,7 +275,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigLogConf
     logstore?: string;
     /**
      * @remarks
-     * The name of the Simple Log Service project.
+     * The name of the Log Service project.
      *
      * @example
      * agentcore-mcp-logs
@@ -311,7 +311,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConf
     sessionConcurrencyPerInstance?: number;
     /**
      * @remarks
-     * The session idle timeout in seconds. Default value: 1800.
+     * The unit is seconds. Default value: 1800.
      *
      * @example
      * 1800
@@ -319,12 +319,20 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConf
     sessionIdleTimeoutSeconds?: number;
     /**
      * @remarks
-     * The maximum session lifetime in seconds. Default value: 21600.
+     * The unit is seconds. Default value: 21600.
      *
      * @example
      * 21600
      */
     sessionMaxLifetimeSeconds?: number;
+    /**
+     * @remarks
+     * Applicable only to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute (FC) session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP themselves.
+     *
+     * @example
+     * STATEFUL
+     */
+    sessionMode?: string;
     static names(): {
         [key: string]: string;
     };
@@ -352,7 +360,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConf
     mountDir?: string;
     /**
      * @remarks
-     * The NAS server address.
+     * The NAS service address.
      *
      * @example
      * example.cn-hangzhou.nas.aliyuncs.com
@@ -380,7 +388,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConf
     groupId?: number;
     /**
      * @remarks
-     * The list of NAS mount targets.
+     * The list of NAS mount points.
      */
     mountPoints?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfigurationMountPoints[];
     /**
@@ -512,12 +520,12 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMoun
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParameterTransformConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable parameter transformation and result enhancement.
+     * Specifies whether parameter transformation and result enhancement are enabled.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * The reserved reference for the parameter transformation and result enhancement rule set.
+     * The reserved reference to the parameter transformation and result enhancement rule set.
      *
      * @example
      * rules-1
@@ -525,7 +533,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParamet
     ruleSetId?: string;
     /**
      * @remarks
-     * The transformation rule version.
+     * The version of the transformation rule.
      *
      * @example
      * 1.0
@@ -545,7 +553,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParamet
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigProxyConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable the MCP proxy.
+     * Specifies whether the MCP proxy is enabled.
      */
     enabled?: boolean;
     static names(): {
@@ -562,7 +570,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigProxyCo
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The CPU specification in cores. Default value: 0.25.
+     * The CPU specifications. Unit: cores. Default value: 0.25.
      *
      * @example
      * 0.25
@@ -570,7 +578,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntime
     cpu?: number;
     /**
      * @remarks
-     * The ephemeral disk size in MB. Valid values: 512 and 10240.
+     * The unit is MB. Valid values: 512 and 10240.
      *
      * @example
      * 512
@@ -585,7 +593,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntime
     };
     /**
      * @remarks
-     * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+     * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
      *
      * @example
      * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -601,7 +609,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntime
     instanceConcurrency?: number;
     /**
      * @remarks
-     * The memory size in MB. Default value: 512.
+     * The unit is MB. Default value: 512.
      *
      * @example
      * 512
@@ -617,7 +625,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntime
     port?: number;
     /**
      * @remarks
-     * The timeout period in seconds. Default value: 300.
+     * The unit is seconds. Default value: 300.
      *
      * @example
      * 300
@@ -637,12 +645,12 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntime
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfig extends $dara.Model {
     /**
      * @remarks
-     * The MCP entry point access control.
+     * The MCP entry access control.
      */
     accessControl?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessControl;
     /**
      * @remarks
-     * The Agent Identity configuration.
+     * The agent identity configuration.
      */
     agentIdentityConfiguration?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentIdentityConfiguration;
     /**
@@ -722,7 +730,7 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfig extend
 export declare class ConvertMcpToFreeEditResponseBodyDataMarketSource extends $dara.Model {
     /**
      * @remarks
-     * The MCP marketplace template ID.
+     * The ID of the MCP marketplace template.
      *
      * @example
      * market-1
@@ -801,7 +809,7 @@ export declare class ConvertMcpToFreeEditResponseBodyData extends $dara.Model {
     customTags?: string[];
     /**
      * @remarks
-     * The deployment configuration for the code-deployed MCP.
+     * The deployment configuration of the code-deployed MCP.
      */
     deploymentConfig?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfig;
     /**
@@ -809,7 +817,7 @@ export declare class ConvertMcpToFreeEditResponseBodyData extends $dara.Model {
      * The description of the MCP service.
      *
      * @example
-     * MCP service used to query knowledge bases
+     * MCP service used to query the knowledge base
      */
     description?: string;
     /**
@@ -830,7 +838,7 @@ export declare class ConvertMcpToFreeEditResponseBodyData extends $dara.Model {
     functionName?: string;
     /**
      * @remarks
-     * The MCP source marketplace template.
+     * The source marketplace template for the MCP.
      */
     marketSource?: ConvertMcpToFreeEditResponseBodyDataMarketSource;
     /**
@@ -867,7 +875,7 @@ export declare class ConvertMcpToFreeEditResponseBodyData extends $dara.Model {
     protocol?: string;
     /**
      * @remarks
-     * The MCP service status.
+     * The status of the MCP service.
      *
      * @example
      * READY
@@ -888,7 +896,7 @@ export declare class ConvertMcpToFreeEditResponseBodyData extends $dara.Model {
     template?: ConvertMcpToFreeEditResponseBodyDataTemplate;
     /**
      * @remarks
-     * The MCP type. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), and CODE_PACKAGE (code deployment).
+     * The MCP type, which can be DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), or CODE_PACKAGE (code deployment).
      *
      * @example
      * CODE_PACKAGE
@@ -942,7 +950,7 @@ export declare class ConvertMcpToFreeEditResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The request ID used to locate and troubleshoot the request.
+     * The request ID used to locate and troubleshoot requests.
      *
      * @example
      * request-123456

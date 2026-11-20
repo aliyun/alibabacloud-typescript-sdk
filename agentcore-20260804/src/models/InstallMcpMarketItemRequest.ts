@@ -45,7 +45,7 @@ export class InstallMcpMarketItemRequestBodyAuthDirectProxy extends $dara.Model 
 export class InstallMcpMarketItemRequestBodyAuthHttpToMcp extends $dara.Model {
   /**
    * @remarks
-   * The backend authentication credential.
+   * The credential for backend authentication.
    * 
    * @example
    * example-api-key
@@ -61,7 +61,7 @@ export class InstallMcpMarketItemRequestBodyAuthHttpToMcp extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the API key parameter.
+   * The parameter name of the API key.
    * 
    * @example
    * X-API-Key
@@ -77,7 +77,7 @@ export class InstallMcpMarketItemRequestBodyAuthHttpToMcp extends $dara.Model {
   position?: string;
   /**
    * @remarks
-   * The backend authentication type.
+   * The type of backend authentication.
    * 
    * @example
    * apiKey
@@ -175,7 +175,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigAccessControl extend
   enabled?: boolean;
   /**
    * @remarks
-   * The access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates authentication by using AgentCore credentials.
+   * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates authentication by using AgentCore credentials.
    * 
    * @example
    * CREDENTIAL
@@ -263,7 +263,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigAgentIdentityConfigu
 export class InstallMcpMarketItemRequestBodyDeploymentConfigCodeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create a code deployment after the presigned upload is completed. This parameter and CodePackageUrl are mutually exclusive.
+   * The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create a code deployment after a presigned upload is completed. This parameter and CodePackageUrl are mutually exclusive.
    * 
    * @example
    * upload-token
@@ -284,7 +284,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigCodeConfiguration ex
   command?: string[];
   /**
    * @remarks
-   * The runtime environment for the code package, such as python3.13, nodejs22, or java17.
+   * The code package runtime. Valid values: python3.13, nodejs22, and java17.
    * 
    * @example
    * python3.13
@@ -323,7 +323,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigCodeConfiguration ex
 export class InstallMcpMarketItemRequestBodyDeploymentConfigContainerConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACR instance.
+   * The ACR instance ID.
    * 
    * @example
    * cri-example
@@ -336,12 +336,12 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigContainerConfigurati
   command?: string[];
   /**
    * @remarks
-   * The entrypoint arguments for the container.
+   * The container entrypoint arguments.
    */
   entrypoint?: string[];
   /**
    * @remarks
-   * The URL of the container image.
+   * The container image URL.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/example/mcp:1.0.0
@@ -349,7 +349,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigContainerConfigurati
   image?: string;
   /**
    * @remarks
-   * The type of the image repository.
+   * The image repository type.
    * 
    * @example
    * ACR
@@ -357,7 +357,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigContainerConfigurati
   imageRegistryType?: string;
   /**
    * @remarks
-   * The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Set this parameter to SELF_HOSTED.
+   * The MCP runtime mode. Custom containers must expose standard MCP by themselves. Set the value to SELF_HOSTED.
    * 
    * @example
    * SELF_HOSTED
@@ -365,7 +365,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigContainerConfigurati
   mcpRuntimeMode?: string;
   /**
    * @remarks
-   * The container source type. Currently, this parameter is fixed to CONTAINER_IMAGE.
+   * The container source type. Currently fixed to CONTAINER_IMAGE.
    * 
    * @example
    * CONTAINER_IMAGE
@@ -447,7 +447,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigHookConfigurationHoo
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The timeout period of the hook, in milliseconds.
+   * The timeout in milliseconds.
    * 
    * @example
    * 3000
@@ -500,7 +500,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigHookConfigurationHoo
 export class InstallMcpMarketItemRequestBodyDeploymentConfigHookConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ordered list of hooks. The system executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+   * The ordered list of hooks. The PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks are executed in the sequence of the array.
    */
   hooks?: InstallMcpMarketItemRequestBodyDeploymentConfigHookConfigurationHooks[];
   static names(): { [key: string]: string } {
@@ -540,7 +540,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigLogConfiguration ext
   enableRequestMetrics?: boolean;
   /**
    * @remarks
-   * The start rule for Function Compute log splitting.
+   * The start rule for splitting Function Compute logs.
    * 
    * @example
    * DefaultRegex
@@ -602,7 +602,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigMcpConfiguration ext
   endpointPath?: string;
   /**
    * @remarks
-   * The number of concurrent sessions per instance. Currently, this parameter is fixed to 1.
+   * The session concurrency per instance. Currently fixed to 1.
    * 
    * @example
    * 1
@@ -610,7 +610,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigMcpConfiguration ext
   sessionConcurrencyPerInstance?: number;
   /**
    * @remarks
-   * The session idle timeout period. Unit: seconds. Default value: 1800.
+   * The session idle timeout period in seconds. Default value: 1800.
    * 
    * @example
    * 1800
@@ -618,18 +618,27 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigMcpConfiguration ext
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The maximum session lifetime. Unit: seconds. Default value: 21600.
+   * The maximum session lifetime in seconds. Default value: 21600.
    * 
    * @example
    * 21600
    */
   sessionMaxLifetimeSeconds?: number;
+  /**
+   * @remarks
+   * The session mode. This parameter applies only to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP by themselves.
+   * 
+   * @example
+   * STATEFUL
+   */
+  sessionMode?: string;
   static names(): { [key: string]: string } {
     return {
       endpointPath: 'endpointPath',
       sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
       sessionMaxLifetimeSeconds: 'sessionMaxLifetimeSeconds',
+      sessionMode: 'sessionMode',
     };
   }
 
@@ -639,6 +648,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigMcpConfiguration ext
       sessionConcurrencyPerInstance: 'number',
       sessionIdleTimeoutSeconds: 'number',
       sessionMaxLifetimeSeconds: 'number',
+      sessionMode: 'string',
     };
   }
 
@@ -701,7 +711,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigNasConfigurationMoun
 export class InstallMcpMarketItemRequestBodyDeploymentConfigNasConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The group ID.
+   * The user group ID.
    * 
    * @example
    * 1000
@@ -709,7 +719,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigNasConfiguration ext
   groupId?: number;
   /**
    * @remarks
-   * The list of NAS mount points.
+   * The NAS mount points.
    */
   mountPoints?: InstallMcpMarketItemRequestBodyDeploymentConfigNasConfigurationMountPoints[];
   /**
@@ -767,7 +777,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigNetworkConfiguration
   securityGroupId?: string;
   /**
    * @remarks
-   * The list of vSwitch IDs.
+   * The vSwitch IDs.
    */
   vSwitchIds?: string[];
   /**
@@ -878,7 +888,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigOssMountConfiguratio
 export class InstallMcpMarketItemRequestBodyDeploymentConfigOssMountConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of OSS mount points.
+   * The OSS mount points.
    */
   mountPoints?: InstallMcpMarketItemRequestBodyDeploymentConfigOssMountConfigurationMountPoints[];
   static names(): { [key: string]: string } {
@@ -913,7 +923,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigParameterTransformCo
   enabled?: boolean;
   /**
    * @remarks
-   * The reserved reference for the parameter transformation and result enhancement rule set.
+   * The reserved reference to the parameter transformation and result enhancement rule set.
    * 
    * @example
    * rules-1
@@ -982,7 +992,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigProxyConfiguration e
 export class InstallMcpMarketItemRequestBodyDeploymentConfigRuntimeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The CPU specifications. Unit: cores. Default value: 0.25.
+   * The CPU specification in cores. Default value: 0.25.
    * 
    * @example
    * 0.25
@@ -990,7 +1000,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigRuntimeConfiguration
   cpu?: number;
   /**
    * @remarks
-   * The size of the temporary disk. Unit: MB. Valid values: 512 and 10240.
+   * The ephemeral disk size in MB. Valid values: 512 and 10240.
    * 
    * @example
    * 512
@@ -1011,7 +1021,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigRuntimeConfiguration
   executionRoleArn?: string;
   /**
    * @remarks
-   * The number of concurrent requests per instance. Default value: 200.
+   * The request concurrency per instance. Default value: 200.
    * 
    * @example
    * 200
@@ -1019,7 +1029,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigRuntimeConfiguration
   instanceConcurrency?: number;
   /**
    * @remarks
-   * The memory specifications. Unit: MB. Default value: 512.
+   * The memory specification in MB. Default value: 512.
    * 
    * @example
    * 512
@@ -1035,7 +1045,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigRuntimeConfiguration
   port?: number;
   /**
    * @remarks
-   * The function timeout period. Unit: seconds. Default value: 300.
+   * The function timeout period in seconds. Default value: 300.
    * 
    * @example
    * 300
@@ -1082,7 +1092,7 @@ export class InstallMcpMarketItemRequestBodyDeploymentConfigRuntimeConfiguration
 export class InstallMcpMarketItemRequestBodyDeploymentConfig extends $dara.Model {
   /**
    * @remarks
-   * The MCP ingress access control configuration.
+   * The MCP ingress access control.
    */
   accessControl?: InstallMcpMarketItemRequestBodyDeploymentConfigAccessControl;
   /**
@@ -1247,12 +1257,12 @@ export class InstallMcpMarketItemRequestBody extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The MCP authentication configuration.
+   * The authentication configuration for the MCP service.
    */
   auth?: InstallMcpMarketItemRequestBodyAuth;
   /**
    * @remarks
-   * The custom tags. Multiple tags are supported. These tags are merged and deduplicated with the fixed tags of the template.
+   * The custom tags. Multiple tags are supported, and they are merged and deduplicated with the fixed tags of the template.
    */
   customTags?: string[];
   /**
@@ -1294,7 +1304,7 @@ export class InstallMcpMarketItemRequestBody extends $dara.Model {
   swaggerConfig?: string;
   /**
    * @remarks
-   * The MCP type. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), and CODE_PACKAGE (code deployment).
+   * The type of the MCP service. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), and CODE_PACKAGE (code deployment).
    * 
    * @example
    * CODE_PACKAGE
@@ -1352,12 +1362,12 @@ export class InstallMcpMarketItemRequestBody extends $dara.Model {
 export class InstallMcpMarketItemRequest extends $dara.Model {
   /**
    * @remarks
-   * The MCP configuration submitted when installing the template. The configuration must conform to the input schema of the template.
+   * The MCP configuration submitted when installing the template. The configuration must comply with the input schema of the template.
    */
   body?: InstallMcpMarketItemRequestBody;
   /**
    * @remarks
-   * The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring original results based on this identifier.
+   * The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoration of original processing results based on this identifier.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -1365,7 +1375,7 @@ export class InstallMcpMarketItemRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The template version to be installed. You can call GetMcpMarketItem to query available versions.
+   * The version of the template to install. You can call GetMcpMarketItem to query available versions.
    * 
    * This parameter is required.
    * 

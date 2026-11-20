@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListMcpsRequest extends $dara.Model {
     /**
      * @remarks
-     * The custom tag used for filtering. An exact match is required.
+     * The custom tags used to filter results. An exact match is required.
      *
      * @example
      * Knowledge base
@@ -10,7 +10,7 @@ export declare class ListMcpsRequest extends $dara.Model {
     customTag?: string;
     /**
      * @remarks
-     * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
+     * The maximum number of entries to return per page.
      *
      * @example
      * 20
@@ -34,7 +34,7 @@ export declare class ListMcpsRequest extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The official usage tag used for filtering.
+     * The official usage tags used to filter results.
      *
      * @example
      * KNOWLEDGE_BASE
@@ -42,7 +42,7 @@ export declare class ListMcpsRequest extends $dara.Model {
     officialTag?: string;
     /**
      * @remarks
-     * The name match type. This parameter takes effect only when Name is specified. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
+     * The name matching mode. This parameter takes effect only when Name is specified. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
      *
      * @example
      * blur

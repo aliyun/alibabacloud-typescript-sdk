@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListMcpsResponseBodyItemsAuthCodePackage extends $dara.Model {
     /**
      * @remarks
-     * The API Key used to verify the MCP caller.
+     * The API key used to verify the MCP caller.
      *
      * @example
      * example-api-key
@@ -10,7 +10,7 @@ export declare class ListMcpsResponseBodyItemsAuthCodePackage extends $dara.Mode
     apiKey?: string;
     /**
      * @remarks
-     * The name of the request header that carries the API Key.
+     * The name of the request header that carries the API key.
      *
      * @example
      * X-API-Key
@@ -110,7 +110,7 @@ export declare class ListMcpsResponseBodyItemsAuthHttpToMcp extends $dara.Model 
 export declare class ListMcpsResponseBodyItemsAuth extends $dara.Model {
     /**
      * @remarks
-     * The caller API Key authentication configuration for the code deployment MCP.
+     * The caller API key authentication configuration for the code deployment MCP.
      */
     codePackage?: ListMcpsResponseBodyItemsAuthCodePackage;
     /**
@@ -142,7 +142,7 @@ export declare class ListMcpsResponseBodyItemsAuth extends $dara.Model {
 export declare class ListMcpsResponseBodyItemsDeploymentConfigAccessControl extends $dara.Model {
     /**
      * @remarks
-     * The ID of the AgentCore credential referenced when the mode is set to CREDENTIAL.
+     * The ID of the access credential. This parameter references an AgentCore credential when the mode is set to CREDENTIAL.
      *
      * @example
      * credential-id
@@ -150,12 +150,12 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigAccessControl exte
     credentialId?: string;
     /**
      * @remarks
-     * Specifies whether to enable entry access control.
+     * Specifies whether entry access control is enabled.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates access by using AgentCore credentials.
+     * The access control mode. A value of ANONYMOUS indicates anonymous access. A value of CREDENTIAL indicates that AgentCore access credentials are used.
      *
      * @example
      * CREDENTIAL
@@ -175,7 +175,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigAccessControl exte
 export declare class ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether authorization is enabled.
+     * Indicates whether authorization is enabled.
      */
     authorizationEnabled?: boolean;
     /**
@@ -196,7 +196,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfi
     credentialProviderType?: string;
     /**
      * @remarks
-     * Specifies whether agent identity is enabled.
+     * Specifies whether Agent identity is enabled.
      */
     enabled?: boolean;
     static names(): {
@@ -213,7 +213,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfi
 export declare class ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create or update a code deployment after a presigned upload is completed.
+     * The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create or update a code deployment after the presigned upload is completed.
      *
      * @example
      * upload-token
@@ -226,7 +226,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration 
     command?: string[];
     /**
      * @remarks
-     * The code package runtime. Valid values: python3.13, nodejs22, or java17.
+     * The code package runtime. Valid values: python3.13, nodejs22, and java17.
      *
      * @example
      * python3.13
@@ -280,7 +280,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigura
     imageRegistryType?: string;
     /**
      * @remarks
-     * The MCP runtime mode. Custom containers currently must expose the standard MCP themselves. The value is SELF_HOSTED.
+     * Custom containers must currently expose the standard MCP themselves. Valid value: SELF_HOSTED.
      *
      * @example
      * SELF_HOSTED
@@ -288,7 +288,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigura
     mcpRuntimeMode?: string;
     /**
      * @remarks
-     * The container source type. Currently fixed to CONTAINER_IMAGE.
+     * Currently fixed to CONTAINER_IMAGE.
      *
      * @example
      * CONTAINER_IMAGE
@@ -319,12 +319,12 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationH
      * The description of the hook.
      *
      * @example
-     * Record MCP tool invoke
+     * Record MCP tool invocation
      */
     description?: string;
     /**
      * @remarks
-     * Specifies whether to enable the hook.
+     * Specifies whether the hook is enabled.
      */
     enabled?: boolean;
     /**
@@ -337,7 +337,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationH
     event?: string;
     /**
      * @remarks
-     * The hook request headers.
+     * The request headers of the hook.
      */
     headers?: {
         [key: string]: string;
@@ -372,7 +372,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationH
 export declare class ListMcpsResponseBodyItemsDeploymentConfigHookConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+     * The ordered list of hooks. The PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks are executed in the order of the array.
      */
     hooks?: ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks[];
     static names(): {
@@ -389,7 +389,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigHookConfiguration 
 export declare class ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to collect instance metrics.
+     * Specifies whether instance metrics are collected.
      */
     enableInstanceMetrics?: boolean;
     /**
@@ -399,7 +399,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration e
     enableRequestMetrics?: boolean;
     /**
      * @remarks
-     * The start rule for Function Compute log splitting.
+     * The start rule for splitting Function Compute logs.
      *
      * @example
      * DefaultRegex
@@ -443,7 +443,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration e
     endpointPath?: string;
     /**
      * @remarks
-     * The session concurrency per instance. Currently fixed to 1.
+     * Currently fixed to 1.
      *
      * @example
      * 1
@@ -465,6 +465,14 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration e
      * 21600
      */
     sessionMaxLifetimeSeconds?: number;
+    /**
+     * @remarks
+     * Applicable only to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP themselves.
+     *
+     * @example
+     * STATEFUL
+     */
+    sessionMode?: string;
     static names(): {
         [key: string]: string;
     };
@@ -479,7 +487,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration e
 export declare class ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable TLS.
+     * Specifies whether TLS is enabled.
      */
     enableTls?: boolean;
     /**
@@ -492,7 +500,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMo
     mountDir?: string;
     /**
      * @remarks
-     * The NAS server address.
+     * The NAS service address.
      *
      * @example
      * example.cn-hangzhou.nas.aliyuncs.com
@@ -512,7 +520,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMo
 export declare class ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The user group ID.
+     * The runtime user group ID.
      *
      * @example
      * 1000
@@ -525,7 +533,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration e
     mountPoints?: ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints[];
     /**
      * @remarks
-     * The user ID.
+     * The runtime user ID.
      *
      * @example
      * 1000
@@ -594,7 +602,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurat
     bucketName?: string;
     /**
      * @remarks
-     * The path in the OSS bucket.
+     * The path of the OSS bucket.
      *
      * @example
      * /data
@@ -602,7 +610,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurat
     bucketPath?: string;
     /**
      * @remarks
-     * The endpoint of the OSS service.
+     * The OSS service endpoint.
      *
      * @example
      * https://oss-cn-hangzhou.aliyuncs.com
@@ -657,7 +665,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigParameterTransform
     enabled?: boolean;
     /**
      * @remarks
-     * The reserved reference to the parameter transformation and result enhancement rule set.
+     * The reference to the reserved parameter transformation and result enhancement rule set.
      *
      * @example
      * rules-1
@@ -665,7 +673,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigParameterTransform
     ruleSetId?: string;
     /**
      * @remarks
-     * The transformation rule version.
+     * The version of the transformation rule.
      *
      * @example
      * 1.0
@@ -685,7 +693,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigParameterTransform
 export declare class ListMcpsResponseBodyItemsDeploymentConfigProxyConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable the MCP proxy.
+     * Specifies whether the MCP proxy is enabled.
      */
     enabled?: boolean;
     static names(): {
@@ -702,7 +710,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigProxyConfiguration
 export declare class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The CPU specifications in cores. Default value: 0.25.
+     * The CPU size in cores. Default value: 0.25.
      *
      * @example
      * 0.25
@@ -710,7 +718,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfigurati
     cpu?: number;
     /**
      * @remarks
-     * The temporary disk size in MB. Valid values: 512 or 10240.
+     * The ephemeral disk size in MB. Valid values: 512 and 10240.
      *
      * @example
      * 512
@@ -725,7 +733,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfigurati
     };
     /**
      * @remarks
-     * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+     * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
      *
      * @example
      * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -733,7 +741,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfigurati
     executionRoleArn?: string;
     /**
      * @remarks
-     * The request concurrency per instance. Default value: 200.
+     * Default value: 200.
      *
      * @example
      * 200
@@ -741,7 +749,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfigurati
     instanceConcurrency?: number;
     /**
      * @remarks
-     * The memory specifications in MB. Default value: 512.
+     * The memory size in MB. Default value: 512.
      *
      * @example
      * 512
@@ -749,7 +757,7 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfigurati
     memory?: number;
     /**
      * @remarks
-     * The service port. Default value: 9000.
+     * Default value: 9000.
      *
      * @example
      * 9000
@@ -782,12 +790,14 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfig extends $dara.Mod
     accessControl?: ListMcpsResponseBodyItemsDeploymentConfigAccessControl;
     /**
      * @remarks
-     * The agent identity configuration.
+     * The Agent identity configuration.
      */
     agentIdentityConfiguration?: ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfiguration;
     /**
      * @remarks
-     * The artifact type. Code indicates a ZIP code package, and Container indicates a custom container.
+     * The artifact type. Valid values:
+     * - Code: ZIP code package.
+     * - Container: Custom container.
      *
      * @example
      * Code
@@ -879,6 +889,270 @@ export declare class ListMcpsResponseBodyItemsMarketSource extends $dara.Model {
         [key: string]: any;
     });
 }
+export declare class ListMcpsResponseBodyItemsOperationError extends $dara.Model {
+    /**
+     * @remarks
+     * The diagnostic error code. Only bounded diagnostic codes are returned. The original error body from the origin server is not returned.
+     *
+     * @example
+     * PROBE_TIMEOUT
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The necessary diagnostics after trimming and desensitization. Credentials and original responses are not included.
+     *
+     * @example
+     * The probe deadline was exceeded.
+     */
+    message?: string;
+    /**
+     * @remarks
+     * Specifies whether the operation is suitable for retry based on a restricted policy. This field does not trigger automatic retries.
+     */
+    retryable?: boolean;
+    /**
+     * @remarks
+     * The error source. Valid values: MAGIC, ROUTER, NETWORK, ORIGIN, and UNKNOWN. The value is determined only based on actual evidence.
+     *
+     * @example
+     * UNKNOWN
+     */
+    source?: string;
+    /**
+     * @remarks
+     * The detection or publish stage where the error occurred.
+     *
+     * @example
+     * INITIALIZE
+     */
+    stage?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsOperation extends $dara.Model {
+    /**
+     * @remarks
+     * The desensitized error of the current publish operation. Gateway or formal link failures after the origin server passes the probe are represented by this field.
+     */
+    error?: ListMcpsResponseBodyItemsOperationError;
+    /**
+     * @remarks
+     * The identifier of the current or most recent publish operation.
+     *
+     * @example
+     * 3541f1af-87cc-45d1-a28e-94ec5633b931
+     */
+    operationId?: string;
+    /**
+     * @remarks
+     * The publish stage. Valid values: compute deployment, origin probe, summary save, gateway publish, entry credential synchronization, formal link verification, and deployment submission. Legacy tasks retain their original stage semantics.
+     *
+     * @example
+     * VALIDATE_ORIGIN
+     */
+    stage?: string;
+    /**
+     * @remarks
+     * The operation status. Valid values: PENDING, RUNNING, SUCCEEDED, and FAILED.
+     *
+     * @example
+     * RUNNING
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The operation type. Valid value: PUBLISH.
+     *
+     * @example
+     * PUBLISH
+     */
+    type?: string;
+    /**
+     * @remarks
+     * The time when the operation was updated, in ISO 8601 UTC format.
+     *
+     * @example
+     * 2026-11-19T08:30:00Z
+     */
+    updatedAt?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration extends $dara.Model {
+    /**
+     * @remarks
+     * The verified backend MCP protocol policy. Valid values: legacy and modern. This field is empty if the policy is not confirmed.
+     *
+     * @example
+     * modern
+     */
+    backendMcpProtocol?: string;
+    /**
+     * @remarks
+     * The verified MCP transport. Valid values: SSE and StreamableHTTP. This field is empty if the transport is not confirmed.
+     *
+     * @example
+     * StreamableHTTP
+     */
+    protocol?: string;
+    /**
+     * @remarks
+     * The actual negotiated or selected and verified date version of the MCP protocol. This field is empty if the version is not confirmed.
+     *
+     * @example
+     * 2025-03-26
+     */
+    protocolVersion?: string;
+    /**
+     * @remarks
+     * The actual session mode. Valid values: STATEFUL, STATELESS, and NOT_APPLICABLE. This field is empty if the mode is not confirmed.
+     *
+     * @example
+     * STATELESS
+     */
+    sessionMode?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsOriginProbeLastResultError extends $dara.Model {
+    /**
+     * @remarks
+     * The diagnostic error code. Only bounded diagnostic codes are returned. The original error body from the origin server is not returned.
+     *
+     * @example
+     * PROBE_TIMEOUT
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The necessary diagnostics after trimming and desensitization. Credentials and original responses are not included.
+     *
+     * @example
+     * The probe deadline was exceeded.
+     */
+    message?: string;
+    /**
+     * @remarks
+     * Specifies whether the operation is suitable for retry based on a restricted policy. This field does not trigger automatic retries.
+     */
+    retryable?: boolean;
+    /**
+     * @remarks
+     * The error source. Valid values: MAGIC, ROUTER, NETWORK, ORIGIN, and UNKNOWN. The value is determined only based on actual evidence.
+     *
+     * @example
+     * UNKNOWN
+     */
+    source?: string;
+    /**
+     * @remarks
+     * The detection or publish stage where the error occurred.
+     *
+     * @example
+     * INITIALIZE
+     */
+    stage?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsOriginProbeLastResult extends $dara.Model {
+    /**
+     * @remarks
+     * The actual configuration confirmed by evidence in this probe. This field is empty if no confirmed information is available and is not inferred from the expected configuration.
+     */
+    actualConfiguration?: ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration;
+    /**
+     * @remarks
+     * The probe error. This field is empty if the probe is successful. It only stores desensitized diagnostics required for this probe.
+     */
+    error?: ListMcpsResponseBodyItemsOriginProbeLastResultError;
+    /**
+     * @remarks
+     * The time when the origin server was probed, in ISO 8601 UTC format.
+     *
+     * @example
+     * 2026-11-19T08:30:00Z
+     */
+    probedAt?: string;
+    /**
+     * @remarks
+     * The probe stage. Valid values: CONNECT, DISCOVER, INITIALIZE, SESSION_CHECK, CLEANUP, and COMPLETE.
+     *
+     * @example
+     * COMPLETE
+     */
+    stage?: string;
+    /**
+     * @remarks
+     * The probe result. Valid values:
+     * - SUCCESS: The protocol and applicable session checks passed. Undeclared capabilities do not affect the result.
+     * - FAILED: The checks failed.
+     *
+     * @example
+     * SUCCESS
+     */
+    status?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsOriginProbe extends $dara.Model {
+    /**
+     * @remarks
+     * Returned only for CODE_PACKAGE. This field is cleared when a new task starts and is empty if no verification has been performed or if the old task did not perform verification. If a subsequent release fails, the current summary is retained, which does not indicate real-time health or the active version status.
+     */
+    lastResult?: ListMcpsResponseBodyItemsOriginProbeLastResult;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class ListMcpsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
@@ -887,9 +1161,17 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     addresses?: string[];
     /**
      * @remarks
-     * The backend authentication configuration. The enabled field indicates whether the configuration is enabled. The directProxy field specifies the custom authentication header for the direct proxy. The httpToMcp field specifies the list of OpenAPI credentials for HTTP_TO_MCP.
+     * The backend authentication configuration. enabled specifies whether the configuration is enabled. directProxy specifies the custom authentication header for the direct proxy. httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
      */
     auth?: ListMcpsResponseBodyItemsAuth;
+    /**
+     * @remarks
+     * The saved legacy or modern backend policy, which is separate from the transport indicated by protocol and does not indicate verification. This field is not saved for newly created CODE_PACKAGE. For historical CODE_PACKAGE, the existing value does not control Function Compute session affinity or gateway protocol. For the actual protocol, refer to OriginProbe.LastResult.ActualConfiguration.BackendMcpProtocol. This field is returned as empty for historical unspecified values and HTTP_TO_MCP.
+     *
+     * @example
+     * modern
+     */
+    backendMcpProtocol?: string;
     /**
      * @remarks
      * The time when the MCP was created, in ISO 8601 UTC format.
@@ -905,7 +1187,7 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     customTags?: string[];
     /**
      * @remarks
-     * The deployment configuration for the code deployment MCP.
+     * The deployment configuration for code-deployed MCP.
      */
     deploymentConfig?: ListMcpsResponseBodyItemsDeploymentConfig;
     /**
@@ -913,12 +1195,12 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
      * The description.
      *
      * @example
-     * Sample description to illustrate the purpose of the resource
+     * A sample description that illustrates the purpose of the resource
      */
     description?: string;
     /**
      * @remarks
-     * The MCP endpoint that can be called by users or agents. This field is empty before deployment is complete.
+     * The MCP endpoint that can be called by users or agents. This field is empty before the deployment is completed.
      *
      * @example
      * https://example.com/mcp
@@ -926,7 +1208,7 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     endpoint?: string;
     /**
      * @remarks
-     * The Function Compute function name corresponding to the CODE_PACKAGE MCP. This field is empty before deployment is complete and for other types.
+     * The Function Compute function name for the CODE_PACKAGE MCP. This field is empty before deployment is complete and for other types.
      *
      * @example
      * agentcore-mcp-example
@@ -963,7 +1245,27 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     officialTag?: string;
     /**
      * @remarks
-     * PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+     * The read-only progress of the reused existing publish task. This field does not change the primary status of the resource and is empty if no historical operation information is available.
+     */
+    operation?: ListMcpsResponseBodyItemsOperation;
+    /**
+     * @remarks
+     * Only code deployment returns the minimal origin verification summary of the most recent task. This field is empty for direct proxy and HTTP to MCP, and queries do not trigger probing.
+     */
+    originProbe?: ListMcpsResponseBodyItemsOriginProbe;
+    /**
+     * @remarks
+     * The optional saved origin MCP protocol date display metadata, in YYYY-MM-DD format. You can specify this field during creation and modify it during updates. If omitted during an update, the current value is retained. This field only saves and displays information. It is not a software version, does not restrict the external gateway protocol, does not control backend requests, and does not indicate that real-time verification has passed. This field returns null and has no default value if it is omitted during creation and not updated, missing historically, or used for HTTP_TO_MCP.
+     *
+     * @example
+     * 2025-03-26
+     */
+    originProtocolVersion?: string;
+    /**
+     * @remarks
+     * The access permission mode. Valid values:
+     * - PUBLIC: Public access.
+     * - CONTROLLED: Access controlled based on permission rules.
      *
      * @example
      * CONTROLLED
@@ -1019,7 +1321,7 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     updatedAt?: string;
     /**
      * @remarks
-     * Specifies whether the MCP is still subject to the usage constraints of the official template.
+     * Indicates whether the MCP is still subject to the usage constraints of the official template.
      */
     usageActive?: boolean;
     static names(): {
@@ -1057,7 +1359,7 @@ export declare class ListMcpsResponseBody extends $dara.Model {
     items?: ListMcpsResponseBodyItems[];
     /**
      * @remarks
-     * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
+     * The maximum number of entries to return per page.
      *
      * @example
      * 20
@@ -1068,7 +1370,7 @@ export declare class ListMcpsResponseBody extends $dara.Model {
      * The response message.
      *
      * @example
-     * Request processed successfully
+     * The request is processed successfully
      */
     message?: string;
     /**

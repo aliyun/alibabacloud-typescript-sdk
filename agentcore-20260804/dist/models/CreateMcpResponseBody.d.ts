@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateMcpResponseBodyDataAuthCodePackage extends $dara.Model {
     /**
      * @remarks
-     * The API Key used to verify MCP callers.
+     * The API key used to verify MCP callers.
      *
      * @example
      * example-api-key
@@ -10,7 +10,7 @@ export declare class CreateMcpResponseBodyDataAuthCodePackage extends $dara.Mode
     apiKey?: string;
     /**
      * @remarks
-     * The name of the request header that carries the API Key.
+     * The name of the request header that carries the API key.
      *
      * @example
      * X-API-Key
@@ -82,7 +82,7 @@ export declare class CreateMcpResponseBodyDataAuthHttpToMcp extends $dara.Model 
     name?: string;
     /**
      * @remarks
-     * The location of the credential.
+     * The position of the credential.
      *
      * @example
      * header
@@ -110,7 +110,7 @@ export declare class CreateMcpResponseBodyDataAuthHttpToMcp extends $dara.Model 
 export declare class CreateMcpResponseBodyDataAuth extends $dara.Model {
     /**
      * @remarks
-     * The caller API Key authentication configuration for code-deployed MCP.
+     * The caller API key authentication configuration for code-deployed MCP.
      */
     codePackage?: CreateMcpResponseBodyDataAuthCodePackage;
     /**
@@ -150,12 +150,12 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigAccessControl exte
     credentialId?: string;
     /**
      * @remarks
-     * Specifies whether to enable entry access control.
+     * Specifies whether to enable ingress access control.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * The access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates authentication by using AgentCore access credentials.
+     * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates authentication by using AgentCore credentials.
      *
      * @example
      * CREDENTIAL
@@ -213,7 +213,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigAgentIdentityConfi
 export declare class CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The temporary code package token returned by GetMcpCodePackageUploadUrl, which is used to create or update a code deployment after a presigned upload is complete.
+     * The temporary code package token returned by GetMcpCodePackageUploadUrl. This token is used to create or update a code deployment after a presigned upload is completed.
      *
      * @example
      * upload-token
@@ -226,7 +226,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration 
     command?: string[];
     /**
      * @remarks
-     * The runtime of the code package. Valid values: python3.13, nodejs22, and java17.
+     * The code package runtime: python3.13, nodejs22, or java17.
      *
      * @example
      * python3.13
@@ -272,7 +272,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigContainerConfigura
     image?: string;
     /**
      * @remarks
-     * The image repository type.
+     * The image registry type.
      *
      * @example
      * ACR
@@ -280,7 +280,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigContainerConfigura
     imageRegistryType?: string;
     /**
      * @remarks
-     * Custom containers currently must expose the standard MCP themselves. Set the value to SELF_HOSTED.
+     * The MCP runtime mode. Custom containers currently need to expose standard MCP by themselves. Set the value to SELF_HOSTED.
      *
      * @example
      * SELF_HOSTED
@@ -288,7 +288,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigContainerConfigura
     mcpRuntimeMode?: string;
     /**
      * @remarks
-     * Currently fixed to CONTAINER_IMAGE.
+     * The container source type. Currently fixed to CONTAINER_IMAGE.
      *
      * @example
      * CONTAINER_IMAGE
@@ -344,7 +344,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigHookConfigurationH
     };
     /**
      * @remarks
-     * The timeout period of the hook, in milliseconds.
+     * The timeout period in milliseconds.
      *
      * @example
      * 3000
@@ -372,7 +372,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigHookConfigurationH
 export declare class CreateMcpResponseBodyDataDeploymentConfigHookConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
+     * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
      */
     hooks?: CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks[];
     static names(): {
@@ -399,7 +399,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigLogConfiguration e
     enableRequestMetrics?: boolean;
     /**
      * @remarks
-     * The start rule for FC log splitting.
+     * The start rule for log segmentation.
      *
      * @example
      * DefaultRegex
@@ -443,7 +443,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigMcpConfiguration e
     endpointPath?: string;
     /**
      * @remarks
-     * Currently fixed to 1.
+     * The session concurrency per instance. Currently fixed to 1.
      *
      * @example
      * 1
@@ -465,6 +465,14 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigMcpConfiguration e
      * 21600
      */
     sessionMaxLifetimeSeconds?: number;
+    /**
+     * @remarks
+     * The session mode. Only applicable to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP by themselves.
+     *
+     * @example
+     * STATEFUL
+     */
+    sessionMode?: string;
     static names(): {
         [key: string]: string;
     };
@@ -492,7 +500,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigNasConfigurationMo
     mountDir?: string;
     /**
      * @remarks
-     * The NAS service address.
+     * The NAS server address.
      *
      * @example
      * example.cn-hangzhou.nas.aliyuncs.com
@@ -512,7 +520,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigNasConfigurationMo
 export declare class CreateMcpResponseBodyDataDeploymentConfigNasConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The runtime user group ID.
+     * The ID of the user group.
      *
      * @example
      * 1000
@@ -525,7 +533,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigNasConfiguration e
     mountPoints?: CreateMcpResponseBodyDataDeploymentConfigNasConfigurationMountPoints[];
     /**
      * @remarks
-     * The runtime user ID.
+     * The user ID.
      *
      * @example
      * 1000
@@ -553,7 +561,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigNetworkConfigurati
     networkMode?: string;
     /**
      * @remarks
-     * The security group ID.
+     * The ID of the security group.
      *
      * @example
      * sg-example
@@ -566,7 +574,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigNetworkConfigurati
     vSwitchIds?: string[];
     /**
      * @remarks
-     * The VPC ID.
+     * The ID of the virtual private cloud (VPC).
      *
      * @example
      * vpc-example
@@ -602,7 +610,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigOssMountConfigurat
     bucketPath?: string;
     /**
      * @remarks
-     * The OSS service endpoint.
+     * The endpoint of the OSS service.
      *
      * @example
      * https://oss-cn-hangzhou.aliyuncs.com
@@ -657,7 +665,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigParameterTransform
     enabled?: boolean;
     /**
      * @remarks
-     * The reserved parameter transformation and result enhancement rule set reference.
+     * The reserved reference to the parameter transformation and result enhancement rule set.
      *
      * @example
      * rules-1
@@ -702,7 +710,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigProxyConfiguration
 export declare class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The CPU specification in cores. Default value: 0.25.
+     * The CPU specifications in cores. Default value: 0.25.
      *
      * @example
      * 0.25
@@ -710,7 +718,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfigurati
     cpu?: number;
     /**
      * @remarks
-     * The ephemeral disk size in MB. Valid values: 512 and 10240.
+     * The temporary disk size in MB. Valid values: 512 and 10240.
      *
      * @example
      * 512
@@ -733,7 +741,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfigurati
     executionRoleArn?: string;
     /**
      * @remarks
-     * Default value: 200.
+     * The request concurrency per instance. Default value: 200.
      *
      * @example
      * 200
@@ -741,7 +749,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfigurati
     instanceConcurrency?: number;
     /**
      * @remarks
-     * The memory specification in MB. Default value: 512.
+     * The memory specifications in MB. Default value: 512.
      *
      * @example
      * 512
@@ -749,7 +757,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfigurati
     memory?: number;
     /**
      * @remarks
-     * Default value: 9000.
+     * The service port. Default value: 9000.
      *
      * @example
      * 9000
@@ -777,7 +785,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfigurati
 export declare class CreateMcpResponseBodyDataDeploymentConfig extends $dara.Model {
     /**
      * @remarks
-     * The MCP entry access control.
+     * The MCP ingress access control configuration.
      */
     accessControl?: CreateMcpResponseBodyDataDeploymentConfigAccessControl;
     /**
@@ -862,7 +870,7 @@ export declare class CreateMcpResponseBodyDataDeploymentConfig extends $dara.Mod
 export declare class CreateMcpResponseBodyDataMarketSource extends $dara.Model {
     /**
      * @remarks
-     * The MCP marketplace template ID.
+     * The ID of the MCP marketplace template.
      *
      * @example
      * market-1
@@ -879,10 +887,272 @@ export declare class CreateMcpResponseBodyDataMarketSource extends $dara.Model {
         [key: string]: any;
     });
 }
+export declare class CreateMcpResponseBodyDataOperationError extends $dara.Model {
+    /**
+     * @remarks
+     * Returns only bounded diagnostic codes and does not return the original error body of the origin server.
+     *
+     * @example
+     * PROBE_TIMEOUT
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The necessary diagnostics that are trimmed and desensitized. This parameter does not contain credentials or original responses.
+     *
+     * @example
+     * The probe deadline was exceeded.
+     */
+    message?: string;
+    /**
+     * @remarks
+     * Specifies whether the operation is suitable for retry based on a restricted policy. This parameter does not trigger automatic retries.
+     */
+    retryable?: boolean;
+    /**
+     * @remarks
+     * The source of the error. Valid values: MAGIC, ROUTER, NETWORK, ORIGIN, and UNKNOWN. The value is determined only based on actual evidence.
+     *
+     * @example
+     * UNKNOWN
+     */
+    source?: string;
+    /**
+     * @remarks
+     * The detection or release stage where the error occurred.
+     *
+     * @example
+     * INITIALIZE
+     */
+    stage?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpResponseBodyDataOperation extends $dara.Model {
+    /**
+     * @remarks
+     * The desensitized error of the current release operation. This field indicates the failure of the gateway or formal link after the origin server passes the verification.
+     */
+    error?: CreateMcpResponseBodyDataOperationError;
+    /**
+     * @remarks
+     * The ID of the current or most recent release operation.
+     *
+     * @example
+     * 3541f1af-87cc-45d1-a28e-94ec5633b931
+     */
+    operationId?: string;
+    /**
+     * @remarks
+     * The release stage, such as compute deployment, origin verification, summary saving, gateway release, ingress credential synchronization, formal link verification, or deployment submission. Old tasks retain their original stage semantics.
+     *
+     * @example
+     * VALIDATE_ORIGIN
+     */
+    stage?: string;
+    /**
+     * @remarks
+     * The status of the operation. Valid values: PENDING, RUNNING, SUCCEEDED, and FAILED.
+     *
+     * @example
+     * RUNNING
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The type of the operation. Valid value: PUBLISH.
+     *
+     * @example
+     * PUBLISH
+     */
+    type?: string;
+    /**
+     * @remarks
+     * The time when the operation was updated in ISO 8601 UTC format.
+     *
+     * @example
+     * 2026-11-19T08:30:00Z
+     */
+    updatedAt?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpResponseBodyDataOriginProbeLastResultActualConfiguration extends $dara.Model {
+    /**
+     * @remarks
+     * The verified backend MCP protocol policy. Valid values: legacy and modern. This parameter is empty if the policy is not confirmed.
+     *
+     * @example
+     * modern
+     */
+    backendMcpProtocol?: string;
+    /**
+     * @remarks
+     * The verified MCP transport. Valid values: SSE and StreamableHTTP. This parameter is empty if the transport is not confirmed.
+     *
+     * @example
+     * StreamableHTTP
+     */
+    protocol?: string;
+    /**
+     * @remarks
+     * The actual negotiated or selected and verified date version of the MCP protocol. This parameter is empty if the version is not confirmed.
+     *
+     * @example
+     * 2025-03-26
+     */
+    protocolVersion?: string;
+    /**
+     * @remarks
+     * The actual session mode. Valid values: STATEFUL, STATELESS, and NOT_APPLICABLE. This parameter is empty if the mode is not confirmed.
+     *
+     * @example
+     * STATELESS
+     */
+    sessionMode?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpResponseBodyDataOriginProbeLastResultError extends $dara.Model {
+    /**
+     * @remarks
+     * Returns only bounded diagnostic codes and does not return the original error body of the origin server.
+     *
+     * @example
+     * PROBE_TIMEOUT
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The necessary diagnostics that are trimmed and desensitized. This parameter does not contain credentials or original responses.
+     *
+     * @example
+     * The probe deadline was exceeded.
+     */
+    message?: string;
+    /**
+     * @remarks
+     * Specifies whether the operation is suitable for retry based on a restricted policy. This parameter does not trigger automatic retries.
+     */
+    retryable?: boolean;
+    /**
+     * @remarks
+     * The source of the error. Valid values: MAGIC, ROUTER, NETWORK, ORIGIN, and UNKNOWN. The value is determined only based on actual evidence.
+     *
+     * @example
+     * UNKNOWN
+     */
+    source?: string;
+    /**
+     * @remarks
+     * The detection or release stage where the error occurred.
+     *
+     * @example
+     * INITIALIZE
+     */
+    stage?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpResponseBodyDataOriginProbeLastResult extends $dara.Model {
+    /**
+     * @remarks
+     * The actual configuration confirmed by evidence in the current verification. This parameter is empty if no confirmed information is available and is not inferred from the expected configuration.
+     */
+    actualConfiguration?: CreateMcpResponseBodyDataOriginProbeLastResultActualConfiguration;
+    /**
+     * @remarks
+     * The verification error. This parameter is empty if the verification is successful. It saves only the desensitized diagnostics required for the current verification.
+     */
+    error?: CreateMcpResponseBodyDataOriginProbeLastResultError;
+    /**
+     * @remarks
+     * The time of the current origin verification in ISO 8601 UTC format.
+     *
+     * @example
+     * 2026-11-19T08:30:00Z
+     */
+    probedAt?: string;
+    /**
+     * @remarks
+     * The verification stage. Valid values: CONNECT, DISCOVER, INITIALIZE, SESSION_CHECK, CLEANUP, and COMPLETE.
+     *
+     * @example
+     * COMPLETE
+     */
+    stage?: string;
+    /**
+     * @remarks
+     * The verification result. Valid values: SUCCESS and FAILED. The value is SUCCESS if the protocol and applicable session checks pass. Not declaring any capabilities does not affect the result.
+     *
+     * @example
+     * SUCCESS
+     */
+    status?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpResponseBodyDataOriginProbe extends $dara.Model {
+    /**
+     * @remarks
+     * Returned only for CODE_PACKAGE. This parameter is cleared when a new task starts and is empty if no verification has been performed or if an old task did not perform verification. If a subsequent release fails, the current summary is retained. This parameter does not indicate real-time health or the status of the effective version.
+     */
+    lastResult?: CreateMcpResponseBodyDataOriginProbeLastResult;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class CreateMcpResponseBodyDataTemplate extends $dara.Model {
     /**
      * @remarks
-     * The applied template version of the current MCP.
+     * The template version currently applied to the MCP.
      *
      * @example
      * 1.0.0
@@ -898,7 +1168,7 @@ export declare class CreateMcpResponseBodyDataTemplate extends $dara.Model {
     latestTemplateVersion?: string;
     /**
      * @remarks
-     * The template schema version.
+     * The schema version of the template.
      *
      * @example
      * 1.0
@@ -906,7 +1176,7 @@ export declare class CreateMcpResponseBodyDataTemplate extends $dara.Model {
     schemaVersion?: string;
     /**
      * @remarks
-     * The template input schema, represented as a JSON Schema string.
+     * The input schema of the template, represented as a JSON Schema string.
      *
      * @example
      * {"type":"object","properties":{"addresses":{"type":"array","items":{"type":"string"}}}}
@@ -914,7 +1184,7 @@ export declare class CreateMcpResponseBodyDataTemplate extends $dara.Model {
     templateInputSchema?: string;
     /**
      * @remarks
-     * Indicates whether an updated template version is available.
+     * Indicates whether a newer template version is available.
      */
     updateAvailable?: boolean;
     static names(): {
@@ -931,14 +1201,22 @@ export declare class CreateMcpResponseBodyDataTemplate extends $dara.Model {
 export declare class CreateMcpResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The list of MCP service addresses.
+     * The list of MCP service addresses. Required when Type is DIRECT_PROXY or HTTP_TO_MCP. Do not specify when Type is CODE_PACKAGE.
      */
     addresses?: string[];
     /**
      * @remarks
-     * The backend authentication configuration. The enabled field indicates whether authentication is enabled. The directProxy field specifies the custom authentication header for the direct proxy. The httpToMcp field specifies the list of OpenAPI credentials for HTTP_TO_MCP.
+     * The backend authentication configuration. enabled indicates whether it is enabled; directProxy specifies the custom authentication headers for direct proxy; httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
      */
     auth?: CreateMcpResponseBodyDataAuth;
+    /**
+     * @remarks
+     * The saved legacy or modern backend policy, which is separate from the transport indicated by protocol and does not indicate verification. This field is not saved for newly created CODE_PACKAGE. For historical CODE_PACKAGE, the existing value does not control Function Compute session affinity or gateway protocol; for the actual protocol, refer to OriginProbe.LastResult.ActualConfiguration.BackendMcpProtocol. This field is returned as empty for historically unspecified values and HTTP_TO_MCP.
+     *
+     * @example
+     * modern
+     */
+    backendMcpProtocol?: string;
     /**
      * @remarks
      * The custom tags. Multiple tags are supported.
@@ -946,7 +1224,7 @@ export declare class CreateMcpResponseBodyData extends $dara.Model {
     customTags?: string[];
     /**
      * @remarks
-     * The deployment configuration for the code deployment MCP.
+     * The deployment configuration of the code deployment MCP.
      */
     deploymentConfig?: CreateMcpResponseBodyDataDeploymentConfig;
     /**
@@ -959,7 +1237,7 @@ export declare class CreateMcpResponseBodyData extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The MCP endpoint available for users or agents to invoke. This field is empty before deployment is complete.
+     * The MCP endpoint that can be called by users or agents. This parameter is empty before the deployment is completed.
      *
      * @example
      * https://example.com/mcp
@@ -967,7 +1245,7 @@ export declare class CreateMcpResponseBodyData extends $dara.Model {
     endpoint?: string;
     /**
      * @remarks
-     * The Function Compute function name corresponding to the CODE_PACKAGE MCP. This field is empty before deployment is complete and for other types.
+     * The name of the Function Compute function corresponding to the CODE_PACKAGE MCP. This parameter is empty before the deployment is completed or for other types.
      *
      * @example
      * agentcore-mcp-example
@@ -975,7 +1253,7 @@ export declare class CreateMcpResponseBodyData extends $dara.Model {
     functionName?: string;
     /**
      * @remarks
-     * The MCP source marketplace template.
+     * The MCP marketplace source template.
      */
     marketSource?: CreateMcpResponseBodyDataMarketSource;
     /**
@@ -1012,7 +1290,25 @@ export declare class CreateMcpResponseBodyData extends $dara.Model {
     officialTag?: string;
     /**
      * @remarks
-     * PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+     * The read-only progress that reuses an existing release task. This parameter does not change the primary status of the resource and is empty if no historical operation information is available.
+     */
+    operation?: CreateMcpResponseBodyDataOperation;
+    /**
+     * @remarks
+     * Returns the minimal origin verification summary of the most recent task only for code deployment. This parameter is empty for direct connection and HTTP-to-MCP scenarios. Querying this parameter does not trigger probing.
+     */
+    originProbe?: CreateMcpResponseBodyDataOriginProbe;
+    /**
+     * @remarks
+     * The optional saved origin MCP protocol date display metadata in the YYYY-MM-DD format. You can specify this parameter when you create the resource and modify it when you update the resource. If you omit this parameter during an update, the current value is retained. This parameter is used only to save and display information. It does not represent a software version, restrict the external protocol of the gateway, control backend requests, or indicate that real-time verification is passed. If this parameter is omitted during creation and not updated, is missing in history, or is set to HTTP_TO_MCP, null is returned. No default value is provided.
+     *
+     * @example
+     * 2025-03-26
+     */
+    originProtocolVersion?: string;
+    /**
+     * @remarks
+     * The access permission mode. PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
      *
      * @example
      * CONTROLLED

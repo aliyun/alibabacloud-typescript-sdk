@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetMcpResponseBody = exports.GetMcpResponseBodyData = exports.GetMcpResponseBodyDataTemplate = exports.GetMcpResponseBodyDataMarketSource = exports.GetMcpResponseBodyDataDeploymentConfig = exports.GetMcpResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigProxyConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigOssMountConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.GetMcpResponseBodyDataDeploymentConfigNetworkConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigNasConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.GetMcpResponseBodyDataDeploymentConfigMcpConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigLogConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigHookConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.GetMcpResponseBodyDataDeploymentConfigContainerConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigCodeConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigAccessControl = exports.GetMcpResponseBodyDataAuth = exports.GetMcpResponseBodyDataAuthHttpToMcp = exports.GetMcpResponseBodyDataAuthDirectProxy = exports.GetMcpResponseBodyDataAuthCodePackage = void 0;
+exports.GetMcpResponseBody = exports.GetMcpResponseBodyData = exports.GetMcpResponseBodyDataTemplate = exports.GetMcpResponseBodyDataOriginProbe = exports.GetMcpResponseBodyDataOriginProbeLastResult = exports.GetMcpResponseBodyDataOriginProbeLastResultError = exports.GetMcpResponseBodyDataOriginProbeLastResultActualConfiguration = exports.GetMcpResponseBodyDataOperation = exports.GetMcpResponseBodyDataOperationError = exports.GetMcpResponseBodyDataMarketSource = exports.GetMcpResponseBodyDataDeploymentConfig = exports.GetMcpResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigProxyConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigOssMountConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.GetMcpResponseBodyDataDeploymentConfigNetworkConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigNasConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.GetMcpResponseBodyDataDeploymentConfigMcpConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigLogConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigHookConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.GetMcpResponseBodyDataDeploymentConfigContainerConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigCodeConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.GetMcpResponseBodyDataDeploymentConfigAccessControl = exports.GetMcpResponseBodyDataAuth = exports.GetMcpResponseBodyDataAuthHttpToMcp = exports.GetMcpResponseBodyDataAuthDirectProxy = exports.GetMcpResponseBodyDataAuthCodePackage = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class GetMcpResponseBodyDataAuthCodePackage extends $dara.Model {
@@ -330,6 +330,7 @@ class GetMcpResponseBodyDataDeploymentConfigMcpConfiguration extends $dara.Model
             sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
             sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
             sessionMaxLifetimeSeconds: 'sessionMaxLifetimeSeconds',
+            sessionMode: 'sessionMode',
         };
     }
     static types() {
@@ -338,6 +339,7 @@ class GetMcpResponseBodyDataDeploymentConfigMcpConfiguration extends $dara.Model
             sessionConcurrencyPerInstance: 'number',
             sessionIdleTimeoutSeconds: 'number',
             sessionMaxLifetimeSeconds: 'number',
+            sessionMode: 'string',
         };
     }
     validate() {
@@ -655,6 +657,172 @@ class GetMcpResponseBodyDataMarketSource extends $dara.Model {
     }
 }
 exports.GetMcpResponseBodyDataMarketSource = GetMcpResponseBodyDataMarketSource;
+class GetMcpResponseBodyDataOperationError extends $dara.Model {
+    static names() {
+        return {
+            code: 'code',
+            message: 'message',
+            retryable: 'retryable',
+            source: 'source',
+            stage: 'stage',
+        };
+    }
+    static types() {
+        return {
+            code: 'string',
+            message: 'string',
+            retryable: 'boolean',
+            source: 'string',
+            stage: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetMcpResponseBodyDataOperationError = GetMcpResponseBodyDataOperationError;
+class GetMcpResponseBodyDataOperation extends $dara.Model {
+    static names() {
+        return {
+            error: 'error',
+            operationId: 'operationId',
+            stage: 'stage',
+            status: 'status',
+            type: 'type',
+            updatedAt: 'updatedAt',
+        };
+    }
+    static types() {
+        return {
+            error: GetMcpResponseBodyDataOperationError,
+            operationId: 'string',
+            stage: 'string',
+            status: 'string',
+            type: 'string',
+            updatedAt: 'string',
+        };
+    }
+    validate() {
+        if (this.error && typeof this.error.validate === 'function') {
+            this.error.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetMcpResponseBodyDataOperation = GetMcpResponseBodyDataOperation;
+class GetMcpResponseBodyDataOriginProbeLastResultActualConfiguration extends $dara.Model {
+    static names() {
+        return {
+            backendMcpProtocol: 'backendMcpProtocol',
+            protocol: 'protocol',
+            protocolVersion: 'protocolVersion',
+            sessionMode: 'sessionMode',
+        };
+    }
+    static types() {
+        return {
+            backendMcpProtocol: 'string',
+            protocol: 'string',
+            protocolVersion: 'string',
+            sessionMode: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetMcpResponseBodyDataOriginProbeLastResultActualConfiguration = GetMcpResponseBodyDataOriginProbeLastResultActualConfiguration;
+class GetMcpResponseBodyDataOriginProbeLastResultError extends $dara.Model {
+    static names() {
+        return {
+            code: 'code',
+            message: 'message',
+            retryable: 'retryable',
+            source: 'source',
+            stage: 'stage',
+        };
+    }
+    static types() {
+        return {
+            code: 'string',
+            message: 'string',
+            retryable: 'boolean',
+            source: 'string',
+            stage: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetMcpResponseBodyDataOriginProbeLastResultError = GetMcpResponseBodyDataOriginProbeLastResultError;
+class GetMcpResponseBodyDataOriginProbeLastResult extends $dara.Model {
+    static names() {
+        return {
+            actualConfiguration: 'actualConfiguration',
+            error: 'error',
+            probedAt: 'probedAt',
+            stage: 'stage',
+            status: 'status',
+        };
+    }
+    static types() {
+        return {
+            actualConfiguration: GetMcpResponseBodyDataOriginProbeLastResultActualConfiguration,
+            error: GetMcpResponseBodyDataOriginProbeLastResultError,
+            probedAt: 'string',
+            stage: 'string',
+            status: 'string',
+        };
+    }
+    validate() {
+        if (this.actualConfiguration && typeof this.actualConfiguration.validate === 'function') {
+            this.actualConfiguration.validate();
+        }
+        if (this.error && typeof this.error.validate === 'function') {
+            this.error.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetMcpResponseBodyDataOriginProbeLastResult = GetMcpResponseBodyDataOriginProbeLastResult;
+class GetMcpResponseBodyDataOriginProbe extends $dara.Model {
+    static names() {
+        return {
+            lastResult: 'lastResult',
+        };
+    }
+    static types() {
+        return {
+            lastResult: GetMcpResponseBodyDataOriginProbeLastResult,
+        };
+    }
+    validate() {
+        if (this.lastResult && typeof this.lastResult.validate === 'function') {
+            this.lastResult.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetMcpResponseBodyDataOriginProbe = GetMcpResponseBodyDataOriginProbe;
 class GetMcpResponseBodyDataTemplate extends $dara.Model {
     static names() {
         return {
@@ -687,6 +855,7 @@ class GetMcpResponseBodyData extends $dara.Model {
         return {
             addresses: 'addresses',
             auth: 'auth',
+            backendMcpProtocol: 'backendMcpProtocol',
             createdAt: 'createdAt',
             customTags: 'customTags',
             deploymentConfig: 'deploymentConfig',
@@ -698,6 +867,9 @@ class GetMcpResponseBodyData extends $dara.Model {
             mcpServerId: 'mcpServerId',
             name: 'name',
             officialTag: 'officialTag',
+            operation: 'operation',
+            originProbe: 'originProbe',
+            originProtocolVersion: 'originProtocolVersion',
             permissionMode: 'permissionMode',
             protocol: 'protocol',
             status: 'status',
@@ -714,6 +886,7 @@ class GetMcpResponseBodyData extends $dara.Model {
         return {
             addresses: { 'type': 'array', 'itemType': 'string' },
             auth: GetMcpResponseBodyDataAuth,
+            backendMcpProtocol: 'string',
             createdAt: 'string',
             customTags: { 'type': 'array', 'itemType': 'string' },
             deploymentConfig: GetMcpResponseBodyDataDeploymentConfig,
@@ -725,6 +898,9 @@ class GetMcpResponseBodyData extends $dara.Model {
             mcpServerId: 'string',
             name: 'string',
             officialTag: 'string',
+            operation: GetMcpResponseBodyDataOperation,
+            originProbe: GetMcpResponseBodyDataOriginProbe,
+            originProtocolVersion: 'string',
             permissionMode: 'string',
             protocol: 'string',
             status: 'string',
@@ -752,6 +928,12 @@ class GetMcpResponseBodyData extends $dara.Model {
         }
         if (this.marketSource && typeof this.marketSource.validate === 'function') {
             this.marketSource.validate();
+        }
+        if (this.operation && typeof this.operation.validate === 'function') {
+            this.operation.validate();
+        }
+        if (this.originProbe && typeof this.originProbe.validate === 'function') {
+            this.originProbe.validate();
         }
         if (this.template && typeof this.template.validate === 'function') {
             this.template.validate();

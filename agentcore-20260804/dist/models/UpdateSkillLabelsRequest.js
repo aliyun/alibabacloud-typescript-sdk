@@ -29,11 +29,13 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class UpdateSkillLabelsRequestBody extends $dara.Model {
     static names() {
         return {
+            labelDescriptions: 'labelDescriptions',
             labels: 'labels',
         };
     }
     static types() {
         return {
+            labelDescriptions: 'string',
             labels: 'string',
         };
     }

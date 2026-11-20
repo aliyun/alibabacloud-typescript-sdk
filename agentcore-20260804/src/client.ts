@@ -217,11 +217,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts an MCP service to free edit mode.
+   * Converts an MCP service to free-edit mode.
    * 
    * @remarks
-   * Converts an MCP service installed from a marketplace template to free edit mode to allow direct modification of the service configuration.
-   * After the conversion, the original source and tag information are retained, and the template editing restrictions are removed. The service no longer appears on the usage page associated with the template.
+   * Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
    * 
    * @param request - ConvertMcpToFreeEditRequest
    * @param headers - map
@@ -254,11 +253,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts an MCP service to free edit mode.
+   * Converts an MCP service to free-edit mode.
    * 
    * @remarks
-   * Converts an MCP service installed from a marketplace template to free edit mode to allow direct modification of the service configuration.
-   * After the conversion, the original source and tag information are retained, and the template editing restrictions are removed. The service no longer appears on the usage page associated with the template.
+   * Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
    * 
    * @param request - ConvertMcpToFreeEditRequest
    * @returns ConvertMcpToFreeEditResponse
@@ -1438,13 +1436,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call a query operation to verify whether the service is ready.
+   * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
    * 
    * @remarks
    * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-   * The creation process is asynchronous. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
-   * To deploy using a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the upload URL and upload the file. Then, fill the returned code package token into the deployment configuration.
-   * The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+   * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+   * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
+   * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
    * 
    * @param tmpReq - CreateMcpRequest
    * @param headers - map
@@ -1489,13 +1487,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call a query operation to verify whether the service is ready.
+   * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
    * 
    * @remarks
    * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-   * The creation process is asynchronous. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
-   * To deploy using a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the upload URL and upload the file. Then, fill the returned code package token into the deployment configuration.
-   * The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+   * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+   * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
+   * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
    * 
    * @param request - CreateMcpRequest
    * @returns CreateMcpResponse
@@ -7659,10 +7657,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+   * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
    * 
    * @remarks
-   * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+   * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
    * 
    * @param request - ListMcpsRequest
    * @param headers - map
@@ -7719,10 +7717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+   * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
    * 
    * @remarks
-   * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+   * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
    * 
    * @param request - ListMcpsRequest
    * @returns ListMcpsResponse
@@ -8221,10 +8219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+   * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
    * 
    * @remarks
-   * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+   * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
    * 
    * @param request - ListModelsRequest
    * @param headers - map
@@ -8269,10 +8267,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+   * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
    * 
    * @remarks
-   * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+   * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
    * 
    * @param request - ListModelsRequest
    * @returns ListModelsResponse
@@ -9280,6 +9278,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.prepareIdentityProviderSCIMWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Validates an MCP origin server.
+   * 
+   * @remarks
+   * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+   * 
+   * @param tmpReq - ProbeMcpOriginRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ProbeMcpOriginResponse
+   */
+  async probeMcpOriginWithOptions(workspaceId: string, tmpReq: $_model.ProbeMcpOriginRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ProbeMcpOriginResponse> {
+    tmpReq.validate();
+    let request = new $_model.ProbeMcpOriginShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ProbeMcpOrigin",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-origin-probes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ProbeMcpOriginResponse>(await this.callApi(params, req, runtime), new $_model.ProbeMcpOriginResponse({}));
+  }
+
+  /**
+   * Validates an MCP origin server.
+   * 
+   * @remarks
+   * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+   * 
+   * @param request - ProbeMcpOriginRequest
+   * @returns ProbeMcpOriginResponse
+   */
+  async probeMcpOrigin(workspaceId: string, request: $_model.ProbeMcpOriginRequest): Promise<$_model.ProbeMcpOriginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.probeMcpOriginWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -10872,7 +10927,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Updates the address, description, authentication, or Swagger configuration of an MCP service. The service type and protocol cannot be modified after creation.
-   * The update process is executed asynchronously. After submission, you can call the [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) operation to query the processing result. The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
+   * The update process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query the processing result. The clientToken parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
    * 
    * @param tmpReq - UpdateMcpRequest
    * @param headers - map
@@ -10921,7 +10976,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Updates the address, description, authentication, or Swagger configuration of an MCP service. The service type and protocol cannot be modified after creation.
-   * The update process is executed asynchronously. After submission, you can call the [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) operation to query the processing result. The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
+   * The update process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query the processing result. The clientToken parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
    * 
    * @param request - UpdateMcpRequest
    * @returns UpdateMcpResponse
@@ -10933,10 +10988,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the parameters of an MCP service based on a template.
+   * Updates the MCP parameters based on a template.
    * 
    * @remarks
-   * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service. This operation uses the same template version that was bound when the MCP service was created to update the parameters exposed by the schema, without upgrading the template version.
+   * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
+   * Updates the parameters exposed by the schema using the same template version bound during MCP creation, without upgrading the template version.
    * 
    * @param tmpReq - UpdateMcpTemplateConfigRequest
    * @param headers - map
@@ -10985,10 +11041,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the parameters of an MCP service based on a template.
+   * Updates the MCP parameters based on a template.
    * 
    * @remarks
-   * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service. This operation uses the same template version that was bound when the MCP service was created to update the parameters exposed by the schema, without upgrading the template version.
+   * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
+   * Updates the parameters exposed by the schema using the same template version bound during MCP creation, without upgrading the template version.
    * 
    * @param request - UpdateMcpTemplateConfigRequest
    * @returns UpdateMcpTemplateConfigResponse

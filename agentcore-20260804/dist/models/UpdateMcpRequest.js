@@ -330,6 +330,7 @@ class UpdateMcpRequestBodyDeploymentConfigMcpConfiguration extends $dara.Model {
             sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
             sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
             sessionMaxLifetimeSeconds: 'sessionMaxLifetimeSeconds',
+            sessionMode: 'sessionMode',
         };
     }
     static types() {
@@ -338,6 +339,7 @@ class UpdateMcpRequestBodyDeploymentConfigMcpConfiguration extends $dara.Model {
             sessionConcurrencyPerInstance: 'number',
             sessionIdleTimeoutSeconds: 'number',
             sessionMaxLifetimeSeconds: 'number',
+            sessionMode: 'string',
         };
     }
     validate() {
@@ -641,10 +643,13 @@ class UpdateMcpRequestBody extends $dara.Model {
         return {
             addresses: 'addresses',
             auth: 'auth',
+            backendMcpProtocol: 'backendMcpProtocol',
             customTags: 'customTags',
             deploymentConfig: 'deploymentConfig',
             description: 'description',
+            originProtocolVersion: 'originProtocolVersion',
             permissionMode: 'permissionMode',
+            protocol: 'protocol',
             swaggerConfig: 'swaggerConfig',
         };
     }
@@ -652,10 +657,13 @@ class UpdateMcpRequestBody extends $dara.Model {
         return {
             addresses: { 'type': 'array', 'itemType': 'string' },
             auth: UpdateMcpRequestBodyAuth,
+            backendMcpProtocol: 'string',
             customTags: { 'type': 'array', 'itemType': 'string' },
             deploymentConfig: UpdateMcpRequestBodyDeploymentConfig,
             description: 'string',
+            originProtocolVersion: 'string',
             permissionMode: 'string',
+            protocol: 'string',
             swaggerConfig: 'string',
         };
     }

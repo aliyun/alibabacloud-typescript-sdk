@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillLabelsRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The label descriptions.
+   * 
+   * @example
+   * {"stable":"prod environment usage"}
+   */
+  labelDescriptions?: string;
+  /**
+   * @remarks
    * The version label mapping JSON string.
    * 
    * This parameter is required.
@@ -15,12 +23,14 @@ export class UpdateSkillLabelsRequestBody extends $dara.Model {
   labels?: string;
   static names(): { [key: string]: string } {
     return {
+      labelDescriptions: 'labelDescriptions',
       labels: 'labels',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      labelDescriptions: 'string',
       labels: 'string',
     };
   }

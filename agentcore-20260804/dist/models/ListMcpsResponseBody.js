@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListMcpsResponseBody = exports.ListMcpsResponseBodyItems = exports.ListMcpsResponseBodyItemsMarketSource = exports.ListMcpsResponseBodyItemsDeploymentConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigProxyConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigParameterTransformConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigNetworkConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAccessControl = exports.ListMcpsResponseBodyItemsAuth = exports.ListMcpsResponseBodyItemsAuthHttpToMcp = exports.ListMcpsResponseBodyItemsAuthDirectProxy = exports.ListMcpsResponseBodyItemsAuthCodePackage = void 0;
+exports.ListMcpsResponseBody = exports.ListMcpsResponseBodyItems = exports.ListMcpsResponseBodyItemsOriginProbe = exports.ListMcpsResponseBodyItemsOriginProbeLastResult = exports.ListMcpsResponseBodyItemsOriginProbeLastResultError = exports.ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration = exports.ListMcpsResponseBodyItemsOperation = exports.ListMcpsResponseBodyItemsOperationError = exports.ListMcpsResponseBodyItemsMarketSource = exports.ListMcpsResponseBodyItemsDeploymentConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigProxyConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigParameterTransformConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigNetworkConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAccessControl = exports.ListMcpsResponseBodyItemsAuth = exports.ListMcpsResponseBodyItemsAuthHttpToMcp = exports.ListMcpsResponseBodyItemsAuthDirectProxy = exports.ListMcpsResponseBodyItemsAuthCodePackage = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class ListMcpsResponseBodyItemsAuthCodePackage extends $dara.Model {
@@ -330,6 +330,7 @@ class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $dara.Mo
             sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
             sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
             sessionMaxLifetimeSeconds: 'sessionMaxLifetimeSeconds',
+            sessionMode: 'sessionMode',
         };
     }
     static types() {
@@ -338,6 +339,7 @@ class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $dara.Mo
             sessionConcurrencyPerInstance: 'number',
             sessionIdleTimeoutSeconds: 'number',
             sessionMaxLifetimeSeconds: 'number',
+            sessionMode: 'string',
         };
     }
     validate() {
@@ -655,11 +657,178 @@ class ListMcpsResponseBodyItemsMarketSource extends $dara.Model {
     }
 }
 exports.ListMcpsResponseBodyItemsMarketSource = ListMcpsResponseBodyItemsMarketSource;
+class ListMcpsResponseBodyItemsOperationError extends $dara.Model {
+    static names() {
+        return {
+            code: 'code',
+            message: 'message',
+            retryable: 'retryable',
+            source: 'source',
+            stage: 'stage',
+        };
+    }
+    static types() {
+        return {
+            code: 'string',
+            message: 'string',
+            retryable: 'boolean',
+            source: 'string',
+            stage: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsOperationError = ListMcpsResponseBodyItemsOperationError;
+class ListMcpsResponseBodyItemsOperation extends $dara.Model {
+    static names() {
+        return {
+            error: 'error',
+            operationId: 'operationId',
+            stage: 'stage',
+            status: 'status',
+            type: 'type',
+            updatedAt: 'updatedAt',
+        };
+    }
+    static types() {
+        return {
+            error: ListMcpsResponseBodyItemsOperationError,
+            operationId: 'string',
+            stage: 'string',
+            status: 'string',
+            type: 'string',
+            updatedAt: 'string',
+        };
+    }
+    validate() {
+        if (this.error && typeof this.error.validate === 'function') {
+            this.error.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsOperation = ListMcpsResponseBodyItemsOperation;
+class ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration extends $dara.Model {
+    static names() {
+        return {
+            backendMcpProtocol: 'backendMcpProtocol',
+            protocol: 'protocol',
+            protocolVersion: 'protocolVersion',
+            sessionMode: 'sessionMode',
+        };
+    }
+    static types() {
+        return {
+            backendMcpProtocol: 'string',
+            protocol: 'string',
+            protocolVersion: 'string',
+            sessionMode: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration = ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration;
+class ListMcpsResponseBodyItemsOriginProbeLastResultError extends $dara.Model {
+    static names() {
+        return {
+            code: 'code',
+            message: 'message',
+            retryable: 'retryable',
+            source: 'source',
+            stage: 'stage',
+        };
+    }
+    static types() {
+        return {
+            code: 'string',
+            message: 'string',
+            retryable: 'boolean',
+            source: 'string',
+            stage: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsOriginProbeLastResultError = ListMcpsResponseBodyItemsOriginProbeLastResultError;
+class ListMcpsResponseBodyItemsOriginProbeLastResult extends $dara.Model {
+    static names() {
+        return {
+            actualConfiguration: 'actualConfiguration',
+            error: 'error',
+            probedAt: 'probedAt',
+            stage: 'stage',
+            status: 'status',
+        };
+    }
+    static types() {
+        return {
+            actualConfiguration: ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration,
+            error: ListMcpsResponseBodyItemsOriginProbeLastResultError,
+            probedAt: 'string',
+            stage: 'string',
+            status: 'string',
+        };
+    }
+    validate() {
+        if (this.actualConfiguration && typeof this.actualConfiguration.validate === 'function') {
+            this.actualConfiguration.validate();
+        }
+        if (this.error && typeof this.error.validate === 'function') {
+            this.error.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsOriginProbeLastResult = ListMcpsResponseBodyItemsOriginProbeLastResult;
+class ListMcpsResponseBodyItemsOriginProbe extends $dara.Model {
+    static names() {
+        return {
+            lastResult: 'lastResult',
+        };
+    }
+    static types() {
+        return {
+            lastResult: ListMcpsResponseBodyItemsOriginProbeLastResult,
+        };
+    }
+    validate() {
+        if (this.lastResult && typeof this.lastResult.validate === 'function') {
+            this.lastResult.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsOriginProbe = ListMcpsResponseBodyItemsOriginProbe;
 class ListMcpsResponseBodyItems extends $dara.Model {
     static names() {
         return {
             addresses: 'addresses',
             auth: 'auth',
+            backendMcpProtocol: 'backendMcpProtocol',
             createdAt: 'createdAt',
             customTags: 'customTags',
             deploymentConfig: 'deploymentConfig',
@@ -670,6 +839,9 @@ class ListMcpsResponseBodyItems extends $dara.Model {
             mcpServerId: 'mcpServerId',
             name: 'name',
             officialTag: 'officialTag',
+            operation: 'operation',
+            originProbe: 'originProbe',
+            originProtocolVersion: 'originProtocolVersion',
             permissionMode: 'permissionMode',
             protocol: 'protocol',
             status: 'status',
@@ -684,6 +856,7 @@ class ListMcpsResponseBodyItems extends $dara.Model {
         return {
             addresses: { 'type': 'array', 'itemType': 'string' },
             auth: ListMcpsResponseBodyItemsAuth,
+            backendMcpProtocol: 'string',
             createdAt: 'string',
             customTags: { 'type': 'array', 'itemType': 'string' },
             deploymentConfig: ListMcpsResponseBodyItemsDeploymentConfig,
@@ -694,6 +867,9 @@ class ListMcpsResponseBodyItems extends $dara.Model {
             mcpServerId: 'string',
             name: 'string',
             officialTag: 'string',
+            operation: ListMcpsResponseBodyItemsOperation,
+            originProbe: ListMcpsResponseBodyItemsOriginProbe,
+            originProtocolVersion: 'string',
             permissionMode: 'string',
             protocol: 'string',
             status: 'string',
@@ -719,6 +895,12 @@ class ListMcpsResponseBodyItems extends $dara.Model {
         }
         if (this.marketSource && typeof this.marketSource.validate === 'function') {
             this.marketSource.validate();
+        }
+        if (this.operation && typeof this.operation.validate === 'function') {
+            this.operation.validate();
+        }
+        if (this.originProbe && typeof this.originProbe.validate === 'function') {
+            this.originProbe.validate();
         }
         super.validate();
     }

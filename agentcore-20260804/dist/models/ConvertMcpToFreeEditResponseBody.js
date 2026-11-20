@@ -227,6 +227,7 @@ class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguration exten
             sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
             sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
             sessionMaxLifetimeSeconds: 'sessionMaxLifetimeSeconds',
+            sessionMode: 'sessionMode',
         };
     }
     static types() {
@@ -235,6 +236,7 @@ class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguration exten
             sessionConcurrencyPerInstance: 'number',
             sessionIdleTimeoutSeconds: 'number',
             sessionMaxLifetimeSeconds: 'number',
+            sessionMode: 'string',
         };
     }
     validate() {

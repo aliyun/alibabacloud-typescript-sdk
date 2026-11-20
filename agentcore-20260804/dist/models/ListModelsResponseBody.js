@@ -70,6 +70,7 @@ class ListModelsResponseBodyItems extends $dara.Model {
             maxTokens: 'maxTokens',
             modelId: 'modelId',
             modelName: 'modelName',
+            supportedThinkingLevels: 'supportedThinkingLevels',
             updatedAt: 'updatedAt',
             workspaceId: 'workspaceId',
         };
@@ -84,6 +85,7 @@ class ListModelsResponseBodyItems extends $dara.Model {
             maxTokens: 'number',
             modelId: 'string',
             modelName: 'string',
+            supportedThinkingLevels: { 'type': 'array', 'itemType': 'string' },
             updatedAt: 'string',
             workspaceId: 'string',
         };
@@ -91,6 +93,9 @@ class ListModelsResponseBodyItems extends $dara.Model {
     validate() {
         if (this.capabilities && typeof this.capabilities.validate === 'function') {
             this.capabilities.validate();
+        }
+        if (Array.isArray(this.supportedThinkingLevels)) {
+            $dara.Model.validateArray(this.supportedThinkingLevels);
         }
         super.validate();
     }

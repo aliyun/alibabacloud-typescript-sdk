@@ -5,42 +5,42 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelsResponseBodyItemsCapabilities extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the model supports audio input or output.
+   * Specifies whether the model supports audio input or output.
    */
   audio?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports document input.
+   * Specifies whether the model supports document input.
    */
   document?: boolean;
   /**
    * @remarks
-   * Specifies whether the model supports multiple tool calls in a single response.
+   * Specifies whether the model is able to invoke multiple tool calling operations in a single response.
    */
   multiToolCall?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports reasoning capabilities.
+   * Specifies whether the model supports reasoning capabilities.
    */
   reasoning?: boolean;
   /**
    * @remarks
-   * Specifies whether the model supports streaming tool calls.
+   * Specifies whether the model is able to invoke tool calling in a streaming manner.
    */
   streamToolCall?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports tool calling.
+   * Specifies whether the model supports tool calling.
    */
   toolCall?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports video input.
+   * Specifies whether the model supports video input.
    */
   video?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports image input.
+   * Specifies whether the model supports image input.
    */
   vision?: boolean;
   static names(): { [key: string]: string } {
@@ -102,7 +102,7 @@ export class ListModelsResponseBodyItems extends $dara.Model {
   contextSize?: number;
   /**
    * @remarks
-   * The time when the resource was created, in RFC 3339 UTC format.
+   * The time when the resource was created. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -110,7 +110,7 @@ export class ListModelsResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The model description, which can be up to 255 characters in length.
+   * The model description. The description can be up to 255 characters in length.
    * 
    * @example
    * description
@@ -142,7 +142,12 @@ export class ListModelsResponseBodyItems extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The time when the resource was last updated, in RFC 3339 UTC format.
+   * The explicit thinking levels supported by the model. An empty list indicates that only the default setting is supported. If this field is omitted, no level information is available.
+   */
+  supportedThinkingLevels?: string[];
+  /**
+   * @remarks
+   * The time when the resource was last updated. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -166,6 +171,7 @@ export class ListModelsResponseBodyItems extends $dara.Model {
       maxTokens: 'maxTokens',
       modelId: 'modelId',
       modelName: 'modelName',
+      supportedThinkingLevels: 'supportedThinkingLevels',
       updatedAt: 'updatedAt',
       workspaceId: 'workspaceId',
     };
@@ -181,6 +187,7 @@ export class ListModelsResponseBodyItems extends $dara.Model {
       maxTokens: 'number',
       modelId: 'string',
       modelName: 'string',
+      supportedThinkingLevels: { 'type': 'array', 'itemType': 'string' },
       updatedAt: 'string',
       workspaceId: 'string',
     };
@@ -189,6 +196,9 @@ export class ListModelsResponseBodyItems extends $dara.Model {
   validate() {
     if(this.capabilities && typeof (this.capabilities as any).validate === 'function') {
       (this.capabilities as any).validate();
+    }
+    if(Array.isArray(this.supportedThinkingLevels)) {
+      $dara.Model.validateArray(this.supportedThinkingLevels);
     }
     super.validate();
   }
@@ -201,7 +211,7 @@ export class ListModelsResponseBodyItems extends $dara.Model {
 export class ListModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of SUCCESS indicates success.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -209,7 +219,7 @@ export class ListModelsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates success.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -238,7 +248,7 @@ export class ListModelsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token. Specify the token returned from the previous query. An empty response indicates that no more pages are available.
+   * The pagination token. Pass the token returned by the previous query in the request. An empty value in the response indicates that no more pages are available.
    * 
    * @example
    * bW9kZWwtbWFuYWdlbWVudC1vZmZzZXQ6bW9kZWw6MTA

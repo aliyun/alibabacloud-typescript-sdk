@@ -306,6 +306,7 @@ class InstallMcpMarketItemRequestBodyDeploymentConfigMcpConfiguration extends $d
             sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
             sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
             sessionMaxLifetimeSeconds: 'sessionMaxLifetimeSeconds',
+            sessionMode: 'sessionMode',
         };
     }
     static types() {
@@ -314,6 +315,7 @@ class InstallMcpMarketItemRequestBodyDeploymentConfigMcpConfiguration extends $d
             sessionConcurrencyPerInstance: 'number',
             sessionIdleTimeoutSeconds: 'number',
             sessionMaxLifetimeSeconds: 'number',
+            sessionMode: 'string',
         };
     }
     validate() {

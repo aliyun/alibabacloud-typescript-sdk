@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * The author of the version.
+   * The version author.
    * 
    * @example
    * alice
@@ -29,7 +29,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   contentMd5?: string;
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp in milliseconds.
+   * The creation time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -40,7 +40,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description used to illustrate the purpose of the resource
+   * Sample description to illustrate the resource purpose
    */
   description?: string;
   /**
@@ -53,7 +53,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The release pipeline information.
+   * The publish pipeline information.
    * 
    * @example
    * {"status":"SUCCESS"}
@@ -69,7 +69,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time. The value is a UNIX timestamp in milliseconds.
+   * The update time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -77,7 +77,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The version number.
+   * The version number. A value of HEAD indicates a persistent draft, which should be displayed as a draft in the user interface.
    * 
    * @example
    * 1.0.0
@@ -136,7 +136,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description used to illustrate the purpose of the resource
+   * Sample description to illustrate the resource purpose
    */
   description?: string;
   /**
@@ -149,7 +149,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The draft pattern. A value of HEAD indicates that the skill has a persistent draft. A value of VERSIONED indicates that each edit creates a draft with a version number. This pattern is determined by the server, and the client uses it for routing What to do next when they invoke the API.
+   * The draft pattern. HEAD indicates that the skill has a persistent draft, and VERSIONED indicates that a draft with a version number is created for each edit. This is determined by the server, and clients invoke What to do next by routing based on this value.
    * 
    * @example
    * HEAD
@@ -162,7 +162,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   editable?: boolean;
   /**
    * @remarks
-   * The version being edited.
+   * The version being edited. The value is HEAD in HEAD draft mode.
    * 
    * @example
    * 1.0.0
@@ -183,7 +183,15 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The tag mapping.
+   * The label descriptions under the root data.
+   * 
+   * @example
+   * {"stable":"1.0.0"}
+   */
+  labelDescriptions?: { [key: string]: string };
+  /**
+   * @remarks
+   * The label mapping.
    */
   labels?: { [key: string]: string };
   /**
@@ -212,7 +220,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The version under review.
+   * The version under review. The value is HEAD in HEAD draft mode.
    * 
    * @example
    * 1.0.0
@@ -228,7 +236,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The update time. The value is a UNIX timestamp in milliseconds.
+   * The update time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -262,6 +270,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
       editingVersion: 'editingVersion',
       enable: 'enable',
       from: 'from',
+      labelDescriptions: 'labelDescriptions',
       labels: 'labels',
       name: 'name',
       onlineCnt: 'onlineCnt',
@@ -285,6 +294,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
       editingVersion: 'string',
       enable: 'boolean',
       from: 'string',
+      labelDescriptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       name: 'string',
       onlineCnt: 'number',
@@ -299,6 +309,9 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.labelDescriptions) {
+      $dara.Model.validateMap(this.labelDescriptions);
+    }
     if(this.labels) {
       $dara.Model.validateMap(this.labels);
     }

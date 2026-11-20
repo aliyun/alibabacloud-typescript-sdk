@@ -110,7 +110,7 @@ export declare class UpdateMcpRequestBodyAuthHttpToMcp extends $dara.Model {
 export declare class UpdateMcpRequestBodyAuth extends $dara.Model {
     /**
      * @remarks
-     * The caller API key authentication configuration for code-deployed MCP.
+     * The caller API key authentication configuration for a code-deployed MCP.
      */
     codePackage?: UpdateMcpRequestBodyAuthCodePackage;
     /**
@@ -150,12 +150,14 @@ export declare class UpdateMcpRequestBodyDeploymentConfigAccessControl extends $
     credentialId?: string;
     /**
      * @remarks
-     * Specifies whether to enable ingress access control.
+     * Specifies whether to enable entry access control.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates authentication by using AgentCore access credentials.
+     * The access control mode. Valid values:
+     * - ANONYMOUS: anonymous access
+     * - CREDENTIAL: AgentCore credential authentication
      *
      * @example
      * CREDENTIAL
@@ -175,7 +177,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigAccessControl extends $
 export declare class UpdateMcpRequestBodyDeploymentConfigAgentIdentityConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether authorization is enabled.
+     * Specifies whether to enable authorization.
      */
     authorizationEnabled?: boolean;
     /**
@@ -196,7 +198,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigAgentIdentityConfigurat
     credentialProviderType?: string;
     /**
      * @remarks
-     * Specifies whether agent identity is enabled.
+     * Specifies whether to enable agent identity.
      */
     enabled?: boolean;
     static names(): {
@@ -221,12 +223,12 @@ export declare class UpdateMcpRequestBodyDeploymentConfigCodeConfiguration exten
     codePackageToken?: string;
     /**
      * @remarks
-     * The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
+     * The complete startup command, passed sequentially as separate arguments. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
      */
     command?: string[];
     /**
      * @remarks
-     * The runtime of the code package. Valid values: python3.13, nodejs22, and java17.
+     * The code package runtime. Valid values: python3.13, nodejs22, or java17.
      *
      * @example
      * python3.13
@@ -259,7 +261,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigContainerConfiguration 
     command?: string[];
     /**
      * @remarks
-     * The container entrypoint parameters.
+     * The container entrypoint arguments.
      */
     entrypoint?: string[];
     /**
@@ -280,7 +282,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigContainerConfiguration 
     imageRegistryType?: string;
     /**
      * @remarks
-     * The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Set the value to SELF_HOSTED.
+     * The MCP runtime mode. Custom containers must currently expose standard MCP themselves. Set the value to SELF_HOSTED.
      *
      * @example
      * SELF_HOSTED
@@ -372,7 +374,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
 export declare class UpdateMcpRequestBodyDeploymentConfigHookConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The ordered list of hooks. The PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks are executed in the order of the array.
+     * The list of hooks executed in array order, including PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks.
      */
     hooks?: UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks[];
     static names(): {
@@ -465,6 +467,14 @@ export declare class UpdateMcpRequestBodyDeploymentConfigMcpConfiguration extend
      * 21600
      */
     sessionMaxLifetimeSeconds?: number;
+    /**
+     * @remarks
+     * The session mode. This parameter applies only to StreamableHTTP. Default value: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP themselves.
+     *
+     * @example
+     * STATEFUL
+     */
+    sessionMode?: string;
     static names(): {
         [key: string]: string;
     };
@@ -512,7 +522,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigNasConfigurationMountPo
 export declare class UpdateMcpRequestBodyDeploymentConfigNasConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The group ID.
+     * The user group ID.
      *
      * @example
      * 1000
@@ -652,7 +662,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigOssMountConfiguration e
 export declare class UpdateMcpRequestBodyDeploymentConfigParameterTransformConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether parameter transformation and result enhancement is enabled.
+     * Specifies whether to enable parameter transformation and result enhancement.
      */
     enabled?: boolean;
     /**
@@ -702,7 +712,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigProxyConfiguration exte
 export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The CPU specifications in cores. Default value: 0.25.
+     * The CPU specification in cores. Default value: 0.25.
      *
      * @example
      * 0.25
@@ -710,7 +720,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     cpu?: number;
     /**
      * @remarks
-     * The temporary disk size in MB. Valid values: 512 and 10240.
+     * The ephemeral disk size in MB. Valid values: 512 or 10240.
      *
      * @example
      * 512
@@ -725,7 +735,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     };
     /**
      * @remarks
-     * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+     * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
      *
      * @example
      * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -741,7 +751,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     instanceConcurrency?: number;
     /**
      * @remarks
-     * The memory specifications in MB. Default value: 512.
+     * The memory specification in MB. Default value: 512.
      *
      * @example
      * 512
@@ -777,7 +787,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
 export declare class UpdateMcpRequestBodyDeploymentConfig extends $dara.Model {
     /**
      * @remarks
-     * The MCP ingress access control configuration.
+     * The MCP entry access control.
      */
     accessControl?: UpdateMcpRequestBodyDeploymentConfigAccessControl;
     /**
@@ -867,17 +877,25 @@ export declare class UpdateMcpRequestBody extends $dara.Model {
     addresses?: string[];
     /**
      * @remarks
-     * The backend authentication configuration. When enabled is set to true: for DIRECT_PROXY, specify directProxy (name and value); for HTTP_TO_MCP, specify the httpToMcp array (each item includes id, type, and credential, and apiKey also requires position and name). Multiple authentication objects are supported, and the first one is the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
+     * The backend authentication configuration. When enabled is set to true: for DIRECT_PROXY, specify directProxy (name/value); for HTTP_TO_MCP, specify the httpToMcp array (each item includes id, type, and credential, and apiKey also requires position and name). Multiple authentication objects are supported, and the first one is the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
      */
     auth?: UpdateMcpRequestBodyAuth;
     /**
      * @remarks
-     * The custom tags. You can specify multiple tags. Pass an empty list to clear the tags.
+     * Optional. Valid values: legacy and modern. This parameter is used only for DIRECT_PROXY. If omitted for direct connection, the current value is retained and validated against the existing protocol of the resource. The modern value is incompatible with SSE. Updates are rejected if they break existing client access contracts. For CODE_PACKAGE, this parameter is not required. Valid inputs are ignored, existing field values are not changed, and no publication or Function Compute (FC) session affinity changes are triggered. FC session affinity is configured only based on protocol and DeploymentConfig.McpConfiguration.SessionMode. The gateway protocol is determined by the result of successful probing after FC deployment. For HTTP_TO_MCP, valid values are ignored and not saved.
+     *
+     * @example
+     * modern
+     */
+    backendMcpProtocol?: string;
+    /**
+     * @remarks
+     * The custom tags. Multiple tags are supported. Pass an empty list to clear the tags.
      */
     customTags?: string[];
     /**
      * @remarks
-     * The deployment configuration patch for CODE_PACKAGE MCP. Object fields are merged hierarchically. Omit CodeConfiguration.CodePackageToken to retain the current code package, and the server reuses the currently deployed code package. Provide a new non-empty token to replace the code package. CodePackageUrl is only supported in CreateMcp and is not supported during updates.
+     * The deployment configuration patch for CODE_PACKAGE MCP. Object fields are merged hierarchically. If you do not replace the code package, omit CodeConfiguration.CodePackageToken, and the server reuses the currently deployed code package. If you replace the code package, pass a new non-empty token. CodePackageUrl is supported only for CreateMcp and is not supported for updates.
      */
     deploymentConfig?: UpdateMcpRequestBodyDeploymentConfig;
     /**
@@ -890,7 +908,15 @@ export declare class UpdateMcpRequestBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The access permission mode. PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+     * Optional. The format is YYYY-MM-DD. This parameter can be specified during creation and modified during updates. If omitted during an update, the current value is retained. It only saves and displays the origin protocol date metadata. It is not a software version, does not restrict the external gateway protocol, does not control backend requests, does not indicate that real-time verification has passed, and does not trigger deployment. No default value is set, and the date is not restricted by legacy or modern. For HTTP_TO_MCP, valid dates are ignored and not saved.
+     *
+     * @example
+     * 2025-03-26
+     */
+    originProtocolVersion?: string;
+    /**
+     * @remarks
+     * PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
      *
      * @example
      * CONTROLLED
@@ -898,7 +924,15 @@ export declare class UpdateMcpRequestBody extends $dara.Model {
     permissionMode?: string;
     /**
      * @remarks
-     * The Swagger configuration. Specify this field if the type is HTTP_TO_MCP.
+     * Optional. Valid values: SSE and StreamableHTTP. If this parameter is omitted or set to the current value, the original protocol is retained. Actual modifications are allowed only when the initial origin probing for a CODE_PACKAGE fails and the status is CREATE_PROBE_FAILED. After the server verifies that there are no successfully published versions, no gateway publications, and no pending tasks, a new compute deployment and origin probing are initiated, and the status returns to CREATING. Protocol modifications are not allowed for update failures after a successful publication.
+     *
+     * @example
+     * StreamableHTTP
+     */
+    protocol?: string;
+    /**
+     * @remarks
+     * If Type is set to HTTP_TO_MCP, specify this field.
      *
      * @example
      * {"type":"object"}
@@ -923,7 +957,7 @@ export declare class UpdateMcpRequest extends $dara.Model {
     body?: UpdateMcpRequestBody;
     /**
      * @remarks
-     * The reserved query request identifier. The current console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier.
+     * The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring original results based on this identifier.
      *
      * @example
      * 123e4567-e89b-12d3-a456-426614174000

@@ -74,6 +74,7 @@ class GetSkillDetailResponseBodyData extends $dara.Model {
             editingVersion: 'editingVersion',
             enable: 'enable',
             from: 'from',
+            labelDescriptions: 'labelDescriptions',
             labels: 'labels',
             name: 'name',
             onlineCnt: 'onlineCnt',
@@ -96,6 +97,7 @@ class GetSkillDetailResponseBodyData extends $dara.Model {
             editingVersion: 'string',
             enable: 'boolean',
             from: 'string',
+            labelDescriptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
             labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
             name: 'string',
             onlineCnt: 'number',
@@ -109,6 +111,9 @@ class GetSkillDetailResponseBodyData extends $dara.Model {
         };
     }
     validate() {
+        if (this.labelDescriptions) {
+            $dara.Model.validateMap(this.labelDescriptions);
+        }
         if (this.labels) {
             $dara.Model.validateMap(this.labels);
         }

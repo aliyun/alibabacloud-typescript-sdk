@@ -26,7 +26,7 @@ export declare class ListModelsRequest extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The pagination token. Specify the token returned from the previous query. An empty response indicates that no more pages are available.
+     * The pagination token. Pass the token returned by the previous query in the request. An empty value in the response indicates that no more pages are available.
      *
      * @example
      * bW9kZWwtbWFuYWdlbWVudC1vZmZzZXQ6bW9kZWw6MTA

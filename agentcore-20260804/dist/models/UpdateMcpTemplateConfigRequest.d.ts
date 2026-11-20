@@ -30,7 +30,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyAuthDirectProxy extends $
 export declare class UpdateMcpTemplateConfigRequestBodyAuthHttpToMcp extends $dara.Model {
     /**
      * @remarks
-     * The credential for backend authentication.
+     * The credential for the backend authentication.
      *
      * @example
      * example-api-key
@@ -46,7 +46,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyAuthHttpToMcp extends $da
     id?: string;
     /**
      * @remarks
-     * The parameter name of the API key.
+     * The name of the API key parameter.
      *
      * @example
      * X-API-Key
@@ -54,7 +54,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyAuthHttpToMcp extends $da
     name?: string;
     /**
      * @remarks
-     * The location where the API key is passed.
+     * The position where the API key is passed.
      *
      * @example
      * header
@@ -62,7 +62,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyAuthHttpToMcp extends $da
     position?: string;
     /**
      * @remarks
-     * The type of backend authentication.
+     * The type of the backend authentication.
      *
      * @example
      * apiKey
@@ -87,7 +87,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyAuth extends $dara.Model 
     directProxy?: UpdateMcpTemplateConfigRequestBodyAuthDirectProxy;
     /**
      * @remarks
-     * Specifies whether to enable the configuration.
+     * Specifies whether to enable this configuration.
      */
     enabled?: boolean;
     /**
@@ -109,7 +109,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyAuth extends $dara.Model 
 export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigAccessControl extends $dara.Model {
     /**
      * @remarks
-     * The ID of the AgentCore credential referenced when the mode is set to CREDENTIAL.
+     * The AgentCore credential ID referenced when the mode is set to CREDENTIAL.
      *
      * @example
      * credential-id
@@ -122,7 +122,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigAccessCon
     enabled?: boolean;
     /**
      * @remarks
-     * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates authentication by using AgentCore credentials.
+     * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates authentication using AgentCore access credentials.
      *
      * @example
      * CREDENTIAL
@@ -193,7 +193,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigCodeConfi
     command?: string[];
     /**
      * @remarks
-     * The code package runtime. Valid values: python3.13, nodejs22, and java17.
+     * The runtime environment for the code package. Valid values: python3.13, nodejs22, and java17.
      *
      * @example
      * python3.13
@@ -239,7 +239,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainer
     image?: string;
     /**
      * @remarks
-     * The image repository type.
+     * The image registry type.
      *
      * @example
      * ACR
@@ -247,7 +247,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainer
     imageRegistryType?: string;
     /**
      * @remarks
-     * The MCP runtime mode. Custom containers must currently expose standard MCP by themselves. Set this parameter to SELF_HOSTED.
+     * The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Set this value to SELF_HOSTED.
      *
      * @example
      * SELF_HOSTED
@@ -255,7 +255,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainer
     mcpRuntimeMode?: string;
     /**
      * @remarks
-     * The container source type. Currently, this parameter is fixed to CONTAINER_IMAGE.
+     * The container source type. Currently, this value is fixed to CONTAINER_IMAGE.
      *
      * @example
      * CONTAINER_IMAGE
@@ -286,7 +286,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfi
      * The description of the hook.
      *
      * @example
-     * Log MCP tool invocations
+     * Record MCP tool calls
      */
     description?: string;
     /**
@@ -339,7 +339,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfi
 export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The list of hooks executed in array order, including PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks.
+     * The ordered list of hooks. Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
      */
     hooks?: UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfigurationHooks[];
     static names(): {
@@ -366,7 +366,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigLogConfig
     enableRequestMetrics?: boolean;
     /**
      * @remarks
-     * The start rule for splitting Function Compute logs.
+     * The start rule for FC log splitting.
      *
      * @example
      * DefaultRegex
@@ -374,7 +374,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigLogConfig
     logBeginRule?: string;
     /**
      * @remarks
-     * The name of the Logstore.
+     * The Logstore name.
      *
      * @example
      * mcp-logs
@@ -382,7 +382,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigLogConfig
     logstore?: string;
     /**
      * @remarks
-     * The name of the Simple Log Service project.
+     * The Simple Log Service project name.
      *
      * @example
      * agentcore-mcp-logs
@@ -410,7 +410,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigMcpConfig
     endpointPath?: string;
     /**
      * @remarks
-     * The number of concurrent sessions per instance. Currently, this parameter is fixed to 1.
+     * The number of concurrent sessions per instance. Currently, this value is fixed to 1.
      *
      * @example
      * 1
@@ -418,7 +418,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigMcpConfig
     sessionConcurrencyPerInstance?: number;
     /**
      * @remarks
-     * The session idle timeout period. Unit: seconds. Default value: 1800.
+     * The session idle timeout period in seconds. Default value: 1800.
      *
      * @example
      * 1800
@@ -426,12 +426,20 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigMcpConfig
     sessionIdleTimeoutSeconds?: number;
     /**
      * @remarks
-     * The maximum session lifetime. Unit: seconds. Default value: 21600.
+     * The maximum session lifetime in seconds. Default value: 21600.
      *
      * @example
      * 21600
      */
     sessionMaxLifetimeSeconds?: number;
+    /**
+     * @remarks
+     * The session mode. This parameter applies only to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP themselves.
+     *
+     * @example
+     * STATEFUL
+     */
+    sessionMode?: string;
     static names(): {
         [key: string]: string;
     };
@@ -459,7 +467,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfig
     mountDir?: string;
     /**
      * @remarks
-     * The NAS server address.
+     * The NAS service address.
      *
      * @example
      * example.cn-hangzhou.nas.aliyuncs.com
@@ -479,7 +487,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfig
 export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The user group ID.
+     * The runtime user group ID.
      *
      * @example
      * 1000
@@ -492,7 +500,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfig
     mountPoints?: UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfigurationMountPoints[];
     /**
      * @remarks
-     * The user ID.
+     * The runtime user ID.
      *
      * @example
      * 1000
@@ -561,7 +569,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigOssMountC
     bucketName?: string;
     /**
      * @remarks
-     * The path in the OSS bucket.
+     * The path of the OSS bucket.
      *
      * @example
      * /data
@@ -569,7 +577,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigOssMountC
     bucketPath?: string;
     /**
      * @remarks
-     * The OSS endpoint.
+     * The OSS service endpoint.
      *
      * @example
      * https://oss-cn-hangzhou.aliyuncs.com
@@ -624,7 +632,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigParameter
     enabled?: boolean;
     /**
      * @remarks
-     * The reserved reference to the parameter transformation and result enhancement rule set.
+     * The reserved parameter transformation and result enhancement rule set reference.
      *
      * @example
      * rules-1
@@ -669,7 +677,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigProxyConf
 export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigRuntimeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The CPU specification. Unit: cores. Default value: 0.25.
+     * The CPU specification in cores. Default value: 0.25.
      *
      * @example
      * 0.25
@@ -677,7 +685,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigRuntimeCo
     cpu?: number;
     /**
      * @remarks
-     * The ephemeral disk size. Unit: MB. Valid values: 512 and 10240.
+     * The temporary disk size in MB. Valid values: 512 and 10240.
      *
      * @example
      * 512
@@ -700,7 +708,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigRuntimeCo
     executionRoleArn?: string;
     /**
      * @remarks
-     * The maximum number of concurrent requests per instance. Default value: 200.
+     * The number of concurrent requests per instance. Default value: 200.
      *
      * @example
      * 200
@@ -708,7 +716,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigRuntimeCo
     instanceConcurrency?: number;
     /**
      * @remarks
-     * The memory specification. Unit: MB. Default value: 512.
+     * The memory specification in MB. Default value: 512.
      *
      * @example
      * 512
@@ -724,7 +732,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfigRuntimeCo
     port?: number;
     /**
      * @remarks
-     * The function timeout period. Unit: seconds. Default value: 300.
+     * The function timeout period in seconds. Default value: 300.
      *
      * @example
      * 300
@@ -754,7 +762,7 @@ export declare class UpdateMcpTemplateConfigRequestBodyDeploymentConfig extends 
     agentIdentityConfiguration?: UpdateMcpTemplateConfigRequestBodyDeploymentConfigAgentIdentityConfiguration;
     /**
      * @remarks
-     * The artifact type. A value of Code indicates a ZIP code package, and a value of Container indicates a custom container.
+     * The artifact type. Code indicates a ZIP code package, and Container indicates a custom container.
      *
      * @example
      * Code
@@ -834,12 +842,12 @@ export declare class UpdateMcpTemplateConfigRequestBody extends $dara.Model {
     addresses?: string[];
     /**
      * @remarks
-     * The authentication configuration for the MCP service.
+     * The MCP authentication configuration.
      */
     auth?: UpdateMcpTemplateConfigRequestBodyAuth;
     /**
      * @remarks
-     * The deployment configuration for code-deployed MCP.
+     * The deployment configuration for a code-deployed MCP.
      */
     deploymentConfig?: UpdateMcpTemplateConfigRequestBodyDeploymentConfig;
     /**
@@ -872,12 +880,12 @@ export declare class UpdateMcpTemplateConfigRequestBody extends $dara.Model {
 export declare class UpdateMcpTemplateConfigRequest extends $dara.Model {
     /**
      * @remarks
-     * The MCP configuration updated based on the specified template version. The configuration must comply with the input schema of the template.
+     * The MCP configuration updated based on the specified template version, which must comply with the input schema of the template.
      */
     body?: UpdateMcpTemplateConfigRequestBody;
     /**
      * @remarks
-     * The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees such as deduplication or returning the original processing result based on this identifier.
+     * The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees such as deduplication or restoring the original processing result based on this identifier.
      *
      * @example
      * 123e4567-e89b-12d3-a456-426655440000
