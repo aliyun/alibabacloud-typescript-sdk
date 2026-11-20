@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class BindAxnResponseBodySecretBindDTO extends $dara.Model {
   /**
    * @remarks
-   * The extension of the phone number.
+   * The extension number.
    * 
-   * >  The BindAxn operation does not involve an extension. Ignore this parameter.
+   * > The BindAxn operation does not involve extension numbers. Ignore this parameter.
    * 
    * @example
    * 130
@@ -15,15 +15,15 @@ export class BindAxnResponseBodySecretBindDTO extends $dara.Model {
   extension?: string;
   /**
    * @remarks
-   * The private number, that is, phone number X.
+   * The privacy number, which is Number X.
    * 
    * @example
-   * 139****0000
+   * 139****1111
    */
   secretNo?: string;
   /**
    * @remarks
-   * The binding ID.
+   * The ID of the binding relationship.
    * 
    * @example
    * 1***************3
@@ -57,10 +57,9 @@ export class BindAxnResponseBodySecretBindDTO extends $dara.Model {
 export class BindAxnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
-   * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+   * The status code of the request.
+   * * A value of OK indicates that the request is successful.
+   * * For other error codes, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
    * 
    * @example
    * OK
@@ -68,7 +67,7 @@ export class BindAxnResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -84,7 +83,7 @@ export class BindAxnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information returned after the phone numbers were bound.
+   * The struct returned after the number is successfully bound.
    */
   secretBindDTO?: BindAxnResponseBodySecretBindDTO;
   static names(): { [key: string]: string } {

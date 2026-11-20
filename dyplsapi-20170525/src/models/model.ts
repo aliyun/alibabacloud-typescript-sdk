@@ -62,6 +62,8 @@ export { QuerySecretNoDetailResponseBodySecretNoInfoDTO } from './QuerySecretNoD
 export { QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO } from './QuerySecretNoRemainResponseBody';
 export { QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList } from './QuerySecretNoRemainResponseBody';
 export { QuerySecretNoRemainResponseBodySecretRemainDTO } from './QuerySecretNoRemainResponseBody';
+export { QuerySecretTransferDetailsResponseBodyDataList } from './QuerySecretTransferDetailsResponseBody';
+export { QuerySecretTransferDetailsResponseBodyData } from './QuerySecretTransferDetailsResponseBody';
 export { QuerySoundRecordResponseBodyData } from './QuerySoundRecordResponseBody';
 export { QuerySubscriptionDetailResponseBodySecretBindDetailDTO } from './QuerySubscriptionDetailResponseBody';
 export { UnBindAXBResponseBodyData } from './UnBindAxbresponseBody';
@@ -145,6 +147,9 @@ export { CreatePickUpWaybillPreQueryRequest } from './CreatePickUpWaybillPreQuer
 export { CreatePickUpWaybillPreQueryShrinkRequest } from './CreatePickUpWaybillPreQueryShrinkRequest';
 export { CreatePickUpWaybillPreQueryResponseBody } from './CreatePickUpWaybillPreQueryResponseBody';
 export { CreatePickUpWaybillPreQueryResponse } from './CreatePickUpWaybillPreQueryResponse';
+export { CreateSecretTransferRecordRequest } from './CreateSecretTransferRecordRequest';
+export { CreateSecretTransferRecordResponseBody } from './CreateSecretTransferRecordResponseBody';
+export { CreateSecretTransferRecordResponse } from './CreateSecretTransferRecordResponse';
 export { CreateSmsSignRequest } from './CreateSmsSignRequest';
 export { CreateSmsSignResponseBody } from './CreateSmsSignResponseBody';
 export { CreateSmsSignResponse } from './CreateSmsSignResponse';
@@ -217,6 +222,9 @@ export { QuerySecretNoDetailResponse } from './QuerySecretNoDetailResponse';
 export { QuerySecretNoRemainRequest } from './QuerySecretNoRemainRequest';
 export { QuerySecretNoRemainResponseBody } from './QuerySecretNoRemainResponseBody';
 export { QuerySecretNoRemainResponse } from './QuerySecretNoRemainResponse';
+export { QuerySecretTransferDetailsRequest } from './QuerySecretTransferDetailsRequest';
+export { QuerySecretTransferDetailsResponseBody } from './QuerySecretTransferDetailsResponseBody';
+export { QuerySecretTransferDetailsResponse } from './QuerySecretTransferDetailsResponse';
 export { QuerySoundRecordRequest } from './QuerySoundRecordRequest';
 export { QuerySoundRecordResponseBody } from './QuerySoundRecordResponseBody';
 export { QuerySoundRecordResponse } from './QuerySoundRecordResponse';

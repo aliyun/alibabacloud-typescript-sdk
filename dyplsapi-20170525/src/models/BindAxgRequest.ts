@@ -8,7 +8,7 @@ export class BindAxgRequest extends $dara.Model {
    * The ID of the ASR model.
    * 
    * @example
-   * 980abddb908f48e8b987cb2cd303****
+   * 9b4afe3d224e4fa3bf963697113e2f77
    */
   ASRModelId?: string;
   /**
@@ -19,7 +19,7 @@ export class BindAxgRequest extends $dara.Model {
    * *   **True**: enables ASR.
    * 
    * @example
-   * False
+   * false
    */
   ASRStatus?: boolean;
   /**
@@ -51,7 +51,7 @@ export class BindAxgRequest extends $dara.Model {
    * *   If Number X Assignment Mode is set to Strict Matching Mode and no phone number meets the requirement, the system displays an allocation error.
    * 
    * @example
-   * hangzhou
+   * 北京
    */
   expectCity?: string;
   /**
@@ -78,7 +78,7 @@ export class BindAxgRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1234
+   * 200001234****
    */
   groupId?: string;
   /**
@@ -123,7 +123,7 @@ export class BindAxgRequest extends $dara.Model {
    * Phone number B can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
    * 
    * @example
-   * 139****0000
+   * 138****0000
    */
   phoneNoB?: string;
   /**
@@ -133,7 +133,7 @@ export class BindAxgRequest extends $dara.Model {
    * >  Phone number X is the phone number that you purchased in the Phone Number Protection console or by using the [BuySecretNo](https://help.aliyun.com/document_detail/110266.html) operation before you bind a phone number. Phone number X is used to forward calls.
    * 
    * @example
-   * 139****0000
+   * 139****1111
    */
   phoneNoX?: string;
   /**
@@ -141,7 +141,7 @@ export class BindAxgRequest extends $dara.Model {
    * The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   resourceOwnerAccount?: string;
@@ -158,7 +158,7 @@ export class BindAxgRequest extends $dara.Model {
    * >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
    * 
    * @example
-   * {"AXGRing_AB":"100000001","AXGRing_A":"100000002","AXGRing_G":"100000003"}
+   * {"AXGRing_AB":"1000****1","AXGRing_A":"1000****2","AXGRing_G":"1000****3"}
    */
   ringConfig?: string;
   static names(): { [key: string]: string } {

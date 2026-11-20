@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the door-to-door pickup in the appointment. The value of **AppointGotEndTime** is the value of **EndTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
-   * 
-   * >  This parameter is required when **BizType** is set to **1**.
+   * The end time of the scheduled door-to-door pickup, in the YYYY-MM-DD HH:mm:ss format. To obtain the value of **AppointGotEndTime**, obtain the **EndTime** value from **AppointTimes** in the **CpTimeSelectList** response parameter of the [CreatePickUpWaybillPreQuery](https://api.aliyun.com/document/Dyplsapi/2017-05-25/CreatePickUpWaybillPreQuery) operation.
+   * > Required when **bizType** is set to **1**.
    * 
    * @example
    * 2021-01-01 12:00:00
@@ -15,9 +14,9 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   appointGotEndTime?: string;
   /**
    * @remarks
-   * The start time of the door-to-door pickup in the appointment. The value of **AppointGotStartTime** is the value of **StartTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
+   * The start time of the scheduled door-to-door pickup, in the YYYY-MM-DD HH:mm:ss format. To obtain the value of **AppointGotStartTime**, obtain the **StartTime** value from **AppointTimes** in the **CpTimeSelectList** response parameter of the [CreatePickUpWaybillPreQuery](https://api.aliyun.com/document/Dyplsapi/2017-05-25/CreatePickUpWaybillPreQuery) operation.
    * 
-   * >  This parameter is required when **BizType** is set to **1**.
+   * > Required when **bizType** is set to **1**.
    * 
    * @example
    * 2021-01-01 10:00:00
@@ -25,10 +24,10 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   appointGotStartTime?: string;
   /**
    * @remarks
-   * The pickup mode. Valid values:
+   * The delivery mode. Valid values:
    * 
-   * *   **0** (default): real-time order.
-   * *   **1**: appointment order.
+   * - **0**: real-time order (default)
+   * - **1**: scheduled order
    * 
    * @example
    * 0
@@ -36,16 +35,16 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The address of the consignee.
+   * The address of the recipient.
    * 
    * This parameter is required.
    */
   consigneeAddressShrink?: string;
   /**
    * @remarks
-   * The mobile phone number of the consignee.
+   * The mobile phone number of the recipient.
    * 
-   * >  Either ConsigneeMobile or ConsigneePhone must be set.
+   * > You must specify either ConsigneeMobile or ConsigneePhone.
    * 
    * @example
    * 1580000****
@@ -53,19 +52,18 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   consigneeMobile?: string;
   /**
    * @remarks
-   * The name of the consignee.
+   * The name of the recipient.
    * 
    * This parameter is required.
    * 
    * @example
-   * Li
+   * Zhang XX
    */
   consigneeName?: string;
   /**
    * @remarks
-   * The landline phone number of the consignee.
-   * 
-   * >  Either ConsigneeMobile or ConsigneePhone must be set.
+   * The landline phone number of the recipient.
+   * > You must specify either ConsigneeMobile or ConsigneePhone.
    * 
    * @example
    * 0570000****
@@ -73,7 +71,7 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   consigneePhone?: string;
   /**
    * @remarks
-   * The code of the courier company.
+   * The express delivery company code.
    * 
    * @example
    * YTO
@@ -81,12 +79,12 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   cpCode?: string;
   /**
    * @remarks
-   * The items.
+   * The list of goods.
    */
   goodsInfosShrink?: string;
   /**
    * @remarks
-   * The external channel sources.
+   * The external channel source.
    * 
    * This parameter is required.
    * 
@@ -96,7 +94,7 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   orderChannels?: string;
   /**
    * @remarks
-   * The ID of the external order.
+   * The external order ID.
    * 
    * This parameter is required.
    * 
@@ -106,10 +104,10 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   outerOrderCode?: string;
   /**
    * @remarks
-   * The additional information about the order. The additional information will be printed on the order.
+   * The remark. The remark content printed on the waybill.
    * 
    * @example
-   * fragile
+   * Fragile items
    */
   remark?: string;
   /**
@@ -123,7 +121,7 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
    * @remarks
    * The mobile phone number of the sender.
    * 
-   * >  Either SendMobile or SendPhone must be set.
+   * > You must specify either SendMobile or SendPhone.
    * 
    * @example
    * 1596714****
@@ -136,14 +134,13 @@ export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Wang
+   * Wang XX
    */
   sendName?: string;
   /**
    * @remarks
    * The landline phone number of the sender.
-   * 
-   * >  Either SendMobile or SendPhone must be set.
+   * > You must specify either SendMobile or SendPhone.
    * 
    * @example
    * 05718845****

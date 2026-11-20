@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSmsSignResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 短信接收者号码签名串(加到短信内容中供解析真实被叫号码)
+   * The signature string of the recipient number. Append this string to the text message content to parse the actual called number.
    * 
    * @example
    * sign23343466
@@ -34,30 +34,48 @@ export class CreateSmsSignResponseBodyData extends $dara.Model {
 
 export class CreateSmsSignResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
+   * The returned status code. Valid values:
+   * 
+   * - 0000: The request is successful.
+   * 
+   * - Other values: The request failed.
    * 
    * @example
    * 0000
    */
   code?: string;
+  /**
+   * @remarks
+   * The text message signature creation result.
+   * 
+   * @example
+   * {"CalledNoSign":"sign23343466"}
+   */
   data?: CreateSmsSignResponseBodyData;
   /**
    * @remarks
-   * 返回信息
+   * The returned message.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * false

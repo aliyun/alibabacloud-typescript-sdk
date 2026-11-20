@@ -69,7 +69,7 @@ export class QueryPhoneNoAByTrackNoResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * OK
+   * 请求成功
    */
   message?: string;
   /**

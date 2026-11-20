@@ -10,7 +10,7 @@ export class BindAxgResponseBodySecretBindDTO extends $dara.Model {
    * >  The BindAxg operation does not involve an extension. Ignore this parameter.
    * 
    * @example
-   * 139****0000
+   * 130
    */
   extension?: string;
   /**
@@ -18,7 +18,7 @@ export class BindAxgResponseBodySecretBindDTO extends $dara.Model {
    * The private number, that is, phone number X.
    * 
    * @example
-   * 139****0000
+   * 139****1111
    */
   secretNo?: string;
   /**

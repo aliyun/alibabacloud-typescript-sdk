@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecretBlacklistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+   * - A value of OK indicates that the request is successful.
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
    * 
    * @example
    * OK
@@ -16,7 +16,7 @@ export class DeleteSecretBlacklistResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -24,7 +24,7 @@ export class DeleteSecretBlacklistResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F655A8D5-B967-440B-8683-DAD6FF8DE990

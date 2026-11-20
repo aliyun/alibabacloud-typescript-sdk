@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePhoneNoAReportRequest extends $dara.Model {
   /**
    * @remarks
-   * 所属a号码组id
+   * ID of the A-number group. On the [Qualification Management](https://dyplsnext.console.aliyun.com/qualification) page, click View Details in the A-number whitelist section of the relevant qualification.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePhoneNoAReportRequest extends $dara.Model {
   ANoWhiteGroupId?: number;
   /**
    * @remarks
-   * 姓名
+   * Name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreatePhoneNoAReportRequest extends $dara.Model {
   custName?: string;
   /**
    * @remarks
-   * 证件号码
+   * Certificate number.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreatePhoneNoAReportRequest extends $dara.Model {
   documentNumber?: string;
   /**
    * @remarks
-   * 证件类型 填写1表示身份证
+   * Certificate type. Enter 1 for an ID card.
    * 
    * This parameter is required.
    * 
@@ -45,17 +45,17 @@ export class CreatePhoneNoAReportRequest extends $dara.Model {
   documentType?: number;
   /**
    * @remarks
-   * 半身照oss路径地址
+   * OSS path of the front-facing portrait photo.
    * 
    * This parameter is required.
    * 
    * @example
-   * 123456/test1719383196033.jpg示例值
+   * 123456/test1719383196033.jpg
    */
   idCardAlivePhoto?: string;
   /**
    * @remarks
-   * 身份证反面照片oss路径地址
+   * OSS path of the photo of the back side (portrait side) of the ID card.
    * 
    * @example
    * 123456/test1719383196032.jpg
@@ -63,7 +63,7 @@ export class CreatePhoneNoAReportRequest extends $dara.Model {
   idCardBackPhoto?: string;
   /**
    * @remarks
-   * 身份证正面照片oss路径地址
+   * OSS path of the photo of the front side (national emblem side) of the ID card.
    * 
    * @example
    * 123456/test1719383196031.jpg
@@ -72,7 +72,7 @@ export class CreatePhoneNoAReportRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 手机号
+   * Phone number.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class CreatePhoneNoAReportRequest extends $dara.Model {
   phoneNoA?: string;
   /**
    * @remarks
-   * 备注（客户自己的业务备注，可编辑）
+   * Remark (business remark added by the user).
    * 
    * @example
    * ***报备

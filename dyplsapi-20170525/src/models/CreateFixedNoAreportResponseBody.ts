@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFixedNoAReportResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 创建结果
+   * Creation result.
    * 
    * @example
    * true
@@ -13,7 +13,13 @@ export class CreateFixedNoAReportResponseBodyData extends $dara.Model {
   createResult?: boolean;
   /**
    * @remarks
-   * 创建类型枚举，1为成功，负数为创建失败
+   * Enumeration of creation types. The value 1 indicates success, and negative numbers indicate creation failure. Valid values:
+   * 
+   * - 1: Succeeded.
+   * 
+   * - -1: The phone number has already been submitted for reporting; no need to submit again.
+   * 
+   * - -2: The phone number has already been successfully reported; no need to report again.
    * 
    * @example
    * 1
@@ -44,13 +50,16 @@ export class CreateFixedNoAReportResponseBodyData extends $dara.Model {
 
 export class CreateFixedNoAReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details of denied access.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 请求状态码
+   * Request status code.
    * 
    * @example
    * 200
@@ -58,20 +67,20 @@ export class CreateFixedNoAReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A号码报备结果结构体
+   * The struct of the reporting result for number A.
    */
   data?: CreateFixedNoAReportResponseBodyData;
   /**
    * @remarks
-   * 失败错误提示
+   * Error message for failure.
    * 
    * @example
-   * 示例值示例值
+   * 固话号码***已存在
    */
   message?: string;
   /**
    * @remarks
-   * 返回id
+   * The returned ID.
    * 
    * @example
    * 1D73E648-0978-18A5-B089-3BB2
@@ -79,7 +88,11 @@ export class CreateFixedNoAReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否成功
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true

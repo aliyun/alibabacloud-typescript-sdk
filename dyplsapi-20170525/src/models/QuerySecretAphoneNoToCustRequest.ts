@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySecretAPhoneNoToCustRequest extends $dara.Model {
   /**
    * @remarks
-   * 号码组ID
+   * Number group ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class QuerySecretAPhoneNoToCustRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * A号码
+   * A number.
    * 
    * This parameter is required.
    * 

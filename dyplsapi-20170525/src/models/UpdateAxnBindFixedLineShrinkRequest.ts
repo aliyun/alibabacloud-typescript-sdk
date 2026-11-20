@@ -5,33 +5,41 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAxnBindFixedLineShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 放音编码必须包含3个场景的编码。按照“B->X,A->X,其他号码->X”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2,3”表示B->X放音编号为1，A->X放音编号为2， 其他号码->X放音编号为3。
+   * The prompt code for the caller side. This parameter is required for AXB services. The codes must include three scenarios. Enter the codes in the order of B->X, A->X, and other numbers->X, separated by commas.
+   * 
+   * > 1,2,3 indicates that the prompt code for B->X is 1, the prompt code for A->X is 2, and the prompt code for other numbers->X is 3.
    * 
    * @example
-   * 示例值示例值示例值
+   * 1,2,3
    */
   anucode?: string;
   /**
    * @remarks
-   * 被叫侧放音编码  被叫放音编码必须包含2个场景的编码。按照“A被叫,其他号码被叫”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2”表示A号码为被叫侧接听时的放音编号为1，其他号码为被叫侧接听时的放音编号为2。
+   * The prompt code for the callee side after the call is connected. The codes must include two scenarios. Enter the codes in the order of A as callee and B as callee, separated by commas.
+   * 
+   * > 1,2 indicates that the prompt code when A is the callee is 1, and the prompt code when B is the callee is 2.
    * 
    * @example
-   * 10001,10002
+   * 1,2
    */
   anucodecalled?: string;
   /**
    * @remarks
-   * 号池ID。
+   * The ID of the number pool.
    * 
    * This parameter is required.
    * 
    * @example
-   * alitest
+   * FC10000016848****
    */
   appId?: string;
   /**
    * @remarks
-   * 位：秒，必须为数字 0：不会自动解绑 非0：自动解绑周期
+   * The expiration time. Unit: seconds. Valid values:
+   * 
+   * - 0: Never expires.
+   * 
+   * - Other values: If you specify another value, such as 60, the binding is valid for 60 seconds after the number X is allocated. After 60 seconds, the binding is automatically unbound.
    * 
    * @example
    * 60
@@ -39,82 +47,87 @@ export class UpdateAxnBindFixedLineShrinkRequest extends $dara.Model {
   expiration?: string;
   /**
    * @remarks
-   * 额外字段
+   * The extended parameters.
    */
   extraShrink?: string;
   /**
    * @remarks
-   * 消息请求唯一标识
+   * The unique identifier of the message request.
    * 
    * This parameter is required.
    * 
    * @example
-   * 12345dkwkd99d
+   * 123*******
    */
   orderId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * 接入商自有字段，最大250字符长度
+   * The external business extension field. This parameter is returned in the call record receipt message. The maximum length is 100 characters.
    * 
    * @example
-   * 1234
+   * 19394
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定id
+   * The binding ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * GHX0534X202504221531579290029-2-1-aliaxn
+   * GHX0*************************
    */
   subId?: string;
   /**
    * @remarks
-   * 格式为yyyyMMddHHmmss。时间采用北京时间，24小时制。
+   * The binding time. The format is yyyyMMddHHmmss. The time is in UTC+8 and uses a 24-hour clock.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723098
+   * 20161114143116
    */
   subts?: string;
   /**
    * @remarks
-   * 接通后主叫侧放音编码  接通后主叫侧放音编码必须包含2个场景的编码。按照“A被叫,其他号码被叫”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2”表示A号码为被叫时主叫侧的放音编号为1，其他号码被叫为被叫时主叫侧的放音编号为2
+   * The prompt code for the caller side after the call is connected. The codes must include two scenarios. Enter the codes in the order of A as callee and B as callee, separated by commas.
+   * 
+   * > 1,2 indicates that the prompt code for the caller side when A is the callee is 1, and the prompt code for the caller side when B is the callee is 2.
    * 
    * @example
-   * 10001,10002
+   * 1,2
    */
   TAnucodeConnect?: string;
   /**
    * @remarks
-   * A号码
+   * The number A of the landline AXN privacy number.
+   * 
+   * > You can set number A to a mobile phone number or a landline number. If you use a landline number, you must include the area code. Do not add a hyphen between the area code and the phone number.
    * 
    * @example
-   * 15500001111
+   * Mobile phone number: 182****2371
+   * Landline number: 0571******36
    */
   telA?: string;
   /**
    * @remarks
-   * B号码
+   * The number N of the landline AXN privacy number.
    * 
    * @example
-   * 15500002222
+   * 155****2222
    */
   telB?: string;
   /**
    * @remarks
-   * 格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
+   * The business timestamp. The format is yyyyMMddHHmmssSSS. The time is in UTC+8 and uses a 24-hour clock, accurate to milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723098
+   * 20161114143116123
    */
   ts?: string;
   static names(): { [key: string]: string } {

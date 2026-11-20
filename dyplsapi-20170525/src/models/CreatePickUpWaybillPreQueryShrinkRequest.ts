@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePickUpWaybillPreQueryShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The consignee information.
+   * The recipient information.
    * 
    * This parameter is required.
    */
   consigneeInfoShrink?: string;
   /**
    * @remarks
-   * The code of the courier company. If no courier company is specified, the system allocates a courier company.
+   * The courier company code. If not specified, the system automatically assigns a courier company.
    * 
    * @example
    * YTO
@@ -20,7 +20,7 @@ export class CreatePickUpWaybillPreQueryShrinkRequest extends $dara.Model {
   cpCode?: string;
   /**
    * @remarks
-   * The identifier of the external channel source. It cannot contain underscores.
+   * The external channel source identifier. The value cannot contain underscores. The value is agreed upon with the system during integration.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class CreatePickUpWaybillPreQueryShrinkRequest extends $dara.Model {
   orderChannels?: string;
   /**
    * @remarks
-   * The order number of the access system.
+   * The order number in the caller\\"s system.
    * 
    * @example
    * 787DFHHDS989****
@@ -38,9 +38,9 @@ export class CreatePickUpWaybillPreQueryShrinkRequest extends $dara.Model {
   outerOrderCode?: string;
   /**
    * @remarks
-   * The estimated weight. Unit: gram.
+   * The estimated weight, in grams.
    * 
-   * >  If you need to query the estimated price, this parameter is required.
+   * > If you want to query the estimated price, this parameter is required.
    * 
    * @example
    * 2000

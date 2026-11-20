@@ -32,7 +32,7 @@ export class QuerySubsIdResponseBody extends $dara.Model {
    * The binding ID.
    * 
    * @example
-   * 11111111****
+   * 1000******,1000******,1000******
    */
   subsId?: string;
   static names(): { [key: string]: string } {

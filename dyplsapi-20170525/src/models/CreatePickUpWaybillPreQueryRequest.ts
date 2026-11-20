@@ -5,39 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo extends $dara.Model {
   /**
    * @remarks
-   * The detailed address of the consignee.
+   * The detailed address of the recipient.
    * 
    * @example
-   * XX community
+   * XX Community, No. XX
    */
   addressDetail?: string;
   /**
    * @remarks
-   * The district where the consignee is located.
+   * The district where the recipient is located.
    * 
    * @example
-   * chang,an
+   * Chang\\"an District
    */
   areaName?: string;
   /**
    * @remarks
-   * The city where the consignee is located.
+   * The city where the recipient is located.
    * 
    * @example
-   * Xi,an
+   * Xi\\"an
    */
   cityName?: string;
   /**
    * @remarks
-   * The province where the consignee is located.
+   * The province where the recipient is located.
    * 
    * @example
-   * Shanxi
+   * Shaanxi Province
    */
   provinceName?: string;
   /**
    * @remarks
-   * The street where the consignee is located.
+   * The street where the recipient is located.
    * 
    * @example
    * XX Street
@@ -75,12 +75,12 @@ export class CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo extends 
 export class CreatePickUpWaybillPreQueryRequestConsigneeInfo extends $dara.Model {
   /**
    * @remarks
-   * The address of the consignee.
+   * The address information of the recipient.
    */
   addressInfo?: CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo;
   /**
    * @remarks
-   * The mobile phone number of the consignee.
+   * The mobile phone number of the recipient.
    * 
    * This parameter is required.
    * 
@@ -90,12 +90,12 @@ export class CreatePickUpWaybillPreQueryRequestConsigneeInfo extends $dara.Model
   mobile?: string;
   /**
    * @remarks
-   * The name of the consignee.
+   * The name of the recipient.
    * 
    * This parameter is required.
    * 
    * @example
-   * Li
+   * Li XX
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -132,7 +132,7 @@ export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $da
    * The detailed address of the sender.
    * 
    * @example
-   * XX community
+   * XX Community, No. XX
    */
   addressDetail?: string;
   /**
@@ -140,7 +140,7 @@ export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $da
    * The district where the sender is located.
    * 
    * @example
-   * xihu
+   * Xihu District
    */
   areaName?: string;
   /**
@@ -148,7 +148,7 @@ export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $da
    * The city where the sender is located.
    * 
    * @example
-   * hangzhou
+   * Hangzhou
    */
   cityName?: string;
   /**
@@ -156,7 +156,7 @@ export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $da
    * The province where the sender is located.
    * 
    * @example
-   * zhejiang
+   * Zhejiang Province
    */
   provinceName?: string;
   /**
@@ -199,7 +199,7 @@ export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $da
 export class CreatePickUpWaybillPreQueryRequestSenderInfo extends $dara.Model {
   /**
    * @remarks
-   * The address of the sender.
+   * The address information of the sender.
    */
   addressInfo?: CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo;
   /**
@@ -219,7 +219,7 @@ export class CreatePickUpWaybillPreQueryRequestSenderInfo extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Wang
+   * Wang XX
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -253,14 +253,14 @@ export class CreatePickUpWaybillPreQueryRequestSenderInfo extends $dara.Model {
 export class CreatePickUpWaybillPreQueryRequest extends $dara.Model {
   /**
    * @remarks
-   * The consignee information.
+   * The recipient information.
    * 
    * This parameter is required.
    */
   consigneeInfo?: CreatePickUpWaybillPreQueryRequestConsigneeInfo;
   /**
    * @remarks
-   * The code of the courier company. If no courier company is specified, the system allocates a courier company.
+   * The courier company code. If not specified, the system automatically assigns a courier company.
    * 
    * @example
    * YTO
@@ -268,7 +268,7 @@ export class CreatePickUpWaybillPreQueryRequest extends $dara.Model {
   cpCode?: string;
   /**
    * @remarks
-   * The identifier of the external channel source. It cannot contain underscores.
+   * The external channel source identifier. The value cannot contain underscores. The value is agreed upon with the system during integration.
    * 
    * This parameter is required.
    * 
@@ -278,7 +278,7 @@ export class CreatePickUpWaybillPreQueryRequest extends $dara.Model {
   orderChannels?: string;
   /**
    * @remarks
-   * The order number of the access system.
+   * The order number in the caller\\"s system.
    * 
    * @example
    * 787DFHHDS989****
@@ -286,9 +286,9 @@ export class CreatePickUpWaybillPreQueryRequest extends $dara.Model {
   outerOrderCode?: string;
   /**
    * @remarks
-   * The estimated weight. Unit: gram.
+   * The estimated weight, in grams.
    * 
-   * >  If you need to query the estimated price, this parameter is required.
+   * > If you want to query the estimated price, this parameter is required.
    * 
    * @example
    * 2000

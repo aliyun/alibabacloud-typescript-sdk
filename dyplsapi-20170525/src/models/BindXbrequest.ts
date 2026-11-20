@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindXBRequest extends $dara.Model {
   /**
    * @remarks
-   * 客户uid
+   * The customer UID. This parameter is automatically obtained by the system and is not required.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class BindXBRequest extends $dara.Model {
   callerParentId?: number;
   /**
    * @remarks
-   * 号码池key
+   * The number pool key.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class BindXBRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 请求去重ID, reqId最大长度为20位,接入方需要保持原子性
+   * The request deduplication ID. The maximum length is 20 characters. Ensure the atomicity of the request ID.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class BindXBRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 员工真实号码
+   * The actual phone number of the employee.
    * 
    * This parameter is required.
    * 
@@ -46,7 +46,7 @@ export class BindXBRequest extends $dara.Model {
   telB?: string;
   /**
    * @remarks
-   * X号码
+   * The work number X.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class BindXBRequest extends $dara.Model {
   telX?: string;
   /**
    * @remarks
-   * 客户自定义参数回调带回
+   * The custom data to be returned in the callback.
    * 
    * @example
    * 000

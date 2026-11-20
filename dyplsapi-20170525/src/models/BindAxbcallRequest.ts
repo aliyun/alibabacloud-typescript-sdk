@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAXBCallRequest extends $dara.Model {
   /**
    * @remarks
-   * authId绑定关系BX唯一id
+   * The unique ID of the BX binding relationship.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BindAXBCallRequest extends $dara.Model {
   authId?: string;
   /**
    * @remarks
-   * 客户uid
+   * The customer UID. This parameter is automatically obtained by the system and does not need to be specified.
    * 
    * @example
    * -
@@ -23,7 +23,7 @@ export class BindAXBCallRequest extends $dara.Model {
   callerParentId?: number;
   /**
    * @remarks
-   * 号码池key
+   * The key of the number pool.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class BindAXBCallRequest extends $dara.Model {
   customerPoolKey?: string;
   /**
    * @remarks
-   * 绑定关系过期失效时间： 取值必须大于0； 单位：秒，ct_time + expiration = 自动解绑时间
+   * The expiration time of the binding relationship. The value must be greater than 0. Unit: seconds. The automatic unbinding time is calculated by adding the binding time and the expiration time.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class BindAXBCallRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 请求去重ID, reqId最大长度为20位,接入方需要保持原子性
+   * The request deduplication ID. The maximum length is 20 characters. Ensure the atomicity of the request ID.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class BindAXBCallRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 客户A号码
+   * The phone number of customer A.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class BindAXBCallRequest extends $dara.Model {
   telA?: string;
   /**
    * @remarks
-   * 客户自定义参数回调带回
+   * The custom callback parameter.
    * 
    * @example
    * 000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigXRequestSequenceCalls extends $dara.Model {
   /**
    * @remarks
-   * 顺振提示音放音编号，格式如callNoPlayCode
+   * The playback code for the sequential ringing prompt tone. The format is the same as callNoPlayCode.
    * 
    * @example
    * 01
@@ -13,7 +13,7 @@ export class ConfigXRequestSequenceCalls extends $dara.Model {
   sequenceCallNoPlayCode?: string;
   /**
    * @remarks
-   * 顺振被叫号码
+   * The callee number for sequential ringing.
    * 
    * @example
    * 18*******33
@@ -21,7 +21,7 @@ export class ConfigXRequestSequenceCalls extends $dara.Model {
   sequenceCalledNo?: string;
   /**
    * @remarks
-   * 接通后主被叫放音编号，格式如calledPlayCode
+   * The playback code for the caller and callee after the call is connected. The format is the same as calledPlayCode.
    * 
    * @example
    * 02
@@ -55,7 +55,11 @@ export class ConfigXRequestSequenceCalls extends $dara.Model {
 export class ConfigXRequest extends $dara.Model {
   /**
    * @remarks
-   * 开/关呼叫能力状态‘0’：禁用‘1’：开启
+   * Specifies whether to enable the call capability. Valid values:
+   * 
+   * - 0: Disable.
+   * 
+   * - 1: Enable.
    * 
    * @example
    * 0
@@ -63,7 +67,7 @@ export class ConfigXRequest extends $dara.Model {
   callAbility?: string;
   /**
    * @remarks
-   * 客户uid
+   * The customer UID.
    * 
    * @example
    * 1898871967585852
@@ -71,7 +75,7 @@ export class ConfigXRequest extends $dara.Model {
   callerParentId?: number;
   /**
    * @remarks
-   * 号码池key
+   * The key of the number pool.
    * 
    * This parameter is required.
    * 
@@ -81,7 +85,13 @@ export class ConfigXRequest extends $dara.Model {
   customerPoolKey?: string;
   /**
    * @remarks
-   * 是否透传来显为真实主叫：00-非透传：互相拨打时都显示工作号;10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号;默认为 00
+   * Specifies whether to pass through the caller ID to display the actual caller. Valid values:
+   * 
+   * - 00: No pass-through. The work number is displayed when either party calls the other.
+   * 
+   * - 10: Pass-through. When Customer A is the caller, the caller ID displayed to Employee B is the number of Customer A. When Employee B is the caller, the caller ID displayed to Customer A is the work number.
+   * 
+   * Default value: 00.
    * 
    * @example
    * 0
@@ -90,7 +100,7 @@ export class ConfigXRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 请求去重ID, reqId最大长度为20位,接入方需要保持原子性
+   * The request deduplication ID. The maximum length of reqId is 20 characters. The caller must ensure atomicity.
    * 
    * This parameter is required.
    * 
@@ -102,12 +112,18 @@ export class ConfigXRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 顺振控制参数
+   * The sequential ringing control parameters.
    */
   sequenceCalls?: ConfigXRequestSequenceCalls[];
   /**
    * @remarks
-   * 顺振模式：0-不顺振（默认）1-有条件顺振，先接续calledNo指定被叫，如果该被叫未能接通，再顺振sequenceCalls号码列表2-无条件顺振，不接续calledNo指定被叫，直接顺振sequenceCalls号码列表
+   * The sequential ringing mode. Valid values:
+   * 
+   * - 0: No sequential ringing. This is the default value.
+   * 
+   * - 1: Conditional sequential ringing. The system first connects to the callee specified by calledNo. If the callee cannot be connected, the system sequentially rings the numbers in the sequenceCalls list.
+   * 
+   * - 2: Unconditional sequential ringing. The system does not connect to the callee specified by calledNo and directly sequentially rings the numbers in the sequenceCalls list.
    * 
    * @example
    * 0
@@ -115,7 +131,11 @@ export class ConfigXRequest extends $dara.Model {
   sequenceMode?: string;
   /**
    * @remarks
-   * 开/关短信功能状态‘0’：禁用；‘1’：开启；
+   * Specifies whether to enable the SMS feature. Valid values:
+   * 
+   * - 0: Disable.
+   * 
+   * - 1: Enable.
    * 
    * @example
    * 0
@@ -123,7 +143,13 @@ export class ConfigXRequest extends $dara.Model {
   smsAbility?: string;
   /**
    * @remarks
-   * 是否透传来显为真实用户0：不透传; 1：透传默认：0不透传
+   * Specifies whether to pass through the SMS signature to display the actual user. Valid values:
+   * 
+   * - 0: No pass-through.
+   * 
+   * - 1: Pass-through.
+   * 
+   * Default value: 0.
    * 
    * @example
    * 0
@@ -131,7 +157,7 @@ export class ConfigXRequest extends $dara.Model {
   smsSignMode?: string;
   /**
    * @remarks
-   * X号码
+   * The X number.
    * 
    * This parameter is required.
    * 

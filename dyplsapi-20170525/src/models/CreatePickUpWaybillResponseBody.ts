@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePickUpWaybillResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The code of the courier company.
+   * The express delivery company code.
    * 
    * @example
    * YTO
@@ -16,7 +16,7 @@ export class CreatePickUpWaybillResponseBodyData extends $dara.Model {
    * The error code.
    * 
    * @example
-   * 200
+   * None
    */
   errorCode?: string;
   /**
@@ -24,7 +24,7 @@ export class CreatePickUpWaybillResponseBodyData extends $dara.Model {
    * The error message.
    * 
    * @example
-   * none
+   * None
    */
   errorMsg?: string;
   /**
@@ -37,7 +37,7 @@ export class CreatePickUpWaybillResponseBodyData extends $dara.Model {
   gotCode?: string;
   /**
    * @remarks
-   * The order ID.
+   * The waybill number.
    * 
    * @example
    * 77312345629****
@@ -45,7 +45,7 @@ export class CreatePickUpWaybillResponseBodyData extends $dara.Model {
   mailNo?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true
@@ -85,7 +85,7 @@ export class CreatePickUpWaybillResponseBodyData extends $dara.Model {
 export class CreatePickUpWaybillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreatePickUpWaybillResponseBodyData;
   /**
@@ -98,7 +98,7 @@ export class CreatePickUpWaybillResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The status code description.
    * 
    * @example
    * OK

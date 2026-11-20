@@ -11,7 +11,7 @@ export class ReleaseSecretNoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   resourceOwnerAccount?: string;
@@ -25,7 +25,7 @@ export class ReleaseSecretNoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 130
+   * 139****0000
    */
   secretNo?: string;
   static names(): { [key: string]: string } {

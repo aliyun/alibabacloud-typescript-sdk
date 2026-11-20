@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class BindAxnRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
+   * The ASR model ID. Valid values:
+   * 
+   * - 7ee372834d2f4cc7ac0d0ab2d0ae1aac: General-Telephone-Mandarin Chinese model.
+   * 
+   * - 9b4afe3d224e4fa3bf963697113e2f77: General-Telephone-Cantonese model.
+   * 
+   * - 3655a6cb94764145a1f9a38a3c3b3b4b: General-Telephone-Regional accent model.
    * 
    * @example
    * 7ee372834d2f4cc7ac0d0ab2d0ae1aac
@@ -13,10 +19,10 @@ export class BindAxnRequest extends $dara.Model {
   ASRModelId?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic speech recognition (ASR). Valid values:
+   * The ASR status. Valid values:
    * 
-   * *   **false** (default): disables ASR.
-   * *   **true**: enables ASR.
+   * - **false**: Disabled. This is the default value.
+   * - **true**: Enabled.
    * 
    * @example
    * true
@@ -24,9 +30,9 @@ export class BindAxnRequest extends $dara.Model {
   ASRStatus?: boolean;
   /**
    * @remarks
-   * Re-sets the phone number display logic in the AXN binding. Fixed value: **1**, indicating that phone number X is displayed on both the calling phone and the called phone.
+   * Resets the number display logic in the binding relationship. Set the value to **1**, which indicates that the intermediate Number X is displayed for both the caller and the callee.
    * 
-   * >  Due to the regulatory restrictions imposed by carriers, the setting to display real phone numbers during calls does not take effect.
+   * > Due to carrier regulatory restrictions, the setting to display the real number during a call does not take effect.
    * 
    * @example
    * 1
@@ -34,10 +40,10 @@ export class BindAxnRequest extends $dara.Model {
   callDisplayType?: number;
   /**
    * @remarks
-   * The status of one-way call restrictions. Valid values:
+   * The single-call restriction status. Valid values:
    * 
-   * *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
-   * *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
+   * - **CONTROL_AX_DISABLE**: Number A cannot call Number X.
+   * - **CONTROL_BX_DISABLE**: Number B cannot call Number X.
    * 
    * @example
    * CONTROL_AX_DISABLE
@@ -45,7 +51,7 @@ export class BindAxnRequest extends $dara.Model {
   callRestrict?: string;
   /**
    * @remarks
-   * The maximum ringing duration for each number in sequential ringing. Unit: seconds.
+   * The ring duration. Unit: seconds.
    * 
    * @example
    * 10
@@ -53,20 +59,20 @@ export class BindAxnRequest extends $dara.Model {
   callTimeout?: number;
   /**
    * @remarks
-   * Specifies the city to which phone number X to be selected belongs.
+   * The city specified for selecting Number X.
    * 
-   * *   If no phone number for the specified city is available in the current phone number pool or this parameter is not specified, a phone number that belongs to another city is randomly selected from the current phone number pool and assigned as phone number X.
-   * *   If **Number X Assignment Mode** is set to **Strict Matching Mode** and no phone number meets the requirement, the system displays an allocation error.
+   * > - If no available numbers in the specified city exist in the current number pool, or if this parameter is not specified, a number from another city is randomly assigned from the current number pool as Number X.
+   * > - If the **Number X allocation mode** is set to **strict match mode**, the system returns an allocation error when no eligible numbers are available.
    * 
    * @example
-   * hangzhou
+   * Shanghai
    */
   expectCity?: string;
   /**
    * @remarks
-   * The expiration time of the AXN binding. Unit: seconds.
+   * The expiration time of the binding relationship. Unit: seconds.
    * 
-   * >  The expiration time must be more than 60 seconds later than the time when you call this API operation.
+   * > The expiration time must be at least 60 seconds later than the current time.
    * 
    * This parameter is required.
    * 
@@ -77,10 +83,10 @@ export class BindAxnRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * Specifies whether to record all calls made by the bound phone numbers. Valid values:
+   * Specifies whether to record all calls generated for this binding relationship. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: Records calls.
+   * - **false**: Does not record calls. This is the default value.
    * 
    * @example
    * true
@@ -88,9 +94,9 @@ export class BindAxnRequest extends $dara.Model {
   isRecordingEnabled?: boolean;
   /**
    * @remarks
-   * The type of the phone number.
+   * The number type.
    * 
-   * >  This parameter is applicable to the key accounts of Alibaba Cloud. This parameter can be ignored for Alibaba Cloud users.
+   * > This parameter applies to former Alibaba Dayu customers. Alibaba Cloud users can ignore this parameter.
    * 
    * @example
    * AXB_170
@@ -98,7 +104,7 @@ export class BindAxnRequest extends $dara.Model {
   noType?: string;
   /**
    * @remarks
-   * The extension field for the external business. This parameter is returned in a call record receipt.
+   * The external business extension field. This parameter is returned in the call record receipt message.
    * 
    * @example
    * abcdef
@@ -106,7 +112,7 @@ export class BindAxnRequest extends $dara.Model {
   outId?: string;
   /**
    * @remarks
-   * The ID of the external business.
+   * The external business ID.
    * 
    * @example
    * 34553330****
@@ -115,7 +121,7 @@ export class BindAxnRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Phone number A in the AXN binding. Phone number A can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
+   * Number A of the AXN privacy number. Number A can be a mobile phone number or a landline number. If it is a landline number, the area code must be included, and no hyphen is required between the area code and the phone number.
    * 
    * This parameter is required.
    * 
@@ -125,9 +131,13 @@ export class BindAxnRequest extends $dara.Model {
   phoneNoA?: string;
   /**
    * @remarks
-   * Phone number B in the AXN binding. If phone number A is used to call phone number X, the call is forwarded to phone number B. Phone number B can be set to a mobile phone number or a landline phone number. The landline phone number must be added with an area code, and no hyphen is required between the area code and the landline phone number.
+   * Number B of the AXN privacy number.
    * 
-   * >  If phone number B is not specified in the AXN binding, the system automatically generates a nonexistent number. If phone number A is used to call phone number X, the nonexistent number is returned. If you need to update phone number B, call the [UpdateSubscription](https://help.aliyun.com/document_detail/110253.html) operation.
+   * Number B can be a mobile phone number or a landline number. If it is a landline number, the area code must be included, and no hyphen is required between the area code and the phone number.
+   * > - When Number A dials Number X, the call is forwarded to Number B by default. If Number B is not set, the call cannot be connected.
+   * > - When Number A dials Number X, the call is forwarded to Number B only when the **callback mode for Number A** is set to **default mode**. Otherwise, the call cannot be connected.
+   * > - To modify the **callback mode for Number A**, go to [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool?resType=1) > filter **AXN privacy number** > **Number Pool Management** > **Callback mode for Number A** > **Adjust Configuration**.
+   * > - To update Number B, call the [UpdateSubscription](https://www.alibabacloud.com/help/en/pnp/developer-reference/api-dyplsapi-2017-05-25-updatesubscription) operation.
    * 
    * @example
    * 138****0000
@@ -135,17 +145,19 @@ export class BindAxnRequest extends $dara.Model {
   phoneNoB?: string;
   /**
    * @remarks
-   * Phone number X in the AXN binding. Phone number X is the phone number that you purchased in the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) or by using the [BuySecretNo](https://help.aliyun.com/document_detail/110266.html) operation before you bind a phone number. Phone number X is used to forward calls.
+   * Number X of the AXN privacy number.
    * 
-   * >  If you do not specify this parameter, a random phone number is selected from the phone number pool based on the value of the ExpectCity parameter and is used as phone number X.
+   * Number X is a privacy number that you have [purchased](https://dyplsnext.console.aliyun.com/numberbuy?spm=a2c4g.11186623.0.0.7e6449bbtiHP8m) in the console.
+   * 
+   * > If Number X is not specified, a number is randomly selected from the specified number pool based on the ExpectCity parameter as Number X.
    * 
    * @example
-   * 139****0000
+   * 139****1111
    */
   phoneNoX?: string;
   /**
    * @remarks
-   * The key of the phone number pool. Log on to the [Phone Number Protection console ](https://dypls.console.aliyun.com/dypls.htm#/account)and view the key of the phone number pool on the **Number Pool Management** page.
+   * The key of the number pool. You can obtain the **number pool key** on the [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool?spm=a2c4g.11186623.0.0.7e6449bbtiHP8m) page in the Privacy Protection console.
    * 
    * @example
    * FC2256****
@@ -155,18 +167,29 @@ export class BindAxnRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Sets the ringtone code for enterprise Color Ring Back Tone (CRBT) in the AXN extension binding.
+   * Sets the corporate color ringback tone (CRBT) played during a dial-up to Number X after the AXN privacy number is attached.
    * 
-   * *   Ringtone setting (with a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_AB
-   * *   Ringtone setting (without a callback number) when phone number A is used to call phone number X in the AXN extension binding: AXNRing_A
-   * *   Ringtone setting when an N-side number is used to call phone number X in the AXN extension binding: AXNRing_N
+   * Specify the **ringtone field** and **CRBT encoding** for this parameter.
    * 
-   * Enterprise CRBT codes: Enterprise CRBT codes can be queried in the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account). You can choose **Number Pool Management > Enterprise CRBT Management** to view enterprise CRBT codes. You can also upload, delete, or perform other operations on enterprise CRBT codes.
+   * **Ringtone field** valid values:
+   * - AXNRing_AB: The ringtone Settings before Number A dials Number X and the call is connected (with a callback number) in AXN mode.
+   * - AXNRing_A: The ringtone Settings before Number A dials Number X and the call is connected (without a callback number) in AXN mode.
+   * - AXNRing_N: The ringtone Settings before Number N dials Number X and the call is connected in AXN mode.
+   * - AXNRing_A_PICKUP: The ringtone Settings after Number A dials Number X and the call is connected in AXN mode.
+   * - AXNRing_N_PICKUP: The ringtone Settings after Number N dials Number X and the call is connected in AXN mode.
    * 
-   * >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
+   * **CRBT encoding**:
+   * 
+   * You can obtain the corporate CRBT encoding on the [Corporate CRBT Management](https://dyplsnext.console.aliyun.com/number-pool/ringtone?resType=1) page in the Privacy Protection console.
+   * 
+   * **Example**:
+   * 
+   * To set the ringtone played before Number A dials Number X and the call is connected (without a callback number), enter "AXNRing_A": "1000****1".
+   * 
+   * > The corporate CRBT configured at the attachment level takes precedence. If it is not set or does not take effect, the CRBT configured at the number pool level is used.
    * 
    * @example
-   * {"AXNRing_N":"100000001","AXNRing_A":"100000001"}
+   * {"AXNRing_N":"1000****1","AXNRing_A":"1000****1"}
    */
   ringConfig?: string;
   static names(): { [key: string]: string } {

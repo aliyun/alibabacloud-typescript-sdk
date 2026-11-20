@@ -11,7 +11,7 @@ export class UnbindSubscriptionRequest extends $dara.Model {
    * >  This parameter is required when **ProductType** is left empty.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   /**
@@ -37,7 +37,7 @@ export class UnbindSubscriptionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1390000****
+   * 139****1111
    */
   secretNo?: string;
   /**

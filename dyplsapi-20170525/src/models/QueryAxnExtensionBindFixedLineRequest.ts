@@ -5,28 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAxnExtensionBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 号池ID
+   * The ID of the number pool.
    * 
    * This parameter is required.
    * 
    * @example
-   * alitest
+   * FC10000016848****
    */
   appId?: string;
   /**
    * @remarks
-   * 消息请求唯一标识。
+   * The unique identifier of the message request.
    * 
    * This parameter is required.
    * 
    * @example
-   * 12345dkwkd99d
+   * 123*******
    */
   orderId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * 查询类型。取值： 0：根据绑定ID查询。1：根据X和A/B号码查询
+   * The query type. Valid values:
+   * 
+   * - 0: query by binding ID.
+   * 
+   * - 1: query by X and A/B numbers.
    * 
    * This parameter is required.
    * 
@@ -38,7 +42,7 @@ export class QueryAxnExtensionBindFixedLineRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定ID。QueryType参数为0时必传。
+   * The binding ID. This parameter is required when QueryType is set to 0.
    * 
    * @example
    * A203**************
@@ -46,20 +50,20 @@ export class QueryAxnExtensionBindFixedLineRequest extends $dara.Model {
   subId?: string;
   /**
    * @remarks
-   * A号码。QueryType参数为1时必传。
+   * The number A. This parameter is required when QueryType is set to 1.
    * 
    * @example
-   * 15500001111
+   * 155****1111
    */
   telA?: string;
   /**
    * @remarks
-   * 格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
+   * The business timestamp. Format: yyyyMMddHHmmssSSS. The time is in UTC+8, in 24-hour format, accurate to milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723098
+   * 20161114143116123
    */
   ts?: string;
   static names(): { [key: string]: string } {

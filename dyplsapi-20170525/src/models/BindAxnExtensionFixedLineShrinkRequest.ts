@@ -5,41 +5,51 @@ import * as $dara from '@darabonba/typescript';
 export class BindAxnExtensionFixedLineShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Caller-side ringtone code. This parameter is required for AXB scenarios. Must contain codes for 3 scenarios. Enter the codes in the order of "B->X, A->X, other numbers->X", separated by commas.
+   * 
+   * > "1,2,3" indicates that the ringtone code for B->X is 1, for A->X is 2, and for other numbers->X is 3.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 10001,10002,10003
+   * 1,2,3
    */
   anucode?: string;
   /**
    * @remarks
-   * 被叫侧放音编码  被叫放音编码必须包含2个场景的编码。按照“A被叫,其他号码被叫”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2”表示A号码为被叫侧接听时的放音编号为1，其他号码为被叫侧接听时的放音编号为2
+   * Called-side ringtone code after connection. Must contain codes for 2 scenarios. Enter the codes in the order of "A as called party, B as called party", separated by commas.
+   * 
+   * > "1,2" indicates that the ringtone code when A is the called party is 1, and the ringtone code when B is the called party is 2.
    * 
    * @example
-   * 10001,10002
+   * 1,2
    */
   anucodecalled?: string;
   /**
    * @remarks
-   * 号池ID。
+   * Number pool ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * alitest
+   * FC10000016848****
    */
   appId?: string;
   /**
    * @remarks
-   * 去掉“0” 例如：北京（10）；在平台分配X号码模式中，平台从号码池中分配该地区的X号码，避免产生呼叫长途费
+   * Area code. Supports specifying the home location of the X number (specified city -> provincial capital -> nationwide routing). If no home location is specified, a number is randomly assigned nationwide.
    * 
    * @example
-   * 10
+   * 0571
    */
   areacode?: string;
   /**
    * @remarks
-   * 绑定类型，值如下： mode101：客户携带X号码 mode102：平台分配X号码
+   * Binding type. Valid values:
+   * 
+   * - mode101: Customer specifies the X number.
+   * 
+   * - mode102: Platform assigns the X number.
    * 
    * This parameter is required.
    * 
@@ -49,7 +59,11 @@ export class BindAxnExtensionFixedLineShrinkRequest extends $dara.Model {
   bindType?: string;
   /**
    * @remarks
-   * 单位：秒，必须为数字 0：不会自动解绑 非0：自动解绑周期
+   * Expiration time. Unit: seconds. Valid values:
+   * 
+   * - 0: Never expires.
+   * 
+   * - Other values: When other values are specified, such as 60, the binding is valid for 60 seconds after the X number is successfully assigned. After 60 seconds, the binding is automatically released.
    * 
    * This parameter is required.
    * 
@@ -59,69 +73,74 @@ export class BindAxnExtensionFixedLineShrinkRequest extends $dara.Model {
   expiration?: string;
   /**
    * @remarks
-   * 额外字段
+   * Extension parameters.
    */
   extraaxxShrink?: string;
   /**
    * @remarks
-   * 消息请求唯一标识
+   * Unique identifier of the message request.
    * 
    * This parameter is required.
    * 
    * @example
-   * 12345dkwkd99d
+   * 123*******
    */
   orderId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * 接入商自有字段，最大250字符长度
+   * External business extension field. This parameter is returned in call record receipt messages. Must not exceed 100 characters.
    * 
    * @example
-   * 12444
+   * 19394
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 格式为yyyyMMddHHmmss。时间采用北京时间，24小时制。
+   * Binding time. Format: yyyyMMddHHmmss. Uses Beijing time, 24-hour clock.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723
+   * 20161114143116
    */
   subts?: string;
   /**
    * @remarks
-   * 接通后主叫侧放音编码  接通后主叫侧放音编码必须包含2个场景的编码。按照“A被叫,其他号码被叫”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2”表示A号码为被叫时主叫侧的放音编号为1，其他号码为被叫时主叫侧的放音编号为2
+   * Caller-side ringtone code after connection. Must contain codes for 2 scenarios. Enter the codes in the order of "A as called party, B as called party", separated by commas.
+   * 
+   * > "1,2" indicates that the caller-side ringtone code when A is the called party is 1, and the caller-side ringtone code when B is the called party is 2.
    * 
    * @example
-   * 10001,10002
+   * 1,2
    */
   TAnucodeConnect?: string;
   /**
    * @remarks
-   * A号码
+   * The A number for the fixed-line AXN extension number.
+   * 
+   * > The A number can be set to a mobile number or a fixed-line number. Fixed-line numbers must include the area code, and no hyphen is needed between the area code and the number.
    * 
    * This parameter is required.
    * 
    * @example
-   * 15500001111放音编码必须包含3个场景的编码。按照“B->X,A->X,其他号码->X”的顺序填写编码，编码之间以逗号分隔。  AXN分机号业务的放音编码,B->X和其他号码->X的编码一致  比如：“1,2,3”表示B->X放音编号为1，A->X放音编号为2， 其他号码->X放音编号为3
+   * Mobile: 182****2371
+   * Fixed line: 0571******36
    */
   telA?: string;
   /**
    * @remarks
-   * X号码；平台分配号码模式下，该参数可不带，系统忽略该参数
+   * The X number for the fixed-line AXN extension number. The X number is a privacy number that you have [purchased](https://dyplsnext.console.aliyun.com/numberbuy) in the console.
    * 
    * @example
-   * 0571409312
+   * 0571******23
    */
   telX?: string;
   /**
    * @remarks
-   * 分机号；平台分配号码模式下，该参数可不带，系统忽略该参数
+   * Extension number. This parameter is required when the BindType parameter is set to mode101.
    * 
    * @example
    * 1009
@@ -129,12 +148,12 @@ export class BindAxnExtensionFixedLineShrinkRequest extends $dara.Model {
   telXext?: string;
   /**
    * @remarks
-   * 格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
+   * Business timestamp. Format: yyyyMMddHHmmssSSS. Uses Beijing time, 24-hour clock, accurate to milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723098
+   * 20161114143116123
    */
   ts?: string;
   static names(): { [key: string]: string } {

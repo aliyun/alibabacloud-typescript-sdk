@@ -8,7 +8,7 @@ export class UpdateSubscriptionRequest extends $dara.Model {
    * The ID of the ASR model.
    * 
    * @example
-   * 980abddb908f48e8b987cb2cd303****
+   * 7ee372834d2f4cc7ac0d0ab2d0ae1aac
    */
   ASRModelId?: string;
   /**
@@ -67,7 +67,7 @@ export class UpdateSubscriptionRequest extends $dara.Model {
    * >  This parameter is required when **OperateType** is set to **updateAxgGroup**.
    * 
    * @example
-   * 1234
+   * 200001234****
    */
   groupId?: string;
   /**
@@ -115,7 +115,7 @@ export class UpdateSubscriptionRequest extends $dara.Model {
    * >  This parameter is required when **OperateType** is set to **updateNoA**.
    * 
    * @example
-   * 1390000****
+   * 139****0000
    */
   phoneNoA?: string;
   /**
@@ -125,7 +125,7 @@ export class UpdateSubscriptionRequest extends $dara.Model {
    * >  This parameter is required when **OperateType** is set to **updateNoB**.
    * 
    * @example
-   * 1390000****
+   * 138****0000
    */
   phoneNoB?: string;
   /**
@@ -135,7 +135,7 @@ export class UpdateSubscriptionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1390000****
+   * 139****1111
    */
   phoneNoX?: string;
   /**
@@ -197,7 +197,7 @@ export class UpdateSubscriptionRequest extends $dara.Model {
    * >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
    * 
    * @example
-   * {"AXBRing_B":"100000001","AXBRing_A":"100000001"}
+   * {"AXBRing_B":"1000****1","AXBRing_A":"1000****1"}
    */
   ringConfig?: string;
   /**

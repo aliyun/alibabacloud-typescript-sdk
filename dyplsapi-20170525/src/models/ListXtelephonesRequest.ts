@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListXTelephonesRequest extends $dara.Model {
   /**
    * @remarks
-   * 客户uid
+   * The customer UID. This parameter is automatically obtained by the system and does not need to be specified.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class ListXTelephonesRequest extends $dara.Model {
   callerParentId?: number;
   /**
    * @remarks
-   * 号码池key
+   * The number pool key.
    * 
    * @example
    * FC5**********************a1a
@@ -22,7 +22,7 @@ export class ListXTelephonesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 页码从1开始
+   * The page number for the paged query. Paging starts from 1.
    * 
    * @example
    * 1
@@ -30,7 +30,7 @@ export class ListXTelephonesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * 每页条数
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -38,7 +38,7 @@ export class ListXTelephonesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求去重ID, reqId最大长度为20位,接入方需要保持原子性
+   * The request deduplication ID. The maximum length is 20 characters. Ensure the atomicity of the request ID.
    * 
    * This parameter is required.
    * 

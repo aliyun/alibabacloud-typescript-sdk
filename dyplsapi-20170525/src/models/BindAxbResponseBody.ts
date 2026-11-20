@@ -18,7 +18,7 @@ export class BindAxbResponseBodySecretBindDTO extends $dara.Model {
    * The private number, that is, phone number X.
    * 
    * @example
-   * 139****0000
+   * 171****1893
    */
   secretNo?: string;
   /**
@@ -26,7 +26,7 @@ export class BindAxbResponseBodySecretBindDTO extends $dara.Model {
    * The binding ID.
    * 
    * @example
-   * 1**************3
+   * 100017838816****
    */
   subsId?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class BindAxbResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 9297B722-A016-43FB-B51A-E54050D9369D
+   * 9297B722-A016-43FB-B51A-E54050******
    */
   requestId?: string;
   /**

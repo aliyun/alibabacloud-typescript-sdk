@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAxnExtensionBindFixedLineRequestExtraaxx extends $dara.Model {
   /**
    * @remarks
-   * 可选。 A通过X呼叫，即A主叫X，仅下列值有效。默认是0。 0：不能外呼 1：接续最近的B号码
+   * The callback control. Number A calls through number X, which means number A is the caller and number X is the callee. Valid values:
+   * 
+   * - 0 (default): Outbound calls are not allowed.
+   * 
+   * - 1: Connects to the most recent number N.
+   * 
+   * - 2: Calls back the fixed number TelB.
    * 
    * @example
    * 0
@@ -13,7 +19,13 @@ export class UpdateAxnExtensionBindFixedLineRequestExtraaxx extends $dara.Model 
   callback?: string;
   /**
    * @remarks
-   * 录音控制，仅下列值有效。默认是0（不开通录音功能）。 0：不录音 1：录音
+   * The call recording control. Valid values:
+   * 
+   * - 0 (default): Does not record calls.
+   * 
+   * - 1: Records calls.
+   * 
+   * > After the call recording feature is enabled, you can play and download voice files in the call records. Recording files are billed at CNY 0.010 per minute based on the call duration.
    * 
    * @example
    * 0
@@ -45,33 +57,41 @@ export class UpdateAxnExtensionBindFixedLineRequestExtraaxx extends $dara.Model 
 export class UpdateAxnExtensionBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 放音编码必须包含3个场景的编码。按照“B->X,A->X,其他号码->X”的顺序填写编码，编码之间以逗号分隔。  AXN分机号业务的放音编码,B->X和其他号码->X的编码一致  比如：“1,2,3”表示B->X放音编号为1，A->X放音编号为2， 其他号码->X放音编号为3
+   * The announcement code for the caller side. This parameter is required for the AXB service. It must contain codes for three scenarios. Specify the codes in the order of "B->X, A->X, and other numbers->X", separated by commas.
+   * 
+   * > "1,2,3" indicates that the announcement code for B->X is 1, the announcement code for A->X is 2, and the announcement code for other numbers->X is 3.
    * 
    * @example
-   * 10001,10002,10003
+   * 1,2,3
    */
   anucode?: string;
   /**
    * @remarks
-   * 被叫侧放音编码  被叫放音编码必须包含2个场景的编码。按照“A被叫,其他号码被叫”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2”表示A号码为被叫侧接听时的放音编号为1，其他号码为被叫侧接听时的放音编号为2
+   * The announcement code for the callee side after the call is connected. It must contain codes for two scenarios. Specify the codes in the order of "A as callee and B as callee", separated by commas.
+   * 
+   * > "1,2" indicates that the announcement code when number A answers as the callee is 1, and the announcement code when number B answers as the callee is 2.
    * 
    * @example
-   * 10001,10002
+   * 1,2
    */
   anucodecalled?: string;
   /**
    * @remarks
-   * 号池ID
+   * The ID of the number pool.
    * 
    * This parameter is required.
    * 
    * @example
-   * alitest
+   * FC10000016848****
    */
   appId?: string;
   /**
    * @remarks
-   * 单位：秒，必须为数字 0：不会自动解绑 非0：自动解绑周期
+   * The expiration time. Unit: seconds. Valid values:
+   * 
+   * - 0: Never expires.
+   * 
+   * - Other values: If you specify another value, such as 60, the binding is valid for 60 seconds after number X is allocated. After 60 seconds, the binding is automatically unbound.
    * 
    * @example
    * 60
@@ -79,76 +99,81 @@ export class UpdateAxnExtensionBindFixedLineRequest extends $dara.Model {
   expiration?: string;
   /**
    * @remarks
-   * AXx的扩展参数项
+   * The extension parameters.
    */
   extraaxx?: UpdateAxnExtensionBindFixedLineRequestExtraaxx;
   /**
    * @remarks
-   * 消息请求唯一标识。
+   * The unique identifier of the message request.
    * 
    * This parameter is required.
    * 
    * @example
-   * 12345dkwkd99d
+   * 123*******
    */
   orderId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * 接入商自有字段，最大250字符长度
+   * The external business extension field. This parameter is returned in the call record receipt message. The value cannot exceed 100 characters in length.
    * 
    * @example
-   * 1233
+   * 19394
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定id
+   * The binding ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 可参考绑定响应
+   * GHX0*************************
    */
   subId?: string;
   /**
    * @remarks
-   * 格式为yyyyMMddHHmmss。时间采用北京时间，24小时制。
+   * The binding time. Format: yyyyMMddHHmmss. The time is in UTC+8 and uses the 24-hour format.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723098
+   * 20161114143116
    */
   subts?: string;
   /**
    * @remarks
-   * 接通后主叫侧放音编码  接通后主叫侧放音编码必须包含2个场景的编码。按照“A被叫,其他号码被叫”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2”表示A号码为被叫时主叫侧的放音编号为1，其他号码为被叫时主叫侧的放音编号为2
+   * The announcement code for the caller side after the call is connected. It must contain codes for two scenarios. Specify the codes in the order of "A as callee and B as callee", separated by commas.
+   * 
+   * > "1,2" indicates that the announcement code for the caller side when number A is the callee is 1, and the announcement code for the caller side when number B is the callee is 2.
    * 
    * @example
-   * 10001,10002
+   * 1,2
    */
   TAnucodeConnect?: string;
   /**
    * @remarks
-   * A号码
+   * The number A of the landline AXN extension.
+   * 
+   * > Number A can be set to a mobile phone number or a landline number. For a landline number, the area code must be included, and no hyphen is required between the area code and the number.
    * 
    * This parameter is required.
    * 
    * @example
-   * 15500001111
+   * Mobile phone number: 182****2371
+   * Landline number: 0571******36
    */
   telA?: string;
   /**
    * @remarks
-   * 格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
+   * The business timestamp. Format: yyyyMMddHHmmssSSS. The time is in UTC+8 and uses the 24-hour format, accurate to milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723098
+   * 20161114143116123
    */
   ts?: string;
   static names(): { [key: string]: string } {

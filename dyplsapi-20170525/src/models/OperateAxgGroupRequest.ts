@@ -17,7 +17,7 @@ export class OperateAxgGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1234
+   * 200001234****
    */
   groupId?: number;
   /**
@@ -58,7 +58,7 @@ export class OperateAxgGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   resourceOwnerAccount?: string;

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnbindSubs700Request extends $dara.Model {
   /**
+   * @remarks
+   * Optional. The Industrial Internet identification code, which has a one-to-one mapping with the OrderID. The code supports characters such as periods (.) and forward slashes (/) to separate code domains. The code must not contain non-printable characters, such as spaces or line feeds. This field is required when the service consumer generates the Industrial Internet identification code.
+   * 
    * @example
    * 700.100.1/12345678
    */
   industrialId?: string;
   /**
+   * @remarks
+   * The order ID. This parameter is required in practice. Encrypt the order ID for reporting to the regulatory platform.
+   * 
    * @example
    * 12345678
    */
@@ -16,6 +22,10 @@ export class UnbindSubs700Request extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The number pool key.
+   * 
+   * To obtain the **number pool key**, go to the [Number pool management](https://dyplsnext.console.aliyun.com/number-pool) page in the Phone Number Privacy Protection console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +36,8 @@ export class UnbindSubs700Request extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The number binding ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +46,8 @@ export class UnbindSubs700Request extends $dara.Model {
   subsId?: number;
   /**
    * @remarks
+   * The intermediate number X. If the service consumer does not specify number X, the application platform assigns a number from the number pool as number X.
+   * 
    * This parameter is required.
    * 
    * @example

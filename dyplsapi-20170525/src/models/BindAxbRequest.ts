@@ -48,7 +48,7 @@ export class BindAxbRequest extends $dara.Model {
    * The maximum ringing duration for each number in sequential ringing. Unit: seconds. The value ranges from 5 to 20.
    * 
    * @example
-   * 10
+   * 10秒
    */
   callTimeout?: number;
   /**
@@ -83,7 +83,7 @@ export class BindAxbRequest extends $dara.Model {
    * *   If**Number X Assignment Mode** is set to **Strict Matching Mode** and no phone number meets the requirement, the system displays an allocation error.
    * 
    * @example
-   * hangzhou
+   * 北京
    */
   expectCity?: string;
   /**
@@ -106,7 +106,7 @@ export class BindAxbRequest extends $dara.Model {
    * *   **false** (default)
    * 
    * @example
-   * true
+   * false
    */
   isRecordingEnabled?: boolean;
   /**
@@ -145,7 +145,7 @@ export class BindAxbRequest extends $dara.Model {
    * >  If you need to update phone number B, call the [UpdateSubscription](https://help.aliyun.com/document_detail/110253.html) operation.
    * 
    * @example
-   * 139****0000
+   * 136****0000
    */
   phoneNoB?: string;
   /**
@@ -157,7 +157,7 @@ export class BindAxbRequest extends $dara.Model {
    * If you do not specify this parameter, a random phone number is selected from the phone number pool based on the value of the ExpectCity parameter and is used as phone number X.
    * 
    * @example
-   * 139****0000
+   * 171****1893
    */
   phoneNoX?: string;
   /**
@@ -167,7 +167,7 @@ export class BindAxbRequest extends $dara.Model {
    * Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
    * 
    * @example
-   * FC5526*****
+   * FC10000016848****
    */
   poolKey?: string;
   resourceOwnerAccount?: string;
@@ -184,7 +184,10 @@ export class BindAxbRequest extends $dara.Model {
    * >  The bound enterprise CRBTs are preferentially used. If no enterprise CRBT is set or the setting does not take effect, the enterprise CRBTs at the phone number pool level are used.
    * 
    * @example
-   * {"AXBRing_B":"1000****1","AXBRing_A":"1000****1"}
+   * {
+   *       "AXBRing_B": "1000****1",
+   *       "AXBRing_A": "1000****1"
+   * }
    */
   ringConfig?: string;
   static names(): { [key: string]: string } {

@@ -10,7 +10,7 @@ export class QueryRecordFileDownloadUrlRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * abcedf1234
+   * 416*********bd50
    */
   callId?: string;
   /**
@@ -29,7 +29,7 @@ export class QueryRecordFileDownloadUrlRequest extends $dara.Model {
    * >  This parameter is required when **ProductType** is left empty.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   /**

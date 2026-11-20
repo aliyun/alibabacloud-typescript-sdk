@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAXBCallResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 绑定关系ID
+   * The ID of the binding relationship.
    * 
    * @example
    * 476567566
@@ -36,30 +36,48 @@ export class BindAXBCallResponseBodyData extends $dara.Model {
 
 export class BindAXBCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the access denied error.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
+   * The response status code. Valid values:
+   * 
+   * - 0000: Success.
+   * 
+   * - Other values: Failure.
    * 
    * @example
    * 0000
    */
   code?: string;
+  /**
+   * @remarks
+   * The AXB call binding result.
+   * 
+   * @example
+   * {"BindId":"476567566"}
+   */
   data?: BindAXBCallResponseBodyData;
   /**
    * @remarks
-   * 返回信息
+   * The response message.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: Success.
+   * 
+   * - false: Failure.
    * 
    * @example
    * true

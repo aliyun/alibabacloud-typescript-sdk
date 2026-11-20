@@ -5,47 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePickUpWaybillRequestConsigneeAddress extends $dara.Model {
   /**
    * @remarks
-   * The detailed address of the consignee.
+   * The detailed address.
    * 
    * This parameter is required.
    * 
    * @example
-   * XX community
+   * No. XX, XX Community
    */
   addressDetail?: string;
   /**
    * @remarks
-   * The district where the consignee is located.
+   * The district.
    * 
    * This parameter is required.
    * 
    * @example
-   * xihu
+   * Xihu District
    */
   areaName?: string;
   /**
    * @remarks
-   * The city where the consignee is located.
+   * The city.
    * 
    * This parameter is required.
    * 
    * @example
-   * hangzhou
+   * Hangzhou
    */
   cityName?: string;
   /**
    * @remarks
-   * The province where the consignee is located.
+   * The province.
    * 
    * This parameter is required.
    * 
    * @example
-   * zhejiang
+   * Zhejiang
    */
   provinceName?: string;
   /**
    * @remarks
-   * The street where the consignee is located.
+   * The street.
    * 
    * @example
    * XX Street
@@ -83,15 +83,15 @@ export class CreatePickUpWaybillRequestConsigneeAddress extends $dara.Model {
 export class CreatePickUpWaybillRequestGoodsInfos extends $dara.Model {
   /**
    * @remarks
-   * The item name.
+   * The name of the item.
    * 
    * @example
-   * zhang
+   * Shoes
    */
   name?: string;
   /**
    * @remarks
-   * The item quantity.
+   * The quantity.
    * 
    * @example
    * 1
@@ -99,7 +99,7 @@ export class CreatePickUpWaybillRequestGoodsInfos extends $dara.Model {
   quantity?: string;
   /**
    * @remarks
-   * The item weight. Unit: gram.
+   * The weight. Unit: grams.
    * 
    * @example
    * 1000
@@ -133,47 +133,47 @@ export class CreatePickUpWaybillRequestGoodsInfos extends $dara.Model {
 export class CreatePickUpWaybillRequestSendAddress extends $dara.Model {
   /**
    * @remarks
-   * The detailed address of the sender.
+   * The detailed address.
    * 
    * This parameter is required.
    * 
    * @example
-   * XX community
+   * No. XX, XX Community
    */
   addressDetail?: string;
   /**
    * @remarks
-   * The district where the sender is located.
+   * The district.
    * 
    * This parameter is required.
    * 
    * @example
-   * wenjiang
+   * Weiyang District
    */
   areaName?: string;
   /**
    * @remarks
-   * The city where the sender is located.
+   * The city.
    * 
    * This parameter is required.
    * 
    * @example
-   * chengdu
+   * Xi\\"an
    */
   cityName?: string;
   /**
    * @remarks
-   * The province where the sender is located.
+   * The province.
    * 
    * This parameter is required.
    * 
    * @example
-   * Sichuan
+   * Shaanxi Province
    */
   provinceName?: string;
   /**
    * @remarks
-   * The street where the sender is located.
+   * The street.
    * 
    * @example
    * XX Street
@@ -211,9 +211,8 @@ export class CreatePickUpWaybillRequestSendAddress extends $dara.Model {
 export class CreatePickUpWaybillRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the door-to-door pickup in the appointment. The value of **AppointGotEndTime** is the value of **EndTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
-   * 
-   * >  This parameter is required when **BizType** is set to **1**.
+   * The end time of the scheduled door-to-door pickup, in the YYYY-MM-DD HH:mm:ss format. To obtain the value of **AppointGotEndTime**, obtain the **EndTime** value from **AppointTimes** in the **CpTimeSelectList** response parameter of the [CreatePickUpWaybillPreQuery](https://api.aliyun.com/document/Dyplsapi/2017-05-25/CreatePickUpWaybillPreQuery) operation.
+   * > Required when **bizType** is set to **1**.
    * 
    * @example
    * 2021-01-01 12:00:00
@@ -221,9 +220,9 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   appointGotEndTime?: string;
   /**
    * @remarks
-   * The start time of the door-to-door pickup in the appointment. The value of **AppointGotStartTime** is the value of **StartTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
+   * The start time of the scheduled door-to-door pickup, in the YYYY-MM-DD HH:mm:ss format. To obtain the value of **AppointGotStartTime**, obtain the **StartTime** value from **AppointTimes** in the **CpTimeSelectList** response parameter of the [CreatePickUpWaybillPreQuery](https://api.aliyun.com/document/Dyplsapi/2017-05-25/CreatePickUpWaybillPreQuery) operation.
    * 
-   * >  This parameter is required when **BizType** is set to **1**.
+   * > Required when **bizType** is set to **1**.
    * 
    * @example
    * 2021-01-01 10:00:00
@@ -231,10 +230,10 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   appointGotStartTime?: string;
   /**
    * @remarks
-   * The pickup mode. Valid values:
+   * The delivery mode. Valid values:
    * 
-   * *   **0** (default): real-time order.
-   * *   **1**: appointment order.
+   * - **0**: real-time order (default)
+   * - **1**: scheduled order
    * 
    * @example
    * 0
@@ -242,16 +241,16 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The address of the consignee.
+   * The address of the recipient.
    * 
    * This parameter is required.
    */
   consigneeAddress?: CreatePickUpWaybillRequestConsigneeAddress;
   /**
    * @remarks
-   * The mobile phone number of the consignee.
+   * The mobile phone number of the recipient.
    * 
-   * >  Either ConsigneeMobile or ConsigneePhone must be set.
+   * > You must specify either ConsigneeMobile or ConsigneePhone.
    * 
    * @example
    * 1580000****
@@ -259,19 +258,18 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   consigneeMobile?: string;
   /**
    * @remarks
-   * The name of the consignee.
+   * The name of the recipient.
    * 
    * This parameter is required.
    * 
    * @example
-   * Li
+   * Zhang XX
    */
   consigneeName?: string;
   /**
    * @remarks
-   * The landline phone number of the consignee.
-   * 
-   * >  Either ConsigneeMobile or ConsigneePhone must be set.
+   * The landline phone number of the recipient.
+   * > You must specify either ConsigneeMobile or ConsigneePhone.
    * 
    * @example
    * 0570000****
@@ -279,7 +277,7 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   consigneePhone?: string;
   /**
    * @remarks
-   * The code of the courier company.
+   * The express delivery company code.
    * 
    * @example
    * YTO
@@ -287,12 +285,12 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   cpCode?: string;
   /**
    * @remarks
-   * The items.
+   * The list of goods.
    */
   goodsInfos?: CreatePickUpWaybillRequestGoodsInfos[];
   /**
    * @remarks
-   * The external channel sources.
+   * The external channel source.
    * 
    * This parameter is required.
    * 
@@ -302,7 +300,7 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   orderChannels?: string;
   /**
    * @remarks
-   * The ID of the external order.
+   * The external order ID.
    * 
    * This parameter is required.
    * 
@@ -312,10 +310,10 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
   outerOrderCode?: string;
   /**
    * @remarks
-   * The additional information about the order. The additional information will be printed on the order.
+   * The remark. The remark content printed on the waybill.
    * 
    * @example
-   * fragile
+   * Fragile items
    */
   remark?: string;
   /**
@@ -329,7 +327,7 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
    * @remarks
    * The mobile phone number of the sender.
    * 
-   * >  Either SendMobile or SendPhone must be set.
+   * > You must specify either SendMobile or SendPhone.
    * 
    * @example
    * 1596714****
@@ -342,14 +340,13 @@ export class CreatePickUpWaybillRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Wang
+   * Wang XX
    */
   sendName?: string;
   /**
    * @remarks
    * The landline phone number of the sender.
-   * 
-   * >  Either SendMobile or SendPhone must be set.
+   * > You must specify either SendMobile or SendPhone.
    * 
    * @example
    * 05718845****

@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAxbBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 号池ID。
+   * Number pool ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * ALPT_1234
+   * FC10000016848****
    */
   appId?: string;
   /**
    * @remarks
-   * 消息请求唯一标识。
+   * Unique identifier of the message request.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 123*******
    */
   orderId?: string;
   ownerId?: number;
@@ -28,22 +28,22 @@ export class DeleteAxbBindFixedLineRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定id
+   * Binding ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * A93IOELD93
+   * A93I******
    */
   subId?: string;
   /**
    * @remarks
-   * 业务时间戳，格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
+   * Business timestamp. Format: yyyyMMddHHmmssSSS. The time uses Beijing time in 24-hour clock format, accurate to milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20161114143116001
+   * 20161114143116123
    */
   ts?: string;
   static names(): { [key: string]: string } {

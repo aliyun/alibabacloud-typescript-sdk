@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAxbBindFixedLineResponseBodyDataExtra extends $dara.Model {
   /**
    * @remarks
-   * 录音控制，仅下列值有效。默认是0（不开通录音功能）。 0：不录音 1：录音
+   * The call recording control. Valid values:
+   * 
+   * - 0 (default): Do not record.
+   * 
+   * - 1: Record.
+   * 
+   * > After the call recording feature is enabled, you can play and download voice files in the call records. Recording files are billed at 0.010 CNY per minute.
    * 
    * @example
    * 1
@@ -35,15 +41,17 @@ export class QueryAxbBindFixedLineResponseBodyDataExtra extends $dara.Model {
 export class QueryAxbBindFixedLineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 接通前放音编码，放音编码必须包含3个场景的编码。按照“B->X,A->X,其他号码->X”的顺序填写编码，编码之间以逗号分隔。  比如：“1,2,3”表示B->X放音编号为1，A->X放音编号为2， 其他号码->X放音编号为3
+   * The ringback tone code played before the call is connected. The code must include codes for three scenarios. Specify the codes in the order of "B->X, A->X, other numbers->X", separated by commas. 
+   * 
+   * > "1,2,3" indicates that the ringback tone code for B->X is 1, for A->X is 2, and for other numbers->X is 3.
    * 
    * @example
-   * 10001,10002,10003
+   * 1,2,3
    */
   anucode?: string;
   /**
    * @remarks
-   * 接通后被叫侧放音编码
+   * The ringback tone code played to the called party after the call is connected.
    * 
    * @example
    * 10001,10002
@@ -51,15 +59,19 @@ export class QueryAxbBindFixedLineResponseBodyData extends $dara.Model {
   anucodecalled?: string;
   /**
    * @remarks
-   * 隐私号码区号
+   * The area code of the privacy number.
    * 
    * @example
-   * 010
+   * 0571
    */
   areacode?: string;
   /**
    * @remarks
-   * 绑定过期时间
+   * The expiration time, in seconds. Valid values:
+   * 
+   * - 0: Never expires.
+   * 
+   * - Other values: When set to another value such as 60, the binding remains valid for 60 seconds after the X number is successfully assigned. After 60 seconds, the binding is automatically released.
    * 
    * @example
    * 60
@@ -67,12 +79,12 @@ export class QueryAxbBindFixedLineResponseBodyData extends $dara.Model {
   expiration?: string;
   /**
    * @remarks
-   * 额外字段
+   * The extended parameters.
    */
   extra?: QueryAxbBindFixedLineResponseBodyDataExtra;
   /**
    * @remarks
-   * 接入商自有字段，最大250字符长度
+   * The external business extension field. This parameter is returned in the call record receipt message. The value cannot exceed 100 characters.
    * 
    * @example
    * 19394
@@ -80,50 +92,52 @@ export class QueryAxbBindFixedLineResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * 绑定id
+   * The binding ID.
    * 
    * @example
-   * GHX0534X202504221531579290029-2-1-aliaxb
+   * GHX**************************
    */
   subid?: string;
   /**
    * @remarks
-   * 绑定时间，格式为yyyyMMddHHmmss。时间采用北京时间，24小时制。
+   * The binding time. Format: yyyyMMddHHmmss. The time is in UTC+8, in 24-hour format.
    * 
    * @example
-   * 20250421141723
+   * 20161114143116
    */
   subts?: string;
   /**
    * @remarks
-   * 接通后主叫侧放音编码
+   * The ringback tone code played to the caller after the call is connected. The code must include codes for two scenarios. Specify the codes in the order of "A as callee, B as callee", separated by commas.
+   * 
+   * > "1,2" indicates that the ringback tone code played to the caller when A is the callee is 1, and when B is the callee is 2.
    * 
    * @example
-   * 示例值示例值
+   * 1,2
    */
   TAnucodeConnect?: string;
   /**
    * @remarks
-   * A号码
+   * The A number.
    * 
    * @example
-   * 15500001111
+   * 155****1111
    */
   telA?: string;
   /**
    * @remarks
-   * B号码
+   * The B number.
    * 
    * @example
-   * 15500002222
+   * 155****2222
    */
   telB?: string;
   /**
    * @remarks
-   * 小号号码
+   * The X number of the AXB landline privacy number. The X number is a privacy number that you have [purchased](https://dyplsnext.console.aliyun.com/numberbuy) in the console.
    * 
    * @example
-   * 19700002222
+   * 0571******23
    */
   telX?: string;
   static names(): { [key: string]: string } {
@@ -174,13 +188,17 @@ export class QueryAxbBindFixedLineResponseBodyData extends $dara.Model {
 
 export class QueryAxbBindFixedLineResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why access was denied.
+   * 
    * @example
-   * {}
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 响应码
+   * The API request status code. Valid values:
+   * 0: Success. For other error codes, see [API error codes](https://help.aliyun.com/document_detail/59892.html).
    * 
    * @example
    * 0
@@ -188,25 +206,32 @@ export class QueryAxbBindFixedLineResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 绑定信息
+   * The binding information.
    */
   data?: QueryAxbBindFixedLineResponseBodyData;
   /**
    * @remarks
-   * 描述信息
+   * The description.
    * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. It is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
+   * 
    * @example
    * 3179F199-C6C5-5963-85A6-21CBA2F47592
    */
   requestId?: string;
   /**
    * @remarks
-   * 处理是否成功 true-成功
+   * Indicates whether the API call was successful. Valid values:
+   * 
+   * - true: Success.
+   * 
+   * - false: Failure.
    * 
    * @example
    * true

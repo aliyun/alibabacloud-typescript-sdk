@@ -6,9 +6,9 @@ export class QuerySecretNoDetailRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The key of the phone number pool.
+   * The key of the number pool.
    * 
-   * Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+   * Log on to the Phone Number Protection console and obtain the **Number Pool Key** on the [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool) page.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,9 @@ export class QuerySecretNoDetailRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The private number.
+   * The privacy number, which is the X number.
+   * 
+   * Log on to the Phone Number Protection console and obtain the X number on the [Number Management](https://dyplsnext.console.aliyun.com/number/list) page. Alternatively, view the **SecretNo** parameter in the response when you call a number binding operation such as [BindAxb](https://www.alibabacloud.com/help/en/pnp/developer-reference/api-dyplsapi-2017-05-25-bindaxb).
    * 
    * This parameter is required.
    * 

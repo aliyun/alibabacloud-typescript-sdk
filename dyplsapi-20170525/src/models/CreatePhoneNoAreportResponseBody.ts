@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePhoneNoAReportResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 创建结果
+   * Creation result. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true
@@ -13,7 +17,13 @@ export class CreatePhoneNoAReportResponseBodyData extends $dara.Model {
   createResult?: boolean;
   /**
    * @remarks
-   * 创建类型枚举，1为成功，负数为创建失败
+   * Enumeration of creation types. A value of 1 indicates success, and negative values indicate creation failure. Valid values:
+   * 
+   * - 1: Succeeded.
+   * 
+   * - -1: The mobile phone number has already been submitted for filing; no need to submit again.
+   * 
+   * - -2: The mobile phone number has already been successfully filed; no need to file again.
    * 
    * @example
    * 1
@@ -44,13 +54,16 @@ export class CreatePhoneNoAReportResponseBodyData extends $dara.Model {
 
 export class CreatePhoneNoAReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details of denied access.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 请求状态码
+   * Request status code.
    * 
    * @example
    * 200
@@ -58,12 +71,12 @@ export class CreatePhoneNoAReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A号码报备结果结构体
+   * The struct of the A-number filing result.
    */
   data?: CreatePhoneNoAReportResponseBodyData;
   /**
    * @remarks
-   * 失败错误提示
+   * Error message for failure.
    * 
    * @example
    * 手机号码***已存在
@@ -71,7 +84,7 @@ export class CreatePhoneNoAReportResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 返回id
+   * The returned ID.
    * 
    * @example
    * 1D73E648-0978-18A5-B089-3BB2
@@ -79,7 +92,11 @@ export class CreatePhoneNoAReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否成功
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true

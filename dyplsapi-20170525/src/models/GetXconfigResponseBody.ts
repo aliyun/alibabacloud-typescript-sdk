@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
   /**
    * @remarks
-   * 呼叫方向 1:员工B呼叫客户A 2:客户A呼叫员工B
+   * The call direction. Valid values:
+   * - 1: Employee B calls Customer A.
+   * - 2: Customer A calls Employee B.
    * 
    * @example
    * 1
@@ -13,7 +15,13 @@ export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
   callDir?: string;
   /**
    * @remarks
-   * 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
+   * The call status. Valid values:
+   * - 1: Call ringing.
+   * - 2: Before connection.
+   * - 3: After connection.
+   * - 4: Call ended.
+   * - 5: Connected.
+   * - 6: Not connected.
    * 
    * @example
    * 1
@@ -21,7 +29,9 @@ export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
   callStatus?: string;
   /**
    * @remarks
-   * 接收方向 1:主叫 2:被叫
+   * The receiving direction. Valid values:
+   * - 1: Caller.
+   * - 2: Called party.
    * 
    * @example
    * 1
@@ -29,7 +39,7 @@ export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
   receiveDir?: string;
   /**
    * @remarks
-   * 规则ID
+   * The rule ID.
    * 
    * @example
    * 345
@@ -37,15 +47,19 @@ export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * 规则名称
+   * The rule name.
    * 
    * @example
-   * 企业名片-短信规则
+   * Enterprise profile - SMS rule
    */
   ruleName?: string;
   /**
    * @remarks
-   * 规则类型： 1：企业名片-短信 2：企业名片-闪信 3：企业名片-视频 4：企业名片-音频
+   * The rule type. Valid values:
+   * - 1: Enterprise profile - SMS.
+   * - 2: Enterprise profile - Flash message.
+   * - 3: Enterprise profile - Video.
+   * - 4: Enterprise profile - Audio.
    * 
    * @example
    * 1
@@ -53,7 +67,7 @@ export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * 模板ID
+   * The template ID.
    * 
    * @example
    * 12345
@@ -95,26 +109,26 @@ export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
 export class GetXConfigResponseBodyDataSequenceCalls extends $dara.Model {
   /**
    * @remarks
-   * 顺振提示音放音编号，格式如callNoPlayCode
+   * The play ID of the prompt tone for sequence ringing. The format is the same as callNoPlayCode.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value
    */
   sequenceCallNoPlayCode?: string;
   /**
    * @remarks
-   * 顺振被叫号码
+   * The called number for sequence ringing.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value
    */
   sequenceCalledNo?: string;
   /**
    * @remarks
-   * 接通后主被叫放音编号，格式如calledPlayCode
+   * The play ID for the caller and called party after the call is connected. The format is the same as calledPlayCode.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value
    */
   sequenceCalledPlayCode?: string;
   static names(): { [key: string]: string } {
@@ -145,7 +159,9 @@ export class GetXConfigResponseBodyDataSequenceCalls extends $dara.Model {
 export class GetXConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
+   * Specifies whether the call capability is enabled. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 0
@@ -153,7 +169,10 @@ export class GetXConfigResponseBodyData extends $dara.Model {
   callAbility?: string;
   /**
    * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * Specifies whether to pass through the caller ID to display the real caller. Valid values:
+   * - 00: Non-passthrough. The work number is displayed when calls are made to each other.
+   * - 10: Passthrough. When Customer A is the caller, the caller ID displayed to Employee B is the number of Customer A. When Employee B is the caller, the caller ID displayed to Customer A is the work number.
+   * Default value: 00.
    * 
    * @example
    * 00
@@ -161,17 +180,17 @@ export class GetXConfigResponseBodyData extends $dara.Model {
   GNFlag?: string;
   /**
    * @remarks
-   * 企业名片规则控制参数
+   * The control parameters for enterprise profile rules.
    */
   reachJsons?: GetXConfigResponseBodyDataReachJsons[];
   /**
    * @remarks
-   * 顺振控制参数
+   * The control parameters for sequence ringing.
    */
   sequenceCalls?: GetXConfigResponseBodyDataSequenceCalls[];
   /**
    * @remarks
-   * 顺振结束时间 格式：HH:mm:ss 18:00:00
+   * The end time of sequence ringing. Format: HH:mm:ss, such as 18:00:00.
    * 
    * @example
    * 09:00:00
@@ -179,7 +198,7 @@ export class GetXConfigResponseBodyData extends $dara.Model {
   sequenceEndTime?: string;
   /**
    * @remarks
-   * 顺振开启时间 格式：HH:mm:ss 09:00:00
+   * The start time of sequence ringing. Format: HH:mm:ss, such as 09:00:00.
    * 
    * @example
    * 09:00:00
@@ -187,7 +206,9 @@ export class GetXConfigResponseBodyData extends $dara.Model {
   sequenceStartTime?: string;
   /**
    * @remarks
-   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
+   * Specifies whether the SMS feature is enabled. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 0
@@ -195,7 +216,10 @@ export class GetXConfigResponseBodyData extends $dara.Model {
   smsAbility?: string;
   /**
    * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * Specifies whether to pass through the caller ID to display the real caller. Valid values:
+   * - 00: Non-passthrough. The work number is displayed when calls are made to each other.
+   * - 10: Passthrough. When Customer A is the caller, the caller ID displayed to Employee B is the number of Customer A. When Employee B is the caller, the caller ID displayed to Customer A is the work number.
+   * Default value: 00.
    * 
    * @example
    * 0
@@ -244,30 +268,48 @@ export class GetXConfigResponseBodyData extends $dara.Model {
 
 export class GetXConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the access denial.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
+   * The response status code. Valid values:
+   *  
+   * - 0000: Success.
+   *  
+   * Other values indicate failure.
    * 
    * @example
    * 0000
    */
   code?: string;
+  /**
+   * @remarks
+   * The configuration of the work number.
+   * 
+   * @example
+   * {"CallAbility":"0","GNFlag":"00","SmsAbility":"0","SmsSignMode":"0"}
+   */
   data?: GetXConfigResponseBodyData;
   /**
    * @remarks
-   * 返回信息
+   * The response message.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: Success.
+   * 
+   * - false: Failure.
    * 
    * @example
    * true

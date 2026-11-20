@@ -20,7 +20,7 @@ export class QuerySecretNoRemainRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * hangzhou
+   * 杭州
    */
   city?: string;
   ownerId?: number;

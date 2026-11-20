@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAxbBindFixedLineRequestExtra extends $dara.Model {
   /**
    * @remarks
-   * 录音控制， 0：不录音 1：录音
+   * The call recording control. Valid values:
+   * 
+   * - 0 (default): Call recording is disabled.
+   * 
+   * - 1: Call recording is enabled.
    * 
    * @example
    * 0
@@ -35,7 +39,9 @@ export class UpdateAxbBindFixedLineRequestExtra extends $dara.Model {
 export class UpdateAxbBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 主叫侧放音编码
+   * The caller-side audio playback code. This parameter is required for the AXB privacy number service for landlines. The audio playback code must include codes for three scenarios. Specify the codes in the order of "B->X, A->X, and other numbers->X", and separate the codes with commas.
+   * 
+   * > "1,2,3" indicates that the audio playback code for B->X is 1, the code for A->X is 2, and the code for other numbers->X is 3.
    * 
    * @example
    * 1,2,3
@@ -43,7 +49,9 @@ export class UpdateAxbBindFixedLineRequest extends $dara.Model {
   anucode?: string;
   /**
    * @remarks
-   * 被叫侧放音编码
+   * The callee-side audio playback code after the call is connected. The callee-side audio playback code must include codes for two scenarios. Specify the codes in the order of "A as the callee and B as the callee", and separate the codes with commas.
+   * 
+   * > "1,2" indicates that the audio playback code when Number A answers as the callee is 1, and the code when Number B answers as the callee is 2.
    * 
    * @example
    * 1,2
@@ -51,17 +59,21 @@ export class UpdateAxbBindFixedLineRequest extends $dara.Model {
   anucodecalled?: string;
   /**
    * @remarks
-   * 号池ID。
+   * The ID of the number pool.
    * 
    * This parameter is required.
    * 
    * @example
-   * ALPT_1234
+   * FC10000016848****
    */
   appId?: string;
   /**
    * @remarks
-   * 过期时间,单位：秒，必须为数字 0：不会自动解绑 非0：自动解绑周期
+   * The expiration time. Unit: seconds. Valid values:
+   * 
+   * - 0: The binding never expires.
+   * 
+   * - Other values: If you specify another value, such as 60, the binding is valid for 60 seconds after Number X is allocated. After 60 seconds, the binding is automatically unbound.
    * 
    * @example
    * 10
@@ -69,53 +81,55 @@ export class UpdateAxbBindFixedLineRequest extends $dara.Model {
   expiration?: string;
   /**
    * @remarks
-   * 扩展参数
+   * The extension parameters.
    */
   extra?: UpdateAxbBindFixedLineRequestExtra;
   /**
    * @remarks
-   * 消息请求唯一标识。
+   * The unique identifier of the message request.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1234567890
+   * 123*******
    */
   orderId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * 接入商自有字段，最大250字符长度
+   * The external business extension field. This parameter is returned in the call record receipt message. The value cannot exceed 100 characters in length.
    * 
    * @example
-   * remark
+   * 19394
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定id
+   * The binding ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * A100X558X0000400023
+   * A100***************
    */
   subId?: string;
   /**
    * @remarks
-   * 格式为yyyyMMddHHmmss。时间采用北京时间，24小时制。
+   * The binding time. The format is yyyyMMddHHmmss. The time is in UTC+8 and uses the 24-hour format.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20150920190126
+   * 20161114143116
    */
   subts?: string;
   /**
    * @remarks
-   * 接通后主叫侧的放音编码
+   * The caller-side audio playback code after the call is connected. The caller-side audio playback code after connection must include codes for two scenarios. Specify the codes in the order of "A as the callee and B as the callee", and separate the codes with commas.
+   * 
+   * > "1,2" indicates that the caller-side audio playback code when Number A is the callee is 1, and the caller-side audio playback code when Number B is the callee is 2.
    * 
    * @example
    * 1,2
@@ -123,28 +137,38 @@ export class UpdateAxbBindFixedLineRequest extends $dara.Model {
   TAnucodeConnect?: string;
   /**
    * @remarks
-   * 真实号码，telA,telB不允许同时更新
+   * Sets Number A in the binding relationship.
+   * 
+   * 
+   * > - Number A can be set to a mobile phone number or a landline number. If it is a landline number, you must add the area code. No hyphen is required between the area code and the number.
+   * > - You cannot update TelA and TelB at the same time.
    * 
    * @example
-   * 13900000000
+   * Mobile phone number: 182****2371
+   * Landline number: 0571******36
    */
   telA?: string;
   /**
    * @remarks
-   * 对端号码，telA,telB不允许同时更新
+   * Sets Number B in the binding relationship.
+   * 
+   * 
+   * > - Number B can be set to a mobile phone number or a landline number. If it is a landline number, you must add the area code. No hyphen is required between the area code and the number.
+   * > - You cannot update TelA and TelB at the same time.
    * 
    * @example
-   * 13005711234
+   * Mobile phone number: 182****2371
+   * Landline number: 0571******36
    */
   telB?: string;
   /**
    * @remarks
-   * 业务时间戳，格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
+   * The business timestamp. The format is yyyyMMddHHmmssSSS. The time is in UTC+8 and uses the 24-hour format. The precision is accurate to milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 20161114143116001
+   * 20161114143116123
    */
   ts?: string;
   static names(): { [key: string]: string } {

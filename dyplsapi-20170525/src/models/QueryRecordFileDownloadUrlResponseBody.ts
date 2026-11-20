@@ -19,7 +19,7 @@ export class QueryRecordFileDownloadUrlResponseBody extends $dara.Model {
    * The download URL of the recording file. The download URL is valid for 2 hours.
    * 
    * @example
-   * http://secret-axb-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=155175****&OSSAccessKeyId=LTAIP00vvvv****v&Signature=tK6Yq9KusU4n%2BZ****7lg4/WmEA%3D
+   * http://secret-axb-reco****cn-shanghai.aliyuncs.com/1000000820******_66647243838006067251************.mp3?Expires=1551******&OSSAccessKeyId=yourAccessKeyID&Signature=tK6Yq9KusU4n********7lg4/WmEA%3D
    */
   downloadUrl?: string;
   /**

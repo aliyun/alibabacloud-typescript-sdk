@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAxnExtensionBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 号池ID
+   * The business ID identifier assigned by Alibaba Cloud to the customer.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteAxnExtensionBindFixedLineRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * 消息请求唯一标识
+   * The unique identifier of the message request.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class DeleteAxnExtensionBindFixedLineRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定id
+   * The binding ID.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class DeleteAxnExtensionBindFixedLineRequest extends $dara.Model {
   subId?: string;
   /**
    * @remarks
-   * 格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
+   * Format: yyyyMMddHHmmssSSS. The time uses Beijing time in 24-hour format, accurate to milliseconds.
    * 
    * This parameter is required.
    * 

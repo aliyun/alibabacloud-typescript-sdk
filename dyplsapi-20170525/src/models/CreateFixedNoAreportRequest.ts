@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFixedNoAReportRequest extends $dara.Model {
   /**
    * @remarks
-   * 所属a号码组id
+   * ID of the group to which Number A belongs. On the [Qualification Management](https://dyplsnext.console.aliyun.com/qualification) Page, go to the A-number whitelist section of the relevant qualification and click View Details.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   ANoWhiteGroupId?: number;
   /**
    * @remarks
-   * 姓名
+   * Name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,8 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   custName?: string;
   /**
    * @remarks
-   * 经办人/法人电话
+   * Phone number of the legal representative or agent.  
+   * >If this qualification includes a Mobile X number, this field is Required; otherwise, the Review will Fail.
    * 
    * @example
    * 130*****8888
@@ -33,7 +34,11 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   custPhoneNo?: string;
   /**
    * @remarks
-   * 固话客户类型 1:法人,2:经办人
+   * Fixed-line customer type. Valid values:
+   * 
+   * - 1: Legal representative.
+   * 
+   * - 2: Agent.
    * 
    * This parameter is required.
    * 
@@ -43,7 +48,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   custType?: number;
   /**
    * @remarks
-   * 证件号码
+   * Certificate number.
    * 
    * This parameter is required.
    * 
@@ -53,7 +58,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   documentNumber?: string;
   /**
    * @remarks
-   * 证件类型 填写1表示身份证
+   * Certificate type. Enter 1 for ID card.
    * 
    * This parameter is required.
    * 
@@ -63,7 +68,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   documentType?: number;
   /**
    * @remarks
-   * 固话申请时服务大厅工单号
+   * Ticket number from the offline service hall when applying for a fixed-line number.
    * 
    * @example
    * 45***12
@@ -71,7 +76,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   fixedLineWorkId?: string;
   /**
    * @remarks
-   * a号码(固话)
+   * Number A (fixed-line number).
    * 
    * This parameter is required.
    * 
@@ -81,7 +86,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   fixedNoA?: string;
   /**
    * @remarks
-   * 正面人像照片 OSS 路径地址
+   * OSS path of the front-facing portrait photo.
    * 
    * This parameter is required.
    * 
@@ -91,7 +96,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   idCardAlivePhoto?: string;
   /**
    * @remarks
-   * 身份证反面照片oss路径地址
+   * OSS path of the photo of the back (portrait side) of the ID card.
    * 
    * @example
    * 123456/test1719383196032.jpg
@@ -99,7 +104,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   idCardBackPhoto?: string;
   /**
    * @remarks
-   * 身份证正面照片oss路径地址
+   * OSS path of the photo of the front (national emblem side) of the ID card.
    * 
    * @example
    * 123456/test1719383196031.jpg
@@ -108,7 +113,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 备注（客户自己的业务备注，可编辑）
+   * Remarks (user-defined business notes).
    * 
    * @example
    * ***报备

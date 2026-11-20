@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 所属a号码组id
+   * The ID of the A number group to which the number belongs.
    * 
    * @example
    * 19
@@ -13,7 +13,7 @@ export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
   ANoWhiteGroupId?: string;
   /**
    * @remarks
-   * 固话报备的经办人/法人电话
+   * The contact phone number of the handler or legal representative for landline reporting.
    * 
    * @example
    * 130*****8888
@@ -21,7 +21,11 @@ export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
   custPhoneNo?: string;
   /**
    * @remarks
-   * 号码类型
+   * The number type. Valid values:
+   * 
+   * - Mobile: Mobile phone number.
+   * 
+   * - Fixed: Landline number.
    * 
    * @example
    * Mobile
@@ -29,7 +33,7 @@ export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
   noType?: string;
   /**
    * @remarks
-   * A号码
+   * A number.
    * 
    * @example
    * 130*****1234
@@ -37,7 +41,7 @@ export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
   phoneNoA?: string;
   /**
    * @remarks
-   * 备注（客户自己的业务备注，可编辑）
+   * Remarks (user\\"s own business notes).
    * 
    * @example
    * ***报备
@@ -45,7 +49,7 @@ export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * 报备失败原因
+   * The reason for review failure.
    * 
    * @example
    * ["系统判断为不同人"]
@@ -53,7 +57,13 @@ export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
   reportResult?: string;
   /**
    * @remarks
-   * 报备结果
+   * The reporting result. Valid values:
+   * 
+   * - REVIEWING: Under review.
+   * 
+   * - PASS: Review passed.
+   * 
+   * - FAIL: Review failed.
    * 
    * @example
    * REVIEWING
@@ -94,13 +104,16 @@ export class QuerySecretAPhoneNoToCustResponseBodyData extends $dara.Model {
 
 export class QuerySecretAPhoneNoToCustResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details of the denied access.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 请求状态码
+   * Request status code.
    * 
    * @example
    * 200
@@ -108,12 +121,12 @@ export class QuerySecretAPhoneNoToCustResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A号码报备状态查询结构体
+   * The struct for querying the A number reporting status.
    */
   data?: QuerySecretAPhoneNoToCustResponseBodyData;
   /**
    * @remarks
-   * 失败错误提示
+   * Error message for a failed operation.
    * 
    * @example
    * 号码组不存在
@@ -121,7 +134,7 @@ export class QuerySecretAPhoneNoToCustResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 返回id
+   * The returned ID.
    * 
    * @example
    * 1D73E648-0978-18A5-B089-3BB2
@@ -129,7 +142,11 @@ export class QuerySecretAPhoneNoToCustResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否成功
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true

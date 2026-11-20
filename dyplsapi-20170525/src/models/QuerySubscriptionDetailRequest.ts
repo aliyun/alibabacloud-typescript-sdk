@@ -6,38 +6,40 @@ export class QuerySubscriptionDetailRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The private number in the binding, that is, phone number X.
+   * The privacy number in the binding relationship, which is the X number.
+   * 
+   * Logon to the privacy protection console and go to the [Number Management](https://dyplsnext.console.aliyun.com/number/list) page to obtain the X number. Alternatively, check the **SecretNo** in the response parameters when you invoke number binding API operations such as [BindAxb](https://www.alibabacloud.com/help/en/pnp/developer-reference/api-dyplsapi-2017-05-25-bindaxb).
+   * 
+   * > When specifying the X number, make sure it is associated with the **SubsId** parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * 13900001234
+   * 139****1111
    */
   phoneNoX?: string;
   /**
    * @remarks
-   * The key of the phone number pool. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view the key of the phone number pool on the **Number Pool Management** page.
+   * The key of the number pool.
    * 
-   * >  This parameter is required when **ProductType** is left empty.
+   * Log on to the privacy protection console and go to the [Number Pool Management](https://dyplsnext.console.aliyun.com/number-pool?spm=a2c4g.11186623.0.0.7e6449bbtiHP8m) page to obtain the **Number Pool Key**.
+   * 
+   * > This parameter is required when **ProductType** is left empty.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   /**
    * @remarks
    * The product type. Valid values:
+   * - **AXB_170**
+   * - **AXN_170**
+   * - **AXN_95**
+   * - **AXN_EXTENSION_REUSE**
    * 
-   * *   **AXB_170**
-   * *   **AXN_170**
-   * *   **AXN_95**
-   * *   **AXN_EXTENSION_REUSE**
-   * 
-   * > 
-   * 
-   * *   This parameter is applicable to the original key accounts of Alibaba Cloud. This parameter can be ignored for Alibaba Cloud users.
-   * 
-   * *   This parameter is required when **PoolKey** is left empty.
+   * > - This parameter is applicable to former Alibaba Dayu users. Alibaba Cloud users can ignore this parameter.
+   * > - This parameter is required when **PoolKey** is left empty.
    * 
    * @example
    * AXB_170
@@ -47,9 +49,11 @@ export class QuerySubscriptionDetailRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The binding ID.
+   * The binding relationship ID.
    * 
-   * Log on to the Phone Number Protection console, choose **Number and Number Pool** > **Number Management**. On the Number Management page, select the desired record and click Details to view the binding ID. Alternatively, you can view the value of the **SubsId** parameter returned by an API operation for a phone number binding such as [BindAxb](https://help.aliyun.com/document_detail/110248.html). The value of this parameter indicates a binding ID.
+   * Logon to the privacy protection console, go to the [Number Management](https://dyplsnext.console.aliyun.com/number/list) page, filter the numbers, and click **Details** to view the binding relationship ID. Alternatively, check the **SubsId** in the response parameters when you invoke number binding API operations such as [BindAxb](https://www.alibabacloud.com/help/en/pnp/developer-reference/api-dyplsapi-2017-05-25-bindaxb).
+   * 
+   * > When specifying the binding relationship ID, make sure it is associated with the **PhoneNoX** parameter.
    * 
    * This parameter is required.
    * 

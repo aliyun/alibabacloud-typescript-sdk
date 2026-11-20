@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnBindAXBRequest extends $dara.Model {
   /**
    * @remarks
-   * bindId绑定关系AXB唯一id
+   * The unique ID of the AXB binding relationship.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UnBindAXBRequest extends $dara.Model {
   bindId?: string;
   /**
    * @remarks
-   * 客户uid
+   * The customer UID. This parameter is automatically obtained by the system and does not need to be specified.
    * 
    * @example
    * -
@@ -23,7 +23,7 @@ export class UnBindAXBRequest extends $dara.Model {
   callerParentId?: number;
   /**
    * @remarks
-   * 号码池key
+   * The number pool key.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class UnBindAXBRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 请求去重ID, reqId最大长度为20位,接入方需要保持原子性
+   * The request deduplication ID. The maximum length is 20 characters. Ensure the atomicity of the request ID.
    * 
    * This parameter is required.
    * 

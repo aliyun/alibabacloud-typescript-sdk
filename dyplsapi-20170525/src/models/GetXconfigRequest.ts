@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetXConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * 客户uid
+   * The customer UID. This parameter is automatically obtained by the system and does not need to be specified.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class GetXConfigRequest extends $dara.Model {
   callerParentId?: number;
   /**
    * @remarks
-   * 号码池key
+   * The key of the number pool.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class GetXConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 请求去重ID, reqId最大长度为20位,接入方需要保持原子性
+   * The request deduplication ID. The maximum length is 20 characters. Ensure the atomicity of the request ID.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class GetXConfigRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * X号码
+   * The X number.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSmsSignRequest extends $dara.Model {
   /**
    * @remarks
-   * 收信人号码
+   * The recipient number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateSmsSignRequest extends $dara.Model {
   calledNo?: string;
   /**
    * @remarks
-   * 客户uid
+   * The customer UID. This parameter is automatically obtained by the system and does not need to be specified.
    * 
    * @example
    * -
@@ -23,7 +23,7 @@ export class CreateSmsSignRequest extends $dara.Model {
   callerParentId?: number;
   /**
    * @remarks
-   * 发信人号码
+   * The sender number.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateSmsSignRequest extends $dara.Model {
   callingNo?: string;
   /**
    * @remarks
-   * 号码池key
+   * The number pool key.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class CreateSmsSignRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 请求去重ID, reqId最大长度为20位,接入方需要保持原子性
+   * The request deduplication ID. The maximum length is 20 characters. Ensure the atomicity of the request ID.
    * 
    * This parameter is required.
    * 

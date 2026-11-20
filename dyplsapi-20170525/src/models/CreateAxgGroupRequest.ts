@@ -10,7 +10,7 @@ export class CreateAxgGroupRequest extends $dara.Model {
    * >  The value must be 1 to 128 characters in length.
    * 
    * @example
-   * Aliyun
+   * 测试分组
    */
   name?: string;
   /**
@@ -29,7 +29,7 @@ export class CreateAxgGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   /**
@@ -37,7 +37,7 @@ export class CreateAxgGroupRequest extends $dara.Model {
    * The remarks of number group G. The value must be 0 to 256 characters in length.
    * 
    * @example
-   * test
+   * 测试用分组
    */
   remark?: string;
   resourceOwnerAccount?: string;

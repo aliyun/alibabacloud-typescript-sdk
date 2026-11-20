@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySoundRecordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 通话录音url路径，最大长度1000，有效期1小时
+   * The URL of the call recording. The maximum length is 1,000 characters. The URL is valid for 1 hour.
    * 
    * @example
    * http://www.oss.com/temepl/a.mp3
@@ -34,30 +34,48 @@ export class QuerySoundRecordResponseBodyData extends $dara.Model {
 
 export class QuerySoundRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the access denial.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
+   * The response status code. Valid values:
+   * 
+   * - 0000: Success.
+   * 
+   * Other values indicate failure.
    * 
    * @example
    * 0000
    */
   code?: string;
+  /**
+   * @remarks
+   * The call recording query results.
+   * 
+   * @example
+   * {"FileUrl":"http://www.oss.com/temepl/a.mp3"}
+   */
   data?: QuerySoundRecordResponseBodyData;
   /**
    * @remarks
-   * 返回信息
+   * The response message.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful. 
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

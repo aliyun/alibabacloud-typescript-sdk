@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindAxb700ResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The purchased 700 private number, which is the X number.
+   * 
    * @example
    * 700********0001
    */
   secretNo?: string;
   /**
+   * @remarks
+   * The number binding ID.
+   * 
    * @example
    * 123*******
    */
@@ -38,27 +44,50 @@ export class BindAxb700ResponseBodyData extends $dara.Model {
 
 export class BindAxb700ResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The access denied details.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code. Valid values:
+   * - OK: The request was successful.
+   *  Other values indicate failure.
+   * 
    * @example
-   * 200
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: BindAxb700ResponseBodyData;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9297B722-A016-43FB-B51A-E54050******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */

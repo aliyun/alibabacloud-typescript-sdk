@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The quantity of remaining phone numbers available for online purchase for the city.
-   * 
-   * @example
-   * 120
-   */
   amount?: number;
-  /**
-   * @remarks
-   * The home location of the phone numbers.
-   * 
-   * @example
-   * Wuhan
-   */
   city?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,13 +68,9 @@ export class QuerySecretNoRemainResponseBodySecretRemainDTO extends $dara.Model 
    * The home location of the phone numbers.
    * 
    * @example
-   * hangzhou
+   * 杭州
    */
   city?: string;
-  /**
-   * @remarks
-   * The information about remaining phone numbers available for online purchase.
-   */
   remainDTOList?: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList;
   static names(): { [key: string]: string } {
     return {

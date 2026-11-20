@@ -4,31 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSubs700ResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code of the API request. Valid values:
+   * - OK: The request is successful.
+   * - Other error codes: For more information, see [API error codes](https://help.aliyun.com/document_detail/59892.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The default response format. This field does not contain an actual value.
+   * 
    * @example
    * {}
    */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9297B722-A016-43FB-B51A-E54050******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
+   * 
    * @example
    * true
    */

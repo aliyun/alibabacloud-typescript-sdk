@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range.
+   * The end time of the time slot, in HH:mm:ss format.
    * 
    * @example
    * 12:00:00
@@ -13,15 +13,15 @@ export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointT
   endTime?: string;
   /**
    * @remarks
-   * The tip displayed when the scheduled pickup is not available.
+   * The tip message displayed when the option is not selectable.
    * 
    * @example
-   * Appointment Full
+   * Fully booked
    */
   selectDisableTip?: string;
   /**
    * @remarks
-   * Indicates whether the time range can be selected for the scheduled pickup.
+   * Indicates whether the scheduled time slot is selectable.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointT
   selectable?: boolean;
   /**
    * @remarks
-   * The beginning of the time range.
+   * The start time of the time slot, in HH:mm:ss format.
    * 
    * @example
    * 10:00:00
@@ -65,7 +65,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointT
 export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes extends $dara.Model {
   /**
    * @remarks
-   * The date in the YYYY-MM-DD format.
+   * The date string in YYYY-MM-DD format.
    * 
    * @example
    * 2022-04-28
@@ -81,7 +81,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointT
   dateSelectable?: boolean;
   /**
    * @remarks
-   * The time range for the scheduled pickup for this date.
+   * The list of available time slots for the day.
    */
   timeList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList[];
   static names(): { [key: string]: string } {
@@ -115,23 +115,23 @@ export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointT
 export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime extends $dara.Model {
   /**
    * @remarks
-   * The name of the real-time order type.
+   * The service type name for real-time orders.
    * 
    * @example
-   * Aliyun
+   * 2-hour pickup
    */
   name?: string;
   /**
    * @remarks
-   * The tip displayed when the real-time order cannot be placed.
+   * The tip message displayed when the option is not selectable.
    * 
    * @example
-   * Exceeding the real-time ordering time range.
+   * The real-time order placement time range has been exceeded
    */
   selectDisableTip?: string;
   /**
    * @remarks
-   * Indicates whether the real-time order can be placed after the deadline for placing a real-time order is reached.
+   * Indicates whether a real-time order can still be placed after the real-time order placement time has passed.
    * 
    * @example
    * false
@@ -165,12 +165,12 @@ export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime
 export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList extends $dara.Model {
   /**
    * @remarks
-   * The available time for the scheduled pickup. If the current courier company cannot accept the scheduled pickup, this field is left empty.
+   * The available time options for scheduled orders. If the courier company does not support scheduled orders, this field is empty.
    */
   appointTimes?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes[];
   /**
    * @remarks
-   * The estimated price. Unit: CNY. The value is accurate to two decimal places. The value of this parameter is displayed if an estimated weight is specified.
+   * The estimated price, in CNY, rounded to two decimal places. This field has a value only when the estimated weight is specified in the request parameters.
    * 
    * @example
    * 12.50
@@ -178,7 +178,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList extends
   prePrice?: string;
   /**
    * @remarks
-   * The information about whether the real-time order can be selected.
+   * The available options for real-time orders.
    */
   realTime?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime;
   static names(): { [key: string]: string } {
@@ -223,7 +223,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about whether the courier company can accept the order.
+   * The list of information about whether courier companies are available for placing orders.
    */
   cpTimeSelectList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList[];
   /**
@@ -231,7 +231,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyData extends $dara.Model {
    * The error code.
    * 
    * @example
-   * Success
+   * None
    */
   errorCode?: string;
   /**
@@ -239,7 +239,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyData extends $dara.Model {
    * The error message.
    * 
    * @example
-   * none
+   * None
    */
   errorMsg?: string;
   /**
@@ -252,7 +252,7 @@ export class CreatePickUpWaybillPreQueryResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -308,7 +308,7 @@ export class CreatePickUpWaybillPreQueryResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK

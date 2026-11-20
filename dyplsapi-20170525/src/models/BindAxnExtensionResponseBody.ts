@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAxnExtensionResponseBodySecretBindDTO extends $dara.Model {
   /**
    * @remarks
-   * The extension of the phone number.
+   * The extension number.
    * 
    * @example
    * 130
@@ -13,15 +13,15 @@ export class BindAxnExtensionResponseBodySecretBindDTO extends $dara.Model {
   extension?: string;
   /**
    * @remarks
-   * The private number, that is, phone number X.
+   * The privacy number, which is number X.
    * 
    * @example
-   * 139*****0000
+   * 139*****1111
    */
   secretNo?: string;
   /**
    * @remarks
-   * The binding ID.
+   * The binding relationship ID.
    * 
    * @example
    * 1***************3
@@ -55,10 +55,9 @@ export class BindAxnExtensionResponseBodySecretBindDTO extends $dara.Model {
 export class BindAxnExtensionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
-   * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+   * The request status code.
+   * * A value of OK indicates that the request is successful.
+   * * For other error codes, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
    * 
    * @example
    * OK
@@ -66,7 +65,7 @@ export class BindAxnExtensionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -82,7 +81,7 @@ export class BindAxnExtensionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information returned after the phone numbers were bound.
+   * The struct returned upon successful binding.
    */
   secretBindDTO?: BindAxnExtensionResponseBodySecretBindDTO;
   static names(): { [key: string]: string } {

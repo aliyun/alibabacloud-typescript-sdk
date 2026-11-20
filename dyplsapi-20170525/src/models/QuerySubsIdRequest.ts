@@ -11,7 +11,7 @@ export class QuerySubsIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1390000****
+   * 139****1111
    */
   phoneNoX?: string;
   /**
@@ -21,7 +21,7 @@ export class QuerySubsIdRequest extends $dara.Model {
    * Log on to the [Phone Number Protection console](https://dyplsnext.console.aliyun.com/overview) and view the key of the phone number pool on the Number Pool Management page.
    * 
    * @example
-   * FC123456
+   * FC10000012345****
    */
   poolKey?: string;
   resourceOwnerAccount?: string;

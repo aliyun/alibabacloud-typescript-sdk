@@ -10,7 +10,7 @@ export class CancelPickUpWaybillRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {\\"action\\":\\"UPDATE_DESC\\",\\"value\\":\\"The courier is unable to pick up the package.\\"}
+   * 不想退货了
    */
   cancelDesc?: string;
   /**

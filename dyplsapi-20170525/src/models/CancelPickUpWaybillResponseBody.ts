@@ -8,7 +8,7 @@ export class CancelPickUpWaybillResponseBodyData extends $dara.Model {
    * The error code.
    * 
    * @example
-   * none
+   * 无
    */
   errorCode?: string;
   /**
@@ -16,7 +16,7 @@ export class CancelPickUpWaybillResponseBodyData extends $dara.Model {
    * The error message.
    * 
    * @example
-   * none
+   * 无
    */
   errorMsg?: string;
   /**
@@ -24,7 +24,7 @@ export class CancelPickUpWaybillResponseBodyData extends $dara.Model {
    * The cancellation result.
    * 
    * @example
-   * OK
+   * 取消成功
    */
   message?: string;
   /**
@@ -84,7 +84,7 @@ export class CancelPickUpWaybillResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * OK
+   * 请求成功
    */
   message?: string;
   /**

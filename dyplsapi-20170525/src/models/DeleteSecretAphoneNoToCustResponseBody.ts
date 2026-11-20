@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteSecretAPhoneNoToCustResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details of denied access.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * 请求状态码
+   * The request status code.
    * 
    * @example
    * 200
@@ -18,7 +21,11 @@ export class DeleteSecretAPhoneNoToCustResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 删除是否成功
+   * Indicates whether the deletion succeeded. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true
@@ -26,7 +33,7 @@ export class DeleteSecretAPhoneNoToCustResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * 失败错误提示
+   * Error message for failure.
    * 
    * @example
    * 号码组不存在
@@ -34,7 +41,7 @@ export class DeleteSecretAPhoneNoToCustResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 返回id
+   * The returned ID.
    * 
    * @example
    * 1D73E648-0978-18A5-B089-3BB2
@@ -42,7 +49,11 @@ export class DeleteSecretAPhoneNoToCustResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否成功
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true

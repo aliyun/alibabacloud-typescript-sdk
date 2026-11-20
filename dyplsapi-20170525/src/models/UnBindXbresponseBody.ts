@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnBindXBResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
+   * The returned status code. A value of 0000 indicates success. Other values indicate failure.
    * 
    * @example
    * 0000
@@ -13,15 +13,15 @@ export class UnBindXBResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回信息
+   * The returned message.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
+   * Indicates whether the request is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * false
@@ -54,19 +54,57 @@ export class UnBindXBResponseBodyData extends $dara.Model {
 
 export class UnBindXBResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The access denied details.
+   * 
    * @example
    * 0
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The returned status code. Valid values:
+   * 
+   * - 0000: Success.
+   * 
+   * - Other values: Failure.
+   * 
    * @example
    * 0000
    */
   code?: string;
+  /**
+   * @remarks
+   * The result of unbinding the work number.
+   * 
+   * @example
+   * {"Code":"0000","Message":"Success","Success":false}
+   */
   data?: UnBindXBResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4A2568E1-7D83-5491-8DEF-600D8AFF97E7
+   */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: Success.
+   * 
+   * - false: Failure.
+   * 
    * @example
    * false
    */

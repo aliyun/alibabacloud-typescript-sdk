@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDyplsOSSInfoForUploadFileRequest extends $dara.Model {
   /**
    * @remarks
+   * The business type. Default Value: phone_card.
+   * 
    * This parameter is required.
    * 
    * @example

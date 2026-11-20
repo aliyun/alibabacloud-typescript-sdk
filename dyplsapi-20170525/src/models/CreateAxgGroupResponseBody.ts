@@ -19,7 +19,7 @@ export class CreateAxgGroupResponseBody extends $dara.Model {
    * The ID of number group G. The value of this parameter is required when the [BindAxg](https://help.aliyun.com/document_detail/110249.html) operation is called to add an AXG binding.
    * 
    * @example
-   * 2000000000001
+   * 200001234****
    */
   groupId?: number;
   /**

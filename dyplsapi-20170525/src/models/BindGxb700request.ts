@@ -4,11 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindGxb700Request extends $dara.Model {
   /**
+   * @remarks
+   * The ASR model ID. Valid values: 
+   * 
+   * - General-Phone-Chinese Mandarin model ID: 7ee372834d2f4cc7ac0d0ab2d0ae1aac 
+   * - General-Phone-Chinese Cantonese model ID: 9b4afe3d224e4fa3bf963697113e2f77 
+   * - General-Phone-Regional Accent model ID: 3655a6cb94764145a1f9a38a3c3b3b4b.
+   * 
    * @example
    * 7ee372834d2f4cc7ac0d0ab2d0ae1aac
    */
   asrModelId?: string;
   /**
+   * @remarks
+   * The audio prompt code.
+   * 
+   * 
+   * - GCallX_Gpre: the audio prompt code played to the caller before the call is connected when a number in group G calls number X.
+   * - GCallX_Gin: the audio prompt code played to the caller after the call is connected when a number in group G calls number X.
+   * - GCallX_Bin: the audio prompt code played to user B after the call is connected when a number in group G calls number X.
+   * - BCallX_Bpre: the audio prompt code played to user B before the call is connected when user B calls number X.
+   * - BCallX_Gin: the audio prompt code played to the callee after the call is connected when number X is called.
+   * - BCallX_Bin: the audio prompt code played to user B after the call is connected when user B calls number X.
+   * 
    * @example
    * {
    * "GCallX_Gpre":"185"
@@ -16,27 +34,62 @@ export class BindGxb700Request extends $dara.Model {
    */
   audio?: string;
   /**
+   * @remarks
+   * The one-way call restriction logic. Valid values:
+   * 
+   * - CONTROL_BX_DISABLE: number B cannot call number X.
+   * - CONTROL_GX_DISABLE: numbers in number group G cannot call number X.
+   * 
    * @example
    * CONTROL_AX_DISABLE
    */
   callRestrict?: string;
   /**
+   * @remarks
+   * The sequential ringing duration. Unit: seconds. Valid values: 5 to 20.
+   * 
    * @example
    * 10
    */
   callTimeout?: number;
   /**
+   * @remarks
+   * Phone number A.
+   * The DefaultA number for the GXB private number.
+   * 
+   * > Note
+   * The callback mode can be configured at the number pool level. When the callback mode is set to default, this field takes effect. When user B calls number X, the call is forwarded to this A number by default. If number A is not configured, the call cannot be connected.
+   * To update number A, call the number binding modification operation.
+   * 
    * @example
    * 138****0000
    */
   defaultA?: string;
   /**
+   * @remarks
+   * The DTMF key configuration, used when setting up AXB intermediate number binding. The following items can be configured:
+   * 
+   * - endCallIvrPhoneNo: the party to play the audio prompt to, A or B. 
+   * - waitingDtmfTime: the maximum wait time after the first audio prompt is played. Maximum value: 30 seconds. 
+   * - maxLoop dtmf: the maximum number of times the first audio file is played in a loop when the key input does not match. Maximum value: 5. 
+   * - step1File: the name of the first audio file. 
+   * - step2File: the name of the second audio file.
+   * - validKey: the valid key values, such as 1,2. Only two valid key values can be configured, separated by ",". 
+   * - waitingEndCall: the carrier hang-up wait time. Maximum value: 10 seconds.
+   * 
    * @example
    * {     "endCallIvrPhoneNo":"A",     "waitingDtmfTime":10,     "maxLoop":3,     "step1File":"62ab72f8-4750-4234-859e-e8d678c0cad3-flow_tts_test_1.wav",     "step2File":"62ab72f8-4750-4234-859e-e8d678c0cad3-flow_tts_test_2.wav",     "validKey":"1,2",     "waitingEndCall":2 }
    */
   dtmfConfig?: string;
   /**
    * @remarks
+   * The expiration time of the number binding.
+   * 
+   * > Note
+   * The expiration time must be at least 1 minute later than the current binding time, accurate to the second.
+   * You can manually unbind the number at any time before the binding expires.
+   * If you unbind a number that is in an active call, the current call is not affected.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,36 +97,76 @@ export class BindGxb700Request extends $dara.Model {
    */
   expiration?: string;
   /**
+   * @remarks
+   * The ID of number group G.
+   * 
+   * Number group G is created by using the "Create G Number Group" message.
+   * 
    * @example
    * 10000*****
    */
   groupId?: string;
   /**
+   * @remarks
+   * - The Industrial Internet identifier code, which has a one-to-one mapping with OrderID.
+   * 
+   * - The code supports characters such as "." and "/" as domain separators. The code must not contain non-printable characters such as spaces or line breaks.
+   * 
+   * - This field is required when the business user generates the Industrial Internet identifier code independently.
+   * 
    * @example
    * 700.100.1/12345678
    */
   industrialId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the ASR service. Valid values: 
+   * 
+   * - false: Disabled (default value).
+   * 
+   * - true: Enabled.
+   * 
    * @example
    * true
    */
   needAsr?: boolean;
   /**
+   * @remarks
+   * Specifies whether the business user requires all call media files generated by this number binding relationship. Valid values:
+   * 
+   * - true: Enable recording.
+   * - false: Disable recording (default value).
+   * 
    * @example
    * false
    */
   needRecord?: boolean;
   /**
+   * @remarks
+   * The business order code.
+   * 
+   * - This code has a one-to-one mapping with the actual business order and must be unique.
+   * 
+   * - The code supports characters such as "." and "/" as domain separators. The code must not contain non-printable characters such as spaces or line breaks.
+   * 
+   * - This field is required when the business user submits a business order code and the platform generates an Industrial Internet identifier code.
+   * 
    * @example
    * 12345678
    */
   orderId?: string;
   /**
+   * @remarks
+   * An external business extension field. This parameter is returned in the call record receipt message.
+   * 
    * @example
    * abcdef
    */
   outId?: string;
   /**
+   * @remarks
+   * The external business ID.
+   * 
    * @example
    * abcdefgh
    */
@@ -81,6 +174,8 @@ export class BindGxb700Request extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The key of the China 700 number pool.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88,6 +183,9 @@ export class BindGxb700Request extends $dara.Model {
    */
   poolKey?: string;
   /**
+   * @remarks
+   * The recording type. Valid values: mp3 and wav.
+   * 
    * @example
    * mp3
    */
@@ -96,6 +194,8 @@ export class BindGxb700Request extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * Phone number of user B.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +203,9 @@ export class BindGxb700Request extends $dara.Model {
    */
   telB?: string;
   /**
+   * @remarks
+   * The intermediate number X. If the business user does not specify an X number, the platform assigns a number from the number pool as the X number.
+   * 
    * @example
    * 700********0000
    */
