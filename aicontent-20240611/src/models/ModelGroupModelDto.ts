@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelGroupModelDTO extends $dara.Model {
   /**
+   * @remarks
+   * The numeric ID of the model.
+   * 
    * @example
    * 101
    */
   id?: number;
   /**
+   * @remarks
+   * The model identifier.
+   * 
    * @example
    * qwen-max
    */
   modelCode?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * Chat
    */
   modelType?: string;
   /**
+   * @remarks
+   * The name of the model.
+   * 
    * @example
-   * 通义千问-Max
+   * Qwen-Max
    */
   name?: string;
   /**
+   * @remarks
+   * The platform to which the model belongs.
+   * 
    * @example
    * qwen
    */
   platform?: string;
   /**
+   * @remarks
+   * The model version.
+   * 
    * @example
    * v0
    */

@@ -4,13 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryNacosTagsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The display name of the model type. This parameter is returned when configType is set to model-types.
+   * 
    * @example
-   * 文本生成
+   * Text generation
    */
   label?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TXT_GEN
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The tag name.
+   * 
+   * @example
+   * Text generation
+   */
   tagName?: string;
   /**
+   * @remarks
+   * The model type value. This parameter is returned when configType is set to model-types.
+   * 
    * @example
    * NLP
    */
@@ -45,7 +65,7 @@ export class ModelRouterQueryNacosTagsResponseBodyData extends $dara.Model {
 export class ModelRouterQueryNacosTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of tags.
+   * The data object.
    * 
    * @example
    * []
@@ -53,7 +73,7 @@ export class ModelRouterQueryNacosTagsResponseBody extends $dara.Model {
   data?: ModelRouterQueryNacosTagsResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -64,7 +84,7 @@ export class ModelRouterQueryNacosTagsResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -85,7 +105,7 @@ export class ModelRouterQueryNacosTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

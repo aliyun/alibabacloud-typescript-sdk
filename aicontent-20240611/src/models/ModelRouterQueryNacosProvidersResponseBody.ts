@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous call identifier.
+   * The identifier for asynchronous invocation.
    */
   async?: boolean;
   static names(): { [key: string]: string } {
@@ -32,12 +32,12 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions exte
 export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.Model {
   /**
    * @remarks
-   * The extension configuration parameters of the model, stored as key-value pairs for additional model behavior configuration.
+   * The extension configuration parameters of the model, which store additional model behavior configurations as key-value pairs.
    */
   extensions?: ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions;
   /**
    * @remarks
-   * The model identifier.
+   * The identifier of the model.
    * 
    * @example
    * ca90f359956e94367470c38676
@@ -45,7 +45,7 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.
   identifier?: string;
   /**
    * @remarks
-   * The input type and output type.
+   * The input and output types.
    * 
    * @example
    * text
@@ -69,7 +69,7 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.
   outputToken?: string;
   /**
    * @remarks
-   * The feature type or capability category of the model.
+   * The function type or capability category of the model.
    * 
    * @example
    * Chat
@@ -125,15 +125,15 @@ export class ModelRouterQueryNacosProvidersResponseBodyData extends $dara.Model 
   models?: ModelRouterQueryNacosProvidersResponseBodyDataModels[];
   /**
    * @remarks
-   * The provider name.
+   * The name of the provider.
    * 
    * @example
-   * 通义千问
+   * Qwen
    */
   name?: string;
   /**
    * @remarks
-   * The provider identifier.
+   * The identifier of the provider.
    * 
    * @example
    * qwen
@@ -180,7 +180,7 @@ export class ModelRouterQueryNacosProvidersResponseBody extends $dara.Model {
   data?: ModelRouterQueryNacosProvidersResponseBodyData[];
   /**
    * @remarks
-   * The fault message code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR

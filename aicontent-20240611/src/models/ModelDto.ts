@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelDTO extends $dara.Model {
   /**
    * @remarks
-   * A masked preview of the API key.
+   * The API key preview.
    * 
    * @example
    * sk-xxx****xxx
@@ -13,7 +13,7 @@ export class ModelDTO extends $dara.Model {
   apiKeyPreview?: string;
   /**
    * @remarks
-   * The base URL for API requests.
+   * Base URL
    * 
    * @example
    * https://dashscope.aliyuncs.com
@@ -21,7 +21,7 @@ export class ModelDTO extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * Indicates the model\\"s status. A value of 0 means enabled, and a non-zero value means disabled.
+   * A value of 0 indicates enabled, and a non-zero value indicates disabled.
    * 
    * @example
    * 0
@@ -32,13 +32,13 @@ export class ModelDTO extends $dara.Model {
    * The model description.
    * 
    * @example
-   * 通义千问大模型
+   * Qwen large language model
    */
   description?: string;
   extensions?: string;
   /**
    * @remarks
-   * The time when the model was created, in ISO 8601 format.
+   * The creation time.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -46,20 +46,23 @@ export class ModelDTO extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the model was last updated, in ISO 8601 format.
+   * The update time.
    * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Indicates whether a billing rule is configured.
+   * 
    * @example
    * false
    */
   hasBillingRule?: boolean;
   /**
    * @remarks
-   * The unique ID of the model.
+   * ID
    * 
    * @example
    * 1
@@ -92,7 +95,7 @@ export class ModelDTO extends $dara.Model {
   maxOutputLength?: string;
   /**
    * @remarks
-   * The model code.
+   * The model identifier.
    * 
    * @example
    * qwen-turbo
@@ -111,7 +114,7 @@ export class ModelDTO extends $dara.Model {
    * The model name.
    * 
    * @example
-   * 通义千问
+   * Qwen
    */
   name?: string;
   /**
@@ -124,15 +127,15 @@ export class ModelDTO extends $dara.Model {
   symbol?: string;
   /**
    * @remarks
-   * The display names for the tags, separated by commas.
+   * The tag display names.
    * 
    * @example
-   * 对话,自然语言处理
+   * Conversation, natural language processing
    */
   tagNames?: string;
   /**
    * @remarks
-   * A comma-separated list of model tags.
+   * The tags, separated by commas.
    * 
    * @example
    * chat,NLP
@@ -140,7 +143,7 @@ export class ModelDTO extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The version number.
+   * The version.
    * 
    * @example
    * 0

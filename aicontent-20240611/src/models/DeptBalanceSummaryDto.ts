@@ -5,11 +5,17 @@ import { BalancePoolSummaryDTO } from "./BalancePoolSummaryDto";
 
 export class DeptBalanceSummaryDTO extends $dara.Model {
   /**
+   * @remarks
+   * The monthly balance pool overview.
+   * 
    * @example
    * {}
    */
   monthly?: BalancePoolSummaryDTO;
   /**
+   * @remarks
+   * The permanent balance pool overview.
+   * 
    * @example
    * {}
    */

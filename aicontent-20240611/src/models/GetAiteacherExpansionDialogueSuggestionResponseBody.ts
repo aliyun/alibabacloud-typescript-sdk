@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAITeacherExpansionDialogueSuggestionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Chinese translation of the suggested response.
+   * The Chinese prompt of the assistant.
    * 
    * @example
    * 谢谢莉莉.你喜欢吃肉吗，莉莉？
@@ -13,7 +13,7 @@ export class GetAITeacherExpansionDialogueSuggestionResponseBodyData extends $da
   chineseResult?: string;
   /**
    * @remarks
-   * The suggested response in English.
+   * The English prompt of the assistant.
    * 
    * @example
    * Thanks, Lily. Do you like meat, Lily?
@@ -45,15 +45,15 @@ export class GetAITeacherExpansionDialogueSuggestionResponseBodyData extends $da
 export class GetAITeacherExpansionDialogueSuggestionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A container for the returned data.
+   * The data object.
    * 
    * @example
-   * []
+   * {"chineseResult":"谢谢莉莉.你喜欢吃肉吗，莉莉？","englishResult":"Thanks, Lily. Do you like meat, Lily?"}
    */
   data?: GetAITeacherExpansionDialogueSuggestionResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -64,7 +64,7 @@ export class GetAITeacherExpansionDialogueSuggestionResponseBody extends $dara.M
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -85,7 +85,7 @@ export class GetAITeacherExpansionDialogueSuggestionResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

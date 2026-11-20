@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTextbookAssistantGradeVolumesResponseBodyDataGradeVolumes extends $dara.Model {
   /**
    * @remarks
-   * The grade level. Valid values: 1 to 9.
+   * The grade. Valid values: 1 to 9, corresponding to the grade level.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class ListTextbookAssistantGradeVolumesResponseBodyDataGradeVolumes exten
   grade?: string;
   /**
    * @remarks
-   * The volume. Valid values: `0` (single volume), `1` (Volume 1), and `2` (Volume 2).
+   * The volume. Valid values: 0: full volume, 1: first semester, 2: second semester.
    * 
    * @example
    * 1
@@ -45,15 +45,15 @@ export class ListTextbookAssistantGradeVolumesResponseBodyDataGradeVolumes exten
 export class ListTextbookAssistantGradeVolumesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The grade and volume information.
+   * The grade and volume data.
    */
   gradeVolumes?: ListTextbookAssistantGradeVolumesResponseBodyDataGradeVolumes[];
   /**
    * @remarks
-   * The version of the textbook.
+   * The textbook version.
    * 
    * @example
-   * 人教版
+   * PEP edition
    */
   textbookVersion?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class ListTextbookAssistantGradeVolumesResponseBodyData extends $dara.Mod
 export class ListTextbookAssistantGradeVolumesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The response data object.
    */
   data?: ListTextbookAssistantGradeVolumesResponseBodyData[];
   /**
@@ -101,7 +101,7 @@ export class ListTextbookAssistantGradeVolumesResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -114,7 +114,7 @@ export class ListTextbookAssistantGradeVolumesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * F3B1AAF2-3041-5AA7-A352-BD5F998FA465
@@ -122,7 +122,7 @@ export class ListTextbookAssistantGradeVolumesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

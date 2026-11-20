@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   /**
    * @remarks
-   * The field by which to group the results.
+   * The field used to group the results.
    * 
    * @example
    * resourceId
@@ -21,7 +21,7 @@ export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether the total count is required.
+   * Specifies whether to include the total count of items.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   needTotalCount?: boolean;
   /**
    * @remarks
-   * The pagination token used for paginated queries. Specify this parameter to retrieve the next page.
+   * The pagination token used to retrieve the next page of results.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The field used to sort the results.
    * 
    * @example
    * resourceId
@@ -45,7 +45,7 @@ export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The sort direction.
+   * The sort order.
    * 
    * @example
    * DESC
@@ -61,7 +61,7 @@ export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterStopMemberSubscriptionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The balance type. Valid values: permanent, monthly.
+   * 
    * @example
    * monthly
    */

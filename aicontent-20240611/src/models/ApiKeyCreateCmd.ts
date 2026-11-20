@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApiKeyCreateCmd extends $dara.Model {
   /**
+   * @remarks
+   * The customer ID. A value of null indicates the default customer.
+   * 
    * @example
    * 1
    */

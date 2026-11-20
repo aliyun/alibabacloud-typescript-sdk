@@ -7,15 +7,28 @@ import { TimeSeriesPointDTO } from "./TimeSeriesPointDto";
  */
 export class ObservationChartsDTOSuccessRate extends $dara.Model {
   /**
+   * @remarks
+   * The label.
+   * 
    * @example
    * series1
    */
   label?: string;
   /**
+   * @remarks
+   * The timestamp (RFC3339).
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   timestamp?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * 62.37
+   */
   value?: any;
   static names(): { [key: string]: string } {
     return {
@@ -43,11 +56,35 @@ export class ObservationChartsDTOSuccessRate extends $dara.Model {
 }
 
 export class ObservationChartsDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The call volume time series.
+   */
   callVolume?: TimeSeriesPointDTO[];
+  /**
+   * @remarks
+   * The number of concurrent connections.
+   */
   concurrency?: TimeSeriesPointDTO[];
+  /**
+   * @remarks
+   * The QPM time series.
+   */
   qpm?: TimeSeriesPointDTO[];
+  /**
+   * @remarks
+   * The response time time series.
+   */
   responseTime?: TimeSeriesPointDTO[];
+  /**
+   * @remarks
+   * The success rate time series.
+   */
   successRate?: ObservationChartsDTOSuccessRate[];
+  /**
+   * @remarks
+   * The TPM time series.
+   */
   tpm?: TimeSeriesPointDTO[];
   static names(): { [key: string]: string } {
     return {

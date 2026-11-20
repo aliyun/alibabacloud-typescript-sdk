@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelMetricsDTO extends $dara.Model {
   /**
+   * @remarks
+   * The average response time (ms).
+   * 
    * @example
    * 200.5
    */
   avgResponseTime?: number;
   /**
+   * @remarks
+   * The total number of input tokens.
+   * 
    * @example
    * 500000
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The total number of output tokens.
+   * 
    * @example
    * 300000
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The success rate (%).
+   * 
    * @example
    * 99.5
    */
   successRate?: number;
   /**
+   * @remarks
+   * The total number of calls.
+   * 
    * @example
    * 1000
    */

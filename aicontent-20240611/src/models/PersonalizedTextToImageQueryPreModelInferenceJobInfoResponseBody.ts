@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the inference job.
+   * The creation time of the model inference task.
    * 
    * @example
    * 2023-12-25T12:00:00
@@ -13,7 +13,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyDat
   createTime?: string;
   /**
    * @remarks
-   * The inference job ID.
+   * The model inference task ID.
    * 
    * @example
    * 3220
@@ -21,7 +21,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyDat
   id?: string;
   /**
    * @remarks
-   * The job status.
+   * The model inference task status.
    * 
    * @example
    * FINISHED
@@ -29,7 +29,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyDat
   jobStatus?: string;
   /**
    * @remarks
-   * The job progress.
+   * The model inference task progress.
    * 
    * @example
    * 0.5
@@ -45,7 +45,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyDat
   modelId?: string;
   /**
    * @remarks
-   * The ID of the prompt used for the job.
+   * promptId
    * 
    * @example
    * promptId-xxxx-xxxx-xxxx
@@ -53,7 +53,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyDat
   promptId?: string;
   /**
    * @remarks
-   * A list of resource IDs for the generated images.
+   * The list of model inference task results.
    * 
    * @example
    * 0000.png
@@ -98,7 +98,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyDat
 export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data object.
+   * The data object.
    * 
    * @example
    * []
@@ -106,7 +106,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody ex
   data?: PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -117,7 +117,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody ex
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -138,7 +138,7 @@ export class PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody ex
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

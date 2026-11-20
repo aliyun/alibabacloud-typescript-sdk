@@ -4,8 +4,15 @@ import { BillingBillSummaryPointDTO } from "./BillingBillSummaryPointDto";
 
 
 export class BillingBillSummaryRespDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cost trend data points.
+   */
   points?: BillingBillSummaryPointDTO[];
   /**
+   * @remarks
+   * The total cost within the time range.
+   * 
    * @example
    * 123.45
    */

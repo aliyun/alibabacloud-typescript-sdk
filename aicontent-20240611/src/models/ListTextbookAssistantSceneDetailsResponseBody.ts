@@ -16,12 +16,12 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataRoleList extends $
    * The translation of the role introduction.
    * 
    * @example
-   * Carl，一个好奇的男孩
+   * Carl, a curious boy
    */
   introductionTranslate?: string;
   /**
    * @remarks
-   * The role guidance text.
+   * The role prompt text.
    * 
    * @example
    * Hi Noah, who is that in the photo?
@@ -29,10 +29,10 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataRoleList extends $
   promoting?: string;
   /**
    * @remarks
-   * The translation of the role guidance text.
+   * The translation of the role prompt text.
    * 
    * @example
-   * 嗨 Noah，照片里的人是谁？
+   * Hi Noah, who is the person in the photo?
    */
   promotingTranslate?: string;
   /**
@@ -53,7 +53,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataRoleList extends $
   roleNameTranslate?: string;
   /**
    * @remarks
-   * The role type:
+   * The role type. A value of 0 indicates the AI questioner, and a value of 1 indicates the responder.
    * 
    * @example
    * 0
@@ -106,7 +106,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList exte
    * The translation of the scene task description.
    * 
    * @example
-   * 说这是你爸爸的兄弟。
+   * Say this is your father\\"s brother
    */
   sceneTaskTranslate?: string;
   static names(): { [key: string]: string } {
@@ -135,10 +135,10 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList exte
 export class ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList extends $dara.Model {
   /**
    * @remarks
-   * The sentence analysis.
+   * The sentence analysis and explanation.
    * 
    * @example
-   * Is + this + your + 家庭成员?
+   * Is + this + your + family member?
    */
   sentenceAnalysis?: string;
   /**
@@ -185,7 +185,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList exten
 export class ListTextbookAssistantSceneDetailsResponseBodyDataTheme extends $dara.Model {
   /**
    * @remarks
-   * A list of image URLs related to the theme.
+   * The images related to the current theme.
    */
   themeImageList?: string[];
   /**
@@ -193,7 +193,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataTheme extends $dar
    * The theme name.
    * 
    * @example
-   * 家庭生活
+   * Family life
    */
   themeName?: string;
   /**
@@ -235,7 +235,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataTheme extends $dar
 export class ListTextbookAssistantSceneDetailsResponseBodyDataTopic extends $dara.Model {
   /**
    * @remarks
-   * A list of image URLs related to the topic.
+   * The images related to the current topic.
    */
   topicImageList?: string[];
   /**
@@ -243,12 +243,12 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataTopic extends $dar
    * The topic name.
    * 
    * @example
-   * 介绍家人
+   * Introducing family members
    */
   topicName?: string;
   /**
    * @remarks
-   * The translation of the topic name.
+   * The translation of the topic content.
    * 
    * @example
    * Introducing family members
@@ -288,7 +288,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataWordList extends $
    * The word definition.
    * 
    * @example
-   * 家；家庭
+   * Home; family
    */
   wordAnalysis?: string;
   /**
@@ -335,7 +335,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyDataWordList extends $
 export class ListTextbookAssistantSceneDetailsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of roles in the scene.
+   * The list of roles.
    */
   roleList?: ListTextbookAssistantSceneDetailsResponseBodyDataRoleList[];
   /**
@@ -356,27 +356,23 @@ export class ListTextbookAssistantSceneDetailsResponseBodyData extends $dara.Mod
   sceneId?: string;
   /**
    * @remarks
-   * A list of image URLs related to the current scene.
+   * The images related to the current scene.
    */
   sceneImageList?: string[];
   /**
    * @remarks
-   * The scene task list.
+   * The list of scene tasks.
    */
   sceneTaskList?: ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList[];
-  /**
-   * @remarks
-   * The translation of the scene description.
-   */
   sceneTranslate?: string;
   /**
    * @remarks
-   * The sentence list.
+   * The list of sentences.
    */
   sentenceList?: ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList[];
   /**
    * @remarks
-   * The practice target.
+   * The practice objective.
    * 
    * @example
    * ""
@@ -384,17 +380,17 @@ export class ListTextbookAssistantSceneDetailsResponseBodyData extends $dara.Mod
   target?: string;
   /**
    * @remarks
-   * The theme details.
+   * The theme information.
    */
   theme?: ListTextbookAssistantSceneDetailsResponseBodyDataTheme;
   /**
    * @remarks
-   * The topic details.
+   * The topic information.
    */
   topic?: ListTextbookAssistantSceneDetailsResponseBodyDataTopic;
   /**
    * @remarks
-   * The word list.
+   * The list of words.
    */
   wordList?: ListTextbookAssistantSceneDetailsResponseBodyDataWordList[];
   static names(): { [key: string]: string } {
@@ -467,7 +463,7 @@ export class ListTextbookAssistantSceneDetailsResponseBody extends $dara.Model {
   data?: ListTextbookAssistantSceneDetailsResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -475,10 +471,10 @@ export class ListTextbookAssistantSceneDetailsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -491,7 +487,7 @@ export class ListTextbookAssistantSceneDetailsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -499,11 +495,10 @@ export class ListTextbookAssistantSceneDetailsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: Successful.
    * 
-   * - **true**: The call succeeded.
-   * 
-   * - **false**: The call failed.
+   * - **false**: Failed.
    * 
    * @example
    * true

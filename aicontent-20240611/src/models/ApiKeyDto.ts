@@ -47,7 +47,7 @@ export class ApiKeyDTO extends $dara.Model {
   memberUserId?: number;
   /**
    * @example
-   * 张三
+   * Zhang San
    */
   memberUserName?: string;
   /**

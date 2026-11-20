@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ClientUpdateCmd extends $dara.Model {
   /**
+   * @remarks
+   * The company address.
+   * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   address?: string;
   /**
+   * @remarks
+   * The list of allowed model IDs, separated by commas. An empty value indicates all models.
+   * 
    * @example
    * 1,2,3
    */
   allowedModels?: string;
   /**
+   * @remarks
+   * The contact information.
+   * 
    * @example
    * 13800138000
    */
   contact?: string;
   /**
+   * @remarks
+   * The customer name.
+   * 
    * @example
-   * 我的客户
+   * My customer
    */
   name?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
-   * 备注
+   * Remark
    */
   remark?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * 1
    */

@@ -4,24 +4,47 @@ import { ApiKeyDTO } from "./ApiKeyDto";
 
 
 export class ModelRouterQueryApiKeyListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The elements.
+   */
   list?: ApiKeyDTO[];
+  /**
+   * @remarks
+   * The page size. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   maxResult?: string;
   /**
+   * @remarks
+   * nextToken
+   * 
    * @example
    * None
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 0
    */
@@ -64,14 +87,11 @@ export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The data object.
-   * 
-   * @example
-   * []
    */
   data?: ModelRouterQueryApiKeyListResponseBodyData;
   /**
    * @remarks
-   * The error message code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -111,7 +131,7 @@ export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

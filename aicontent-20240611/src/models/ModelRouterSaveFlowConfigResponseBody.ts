@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterSaveFlowConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the configuration.
+   * The creation time.
    * 
    * @example
    * 2026-04-27T18:28:57.987356+08:00
@@ -13,7 +13,7 @@ export class ModelRouterSaveFlowConfigResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time of the configuration.
+   * The update time.
    * 
    * @example
    * 2026-04-27T18:28:57.987356+08:00
@@ -21,7 +21,7 @@ export class ModelRouterSaveFlowConfigResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the flow control configuration.
+   * The rate limiting configuration ID.
    * 
    * @example
    * 6
@@ -37,7 +37,7 @@ export class ModelRouterSaveFlowConfigResponseBodyData extends $dara.Model {
   modelId?: number;
   /**
    * @remarks
-   * The configured RPM.
+   * The requests per minute (RPM) limit.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class ModelRouterSaveFlowConfigResponseBodyData extends $dara.Model {
   rpm?: number;
   /**
    * @remarks
-   * Indicates whether smooth flow control is enabled.
+   * Specifies whether smooth rate limiting is enabled.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class ModelRouterSaveFlowConfigResponseBodyData extends $dara.Model {
   smoothFlowEnabled?: boolean;
   /**
    * @remarks
-   * The configured TPM.
+   * The tokens per minute (TPM) limit.
    * 
    * @example
    * 10000
@@ -95,12 +95,12 @@ export class ModelRouterSaveFlowConfigResponseBodyData extends $dara.Model {
 export class ModelRouterSaveFlowConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ModelRouterSaveFlowConfigResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -108,10 +108,10 @@ export class ModelRouterSaveFlowConfigResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -132,7 +132,7 @@ export class ModelRouterSaveFlowConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

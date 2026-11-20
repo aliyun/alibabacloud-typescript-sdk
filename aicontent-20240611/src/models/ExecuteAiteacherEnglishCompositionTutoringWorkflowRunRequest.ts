@@ -83,7 +83,7 @@ export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extend
    * This parameter is required.
    * 
    * @example
-   * xxxxxxx
+   * demo_user
    */
   userId?: string;
   static names(): { [key: string]: string } {

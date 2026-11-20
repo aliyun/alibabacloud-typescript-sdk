@@ -4,32 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchCreateModelItemDTO extends $dara.Model {
   /**
+   * @remarks
+   * The model description.
+   * 
    * @example
-   * 通义千问 Max
+   * Qwen Max
    */
   description?: string;
   /**
+   * @remarks
+   * The extension configuration parameters in JSON string format.
+   * 
    * @example
    * {}
    */
   extensions?: string;
   /**
+   * @remarks
+   * The supported input and output data types, separated by commas.
+   * 
    * @example
    * text
    */
   inOut?: string;
   /**
+   * @remarks
+   * The maximum input length in tokens.
+   * 
    * @example
    * 128000
    */
   maxInputLength?: string;
   /**
+   * @remarks
+   * The maximum output length in tokens.
+   * 
    * @example
    * 8192
    */
   maxOutputLength?: string;
   /**
    * @remarks
+   * The model identifier. This parameter is required and corresponds to the model ID on the vendor side. If the identifier is duplicated, the backend automatically increments the version by using v1 or v2.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +55,8 @@ export class BatchCreateModelItemDTO extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
+   * The model type. This parameter is required. Valid values: Chat, Embedding, Rerank, Image, Audio, and Video.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,6 +65,8 @@ export class BatchCreateModelItemDTO extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
+   * The model name. This parameter is required. If the identifier is duplicated, add -v1 or -v2 to distinguish the models.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +74,9 @@ export class BatchCreateModelItemDTO extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The tags, separated by commas.
+   * 
    * @example
    * chat,NLP
    */

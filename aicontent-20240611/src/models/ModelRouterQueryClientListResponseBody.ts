@@ -4,19 +4,50 @@ import { ClientDTO } from "./ClientDto";
 
 
 export class ModelRouterQueryClientListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of items.
+   */
   list?: ClientDTO[];
   /**
+   * @remarks
+   * maxResults
+   * 
    * @example
    * 1
    */
   maxResults?: string;
   /**
+   * @remarks
+   * nextToken
+   * 
    * @example
    * 1
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The current page number.
+   * 
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @remarks
+   * The number of records per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of records that meet the query conditions.
+   * 
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -55,15 +86,15 @@ export class ModelRouterQueryClientListResponseBodyData extends $dara.Model {
 export class ModelRouterQueryClientListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A wrapper object for the paged response data.
+   * The data object.
    * 
    * @example
-   * []
+   * {"page":1,"pageSize":10}
    */
   data?: ModelRouterQueryClientListResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -74,7 +105,7 @@ export class ModelRouterQueryClientListResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -95,7 +126,7 @@ export class ModelRouterQueryClientListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

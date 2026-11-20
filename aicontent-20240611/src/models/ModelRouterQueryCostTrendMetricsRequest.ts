@@ -67,6 +67,11 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
    */
   memberUserIds?: string;
   /**
+   * @example
+   * 123,456
+   */
+  modelIds?: string;
+  /**
    * @remarks
    * The model types, separated by commas.
    * 
@@ -101,6 +106,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
       granularity: 'granularity',
       maxResults: 'maxResults',
       memberUserIds: 'memberUserIds',
+      modelIds: 'modelIds',
       modelTypes: 'modelTypes',
       nextToken: 'nextToken',
       startTime: 'startTime',
@@ -116,6 +122,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
       granularity: 'string',
       maxResults: 'number',
       memberUserIds: 'string',
+      modelIds: 'string',
       modelTypes: 'string',
       nextToken: 'string',
       startTime: 'number',

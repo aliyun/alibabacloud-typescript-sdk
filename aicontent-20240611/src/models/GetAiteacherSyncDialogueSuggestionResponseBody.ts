@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAITeacherSyncDialogueSuggestionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The assistant\\"s suggestion in Chinese.
+   * The Chinese prompt from the assistant.
    * 
    * @example
    * 谢谢莉莉.你喜欢吃肉吗，莉莉？
@@ -13,7 +13,7 @@ export class GetAITeacherSyncDialogueSuggestionResponseBodyData extends $dara.Mo
   chineseResult?: string;
   /**
    * @remarks
-   * The assistant\\"s suggestion in English.
+   * The English prompt from the assistant.
    * 
    * @example
    * Thanks, Lily. Do you like meat, Lily?
@@ -45,15 +45,15 @@ export class GetAITeacherSyncDialogueSuggestionResponseBodyData extends $dara.Mo
 export class GetAITeacherSyncDialogueSuggestionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The object that contains the result of the request.
+   * The data object.
    * 
    * @example
-   * []
+   * {"chineseResult":"谢谢莉莉.你喜欢吃肉吗，莉莉？","englishResult":"Thanks, Lily. Do you like meat, Lily?"}
    */
   data?: GetAITeacherSyncDialogueSuggestionResponseBodyData;
   /**
    * @remarks
-   * The error code returned when the request fails.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -61,10 +61,10 @@ export class GetAITeacherSyncDialogueSuggestionResponseBody extends $dara.Model 
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -77,7 +77,7 @@ export class GetAITeacherSyncDialogueSuggestionResponseBody extends $dara.Model 
   httpStatusCode?: number;
   /**
    * @remarks
-   * A unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -85,7 +85,7 @@ export class GetAITeacherSyncDialogueSuggestionResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

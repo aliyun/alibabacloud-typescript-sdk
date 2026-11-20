@@ -14,7 +14,7 @@ export class ModelRouterCreateModelResponseBody extends $dara.Model {
   data?: ModelDTO;
   /**
    * @remarks
-   * The fault code.
+   * The encoding of the error message for the fault.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -38,7 +38,7 @@ export class ModelRouterCreateModelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -46,7 +46,7 @@ export class ModelRouterCreateModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

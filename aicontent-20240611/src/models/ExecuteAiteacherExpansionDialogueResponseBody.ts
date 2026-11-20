@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AI teacher\\"s response in Chinese.
+   * The Chinese reply from the AI teacher.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $dara.Mod
   chineseResult?: string;
   /**
    * @remarks
-   * The AI teacher\\"s response in English.
+   * The English reply from the AI teacher.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $dara.Mod
   englishResult?: string;
   /**
    * @remarks
-   * Indicates whether the dialogue is finished.
+   * Indicates whether the conversation is completed.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $dara.Mod
   isOnTopic?: boolean;
   /**
    * @remarks
-   * The index of the current question.
+   * The number of the current question being answered.
    * 
    * @example
    * 2
@@ -85,15 +85,15 @@ export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $dara.Mod
 export class ExecuteAITeacherExpansionDialogueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The data object.
    * 
    * @example
-   * []
+   * {"isFinish":true,"questionIndex":2}
    */
   data?: ExecuteAITeacherExpansionDialogueResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -101,10 +101,10 @@ export class ExecuteAITeacherExpansionDialogueResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -117,7 +117,7 @@ export class ExecuteAITeacherExpansionDialogueResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * A unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -125,7 +125,7 @@ export class ExecuteAITeacherExpansionDialogueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

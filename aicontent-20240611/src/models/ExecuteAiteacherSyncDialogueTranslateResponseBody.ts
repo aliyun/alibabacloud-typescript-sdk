@@ -8,7 +8,7 @@ export class ExecuteAITeacherSyncDialogueTranslateResponseBodyData extends $dara
    * The translation result.
    * 
    * @example
-   * 太好了，谢谢你过来，莉莉。你喜欢吃肉吗？
+   * That\\"s great, thank you for coming, Lily. Do you like eating meat?
    */
   result?: string;
   static names(): { [key: string]: string } {
@@ -38,12 +38,12 @@ export class ExecuteAITeacherSyncDialogueTranslateResponseBody extends $dara.Mod
    * The data object.
    * 
    * @example
-   * []
+   * {"result":"That\\"s great, thank you for coming, Lily. Do you like eating meat?"}
    */
   data?: ExecuteAITeacherSyncDialogueTranslateResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -54,7 +54,7 @@ export class ExecuteAITeacherSyncDialogueTranslateResponseBody extends $dara.Mod
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -75,7 +75,7 @@ export class ExecuteAITeacherSyncDialogueTranslateResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

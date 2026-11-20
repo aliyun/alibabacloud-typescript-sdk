@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryClientListRequest extends $dara.Model {
   /**
    * @remarks
-   * The field to group the results by.
+   * The field used to group the results.
    * 
    * @example
    * resourceId
@@ -13,7 +13,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
   groupBy?: string;
   /**
    * @remarks
-   * The search keyword.
+   * The keyword used for search.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether to return the total count of entries.
+   * Specifies whether to include the total count of records.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
   needTotalCount?: boolean;
   /**
    * @remarks
-   * The token for the next page of results. Set this to the nextToken value from the previous response. Omit for the first page.
+   * The pagination token. An empty value indicates that there are no more pages.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field to sort the results by.
+   * The field used to sort the results.
    * 
    * @example
    * resourceId
@@ -53,7 +53,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The sort direction.
+   * The sort order.
    * 
    * @example
    * DESC
@@ -61,7 +61,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The page number of the results to return. The first page is 1.
+   * The page number.
    * 
    * @example
    * 1
@@ -69,20 +69,23 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of items per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Optional. The ID of the parent department used to filter the results.
+   * 
    * @example
    * 1
    */
   parentId?: number;
   /**
    * @remarks
-   * Filters the results by status.
+   * The status used to filter the results.
    * 
    * @example
    * 1

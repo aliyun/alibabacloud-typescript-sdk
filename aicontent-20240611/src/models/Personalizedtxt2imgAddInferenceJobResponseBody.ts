@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The inference job\\"s creation time.
+   * The creation time of the model inference task.
    * 
    * @example
    * 2023-12-25T12:00:00
@@ -13,7 +13,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The model inference job ID.
+   * The ID of the model inference task.
    * 
    * @example
    * 3220
@@ -21,7 +21,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The job status.
+   * The status of the model inference task.
    * 
    * @example
    * FINISHED
@@ -29,7 +29,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Mo
   jobStatus?: string;
   /**
    * @remarks
-   * The inference job progress.
+   * The progress of the model inference task.
    * 
    * @example
    * 0.5
@@ -45,7 +45,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Mo
   modelId?: string;
   /**
    * @remarks
-   * The prompt ID.
+   * promptId
    * 
    * @example
    * promptId-xxxx-xxxx-xxxx
@@ -53,7 +53,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Mo
   promptId?: string;
   /**
    * @remarks
-   * A list of URLs for the generated images.
+   * The list of results for the model inference task.
    * 
    * @example
    * 0000.png
@@ -106,7 +106,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBody extends $dara.Model 
   data?: Personalizedtxt2imgAddInferenceJobResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -117,7 +117,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBody extends $dara.Model 
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -138,7 +138,7 @@ export class Personalizedtxt2imgAddInferenceJobResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

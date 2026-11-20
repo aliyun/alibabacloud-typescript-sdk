@@ -5,16 +5,25 @@ import { ModelGroupClientKeyItemDTO } from "./ModelGroupClientKeyItemDto";
 
 export class ModelGroupUserDTO extends $dara.Model {
   /**
+   * @remarks
+   * The list of API key summaries for the user.
+   * 
    * @example
    * []
    */
   apiKeys?: ModelGroupClientKeyItemDTO[];
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 30001
    */
   userId?: number;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * Zhang San
    */

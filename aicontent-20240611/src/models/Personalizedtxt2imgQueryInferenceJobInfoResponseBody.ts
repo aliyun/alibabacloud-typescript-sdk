@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the inference job was created.
+   * The creation time of the model inference task.
    * 
    * @example
    * 2023-12-25T12:00:00
@@ -13,7 +13,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData extends $d
   createTime?: string;
   /**
    * @remarks
-   * The ID of the inference job.
+   * The ID of the model inference task.
    * 
    * @example
    * 3220
@@ -21,7 +21,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData extends $d
   id?: string;
   /**
    * @remarks
-   * The status of the inference job.
+   * The status of the model inference task.
    * 
    * @example
    * FINISHED
@@ -29,7 +29,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData extends $d
   jobStatus?: string;
   /**
    * @remarks
-   * The progress of the inference job.
+   * The progress of the model inference task.
    * 
    * @example
    * 0.5
@@ -45,7 +45,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData extends $d
   modelId?: string;
   /**
    * @remarks
-   * The ID of the prompt.
+   * promptId
    * 
    * @example
    * promptId-xxxx-xxxx-xxxx
@@ -53,7 +53,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData extends $d
   promptId?: string;
   /**
    * @remarks
-   * A list of URLs for the generated images.
+   * The list of task results for the model inference node.
    * 
    * @example
    * 0000.png
@@ -98,7 +98,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData extends $d
 export class Personalizedtxt2imgQueryInferenceJobInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The object that contains the query results.
+   * The data object.
    * 
    * @example
    * []
@@ -106,7 +106,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBody extends $dara.
   data?: Personalizedtxt2imgQueryInferenceJobInfoResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -114,10 +114,10 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBody extends $dara.
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -138,7 +138,7 @@ export class Personalizedtxt2imgQueryInferenceJobInfoResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

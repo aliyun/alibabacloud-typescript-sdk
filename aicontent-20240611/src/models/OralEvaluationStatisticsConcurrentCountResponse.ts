@@ -5,14 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData extends $dara.Model {
   /**
    * @remarks
-   * The count of the item.
+   * The statistics item count.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 10
    */
   count?: number;
   /**
    * @remarks
-   * The name of the statistical item.
+   * The statistics item name.
    * 
    * This parameter is required.
    * 
@@ -46,12 +49,12 @@ export class OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicati
 export class OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData extends $dara.Model {
   /**
    * @remarks
-   * A list of data nodes.
+   * The data list.
    */
   data?: OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationDataData[];
   /**
    * @remarks
-   * The app key.
+   * appkey
    * 
    * This parameter is required.
    * 
@@ -88,7 +91,7 @@ export class OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicati
 export class OralEvaluationStatisticsConcurrentCountResponseProjectData extends $dara.Model {
   /**
    * @remarks
-   * A list of application data.
+   * The data list.
    */
   applicationData?: OralEvaluationStatisticsConcurrentCountResponseProjectDataApplicationData[];
   /**
@@ -130,7 +133,7 @@ export class OralEvaluationStatisticsConcurrentCountResponseProjectData extends 
 export class OralEvaluationStatisticsConcurrentCountResponse extends $dara.Model {
   /**
    * @remarks
-   * Statistical data for the project.
+   * The project statistics data.
    * 
    * This parameter is required.
    */

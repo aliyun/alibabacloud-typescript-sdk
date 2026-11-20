@@ -21,10 +21,10 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * The model description.
+   * The description of the model.
    * 
    * @example
-   * 通义千问大模型
+   * Qwen large language model
    */
   description?: string;
   /**
@@ -61,7 +61,7 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   maxOutputLength?: string;
   /**
    * @remarks
-   * The model ID.
+   * The ID of the model.
    * 
    * @example
    * qwen-turbo
@@ -69,7 +69,7 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * The model type.
+   * The type of the model.
    * 
    * @example
    * Chat
@@ -77,10 +77,10 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
-   * 通义千问
+   * Qwen
    */
   name?: string;
   /**

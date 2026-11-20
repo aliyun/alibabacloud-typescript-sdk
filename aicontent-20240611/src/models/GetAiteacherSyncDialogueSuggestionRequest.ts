@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAITeacherSyncDialogueSuggestionRequestDialogueTasks extends $dara.Model {
   /**
    * @remarks
-   * The assistant\\"s message content.
+   * The AI conversation content.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class GetAITeacherSyncDialogueSuggestionRequestDialogueTasks extends $dar
   assistant?: string;
   /**
    * @remarks
-   * The translation of the assistant\\"s message.
+   * The translation of the AI conversation content.
    * 
    * @example
-   * 为什么有些人认为遛狗是份好差事?
+   * Why do some people think walking dogs is a good job?
    */
   assistantTranslate?: string;
   /**
    * @remarks
-   * The sequence number of the dialogue task.
+   * The sequence number.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class GetAITeacherSyncDialogueSuggestionRequestDialogueTasks extends $dar
   order?: number;
   /**
    * @remarks
-   * The user\\"s message content.
+   * The user conversation content.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class GetAITeacherSyncDialogueSuggestionRequestDialogueTasks extends $dar
 export class GetAITeacherSyncDialogueSuggestionRequestRecords extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The conversation content.
    * 
    * This parameter is required.
    * 
@@ -81,23 +81,31 @@ export class GetAITeacherSyncDialogueSuggestionRequestRecords extends $dara.Mode
   content?: string;
   /**
    * @remarks
-   * A control flag that indicates if a student\\"s response is off-topic. The value is based on the previous turn. If the conversation goes off-topic more than twice, the system sets this value to `true` to force a task switch.
+   * Specifies whether the response is off-topic and applies flow control. This parameter indicates whether the student\\"s response aligns with the conversation task settings. The value is derived from the return results of previous conversation turns. Additionally, this parameter controls the conversation flow. If the response is off-topic more than twice, the value is forcibly set to true to switch the task.
+   * 
+   * Valid values:
+   * - true: Off-topic.
+   * - false: On-topic.
    * 
    * @example
-   * 跑题：true, 不跑题：false
+   * true
    */
   isOffTopicControl?: boolean;
   /**
    * @remarks
-   * Specifies if the message is on topic. `true` indicates the message is on topic; `false` indicates it is off topic.
+   * Specifies whether the response is on-topic.
+   * 
+   * Valid values:
+   * - true: On-topic.
+   * - false: Off-topic.
    * 
    * @example
-   * 扣题：true, 不扣题：false
+   * true
    */
   isOnTopic?: boolean;
   /**
    * @remarks
-   * The sequence number of the message in the conversation.
+   * The sequence number.
    * 
    * This parameter is required.
    * 
@@ -107,12 +115,12 @@ export class GetAITeacherSyncDialogueSuggestionRequestRecords extends $dara.Mode
   order?: number;
   /**
    * @remarks
-   * The role of the message author. Valid values: `assistant` (for AI-generated messages) and `user` (for user-provided messages).
+   * The role.
    * 
    * This parameter is required.
    * 
    * @example
-   * AI：assistant；用户：user
+   * AI: assistant; User: user
    */
   role?: string;
   static names(): { [key: string]: string } {
@@ -147,7 +155,7 @@ export class GetAITeacherSyncDialogueSuggestionRequestRecords extends $dara.Mode
 export class GetAITeacherSyncDialogueSuggestionRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of dialogue tasks.
+   * The collection of conversation task content.
    * 
    * This parameter is required.
    */
@@ -162,14 +170,14 @@ export class GetAITeacherSyncDialogueSuggestionRequest extends $dara.Model {
   languageCode?: string;
   /**
    * @remarks
-   * A list of dialogue records.
+   * The collection of conversation records.
    * 
    * This parameter is required.
    */
   records?: GetAITeacherSyncDialogueSuggestionRequestRecords[];
   /**
    * @remarks
-   * The unique identifier for the end-user.
+   * The user ID.
    * 
    * This parameter is required.
    * 

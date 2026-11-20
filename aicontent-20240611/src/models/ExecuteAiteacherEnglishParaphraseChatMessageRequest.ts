@@ -74,7 +74,7 @@ export class ExecuteAITeacherEnglishParaphraseChatMessageRequest extends $dara.M
    * This parameter is required.
    * 
    * @example
-   * xxxxxxx
+   * demo_user
    */
   userId?: string;
   static names(): { [key: string]: string } {

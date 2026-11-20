@@ -15,7 +15,7 @@ export class ModelUpdateCmd extends $dara.Model {
   baseUrl?: string;
   /**
    * @example
-   * 通义千问大模型
+   * Qwen large language model
    */
   description?: string;
   /**
@@ -40,7 +40,7 @@ export class ModelUpdateCmd extends $dara.Model {
   modelType?: string;
   /**
    * @example
-   * 通义千问
+   * Qwen
    */
   name?: string;
   /**

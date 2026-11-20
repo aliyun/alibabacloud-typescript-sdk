@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListTextbookAssistantArticleDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of article IDs to retrieve.
+   * The list of article IDs.
    */
   articleIdList?: string[];
   /**
    * @remarks
-   * The authorization token obtained from the "Get Authorization Token for the English Textbook-Style AI Teacher" API.
+   * The authorization code for API calls. You can obtain this code by calling the operation that retrieves the authorization code for the English textbook-style AI teacher feature.
    * 
    * This parameter is required.
    * 

@@ -14,7 +14,7 @@ export class ModelRouterQueryCostModelListResponseBody extends $dara.Model {
   data?: CostQueryModelsDTO;
   /**
    * @remarks
-   * The fault code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -38,7 +38,7 @@ export class ModelRouterQueryCostModelListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of results to return.
+   * The maximum number of results.
    * 
    * @example
    * 10
@@ -62,7 +62,7 @@ export class ModelRouterQueryCostModelListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

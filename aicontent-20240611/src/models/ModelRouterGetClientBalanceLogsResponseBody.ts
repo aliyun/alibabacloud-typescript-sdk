@@ -19,7 +19,7 @@ export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 20
@@ -27,7 +27,7 @@ export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 100
@@ -71,7 +71,7 @@ export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
   data?: ModelRouterGetClientBalanceLogsResponseBodyData;
   /**
    * @remarks
-   * The fault code.
+   * The error message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -95,7 +95,7 @@ export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of items to return.
    * 
    * @example
    * 20
@@ -119,7 +119,7 @@ export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

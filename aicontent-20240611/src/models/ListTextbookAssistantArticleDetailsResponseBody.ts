@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList extends $dara.Model {
   /**
    * @remarks
-   * The answer.
+   * The answer to the question.
    * 
    * @example
    * I\\"m Mike Black
@@ -13,7 +13,7 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList ext
   answer?: string;
   /**
    * @remarks
-   * The question.
+   * The question content.
    * 
    * @example
    * From the book, how does Mike Black introduce himself?
@@ -21,10 +21,10 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList ext
   question?: string;
   /**
    * @remarks
-   * The translated question.
+   * The translation of the question content.
    * 
    * @example
-   * 根据文章，迈克·布莱克是如何介绍自己的？
+   * According to the article, how does Mike Black introduce himself?
    */
   questionTranslate?: string;
   static names(): { [key: string]: string } {
@@ -71,12 +71,15 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataSceneList extend
   sceneId?: string;
   /**
    * @remarks
-   * A list of image URLs for the scene.
+   * The images related to the current scene.
    */
   sceneImageList?: string[];
   /**
    * @remarks
-   * The translated scene description.
+   * The translation of the scene description.
+   * 
+   * @example
+   * At a cafe, share the story of how you met your friends
    */
   sceneTranslate?: string;
   static names(): { [key: string]: string } {
@@ -112,10 +115,10 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataSceneList extend
 export class ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList extends $dara.Model {
   /**
    * @remarks
-   * The sentence analysis.
+   * The sentence analysis and explanation.
    * 
    * @example
-   * 主语 + be动词（am/is/are） + 姓名.
+   * Subject + be verb (am/is/are) + name
    */
   sentenceAnalysis?: string;
   /**
@@ -162,7 +165,7 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList ext
 export class ListTextbookAssistantArticleDetailsResponseBodyDataTheme extends $dara.Model {
   /**
    * @remarks
-   * A list of image URLs for the theme.
+   * The images related to the current theme.
    */
   themeImageList?: string[];
   /**
@@ -170,12 +173,12 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataTheme extends $d
    * The theme name.
    * 
    * @example
-   * 自我认知与提升
+   * Self-awareness and improvement
    */
   themeName?: string;
   /**
    * @remarks
-   * The translated theme name.
+   * The translation of the theme name.
    * 
    * @example
    * Self-awareness, self-management, self-improvement
@@ -212,7 +215,7 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataTheme extends $d
 export class ListTextbookAssistantArticleDetailsResponseBodyDataTopic extends $dara.Model {
   /**
    * @remarks
-   * A list of image URLs for the topic.
+   * The images related to the current topic.
    */
   topicImageList?: string[];
   /**
@@ -220,12 +223,12 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataTopic extends $d
    * The topic name.
    * 
    * @example
-   * 打招呼与自我介绍
+   * Greetings and self-introductions
    */
   topicName?: string;
   /**
    * @remarks
-   * The translated topic name.
+   * The translation of the topic content.
    * 
    * @example
    * Greetings and self-introduction
@@ -262,10 +265,10 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataTopic extends $d
 export class ListTextbookAssistantArticleDetailsResponseBodyDataWordList extends $dara.Model {
   /**
    * @remarks
-   * The word analysis.
+   * The word definition.
    * 
    * @example
-   * 令人愉快的；友好的
+   * Pleasant; friendly
    */
   wordAnalysis?: string;
   /**
@@ -320,40 +323,40 @@ export class ListTextbookAssistantArticleDetailsResponseBodyData extends $dara.M
   articleId?: string;
   /**
    * @remarks
-   * A list of Q\\&A objects.
+   * The question and answer data.
    */
   questionList?: ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList[];
   /**
    * @remarks
-   * A list of scene objects.
+   * The scene list.
    */
   sceneList?: ListTextbookAssistantArticleDetailsResponseBodyDataSceneList[];
   /**
    * @remarks
-   * A list of sentence objects.
+   * The sentence list.
    */
   sentenceList?: ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList[];
   /**
    * @remarks
-   * The learning objectives.
+   * The practice objective.
    * 
    * @example
-   * 1.能够在自我介绍时运用句型“What\\"s your name? My name is/I‘m...”进行询问及回答。\\n2.能够和新朋友运用句型“Nice to meet you(too).”进行问候。
+   * 1. Be able to use the sentence pattern "What\\"s your name? My name is/I\\"m..." to ask and answer during self-introductions.\\n2. Be able to use the sentence pattern "Nice to meet you (too)." to greet new friends
    */
   target?: string;
   /**
    * @remarks
-   * The theme object.
+   * The theme information.
    */
   theme?: ListTextbookAssistantArticleDetailsResponseBodyDataTheme;
   /**
    * @remarks
-   * The topic object.
+   * The topic information.
    */
   topic?: ListTextbookAssistantArticleDetailsResponseBodyDataTopic;
   /**
    * @remarks
-   * A list of word objects.
+   * The word list.
    */
   wordList?: ListTextbookAssistantArticleDetailsResponseBodyDataWordList[];
   static names(): { [key: string]: string } {
@@ -412,7 +415,7 @@ export class ListTextbookAssistantArticleDetailsResponseBodyData extends $dara.M
 export class ListTextbookAssistantArticleDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of article detail objects.
+   * The returned data object.
    */
   data?: ListTextbookAssistantArticleDetailsResponseBodyData[];
   /**
@@ -428,7 +431,7 @@ export class ListTextbookAssistantArticleDetailsResponseBody extends $dara.Model
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -441,7 +444,7 @@ export class ListTextbookAssistantArticleDetailsResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -449,11 +452,10 @@ export class ListTextbookAssistantArticleDetailsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the API call succeeded.
+   * Indicates whether the API call is successful.
+   * - **true**: Successful.
    * 
-   * - **true**: Success
-   * 
-   * - **false**: Failure
+   * - **false**: Failed.
    * 
    * @example
    * true

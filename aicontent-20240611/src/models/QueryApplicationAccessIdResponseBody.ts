@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryApplicationAccessIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application access ID (appkey).
+   * The application access identifier (appkey).
    * 
    * @example
    * 1234567890
@@ -13,7 +13,7 @@ export class QueryApplicationAccessIdResponseBodyData extends $dara.Model {
   applicationAccessId?: string;
   /**
    * @remarks
-   * The application access secret. This parameter is returned only for requests from the Alibaba Cloud console.
+   * The application secret. This parameter is returned only for console requests.
    * 
    * @example
    * MyAppSecret
@@ -53,7 +53,7 @@ export class QueryApplicationAccessIdResponseBody extends $dara.Model {
   data?: QueryApplicationAccessIdResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -64,7 +64,7 @@ export class QueryApplicationAccessIdResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -85,7 +85,7 @@ export class QueryApplicationAccessIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

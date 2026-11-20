@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies the Nacos configuration type to retrieve.
+   * 
    * @example
    * providers
    */
   configType?: string;
   /**
    * @remarks
-   * The field by which to group the results.
+   * The grouping field.
    * 
    * @example
    * resourceId
@@ -26,7 +29,7 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether to return the total count of results.
+   * Specifies whether to return the total count.
    * 
    * @example
    * true
@@ -34,7 +37,7 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   needTotalCount?: boolean;
   /**
    * @remarks
-   * The token from a previous response to retrieve the next page of results.
+   * The pagination token. This parameter is empty if there is no next page.
    * 
    * @example
    * 1
@@ -42,7 +45,7 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * @example
    * resourceId
@@ -50,7 +53,7 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The sort order.
+   * The sort direction.
    * 
    * @example
    * DESC
@@ -66,7 +69,7 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of results to return per page.
+   * The number of items per page.
    * 
    * @example
    * 10

@@ -5,18 +5,27 @@ import { ModelGroupClientKeyItemDTO } from "./ModelGroupClientKeyItemDto";
 
 export class ModelGroupClientDTO extends $dara.Model {
   /**
+   * @remarks
+   * The list of API key summaries for the department.
+   * 
    * @example
    * []
    */
   apiKeys?: ModelGroupClientKeyItemDTO[];
   /**
+   * @remarks
+   * The department ID.
+   * 
    * @example
    * 1001
    */
   clientId?: number;
   /**
+   * @remarks
+   * The department name.
+   * 
    * @example
-   * UserA-Professional
+   * User A-Professional Edition
    */
   clientName?: string;
   static names(): { [key: string]: string } {

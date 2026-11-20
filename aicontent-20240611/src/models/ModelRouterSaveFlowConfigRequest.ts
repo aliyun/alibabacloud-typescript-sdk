@@ -15,7 +15,7 @@ export class ModelRouterSaveFlowConfigRequest extends $dara.Model {
   modelId?: number;
   /**
    * @remarks
-   * The maximum number of requests per minute (RPM).
+   * The requests per minute (RPM) limit.
    * 
    * @example
    * 100
@@ -23,7 +23,7 @@ export class ModelRouterSaveFlowConfigRequest extends $dara.Model {
   rpm?: number;
   /**
    * @remarks
-   * Specifies whether to enable smooth flow control.
+   * Specifies whether smooth rate limiting is enabled.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class ModelRouterSaveFlowConfigRequest extends $dara.Model {
   smoothFlowEnabled?: boolean;
   /**
    * @remarks
-   * The maximum number of tokens per minute (TPM).
+   * The tokens per minute (TPM) limit.
    * 
    * @example
    * 10000

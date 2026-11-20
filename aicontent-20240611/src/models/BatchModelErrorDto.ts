@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchModelErrorDTO extends $dara.Model {
   /**
+   * @remarks
+   * The failure cause.
+   * 
    * @example
-   * 模型类型不能为空
+   * The model type cannot be empty
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * qwen-max
    */
   modelId?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * qwen-max
    */

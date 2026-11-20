@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelCreateCmd extends $dara.Model {
   /**
+   * @remarks
+   * API Key
+   * 
    * @example
    * sk-xxxx
    */
   apiKey?: string;
   /**
+   * @remarks
+   * Base URL
+   * 
    * @example
    * https://dashscope.aliyuncs.com
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * The model description.
+   * 
    * @example
-   * 通义千问大模型
+   * Qwen large language model
    */
   description?: string;
   /**
+   * @remarks
+   * The maximum input length.
+   * 
    * @example
    * 8192
    */
   maxInputLength?: string;
   /**
+   * @remarks
+   * The maximum output length.
+   * 
    * @example
    * 2048
    */
   maxOutputLength?: string;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * qwen-turbo
    */
   modelId?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * Chat
    */
   modelType?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
-   * 通义千问
+   * Qwen
    */
   name?: string;
   /**
+   * @remarks
+   * The vendor symbol.
+   * 
    * @example
    * alibaba
    */
   symbol?: string;
   /**
+   * @remarks
+   * The tags, separated by commas.
+   * 
    * @example
    * chat,NLP
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterSearchClientTreeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The collection of matched department IDs.
+   * The IDs of the matched departments.
    * 
    * @example
    * []

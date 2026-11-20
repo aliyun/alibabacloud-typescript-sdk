@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherSyncDialogueResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The English response from the AI teacher.
+   * The English reply from the AI teacher.
    * 
    * @example
    * Thanks, Lily. Do you like meat, Lily?
@@ -13,7 +13,7 @@ export class ExecuteAITeacherSyncDialogueResponseBodyData extends $dara.Model {
   englishResult?: string;
   /**
    * @remarks
-   * Indicates whether the dialogue is finished.
+   * Indicates whether the conversation is completed.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ExecuteAITeacherSyncDialogueResponseBodyData extends $dara.Model {
   isFinish?: boolean;
   /**
    * @remarks
-   * Indicates whether the user\\"s response is on topic.
+   * Indicates whether the response is on topic.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ExecuteAITeacherSyncDialogueResponseBodyData extends $dara.Model {
   isOnTopic?: boolean;
   /**
    * @remarks
-   * The index of the current question.
+   * The index of the current question being answered.
    * 
    * @example
    * 2
@@ -68,12 +68,12 @@ export class ExecuteAITeacherSyncDialogueResponseBody extends $dara.Model {
    * The data object.
    * 
    * @example
-   * []
+   * {"englishResult":"Thanks, Lily. Do you like meat, Lily?","questionIndex":2}
    */
   data?: ExecuteAITeacherSyncDialogueResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault error message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -84,7 +84,7 @@ export class ExecuteAITeacherSyncDialogueResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -105,7 +105,7 @@ export class ExecuteAITeacherSyncDialogueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

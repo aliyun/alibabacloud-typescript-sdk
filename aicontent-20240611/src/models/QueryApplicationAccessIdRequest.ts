@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryApplicationAccessIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The application access ID (appkey).
+   * The application access identifier (appkey).
    * 
    * @example
    * 1234567890

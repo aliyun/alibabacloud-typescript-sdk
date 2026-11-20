@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class UsageInfoDTO extends $dara.Model {
   /**
+   * @remarks
+   * The output tokens.
+   * 
    * @example
    * 50
    */
   completionTokens?: number;
   /**
+   * @remarks
+   * The number of images.
+   * 
    * @example
    * 0
    */
   imageCount?: number;
   /**
+   * @remarks
+   * The input tokens.
+   * 
    * @example
    * 100
    */
   promptTokens?: number;
   /**
+   * @remarks
+   * The total tokens.
+   * 
    * @example
    * 150
    */
   totalTokens?: number;
   /**
+   * @remarks
+   * The number of videos.
+   * 
    * @example
    * 0
    */
   videoCount?: number;
   /**
+   * @remarks
+   * The video duration in seconds.
+   * 
    * @example
    * 0
    */

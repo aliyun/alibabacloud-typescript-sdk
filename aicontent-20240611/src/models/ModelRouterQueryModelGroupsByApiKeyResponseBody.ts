@@ -5,13 +5,18 @@ import { ModelGroupDTO } from "./ModelGroupDto";
 
 export class ModelRouterQueryModelGroupsByApiKeyResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The owner type of the key. Valid values:
+   * - department: Department key (department-level authorization, all keys in the same department return the same result).
+   * - user: User (department member) key (user-level authorization).
+   * 
    * @example
    * department
    */
   bindType?: string;
   /**
    * @remarks
-   * The department ID to which the key belongs.
+   * The ID of the department to which the key belongs.
    * 
    * @example
    * 1001
@@ -74,7 +79,7 @@ export class ModelRouterQueryModelGroupsByApiKeyResponseBody extends $dara.Model
   data?: ModelRouterQueryModelGroupsByApiKeyResponseBodyData;
   /**
    * @remarks
-   * The error message code.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -106,7 +111,7 @@ export class ModelRouterQueryModelGroupsByApiKeyResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

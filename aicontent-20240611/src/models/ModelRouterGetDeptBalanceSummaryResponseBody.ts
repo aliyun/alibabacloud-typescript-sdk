@@ -14,7 +14,7 @@ export class ModelRouterGetDeptBalanceSummaryResponseBody extends $dara.Model {
   data?: DeptBalanceSummaryDTO;
   /**
    * @remarks
-   * The fault message code.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -46,7 +46,7 @@ export class ModelRouterGetDeptBalanceSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

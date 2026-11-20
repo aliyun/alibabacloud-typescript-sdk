@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks extends $dara.Model {
   /**
    * @remarks
-   * The content of the assistant\\"s message.
+   * The AI conversation content.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks extends $
   assistant?: string;
   /**
    * @remarks
-   * The translated content of the assistant\\"s message.
+   * The translation of the AI conversation content.
    * 
    * @example
-   * 为什么有些人认为遛狗是份好差事?
+   * Why do some people think walking dogs is a good job?
    */
   assistantTranslate?: string;
   /**
    * @remarks
-   * The sequence number of the task.
+   * The sort order.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks extends $
   order?: number;
   /**
    * @remarks
-   * The content of the user\\"s message.
+   * The user conversation content.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks extends $
 export class ExecuteAITeacherSyncDialogueTranslateRequestRecords extends $dara.Model {
   /**
    * @remarks
-   * The content of the message.
+   * The conversation content.
    * 
    * This parameter is required.
    * 
@@ -81,23 +81,27 @@ export class ExecuteAITeacherSyncDialogueTranslateRequestRecords extends $dara.M
   content?: string;
   /**
    * @remarks
-   * Indicates whether the message is off-topic. This parameter is used for flow control.
+   * Specifies whether the content is off topic for flow control purposes. Valid values:
+   * - true: Off topic.
+   * - false: On topic.
    * 
    * @example
-   * 跑题：true, 不跑题：false
+   * true
    */
   isOffTopicControl?: boolean;
   /**
    * @remarks
-   * Indicates whether the message is on-topic.
+   * Specifies whether the content is on topic. Valid values:
+   * - true: On topic.
+   * - false: Off topic.
    * 
    * @example
-   * 扣题：true, 不扣题：false
+   * true
    */
   isOnTopic?: boolean;
   /**
    * @remarks
-   * The sequence number of the message.
+   * The sort order.
    * 
    * This parameter is required.
    * 
@@ -107,12 +111,12 @@ export class ExecuteAITeacherSyncDialogueTranslateRequestRecords extends $dara.M
   order?: number;
   /**
    * @remarks
-   * The message author\\"s role.
+   * The role.
    * 
    * This parameter is required.
    * 
    * @example
-   * AI：assistant；用户：user
+   * AI: assistant; User: user
    */
   role?: string;
   static names(): { [key: string]: string } {
@@ -147,14 +151,14 @@ export class ExecuteAITeacherSyncDialogueTranslateRequestRecords extends $dara.M
 export class ExecuteAITeacherSyncDialogueTranslateRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of dialogue task objects.
+   * The collection of conversation content for dialogue tasks.
    * 
    * This parameter is required.
    */
   dialogueTasks?: ExecuteAITeacherSyncDialogueTranslateRequestDialogueTasks[];
   /**
    * @remarks
-   * An array of dialogue record objects.
+   * The collection of conversation records.
    */
   records?: ExecuteAITeacherSyncDialogueTranslateRequestRecords[];
   /**

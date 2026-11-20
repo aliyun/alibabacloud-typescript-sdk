@@ -5,31 +5,49 @@ import { UserDepartmentDTO } from "./UserDepartmentDto";
 
 export class UserListItemDTO extends $dara.Model {
   /**
+   * @remarks
+   * The list of departments and roles to which the user belongs.
+   * 
    * @example
    * []
    */
   departments?: UserDepartmentDTO[];
   /**
+   * @remarks
+   * The creation time in the yyyy-MM-dd HH:mm:ss format.
+   * 
    * @example
    * 2026-07-01 10:00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The logon name.
+   * 
    * @example
    * zhangsan
    */
   loginName?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * Zhang San
    */
   name?: string;
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * 13800000000
    */

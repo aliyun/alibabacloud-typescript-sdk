@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UserDepartmentDTO extends $dara.Model {
   /**
+   * @remarks
+   * The department ID.
+   * 
    * @example
    * 1
    */
   clientId?: number;
   /**
+   * @remarks
+   * The department name.
+   * 
    * @example
    * R&D Department
    */
   clientName?: string;
   /**
+   * @remarks
+   * The role code.
+   * 
    * @example
    * member
    */
   roleCode?: string;
   /**
+   * @remarks
+   * The role name.
+   * 
    * @example
    * Member
    */

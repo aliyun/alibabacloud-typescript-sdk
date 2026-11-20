@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTextbookAssistantGradeVolumesRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization token. Obtain this token by calling the API that authorizes the Textbook Assistant feature.
+   * The authorization code for API calls. You can obtain it by calling the API operation that retrieves the authorization code for the English textbook AI teacher feature.
    * 
    * @example
    * tc_197bf5bb81889cc79eb51ae9b8c0cea3
@@ -13,7 +13,7 @@ export class ListTextbookAssistantGradeVolumesRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
-   * The scenario. Valid values: `SYNC` (synchronized practice) and `EXPAND` (extended practice).
+   * Scenarios. Valid values: SYNC: synchronization practice, EXPAND: extended practice.
    * 
    * This parameter is required.
    * 

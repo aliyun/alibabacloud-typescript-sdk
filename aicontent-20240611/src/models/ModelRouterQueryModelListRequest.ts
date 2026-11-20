@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryModelListRequest extends $dara.Model {
   /**
    * @remarks
-   * The field to use for grouping the results.
+   * The field by which to group the results.
    * 
    * @example
    * resourceId
@@ -13,7 +13,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   groupBy?: string;
   /**
    * @remarks
-   * The keyword for a fuzzy search on model information.
+   * The search keyword.
    * 
    * @example
    * test
@@ -28,13 +28,16 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The model type filter.
+   * 
    * @example
    * Chat
    */
   modelType?: string;
   /**
    * @remarks
-   * Specifies whether to include the total count of matching models in the response.
+   * Specifies whether to include the total count of items.
    * 
    * @example
    * true
@@ -42,7 +45,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   needTotalCount?: boolean;
   /**
    * @remarks
-   * The pagination token for retrieving the next page of results. If this parameter is not specified, the first page is retrieved. To retrieve a subsequent page, set this to the `nextToken` value from the previous response.
+   * The pagination token.
    * 
    * @example
    * 1
@@ -50,7 +53,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field to use for sorting the results.
+   * The field by which to sort the results.
    * 
    * @example
    * resourceId
@@ -58,7 +61,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The sort order. Valid values include `ASC` for ascending order and `DESC` for descending order.
+   * The sort direction.
    * 
    * @example
    * DESC
@@ -66,7 +69,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The page number to retrieve. Pages are numbered starting from 1.
+   * The page number.
    * 
    * @example
    * 1
@@ -74,7 +77,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of models to return per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -82,7 +85,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The model status to use as a filter.
+   * The status filter.
    * 
    * @example
    * 1

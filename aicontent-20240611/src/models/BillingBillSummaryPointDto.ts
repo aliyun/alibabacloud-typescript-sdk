@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BillingBillSummaryPointDTO extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp in UNIX seconds.
+   * 
    * @example
    * 1700000000
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The total cost at that point in time.
+   * 
    * @example
    * 1.23
    */

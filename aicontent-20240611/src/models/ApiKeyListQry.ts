@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApiKeyListQry extends $dara.Model {
   /**
+   * @remarks
+   * The client ID filter.
+   * 
    * @example
    * 1
    */
   clientId?: number;
+  /**
+   * @remarks
+   * The search keyword.
+   */
   keyword?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of items per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The status filter.
+   * 
    * @example
    * 1
    */

@@ -4,71 +4,113 @@ import * as $dara from '@darabonba/typescript';
 
 export class BillOrderEntryDTO extends $dara.Model {
   /**
+   * @remarks
+   * The change amount.
+   * 
    * @example
    * 100.00
    */
   amount?: number;
   /**
+   * @remarks
+   * The balance after the change.
+   * 
    * @example
    * 100.00
    */
   balanceAfter?: number;
   /**
+   * @remarks
+   * The balance before the change.
+   * 
    * @example
    * 0.00
    */
   balanceBefore?: number;
   /**
+   * @remarks
+   * The balance type: permanent/monthly.
+   * 
    * @example
    * permanent
    */
   balanceType?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The change direction: in/out.
+   * 
    * @example
    * in
    */
   direction?: string;
   /**
+   * @remarks
+   * The model code (available when gateway billing deduction is applied).
+   * 
    * @example
    * qwen-max
    */
   modelCode?: string;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 1
    */
   operatorId?: string;
   /**
+   * @remarks
+   * The change record ID.
+   * 
    * @example
    * ord_xxxxxxxx
    */
   orderId?: string;
   /**
+   * @remarks
+   * The change type.
+   * 
    * @example
    * recharge
    */
   orderType?: string;
   /**
+   * @remarks
+   * The remark.
+   * 
    * @example
    * Top-up
    */
   remark?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * console
    */
   source?: string;
   /**
+   * @remarks
+   * The total balance after the change.
+   * 
    * @example
    * 100.00
    */
   totalAfter?: number;
   /**
+   * @remarks
+   * The total balance before the change.
+   * 
    * @example
    * 0.00
    */

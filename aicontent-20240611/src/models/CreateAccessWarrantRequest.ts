@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessWarrantRequest extends $dara.Model {
   /**
    * @remarks
-   * The merchant\\"s application ID.
+   * The AppKey of the project assigned by the merchant.
    * 
    * @example
    * a123
@@ -13,7 +13,7 @@ export class CreateAccessWarrantRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The signature for the request parameters.
+   * The signature of the authorization API parameters.
    * 
    * @example
    * e32fac43df0b0b0be32fac43df0b0b0b
@@ -21,7 +21,7 @@ export class CreateAccessWarrantRequest extends $dara.Model {
   requestSign?: string;
   /**
    * @remarks
-   * The 10-digit request timestamp in seconds.
+   * The 10-digit timestamp in seconds when the merchant initiates the authorization request.
    * 
    * @example
    * 1701000000
@@ -37,7 +37,7 @@ export class CreateAccessWarrantRequest extends $dara.Model {
   userClientIp?: string;
   /**
    * @remarks
-   * The merchant\\"s user ID.
+   * The ID of the merchant user.
    * 
    * @example
    * sn123
@@ -45,7 +45,7 @@ export class CreateAccessWarrantRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The duration, in seconds, for which the access warrant is valid.
+   * The validity period of the authorization ID, in seconds.
    * 
    * @example
    * 7200

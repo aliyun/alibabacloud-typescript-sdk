@@ -5,11 +5,17 @@ import { BatchFailedItemDTO } from "./BatchFailedItemDto";
 
 export class BatchOpResultDTO extends $dara.Model {
   /**
+   * @remarks
+   * The list of failed items.
+   * 
    * @example
    * []
    */
   failed?: BatchFailedItemDTO[];
   /**
+   * @remarks
+   * The list of successful member user IDs.
+   * 
    * @example
    * []
    */

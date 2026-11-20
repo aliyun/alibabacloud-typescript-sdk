@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherExpansionDialogueRefineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The refinement result.
+   * The polishing result.
    * 
    * @example
    * Yes, I\\"ll be right there.
@@ -35,15 +35,15 @@ export class ExecuteAITeacherExpansionDialogueRefineResponseBodyData extends $da
 export class ExecuteAITeacherExpansionDialogueRefineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The object that contains the refinement result.
+   * The data object.
    * 
    * @example
-   * []
+   * {"result":"Yes, I\\"ll be right there."}
    */
   data?: ExecuteAITeacherExpansionDialogueRefineResponseBodyData;
   /**
    * @remarks
-   * The error code. Returned only when the request fails.
+   * The fault message encoding.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -51,10 +51,10 @@ export class ExecuteAITeacherExpansionDialogueRefineResponseBody extends $dara.M
   errCode?: string;
   /**
    * @remarks
-   * The error message. Returned only when the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -75,7 +75,7 @@ export class ExecuteAITeacherExpansionDialogueRefineResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterSearchClientTreeRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword, which can be a department name, username, or phone number.
+   * The search keyword, such as a department name, username, or phone number.
    * 
    * @example
    * R&D Department

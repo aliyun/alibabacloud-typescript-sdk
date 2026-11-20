@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends $dara.Model {
   /**
    * @remarks
-   * The content of the assistant\\"s dialogue.
+   * The AI conversation content.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends
   assistant?: string;
   /**
    * @remarks
-   * The translated content of the assistant\\"s dialogue.
+   * The translation of the AI conversation content.
    * 
    * @example
-   * 为什么有些人认为遛狗是份好差事?
+   * Why do some people think walking dogs is a good job?
    */
   assistantTranslate?: string;
   /**
    * @remarks
-   * The sequence number of the task.
+   * The sequence number.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends
   order?: number;
   /**
    * @remarks
-   * The content of the user\\"s dialogue.
+   * The user conversation content.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends
 export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara.Model {
   /**
    * @remarks
-   * The content of the dialogue message.
+   * The conversation content.
    * 
    * This parameter is required.
    * 
@@ -81,23 +81,27 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara
   content?: string;
   /**
    * @remarks
-   * Indicates if the user\\"s response has gone off-topic. This parameter controls the conversation flow based on dialogue history. The system sets this parameter to `true` to switch tasks if the user goes off-topic more than twice.
+   * Specifies whether the response is off-topic and applies flow control. This parameter indicates whether the student\\"s response aligns with the conversation task settings. The value is derived from the return results of previous conversation turns. Additionally, this parameter serves a flow control purpose. If the response goes off-topic more than twice, the value is forcibly set to true to force a task switch. Valid values:
+   * - true: Off-topic.
+   * - false: On-topic.
    * 
    * @example
-   * 跑题：true, 不跑题：false
+   * true
    */
   isOffTopicControl?: boolean;
   /**
    * @remarks
-   * Indicates if the response is on topic.
+   * Specifies whether the response is on-topic. Valid values:
+   * - true: On-topic.
+   * - false: Off-topic.
    * 
    * @example
-   * 扣题：true, 不扣题：false
+   * true
    */
   isOnTopic?: boolean;
   /**
    * @remarks
-   * The sequence number of the message in the conversation.
+   * The sequence number.
    * 
    * This parameter is required.
    * 
@@ -107,12 +111,12 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara
   order?: number;
   /**
    * @remarks
-   * The role of the message author. Valid values:
+   * The role.
    * 
    * This parameter is required.
    * 
    * @example
-   * AI：assistant；用户：user
+   * AI: assistant; User: user
    */
   role?: string;
   static names(): { [key: string]: string } {
@@ -147,7 +151,7 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara
 export class GetAITeacherExpansionDialogueSuggestionRequestRoleInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the AI assistant.
+   * The name of the AI.
    * 
    * This parameter is required.
    * 
@@ -191,7 +195,7 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRoleInfo extends $dar
 export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model {
   /**
    * @remarks
-   * The background of the conversation.
+   * The description of the conversation background.
    * 
    * This parameter is required.
    * 
@@ -201,14 +205,14 @@ export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model 
   background?: string;
   /**
    * @remarks
-   * An array of objects that define the dialogue tasks.
+   * The collection of conversation task content.
    * 
    * This parameter is required.
    */
   dialogueTasks?: GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks[];
   /**
    * @remarks
-   * The language code, specified as a BCP 47 language tag. Valid values:
+   * The language code.
    * 
    * @example
    * en-gb
@@ -216,21 +220,21 @@ export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model 
   languageCode?: string;
   /**
    * @remarks
-   * An array of dialogue records.
+   * The conversation records.
    * 
    * This parameter is required.
    */
   records?: GetAITeacherExpansionDialogueSuggestionRequestRecords[];
   /**
    * @remarks
-   * Contains information about the roles in the conversation.
+   * The role settings.
    * 
    * This parameter is required.
    */
   roleInfo?: GetAITeacherExpansionDialogueSuggestionRequestRoleInfo;
   /**
    * @remarks
-   * The opening sentence of the conversation.
+   * The opening statement.
    * 
    * @example
    * Hello Lily, could you please come to the kitchen for a moment?
@@ -238,7 +242,7 @@ export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model 
   startSentence?: string;
   /**
    * @remarks
-   * The main topic of the conversation.
+   * The topic.
    * 
    * This parameter is required.
    * 
@@ -248,7 +252,7 @@ export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model 
   topic?: string;
   /**
    * @remarks
-   * A unique identifier for the end user, used for monitoring and abuse detection.
+   * The user ID.
    * 
    * This parameter is required.
    * 

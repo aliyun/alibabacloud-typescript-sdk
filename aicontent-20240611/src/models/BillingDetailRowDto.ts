@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BillingDetailRowDTO extends $dara.Model {
   /**
    * @remarks
-   * The actual payment amount (after discount), rounded to 8 decimal places.
+   * The actual amount paid after discounts, rounded to eight decimal places.
    * 
    * @example
    * 0.00012800
@@ -21,15 +21,15 @@ export class BillingDetailRowDTO extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * The API key name.
+   * The name of the API key.
    * 
    * @example
-   * Default Key
+   * Default key
    */
   apiKeyName?: string;
   /**
    * @remarks
-   * The number of cache creation tokens (explicit cache writes).
+   * The number of cache creation tokens for explicit cache writes.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class BillingDetailRowDTO extends $dara.Model {
   cacheCreationTokens?: number;
   /**
    * @remarks
-   * The number of tokens that hit the cache.
+   * The number of cache hit tokens.
    * 
    * @example
    * 256
@@ -45,7 +45,7 @@ export class BillingDetailRowDTO extends $dara.Model {
   cachedTokens?: number;
   /**
    * @remarks
-   * The department ID. A value of 0 indicates that no department is associated.
+   * The department ID. A value of 0 indicates that the request does not belong to any department.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class BillingDetailRowDTO extends $dara.Model {
   clientName?: string;
   /**
    * @remarks
-   * The discount coefficient. A value of 1.0 indicates no discount.
+   * The discount factor. A value of 1.0 indicates no discount.
    * 
    * @example
    * 1.0
@@ -77,7 +77,7 @@ export class BillingDetailRowDTO extends $dara.Model {
   inputTokens?: number;
   /**
    * @remarks
-   * The member user ID for a member row. The value is 0 for a department row.
+   * The user ID of the member. For department rows, the value is 0.
    * 
    * @example
    * 30001
@@ -85,15 +85,15 @@ export class BillingDetailRowDTO extends $dara.Model {
   memberUserId?: number;
   /**
    * @remarks
-   * The member name for a member row. The value is empty for a department row.
+   * The name of the member. For department rows, the value is empty.
    * 
    * @example
-   * John
+   * John Doe
    */
   memberUserName?: string;
   /**
    * @remarks
-   * The JSON of other metering field mapping, such as video duration and image count. Fields with a value of 0 are not included in the output.
+   * The JSON containing other metering field mappings, such as video duration and number of images. Fields with a value of 0 are not returned.
    * 
    * @example
    * {}
@@ -125,7 +125,7 @@ export class BillingDetailRowDTO extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model symbol (provider identifier).
+   * The model symbol, which is the vendor identifier.
    * 
    * @example
    * qwen
@@ -165,7 +165,7 @@ export class BillingDetailRowDTO extends $dara.Model {
   reasoningTokens?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * chatcmpl-abc123def456
@@ -189,7 +189,7 @@ export class BillingDetailRowDTO extends $dara.Model {
   totalTokens?: number;
   /**
    * @remarks
-   * The raw JSON of the usage details.
+   * The raw JSON of usage details.
    * 
    * @example
    * {"input_tokens": 1024, "output_tokens": 512}

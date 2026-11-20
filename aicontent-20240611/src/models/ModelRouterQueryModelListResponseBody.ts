@@ -6,12 +6,12 @@ import { ModelDTO } from "./ModelDto";
 export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * An array of model objects.
+   * The list of trajectory query records.
    */
   list?: ModelDTO[];
   /**
    * @remarks
-   * The maximum number of results per page.
+   * maxResults
    * 
    * @example
    * None
@@ -19,7 +19,7 @@ export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results. An empty value indicates that no more results are available.
+   * nextToken
    * 
    * @example
    * None
@@ -27,7 +27,7 @@ export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number.
+   * The requested page.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of models per page.
+   * The number of items per page.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of models that meet the filter criteria.
+   * The total number of records.
    * 
    * @example
    * 5
@@ -86,7 +86,7 @@ export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
 export class ModelRouterQueryModelListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Contains the paginated list of models and pagination metadata.
+   * The data object.
    * 
    * @example
    * []
@@ -94,7 +94,7 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
   data?: ModelRouterQueryModelListResponseBodyData;
   /**
    * @remarks
-   * The error code. Returned only when the request fails.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -102,10 +102,10 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message. Returned only when the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -118,7 +118,7 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of results per page.
+   * maxResults
    * 
    * @example
    * 10
@@ -126,7 +126,7 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -134,7 +134,7 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

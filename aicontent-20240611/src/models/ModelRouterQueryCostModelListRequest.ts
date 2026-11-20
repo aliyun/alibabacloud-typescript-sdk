@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. Filters results by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
+   * The API key ID used for filtering. This parameter is optional and associated with the department. You must specify clientId first.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * Filters results by department ID.
+   * The department ID used for filtering.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
+   * The department IDs. Separate multiple IDs with commas to query data for multiple departments. This parameter is mutually exclusive with clientId.
    * 
    * @example
    * 1,2,3
@@ -29,7 +29,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   clientIds?: string;
   /**
    * @remarks
-   * The end time, in UNIX timestamp (seconds).
+   * The end time, specified as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Automatically aggregated. No input required. Granularity: hourly/daily. Default value: hourly.
+   * The time granularity for automatic aggregation. You do not need to pass this parameter. Valid values: hourly and daily. Default value: hourly.
    * 
    * @example
    * hourly
@@ -47,7 +47,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The maximum number of results to return.
+   * The maximum number of results.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Filters results by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is passed, only the department is included without members.
+   * The member IDs used for filtering. Separate multiple IDs with commas. This parameter is optional. If you do not specify this parameter, the department and all its members are included. If you pass an empty value, only the department is included, excluding its members.
    * 
    * @example
    * 30001,30002
@@ -63,7 +63,15 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   memberUserIds?: string;
   /**
    * @remarks
-   * The model types, separated by commas.
+   * The model IDs used for filtering. Separate multiple positive integer IDs with commas.
+   * 
+   * @example
+   * 123,456
+   */
+  modelIds?: string;
+  /**
+   * @remarks
+   * The model types. Separate multiple values with commas.
    * 
    * @example
    * LLM,VL
@@ -79,7 +87,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Fuzzy search by model name or code.
+   * The keyword for fuzzy search by model name or code.
    * 
    * @example
    * qwen
@@ -87,7 +95,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
   search?: string;
   /**
    * @remarks
-   * The start time, in UNIX timestamp (seconds).
+   * The start time, specified as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -104,6 +112,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
       granularity: 'granularity',
       maxResults: 'maxResults',
       memberUserIds: 'memberUserIds',
+      modelIds: 'modelIds',
       modelTypes: 'modelTypes',
       nextToken: 'nextToken',
       search: 'search',
@@ -120,6 +129,7 @@ export class ModelRouterQueryCostModelListRequest extends $dara.Model {
       granularity: 'string',
       maxResults: 'number',
       memberUserIds: 'string',
+      modelIds: 'string',
       modelTypes: 'string',
       nextToken: 'string',
       search: 'string',

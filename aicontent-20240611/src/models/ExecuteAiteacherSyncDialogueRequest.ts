@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherSyncDialogueRequestDialogueTasks extends $dara.Model {
   /**
    * @remarks
-   * The assistant\\"s dialogue content.
+   * The AI conversation content.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class ExecuteAITeacherSyncDialogueRequestDialogueTasks extends $dara.Mode
   assistant?: string;
   /**
    * @remarks
-   * The translation of the assistant\\"s dialogue content.
+   * The translation of the AI conversation content.
    * 
    * @example
-   * 为什么有些人认为遛狗是份好差事?
+   * Why do some people think walking dogs is a good job?
    */
   assistantTranslate?: string;
   /**
    * @remarks
-   * The sequence number of the task.
+   * The sequence number.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ExecuteAITeacherSyncDialogueRequestDialogueTasks extends $dara.Mode
   order?: number;
   /**
    * @remarks
-   * The user\\"s dialogue content.
+   * The user conversation content.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class ExecuteAITeacherSyncDialogueRequestDialogueTasks extends $dara.Mode
 export class ExecuteAITeacherSyncDialogueRequestRecords extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The conversation content.
    * 
    * This parameter is required.
    * 
@@ -81,23 +81,27 @@ export class ExecuteAITeacherSyncDialogueRequestRecords extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Indicates whether the user\\"s response is off-topic, acting as a flow control mechanism. This value is based on how the user\\"s previous response aligned with the dialogue task. If the user goes off-topic more than twice, the system sets this parameter to `true` to trigger a task switch.
+   * Specifies whether the response is off topic, which also serves as a flow control mechanism. This parameter reflects whether the student\\"s response meets the settings of the conversation task. The value of this parameter is derived from the return results of previous conversation turns. In addition, this parameter serves as a flow control mechanism. If the response is off topic more than twice, the value is forcibly set to true to force a task switch. Valid values:
+   * - true: Off topic.
+   * - false: On topic.
    * 
    * @example
-   * 跑题：true, 不跑题：false
+   * true
    */
   isOffTopicControl?: boolean;
   /**
    * @remarks
-   * Indicates whether the response is on-topic.
+   * Specifies whether the response is on topic. Valid values:
+   * - true: On topic.
+   * - false: Off topic.
    * 
    * @example
-   * 扣题：true, 不扣题：false
+   * true
    */
   isOnTopic?: boolean;
   /**
    * @remarks
-   * The sequence number of the message.
+   * The sequence number.
    * 
    * This parameter is required.
    * 
@@ -107,12 +111,12 @@ export class ExecuteAITeacherSyncDialogueRequestRecords extends $dara.Model {
   order?: number;
   /**
    * @remarks
-   * The role of the message author.
+   * The role identity.
    * 
    * This parameter is required.
    * 
    * @example
-   * AI：assistant；用户：user
+   * AI: assistant; User: user
    */
   role?: string;
   static names(): { [key: string]: string } {
@@ -147,14 +151,14 @@ export class ExecuteAITeacherSyncDialogueRequestRecords extends $dara.Model {
 export class ExecuteAITeacherSyncDialogueRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of dialogue task objects.
+   * The collection of conversation task content.
    * 
    * This parameter is required.
    */
   dialogueTasks?: ExecuteAITeacherSyncDialogueRequestDialogueTasks[];
   /**
    * @remarks
-   * The language and dialect of the dialogue.
+   * The language code.
    * 
    * @example
    * en-gb
@@ -162,12 +166,12 @@ export class ExecuteAITeacherSyncDialogueRequest extends $dara.Model {
   languageCode?: string;
   /**
    * @remarks
-   * An array of dialogue record objects.
+   * The collection of conversation records.
    */
   records?: ExecuteAITeacherSyncDialogueRequestRecords[];
   /**
    * @remarks
-   * A unique identifier for the user.
+   * The user ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks extends $dara.Model {
   /**
    * @remarks
-   * The dialogue content from the assistant.
+   * The AI conversation content.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks exte
   assistant?: string;
   /**
    * @remarks
-   * The translation of the assistant content.
+   * The translation of the AI conversation content.
    * 
    * @example
-   * 为什么有些人认为遛狗是份好差事?
+   * Why do some people think walking dogs is a good job?
    */
   assistantTranslate?: string;
   /**
@@ -33,7 +33,7 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks exte
   order?: number;
   /**
    * @remarks
-   * The dialogue content from the user.
+   * The user conversation content.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks exte
 export class ExecuteAITeacherExpansionDialogueTranslateRequestRecords extends $dara.Model {
   /**
    * @remarks
-   * The dialogue content.
+   * The conversation content.
    * 
    * This parameter is required.
    * 
@@ -81,18 +81,22 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestRecords extends $d
   content?: string;
   /**
    * @remarks
-   * Controls the conversation flow based on whether the user\\"s response is off-topic. This value is determined by previous turns. If a user provides more than two consecutive off-topic responses, the system sets this parameter to `true` to switch tasks.
+   * Specifies whether the content is off-topic and includes flow control. This parameter reflects whether the student\\"s response meets the settings of the conversation task. The value of this parameter is derived from the return results of previous conversation turns. In addition, this parameter serves the purpose of flow control. If the content is off-topic more than twice, the value is forcibly set to true to force a task switch. Valid values:
+   * - true: Off-topic.
+   * - false: On-topic.
    * 
    * @example
-   * 跑题：true, 不跑题：false
+   * true
    */
   isOffTopicControl?: boolean;
   /**
    * @remarks
-   * Indicates whether the message is on-topic.
+   * Specifies whether the content is on-topic. Valid values:
+   * - true: On-topic.
+   * - false: Off-topic.
    * 
    * @example
-   * 扣题：true, 不扣题：false
+   * true
    */
   isOnTopic?: boolean;
   /**
@@ -107,12 +111,12 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestRecords extends $d
   order?: number;
   /**
    * @remarks
-   * The role of the message author. Valid values are `assistant` for the AI and `user` for the user.
+   * The role.
    * 
    * This parameter is required.
    * 
    * @example
-   * AI：assistant；用户：user
+   * AI: assistant; User: user
    */
   role?: string;
   static names(): { [key: string]: string } {
@@ -147,7 +151,7 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestRecords extends $d
 export class ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo extends $dara.Model {
   /**
    * @remarks
-   * The assistant name.
+   * The name of the AI.
    * 
    * This parameter is required.
    * 
@@ -157,7 +161,7 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo extends $
   assistant?: string;
   /**
    * @remarks
-   * The user name.
+   * The name of the user.
    * 
    * This parameter is required.
    * 
@@ -191,7 +195,7 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo extends $
 export class ExecuteAITeacherExpansionDialogueTranslateRequest extends $dara.Model {
   /**
    * @remarks
-   * The background context for the dialogue.
+   * The conversation background description.
    * 
    * This parameter is required.
    * 
@@ -201,26 +205,26 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequest extends $dara.Mod
   background?: string;
   /**
    * @remarks
-   * An array of dialogue tasks.
+   * The collection of conversation task content.
    * 
    * This parameter is required.
    */
   dialogueTasks?: ExecuteAITeacherExpansionDialogueTranslateRequestDialogueTasks[];
   /**
    * @remarks
-   * An array of dialogue records.
+   * The collection of conversation records.
    */
   records?: ExecuteAITeacherExpansionDialogueTranslateRequestRecords[];
   /**
    * @remarks
-   * Role information for the participants.
+   * The role settings.
    * 
    * This parameter is required.
    */
   roleInfo?: ExecuteAITeacherExpansionDialogueTranslateRequestRoleInfo;
   /**
    * @remarks
-   * The opening sentence of the dialogue.
+   * The opening remark.
    * 
    * @example
    * Hello Lily, could you please come to the kitchen for a moment?
@@ -228,7 +232,7 @@ export class ExecuteAITeacherExpansionDialogueTranslateRequest extends $dara.Mod
   startSentence?: string;
   /**
    * @remarks
-   * The topic of the conversation.
+   * The topic.
    * 
    * This parameter is required.
    * 

@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ClientListQry extends $dara.Model {
+  /**
+   * @remarks
+   * The search keyword.
+   */
   keyword?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The status filter.
+   * 
    * @example
    * 1
    */
