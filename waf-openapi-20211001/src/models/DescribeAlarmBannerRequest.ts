@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlarmBannerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
-   * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * Instance ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -18,10 +17,8 @@ export class DescribeAlarmBannerRequest extends $dara.Model {
   /**
    * @remarks
    * The region where the WAF instance resides. Valid values:
-   * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland
+   * - **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +26,7 @@ export class DescribeAlarmBannerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the WAF instance belongs.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-aek2zerdgm****

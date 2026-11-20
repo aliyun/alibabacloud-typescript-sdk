@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAiEngineOverviewRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp in UTC. Unit: seconds. Events are filtered based on the latest discovery time. The end time must be later than the start time.
+   * The end time. The time is a UNIX timestamp in UTC. Unit: seconds. Data is filtered based on the time when the event was last detected. The end time must be later than the start time.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeAiEngineOverviewRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the WAF instance.
+   * The region where the WAF instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -43,7 +43,7 @@ export class DescribeAiEngineOverviewRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp in UTC. Unit: seconds. Events are filtered based on the latest discovery time. You can query data generated within the last 30 days.
+   * The start time. The time is a UNIX timestamp in UTC. Unit: seconds. Data is filtered based on the time when the event was last detected. You can query data within the last 30 days.
    * 
    * This parameter is required.
    * 

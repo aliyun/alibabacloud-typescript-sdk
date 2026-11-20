@@ -15,7 +15,7 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   clusterId?: number;
   /**
    * @remarks
-   * The resource ID of the cluster rule.
+   * The ID of the cluster rule resource.
    * 
    * @example
    * hdbc-clusterrule-*******ym0w
@@ -35,7 +35,7 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -55,15 +55,15 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The traffic redirection rule configuration.
+   * The traffic redirection rule configuration:
    * 
    * <notice>The mode cannot be modified.</notice>
    * - **check_mode**: the mode. Valid values:
-   *   - **all**: full traffic redirection.
-   *   - **part**: partial traffic redirection.
-   * - **type**: the rule matching type. Valid values:
-   *   - **exact**: exact match.
-   *   - **regex**: regular expression.
+   *   - **all**: full traffic redirection
+   *   - **part**: partial traffic redirection
+   * - **type**: the rule match type. Valid values:
+   *   - **exact**: exact match
+   *   - **regex**: regular expression
    * - **substance**: the rule value.
    * 
    * @example
@@ -72,9 +72,9 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   ruleConfig?: string;
   /**
    * @remarks
-   * The rule status. Valid values:
-   * - **on**: enabled.
-   * - **off**: disabled.
+   * The status of the rule. Valid values:
+   * - **on**: enabled
+   * - **off**: disabled
    * 
    * @example
    * on
@@ -83,7 +83,7 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   /**
    * @remarks
    * **[Deprecated]** The rule type. Valid values:
-   * - **pullin**: traffic redirection configuration.
+   * - **pullin**: traffic redirection configuration
    * 
    * @example
    * pullin

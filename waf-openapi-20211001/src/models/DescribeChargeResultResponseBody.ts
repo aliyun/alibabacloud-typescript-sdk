@@ -13,7 +13,7 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   credit?: number;
   /**
    * @remarks
-   * The billing module code.
+   * The identifier of the billing module.
    * 
    * @example
    * domainCount
@@ -60,7 +60,7 @@ export class DescribeChargeResultResponseBody extends $dara.Model {
   moduleDetails?: DescribeChargeResultResponseBodyModuleDetails[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0

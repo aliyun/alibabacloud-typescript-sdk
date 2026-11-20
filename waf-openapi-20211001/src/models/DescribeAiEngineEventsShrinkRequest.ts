@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. The time is in the UNIX timestamp format (UTC time) and accurate to seconds. Events are filtered based on the most recent discovery time. The end time must be later than the start time.
+   * The end time. The time is a UNIX timestamp in UTC. Unit: seconds. The data is filtered based on the time when the event was last detected. The end time must be later than the start time.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The response language.
+   * The language of the response.
    * 
    * @example
    * en
@@ -43,7 +43,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page during paging in a paged query. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page in a paging query. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -51,7 +51,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
+   * The pagination token. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -59,7 +59,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides.
+   * The region ID of the WAF instance.
    * 
    * @example
    * cn-hangzhou
@@ -75,7 +75,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The search value, used in conjunction with SearchKey. Maximum length: 256 characters.
+   * The search value. This parameter is used together with SearchKey. Maximum length: 256 characters.
    * 
    * @example
    * testKey
@@ -83,7 +83,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   seachValue?: string;
   /**
    * @remarks
-   * The search field, used in conjunction with SeachValue.
+   * The search field. This parameter is used together with SeachValue.
    * 
    * @example
    * eventName
@@ -91,7 +91,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The sort field.
+   * The field by which to sort the results.
    * 
    * @example
    * last_seen
@@ -107,7 +107,7 @@ export class DescribeAiEngineEventsShrinkRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * The start time. The time is in the UNIX timestamp format (UTC time) and accurate to seconds. Events are filtered based on the most recent discovery time. You can query data from the last 30 days.
+   * The start time. The time is a UNIX timestamp in UTC. Unit: seconds. The data is filtered based on the time when the event was last detected. You can query data within the last 30 days.
    * 
    * This parameter is required.
    * 

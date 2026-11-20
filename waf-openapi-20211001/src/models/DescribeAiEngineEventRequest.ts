@@ -25,7 +25,7 @@ export class DescribeAiEngineEventRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The response language.
    * 
    * @example
    * en

@@ -17,7 +17,7 @@ export class DescribeAiEngineEventOperationsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeAiEngineEventOperationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for querying the next page. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
+   * The pagination token. Set the value to the **NextToken** value that is returned from the previous API call. You do not need to specify this parameter for the first query.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS

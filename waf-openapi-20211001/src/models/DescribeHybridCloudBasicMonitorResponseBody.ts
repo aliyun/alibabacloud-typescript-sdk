@@ -9,7 +9,7 @@ export class DescribeHybridCloudBasicMonitorResponseBodyBasicMonitors extends $d
    * 
    * - **normal**: Normal.
    * 
-   * - `****`: abnormal (four asterisk characters are returned).
+   * - `****`: Abnormal. Four asterisks are returned.
    * 
    * @example
    * normal
@@ -17,7 +17,7 @@ export class DescribeHybridCloudBasicMonitorResponseBodyBasicMonitors extends $d
   levle?: string;
   /**
    * @remarks
-   * The monitoring item. Valid values:
+   * The monitoring metric. Valid values:
    * 
    * - **basic_monitor_cpu_usage**: CPU.
    * 
@@ -65,7 +65,7 @@ export class DescribeHybridCloudBasicMonitorResponseBodyBasicMonitors extends $d
 export class DescribeHybridCloudBasicMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of basic monitoring items.
+   * The list of basic monitoring metrics.
    */
   basicMonitors?: DescribeHybridCloudBasicMonitorResponseBodyBasicMonitors[];
   /**
@@ -78,7 +78,7 @@ export class DescribeHybridCloudBasicMonitorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * > This parameter is deprecated and no longer returns meaningful data.
+   * > **[Deprecated]** This parameter is deprecated and no longer returns meaningful data.
    * 
    * @example
    * 3

@@ -14,7 +14,7 @@ export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Mode
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -24,12 +24,12 @@ export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The metric used to distinguish the returned data content. Different metrics correspond to different data content. This operation supports the following metrics:
+   * The metric used to distinguish the returned data content. Different metrics correspond to different data content. The metrics supported by this operation are as follows:
    * 
-   * *   qps: returns the number of requests processed by WAF per second. The peak calculation method is used. A QPS value is calculated every 10 seconds, and the maximum peak value among multiple values is used as the QPS value within the current statistical time granularity.
+   * *   qps: returns the number of requests processed by WAF per second. The peak calculation method is used. A QPS value is calculated every 10 seconds, and the Peak Volume among multiple values is used as the QPS value within the current statistical time granularity.
    * *   total_requests: returns the total number of requests processed by WAF.
-   * *   top5_status: returns the top 5 response codes returned by WAF to the client and the corresponding time series statistics.
-   * *   top 5_upstream_status: returns the top 5 response codes returned by the origin server to the client and the corresponding time series statistics.
+   * *   top5_status: returns the top 5 response codes returned by WAF to the client and the corresponding time sequence statistics.
+   * *   top 5_upstream_status: returns the top 5 back-to-origin response codes returned by the origin server to the client and the corresponding time sequence statistics.
    * 
    * This parameter is required.
    * 

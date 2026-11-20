@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBotAppKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The AppKey for bot management.
+   * The AppKey.
    * 
    * @example
    * N1Kiv3AGZm******
@@ -13,7 +13,7 @@ export class DescribeBotAppKeyResponseBody extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0C4ADFD4-5B7D-591D-A607-A45C*****

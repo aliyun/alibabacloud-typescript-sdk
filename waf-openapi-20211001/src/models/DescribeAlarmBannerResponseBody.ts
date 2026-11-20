@@ -5,14 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlarmBannerResponseBodyBannerStatus extends $dara.Model {
   /**
    * @remarks
-   * The cause of the alert. If **Type** is set to **sandbox**, valid values:
+   * The cause of the alerting. If the Alarm Metric is sandbox (**Type** is set to **sandbox**), valid values are:
    * 
-   * - **fivefold**: The queries per second (QPS) of your service exceeds five times the upper limit of your plan.
-   * 
-   * - **4count**: The QPS of your service has exceeded the upper limit of your plan for four or more days.
-   * 
-   * - **exceed10w**: The peak QPS of your service exceeds 100,000.
-   * 
+   * - **fivefold**: The clean queries per second (QPS) exceeds the current specifications.
+   * - **4count**: The accumulated actual clean QPS exceeds the current specifications.
+   * - **exceed10w**: The actual peak clean QPS exceeds 100,000.
    * - **costProtection**: Billing protection is triggered.
    * 
    * @example
@@ -21,9 +18,9 @@ export class DescribeAlarmBannerResponseBodyBannerStatus extends $dara.Model {
   cause?: string;
   /**
    * @remarks
-   * The count associated with the alert at the time it was triggered.
+   * The usage when alerting is triggered.
    * 
-   * - If **Type** is set to **sandbox**, this parameter indicates the number of days that the QPS has exceeded the upper limit of your plan.
+   * - If the Alarm Metric is sandbox (**Type** is set to **sandbox**), this parameter indicates the number of days the quota is exceeded.
    * 
    * @example
    * 9008
@@ -31,11 +28,9 @@ export class DescribeAlarmBannerResponseBodyBannerStatus extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Indicates whether an alert is triggered. Valid values:
-   * 
-   * - **true**: An alert is triggered. If **Type** is set to **sandbox**, the instance is in the sandbox.
-   * 
-   * - **false**: No alert is triggered. If **Type** is set to **sandbox**, the instance is not in the sandbox.
+   * The alerting status. Valid values:
+   * - **true**: Alerting is triggered. If the Alarm Metric is sandbox (**Type** is set to **sandbox**), the instance is in the sandbox.
+   * - **false**: No alerting is triggered. If the Alarm Metric is sandbox (**Type** is set to **sandbox**), the instance is not in the sandbox.
    * 
    * @example
    * true
@@ -43,9 +38,9 @@ export class DescribeAlarmBannerResponseBodyBannerStatus extends $dara.Model {
   status?: boolean;
   /**
    * @remarks
-   * The alert type. Valid value:
+   * The Alarm Metric. Valid values:
    * 
-   * - **sandbox**: a sandbox alert.
+   * - **sandbox**: sandbox alerting.
    * 
    * @example
    * sandbox
@@ -81,12 +76,12 @@ export class DescribeAlarmBannerResponseBodyBannerStatus extends $dara.Model {
 export class DescribeAlarmBannerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status information of the alert banner.
+   * The alert banner status information.
    */
   bannerStatus?: DescribeAlarmBannerResponseBodyBannerStatus;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5555DC36-0CF2-5AA3-B1C7-D6BD8****

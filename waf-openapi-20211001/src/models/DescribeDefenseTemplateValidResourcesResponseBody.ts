@@ -13,12 +13,12 @@ export class DescribeDefenseTemplateValidResourcesResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The names of the protected objects that are valid for the protection template.
+   * The list of protected object names.
    */
   resources?: string[];
   /**
    * @remarks
-   * The total number of protected objects that match the query criteria.
+   * The total number of returned entries.
    * 
    * @example
    * 34

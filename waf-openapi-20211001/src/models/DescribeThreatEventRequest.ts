@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeThreatEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name that is protected by WAF. If you do not specify this parameter, security events for all domain names are queried.
+   * The domain name to query.
    * 
    * @example
    * www.abc.com
@@ -13,7 +13,7 @@ export class DescribeThreatEventRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp in milliseconds.
+   * The end time. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeThreatEventRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeThreatEventRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number to return when paging through results in a paged query. Default value: 1, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class DescribeThreatEventRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **5**. Valid values: 1 to 200.
+   * The number of entries to return on each page when paging through results in a paged query. Default value: **5**, which indicates that 5 entries are returned on each page. Valid values: 1 to 200.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeThreatEventRequest extends $dara.Model {
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: a region outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +63,7 @@ export class DescribeThreatEventRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-aeky65ka*****
@@ -71,7 +71,7 @@ export class DescribeThreatEventRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp in milliseconds.
+   * The start time. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * This parameter is required.
    * 

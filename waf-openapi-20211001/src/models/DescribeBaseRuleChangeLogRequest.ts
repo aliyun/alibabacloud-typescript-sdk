@@ -7,7 +7,7 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number to return when paging. Default value: **1**, which indicates the first page.
+   * The number of the page to return for paging. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when paging.
+   * The number of entries to return on each page for paging.
    * 
    * @example
    * 10
@@ -44,7 +44,7 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

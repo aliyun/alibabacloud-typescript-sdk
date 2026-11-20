@@ -14,8 +14,8 @@ export class DescribeBaseRuleChangeLogResponseBodyRules extends $dara.Model {
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: added.
-   * - modify: modified.
+   * - add: add.
+   * - modify: modify.
    * 
    * @example
    * add
@@ -39,7 +39,7 @@ export class DescribeBaseRuleChangeLogResponseBodyRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The time when the rule was updated. The value is a UNIX timestamp in milliseconds.
+   * The update time of the rule. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1665460629000
@@ -85,7 +85,7 @@ export class DescribeBaseRuleChangeLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of rule group changes.
+   * The list of rule library change records.
    */
   rules?: DescribeBaseRuleChangeLogResponseBodyRules[];
   /**

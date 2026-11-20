@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccessConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the configuration item to be modified. Valid values:
-   * - **auto_access**: specifies whether to enable the automatic access feature.
+   * The key of the configuration item to be modified. Valid values:
+   * - **auto_access**: specifies whether to enable the automatic provisioning feature.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ModifyAccessConfigRequest extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * The value of the configuration item. The value is a JSON string. For more information about the fields, see the following descriptions.
+   * The value of the configuration item. The value is a JSON string. For more information about the fields, see the following section.
    * 
    * This parameter is required.
    * 

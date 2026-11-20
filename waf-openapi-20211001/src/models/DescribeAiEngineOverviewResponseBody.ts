@@ -13,7 +13,7 @@ export class DescribeAiEngineOverviewResponseBodyHandleStatusCounts extends $dar
   handled?: number;
   /**
    * @remarks
-   * The number of events that are being handled.
+   * The number of events being handled.
    * 
    * @example
    * 0
@@ -131,7 +131,7 @@ export class DescribeAiEngineOverviewResponseBody extends $dara.Model {
   eventCount?: number;
   /**
    * @remarks
-   * The number of events categorized by handling status within the specified time range.
+   * The number of events within the specified time range, categorized by handling status.
    */
   handleStatusCounts?: DescribeAiEngineOverviewResponseBodyHandleStatusCounts;
   /**
@@ -144,7 +144,7 @@ export class DescribeAiEngineOverviewResponseBody extends $dara.Model {
   protectedGroupCount?: number;
   /**
    * @remarks
-   * The number of protected resources for which AI Engine is enabled. This number does not include protected resources in protection groups.
+   * The number of protected objects for which AI Engine is enabled. This count does not include protected objects that belong to a protection group.
    * 
    * @example
    * 9
@@ -160,7 +160,7 @@ export class DescribeAiEngineOverviewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of events categorized by risk level within the specified time range.
+   * The number of events within the specified time range, categorized by risk level.
    */
   riskCounts?: DescribeAiEngineOverviewResponseBodyRiskCounts;
   static names(): { [key: string]: string } {

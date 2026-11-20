@@ -45,16 +45,16 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * API-related information, which is a JSON string constructed from a series of parameters. The parameters include:
+   * The information about the API. The information is converted into a JSON string constructed by a series of parameters. The parameters include:
    * - **param_num**: the number of API parameters.
    * - **request_method**: the request method.
    * - **protocol**: the request protocol.
    * - **api_url**: the request URL.
-   * - **poc_payload**: the request.
-   * - **request**: the request example.
-   * - **response**: the response example.
+   * - **poc_payload**: the request payload.
+   * - **request**: the request sample.
+   * - **response**: the response sample.
    * - **param**: the request parameters.
-   * > This value is returned only when the **ApiId** request parameter is specified.
+   * > This parameter is returned only if the **ApiId** request parameter is specified.
    */
   apiInfo?: string;
   /**
@@ -75,7 +75,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiMethod?: string;
   /**
    * @remarks
-   * Sensitive information related to the API, which is a JSON string constructed from a series of parameters. The parameters include:
+   * The sensitive information involved in the API. The information is converted into a JSON string constructed by a series of parameters. The parameters include:
    * - **request_sensitive_list**: the list of sensitive data types in requests.
    * - **response_sensitive_list**: the list of sensitive data types in responses.
    * - **sensitive_list**: the list of sensitive data types.
@@ -109,7 +109,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status of the API. Valid values:
-   * - **NewbornInterface**: New.
+   * - **NewbornInterface**: Newly added.
    * - **OfflineInterface**: Inactive.
    * - **normal**: Normal.
    * 
@@ -120,7 +120,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The business purpose of the API.
-   * > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported business purposes.
    * 
    * @example
    * SendMail
@@ -128,9 +128,9 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiTag?: string;
   /**
    * @remarks
-   * The service object. Valid values:
+   * The service object of the API. Valid values:
    * - **PublicAPI**: Public service.
-   * - **ThirdpartAPI**: Third-party collaboration.
+   * - **ThirdpartAPI**: Third-party cooperation.
    * - **InternalAPI**: Internal office.
    * 
    * @example
@@ -140,8 +140,8 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the API has an authentication field. Valid values:
-   * - **0**: Has authentication.
-   * - **1**: Does not have authentication.
+   * - **0**: Has authentication field.
+   * - **1**: No authentication field.
    * 
    * @example
    * 1
@@ -180,7 +180,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   examples?: string[];
   /**
    * @remarks
-   * The time when the API asset was first discovered. The value is a UNIX timestamp (UTC), in seconds.
+   * The time when the API asset was first discovered. The time is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683388800
@@ -198,7 +198,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   follow?: number;
   /**
    * @remarks
-   * The most recent access time of the API asset. The value is a UNIX timestamp (UTC), in seconds.
+   * The time when the API asset was last accessed. The time is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683388800
@@ -214,7 +214,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The remarks.
+   * The note.
    * 
    * @example
    * loginApi
@@ -222,7 +222,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The list of protected objects associated with the asset.
+   * The list of protected objects corresponding to the asset.
    */
   resources?: string[];
   static names(): { [key: string]: string } {
@@ -314,7 +314,7 @@ export class DescribeApisecApiResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned results.
    * 
    * @example
    * 5

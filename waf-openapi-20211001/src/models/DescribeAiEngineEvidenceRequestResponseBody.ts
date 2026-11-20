@@ -13,7 +13,7 @@ export class DescribeAiEngineEvidenceRequestResponseBodyAttackSourcesSources ext
   attribute?: string;
   /**
    * @remarks
-   * The source value, such as an IP address.
+   * The value of the source, such as an IP address.
    * 
    * @example
    * 1.1.1.1
@@ -122,7 +122,7 @@ export class DescribeAiEngineEvidenceRequestResponseBody extends $dara.Model {
   httpStatus?: number;
   /**
    * @remarks
-   * The evidence impact tag. Valid values:
+   * The impact tag of the evidence. Valid values:
    * 
    * - **block**: The request is blocked.
    * 
@@ -172,7 +172,7 @@ export class DescribeAiEngineEvidenceRequestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The de-identified request path.
+   * The masked request path.
    * 
    * @example
    * /api/orders/query
@@ -180,7 +180,7 @@ export class DescribeAiEngineEvidenceRequestResponseBody extends $dara.Model {
   requestPath?: string;
   /**
    * @remarks
-   * The time when the original request was made. The time is a Unix timestamp in milliseconds.
+   * The time when the original request was made. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1792973400000
@@ -204,9 +204,9 @@ export class DescribeAiEngineEvidenceRequestResponseBody extends $dara.Model {
   response?: string;
   /**
    * @remarks
-   * Specifies whether the request is a suspected bypass. Valid values:
+   * Specifies whether the request is suspected to be a bypass. Valid values:
    * 
-   * - **1**: The request is a suspected bypass.
+   * - **1**: The request is suspected to be a bypass.
    * - **0**: The request is not a bypass.
    * 
    * @example
@@ -215,7 +215,7 @@ export class DescribeAiEngineEvidenceRequestResponseBody extends $dara.Model {
   suspectedBypass?: number;
   /**
    * @remarks
-   * The trace ID of the original request. The ID can be up to 128 ASCII characters in length.
+   * The trace ID of the original request, which can be up to 128 ASCII characters in length.
    * 
    * @example
    * trace-20241025-109-04

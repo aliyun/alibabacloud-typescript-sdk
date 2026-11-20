@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApisecEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The hybrid cloud cluster ID.
-   * > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+   * The ID of the hybrid cloud cluster.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
    * 
    * @example
    * 428
@@ -14,7 +14,7 @@ export class ModifyApisecEventsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The list of API security event IDs.
+   * The IDs of the API security events.
    * 
    * This parameter is required.
    */
@@ -31,7 +31,7 @@ export class ModifyApisecEventsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ModifyApisecEventsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The remarks.
+   * The note.
    * 
    * @example
    * already confirmed.
@@ -49,11 +49,11 @@ export class ModifyApisecEventsRequest extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +61,7 @@ export class ModifyApisecEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -69,11 +69,11 @@ export class ModifyApisecEventsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The event status. Valid values:
+   * The status of the event. Valid values:
    * 
-   * - **toBeConfirmed**: To be confirmed.
-   * - **confirmed**: Confirmed.
-   * - **ignored**: Ignored.
+   * - **toBeConfirmed**: to be confirmed
+   * - **confirmed**: confirmed
+   * - **ignored**: ignored
    * 
    * This parameter is required.
    * 

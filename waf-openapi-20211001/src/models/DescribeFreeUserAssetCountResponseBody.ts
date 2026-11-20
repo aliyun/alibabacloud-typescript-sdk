@@ -60,7 +60,7 @@ export class DescribeFreeUserAssetCountResponseBody extends $dara.Model {
   asset?: DescribeFreeUserAssetCountResponseBodyAsset;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 30488BF0-FD58-52DD-B396-D014549F43A3

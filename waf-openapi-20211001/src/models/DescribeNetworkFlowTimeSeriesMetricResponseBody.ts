@@ -58,7 +58,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSerie
 export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end time used for querying data. The value is a UNIX timestamp in seconds. This value is the same as the EndDate parameter in the request parameters.
+   * The end time used for the query, represented as a UNIX timestamp in seconds. This value is the same as the EndDate parameter in the request.
    * 
    * @example
    * 1713888600
@@ -66,7 +66,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDa
   endDate?: number;
   /**
    * @remarks
-   * The start time used for querying data. The value is a UNIX timestamp in seconds. This value is the same as the StartDate parameter in the request parameters.
+   * The start time used for the query, represented as a UNIX timestamp in seconds. This value is the same as the StartDate parameter in the request.
    * 
    * @example
    * 1713888000
@@ -98,7 +98,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDa
 export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData extends $dara.Model {
   /**
    * @remarks
-   * The statistical time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point is the statistical data for every 15 minutes. For more information about the time granularity of the returned data, see **Description of the time granularity of time series data points**.
+   * The statistical time granularity of each data point in the returned time sequence data. For example, "15m" indicates that each returned data point is the statistical data for every 15 minutes. For the time granularity of the returned data, see **Description of the time granularity of time sequence data points**.
    * 
    * @example
    * 1m
@@ -148,7 +148,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData e
 export class DescribeNetworkFlowTimeSeriesMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned time series data. Time series data of multiple values can be returned.
+   * The returned time sequence data. Time sequence data of multiple values can be returned.
    */
   networkFlowTimeSeries?: DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries[];
   /**

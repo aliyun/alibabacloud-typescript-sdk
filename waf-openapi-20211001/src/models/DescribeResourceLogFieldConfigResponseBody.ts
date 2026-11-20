@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceLogFieldConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The extra log fields that are configured in addition to the default log fields. The fields are specified as a string of comma-separated values.
+   * The list of additional log fields configured in addition to the default log fields. The value is in the "a,b,c,..." format.
    * 
    * @example
    * acl_test,acl_action,acl_rule_id,waf_test,acl_rule_type
@@ -13,7 +13,7 @@ export class DescribeResourceLogFieldConfigResponseBody extends $dara.Model {
   addList?: string;
   /**
    * @remarks
-   * The log fields that are removed from the default log fields. The fields are specified as a string of comma-separated values.
+   * The list of log fields that are not configured compared to the default log fields. The value is in the "a,b,c,..." format.
    * 
    * @example
    * waf_rule_id,waf_rule_type
@@ -24,10 +24,8 @@ export class DescribeResourceLogFieldConfigResponseBody extends $dara.Model {
    * The log delivery type. Valid values:
    * 
    * - **sls**: Simple Log Service.
-   * 
-   * - **kafka**: Kafka.
-   * 
-   * - **syslog**: Syslog.
+   * - **kafka**: External delivery to Kafka.
+   * - **syslog**: External delivery to Syslog.
    * 
    * @example
    * sls
@@ -35,9 +33,8 @@ export class DescribeResourceLogFieldConfigResponseBody extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The extended configuration for log delivery. The value is a string that is converted from a JSON object of parameters.
-   * 
-   * > For more information about the parameters, see the description of the **ExtendConfig** parameter in [ModifyResourceLogFieldConfig](~~ModifyResourceLogFieldConfig~~).
+   * The extended configuration for log delivery. The value is a string converted from a JSON object constructed with a series of parameters.
+   * > For detailed parameter information, see the description of the **ExtendConfig** parameter in the [ModifyResourceLogFieldConfig](~~ModifyResourceLogFieldConfig~~) operation.
    * 
    * @example
    * {\\"request_header\\":\\"Ali-Cdn-Real-Ip\\"}
@@ -45,7 +42,7 @@ export class DescribeResourceLogFieldConfigResponseBody extends $dara.Model {
   extendConfig?: string;
   /**
    * @remarks
-   * The list of delivered log fields. The fields are specified as a string of comma-separated values.
+   * The list of delivered log fields. The value is in the "a,b,c,..." format.
    * 
    * @example
    * account,acl_action,acl_rule_id,acl_rule_type,acl_test,antiscan_action,antiscan_rule_id,antiscan_rule_type,antiscan_test,body_bytes_sent,bypass_matched_ids
@@ -53,9 +50,9 @@ export class DescribeResourceLogFieldConfigResponseBody extends $dara.Model {
   fieldList?: string;
   /**
    * @remarks
-   * The log delivery policies. Multiple policies are supported. The value is a string that is converted from a JSON array of parameters.
+   * The log delivery policies. Multiple policies are supported. The value is a string converted from a JSON array constructed with a series of parameters.
    * 
-   * > For more information about the parameters, see the description of the **LogDeliveryStrategy** parameter in [ModifyResourceLogFieldConfig](~~ModifyResourceLogFieldConfig~~).
+   * > For detailed parameter information, see the description of the **LogDeliveryStrategy** parameter in the [ModifyResourceLogFieldConfig](~~ModifyResourceLogFieldConfig~~) operation.
    * 
    * @example
    * [{\\"logType\\":\\"blockLog\\",\\"rate\\":100},{\\"logType\\":\\"normalRequestLog\\",\\"rate\\":100},{\\"logType\\":\\"checkLog\\",\\"rate\\":100}]

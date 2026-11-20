@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -67,14 +67,14 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID. You can specify up to 50 entries.
+   * The resource IDs. You can specify up to 50 resource IDs.
    * 
    * > - This parameter is conditionally required. You must specify at least one ResourceId.N value. If ResourceType is set to ALIYUN::WAF::DEFENSERESOURCE, the value of ResourceId corresponds to the Resources[].Resource field returned by the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
+   * The resource type. Valid values: ALIYUN::WAF::DEFENSERESOURCE.
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags. You can specify up to 20 entries.
+   * The list of tags. You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

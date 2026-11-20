@@ -73,6 +73,7 @@ export { DescribeCnameCountResponseBodyCnameCount } from './DescribeCnameCountRe
 export { DescribeCommonLogFieldsResponseBodyLogFieldList } from './DescribeCommonLogFieldsResponseBody';
 export { DescribeDDoSStatusResponseBodyDDoSStatus } from './DescribeDdoSstatusResponseBody';
 export { DescribeDefaultHttpsResponseBodyDefaultHttps } from './DescribeDefaultHttpsResponseBody';
+export { DescribeDefenseResourceResponseBodyResourceCookieConfig } from './DescribeDefenseResourceResponseBody';
 export { DescribeDefenseResourceResponseBodyResourceResponseHeaders } from './DescribeDefenseResourceResponseBody';
 export { DescribeDefenseResourceResponseBodyResource } from './DescribeDefenseResourceResponseBody';
 export { DescribeDefenseResourceGroupResponseBodyGroup } from './DescribeDefenseResourceGroupResponseBody';
@@ -80,6 +81,7 @@ export { DescribeDefenseResourceGroupsResponseBodyGroups } from './DescribeDefen
 export { DescribeDefenseResourceOwnerUidResponseBodyOwnerInfos } from './DescribeDefenseResourceOwnerUidResponseBody';
 export { DescribeDefenseResourceTemplatesResponseBodyTemplates } from './DescribeDefenseResourceTemplatesResponseBody';
 export { DescribeDefenseResourcesRequestTag } from './DescribeDefenseResourcesRequest';
+export { DescribeDefenseResourcesResponseBodyResourcesCookieConfig } from './DescribeDefenseResourcesResponseBody';
 export { DescribeDefenseResourcesResponseBodyResourcesResponseHeaders } from './DescribeDefenseResourcesResponseBody';
 export { DescribeDefenseResourcesResponseBodyResources } from './DescribeDefenseResourcesResponseBody';
 export { DescribeDefenseRuleResponseBodyRule } from './DescribeDefenseRuleResponseBody';
@@ -223,7 +225,9 @@ export { ModifyCloudResourceRequestListen } from './ModifyCloudResourceRequest';
 export { ModifyCloudResourceRequestRedirectRequestHeaders } from './ModifyCloudResourceRequest';
 export { ModifyCloudResourceRequestRedirect } from './ModifyCloudResourceRequest';
 export { ModifyCloudResourceCertRequestCertificates } from './ModifyCloudResourceCertRequest';
+export { ModifyDefenseResourceXffRequestCookieConfig } from './ModifyDefenseResourceXffRequest';
 export { ModifyDefenseResourceXffRequestResponseHeaders } from './ModifyDefenseResourceXffRequest';
+export { ModifyDefenseResourceXffShrinkRequestResponseHeaders } from './ModifyDefenseResourceXffShrinkRequest';
 export { ModifyDomainRequestListen } from './ModifyDomainRequest';
 export { ModifyDomainRequestRedirectBackendPorts } from './ModifyDomainRequest';
 export { ModifyDomainRequestRedirectRequestHeaders } from './ModifyDomainRequest';
@@ -899,6 +903,7 @@ export { ModifyDefenseResourceGroupRequest } from './ModifyDefenseResourceGroupR
 export { ModifyDefenseResourceGroupResponseBody } from './ModifyDefenseResourceGroupResponseBody';
 export { ModifyDefenseResourceGroupResponse } from './ModifyDefenseResourceGroupResponse';
 export { ModifyDefenseResourceXffRequest } from './ModifyDefenseResourceXffRequest';
+export { ModifyDefenseResourceXffShrinkRequest } from './ModifyDefenseResourceXffShrinkRequest';
 export { ModifyDefenseResourceXffResponseBody } from './ModifyDefenseResourceXffResponseBody';
 export { ModifyDefenseResourceXffResponse } from './ModifyDefenseResourceXffResponse';
 export { ModifyDefenseRuleRequest } from './ModifyDefenseRuleRequest';

@@ -15,7 +15,7 @@ export class DescribeAddressesRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeAddressesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page for paging. Valid values: 1 to 500. Default value: 20.
+   * The number of entries to return per page in a paging query. Valid values: 1 to 500. Default value: 20.
    * 
    * @example
    * 20
@@ -33,7 +33,7 @@ export class DescribeAddressesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. Set this parameter to the value of **NextToken** returned in the previous API call. Leave this parameter empty for the first page.
+   * The pagination token for the next page. Set the value to the **NextToken** value returned from the previous API call. This parameter is not required for the first query.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -41,7 +41,7 @@ export class DescribeAddressesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -53,7 +53,7 @@ export class DescribeAddressesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm4gh****wela

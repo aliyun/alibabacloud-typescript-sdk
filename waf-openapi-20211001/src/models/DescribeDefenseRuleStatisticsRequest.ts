@@ -15,7 +15,7 @@ export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
   primaryKey?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -65,7 +65,7 @@ export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
    * @remarks
    * The ID of the protection template to query.
    * 
-   * > This operation supports querying protection templates under the new Bot Management (**bot_manager**) and new Web Core Protection (**waf_base**) scenarios. You can call [DescribeDefenseTemplates](https://help.aliyun.com/document_detail/2712643.html) to query the protection scenario (DefenseScene) of a protection template.
+   * > This operation supports querying protection templates in the new Bot Management (**bot_manager**) and new Web Core Protection (**waf_base**) scenarios. You can call the [DescribeDefenseTemplates](https://help.aliyun.com/document_detail/2712643.html) operation to query the protection scenario (DefenseScene) of the protection template.
    * 
    * This parameter is required.
    * 

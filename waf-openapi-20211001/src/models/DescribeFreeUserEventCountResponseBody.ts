@@ -65,12 +65,12 @@ export class DescribeFreeUserEventCountResponseBodyEvent extends $dara.Model {
 export class DescribeFreeUserEventCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The security event information of basic detection.
+   * The information about security events detected by basic API security detection.
    */
   event?: DescribeFreeUserEventCountResponseBodyEvent;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0D9FB3BC-0DE9-58A8-9663-ACE56F24F405

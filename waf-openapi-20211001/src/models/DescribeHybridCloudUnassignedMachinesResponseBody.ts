@@ -13,7 +13,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   cpu?: number;
   /**
    * @remarks
-   * The node name.
+   * The name of the node.
    * 
    * @example
    * exampleName
@@ -103,7 +103,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 28

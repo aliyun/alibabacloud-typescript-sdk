@@ -13,7 +13,7 @@ export class DescribeSensitiveOutboundDistributionResponseBodyData extends $dara
   country?: string;
   /**
    * @remarks
-   * The number of personal information items transferred cross-border.
+   * The number of outbound personal information records.
    * 
    * @example
    * 213
@@ -21,7 +21,7 @@ export class DescribeSensitiveOutboundDistributionResponseBodyData extends $dara
   infoOutboundCount?: number;
   /**
    * @remarks
-   * The number of sensitive information items transferred cross-border.
+   * The number of outbound sensitive information records.
    * 
    * @example
    * 144
@@ -55,7 +55,7 @@ export class DescribeSensitiveOutboundDistributionResponseBodyData extends $dara
 export class DescribeSensitiveOutboundDistributionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cross-border traffic distribution that contains personal information.
+   * The list of outbound traffic distribution for personal information.
    */
   data?: DescribeSensitiveOutboundDistributionResponseBodyData[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudUnsupportPortsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of ports for the HTTP protocol. The value is a string. Multiple ports are returned in the **port1,port2,port3** format.
+   * The list of available HTTP ports. The value is a string. Multiple ports are returned in the **port1,port2,port3** format.
    * 
    * @example
    * 80,8080
@@ -13,7 +13,7 @@ export class DescribeHybridCloudUnsupportPortsResponseBody extends $dara.Model {
   httpPorts?: string;
   /**
    * @remarks
-   * The list of ports for the HTTPS protocol. The value is a string. Multiple ports are returned in the **port1,port2,port3** format.
+   * The list of HTTPS ports. The value is a string. Multiple ports are returned in the **port1,port2,port3** format.
    * 
    * @example
    * 443,8443,8021,3443,2443,9011

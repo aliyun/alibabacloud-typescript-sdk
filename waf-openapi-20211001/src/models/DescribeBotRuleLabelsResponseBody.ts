@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   /**
    * @remarks
-   * The bot behavior corresponding to the rule label.
+   * The bot behavior corresponding to the rule label. Valid values:
    * 
    * - **malicious**: malicious bots.
    * - **suspicious**: suspicious bots.
@@ -17,7 +17,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   botBehavior?: string;
   /**
    * @remarks
-   * The default action.
+   * The default action. Valid values:
    * 
    * - **block**: block.
    * - **monitor**: monitor.
@@ -40,7 +40,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   defaultConfig?: string;
   /**
    * @remarks
-   * The default status of the label rule.
+   * The default status of the label rule. Valid values:
    * 
    * - **1**: The rule is enabled.
    * - **0**: The rule is disabled.
@@ -59,7 +59,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
-   * The status of the label.
+   * The status of the label. Valid values:
    * 
    * - **online**: online.
    * - **wait_offline**: pending offline.
@@ -80,7 +80,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
    * @remarks
    * The bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
    * 
-   * - **web**: the web protection scenario.
+   * - **web**: the Web protection scenario.
    * - **app**: the app protection scenario.
    * - **agentic_web**: the Agentic Web protection scenario.
    * - **agentic_app**: the Agentic App protection scenario.
@@ -127,7 +127,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
 export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return per paging in a paged query. Valid values: 1 to 200. Default value: 20.
+   * The number of entries to return per page in a paged query. This parameter is used for paging. Valid values: 1 to 200. Default value: 20.
    * 
    * @example
    * 20
@@ -135,9 +135,9 @@ export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. This parameter is returned only if a next page exists.
+   * The pagination token for the next page. This parameter is returned only when a next page exists.
    * 
-   * > If this parameter is returned, it indicates that there is a next page. You can use the returned **NextToken** as a request parameter to obtain the data of the next page until no value is returned, which indicates that all data is obtained.
+   * > If this parameter is returned, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat this process until no value is returned, which indicates that all data is retrieved.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS

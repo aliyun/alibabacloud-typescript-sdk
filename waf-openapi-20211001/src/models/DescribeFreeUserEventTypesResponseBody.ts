@@ -50,7 +50,7 @@ export class DescribeFreeUserEventTypesResponseBody extends $dara.Model {
   data?: DescribeFreeUserEventTypesResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B9D6AD11-DD3D-5A27-B1D9-8A37F7777196

@@ -38,12 +38,12 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
    * - **lfilei**: local file inclusion (LFI).
    * - **protocol_violation**: protocol violation.
    * - **scanner_behavior**: scanner behavior.
-   * - **logic_flaw**: business logic bug.
-   * - **arbitrary_file_reading**: arbitrary file read.
+   * - **logic_flaw**: business logic flaw.
+   * - **arbitrary_file_reading**: arbitrary file reading.
    * - **arbitrary_file_download**: arbitrary file download.
-   * - **xxe**: XML external entity injection.
-   * - **csrf**: cross-site request forgery.
-   * - **crlf**: CRLF injection.
+   * - **xxe**: external entity injection.
+   * - **csrf**: cross-site request forgery (CSRF).
+   * - **crlf**: CRLF.
    * - **other**: other.
    * 
    * @example
@@ -54,13 +54,13 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * - **super_strict**: super strict.
+   * - **super_strict**: Super strict.
    * 
-   * - **strict**: strict.
+   * - **strict**: Strict.
    * 
-   * - **medium**: medium.
+   * - **medium**: Medium.
    * 
-   * - **loose**: loose.
+   * - **loose**: Loose.
    * 
    * @example
    * super_strict
@@ -68,7 +68,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The rule action. Valid values:
+   * The action of the rule. Valid values:
    * 
    * - **block**: Block.
    * 
@@ -80,7 +80,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 113089
@@ -96,9 +96,9 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The rule status. Valid values:
-   * - **1**: disabled.
-   * - **0**: enabled.
+   * The status of the rule. Valid values:
+   * - **1**: Disabled.
+   * - **0**: Enabled.
    * 
    * @example
    * 1
@@ -106,7 +106,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleStatus?: number;
   /**
    * @remarks
-   * The time when the rule was last updated. The value is a UNIX timestamp in milliseconds.
+   * The update time of the rule. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1665460629000
@@ -165,7 +165,7 @@ export class DescribeBaseSystemRulesResponseBody extends $dara.Model {
   rules?: DescribeBaseSystemRulesResponseBodyRules[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 2

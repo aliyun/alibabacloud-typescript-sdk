@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAiEngineEvidenceRequestsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The value is a numeric string ranging from 100 to 599, or unknown. A value of unknown indicates that the status code is not collected.
+   * The HTTP status code.
    * 
    * @example
    * 500
@@ -13,7 +13,7 @@ export class DescribeAiEngineEvidenceRequestsRequestFilter extends $dara.Model {
   httpStatus?: string;
   /**
    * @remarks
-   * The evidence impact tag. Valid values: block, monitor, bypass, attempt, and challenge. Exact match is supported.
+   * The evidence impact tag.
    * 
    * @example
    * bypass
@@ -21,7 +21,7 @@ export class DescribeAiEngineEvidenceRequestsRequestFilter extends $dara.Model {
   impactType?: string;
   /**
    * @remarks
-   * The HTTP request method. Exact match is supported.
+   * The HTTP request method. Exact match is used.
    * 
    * @example
    * POST
@@ -29,7 +29,7 @@ export class DescribeAiEngineEvidenceRequestsRequestFilter extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The node ID. Exact match is supported. The value can be up to 64 ASCII characters in length.
+   * The node ID. Exact match is used. The value can be up to 64 ASCII characters in length.
    * 
    * @example
    * n109-04
@@ -85,7 +85,7 @@ export class DescribeAiEngineEvidenceRequestsRequestFilter extends $dara.Model {
 export class DescribeAiEngineEvidenceRequestsRequest extends $dara.Model {
   /**
    * @remarks
-   * The event ID. The value can be up to 64 ASCII characters in length.
+   * The event ID.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class DescribeAiEngineEvidenceRequestsRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The filter conditions. Exact match is used, and multiple conditions are connected by the AND operator. The value is a JSON object. Property names use camelCase, and property values are strings.
+   * The filter conditions. Exact match is used, and multiple conditions are connected by the AND logical operator.
    * 
    * @example
    * {"suspectedBypass":"1","httpStatus":"500"}
@@ -115,7 +115,7 @@ export class DescribeAiEngineEvidenceRequestsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The response language.
    * 
    * @example
    * en
@@ -123,7 +123,7 @@ export class DescribeAiEngineEvidenceRequestsRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -131,7 +131,7 @@ export class DescribeAiEngineEvidenceRequestsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
+   * The pagination token for the next page. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -163,7 +163,7 @@ export class DescribeAiEngineEvidenceRequestsRequest extends $dara.Model {
   seachValue?: string;
   /**
    * @remarks
-   * The search key. This parameter is used together with SeachValue. Valid values: traceId, requestPath, sourceIp, sourceAccount, sourceFingerprint, and auto.
+   * The search key. This parameter is used together with SeachValue.
    * 
    * @example
    * traceId

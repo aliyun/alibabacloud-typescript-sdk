@@ -6,8 +6,8 @@ export class ModifyApisecStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The API security status. Valid values: 
-   * - **1**: enabled.
-   * - **0**: disabled.
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ModifyApisecStatusRequest extends $dara.Model {
   resourceGroups?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The hybrid cloud cluster ID.
-   * > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+   * The ID of the hybrid cloud cluster.
+   * > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to query the information about hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -14,10 +14,10 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query, in UNIX timestamp (UTC) format. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
-   * > Only data within the last month can be queried. **StartTime** cannot be earlier than one month before the current time. The query fails if the value is out of the supported range.
-   * > This parameter is optional. Default value: the current time.
+   * > You can query only the data generated within the last month. The value of **StartTime** cannot be earlier than one month before the current time. If the value exceeds the supported range, the query fails.
+   * > This parameter is not required. Default value: the current time.
    * 
    * @example
    * 1725966000
@@ -26,7 +26,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number to return in a paged query. Default value: **1**, which indicates the first page.
+   * The page number of the page to return in a paged query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -44,7 +44,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: **10**, which indicates 10 entries per page.
+   * The number of entries to return on each page in a paged query. Default value: **10**, which indicates 10 entries per page.
    * 
    * @example
    * 10
@@ -52,7 +52,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -64,7 +64,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -72,10 +72,10 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query, in UNIX timestamp (UTC) format. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
-   * > Only data within the last month can be queried. **StartTime** cannot be earlier than one month before the current time. The query fails if the value is out of the supported range.
-   * > This parameter is optional. Default value: one month before the current time.
+   * > You can query only the data generated within the last month. The value of **StartTime** cannot be earlier than one month before the current time. If the value exceeds the supported range, the query fails.
+   * > This parameter is not required. Default value: one month before the current time.
    * 
    * @example
    * 1672502400
@@ -83,7 +83,7 @@ export class DescribeSensitiveStatisticRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The type of data statistics. Valid values:
+   * The data statistics type. Valid values:
    * - **ip**: IP address statistics.
    * - **host**: domain name statistics.
    * - **sensitive_code**: sensitive data type statistics.

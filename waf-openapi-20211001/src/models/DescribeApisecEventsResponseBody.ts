@@ -29,7 +29,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The business purpose of the API.
+   * The API business purpose.
    * 
    * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
    * 
@@ -47,7 +47,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   attackClient?: string;
   /**
    * @remarks
-   * The attack count information, which is a string converted from a JSON object. The key is a timestamp in seconds, and the value is the number of attacks.
+   * The attack count information, converted to a string in JSON format constructed by a series of parameters. The key is a timestamp in seconds, and the value is the number of attacks.
    * 
    * @example
    * {
@@ -61,8 +61,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   attackCntInfo?: string;
   /**
    * @remarks
-   * The attack IP address.
-   * >Notice: This parameter is deprecated. Use the AttackIps parameter instead.</notice>
+   * The attack IP address.<notice>This parameter is deprecated. Use the AttackIps parameter instead.</notice>
    * 
    * @example
    * 104.234.140.**
@@ -72,11 +71,11 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   attackIp?: string;
   /**
    * @remarks
-   * The attack IP information, which is a string converted from a JSON object constructed with the following parameters:
-   * - **ip**: the IP address.
-   * - **country_id**: the country to which the IP address belongs.
-   * - **region_id**: the region to which the IP address belongs.
-   * - **cnt**: the number of attacks.
+   * The attack IP address information, converted to a string in JSON format constructed by a series of parameters. Includes:
+   * - **ip**: The IP address.
+   * - **country_id**: The country.
+   * - **region_id**: The region.
+   * - **cnt**: The number of attacks.
    * 
    * @example
    * [
@@ -100,12 +99,12 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   attackIps?: string[];
   /**
    * @remarks
-   * The Attacker list associated with the event.
+   * The attacker list corresponding to the event.
    */
   attackerList?: string[];
   /**
    * @remarks
-   * The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683703260
@@ -121,10 +120,10 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The event details, which is a string converted from a JSON object constructed with the following parameters:
-   * - **ip_info**: the attack IP information. Refer to the response parameter **AttackIpInfo** of this operation.
-   * - **rule_id**: the rule ID associated with the event.
-   * - **rule_tag**: the rule information associated with the event.
+   * The detailed event information, converted to a string in JSON format constructed by a series of parameters. Includes:
+   * - **ip_info**: The attack IP address information. You can refer to the **AttackIpInfo** response parameter of this operation.
+   * - **rule_id**: The ID of the rule corresponding to the event.
+   * - **rule_tag**: The rule information corresponding to the event.
    * 
    * @example
    * {
@@ -145,10 +144,10 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   eventInfo?: string;
   /**
    * @remarks
-   * The event level. Valid values:
-   * - **high**: High-risk.
-   * - **medium**: Medium-risk.
-   * - **low**: Low-risk.
+   * The severity level of the event. Valid values:
+   * - **high**: high risk.
+   * - **medium**: medium risk.
+   * - **low**: low risk.
    * 
    * @example
    * medium
@@ -166,7 +165,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   eventTag?: string;
   /**
    * @remarks
-   * Indicates whether the event is followed. Valid values:
+   * Specifies whether the event is followed. Valid values:
    * - **1**: Followed.
    * - **0**: Not followed.
    * 
@@ -184,7 +183,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The remarks.
+   * The note.
    * 
    * @example
    * Notify
@@ -192,9 +191,9 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The source of the event type. Valid values:
-   * - **custom**: Custom.
-   * - **default**: Built-in.
+   * The origin of the event type. Valid values:
+   * - **custom**: custom.
+   * - **default**: built-in.
    * 
    * @example
    * custom
@@ -218,7 +217,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   remoteRegion?: string;
   /**
    * @remarks
-   * A sample API request data, which is a string converted from a JSON object constructed with a series of parameters.
+   * The API request data instance, converted to a string in JSON format constructed by a series of parameters.
    * 
    * @example
    * {}
@@ -228,7 +227,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   requestData?: string;
   /**
    * @remarks
-   * A sample API response data, which is a string converted from a JSON object constructed with a series of parameters.
+   * The API response data example, converted to a string in JSON format constructed by a series of parameters.
    * 
    * @example
    * {}
@@ -238,7 +237,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   responseData?: string;
   /**
    * @remarks
-   * The start time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683648000
@@ -246,11 +245,12 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   startTs?: number;
   /**
    * @remarks
-   * The event status. Valid values:
-   * - **toBeConfirmed**: To be confirmed.
-   * - **confirmed**: Confirmed.
-   * - **actioned**: Handled.
-   * - **ignored**: Ignored.
+   * The status of the event. Valid values:
+   * 
+   * - **toBeConfirmed**: pending confirmation.
+   * - **confirmed**: confirmed.
+   * - **actioned**: handled.
+   * - **ignored**: ignored.
    * 
    * @example
    * toBeConfirmed
@@ -347,7 +347,7 @@ export class DescribeApisecEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned results.
    * 
    * @example
    * 3

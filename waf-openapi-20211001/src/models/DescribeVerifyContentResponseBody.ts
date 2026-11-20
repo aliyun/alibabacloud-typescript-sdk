@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyContentResponseBodyDnsContent extends $dara.Model {
   /**
    * @remarks
-   * The host record of the DNS TXT record used for domain ownership verification.
+   * The host record.
    * 
    * @example
    * verification
@@ -13,7 +13,7 @@ export class DescribeVerifyContentResponseBodyDnsContent extends $dara.Model {
   RR?: string;
   /**
    * @remarks
-   * The type of the DNS record used for verification.
+   * The TXT record type.
    * 
    * @example
    * TXT
@@ -21,7 +21,7 @@ export class DescribeVerifyContentResponseBodyDnsContent extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of the DNS TXT record used for verification.
+   * The TXT record value.
    * 
    * @example
    * verify_0a246ca99d504ba087472d***
@@ -55,7 +55,7 @@ export class DescribeVerifyContentResponseBodyDnsContent extends $dara.Model {
 export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the verification file.
+   * The file download path.
    * 
    * @example
    * http://oss.xxx.com//xxx.html
@@ -63,7 +63,7 @@ export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The name of the verification file.
+   * The file name.
    * 
    * @example
    * xxx.html
@@ -71,7 +71,7 @@ export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The root domain of the domain name to be verified.
+   * The primary domain name.
    * 
    * @example
    * aliyundemo.com
@@ -79,7 +79,7 @@ export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
   topDomain?: string;
   /**
    * @remarks
-   * The content of the verification file.
+   * The file content.
    * 
    * @example
    * verify_0a246ca99d504ba08***
@@ -87,7 +87,7 @@ export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The URL that is used to access the verification file.
+   * The access path for file verification.
    * 
    * @example
    * http://xxx.xxx.com//xxx.html
@@ -125,12 +125,12 @@ export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
 export class DescribeVerifyContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The DNS-based verification content, including the TXT record details.
+   * The DNS verification content.
    */
   dnsContent?: DescribeVerifyContentResponseBodyDnsContent;
   /**
    * @remarks
-   * The file-based verification content, including the file name, path, and download URL.
+   * The file verification content.
    */
   fileContent?: DescribeVerifyContentResponseBodyFileContent;
   /**
@@ -143,7 +143,11 @@ export class DescribeVerifyContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the domain ownership verification is successful.
+   * The verification result. Valid values:
+   * 
+   * - **true**: Verification passed.
+   * 
+   * - **false**: Verification failed.
    * 
    * @example
    * true

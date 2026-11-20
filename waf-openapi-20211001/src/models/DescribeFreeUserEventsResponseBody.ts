@@ -21,7 +21,7 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   attackIP?: string;
   /**
    * @remarks
-   * The attack time. The value is a UNIX timestamp (UTC). Unit: seconds.
+   * The attack time, in the UNIX timestamp format (UTC). Unit: seconds.
    * 
    * @example
    * 1683703260
@@ -38,9 +38,9 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
   /**
    * @remarks
    * The event level. Valid values:
-   * - **high**: high risk.
-   * - **medium**: medium risk.
-   * - **low**: low risk.
+   * - **high**: high-risk.
+   * - **medium**: medium-risk.
+   * - **low**: low-risk.
    * 
    * @example
    * high
@@ -89,12 +89,12 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $dara.Model {
 export class DescribeFreeUserEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of security events detected by basic detection.
+   * The list of security events for basic detection.
    */
   event?: DescribeFreeUserEventsResponseBodyEvent[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8A2DF88D-90C2-56E9-B8D5-36BB9646791C

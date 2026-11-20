@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChargeResultRequestChargeModules extends $dara.Model {
   /**
    * @remarks
-   * The billing module code.
+   * The identifier of the billing module.
    * 
    * @example
    * domainCount
@@ -21,7 +21,7 @@ export class DescribeChargeResultRequestChargeModules extends $dara.Model {
   usage?: number;
   /**
    * @remarks
-   * The usage of the billing module, which supports integers and decimals. If the billing module is log storage capacity, the usage supports up to one decimal place, such as 10.5. This parameter is optional and has no default value. If this parameter is specified, it takes precedence even if the value is 0. If this parameter is not specified, Usage is used.
+   * The usage of the billing module, which supports integers and decimals. If the billing module is log storage capacity, the usage supports up to one decimal place, such as 10.5. This parameter is optional and has no default value. If this parameter is specified, it takes precedence. A value of 0 is also considered as specified. If this parameter is not specified, Usage is used.
    * 
    * @example
    * 10.5
@@ -56,9 +56,9 @@ export class DescribeChargeResultRequest extends $dara.Model {
   /**
    * @remarks
    * The billing cycle. Valid values:
-   * - **Year**: calculates the billing result for one year
-   * - **Month**: calculates the billing result for one month
-   * - **Day**: calculates the billing result for one day
+   * - **Year**: calculates the billing result for one year.
+   * - **Month**: calculates the billing result for one month.
+   * - **Day**: calculates the billing result for one day.
    * 
    * @example
    * Day
@@ -82,7 +82,7 @@ export class DescribeChargeResultRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * - **POSTPAY**: pay-as-you-go WAF instances
+   * - **POSTPAY**: pay-as-you-go WAF instances.
    * 
    * This parameter is required.
    * 
@@ -94,9 +94,9 @@ export class DescribeChargeResultRequest extends $dara.Model {
    * @remarks
    * The region of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -104,7 +104,7 @@ export class DescribeChargeResultRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

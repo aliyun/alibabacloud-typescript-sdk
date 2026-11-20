@@ -13,7 +13,7 @@ export class DescribeAddressesResponseBodyAddressList extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The most recent modification time of the address. The value is a UNIX timestamp in milliseconds.
+   * The time when the address was last modified. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1760408233000
@@ -21,7 +21,7 @@ export class DescribeAddressesResponseBodyAddressList extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The address book ID.
+   * The ID of the address book.
    * 
    * @example
    * 12345678
@@ -60,7 +60,7 @@ export class DescribeAddressesResponseBody extends $dara.Model {
   addressList?: DescribeAddressesResponseBodyAddressList[];
   /**
    * @remarks
-   * The number of entries per page for paging. Valid values: 1 to 500. Default value: 20.
+   * The number of entries to return per page in a paging query. Valid values: 1 to 500. Default value: 20.
    * 
    * @example
    * 20
@@ -68,8 +68,8 @@ export class DescribeAddressesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. If a next page exists, this field contains a value.
-   * > If this parameter has a return value, a next page exists. You can pass the returned **NextToken** as a request parameter to retrieve the next page of data. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+   * The pagination token for the next page. This field is returned only when a next page exists.
+   * > If this parameter returns a value, a next page exists. You can use the returned **NextToken** value as a request parameter to obtain the data on the next page until no value is returned, which indicates that all data is obtained.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -77,7 +77,7 @@ export class DescribeAddressesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8D8EBFB7-E1EB-5236-952A-092EDC72***
@@ -85,7 +85,7 @@ export class DescribeAddressesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 10

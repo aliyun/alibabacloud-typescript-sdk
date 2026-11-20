@@ -13,12 +13,12 @@ export class DescribeDefenseGroupValidResourcesResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The names of the protected objects.
+   * The names of the protection objects.
    */
   resources?: string[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned results.
    * 
    * @example
    * 12

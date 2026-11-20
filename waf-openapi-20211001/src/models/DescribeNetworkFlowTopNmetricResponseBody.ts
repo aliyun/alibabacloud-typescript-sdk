@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues extends $dara.Model {
   /**
    * @remarks
-   * The additional attribute associated with the entry. For example, when the Metric is set to real_client_ip, this parameter indicates the country or region to which the IP address belongs.
+   * The additional information returned, such as the country, province, and city to which an IP address belongs.
    * 
    * @example
    * CN
@@ -13,7 +13,7 @@ export class DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues exte
   attribute?: string;
   /**
    * @remarks
-   * The dimension value that corresponds to the specified Metric request parameter. For example, if the Metric is set to real_client_ip, this parameter indicates the source IP address.
+   * The value of a field. The meaning varies depending on the queried metric.
    * 
    * @example
    * 127.0.0.1
@@ -21,7 +21,7 @@ export class DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues exte
   name?: string;
   /**
    * @remarks
-   * The total number of requests or the QPS value, depending on the specified Metric. This value is used for top N ranking.
+   * The statistical count used for top sorting.
    * 
    * @example
    * 1123
@@ -55,7 +55,7 @@ export class DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues exte
 export class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range. This value is a UNIX timestamp. Unit: seconds.
+   * The end time used for the data query. The end time is represented by a UNIX timestamp in seconds. This value is the same as the EndDate request parameter.
    * 
    * @example
    * 1713888600
@@ -63,7 +63,7 @@ export class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange exte
   endDate?: number;
   /**
    * @remarks
-   * The beginning of the time range. This value is a UNIX timestamp. Unit: seconds.
+   * The start time used for the data query. The start time is represented by a UNIX timestamp in seconds. This value is the same as the StartDate request parameter.
    * 
    * @example
    * 1713888000
@@ -100,7 +100,7 @@ export class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData extends $dara
   dateRange?: DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange;
   /**
    * @remarks
-   * The unit of the returned statistical data.
+   * The unit of the returned statistics.
    * 
    * @example
    * requests
@@ -135,12 +135,12 @@ export class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData extends $dara
 export class DescribeNetworkFlowTopNMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of the top N statistics.
+   * The array of returned top statistics.
    */
   networkFlowTopNValues?: DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D827FCFE-90A7-4330-9326-******4C7726

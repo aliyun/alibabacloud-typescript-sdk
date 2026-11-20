@@ -2,6 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDefenseResourceResponseBodyResourceCookieConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The SameSite policy for the slider cookie. Valid values:
+   * - **None**: None.
+   * - **Lax**: Lax.
+   * - **Strict**: Strict.
+   * > An empty string indicates that the SameSite attribute is not set.
+   * 
+   * @example
+   * Lax
+   */
+  acwScV3SameSite?: string;
+  /**
+   * @remarks
+   * The SameSite policy for the tracking cookie. Valid values:
+   * - **None**: None.
+   * - **Lax**: Lax.
+   * - **Strict**: Strict.
+   * > An empty string indicates that the SameSite attribute is not set.
+   * 
+   * @example
+   * None
+   */
+  acwTcSameSite?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acwScV3SameSite: 'AcwScV3SameSite',
+      acwTcSameSite: 'AcwTcSameSite',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acwScV3SameSite: 'string',
+      acwTcSameSite: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDefenseResourceResponseBodyResourceResponseHeaders extends $dara.Model {
   /**
    * @remarks
@@ -45,7 +93,7 @@ export class DescribeDefenseResourceResponseBodyResourceResponseHeaders extends 
 export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   /**
    * @remarks
-   * The status of the tracking cookie. Valid values:
+   * The enabling status of the tracking cookie.
    * 
    * - **0**: disabled.
    * 
@@ -57,7 +105,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   acwCookieStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the tracking cookie. Valid values:
+   * The status of the Secure attribute for the tracking cookie.
    * 
    * - **0**: disabled.
    * 
@@ -69,7 +117,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   acwSecureStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the slider cookie. Valid values:
+   * The status of the Secure attribute for the slider cookie.
    * 
    * - **0**: disabled.
    * 
@@ -81,8 +129,13 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   acwV3SecureStatus?: number;
   /**
    * @remarks
+   * The cookie attribute aggregation configuration.
+   */
+  cookieConfig?: DescribeDefenseResourceResponseBodyResourceCookieConfig;
+  /**
+   * @remarks
    * The list of specified header fields.
-   * > When XffStatus is set to 1, the first IP address in the specified header field is used as the client source IP address to prevent XFF forgery. If multiple header fields are specified, they are tried in order to obtain the source IP address. If the source IP address cannot be obtained from the first header field, the second header field is tried, and so on. If the source IP address cannot be obtained from any of the specified header fields, the first IP address in X-Forwarded-For is used. When XffStatus is set to 1, it indicates that the source IP address is obtained from the first header field.
+   * > When XffStatus is set to 1, the first IP address in the specified header field is used as the originating IP address of the client to prevent XFF spoofing. If multiple headers are specified, the system attempts to obtain the originating IP address in sequence. If the first header does not contain an IP address, the system checks the second header, and so on. If no IP address is found in any of the specified headers, the first IP address in the X-Forwarded-For header is used. When XffStatus is set to 1, the first IP address is extracted.
    */
   customHeaders?: string[];
   /**
@@ -95,7 +148,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The detailed description of the protected object. Different key-value pairs in the Map represent different attributes of the protected object.
+   * The detailed description of the protected object. Different key-value pairs in the map represent different attributes of the protected object.
    * 
    * @example
    * {
@@ -122,7 +175,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The WAF instance ID.
    * 
    * @example
    * waf_v2_public_cn-wwo****
@@ -130,7 +183,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The UID of the owner of the protected object.
+   * The owner UID of the protected object.
    * 
    * @example
    * 170457******9107
@@ -138,7 +191,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The protection form of the protected object.
+   * The protection mode of the protected object.
    * 
    * @example
    * domain
@@ -178,9 +231,9 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The origin of the protected object. Valid values:
+   * The source of the protected object. Valid values:
    * 
-   * - **custom**: the protected object created from Access Management.
+   * - **custom**: the protected object created from the Provisioning page.
    * 
    * - **access**: the protected object created by the user.
    * 
@@ -209,9 +262,9 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   responseHeaders?: DescribeDefenseResourceResponseBodyResourceResponseHeaders[];
   /**
    * @remarks
-   * Indicates whether a Layer 7 proxy (Anti-DDoS/CDN, etc.) is deployed in front of WAF. Valid values:
+   * Specifies whether a Layer 7 proxy, such as Anti-DDoS or CDN, is enabled before WAF. Valid values:
    * 
-   * - **0**: not enabled.
+   * - **0**: disabled.
    * 
    * - **1**: enabled.
    * 
@@ -224,6 +277,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
       acwCookieStatus: 'AcwCookieStatus',
       acwSecureStatus: 'AcwSecureStatus',
       acwV3SecureStatus: 'AcwV3SecureStatus',
+      cookieConfig: 'CookieConfig',
       customHeaders: 'CustomHeaders',
       description: 'Description',
       detail: 'Detail',
@@ -248,6 +302,7 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
       acwCookieStatus: 'number',
       acwSecureStatus: 'number',
       acwV3SecureStatus: 'number',
+      cookieConfig: DescribeDefenseResourceResponseBodyResourceCookieConfig,
       customHeaders: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -268,6 +323,9 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
   }
 
   validate() {
+    if(this.cookieConfig && typeof (this.cookieConfig as any).validate === 'function') {
+      (this.cookieConfig as any).validate();
+    }
     if(Array.isArray(this.customHeaders)) {
       $dara.Model.validateArray(this.customHeaders);
     }
@@ -296,7 +354,7 @@ export class DescribeDefenseResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the protected object.
+   * The protected object information.
    */
   resource?: DescribeDefenseResourceResponseBodyResource;
   static names(): { [key: string]: string } {

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBotAppKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
-   * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
+   * The ID of the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +15,7 @@ export class DescribeBotAppKeyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The version of the AppKey. Set the value to 1.
+   * The key version. Only the value 1 is supported.
    * 
    * @example
    * 1

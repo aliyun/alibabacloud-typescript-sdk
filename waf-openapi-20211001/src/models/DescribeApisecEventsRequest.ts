@@ -30,7 +30,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The business purpose of the API.
-   * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query supported business purposes.
    * 
    * @example
    * SendMail
@@ -46,8 +46,8 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   attackIp?: string;
   /**
    * @remarks
-   * The hybrid cloud cluster ID.
-   * > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+   * The ID of the hybrid cloud cluster.
+   * > This parameter is applicable only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
    * 
    * @example
    * 428
@@ -55,7 +55,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683703260
@@ -71,10 +71,10 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The event level. Valid values:
-   * - **high**: High-risk.
-   * - **medium**: Medium-risk.
-   * - **low**: Low-risk.
+   * The severity level of the event. Valid values:
+   * - **high**: high risk.
+   * - **medium**: medium risk.
+   * - **low**: low risk.
    * 
    * @example
    * low
@@ -91,7 +91,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The event type.
-   * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query supported event types.
    * 
    * @example
    * ObtainSensitiveUnauthorized
@@ -101,7 +101,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -119,10 +119,10 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The name of the field used for sorting. Valid values:
-   * - **allCnt**: attack count.
-   * - **startTs**: event start time.
-   * - **endTs**: event end time.
+   * The name of the field by which to sort. Valid values:
+   * - **allCnt**: the number of attacks.
+   * - **startTs**: the start time of the event.
+   * - **endTs**: the end time of the event.
    * 
    * @example
    * startTs
@@ -131,8 +131,8 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - **desc**: Descending order (default).
-   * - **asc**: Ascending order.
+   * - **desc**: descending order (default).
+   * - **asc**: ascending order.
    * 
    * @example
    * desc
@@ -140,9 +140,9 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The source of the event type. Valid values:
-   * - **custom**: Custom.
-   * - **default**: Built-in.
+   * The origin of the event type. Valid values:
+   * - **custom**: custom.
+   * - **default**: built-in.
    * 
    * @example
    * default
@@ -150,7 +150,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The page number to return in a paged query. Default value: **1**, which indicates the first page.
+   * The page number to return for a paged query. Default value: **1**, which indicates that the first page is returned during paging.
    * 
    * @example
    * 1
@@ -158,7 +158,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: **10**, which indicates 10 entries per page.
+   * The number of entries to return on each page in a paged query. Default value: **10**, which indicates that 10 entries are returned on each page during paging.
    * 
    * @example
    * 10
@@ -166,7 +166,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -178,7 +178,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -186,7 +186,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The start time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683648000
@@ -194,11 +194,12 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   startTs?: number;
   /**
    * @remarks
-   * The event status. Valid values:
-   * - **toBeConfirmed**: To be confirmed.
-   * - **confirmed**: Confirmed.
-   * - **actioned**: Handled.
-   * - **ignored**: Ignored.
+   * The status of the event. Valid values:
+   * 
+   * - **toBeConfirmed**: pending confirmation.
+   * - **confirmed**: confirmed.
+   * - **actioned**: handled.
+   * - **ignored**: ignored.
    * 
    * @example
    * ignored

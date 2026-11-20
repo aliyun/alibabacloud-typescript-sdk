@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseRuleStatisticsResponseBodyStatisticsInfos extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that meet all query conditions.
+   * The number of rules that meet all the query conditions.
    * 
    * @example
    * 27
@@ -83,7 +83,7 @@ export class DescribeDefenseRuleStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics results.
+   * The statistics.
    */
   statisticsInfos?: DescribeDefenseRuleStatisticsResponseBodyStatisticsInfos[];
   static names(): { [key: string]: string } {

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveOutboundDistributionRequest extends $dara.Model {
   /**
    * @remarks
-   * The hybrid cloud cluster ID.
-   * > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+   * The ID of the hybrid cloud cluster.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
    * 
    * @example
    * 443
@@ -14,10 +14,10 @@ export class DescribeSensitiveOutboundDistributionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end time of the query. Specify the value as a UNIX timestamp (UTC). Unit: seconds.
+   * The end time of the query. The time is in the UNIX timestamp format (UTC). Unit: seconds.
    * 
-   * > Compliance audit currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. The query time range must fall within one of these supported intervals. **StartTime** must not be earlier than the start time of the corresponding interval. The query fails if the time range exceeds the supported scope.
-   * > This parameter is optional. Default value: the current time.
+   * > Compliance audit currently supports querying data for the last 1 month, last 3 months, last 6 months, last 12 months, and from January 1 of the previous year to the present. The query time range must fall within the supported intervals. **StartTime** must not be earlier than the start time of the corresponding interval. If the time range exceeds the supported range, the query fails.
+   * > This parameter is optional. The default value is the current time.
    * 
    * @example
    * 1725966000
@@ -27,7 +27,7 @@ export class DescribeSensitiveOutboundDistributionRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribeSensitiveOutboundDistributionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -49,7 +49,7 @@ export class DescribeSensitiveOutboundDistributionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -57,10 +57,10 @@ export class DescribeSensitiveOutboundDistributionRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the value as a UNIX timestamp (UTC). Unit: seconds.
+   * The start time of the query. The time is in the UNIX timestamp format (UTC). Unit: seconds.
    * 
-   * > Compliance audit currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. The query time range must fall within one of these supported intervals. **StartTime** must not be earlier than the start time of the corresponding interval. The query fails if the time range exceeds the supported scope.
-   * > This parameter is optional. Default value: 1 month before the current time.
+   * > Compliance audit currently supports querying data for the last 1 month, last 3 months, last 6 months, last 12 months, and from January 1 of the previous year to the present. The query time range must fall within the supported intervals. **StartTime** must not be earlier than the start time of the corresponding interval. If the time range exceeds the supported range, the query fails.
+   * > This parameter is optional. The default value is one month before the current time.
    * 
    * @example
    * 1672502400

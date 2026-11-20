@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLogDeliveryConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the forwarding delivery configuration.
+   * The name of the outbound delivery configuration.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteLogDeliveryConfigRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DeleteLogDeliveryConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -39,7 +39,7 @@ export class DeleteLogDeliveryConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

@@ -2,10 +2,68 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyDefenseResourceXffRequestCookieConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The SameSite policy of the slider cookie. Valid values:
+   * 
+   * - **None**: None.
+   * 
+   * - **Lax**: Lax.
+   * 
+   * - **Strict**: Strict.
+   * 
+   * > An empty string indicates that the SameSite attribute is not configured.   
+   * If the SameSite policy is set to None, the Secure attribute must be enabled for the cookie.
+   * 
+   * @example
+   * None
+   */
+  acwScV3SameSite?: string;
+  /**
+   * @remarks
+   * The SameSite policy of the tracking cookie. Valid values:
+   * 
+   * - **None**: None.
+   * 
+   * - **Lax**: Lax.
+   * 
+   * - **Strict**: Strict.
+   * 
+   * > An empty string indicates that the SameSite attribute is not configured.  
+   * If the SameSite policy is set to None, the Secure attribute must be enabled for the cookie.
+   * 
+   * @example
+   * Lax
+   */
+  acwTcSameSite?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acwScV3SameSite: 'AcwScV3SameSite',
+      acwTcSameSite: 'AcwTcSameSite',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acwScV3SameSite: 'string',
+      acwTcSameSite: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDefenseResourceXffRequestResponseHeaders extends $dara.Model {
   /**
    * @remarks
-   * The key of the custom response header.
+   * The key of the specified custom response header.
    * 
    * @example
    * Header-Key
@@ -13,7 +71,7 @@ export class ModifyDefenseResourceXffRequestResponseHeaders extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The value of the custom response header.
+   * The value of the specified custom response header.
    * 
    * @example
    * Header-Value
@@ -45,11 +103,11 @@ export class ModifyDefenseResourceXffRequestResponseHeaders extends $dara.Model 
 export class ModifyDefenseResourceXffRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the tracking cookie switch.
+   * The status of the tracking cookie switch. Valid values:
    * 
-   * - **0**: disabled.
+   * - **0**: Disabled.
    * 
-   * - **1 (default)**: enabled.
+   * - **1** (default): Enabled.
    * 
    * @example
    * 0
@@ -57,11 +115,11 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
   acwCookieStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the tracking cookie.
+   * The status of the Secure attribute for the tracking cookie. Valid values:
    * 
-   * - **0 (default)**: disabled.
+   * - **0** (default): Disabled.
    * 
-   * - **1**: enabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 0
@@ -69,11 +127,11 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
   acwSecureStatus?: number;
   /**
    * @remarks
-   * The status of the secure attribute of the slider cookie.
+   * The status of the Secure attribute for the slider cookie. Valid values:
    * 
-   * - **0 (default)**: disabled.
+   * - **0** (default): Disabled.
    * 
-   * - **1**: enabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 0
@@ -81,9 +139,14 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
   acwV3SecureStatus?: number;
   /**
    * @remarks
+   * The aggregated configuration of cookie attributes.
+   */
+  cookieConfig?: ModifyDefenseResourceXffRequestCookieConfig;
+  /**
+   * @remarks
    * The list of specified header fields.
    * 
-   * > The first IP address in the specified header field is used as the client source IP address to prevent XFF spoofing. If multiple headers are specified, the system attempts to obtain the source IP address from the headers in order. If the first header does not contain an IP address, the system tries the second header, and so on. If none of the specified headers contain an IP address, the first IP address in the X-Forwarded-For header is used.
+   * > The first IP address in the specified header field is used as the source IP address of the client to prevent X-Forwarded-For (XFF) spoofing. If multiple headers are specified, the system attempts to obtain the source IP address in sequence. If the first header does not contain an IP address, the system checks the second header, and so on. If no IP address is found in any of the specified headers, the first IP address in the X-Forwarded-For header is used.
    */
   customHeaders?: string[];
   /**
@@ -100,7 +163,7 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -114,7 +177,7 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
    * @remarks
    * The name of the protected object.
    * 
-   * > The protected object must have been added to WAF. You can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the name of the protected object.
+   * > The protected object must be added to WAF. You can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the name of the protected object.
    * 
    * This parameter is required.
    * 
@@ -137,11 +200,11 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
   responseHeaders?: ModifyDefenseResourceXffRequestResponseHeaders[];
   /**
    * @remarks
-   * Specifies whether a Layer 7 proxy (Anti-DDoS Pro, CDN, or similar) is deployed in front of WAF. Valid values:
+   * Specifies whether a Layer 7 proxy, such as Anti-DDoS or CDN, is enabled before WAF. Valid values:
    * 
-   * - **0 (default)**: No Layer 7 proxy is deployed.
+   * - **0** (default): The proxy is disabled.
    * 
-   * - **1**: A Layer 7 proxy is deployed.
+   * - **1**: The proxy is enabled.
    * 
    * This parameter is required.
    * 
@@ -154,6 +217,7 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
       acwCookieStatus: 'AcwCookieStatus',
       acwSecureStatus: 'AcwSecureStatus',
       acwV3SecureStatus: 'AcwV3SecureStatus',
+      cookieConfig: 'CookieConfig',
       customHeaders: 'CustomHeaders',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
@@ -169,6 +233,7 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
       acwCookieStatus: 'number',
       acwSecureStatus: 'number',
       acwV3SecureStatus: 'number',
+      cookieConfig: ModifyDefenseResourceXffRequestCookieConfig,
       customHeaders: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       regionId: 'string',
@@ -180,6 +245,9 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.cookieConfig && typeof (this.cookieConfig as any).validate === 'function') {
+      (this.cookieConfig as any).validate();
+    }
     if(Array.isArray(this.customHeaders)) {
       $dara.Model.validateArray(this.customHeaders);
     }

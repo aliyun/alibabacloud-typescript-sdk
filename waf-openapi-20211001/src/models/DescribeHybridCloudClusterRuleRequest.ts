@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** The hybrid cloud cluster ID.
+   * **[Deprecated]** The ID of the hybrid cloud cluster.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   clusterId?: number;
   /**
    * @remarks
-   * The cluster rule resource ID.
+   * The ID of the cluster rule resource.
    * 
    * @example
    * hdbc-clusterrule-*******m0w
@@ -25,7 +25,7 @@ export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,11 +35,11 @@ export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -56,7 +56,7 @@ export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   /**
    * @remarks
    * **[Deprecated]** The rule type. Valid values:
-   * - **pullin**: cluster traffic redirection
+   * - **pullin**: cluster traffic diversion
    * 
    * @example
    * pullin

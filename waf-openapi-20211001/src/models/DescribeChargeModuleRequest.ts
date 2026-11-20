@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChargeModuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The pricing unit.
+   * The billing unit.
    * 
    * @example
    * SeCU
@@ -13,8 +13,8 @@ export class DescribeChargeModuleRequest extends $dara.Model {
   chargeUnit?: string;
   /**
    * @remarks
-   * The billing type of the instance. Valid values:
-   * - **POSTPAY**: pay-as-you-go WAF instance.
+   * The billing method of the instance. Valid values:
+   * - **POSTPAY**: pay-as-you-go WAF instances.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class DescribeChargeModuleRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -36,7 +36,7 @@ export class DescribeChargeModuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

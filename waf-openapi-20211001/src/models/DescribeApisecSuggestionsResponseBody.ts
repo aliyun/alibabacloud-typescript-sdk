@@ -29,10 +29,10 @@ export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
   suggestId?: string;
   /**
    * @remarks
-   * The content of the protection suggestion rule, which is a string converted from a JSON object constructed with a series of parameters. The parameters include:
+   * The content of the protection suggestion rule. The content is a JSON character string that consists of the following parameters:
    * - **event_tags**: the event type.
    * - **black_iplist**: the IP blacklist.
-   * - **ip_baseline**: the IP list.
+   * - **ip_baseline**: the IP address list.
    * - **freq_baseline**: the throttling frequency information.
    * - **client_id_baseline**: the client information.
    * - **country_baseline**: the country information.
@@ -54,7 +54,7 @@ export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
    * - **WhiteIPRule**: IP whitelist rule.
    * - **RateLimitRule**: throttling rule.
    * - **ClientRule**: client rule.
-   * - **GeoRule**: geo-blocking rule.
+   * - **GeoRule**: region rule.
    * - **SensitiveRule**: sensitive information rule.
    * - **UnauthRule**: authentication rule.
    * 

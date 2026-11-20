@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara.Model {
   /**
    * @remarks
-   * The cluster rule resource ID.
+   * The ID of the cluster rule resource.
    * 
    * @example
    * hdbc-clusterrule-2m*****m0w
@@ -13,15 +13,15 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
   clusterRuleResourceId?: string;
   /**
    * @remarks
-   * The traffic redirection rule configuration:
+   * The traffic diversion rule configuration:
    * 
-   * - **check_mode**: the mode selection. Valid values:
-   *   - **all**: full traffic redirection
-   *   - **part**: partial traffic redirection
-   * - **type**: the rule matching type. Valid values:
+   * - **check_mode**: The mode selection. Valid values:
+   *   - **all**: full traffic diversion
+   *   - **part**: specified partial traffic diversion
+   * - **type**: The rule match type. Valid values:
    *   - **exact**: exact match
    *   - **regex**: regular expression
-   * - **substance**: the rule value
+   * - **substance**: The rule value.
    * 
    * @example
    * {\\"check_mode\\":\\"all\\",\\"exclude\\":{\\"exact\\":[],\\"regex\\":[]}}
@@ -31,9 +31,9 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
    * @remarks
    * The rule status. Valid values:
    * 
-   * - **on**: enabled.
+   * - **on**: Enabled.
    * 
-   * - **off**: disabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -43,7 +43,7 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
    * @remarks
    * The rule type. Valid values:
    * 
-   * - pullin: traffic redirection rule
+   * - pullin: traffic diversion rule
    * 
    * @example
    * pullin

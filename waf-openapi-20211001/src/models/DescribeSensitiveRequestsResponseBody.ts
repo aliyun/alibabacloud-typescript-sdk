@@ -77,9 +77,9 @@ export class DescribeSensitiveRequestsResponseBodyData extends $dara.Model {
   clientIP?: string;
   /**
    * @remarks
-   * The assessment result. Valid values:
-   * - **leak**: a leak risk exists.
-   * - **none**: no leak risk exists.
+   * The evaluation result. Valid values:
+   * - **leak**: A leakage risk exists.
+   * - **none**: No leakage risk exists.
    * 
    * @example
    * leak
@@ -170,7 +170,7 @@ export class DescribeSensitiveRequestsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 10

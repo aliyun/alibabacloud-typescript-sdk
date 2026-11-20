@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
   /**
    * @remarks
-   * The time when the export task was created. The value is a UNIX timestamp (UTC). Unit: seconds.
+   * The time when the export task was created. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1725604852
@@ -13,7 +13,7 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * file_16109541456445334c0f01d9a7444e0e908***.csv
@@ -43,7 +43,7 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
    * 
    * - **exporting**: The export is in progress.
    * 
-   * - **completed**: The export is complete.
+   * - **completed**: The export succeeded.
    * 
    * @example
    * completed
@@ -53,11 +53,11 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
    * @remarks
    * The type of the export task. Valid values:
    * 
-   * - **apisec_api**: API asset task.
+   * - **apisec_api**: API asset task
    * 
-   * - **apisec_abnormal**: API risk task.
+   * - **apisec_abnormal**: API risk task
    * 
-   * - **apisec_event**: API security event task.
+   * - **apisec_event**: API security event task
    * 
    * @example
    * apisec_api
@@ -102,7 +102,7 @@ export class DescribeApiExportsResponseBody extends $dara.Model {
   apiExports?: DescribeApiExportsResponseBodyApiExports[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D9532525-E885-54E7-A178-D5554D563AFB

@@ -8,10 +8,8 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
    * The log delivery type. Valid values:
    * 
    * - **sls**: Simple Log Service.
-   * 
-   * - **kafka**: Kafka.
-   * 
-   * - **syslog**: Syslog.
+   * - **kafka**: External delivery to Kafka.
+   * - **syslog**: External delivery to Syslog.
    * 
    * This parameter is required.
    * 
@@ -21,9 +19,9 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * Instance ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,9 +33,9 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +43,7 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protected object whose log field configuration you want to query.
+   * The protected object to query.
    * 
    * This parameter is required.
    * 
@@ -55,7 +53,7 @@ export class DescribeResourceLogFieldConfigRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the WAF instance belongs.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

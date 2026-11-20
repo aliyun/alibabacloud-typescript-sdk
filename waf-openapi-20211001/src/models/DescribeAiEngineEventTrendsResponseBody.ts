@@ -65,7 +65,7 @@ export class DescribeAiEngineEventTrendsResponseBodyPointsRiskCounts extends $da
 export class DescribeAiEngineEventTrendsResponseBodyPoints extends $dara.Model {
   /**
    * @remarks
-   * The number of events first discovered in the time period.
+   * The number of events first discovered within the time period.
    * 
    * @example
    * 1
@@ -73,12 +73,12 @@ export class DescribeAiEngineEventTrendsResponseBodyPoints extends $dara.Model {
   eventCount?: number;
   /**
    * @remarks
-   * The number of events counted by risk level in the time period.
+   * The number of events within the time period, aggregated by risk level.
    */
   riskCounts?: DescribeAiEngineEventTrendsResponseBodyPointsRiskCounts;
   /**
    * @remarks
-   * The start time of the statistical period. The time is in the UNIX timestamp format and accurate to milliseconds.
+   * The start time of the statistical period in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1792973400000
@@ -117,11 +117,11 @@ export class DescribeAiEngineEventTrendsResponseBody extends $dara.Model {
    * @remarks
    * The aggregation interval, which is automatically selected based on the query time range. Valid values:
    * 
-   * - **1m**: 1 minute.
-   * - **5m**: 5 minutes.
-   * - **15m**: 15 minutes.
-   * - **1h**: 1 hour.
-   * - **1d**: 1 day.
+   * - **1m**: 1 minute
+   * - **5m**: 5 minutes
+   * - **15m**: 15 minutes
+   * - **1h**: 1 hour
+   * - **1d**: 1 day
    * 
    * @example
    * 1m
@@ -129,7 +129,7 @@ export class DescribeAiEngineEventTrendsResponseBody extends $dara.Model {
   aggregateInterval?: string;
   /**
    * @remarks
-   * The time series data of events counted by the first discovery time, sorted in ascending order of time.
+   * The time series data of events aggregated by first discovery time, sorted in ascending order of time.
    */
   points?: DescribeAiEngineEventTrendsResponseBodyPoints[];
   /**

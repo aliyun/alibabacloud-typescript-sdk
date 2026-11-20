@@ -7,7 +7,7 @@ export class DescribeDomainUsedPortsRequest extends $dara.Model {
    * @remarks
    * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeDomainUsedPortsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region to which the WAF instance belongs. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

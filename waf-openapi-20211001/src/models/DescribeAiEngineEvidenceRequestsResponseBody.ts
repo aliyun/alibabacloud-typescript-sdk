@@ -90,7 +90,7 @@ export class DescribeAiEngineEvidenceRequestsResponseBodyItems extends $dara.Mod
   attackSources?: DescribeAiEngineEvidenceRequestsResponseBodyItemsAttackSources[];
   /**
    * @remarks
-   * The evidence ID. The value can contain up to 64 ASCII characters.
+   * The evidence ID.
    * 
    * @example
    * EVD-20241025-001
@@ -116,15 +116,15 @@ export class DescribeAiEngineEvidenceRequestsResponseBodyItems extends $dara.Mod
    * @remarks
    * The evidence impact tag. Valid values:
    * 
-   * - **block**: The request is blocked.
+   * - **block**: Indicates that the request is blocked.
    * 
-   * - **challenge**: The request is challenged.
+   * - **challenge**: Indicates that the request is challenged.
    * 
-   * - **monitor**: The request is monitored.
+   * - **monitor**: Indicates that the request is monitored.
    * 
-   * - **bypass**: The request is suspected to be a bypass.
+   * - **bypass**: Indicates a suspected bypass.
    * 
-   * - **attempt**: The request is a reconnaissance probe.
+   * - **attempt**: Indicates reconnaissance or probing.
    * 
    * @example
    * bypass
@@ -140,7 +140,7 @@ export class DescribeAiEngineEvidenceRequestsResponseBodyItems extends $dara.Mod
   method?: string;
   /**
    * @remarks
-   * The ID of the associated node. This ID corresponds to the NodeId in the node list.
+   * The ID of the associated node. This corresponds to the NodeId in the node list.
    * 
    * @example
    * node-109-04
@@ -148,7 +148,7 @@ export class DescribeAiEngineEvidenceRequestsResponseBodyItems extends $dara.Mod
   nodeId?: string;
   /**
    * @remarks
-   * The masked request path.
+   * The masked path of the request.
    * 
    * @example
    * /api/orders/query
@@ -164,7 +164,7 @@ export class DescribeAiEngineEvidenceRequestsResponseBodyItems extends $dara.Mod
   requestTime?: number;
   /**
    * @remarks
-   * The ID of the protected object to which the request belongs.
+   * The protected object to which the request belongs.
    * 
    * @example
    * www.example.com
@@ -172,10 +172,10 @@ export class DescribeAiEngineEvidenceRequestsResponseBodyItems extends $dara.Mod
   resource?: string;
   /**
    * @remarks
-   * Specifies whether the request is suspected to be a bypass. Valid values:
+   * Specifies whether the request is a suspected bypass. Valid values:
    * 
-   * - **1**: The request is suspected to be a bypass.
-   * - **0**: The request is not a bypass.
+   * - **1**: Indicates a suspected bypass.
+   * - **0**: Indicates that the request is not a bypass.
    * 
    * @example
    * 1
@@ -183,7 +183,7 @@ export class DescribeAiEngineEvidenceRequestsResponseBodyItems extends $dara.Mod
   suspectedBypass?: number;
   /**
    * @remarks
-   * The trace ID of the original request. The value can contain up to 128 ASCII characters.
+   * The trace ID of the original request.
    * 
    * @example
    * trace-20241025-109-04
@@ -252,7 +252,7 @@ export class DescribeAiEngineEvidenceRequestsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The pagination token for the next page. If a next page exists, this field returns a value.
-   * > If this parameter returns a value, it indicates that a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data of the next page until no value is returned, which indicates that all data is obtained.
+   * > If this parameter returns a value, a next page exists. You can use the returned **NextToken** as a request parameter to retrieve the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -268,7 +268,7 @@ export class DescribeAiEngineEvidenceRequestsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of evidence requests that meet the query conditions.
+   * The total number of evidence requests that meet the specified conditions.
    * 
    * @example
    * 1

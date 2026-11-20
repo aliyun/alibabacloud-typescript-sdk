@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHybridCloudGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-*****60D5EB0

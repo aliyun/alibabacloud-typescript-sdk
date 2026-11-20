@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAiEngineEvidenceRequestsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The event ID. The value can be up to 64 ASCII characters in length.
+   * The event ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeAiEngineEvidenceRequestsShrinkRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The filter conditions. Exact match is used, and multiple conditions are connected by the AND operator. The value is a JSON object. Property names use camelCase, and property values are strings.
+   * The filter conditions. Exact match is used, and multiple conditions are connected by the AND logical operator.
    * 
    * @example
    * {"suspectedBypass":"1","httpStatus":"500"}
@@ -35,7 +35,7 @@ export class DescribeAiEngineEvidenceRequestsShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The response language.
    * 
    * @example
    * en
@@ -43,7 +43,7 @@ export class DescribeAiEngineEvidenceRequestsShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -51,7 +51,7 @@ export class DescribeAiEngineEvidenceRequestsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
+   * The pagination token for the next page. The value is the **NextToken** parameter value returned by the previous API call. You do not need to specify this parameter for the first query.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -83,7 +83,7 @@ export class DescribeAiEngineEvidenceRequestsShrinkRequest extends $dara.Model {
   seachValue?: string;
   /**
    * @remarks
-   * The search key. This parameter is used together with SeachValue. Valid values: traceId, requestPath, sourceIp, sourceAccount, sourceFingerprint, and auto.
+   * The search key. This parameter is used together with SeachValue.
    * 
    * @example
    * traceId

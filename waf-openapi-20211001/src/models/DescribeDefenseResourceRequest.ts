@@ -7,7 +7,7 @@ export class DescribeDefenseResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) API operation to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the current WAF instance ID.
    * 
    * @example
    * waf_v3prepaid_public_cn-4xl****i60i
@@ -17,7 +17,7 @@ export class DescribeDefenseResourceRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
    * - **ap-southeast-1**: outside the Chinese mainland.
    * 
@@ -27,7 +27,7 @@ export class DescribeDefenseResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object to query. You can set this parameter to precisely query a protected object that has been added to WAF.
+   * The name of the protected object to query. You can set this parameter to accurately query the protected objects that are added to WAF.
    * 
    * This parameter is required.
    * 

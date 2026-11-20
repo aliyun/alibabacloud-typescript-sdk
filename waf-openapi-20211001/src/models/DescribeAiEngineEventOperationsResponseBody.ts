@@ -17,7 +17,7 @@ export class DescribeAiEngineEventOperationsResponseBodyItems extends $dara.Mode
   fromStatus?: string;
   /**
    * @remarks
-   * The time of the event operation. The time is in the UNIX timestamp format. Unit: milliseconds.
+   * The event operation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1792973400000
@@ -86,7 +86,7 @@ export class DescribeAiEngineEventOperationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for querying the next page. If a next page exists, this field returns a value.
+   * The pagination token. If a next page exists, this field returns a value.
    * > If this parameter returns a value, it indicates that a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page until no value is returned, which indicates that all data is obtained.
    * 
    * @example

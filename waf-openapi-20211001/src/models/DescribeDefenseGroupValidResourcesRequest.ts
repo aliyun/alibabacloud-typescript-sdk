@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseGroupValidResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the defense group to query.
-   * 
-   * > Leave this parameter empty to query for protected objects that can be associated with a new defense group.
+   * The name of the protection group to query.
+   * > If you do not specify this parameter, this operation queries the protection objects that can be associated with a protection group when you create the protection group.
    * 
    * @example
    * group221
@@ -15,9 +14,9 @@ export class DescribeDefenseGroupValidResourcesRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +26,7 @@ export class DescribeDefenseGroupValidResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the current page returned by paging in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -55,7 +54,7 @@ export class DescribeDefenseGroupValidResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object that you want to use as a filter for the query results.
+   * The protection object to query.
    * 
    * @example
    * example.aliyun-waf

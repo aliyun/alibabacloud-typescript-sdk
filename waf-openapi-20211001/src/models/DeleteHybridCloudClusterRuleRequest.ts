@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHybridCloudClusterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource ID of the cluster rule.
+   * The ID of the cluster rule resource.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DeleteHybridCloudClusterRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

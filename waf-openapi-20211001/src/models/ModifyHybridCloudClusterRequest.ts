@@ -7,8 +7,8 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
    * @remarks
    * The network access mode. Valid values:
    * 
-   * - **internet**: public network access.
-   * - **vpc**: Express Connect private network access.
+   * - **internet**: Internet access.
+   * - **vpc**: Private network access over Express Connect.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The list of available ports for the HTTP protocol. The value is a string. If multiple ports are specified, they are returned in the format of **port1,port2,port3**.
+   * The list of available ports for the HTTP protocol. The value is a string. For multiple ports, use the **port1,port2,port3** format.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   httpPorts?: string;
   /**
    * @remarks
-   * The list of available ports for the HTTPS protocol. The value is a string. If multiple ports are specified, they are returned in the format of **port1,port2,port3**.
+   * The list of available ports for the HTTPS protocol. The value is a string. For multiple ports, use the **port1,port2,port3** format.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The log fields to be returned.
+   * The log fields that are not returned.
    * 
    * @example
    * log_example
@@ -101,8 +101,8 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
    * @remarks
    * The proxy gateway mode. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * off
@@ -111,8 +111,8 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster type. Valid values:
-   * - **cname**: reverse proxy cluster.
-   * - **service**: service-based cluster.
+   * - **cname**: Reverse proxy cluster.
+   * - **service**: Service cluster.
    * 
    * @example
    * service
@@ -122,9 +122,9 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
+   * - **cn-hangzhou**: The Chinese mainland.
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * - **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -132,7 +132,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
    * remarkExample
@@ -169,8 +169,8 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The rule status. Valid values:
-   * - **on**: enabled.
-   * - **off**: disabled.
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * off
@@ -180,7 +180,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
    * @remarks
    * The rule type. Valid values:
    * 
-   * bypass: bypasses security checks and directly allows the request.
+   * bypass: Skips security checks and directly allows traffic.
    * 
    * @example
    * bypass

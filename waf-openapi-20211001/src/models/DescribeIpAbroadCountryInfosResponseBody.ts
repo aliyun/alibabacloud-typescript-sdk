@@ -69,7 +69,7 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.M
   countryName?: string;
   /**
    * @remarks
-   * The list of overseas region information.
+   * The list of regions outside China.
    */
   regions?: DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions[];
   static names(): { [key: string]: string } {
@@ -105,12 +105,12 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.M
 export class DescribeIpAbroadCountryInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of overseas country information.
+   * The list of countries outside China.
    */
   abroadInfos?: DescribeIpAbroadCountryInfosResponseBodyAbroadInfos[];
   /**
    * @remarks
-   * The number of entries to return on each page for a paging query. Valid values: 1 to 500. Default value: 20.
+   * The number of entries to return on each page in a paging query. Valid values: 1 to 500. Default value: 20.
    * 
    * @example
    * 20

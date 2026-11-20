@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAiEngineEventResponseBodyAttackSourcesSources extends $dara.Model {
   /**
    * @remarks
-   * The display attribute of the attack source, such as the region code.
+   * The display attribute of the source, such as the region code.
    * 
    * @example
    * CN-510100
@@ -13,7 +13,7 @@ export class DescribeAiEngineEventResponseBodyAttackSourcesSources extends $dara
   attribute?: string;
   /**
    * @remarks
-   * The value of the attack source. If the attack source type is IP address (**Type** is **ip**), the value is an IP address.
+   * The value of the attack source. If the attack source type is IP address (**Type** is set to **ip**), this parameter indicates the IP address.
    * 
    * @example
    * 203.0.113.109
@@ -45,14 +45,14 @@ export class DescribeAiEngineEventResponseBodyAttackSourcesSources extends $dara
 export class DescribeAiEngineEventResponseBodyAttackSources extends $dara.Model {
   /**
    * @remarks
-   * The list of attack sources of this type.
+   * The list of sources of this type.
    */
   sources?: DescribeAiEngineEventResponseBodyAttackSourcesSources[];
   /**
    * @remarks
    * The type of the attack source. Valid values:
    * 
-   * - **ip**: IP-based attack source.
+   * - **ip**: IP address.
    * 
    * @example
    * ip
@@ -87,7 +87,7 @@ export class DescribeAiEngineEventResponseBodyAttackSources extends $dara.Model 
 export class DescribeAiEngineEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of attack source groups for the event.
+   * The grouped list of attack sources for the event.
    */
   attackSources?: DescribeAiEngineEventResponseBodyAttackSources[];
   /**
@@ -100,7 +100,7 @@ export class DescribeAiEngineEventResponseBody extends $dara.Model {
   bypassRequestCount?: number;
   /**
    * @remarks
-   * The list of domain names involved in the event.
+   * The domain names involved in the event.
    */
   domains?: string[];
   /**
@@ -183,7 +183,7 @@ export class DescribeAiEngineEventResponseBody extends $dara.Model {
   relatedEventIds?: string;
   /**
    * @remarks
-   * The event analysis report in the specified language, in Markdown format.
+   * The event analysis report in Markdown format in the specified language.
    * 
    * @example
    * # Event analysis report
@@ -201,20 +201,20 @@ export class DescribeAiEngineEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of IDs of the protected objects involved in the event.
+   * The IDs of the protected objects involved in the event.
    */
   resources?: string[];
   /**
    * @remarks
    * The current risk level. Valid values:
    * 
-   * - **critical**: Urgent.
+   * - **critical**: Critical.
    * 
-   * - **high**: High-risk.
+   * - **high**: High.
    * 
-   * - **medium**: Medium-risk.
+   * - **medium**: Medium.
    * 
-   * - **low**: Low-risk.
+   * - **low**: Low.
    * 
    * @example
    * high

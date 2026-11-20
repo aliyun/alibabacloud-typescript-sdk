@@ -13,7 +13,7 @@ export class DescribeAiEngineEventsResponseBodyItemsAttackSourcesSources extends
   attribute?: string;
   /**
    * @remarks
-   * The value of the attack source. If the attack source type is IP address (**Type** is set to **ip**), the value is an IP address.
+   * The value of the attack source. If the attack source type is IP address (the **Type** parameter is set to **ip**), the value is an IP address.
    * 
    * @example
    * 203.0.113.109
@@ -45,7 +45,7 @@ export class DescribeAiEngineEventsResponseBodyItemsAttackSourcesSources extends
 export class DescribeAiEngineEventsResponseBodyItemsAttackSources extends $dara.Model {
   /**
    * @remarks
-   * The list of attack sources of this type.
+   * The list of attack sources of the specified type.
    */
   sources?: DescribeAiEngineEventsResponseBodyItemsAttackSourcesSources[];
   /**
@@ -92,7 +92,7 @@ export class DescribeAiEngineEventsResponseBodyItems extends $dara.Model {
   attackSources?: DescribeAiEngineEventsResponseBodyItemsAttackSources[];
   /**
    * @remarks
-   * The number of deduplicated evidence requests that are suspected to have bypassed protection in the event.
+   * The statistics of suspected bypass evidence requests for the event.
    * 
    * @example
    * 1
@@ -129,7 +129,7 @@ export class DescribeAiEngineEventsResponseBodyItems extends $dara.Model {
   eventNodeCount?: number;
   /**
    * @remarks
-   * The number of deduplicated evidence requests for the event.
+   * The statistics of evidence requests for the event.
    * 
    * @example
    * 200
@@ -149,7 +149,7 @@ export class DescribeAiEngineEventsResponseBodyItems extends $dara.Model {
    * 
    * - **unhandled**: Unhandled.
    * 
-   * - **handling**: Handling.
+   * - **handling**: In progress.
    * 
    * - **handled**: Handled.
    * 
@@ -167,7 +167,7 @@ export class DescribeAiEngineEventsResponseBodyItems extends $dara.Model {
   lastSeenAt?: number;
   /**
    * @remarks
-   * The IDs of related events. Multiple IDs are separated by commas (,).
+   * The IDs of the related events. Multiple IDs are separated by commas (,).
    * 
    * @example
    * EVT-0bda6****6b5c174,EVT-0bda6****6b5c175
@@ -264,8 +264,8 @@ export class DescribeAiEngineEventsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for querying the next page. If a next page exists, this field returns a value.
-   * > If this parameter returns a value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this operation until no value is returned, which indicates that all data is obtained.
+   * The token for the next page. If a next page exists, this field returns a value.
+   * > If this parameter returns a value, a next page exists. You can use the returned **NextToken** as a request parameter to retrieve the next page until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * token-demo

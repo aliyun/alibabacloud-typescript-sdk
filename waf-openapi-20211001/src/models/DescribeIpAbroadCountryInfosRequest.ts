@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpAbroadCountryInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * The overseas region to query. You can perform a fuzzy match by using the region ID or the region name in Chinese or English.
+   * The region outside China to query. Fuzzy match is supported by region ID or region name in Chinese or English.
    * 
    * @example
    * US-CA
@@ -13,7 +13,7 @@ export class DescribeIpAbroadCountryInfosRequest extends $dara.Model {
   abroadRegion?: string;
   /**
    * @remarks
-   * The overseas country to query. You can perform a fuzzy match by using the country ID or the country name in Chinese or English.
+   * The country outside China to query. Fuzzy match is supported by country ID or country name in Chinese or English.
    * 
    * @example
    * US
@@ -23,7 +23,7 @@ export class DescribeIpAbroadCountryInfosRequest extends $dara.Model {
    * @remarks
    * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DescribeIpAbroadCountryInfosRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The number of entries to return on each page for a paging query. Valid values: 1 to 500. Default value: 20.
+   * The number of entries to return on each page in a paging query. Valid values: 1 to 500. Default value: 20.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class DescribeIpAbroadCountryInfosRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The paging token that is used to query the next page. Set the value to the **NextToken** value returned from the previous API call. You do not need to specify this parameter for the first call.
+   * The pagination token for the next query. Set the value to the **NextToken** value returned from the previous API invoke. You do not need to specify this parameter for the first query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****

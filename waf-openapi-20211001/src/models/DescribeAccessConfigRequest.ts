@@ -6,6 +6,7 @@ export class DescribeAccessConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the configuration item to query. Valid values:
+   * 
    * - **auto_access**: Specifies whether to enable the automatic access feature.
    * 
    * This parameter is required.
@@ -16,9 +17,9 @@ export class DescribeAccessConfigRequest extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * The WAF instance ID.
+   * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the current WAF instance ID.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class DescribeAccessConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

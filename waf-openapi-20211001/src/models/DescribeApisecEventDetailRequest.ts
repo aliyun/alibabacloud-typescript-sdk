@@ -6,7 +6,7 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
    * 
    * @example
    * 428
@@ -14,7 +14,7 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of detailed information about the security event.
+   * The type of details for the security event.
    * 
    * @example
    * event_info
@@ -32,7 +32,10 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The dimension of the security event.
+   * The scope of the security event. Valid values:
+   * - **ip**: IP security events. This is the default value.
+   * 
+   * - **account**: account security events.
    * 
    * @example
    * ip
@@ -40,9 +43,9 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   eventScope?: string;
   /**
    * @remarks
-   * Instance ID of the WAF instance.
+   * The WAF instance ID.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the current WAF instance ID.
    * 
    * This parameter is required.
    * 
@@ -52,7 +55,7 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

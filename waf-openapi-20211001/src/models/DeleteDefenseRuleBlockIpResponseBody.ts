@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDefenseRuleBlockIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9D11AC3A-A10C-56E7-A342-E87EC892BAE2
