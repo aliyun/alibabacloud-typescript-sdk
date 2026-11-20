@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetScheduledBackupConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the configuration is effective. Valid values: - **true**: Effective. - **false**: Not effective.
+   * 
    * @example
    * true
    */
   enabled?: number;
   /**
+   * @remarks
+   * The task parameter.
+   * 
    * @example
    * {"schedule":"0 10 * * 1,2","instance_id":"hgprecn-cn-lbj3dfgog004","week":"1,2","hour":10,"data_keep_quantity":3,"type":"periodical","enabled":true}
    */
   taskParameter?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * backup
    */
@@ -44,18 +53,31 @@ export class GetScheduledBackupConfigResponseBodyData extends $dara.Model {
 }
 
 export class GetScheduledBackupConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetScheduledBackupConfigResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -69,6 +91,9 @@ export class GetScheduledBackupConfigResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

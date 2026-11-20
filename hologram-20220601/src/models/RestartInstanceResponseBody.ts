@@ -5,25 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -34,7 +16,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * 404
+   * null
    */
   errorCode?: string;
   /**
@@ -42,7 +24,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Internal server error.
+   * null
    */
   errorMessage?: string;
   /**
@@ -55,7 +37,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 36291497-CDB0-53DC-8CD7-762E054F57A6
@@ -63,7 +45,7 @@ export class RestartInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result, which indicates whether the request was successful.
+   * The request result. Indicates whether an exception occurred during the request, which is independent of the business logic.
    * 
    * @example
    * true

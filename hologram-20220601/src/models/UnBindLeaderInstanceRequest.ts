@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnBindLeaderInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

@@ -13,7 +13,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * new resource group id
+   * The ID of the new resource group.
    * 
    * @example
    * rg-acfmxwerqwerasfd

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DiscardUpgradeResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the upgrade failure.
+   * 
    * @example
    * null
    */
   failReason?: string;
   /**
+   * @remarks
+   * The reason key.
+   * 
    * @example
    * null
    */
   reasonKey?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * true
    */
@@ -44,18 +53,31 @@ export class DiscardUpgradeResponseBodyData extends $dara.Model {
 }
 
 export class DiscardUpgradeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   data?: DiscardUpgradeResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -69,6 +91,9 @@ export class DiscardUpgradeResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. This parameter indicates whether an exception occurred during the request and is independent of the business logic.
+   * 
    * @example
    * true
    */

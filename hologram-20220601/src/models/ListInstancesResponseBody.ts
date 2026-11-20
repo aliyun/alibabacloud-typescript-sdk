@@ -5,25 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyInstanceListEndpoints extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the endpoint is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Specifies whether the endpoint is enabled.
    * 
    * @example
    * true
@@ -40,60 +22,6 @@ export class ListInstancesResponseBodyInstanceListEndpoints extends $dara.Model 
   /**
    * @remarks
    * The network type.
-   * 
-   * Valid values:
-   * 
-   * *   VPCSingleTunnel
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     virtual private cloud (VPC)
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Intranet
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     internal network
-   * 
-   *     <!-- -->
-   * 
-   * *   VPCAnyTunnel
-   * 
-   *     <!-- -->
-   * 
-   *     : This value is not supported by new instances
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Internet
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     Internet
-   * 
-   *     <!-- -->
-   * 
-   *     .
    * 
    * @example
    * Internet
@@ -117,7 +45,7 @@ export class ListInstancesResponseBodyInstanceListEndpoints extends $dara.Model 
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the instance belongs.
+   * The ID of the VPC-connected instance.
    * 
    * @example
    * hgpostcn-cn-wwo3665tx004-frontend-st
@@ -197,7 +125,7 @@ export class ListInstancesResponseBodyInstanceListTags extends $dara.Model {
 export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The commodity code, which is the same as that on the Billing Management page.
+   * The commodity code, which is consistent with the product detail code in the User Center.
    * 
    * @example
    * hologram_postpay_public_cn
@@ -205,7 +133,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The creation time. The time is displayed in UTC and formatted according to ISO 8601.
    * 
    * @example
    * 2022-12-16T02:24:05Z
@@ -213,30 +141,19 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether lakehouse acceleration is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Specifies whether data lakehouse acceleration is enabled.
    * 
    * @example
    * true
    */
   enableHiveAccess?: string;
+  /**
+   * @remarks
+   * Specifies whether SSL is enabled.
+   * 
+   * @example
+   * true
+   */
   enableSSL?: string;
   /**
    * @remarks
@@ -245,7 +162,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   endpoints?: ListInstancesResponseBodyInstanceListEndpoints[];
   /**
    * @remarks
-   * The time when the cluster expires.
+   * The expiration time. The time is displayed in UTC and formatted according to ISO 8601.
    * 
    * @example
    * 2023-05-04T16:00:00.000Z
@@ -253,37 +170,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   expirationTime?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     pay-as-you-go
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   PrePaid
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     subscription
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * The billing method of the instance.
    * 
    * @example
    * PrePaid
@@ -299,7 +186,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * test_instance
@@ -307,41 +194,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The status of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Suspended
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Allocating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The instance status.
    * 
    * @example
    * Running
@@ -349,37 +202,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The type of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   Follower
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     read-only secondary instance
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Standard
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     normal instance
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * The instance type.
    * 
    * @example
    * Standard
@@ -387,13 +210,16 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the primary instance.
+   * The leader instance ID.
    * 
    * @example
    * hgprecn-cn-2r42sqvxm006
    */
   leaderInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -406,10 +232,19 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
    * rg-acfmvscak73zmby
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The storage type. Valid values:
+   * * redundant: 3AZ
+   * * local: 1AZ
+   * 
+   * @example
+   * redundant
+   */
   storageType?: string;
   /**
    * @remarks
-   * The reason for the suspension.
+   * The reason for suspension.
    * 
    * @example
    * Manual
@@ -417,18 +252,21 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   suspendReason?: string;
   /**
    * @remarks
-   * The tags that are added to the resource.
+   * The list of tags.
    */
   tags?: ListInstancesResponseBodyInstanceListTags[];
   /**
    * @remarks
-   * The version of the cluster.
+   * The instance version.
    * 
    * @example
    * 1.3.37
    */
   version?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -499,18 +337,18 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
-   * 404
+   * null
    */
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
-   * Internal server error.
+   * null
    */
   errorMessage?: string;
   /**
@@ -523,7 +361,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The instances.
+   * The list of instances.
    */
   instanceList?: ListInstancesResponseBodyInstanceList[];
   /**
@@ -536,7 +374,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

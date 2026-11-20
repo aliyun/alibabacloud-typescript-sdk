@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,7 +12,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._productId = "Hologram";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("hologram", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定主实例
+   * Associates a follower instance.
    * 
    * @param request - BindLeaderInstanceRequest
    * @param headers - map
@@ -69,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定主实例
+   * Associates a follower instance.
    * 
    * @param request - BindLeaderInstanceRequest
    * @returns BindLeaderInstanceResponse
@@ -130,7 +134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建db
+   * Creates a database.
    * 
    * @param request - CreateDatabaseRequest
    * @param headers - map
@@ -167,7 +171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建db
+   * Creates a database.
    * 
    * @param request - CreateDatabaseRequest
    * @returns CreateDatabaseResponse
@@ -179,7 +183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建外部db
+   * Creates an external database.
    * 
    * @param request - CreateExternalDatabaseRequest
    * @param headers - map
@@ -228,7 +232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建外部db
+   * Creates an external database.
    * 
    * @param request - CreateExternalDatabaseRequest
    * @returns CreateExternalDatabaseResponse
@@ -240,7 +244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a virtual warehouse.
+   * Creates a compute group.
    * 
    * @param request - CreateHoloWarehouseRequest
    * @param headers - map
@@ -281,7 +285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a virtual warehouse.
+   * Creates a compute group.
    * 
    * @param request - CreateHoloWarehouseRequest
    * @returns CreateHoloWarehouseResponse
@@ -293,28 +297,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Hologres instance.
+   * Creates an instance.
    * 
    * @remarks
-   * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-   * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
-   * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
-   * <!---->
-   *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
-   *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
-   *        cn-beijing: cn-beijing-i, cn-beijing-g
-   *        cn-zhangjiakou: cn-zhangjiakou-b
-   *        cn-shenzhen: cn-shenzhen-e
-   *        cn-hongkong: cn-hongkong-b
-   *        cn-shanghai-finance-1: cn-shanghai-finance-1z
-   *        ap-northeast-1: ap-northeast-1a
-   *        ap-southeast-1: ap-southeast-1c
-   *        ap-southeast-3: ap-southeast-3b
-   *        ap-southeast-5: ap-southeast-5b
-   *        ap-south-1: ap-south-1b
-   *        eu-central-1: eu-central-1a
-   *        us-east-1: us-east-1a
-   *        us-west-1: us-west-1b
+   * >Warning: This API operation incurs fees. Make sure that you fully understand the billing methods and pricing of Hologres before you call this operation.
+   * <props="china">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl"> - For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+   * - When you create a Hologres instance, you must specify the region and zone where the instance resides. A region may contain multiple zones, as follows:
+   *  ```
+   *     cn-hangzhou (Hangzhou): cn-hangzhou-h, cn-hangzhou-j, cn-hangzhou-k
+   *     cn-shanghai (Shanghai): cn-shanghai-e, cn-shanghai-f, cn-shanghai-l
+   *     cn-beijing (Beijing): cn-beijing-i, cn-beijing-g, cn-beijing-l
+   *     cn-zhangjiakou (Zhangjiakou): cn-zhangjiakou-b
+   *     cn-shenzhen (Shenzhen): cn-shenzhen-d, cn-shenzhen-f, cn-shenzhen-e
+   *     cn-wulanchabu (Ulanqab): cn-wulanchabu-a
+   *     cn-hongkong (Hong Kong): cn-hongkong-b, cn-hongkong-d
+   *     cn-shanghai-finance-1 (Shanghai Finance Cloud): cn-shanghai-finance-1z, cn-shanghai-finance-1f
+   *     cn-hangzhou-finance (Hangzhou Finance Cloud): cn-hangzhou-finance-k
+   *     cn-shenzhen-finance-1 (Shenzhen Finance Cloud): cn-shenzhen-finance-1d
+   *     ap-northeast-1 (Japan): ap-northeast-1a
+   *     ap-southeast-1 (Singapore): ap-southeast-1c, ap-southeast-1a
+   *     ap-southeast-3 (Kuala Lumpur): ap-southeast-3b
+   *     ap-southeast-5 (Jakarta): ap-southeast-5b
+   *     eu-central-1 (Frankfurt): eu-central-1a
+   *     us-east-1 (Silicon Valley): us-east-1a
+   *     us-west-1 (Virginia): us-west-1b
+   * ```
    * 
    * @param request - CreateInstanceRequest
    * @param headers - map
@@ -423,28 +431,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Hologres instance.
+   * Creates an instance.
    * 
    * @remarks
-   * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-   * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
-   * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
-   * <!---->
-   *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
-   *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
-   *        cn-beijing: cn-beijing-i, cn-beijing-g
-   *        cn-zhangjiakou: cn-zhangjiakou-b
-   *        cn-shenzhen: cn-shenzhen-e
-   *        cn-hongkong: cn-hongkong-b
-   *        cn-shanghai-finance-1: cn-shanghai-finance-1z
-   *        ap-northeast-1: ap-northeast-1a
-   *        ap-southeast-1: ap-southeast-1c
-   *        ap-southeast-3: ap-southeast-3b
-   *        ap-southeast-5: ap-southeast-5b
-   *        ap-south-1: ap-south-1b
-   *        eu-central-1: eu-central-1a
-   *        us-east-1: us-east-1a
-   *        us-west-1: us-west-1b
+   * >Warning: This API operation incurs fees. Make sure that you fully understand the billing methods and pricing of Hologres before you call this operation.
+   * <props="china">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl"> - For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+   * - When you create a Hologres instance, you must specify the region and zone where the instance resides. A region may contain multiple zones, as follows:
+   *  ```
+   *     cn-hangzhou (Hangzhou): cn-hangzhou-h, cn-hangzhou-j, cn-hangzhou-k
+   *     cn-shanghai (Shanghai): cn-shanghai-e, cn-shanghai-f, cn-shanghai-l
+   *     cn-beijing (Beijing): cn-beijing-i, cn-beijing-g, cn-beijing-l
+   *     cn-zhangjiakou (Zhangjiakou): cn-zhangjiakou-b
+   *     cn-shenzhen (Shenzhen): cn-shenzhen-d, cn-shenzhen-f, cn-shenzhen-e
+   *     cn-wulanchabu (Ulanqab): cn-wulanchabu-a
+   *     cn-hongkong (Hong Kong): cn-hongkong-b, cn-hongkong-d
+   *     cn-shanghai-finance-1 (Shanghai Finance Cloud): cn-shanghai-finance-1z, cn-shanghai-finance-1f
+   *     cn-hangzhou-finance (Hangzhou Finance Cloud): cn-hangzhou-finance-k
+   *     cn-shenzhen-finance-1 (Shenzhen Finance Cloud): cn-shenzhen-finance-1d
+   *     ap-northeast-1 (Japan): ap-northeast-1a
+   *     ap-southeast-1 (Singapore): ap-southeast-1c, ap-southeast-1a
+   *     ap-southeast-3 (Kuala Lumpur): ap-southeast-3b
+   *     ap-southeast-5 (Jakarta): ap-southeast-5b
+   *     eu-central-1 (Frankfurt): eu-central-1a
+   *     us-east-1 (Silicon Valley): us-east-1a
+   *     us-west-1 (Virginia): us-west-1b
+   * ```
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -456,7 +468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建手动备份
+   * Creates an instance backup.
    * 
    * @param request - CreateManualBackupRequest
    * @param headers - map
@@ -495,7 +507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建手动备份
+   * Creates an instance backup.
    * 
    * @param request - CreateManualBackupRequest
    * @returns CreateManualBackupResponse
@@ -507,7 +519,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Creates a model service that enables AI functions to invoke models and supports the creation of two types of models: Alibaba Cloud Model Studio models and Hologres AI nodes. If you use Hologres AI, you must separately purchase AI node resources.
+   * 
+   * @remarks
+   * Creating a model service requires multiple parameters. For model creation of Alibaba Cloud Model Studio models, invoke ListModelCatalog to query model parameters. For model creation of Hologres AI nodes, invoke GetAvailableModelsResource to query model parameters.
    * 
    * @param request - CreateModelServiceRequest
    * @param headers - map
@@ -580,7 +595,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Creates a model service that enables AI functions to invoke models and supports the creation of two types of models: Alibaba Cloud Model Studio models and Hologres AI nodes. If you use Hologres AI, you must separately purchase AI node resources.
+   * 
+   * @remarks
+   * Creating a model service requires multiple parameters. For model creation of Alibaba Cloud Model Studio models, invoke ListModelCatalog to query model parameters. For model creation of Hologres AI nodes, invoke GetAvailableModelsResource to query model parameters.
    * 
    * @param request - CreateModelServiceRequest
    * @returns CreateModelServiceResponse
@@ -592,7 +610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加用户
+   * Adds a RAM user or STS account to a Hologres instance as an instance account. After the account is added, you can log on to the instance by using the RAM or STS identity.
    * 
    * @param request - CreateUserRequest
    * @param headers - map
@@ -629,7 +647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加用户
+   * Adds a RAM user or STS account to a Hologres instance as an instance account. After the account is added, you can log on to the instance by using the RAM or STS identity.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -641,7 +659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建warehouse
+   * Creates a warehouse.
    * 
    * @param request - CreateWarehouseRequest
    * @param headers - map
@@ -688,7 +706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建warehouse
+   * Creates a warehouse.
    * 
    * @param request - CreateWarehouseRequest
    * @returns CreateWarehouseResponse
@@ -700,7 +718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分时弹性计划
+   * Creates a time-based elastic plan.
+   * 
+   * @remarks
+   * Creates a time-based elastic plan for a compute group of a specified Hologres instance. Before calling this operation, call ListWarehouses to obtain the compute group ID.
    * 
    * @param request - CreateWarehouseScheduleTaskRequest
    * @param headers - map
@@ -749,7 +770,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分时弹性计划
+   * Creates a time-based elastic plan.
+   * 
+   * @remarks
+   * Creates a time-based elastic plan for a compute group of a specified Hologres instance. Before calling this operation, call ListWarehouses to obtain the compute group ID.
    * 
    * @param request - CreateWarehouseScheduleTaskRequest
    * @returns CreateWarehouseScheduleTaskResponse
@@ -761,7 +785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除备份
+   * Deletes a backup.
    * 
    * @param request - DeleteBackupDataRequest
    * @param headers - map
@@ -794,7 +818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除备份
+   * Deletes a backup.
    * 
    * @param request - DeleteBackupDataRequest
    * @returns DeleteBackupDataResponse
@@ -806,7 +830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a virtual warehouse.
+   * Deletes a compute group.
    * 
    * @param request - DeleteHoloWarehouseRequest
    * @param headers - map
@@ -839,7 +863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a virtual warehouse.
+   * Deletes a compute group.
    * 
    * @param request - DeleteHoloWarehouseRequest
    * @returns DeleteHoloWarehouseResponse
@@ -851,12 +875,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Hologres instance.
+   * Releases an instance.
    * 
    * @remarks
-   * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-   * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
-   * *   You can delete only pay-as-you-go instances.
+   * >Warning: Before calling this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</warning>
+   * <props="china">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
+   * - Only pay-as-you-go instances can be released.
+   * <props="china">- To unsubscribe from a subscription instance, go to the Unsubscription page in the Alibaba Cloud Management Console. For more information, see [Unsubscribe from subscription instances](https://www.alibabacloud.com/help/en/hologres/product-overview/subscription).
    * 
    * @param request - DeleteInstanceRequest
    * @param headers - map
@@ -889,12 +915,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Hologres instance.
+   * Releases an instance.
    * 
    * @remarks
-   * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-   * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
-   * *   You can delete only pay-as-you-go instances.
+   * >Warning: Before calling this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</warning>
+   * <props="china">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
+   * - Only pay-as-you-go instances can be released.
+   * <props="china">- To unsubscribe from a subscription instance, go to the Unsubscription page in the Alibaba Cloud Management Console. For more information, see [Unsubscribe from subscription instances](https://www.alibabacloud.com/help/en/hologres/product-overview/subscription).
    * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
@@ -906,7 +934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型资源
+   * Deletes node resources. All models deployed on the node will be deleted and cannot be recovered.
    * 
    * @param request - DeleteModelResourceRequest
    * @param headers - map
@@ -939,7 +967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型资源
+   * Deletes node resources. All models deployed on the node will be deleted and cannot be recovered.
    * 
    * @param request - DeleteModelResourceRequest
    * @returns DeleteModelResourceResponse
@@ -951,7 +979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Deletes a model service.
    * 
    * @param request - DeleteModelServiceRequest
    * @param headers - map
@@ -984,7 +1012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Deletes a model service.
    * 
    * @param request - DeleteModelServiceRequest
    * @returns DeleteModelServiceResponse
@@ -996,7 +1024,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除计算组弹性计划
+   * Deletes an elastic plan for a compute group.
+   * 
+   * @remarks
+   * >Warning: Before calling this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+   * <props="china">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
+   * - Only pay-as-you-go instances can be released.
+   * <props="china">- To unsubscribe from a subscription instance, go to the Unsubscription Management page in the Alibaba Cloud Management Console. For more information, see [Unsubscribe from a subscription instance](https://www.alibabacloud.com/help/en/hologres/product-overview/subscription).
    * 
    * @param request - DeleteWarehouseScheduleTaskRequest
    * @param headers - map
@@ -1033,7 +1068,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除计算组弹性计划
+   * Deletes an elastic plan for a compute group.
+   * 
+   * @remarks
+   * >Warning: Before calling this operation, read the feature documentation to ensure that you fully understand the prerequisites and impacts.
+   * <props="china">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- After a Hologres instance is released, the data and objects in the instance cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
+   * - Only pay-as-you-go instances can be released.
+   * <props="china">- To unsubscribe from a subscription instance, go to the Unsubscription Management page in the Alibaba Cloud Management Console. For more information, see [Unsubscribe from a subscription instance](https://www.alibabacloud.com/help/en/hologres/product-overview/subscription).
    * 
    * @param request - DeleteWarehouseScheduleTaskRequest
    * @returns DeleteWarehouseScheduleTaskResponse
@@ -1045,7 +1087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停实例
+   * Lists all tags.
    * 
    * @param request - DescribeTagsRequest
    * @param headers - map
@@ -1082,7 +1124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停实例
+   * Lists all tags.
    * 
    * @param request - DescribeTagsRequest
    * @returns DescribeTagsResponse
@@ -1094,7 +1136,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭OpenAPI执行SQL功能
+   * Shuts down the ExecuteStatement API access for a specified Hologres instance.
+   * 
+   * @remarks
+   * Disables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is disabled, all ExecuteStatement calls return an error. You can call EnableExecuteStatement to re-enable it.
    * 
    * @param request - DisableExecuteStatementRequest
    * @param headers - map
@@ -1121,7 +1166,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭OpenAPI执行SQL功能
+   * Shuts down the ExecuteStatement API access for a specified Hologres instance.
+   * 
+   * @remarks
+   * Disables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is disabled, all ExecuteStatement calls return an error. You can call EnableExecuteStatement to re-enable it.
    * 
    * @param request - DisableExecuteStatementRequest
    * @returns DisableExecuteStatementResponse
@@ -1178,7 +1226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消执行计划
+   * Disables O&M logs.
    * 
    * @param request - DisableOperationEventRequest
    * @param headers - map
@@ -1211,7 +1259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消执行计划
+   * Disables O&M logs.
    * 
    * @param request - DisableOperationEventRequest
    * @returns DisableOperationEventResponse
@@ -1223,7 +1271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭SSL
+   * Disables SSL.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1248,7 +1296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭SSL
+   * Disables SSL.
    * @returns DisableSSLResponse
    */
   async disableSSL(instanceId: string): Promise<$_model.DisableSSLResponse> {
@@ -1258,7 +1306,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭服务账号
+   * Disables the service account.
+   * 
+   * @remarks
+   * Disables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is disabled, all ExecuteStatement calls return an error. You can call EnableExecuteStatement to re-enable it.
    * 
    * @param request - DisableSupportAccountRequest
    * @param headers - map
@@ -1291,7 +1342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭服务账号
+   * Disables the service account.
+   * 
+   * @remarks
+   * Disables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is disabled, all ExecuteStatement calls return an error. You can call EnableExecuteStatement to re-enable it.
    * 
    * @param request - DisableSupportAccountRequest
    * @returns DisableSupportAccountResponse
@@ -1303,7 +1357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭自动弹性
+   * Disables automatic elastic scaling.
    * 
    * @param request - DisableWarehouseAutoScaleRequest
    * @param headers - map
@@ -1336,7 +1390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭自动弹性
+   * Disables automatic elastic scaling.
    * 
    * @param request - DisableWarehouseAutoScaleRequest
    * @returns DisableWarehouseAutoScaleResponse
@@ -1348,7 +1402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消升级
+   * Cancels an upgrade. The cancel upgrade button is enabled only for tasks that have not started or are in the pre_check state. Once a task enters the backup state or a subsequent state, the upgrade cannot be canceled.
    * 
    * @param request - DiscardUpgradeRequest
    * @param headers - map
@@ -1381,7 +1435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消升级
+   * Cancels an upgrade. The cancel upgrade button is enabled only for tasks that have not started or are in the pre_check state. Once a task enters the backup state or a subsequent state, the upgrade cannot be canceled.
    * 
    * @param request - DiscardUpgradeRequest
    * @returns DiscardUpgradeResponse
@@ -1393,7 +1447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户
+   * Deletes a RAM user or STS account from the Hologres account system. After deletion, the RAM user or STS account can no longer log on to the instance. To log on to the instance, call the CreateUser operation to add the user again.
+   * 
+   * @remarks
+   * 删除实例内的用户。删除后该用户不能再登录实例，如需恢复请通过 CreateUser 重新添加。删除前需确认 userName：当前没有列举用户的 OpenAPI 接口，可通过 ExecuteStatement 执行 SELECT rolname FROM pg_roles 查询实例内已有角色，且不能删除当前发起调用的账号自身。
    * 
    * @param request - DropUserRequest
    * @param headers - map
@@ -1430,7 +1487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户
+   * Deletes a RAM user or STS account from the Hologres account system. After deletion, the RAM user or STS account can no longer log on to the instance. To log on to the instance, call the CreateUser operation to add the user again.
+   * 
+   * @remarks
+   * 删除实例内的用户。删除后该用户不能再登录实例，如需恢复请通过 CreateUser 重新添加。删除前需确认 userName：当前没有列举用户的 OpenAPI 接口，可通过 ExecuteStatement 执行 SELECT rolname FROM pg_roles 查询实例内已有角色，且不能删除当前发起调用的账号自身。
    * 
    * @param request - DropUserRequest
    * @returns DropUserResponse
@@ -1442,7 +1502,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启或关闭OpenAPI执行SQL功能
+   * Enables SQL execution via OpenAPI for a specified Hologres instance.
+   * 
+   * @remarks
+   * Enables SQL execution via OpenAPI for a specified Hologres instance. Once enabled, RAM accounts with the `hologram:ExecuteStatement` permission can execute SQL statements by calling the `ExecuteStatement` API. To query the current status, call the `GetExecuteStatementEnabled` API. To disable the feature, call the `DisableExecuteStatement` API.
    * 
    * @param request - EnableExecuteStatementRequest
    * @param headers - map
@@ -1469,7 +1532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启或关闭OpenAPI执行SQL功能
+   * Enables SQL execution via OpenAPI for a specified Hologres instance.
+   * 
+   * @remarks
+   * Enables SQL execution via OpenAPI for a specified Hologres instance. Once enabled, RAM accounts with the `hologram:ExecuteStatement` permission can execute SQL statements by calling the `ExecuteStatement` API. To query the current status, call the `GetExecuteStatementEnabled` API. To disable the feature, call the `DisableExecuteStatement` API.
    * 
    * @param request - EnableExecuteStatementRequest
    * @returns EnableExecuteStatementResponse
@@ -1526,7 +1592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打开SSL
+   * Enables SSL.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1551,7 +1617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打开SSL
+   * Enables SSL.
    * @returns EnableSSLResponse
    */
   async enableSSL(instanceId: string): Promise<$_model.EnableSSLResponse> {
@@ -1561,7 +1627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打开服务账号
+   * Enables the service account.
+   * 
+   * @remarks
+   * Enables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is enabled, RAM users that have the hologram:ExecuteStatement permission can execute SQL statements by calling the ExecuteStatement operation. You can call the GetExecuteStatementEnabled operation to query the current status and call the DisableExecuteStatement operation to disable the feature.
    * 
    * @param request - EnableSupportAccountRequest
    * @param headers - map
@@ -1608,7 +1677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打开服务账号
+   * Enables the service account.
+   * 
+   * @remarks
+   * Enables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is enabled, RAM users that have the hologram:ExecuteStatement permission can execute SQL statements by calling the ExecuteStatement operation. You can call the GetExecuteStatementEnabled operation to query the current status and call the DisableExecuteStatement operation to disable the feature.
    * 
    * @param request - EnableSupportAccountRequest
    * @returns EnableSupportAccountResponse
@@ -1620,7 +1692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启自动弹性
+   * Enables automatic elastic scaling.
    * 
    * @param request - EnableWarehouseAutoScaleRequest
    * @param headers - map
@@ -1657,7 +1729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启自动弹性
+   * Enables automatic elastic scaling.
    * 
    * @param request - EnableWarehouseAutoScaleRequest
    * @returns EnableWarehouseAutoScaleResponse
@@ -1669,7 +1741,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SQL执行
+   * Executes an SQL statement on a specified database by using OpenAPI and returns the result.
+   * 
+   * @remarks
+   * This API is used to securely execute SQL statements on a Hologres instance by using OpenAPI.
+   *   Before you begin, meet the following conditions:
+   *   1. On the instance details page in the console, turn on the Allow SQL Execution by Using OpenAPI switch in the Data Security section.
+   *   2. The RAM user used to invoke the API has been granted the hologram:ExecuteStatement permission.
+   *   Statements such as SELECT, DDL, and DML are supported. The parameterized query feature with placeholders such as $1 and $2 is supported to prevent SQL injection. By default, a query returns a maximum of 200 rows (up to 1,000 rows) and 10 MB of data. Excess data is truncated, and the truncated field indicates the truncation. The timeout period for a single execution is 30 seconds.
    * 
    * @param request - ExecuteStatementRequest
    * @param headers - map
@@ -1722,7 +1801,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SQL执行
+   * Executes an SQL statement on a specified database by using OpenAPI and returns the result.
+   * 
+   * @remarks
+   * This API is used to securely execute SQL statements on a Hologres instance by using OpenAPI.
+   *   Before you begin, meet the following conditions:
+   *   1. On the instance details page in the console, turn on the Allow SQL Execution by Using OpenAPI switch in the Data Security section.
+   *   2. The RAM user used to invoke the API has been granted the hologram:ExecuteStatement permission.
+   *   Statements such as SELECT, DDL, and DML are supported. The parameterized query feature with placeholders such as $1 and $2 is supported to prevent SQL injection. By default, a query returns a maximum of 200 rows (up to 1,000 rows) and 10 MB of data. Excess data is truncated, and the truncated field indicates the truncation. The timeout period for a single execution is 30 seconds.
    * 
    * @param request - ExecuteStatementRequest
    * @returns ExecuteStatementResponse
@@ -1734,7 +1820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得证书信息
+   * Retrieves certificate information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1759,7 +1845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得证书信息
+   * Retrieves certificate information.
    * @returns GetCertificateAttributeResponse
    */
   async getCertificateAttribute(instanceId: string): Promise<$_model.GetCertificateAttributeResponse> {
@@ -1769,7 +1855,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例是否已开启OpenAPI执行SQL功能
+   * Checks whether a specified Hologres instance allows SQL execution through OpenAPI.
+   * 
+   * @remarks
+   * This operation checks if the "Allow SQL execution through OpenAPI" feature is enabled for a specified Hologres instance. Returns `true` if the feature is enabled, and `false` otherwise. If enabled, you can call the `ExecuteStatement` operation to execute SQL statements.
    * 
    * @param request - GetExecuteStatementEnabledRequest
    * @param headers - map
@@ -1796,7 +1885,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例是否已开启OpenAPI执行SQL功能
+   * Checks whether a specified Hologres instance allows SQL execution through OpenAPI.
+   * 
+   * @remarks
+   * This operation checks if the "Allow SQL execution through OpenAPI" feature is enabled for a specified Hologres instance. Returns `true` if the feature is enabled, and `false` otherwise. If enabled, you can call the `ExecuteStatement` operation to execute SQL statements.
    * 
    * @param request - GetExecuteStatementEnabledRequest
    * @returns GetExecuteStatementEnabledResponse
@@ -1808,7 +1900,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取holoweb登陆权限
+   * Queries the HoloWeb logon permissions.
+   * 
+   * @remarks
+   * Queries whether the feature that allows SQL execution through OpenAPI is enabled for a specified Hologres instance. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled. After the feature is enabled, you can execute SQL statements by calling the ExecuteStatement operation.
    * 
    * @param request - GetHoloWebLoginSettingRequest
    * @param headers - map
@@ -1841,7 +1936,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取holoweb登陆权限
+   * Queries the HoloWeb logon permissions.
+   * 
+   * @remarks
+   * Queries whether the feature that allows SQL execution through OpenAPI is enabled for a specified Hologres instance. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled. After the feature is enabled, you can execute SQL statements by calling the ExecuteStatement operation.
    * 
    * @param request - GetHoloWebLoginSettingRequest
    * @returns GetHoloWebLoginSettingResponse
@@ -1853,7 +1951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of an instance.
+   * Retrieves the details of an instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1878,7 +1976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of an instance.
+   * Retrieves the details of an instance.
    * @returns GetInstanceResponse
    */
   async getInstance(instanceId: string): Promise<$_model.GetInstanceResponse> {
@@ -1888,7 +1986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模型信息
+   * Queries the list of large model services bound to a Hologres instance.
    * 
    * @param request - GetInstanceModelRequest
    * @param headers - map
@@ -1915,7 +2013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模型信息
+   * Queries the list of large model services bound to a Hologres instance.
    * 
    * @param request - GetInstanceModelRequest
    * @returns GetInstanceModelResponse
@@ -1927,7 +2025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上次升级历史
+   * Retrieves the last upgrade history.
    * 
    * @param request - GetLastUpgradeRecordRequest
    * @param headers - map
@@ -1954,7 +2052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上次升级历史
+   * Retrieves the last upgrade history.
    * 
    * @param request - GetLastUpgradeRecordRequest
    * @returns GetLastUpgradeRecordResponse
@@ -1966,7 +2064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得根证书
+   * Retrieves the root certificate.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1991,7 +2089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获得根证书
+   * Retrieves the root certificate.
    * @returns GetRootCertificateResponse
    */
   async getRootCertificate(instanceId: string): Promise<$_model.GetRootCertificateResponse> {
@@ -2001,7 +2099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取周期备份配置
+   * Retrieves the backup configuration.
    * 
    * @param request - GetScheduledBackupConfigRequest
    * @param headers - map
@@ -2042,7 +2140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取周期备份配置
+   * Retrieves the backup configuration.
    * 
    * @param request - GetScheduledBackupConfigRequest
    * @returns GetScheduledBackupConfigResponse
@@ -2054,7 +2152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取升级状态
+   * Queries the upgrade status.
    * 
    * @param request - GetUpgradeStatusRequest
    * @param headers - map
@@ -2087,7 +2185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取升级状态
+   * Queries the upgrade status.
    * 
    * @param request - GetUpgradeStatusRequest
    * @returns GetUpgradeStatusResponse
@@ -2099,7 +2197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 是否可升级
+   * Queries whether an instance can be upgraded.
    * 
    * @param request - GetUpgradeableRequest
    * @param headers - map
@@ -2132,7 +2230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 是否可升级
+   * Queries whether an instance can be upgraded.
    * 
    * @param request - GetUpgradeableRequest
    * @returns GetUpgradeableResponse
@@ -2144,7 +2242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries details of a virtual warehouse instance.
+   * Queries the details of a compute group.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2169,7 +2267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries details of a virtual warehouse instance.
+   * Queries the details of a compute group.
    * @returns GetWarehouseDetailResponse
    */
   async getWarehouseDetail(instanceId: string): Promise<$_model.GetWarehouseDetailResponse> {
@@ -2179,7 +2277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DB授权
+   * Grants database permissions.
    * 
    * @param request - GrantDatabasePermissionRequest
    * @param headers - map
@@ -2220,7 +2318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DB授权
+   * Grants database permissions.
    * 
    * @param request - GrantDatabasePermissionRequest
    * @returns GrantDatabasePermissionResponse
@@ -2232,7 +2330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DB授权
+   * Grants permissions on a database.
    * 
    * @param request - GrantSchemaPermissionRequest
    * @param headers - map
@@ -2277,7 +2375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DB授权
+   * Grants permissions on a database.
    * 
    * @param request - GrantSchemaPermissionRequest
    * @returns GrantSchemaPermissionResponse
@@ -2289,7 +2387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DB授权
+   * Grants table permissions to a specified user.
    * 
    * @param request - GrantTablePermissionRequest
    * @param headers - map
@@ -2346,7 +2444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DB授权
+   * Grants table permissions to a specified user.
    * 
    * @param request - GrantTablePermissionRequest
    * @returns GrantTablePermissionResponse
@@ -2358,7 +2456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
+   * Queries a list of backups. A backup is a full data snapshot of an instance up to the snapshot time. You can fully restore the original data by purchasing a new instance.
    * 
    * @param request - ListBackupDataRequest
    * @param headers - map
@@ -2395,7 +2493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
+   * Queries a list of backups. A backup is a full data snapshot of an instance up to the snapshot time. You can fully restore the original data by purchasing a new instance.
    * 
    * @param request - ListBackupDataRequest
    * @returns ListBackupDataResponse
@@ -2407,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取DB列表
+   * Retrieves a list of databases.
    * 
    * @param request - ListDatabasesRequest
    * @param headers - map
@@ -2440,7 +2538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取DB列表
+   * Retrieves a list of databases.
    * 
    * @param request - ListDatabasesRequest
    * @returns ListDatabasesResponse
@@ -2452,7 +2550,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取只读从实例
+   * Retrieves the read-only secondary instances.
+   * 
+   * @remarks
+   * Retrieves a list of read-only secondary instances bound to a specified Hologres primary instance. instanceId is a path parameter and must be provided when you call this operation.
    * 
    * @param request - ListFollowerInstancesRequest
    * @param headers - map
@@ -2485,7 +2586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取只读从实例
+   * Retrieves the read-only secondary instances.
+   * 
+   * @remarks
+   * Retrieves a list of read-only secondary instances bound to a specified Hologres primary instance. instanceId is a path parameter and must be provided when you call this operation.
    * 
    * @param request - ListFollowerInstancesRequest
    * @returns ListFollowerInstancesResponse
@@ -2497,7 +2601,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI资源列表
+   * Queries the list of AI node resources.
+   * 
+   * @remarks
+   * ## Request description
+   * - Retrieves information about deployed model services on a specific Hologres instance, including but not limited to resource usage such as CPU, GPU, and memory.
+   * - The `instanceId` parameter is optional. If not provided, the information of all related instances is returned by default.
+   * - This operation applies to Hologres AI nodes. Some parameters may be invalid or inapplicable for non-AI nodes.
+   * - Make sure that you fully understand the [billing methods and pricing of Alibaba Cloud Hologres](https://help.aliyun.com/document_detail/113666.html) before you call this operation.
    * 
    * @param request - ListInstanceModelRequest
    * @param headers - map
@@ -2524,7 +2635,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI资源列表
+   * Queries the list of AI node resources.
+   * 
+   * @remarks
+   * ## Request description
+   * - Retrieves information about deployed model services on a specific Hologres instance, including but not limited to resource usage such as CPU, GPU, and memory.
+   * - The `instanceId` parameter is optional. If not provided, the information of all related instances is returned by default.
+   * - This operation applies to Hologres AI nodes. Some parameters may be invalid or inapplicable for non-AI nodes.
+   * - Make sure that you fully understand the [billing methods and pricing of Alibaba Cloud Hologres](https://help.aliyun.com/document_detail/113666.html) before you call this operation.
    * 
    * @param request - ListInstanceModelRequest
    * @returns ListInstanceModelResponse
@@ -2536,7 +2654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Retrieves a list of instances.
    * 
    * @param request - ListInstancesRequest
    * @param headers - map
@@ -2577,7 +2695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Retrieves a list of instances.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -2589,7 +2707,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取主实例
+   * Retrieves a list of available primary instance IDs.
+   * 
+   * @remarks
+   * Retrieves a list of primary instances that can be bound to a specified Hologres secondary instance. The `instanceId` parameter is a path parameter and is required.
    * 
    * @param request - ListLeaderInstancesRequest
    * @param headers - map
@@ -2622,7 +2743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取主实例
+   * Retrieves a list of available primary instance IDs.
+   * 
+   * @remarks
+   * Retrieves a list of primary instances that can be bound to a specified Hologres secondary instance. The `instanceId` parameter is a path parameter and is required.
    * 
    * @param request - ListLeaderInstancesRequest
    * @returns ListLeaderInstancesResponse
@@ -2634,7 +2758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例可迁移可用区列表
+   * Queries the zones to which an instance can be migrated. Three-zone instances support self-service migration between zones.
    * 
    * @param request - ListMigrationZonesRequest
    * @param headers - map
@@ -2671,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例可迁移可用区列表
+   * Queries the zones to which an instance can be migrated. Three-zone instances support self-service migration between zones.
    * 
    * @param request - ListMigrationZonesRequest
    * @returns ListMigrationZonesResponse
@@ -2683,7 +2807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出模型列表
+   * Lists models.
    * 
    * @param request - ListModelCatalogRequest
    * @param headers - map
@@ -2699,6 +2823,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2720,7 +2848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出模型列表
+   * Lists models.
    * 
    * @param request - ListModelCatalogRequest
    * @returns ListModelCatalogResponse
@@ -2732,7 +2860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运维事件列表
+   * Queries a list of operation events based on specified conditions, supporting pagination and sorting.
    * 
    * @param request - ListOperationEventsRequest
    * @param headers - map
@@ -2793,7 +2921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运维事件列表
+   * Queries a list of operation events based on specified conditions, supporting pagination and sorting.
    * 
    * @param request - ListOperationEventsRequest
    * @returns ListOperationEventsResponse
@@ -2805,7 +2933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * holoapp共有云所有开服的region
+   * Queries the list of all Hologres regions.
    * 
    * @param request - ListRegionsRequest
    * @param headers - map
@@ -2832,7 +2960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * holoapp共有云所有开服的region
+   * Queries the list of all Hologres regions.
    * 
    * @param request - ListRegionsRequest
    * @returns ListRegionsResponse
@@ -2844,7 +2972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取版本列表
+   * Retrieves the list of upgradable versions.
    * 
    * @param request - ListUpgradeReleaseVersionsRequest
    * @param headers - map
@@ -2877,7 +3005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取版本列表
+   * Retrieves the list of upgradable versions.
    * 
    * @param request - ListUpgradeReleaseVersionsRequest
    * @returns ListUpgradeReleaseVersionsResponse
@@ -2889,7 +3017,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分时弹性日志
+   * Queries the elastic scheduling events of a specified instance within a given time range.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation retrieves a list of elastic scaling events for compute groups of a specified instance.
+   * - The `startTime` and `endTime` parameters specify the time range for the query. The default values are three days ago and the current time, respectively.
+   * - The `pageSize` and `pageNumber` parameters are used for paging control. The maximum value of `pageSize` is 100.
+   * - If the `elasticType` parameter is not provided, elastic scaling events of all types are returned.
    * 
    * @param request - ListWarehouseScheduleEventRequest
    * @param headers - map
@@ -2938,7 +3073,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分时弹性日志
+   * Queries the elastic scheduling events of a specified instance within a given time range.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation retrieves a list of elastic scaling events for compute groups of a specified instance.
+   * - The `startTime` and `endTime` parameters specify the time range for the query. The default values are three days ago and the current time, respectively.
+   * - The `pageSize` and `pageNumber` parameters are used for paging control. The maximum value of `pageSize` is 100.
+   * - If the `elasticType` parameter is not provided, elastic scaling events of all types are returned.
    * 
    * @param request - ListWarehouseScheduleEventRequest
    * @returns ListWarehouseScheduleEventResponse
@@ -2950,7 +3092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算分时弹性计划列表
+   * Retrieves the list of time-based elastic plan tasks for all compute groups in a specified instance.
    * 
    * @param request - ListWarehouseScheduleTaskRequest
    * @param headers - map
@@ -2977,7 +3119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算分时弹性计划列表
+   * Retrieves the list of time-based elastic plan tasks for all compute groups in a specified instance.
    * 
    * @param request - ListWarehouseScheduleTaskRequest
    * @returns ListWarehouseScheduleTaskResponse
@@ -2989,7 +3131,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of virtual warehouse instances.
+   * Retrieves a list of compute groups.
+   * 
+   * @remarks
+   * 获取指定计算组型实例下的计算组列表。instanceId 需为计算组型（InstanceType 为 Warehouse）实例，可通过 ListInstances 查询获取。返回结果中的 Name 为计算组名称、Status 为计算组状态（如 kRunning 表示运行中），可用于 RestartHoloWarehouse、SuspendHoloWarehouse 等接口。
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3014,7 +3159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of virtual warehouse instances.
+   * Retrieves a list of compute groups.
+   * 
+   * @remarks
+   * 获取指定计算组型实例下的计算组列表。instanceId 需为计算组型（InstanceType 为 Warehouse）实例，可通过 ListInstances 查询获取。返回结果中的 Name 为计算组名称、Status 为计算组状态（如 kRunning 表示运行中），可用于 RestartHoloWarehouse、SuspendHoloWarehouse 等接口。
    * @returns ListWarehousesResponse
    */
   async listWarehouses(instanceId: string): Promise<$_model.ListWarehousesResponse> {
@@ -3024,7 +3172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例迁移
+   * Migrates an instance to the destination zone. Only three-zone instances are supported. Storage migration is not required, and the instance is started directly in the destination zone in approximately 5 minutes.
    * 
    * @param request - MigrateInstanceZoneRequest
    * @param headers - map
@@ -3057,7 +3205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例迁移
+   * Migrates an instance to the destination zone. Only three-zone instances are supported. Storage migration is not required, and the instance is started directly in the destination zone in approximately 5 minutes.
    * 
    * @param request - MigrateInstanceZoneRequest
    * @returns MigrateInstanceZoneResponse
@@ -3069,7 +3217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 准备升级
+   * Initiates pre-upgrade preparations. An evaluation is required before the upgrade. If the evaluation passes, the upgrade can proceed. Otherwise, contact technical support for a manual upgrade.
    * 
    * @param request - PrepareUpgradeRequest
    * @param headers - map
@@ -3112,7 +3260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 准备升级
+   * Initiates pre-upgrade preparations. An evaluation is required before the upgrade. If the evaluation passes, the upgrade can proceed. Otherwise, contact technical support for a manual upgrade.
    * 
    * @param request - PrepareUpgradeRequest
    * @returns PrepareUpgradeResponse
@@ -3124,7 +3272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers shard rebalancing for a virtual warehouse.
+   * Balances the shards of a compute group.
    * 
    * @param request - RebalanceHoloWarehouseRequest
    * @param headers - map
@@ -3157,7 +3305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers shard rebalancing for a virtual warehouse.
+   * Balances the shards of a compute group.
    * 
    * @param request - RebalanceHoloWarehouseRequest
    * @returns RebalanceHoloWarehouseResponse
@@ -3169,7 +3317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a virtual warehouse.
+   * Renames a compute group.
    * 
    * @param request - RenameHoloWarehouseRequest
    * @param headers - map
@@ -3206,7 +3354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a virtual warehouse.
+   * Renames a compute group.
    * 
    * @param request - RenameHoloWarehouseRequest
    * @returns RenameHoloWarehouseResponse
@@ -3218,13 +3366,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+   * Renews an instance manually. You can also enable monthly auto-renewal during the renewal.
    * 
    * @remarks
-   * >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-   * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-   * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
-   * *   You can renew only subscription instances.
+   * >Warning: This API operation incurs fees. Make sure that you fully understand the billing methods and pricing of Hologres before you call this operation.</warning>
+   * <props="china">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+   * <props="china">- For more information about Hologres renewal, see [Renewal management](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals).
+   * <props="intl">- For more information about Hologres renewal, see [Renewal management](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
+   * - Renewal applies only to subscription (PrePaid) instances.
    * 
    * @param request - RenewInstanceRequest
    * @param headers - map
@@ -3261,13 +3411,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+   * Renews an instance manually. You can also enable monthly auto-renewal during the renewal.
    * 
    * @remarks
-   * >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-   * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-   * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
-   * *   You can renew only subscription instances.
+   * >Warning: This API operation incurs fees. Make sure that you fully understand the billing methods and pricing of Hologres before you call this operation.</warning>
+   * <props="china">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+   * <props="china">- For more information about Hologres renewal, see [Renewal management](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals).
+   * <props="intl">- For more information about Hologres renewal, see [Renewal management](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
+   * - Renewal applies only to subscription (PrePaid) instances.
    * 
    * @param request - RenewInstanceRequest
    * @returns RenewInstanceResponse
@@ -3279,7 +3431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新证书
+   * Updates an SSL certificate.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3304,7 +3456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新证书
+   * Updates an SSL certificate.
    * @returns RenewSSLCertificateResponse
    */
   async renewSSLCertificate(instanceId: string): Promise<$_model.RenewSSLCertificateResponse> {
@@ -3314,7 +3466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a virtual warehouse.
+   * Restarts a compute group.
+   * 
+   * @remarks
+   * 重启指定计算组。前置条件：实例处于运行中（Running）状态，可通过 GetInstance 查询 InstanceStatus；计算组处于运行中状态（kRunning），可通过 ListWarehouses 查询 Status 获取计算组名称和当前状态。调用需要实例的 Superuser 权限，重启为异步操作，调用后可再次通过 ListWarehouses 轮询 Status 确认是否完成。
    * 
    * @param request - RestartHoloWarehouseRequest
    * @param headers - map
@@ -3347,7 +3502,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a virtual warehouse.
+   * Restarts a compute group.
+   * 
+   * @remarks
+   * 重启指定计算组。前置条件：实例处于运行中（Running）状态，可通过 GetInstance 查询 InstanceStatus；计算组处于运行中状态（kRunning），可通过 ListWarehouses 查询 Status 获取计算组名称和当前状态。调用需要实例的 Superuser 权限，重启为异步操作，调用后可再次通过 ListWarehouses 轮询 Status 确认是否完成。
    * 
    * @param request - RestartHoloWarehouseRequest
    * @returns RestartHoloWarehouseResponse
@@ -3359,7 +3517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an instance.
+   * Restarts a Hologres instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3384,7 +3542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an instance.
+   * Restarts a Hologres instance.
    * @returns RestartInstanceResponse
    */
   async restartInstance(instanceId: string): Promise<$_model.RestartInstanceResponse> {
@@ -3394,7 +3552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a virtual warehouse.
+   * Resumes a compute group from the stopped state to the normal state.
    * 
    * @param request - ResumeHoloWarehouseRequest
    * @param headers - map
@@ -3427,7 +3585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a virtual warehouse.
+   * Resumes a compute group from the stopped state to the normal state.
    * 
    * @param request - ResumeHoloWarehouseRequest
    * @returns ResumeHoloWarehouseResponse
@@ -3439,7 +3597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes an instance.
+   * Resumes a paused instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3464,7 +3622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes an instance.
+   * Resumes a paused instance.
    * @returns ResumeInstanceResponse
    */
   async resumeInstance(instanceId: string): Promise<$_model.ResumeInstanceResponse> {
@@ -3474,7 +3632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消DB授权
+   * Revokes database authorization.
    * 
    * @param request - RevokeDatabasePermissionRequest
    * @param headers - map
@@ -3515,7 +3673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消DB授权
+   * Revokes database authorization.
    * 
    * @param request - RevokeDatabasePermissionRequest
    * @returns RevokeDatabasePermissionResponse
@@ -3527,7 +3685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消Schema授权
+   * Revokes schema authorization.
    * 
    * @param request - RevokeSchemaPermissionRequest
    * @param headers - map
@@ -3572,7 +3730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消Schema授权
+   * Revokes schema authorization.
    * 
    * @param request - RevokeSchemaPermissionRequest
    * @returns RevokeSchemaPermissionResponse
@@ -3584,7 +3742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消表授权
+   * Revokes table permissions.
    * 
    * @param request - RevokeTablePermissionRequest
    * @param headers - map
@@ -3641,7 +3799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消表授权
+   * Revokes table permissions.
    * 
    * @param request - RevokeTablePermissionRequest
    * @returns RevokeTablePermissionResponse
@@ -3653,7 +3811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales in or out a virtual warehouse.
+   * Scales a compute group.
    * 
    * @param request - ScaleHoloWarehouseRequest
    * @param headers - map
@@ -3694,7 +3852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales in or out a virtual warehouse.
+   * Scales a compute group.
    * 
    * @param request - ScaleHoloWarehouseRequest
    * @returns ScaleHoloWarehouseResponse
@@ -3706,12 +3864,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the specifications and storage space of a Hologres instance.
+   * Modifies the specifications and storage space of an instance.
    * 
    * @remarks
-   * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-   * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-   * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+   * >Warning: This API operation incurs fees. Make sure that you fully understand the billing methods and pricing of Hologres before you call this operation.
+   * <props="china">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+   * <props="china">- The instance is unavailable while its compute resources are being changed. Changing instance storage resources of the instance does not affect its normal use. Do not change instance specifications frequently. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+   * <props="intl">- The instance is unavailable while its compute resources are being changed. Changing instance storage resources of the instance does not affect its normal use. Do not change instance specifications frequently. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/zh/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
    * 
    * @param request - ScaleInstanceRequest
    * @param headers - map
@@ -3764,12 +3924,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the specifications and storage space of a Hologres instance.
+   * Modifies the specifications and storage space of an instance.
    * 
    * @remarks
-   * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-   * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-   * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+   * >Warning: This API operation incurs fees. Make sure that you fully understand the billing methods and pricing of Hologres before you call this operation.
+   * <props="china">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+   * <props="intl">- For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+   * <props="china">- The instance is unavailable while its compute resources are being changed. Changing instance storage resources of the instance does not affect its normal use. Do not change instance specifications frequently. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+   * <props="intl">- The instance is unavailable while its compute resources are being changed. Changing instance storage resources of the instance does not affect its normal use. Do not change instance specifications frequently. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/zh/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
    * 
    * @param request - ScaleInstanceRequest
    * @returns ScaleInstanceResponse
@@ -3781,7 +3943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an instance.
+   * Pauses an instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3806,7 +3968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an instance.
+   * Pauses an instance.
    * @returns StopInstanceResponse
    */
   async stopInstance(instanceId: string): Promise<$_model.StopInstanceResponse> {
@@ -3816,7 +3978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Suspends a virtual warehouse.
+   * Stops a compute group.
+   * 
+   * @remarks
+   * 停止指定计算组。前置条件：instanceId 为计算组型（InstanceType 为 Warehouse）且处于运行中状态的实例，可通过 ListInstances 获取；name 为 ListWarehouses 返回的计算组名称，该计算组需处于运行中状态（kRunning）。若该计算组是 Table Group 的主计算组且存在从计算组，则无法停止。调用需要实例的 Superuser 权限，停止为异步操作。
    * 
    * @param request - SuspendHoloWarehouseRequest
    * @param headers - map
@@ -3849,7 +4014,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Suspends a virtual warehouse.
+   * Stops a compute group.
+   * 
+   * @remarks
+   * 停止指定计算组。前置条件：instanceId 为计算组型（InstanceType 为 Warehouse）且处于运行中状态的实例，可通过 ListInstances 获取；name 为 ListWarehouses 返回的计算组名称，该计算组需处于运行中状态（kRunning）。若该计算组是 Table Group 的主计算组且存在从计算组，则无法停止。调用需要实例的 Superuser 权限，停止为异步操作。
    * 
    * @param request - SuspendHoloWarehouseRequest
    * @returns SuspendHoloWarehouseResponse
@@ -3861,7 +4029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增tag
+   * Adds a tag.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -3916,7 +4084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增tag
+   * Adds a tag.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -3928,7 +4096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除绑定主实例
+   * Dissociates a primary instance from a secondary instance.
    * 
    * @param request - UnBindLeaderInstanceRequest
    * @param headers - map
@@ -3961,7 +4129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除绑定主实例
+   * Dissociates a primary instance from a secondary instance.
    * 
    * @param request - UnBindLeaderInstanceRequest
    * @returns UnBindLeaderInstanceResponse
@@ -3973,7 +4141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除tag
+   * Deletes instance tags.
    * 
    * @param request - UntagResourcesRequest
    * @param headers - map
@@ -4028,7 +4196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除tag
+   * Deletes instance tags.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -4040,7 +4208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改小版本自动升级开关
+   * Enables automatic minor version upgrades. After this feature is enabled, the instance is automatically upgraded during the time window.
    * 
    * @param request - UpdateAutoUpgradeRequest
    * @param headers - map
@@ -4073,7 +4241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改小版本自动升级开关
+   * Enables automatic minor version upgrades. After this feature is enabled, the instance is automatically upgraded during the time window.
    * 
    * @param request - UpdateAutoUpgradeRequest
    * @returns UpdateAutoUpgradeResponse
@@ -4085,7 +4253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新备份描述
+   * Updates the description of a backup.
    * 
    * @param request - UpdateBackupDataDescRequest
    * @param headers - map
@@ -4128,7 +4296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新备份描述
+   * Updates the description of a backup.
    * 
    * @param request - UpdateBackupDataDescRequest
    * @returns UpdateBackupDataDescResponse
@@ -4140,7 +4308,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改holoweb登陆权限
+   * Modifies the HoloWeb logon permissions.
+   * 
+   * @remarks
+   * Model creation for a model service requires a large number of parameters. If you are performing model creation for a Model Studio model, invoke ListModelCatalog to query model parameters. If you are using a Hologres AI node, invoke GetAvailableModelsResource to query model parameters.
    * 
    * @param request - UpdateHoloWebLoginSettingRequest
    * @param headers - map
@@ -4179,7 +4350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改holoweb登陆权限
+   * Modifies the HoloWeb logon permissions.
+   * 
+   * @remarks
+   * Model creation for a model service requires a large number of parameters. If you are performing model creation for a Model Studio model, invoke ListModelCatalog to query model parameters. If you are using a Hologres AI node, invoke GetAvailableModelsResource to query model parameters.
    * 
    * @param request - UpdateHoloWebLoginSettingRequest
    * @returns UpdateHoloWebLoginSettingResponse
@@ -4191,7 +4365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of an instance.
+   * Modifies the name of an instance.
    * 
    * @param request - UpdateInstanceNameRequest
    * @param headers - map
@@ -4224,7 +4398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of an instance.
+   * Modifies the name of an instance.
    * 
    * @param request - UpdateInstanceNameRequest
    * @returns UpdateInstanceNameResponse
@@ -4236,7 +4410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the network configuration of an instance.
+   * Modifies the network type of an instance.
    * 
    * @param request - UpdateInstanceNetworkTypeRequest
    * @param headers - map
@@ -4289,7 +4463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the network configuration of an instance.
+   * Modifies the network type of an instance.
    * 
    * @param request - UpdateInstanceNetworkTypeRequest
    * @returns UpdateInstanceNetworkTypeResponse
@@ -4301,7 +4475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改端口号
+   * Modifies the port number.
    * 
    * @param request - UpdateInstancePortRequest
    * @param headers - map
@@ -4334,7 +4508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改端口号
+   * Modifies the port number.
    * 
    * @param request - UpdateInstancePortRequest
    * @returns UpdateInstancePortResponse
@@ -4346,7 +4520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改可维护时间窗口
+   * Sets the maintenance window for an instance to perform system maintenance.
    * 
    * @param request - UpdateMaintenanceWindowRequest
    * @param headers - map
@@ -4383,7 +4557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改可维护时间窗口
+   * Sets the maintenance window for an instance to perform system maintenance.
    * 
    * @param request - UpdateMaintenanceWindowRequest
    * @returns UpdateMaintenanceWindowResponse
@@ -4395,7 +4569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Creates a model creation service. This operation applies only to Hologres AI.
    * 
    * @param request - UpdateModelServiceRequest
    * @param headers - map
@@ -4448,7 +4622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Creates a model creation service. This operation applies only to Hologres AI.
    * 
    * @param request - UpdateModelServiceRequest
    * @returns UpdateModelServiceResponse
@@ -4460,7 +4634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改运维事件执行时间
+   * Updates the execution time of an O&M event.
    * 
    * @param request - UpdateOperationEventScheduleTimeRequest
    * @param headers - map
@@ -4497,7 +4671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改运维事件执行时间
+   * Updates the execution time of an O&M event.
    * 
    * @param request - UpdateOperationEventScheduleTimeRequest
    * @returns UpdateOperationEventScheduleTimeResponse
@@ -4509,7 +4683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置周期备份
+   * Configures the backup policy. You can specify multiple fixed days of the week to start instance backups on a weekly cycle, such as Monday, Wednesday, and Friday at 20:00:00. You can also configure the number of completed backups to retain. Expired backups are automatically deleted.
    * 
    * @param request - UpdateScheduledBackupConfigRequest
    * @param headers - map
@@ -4580,7 +4754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置周期备份
+   * Configures the backup policy. You can specify multiple fixed days of the week to start instance backups on a weekly cycle, such as Monday, Wednesday, and Friday at 20:00:00. You can also configure the number of completed backups to retain. Expired backups are automatically deleted.
    * 
    * @param request - UpdateScheduledBackupConfigRequest
    * @returns UpdateScheduledBackupConfigResponse
@@ -4592,7 +4766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分时弹性计划
+   * Updates the time-based elastic plan for a compute group.
+   * 
+   * @remarks
+   * 更新计算组分时弹性计划。前置条件：instanceId 对应实例需处于运行中（Running）状态，可通过 GetInstance 查询 InstanceStatus；warehouseId 可通过 ListWarehouses 查询返回的 Id 获取。
    * 
    * @param request - UpdateWarehouseScheduleTaskRequest
    * @param headers - map
@@ -4641,7 +4818,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分时弹性计划
+   * Updates the time-based elastic plan for a compute group.
+   * 
+   * @remarks
+   * 更新计算组分时弹性计划。前置条件：instanceId 对应实例需处于运行中（Running）状态，可通过 GetInstance 查询 InstanceStatus；warehouseId 可通过 ListWarehouses 查询返回的 Id 获取。
    * 
    * @param request - UpdateWarehouseScheduleTaskRequest
    * @returns UpdateWarehouseScheduleTaskResponse
@@ -4653,7 +4833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开始升级
+   * Upgrades an instance. If the preparation succeeds, the instance can start the upgrade immediately.
    * 
    * @param request - UpgradeInstanceRequest
    * @param headers - map
@@ -4694,7 +4874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开始升级
+   * Upgrades an instance. If the preparation succeeds, the instance can start the upgrade immediately.
    * 
    * @param request - UpgradeInstanceRequest
    * @returns UpgradeInstanceResponse

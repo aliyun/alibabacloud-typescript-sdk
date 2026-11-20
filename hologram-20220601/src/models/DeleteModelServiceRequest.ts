@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteModelServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The custom service name.
+   * 
    * @example
    * model-qwen
    */

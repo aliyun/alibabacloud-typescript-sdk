@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLastUpgradeRecordResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The initial version.
+   * 
    * @example
    * r3.2.11
    */
   fromVersion?: string;
   /**
+   * @remarks
+   * The start time of the read-only state. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2025-09-24 17:29:57
    */
   startReadonlyTime?: string;
   /**
+   * @remarks
+   * The end time of the read-only state. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2025-09-24 18:23:22
    */
   stopReadonlyTime?: string;
   /**
+   * @remarks
+   * The target version.
+   * 
    * @example
    * r4.0.2
    */
@@ -51,6 +63,10 @@ export class GetLastUpgradeRecordResponseBodyData extends $dara.Model {
 }
 
 export class GetLastUpgradeRecordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetLastUpgradeRecordResponseBodyData;
   /**
    * @remarks

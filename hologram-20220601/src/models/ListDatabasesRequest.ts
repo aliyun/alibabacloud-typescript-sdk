@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDatabasesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to list foreign tables separately. Valid values: true: yes, false or null: no.
+   * 
    * @example
    * false
    */

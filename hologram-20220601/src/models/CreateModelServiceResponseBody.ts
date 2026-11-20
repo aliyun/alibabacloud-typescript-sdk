@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateModelServiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values: true: Successful. false: Failed.
+   * 
    * @example
    * true
    */

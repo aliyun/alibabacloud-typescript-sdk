@@ -5,25 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableHiveAccessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The returned result.
    * 
    * @example
    * true
@@ -31,7 +13,7 @@ export class EnableHiveAccessResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * 404
@@ -39,7 +21,7 @@ export class EnableHiveAccessResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Internal server error.
@@ -55,7 +37,7 @@ export class EnableHiveAccessResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * EA8F0084-5831-5907-BB31-BD05D2617844
@@ -63,7 +45,7 @@ export class EnableHiveAccessResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

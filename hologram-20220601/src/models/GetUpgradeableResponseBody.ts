@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUpgradeableResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the upgrade failure.
+   * 
    * @example
    * null
    */
   failReason?: string;
   /**
+   * @remarks
+   * The key of the upgrade reason.
+   * 
    * @example
    * null
    */
   reasonKey?: string;
   /**
+   * @remarks
+   * Indicates whether the instance can be upgraded. Valid values:
+   * - true: The instance can be upgraded.
+   * - false: The instance cannot be upgraded because it is already running the latest version.
+   * 
    * @example
    * true
    */
@@ -44,18 +55,31 @@ export class GetUpgradeableResponseBodyData extends $dara.Model {
 }
 
 export class GetUpgradeableResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetUpgradeableResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -69,6 +93,9 @@ export class GetUpgradeableResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. This parameter indicates whether an exception occurred during the request and is independent of the business logic.
+   * 
    * @example
    * true
    */

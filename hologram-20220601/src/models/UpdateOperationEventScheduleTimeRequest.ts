@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOperationEventScheduleTimeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the event.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateOperationEventScheduleTimeRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The scheduled execution time. The format is YYYY-MM-DD HH:mm:ss, and the time zone is UTC+8.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable monthly auto-renewal. The default value is false. Valid values:
+   * Specifies whether to enable monthly auto-renewal. By default, monthly auto-renewal is disabled. Valid values:
+   * - true: enables monthly auto-renewal.
+   * - false: does not enable monthly auto-renewal.
    * 
-   * *   true
-   * *   false
-   * 
-   * >  If you enable auto-renewal for an instance for which auto-renewal is enabled, an error is reported.
+   * > If you enable auto-renewal for an instance that already has auto-renewal enabled, an error is reported.
    * 
    * @example
    * true
@@ -18,7 +17,7 @@ export class RenewInstanceRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The renewal duration. Unit: month.
+   * The renewal period. Unit: months.
    * 
    * This parameter is required.
    * 

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteWarehouseScheduleTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The operation was successful.
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */

@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUpgradeReleaseVersionsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The URL of the release notes.
+   * 
    * @example
-   * https://help.aliyun.com/zh/hologres/product-overview/release-notes
+   * https://www.alibabacloud.com/help/en/hologres/product-overview/release-notes
    */
   releaseNotesUrl?: string;
   /**
+   * @remarks
+   * The version status.
+   * 
    * @example
    * Stable
    */
   type?: string;
+  /**
+   * @remarks
+   * The upgrade strategy.
+   */
   upgradeStrategy?: string[];
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * r2.2.47
    */
@@ -50,18 +63,31 @@ export class ListUpgradeReleaseVersionsResponseBodyData extends $dara.Model {
 }
 
 export class ListUpgradeReleaseVersionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListUpgradeReleaseVersionsResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -75,6 +101,9 @@ export class ListUpgradeReleaseVersionsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. This parameter is unrelated to the business logic.
+   * 
    * @example
    * true
    */

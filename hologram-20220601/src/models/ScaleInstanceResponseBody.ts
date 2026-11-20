@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * InvalidScaleType.Unsupported
@@ -13,10 +13,10 @@ export class ScaleInstanceResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error details.
+   * The detailed error message.
    * 
    * @example
-   * null
+   * Invalid scale type
    */
   message?: string;
   /**
@@ -29,25 +29,7 @@ export class ScaleInstanceResponseBodyData extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Indicates whether the change to specifications was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether the specification change was successful.
    * 
    * @example
    * true
@@ -83,12 +65,12 @@ export class ScaleInstanceResponseBodyData extends $dara.Model {
 export class ScaleInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: ScaleInstanceResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * null
@@ -96,7 +78,7 @@ export class ScaleInstanceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * null

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWarehouseScheduleTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the time-based elastic plan.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteWarehouseScheduleTaskRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The compute group ID.
+   * 
    * @example
    * 1
    */

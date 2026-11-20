@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWarehouseScheduleTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The creation result. true indicates success, and false indicates failure.
+   * 
    * @example
    * true
    */
   data?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D3AE84AB-0873-5FC7-A4C4-8CF869D2FA70

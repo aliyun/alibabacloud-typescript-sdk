@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWarehousesResponseBodyWarehouseList extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores.
+   * cpu
    * 
    * @example
    * 32
@@ -13,7 +13,7 @@ export class ListWarehousesResponseBodyWarehouseList extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The ID.
+   * id
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class ListWarehousesResponseBodyWarehouseList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The memory capacity.
+   * The memory.
    * 
    * @example
    * 128
@@ -29,7 +29,7 @@ export class ListWarehousesResponseBodyWarehouseList extends $dara.Model {
   mem?: number;
   /**
    * @remarks
-   * The name of the virtual warehouse instance.
+   * The name of the compute group.
    * 
    * @example
    * MyWarehouse
@@ -46,48 +46,6 @@ export class ListWarehousesResponseBodyWarehouseList extends $dara.Model {
   /**
    * @remarks
    * The status.
-   * 
-   * Valid values:
-   * 
-   * *   kRunning
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kSuspended
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kInit
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kFailed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kAllocating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * kRunning
@@ -127,12 +85,12 @@ export class ListWarehousesResponseBodyWarehouseList extends $dara.Model {
 export class ListWarehousesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of virtual warehouse instances.
+   * The list of compute groups.
    */
   warehouseList?: ListWarehousesResponseBodyWarehouseList[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 819A7F0F-2951-540F-BD94-6A41ECF0281F

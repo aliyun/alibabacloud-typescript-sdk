@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOperationEventsResponseBodyDataFollowerInstances extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * hgxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * hi
    */
@@ -38,30 +44,49 @@ export class ListOperationEventsResponseBodyDataFollowerInstances extends $dara.
 
 export class ListOperationEventsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the event can be canceled.
+   * 
    * @example
    * true
    */
   cancelable?: boolean;
   /**
+   * @remarks
+   * Indicates whether the event schedule can be modified.
+   * 
    * @example
    * true
    */
   changeScheduleTime?: boolean;
   /**
+   * @remarks
+   * The event details.
+   * 
    * @example
    * {}
    */
   detail?: string;
   /**
+   * @remarks
+   * The event name filter.
+   * 
    * @example
    * HOT_UPGRADE
    */
   eventName?: string;
   /**
+   * @remarks
+   * The event type filter.
+   * 
    * @example
    * UPGRADE_ON_CUSTOMERS_BEHALF
    */
   eventType?: string;
+  /**
+   * @remarks
+   * The list of follower instances.
+   */
   followerInstances?: ListOperationEventsResponseBodyDataFollowerInstances[];
   /**
    * @remarks
@@ -72,16 +97,25 @@ export class ListOperationEventsResponseBodyData extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * haha
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The maintenance time window.
+   * 
    * @example
    * 21:00-22:00
    */
   maintainWindow?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * hgpost-cn-sxfsdfsd
    */
@@ -103,6 +137,9 @@ export class ListOperationEventsResponseBodyData extends $dara.Model {
    */
   state?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-k
    */
@@ -156,13 +193,23 @@ export class ListOperationEventsResponseBodyData extends $dara.Model {
 }
 
 export class ListOperationEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of events.
+   */
   data?: ListOperationEventsResponseBodyData[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 3
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 50. Maximum value: 100.
+   * 
    * @example
    * 30
    */
@@ -176,6 +223,9 @@ export class ListOperationEventsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 120
    */

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAutoUpgradeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The upgrade type. Valid values:
+   * - auto: Enables automatic minor version upgrades.
+   * - manual: Manual upgrade.
+   * 
    * @example
    * auto
    */

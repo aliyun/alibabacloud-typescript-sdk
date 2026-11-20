@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWarehouseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the virtual warehouse was created. Valid values: true and false.
+   * The returned result. A value of true indicates that the warehouse was created successfully. A value of false indicates that the creation failed.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class CreateWarehouseResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 2A8DEF6E-067E-5DB0-BAE1-2894266E6C6A
@@ -37,12 +37,7 @@ export class CreateWarehouseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. The request result is irrelevant to the business.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * The request result, which is independent of the business logic.
    * 
    * @example
    * true

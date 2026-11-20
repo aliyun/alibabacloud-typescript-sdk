@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateManualBackupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * hgpostcn-cn-721344a2z001
    */

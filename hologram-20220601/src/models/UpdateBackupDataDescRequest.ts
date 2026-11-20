@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBackupDataDescRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The backup description.
+   * 
    * @example
    * back up test
    */
   desc?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * hgpostcn-cn-721344a2z001
    */

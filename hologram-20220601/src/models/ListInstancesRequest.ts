@@ -44,6 +44,17 @@ export class ListInstancesRequestTag extends $dara.Model {
 
 export class ListInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The CloudMonitor instance type. Valid values:
+   * - standard
+   * - follower
+   * - mc-acceleration
+   * - warehouse
+   * - high-memory
+   * - serverless
+   * 
+   * > This is CloudMonitor.
+   * 
    * @example
    * standard
    */
@@ -58,7 +69,7 @@ export class ListInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags to add to the resource.
+   * The instance label.
    */
   tag?: ListInstancesRequestTag[];
   static names(): { [key: string]: string } {

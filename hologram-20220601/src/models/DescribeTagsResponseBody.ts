@@ -4,20 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTagsResponseBodyTagResources extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * hgprecn-cn-0ju2uaanj001
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * Instance
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * acs:rm:rgId
    */
   tagKey?: string;
+  /**
+   * @remarks
+   * The collection of all tag values under the same tag key.
+   */
   tagValue?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -51,16 +64,25 @@ export class DescribeTagsResponseBodyTagResources extends $dara.Model {
 
 export class DescribeTagsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 404
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Internal server error.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -74,10 +96,17 @@ export class DescribeTagsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful, regardless of the business result.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The resource collection.
+   */
   tagResources?: DescribeTagsResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {

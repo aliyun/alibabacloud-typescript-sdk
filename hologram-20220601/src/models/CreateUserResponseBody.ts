@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - true: The operation is successful.
+   * - false: The operation fails.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -32,6 +46,11 @@ export class CreateUserResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - true: The operation is successful.
+   * - false: The operation fails.
+   * 
    * @example
    * true
    */

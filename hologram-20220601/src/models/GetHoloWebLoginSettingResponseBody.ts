@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHoloWebLoginSettingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether external accounts are allowed to log on.
+   * 
    * @example
    * true
    */
@@ -30,18 +33,31 @@ export class GetHoloWebLoginSettingResponseBodyData extends $dara.Model {
 }
 
 export class GetHoloWebLoginSettingResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * true: Success. false: Failure.
+   */
   data?: GetHoloWebLoginSettingResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -55,6 +71,9 @@ export class GetHoloWebLoginSettingResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result. Indicates whether an exception occurred during the request. This parameter is unrelated to the business logic.
+   * 
    * @example
    * true
    */

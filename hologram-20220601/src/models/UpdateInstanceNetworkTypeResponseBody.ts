@@ -5,25 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceNetworkTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result, which indicates whether the operation was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The returned result.
    * 
    * @example
    * true
@@ -34,7 +16,7 @@ export class UpdateInstanceNetworkTypeResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * 404
+   * null
    */
   errorCode?: string;
   /**
@@ -42,7 +24,7 @@ export class UpdateInstanceNetworkTypeResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Internal server error.
+   * null
    */
   errorMessage?: string;
   /**
@@ -55,7 +37,7 @@ export class UpdateInstanceNetworkTypeResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 9CC37B9F-F4B4-5FF1-939B-AEE78DC70130
@@ -63,12 +45,7 @@ export class UpdateInstanceNetworkTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * The request result.
    * 
    * @example
    * true

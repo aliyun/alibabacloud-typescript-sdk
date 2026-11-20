@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result, which indicates whether the operation was successful.
+   * The returned result, which indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class ResumeInstanceResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * 404
+   * null
    */
   errorCode?: string;
   /**
@@ -24,7 +24,7 @@ export class ResumeInstanceResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Internal server error.
+   * null
    */
   errorMessage?: string;
   /**
@@ -37,7 +37,7 @@ export class ResumeInstanceResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * D3AE84AB-0873-5FC7-A4C4-8CF869D2FA70
@@ -45,7 +45,7 @@ export class ResumeInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result, which indicates whether the request was successful.
+   * The request result, which indicates whether an exception occurred during the request and is independent of the business logic.
    * 
    * @example
    * true

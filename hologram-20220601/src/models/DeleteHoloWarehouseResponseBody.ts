@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHoloWarehouseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the operation is successful. Valid values: true: Successful. false: Failed.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DeleteHoloWarehouseResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 2A8DEF6E-067E-5DB0-BAE1-2894266E6C6A

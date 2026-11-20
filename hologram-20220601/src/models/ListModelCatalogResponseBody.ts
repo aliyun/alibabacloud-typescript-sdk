@@ -4,32 +4,88 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelCatalogResponseBodyModelList extends $dara.Model {
   /**
+   * @remarks
+   * The default parameters.
+   * 
    * @example
    * {"timeout": 600, "max_retries": 10, "max_retry_delay": 8, "initial_retry_delay": 0.5}
    */
   defaultParams?: string;
   /**
+   * @remarks
+   * The additional parameters.
+   * 
    * @example
    * {\\"deepThink\\":false,\\"onlineSearch\\":true}
    */
   extra?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * qwen3.5-plus
    */
   modelType?: string;
+  /**
+   * @remarks
+   * The parameter example.
+   * 
+   * @example
+   * {
+   *     "extra_body": {
+   *         "translation_options": {
+   *             "source_lang": "zh",
+   *             "domains": "The sentence is from Ali Cloud IT domain. ", 
+   *             "terms": [
+   *                 {
+   *                     "source": "Biosensor",
+   *                     "target": "biological sensor"
+   *                 },
+   *                 {
+   *                     "source": "Physical health status",
+   *                     "target": "health status of the body"
+   *                 }
+   *             ],
+   *             "tm_list": [
+   *                 {
+   *                     "source": "You can use one of the following methods to view the kernel version information of a cluster:",
+   *                     "target": "You can use one of the following methods to query the engine version of a cluster:"
+   *                 }
+   *             ]
+   *         }
+   *     }
+   * }
+   */
   paramsExample?: string;
   /**
+   * @remarks
+   * The underlying model provider.
+   * 
    * @example
    * bailian
    */
   provider?: string;
   /**
+   * @remarks
+   * The deployment region.
+   * 
    * @example
    * cn-beijing
    */
   serviceDeployRegion?: string;
   /**
+   * @remarks
+   * Specifies whether the model service can be accessed by using an API key.
+   * 
+   * @example
+   * true
+   */
+  supportApiKeyAccess?: boolean;
+  /**
+   * @remarks
+   * The model purpose.
+   * 
    * @example
    * chat/completions
    */
@@ -42,6 +98,7 @@ export class ListModelCatalogResponseBodyModelList extends $dara.Model {
       paramsExample: 'paramsExample',
       provider: 'provider',
       serviceDeployRegion: 'serviceDeployRegion',
+      supportApiKeyAccess: 'supportApiKeyAccess',
       taskType: 'taskType',
     };
   }
@@ -54,6 +111,7 @@ export class ListModelCatalogResponseBodyModelList extends $dara.Model {
       paramsExample: 'string',
       provider: 'string',
       serviceDeployRegion: 'string',
+      supportApiKeyAccess: 'boolean',
       taskType: 'string',
     };
   }
@@ -76,8 +134,15 @@ export class ListModelCatalogResponseBody extends $dara.Model {
    * 50
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The list of models.
+   */
   modelList?: ListModelCatalogResponseBodyModelList[];
   /**
+   * @remarks
+   * The pagination token. Set this parameter to the value of NextToken returned from the previous API call.
+   * 
    * @example
    * None
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class TagResourcesRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * any_string
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * any_string
    */
@@ -38,26 +44,46 @@ export class TagResourcesRequestTags extends $dara.Model {
 
 export class TagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * Instance
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * Custom
    */
   category?: string;
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   resourceIds?: string[];
   /**
+   * @remarks
+   * The account ID of the tag owner.
+   * 
    * @example
    * 1062017779051424
    */
   tagOwnerUid?: number;
+  /**
+   * @remarks
+   * The new tags to add.
+   */
   tags?: TagResourcesRequestTags[];
   static names(): { [key: string]: string } {
     return {

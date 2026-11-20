@@ -5,35 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class ScaleInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The infrequent access (IA) storage space of the instance. Unit: GB.
+   * The infrequent access storage space of the instance. Unit: GB.
    * 
-   * > Ignore this parameter for pay-as-you-go instances.
+   * > This parameter is ignored for pay-as-you-go instances.
    * 
    * @example
-   * 1000G
+   * 1000
    */
   coldStorageSize?: number;
   /**
    * @remarks
-   * The specifications of the instance. Valid values:
+   * The instance specifications. Valid values:
+   * - 16 cores, 64 GB (Number of compute nodes: 1)
+   * - 32 cores, 128 GB (Number of compute nodes: 2)
+   * - 64 cores, 256 GB (Number of compute nodes: 4)
+   * - 96 cores, 384 GB (Number of compute nodes: 6)
+   * - 128 cores, 512 GB (Number of compute nodes: 8)
+   * - More
    * 
-   * *   8-core 32GB (number of compute nodes: 1)
-   * *   16-core 64GB (number of compute nodes: 1)
-   * *   32-core 128GB (number of compute nodes: 2)
-   * *   64-core 256GB (number of compute nodes: 4)
-   * *   96-core 384GB (number of compute nodes: 6)
-   * *   128-core 512GB (number of compute nodes: 8)
-   * *   Others
-   * 
-   * > 
-   * 
-   * *   Set this parameter to the number of cores.
-   * 
-   * *   If you want to set this parameter to specifications with more than 1,024 compute units (CUs), you must submit a ticket.
-   * 
-   * *   This parameter is invalid for Hologres Shared Cluster instances.
-   * 
-   * *   The specifications of 8-core 32GB (number of compute nodes: 1) are for trial use only and cannot be used for production.
+   * >
+   *  >- Specify only the number of cores.
+   *  >- To purchase specifications with more than 1,024 cores, submit a ticket.
+   *  >- You do not need to specify the specifications for shared instances.
    * 
    * @example
    * 128
@@ -41,7 +34,7 @@ export class ScaleInstanceRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * 是否开启ServerlessComputing
+   * Specifies whether to enable serverless computing.
    * 
    * @example
    * true
@@ -51,7 +44,7 @@ export class ScaleInstanceRequest extends $dara.Model {
    * @remarks
    * The number of gateways. Valid values: 2 to 50.
    * 
-   * > This parameter is required only for virtual warehouse instances.
+   * > This parameter is required only for the Warehouse type.
    * 
    * @example
    * 4
@@ -59,16 +52,12 @@ export class ScaleInstanceRequest extends $dara.Model {
   gatewayCount?: number;
   /**
    * @remarks
-   * The specification change type. Valid values:
-   * 
-   * *   UPGRADE
-   * *   DOWNGRADE
-   * 
+   * The type of the specification change. Valid values:
+   * - UPGRADE: upgrades the specifications.
+   * - DOWNGRADE: downgrades the specifications.
    * > 
-   * 
-   * *   If you set this parameter to UPGRADE, the new specifications must be higher than the original specifications. You must configure at least one of the cpu, storageSize, and coldStorageSize parameters. If you leave a parameter empty, the related configuration remains unchanged.
-   * 
-   * *   If you set this parameter to DOWNGRADE, the new specifications must be lower than the original specifications. You must configure at least one of the cpu, storageSize, and coldStorageSize parameters. If you leave a parameter empty, the related configuration remains unchanged.
+   * > - When you upgrade the specifications, the new specifications cannot be lower than the original specifications. An empty field indicates that the original specifications remain unchanged. At least one specification must be higher than the original specification.
+   * > - When you downgrade the specifications, the new specifications cannot be higher than the original specifications. An empty field indicates that the original specifications remain unchanged. At least one specification must be lower than the original specification.
    * 
    * This parameter is required.
    * 
@@ -80,10 +69,10 @@ export class ScaleInstanceRequest extends $dara.Model {
    * @remarks
    * The standard storage space of the instance. Unit: GB.
    * 
-   * > Ignore this parameter for pay-as-you-go instances.
+   * > This parameter is ignored for pay-as-you-go instances.
    * 
    * @example
-   * 1000G
+   * 1000
    */
   storageSize?: number;
   static names(): { [key: string]: string } {

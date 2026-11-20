@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PrepareUpgradeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shenzhen
    */
   regionId?: string;
   /**
+   * @remarks
+   * **[Deprecated]** This parameter is deprecated.
+   * 
    * @example
    * true
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The target version. Call ListUpgradeReleaseVersion to check the available target versions.
+   * 
    * @example
    * r5.0.0
    */

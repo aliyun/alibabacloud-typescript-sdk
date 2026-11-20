@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBackupDataDescResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 404
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Internal server error.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -32,6 +44,9 @@ export class UpdateBackupDataDescResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result.
+   * 
    * @example
    * true
    */

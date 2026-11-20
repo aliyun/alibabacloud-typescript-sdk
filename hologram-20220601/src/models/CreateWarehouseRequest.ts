@@ -21,7 +21,7 @@ export class CreateWarehouseRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The number of vCPUs.
+   * The number of CPU cores.
    * 
    * @example
    * 32
@@ -29,7 +29,7 @@ export class CreateWarehouseRequest extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The name of the virtual warehouse.
+   * The name of the warehouse.
    * 
    * @example
    * warehouse-test

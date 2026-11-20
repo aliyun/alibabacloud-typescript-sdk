@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PrepareUpgradeResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the upgrade failure.
+   * 
    * @example
    * null
    */
   failReason?: string;
   /**
+   * @remarks
+   * The upgrade target key.
+   * 
    * @example
    * null
    */
   reasonKey?: string;
   /**
+   * @remarks
+   * Indicates whether the pre-upgrade preparation task was started successfully.
+   * 
    * @example
    * true
    */
@@ -44,18 +53,31 @@ export class PrepareUpgradeResponseBodyData extends $dara.Model {
 }
 
 export class PrepareUpgradeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: PrepareUpgradeResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -69,6 +91,9 @@ export class PrepareUpgradeResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result, which is independent of the business logic.
+   * 
    * @example
    * true
    */

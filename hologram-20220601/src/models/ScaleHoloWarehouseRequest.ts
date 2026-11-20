@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ScaleHoloWarehouseRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of clusters.
+   * 
    * @example
    * 2
    */
   clusterCount?: number;
   /**
    * @remarks
-   * The specifications of the virtual warehouse. The number of vCPUs must be an integer multiple of 16.
+   * The specifications of the compute group. The value must be a multiple of 16.
    * 
    * This parameter is required.
    * 
@@ -20,7 +23,7 @@ export class ScaleHoloWarehouseRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The name of the virtual warehouse.
+   * The name of the compute group.
    * 
    * This parameter is required.
    * 

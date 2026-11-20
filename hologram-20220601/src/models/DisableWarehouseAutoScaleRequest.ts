@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableWarehouseAutoScaleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the compute group.
+   * 
    * @example
    * my_warehouse
    */

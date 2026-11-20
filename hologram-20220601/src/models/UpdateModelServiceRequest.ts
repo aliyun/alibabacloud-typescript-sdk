@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateModelServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The CPU specifications.
+   * 
    * @example
    * 32
    */
   cpu?: number;
   /**
+   * @remarks
+   * The GPU specifications.
+   * 
    * @example
    * 1
    */
   gpu?: number;
   /**
+   * @remarks
+   * The memory specifications.
+   * 
    * @example
    * 60
    */
   memory?: number;
   /**
    * @remarks
+   * The custom service name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,11 +38,17 @@ export class UpdateModelServiceRequest extends $dara.Model {
    */
   modelServiceName?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * Qwen/Qwen2.5-VL-32B-Instruct
    */
   modelType?: string;
   /**
+   * @remarks
+   * The number of service replicas.
+   * 
    * @example
    * 2
    */

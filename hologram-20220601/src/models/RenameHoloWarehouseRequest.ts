@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenameHoloWarehouseRequest extends $dara.Model {
   /**
    * @remarks
-   * The original name of the virtual warehouse.
+   * The original name of the compute group.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RenameHoloWarehouseRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The new name of the virtual warehouse.
+   * The new name of the compute group.
    * 
    * This parameter is required.
    * 

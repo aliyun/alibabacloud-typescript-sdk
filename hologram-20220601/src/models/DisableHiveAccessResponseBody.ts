@@ -7,31 +7,13 @@ export class DisableHiveAccessResponseBody extends $dara.Model {
    * @remarks
    * The returned result.
    * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * true
    */
   data?: boolean;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * 404
@@ -39,7 +21,7 @@ export class DisableHiveAccessResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Internal server error.
@@ -55,7 +37,7 @@ export class DisableHiveAccessResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 82B7A554-4D00-50DF-95D9-B59E7B4D5489
@@ -63,25 +45,7 @@ export class DisableHiveAccessResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The request result.
    * 
    * @example
    * true

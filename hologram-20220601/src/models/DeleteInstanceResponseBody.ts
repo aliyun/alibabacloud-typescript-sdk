@@ -5,25 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result, which indicates whether the request was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The returned result.
    * 
    * @example
    * true
@@ -31,7 +13,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * null
@@ -39,7 +21,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * null
@@ -47,7 +29,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status Code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -55,7 +37,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * CB13FFDD-2DF8-5396-A848-2D6A31245B6D
@@ -63,7 +45,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

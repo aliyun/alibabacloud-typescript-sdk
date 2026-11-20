@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableOperationEventRequest extends $dara.Model {
   /**
    * @remarks
+   * The event ID.
+   * 
    * This parameter is required.
    * 
    * @example

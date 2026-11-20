@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceResponseBodyInstanceEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The endpoint. This parameter is returned if both the AnyTunnel and SingleTunnel modes are enabled for an instance, and the instance is switched from the AnyTunnel mode to the SingleTunnel mode. In this case, two endpoints are returned.
+   * Some legacy instances have both AnyTunnel and SingleTunnel enabled. When switching from AnyTunnel to SingleTunnel, the endpoints for both are retained. Therefore, an additional field is required to store the endpoints.
    * 
    * @example
    * hgprecn-cn-uqm362o1b001-cn-hangzhou-internal.hologres.aliyuncs.com:80
@@ -14,24 +14,6 @@ export class GetInstanceResponseBodyInstanceEndpoints extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the network is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * true
@@ -49,69 +31,13 @@ export class GetInstanceResponseBodyInstanceEndpoints extends $dara.Model {
    * @remarks
    * The network type.
    * 
-   * Valid values:
-   * 
-   * *   VPCSingleTunnel
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     virtual private cloud (VPC)
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Intranet
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     internal network
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   VPCAnyTunnel
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     not supported by new instances
-   * 
-   *     <!-- -->
-   * 
-   * *   Internet
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     Internet
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
    * @example
    * Internet
    */
   type?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1jqwp2ys6kp7tc9t983
@@ -119,7 +45,7 @@ export class GetInstanceResponseBodyInstanceEndpoints extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the instance belongs.
+   * The VPC ID.
    * 
    * @example
    * vpc-uf66jjber3hgvwhki3wna
@@ -127,7 +53,7 @@ export class GetInstanceResponseBodyInstanceEndpoints extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the instance that is deployed in the VPC.
+   * The VPC instance ID.
    * 
    * @example
    * hgprecn-cn-uqm362o1b001-frontend-st
@@ -169,7 +95,7 @@ export class GetInstanceResponseBodyInstanceEndpoints extends $dara.Model {
 export class GetInstanceResponseBodyInstanceTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The tag key.
    * 
    * @example
    * tag
@@ -177,7 +103,7 @@ export class GetInstanceResponseBodyInstanceTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value.
    * 
    * @example
    * value
@@ -211,31 +137,15 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * @remarks
    * Indicates whether auto-renewal is enabled.
    * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * true
    */
   autoRenewal?: string;
   /**
    * @remarks
-   * The cold storage capacity of the instance. Unit: GB. Standard SSD is used for hot storage, and HDD is used for cold storage.
+   * The cold storage capacity.
+   * Unit: GB.
+   * SSD is equivalent to hot storage, which is also standard storage. HDD is equivalent to cold storage.
    * 
    * @example
    * 800
@@ -245,123 +155,14 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * @remarks
    * The commodity code.
    * 
-   * Valid values:
-   * 
-   * *   hologram_maxcomputeAccelerate_public_cn
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     China site/Lakehouse Acceleration Edition
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   hologram_combo_public_cn
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     China site/Subscription
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   hologram_prepay_public_intl
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     International site/Subscription
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   hologram_storage_dp_cn
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     China site/Storage plan
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   hologram_postpay_public_cn
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     China site/Pay-as-you-go
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   hologram_postpay_public_intl
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     International site/Pay-as-you-go
-   * 
-   *     <!-- -->
-   * 
-   * *   hologram_maxcomputeAccelerate_public_intl
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     International site/Lakehouse Acceleration Edition
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   hologram_cu_dp_cn
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     China site/Compute plan
-   * 
-   *     <!-- -->
-   * 
    * @example
    * hologram_combo_public_cn
    */
   commodityCode?: string;
   /**
    * @remarks
-   * The number of compute nodes. In a typical configuration, a node has 16 CPU cores and 32 GB of memory.
+   * The number of compute nodes.
+   * A typical configuration for a node is 16 vCPUs and 32 GB of memory.
    * 
    * @example
    * 2
@@ -377,7 +178,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard.
    * 
    * @example
    * 2021-02-03T13:06:06Z
@@ -385,7 +186,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The amount of data that can be stored in the disk of the Standard storage class. Unit: GB.
+   * The standard storage size.
+   * Unit: GB.
    * 
    * @example
    * 500
@@ -399,10 +201,22 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * true
    */
   enableHiveAccess?: string;
+  /**
+   * @remarks
+   * Indicates whether SSL is enabled.
+   * 
+   * @example
+   * true
+   */
   enableSSL?: boolean;
   /**
    * @remarks
-   * EnableServerless
+   * Indicates whether the instance sandbox feature is enabled.
+   */
+  enableSandbox?: boolean;
+  /**
+   * @remarks
+   * Indicates whether Serverless Computing is enabled.
    * 
    * @example
    * true
@@ -415,7 +229,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   endpoints?: GetInstanceResponseBodyInstanceEndpoints[];
   /**
    * @remarks
-   * The expiration time. This parameter is invalid for pay-as-you-go instances.
+   * The expiration time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard.
+   * Pay-as-you-go instances do not have an expiration time.
    * 
    * @example
    * 2021-02-03T13:06:06Z
@@ -431,7 +246,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   gatewayCount?: number;
   /**
    * @remarks
-   * The number of CPU cores of the gateway. Unit: core.
+   * The CPU resources of the gateway.
+   * Unit: Cores.
    * 
    * @example
    * 4
@@ -439,7 +255,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   gatewayCpu?: number;
   /**
    * @remarks
-   * The size of memory resources of the gateway. Unit: GB.
+   * The memory resources of the gateway.
+   * Unit: GB.
    * 
    * @example
    * 16
@@ -448,36 +265,6 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     pay-as-you-go
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   PrePaid
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     subscription
-   * 
-   *     <!-- -->
-   * 
-   *     .
    * 
    * @example
    * PrePaid
@@ -493,7 +280,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name. The instance name must be 2 to 64 characters in length.
+   * The instance name.
+   * The name must be 2 to 64 characters in length.
    * 
    * @example
    * test
@@ -501,7 +289,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The owner of the instance.
+   * The instance owner.
    * 
    * @example
    * 12345678900000
@@ -509,41 +297,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   instanceOwner?: string;
   /**
    * @remarks
-   * The status of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Suspended
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Allocating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The instance status.
    * 
    * @example
    * Running
@@ -551,37 +305,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The type of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   Follower
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     read-only secondary instance
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Standard
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     normal instance
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * The instance type.
    * 
    * @example
    * Standard
@@ -589,7 +313,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the primary instance.
+   * The primary instance ID.
    * 
    * @example
    * hgpostcn-cn-i7m2ncd6w002
@@ -597,7 +321,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   leaderInstanceId?: string;
   /**
    * @remarks
-   * The memory size. Unit: GB.
+   * The memory size.
+   * Unit: GB.
    * 
    * @example
    * 128
@@ -605,7 +330,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -613,10 +338,10 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Disaster recovery instance role. 
-   * * Active: Primary disaster recovery instance.
-   * * Passive: Disaster tolerance instance.
-   * * PreActive: Primary disaster recovery instance not yet in final state.
+   * The role of the disaster recovery instance.
+   * Active: The primary disaster recovery instance.
+   * Passive: The secondary disaster recovery instance. 
+   * PreActive: The primary disaster recovery instance that has not reached the desired state.
    * 
    * @example
    * Active
@@ -624,7 +349,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   replicaRole?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzuq7hpybze2i
@@ -632,10 +357,9 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The storage type.
-   * 
-   * *   redundant: 3 copies
-   * *   local: single copy
+   * The storage type. Valid values:
+   * * redundant: 3AZ.
+   * * local: 1AZ.
    * 
    * @example
    * redundant
@@ -643,51 +367,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The reason for the suspension.
-   * 
-   * Valid values:
-   * 
-   * *   Indebet
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The instance has an overdue payment
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Manual
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The instance is manually suspended
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   Overdue
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The instance has expired
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * The reason for suspension.
    * 
    * @example
    * Manual
@@ -695,7 +375,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   suspendReason?: string;
   /**
    * @remarks
-   * The instance tag.
+   * The instance tags.
    */
   tags?: GetInstanceResponseBodyInstanceTags[];
   /**
@@ -708,7 +388,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The ID of the zone where the instance resides.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-h
@@ -725,6 +405,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       disk: 'Disk',
       enableHiveAccess: 'EnableHiveAccess',
       enableSSL: 'EnableSSL',
+      enableSandbox: 'EnableSandbox',
       enableServerless: 'EnableServerless',
       endpoints: 'Endpoints',
       expirationTime: 'ExpirationTime',
@@ -761,6 +442,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       disk: 'string',
       enableHiveAccess: 'string',
       enableSSL: 'boolean',
+      enableSandbox: 'boolean',
       enableServerless: 'boolean',
       endpoints: { 'type': 'array', 'itemType': GetInstanceResponseBodyInstanceEndpoints },
       expirationTime: 'string',
@@ -804,10 +486,10 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
 export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code that is returned if the request failed.
+   * The error code.
    * 
    * @example
-   * 404
+   * null
    */
   errorCode?: string;
   /**
@@ -815,12 +497,12 @@ export class GetInstanceResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Internal server error.
+   * null
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -828,7 +510,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The information about the instance.
+   * The instance information.
    */
   instance?: GetInstanceResponseBodyInstance;
   /**
@@ -841,7 +523,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result, which indicates whether the request was successful.
+   * The request result. This parameter indicates whether an exception occurred during the request and is independent of the business logic.
    * 
    * @example
    * true

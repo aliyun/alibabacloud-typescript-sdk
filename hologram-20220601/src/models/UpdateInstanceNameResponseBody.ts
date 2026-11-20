@@ -5,25 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result, which indicates whether the operation was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -34,7 +16,7 @@ export class UpdateInstanceNameResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * 404
+   * null
    */
   errorCode?: string;
   /**
@@ -42,7 +24,7 @@ export class UpdateInstanceNameResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Internal server error.
+   * null
    */
   errorMessage?: string;
   /**
@@ -55,7 +37,7 @@ export class UpdateInstanceNameResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * C6B55032-D41A-5FE0-9C07-8BD81C88422E
@@ -63,25 +45,7 @@ export class UpdateInstanceNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result, which indicates whether the request was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether an exception occurred during the request.
    * 
    * @example
    * true

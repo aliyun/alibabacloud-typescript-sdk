@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class GrantDatabasePermissionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -32,6 +46,9 @@ export class GrantDatabasePermissionResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result.
+   * 
    * @example
    * true
    */

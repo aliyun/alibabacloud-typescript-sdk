@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region in which the Hologres instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

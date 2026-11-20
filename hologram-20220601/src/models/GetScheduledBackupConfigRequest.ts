@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetScheduledBackupConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shenzhen
    */
   regionId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * hgprecn-cn-9lb3bjg1n003
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The backup type. By default, periodic and manual backup configurations are returned. To return the remote backup configuration, set this parameter to remote.
+   * 
    * @example
    * remote
    */

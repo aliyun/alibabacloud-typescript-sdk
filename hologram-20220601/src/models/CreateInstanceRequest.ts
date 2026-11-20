@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-payment. Default value: true. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * >  The default value is true. If the balance of your account is insufficient, you can set this parameter to false. In this case, an unpaid order is generated. You can log on to the Expenses and Costs console to pay for the order.
+   * Specifies whether to enable automatic payment. Default value: true. Valid values:
+   * - true: Automatic payment is enabled.
+   * - false: Only an order is generated, and no payment is made.
+   * > Default value: true. If your payment method has insufficient balance, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the Expenses and Costs console to complete the payment.
    * 
    * @example
    * true
@@ -18,10 +16,9 @@ export class CreateInstanceRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable monthly auto-renewal. The default value is false. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable monthly auto-renewal. Default value: false. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -29,12 +26,10 @@ export class CreateInstanceRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   PrePaid: subscription
-   * *   PostPaid: pay-as-you-go
-   * 
-   * >  This parameter is invalid for Hologres Shared Cluster instances. Hologres Shared Cluster instances have fixed specifications and are pay-as-you-go instances.
+   * The billing method. Valid values:
+   * - PrePaid: Subscription.
+   * - PostPaid: Pay-as-you-go.
+   * > This parameter is ignored for Shared instances. Shared is a defined specifications type, and its billing method defaults to PostPaid.
    * 
    * This parameter is required.
    * 
@@ -44,9 +39,8 @@ export class CreateInstanceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The infrequent access (IA) storage space of the instance. Unit: GB.
-   * 
-   * >  This parameter is invalid for pay-as-you-go instances.
+   * The low-frequency storage capacity of the instance. Unit: GB.
+   * > This parameter is ignored for pay-as-you-go instances.
    * 
    * @example
    * 500
@@ -55,23 +49,16 @@ export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The instance specifications. Valid values:
+   * - 32 cores, 128 GB (Number of compute nodes: 2)
+   * - 64 cores, 256 GB (Number of compute nodes: 4)
+   * - 96 cores, 384 GB (Number of compute nodes: 6)
+   * - 128 cores, 512 GB (Number of compute nodes: 8)
+   * - Other specifications
    * 
-   * *   8-core 32GB (number of compute nodes: 1)
-   * *   32-core 128GB (number of compute nodes: 2)
-   * *   64-core 256GB (number of compute nodes: 4)
-   * *   96-core 384GB (number of compute nodes: 6)
-   * *   128-core 512GB (number of compute nodes: 8)
-   * *   Others
-   * 
-   * > 
-   * 
-   * *   Set this parameter to the number of cores.
-   * 
-   * *   If you want to set this parameter to specifications with more than 1,024 GB, you must submit a ticket.
-   * 
-   * *   This parameter is invalid for Hologres Shared Cluster instances.
-   * 
-   * *   The specifications of 8-core 32GB (number of compute nodes: 1) are for trial use only and cannot be used for production.
+   * >
+   *  >- Specify the number of cores.
+   *  >- To purchase an instance with more than 1,024 cores, submit a ticket.
+   *  >- You do not need to specify the specifications for a Shared instance.
    * 
    * @example
    * 64
@@ -79,9 +66,8 @@ export class CreateInstanceRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The validity period of the instance that you want to purchase. For example, you can specify a validity period of two months.
-   * 
-   * >  You do not need to configure this parameter for pay-as-you-go instances.
+   * The subscription duration. For example, set this parameter to 2 for a two-month subscription.
+   * > This parameter is not required if the billing method is PostPaid.
    * 
    * @example
    * 2
@@ -89,12 +75,7 @@ export class CreateInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Specifies whether to enable the Serverless Computing feature.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable Serverless Computing.
    * 
    * @example
    * true
@@ -104,7 +85,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The number of gateways. Valid values: 2 to 50.
    * 
-   * >  This parameter is required only for virtual warehouse instances.
+   * > This parameter is required only for Warehouse instances.
    * 
    * @example
    * 4
@@ -112,7 +93,7 @@ export class CreateInstanceRequest extends $dara.Model {
   gatewayCount?: number;
   /**
    * @remarks
-   * The initial database.
+   * The initial databases.
    * 
    * @example
    * chatbot
@@ -120,7 +101,7 @@ export class CreateInstanceRequest extends $dara.Model {
   initialDatabases?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 64 characters in length.
+   * The name of the instance. The name must be 2 to 64 characters in length. Each Chinese character or letter counts as one character.
    * 
    * This parameter is required.
    * 
@@ -130,12 +111,12 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The category of the instance. Valid values:
-   * 
-   * *   Standard: general-purpose instance
-   * *   Follower: read-only secondary instance
-   * *   Warehouse: virtual warehouse instance
-   * *   Shared: Hologres Shared Cluster instance
+   * The instance type. Valid values:
+   * - Standard: General-purpose.
+   * - Follower: Read-only secondary instance.
+   * - Warehouse: Compute group.
+   * - Shared: Shared.
+   * - Severless: Serverless.
    * 
    * This parameter is required.
    * 
@@ -145,19 +126,14 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the primary instance. This parameter is required for read-only secondary instances.
+   * The ID of the primary instance. This parameter is required for Follower instances.
    * 
-   * >  The primary and secondary instances must meet the following requirements:
-   * 
-   * *   The primary instance is in the Running state.
-   * 
-   * *   The primary instance and secondary instances are deployed in the same region.
-   * 
-   * *   The primary instance and secondary instances are deployed in the same zone.
-   * 
-   * *   Less than 10 secondary instances are associated with the primary instance.
-   * 
-   * *   The primary instance and secondary instances belong to the same Alibaba Cloud account.
+   * > The primary and secondary instances must meet the following conditions:
+   * > - The primary instance is in the Running state.
+   * > - The primary and secondary instances are in the same region.
+   * > - The primary and secondary instances are in the same zone.
+   * > - The primary instance is associated with fewer than 10 secondary instances.
+   * > - The primary and secondary instances belong to the same Alibaba Cloud account.
    * 
    * @example
    * hgpostcn-cn-lbj3aworq112
@@ -166,17 +142,12 @@ export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing cycle. Valid values:
-   * 
-   * *   Month
-   * *   Hour
-   * 
-   * > 
-   * 
-   * *   This parameter can only be set to Month for subscription instances.
-   * 
-   * *   This parameter can only be set to Hour for pay-as-you-go instances.
-   * 
-   * *   By default, this parameter is set to Hour for Hologres Shared Cluster instances.
+   * - Month: Monthly billing.
+   * - Hour: Hourly billing.
+   * >
+   * > - PrePaid supports only Month.
+   * > - PostPaid supports only Hour.
+   * > - For Shared instances, this parameter is automatically set to Hour and does not need to be specified.
    * 
    * @example
    * Month
@@ -184,7 +155,8 @@ export class CreateInstanceRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The ID of the region. You can obtain region IDs in [Endpoints](https://www.alibabacloud.com/help/en/maxcompute/user-guide/endpoints).
+   * The region ID. You can go to <props="china">[service registration endpoints](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-endpoint)
+   * <props="intl">[service registration endpoints](https://www.alibabacloud.com/help/zh/hologres/developer-reference/api-hologram-2022-06-01-endpoint) to view the supported regions.
    * 
    * This parameter is required.
    * 
@@ -194,7 +166,7 @@ export class CreateInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. If you do not specify this parameter, the default resource group of the account is used.
+   * The ID of the resource group. If this parameter is left empty, the default resource group of the account is used.
    * 
    * @example
    * ""
@@ -202,18 +174,24 @@ export class CreateInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The standard storage space of the instance. Unit: GB.
-   * 
-   * >  This parameter is invalid for pay-as-you-go instances.
+   * The standard storage capacity of the instance. Unit: GB.
+   * > This parameter is ignored for pay-as-you-go instances.
    * 
    * @example
    * 500
    */
   storageSize?: number;
+  /**
+   * @remarks
+   * The storage type.
+   * 
+   * @example
+   * redundant
+   */
   storageType?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. The zone in which the vSwitch resides must be the same as the zone in which the Hologres instance resides.
+   * The ID of the vSwitch. The zone ID of the vSwitch must be the same as that of the instance.
    * 
    * This parameter is required.
    * 
@@ -223,7 +201,7 @@ export class CreateInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC). The region in which the VPC resides must be the same as the region in which the Hologres instance resides.
+   * The ID of the virtual private cloud (VPC). The region ID of the VPC must be the same as that of the instance.
    * 
    * This parameter is required.
    * 
@@ -233,7 +211,7 @@ export class CreateInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone. For more information, see the "Operation description" section in this topic.
+   * The zone ID. Refer to the usage notes.
    * 
    * This parameter is required.
    * 

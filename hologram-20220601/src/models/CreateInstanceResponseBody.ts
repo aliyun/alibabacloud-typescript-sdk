@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * InvalidVpcOrVSwitch.NotAvailable
@@ -21,10 +21,10 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The error details.
+   * The detailed error message.
    * 
    * @example
-   * Vpc is not available
+   * InvalidVpcOrVSwitch.NotAvailable
    */
   message?: string;
   /**
@@ -37,10 +37,9 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Indicates whether the instance was created.
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the instance was created. Valid values:  
+   * - true: The instance was created.
+   * - false: The instance failed to be created.
    * 
    * @example
    * true
@@ -78,12 +77,12 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: CreateInstanceResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * null
@@ -91,7 +90,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * null
@@ -107,7 +106,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9CC37B9F-F4B4-5FF1-939B-AEE78DC70130

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteModelResourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The AI node instance ID.
+   * 
    * @example
    * hologram_aicombo_public_cn-yi34cxxxx
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateHoloWebLoginSettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values: true (successful) and false (failed).
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Internal server error.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -32,6 +44,9 @@ export class UpdateHoloWebLoginSettingResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values: true (successful) and false (failed).
+   * 
    * @example
    * true
    */

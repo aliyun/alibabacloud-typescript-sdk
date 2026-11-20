@@ -4,56 +4,88 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList extends $dara.Model {
   /**
+   * @remarks
+   * The auto-scaling type.
+   * 
    * @example
    * Standard
    */
   autoScaleType?: string;
   /**
+   * @remarks
+   * The number of clusters.
+   * 
    * @example
    * 2
    */
   clusterCount?: string;
   /**
+   * @remarks
+   * The cluster specifications.
+   * 
    * @example
    * 32
    */
   clusterCpu?: string;
   /**
    * @remarks
-   * The number of CPU cores.
+   * cpu
    * 
    * @example
    * 32
    */
   cpu?: number;
+  /**
+   * @remarks
+   * Indicates whether the compute group is the default compute group.
+   * 
+   * @example
+   * true
+   */
   defaultWarehouse?: boolean;
+  /**
+   * @remarks
+   * The elastic compute resources.
+   * 
+   * @example
+   * 32
+   */
   elasticCpu?: number;
   /**
+   * @remarks
+   * The elastic type.
+   * 
    * @example
    * auto
    */
   elasticType?: string;
   /**
    * @remarks
-   * The ID.
+   * id
    * 
    * @example
    * 2
    */
   id?: number;
   /**
+   * @remarks
+   * The number of reserved clusters.
+   * 
    * @example
    * 2
    */
   initClusterCount?: string;
   /**
+   * @remarks
+   * The maximum number of clusters.
+   * 
    * @example
    * 4
    */
   maxClusterCount?: string;
   /**
    * @remarks
-   * The memory capacity.
+   * The memory.
    * 
    * @example
    * 128
@@ -61,7 +93,7 @@ export class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList extends 
   mem?: number;
   /**
    * @remarks
-   * The name of the virtual warehouse instance.
+   * The name of the compute group.
    * 
    * @example
    * MyWarehouse
@@ -75,52 +107,17 @@ export class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList extends 
    * 2
    */
   nodeCount?: number;
+  /**
+   * @remarks
+   * The rebalance status of the compute group.
+   * 
+   * @example
+   * DONE
+   */
   rebalanceStatus?: string;
   /**
    * @remarks
    * The status.
-   * 
-   * Valid values:
-   * 
-   * *   kRunning
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kSuspended
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kInit
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kFailed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   kAllocating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * kRunning
@@ -176,10 +173,17 @@ export class GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList extends 
 }
 
 export class GetWarehouseDetailResponseBodyWarehouseDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The total auto-scaling elastic compute resources of the compute group.
+   * 
+   * @example
+   * 32
+   */
   autoElasticCpu?: string;
   /**
    * @remarks
-   * The remaining unallocated computing resources of the virtual warehouse instance.
+   * The unallocated compute resources. The remaining unallocated compute resources for compute groups in the instance.
    * 
    * @example
    * 32
@@ -187,16 +191,23 @@ export class GetWarehouseDetailResponseBodyWarehouseDetail extends $dara.Model {
   remainingCpu?: string;
   /**
    * @remarks
-   * The reserved computing resources. The amount of computing resources in all running virtual warehouses in an instance cannot exceed the amount of reserved computing resources in the virtual warehouses.
+   * The reserved compute resources. The total compute resources of all running compute groups in the instance cannot exceed the reserved compute resources of the compute group.
    * 
    * @example
    * 64
    */
   reservedCpu?: string;
+  /**
+   * @remarks
+   * The total time-based elastic compute resources of the compute group.
+   * 
+   * @example
+   * 64
+   */
   timedElasticCpu?: string;
   /**
    * @remarks
-   * The list of virtual warehouses.
+   * The warehouse list.
    */
   warehouseList?: GetWarehouseDetailResponseBodyWarehouseDetailWarehouseList[];
   static names(): { [key: string]: string } {
@@ -234,7 +245,7 @@ export class GetWarehouseDetailResponseBodyWarehouseDetail extends $dara.Model {
 export class GetWarehouseDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * D3AE84AB-0873-5FC7-A4C4-8CF869D2FA70
@@ -242,7 +253,7 @@ export class GetWarehouseDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned values.
+   * The return value.
    */
   warehouseDetail?: GetWarehouseDetailResponseBodyWarehouseDetail;
   static names(): { [key: string]: string } {

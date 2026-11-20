@@ -4,13 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class RevokeTablePermissionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 819A7F0F-2951-540F-BD94-6A41ECF0281F

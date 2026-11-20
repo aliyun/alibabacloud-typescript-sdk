@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebalanceHoloWarehouseRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the virtual warehouse.
+   * The name of the compute group.
    * 
    * This parameter is required.
    * 

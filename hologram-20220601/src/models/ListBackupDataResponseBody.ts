@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   /**
    * @remarks
-   * The backup type. In general, the following two types are supported: local backup and remote backup. In the local backup type, snapshots reside in the same region as your instance. The following two sub-types are available: full (single backup, single replica) and redundant (zone-redundant storage, multiple replicas). In the remote backup type, snapshots and your instance reside in different regions. Remote backups are the replicas of the backups of the full or redundant type in another region. The values local and remote do not represent specific types, but are used only for data filtering. The value local indicates all local backups, and the value remote indicates all remote backups.
+   * The backup type. Backup types are generally divided into two categories: 1) Local backup, where the snapshot and the instance belong to the same region. 2) Remote backup, where the snapshot and the instance belong to different regions. Valid values:
+   * - redundant: Local backup with cross-zone multi-copy storage in the same region.
+   * - redundant_remote: Remote backup with cross-zone multi-copy storage in the same region, which is a cross-region copy of the redundant type.
+   * - full: Local backup with single-copy storage.
+   * - full_remote: Remote backup with single-copy storage, which is a cross-region copy of the full type.
+   * - local: Does not represent a specific backup type and is only used to filter local backup data.
+   * - remote: Does not represent a specific backup type and is only used to filter remote backup data.
    * 
    * @example
    * redundant
@@ -13,7 +19,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * The size of cold data. Unit: bytes.
+   * The size of the cold storage data. Unit: bytes.
    * 
    * @example
    * 32413521
@@ -21,7 +27,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   coldDataSize?: number;
   /**
    * @remarks
-   * The description of the backup data.
+   * The description of the backup data. This field can be updated.
    * 
    * @example
    * demo
@@ -30,10 +36,6 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   /**
    * @remarks
    * The backup granularity.
-   * 
-   * Valid values:
-   * 
-   * *   instance
    * 
    * @example
    * instance
@@ -49,7 +51,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The snapshot time. The value format of this parameter follows the same standard as that of the StartTime parameter.
+   * The data snapshot time. For the format, refer to StartTime.
    * 
    * @example
    * 2024-10-28T12:23:37.000+00:00
@@ -57,7 +59,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   dataTime?: string;
   /**
    * @remarks
-   * The end time of the backup task. The value format of this parameter follows the same standard as that of the StartTime parameter.
+   * The end time of the backup. For the format, refer to StartTime.
    * 
    * @example
    * 2024-10-28T12:27:34.000+00:00
@@ -81,7 +83,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * my-hologres-dw
@@ -89,7 +91,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -97,12 +99,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   instanceRegion?: string;
   /**
    * @remarks
-   * The type of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   Warehouse: virtual warehouse instance
-   * *   Standard: general-purpose instance
+   * The instance type.
    * 
    * @example
    * Warehouse
@@ -110,7 +107,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The zone in which the instance resides.
+   * The zone where the instance resides.
    * 
    * @example
    * cn-hangzhou-j
@@ -118,7 +115,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   instanceZoneId?: string;
   /**
    * @remarks
-   * The region in which the backup data resides.
+   * The region where the backup data resides.
    * 
    * @example
    * cn-hangzhou
@@ -126,7 +123,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   snapshotRegion?: string;
   /**
    * @remarks
-   * The zone in which the backup data resides. In zone-redundant storage mode, backup data is stored in different zones, including the current zone.
+   * The zone where the backup data resides. For zone-redundant storage, the data is stored across multiple zones, and this field indicates one of the zones.
    * 
    * @example
    * cn-hangzhou-j
@@ -134,7 +131,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   snapshotZoneId?: string;
   /**
    * @remarks
-   * The start time of the backup task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.SSSTZ format. The time is displayed in UTC (the same below).
+   * The start time of the backup. The time is in the UTC+8 time zone and follows the YYYY-MM-DDTHH:mm:ss.SSSTZ format. The same applies to other time fields.
    * 
    * @example
    * 2024-10-28T11:19:56.000+00:00
@@ -142,13 +139,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the backup task.
-   * 
-   * Valid values:
-   * 
-   * *   processing
-   * *   completed
-   * *   failed
+   * The backup status.
    * 
    * @example
    * completed
@@ -156,12 +147,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The mode in which the backup task is triggered.
-   * 
-   * Valid values:
-   * 
-   * *   scheduled: periodic backup
-   * *   manual: manual backup
+   * The trigger type.
    * 
    * @example
    * scheduled
@@ -225,7 +211,7 @@ export class ListBackupDataResponseBodyBackupDataList extends $dara.Model {
 export class ListBackupDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backups.
+   * The list of backups.
    */
   backupDataList?: ListBackupDataResponseBodyBackupDataList[];
   /**

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMigrationZonesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * 2
    */

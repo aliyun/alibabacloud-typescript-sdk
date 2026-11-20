@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMaintenanceWindowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time in the HH:mm format (24-hour clock).
+   * 
    * @example
    * 02:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time in the HH:mm format (24-hour clock).
+   * 
    * @example
    * 00:00
    */

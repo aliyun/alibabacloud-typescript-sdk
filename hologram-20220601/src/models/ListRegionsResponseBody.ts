@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegionsResponseBodyRegions extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -30,6 +33,10 @@ export class ListRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class ListRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of regions.
+   */
   regions?: ListRegionsResponseBodyRegions[];
   /**
    * @remarks

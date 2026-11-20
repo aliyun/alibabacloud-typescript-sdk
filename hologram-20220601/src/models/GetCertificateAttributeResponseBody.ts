@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCertificateAttributeResponseBodyCertificateAttributeDto extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether SSL is enabled. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
   enableSSL?: boolean;
   /**
+   * @remarks
+   * The expiration timestamp of the certificate.
+   * 
    * @example
    * 1790583135000
    */
   expirationTime?: number;
   /**
+   * @remarks
+   * The certificate status.
+   * 
    * @example
    * effective
    */
@@ -44,28 +55,49 @@ export class GetCertificateAttributeResponseBodyCertificateAttributeDto extends 
 }
 
 export class GetCertificateAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate attributes.
+   */
   certificateAttributeDto?: GetCertificateAttributeResponseBodyCertificateAttributeDto;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 819A7F0F-2951-540F-BD94-6A41ECF0281F
    */

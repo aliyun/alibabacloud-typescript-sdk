@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDatabasesResponseBodyDatabaseList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the table is a foreign table. Valid values: true: yes, false: no.
+   * 
    * @example
    * false
    */
   external?: boolean;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * my_db
    */
   name?: string;
   /**
+   * @remarks
+   * The permission model. For more information, see [Hologres permission models](https://help.aliyun.com/document_detail/198734.html).
+   * 
    * @example
    * SPM
    */
   permissionModel?: string;
   /**
+   * @remarks
+   * The permissions.
+   * 
    * @example
    * developer
    */
@@ -51,18 +63,31 @@ export class ListDatabasesResponseBodyDatabaseList extends $dara.Model {
 }
 
 export class ListDatabasesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of databases.
+   */
   databaseList?: ListDatabasesResponseBodyDatabaseList[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -76,6 +101,9 @@ export class ListDatabasesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

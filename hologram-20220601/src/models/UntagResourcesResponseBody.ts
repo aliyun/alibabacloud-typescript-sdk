@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UntagResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The operation success indicator.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 404
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Internal server error.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -32,6 +44,9 @@ export class UntagResourcesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful, independent of the business result.
+   * 
    * @example
    * true
    */

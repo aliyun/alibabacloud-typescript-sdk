@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The new name of the instance. The name must be 2 to 64 characters in length.
+   * The new instance name. The name must be 2 to 64 characters in length. Each Chinese character or letter counts as one character.
    * 
    * @example
    * new_name

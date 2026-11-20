@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHoloWarehouseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

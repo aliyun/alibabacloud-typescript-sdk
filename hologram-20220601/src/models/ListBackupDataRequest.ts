@@ -5,16 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBackupDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup type. Specific backup data is filtered based on the type. If you leave this parameter empty, all backup data is returned.
-   * 
-   * Valid values:
-   * 
-   * *   redundant_remote
-   * *   remote
-   * *   redundant
-   * *   full_remote
-   * *   local
-   * *   full
+   * The backup type. Filters specific backup data by type. If this parameter is left empty, all backup data is returned.
    * 
    * @example
    * redundant

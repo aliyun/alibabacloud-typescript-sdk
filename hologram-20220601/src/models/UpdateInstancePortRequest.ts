@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateInstancePortRequest extends $dara.Model {
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 443
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUpgradeReleaseVersionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shenzhen
    */

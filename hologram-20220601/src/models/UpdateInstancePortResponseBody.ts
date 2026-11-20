@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateInstancePortResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
@@ -27,11 +36,17 @@ export class UpdateInstancePortResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether an exception occurred during the request, which is independent of the business result.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values: true: Successful. false: Failed.
+   * 
    * @example
    * true
    */

@@ -4,23 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class UntagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource category.
+   * 
    * @example
    * Custom
    */
   category?: string;
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   resourceIds?: string[];
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * INSTANCe
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys.
+   * To delete tags, provide the corresponding tag keys.
+   */
   tagKeys?: string[];
   /**
+   * @remarks
+   * The account ID of the tag owner.
+   * 
    * @example
    * 1062017779051424
    */

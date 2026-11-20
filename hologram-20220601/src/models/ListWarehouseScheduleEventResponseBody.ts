@@ -4,61 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWarehouseScheduleEventResponseBodyEventList extends $dara.Model {
   /**
+   * @remarks
+   * The number of clusters.
+   * 
    * @example
    * 2
    */
   clusterCount?: number;
   /**
+   * @remarks
+   * The cluster specifications.
+   * 
    * @example
    * 32
    */
   clusterCpu?: number;
   /**
+   * @remarks
+   * The number of elastic CPUs.
+   * 
    * @example
    * 48
    */
   elasticCpu?: number;
   /**
+   * @remarks
+   * The elastic scaling type.
+   * 
    * @example
    * ScaleUp
    */
   elasticType?: string;
   /**
+   * @remarks
+   * The event name.
+   * 
    * @example
    * AlterWarehouse
    */
   eventName?: string;
   /**
+   * @remarks
+   * The time when the event occurred (UTC).
+   * 
    * @example
    * 2024-07-22T09:43:02.638Z
    */
   eventTime?: string;
   /**
+   * @remarks
+   * The reason for the failure.
+   * 
    * @example
    * insufficient resource
    */
   failedReason?: string;
   /**
+   * @remarks
+   * The number of reserved clusters, which refers to non-elastic clusters.
+   * 
    * @example
    * 2
    */
   initClusterCount?: number;
   /**
+   * @remarks
+   * **[Deprecated]** This field is deprecated.
+   * 
    * @example
    * 0
    */
   originalElasticCpu?: number;
   /**
+   * @remarks
+   * The number of reserved CPUs, which refers to non-elastic CPUs.
+   * 
    * @example
    * 64
    */
   reservedCpu?: number;
   /**
+   * @remarks
+   * The result.
+   * 
    * @example
    * success
    */
   result?: string;
   /**
+   * @remarks
+   * The name of the compute group.
+   * 
    * @example
    * init_warehouse
    */
@@ -107,13 +143,23 @@ export class ListWarehouseScheduleEventResponseBodyEventList extends $dara.Model
 }
 
 export class ListWarehouseScheduleEventResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of events.
+   */
   eventList?: ListWarehouseScheduleEventResponseBodyEventList[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 30. Maximum value: 100.
+   * 
    * @example
    * 30
    */
@@ -127,6 +173,9 @@ export class ListWarehouseScheduleEventResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of events.
+   * 
    * @example
    * 120
    */

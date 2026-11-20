@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * InvalidChargeType.UnRenewable
@@ -13,15 +13,15 @@ export class RenewInstanceResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error details.
+   * The detailed error message.
    * 
    * @example
-   * InvalidChargeType.UnRenewable
+   * Invalid charge type
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 221625608580893
@@ -29,10 +29,9 @@ export class RenewInstanceResponseBodyData extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Indicates whether the renewal was successful.
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the renewal was successful. Valid values:  
+   * - true: The renewal was successful.
+   * - false: The renewal failed.
    * 
    * @example
    * true
@@ -68,12 +67,12 @@ export class RenewInstanceResponseBodyData extends $dara.Model {
 export class RenewInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: RenewInstanceResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * null
@@ -81,7 +80,7 @@ export class RenewInstanceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * null
@@ -97,7 +96,7 @@ export class RenewInstanceResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * D3AE84AB-0873-5FC7-A4C4-8CF869D2FA70
@@ -105,7 +104,7 @@ export class RenewInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result, which indicates whether the request was successful.
+   * Indicates whether the request was successful. This parameter indicates whether an exception occurred during the request and is unrelated to the business logic.
    * 
    * @example
    * false
