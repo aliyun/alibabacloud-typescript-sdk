@@ -113,7 +113,7 @@ export default class Client extends OpenApi {
      * Creates a custom API key.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
@@ -125,7 +125,7 @@ export default class Client extends OpenApi {
      * Creates a custom API key.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
@@ -298,7 +298,7 @@ export default class Client extends OpenApi {
      */
     createContextDatabaseWorkspace(request: $_model.CreateContextDatabaseWorkspaceRequest): Promise<$_model.CreateContextDatabaseWorkspaceResponse>;
     /**
-     * Creates a custom agent.
+     * Creates a dedicated agent.
      *
      * @param tmpReq - CreateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -306,7 +306,7 @@ export default class Client extends OpenApi {
      */
     createCustomAgentWithOptions(tmpReq: $_model.CreateCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomAgentResponse>;
     /**
-     * Creates a custom agent.
+     * Creates a dedicated agent.
      *
      * @param request - CreateCustomAgentRequest
      * @returns CreateCustomAgentResponse
@@ -354,7 +354,7 @@ export default class Client extends OpenApi {
      * Creates a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -368,7 +368,7 @@ export default class Client extends OpenApi {
      * Creates a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -685,7 +685,7 @@ export default class Client extends OpenApi {
      * @remarks
      * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeAppInstancesRequest
@@ -699,7 +699,7 @@ export default class Client extends OpenApi {
      * @remarks
      * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeAppInstancesRequest
@@ -803,10 +803,10 @@ export default class Client extends OpenApi {
      */
     describeInstanceEndpoints(request: $_model.DescribeInstanceEndpointsRequest): Promise<$_model.DescribeInstanceEndpointsResponse>;
     /**
-     * Queries the IP whitelist of an RDS AI application instance.
+     * Queries the IP address whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -817,10 +817,10 @@ export default class Client extends OpenApi {
      */
     describeInstanceIpWhitelistWithOptions(request: $_model.DescribeInstanceIpWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceIpWhitelistResponse>;
     /**
-     * Queries the IP whitelist of an RDS AI application instance.
+     * Queries the IP address whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -850,8 +850,8 @@ export default class Client extends OpenApi {
      * @remarks
      * ### Supported engines
      * ApsaraDB RDS for PostgreSQL
-     * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * ### Related feature documentation
+     * [ApsaraDB RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -864,8 +864,8 @@ export default class Client extends OpenApi {
      * @remarks
      * ### Supported engines
      * ApsaraDB RDS for PostgreSQL
-     * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * ### Related feature documentation
+     * [ApsaraDB RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceSSLRequest
      * @returns DescribeInstanceSSLResponse
@@ -1016,12 +1016,12 @@ export default class Client extends OpenApi {
      */
     describeMonitorData(request: $_model.DescribeMonitorDataRequest): Promise<$_model.DescribeMonitorDataResponse>;
     /**
-     * Queries a list of sandbox templates for creating Supabase sandboxes.
+     * Queries a list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -1030,12 +1030,12 @@ export default class Client extends OpenApi {
      */
     describeSandboxTemplatesWithOptions(request: $_model.DescribeSandboxTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSandboxTemplatesResponse>;
     /**
-     * Queries a list of sandbox templates for creating Supabase sandboxes.
+     * Queries a list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -1484,10 +1484,10 @@ export default class Client extends OpenApi {
      */
     getStandAloneReports(request: $_model.GetStandAloneReportsRequest): Promise<$_model.GetStandAloneReportsResponse>;
     /**
-     * Queries custom API keys.
+     * Retrieves custom API keys.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ListApiKeysRequest
@@ -1496,10 +1496,10 @@ export default class Client extends OpenApi {
      */
     listApiKeysWithOptions(request: $_model.ListApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiKeysResponse>;
     /**
-     * Queries custom API keys.
+     * Retrieves custom API keys.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ListApiKeysRequest
@@ -1528,10 +1528,10 @@ export default class Client extends OpenApi {
      */
     listContextDatabaseApiKeys(request: $_model.ListContextDatabaseApiKeysRequest): Promise<$_model.ListContextDatabaseApiKeysResponse>;
     /**
-     * Lists context database members.
+     * Lists ContextDB members.
      *
      * @remarks
-     * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
+     * Lists all members in a specified workspace, along with a list of API keys for each member. Plaintext keys are not returned.
      *
      * @param request - ListContextDatabaseMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1539,10 +1539,10 @@ export default class Client extends OpenApi {
      */
     listContextDatabaseMembersWithOptions(request: $_model.ListContextDatabaseMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseMembersResponse>;
     /**
-     * Lists context database members.
+     * Lists ContextDB members.
      *
      * @remarks
-     * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
+     * Lists all members in a specified workspace, along with a list of API keys for each member. Plaintext keys are not returned.
      *
      * @param request - ListContextDatabaseMembersRequest
      * @returns ListContextDatabaseMembersResponse
@@ -1904,10 +1904,10 @@ export default class Client extends OpenApi {
      * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * [ApsaraDB RDS for Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifyInstanceAuthConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1918,10 +1918,10 @@ export default class Client extends OpenApi {
      * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * [ApsaraDB RDS for Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstanceAuthConfigRequest
      * @returns ModifyInstanceAuthConfigResponse
@@ -1988,7 +1988,7 @@ export default class Client extends OpenApi {
      * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2002,7 +2002,7 @@ export default class Client extends OpenApi {
      * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2012,14 +2012,14 @@ export default class Client extends OpenApi {
      */
     modifyInstanceSSL(request: $_model.ModifyInstanceSSLRequest): Promise<$_model.ModifyInstanceSSLResponse>;
     /**
-     * Modifies the storage configuration of an RDS AI application instance.
+     * Modifies the storage configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
      * ### Supported engines
-     * RDS PostgreSQL
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only Object Storage Service (OSS) is supported.
+     * > Only Object Storage Service (OSS) is supported.
      *
      * @param tmpReq - ModifyInstanceStorageConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2027,25 +2027,25 @@ export default class Client extends OpenApi {
      */
     modifyInstanceStorageConfigWithOptions(tmpReq: $_model.ModifyInstanceStorageConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceStorageConfigResponse>;
     /**
-     * Modifies the storage configuration of an RDS AI application instance.
+     * Modifies the storage configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
      * ### Supported engines
-     * RDS PostgreSQL
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only Object Storage Service (OSS) is supported.
+     * > Only Object Storage Service (OSS) is supported.
      *
      * @param request - ModifyInstanceStorageConfigRequest
      * @returns ModifyInstanceStorageConfigResponse
      */
     modifyInstanceStorageConfig(request: $_model.ModifyInstanceStorageConfigRequest): Promise<$_model.ModifyInstanceStorageConfigResponse>;
     /**
-     * Batch modifies the SSL configurations of RDS AI application instances.
+     * Modifies the SSL configurations of multiple ApsaraDB RDS AI application instances in batches.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -2055,11 +2055,11 @@ export default class Client extends OpenApi {
      */
     modifyInstancesSSLWithOptions(tmpReq: $_model.ModifyInstancesSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstancesSSLResponse>;
     /**
-     * Batch modifies the SSL configurations of RDS AI application instances.
+     * Modifies the SSL configurations of multiple ApsaraDB RDS AI application instances in batches.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -2086,7 +2086,7 @@ export default class Client extends OpenApi {
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2100,7 +2100,7 @@ export default class Client extends OpenApi {
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2172,7 +2172,7 @@ export default class Client extends OpenApi {
      * Renames a custom API key.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - RenameApiKeyRequest
@@ -2184,7 +2184,7 @@ export default class Client extends OpenApi {
      * Renames a custom API key.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - RenameApiKeyRequest
@@ -2409,12 +2409,12 @@ export default class Client extends OpenApi {
      */
     startInstance(request: $_model.StartInstanceRequest): Promise<$_model.StartInstanceResponse>;
     /**
-     * Pauses an RDS AI application instance that is in the Running state.
+     * Pauses an ApsaraDB RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest
@@ -2423,12 +2423,12 @@ export default class Client extends OpenApi {
      */
     stopInstanceWithOptions(request: $_model.StopInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopInstanceResponse>;
     /**
-     * Pauses an RDS AI application instance that is in the Running state.
+     * Pauses an ApsaraDB RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest

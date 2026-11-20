@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceIpWhitelistResponseBodyDbIpWhiteListGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the IP address whitelist group.
+   * 
+   * @example
+   * default
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The list of addresses in the IP address whitelist.
+   * 
+   * @example
+   * 192.0.2.0/24
+   */
   ipWhitelist?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,7 @@ export class DescribeInstanceIpWhitelistResponseBodyDbIpWhiteListGroups extends 
 export class DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups extends $dara.Model {
   /**
    * @remarks
-   * The group name.
+   * The name of the group.
    * 
    * @example
    * default
@@ -69,7 +83,18 @@ export class DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups extends $d
 }
 
 export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the branch specified for this operation.
+   * 
+   * @example
+   * ra-branch-123456789012abcd
+   */
   branchName?: string;
+  /**
+   * @remarks
+   * The list of IP address whitelist groups for the PostgreSQL database instance associated with the branch.
+   */
   dbIpWhiteListGroups?: DescribeInstanceIpWhitelistResponseBodyDbIpWhiteListGroups[];
   /**
    * @remarks
@@ -81,7 +106,7 @@ export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The IP whitelist groups.
+   * The list of IP address whitelist groups.
    */
   ipWhiteListGroups?: DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups[];
   /**

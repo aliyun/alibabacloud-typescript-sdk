@@ -13,7 +13,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The daily throttling quota.
+   * The daily token quota.
    * 
    * @example
    * 100000000
@@ -21,7 +21,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * Indicates whether the key is throttled.
+   * Indicates whether the API key is throttled.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   isRateLimited?: boolean;
   /**
    * @remarks
-   * The API key name.
+   * The name of the API key.
    * 
    * @example
    * api-*****
@@ -37,7 +37,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The quota ratio.
+   * The quota limit percentage.
    * 
    * @example
    * 0.2
@@ -45,8 +45,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The quota type. Valid values:
-   * 
+   * The quota limit type. Valid values:
    * - **fixed**: Fixed value.
    * - **ratio**: Percentage.
    * - **auto**: Automatic allocation.
@@ -55,10 +54,17 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
    * fixed
    */
   limitType?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role bound to the custom API key.
+   * 
+   * @example
+   * acs:ram::1234567890123456:role/example-role
+   */
   roleArn?: string;
   /**
    * @remarks
-   * The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
+   * The alert threshold percentage. A value of 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
    * 
    * @example
    * 80
@@ -66,7 +72,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   thresholdPercent?: number;
   /**
    * @remarks
-   * The quota of the current key.
+   * The token quota of the current API key.
    * 
    * @example
    * 10000
@@ -112,7 +118,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
 export class ListApiKeysResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL for model calls.
+   * The URL for model invocation.
    * 
    * @example
    * http://xxx.yy/v1
@@ -125,7 +131,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   customKeyList?: ListApiKeysResponseBodyDataCustomKeyList[];
   /**
    * @remarks
-   * The daily throttling quota for the system API key.
+   * The daily token quota of the system API key.
    * 
    * @example
    * 100000000
@@ -133,7 +139,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * Indicates whether the key is throttled.
+   * Indicates whether the API key is throttled.
    * 
    * @example
    * false
@@ -149,7 +155,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -157,7 +163,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The system-generated key.
+   * The system-generated API key.
    * 
    * @example
    * sk-rds-xxx
@@ -165,7 +171,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   systemApiKey?: string;
   /**
    * @remarks
-   * The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
+   * The alert threshold percentage for the system API key. A value of 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
    * 
    * @example
    * 80
@@ -173,7 +179,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   thresholdPercent?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 138
@@ -227,7 +233,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   data?: ListApiKeysResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -243,7 +249,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

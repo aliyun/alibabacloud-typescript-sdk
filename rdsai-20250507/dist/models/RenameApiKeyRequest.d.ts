@@ -12,7 +12,7 @@ export declare class RenameApiKeyRequest extends $dara.Model {
     apiKey?: string;
     /**
      * @remarks
-     * The instance ID.
+     * The instance name.
      *
      * @example
      * rds_copilot***_public_cn-*********6
@@ -20,7 +20,7 @@ export declare class RenameApiKeyRequest extends $dara.Model {
     instanceId?: string;
     /**
      * @remarks
-     * The API key name.
+     * The name of the API key.
      *
      * This parameter is required.
      *
@@ -28,7 +28,21 @@ export declare class RenameApiKeyRequest extends $dara.Model {
      * api-*****
      */
     keyName?: string;
+    /**
+     * @remarks
+     * The ARN of the RAM role associated with the API key. The account to which the role belongs must be the same as the account of the caller.
+     *
+     * @example
+     * acs:ram::1234567890123456:role/example-role
+     */
     roleArn?: string;
+    /**
+     * @remarks
+     * The name of the RAM role associated with the API key.
+     *
+     * @example
+     * example-role
+     */
     roleName?: string;
     static names(): {
         [key: string]: string;

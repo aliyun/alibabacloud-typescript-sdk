@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifySandboxTemplateShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The number of CPUs for sandboxes created from this template. Valid values: 1 to 4.
+     * The number of CPUs for sandboxes created by using this template. Valid values: 1 to 4.
      *
      * @example
      * 1
@@ -10,12 +10,19 @@ export declare class ModifySandboxTemplateShrinkRequest extends $dara.Model {
     defaultCpu?: string;
     /**
      * @remarks
-     * The memory size of sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
+     * The memory size for sandboxes created by using this template. Unit: GiB. Valid values: 1 to 8.
      *
      * @example
      * 1Gi
      */
     defaultMemory?: string;
+    /**
+     * @remarks
+     * The container image used for the sandbox template. Format: `[registry/]<repo>[:tag][@sha256:digest]`.
+     *
+     * @example
+     * registry.example.com/example/sandbox:1.0
+     */
     image?: string;
     /**
      * @remarks
@@ -43,10 +50,14 @@ export declare class ModifySandboxTemplateShrinkRequest extends $dara.Model {
      * 2
      */
     replicas?: number;
+    /**
+     * @remarks
+     * The custom tags of the sandbox template. The key is the tag name, and the value is the tag value. You cannot use the system-reserved tag createdBy or the system-reserved tag hidden.
+     */
     tagsShrink?: string;
     /**
      * @remarks
-     * The sandbox template ID.
+     * The ID of the sandbox template.
      *
      * This parameter is required.
      *

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyInstanceAuthConfigShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The reserved parameter.
+     * A reserved parameter.
      */
     branchName?: string;
     /**

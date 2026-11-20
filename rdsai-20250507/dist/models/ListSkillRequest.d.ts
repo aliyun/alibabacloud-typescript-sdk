@@ -3,7 +3,6 @@ export declare class ListSkillRequest extends $dara.Model {
     /**
      * @remarks
      * The supported languages. Valid values:
-     *
      * * zh-CN: Simplified Chinese
      * * zh-TW: Traditional Chinese
      * * en-US: English
@@ -31,7 +30,7 @@ export declare class ListSkillRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The search parameter for skill name or description. This filter is not currently enabled in the ContextDB management console.
+     * The search parameter for the skill name or description. This filter is currently disabled in the ContextDB management portal.
      *
      * @example
      * example
@@ -47,7 +46,7 @@ export declare class ListSkillRequest extends $dara.Model {
     scope?: string;
     /**
      * @remarks
-     * The sort parameter for skills. This sorting is not currently enabled in the ContextDB management console.
+     * The sort parameter for skills. This sorting option is currently disabled in the ContextDB management portal.
      *
      * @example
      * updated_at_desc
@@ -55,7 +54,7 @@ export declare class ListSkillRequest extends $dara.Model {
     sort?: string;
     /**
      * @remarks
-     * The filter parameter for skill source. This filter is not currently enabled in the ContextDB management console.
+     * The filter parameter for the skill source. This filter is currently disabled in the ContextDB management portal.
      *
      * @example
      * SYSTEM

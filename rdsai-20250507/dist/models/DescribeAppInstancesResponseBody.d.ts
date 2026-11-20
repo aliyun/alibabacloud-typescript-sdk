@@ -3,11 +3,17 @@ export declare class DescribeAppInstancesResponseBodyInstancesComponents extends
     /**
      * @remarks
      * The component status.
+     *
+     * @example
+     * enable
      */
     status?: string;
     /**
      * @remarks
      * The component type.
+     *
+     * @example
+     * supabase
      */
     type?: string;
     static names(): {
@@ -109,7 +115,7 @@ export declare class DescribeAppInstancesResponseBodyInstances extends $dara.Mod
     vSwitchId?: string;
     /**
      * @remarks
-     * The internal endpoint of the AI application.
+     * The internal network connection endpoint of the AI application.
      *
      * @example
      * 172.16.XXX.XXX:8000
@@ -134,7 +140,7 @@ export declare class DescribeAppInstancesResponseBody extends $dara.Model {
     instances?: DescribeAppInstancesResponseBodyInstances[];
     /**
      * @remarks
-     * A reserved parameter. You can ignore it.
+     * A reserved parameter. You can ignore this parameter.
      *
      * @example
      * None
@@ -166,7 +172,7 @@ export declare class DescribeAppInstancesResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The total number of entries.
+     * The total number of records.
      *
      * @example
      * 20

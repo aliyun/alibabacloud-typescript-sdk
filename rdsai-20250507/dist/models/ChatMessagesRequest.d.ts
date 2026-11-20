@@ -1,8 +1,37 @@
 import * as $dara from '@darabonba/typescript';
 export declare class ChatMessagesRequestFiles extends $dara.Model {
+    /**
+     * @remarks
+     * The file transfer method. Set this parameter to local_file when referencing an uploaded file, and provide the UploadFileId at the same time.
+     *
+     * @example
+     * local_file
+     */
     transferMethod?: string;
+    /**
+     * @remarks
+     * The attachment type. A value of image indicates an image. The actual supported types are determined by the file upload configuration of the application.
+     *
+     * @example
+     * image
+     */
     type?: string;
+    /**
+     * @remarks
+     * The identifier of the uploaded file. The ContextDB management agent can use the UploadFileId returned by the current workspace knowledge base.
+     *
+     * @example
+     * 00000000-0000-4000-8000-000000000001
+     */
     uploadFileId?: string;
+    /**
+     * @remarks
+     * The image URL.
+     *
+     * @example
+     * https://other-general-huadong1.oss-cn-hangzhou.aliyuncs.com/uploadWidget/BirthCertification_0.jpeg
+     */
+    url?: string;
     static names(): {
         [key: string]: string;
     };
@@ -25,7 +54,7 @@ export declare class ChatMessagesRequestInputs extends $dara.Model {
     customAgentId?: string;
     /**
      * @remarks
-     * Specifies whether to enable deep thinking mode.
+     * Specifies whether to enable the deep thinking mode.
      *
      * @example
      * true
@@ -57,7 +86,7 @@ export declare class ChatMessagesRequestInputs extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The tool approval call ID for resuming execution. Pass this parameter after all decisions in the current approval round are completed in the console to continue the interrupted ChatMessage Loop. Do not pass this parameter for regular conversations.
+     * The tool approval call ID for resuming execution. Pass this parameter after the console completes all decisions for the current approval round to continue the interrupted ChatMessage loop. Do not pass this parameter for regular conversations.
      *
      * @example
      * call-example
@@ -81,7 +110,7 @@ export declare class ChatMessagesRequestInputs extends $dara.Model {
     timezone?: string;
     /**
      * @remarks
-     * The tool approval mode for the current conversation. Valid values: read_only (read-only, write tools are rejected), manual (write tools require manual approval), and auto (the approval sub-agent automatically determines the action. If the result is needs_human, the request is escalated to manual approval). When this parameter is passed, the approval mode of the current conversation is updated.
+     * The tool approval mode for the current conversation. Valid values: read_only (read-only, rejects write tools), manual (write tools require manual approval), and auto (automatically determined by the approval sub-agent; escalated to manual approval when needs_human is returned). Passing this parameter updates the approval mode for the current conversation.
      *
      * @example
      * manual
@@ -117,16 +146,20 @@ export declare class ChatMessagesRequest extends $dara.Model {
     conversationId?: string;
     /**
      * @remarks
-     * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of the event = message response. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+     * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool calling invoke events, child node events, and document events are unified into the answer field of the event = message. When set to separate, tool calling invoke events, child node events, and document events have their own respective events.
      *
      * @example
      * inline
      */
     eventMode?: string;
+    /**
+     * @remarks
+     * The list of attachments included in the current conversation round. References uploaded files by using UploadFileId.
+     */
     files?: ChatMessagesRequestFiles[];
     /**
      * @remarks
-     * The task inputs.
+     * The task input.
      */
     inputs?: ChatMessagesRequestInputs;
     /**
@@ -142,7 +175,7 @@ export declare class ChatMessagesRequest extends $dara.Model {
      * The query content.
      *
      * @example
-     * Check the disk usage of instance rm-bp14as9914vd3**** and whether storage expansion is needed
+     * Instance rm-bp14as9914vd3**** disk usage, and whether capacity expansion is required
      */
     query?: string;
     static names(): {

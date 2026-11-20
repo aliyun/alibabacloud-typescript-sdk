@@ -2,14 +2,17 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListSkillResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The currently active skill version information.
+     * The information about the currently active skill version.
+     *
+     * @example
+     * {"id":"12345678-1234-4234-8234-123456789012","skill_id":"23456789-1234-4234-8234-123456789012","version":"1.0.0","status":"ACTIVE","package_size":1024,"credential_required":false}
      */
     activeVersion?: {
         [key: string]: any;
     };
     /**
      * @remarks
-     * The currently active version ID.
+     * The ID of the currently active version.
      *
      * @example
      * version-example
@@ -51,12 +54,12 @@ export declare class ListSkillResponseBodyData extends $dara.Model {
      * The description.
      *
      * @example
-     * SQL Review Expert: Comprehensively reviews SQL for security, performance, and compliance, identifies risks, and provides optimization suggestions. Activated immediately when a user submits SQL or asks about "SQL review", "SQL Review", "any risks", or "how to optimize"
+     * SQL Review Expert: Comprehensively reviews SQL statements for security, performance, and compliance, identifies risks, and provides optimization recommendations. Activated immediately when a user submits SQL or asks questions such as "SQL review", "SQL Review", "Are there any risks?", or "How to optimize?".
      */
     description?: string;
     /**
      * @remarks
-     * The skill display name.
+     * The display name of the skill.
      *
      * @example
      * Example Skill
@@ -64,7 +67,7 @@ export declare class ListSkillResponseBodyData extends $dara.Model {
     displayName?: string;
     /**
      * @remarks
-     * The public HTTPS URL of the current icon. Empty if not configured.
+     * The public HTTPS URL of the current icon. This parameter is empty if no icon is configured.
      *
      * @example
      * https://example.com/skill-icon.png
@@ -96,7 +99,7 @@ export declare class ListSkillResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The skill visibility scope.
+     * The visibility scope of the skill.
      *
      * @example
      * PRIVATE
@@ -112,7 +115,7 @@ export declare class ListSkillResponseBodyData extends $dara.Model {
     skillType?: string;
     /**
      * @remarks
-     * The skill stable identifier.
+     * The stable identifier of the skill.
      *
      * @example
      * example-skill
@@ -128,7 +131,7 @@ export declare class ListSkillResponseBodyData extends $dara.Model {
     updatedAt?: string;
     /**
      * @remarks
-     * The skill visibility for the current user.
+     * The visibility of the skill to the current user.
      *
      * @example
      * PRIVATE
@@ -169,7 +172,7 @@ export declare class ListSkillResponseBody extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The request ID.
+     * The unique identifier of the request.
      *
      * @example
      * FE9C65D7-930F-57A5-A207-8C396329****

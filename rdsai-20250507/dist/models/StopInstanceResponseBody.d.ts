@@ -1,5 +1,12 @@
 import * as $dara from '@darabonba/typescript';
 export declare class StopInstanceResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the branch specified for this operation.
+     *
+     * @example
+     * ra-branch-123456789012abcd
+     */
     branchName?: string;
     /**
      * @remarks

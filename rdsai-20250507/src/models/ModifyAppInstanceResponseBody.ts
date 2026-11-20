@@ -45,7 +45,7 @@ export class ModifyAppInstanceResponseBodyComponents extends $dara.Model {
 export class ModifyAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -74,7 +74,7 @@ export class ModifyAppInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * Reserved parameter

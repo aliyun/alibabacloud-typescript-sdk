@@ -13,7 +13,7 @@ export class DescribeAppInstancesRequest extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The instance ID of the RDS PostgreSQL database to which the AI application is connected. If you specify this parameter, the API queries the AI application instances associated with the specified RDS PostgreSQL instance.
+   * The instance ID of the RDS PostgreSQL database to which the AI application is connected. If you specify this parameter, the system queries the AI application instances associated with the specified RDS PostgreSQL instance.
    * 
    * @example
    * pgm-2ze49qv594vi****
@@ -21,7 +21,7 @@ export class DescribeAppInstancesRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The page number. Valid values: integers greater than 0 and up to the maximum value of the Integer type.
+   * The page number. Valid values: an integer greater than 0 and up to the maximum value of the Integer type.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeAppInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **50**.
+   * The number of entries per page. Valid values: **1 to 50**.
    * 
    * @example
    * 10

@@ -27,6 +27,13 @@ export class ModifyInstanceSSLResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The expiration time of the custom SSL certificate. The time is in the yyyy-MM-dd HH:mm:ss format and displayed in the UTC+8 time zone.
+   * 
+   * @example
+   * 2027-12-31 23:59:59
+   */
   SSLExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {

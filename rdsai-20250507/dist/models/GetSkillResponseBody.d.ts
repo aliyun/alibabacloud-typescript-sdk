@@ -7,7 +7,7 @@ export declare class GetSkillResponseBodyCapabilities extends $dara.Model {
     delete?: boolean;
     /**
      * @remarks
-     * Indicates whether the skill bundle can be downloaded.
+     * Indicates whether the skill package can be downloaded.
      */
     download?: boolean;
     /**
@@ -44,7 +44,7 @@ export declare class GetSkillResponseBodyCapabilities extends $dara.Model {
 export declare class GetSkillResponseBodyVersions extends $dara.Model {
     /**
      * @remarks
-     * The activation time of the skill version.
+     * The time when the skill version was activated.
      *
      * @example
      * 2026-09-15T10:00:00Z
@@ -52,7 +52,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     activatedAt?: string;
     /**
      * @remarks
-     * The creation time of the skill version.
+     * The time when the skill version was created.
      *
      * @example
      * 2026-09-15T10:00:00Z
@@ -60,12 +60,12 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * Indicates whether the skill requires a credential.
+     * Indicates whether the skill requires credentials.
      */
     credentialRequired?: boolean;
     /**
      * @remarks
-     * The number of files in the skill bundle.
+     * The number of files in the skill package.
      *
      * @example
      * 1
@@ -73,7 +73,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     fileCount?: number;
     /**
      * @remarks
-     * The skill version ID.
+     * The ID of the skill version.
      *
      * @example
      * version-example
@@ -81,7 +81,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     id?: string;
     /**
      * @remarks
-     * The size of the skill bundle, in bytes.
+     * The size of the skill package, in bytes.
      *
      * @example
      * 1024
@@ -89,7 +89,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     packageSize?: number;
     /**
      * @remarks
-     * The reason for revoking the skill version.
+     * The reason why the skill version was revoked.
      *
      * @example
      * Replaced by a newer version
@@ -97,7 +97,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     revokeReason?: string;
     /**
      * @remarks
-     * The revocation time of the skill version.
+     * The time when the skill version was revoked.
      *
      * @example
      * 2026-09-15T11:00:00Z
@@ -113,7 +113,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     sha256?: string;
     /**
      * @remarks
-     * The ID of the skill to which the version belongs.
+     * The ID of the parent skill.
      *
      * @example
      * skill-example
@@ -145,7 +145,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The update note for the version.
+     * The update notes for the version.
      *
      * @example
      * Update Skill documentation
@@ -173,7 +173,7 @@ export declare class GetSkillResponseBodyVersions extends $dara.Model {
 export declare class GetSkillResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The current active version ID.
+     * The ID of the currently active version.
      *
      * @example
      * version-example
@@ -181,7 +181,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     activeVersionId?: string;
     /**
      * @remarks
-     * The content digest of the current skill bundle.
+     * The content digest of the current skill package.
      *
      * @example
      * 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
@@ -189,7 +189,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     bundleHash?: string;
     /**
      * @remarks
-     * The size of the current skill bundle, in bytes.
+     * The size of the current skill package, in bytes.
      *
      * @example
      * 1024
@@ -202,7 +202,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     capabilities?: GetSkillResponseBodyCapabilities;
     /**
      * @remarks
-     * The skill category.
+     * The category of the skill.
      *
      * @example
      * productivity
@@ -233,10 +233,10 @@ export declare class GetSkillResponseBody extends $dara.Model {
     dbtypes?: string[];
     /**
      * @remarks
-     * The skill description. The description can be up to 1000 characters in length.
+     * The description of the skill. The description can be up to 1,000 characters in length.
      *
      * @example
-     * SQL Review Expert: Comprehensively reviews SQL for security, performance, and compliance, identifies risks, and provides optimization suggestions. Activated immediately when a user submits SQL or asks about "SQL review", "SQL Review", "any risks", or "how to optimize"
+     * SQL Review Expert: Comprehensively reviews the security, performance, and compliance of SQL statements, identifies risks, and provides optimization suggestions. This skill is immediately activated when a user submits SQL statements or asks questions such as "SQL review", "Are there any risks?", or "How to optimize?"
      */
     description?: string;
     /**
@@ -249,7 +249,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     displayName?: string;
     /**
      * @remarks
-     * The temporary download URL of the skill bundle.
+     * The temporary download URL for the skill package.
      *
      * @example
      * https://example.com/skill-package.zip
@@ -265,14 +265,17 @@ export declare class GetSkillResponseBody extends $dara.Model {
     expiresAt?: string;
     /**
      * @remarks
-     * The file in the bundle that is read based on the specified path.
+     * The file in the package specified by path.
+     *
+     * @example
+     * {"path":"README.md","size_bytes":15,"text":"# Example Skill","reason":null}
      */
     file?: {
         [key: string]: any;
     };
     /**
      * @remarks
-     * The list of files in the current skill bundle.
+     * The list of files in the current skill package.
      */
     files?: {
         [key: string]: any;
@@ -280,13 +283,16 @@ export declare class GetSkillResponseBody extends $dara.Model {
     /**
      * @remarks
      * The metadata fields of SKILL.md.
+     *
+     * @example
+     * {"name":"example-skill","description":"Example skill","version":"1.0.0"}
      */
     frontmatter?: {
         [key: string]: any;
     };
     /**
      * @remarks
-     * The public HTTPS URL of the current icon. This value is empty if no icon is configured.
+     * The public HTTPS URL of the current icon. This field is empty if no icon is configured.
      *
      * @example
      * https://example.com/skill-icon.png
@@ -310,7 +316,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     isDeleted?: boolean;
     /**
      * @remarks
-     * The skill name. The name can contain only lowercase letters, digits, and hyphens.
+     * The name of the skill. The name can contain only lowercase letters, digits, and hyphens.
      *
      * @example
      * sql-optimization
@@ -318,7 +324,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The unique request identifier.
+     * The unique identifier of the request.
      *
      * @example
      * FE9C65D7-930F-57A5-A207-8C396329****
@@ -342,7 +348,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     skillId?: string;
     /**
      * @remarks
-     * The full Markdown content of SKILL.md.
+     * The full SKILL.md Markdown content.
      *
      * @example
      * # Example Skill
@@ -350,7 +356,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     skillMarkdown?: string;
     /**
      * @remarks
-     * The skill type.
+     * The type of the skill.
      *
      * @example
      * user
@@ -358,7 +364,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     skillType?: string;
     /**
      * @remarks
-     * The stable identifier of the private skill.
+     * The stable identifier for the private skill.
      *
      * @example
      * example-skill
@@ -374,7 +380,7 @@ export declare class GetSkillResponseBody extends $dara.Model {
     updatedAt?: string;
     /**
      * @remarks
-     * The current skill version number.
+     * The current version number of the skill.
      *
      * @example
      * 1.0.0

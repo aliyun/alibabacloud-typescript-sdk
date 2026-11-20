@@ -32,6 +32,7 @@ class ChatMessagesRequestFiles extends $dara.Model {
             transferMethod: 'TransferMethod',
             type: 'Type',
             uploadFileId: 'UploadFileId',
+            url: 'Url',
         };
     }
     static types() {
@@ -39,6 +40,7 @@ class ChatMessagesRequestFiles extends $dara.Model {
             transferMethod: 'string',
             type: 'string',
             uploadFileId: 'string',
+            url: 'string',
         };
     }
     validate() {

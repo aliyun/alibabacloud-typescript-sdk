@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContextDatabaseMembersResponseBodyMembersKeys extends $dara.Model {
   /**
    * @remarks
-   * The time when the member was created.
+   * The creation time.
    * 
    * @example
    * 2026-05-28T17:59:55Z
@@ -29,7 +29,7 @@ export class ListContextDatabaseMembersResponseBodyMembersKeys extends $dara.Mod
   expiresAt?: string;
   /**
    * @remarks
-   * The suffix of the API key.
+   * The display suffix of the API key.
    * 
    * @example
    * 33631c
@@ -53,7 +53,7 @@ export class ListContextDatabaseMembersResponseBodyMembersKeys extends $dara.Mod
   keyPrefix?: string;
   /**
    * @remarks
-   * The time when the key was last used. This field is populated after the key has been authenticated and used. This field is empty for keys that have not been used.
+   * The time when the key was last used. This field is populated after the key is used for authentication and is empty for unused keys.
    * 
    * @example
    * 2026-07-15T08:30:00Z
@@ -125,7 +125,7 @@ export class ListContextDatabaseMembersResponseBodyMembersKeys extends $dara.Mod
 export class ListContextDatabaseMembersResponseBodyMembers extends $dara.Model {
   /**
    * @remarks
-   * The time when the member was created.
+   * The creation time.
    * 
    * @example
    * 2026-05-28T17:59:55Z

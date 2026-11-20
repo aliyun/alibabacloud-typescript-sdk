@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceAuthConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter.
+   * A reserved parameter.
    * 
    * @example
-   * Reserved parameter
+   * A reserved parameter
    */
   branchName?: string;
   /**

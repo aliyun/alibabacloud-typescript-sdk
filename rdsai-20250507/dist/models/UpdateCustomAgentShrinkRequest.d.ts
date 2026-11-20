@@ -23,7 +23,7 @@ export declare class UpdateCustomAgentShrinkRequest extends $dara.Model {
      * The name of the custom agent.
      *
      * @example
-     * Query instance list agent
+     * Instance list query agent
      */
     name?: string;
     /**

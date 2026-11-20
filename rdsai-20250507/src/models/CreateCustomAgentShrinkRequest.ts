@@ -13,7 +13,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   enableTools?: boolean;
   /**
    * @remarks
-   * The name of the custom agent.
+   * The name of the dedicated agent.
    * 
    * @example
    * Instance List Query Agent
@@ -31,7 +31,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * I am your custom agent for querying the instance list
+   * I am your dedicated agent for querying instance lists
    */
   systemPrompt?: string;
   /**

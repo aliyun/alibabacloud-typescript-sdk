@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to obtain a temporary download URL for the specified version. Default value: false.
+   * Specifies whether to obtain the temporary download URL of the specified version. Default value: false.
    */
   download?: boolean;
   /**
    * @remarks
-   * The supported language. Valid values:
+   * The supported languages. Valid values:
    * * zh-CN: Simplified Chinese
    * * zh-TW: Traditional Chinese
    * * en-US: English
@@ -22,7 +22,7 @@ export class GetSkillRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The file path within the package, such as SKILL.md. The body is in File.text, and the full Markdown is in SkillMarkdown.
+   * The file path in the package, such as SKILL.md. For the body text, see File.text. For the complete Markdown content, see SkillMarkdown.
    * 
    * @example
    * SKILL.md
@@ -40,7 +40,7 @@ export class GetSkillRequest extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * The version UUID (Versions[].Id), not a version number such as 1.0.0. If omitted, the currently active version is read.
+   * The version UUID (Versions[].Id), which is not a version number such as 1.0.0. If this parameter is omitted, the current active version is read.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000002

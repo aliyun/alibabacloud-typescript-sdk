@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentResponseBodySkills extends $dara.Model {
   /**
    * @remarks
-   * The skill description.
+   * The description of the skill.
    * 
    * @example
    * SQL query optimization skill
@@ -89,7 +89,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the custom agent.
+   * The name of the dedicated agent.
    * 
    * @example
    * Instance List Query Agent
@@ -113,7 +113,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * I am your custom agent for querying the instance list
+   * I am your dedicated agent for querying instance lists
    */
   systemPrompt?: string;
   /**

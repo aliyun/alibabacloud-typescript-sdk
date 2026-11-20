@@ -39,16 +39,23 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
    * @remarks
    * The quota limit type. Valid values:
    * 
-   * - **fixed**: Fixed value.
+   * - **fixed**: fixed value.
    * 
-   * - **ratio**: Percentage-based.
+   * - **ratio**: percentage.
    * 
-   * - **auto**: Automatic allocation.
+   * - **auto**: automatic allocation.
    * 
    * @example
    * fixed
    */
   limitType?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role bound to the custom API key.
+   * 
+   * @example
+   * acs:ram::1234567890123456:role/example-role
+   */
   roleArn?: string;
   /**
    * @remarks
@@ -165,7 +172,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

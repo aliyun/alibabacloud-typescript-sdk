@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListApiKeysRequest extends $dara.Model {
     /**
      * @remarks
-     * The instance ID.
+     * The name of the instance.
      *
      * @example
      * rds_copilot***_public_cn-*********6
@@ -18,7 +18,7 @@ export declare class ListApiKeysRequest extends $dara.Model {
     page?: number;
     /**
      * @remarks
-     * The number of records per page.
+     * The number of entries per page.
      *
      * @example
      * 10

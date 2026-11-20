@@ -45,6 +45,13 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
    * 1
    */
   SSLEnabled?: string;
+  /**
+   * @remarks
+   * The expiration time of the custom SSL certificate. The time is in the yyyy-MM-dd HH:mm:ss format and in the UTC+8 time zone.
+   * 
+   * @example
+   * 2027-12-31 23:59:59
+   */
   SSLExpiredTime?: string;
   /**
    * @remarks

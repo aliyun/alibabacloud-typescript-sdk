@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateCustomAgentResponseBodySkills extends $dara.Model {
     /**
      * @remarks
-     * The skill description.
+     * The description of the skill.
      *
      * @example
      * SQL query optimization skill
@@ -18,7 +18,7 @@ export declare class UpdateCustomAgentResponseBodySkills extends $dara.Model {
     id?: string;
     /**
      * @remarks
-     * The skill name.
+     * The name of the skill.
      *
      * @example
      * query-optimization
@@ -26,7 +26,7 @@ export declare class UpdateCustomAgentResponseBodySkills extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The skill type.
+     * The type of the skill.
      *
      * @example
      * user
@@ -65,7 +65,7 @@ export declare class UpdateCustomAgentResponseBody extends $dara.Model {
      * The name of the custom agent.
      *
      * @example
-     * Query instance list agent
+     * Instance list query agent
      */
     name?: string;
     /**

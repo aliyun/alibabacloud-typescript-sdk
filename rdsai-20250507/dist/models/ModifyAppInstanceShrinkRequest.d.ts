@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyAppInstanceShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The reserved parameter.
+     * A reserved parameter.
      *
      * @example
      * Reserved parameter
@@ -10,7 +10,7 @@ export declare class ModifyAppInstanceShrinkRequest extends $dara.Model {
     branchName?: string;
     /**
      * @remarks
-     * The idempotency parameter.
+     * The client token used to ensure idempotence.
      *
      * @example
      * ETnLKlblzczshOTUbOCz****
@@ -33,7 +33,7 @@ export declare class ModifyAppInstanceShrinkRequest extends $dara.Model {
     DBInstanceName?: string;
     /**
      * @remarks
-     * The instance type. Only **rdsai.supabase.basic** is supported.
+     * The instance type. Currently, only **rdsai.supabase.basic** is supported.
      *
      * @example
      * rdsai.supabase.basic
@@ -49,7 +49,7 @@ export declare class ModifyAppInstanceShrinkRequest extends $dara.Model {
     instanceName?: string;
     /**
      * @remarks
-     * The reserved parameter.
+     * A reserved parameter.
      *
      * @example
      * Reserved parameter

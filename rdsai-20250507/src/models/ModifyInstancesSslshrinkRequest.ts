@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstancesSSLShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate type. Currently, only **custom** is supported, which indicates a custom certificate.
+   * The certificate type. Only **custom** is supported, which indicates that a custom certificate is used.
    * > This parameter is required when **SSLEnabled** is set to **1**.
    * 
    * @example
@@ -14,7 +14,7 @@ export class ModifyInstancesSSLShrinkRequest extends $dara.Model {
   CAType?: string;
   /**
    * @remarks
-   * The list of instance IDs of AI applications. A maximum of 10 instance IDs can be specified.
+   * The IDs of the ApsaraDB RDS AI application instances. You can specify up to 10 instance IDs.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,9 @@ export class ModifyInstancesSSLShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable or disable SSL. Valid values:
-   * * **1**: Enable.
-   * * **0**: Disable.
+   * Specifies whether to enable SSL. Valid values:
+   * * **1**: Enabled.
+   * * **0**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ModifyInstancesSSLShrinkRequest extends $dara.Model {
   SSLEnabled?: number;
   /**
    * @remarks
-   * The custom certificate content.
+   * The content of the custom certificate.
    * 
    * > This parameter is required when **CAType** is set to **custom**.
    * 

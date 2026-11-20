@@ -1,5 +1,12 @@
 import * as $dara from '@darabonba/typescript';
 export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.Model {
+    /**
+     * @remarks
+     * The source that created the sandbox template. Valid values: user (created by a user) and system (created by the system).
+     *
+     * @example
+     * user
+     */
     createdBy?: string;
     /**
      * @remarks
@@ -27,12 +34,19 @@ export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extend
     description?: string;
     /**
      * @remarks
-     * Specifies whether the sandbox created by using this template can access resources in the VPC where Supabase is deployed.
+     * Indicates whether the sandbox created by using this template can access resources in the VPC where Supabase resides.
      *
      * @example
      * true
      */
     enableVpcAccess?: string;
+    /**
+     * @remarks
+     * The container image used by the sandbox template.
+     *
+     * @example
+     * registry.example.com/example/sandbox:1.0
+     */
     image?: string;
     /**
      * @remarks
@@ -42,13 +56,24 @@ export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extend
      * code-interpreter
      */
     name?: string;
+    /**
+     * @remarks
+     * The number of replicas for the sandbox template.
+     *
+     * @example
+     * 1
+     */
     replicas?: number;
+    /**
+     * @remarks
+     * The custom tags of the sandbox template. A key represents a tag name, and a value represents a tag value.
+     */
     tags?: {
         [key: string]: string;
     };
     /**
      * @remarks
-     * The ID of the sandbox template. Specify this ID when you use the template to create a sandbox.
+     * The ID of the sandbox template. Specify this ID when creating a sandbox by using this template.
      *
      * @example
      * code-interpreter-asdxxxx
@@ -76,7 +101,7 @@ export declare class DescribeSandboxTemplatesResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
+     * The position from which the read operation starts. An empty value indicates that the read operation starts from the beginning.
      *
      * @example
      * AAAAAc3HCuYhJi/wvpk4xOr0VLYz/NvD85HpgBeRBCusEIeVQ0dHZH9jr+NP3X9Jx0iSoql55b9nd4PIDm252/a0f+U=
@@ -113,7 +138,7 @@ export declare class DescribeSandboxTemplatesResponseBody extends $dara.Model {
     sandboxTemplates?: DescribeSandboxTemplatesResponseBodySandboxTemplates[];
     /**
      * @remarks
-     * The total number of data entries that meet the current request conditions.
+     * The total number of entries that meet the request conditions.
      *
      * @example
      * 20

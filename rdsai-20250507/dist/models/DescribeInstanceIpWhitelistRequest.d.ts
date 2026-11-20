@@ -1,9 +1,16 @@
 import * as $dara from '@darabonba/typescript';
 export declare class DescribeInstanceIpWhitelistRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the branch to be operated on. If this parameter is not specified, the operation is performed on the original instance.
+     *
+     * @example
+     * ra-branch-123456789012abcd
+     */
     branchName?: string;
     /**
      * @remarks
-     * The group name.
+     * The name of the group.
      *
      * @example
      * default
@@ -19,7 +26,7 @@ export declare class DescribeInstanceIpWhitelistRequest extends $dara.Model {
     instanceName?: string;
     /**
      * @remarks
-     * The region.
+     * The region ID.
      *
      * @example
      * cn-beijing

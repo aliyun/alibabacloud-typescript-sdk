@@ -38,9 +38,9 @@ export class CreateApiKeyRequest extends $dara.Model {
   /**
    * @remarks
    * The quota limit type. Valid values:
-   * - ratio: Percentage-based.
-   * - fixed: Fixed value.
-   * - auto: Automatic allocation.
+   * - ratio: percentage.
+   * - fixed: fixed value.
+   * - auto: automatic allocation.
    * 
    * @example
    * fixed
@@ -54,7 +54,21 @@ export class CreateApiKeyRequest extends $dara.Model {
    * 1
    */
   quantity?: number;
+  /**
+   * @remarks
+   * The ARN of the RAM role bound to the API key. The account to which the role belongs must be the same as the caller account.
+   * 
+   * @example
+   * acs:ram::1234567890123456:role/example-role
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The name of the RAM role bound to the API key.
+   * 
+   * @example
+   * example-role
+   */
   roleName?: string;
   /**
    * @remarks
