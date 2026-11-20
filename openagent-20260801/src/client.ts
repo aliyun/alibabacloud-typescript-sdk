@@ -211,7 +211,7 @@ export default class Client extends OpenApi {
    * Queries the read-only mode.
    * 
    * @remarks
-   * Queries the read-only mode switch of the current account. It is enabled by default if not configured.
+   * Queries the read-only mode switch for the current account. The read-only mode is enabled by default if not configured.
    * 
    * @param request - GetReadonlyModeRequest
    * @param headers - map
@@ -241,7 +241,7 @@ export default class Client extends OpenApi {
    * Queries the read-only mode.
    * 
    * @remarks
-   * Queries the read-only mode switch of the current account. It is enabled by default if not configured.
+   * Queries the read-only mode switch for the current account. The read-only mode is enabled by default if not configured.
    * 
    * @param request - GetReadonlyModeRequest
    * @returns GetReadonlyModeResponse
@@ -301,7 +301,7 @@ export default class Client extends OpenApi {
    * Queries a session.
    * 
    * @remarks
-   * Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
+   * Queries the title, status, pinned status, and the ID and status of the latest run of a specified session.
    * 
    * @param request - GetSessionRequest
    * @param headers - map
@@ -331,7 +331,7 @@ export default class Client extends OpenApi {
    * Queries a session.
    * 
    * @remarks
-   * Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
+   * Queries the title, status, pinned status, and the ID and status of the latest run of a specified session.
    * 
    * @param request - GetSessionRequest
    * @returns GetSessionResponse
@@ -346,7 +346,7 @@ export default class Client extends OpenApi {
    * Lists messages.
    * 
    * @remarks
-   * Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
+   * Performs a paged query on the message timeline of a specified session. Use the returned nextToken for paging.
    * 
    * @param request - ListMessagesRequest
    * @param headers - map
@@ -390,7 +390,7 @@ export default class Client extends OpenApi {
    * Lists messages.
    * 
    * @remarks
-   * Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
+   * Performs a paged query on the message timeline of a specified session. Use the returned nextToken for paging.
    * 
    * @param request - ListMessagesRequest
    * @returns ListMessagesResponse
@@ -460,7 +460,7 @@ export default class Client extends OpenApi {
    * Sends a message.
    * 
    * @remarks
-   * Sends a message to a specified session, submits interrupt handling results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
+   * Sends a message to a specified session, submits interrupt processing results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
    * 
    * @param request - SendMessageRequest
    * @param headers - SendMessageHeaders
@@ -472,6 +472,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.attachments)) {
       body["attachments"] = request.attachments;
+    }
+
+    if (!$dara.isNull(request.commands)) {
+      body["commands"] = request.commands;
     }
 
     if (!$dara.isNull(request.content)) {
@@ -535,7 +539,7 @@ export default class Client extends OpenApi {
    * Sends a message.
    * 
    * @remarks
-   * Sends a message to a specified session, submits interrupt handling results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
+   * Sends a message to a specified session, submits interrupt processing results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
    * 
    * @param request - SendMessageRequest
    * @param headers - SendMessageHeaders
@@ -547,6 +551,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.attachments)) {
       body["attachments"] = request.attachments;
+    }
+
+    if (!$dara.isNull(request.commands)) {
+      body["commands"] = request.commands;
     }
 
     if (!$dara.isNull(request.content)) {
@@ -596,7 +604,7 @@ export default class Client extends OpenApi {
    * Sends a message.
    * 
    * @remarks
-   * Sends a message to a specified session, submits interrupt handling results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
+   * Sends a message to a specified session, submits interrupt processing results, or reconnects to a specified run. Returns the run progress and results through a Server-Sent Events (SSE) event stream.
    * 
    * @param request - SendMessageRequest
    * @returns SendMessageResponse
@@ -662,7 +670,7 @@ export default class Client extends OpenApi {
    * Updates the title or pinned status of a session.
    * 
    * @remarks
-   * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
+   * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
    * 
    * @param request - UpdateSessionRequest
    * @param headers - UpdateSessionHeaders
@@ -711,7 +719,7 @@ export default class Client extends OpenApi {
    * Updates the title or pinned status of a session.
    * 
    * @remarks
-   * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
+   * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
    * 
    * @param request - UpdateSessionRequest
    * @returns UpdateSessionResponse

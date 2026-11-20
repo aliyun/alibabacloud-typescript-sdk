@@ -6,7 +6,7 @@ export class SendMessageHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The idempotency key for the request. Use the same key and the same business parameters when retrying the same request.
+   * The idempotency key for the request. Use the same key and the same business parameters when you retry the same request.
    * 
    * @example
    * send-message-example-001

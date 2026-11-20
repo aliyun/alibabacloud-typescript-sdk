@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to pin the session. If this parameter is not specified, the pinned status remains unchanged.
+   * Specifies whether to pin the session. If this field is not specified, the pinned status remains unchanged.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class UpdateSessionRequest extends $dara.Model {
   pinned?: boolean;
   /**
    * @remarks
-   * The updated title of the session. If you do not need to update the title, you can leave this parameter empty.
+   * The new title of the session. Leave this field empty if no update is required.
    * 
    * @example
    * Updated inspection session

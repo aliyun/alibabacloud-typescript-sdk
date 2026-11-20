@@ -21,7 +21,7 @@ export class ListSessionsResponseBodyDataSessions extends $dara.Model {
   lastRunId?: string;
   /**
    * @remarks
-   * The status of the most recent run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for interruption handling), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), and `REJECTED` (rejected).
+   * The status of the most recent run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for user intervention), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), and `REJECTED` (rejected).
    * 
    * @example
    * COMPLETED
@@ -45,7 +45,7 @@ export class ListSessionsResponseBodyDataSessions extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The session status. Valid values: `IDLE` (idle), `ACTIVE` (running), `WAITING_USER_INPUT` (waiting for user input), `WAITING_APPROVAL` (waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (waiting for out-of-band approval), and `CLOSED` (closed).
+   * The session status. Valid values: `IDLE` (idle), `ACTIVE` (running), `WAITING_USER_INPUT` (waiting for user input), `WAITING_APPROVAL` (waiting for user approval), `WAITING_OUT_OF_BAND_APPROVAL` (waiting for out-of-band approval), and `CLOSED` (closed).
    * 
    * @example
    * IDLE
@@ -168,7 +168,7 @@ export class ListSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates success.
+   * Indicates whether the request was successful. true indicates success.
    * 
    * @example
    * true

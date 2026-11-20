@@ -16,7 +16,7 @@ export class GetRunResponseBodyDataOutcomeInterruptsDataApiCalls extends $dara.M
    * The operation description.
    * 
    * @example
-   * Perform changes on the sample resource
+   * Apply changes to the sample resource
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -130,7 +130,7 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   data?: GetRunResponseBodyDataOutcomeInterruptsData;
   /**
    * @remarks
-   * The interrupt expiration time in ISO 8601 format.
+   * The expiration time of the interrupt, in ISO 8601 format.
    * 
    * @example
    * 2026-01-02T00:00:00Z
@@ -163,10 +163,10 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   /**
    * @remarks
    * The interrupt reason. Valid values:
-   * - `tool_call`: tool invocation requires handling
-   * - `input_required`: user input is required
-   * - `confirmation`: confirmation is required
-   * - `out_of_band_approval`: waiting for out-of-band approval
+   * - `tool_call`: Tool invocation requires handling.
+   * - `input_required`: User input is required.
+   * - `confirmation`: Confirmation is required.
+   * - `out_of_band_approval`: Waiting for out-of-band approval.
    * 
    * @example
    * input_required
@@ -174,7 +174,7 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The JSON schema that the payload must comply with when resuming this interrupt.
+   * The JSON schema that the payload must conform to when resuming this interrupt.
    * 
    * @example
    * {"type":"object","properties":{"region":{"type":"string"}},"required":["region"]}
@@ -235,14 +235,14 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
 export class GetRunResponseBodyDataOutcome extends $dara.Model {
   /**
    * @remarks
-   * The interrupt list.
+   * The list of interrupts.
    */
   interrupts?: GetRunResponseBodyDataOutcomeInterrupts[];
   /**
    * @remarks
-   * The result type. Valid values:
-   * - `success`: successfully completed
-   * - `interrupt`: waiting for interrupt handling
+   * The outcome type. Valid values:
+   * - `success`: Successfully completed.
+   * - `interrupt`: Waiting for interrupt handling.
    * 
    * @example
    * interrupt
@@ -277,7 +277,7 @@ export class GetRunResponseBodyDataOutcome extends $dara.Model {
 export class GetRunResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The run creation time in ISO 8601 format.
+   * The creation time of the run, in ISO 8601 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -307,13 +307,13 @@ export class GetRunResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The run status. Valid values:
-   * - `PENDING`: pending execution
-   * - `RUNNING`: running
-   * - `WAITING_USER`: waiting for interrupt handling
-   * - `COMPLETED`: completed
-   * - `FAILED`: failed
-   * - `CANCELLED`: canceled
-   * - `REJECTED`: rejected
+   * - `PENDING`: Pending execution.
+   * - `RUNNING`: Running.
+   * - `WAITING_USER`: Waiting for interrupt handling.
+   * - `COMPLETED`: Completed.
+   * - `FAILED`: Failed.
+   * - `CANCELLED`: Canceled.
+   * - `REJECTED`: Rejected.
    * 
    * @example
    * COMPLETED
@@ -321,7 +321,7 @@ export class GetRunResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time of the run in ISO 8601 format.
+   * The last update time of the run, in ISO 8601 format.
    * 
    * @example
    * 2026-01-01T00:01:00Z

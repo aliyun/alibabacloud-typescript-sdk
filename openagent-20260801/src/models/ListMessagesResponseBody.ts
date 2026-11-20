@@ -16,7 +16,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
    * The description of the operation pending approval.
    * 
    * @example
-   * Modify the sample resource
+   * Perform changes on the sample resource
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -50,7 +50,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   apiCalls?: ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterruptsDataApiCalls[];
   /**
    * @remarks
-   * The ID of the associated approval request.
+   * The ID of the associated approval ticket.
    * 
    * @example
    * approval_example_001
@@ -58,7 +58,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   approvalId?: string;
   /**
    * @remarks
-   * The URL of the approval page. The example URL cannot be used for actual approvals.
+   * The URL of the approval page. The example URL cannot be used for actual approval.
    * 
    * @example
    * https://example.com/approvals/approval_example_001
@@ -66,7 +66,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   approvalUrl?: string;
   /**
    * @remarks
-   * Specifies whether the approval can be canceled.
+   * Indicates whether the approval can be canceled.
    * 
    * @example
    * true
@@ -74,7 +74,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   cancellable?: boolean;
   /**
    * @remarks
-   * The summary identifier of the change pending approval.
+   * The digest identifier of the change pending approval.
    * 
    * @example
    * example-change-digest
@@ -82,7 +82,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   changeDigest?: string;
   /**
    * @remarks
-   * The title of the approval request.
+   * The title of the approval item.
    * 
    * @example
    * Sample change approval
@@ -125,7 +125,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
 export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrupts extends $dara.Model {
   /**
    * @remarks
-   * The supplementary business data for the interrupt.
+   * The supplementary business data of the interrupt.
    */
   data?: ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterruptsData;
   /**
@@ -138,7 +138,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   expiresAt?: string;
   /**
    * @remarks
-   * The interrupt ID.
+   * The ID of the interrupt.
    * 
    * @example
    * interrupt_example_001
@@ -149,7 +149,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
    * The interrupt prompt displayed to the user.
    * 
    * @example
-   * Specify the target region
+   * Provide the target region
    */
   message?: string;
   /**
@@ -162,7 +162,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The reason for the interrupt. Valid values: `tool_call` (tool invocation requires processing), `input_required` (user input is required), `confirmation` (confirmation is required), and `out_of_band_approval` (waiting for out-of-band approval).
+   * The reason for the interrupt. Valid values: `tool_call` (the tool invocation needs to be processed), `input_required` (user input is required), `confirmation` (confirmation is required), and `out_of_band_approval` (waiting for out-of-band approval).
    * 
    * @example
    * input_required
@@ -178,7 +178,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   responseSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The tool invocation ID associated with the interrupt.
+   * The ID of the tool invocation associated with the interrupt.
    * 
    * @example
    * tool_call_example_001
@@ -236,7 +236,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcome extends
   interrupts?: ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrupts[];
   /**
    * @remarks
-   * The interrupt result type. The value is fixed to `interrupt`.
+   * The type of the interrupt result. The value is fixed to `interrupt`.
    * 
    * @example
    * interrupt
@@ -287,7 +287,7 @@ export class ListMessagesResponseBodyDataTimelineMessageResumeInputResume extend
   payload?: any;
   /**
    * @remarks
-   * The response method for this interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, which includes the `payload`) and `cancelled` (the interrupt has been canceled, which does not include the `payload`).
+   * The response method for the interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, including the `payload`) and `cancelled` (the interrupt has been canceled, excluding the `payload`).
    * 
    * @example
    * resolved
@@ -321,7 +321,7 @@ export class ListMessagesResponseBodyDataTimelineMessageResumeInputResume extend
 export class ListMessagesResponseBodyDataTimelineMessageResumeInput extends $dara.Model {
   /**
    * @remarks
-   * The time when the interrupt processing was completed, in RFC 3339 format.
+   * The time when the interrupt processing is completed, in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:01:00Z
@@ -381,7 +381,7 @@ export class ListMessagesResponseBodyDataTimelineMessageResumeInput extends $dar
 export class ListMessagesResponseBodyDataTimelineMessageToolCallsFunction extends $dara.Model {
   /**
    * @remarks
-   * The tool parameters as a JSON string.
+   * The tool parameters in the form of a JSON string.
    * 
    * @example
    * {"keyword":"example"}
@@ -421,7 +421,7 @@ export class ListMessagesResponseBodyDataTimelineMessageToolCallsFunction extend
 export class ListMessagesResponseBodyDataTimelineMessageToolCalls extends $dara.Model {
   /**
    * @remarks
-   * The encrypted content of the tool invocation. The example is a placeholder value only.
+   * The encrypted content of the tool invocation. The example is only a placeholder value.
    * 
    * @example
    * EXAMPLE_ENCRYPTED_VALUE
@@ -429,12 +429,12 @@ export class ListMessagesResponseBodyDataTimelineMessageToolCalls extends $dara.
   encryptedValue?: string;
   /**
    * @remarks
-   * The information about the function to execute.
+   * The information about the function to be executed.
    */
   function?: ListMessagesResponseBodyDataTimelineMessageToolCallsFunction;
   /**
    * @remarks
-   * The tool invocation ID.
+   * The ID of the tool invocation.
    * 
    * @example
    * tool_call_example_001
@@ -450,7 +450,7 @@ export class ListMessagesResponseBodyDataTimelineMessageToolCalls extends $dara.
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The tool invocation type. The value is fixed to `function`.
+   * The type of the tool invocation. The value is fixed to `function`.
    * 
    * @example
    * function
@@ -502,15 +502,15 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
   activityType?: string;
   /**
    * @remarks
-   * The message content. The structure is determined by the message type.
+   * The content of the message. The structure is determined by the message type.
    * 
    * @example
-   * Check the status of the sample resource
+   * Query the status of the sample resource
    */
   content?: any;
   /**
    * @remarks
-   * The encrypted content. The example is an invalid placeholder value and does not contain actual ciphertext.
+   * The encrypted content. The example is an invalid placeholder value and does not contain real ciphertext.
    * 
    * @example
    * EXAMPLE_ENCRYPTED_VALUE
@@ -526,7 +526,7 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
   error?: string;
   /**
    * @remarks
-   * The message ID.
+   * The ID of the message.
    * 
    * @example
    * message_example_001
@@ -568,7 +568,7 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The tool invocation ID associated with the tool result.
+   * The ID of the tool invocation associated with the tool result.
    * 
    * @example
    * tool_call_example_001
@@ -637,7 +637,7 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
 export class ListMessagesResponseBodyDataTimeline extends $dara.Model {
   /**
    * @remarks
-   * The message object. Message types are distinguished by role, and each type uses its corresponding fields.
+   * The message object. Different message types are distinguished by role, and each type uses the corresponding fields.
    */
   message?: ListMessagesResponseBodyDataTimelineMessage;
   /**
@@ -693,12 +693,12 @@ export class ListMessagesResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The message records returned in chronological order.
+   * The message records returned in the timeline.
    */
   timeline?: ListMessagesResponseBodyDataTimeline[];
   /**
    * @remarks
-   * The number of timeline records on the current page. The value is equal to the length of the timeline array.
+   * The number of timeline records on the current page, which is equal to the length of the timeline array.
    * 
    * @example
    * 1
@@ -742,7 +742,7 @@ export class ListMessagesResponseBody extends $dara.Model {
   data?: ListMessagesResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The ID of the request. You can use the ID to locate and troubleshoot issues.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000001
@@ -750,7 +750,7 @@ export class ListMessagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of true indicates success.
+   * Indicates whether the request is successful. A value of true indicates success.
    * 
    * @example
    * true

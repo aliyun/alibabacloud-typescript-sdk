@@ -24,7 +24,7 @@ export class SendMessageRequestAttachments extends $dara.Model {
    * The original name of the file.
    * 
    * @example
-   * file.xlsx
+   * File.xlsx
    */
   sourceName?: string;
   /**
@@ -62,10 +62,90 @@ export class SendMessageRequestAttachments extends $dara.Model {
   }
 }
 
+export class SendMessageRequestCommandsPayload extends $dara.Model {
+  /**
+   * @remarks
+   * The skill name snapshot.
+   * 
+   * @example
+   * Intelligent analysis
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The skill ID.
+   * 
+   * @example
+   * agentcore_example
+   */
+  skillId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      skillId: 'skillId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      skillId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageRequestCommands extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter object corresponding to the command type. For a skill command, you must specify the skill to be executed by using `skillId`. The `name` parameter is optional and is used only to save a snapshot of the display name. It is not used for execution or authorization checks. For a compact command, omit this object.
+   */
+  payload?: SendMessageRequestCommandsPayload;
+  /**
+   * @remarks
+   * The command type.
+   * 
+   * @example
+   * skill
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payload: 'payload',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payload: SendMessageRequestCommandsPayload,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendMessageRequestResume extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interrupt to be replied to. Obtain this value from data.outcome.interrupts[].id in the SSE RUN_FINISHED event or the GetRun response.
+   * The ID of the interrupt to be replied to. Obtain this value from `data.outcome.interrupts[].id` in the SSE `RUN_FINISHED` event or `data.outcome.interrupts[].id` in the `GetRun` response.
    * 
    * @example
    * interrupt_example_001
@@ -73,7 +153,7 @@ export class SendMessageRequestResume extends $dara.Model {
   interruptId?: string;
   /**
    * @remarks
-   * The interrupt handling result. This parameter is required when status is set to resolved and must conform to the responseSchema of the corresponding interrupt. Do not pass this parameter when status is set to cancelled.
+   * The interrupt processing result. This parameter is required when `status` is set to `resolved` and must conform to the `responseSchema` of the corresponding interrupt. Do not provide this parameter when `status` is set to `cancelled`.
    * 
    * @example
    * {"region":"cn-hangzhou"}
@@ -81,7 +161,7 @@ export class SendMessageRequestResume extends $dara.Model {
   payload?: any;
   /**
    * @remarks
-   * The reply method for the interrupt. Valid values: resolved (submits the answer, confirmation, or tool result required by the interrupt, and must include payload) and cancelled (cancels the interrupt without passing payload).
+   * The reply method for the current interrupt. A value of `resolved` indicates that the answer, confirmation, or tool result required by the interrupt is submitted, and `payload` must be provided. A value of `cancelled` indicates that the interrupt is canceled, and `payload` is not provided.
    * 
    * @example
    * resolved
@@ -116,11 +196,13 @@ export class SendMessageRequest extends $dara.Model {
   /**
    * @remarks
    * The list of attachments.
-   * 
-   * @example
-   * []
    */
   attachments?: SendMessageRequestAttachments[];
+  /**
+   * @remarks
+   * The MESSAGE commands. A skill command must include `payload.skillId`. A compact command must be sent separately without a body or attachments.
+   */
+  commands?: SendMessageRequestCommands[];
   /**
    * @remarks
    * The message text in MESSAGE mode. This parameter cannot be empty. The type parameter can be omitted in this mode.
@@ -131,7 +213,7 @@ export class SendMessageRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The list of interrupt replies. This parameter is required when type is set to RESUME. You must reply to all pending interrupts at once. Each interruptId can appear only once.
+   * The list of interrupt replies. This parameter is required when `type` is set to `RESUME`. You must reply to all pending interrupts at once. Each `interruptId` can appear only once.
    */
   resume?: SendMessageRequestResume[];
   /**
@@ -144,7 +226,7 @@ export class SendMessageRequest extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The request type. Valid values: MESSAGE (sends a message), RESUME (resumes a run), and RECONNECT (reconnects to a run). Default value: MESSAGE.
+   * The request type. Valid values: `MESSAGE` (sends a message), `RESUME` (resumes a run), and `RECONNECT` (reconnects to a run). Default value: `MESSAGE`.
    * 
    * @example
    * MESSAGE
@@ -153,6 +235,7 @@ export class SendMessageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attachments: 'attachments',
+      commands: 'commands',
       content: 'content',
       resume: 'resume',
       runId: 'runId',
@@ -163,6 +246,7 @@ export class SendMessageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attachments: { 'type': 'array', 'itemType': SendMessageRequestAttachments },
+      commands: { 'type': 'array', 'itemType': SendMessageRequestCommands },
       content: 'string',
       resume: { 'type': 'array', 'itemType': SendMessageRequestResume },
       runId: 'string',
@@ -173,6 +257,9 @@ export class SendMessageRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.attachments)) {
       $dara.Model.validateArray(this.attachments);
+    }
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
     }
     if(Array.isArray(this.resume)) {
       $dara.Model.validateArray(this.resume);

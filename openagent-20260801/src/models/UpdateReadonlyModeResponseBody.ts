@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateReadonlyModeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The configuration name. The value is fixed to readonly.
+   * The configuration name. The value is fixed as readonly.
    * 
    * @example
    * readonly
@@ -37,7 +37,7 @@ export class UpdateReadonlyModeResponseBodyData extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The type of the configuration value. The value is BOOL for this operation.
+   * The type of the configuration value. For this operation, the value is BOOL.
    * 
    * @example
    * BOOL
