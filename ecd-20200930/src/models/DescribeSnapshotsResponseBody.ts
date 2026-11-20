@@ -67,7 +67,15 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * Available
    */
   diskStatus?: string;
+  /**
+   * @example
+   * pmxgcnb
+   */
   envId?: string;
+  /**
+   * @example
+   * default
+   */
   envType?: string;
   jvsId?: string;
   /**

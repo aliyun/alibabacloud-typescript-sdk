@@ -3351,8 +3351,8 @@ export default class Client extends OpenApi {
    * Creates a shared cloud desktop.
    * 
    * @remarks
-   * - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
-   * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+   * - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+   * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
    * 
    * @param request - CreateDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3626,8 +3626,8 @@ export default class Client extends OpenApi {
    * Creates a shared cloud desktop.
    * 
    * @remarks
-   * - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
-   * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+   * - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+   * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
    * 
    * @param request - CreateDesktopGroupRequest
    * @returns CreateDesktopGroupResponse
@@ -8717,6 +8717,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of cloud desktops with detected vulnerabilities.
+   * 
+   * @param request - DescribeDesktopIdsByVulNamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDesktopIdsByVulNamesResponse
+   */
+  async describeDesktopIdsByVulNamesWithOptions(request: $_model.DescribeDesktopIdsByVulNamesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDesktopIdsByVulNamesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.necessity)) {
+      query["Necessity"] = request.necessity;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.vulName)) {
+      query["VulName"] = request.vulName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDesktopIdsByVulNames",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDesktopIdsByVulNamesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDesktopIdsByVulNamesResponse({}));
+  }
+
+  /**
+   * Queries a list of cloud desktops with detected vulnerabilities.
+   * 
+   * @param request - DescribeDesktopIdsByVulNamesRequest
+   * @returns DescribeDesktopIdsByVulNamesResponse
+   */
+  async describeDesktopIdsByVulNames(request: $_model.DescribeDesktopIdsByVulNamesRequest): Promise<$_model.DescribeDesktopIdsByVulNamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDesktopIdsByVulNamesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the basic information of cloud computers.
    * 
    * @param request - DescribeDesktopInfoRequest
@@ -12402,6 +12460,62 @@ export default class Client extends OpenApi {
   async describeResourceByCenterPolicyId(request: $_model.DescribeResourceByCenterPolicyIdRequest): Promise<$_model.DescribeResourceByCenterPolicyIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeResourceByCenterPolicyIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询地域化的统计数据
+   * 
+   * @remarks
+   * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+   * 
+   * @param request - DescribeResourceStatisticByRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceStatisticByRegionResponse
+   */
+  async describeResourceStatisticByRegionWithOptions(request: $_model.DescribeResourceStatisticByRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceStatisticByRegionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.includeGroupDesktops)) {
+      query["IncludeGroupDesktops"] = request.includeGroupDesktops;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceStatisticByRegion",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeResourceStatisticByRegionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResourceStatisticByRegionResponse({}));
+  }
+
+  /**
+   * 查询地域化的统计数据
+   * 
+   * @remarks
+   * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+   * 
+   * @param request - DescribeResourceStatisticByRegionRequest
+   * @returns DescribeResourceStatisticByRegionResponse
+   */
+  async describeResourceStatisticByRegion(request: $_model.DescribeResourceStatisticByRegionRequest): Promise<$_model.DescribeResourceStatisticByRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourceStatisticByRegionWithOptions(request, runtime);
   }
 
   /**
@@ -17229,10 +17343,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a shared cloud computer.
+   * Modifies a shared cloud desktop.
    * 
    * @remarks
-   * After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+   * After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
    * 
    * @param request - ModifyDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17367,10 +17481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a shared cloud computer.
+   * Modifies a shared cloud desktop.
    * 
    * @remarks
-   * After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+   * After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
    * 
    * @param request - ModifyDesktopGroupRequest
    * @returns ModifyDesktopGroupResponse

@@ -97,6 +97,7 @@ export { DescribeDesktopGroupsRequestTag } from './DescribeDesktopGroupsRequest'
 export { DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus } from './DescribeDesktopGroupsResponseBody';
 export { DescribeDesktopGroupsResponseBodyDesktopGroupsTags } from './DescribeDesktopGroupsResponseBody';
 export { DescribeDesktopGroupsResponseBodyDesktopGroups } from './DescribeDesktopGroupsResponseBody';
+export { DescribeDesktopIdsByVulNamesResponseBodyDesktopItems } from './DescribeDesktopIdsByVulNamesResponseBody';
 export { DescribeDesktopInfoResponseBodyDesktops } from './DescribeDesktopInfoResponseBody';
 export { DescribeDesktopMetadataResponseBodyDesktops } from './DescribeDesktopMetadataResponseBody';
 export { DescribeDesktopOversoldGroupResponseBodyData } from './DescribeDesktopOversoldGroupResponseBody';
@@ -194,6 +195,8 @@ export { DescribeRenewalPriceResponseBodyPriceInfoRules } from './DescribeRenewa
 export { DescribeRenewalPriceResponseBodyPriceInfo } from './DescribeRenewalPriceResponseBody';
 export { DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList } from './DescribeResourceByCenterPolicyIdResponseBody';
 export { DescribeResourceByCenterPolicyIdResponseBodyResourceModelList } from './DescribeResourceByCenterPolicyIdResponseBody';
+export { DescribeResourceStatisticByRegionResponseBodyStatisticRegionStatistics } from './DescribeResourceStatisticByRegionResponseBody';
+export { DescribeResourceStatisticByRegionResponseBodyStatistic } from './DescribeResourceStatisticByRegionResponseBody';
 export { DescribeRouteEntryListResponseBodyRouteEntriesNextHops } from './DescribeRouteEntryListResponseBody';
 export { DescribeRouteEntryListResponseBodyRouteEntries } from './DescribeRouteEntryListResponseBody';
 export { DescribeRouteTableListResponseBodyRouteTableList } from './DescribeRouteTableListResponseBody';
@@ -660,6 +663,9 @@ export { DescribeDesktopGroupSessionsResponse } from './DescribeDesktopGroupSess
 export { DescribeDesktopGroupsRequest } from './DescribeDesktopGroupsRequest';
 export { DescribeDesktopGroupsResponseBody } from './DescribeDesktopGroupsResponseBody';
 export { DescribeDesktopGroupsResponse } from './DescribeDesktopGroupsResponse';
+export { DescribeDesktopIdsByVulNamesRequest } from './DescribeDesktopIdsByVulNamesRequest';
+export { DescribeDesktopIdsByVulNamesResponseBody } from './DescribeDesktopIdsByVulNamesResponseBody';
+export { DescribeDesktopIdsByVulNamesResponse } from './DescribeDesktopIdsByVulNamesResponse';
 export { DescribeDesktopInfoRequest } from './DescribeDesktopInfoRequest';
 export { DescribeDesktopInfoResponseBody } from './DescribeDesktopInfoResponseBody';
 export { DescribeDesktopInfoResponse } from './DescribeDesktopInfoResponse';
@@ -804,6 +810,9 @@ export { DescribeRenewalPriceResponse } from './DescribeRenewalPriceResponse';
 export { DescribeResourceByCenterPolicyIdRequest } from './DescribeResourceByCenterPolicyIdRequest';
 export { DescribeResourceByCenterPolicyIdResponseBody } from './DescribeResourceByCenterPolicyIdResponseBody';
 export { DescribeResourceByCenterPolicyIdResponse } from './DescribeResourceByCenterPolicyIdResponse';
+export { DescribeResourceStatisticByRegionRequest } from './DescribeResourceStatisticByRegionRequest';
+export { DescribeResourceStatisticByRegionResponseBody } from './DescribeResourceStatisticByRegionResponseBody';
+export { DescribeResourceStatisticByRegionResponse } from './DescribeResourceStatisticByRegionResponse';
 export { DescribeRouteEntryListRequest } from './DescribeRouteEntryListRequest';
 export { DescribeRouteEntryListResponseBody } from './DescribeRouteEntryListResponseBody';
 export { DescribeRouteEntryListResponse } from './DescribeRouteEntryListResponse';
