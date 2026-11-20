@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlsDeliveryConfigRequestDeliveryScopes extends $dara.Model {
   /**
    * @remarks
-   * The query condition for the product type to which the logs belong. If you specify this parameter, delivery scopes are filtered by the specified product type. The value must be consistent with the existing delivery configurations. For example, `WuyingServer` indicates Enterprise Edition workstations.
+   * The query condition for the product type to which the logs belong. If you specify this parameter, the results are filtered by the specified product type, which must be consistent with the existing delivery configurations. For example, `WuyingServer` indicates Enterprise Edition workstations.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DescribeSlsDeliveryConfigRequest extends $dara.Model {
   deliveryScopes?: DescribeSlsDeliveryConfigRequestDeliveryScopes[];
   /**
    * @remarks
-   * The name of the SLS Logstore. Exact match is used. If this parameter is omitted, delivery scopes are not filtered by Logstore name.
+   * The name of the SLS Logstore. Exact match is used. If this parameter is omitted, the results are not filtered by Logstore name.
    * 
    * @example
    * wuying-session-audit
@@ -53,7 +53,7 @@ export class DescribeSlsDeliveryConfigRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The name of the SLS project. Exact match is used. If this parameter is omitted, delivery scopes are not filtered by project name.
+   * The name of the SLS project. Exact match is used. If this parameter is omitted, the results are not filtered by project name.
    * 
    * @example
    * wuying-audit-cn-hangzhou
@@ -61,7 +61,7 @@ export class DescribeSlsDeliveryConfigRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The ID of the region where the SLS project is located. Exact match is used. If this parameter is omitted, delivery scopes are not filtered by region.
+   * The ID of the region where the SLS project is located. Exact match is used. If this parameter is omitted, the results are not filtered by region.
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchConfigRuntimeChannelRequestChannelConfigs extends $dara.Model {
   /**
    * @remarks
-   * The third-party channel code, such as dingtalk-connector (DingTalk), feishu (Lark), and wecom (WeCom). System channel codes are not case-sensitive. Configuring wechat and jvsclaw is not supported. If these values are passed, the entire request fails and the error code ChannelConfig.NotSupported is returned.
+   * The third-party channel code, such as dingtalk-connector (DingTalk), feishu (Lark), and wecom (WeCom). System channel codes are case-insensitive. Configuring wechat and jvsclaw is not supported. If these values are passed, the entire request fails and the error code ChannelConfig.NotSupported is returned.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BatchConfigRuntimeChannelRequestChannelConfigs extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The JSON string for the channel configuration.
+   * The JSON string for channel configuration.
    * 
    * - Simple mode: only appKey and appSecret are allowed.
    * - Custom mode: all configuration items required for the channel under the current agent provider must be included.
@@ -32,8 +32,8 @@ export class BatchConfigRuntimeChannelRequestChannelConfigs extends $dara.Model 
    * @remarks
    * The configuration mode. Valid values:
    * 
-   * - Simple: the simple configuration mode.
-   * - Custom: the custom configuration mode.
+   * - Simple: simple configuration mode.
+   * - Custom: custom configuration mode.
    * 
    * This parameter is required.
    * 
@@ -109,9 +109,9 @@ export class BatchConfigRuntimeChannelRequest extends $dara.Model {
    * @remarks
    * The agent provider.
    * 
-   * - JVS Computer: Enter OpenClaw.
-   * - OpenClaw: Enter OpenClaw.
-   * - Hermes Agent: Enter HermesAgent.
+   * - JVS Computer: Specify OpenClaw.
+   * - OpenClaw: Specify OpenClaw.
+   * - Hermes Agent: Specify HermesAgent.
    * 
    * This parameter is required.
    * 
@@ -121,14 +121,14 @@ export class BatchConfigRuntimeChannelRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
-   * The list of channel configurations. A maximum of 200 configurations are supported. Each configuration item specifies an agent runtime and the third-party channel to be configured for it. Different channel configurations can be delivered to different runtimes. Multiple configuration items for the same runtime are processed sequentially.
+   * The list of channel configurations. A maximum of 200 items are supported. Each configuration item specifies an agent runtime and the third-party channel to be configured for it. Different channel configurations can be delivered to different runtimes. Multiple configuration items for the same runtime are processed sequentially.
    * 
    * This parameter is required.
    */
   channelConfigs?: BatchConfigRuntimeChannelRequestChannelConfigs[];
   /**
    * @remarks
-   * The agent runtime type, such as CloudDesktop (cloud desktop).
+   * The agent runtime type, such as CloudDesktop (Cloud Desktop).
    * 
    * This parameter is required.
    * 

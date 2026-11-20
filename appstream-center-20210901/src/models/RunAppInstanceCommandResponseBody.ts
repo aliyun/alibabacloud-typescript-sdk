@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunAppInstanceCommandResponseBodyCommandResultModel extends $dara.Model {
   /**
    * @remarks
-   * The command execution ID. When commands are issued in batches to multiple delivery groups, only one execution ID is returned. You can use this ID to call the ListCommandInvocationResults operation to query the command execution results on each session.
+   * The command execution ID. Only one execution ID is returned even when commands are issued in batches to multiple delivery groups. You can use this ID to call ListCommandInvocationResults to query the command execution results on each session.
    * 
    * @example
    * t-hz0jdfwd9f****

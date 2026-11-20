@@ -18,7 +18,7 @@ export class ResizeWuyingServerDiskShrinkRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The new size of the system cloud disk, in GB.
+   * The new capacity of the system cloud disk, in GB.
    * 
    * @example
    * 220
@@ -26,7 +26,7 @@ export class ResizeWuyingServerDiskShrinkRequest extends $dara.Model {
   systemDiskNewSize?: number;
   /**
    * @remarks
-   * The ID of the WUYING Workspace.
+   * The workstation ID.
    * 
    * @example
    * ws-0bw2f11****dial

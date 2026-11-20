@@ -15,7 +15,7 @@ export class ModifyNodePoolAmountShrinkRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The parameters for node pool specification changes.
+   * The parameters for changing the specifications of the node pool.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when an error occurs.
    * 
    * @example
    * OtaTask.Running
@@ -13,7 +13,7 @@ export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when an error occurs.
    * 
    * @example
    * The task is running and cannot be sumitted.
@@ -29,10 +29,10 @@ export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   otaVersion?: string;
   /**
    * @remarks
-   * The release note that describes the content of the over-the-air update.
+   * The release notes that describe the content of the over-the-air update.
    * 
    * @example
-   * 测试升级
+   * Test upgrade
    */
   releaseNote?: string;
   /**

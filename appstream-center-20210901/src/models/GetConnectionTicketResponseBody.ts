@@ -85,8 +85,8 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The credential for connecting to the cloud application.
-   * > This parameter is returned only for non-initial calls.
+   * The credentials used to connect to the cloud application.
+   * > This parameter is returned for non-initial calls.
    * 
    * @example
    * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****

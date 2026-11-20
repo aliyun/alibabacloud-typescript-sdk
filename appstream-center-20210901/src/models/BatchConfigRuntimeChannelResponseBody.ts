@@ -21,7 +21,7 @@ export class BatchConfigRuntimeChannelResponseBodyData extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error description returned when the configuration fails. This parameter is returned only when Success is false.
+   * The error message returned when the configuration fails. This parameter is returned only when Success is false.
    * 
    * @example
    * The runtime is not found.
@@ -37,10 +37,10 @@ export class BatchConfigRuntimeChannelResponseBodyData extends $dara.Model {
   runtimeId?: string;
   /**
    * @remarks
-   * Indicates whether the channel configuration item is configured successfully. Valid values:
+   * Specifies whether the channel configuration item is configured successfully. Valid values:
    * 
    * - true: The configuration is successful.
-   * - false: The configuration fails. For the cause of the failure, see ErrorCode and Message.
+   * - false: The configuration failed. For the cause of the failure, see ErrorCode and Message.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -88,7 +88,7 @@ export class BatchConfigRuntimeChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of configuration results, which is the same as the number of configuration items in ChannelConfigs.
+   * The total number of configuration results, which is the same as the number of configuration items in ChannelConfigs.
    * 
    * @example
    * 1

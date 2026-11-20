@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCommandInvocationResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group. Queries the command execution results under this delivery group. This parameter must be specified when AppInstanceGroupIds is not specified. If both are specified, AppInstanceGroupIds takes precedence and this parameter does not take effect.
+   * The delivery group ID. Queries the command execution results under this delivery group. This parameter is required when AppInstanceGroupIds is not specified. If both are specified, AppInstanceGroupIds takes precedence and this parameter does not take effect.
    * 
    * @example
    * ws-0bxls9m9arax6****
@@ -13,17 +13,17 @@ export class ListCommandInvocationResultsRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The list of delivery group IDs. A maximum of 200 IDs can be specified, and all delivery groups must be in the same region. When specified, it takes precedence over AppInstanceGroupId and queries the command execution results of all persistent sessions under these delivery groups. The list cannot contain null values.
+   * The list of delivery group IDs. You can specify up to 200 IDs, and all delivery groups must be in the same region. When specified, this parameter takes precedence over AppInstanceGroupId and queries the command execution results of all persistent sessions under these delivery groups. The list cannot contain null values.
    */
   appInstanceGroupIds?: string[];
   /**
    * @remarks
-   * The list of persistent session IDs. A maximum of 100 IDs can be specified. It is used to query only the command execution results of the specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions belonging to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned.
+   * The list of persistent session IDs. You can specify up to 100 IDs to query the command execution results of only the specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions that belong to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned.
    */
   appInstancePersistentIds?: string[];
   /**
    * @remarks
-   * The command execution ID, which is the InvocationId returned when you call RunAppInstanceCommand to deliver a command.
+   * The command execution ID, which is the InvocationId returned when RunAppInstanceCommand is called to deliver a command.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ListCommandInvocationResultsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the query results to display. It is used together with PageSize for paging in a paged query. If not specified, the default value is 0, which indicates the first page.
+   * The page number of the query results to return. This parameter is used together with PageSize for paging. If this parameter is not passed, the default value is 0, which indicates the first page.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListCommandInvocationResultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of query results per page. Default value: 200.
+   * The number of entries to return on each page. Default value: 200.
    * 
    * @example
    * 20
@@ -65,7 +65,7 @@ export class ListCommandInvocationResultsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The product type. Currently, only WuyingServer is supported. If you specify other values, a parameter error is returned.
+   * The product type. Currently, only WuyingServer is supported. If you pass other values, a parameter error is returned.
    * 
    * This parameter is required.
    * 

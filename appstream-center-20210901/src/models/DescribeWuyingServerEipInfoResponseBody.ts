@@ -21,7 +21,7 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
   ipAddress?: string;
   /**
    * @remarks
-   * The ID of the network interface.
+   * The ID of the network interface controller (NIC).
    * 
    * @example
    * eni-bp174p2xxxxxbyh02ix

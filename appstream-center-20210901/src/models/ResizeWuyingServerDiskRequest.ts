@@ -21,7 +21,7 @@ export class ResizeWuyingServerDiskRequestDataDiskList extends $dara.Model {
   diskSubType?: string;
   /**
    * @remarks
-   * The type of disk data included in the image. By default, the system cloud disk and data cloud disks of the instance are included.
+   * The types of disk data included in the image. By default, the system cloud disk and data cloud disks of the instance are included.
    * 
    * @example
    * SYSTEM
@@ -29,7 +29,7 @@ export class ResizeWuyingServerDiskRequestDataDiskList extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The new size.
+   * The new capacity.
    * 
    * @example
    * 220
@@ -78,7 +78,7 @@ export class ResizeWuyingServerDiskRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The new size of the system cloud disk, in GB.
+   * The new capacity of the system cloud disk, in GB.
    * 
    * @example
    * 220
@@ -86,7 +86,7 @@ export class ResizeWuyingServerDiskRequest extends $dara.Model {
   systemDiskNewSize?: number;
   /**
    * @remarks
-   * The ID of the WUYING Workspace.
+   * The workstation ID.
    * 
    * @example
    * ws-0bw2f11****dial

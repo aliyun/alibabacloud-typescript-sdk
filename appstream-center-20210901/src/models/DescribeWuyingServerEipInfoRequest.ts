@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWuyingServerEipInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The Internet service operation provider. Valid values:
+   * The Internet service operation provider. Valid values: 
    * - ChinaMobile: shift.
    * - ChinaTelecom: China Telecom.
    * - ChinaUnicom: China Unicom.
@@ -16,7 +16,7 @@ export class DescribeWuyingServerEipInfoRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The ID of the workstation. You can obtain the ID from the WuyingServerIdList parameter returned after you call the CreateWuyingServer operation to create a workstation, or call the ListWuyingServer operation to query the IDs of existing workstations.
+   * The workstation ID. You can obtain the ID from the WuyingServerIdList returned after you call the CreateWuyingServer operation to create a workstation, or call the ListWuyingServer operation to query the IDs of existing workstations.
    * 
    * This parameter is required.
    * 

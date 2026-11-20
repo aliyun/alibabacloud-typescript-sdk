@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuntimeChannelQrCodeDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL or content of the QR code. If the QR code is not yet generated or the content is empty, this field is empty.
+   * The URL or content of the QR code. If the QR code is not generated or the content is empty, this field is empty.
    * 
    * @example
    * https://qr.example.com/abc
@@ -13,7 +13,7 @@ export class GetRuntimeChannelQrCodeDetailResponseBodyData extends $dara.Model {
   qrCode?: string;
   /**
    * @remarks
-   * The access URL of the QR code configuration channel page. This URL is generated and sent to the user when the QR code configuration is initiated, and carries the taskId, channel code, and region parameters of the current process. If the URL is not recorded, this field is empty.
+   * The access URL of the QR code configuration channel page. It is generated and sent to the user when the QR code configuration is initiated, and carries the taskId, channel code, and region parameters of the current process. If the URL is not recorded, this field is empty.
    * 
    * @example
    * https://eds.console.aliyun.com/public/scan-pair?taskId=8f14e45f-ceea-4672-9f6e-3c5b2a1d****&code=dingtalk-connector&region=cn-shanghai
@@ -21,7 +21,15 @@ export class GetRuntimeChannelQrCodeDetailResponseBodyData extends $dara.Model {
   qrCodeNotifyUrl?: string;
   /**
    * @remarks
-   * The scan status. Valid values: Generating (generating), Generated (generated), GenerateFailed (generation failed), Scanned (scanned), Configuring (configuring), Success (success), Failed (failed), and Expired (expired).
+   * The QR code scan status. Valid values:
+   * - Generating: The QR code is being generated.
+   * - Generated: The QR code is generated.
+   * - GenerateFailed: The QR code generation failed.
+   * - Scanned: The QR code is scanned.
+   * - Configuring: The configuration is in progress.
+   * - Success: The configuration is successful.
+   * - Failed: The configuration failed.
+   * - Expired: The process has expired.
    * 
    * @example
    * Generated
@@ -29,7 +37,15 @@ export class GetRuntimeChannelQrCodeDetailResponseBodyData extends $dara.Model {
   qrCodeStatus?: string;
   /**
    * @remarks
-   * The status of the QR code configuration process. The valid values are the same as those of QrCodeStatus. Valid values: Generating (generating), Generated (generated), GenerateFailed (generation failed), Scanned (scanned), Configuring (configuring), Success (success), Failed (failed), and Expired (expired).
+   * The status of the QR code configuration process. The value is the same as QrCodeStatus. Valid values:
+   * - Generating: The QR code is being generated.
+   * - Generated: The QR code is generated.
+   * - GenerateFailed: The QR code generation failed.
+   * - Scanned: The QR code is scanned.
+   * - Configuring: The configuration is in progress.
+   * - Success: The configuration is successful.
+   * - Failed: The configuration failed.
+   * - Expired: The process has expired.
    * 
    * @example
    * Success
@@ -70,7 +86,7 @@ export class GetRuntimeChannelQrCodeDetailResponseBody extends $dara.Model {
   data?: GetRuntimeChannelQrCodeDetailResponseBodyData;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

@@ -8,7 +8,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
    * The total number of subscription nodes after the upgrade.
    * 
    * > 
-   * > - This value must be greater than the current number of purchased nodes (Amount) in the delivery group. Otherwise, the API returns InvalidAmount.UnIncrease.
+   * > - The value must be greater than the number of purchased nodes (Amount) in the current delivery group. Otherwise, the API returns InvalidAmount.UnIncrease.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   prePaidNodeAmountModifyMode?: string;
   /**
    * @remarks
-   * The list of nodes whose billing type is to be modified.
+   * The list of nodes whose billing method is to be changed.
    */
   prePaidNodeAmountModifyNodeIds?: string[];
   static names(): { [key: string]: string } {
@@ -70,7 +70,7 @@ export class ModifyNodePoolAmountRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The parameters for node pool specification changes.
+   * The parameters for changing the specifications of the node pool.
    * 
    * This parameter is required.
    */

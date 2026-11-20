@@ -18,7 +18,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * @remarks
    * The application ID.
    * 
-   * > This parameter is required for the initial call and optional for subsequent calls.
+   * > Required for the initial call and optional for subsequent calls.
    * 
    * @example
    * ca-e4s0puhmwi7v****
@@ -26,15 +26,15 @@ export class GetConnectionTicketRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The list of delivery groups.
+   * The delivery group list.
    * 
-   * > - If you specify this parameter, application instances are allocated only from the specified and authorized delivery groups.
-   * > - If you specify the `AppInstanceId` or `AppInstancePersistentId` parameter, this parameter is required.
+   * > - If this parameter is specified, an application instance is assigned only from the specified and authorized delivery groups.
+   * > - If the AppInstanceId or AppInstancePersistentId parameter is specified, this parameter is required.
    */
   appInstanceGroupIdList?: string[];
   /**
    * @remarks
-   * The delivery group set ID used to obtain the connection credential.
+   * The ID of the delivery group set used to obtain connection credentials.
    * 
    * @example
    * set-3jm9d0abc00example
@@ -45,8 +45,8 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * The application instance ID.
    * 
    * > 
-   * > - If you specify this parameter, only the specified application instance is allocated.
-   * > - If you specify this parameter, you must also specify the `AppInstanceGroupIdList` parameter, and the number of delivery group IDs in `AppInstanceGroupIdList` must be 1.
+   * > - If this parameter is specified, the system attempts to assign only the specified application instance.
+   * > - If this parameter is specified, the AppInstanceGroupIdList parameter must also be specified, and the number of delivery group IDs in AppInstanceGroupIdList must be 1.
    * 
    * @example
    * ai-1rznfnrvsa99d****
@@ -70,7 +70,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   appPolicyId?: string;
   /**
    * @remarks
-   * The application startup parameter. This parameter is optional. You can refer to the method for specifying startup parameters in the image creation documentation and manually verify the startup parameters during image creation. This field is suitable for startup parameters with variable content, allowing API callers to set them flexibly. For more information about how to obtain startup parameters, see [How to obtain application installation parameters and startup parameters](https://help.aliyun.com/document_detail/426045.html).
+   * The application startup parameters. This parameter is optional. You can refer to the image creation documentation to fill in the startup parameters and manually verify them during the image creation process. This field is suitable for startup parameters with variable content, allowing API callers to configure them flexibly. For more information about how to obtain startup parameters, see [How to obtain application installation and startup parameters](https://help.aliyun.com/document_detail/426045.html).
    * 
    * @example
    * /q /n
@@ -78,7 +78,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   appStartParam?: string;
   /**
    * @remarks
-   * The application version. If you specify this parameter, only the specified version of the application is opened. If you do not specify this parameter, any authorized version of the application is opened.
+   * The application version. If this parameter is specified, only the application of the specified version is started. If this parameter is not specified, an authorized application of any version is started.
    * 
    * @example
    * 1.0.0
@@ -88,7 +88,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > If you specify this parameter, application instances are allocated only from delivery groups in the specified region.
+   * > If this parameter is specified, an application instance is assigned only from the delivery groups in the specified region.
    * 
    * @example
    * cn-hangzhou
@@ -126,7 +126,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * > This parameter is required for non-initial calls. Use this parameter query to invoke the node status and connection credential retrieval.
+   * > Required for non-initial invocations. Use this parameter to invoke a parameter query for the node status and connection credentials.
    * 
    * @example
    * 28778acb-a469-4bc0-8e0f****

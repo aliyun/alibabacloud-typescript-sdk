@@ -13,11 +13,11 @@ export class RemoveRuntimeChannelRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The agent provider. The mappings with the agent runtime type are as follows:
+   * The agent provider. The mappings to the agent runtime types are as follows:
    * 
-   * - JVS Computer: Set to OpenClaw.
-   * - OpenClaw: Set to OpenClaw.
-   * - Hermes Agent: Set to HermesAgent, and you must also set AgentPlatform to ENTERPRISE_JVS. If AgentPlatform is not specified, the default value is ENTERPRISE, and only OpenClaw is supported in this case.
+   * - JVS Computer: set to OpenClaw.
+   * - OpenClaw: set to OpenClaw.
+   * - Hermes Agent: set to HermesAgent, and you must also set AgentPlatform to ENTERPRISE_JVS. If AgentPlatform is not specified, the default value is ENTERPRISE, and only OpenClaw is supported in this case.
    * 
    * This parameter is required.
    * 

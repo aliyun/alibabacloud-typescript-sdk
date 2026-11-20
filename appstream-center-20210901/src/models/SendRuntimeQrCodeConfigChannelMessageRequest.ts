@@ -35,7 +35,7 @@ export class SendRuntimeQrCodeConfigChannelMessageRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The IDs of the runtime resources, such as cloud desktop IDs. You can specify 1 to 200 IDs.
+   * The list of runtime resource IDs, such as cloud desktop IDs. You can specify 1 to 200 IDs.
    * 
    * This parameter is required.
    */

@@ -25,7 +25,7 @@ export class GetModelProviderTemplateResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the Wuying security gateway proxy is enabled.
+   * Specifies whether the Wuying secure gateway proxy is enabled.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyShareImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account IDs to add for sharing.
+   * The IDs of the Alibaba Cloud accounts to add for sharing.
    */
   addAccount?: number[];
   /**
@@ -18,7 +18,7 @@ export class ModifyShareImageRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The source image ID.
+   * The ID of the source image.
    * 
    * @example
    * img-bp13mu****
@@ -26,7 +26,7 @@ export class ModifyShareImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The product type, such as cloud desktop, cloud application, and workstation.
+   * The product type, such as cloud desktop, cloud application, or workstation.
    * 
    * @example
    * CloudDesktop
@@ -34,7 +34,7 @@ export class ModifyShareImageRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account IDs to remove from sharing.
+   * The IDs of the Alibaba Cloud accounts to remove from sharing.
    */
   removeAccount?: number[];
   static names(): { [key: string]: string } {

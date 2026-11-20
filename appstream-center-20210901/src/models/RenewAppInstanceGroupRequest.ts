@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID.
+   * The ID of the delivery group.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment. If RenewMode is set to RENEW_SPECIFIED_NODE_COUNT or RENEW_SPECIFIED_NODE_IDS, this parameter must be set to false.
+   * Specifies whether to enable automatic payment. When the RenewMode parameter is set to RENEW_SPECIFIED_NODE_COUNT or RENEW_SPECIFIED_NODE_IDS, this parameter must be set to false.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The numeric part of the resource purchase duration. Use this parameter together with `PeriodUnit` to specify the full purchase duration.
+   * The numeric part of the subscription duration. This parameter is used together with the PeriodUnit parameter to specify the complete subscription duration.
    * 
    * This parameter is required.
    * 
@@ -33,18 +33,18 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit part of the resource purchase duration. Use this parameter together with `Period` to specify the full purchase duration. The valid combinations of `Period` and `PeriodUnit` are as follows:
+   * The unit of the subscription duration. This parameter is used together with the Period parameter to specify the complete subscription duration. Valid combinations of Period and PeriodUnit are as follows:
    * 
-   * - 1 Week (1 week)
-   * - 1 Month (1 month)
-   * - 2 Month (2 months)
-   * - 3 Month (3 months)
-   * - 6 Month (6 months)
-   * - 1 Year (1 year)
-   * - 2 Year (2 years)
-   * - 3 Year (3 years)
+   * - 1 Week
+   * - 1 Month
+   * - 2 Month
+   * - 3 Month
+   * - 6 Month
+   * - 1 Year
+   * - 2 Year
+   * - 3 Year
    * 
-   * > This parameter is case-sensitive. For example, `Week` is valid, but `week` is not. If the request parameters do not match the combinations listed above, such as `2 Week`, the operation call succeeds but an error occurs during order placement.
+   * > This parameter is case-sensitive. For example, Week is valid, but week is invalid. If the request parameters do not match the preceding valid combinations, such as 2 Week, the API call may succeed, but an error will occur during the order placement stage.
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The promotion ID. You can obtain this ID by calling the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation.
+   * The promotion ID. You can obtain the ID by calling the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation.
    * 
    * @example
    * 17440009****
@@ -88,7 +88,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   renewMode?: string;
   /**
    * @remarks
-   * The list of node IDs to renew.
+   * The IDs of the nodes to renew.
    */
   renewNodes?: string[];
   static names(): { [key: string]: string } {

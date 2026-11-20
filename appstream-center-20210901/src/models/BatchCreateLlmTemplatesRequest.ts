@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateLlmTemplatesRequestLlmTemplateItems extends $dara.Model {
   /**
    * @remarks
-   * The model configuration JSON object.
+   * The JSON object for model configuration.
    * 
    * @example
    * {
@@ -104,7 +104,7 @@ export class BatchCreateLlmTemplatesRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The ID of the model provider template.
+   * The ID of the associated model provider template.
    * 
    * This parameter is required.
    * 

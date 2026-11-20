@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWuyingServerSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The status after the specification change is complete.
+   * The status of the workstation after the specification change is complete.
    * 
    * - `stopped`: Shuts down the workstation after the specification change is complete.
    * 
-   * This option applies to Enterprise Edition or container workstations that support this setting.
+   * This option is applicable to Enterprise Edition or container workstations that support this setting.
    * 
    * @example
    * stopped
@@ -17,7 +17,7 @@ export class ModifyWuyingServerSpecRequest extends $dara.Model {
   afterStatus?: string;
   /**
    * @remarks
-   * The product type of the target workstation. It must match the actual type of the resource. For Enterprise Edition workstations, use `WuyingServer`. If this parameter is omitted, `WuyingServer` is used by default.
+   * The product type of the target workstation, which must be consistent with the actual type of the resource. For Enterprise Edition workstations, use `WuyingServer`. If this parameter is omitted, `WuyingServer` is used by default.
    * 
    * @example
    * WuyingServer
@@ -25,7 +25,7 @@ export class ModifyWuyingServerSpecRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the promotion. It is used to identify a promotional event or coupon.
+   * The ID of the promotion, which is used to identify a promotional event or coupon.
    * 
    * @example
    * 17440009****
@@ -43,7 +43,7 @@ export class ModifyWuyingServerSpecRequest extends $dara.Model {
   serverInstanceType?: string;
   /**
    * @remarks
-   * The ID of the workstation whose specifications you want to change. This parameter is required.
+   * The ID of the workstation whose specifications you want to modify. This parameter is required.
    * 
    * @example
    * ws-0bw2f11****dial

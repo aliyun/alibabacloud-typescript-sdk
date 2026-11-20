@@ -29,7 +29,7 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara
   message?: string;
   /**
    * @remarks
-   * Indicates whether the deletion is successfully triggered.
+   * Indicates whether the deletion was successfully triggered.
    * 
    * @example
    * true

@@ -25,7 +25,7 @@ export class GetRuntimeChannelQrCodeDetailRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
-   * The channel code. It must be the same as the channel code used when initiating the QR code configuration channel, such as dingtalk-connector (DingTalk), feishu (Lark), or wecom (WeCom).
+   * The channel code. It must be the same as the channel code used when initiating the QR code configuration channel, such as dingtalk-connector (DingTalk), feishu (Lark), and wecom (WeCom).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class GetRuntimeChannelQrCodeDetailRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the runtime, such as the ID of a cloud desktop.
+   * The ID of the runtime, such as a cloud desktop ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResizeWuyingServerDiskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 23429322113****

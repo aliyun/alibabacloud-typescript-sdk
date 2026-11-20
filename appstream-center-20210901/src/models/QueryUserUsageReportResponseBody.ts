@@ -35,7 +35,9 @@ export class QueryUserUsageReportResponseBodyUserUsageReportDataModel extends $d
   connectionStatus?: string;
   /**
    * @remarks
-   * The last connection time. Format: `yyyy-MM-dd HH:mm:ss`. If no current or historical connection record exists, `-` is returned. The string itself does not carry a time zone and is interpreted in the Asia/Shanghai (UTC+8) time zone.
+   * The last connection time. Format: `yyyy-MM-dd HH:mm:ss`. If a current session binding record exists, the connection time of this record is used. Otherwise, the historical connection record is used. If no available connection time exists, `-` is returned. This time is not limited by the statistical date range in the request.
+   * 
+   * The time is in Beijing time (UTC+8). The returned string does not carry `Z` or a time zone offset. For example, `2026-09-01 10:00:00` indicates 10:00:00 on September 1, 2026, Beijing time. Do not parse it as UTC time.
    * 
    * @example
    * 2026-09-01 10:00:00
@@ -51,7 +53,7 @@ export class QueryUserUsageReportResponseBodyUserUsageReportDataModel extends $d
   regionId?: string;
   /**
    * @remarks
-   * The cumulative session persistence duration within the query range, which refers to the time a user occupies a session from attach to release. If multiple sessions exist under the same app instance group, their durations are accumulated. Unit: hours.
+   * The cumulative session persistence duration within the query range, which is the duration that the user occupies the session from attach to session release. Multiple sessions under the same app instance group are accumulated. Unit: hours.
    * 
    * @example
    * 3.5
@@ -111,10 +113,7 @@ export class QueryUserUsageReportResponseBodyUserUsageReportDataModel extends $d
 export class QueryUserUsageReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of `200` indicates that the request was successful. Other values indicate that the request failed.
-   * 
-   * @example
-   * 200
+   * The business processing status code. **A successful response may not contain this field. Do not use `Code=200` as a necessary condition for success.** This field is not equivalent to the HTTP status code. If the request fails, handle it based on the HTTP status code, error code, and error message.
    */
   code?: string;
   /**
@@ -127,10 +126,7 @@ export class QueryUserUsageReportResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The description of the request processing result. Typically, `success` is returned when the request is successful.
-   * 
-   * @example
-   * success
+   * The description of the business processing result. **A successful response may not contain this field. Do not rely on the fixed `success` text.** If the request fails, read the specific error message based on the error code.
    */
   message?: string;
   /**
@@ -143,7 +139,7 @@ export class QueryUserUsageReportResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page used in the current response.
+   * The number of records per page in the request. If this parameter is not specified, the default value `200` is returned. If the requested value exceeds `1500`, this field still returns the echo request value, but the actual query uses a maximum of `1500`. Refer to the length of the data list for the actual number of returned records.
    * 
    * @example
    * 200

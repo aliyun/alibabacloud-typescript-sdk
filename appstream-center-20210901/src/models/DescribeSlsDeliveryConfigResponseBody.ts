@@ -16,8 +16,8 @@ export class DescribeSlsDeliveryConfigResponseBodyDeliveryConfigsLogStoresDelive
    * The current status of the delivery configuration. Valid values:
    * - `Stopped`: Delivery is stopped.
    * - `Enabled`: Delivery is enabled.
-   * - `AbnormalLogstoreDeleted`: The destination Logstore is deleted, and delivery is abnormal.
-   * - `AbnormalProjectDeleted`: The destination project is deleted, and delivery is abnormal.
+   * - `AbnormalLogstoreDeleted`: Delivery is abnormal because the destination Logstore is deleted.
+   * - `AbnormalProjectDeleted`: Delivery is abnormal because the destination project is deleted.
    * 
    * @example
    * Enabled
@@ -154,7 +154,7 @@ export class DescribeSlsDeliveryConfigResponseBody extends $dara.Model {
   deliveryConfigs?: DescribeSlsDeliveryConfigResponseBodyDeliveryConfigs[];
   /**
    * @remarks
-   * The request ID used to locate the current call.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

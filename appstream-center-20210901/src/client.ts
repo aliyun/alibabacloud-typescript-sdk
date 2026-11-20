@@ -34,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the execution time for an OTA upgrade.
+   * Sets the execution time settings for an OTA upgrade.
    * 
    * @param request - ApproveOtaTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the execution time for an OTA upgrade.
+   * Sets the execution time settings for an OTA upgrade.
    * 
    * @param request - ApproveOtaTaskRequest
    * @returns ApproveOtaTaskResponse
@@ -391,11 +391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple LLM templates.
+   * Creates LLM templates in batches.
    * 
    * @remarks
-   * You can create multiple model templates under a model provider template in the Wuying Agent Management Center. You can add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped to prevent duplicate model creation.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you call this operation.
+   * You can create model templates in batches under a model provider template in the Wuying Agent Management Center. This allows you to add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped to prevent duplicate model creation. Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this API.
    * 
    * @param request - BatchCreateLlmTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -434,11 +433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple LLM templates.
+   * Creates LLM templates in batches.
    * 
    * @remarks
-   * You can create multiple model templates under a model provider template in the Wuying Agent Management Center. You can add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped to prevent duplicate model creation.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you call this operation.
+   * You can create model templates in batches under a model provider template in the Wuying Agent Management Center. This allows you to add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped to prevent duplicate model creation. Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this API.
    * 
    * @param request - BatchCreateLlmTemplatesRequest
    * @returns BatchCreateLlmTemplatesResponse
@@ -642,16 +640,16 @@ export default class Client extends OpenApi {
    * Configures the model group for a resource group.
    * 
    * @remarks
-   * You can assign model groups to the resource groups that contain agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. These model groups serve as inference engines for agents within the resource groups to execute tasks.
-   * If an agent runtime has its own model group configured and its resource group also has a model group configured, the model group bound to the resource group takes effect. That is, the resource group settings take precedence over the agent runtime settings.
+   * You can assign a model group to the resource group to which agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center belong. The assigned model group serves as the inference engine for agents in the resource group to execute tasks.
+   * If an agent runtime is configured with a model group and its resource group is also configured with a model group, the model group bound to the resource group takes effect. That is, the resource group settings take precedence over the agent runtime settings.
    * **Before you begin**
-   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition control plane and must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API operations of this service. Although the account-level resource group IDs in Alibaba Cloud Resource Manager also start with rg-, they do not belong to WUYING resource groups and cannot be passed as this parameter.
+   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition control service and must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API of this service. Although the account-level resource group ID in Alibaba Cloud Resource Manager also starts with rg-, it does not belong to WUYING resource groups and cannot be passed as this parameter.
    * - Before you call this operation, obtain an existing WUYING resource group ID by using one of the following methods:
-   *   - Call the DescribeResourceGroups operation of WUYING Cloud Desktop eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used for this operation.
+   *   - Call the DescribeResourceGroups operation of WUYING Cloud Desktop eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used in this operation.
    *   - Call the GetRuntimeModelConfig operation of this service. The Data.ResourceGroupId field in the response is the WUYING resource group ID to which the specified agent runtime currently belongs. If the runtime does not belong to any resource group, this field is null.
    *   - When you call the ListDesktopAgentRuntime operation of this service, you can use the ResourceGroupId request parameter to filter agent runtimes by resource group to confirm which runtimes are included in a specific resource group.
    * - The ListModelTemplateResourceGroup operation returns only the resource groups that have been authorized for a specified model group. It cannot be used to discover resource groups that have not been authorized for any model group.
-   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you use this operation.
    * 
    * @param request - ConfigResourceGroupModelTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -689,16 +687,16 @@ export default class Client extends OpenApi {
    * Configures the model group for a resource group.
    * 
    * @remarks
-   * You can assign model groups to the resource groups that contain agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. These model groups serve as inference engines for agents within the resource groups to execute tasks.
-   * If an agent runtime has its own model group configured and its resource group also has a model group configured, the model group bound to the resource group takes effect. That is, the resource group settings take precedence over the agent runtime settings.
+   * You can assign a model group to the resource group to which agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center belong. The assigned model group serves as the inference engine for agents in the resource group to execute tasks.
+   * If an agent runtime is configured with a model group and its resource group is also configured with a model group, the model group bound to the resource group takes effect. That is, the resource group settings take precedence over the agent runtime settings.
    * **Before you begin**
-   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition control plane and must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API operations of this service. Although the account-level resource group IDs in Alibaba Cloud Resource Manager also start with rg-, they do not belong to WUYING resource groups and cannot be passed as this parameter.
+   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition control service and must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API of this service. Although the account-level resource group ID in Alibaba Cloud Resource Manager also starts with rg-, it does not belong to WUYING resource groups and cannot be passed as this parameter.
    * - Before you call this operation, obtain an existing WUYING resource group ID by using one of the following methods:
-   *   - Call the DescribeResourceGroups operation of WUYING Cloud Desktop eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used for this operation.
+   *   - Call the DescribeResourceGroups operation of WUYING Cloud Desktop eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used in this operation.
    *   - Call the GetRuntimeModelConfig operation of this service. The Data.ResourceGroupId field in the response is the WUYING resource group ID to which the specified agent runtime currently belongs. If the runtime does not belong to any resource group, this field is null.
    *   - When you call the ListDesktopAgentRuntime operation of this service, you can use the ResourceGroupId request parameter to filter agent runtimes by resource group to confirm which runtimes are included in a specific resource group.
    * - The ListModelTemplateResourceGroup operation returns only the resource groups that have been authorized for a specified model group. It cannot be used to discover resource groups that have not been authorized for any model group.
-   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you use this operation.
    * 
    * @param request - ConfigResourceGroupModelTemplateRequest
    * @returns ConfigResourceGroupModelTemplateResponse
@@ -787,11 +785,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures model groups for agent runtime resources.
+   * Configures the model group for agent runtime resources.
    * 
    * @remarks
    * You can authorize model groups for agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center to serve as inference engines for agent task execution.
-   * Before you call this operation, make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center.
+   * Before you call this operation, make sure that you fully understand the operations and usage of the Wuying Agent Management Center.
    * 
    * @param request - ConfigRuntimeModelTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -830,11 +828,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures model groups for agent runtime resources.
+   * Configures the model group for agent runtime resources.
    * 
    * @remarks
    * You can authorize model groups for agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center to serve as inference engines for agent task execution.
-   * Before you call this operation, make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center.
+   * Before you call this operation, make sure that you fully understand the operations and usage of the Wuying Agent Management Center.
    * 
    * @param request - ConfigRuntimeModelTemplateRequest
    * @returns ConfigRuntimeModelTemplateResponse
@@ -1533,11 +1531,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a provider template for model creation.
+   * Creates a model creation provider template.
    * 
    * @remarks
-   * You can create a provider template for model creation under the model templates in the Wuying Agent Management Center to configure the connection information and keys for model services (such as Alibaba Cloud Model Studio, Token Plan, and Moonshot AI) that can be invoked by agents. The created model provider template is automatically associated with the specified model template.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you call this operation.
+   * You can create a model creation provider template under the model templates in the Wuying Agent Management Center to configure the connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that agents can invoke. The created model provider template is automatically associated with the specified model template. Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
    * 
    * @param request - CreateModelProviderTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1604,11 +1601,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a provider template for model creation.
+   * Creates a model creation provider template.
    * 
    * @remarks
-   * You can create a provider template for model creation under the model templates in the Wuying Agent Management Center to configure the connection information and keys for model services (such as Alibaba Cloud Model Studio, Token Plan, and Moonshot AI) that can be invoked by agents. The created model provider template is automatically associated with the specified model template.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you call this operation.
+   * You can create a model creation provider template under the model templates in the Wuying Agent Management Center to configure the connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that agents can invoke. The created model provider template is automatically associated with the specified model template. Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
    * 
    * @param request - CreateModelProviderTemplateRequest
    * @returns CreateModelProviderTemplateResponse
@@ -1690,9 +1686,22 @@ export default class Client extends OpenApi {
    * Creates one or more workstations.
    * 
    * @remarks
-   * 1. A project is equivalent to the resource configuration module in the CloudFlow console.
-   * 2. If the ContentId parameter has multiple versions, this operation <notice>uses the default version</notice> for binding.
-   * 3. This operation succeeds only when the default version of the content is in the available state.
+   * Creates one or more workstations.
+   * ### Before you begin
+   * 1. Determine the region where the workstation is located and specify BizRegionId. You can call ListZones to query the zones in the region. This operation does not return the office network ID.
+   * 2. Call ListImage to query the images applicable to the target workstation and obtain the ImageId.
+   * 3. Call ListNodeInstanceType to query the workstation specifications available for purchase in the target region, obtain the ServerInstanceType, and confirm that the specification supports the selected billing method.
+   * 4. To specify an office network, specify the OfficeSiteId available for the current account in the target region. If this parameter is not specified, the service attempts to reuse or create a default office network. Prepare a workstation logon password Password that meets the requirements. The image ID, specification, and office network ID cannot be used interchangeably.
+   * [ListZones](~~ListZones~~)
+   * [ListImage](~~ListImage~~)
+   * [ListNodeInstanceType](~~ListNodeInstanceType~~)
+   * ### Billing parameters
+   * - To use the subscription billing method, set ChargeType to PrePaid and specify both Period and PeriodUnit. Set SubPayType to prePaid. If SubPayType is not specified, the system selects the corresponding value based on the billing method.
+   * - The combination of Period and PeriodUnit specifies the subscription duration. For example, 1 and Month indicate a subscription duration of one month. The available subscription periods must comply with the sales rules of the target workstation specification.
+   * ### Creation results and subsequent operations
+   * **A returned workstation ID does not indicate that the resource has been created.** If AutoPay is set to false and the order is unpaid, the returned WuyingServerIdList contains the workstation IDs pre-allocated for this order, and the actual workstations are not yet created. Pay the order corresponding to the returned OrderId first, and then call ListWuyingServer to query the resources and their status. Do not use these IDs to perform deletion or other resource operations before the resources are actually created.
+   * To associate the workstation with a virtual node pool, you must prepare an existing VirtualNodePoolId under the current account. This operation only associates existing node pools and does not create virtual node pools.
+   * [ListWuyingServer](~~ListWuyingServer~~)
    * 
    * @param request - CreateWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1843,9 +1852,22 @@ export default class Client extends OpenApi {
    * Creates one or more workstations.
    * 
    * @remarks
-   * 1. A project is equivalent to the resource configuration module in the CloudFlow console.
-   * 2. If the ContentId parameter has multiple versions, this operation <notice>uses the default version</notice> for binding.
-   * 3. This operation succeeds only when the default version of the content is in the available state.
+   * Creates one or more workstations.
+   * ### Before you begin
+   * 1. Determine the region where the workstation is located and specify BizRegionId. You can call ListZones to query the zones in the region. This operation does not return the office network ID.
+   * 2. Call ListImage to query the images applicable to the target workstation and obtain the ImageId.
+   * 3. Call ListNodeInstanceType to query the workstation specifications available for purchase in the target region, obtain the ServerInstanceType, and confirm that the specification supports the selected billing method.
+   * 4. To specify an office network, specify the OfficeSiteId available for the current account in the target region. If this parameter is not specified, the service attempts to reuse or create a default office network. Prepare a workstation logon password Password that meets the requirements. The image ID, specification, and office network ID cannot be used interchangeably.
+   * [ListZones](~~ListZones~~)
+   * [ListImage](~~ListImage~~)
+   * [ListNodeInstanceType](~~ListNodeInstanceType~~)
+   * ### Billing parameters
+   * - To use the subscription billing method, set ChargeType to PrePaid and specify both Period and PeriodUnit. Set SubPayType to prePaid. If SubPayType is not specified, the system selects the corresponding value based on the billing method.
+   * - The combination of Period and PeriodUnit specifies the subscription duration. For example, 1 and Month indicate a subscription duration of one month. The available subscription periods must comply with the sales rules of the target workstation specification.
+   * ### Creation results and subsequent operations
+   * **A returned workstation ID does not indicate that the resource has been created.** If AutoPay is set to false and the order is unpaid, the returned WuyingServerIdList contains the workstation IDs pre-allocated for this order, and the actual workstations are not yet created. Pay the order corresponding to the returned OrderId first, and then call ListWuyingServer to query the resources and their status. Do not use these IDs to perform deletion or other resource operations before the resources are actually created.
+   * To associate the workstation with a virtual node pool, you must prepare an existing VirtualNodePoolId under the current account. This operation only associates existing node pools and does not create virtual node pools.
+   * [ListWuyingServer](~~ListWuyingServer~~)
    * 
    * @param request - CreateWuyingServerRequest
    * @returns CreateWuyingServerResponse
@@ -2038,10 +2060,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes specified application instances.
+   * Deletes a specified application instance.
    * 
    * @remarks
-   * Only instances in the initializing or idle state can be deleted. This operation is available only to specific customers.
+   * Only instances in the initializing or idle state can be deleted. This API operation is available only to specific customers.
    * 
    * @param request - DeleteAppInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2080,10 +2102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes specified application instances.
+   * Deletes a specified application instance.
    * 
    * @remarks
-   * Only instances in the initializing or idle state can be deleted. This operation is available only to specific customers.
+   * Only instances in the initializing or idle state can be deleted. This API operation is available only to specific customers.
    * 
    * @param request - DeleteAppInstancesRequest
    * @returns DeleteAppInstancesResponse
@@ -2151,8 +2173,15 @@ export default class Client extends OpenApi {
    * Deletes an LLM template.
    * 
    * @remarks
-   * You can delete a model template created under a model service provider template in the Wuying Agent Management Center. Before deletion, make sure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After the model template is deleted, the model configurations of the associated cloud desktops are automatically refreshed.
-   * Before you call this operation, make sure that you fully understand the operations and usage of the Wuying Agent Management Center.
+   * Deletes a model template created under a model provider template. After the model template is deleted, the system triggers a configuration refresh for the associated model groups.
+   * ### Before you begin
+   * **The model to be deleted cannot be the default model of any associated model group.** If it is still set as the default model, the invocation failed and LlmTemplate.IsDefaultModel is returned.
+   * For model groups that allow modifying the default model, proceed as follows:
+   * 1. Confirm the ProviderTemplateId of the model to be deleted and the ModelTemplateId that sets it as the default model.
+   * 2. Invoke [BatchCreateLlmTemplates](~~BatchCreateLlmTemplates~~) to create another active model under the same provider template and set IsDefaultModel to true for the new model. Specify the model group for which you want to switch the default model by using ModelTemplateId.
+   * 3. Confirm that the default model has been switched for all relevant model groups, and then invoke this operation by using the LlmTemplateId of the original model. Switching the default model for only one group does not remove the restriction on the original default model for other groups.
+   * When you invoke BatchCreateLlmTemplates, if a model group does not have default model Settings and you do not explicitly specify one in the current request, the service sets the first model in the list as the default model. Therefore, if you create only one model for the first time, it may become the default model even if you set IsDefaultModel to false, and it cannot be directly deleted. The default model for the Common model group is fixed and cannot be modified by using the preceding method.
+   * Models that are under system administration and cannot be modified, as well as models that are not available to customers, cannot be deleted by invoking this operation. A model is not necessarily deletable just because it is not the default model.
    * 
    * @param request - DeleteLlmTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2186,8 +2215,15 @@ export default class Client extends OpenApi {
    * Deletes an LLM template.
    * 
    * @remarks
-   * You can delete a model template created under a model service provider template in the Wuying Agent Management Center. Before deletion, make sure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After the model template is deleted, the model configurations of the associated cloud desktops are automatically refreshed.
-   * Before you call this operation, make sure that you fully understand the operations and usage of the Wuying Agent Management Center.
+   * Deletes a model template created under a model provider template. After the model template is deleted, the system triggers a configuration refresh for the associated model groups.
+   * ### Before you begin
+   * **The model to be deleted cannot be the default model of any associated model group.** If it is still set as the default model, the invocation failed and LlmTemplate.IsDefaultModel is returned.
+   * For model groups that allow modifying the default model, proceed as follows:
+   * 1. Confirm the ProviderTemplateId of the model to be deleted and the ModelTemplateId that sets it as the default model.
+   * 2. Invoke [BatchCreateLlmTemplates](~~BatchCreateLlmTemplates~~) to create another active model under the same provider template and set IsDefaultModel to true for the new model. Specify the model group for which you want to switch the default model by using ModelTemplateId.
+   * 3. Confirm that the default model has been switched for all relevant model groups, and then invoke this operation by using the LlmTemplateId of the original model. Switching the default model for only one group does not remove the restriction on the original default model for other groups.
+   * When you invoke BatchCreateLlmTemplates, if a model group does not have default model Settings and you do not explicitly specify one in the current request, the service sets the first model in the list as the default model. Therefore, if you create only one model for the first time, it may become the default model even if you set IsDefaultModel to false, and it cannot be directly deleted. The default model for the Common model group is fixed and cannot be modified by using the preceding method.
+   * Models that are under system administration and cannot be modified, as well as models that are not available to customers, cannot be deleted by invoking this operation. A model is not necessarily deletable just because it is not the default model.
    * 
    * @param request - DeleteLlmTemplateRequest
    * @returns DeleteLlmTemplateResponse
@@ -2201,8 +2237,8 @@ export default class Client extends OpenApi {
    * Deletes a model provider template.
    * 
    * @remarks
-   * You can delete a model provider template created under model templates in the Wuying Agent Management Center. Before deletion, ensure that the model provider is not the provider of the default model and is not a system-preset provider (such as the Wuying credit package). After deletion, the associated models and key configurations are also removed.
-   * Before you call this operation, make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center.
+   * You can delete model provider templates that are created under model templates in the Wuying Agent Management Center. Before you delete a template, make sure that the model provider is not the provider of the default model and is not a system-preset provider, such as the Wuying credit package. After the template is deleted, its associated models and key configurations are also cleared.
+   * Make sure that you fully understand the operations and usage of the Wuying Agent Management Center before you call this operation.
    * 
    * @param request - DeleteModelProviderTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2236,8 +2272,8 @@ export default class Client extends OpenApi {
    * Deletes a model provider template.
    * 
    * @remarks
-   * You can delete a model provider template created under model templates in the Wuying Agent Management Center. Before deletion, ensure that the model provider is not the provider of the default model and is not a system-preset provider (such as the Wuying credit package). After deletion, the associated models and key configurations are also removed.
-   * Before you call this operation, make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center.
+   * You can delete model provider templates that are created under model templates in the Wuying Agent Management Center. Before you delete a template, make sure that the model provider is not the provider of the default model and is not a system-preset provider, such as the Wuying credit package. After the template is deleted, its associated models and key configurations are also cleared.
+   * Make sure that you fully understand the operations and usage of the Wuying Agent Management Center before you call this operation.
    * 
    * @param request - DeleteModelProviderTemplateRequest
    * @returns DeleteModelProviderTemplateResponse
@@ -2435,10 +2471,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of the resource and session events of the current account within the last 30 days, supporting paging.
+   * Queries the resource and session events of the current account within the last 30 days by using paging.
    * 
    * @remarks
-   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * Queries the resource and session events of the current account. Both `StartTime` and `EndTime` must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
    * 
    * @param request - DescribeEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2533,10 +2569,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of the resource and session events of the current account within the last 30 days, supporting paging.
+   * Queries the resource and session events of the current account within the last 30 days by using paging.
    * 
    * @remarks
-   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * Queries the resource and session events of the current account. Both `StartTime` and `EndTime` must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
    * 
    * @param request - DescribeEventsRequest
    * @returns DescribeEventsResponse
@@ -3176,18 +3212,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the connection credential for a cloud application.
+   * Retrieves the connection credentials for a cloud application.
    * 
    * @remarks
    * Call protocol description: operation_type: polling, required_steps: 1.
-   * This operation may require multiple calls (at least one) to obtain the connection credential.
-   * On the first call, an application instance is allocated to the specified convenience account and the application is started. If a Ticket is returned, the result is obtained synchronously. If a startup task ID (`TaskId`) is returned, subsequent calls are required.
-   * On subsequent calls, include the `TaskId` request parameter to invoke the operation and query whether the node is complete. When the returned node status (`TaskStatus`) is completed (`Finished`), the connection credential (`Ticket`) is also returned.
+   * This API operation may require multiple calls (at least one) to finally obtain the connection credentials.
+   * The first call assigns an application instance to the specified convenience user and starts the application. If a ticket is returned, it indicates that the result is obtained synchronously. If a startup task ID (TaskId) is returned, subsequent calls are required.
+   * For subsequent calls, you must pass the TaskId parameter in the request parameters to query whether the task is completed. When the returned task status (TaskStatus) is Finished, the connection credentials (Ticket) are returned at the same time.
    * > Prerequisites
-   * > - Before calling this operation, make sure that you have created a delivery group and authorized users for the delivery group:
-   * > - 1. The API for creating a delivery group is CreateAppInstanceGroup. For more information about the parameters, see the corresponding API documentation.
-   * > - 2. You can call the ListAppInstanceGroup operation to query the list of delivery groups. If the corresponding delivery group is not found, verify that the delivery group has been created and that the authentication credentials belong to the correct tenant.
-   * > - 3. The API for authorizing users for a delivery group is AuthorizeInstanceGroup. For more information about the parameters, see the corresponding API documentation.
+   * > - Before you call this operation, make sure that a delivery group is created and authorized for the user:
+   * > - 1. The API operation used to create a delivery group is CreateAppInstanceGroup. For more information about the parameters, see the documentation for the corresponding API operation.
+   * > - 2. You can call the ListAppInstanceGroup API operation to query the list of delivery groups. If the corresponding delivery group is not found, check whether the delivery group is created or whether the authentication credentials used belong to the correct tenant.
+   * > - 3. The API operation used to authorize a delivery group for a user is AuthorizeInstanceGroup. For more information about the parameters, see the documentation for the corresponding API operation.
    * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3270,18 +3306,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the connection credential for a cloud application.
+   * Retrieves the connection credentials for a cloud application.
    * 
    * @remarks
    * Call protocol description: operation_type: polling, required_steps: 1.
-   * This operation may require multiple calls (at least one) to obtain the connection credential.
-   * On the first call, an application instance is allocated to the specified convenience account and the application is started. If a Ticket is returned, the result is obtained synchronously. If a startup task ID (`TaskId`) is returned, subsequent calls are required.
-   * On subsequent calls, include the `TaskId` request parameter to invoke the operation and query whether the node is complete. When the returned node status (`TaskStatus`) is completed (`Finished`), the connection credential (`Ticket`) is also returned.
+   * This API operation may require multiple calls (at least one) to finally obtain the connection credentials.
+   * The first call assigns an application instance to the specified convenience user and starts the application. If a ticket is returned, it indicates that the result is obtained synchronously. If a startup task ID (TaskId) is returned, subsequent calls are required.
+   * For subsequent calls, you must pass the TaskId parameter in the request parameters to query whether the task is completed. When the returned task status (TaskStatus) is Finished, the connection credentials (Ticket) are returned at the same time.
    * > Prerequisites
-   * > - Before calling this operation, make sure that you have created a delivery group and authorized users for the delivery group:
-   * > - 1. The API for creating a delivery group is CreateAppInstanceGroup. For more information about the parameters, see the corresponding API documentation.
-   * > - 2. You can call the ListAppInstanceGroup operation to query the list of delivery groups. If the corresponding delivery group is not found, verify that the delivery group has been created and that the authentication credentials belong to the correct tenant.
-   * > - 3. The API for authorizing users for a delivery group is AuthorizeInstanceGroup. For more information about the parameters, see the corresponding API documentation.
+   * > - Before you call this operation, make sure that a delivery group is created and authorized for the user:
+   * > - 1. The API operation used to create a delivery group is CreateAppInstanceGroup. For more information about the parameters, see the documentation for the corresponding API operation.
+   * > - 2. You can call the ListAppInstanceGroup API operation to query the list of delivery groups. If the corresponding delivery group is not found, check whether the delivery group is created or whether the authentication credentials used belong to the correct tenant.
+   * > - 3. The API operation used to authorize a delivery group for a user is AuthorizeInstanceGroup. For more information about the parameters, see the documentation for the corresponding API operation.
    * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
@@ -3582,7 +3618,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can query the details of a specified model provider template in the Wuying Agent Management Center, including the provider name, description, and connection configuration list.
-   * Before you call this operation, make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center.
+   * Make sure that you fully understand the operations and usage of the Wuying Agent Management Center before you call this operation.
    * 
    * @param request - GetModelProviderTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3617,7 +3653,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can query the details of a specified model provider template in the Wuying Agent Management Center, including the provider name, description, and connection configuration list.
-   * Before you call this operation, make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center.
+   * Make sure that you fully understand the operations and usage of the Wuying Agent Management Center before you call this operation.
    * 
    * @param request - GetModelProviderTemplateRequest
    * @returns GetModelProviderTemplateResponse
@@ -3708,7 +3744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an over-the-air update task, including the available version and release notes.
+   * Queries the details of an over-the-air update task, including upgradable versions and release notes.
    * 
    * @param request - GetOtaTaskByTaskIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3739,7 +3775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an over-the-air update task, including the available version and release notes.
+   * Queries the details of an over-the-air update task, including upgradable versions and release notes.
    * 
    * @param request - GetOtaTaskByTaskIdRequest
    * @returns GetOtaTaskByTaskIdResponse
@@ -4040,7 +4076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the renewal price of WUYING Cloud Application resources.
+   * Queries the renewal price of WUYING cloud application resources.
    * 
    * @param request - GetResourceRenewPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4083,7 +4119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the renewal price of WUYING Cloud Application resources.
+   * Queries the renewal price of WUYING cloud application resources.
    * 
    * @param request - GetResourceRenewPriceRequest
    * @returns GetResourceRenewPriceResponse
@@ -5929,12 +5965,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution results of commands delivered by calling RunAppInstanceCommand in persistent sessions, including the execution status, start and end times, and command output.
+   * Queries the execution results of commands delivered by RunAppInstanceCommand in persistent sessions, including the execution status, start and end times, and command output.
    * 
    * @remarks
-   * Call this operation to query the execution results of a command delivery (InvocationId) in each persistent session to track the execution status and obtain the command output. InvocationId is the command execution ID returned when you call RunAppInstanceCommand to deliver a command.
+   * Call this operation to query the execution results of a command invocation (InvocationId) across persistent sessions. This allows you to track the execution status and obtain the command output. The InvocationId is the command execution ID returned when you call RunAppInstanceCommand to deliver a command.
    * Currently, only WuyingServer is supported for ProductType. You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence. When AppInstanceGroupIds is specified, you can pass up to 200 delivery group IDs, and these delivery groups must be in the same region. If any delivery group does not exist, a delivery group not found error is returned. If the delivery groups are in different regions, a region mismatch error is returned. When only AppInstanceGroupId is specified, the command execution results under this delivery group are queried.
-   * You can use AppInstancePersistentIds to query only the execution results of specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions belonging to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned directly, and TotalCount is 0. For pagination, use PageNumber and PageSize. MaxResults and NextToken do not take effect currently.
+   * You can use AppInstancePersistentIds to query the execution results of only specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions that belong to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned and TotalCount is 0. For pagination, use PageNumber and PageSize. MaxResults and NextToken do not take effect currently.
    * 
    * @param request - ListCommandInvocationResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5999,12 +6035,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution results of commands delivered by calling RunAppInstanceCommand in persistent sessions, including the execution status, start and end times, and command output.
+   * Queries the execution results of commands delivered by RunAppInstanceCommand in persistent sessions, including the execution status, start and end times, and command output.
    * 
    * @remarks
-   * Call this operation to query the execution results of a command delivery (InvocationId) in each persistent session to track the execution status and obtain the command output. InvocationId is the command execution ID returned when you call RunAppInstanceCommand to deliver a command.
+   * Call this operation to query the execution results of a command invocation (InvocationId) across persistent sessions. This allows you to track the execution status and obtain the command output. The InvocationId is the command execution ID returned when you call RunAppInstanceCommand to deliver a command.
    * Currently, only WuyingServer is supported for ProductType. You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence. When AppInstanceGroupIds is specified, you can pass up to 200 delivery group IDs, and these delivery groups must be in the same region. If any delivery group does not exist, a delivery group not found error is returned. If the delivery groups are in different regions, a region mismatch error is returned. When only AppInstanceGroupId is specified, the command execution results under this delivery group are queried.
-   * You can use AppInstancePersistentIds to query only the execution results of specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions belonging to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned directly, and TotalCount is 0. For pagination, use PageNumber and PageSize. MaxResults and NextToken do not take effect currently.
+   * You can use AppInstancePersistentIds to query the execution results of only specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions that belong to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned and TotalCount is 0. For pagination, use PageNumber and PageSize. MaxResults and NextToken do not take effect currently.
    * 
    * @param request - ListCommandInvocationResultsRequest
    * @returns ListCommandInvocationResultsResponse
@@ -7900,10 +7936,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available Wuying workstation workload templates for a specified virtual node pool.
+   * Queries the Wuying workstation workload templates available for a specified virtual node pool.
    * 
    * @remarks
-   * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` under the current account. This operation verifies the ownership of the node pool and returns up to the first 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
+   * Queries the workload templates available for existing virtual node pools under the current account.
+   * ### Prerequisites and invocation sequence
+   * **You must provide a valid virtual node pool ID that exists under the current account. Querying templates does not require the node pool to be attached to a workstation.**
+   * 1. If you already have a node pool ID, you can directly pass it as `VirtualNodePoolId` to invoke this operation.
+   * 2. If a workstation is already associated with a node pool, you can also invoke [ListWuyingServer](~~ListWuyingServer~~) to obtain a non-empty `VirtualNodePoolId` from the corresponding record. This is one way to obtain the ID, but it is not a mandatory step for querying templates.
+   * 3. If an empty ID is returned, do not use this value to continue querying. You must obtain a valid node pool ID under the current account before invoking this operation. Do not use a workstation ID, cluster ID, the character string `null`, or a self-constructed ID.
+   * This operation does not create node pools. [CreateWuyingServer](~~CreateWuyingServer~~) only associates existing node pools and does not support automatic creation of node pools. If the node pool does not exist or does not belong to the current account, `InvalidParameter.VirtualNodePoolId` is returned.
+   * ### Response
+   * Returns the first 100 records sorted by template configuration order. The template content is Base64-encoded after UTF-8 encoding. You must perform Base64 decoding before use. The current version does not use `MaxResults` and `NextToken` for pagination.
    * 
    * @param request - ListWuyingServerWorkloadTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7942,10 +7986,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available Wuying workstation workload templates for a specified virtual node pool.
+   * Queries the Wuying workstation workload templates available for a specified virtual node pool.
    * 
    * @remarks
-   * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` under the current account. This operation verifies the ownership of the node pool and returns up to the first 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
+   * Queries the workload templates available for existing virtual node pools under the current account.
+   * ### Prerequisites and invocation sequence
+   * **You must provide a valid virtual node pool ID that exists under the current account. Querying templates does not require the node pool to be attached to a workstation.**
+   * 1. If you already have a node pool ID, you can directly pass it as `VirtualNodePoolId` to invoke this operation.
+   * 2. If a workstation is already associated with a node pool, you can also invoke [ListWuyingServer](~~ListWuyingServer~~) to obtain a non-empty `VirtualNodePoolId` from the corresponding record. This is one way to obtain the ID, but it is not a mandatory step for querying templates.
+   * 3. If an empty ID is returned, do not use this value to continue querying. You must obtain a valid node pool ID under the current account before invoking this operation. Do not use a workstation ID, cluster ID, the character string `null`, or a self-constructed ID.
+   * This operation does not create node pools. [CreateWuyingServer](~~CreateWuyingServer~~) only associates existing node pools and does not support automatic creation of node pools. If the node pool does not exist or does not belong to the current account, `InvalidParameter.VirtualNodePoolId` is returned.
+   * ### Response
+   * Returns the first 100 records sorted by template configuration order. The template content is Base64-encoded after UTF-8 encoding. You must perform Base64 decoding before use. The current version does not use `MaxResults` and `NextToken` for pagination.
    * 
    * @param request - ListWuyingServerWorkloadTemplateRequest
    * @returns ListWuyingServerWorkloadTemplateResponse
@@ -8034,10 +8086,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unregisters all sessions in a pay-as-you-go delivery group that has a scheduled auto scaling policy enabled.
+   * Logs off all sessions under a pay-as-you-go delivery group that has a scheduled scaling policy enabled.
    * 
    * @remarks
-   * > This operation is applicable only to pay-as-you-go resource delivery groups that have a scheduled auto scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled auto scaling policy.
+   * > This operation applies only to pay-as-you-go resource delivery groups that have a scheduled scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled scaling policy.
    * 
    * @param request - LogOffAllSessionsInAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8072,10 +8124,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unregisters all sessions in a pay-as-you-go delivery group that has a scheduled auto scaling policy enabled.
+   * Logs off all sessions under a pay-as-you-go delivery group that has a scheduled scaling policy enabled.
    * 
    * @remarks
-   * > This operation is applicable only to pay-as-you-go resource delivery groups that have a scheduled auto scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled auto scaling policy.
+   * > This operation applies only to pay-as-you-go resource delivery groups that have a scheduled scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled scaling policy.
    * 
    * @param request - LogOffAllSessionsInAppInstanceGroupRequest
    * @returns LogOffAllSessionsInAppInstanceGroupResponse
@@ -8642,7 +8694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shares an image with other WUYING users or cancels image sharing.
+   * Shares an image with other WUYING users or cancels the sharing of an image.
    * 
    * @param request - ModifyShareImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8689,7 +8741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shares an image with other WUYING users or cancels image sharing.
+   * Shares an image with other WUYING users or cancels the sharing of an image.
    * 
    * @param request - ModifyShareImageRequest
    * @returns ModifyShareImageResponse
@@ -8865,10 +8917,10 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Before you begin
    * - The workstation is created and belongs to the current account.
-   * - When you change the specifications, the resource must be in the Deployed, Published Successfully, or Maintenance Failed state. The target specifications must be available in the region where the resource is located and compatible with the operating system and existing resource configurations.
+   * - When you modify the specifications, the resource must be in the Deployed, Published Successfully, or Maintenance Failed state. The target specifications must be available in the region where the resource is located and compatible with the operating system and existing resource configurations.
    * - Conversion between CPU specifications and GPU specifications is not supported.
    * ## Post-processing
-   * A successful response from the API does not mean that the specification change is complete. If the generated order is unpaid, complete the payment first, and then query the workstation status and specifications to confirm the change result.
+   * A successful response does not indicate that the specification change is complete. If the generated order is unpaid, complete the payment first, and then query the workstation status and specifications to confirm the change result.
    * 
    * @param request - ModifyWuyingServerSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8920,10 +8972,10 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Before you begin
    * - The workstation is created and belongs to the current account.
-   * - When you change the specifications, the resource must be in the Deployed, Published Successfully, or Maintenance Failed state. The target specifications must be available in the region where the resource is located and compatible with the operating system and existing resource configurations.
+   * - When you modify the specifications, the resource must be in the Deployed, Published Successfully, or Maintenance Failed state. The target specifications must be available in the region where the resource is located and compatible with the operating system and existing resource configurations.
    * - Conversion between CPU specifications and GPU specifications is not supported.
    * ## Post-processing
-   * A successful response from the API does not mean that the specification change is complete. If the generated order is unpaid, complete the payment first, and then query the workstation status and specifications to confirm the change result.
+   * A successful response does not indicate that the specification change is complete. If the generated order is unpaid, complete the payment first, and then query the workstation status and specifications to confirm the change result.
    * 
    * @param request - ModifyWuyingServerSpecRequest
    * @returns ModifyWuyingServerSpecResponse
@@ -9289,6 +9341,200 @@ export default class Client extends OpenApi {
   async queryMauReportData(request: $_model.QueryMauReportDataRequest): Promise<$_model.QueryMauReportDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMauReportDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the number of invoked models, total number of calls, and consumed points by business type, statistical window, and model type.
+   * 
+   * @remarks
+   * ## Prerequisites
+   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business for the current account. The returned results depend on the generated statistical data and do not represent that every call has been counted in real time.
+   * ## Time and missing data
+   * Time boundaries are uniformly based on Asia/Shanghai (UTC+8). For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
+   * If no statistical results are available for `24h` or `1d` queries without specified dates, the summary API returns zero values and the list API returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
+   * ## Combined calls
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain summary metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When reconciling the summary and details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must be consistent. `Keyword` takes effect only for the details API. Details filtered by keywords cannot be directly compared with unfiltered summary results.
+   * ## Request example combinations
+   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (including both the start and end dates), in the Asia/Shanghai (UTC+8) time zone. To query the usage for the last 7 days, change the value to `StatDateType=1w` and omit both date parameters.
+   * The number of calls, points, and model information in the examples are used to illustrate the meaning of the fields. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API response.
+   * 
+   * @param request - QueryModelUsageInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModelUsageInfoResponse
+   */
+  async queryModelUsageInfoWithOptions(request: $_model.QueryModelUsageInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModelUsageInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      query["ModelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statDateType)) {
+      query["StatDateType"] = request.statDateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModelUsageInfo",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModelUsageInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryModelUsageInfoResponse({}));
+  }
+
+  /**
+   * Queries the number of invoked models, total number of calls, and consumed points by business type, statistical window, and model type.
+   * 
+   * @remarks
+   * ## Prerequisites
+   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business for the current account. The returned results depend on the generated statistical data and do not represent that every call has been counted in real time.
+   * ## Time and missing data
+   * Time boundaries are uniformly based on Asia/Shanghai (UTC+8). For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
+   * If no statistical results are available for `24h` or `1d` queries without specified dates, the summary API returns zero values and the list API returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
+   * ## Combined calls
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain summary metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When reconciling the summary and details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must be consistent. `Keyword` takes effect only for the details API. Details filtered by keywords cannot be directly compared with unfiltered summary results.
+   * ## Request example combinations
+   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (including both the start and end dates), in the Asia/Shanghai (UTC+8) time zone. To query the usage for the last 7 days, change the value to `StatDateType=1w` and omit both date parameters.
+   * The number of calls, points, and model information in the examples are used to illustrate the meaning of the fields. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API response.
+   * 
+   * @param request - QueryModelUsageInfoRequest
+   * @returns QueryModelUsageInfoResponse
+   */
+  async queryModelUsageInfo(request: $_model.QueryModelUsageInfoRequest): Promise<$_model.QueryModelUsageInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryModelUsageInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query to retrieve the invoke count, consumed points, success rate, and time to first token (TTFT) latency of each model, supporting paging by business type, statistical window, and model type.
+   * 
+   * @remarks
+   * ## Prerequisites
+   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business under the current account. The returned results depend on the generated statistical data and do not indicate that every call has been counted in real time.
+   * ## Time and missing data
+   * Time boundaries uniformly use the Asia/Shanghai (UTC+8) time zone. For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
+   * If no statistical results are available for `24h` or `1d` queries without specified dates, the aggregation API operation returns zero values and the list API operation returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
+   * ## Combined calls
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain aggregated metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing aggregated metrics with details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must remain consistent. `Keyword` takes effect only for the detail API operation. Details filtered by keyword cannot be directly compared with unfiltered aggregated results.
+   * ## Pagination and metrics
+   * Start with `PageNumber=1` and increment the page number as needed, keeping other filter conditions and sorting methods consistent. The model list may include models that have historical usage but zero calls in the current query range. All ratio fields are returned as decimals between 0 and 1. An empty metric indicates that it is incalculable or the data is unavailable, which is not equivalent to zero.
+   * When new statistical data is continuously generated, the count and sorting of different pagination requests may change. When comparing totals with details, ensure that the query conditions are consistent and consider the data update time difference between the two requests.
+   * ## Request example combinations
+   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change it to `StatDateType=1w` and omit both date parameters.
+   * The call counts, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API operation response. Custom date queries do not provide `TtftP95Ms`. The example details show only some fields. Unshown fields do not indicate that they always return empty values.
+   * ## Missing statistical records for a single model
+   * If a model in the model list has no active statistical records within the selected statistical range, `CallCount`, `FailureCount`, and `PointsConsumption` return 0. The input and output point ratios, success rate, cache hit rate, and time to first token (TTFT) latency are empty. In this case, you cannot determine that the model was not actually invoked based solely on the zero values.
+   * 
+   * @param request - QueryModelUsageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryModelUsageListResponse
+   */
+  async queryModelUsageListWithOptions(request: $_model.QueryModelUsageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryModelUsageListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      query["ModelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statDateType)) {
+      query["StatDateType"] = request.statDateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryModelUsageList",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryModelUsageListResponse>(await this.callApi(params, req, runtime), new $_model.QueryModelUsageListResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the invoke count, consumed points, success rate, and time to first token (TTFT) latency of each model, supporting paging by business type, statistical window, and model type.
+   * 
+   * @remarks
+   * ## Prerequisites
+   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business under the current account. The returned results depend on the generated statistical data and do not indicate that every call has been counted in real time.
+   * ## Time and missing data
+   * Time boundaries uniformly use the Asia/Shanghai (UTC+8) time zone. For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
+   * If no statistical results are available for `24h` or `1d` queries without specified dates, the aggregation API operation returns zero values and the list API operation returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
+   * ## Combined calls
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain aggregated metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing aggregated metrics with details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must remain consistent. `Keyword` takes effect only for the detail API operation. Details filtered by keyword cannot be directly compared with unfiltered aggregated results.
+   * ## Pagination and metrics
+   * Start with `PageNumber=1` and increment the page number as needed, keeping other filter conditions and sorting methods consistent. The model list may include models that have historical usage but zero calls in the current query range. All ratio fields are returned as decimals between 0 and 1. An empty metric indicates that it is incalculable or the data is unavailable, which is not equivalent to zero.
+   * When new statistical data is continuously generated, the count and sorting of different pagination requests may change. When comparing totals with details, ensure that the query conditions are consistent and consider the data update time difference between the two requests.
+   * ## Request example combinations
+   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change it to `StatDateType=1w` and omit both date parameters.
+   * The call counts, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API operation response. Custom date queries do not provide `TtftP95Ms`. The example details show only some fields. Unshown fields do not indicate that they always return empty values.
+   * ## Missing statistical records for a single model
+   * If a model in the model list has no active statistical records within the selected statistical range, `CallCount`, `FailureCount`, and `PointsConsumption` return 0. The input and output point ratios, success rate, cache hit rate, and time to first token (TTFT) latency are empty. In this case, you cannot determine that the model was not actually invoked based solely on the zero values.
+   * 
+   * @param request - QueryModelUsageListRequest
+   * @returns QueryModelUsageListResponse
+   */
+  async queryModelUsageList(request: $_model.QueryModelUsageListRequest): Promise<$_model.QueryModelUsageListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryModelUsageListWithOptions(request, runtime);
   }
 
   /**
@@ -9721,7 +9967,20 @@ export default class Client extends OpenApi {
    * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
    * 
    * @remarks
-   * Queries user usage reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated in a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine `ConnectionStatus`, `UserId`, `BizRegionId`, and `AppInstanceGroupId` for filtering.
+   * Queries user usage reports. **`ProductType`, `StartDate`, and `EndDate` are all required.** The interval between the start and end times calculated by full months must not exceed 60 months.
+   * The query aggregates data within the closed interval of calendar days between the start and end dates. Statistics for the same user under the same app instance group are merged. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine `ConnectionStatus`, `UserId`, `BizRegionId`, and `AppInstanceGroupId` for filtering.
+   * ### Response handling
+   * A successful response may not contain `Code` and `Message`. Do not require these two fields to be `200` and `success` respectively. When no matching records are found, the response can normally return `Count=0` and an empty `UserUsageReportDataModel` list. This does not indicate a request failure.
+   * Example of a successful response when no matching records are found (HTTP status code: 200):
+   * ```json
+   * {
+   *   "RequestId": "01A1F2C3-572F-544E-880D-B0E347E3DCB3",
+   *   "PageSize": 1,
+   *   "PageNumber": 1,
+   *   "Count": 0,
+   *   "UserUsageReportDataModel": []
+   * }
+   * ```
    * 
    * @param request - QueryUserUsageReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9787,7 +10046,20 @@ export default class Client extends OpenApi {
    * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
    * 
    * @remarks
-   * Queries user usage reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated in a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine `ConnectionStatus`, `UserId`, `BizRegionId`, and `AppInstanceGroupId` for filtering.
+   * Queries user usage reports. **`ProductType`, `StartDate`, and `EndDate` are all required.** The interval between the start and end times calculated by full months must not exceed 60 months.
+   * The query aggregates data within the closed interval of calendar days between the start and end dates. Statistics for the same user under the same app instance group are merged. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine `ConnectionStatus`, `UserId`, `BizRegionId`, and `AppInstanceGroupId` for filtering.
+   * ### Response handling
+   * A successful response may not contain `Code` and `Message`. Do not require these two fields to be `200` and `success` respectively. When no matching records are found, the response can normally return `Count=0` and an empty `UserUsageReportDataModel` list. This does not indicate a request failure.
+   * Example of a successful response when no matching records are found (HTTP status code: 200):
+   * ```json
+   * {
+   *   "RequestId": "01A1F2C3-572F-544E-880D-B0E347E3DCB3",
+   *   "PageSize": 1,
+   *   "PageNumber": 1,
+   *   "Count": 0,
+   *   "UserUsageReportDataModel": []
+   * }
+   * ```
    * 
    * @param request - QueryUserUsageReportRequest
    * @returns QueryUserUsageReportResponse
@@ -9861,11 +10133,11 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation to remove the specific third-party channel configuration for agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. After the configuration is removed, the agent cannot use the third-party channel for conversations.
    * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
-   * Prerequisites:
-   * - The RuntimeIds passed to this operation must be agent runtimes managed by the WUYING Agent Management Center. The hosted cloud desktops are created by API operations such as CreateDesktop of the Elastic Desktop Service (EDS) product. Example of a cross-product call chain: CreateDesktop → ListDesktops → Use DesktopId as RuntimeIds.
-   * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of the EDS product.
-   * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The hosted cloud desktops are also created by API operations such as CreateDesktop of the EDS product.
-   * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, the corresponding cloud desktop is not managed. You must first call the CreateDesktop operation of the EDS product to create the desktop. The WUYING Agent Management Center automatically manages the desktop after receiving the desktop lifecycle event. Then, you can call this operation.
+   * Before you begin:
+   * - The RuntimeIds passed to this operation must be agent runtimes that are managed by the WUYING Agent Management Center. The cloud desktops that host these runtimes must be created by calling API operations such as CreateDesktop of Elastic Desktop Service (EDS). Cross-product call chain example: CreateDesktop → ListDesktops → use DesktopId as RuntimeIds.
+   * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of EDS.
+   * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The cloud desktops that host these runtimes are also created by calling API operations such as CreateDesktop of EDS.
+   * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, the corresponding cloud desktop is not managed. In this case, you must first call the CreateDesktop operation of EDS to create the cloud desktop. The WUYING Agent Management Center automatically manages the cloud desktop after it receives the desktop lifecycle event. After that, you can call this operation.
    * 
    * @param request - RemoveRuntimeChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9917,11 +10189,11 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation to remove the specific third-party channel configuration for agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. After the configuration is removed, the agent cannot use the third-party channel for conversations.
    * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
-   * Prerequisites:
-   * - The RuntimeIds passed to this operation must be agent runtimes managed by the WUYING Agent Management Center. The hosted cloud desktops are created by API operations such as CreateDesktop of the Elastic Desktop Service (EDS) product. Example of a cross-product call chain: CreateDesktop → ListDesktops → Use DesktopId as RuntimeIds.
-   * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of the EDS product.
-   * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The hosted cloud desktops are also created by API operations such as CreateDesktop of the EDS product.
-   * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, the corresponding cloud desktop is not managed. You must first call the CreateDesktop operation of the EDS product to create the desktop. The WUYING Agent Management Center automatically manages the desktop after receiving the desktop lifecycle event. Then, you can call this operation.
+   * Before you begin:
+   * - The RuntimeIds passed to this operation must be agent runtimes that are managed by the WUYING Agent Management Center. The cloud desktops that host these runtimes must be created by calling API operations such as CreateDesktop of Elastic Desktop Service (EDS). Cross-product call chain example: CreateDesktop → ListDesktops → use DesktopId as RuntimeIds.
+   * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of EDS.
+   * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The cloud desktops that host these runtimes are also created by calling API operations such as CreateDesktop of EDS.
+   * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, the corresponding cloud desktop is not managed. In this case, you must first call the CreateDesktop operation of EDS to create the cloud desktop. The WUYING Agent Management Center automatically manages the cloud desktop after it receives the desktop lifecycle event. After that, you can call this operation.
    * 
    * @param request - RemoveRuntimeChannelRequest
    * @returns RemoveRuntimeChannelResponse
@@ -9932,11 +10204,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the model group from an agent runtime resource.
+   * Removes the model group from agent runtime resources.
    * 
    * @remarks
-   * You can remove the model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
+   * You can remove a model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
+   * Make sure that you fully understand the operations and usage of the Wuying Agent Management Center before you call this operation.
    * 
    * @param request - RemoveRuntimeModelTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9975,11 +10247,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the model group from an agent runtime resource.
+   * Removes the model group from agent runtime resources.
    * 
    * @remarks
-   * You can remove the model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
+   * You can remove a model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
+   * Make sure that you fully understand the operations and usage of the Wuying Agent Management Center before you call this operation.
    * 
    * @param request - RemoveRuntimeModelTemplateRequest
    * @returns RemoveRuntimeModelTemplateResponse
@@ -9993,9 +10265,9 @@ export default class Client extends OpenApi {
    * Renews a delivery group.
    * 
    * @remarks
-   * Make sure you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace before calling this operation.
-   * > Prerequisites:
-   * > - The delivery group must be in the PUBLISHED state and ChargeType must be PrePaid.
+   * Make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud App before you call this operation.
+   * > Before you begin:
+   * > - The delivery group must be in the PUBLISHED state and the ChargeType parameter must be set to PrePaid.
    * 
    * @param tmpReq - RenewAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10067,9 +10339,9 @@ export default class Client extends OpenApi {
    * Renews a delivery group.
    * 
    * @remarks
-   * Make sure you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace before calling this operation.
-   * > Prerequisites:
-   * > - The delivery group must be in the PUBLISHED state and ChargeType must be PrePaid.
+   * Make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud App before you call this operation.
+   * > Before you begin:
+   * > - The delivery group must be in the PUBLISHED state and the ChargeType parameter must be set to PrePaid.
    * 
    * @param request - RenewAppInstanceGroupRequest
    * @returns RenewAppInstanceGroupResponse
@@ -10138,10 +10410,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resizes the system cloud disk or user data cloud disk of a WUYING Workspace Enterprise Edition instance and returns the related order information.
+   * Expands the system cloud disk or user data cloud disk of an Enterprise Edition WUYING workstation and returns the related order information.
    * 
    * @remarks
-   * This operation resizes the disks of a WUYING Workspace.
+   * This operation expands the disks of a WUYING workstation.
    * 
    * @param tmpReq - ResizeWuyingServerDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10190,10 +10462,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resizes the system cloud disk or user data cloud disk of a WUYING Workspace Enterprise Edition instance and returns the related order information.
+   * Expands the system cloud disk or user data cloud disk of an Enterprise Edition WUYING workstation and returns the related order information.
    * 
    * @remarks
-   * This operation resizes the disks of a WUYING Workspace.
+   * This operation expands the disks of a WUYING workstation.
    * 
    * @param request - ResizeWuyingServerDiskRequest
    * @returns ResizeWuyingServerDiskResponse
@@ -10261,15 +10533,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. This operation supports issuing commands to a single delivery group or multiple delivery groups in the same region, and returns the command execution ID.
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups, supports batch issuance to a single delivery group or multiple delivery groups in the same region, and returns the command execution ID.
    * 
    * @remarks
-   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. Currently, the ProductType parameter only supports WuyingServer, and the CommandType parameter only supports CloudAssistantCmd. Specifying other values results in a parameter error.
-   * You can specify the execution scope in two ways:
-   * - Single delivery group: Specify the delivery group by using AppInstanceGroupId. You can also specify persistent sessions within the delivery group by using AppInstancePersistentId or AppInstancePersistentIds.
-   * - Multiple delivery groups in the same region: Specify a list of delivery groups by using AppInstanceGroupIds. The command is executed on all persistent sessions in each delivery group in the list. All delivery groups must belong to the same region. Otherwise, the InvalidRegion.NotMatch error is returned. If any delivery group does not exist or none of the delivery groups have persistent sessions, the InvalidAppInstanceGroup.NotFound error is returned.
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. Currently, ProductType supports only WuyingServer and CommandType supports only CloudAssistantCmd. Specifying other values returns a parameter error.
+   * The delivery scope supports two methods:
+   * - Single delivery group: Specify the delivery group by using AppInstanceGroupId. You can also specify persistent sessions in the delivery group by using AppInstancePersistentId or AppInstancePersistentIds.
+   * - Multiple delivery groups in the same region: Specify a list of delivery groups by using AppInstanceGroupIds. The command is executed on all persistent sessions in each delivery group in the list. All delivery groups must belong to the same region. Otherwise, InvalidRegion.NotMatch is returned. If any delivery group does not exist or none of the delivery groups have persistent sessions, InvalidAppInstanceGroup.NotFound is returned.
    * You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence.
-   * This operation only issues the command. The command is executed asynchronously in the sessions. Regardless of whether the command is issued to one or multiple delivery groups, only one command execution ID (InvocationId) is returned. You can use this ID to call the ListCommandInvocationResults operation to query the execution status and output on each session.
+   * This operation only issues commands, which are executed asynchronously in sessions. Regardless of whether the command is issued to one or multiple delivery groups, only one command execution ID (InvocationId) is returned. You can use this ID to call ListCommandInvocationResults to query the execution status and output on each session.
    * 
    * @param request - RunAppInstanceCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10340,15 +10612,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. This operation supports issuing commands to a single delivery group or multiple delivery groups in the same region, and returns the command execution ID.
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups, supports batch issuance to a single delivery group or multiple delivery groups in the same region, and returns the command execution ID.
    * 
    * @remarks
-   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. Currently, the ProductType parameter only supports WuyingServer, and the CommandType parameter only supports CloudAssistantCmd. Specifying other values results in a parameter error.
-   * You can specify the execution scope in two ways:
-   * - Single delivery group: Specify the delivery group by using AppInstanceGroupId. You can also specify persistent sessions within the delivery group by using AppInstancePersistentId or AppInstancePersistentIds.
-   * - Multiple delivery groups in the same region: Specify a list of delivery groups by using AppInstanceGroupIds. The command is executed on all persistent sessions in each delivery group in the list. All delivery groups must belong to the same region. Otherwise, the InvalidRegion.NotMatch error is returned. If any delivery group does not exist or none of the delivery groups have persistent sessions, the InvalidAppInstanceGroup.NotFound error is returned.
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. Currently, ProductType supports only WuyingServer and CommandType supports only CloudAssistantCmd. Specifying other values returns a parameter error.
+   * The delivery scope supports two methods:
+   * - Single delivery group: Specify the delivery group by using AppInstanceGroupId. You can also specify persistent sessions in the delivery group by using AppInstancePersistentId or AppInstancePersistentIds.
+   * - Multiple delivery groups in the same region: Specify a list of delivery groups by using AppInstanceGroupIds. The command is executed on all persistent sessions in each delivery group in the list. All delivery groups must belong to the same region. Otherwise, InvalidRegion.NotMatch is returned. If any delivery group does not exist or none of the delivery groups have persistent sessions, InvalidAppInstanceGroup.NotFound is returned.
    * You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence.
-   * This operation only issues the command. The command is executed asynchronously in the sessions. Regardless of whether the command is issued to one or multiple delivery groups, only one command execution ID (InvocationId) is returned. You can use this ID to call the ListCommandInvocationResults operation to query the execution status and output on each session.
+   * This operation only issues commands, which are executed asynchronously in sessions. Regardless of whether the command is issued to one or multiple delivery groups, only one command execution ID (InvocationId) is returned. You can use this ID to call ListCommandInvocationResults to query the execution status and output on each session.
    * 
    * @param request - RunAppInstanceCommandRequest
    * @returns RunAppInstanceCommandResponse
@@ -10359,15 +10631,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates the third-party channel QR code configuration process in batches for the specified cloud desktop runtimes, generates the URLs of the QR code configuration pages, and notifies the authorized users of the runtimes by email and SMS.
+   * Initiates the third-party channel QR code configuration process in batches for specified cloud desktop runtimes, generates QR code configuration page URLs, and notifies the authorized users of the runtimes by email and SMS.
    * 
    * @remarks
-   * Initiates the third-party channel QR code configuration process in batches for managed cloud desktop runtimes in the Wuying Agent Management Center. The system generates a QR code configuration page URL for each runtime and notifies the authorized user of the runtime by email and SMS. The user can complete the channel configuration by opening the page and scanning the QR code.
+   * You can use this API operation to initiate the third-party channel QR code configuration process in batches for managed cloud desktop runtimes in the Wuying Agent Management Center. The system generates a QR code configuration page URL for each runtime and notifies the authorized user of the runtime by email and SMS. The user can complete the channel configuration by opening the page and scanning the QR code.
    * Usage notes:
    * - Currently, only CloudDesktop is supported for RuntimeType. You can specify up to 200 runtime IDs in a single request.
-   * - Each runtime must have exactly one authorized user. Otherwise, the sending result for the runtime returns the Runtime.UserNotSupported error code.
-   * - The taskId in the QR code configuration page URL is valid for 1 hour. After it expires, you must call this operation again to initiate the process.
-   * - If the sending fails for some runtimes, the operation still returns a success response overall. Check the Success, Code, and Message fields for each runtime in Data. If the sending fails for all runtimes, the operation returns a failure response. If the error codes for all runtimes are the same, that error code is returned. Otherwise, SendQrCodeConfigMessage.SendFailed is returned.
+   * - Each runtime must have one and only one authorized user. Otherwise, the sending result for the runtime returns the error code Runtime.UserNotSupported.
+   * - The taskId in the QR code configuration page URL is valid for 1 hour. After it expires, you must call this API operation again to initiate the process.
+   * - If the sending fails for some runtimes, the API operation still returns a success response overall. Check the Success, Code, and Message fields for each runtime in Data. If the sending fails for all runtimes, the API operation returns a failure response. If the error codes for all runtimes are the same, that error code is returned. Otherwise, SendQrCodeConfigMessage.SendFailed is returned.
    * - Email and SMS notifications are sent on a best-effort basis. Notification failures do not affect the API response. After initiation, you can call GetRuntimeChannelQrCodeDetail to query the details of the QR code configuration process.
    * 
    * @param request - SendRuntimeQrCodeConfigChannelMessageRequest
@@ -10415,15 +10687,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates the third-party channel QR code configuration process in batches for the specified cloud desktop runtimes, generates the URLs of the QR code configuration pages, and notifies the authorized users of the runtimes by email and SMS.
+   * Initiates the third-party channel QR code configuration process in batches for specified cloud desktop runtimes, generates QR code configuration page URLs, and notifies the authorized users of the runtimes by email and SMS.
    * 
    * @remarks
-   * Initiates the third-party channel QR code configuration process in batches for managed cloud desktop runtimes in the Wuying Agent Management Center. The system generates a QR code configuration page URL for each runtime and notifies the authorized user of the runtime by email and SMS. The user can complete the channel configuration by opening the page and scanning the QR code.
+   * You can use this API operation to initiate the third-party channel QR code configuration process in batches for managed cloud desktop runtimes in the Wuying Agent Management Center. The system generates a QR code configuration page URL for each runtime and notifies the authorized user of the runtime by email and SMS. The user can complete the channel configuration by opening the page and scanning the QR code.
    * Usage notes:
    * - Currently, only CloudDesktop is supported for RuntimeType. You can specify up to 200 runtime IDs in a single request.
-   * - Each runtime must have exactly one authorized user. Otherwise, the sending result for the runtime returns the Runtime.UserNotSupported error code.
-   * - The taskId in the QR code configuration page URL is valid for 1 hour. After it expires, you must call this operation again to initiate the process.
-   * - If the sending fails for some runtimes, the operation still returns a success response overall. Check the Success, Code, and Message fields for each runtime in Data. If the sending fails for all runtimes, the operation returns a failure response. If the error codes for all runtimes are the same, that error code is returned. Otherwise, SendQrCodeConfigMessage.SendFailed is returned.
+   * - Each runtime must have one and only one authorized user. Otherwise, the sending result for the runtime returns the error code Runtime.UserNotSupported.
+   * - The taskId in the QR code configuration page URL is valid for 1 hour. After it expires, you must call this API operation again to initiate the process.
+   * - If the sending fails for some runtimes, the API operation still returns a success response overall. Check the Success, Code, and Message fields for each runtime in Data. If the sending fails for all runtimes, the API operation returns a failure response. If the error codes for all runtimes are the same, that error code is returned. Otherwise, SendQrCodeConfigMessage.SendFailed is returned.
    * - Email and SMS notifications are sent on a best-effort basis. Notification failures do not affect the API response. After initiation, you can call GetRuntimeChannelQrCodeDetail to query the details of the QR code configuration process.
    * 
    * @param request - SendRuntimeQrCodeConfigChannelMessageRequest

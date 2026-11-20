@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendRuntimeQrCodeConfigChannelMessageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code when the sending fails, such as Runtime.NotFound (the runtime does not exist) or Runtime.UserNotSupported (the runtime has no authorized user or has multiple authorized users). This parameter is not returned when the sending is successful.
+   * The error code when the sending fails, such as Runtime.NotFound (the runtime does not exist) or Runtime.UserNotSupported (the runtime has no authorized users or has multiple authorized users). This parameter is not returned when the sending is successful.
    * 
    * @example
    * Runtime.UserNotSupported
@@ -77,7 +77,7 @@ export class SendRuntimeQrCodeConfigChannelMessageResponseBody extends $dara.Mod
   data?: SendRuntimeQrCodeConfigChannelMessageResponseBodyData[];
   /**
    * @remarks
-   * The request ID, which is a unique identifier for the request.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

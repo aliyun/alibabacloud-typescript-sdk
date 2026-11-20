@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWuyingServerSpecResponseBodyModifyWuyingServerSpecModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order generated for this specification change. Returning an order ID does not mean that the specification change is complete.
+   * The ID of the order generated for this specification change. Returning an order ID does not indicate that the specification change is complete.
    * 
    * @example
    * 23429322113****
@@ -40,7 +40,7 @@ export class ModifyWuyingServerSpecResponseBody extends $dara.Model {
   modifyWuyingServerSpecModel?: ModifyWuyingServerSpecResponseBodyModifyWuyingServerSpecModel;
   /**
    * @remarks
-   * The ID of the request. It is used for troubleshooting.
+   * The ID of the request, which is used for troubleshooting.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

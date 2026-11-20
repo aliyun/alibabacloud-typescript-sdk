@@ -21,7 +21,7 @@ export class RenewAppInstanceGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 123456****
@@ -29,7 +29,7 @@ export class RenewAppInstanceGroupResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

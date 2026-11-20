@@ -16,7 +16,7 @@ export class ListImageResponseBodyDataAppList extends $dara.Model {
    * The application name.
    * 
    * @example
-   * 应用名称
+   * Application name
    */
   appName?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListImageResponseBodyDataAppList extends $dara.Model {
 export class ListImageResponseBodyDataImageRegionDistributeList extends $dara.Model {
   /**
    * @remarks
-   * The image ID. System image IDs are meaningful, while custom image IDs are auto-generated.
+   * The image ID. System image IDs have specific meanings, while custom image IDs are automatically generated.
    * 
    * @example
    * imgc-xxx
@@ -155,11 +155,17 @@ export class ListImageResponseBodyDataSnapshotList extends $dara.Model {
 
 export class ListImageResponseBodyDataTagList extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * 1630348213973321
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * inner
    */
@@ -227,7 +233,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * Indicates whether the compatibility mode is enabled.
+   * Indicates whether compatibility mode is enabled.
    * 
    * @example
    * true
@@ -235,7 +241,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   compatibleMode?: boolean;
   /**
    * @remarks
-   * The data cloud disk size. Unit: GiB.
+   * The size of the data cloud disk. Unit: GiB.
    * 
    * @example
    * 100
@@ -246,7 +252,7 @@ export class ListImageResponseBodyData extends $dara.Model {
    * The image description.
    * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
@@ -254,15 +260,18 @@ export class ListImageResponseBodyData extends $dara.Model {
    * The distribution name.
    * 
    * @example
-   * Ubuntu 22.04 64位
+   * Ubuntu 22.04 64-bit
    */
   distro?: string;
   /**
    * @remarks
-   * The list of driver information.
+   * The driver information list.
    */
   driverList?: string[];
   /**
+   * @remarks
+   * The ID of the environment where the image is used.
+   * 
    * @example
    * env-164c321f405ca84143e4b730dbe4
    */
@@ -274,10 +283,10 @@ export class ListImageResponseBodyData extends $dara.Model {
   featureList?: string[];
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not available for public use.
    * 
    * @example
-   * 镜像支持的fota渠道，暂未启用
+   * FOTA channel supported by the image, currently disabled
    */
   fotaChannel?: string;
   /**
@@ -306,16 +315,20 @@ export class ListImageResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The image creation type.
+   * The image creation mode.
    * 
    * @example
    * BUILDER_MANUAL
    */
   imageCreateMode?: string;
+  /**
+   * @remarks
+   * The URL of the image icon.
+   */
   imageIconUrl?: string;
   /**
    * @remarks
-   * The image ID. System image IDs are meaningful, while custom image IDs are auto-generated.
+   * The image ID. System image IDs have specific meanings, while custom image IDs are automatically generated.
    * 
    * @example
    * imgc-xxxx
@@ -331,12 +344,12 @@ export class ListImageResponseBodyData extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The overlay effective region information.
+   * The effective region information.
    */
   imageRegionDistributeList?: ListImageResponseBodyDataImageRegionDistributeList[];
   /**
    * @remarks
-   * The regions.
+   * The region.
    */
   imageRegionList?: string[];
   /**
@@ -349,7 +362,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The image language. If the package type is VHD/Container, this property is inherited from the ECS package type image in the image combination.
+   * The image language. If the package type is VHD or Container, this property is inherited from the image with the ECS package type in the same image combination.
    * 
    * @example
    * zh-CN
@@ -373,7 +386,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   onlineVersion?: boolean;
   /**
    * @remarks
-   * The sub-version from which the current image reads the main image information. An image consists of multiple sub-versions.
+   * The online version ID of the current image. The main image information is read from this sub-version. An image consists of multiple sub-versions.
    * 
    * @example
    * iv-xxxx
@@ -397,7 +410,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The parent image ID. This only indicates the inheritance relationship. System images have no parent image.
+   * The parent image ID. This ID only indicates an inheritance relationship. System images do not have parent images.
    * 
    * @example
    * imgc-xxx
@@ -413,9 +426,9 @@ export class ListImageResponseBodyData extends $dara.Model {
   parentImageVersion?: string;
   /**
    * @remarks
-   * The image operating system platform.
+   * The operating system platform of the image.
    * 
-   * > If the package type is VHD/Container, this property is inherited from the ECS package type image in the image combination.
+   * > If the package type is VHD or Container, this property is inherited from the image with the ECS package type in the same image combination.
    * 
    * @example
    * Windows
@@ -446,19 +459,25 @@ export class ListImageResponseBodyData extends $dara.Model {
    */
   protocolType?: string;
   /**
+   * @remarks
+   * The rating of the image, with a maximum score of 100.
+   * 
    * @example
    * 95
    */
   rating?: number;
   /**
    * @remarks
-   * The resource type supported by the image.
+   * The supported resource type for the image.
    * 
    * @example
    * ["eds.cpu.category"]
    */
   resourceInstanceCategory?: string;
   /**
+   * @remarks
+   * The usage scenario of the image.
+   * 
    * @example
    * AIGC
    */
@@ -482,19 +501,23 @@ export class ListImageResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of supported languages.
+   * The supported language list.
    */
   supportedLanguageList?: string[];
   /**
    * @remarks
-   * The system cloud disk size. Unit: GiB.
+   * The size of the system cloud disk. Unit: GiB.
    * 
-   * > The system cloud disk size cannot be smaller than the image file.
+   * > The size of the system cloud disk cannot be smaller than the image file.
    * 
    * @example
    * 40
    */
   systemDiskSize?: number;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tagList?: ListImageResponseBodyDataTagList[];
   /**
    * @remarks
@@ -678,7 +701,7 @@ export class ListImageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 22
@@ -691,7 +714,7 @@ export class ListImageResponseBody extends $dara.Model {
   data?: ListImageResponseBodyData[];
   /**
    * @remarks
-   * The message returned for the API request.
+   * The message returned by the API request.
    * 
    * @example
    * success
@@ -707,7 +730,7 @@ export class ListImageResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items returned per page.
    * 
    * @example
    * 10
@@ -723,7 +746,7 @@ export class ListImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

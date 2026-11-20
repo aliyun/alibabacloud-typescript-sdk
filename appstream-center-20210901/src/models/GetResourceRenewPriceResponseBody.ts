@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.Model {
   /**
    * @remarks
-   * The coupon code.
+   * The coupon option code.
    * 
    * @example
    * coupon****
@@ -13,10 +13,10 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.
   optionCode?: string;
   /**
    * @remarks
-   * The coupon descriptions.
+   * The coupon description.
    * 
    * @example
-   * **活动
+   * **Promotion
    */
   promotionDesc?: string;
   /**
@@ -32,7 +32,7 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.
    * The coupon name.
    * 
    * @example
-   * **活动
+   * **Promotion
    */
   promotionName?: string;
   /**
@@ -83,7 +83,7 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount amount. The actual price equals the original price minus the discount amount.
+   * The discount amount. The actual price is the original price minus the discount amount.
    * 
    * @example
    * 1
@@ -99,12 +99,12 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   originalPrice?: string;
   /**
    * @remarks
-   * The coupon descriptions.
+   * The coupon description.
    */
   promotions?: GetResourceRenewPriceResponseBodyDataPricePromotions[];
   /**
    * @remarks
-   * The actual price. The actual price equals the original price minus the discount amount.
+   * The transaction price. The actual price is the original price minus the discount amount.
    * 
    * @example
    * 10
@@ -145,15 +145,15 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
 export class GetResourceRenewPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The pricing rule description.
+   * The description of the price calculation rule.
    * 
    * @example
-   * **活动
+   * **Promotion
    */
   description?: string;
   /**
    * @remarks
-   * The pricing rule ID.
+   * The ID of the price calculation rule.
    * 
    * @example
    * 20002****
@@ -190,7 +190,7 @@ export class GetResourceRenewPriceResponseBodyData extends $dara.Model {
   price?: GetResourceRenewPriceResponseBodyDataPrice;
   /**
    * @remarks
-   * The pricing rules.
+   * The price calculation rules.
    */
   rules?: GetResourceRenewPriceResponseBodyDataRules[];
   static names(): { [key: string]: string } {

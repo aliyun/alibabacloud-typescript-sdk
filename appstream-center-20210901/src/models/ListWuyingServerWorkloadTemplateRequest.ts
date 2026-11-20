@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWuyingServerWorkloadTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The compatibility field. The current version does not read this parameter. This operation returns a fixed maximum of the first 100 templates.
+   * A compatibility field. The current version does not read this parameter. The operation returns a maximum of the first 100 templates.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ListWuyingServerWorkloadTemplateRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The compatibility field. The current version does not read this parameter and does not support token-based pagination.
+   * A compatibility field. The current version does not read this parameter and does not support token-based pagination.
    * 
    * @example
    * unused
@@ -21,7 +21,11 @@ export class ListWuyingServerWorkloadTemplateRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the virtual node pool. This parameter is **required**. The node pool must belong to the current account. You can call [ListWuyingServer](~~ListWuyingServer~~) to obtain the ID.
+   * The virtual node pool ID. **Required**. The node pool must already exist and belong to the current account, but it is not required to be attached to a workstation.
+   * 
+   * If you already have a valid node pool ID, you can directly pass it. If a workstation is already associated with a node pool, you can also obtain the corresponding non-empty `VirtualNodePoolId` by invoking [ListWuyingServer](~~ListWuyingServer~~). If you do not have a valid ID, do not use an empty value, workstation ID, cluster ID, or the character string `null` as a substitute.
+   * 
+   * [CreateWuyingServer](~~CreateWuyingServer~~) only associates existing node pools and does not support automatic creation of node pools. If the node pool does not exist or does not belong to the current account, `InvalidParameter.VirtualNodePoolId` is returned.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApproveOtaTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
+   * The execution result. A value of `success` indicates that the call was successful. Otherwise, an error message is returned.
    * 
    * @example
    * OtaTask.Running
@@ -13,7 +13,7 @@ export class ApproveOtaTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This parameter is not returned if `Code` is `success`.
+   * The error message. This parameter is not returned when `Code` is `success`.
    * 
    * @example
    * The task is running and cannot be sumitted.

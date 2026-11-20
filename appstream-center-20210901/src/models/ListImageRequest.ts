@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageRequestTagList extends $dara.Model {
   /**
    * @remarks
-   * The user-defined tag key.
+   * The custom tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListImageRequestTagList extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The user-defined tag value.
+   * The custom tag value.
    * 
    * @example
    * test
@@ -45,12 +45,12 @@ export class ListImageRequestTagList extends $dara.Model {
 export class ListImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of supported regions. WUYING images are centralized. Use this parameter to query the regions where the image is deployed.
+   * The list of supported regions. WUYING images are centralized. You can use this parameter to query the regions where the image is deployed.
    */
   bizRegionIdList?: string[];
   /**
    * @remarks
-   * The business type. This parameter is not publicly available.
+   * The business type. This parameter is not exposed for external use.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class ListImageRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The list of all business types. This parameter is not publicly available.
+   * The list of all business types. This parameter is not exposed for external use.
    */
   bizTypeList?: number[];
   distro?: string;
@@ -85,7 +85,7 @@ export class ListImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image name. Fuzzy match is supported.
+   * The image name. Fuzzy search is supported.
    * 
    * @example
    * DemoImage
@@ -133,7 +133,7 @@ export class ListImageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries. Maximum value: 100. Default value: 10.
+   * The number of entries per page for a paging query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -149,7 +149,7 @@ export class ListImageRequest extends $dara.Model {
   platformName?: string;
   /**
    * @remarks
-   * The list of supported platform types. For valid values, refer to PlatformName above.
+   * The list of supported platform types. For valid values, refer to PlatformName.
    */
   platformNameList?: string[];
   /**
@@ -162,12 +162,12 @@ export class ListImageRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The list of products supported when the image supports multiple products.
+   * The list of supported products when the image supports multiple products.
    */
   productTypeList?: string[];
   /**
    * @remarks
-   * The protocol type of the image.
+   * The image protocol type.
    * 
    * @example
    * ASP
@@ -175,7 +175,7 @@ export class ListImageRequest extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * Queries images of specific defined specifications.
+   * Queries images with specific defined specifications.
    * 
    * @example
    * eds.enterprise_office.2c4g
@@ -183,7 +183,7 @@ export class ListImageRequest extends $dara.Model {
   resourceInstanceType?: string;
   /**
    * @remarks
-   * The image status. Specifies the status of images to query. By default, all images that are not deleted are queried.
+   * The image status. Specifies the status of the images to query. By default, all images that are not deleted are queried.
    * 
    * @example
    * INIT
@@ -191,7 +191,7 @@ export class ListImageRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags for query.
+   * The tags used for querying.
    */
   tagList?: ListImageRequestTagList[];
   static names(): { [key: string]: string } {
