@@ -6,10 +6,10 @@ import { IncidentEscalationStageStruct } from "./IncidentEscalationStageStruct";
 export class IncidentEscalationStruct extends $dara.Model {
   /**
    * @remarks
-   * The time when the event escalation was created.
+   * The creation time.
    * 
    * @example
-   * 2025-03-11T08:21:58Z
+   * 1794984055029
    */
   createTime?: number;
   /**
@@ -17,12 +17,12 @@ export class IncidentEscalationStruct extends $dara.Model {
    * The description.
    * 
    * @example
-   * When an alert is not acknowledged, notify the operations team, on-duty manager, and CTO sequentially.
+   * Notify the O&M team, on-call manager, and CTO sequentially when an alert is not responded to
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the event escalation.
+   * The incident escalation ID.
    * 
    * @example
    * 52631388567
@@ -30,10 +30,10 @@ export class IncidentEscalationStruct extends $dara.Model {
   incidentEscalationId?: string;
   /**
    * @remarks
-   * The time when the event escalation was last modified.
+   * The modification time.
    * 
    * @example
-   * 2025-03-11T08:21:58Z
+   * 1794984055029
    */
   modifyTime?: number;
   /**
@@ -41,7 +41,7 @@ export class IncidentEscalationStruct extends $dara.Model {
    * The name.
    * 
    * @example
-   * Production Environment Alert Escalation Policy.
+   * Production environment alert escalation policy
    */
   name?: string;
   /**
@@ -54,7 +54,7 @@ export class IncidentEscalationStruct extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The stages.
+   * The stage.
    */
   stage?: IncidentEscalationStageStruct[];
   /**

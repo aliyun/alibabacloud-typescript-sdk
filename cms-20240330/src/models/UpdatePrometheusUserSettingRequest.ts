@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusUserSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * The value of the user setting.
+   * The user configuration setting value.
    * 
    * This parameter is required.
    * 

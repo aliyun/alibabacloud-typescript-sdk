@@ -13,12 +13,12 @@ export class ListContactGroupsResponseBodyContactGroups extends $dara.Model {
   contactGroupId?: string;
   /**
    * @remarks
-   * The contact IDs.
+   * The IDs of the contacts.
    */
   contactIds?: string[];
   /**
    * @remarks
-   * The contact name.
+   * The name of the contact.
    * 
    * @example
    * test
@@ -86,7 +86,7 @@ export class ListContactGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

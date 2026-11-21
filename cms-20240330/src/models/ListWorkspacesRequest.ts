@@ -60,7 +60,7 @@ export class ListWorkspacesRequest extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * xxxxxxxxxx
+   * aAaAAAA1aAAA1a1a1AaaAAa1A11aaaa1AA-aAA1Aaaa1aaAaAaaAaAaa1AAAaa1A
    */
   nextToken?: string;
   /**
@@ -89,7 +89,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   tags?: ListWorkspacesRequestTags[];
   /**
    * @remarks
-   * The workspace name. Fuzzy match is supported.
+   * The name of the workspace. Fuzzy match is supported.
    * 
    * @example
    * workspace-test-001

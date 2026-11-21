@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchContextResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 123-0F43-23423-AC43-34234
@@ -13,7 +13,7 @@ export class SearchContextResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return value
+   * The results.
    */
   results?: { [key: string]: any }[];
   static names(): { [key: string]: string } {

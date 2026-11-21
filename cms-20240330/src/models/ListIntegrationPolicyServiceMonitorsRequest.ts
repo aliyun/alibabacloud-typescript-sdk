@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyServiceMonitorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the addon release.
+   * The name of the add-on release.
    * 
    * @example
    * release-12345678
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyServiceMonitorsRequest extends $dara.Model {
   addonReleaseName?: string;
   /**
    * @remarks
-   * The probe identifier. If a release exists, pass the release name. If no release exists, pass the component name.
+   * The collector identifier. If a release exists, pass the release name. Otherwise, pass the component name.
    * 
    * @example
    * collector:metric-agent:policy:policy-bfd3d455fd6f4bc8
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyServiceMonitorsRequest extends $dara.Model {
   collectorReleaseName?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the YAML.
+   * Specifies whether to encrypt the YAML content.
    * 
    * @example
    * true

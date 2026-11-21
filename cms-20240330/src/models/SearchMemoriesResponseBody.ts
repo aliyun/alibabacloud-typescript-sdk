@@ -79,7 +79,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The hash value of the memory.
+   * The memory hash value.
    * 
    * @example
    * d791bf27236c5532056a13279baad3517042bb8d5b1bdb02e7871fa632debffe
@@ -211,7 +211,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return values.
+   * The returned results.
    */
   results?: SearchMemoriesResponseBodyResults[];
   static names(): { [key: string]: string } {

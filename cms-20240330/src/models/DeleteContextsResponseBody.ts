@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContextsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of deleted contexts.
+   * The number of successfully deleted contexts.
    * 
    * @example
    * 55

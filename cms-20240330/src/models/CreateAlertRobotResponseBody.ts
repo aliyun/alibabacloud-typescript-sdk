@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlertRobotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert robot.
+   * The chatbot ID.
    * 
    * @example
    * testId

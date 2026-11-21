@@ -21,7 +21,7 @@ export class CreateAlertRobotRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the robot.
+   * The name of the chatbot.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class CreateAlertRobotRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The unique ID of the robot.
+   * The unique ID of the chatbot.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class CreateAlertRobotRequest extends $dara.Model {
   robotId?: string;
   /**
    * @remarks
-   * The signing key of the robot.
+   * The signing key of the chatbot.
    * 
    * @example
    * abc123
@@ -45,7 +45,7 @@ export class CreateAlertRobotRequest extends $dara.Model {
   robotSignKey?: string;
   /**
    * @remarks
-   * The type of the robot.
+   * The type of the chatbot.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreateAlertRobotRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The webhook URL of the robot.
+   * The webhook URL of the chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=**************

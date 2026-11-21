@@ -62,7 +62,7 @@ export class AddContextsRequestItems extends $dara.Model {
   expirationDate?: string;
   /**
    * @remarks
-   * The mutability.
+   * The immutable attribute.
    * 
    * @example
    * true

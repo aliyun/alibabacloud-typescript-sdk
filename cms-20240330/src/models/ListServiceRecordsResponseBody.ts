@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceRecordsResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The entry content in JSON string format. The format varies depending on the recordType.
+   * The content of the entry in JSON string format. The format varies based on the recordType.
    * 
    * @example
    * {
@@ -19,8 +19,7 @@ export class ListServiceRecordsResponseBodyRecords extends $dara.Model {
   recordContent?: string;
   /**
    * @remarks
-   * The type of the linked entry. Currently supported:
-   * logCorrelation, which indicates application log association.
+   * The type of the association entry. Valid values: logCorrelation: application log association.
    * 
    * @example
    * logCorrelation
@@ -82,7 +81,7 @@ export class ListServiceRecordsResponseBodyRecords extends $dara.Model {
 export class ListServiceRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned.
    * 
    * @example
    * 100
@@ -98,7 +97,7 @@ export class ListServiceRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of operation records.
+   * The list of ticket operation records.
    */
   records?: ListServiceRecordsResponseBodyRecords[];
   /**

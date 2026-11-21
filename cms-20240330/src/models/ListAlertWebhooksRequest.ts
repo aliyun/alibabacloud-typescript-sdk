@@ -21,7 +21,7 @@ export class ListAlertWebhooksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -29,12 +29,12 @@ export class ListAlertWebhooksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique ID of the webhook.
+   * The unique identifiers of the webhooks.
    */
   webhookIds?: string[];
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-0000000000000000-cn-hangzhou

@@ -84,7 +84,7 @@ export class ListAddonReleasesResponseBodyReleasesSubAddonRelease extends $dara.
   ready?: number;
   /**
    * @remarks
-   * The number of sub-releases.
+   * The total number of sub-releases.
    * 
    * @example
    * 3
@@ -140,7 +140,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * The installation phase information.
+   * The installation phase conditions.
    */
   conditions?: ListAddonReleasesResponseBodyReleasesConditions[];
   /**
@@ -153,7 +153,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The integration time.
+   * The onboarding time.
    * 
    * @example
    * 2024-11-04T16:10:12+08:00
@@ -190,7 +190,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The number of plugins.
+   * The number of plug-ins.
    * 
    * @example
    * 2
@@ -198,7 +198,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   exporterCount?: number;
   /**
    * @remarks
-   * Indicates whether configurations exist.
+   * Indicates whether a configuration exists.
    * 
    * @example
    * true
@@ -206,7 +206,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   haveConfig?: boolean;
   /**
    * @remarks
-   * The ID of the integration user.
+   * The ID of the onboarding user.
    * 
    * @example
    * 175xxxxxxxxx
@@ -222,7 +222,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Indicates whether the component is a managed component.
+   * Indicates whether the component is managed.
    * 
    * @example
    * true
@@ -307,7 +307,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the owner user.
+   * The ID of the associated user.
    * 
    * @example
    * 175xxxxxxxxxxxxx
@@ -416,12 +416,15 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
 export class ListAddonReleasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next page.
+   * The token used to query the next page.
+   * 
+   * @example
+   * 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
    */
   nextToken?: string;
   /**
    * @remarks
-   * The collection of integrated component information.
+   * The collection of onboarded component information.
    */
   releases?: ListAddonReleasesResponseBodyReleases[];
   /**
@@ -434,7 +437,7 @@ export class ListAddonReleasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of components.
+   * The total number of components.
    * 
    * @example
    * 1

@@ -29,7 +29,7 @@ export class ExecuteQueryResponseBodyMeta extends $dara.Model {
   elapsedMillisecond?: number;
   /**
    * @remarks
-   * Indicates whether the query results are complete.
+   * Indicates whether the query result is complete.
    * 
    * @example
    * Complete
@@ -65,7 +65,7 @@ export class ExecuteQueryResponseBodyMeta extends $dara.Model {
 export class ExecuteQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log data array. Each element corresponds to a log entry.
+   * The log data array, where each element corresponds to a log entry.
    */
   data?: { [key: string]: string }[];
   /**

@@ -13,7 +13,7 @@ export class PutWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * workspace-test-001

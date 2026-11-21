@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricMetaListRequestLabels extends $dara.Model {
   /**
    * @remarks
-   * The label name.
+   * The name of the label.
    * 
    * @example
    * productCategory
@@ -13,7 +13,7 @@ export class DescribeMetricMetaListRequestLabels extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The label value.
+   * The value of the label.
    * 
    * @example
    * ecs
@@ -53,7 +53,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * The directory.
+   * The category.
    * 
    * @example
    * ecs
@@ -69,18 +69,18 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   keywords?: string;
   /**
    * @remarks
-   * Filters resources by label. The existing labels are described as follows:
+   * Filters resources by label. Existing labels are described as follows:
    * - metricCategory: the category description of the metric.
    * - alertEnable: specifies whether alerting is required.
    * - alertUnit: the recommended alert unit.
    * - unitFactor: the unit conversion factor.
    * - minAlertPeriod: the minimum alert period.
-   * - productCategory: the product category.
+   * - productCategory: the cloud service category.
    */
   labels?: DescribeMetricMetaListRequestLabels[];
   /**
    * @remarks
-   * The metadata source. Valid values: CMS for CloudMonitor Basic monitoring metrics, and PROM_BASIC for Prometheus CloudMonitor basic monitoring metrics.
+   * The source of metadata. Valid values: CMS for CloudMonitor Basic monitoring metrics, and PROM_BASIC for basic monitoring metrics of Managed Service for Prometheus.
    * 
    * @example
    * CMS
@@ -88,7 +88,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   metaFormat?: string;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * @example
    * CPUUtilization
@@ -96,7 +96,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace used to distinguish products.
+   * The namespace used to distinguish cloud services.
    * 
    * @example
    * acs_ecs_dashboard

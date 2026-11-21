@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertNotifyTemplatesResponseBodyAlertNotifyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The ID of the notification template.
+   * The notification template ID.
    * 
    * @example
    * template-abc123
@@ -13,15 +13,15 @@ export class ListAlertNotifyTemplatesResponseBodyAlertNotifyTemplates extends $d
   alertNotifyTemplateId?: string;
   /**
    * @remarks
-   * The name of the notification template.
+   * The notification template name.
    * 
    * @example
-   * High-availability alert template
+   * High availability alert template
    */
   alertNotifyTemplateName?: string;
   /**
    * @remarks
-   * Filters by template syntax type. The current template syntax is fixed to GO and uses Go template syntax.
+   * The template syntax type. Currently, the template syntax is fixed to GO and uses the Go template syntax.
    * 
    * @example
    * GO
@@ -101,7 +101,7 @@ export class ListAlertNotifyTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

@@ -32,7 +32,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    * The next token.
    * 
    * @example
-   * xxxxxxxxxx
+   * 11a111111111a1111a1111aaaa1a1aa1aa11aa111aa11a1111a1a111aa1a111111111a11a1aa1111a111aa11a11aa1a1
    * 
    * **if can be null:**
    * true
@@ -51,7 +51,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   prometheusInstanceIds?: string;
   /**
    * @remarks
-   * The instance name. Partial match is supported.
+   * The name of the instance. Partial match is supported.
    * 
    * @example
    * test
@@ -62,7 +62,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2bhocin5e2na
@@ -88,7 +88,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The instance version.
+   * The version of the instance.
    * 
    * @example
    * V2

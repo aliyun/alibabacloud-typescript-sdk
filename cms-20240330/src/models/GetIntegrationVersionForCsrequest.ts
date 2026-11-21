@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIntegrationVersionForCSRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetIntegrationVersionForCSRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values: acs.ack.cluster and acs.asi.cluster.
+   * The cluster type. Valid values: acs.ack.cluster and acs.asi.cluster.
    * 
    * This parameter is required.
    * 

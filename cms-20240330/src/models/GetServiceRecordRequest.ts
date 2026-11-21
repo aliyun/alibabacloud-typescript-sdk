@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the linked entry. Currently supported values:
-   * logCorrelation: indicates application log association.
+   * The type of the association entry. Valid values:
+   * logCorrelation: application log association.
    * 
    * This parameter is required.
    * 

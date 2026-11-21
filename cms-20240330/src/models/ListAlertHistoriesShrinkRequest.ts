@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier (transId) of an alert history record.
+   * The unique identifier of an alert history record, which is the transId.
    * 
    * @example
    * lme6hk5qih5o769m379jjuo5i1
@@ -13,7 +13,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   alertHistoryId?: string;
   /**
    * @remarks
-   * Filters the history records of a specified alert rule. Specify the unique identifier (ruleUuid) of the alert rule.
+   * The unique identifier of the alert rule used to filter the history records of a specific alert rule. Pass the ruleUuid of the alert rule.
    * 
    * @example
    * mig_prom_v2_11308451
@@ -21,7 +21,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   alertRuleId?: string;
   /**
    * @remarks
-   * Specifies the business source of the alert history. For example, managed_service_for_prometheus indicates the managed type of the Prometheus integration center. Default value: empty. Leave this parameter empty if you are unsure how to specify it.
+   * The business source of the alert history. For example, `managed_service_for_prometheus` indicates the managed type of the Prometheus integration center. Default value: empty. Leave this parameter empty if you are unsure about the value.
    * 
    * @example
    * managed_service_for_prometheus
@@ -45,7 +45,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   cmsProductCategory?: string;
   /**
    * @remarks
-   * Filters the records by performing fuzzy matching on the keywords in the display name of the alert rule.
+   * The keyword used for fuzzy match filtering based on the display name of the alert rule.
    * 
    * @example
    * keyword
@@ -53,7 +53,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   displayNameKeyWord?: string;
   /**
    * @remarks
-   * The unique key value (instanceKey) that identifies the alert object instance.
+   * The unique key value used to identify the alert object instance, which is the instanceKey.
    * 
    * @example
    * entity/apm/apm.service/6dc9e46fda6d012537b48c3250ff806b
@@ -66,7 +66,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   labelFilterShrink?: string;
   /**
    * @remarks
-   * The level of the most recent alert during the alert duration. Valid values: CRITICAL (critical), WARN (warning), and INFO (info).
+   * The level of the most recent alert during the alert duration. Valid values: CRITICAL, WARN, and INFO.
    * 
    * @example
    * CRITICAL
@@ -74,7 +74,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   latestLevel?: string;
   /**
    * @remarks
-   * The highest alert level reached during the alert duration. Valid values: CRITICAL (critical), WARN (warning), and INFO (info).
+   * The highest alert level reached during the alert duration. Valid values: CRITICAL, WARN, and INFO.
    * 
    * @example
    * CRITICAL
@@ -82,7 +82,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   maxLevel?: string;
   /**
    * @remarks
-   * The maximum number of results returned per page in a paged query. This parameter is not supported. Use pageSize and pageNumber for paged queries.
+   * The maximum number of results to return on each page during paging for a paged query. This parameter is not supported. Use pageSize and pageNumber for a paged query.
    * 
    * @example
    * 30
@@ -90,7 +90,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The migration status value of the alert history.
+   * The migration status of the alert history.
    * 
    * @example
    * 0
@@ -98,7 +98,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   migrationStatus?: number;
   /**
    * @remarks
-   * The paging token for querying the next page. This parameter is not supported. Use pageSize and pageNumber for a paging query.
+   * The paging token used to query the next page. This parameter is not supported. Use pageSize and pageNumber for a paged query.
    * 
    * @example
    * 2-ba4d-4b9f-aa24-dcb067a30f1c
@@ -106,7 +106,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters alert rules that contain specified notification recipients. Only rules that contain any notification recipient specified in notifyTargets are returned in the result list.
+   * The filter used to filter alert rules that contain specific notification recipients. Only rules that contain at least one notification recipient specified in notifyTargets are returned in the result list.
    */
   notificationFilterShrink?: string;
   /**
@@ -119,7 +119,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   observeRelationType?: string;
   /**
    * @remarks
-   * The dimension column (domain) of the observed object.
+   * The domain of the observed object.
    * 
    * @example
    * acs
@@ -135,7 +135,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   observeResourceGlobalScope?: boolean;
   /**
    * @remarks
-   * Filters the alert history by resource instance ID.
+   * The resource instance ID used to filter the alert history.
    * 
    * @example
    * i-bp1234567890abcdef
@@ -151,7 +151,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   observeResourceType?: string;
   /**
    * @remarks
-   * The page number for a paged query. Default value: 1.
+   * The page number for paging in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -159,7 +159,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of alert history records returned per page in a paged query. Default value: 10.
+   * The number of alert history records to return on each page during paging for a paged query. Default value: 10.
    * 
    * @example
    * 10
@@ -167,7 +167,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The key value used for data partitioning. Typically, you do not need to specify this parameter.
+   * The key value used for data partitioning. You do not need to specify this parameter in most cases.
    * 
    * @example
    * cn-hangzhou
@@ -175,7 +175,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   partitionKey?: string;
   /**
    * @remarks
-   * The start timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If not specified, the default value is 30 days ago.
+   * The start timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If you do not specify this parameter, the default value is the timestamp 30 days ago.
    * 
    * @example
    * 1739866071668
@@ -183,7 +183,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   startTimeFrom?: number;
   /**
    * @remarks
-   * The end timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If not specified, the default value is the current time.
+   * The end timestamp of the time range for the alert start time. The value is a UNIX timestamp in milliseconds. If you do not specify this parameter, the default value is the current timestamp.
    * 
    * @example
    * 1739866071668
@@ -191,7 +191,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   startTimeTo?: number;
   /**
    * @remarks
-   * The current status of the alert history. Valid values: OK (recovered) and ALARM (alerting).
+   * The current status of the alert history. Valid values: OK and ALARM.
    * 
    * @example
    * ALARM
@@ -199,7 +199,7 @@ export class ListAlertHistoriesShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The identifier of the workspace to which the alert history belongs. If not specified, the default workspace is used.
+   * The identifier of the workspace to which the alert history belongs. If you do not specify this parameter, the default workspace is used.
    * 
    * @example
    * default-cms-<userId>-cn-hangzhou

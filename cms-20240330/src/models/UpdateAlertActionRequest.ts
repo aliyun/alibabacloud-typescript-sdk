@@ -215,7 +215,7 @@ export class UpdateAlertActionRequestFcParam extends $dara.Model {
 export class UpdateAlertActionRequestMnsParam extends $dara.Model {
   /**
    * @remarks
-   * The Simple Message Queue (formerly MNS) resource type.
+   * The resource type of Simple Message Queue (formerly MNS) (MSMQ).
    * 
    * @example
    * queue
@@ -382,7 +382,7 @@ export class UpdateAlertActionRequestWebhookParam extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The URL for the alert callback.
+   * The URL of the alert callback.
    * 
    * @example
    * http://www.test.com
@@ -421,7 +421,7 @@ export class UpdateAlertActionRequestWebhookParam extends $dara.Model {
 export class UpdateAlertActionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the action integration.
+   * The name of the alert action integration.
    * 
    * @example
    * testName
@@ -449,7 +449,7 @@ export class UpdateAlertActionRequest extends $dara.Model {
   fcParam?: UpdateAlertActionRequestFcParam;
   /**
    * @remarks
-   * The Simple Message Queue (formerly MNS) parameters.
+   * The Simple Message Queue (formerly MNS) (MSMQ) parameters.
    */
   mnsParam?: UpdateAlertActionRequestMnsParam;
   /**
@@ -464,7 +464,7 @@ export class UpdateAlertActionRequest extends $dara.Model {
   slsParam?: UpdateAlertActionRequestSlsParam;
   /**
    * @remarks
-   * The action integration type.
+   * The alert action integration type.
    * 
    * @example
    * FC

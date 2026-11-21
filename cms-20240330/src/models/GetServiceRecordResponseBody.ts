@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceRecordResponseBodyRecord extends $dara.Model {
   /**
    * @remarks
-   * The entry content in JSON string format. The returned content varies depending on the recordType.
+   * The content of the entry in JSON string format. The returned content varies based on the recordType.
    * 
    * @example
    * {"project":"proj-xtrace-16c988dcfe21fcb73c5e6f234927d998-cn-hangzhou","storeName":"app-biz-log","regionId":"cn-hangzhou","bindType":"logstore","traceIdRelateField":""}
@@ -13,8 +13,8 @@ export class GetServiceRecordResponseBodyRecord extends $dara.Model {
   recordContent?: string;
   /**
    * @remarks
-   * The type of the linked entry. Currently supported values:
-   * logCorrelation: indicates application log association.
+   * The type of the association entry. Valid values:
+   * logCorrelation: application log association.
    * 
    * @example
    * logCorrelation
@@ -66,7 +66,7 @@ export class GetServiceRecordResponseBodyRecord extends $dara.Model {
 export class GetServiceRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The record.
+   * The number of records.
    */
   record?: GetServiceRecordResponseBodyRecord;
   /**

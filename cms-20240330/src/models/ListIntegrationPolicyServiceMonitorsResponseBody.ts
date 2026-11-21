@@ -21,7 +21,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitorsEndp
   matchedTargetCount?: number;
   /**
    * @remarks
-   * The sampling path.
+   * The collection path.
    * 
    * @example
    * /metrics
@@ -75,7 +75,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitorsEndp
 export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors extends $dara.Model {
   /**
    * @remarks
-   * The addon name.
+   * The name of the add-on.
    * 
    * @example
    * cloud-acs-ecs
@@ -83,7 +83,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   addonName?: string;
   /**
    * @remarks
-   * The addon release name.
+   * The name of the add-on release.
    * 
    * @example
    * release-1234567
@@ -91,7 +91,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   addonReleaseName?: string;
   /**
    * @remarks
-   * The addon version.
+   * The version of the add-on.
    * 
    * @example
    * 0.0.1
@@ -99,7 +99,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   addonVersion?: string;
   /**
    * @remarks
-   * The configuration YAML.
+   * The YAML configuration.
    * 
    * @example
    * apiVersion: xxxxx
@@ -107,7 +107,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   configYaml?: string;
   /**
    * @remarks
-   * The enabling status.
+   * The enabled status.
    * 
    * @example
    * run
@@ -118,7 +118,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
    * The encrypted YAML.
    * 
    * @example
-   * YXBpVmVyc2lvbjogeHh4eHgK
+   * true
    */
   encryptYaml?: boolean;
   /**
@@ -136,7 +136,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   matchedServiceCount?: number;
   /**
    * @remarks
-   * The ServiceMonitor name.
+   * The name of the ServiceMonitor.
    * 
    * @example
    * 62a526c5-f6ca-4cfb-b5a4-b76974cffe51
@@ -144,7 +144,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   name?: string;
   /**
    * @remarks
-   * The namespace.
+   * The name of the project workspace.
    * 
    * @example
    * arms-prom

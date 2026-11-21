@@ -5,7 +5,40 @@ import * as $dara from '@darabonba/typescript';
 export class MergeOncallSchedule extends $dara.Model {
   /**
    * @remarks
-   * The extension details.
+   * The extended details.
+   * 
+   * @example
+   * {
+   *   "oncallScheduleId": "testId",
+   *   "oncallScheduleName": "testName",
+   *   "rotations": [
+   *     {
+   *       "activeDays": [
+   *         1
+   *       ],
+   *       "contacts": [
+   *         "testId"
+   *       ],
+   *       "rotationEndTime": "24:00",
+   *       "rotationName": "testName",
+   *       "rotationStartTime": "00:00",
+   *       "shiftRecurrenceFrequency": "WEEKLY",
+   *       "startDate": "2024-01-01",
+   *       "timeZone": "Asia/Shanghai",
+   *       "shiftLength": 3
+   *     }
+   *   ],
+   *   "shiftRobotId": "testId",
+   *   "substitudes": [
+   *     {
+   *       "startTime": "2024-10-10 09:00",
+   *       "endTime": "2024-10-15 18:00",
+   *       "replacedContactId": "testId",
+   *       "contactId": "testId"
+   *     }
+   *   ],
+   *   "workspace": "default-cms-5884500827389836-cn-hangzhou"
+   * }
    */
   detail?: { [key: string]: any };
   /**
@@ -18,7 +51,7 @@ export class MergeOncallSchedule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modified time.
+   * The last modification time.
    * 
    * @example
    * 1700000000
@@ -29,15 +62,15 @@ export class MergeOncallSchedule extends $dara.Model {
    * The unique identifier.
    * 
    * @example
-   * SampleValue
+   * Sample value
    */
   identifier?: string;
   /**
    * @remarks
-   * The schedule name.
+   * The name of the schedule.
    * 
    * @example
-   * SampleName
+   * Sample name
    */
   name?: string;
   /**
@@ -45,7 +78,7 @@ export class MergeOncallSchedule extends $dara.Model {
    * The source.
    * 
    * @example
-   * SampleValue
+   * Sample value
    */
   source?: string;
   /**
@@ -53,7 +86,7 @@ export class MergeOncallSchedule extends $dara.Model {
    * The workspace.
    * 
    * @example
-   * SampleValue
+   * Sample value
    */
   workspace?: string;
   static names(): { [key: string]: string } {

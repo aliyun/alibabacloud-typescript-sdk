@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNotifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the notification policy, returned by the create operation.
+   * The unique identifier of the notification policy, which is returned by the create operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetNotifyPolicyRequest extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The workspace ID. Used to isolate notification policy resources across different business spaces. Example: `default-cms-xxxx-ap-southeast-1`.
+   * The workspace ID, which is used to isolate notification policy resources for different business workspaces. Example: `default-cms-xxxx-cn-hangzhou`.
    * 
    * This parameter is required.
    * 

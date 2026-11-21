@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentMemberStructAcknowledge extends $dara.Model {
   /**
    * @remarks
-   * The confirmation level.
+   * The acknowledgment level.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class IncidentMemberStructContacts extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The masked ID of the contact.
+   * The contact ID (masked).
    * 
    * @example
    * user-12345
@@ -88,12 +88,12 @@ export class IncidentMemberStructEscalation extends $dara.Model {
    * The description.
    * 
    * @example
-   * Notify the operations team.
+   * Notify the O&M team
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the event escalation.
+   * The incident escalation ID.
    * 
    * @example
    * escalation-001
@@ -104,12 +104,12 @@ export class IncidentMemberStructEscalation extends $dara.Model {
    * The name.
    * 
    * @example
-   * Phase one.
+   * Stage 1
    */
   name?: string;
   /**
    * @remarks
-   * The index of the escalation stage.
+   * The escalation stage index.
    * 
    * @example
    * 1
@@ -120,7 +120,7 @@ export class IncidentMemberStructEscalation extends $dara.Model {
    * The title.
    * 
    * @example
-   * Alert escalated to the operations team.
+   * Alert escalated to the O&M team
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -155,7 +155,7 @@ export class IncidentMemberStructEscalation extends $dara.Model {
 export class IncidentMemberStructScheduleGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the contact.
+   * The contact ID.
    * 
    * @example
    * group-001
@@ -166,7 +166,7 @@ export class IncidentMemberStructScheduleGroup extends $dara.Model {
    * The name.
    * 
    * @example
-   * Night shift duty team.
+   * Night on-call group
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -195,12 +195,12 @@ export class IncidentMemberStructScheduleGroup extends $dara.Model {
 export class IncidentMemberStruct extends $dara.Model {
   /**
    * @remarks
-   * The structure of the confirmation information.
+   * The acknowledgment information struct.
    */
   acknowledge?: IncidentMemberStructAcknowledge;
   /**
    * @remarks
-   * The ID of the contact.
+   * The contact ID.
    * 
    * @example
    * user-12345
@@ -208,17 +208,17 @@ export class IncidentMemberStruct extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * A list of contacts.
+   * The contact list.
    */
   contacts?: IncidentMemberStructContacts[];
   /**
    * @remarks
-   * Information about the escalation stage.
+   * The escalation stage information.
    */
   escalation?: IncidentMemberStructEscalation;
   /**
    * @remarks
-   * The ID of the event.
+   * The incident ID.
    * 
    * @example
    * incident-001
@@ -226,7 +226,7 @@ export class IncidentMemberStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * The ID of the event member.
+   * The incident member ID.
    * 
    * @example
    * member-001
@@ -242,7 +242,7 @@ export class IncidentMemberStruct extends $dara.Model {
    * The time.
    * 
    * @example
-   * 2025-10-08 10:18:58
+   * 1794984221885
    */
   time?: number;
   /**

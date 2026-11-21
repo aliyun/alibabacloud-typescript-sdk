@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return. Maximum value: 200.
+   * The maximum number of results to return. Maximum value: 200.
    * 
    * @example
    * 100
@@ -16,13 +16,12 @@ export class ListServiceRecordsRequest extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * xxxxx
+   * 2-ba4d-4b9f-aa24-dcb067a30f1c
    */
   nextToken?: string;
   /**
    * @remarks
-   * The type of the linked entry. Currently supported:
-   * logCorrelation, which indicates application log association.
+   * The type of the association entry. Valid values: logCorrelation: application log association.
    * 
    * This parameter is required.
    * 
@@ -32,7 +31,7 @@ export class ListServiceRecordsRequest extends $dara.Model {
   recordType?: string;
   /**
    * @remarks
-   * The filter information for service-linked entries.
+   * The filter information for service association entries.
    * 
    * @example
    * {

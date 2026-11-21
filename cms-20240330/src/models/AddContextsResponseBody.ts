@@ -53,7 +53,7 @@ export class AddContextsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return values.
+   * The results.
    */
   results?: AddContextsResponseBodyResults[];
   static names(): { [key: string]: string } {

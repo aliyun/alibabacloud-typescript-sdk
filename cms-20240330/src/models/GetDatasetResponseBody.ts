@@ -6,7 +6,7 @@ import { IndexKey } from "./IndexKey";
 export class GetDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time the dataset was created, as a Unix timestamp.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -16,7 +16,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * test_dataset
@@ -24,7 +24,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The description of the dataset.
+   * The description.
    * 
    * @example
    * test
@@ -32,7 +32,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the region where the dataset is located.
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -40,7 +40,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -48,12 +48,12 @@ export class GetDatasetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data schema of the dataset.
+   * The table schema.
    */
   schema?: { [key: string]: IndexKey };
   /**
    * @remarks
-   * The time the dataset was last updated, as a Unix timestamp.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -63,7 +63,7 @@ export class GetDatasetResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The workspace name.
    * 
    * @example
    * workspace-test

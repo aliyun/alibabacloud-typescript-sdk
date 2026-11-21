@@ -13,7 +13,7 @@ export class NotifyRouteForSubscriptionChannels extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The list of enabled subchannels.
+   * The list of enabled sub-channels.
    */
   enabledSubChannels?: string[];
   /**
@@ -55,12 +55,12 @@ export class NotifyRouteForSubscriptionChannels extends $dara.Model {
 export class NotifyRouteForSubscriptionEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * The effective days of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday).
+   * The valid days of the week. Valid values: 0 to 6, where 0 indicates Sunday and 6 indicates Saturday.
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * The end time of the day, in minutes from 0:00.
+   * The end time of the day in minutes, calculated from 00:00.
    * 
    * @example
    * 1
@@ -68,7 +68,7 @@ export class NotifyRouteForSubscriptionEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * The start time of the day, in minutes from 0:00.
+   * The start time of the day in minutes, calculated from 00:00.
    * 
    * @example
    * 1

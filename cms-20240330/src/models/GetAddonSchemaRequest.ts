@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAddonSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * The language environment. Default value: zh. Valid values: zh, en.
+   * The language. Default value: zh. Valid values: zh, en.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class GetAddonSchemaRequest extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * The environment type. Valid values: CS (container), ECS.
+   * The environment type. Valid values: CS, ECS.
    * 
    * @example
    * CS
@@ -29,7 +29,7 @@ export class GetAddonSchemaRequest extends $dara.Model {
   environmentType?: string;
   /**
    * @remarks
-   * The component version.
+   * The add-on version.
    * 
    * @example
    * 0.1.1

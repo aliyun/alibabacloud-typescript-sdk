@@ -6,9 +6,9 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   /**
    * @remarks
    * The access type. Valid values:
-   * - readWrite
-   * - readOnly
-   * - httpReadOnly
+   * - readWrite: Read and write.
+   * - readOnly: Read-only.
+   * - httpReadOnly: HTTP read-only.
    * 
    * @example
    * readWrite
@@ -16,7 +16,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   accessType?: string;
   /**
    * @remarks
-   * The time when the instance was created. The time is displayed in UTC+0 and formatted as yyyy-MM-ddTHH:mmZ.
+   * The time when the instance was created. The time is displayed in UTC+0 in the yyyy-MM-ddTHH:mmZ format.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -52,7 +52,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   product?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * rw-63549e054ff596a4149927961dff
@@ -60,7 +60,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * test-prom-name
@@ -76,7 +76,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2bhocin5e2na
@@ -196,7 +196,7 @@ export class ListPrometheusInstancesResponseBody extends $dara.Model {
    * The token for the next query.
    * 
    * @example
-   * xxxxxxxxxx
+   * 11a111111111a1111a1111aaaa1a1aa1aa11aa111aa11a1111a1a111aa1a1111a1a111a1a111111111111111111111aa
    */
   nextToken?: string;
   /**

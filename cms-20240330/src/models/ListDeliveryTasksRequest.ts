@@ -61,7 +61,7 @@ export class ListDeliveryTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Do not specify this parameter for the first request. For subsequent requests, specify the nextToken value returned from the previous request.
+   * The pagination token. Do not specify this parameter for the first request. For subsequent requests, specify the nextToken value returned in the previous response.
    * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq

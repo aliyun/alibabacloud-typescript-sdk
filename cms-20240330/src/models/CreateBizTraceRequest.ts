@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBizTraceRequest extends $dara.Model {
   /**
    * @remarks
-   * The advanced configurations.
+   * The advanced configuration.
    * 
    * @example
    * {"sample":{"strategy":"BY_APP"}}
@@ -13,7 +13,7 @@ export class CreateBizTraceRequest extends $dara.Model {
   advancedConfig?: string;
   /**
    * @remarks
-   * The business trace code. The code can contain only letters, digits, and underscores (_), and must start with a lowercase letter.
+   * The business link identifier. The identifier can contain only letters, digits, and underscores (_), and must start with a lowercase letter.
    * 
    * @example
    * label_env
@@ -21,7 +21,7 @@ export class CreateBizTraceRequest extends $dara.Model {
   bizTraceCode?: string;
   /**
    * @remarks
-   * The name of the business trace.
+   * The name of the business link.
    * 
    * @example
    * just test

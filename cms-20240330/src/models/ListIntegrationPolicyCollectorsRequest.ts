@@ -13,7 +13,7 @@ export class ListIntegrationPolicyCollectorsRequest extends $dara.Model {
   addonReleaseName?: string;
   /**
    * @remarks
-   * The collector type.
+   * The type of the collector.
    * 
    * This parameter is required.
    * 

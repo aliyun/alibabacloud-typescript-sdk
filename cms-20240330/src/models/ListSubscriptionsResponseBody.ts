@@ -6,7 +6,7 @@ import { SubscriptionForView } from "./SubscriptionForView";
 export class ListSubscriptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned for the current request.
+   * The maximum number of records returned in the current request.
    * 
    * @example
    * 10

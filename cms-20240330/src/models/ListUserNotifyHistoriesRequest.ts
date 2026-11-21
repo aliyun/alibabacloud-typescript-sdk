@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The notification batch ID. Used to filter the notification history for notifications sent in the same batch.
+   * The notification batch ID. Used to filter the notification history for the same delivery batch.
    * 
    * @example
    * 3fa85f64-5717-4562-b3fc-2c963f66afa7
@@ -24,26 +24,26 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @remarks
    * The notification channel. Valid values:
-   * - ALI_YUNGE_SMS: text message
-   * - ALI_YUNGE_CALL: phone call
-   * - ALI_YUNGE_MAIL: email
-   * - ALI_YUNGE_ALIUID: internal message
-   * - DING: DingTalk
-   * - DING_COOL_APP: DingTalk cool app
-   * - FEISHU: Lark
-   * - WEIXIN: WeCom
-   * - SLACK: Slack
-   * - TEAMS: Teams
-   * - PAGERDUTY: PagerDuty
-   * - WEBHOOK: custom webhook
-   * - ALIYUN_SLS: Simple Log Service
-   * - ALIYUN_FC: Function Compute
-   * - ALIYUN_FC3: Function Compute 3.0
-   * - ALIYUN_MNS: Message Service
-   * - ALIYUN_OOS: CloudOps Orchestration Service
-   * - ALIYUN_ESS: elastic scaling
-   * - ALIYUN_EB: event bus
-   * - ALIYUN_OPENAPI: OpenAPI
+   * - ALI_YUNGE_SMS: Text message.
+   * - ALI_YUNGE_CALL: Voice call.
+   * - ALI_YUNGE_MAIL: Email.
+   * - ALI_YUNGE_ALIUID: Internal message.
+   * - DING: DingTalk.
+   * - DING_COOL_APP: DingTalk Cool App.
+   * - FEISHU: Lark.
+   * - WEIXIN: WeCom.
+   * - SLACK: Slack.
+   * - TEAMS: Teams.
+   * - PAGERDUTY: PagerDuty.
+   * - WEBHOOK: Custom webhook.
+   * - ALIYUN_SLS: Simple Log Service.
+   * - ALIYUN_FC: Function Compute.
+   * - ALIYUN_FC3: Function Compute 3.0.
+   * - ALIYUN_MNS: Message Service.
+   * - ALIYUN_OOS: CloudOps Orchestration Service.
+   * - ALIYUN_ESS: Elastic scaling.
+   * - ALIYUN_EB: Event bus.
+   * - ALIYUN_OPENAPI: OpenAPI.
    * 
    * @example
    * DING
@@ -52,8 +52,8 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @remarks
    * The channel category. Valid values:
-   * - WEBHOOK: webhook channels, such as DingTalk, Lark, WeCom, Slack, Teams, and custom webhooks.
-   * - YUNGE: communication channels, such as text messages, phone calls, and emails.
+   * - WEBHOOK: Webhook channels, such as DingTalk, Lark, WeCom, Slack, Teams, and custom webhooks.
+   * - YUNGE: Yunge communication channels, such as text messages, voice calls, and emails.
    * 
    * @example
    * WEBHOOK
@@ -85,23 +85,23 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * Specifies whether to include notification records that have no actual delivery channel. Valid values:
-   * - true: includes the records.
-   * - false: excludes the records and returns only records that were actually sent through a channel.
+   * Specifies whether to include notification records without an actual delivery channel. Valid values:
+   * - true: Includes the records.
+   * - false: Excludes the records and returns only records with an actual delivery channel.
    * Default value: true.
    */
   includeNoChannel?: boolean;
   /**
    * @remarks
    * Specifies whether to sort the results in descending order of time. Valid values:
-   * - true: descending order, with the latest records first.
-   * - false: ascending order.
+   * - true: Sorts the results in descending order, with the latest records first.
+   * - false: Sorts the results in ascending order.
    * Default value: true.
    */
   isDesc?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return per page. Default value: 20.
+   * The maximum number of records to return per page. Default value: 20.
    * 
    * @example
    * 20
@@ -151,7 +151,7 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   receiver?: string;
   /**
    * @remarks
-   * The alert rule ID. Used to filter the notification history triggered by a specified alert rule. Exact match is used.
+   * The alert rule ID. Used to filter the notification history triggered by a specified alert rule with exact match.
    * 
    * @example
    * 3fa85f64-5717-4562-b3fc-2c963f66afa6
@@ -168,9 +168,9 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @remarks
    * The notification delivery type. Valid values:
-   * - SUBSCRIBE: subscription notifications
-   * - DIRECT: direct event notifications
-   * - ITSM: ticket or action notifications
+   * - SUBSCRIBE: Subscription notification.
+   * - DIRECT: Direct event notification.
+   * - ITSM: Ticket or action notification.
    * 
    * @example
    * SUBSCRIBE
@@ -179,10 +179,10 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @remarks
    * The alert severity. Valid values:
-   * - CRITICAL: critical
-   * - ERROR: error
-   * - WARNING: warning
-   * - INFO: info
+   * - CRITICAL: Critical.
+   * - ERROR: Error.
+   * - WARNING: Warning.
+   * - INFO: Info.
    * 
    * @example
    * CRITICAL
@@ -207,8 +207,8 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to filter by delivery result. Valid values:
-   * - true: returns only successfully delivered records.
-   * - false: returns only failed delivery records.
+   * - true: Returns only successfully delivered records.
+   * - false: Returns only failed delivery records.
    * If you do not specify this parameter, the results are not filtered by delivery result.
    */
   success?: boolean;
@@ -222,7 +222,7 @@ export class ListUserNotifyHistoriesRequest extends $dara.Model {
   to?: number;
   /**
    * @remarks
-   * The workspace identifier.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

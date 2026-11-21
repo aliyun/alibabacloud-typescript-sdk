@@ -97,12 +97,12 @@ export class CreateDeliveryTaskRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
+   * The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
    */
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filtering conditions. This parameter is used together with labelFiltersType. The key is the metric label name, and the value is the match value.
+   * The metric filtering conditions used in conjunction with labelFiltersType. The key is the metric label name and the value is the match value.
    */
   labelFilters?: { [key: string]: string };
   /**
@@ -130,7 +130,7 @@ export class CreateDeliveryTaskRequest extends $dara.Model {
   sinkList?: CreateDeliveryTaskRequestSinkList[];
   /**
    * @remarks
-   * The tags of the resource.
+   * The resource tags.
    */
   tags?: CreateDeliveryTaskRequestTags[];
   /**

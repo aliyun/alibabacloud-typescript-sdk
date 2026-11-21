@@ -48,7 +48,7 @@ export class SubscriptionForModifyAgentConfig extends $dara.Model {
 export class SubscriptionForModifyPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * The list of action plan IDs for alert push.
+   * The list of alert push action plan IDs.
    */
   alertActionIds?: string[];
   /**
@@ -61,12 +61,12 @@ export class SubscriptionForModifyPushingSetting extends $dara.Model {
   responsePlanId?: string;
   /**
    * @remarks
-   * The list of action integration plan IDs for recovery push.
+   * The list of action integration plan IDs.
    */
   restoreActionIds?: string[];
   /**
    * @remarks
-   * The UUID of the template.
+   * The template UUID.
    * 
    * @example
    * 123123123
@@ -126,7 +126,7 @@ export class SubscriptionForModify extends $dara.Model {
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * The UUID of the notification strategy.
+   * The notification policy UUID.
    * 
    * @example
    * 123123
@@ -139,7 +139,9 @@ export class SubscriptionForModify extends $dara.Model {
   pushingSetting?: SubscriptionForModifyPushingSetting;
   /**
    * @remarks
-   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribe. false or null: Do not subscribe.
+   * Specifies whether to subscribe to legacy product events (CloudMonitor 1.0, ARMS, or SLS events where workspace is null). Valid values:
+   * - true: Subscribes to the events.
+   * - false or null: Does not subscribe to the events.
    * 
    * @example
    * false
@@ -152,7 +154,7 @@ export class SubscriptionForModify extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * TestSubscription
+   * 测试订阅
    */
   subscriptionName?: string;
   /**

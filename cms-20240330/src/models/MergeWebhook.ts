@@ -29,10 +29,10 @@ export class MergeWebhook extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modified time.
    * 
    * @example
-   * 2025-03-11T08:21:58.789Z
+   * {"time": "2025-03-11T08:21:58.789Z"}
    */
   gmtModified?: { [key: string]: any };
   /**
@@ -69,7 +69,7 @@ export class MergeWebhook extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The name of the webhook.
+   * The webhook name.
    * 
    * @example
    * O&M alert notification
@@ -85,7 +85,7 @@ export class MergeWebhook extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The webhook type, which indicates its target platform.
+   * The webhook type, which indicates the target platform.
    * 
    * @example
    * dingtalk
@@ -93,7 +93,7 @@ export class MergeWebhook extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The webhook address used to send requests.
+   * The webhook URL used to send requests.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=abc123

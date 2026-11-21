@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOncallScheduleRequestRotations extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the rotation takes effect.
+   * The days of the week when the shift is active.
    * 
    * This parameter is required.
    */
@@ -19,7 +19,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   contacts?: string[];
   /**
    * @remarks
-   * The end time of the rotation. Format: HH:mm.
+   * The end time of the shift. Format: HH:mm.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   rotationEndTime?: string;
   /**
    * @remarks
-   * The name of the rotation.
+   * The name of the shift.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   rotationName?: string;
   /**
    * @remarks
-   * The start time of the rotation. Format: HH:mm.
+   * The start time of the shift. Format: HH:mm.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   rotationStartTime?: string;
   /**
    * @remarks
-   * The length of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
+   * The length of the shift rotation cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 1 week.
+   * The unit of the shift rotation cycle. Used in conjunction with shiftLength. For example, rotate to the next on-call person every week.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   shiftRecurrenceFrequency?: string;
   /**
    * @remarks
-   * The start date of the rotation. Format: yyyy-MM-dd.
+   * The start date of the shift. Format: yyyy-MM-dd.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The time zone name. Uses the **IANA Time Zone Database** standard. Example: `Asia/Shanghai`.
+   * The name of the time zone. The **IANA Time Zone Database** standard is used. Example: `Asia/Shanghai`.
    * 
    * This parameter is required.
    * 
@@ -131,7 +131,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
 export class CreateOncallScheduleRequestSubstitudes extends $dara.Model {
   /**
    * @remarks
-   * The contact ID of the substitute.
+   * The ID of the contact who acts as the substitute.
    * 
    * @example
    * testId
@@ -147,7 +147,7 @@ export class CreateOncallScheduleRequestSubstitudes extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The contact ID of the replaced contact.
+   * The ID of the contact who is being replaced.
    * 
    * @example
    * testId
@@ -207,12 +207,12 @@ export class CreateOncallScheduleRequest extends $dara.Model {
   oncallScheduleName?: string;
   /**
    * @remarks
-   * The list of rotations.
+   * The list of shifts.
    */
   rotations?: CreateOncallScheduleRequestRotations[];
   /**
    * @remarks
-   * The ID of the shift reminder bot.
+   * The ID of the shift reminder chatbot.
    * 
    * @example
    * testRobotId

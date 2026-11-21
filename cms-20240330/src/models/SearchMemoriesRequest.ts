@@ -34,7 +34,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The reranking option.
+   * Specifies whether to rerank.
    * 
    * @example
    * true
@@ -42,7 +42,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   rerank?: boolean;
   /**
    * @remarks
-   * The retrieval option.
+   * The retrieval options.
    * 
    * @example
    * reranker,llm_rank

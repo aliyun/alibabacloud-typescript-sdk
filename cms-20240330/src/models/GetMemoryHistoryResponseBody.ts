@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMemoryHistoryResponseBodyResultsInput extends $dara.Model {
   /**
    * @remarks
-   * Message content.
+   * The message content.
    * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
@@ -13,7 +13,7 @@ export class GetMemoryHistoryResponseBodyResultsInput extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Message sender role.
+   * The role of the message sender.
    * 
    * @example
    * user
@@ -45,7 +45,7 @@ export class GetMemoryHistoryResponseBodyResultsInput extends $dara.Model {
 export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1764556182850
@@ -53,7 +53,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Event type.
+   * The event type.
    * 
    * @example
    * ADD
@@ -61,7 +61,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * Memory ID.
+   * The memory ID.
    * 
    * @example
    * b25d6ad7-306f-4040-9890-4dddd2505a2e
@@ -69,12 +69,12 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Original message.
+   * The original message.
    */
   input?: GetMemoryHistoryResponseBodyResultsInput[];
   /**
    * @remarks
-   * Memory ID.
+   * The memory ID.
    * 
    * @example
    * 019cacf6-7b39-7f61-8314-548f07ca449a
@@ -82,7 +82,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   memoryId?: string;
   /**
    * @remarks
-   * Metadata.
+   * The metadata.
    * 
    * @example
    * {"sessionId":"test_session_001"}
@@ -90,7 +90,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * New memory.
+   * The new memory.
    * 
    * @example
    * I really like Python.
@@ -98,7 +98,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   newMemory?: string;
   /**
    * @remarks
-   * Old memory.
+   * The old memory.
    * 
    * @example
    * I really don\\"t like Python at all.
@@ -106,7 +106,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   oldMemory?: string;
   /**
    * @remarks
-   * Update time.
+   * The update time.
    * 
    * @example
    * 1771036123785
@@ -114,7 +114,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * test_session_001
@@ -168,7 +168,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
 export class GetMemoryHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 3B311FD9-A60B-55E0-A896-A0C73*********
@@ -176,7 +176,7 @@ export class GetMemoryHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return value.
+   * The results.
    */
   results?: GetMemoryHistoryResponseBodyResults[];
   static names(): { [key: string]: string } {

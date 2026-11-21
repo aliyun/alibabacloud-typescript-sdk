@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SearchContextRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter conditions
+   * The filter conditions.
+   * 
+   * @example
+   * {"metadata.serviceName":"sls-sop-daily","metadata.taskType":{"in":["troubleshooting","knowledge_retrieval"]}}
    */
   filter?: { [key: string]: any };
   /**
    * @remarks
-   * Whether to format
+   * Specifies whether to format the output.
    * 
    * @example
    * true
@@ -18,7 +21,7 @@ export class SearchContextRequest extends $dara.Model {
   formatted?: boolean;
   /**
    * @remarks
-   * Limit the number of items returned
+   * The maximum number of results to return.
    * 
    * @example
    * 100
@@ -26,7 +29,7 @@ export class SearchContextRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * Query content
+   * The query content.
    * 
    * This parameter is required.
    * 
@@ -36,7 +39,7 @@ export class SearchContextRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Retrieval option
+   * The retrieval options.
    * 
    * @example
    * reranker,llm_rank
@@ -44,7 +47,7 @@ export class SearchContextRequest extends $dara.Model {
   retrievalOption?: string;
   /**
    * @remarks
-   * Similarity threshold
+   * The similarity threshold.
    * 
    * @example
    * 0.3

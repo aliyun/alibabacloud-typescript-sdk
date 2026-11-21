@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNotifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request. Used for troubleshooting and ticket tracking.
+   * The unique ID of the request, which is used for troubleshooting and ticket tracking.
    * 
    * @example
    * A1234567-1234-1234-1234-123456789012
@@ -18,7 +18,7 @@ export class DeleteNotifyPolicyResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The uuid of the notification policy that was operated on.
+   * The UUID of the notification policy.
    * 
    * @example
    * np-12345678-1234-1234-1234-123456789012

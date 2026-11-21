@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNotifyPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return for this request.
+   * The maximum number of entries to return for this request.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The fuzzy filter for the policy name.
+   * The keyword for fuzzy filtering by policy name.
    * 
    * @example
    * prod-alert
@@ -21,7 +21,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Leave empty for the first page. For subsequent pages, pass the nextToken returned from the previous page.
+   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, pass the nextToken value returned from the previous response.
    * 
    * @example
    * eyJjdXJzb3IiOjEwfQ==
@@ -29,7 +29,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field to sort by. Valid values include createTime, updateTime, and name.
+   * The field by which to sort the results. Valid values: createTime, updateTime, and name.
    * 
    * @example
    * createTime
@@ -37,7 +37,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Specifies whether to sort in descending order. Set to true for descending order, or false for ascending order.
+   * Specifies whether to sort the results in descending order. A value of true indicates descending order, and a value of false indicates ascending order.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   orderDesc?: string;
   /**
    * @remarks
-   * The workspace ID, used to isolate notification policy resources for different business workspaces.
+   * The workspace ID, which is used to isolate notification policy resources across different business workspaces.
    * 
    * This parameter is required.
    * 

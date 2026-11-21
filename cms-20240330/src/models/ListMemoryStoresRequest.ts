@@ -24,7 +24,7 @@ export class ListMemoryStoresRequest extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * xxxxxxxxx
+   * H8low6kptuLKf7Sttrso6EOE0-JV__****Low6kpt0lk3XsTt_SOYeoE0c7Vb-le
    */
   nextToken?: string;
   static names(): { [key: string]: string } {

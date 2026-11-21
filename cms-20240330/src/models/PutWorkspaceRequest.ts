@@ -45,7 +45,12 @@ export class PutWorkspaceRequestTags extends $dara.Model {
 export class PutWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace description.
+   * Specifies whether to perform a dry run of the request. Valid values: true: sends a check request without making actual changes. false (default): sends a normal request.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The description of the workspace.
    * 
    * @example
    * workspace test
@@ -61,7 +66,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae******ey
@@ -69,7 +74,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * This parameter is required.
    * 
@@ -84,6 +89,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   tags?: PutWorkspaceRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       description: 'description',
       displayName: 'displayName',
       resourceGroupId: 'resourceGroupId',
@@ -94,6 +100,7 @@ export class PutWorkspaceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       description: 'string',
       displayName: 'string',
       resourceGroupId: 'string',

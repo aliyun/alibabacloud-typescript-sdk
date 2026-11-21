@@ -29,7 +29,7 @@ export class GetMemoryResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration date.
    * 
    * @example
    * 1751595283143

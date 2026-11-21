@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyStorageRequirementsRequest extends $dara.Model {
   /**
    * @remarks
-   * The add-on release name.
+   * The name of the add-on release.
    * 
    * @example
    * release-1234357
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyStorageRequirementsRequest extends $dara.Model
   addonName?: string;
   /**
    * @remarks
-   * The add-on release name.
+   * The name of the AddonRelease.
    * 
    * @example
    * kafka-17201012937917

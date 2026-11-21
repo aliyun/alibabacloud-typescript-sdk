@@ -51,7 +51,7 @@ export class PreviewNotifyTemplateResponseBodyData extends $dara.Model {
 export class PreviewNotifyTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rendering result object, which contains two mappings: success for successfully rendered items and failed for items that failed to render.
+   * The rendering result object. This object includes two mappings: success for successfully rendered items and failed for failed rendering items.
    */
   data?: PreviewNotifyTemplateResponseBodyData;
   /**
@@ -72,9 +72,9 @@ export class PreviewNotifyTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the request is successful. Valid values:
-   * - true: The request is successful.
-   * - false: The request fails.
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

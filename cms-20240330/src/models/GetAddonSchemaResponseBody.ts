@@ -29,7 +29,7 @@ export class GetAddonSchemaResponseBodyFieldsConditions extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The target value for the condition.
+   * The target value.
    * 
    * @example
    * Custom
@@ -110,7 +110,7 @@ export class GetAddonSchemaResponseBodyFieldsProps extends $dara.Model {
   dataSource?: GetAddonSchemaResponseBodyFieldsPropsDataSource[];
   /**
    * @remarks
-   * The related data collection.
+   * The related data set.
    */
   related?: string[];
   /**
@@ -306,7 +306,7 @@ export class GetAddonSchemaResponseBodyFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The input prompt.
+   * The placeholder text.
    * 
    * @example
    * Please enter the metrics collection interval

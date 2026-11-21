@@ -22,6 +22,9 @@ export class ListAddonReleasesRequest extends $dara.Model {
   /**
    * @remarks
    * The next token for pagination.
+   * 
+   * @example
+   * 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
    */
   nextToken?: string;
   /**

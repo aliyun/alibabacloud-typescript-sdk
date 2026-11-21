@@ -71,7 +71,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The update time.
+   * The last modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -176,12 +176,12 @@ export class ListWorkspacesResponseBody extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * xxxxxxxxxx
+   * A1111AAAA1A1AaaA1Aa1aaAaa1AAaaAAa1AaAaaa1aA1Aa1aaaa1aaa-AAaaa1aa
    */
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -189,7 +189,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of results.
    * 
    * @example
    * 1

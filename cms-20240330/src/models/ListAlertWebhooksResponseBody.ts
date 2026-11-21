@@ -18,7 +18,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
    * The collection of HTTP request headers.
    * 
    * @example
-   * key
+   * {"X-Total-Count":"0"}
    */
   headers?: { [key: string]: any };
   /**
@@ -51,7 +51,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The URL of the alert callback.
+   * The alert callback URL.
    * 
    * @example
    * http://aliyun.com/test
@@ -59,7 +59,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * The unique ID of the webhook.
+   * The unique identifiers of the webhooks.
    * 
    * @example
    * test
@@ -67,7 +67,7 @@ export class ListAlertWebhooksResponseBodyWebhooks extends $dara.Model {
   webhookId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-0000000000000000-cn-hangzhou
@@ -122,7 +122,7 @@ export class ListAlertWebhooksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

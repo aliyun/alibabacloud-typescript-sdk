@@ -93,7 +93,7 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The configuration for one-time execution.
+   * The configuration for a single execution.
    */
   runOnce?: UpdatePipelineRequestExecutePolicyRunOnce;
   /**
@@ -263,7 +263,7 @@ export class UpdatePipelineRequestSink extends $dara.Model {
   dataset?: UpdatePipelineRequestSinkDataset;
   /**
    * @remarks
-   * The data sink type.
+   * The sink type.
    * 
    * @example
    * dataset
@@ -396,7 +396,7 @@ export class UpdatePipelineRequest extends $dara.Model {
   pipeline?: UpdatePipelineRequestPipeline;
   /**
    * @remarks
-   * The data sink.
+   * The sink.
    */
   sink?: UpdatePipelineRequestSink;
   /**

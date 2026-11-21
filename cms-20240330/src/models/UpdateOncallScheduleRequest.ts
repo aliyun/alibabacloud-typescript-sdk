@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the rotation takes effect.
+   * The days of the week when the rotation is active.
    * 
    * This parameter is required.
    */
   activeDays?: number[];
   /**
    * @remarks
-   * The IDs of the contacts.
+   * The contact ID.
    * 
    * This parameter is required.
    */
@@ -49,7 +49,7 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   rotationStartTime?: string;
   /**
    * @remarks
-   * The length of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
+   * The length of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call contact every 3 days.
    * 
    * @example
    * 3
@@ -57,7 +57,7 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift recurrence frequency. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 1 week.
+   * The unit of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call contact every week.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The time zone name, which uses the IANA Time Zone Database standard. Example: Asia/Shanghai.
+   * The name of the time zone based on the IANA Time Zone Database standard. Example: Asia/Shanghai.
    * 
    * This parameter is required.
    * 
@@ -147,7 +147,7 @@ export class UpdateOncallScheduleRequestSubstitudes extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The contact ID of the replaced person.
+   * The contact ID of the replaced contact.
    * 
    * @example
    * testId
@@ -204,7 +204,7 @@ export class UpdateOncallScheduleRequest extends $dara.Model {
   rotations?: UpdateOncallScheduleRequestRotations[];
   /**
    * @remarks
-   * The ID of the shift reminder bot.
+   * The ID of the shift reminder chatbot.
    * 
    * @example
    * testId

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDatasetRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description for the dataset.
+   * The description.
    * 
    * @example
    * test dataset

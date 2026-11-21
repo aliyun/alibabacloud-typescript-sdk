@@ -263,7 +263,7 @@ export class CreatePipelineRequestSink extends $dara.Model {
   dataset?: CreatePipelineRequestSinkDataset;
   /**
    * @remarks
-   * The sink type.
+   * The destination type.
    * 
    * @example
    * dataset
@@ -298,7 +298,7 @@ export class CreatePipelineRequestSink extends $dara.Model {
 export class CreatePipelineRequestSourceLogstore extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the Logstore.
    * 
    * @example
    * test-logstore
@@ -306,7 +306,7 @@ export class CreatePipelineRequestSourceLogstore extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the project.
    * 
    * @example
    * test-project
@@ -348,7 +348,7 @@ export class CreatePipelineRequestSourceLogstore extends $dara.Model {
 export class CreatePipelineRequestSource extends $dara.Model {
   /**
    * @remarks
-   * The Simple Log Service Logstore information.
+   * The Logstore information.
    */
   logstore?: CreatePipelineRequestSourceLogstore;
   /**
@@ -414,7 +414,7 @@ export class CreatePipelineRequest extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The sink.
+   * The destination.
    */
   sink?: CreatePipelineRequestSink;
   /**

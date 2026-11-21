@@ -6,11 +6,14 @@ export class Evaluator extends $dara.Model {
   /**
    * @remarks
    * The evaluator configuration parameters.
+   * 
+   * @example
+   * {"size":7}
    */
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The evaluation filter conditions.
+   * The evaluation filters.
    */
   filters?: { [key: string]: string };
   /**
@@ -39,7 +42,7 @@ export class Evaluator extends $dara.Model {
   resultType?: string;
   /**
    * @remarks
-   * The evaluation variable mapping.
+   * The evaluation variable mappings.
    */
   variableMapping?: { [key: string]: string };
   static names(): { [key: string]: string } {

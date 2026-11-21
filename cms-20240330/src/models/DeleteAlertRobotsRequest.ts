@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertRobotsRequest extends $dara.Model {
   /**
    * @remarks
-   * The chatbot IDs.
+   * The IDs of the chatbots.
    * 
    * This parameter is required.
    */
   robotIds?: string[];
   /**
    * @remarks
-   * The chatbot type.
+   * The type of the chatbot.
    * 
    * @example
    * DING

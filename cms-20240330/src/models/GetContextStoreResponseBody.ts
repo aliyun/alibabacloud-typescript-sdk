@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContextStoreResponseBodyConfigInnerSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the Log Service logstore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * sls-test-logstore
@@ -13,7 +13,7 @@ export class GetContextStoreResponseBodyConfigInnerSource extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Log Service project.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * sls-test-project
@@ -45,7 +45,7 @@ export class GetContextStoreResponseBodyConfigInnerSource extends $dara.Model {
 export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the Log Service logstore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * sls-test-logstore
@@ -53,7 +53,7 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Log Service project.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * sls-test-project
@@ -61,7 +61,7 @@ export class GetContextStoreResponseBodyConfigSource extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The time when the configuration takes effect. This value is a Unix timestamp in milliseconds.
+   * The effective start time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -102,7 +102,7 @@ export class GetContextStoreResponseBodyConfig extends $dara.Model {
   innerSource?: GetContextStoreResponseBodyConfigInnerSource;
   /**
    * @remarks
-   * The metadata fields.
+   * The metadata field.
    */
   metadataField?: { [key: string]: string };
   /**
@@ -177,12 +177,12 @@ export class GetContextStoreResponseBodyDataset extends $dara.Model {
 export class GetContextStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the context store.
+   * The configuration information.
    */
   config?: GetContextStoreResponseBodyConfig;
   /**
    * @remarks
-   * The context store name.
+   * The name of the context store.
    * 
    * @example
    * test-context-store
@@ -190,7 +190,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   contextStoreName?: string;
   /**
    * @remarks
-   * The type of the context store.
+   * The context type.
    * 
    * @example
    * memory
@@ -198,7 +198,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   contextType?: string;
   /**
    * @remarks
-   * The creation time of the context store. This value is a Unix timestamp in seconds.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -208,12 +208,12 @@ export class GetContextStoreResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Information about the associated dataset.
+   * The dataset information.
    */
   dataset?: GetContextStoreResponseBodyDataset;
   /**
    * @remarks
-   * The description of the context store.
+   * The description.
    * 
    * @example
    * test
@@ -237,7 +237,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the context store.
+   * The status.
    * 
    * @example
    * active
@@ -245,7 +245,7 @@ export class GetContextStoreResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time of the context store. This value is a Unix timestamp in seconds.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 

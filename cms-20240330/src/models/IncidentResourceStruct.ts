@@ -9,12 +9,12 @@ export class IncidentResourceStruct extends $dara.Model {
    * The description.
    * 
    * @example
-   * Production environment web server.
+   * Production web server
    */
   description?: string;
   /**
    * @remarks
-   * The event ID.
+   * The incident ID.
    * 
    * @example
    * incident-001
@@ -22,7 +22,7 @@ export class IncidentResourceStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * The unique ID of the resource in the event.
+   * The unique ID of the resource in the incident.
    * 
    * @example
    * res-001
@@ -30,7 +30,7 @@ export class IncidentResourceStruct extends $dara.Model {
   incidentResourceId?: string;
   /**
    * @remarks
-   * The details object for the event resource.
+   * The incident resource details object.
    */
   resource?: IncidentResourceDetail;
   /**
@@ -54,7 +54,7 @@ export class IncidentResourceStruct extends $dara.Model {
    * The user ID.
    * 
    * @example
-   * user-12345
+   * 123456
    */
   userId?: number;
   static names(): { [key: string]: string } {

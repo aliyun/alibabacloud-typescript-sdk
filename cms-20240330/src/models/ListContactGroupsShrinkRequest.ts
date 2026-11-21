@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactGroupsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The contact group IDs.
+   * The IDs of the contact groups.
    */
   contactGroupIdsShrink?: string;
   /**
    * @remarks
-   * The contact name.
+   * The name of the contact.
    * 
    * @example
    * test
@@ -34,7 +34,7 @@ export class ListContactGroupsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-xxxxxx-cn-beijing

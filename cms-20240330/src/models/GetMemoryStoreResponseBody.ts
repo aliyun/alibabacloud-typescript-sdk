@@ -6,7 +6,7 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
   /**
    * @remarks
-   * The Simple Log Service Logstore name.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * memory-store
@@ -14,7 +14,7 @@ export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * wk_cms_data_warehouse
@@ -46,7 +46,7 @@ export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
 export class GetMemoryStoreResponseBodyTraceSourceConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to include LLM output in memory extraction.
+   * Specifies whether to include the LLM output in memory extraction.
    */
   includeOutput?: boolean;
   /**
@@ -59,7 +59,7 @@ export class GetMemoryStoreResponseBodyTraceSourceConfig extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The workspace where the trace resides.
+   * The workspace where the trace is located.
    * 
    * @example
    * test-workspace
@@ -116,12 +116,12 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extraction strategies. Valid values: Episodic, Summary, and Fact.
+   * The supported extraction strategies: Episodic, Summary, and Fact.
    */
   extractionStrategies?: string[];
   /**
    * @remarks
-   * The memory store name.
+   * The name of the memory store.
    * 
    * @example
    * test-memory-store
@@ -150,7 +150,7 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
   shortTermStorage?: GetMemoryStoreResponseBodyShortTermStorage;
   /**
    * @remarks
-   * The retention period of short-term memory.
+   * The retention period for short-term memory.
    * 
    * @example
    * 10
@@ -166,7 +166,7 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The configuration used when sourceType is set to Trace.
+   * The configuration when the sourceType is Trace.
    */
   traceSourceConfig?: GetMemoryStoreResponseBodyTraceSourceConfig;
   /**
@@ -181,7 +181,7 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-xxxxxx-cn-beijing

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceResponseBodyServiceTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class GetServiceResponseBodyServiceTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * prod
@@ -77,7 +77,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ARMS application ID for backward compatibility.
+   * The legacy ARMS application ID for backward compatibility.
    * 
    * @example
    * by6rjzro2j@0fe8dfa799e5906
@@ -93,7 +93,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekxxzuad5zzzz
@@ -101,7 +101,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * cwzxvuc6uo@4bc6b15ad81f166174ffb
@@ -117,7 +117,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service status. This parameter is valid only when serviceType is set to RUM.
+   * The status of the service. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * Running
@@ -125,7 +125,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * The service type.
+   * The type of the service.
    * 
    * @example
    * TRACE
@@ -133,12 +133,12 @@ export class GetServiceResponseBodyService extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The array of tags.
    */
   tags?: GetServiceResponseBodyServiceTags[];
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-1106439496876715-cn-hangzhou
@@ -195,7 +195,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
 export class GetServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 264C3E89-BE6E-5F82-A484-CE9C2196C7DC

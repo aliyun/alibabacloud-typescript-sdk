@@ -6,7 +6,7 @@ import { FilterSetting } from "./FilterSetting";
 export class WorkspaceFilterSetting extends $dara.Model {
   /**
    * @remarks
-   * The label filter. This parameter is not supported and does not take effect if specified.
+   * The tag filter. This feature is not yet supported, and passing this parameter has no effect.
    */
   tagSelector?: FilterSetting;
   /**

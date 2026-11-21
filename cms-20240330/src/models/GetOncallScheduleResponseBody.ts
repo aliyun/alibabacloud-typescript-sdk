@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the rotation takes effect.
+   * The days of the week when the rotation is active.
    */
   activeDays?: number[];
   /**
    * @remarks
-   * The IDs of the contacts.
+   * The contact IDs.
    */
   contacts?: string[];
   /**
@@ -39,7 +39,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   rotationStartTime?: string;
   /**
    * @remarks
-   * The length of the shift recurrence period. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
+   * The length of the shift recurrence. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call contact every 3 days.
    * 
    * @example
    * 4
@@ -47,7 +47,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift recurrence frequency. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 1 week.
+   * The unit of the shift recurrence frequency. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call contact every week.
    * 
    * @example
    * WEEKLY
@@ -63,7 +63,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The name of the time zone. Uses the IANA Time Zone Database standard, such as Asia/Shanghai.
+   * The name of the time zone. The IANA Time Zone Database standard is used, for example, Asia/Shanghai.
    * 
    * @example
    * Asia/Shanghai
@@ -204,7 +204,7 @@ export class GetOncallScheduleResponseBody extends $dara.Model {
   rotations?: GetOncallScheduleResponseBodyRotations[];
   /**
    * @remarks
-   * The ID of the robot for shift change reminders.
+   * The ID of the shift reminder chatbot.
    * 
    * @example
    * testId

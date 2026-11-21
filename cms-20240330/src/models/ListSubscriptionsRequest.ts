@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubscriptionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the AI agent. This parameter is used to filter subscriptions for a specified AI agent.
+   * The UUID of the AI agent. This parameter is used to filter subscriptions of a specific AI agent.
    * 
    * @example
    * agent-rca-001
@@ -14,8 +14,8 @@ export class ListSubscriptionsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order of the returned versions. Valid values:
-   * - asc: Ascending order. 
-   * - desc: Descending order.
+   * - asc: ascending order 
+   * - desc: descending order
    * 
    * @example
    * asc
@@ -47,7 +47,7 @@ export class ListSubscriptionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The UUID of the notification policy. This parameter is used to filter subscriptions that are bound to a specified notification policy. The value is a 32-character string.
+   * The UUID of the notification policy. This parameter is used to filter subscriptions that are bound to a specific notification policy. The value is a 32-character string.
    * 
    * @example
    * 1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d
@@ -79,7 +79,9 @@ export class ListSubscriptionsRequest extends $dara.Model {
   subscriptionName?: string;
   /**
    * @remarks
-   * The type of the subscription. Valid values: NORMAL (standard subscription) and AI_AGENT (AI agent subscription).
+   * The type of the subscription. Valid values:
+   * - NORMAL: standard subscription
+   * - AI_AGENT: AI agent subscription
    * 
    * @example
    * NORMAL
@@ -87,7 +89,7 @@ export class ListSubscriptionsRequest extends $dara.Model {
   subscriptionType?: string;
   /**
    * @remarks
-   * **[Deprecated]** This is an internal reserved parameter. Do not use it.
+   * **[Deprecated]** This is an internal reserved parameter. Do not use this parameter.
    * 
    * @example
    * true

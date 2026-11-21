@@ -6,7 +6,7 @@ import { AddonMeta } from "./AddonMeta";
 export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions extends $dara.Model {
   /**
    * @remarks
-   * The time of the first transition.
+   * The time of the first transition, in ISO 8601 format, including the UTC identifier or time zone offset.
    * 
    * @example
    * 2024-08-27T13:59:23+08:00
@@ -14,7 +14,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions ext
   firstTransitionTime?: string;
   /**
    * @remarks
-   * The time of the last transition.
+   * The time of the last transition, in ISO 8601 format, including the UTC identifier or time zone offset.
    * 
    * @example
    * 2024-08-27T13:59:23+08:00
@@ -22,7 +22,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions ext
   lastTransitionTime?: string;
   /**
    * @remarks
-   * The details.
+   * The condition details.
    * 
    * @example
    * success
@@ -38,7 +38,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions ext
   reason?: string;
   /**
    * @remarks
-   * The phase status.
+   * The conditions.
    * 
    * @example
    * True
@@ -46,7 +46,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions ext
   status?: string;
   /**
    * @remarks
-   * The phase type.
+   * The type of the condition.
    * 
    * @example
    * Ready
@@ -86,7 +86,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions ext
 export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloadsManagedInfo extends $dara.Model {
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-xxxxx
@@ -94,7 +94,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloadsManag
   securityGroupId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-xxxxxx
@@ -126,7 +126,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloadsManag
 export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads extends $dara.Model {
   /**
    * @remarks
-   * The host IP address.
+   * The IP address of the host.
    * 
    * @example
    * 10.10.10.10
@@ -142,7 +142,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   ip?: string;
   /**
    * @remarks
-   * Indicates whether the component is a managed component.
+   * Indicates whether the component is managed.
    * 
    * @example
    * false
@@ -155,7 +155,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   managedInfo?: ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloadsManagedInfo;
   /**
    * @remarks
-   * The details.
+   * The condition details.
    * 
    * @example
    * ok
@@ -163,7 +163,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   message?: string;
   /**
    * @remarks
-   * The workload name.
+   * The name of the workload.
    * 
    * @example
    * exporter-xxx
@@ -171,7 +171,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   name?: string;
   /**
    * @remarks
-   * The workload namespace.
+   * The namespace of the workload.
    * 
    * @example
    * prod-db
@@ -179,7 +179,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   namespace?: string;
   /**
    * @remarks
-   * The kind of the parent reference.
+   * The kind of the owner reference.
    * 
    * @example
    * Deployment
@@ -187,7 +187,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   ownerReferenceKind?: string;
   /**
    * @remarks
-   * The name of the parent reference.
+   * The name of the owner reference.
    * 
    * @example
    * exporter
@@ -195,7 +195,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   ownerReferenceName?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time, in ISO 8601 format, including the UTC identifier or time zone offset.
    * 
    * @example
    * 2024-08-27T13:59:23+08:00
@@ -211,7 +211,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
   status?: string;
   /**
    * @remarks
-   * The workload version.
+   * The version of the workload.
    * 
    * @example
    * v2.4.4
@@ -271,7 +271,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectors extends $dara
   addonMeta?: AddonMeta;
   /**
    * @remarks
-   * The collector name.
+   * The name of the collector.
    * 
    * @example
    * collector-kkxx
@@ -279,7 +279,7 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectors extends $dara
   collectorName?: string;
   /**
    * @remarks
-   * The collector type.
+   * The type of the collector.
    * 
    * @example
    * Exporter
@@ -287,12 +287,12 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectors extends $dara
   collectorType?: string;
   /**
    * @remarks
-   * The phase status.
+   * The conditions.
    */
   conditions?: ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions[];
   /**
    * @remarks
-   * Indicates whether the component is a managed component.
+   * Indicates whether the component is managed.
    * 
    * @example
    * false
@@ -308,15 +308,15 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectors extends $dara
   releaseName?: string;
   /**
    * @remarks
-   * The collector status.
+   * The state of the collector.
    * 
    * @example
-   * xx
+   * active
    */
   state?: string;
   /**
    * @remarks
-   * The component version.
+   * The version of the component.
    * 
    * @example
    * 2.6.2

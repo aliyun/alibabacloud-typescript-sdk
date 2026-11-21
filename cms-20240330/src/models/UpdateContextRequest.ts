@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContextRequest extends $dara.Model {
   /**
    * @remarks
-   * The updated long-term memory text.
+   * The long-term memory text to update.
    * 
    * @example
    * Users prefer to first view the SLS error logs, index configuration, and the most recent Agent execution trace.
@@ -33,7 +33,7 @@ export class UpdateContextRequest extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The updated payload.
+   * The payload to update.
    * 
    * @example
    * {
@@ -53,7 +53,7 @@ export class UpdateContextRequest extends $dara.Model {
   payload?: { [key: string]: any };
   /**
    * @remarks
-   * The trigger condition.
+   * The cause.
    * 
    * @example
    * Identify and troubleshoot SLs issues

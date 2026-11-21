@@ -6,6 +6,14 @@ import { FilterSetting } from "./FilterSetting";
 export class NotifyStrategyConfigCustomTemplateEntries extends $dara.Model {
   /**
    * @remarks
+   * This parameter is optional. You can configure at most one template for each notification type.
+   * 
+   * @example
+   * SMS
+   */
+  targetType?: string;
+  /**
+   * @remarks
    * The UUID of the notification template.
    * 
    * @example
@@ -14,12 +22,14 @@ export class NotifyStrategyConfigCustomTemplateEntries extends $dara.Model {
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
+      targetType: 'targetType',
       templateUuid: 'templateUuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      targetType: 'string',
       templateUuid: 'string',
     };
   }
@@ -44,7 +54,7 @@ export class NotifyStrategyConfigGroupingSetting extends $dara.Model {
   groupingKeys?: string[];
   /**
    * @remarks
-   * This parameter does not take effect for this API operation and does not need to be set.
+   * This parameter does not take effect for this API operation and does not need to be configured.
    * 
    * @example
    * 0
@@ -52,7 +62,7 @@ export class NotifyStrategyConfigGroupingSetting extends $dara.Model {
   periodMin?: number;
   /**
    * @remarks
-   * This parameter does not take effect for this API operation and does not need to be set.
+   * This parameter does not take effect for this API operation and does not need to be configured.
    * 
    * @example
    * 0
@@ -60,7 +70,7 @@ export class NotifyStrategyConfigGroupingSetting extends $dara.Model {
   silenceSec?: number;
   /**
    * @remarks
-   * This parameter does not take effect for this API operation and does not need to be set.
+   * This parameter does not take effect for this API operation and does not need to be configured.
    * 
    * @example
    * 0
@@ -99,7 +109,7 @@ export class NotifyStrategyConfigGroupingSetting extends $dara.Model {
 export class NotifyStrategyConfigRoutesChannels extends $dara.Model {
   /**
    * @remarks
-   * The type of the channel. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP. The values must be in uppercase. Lowercase values are not supported. For email, text messages, and voice calls, use CONTACT with enabledSubChannels.
+   * The type of the channel. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP. The values must be in uppercase. Lowercase values are not supported. For email, text message, and voice call, use CONTACT and configure enabledSubChannels.
    * 
    * This parameter is required.
    * 
@@ -109,7 +119,7 @@ export class NotifyStrategyConfigRoutesChannels extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * Required only for CONTACT, GROUP, and DUTY. Valid values for sub-channels: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK. The values must be in uppercase.
+   * This parameter is required only when the channel type is CONTACT, GROUP, or DUTY. Valid values for sub-channels: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK. The values must be in uppercase.
    * 
    * @example
    * ["EMAIL","SMS"]
@@ -117,7 +127,7 @@ export class NotifyStrategyConfigRoutesChannels extends $dara.Model {
   enabledSubChannels?: string[];
   /**
    * @remarks
-   * The list of receiver identifiers. At least one receiver is required. For WEBHOOK, specify the webhook UUID. For a chatbot, specify the chatbot UUID. For CONTACT, specify the contact ID.
+   * The list of recipient identifiers. At least one identifier is required. For WEBHOOK, specify the webhook UUID. For a chatbot, specify the chatbot UUID. For CONTACT, specify the contact ID.
    * 
    * This parameter is required.
    * 
@@ -243,7 +253,7 @@ export class NotifyStrategyConfigRoutes extends $dara.Model {
   effectTimeRange?: NotifyStrategyConfigRoutesEffectTimeRange;
   /**
    * @remarks
-   * Specifies whether to enable Root Cause Analysis (RCA).
+   * Specifies whether to enable root cause analysis (RCA).
    * 
    * @example
    * false

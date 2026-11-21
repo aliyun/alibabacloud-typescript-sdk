@@ -11,7 +11,7 @@ export class ListBizTracesResponseBody extends $dara.Model {
   items?: BizTraceConfig[];
   /**
    * @remarks
-   * The maximum number of results to return. Maximum value: 100.
+   * The maximum number of results to return. The maximum value is 100.
    * 
    * @example
    * 20
@@ -35,7 +35,7 @@ export class ListBizTracesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 66

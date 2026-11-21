@@ -105,7 +105,7 @@ export class ListMemoryStoresResponseBody extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * xxxxxxxxxx
+   * Y3iar1wjfpVIs8Krllea2QKM7-ND__****Iar1wjf9vi8SkRl_EAWqkM7l9Dl-pl
    */
   nextToken?: string;
   /**

@@ -263,7 +263,7 @@ export class GetPipelineResponseBodySink extends $dara.Model {
   dataset?: GetPipelineResponseBodySinkDataset;
   /**
    * @remarks
-   * The data sink type.
+   * The output destination type.
    * 
    * @example
    * dataset
@@ -440,7 +440,7 @@ export class GetPipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data sink.
+   * The output destination.
    */
   sink?: GetPipelineResponseBodySink;
   /**

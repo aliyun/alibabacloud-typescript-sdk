@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The contact group IDs.
+   * The IDs of the contact groups.
    */
   contactGroupIds?: string[];
   /**
    * @remarks
-   * The contact name.
+   * The name of the contact.
    * 
    * @example
    * test
@@ -34,7 +34,7 @@ export class ListContactGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-xxxxxx-cn-beijing

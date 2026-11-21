@@ -45,7 +45,7 @@ export class CreateContactRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The mobile phone number. Currently, only mobile phone numbers in China are supported.
+   * The mobile phone number. Currently, only phone numbers in the Chinese mainland are supported.
    * 
    * @example
    * 13012345678

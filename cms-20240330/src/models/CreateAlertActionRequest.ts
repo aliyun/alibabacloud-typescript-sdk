@@ -224,7 +224,6 @@ export class CreateAlertActionRequestMnsParam extends $dara.Model {
   /**
    * @remarks
    * The resource name.
-   * 
    * - If the resource type is queue, the resource name is the queue name.
    * - If the resource type is topic, the resource name is the topic name.
    * 
@@ -276,7 +275,7 @@ export class CreateAlertActionRequestPagerDutyParam extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
+   * The integration webhook for PagerDuty. V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -371,7 +370,7 @@ export class CreateAlertActionRequestWebhookParam extends $dara.Model {
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The HTTP method for the webhook request.
+   * The webhook request method.
    * 
    * @example
    * POST
@@ -379,7 +378,7 @@ export class CreateAlertActionRequestWebhookParam extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The alert callback URL.
+   * The URL for the alert callback.
    * 
    * @example
    * http://www.test.com
@@ -436,7 +435,7 @@ export class CreateAlertActionRequest extends $dara.Model {
   alertActionName?: string;
   /**
    * @remarks
-   * The event bus parameters.
+   * The event bus.
    */
   ebParam?: CreateAlertActionRequestEbParam;
   /**

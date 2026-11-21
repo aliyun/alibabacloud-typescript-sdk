@@ -16,12 +16,12 @@ export class IncidentEventStruct extends $dara.Model {
    * The content.
    * 
    * @example
-   * The CPU utilization of the user-service instance i-abc123 reached 95%, triggering an alert
+   * The CPU usage of the user-service instance i-abc123 reached 95%, triggering an alert
    */
   content?: string;
   /**
    * @remarks
-   * The statistical count.
+   * The count.
    * 
    * @example
    * 6
@@ -77,7 +77,7 @@ export class IncidentEventStruct extends $dara.Model {
   recoverTime?: number;
   /**
    * @remarks
-   * The information about the resources associated with the event.
+   * The resource information associated with the event.
    * 
    * @example
    * {"resourceId":"i-example001"}
@@ -88,7 +88,7 @@ export class IncidentEventStruct extends $dara.Model {
    * The status.
    * 
    * @example
-   * Running
+   * 1
    */
   status?: number;
   /**
@@ -104,7 +104,7 @@ export class IncidentEventStruct extends $dara.Model {
    * The title.
    * 
    * @example
-   * High CPU utilization of the user service
+   * High CPU usage in the user service
    */
   title?: string;
   /**

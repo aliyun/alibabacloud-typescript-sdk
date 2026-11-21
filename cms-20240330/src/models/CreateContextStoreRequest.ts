@@ -132,7 +132,7 @@ export class CreateContextStoreRequest extends $dara.Model {
   config?: CreateContextStoreRequestConfig;
   /**
    * @remarks
-   * The name of the context store.
+   * The name of the context library.
    * 
    * This parameter is required.
    * 

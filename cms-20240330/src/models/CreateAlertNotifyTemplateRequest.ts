@@ -21,7 +21,7 @@ export class CreateAlertNotifyTemplateRequest extends $dara.Model {
   alertNotifyTemplateName?: string;
   /**
    * @remarks
-   * The template syntax type. Currently, only Go is supported. Templates in the title and content fields use the Go template syntax.
+   * The syntax type of the template. Currently, only Go is supported. The templates in the title and content fields use the Go template syntax.
    * 
    * @example
    * GO
@@ -29,7 +29,7 @@ export class CreateAlertNotifyTemplateRequest extends $dara.Model {
   programLang?: string;
   /**
    * @remarks
-   * The multilingual notification templates. The key is the language code: zh for Chinese and en for English. The value is the template configuration object for the specified language. When a notification is sent, the corresponding template is selected based on the recipient\\"s language. The content format varies by type: Markdown for DING, WEIXIN, and FEISHU; HTML for EMAIL; plain text for SMS, CALL, and SLACK; and JSON for CUSTOM.
+   * The multilingual notification templates. The key is the language code: zh for Chinese and en for English. The value is the template configuration object for the specified language. When a notification is sent, the corresponding template is selected based on the recipient\\"s language. The content format varies by type. Markdown for DING, WEIXIN, and FEISHU. HTML for EMAIL. Plain text for SMS, CALL, and SLACK. JSON for CUSTOM.
    * 
    * @example
    * {"zh":{"title":"云监控报警: {{.incident.title}}","content":"**报警标题:** {{.incident.title}}\\n**级别:** {{.incident.severity}}\\n**事件数:** {{len .events}}","incidentLifeCycleNotifyTemplates":"{\\"IncidentCreationNotify\\":{\\"title\\":\\"云监控报警: {{.incident.title}}\\",\\"content\\":\\"**报警标题:** {{.incident.title}}\\\\n**级别:** {{.incident.severity}}\\",\\"enable\\":true},\\"IncidentResolutionNotify\\":{\\"title\\":\\"云监控报警已解决: {{.incident.title}}\\",\\"content\\":\\"**报警标题:** {{.incident.title}}\\\\n**级别:** {{.incident.severity}}\\",\\"enable\\":true}}"},"en":{"title":"CloudMonitor Alert: {{.incident.title}}","content":"**Alert Title:** {{.incident.title}}\\n**Severity:** {{.incident.severity}}\\n**Events:** {{len .events}}","incidentLifeCycleNotifyTemplates":"{\\"IncidentCreationNotify\\":{\\"title\\":\\"CloudMonitor Alert: {{.incident.title}}\\",\\"content\\":\\"**Alert Title:** {{.incident.title}}\\\\n**Severity:** {{.incident.severity}}\\",\\"enable\\":true},\\"IncidentResolutionNotify\\":{\\"title\\":\\"CloudMonitor Alert Resolved: {{.incident.title}}\\",\\"content\\":\\"**Alert Title:** {{.incident.title}}\\\\n**Severity:** {{.incident.severity}}\\",\\"enable\\":true}}"}}
@@ -37,7 +37,7 @@ export class CreateAlertNotifyTemplateRequest extends $dara.Model {
   templates?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
-   * The notification channel type. Valid values:
+   * The type of the notification channel. Valid values:
    * - DING
    * - WEIXIN
    * - FEISHU

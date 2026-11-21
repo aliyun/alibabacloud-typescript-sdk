@@ -13,7 +13,7 @@ export class ActiveContactChannelRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The site. Valid values: cn_hangzhou (China site) and ap_southeast_1 (International site). Default value: cn_hangzhou.
+   * The site. Valid values: cn_hangzhou (Alibaba Cloud China Website) and ap_southeast_1 (Alibaba Cloud International Website). Default value: cn_hangzhou.
    * 
    * @example
    * cn_hangzhou

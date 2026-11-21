@@ -178,7 +178,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule ext
 export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $dara.Model {
   /**
    * @remarks
-   * The description of the protocol.
+   * The protocol description.
    * 
    * @example
    * Support OpenTelemetry Protocal
@@ -202,7 +202,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $
   label?: string;
   /**
    * @remarks
-   * The name of the protocol.
+   * The protocol name.
    * 
    * @example
    * openTelemetry
@@ -246,7 +246,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   alertDefaultStatus?: string;
   /**
    * @remarks
-   * Specifies whether to install the component by default.
+   * Specifies whether the add-on is installed by default.
    * 
    * @example
    * true
@@ -267,7 +267,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   metricCheckRule?: ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Specifies whether to trigger a pod restart guide immediately after the plug-in installation is completed during integration.
+   * Specifies whether to trigger the pod restart process immediately after the plug-in is installed during integration.
    * 
    * @example
    * true
@@ -375,7 +375,7 @@ export class ListAddonsResponseBodyAddonsEnvironments extends $dara.Model {
   policies?: ListAddonsResponseBodyAddonsEnvironmentsPolicies;
   /**
    * @remarks
-   * The policy type of the integration center.
+   * The Integration Center policy type.
    * 
    * @example
    * CS
@@ -480,7 +480,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time when the latest version was created. The time follows the ISO 8601 standard and includes a UTC identifier or time zone offset.
+   * The time of the latest release. The time follows the ISO 8601 standard and includes a UTC identifier or time zone offset.
    * 
    * @example
    * 2025-09-03T03:15:56Z
@@ -496,7 +496,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether the component can be installed only once.
+   * Specifies whether the add-on can be installed only once.
    * 
    * @example
    * true
@@ -504,7 +504,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   once?: boolean;
   /**
    * @remarks
-   * The scenario of the component.
+   * The component scenario.
    * 
    * @example
    * middleware
@@ -512,10 +512,10 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The version of the component.
+   * The component version.
    * 
    * @example
-   * *
+   * 1.2.32
    */
   version?: string;
   /**

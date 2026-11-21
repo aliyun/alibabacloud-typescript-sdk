@@ -77,7 +77,7 @@ export class AddMemoriesRequest extends $dara.Model {
   customInstructions?: string;
   /**
    * @remarks
-   * The inference setting.
+   * Specifies whether to enable inference.
    * 
    * @example
    * true

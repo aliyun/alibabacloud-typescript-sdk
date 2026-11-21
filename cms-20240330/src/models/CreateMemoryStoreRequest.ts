@@ -91,7 +91,7 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   shortTermTtl?: number;
   /**
    * @remarks
-   * The source of the memory.
+   * The memory source.
    * 
    * @example
    * None/Trace
@@ -99,7 +99,7 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The configuration when the sourceType is Trace.
+   * The configuration when the sourceType is set to Trace.
    */
   traceSourceConfig?: CreateMemoryStoreRequestTraceSourceConfig;
   static names(): { [key: string]: string } {

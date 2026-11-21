@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableMaintainWindowRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace name. This parameter is required by the backend and is used to isolate silence policy resources across different business workspaces.
+   * The name of the workspace. This parameter is required by the backend and is used to isolate silence policy resources across different business workspaces.
    * 
    * @example
    * default-cms-xxxx-cn-hangzhou

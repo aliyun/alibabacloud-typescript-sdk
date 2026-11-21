@@ -14,10 +14,10 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token that is used to start the next query.
    * 
    * @example
-   * xxxxxxxxxx
+   * 2-ba4d-4b9f-aa24-dcb067a30f1c
    */
   nextToken?: string;
   /**
@@ -37,9 +37,9 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The labels. Used as filter conditions for the query.
+   * The tags. The filter conditions for the query.
    * 
-   * You can specify up to 20 labels.
+   * You can specify up to 20 tags.
    */
   tag?: Tag[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EnsureSharedPrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the returned information. zh indicates Chinese, and en indicates English. Default value: zh.
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
+   * Default value: zh.
    * 
    * @example
    * zh

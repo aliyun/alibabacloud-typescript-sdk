@@ -61,7 +61,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The metadata source. CMS indicates CloudMonitor Basic monitoring metrics, and PROM_BASIC indicates Prometheus CloudMonitor basic monitoring metrics.
+   * The source of metadata. Valid values: CMS for CloudMonitor Basic monitoring metrics, and PROM_BASIC for basic monitoring metrics of Managed Service for Prometheus.
    * 
    * Example value:
    * CMS
@@ -75,7 +75,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   metaFormat?: string;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * @example
    * CPUUtilization
@@ -99,7 +99,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   periods?: string;
   /**
    * @remarks
-   * The statistical method of the metric. Example values:
+   * The statistical method of the metric. Valid values:
    * - Maximum: the maximum value.
    * - Minimum: the minimum value.
    * - Average: the average value.
@@ -110,7 +110,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * The metric type.
+   * The type of the metric.
    * 
    * @example
    * Gauge
@@ -185,7 +185,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 2000
@@ -201,7 +201,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configuration information of the metrics in the resource.
+   * The configuration information of the metrics for the resource.
    */
   resources?: DescribeMetricMetaListResponseBodyResources[];
   /**

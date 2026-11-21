@@ -215,7 +215,7 @@ export class GetAlertActionResponseBodyAlertActionsFcParam extends $dara.Model {
 export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model {
   /**
    * @remarks
-   * The Simple Message Queue (formerly MNS) resource type.
+   * The Simple Message Queue (formerly MNS) (MSMQ) resource type.
    * 
    * @example
    * queue
@@ -268,7 +268,7 @@ export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model 
 export class GetAlertActionResponseBodyAlertActionsPagerDutyParam extends $dara.Model {
   /**
    * @remarks
-   * The integration key for PagerDuty.
+   * The integration key of PagerDuty.
    * 
    * @example
    * EWR4WR4T4GREG4ET453T5Y
@@ -276,7 +276,7 @@ export class GetAlertActionResponseBodyAlertActionsPagerDutyParam extends $dara.
   key?: string;
   /**
    * @remarks
-   * The PagerDuty integration webhook. Versions 1 and 2 are supported.
+   * The integration webhook of PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -382,7 +382,7 @@ export class GetAlertActionResponseBodyAlertActionsWebhookParam extends $dara.Mo
   method?: string;
   /**
    * @remarks
-   * The URL for the alert callback.
+   * The URL of the alert callback.
    * 
    * @example
    * http://www.test.com
@@ -457,7 +457,7 @@ export class GetAlertActionResponseBodyAlertActions extends $dara.Model {
   fcParam?: GetAlertActionResponseBodyAlertActionsFcParam;
   /**
    * @remarks
-   * The Simple Message Queue (formerly MNS) parameters.
+   * The Simple Message Queue (formerly MNS) (MSMQ) parameters.
    */
   mnsParam?: GetAlertActionResponseBodyAlertActionsMnsParam;
   /**

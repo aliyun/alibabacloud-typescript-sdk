@@ -10,7 +10,7 @@ export class ListAlertNotifyTemplatesShrinkRequest extends $dara.Model {
   alertNotifyTemplateIdsShrink?: string;
   /**
    * @remarks
-   * The name of the notification template.
+   * The notification template name.
    * 
    * @example
    * Alert notification template
@@ -26,7 +26,7 @@ export class ListAlertNotifyTemplatesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

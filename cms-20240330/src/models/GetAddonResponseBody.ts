@@ -148,7 +148,7 @@ export class GetAddonResponseBodyDataEnvironmentsDependencies extends $dara.Mode
 export class GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
   /**
    * @remarks
-   * The data check rule after installation.
+   * The data check rule applied after installation.
    */
   promQL?: string[];
   static names(): { [key: string]: string } {
@@ -267,7 +267,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   metricCheckRule?: GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Specifies whether the pod restart guide is triggered immediately after the add-on is installed during integration.
+   * Specifies whether to initiate a pod restart guide immediately after the add-on is installed during integration.
    * 
    * @example
    * true
@@ -333,7 +333,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
   commonSchemaRefs?: GetAddonResponseBodyDataEnvironmentsCommonSchemaRefs[];
   /**
    * @remarks
-   * The additional dependency files.
+   * The additional dependencies.
    */
   dependencies?: GetAddonResponseBodyDataEnvironmentsDependencies;
   /**
@@ -346,7 +346,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the environment is enabled.
+   * Indicates whether the environment is enabled.
    * 
    * @example
    * false
@@ -515,7 +515,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
    * The component version.
    * 
    * @example
-   * *
+   * 0.1.1
    */
   version?: string;
   /**
@@ -588,7 +588,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
 export class GetAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data list corresponding to the request header.
+   * The list of data corresponding to the request.
    */
   data?: GetAddonResponseBodyData;
   /**

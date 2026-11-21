@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetPrometheusUserSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the Prometheus user settings.
+   * The details of the Prometheus user configurations.
+   * 
+   * @example
+   * {"key":"value1"}
    */
   prometheusUserSetting?: { [key: string]: string };
   /**

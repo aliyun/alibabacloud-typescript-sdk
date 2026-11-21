@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResponsePlanConfigPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * The list of action integration IDs triggered by alerts.
+   * The list of alert-triggered action integration IDs.
    * 
    * @example
    * ["action-uuid-xxx"]
@@ -13,7 +13,7 @@ export class ResponsePlanConfigPushingSetting extends $dara.Model {
   alertActionIds?: string[];
   /**
    * @remarks
-   * The list of action integration IDs triggered by recovery.
+   * The list of recovery-triggered action integration IDs.
    * 
    * @example
    * ["action-uuid-yyy"]
@@ -51,7 +51,7 @@ export class ResponsePlanConfigPushingSetting extends $dara.Model {
 export class ResponsePlanConfigRepeatNotifySetting extends $dara.Model {
   /**
    * @remarks
-   * The target incident status at which repeat notifications stop.
+   * The target incident state for stopping repeat notifications.
    * 
    * @example
    * RECOVERED
@@ -59,7 +59,7 @@ export class ResponsePlanConfigRepeatNotifySetting extends $dara.Model {
   endIncidentState?: string;
   /**
    * @remarks
-   * The repeat notification interval, in seconds.
+   * The repeat notification interval in seconds.
    * 
    * @example
    * 300
@@ -91,7 +91,7 @@ export class ResponsePlanConfigRepeatNotifySetting extends $dara.Model {
 export class ResponsePlanConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of seconds for automatic recovery. If no new trigger occurs within this duration, the event is automatically recovered.
+   * The auto-recovery time in seconds. The incident automatically recovers if no new triggers occur within this duration.
    * 
    * @example
    * 300

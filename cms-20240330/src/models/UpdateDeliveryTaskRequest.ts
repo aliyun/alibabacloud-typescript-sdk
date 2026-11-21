@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the shipping destination. The meanings of keys and values vary based on the sink type.
+   * The detailed configuration of the delivery destination. The meanings of keys and values vary based on the sinkType.
    * 
    * @example
    * {"Url":"https://example.com/api/v1/write","Network":"PublicNetwork","AuthType":"None"}
@@ -13,7 +13,7 @@ export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The type of the shipping destination.
+   * The type of the delivery destination.
    * 
    * @example
    * Prometheus
@@ -51,7 +51,7 @@ export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
 export class UpdateDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The data source ID, which is the Prometheus instance ID.
+   * The data source ID (Prometheus instance ID).
    * 
    * @example
    * rw-5f2b4sc7es4d66
@@ -59,7 +59,7 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The additional labels appended to all shipped metrics. The key is the label name, and the value is the label value.
+   * The additional labels appended to all delivered metrics. The key is the label name, and the value is the label value.
    * 
    * @example
    * {"region":"cn-hangzhou"}
@@ -67,7 +67,7 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filtering conditions. The existing conditions are entirely replaced rather than incrementally merged.
+   * The metric filtering conditions. The existing conditions are entirely replaced without incremental merging.
    * 
    * @example
    * {"__name__":"up"}
@@ -91,7 +91,7 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of shipping destinations.
+   * The list of delivery destinations.
    */
   sinkList?: UpdateDeliveryTaskRequestSinkList[];
   /**

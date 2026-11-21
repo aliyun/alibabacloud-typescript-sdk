@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The entry content in JSON string format. The format varies depending on the recordType value.
+   * The content of the entry. The content is a JSON string and varies based on the recordType.
    * 
    * This parameter is required.
    * 
@@ -21,8 +21,8 @@ export class UpdateServiceRecordRequest extends $dara.Model {
   recordContent?: string;
   /**
    * @remarks
-   * The type of the linked entry. Currently supported value:
-   * logCorrelation, which indicates application log association.
+   * The type of the association entry. Valid values:
+   * logCorrelation: application log association.
    * 
    * This parameter is required.
    * 

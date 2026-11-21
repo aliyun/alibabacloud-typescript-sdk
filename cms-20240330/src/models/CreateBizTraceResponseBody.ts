@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBizTraceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the business trace.
+   * The ID of the business link.
    * 
    * @example
    * e339260ed64c95d

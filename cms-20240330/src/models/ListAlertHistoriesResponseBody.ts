@@ -38,7 +38,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   bizSource?: string;
   /**
    * @remarks
-   * The cumulative number of alert events during the alert duration.
+   * The cumulative number of alerts (alert events) during the alert duration.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The end time of the alert, which is the recovery time. This field has a value only when the alert history enters the OK state. The value is a UNIX timestamp in milliseconds.
+   * The end time (recovery time) of the alert. This field has a value only when the alert history record enters the OK state. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740535517000
@@ -78,7 +78,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   instanceDetail?: { [key: string]: string };
   /**
    * @remarks
-   * The unique key value (instanceKey) that identifies the alert object instance.
+   * The unique key value used to identify the alert object instance, which is the instanceKey.
    * 
    * @example
    * entity/apm/apm.service/6dc9e46fda6d012537b48c3250ff806b
@@ -113,12 +113,12 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
    * The content of the latest alert message.
    * 
    * @example
-   * The number of zombie child processes of the process {{$tags.comm}} running on the instance {{$tags.instanceId}} is greater than 128
+   * The number of zombie child processes of the process {{$tags.comm}} running on instance {{$tags.instanceId}} is greater than 128
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the observed object is in the global scope. This value is copied from the rule when the alert history record is created.
+   * Indicates whether the observed object is in the global scope. This value is copied from the rule upon creation.
    * 
    * @example
    * false
@@ -126,7 +126,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   observeResourceGlobalScope?: boolean;
   /**
    * @remarks
-   * The serialized string of the observed object list. This value is copied from the rule when the alert history record is created.
+   * The serialized string of the observed object list. This value is copied from the rule upon creation.
    * 
    * @example
    * [{"resourceId":"i-bp1234567890abcdef","resourceType":"ACS::ECS::Instance"}]
@@ -134,7 +134,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   observeResourceList?: string;
   /**
    * @remarks
-   * The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. This value is copied from the rule when the alert history record is created.
+   * The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. This value is copied from the rule upon creation.
    * 
    * @example
    * PROMETHEUS

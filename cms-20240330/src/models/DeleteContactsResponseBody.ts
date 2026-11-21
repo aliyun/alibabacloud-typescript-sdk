@@ -13,7 +13,7 @@ export class DeleteContactsResponseBody extends $dara.Model {
   deletedCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

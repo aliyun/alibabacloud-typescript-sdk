@@ -5,9 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertUmodelDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the element.
+   * The content of the elements.
    */
   elements?: any[];
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run for this request. Valid values:
+   * - true: sends a check request without performing actual changes.
+   * - false: sends a normal request.
+   * Default value: false.
+   */
+  dryRun?: boolean;
   /**
    * @remarks
    * The method.
@@ -19,6 +27,7 @@ export class UpsertUmodelDataRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       elements: 'elements',
+      dryRun: 'dryRun',
       method: 'method',
     };
   }
@@ -26,6 +35,7 @@ export class UpsertUmodelDataRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       elements: { 'type': 'array', 'itemType': 'any' },
+      dryRun: 'boolean',
       method: 'string',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maxResults value of the current request.
+   * The maxResults value for the current request.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListServiceTaskResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. An encrypted hexadecimal string is returned when a next page exists. An empty value or absence of this field indicates no more data. Pass this value as-is in the nextToken parameter for the next page request.
+   * The token for the next page. An encrypted hexadecimal string is returned if a next page exists. An empty value or the absence of this field indicates that no more data is available. Pass this value as is in the nextToken parameter for the next request.
    * 
    * @example
    * d23d8f3f0f0cd1984566b1986c9343122fa0385a05c09694c17fe87709f3eb56d1a7ead56b4a2536
@@ -37,7 +37,7 @@ export class ListServiceTaskResponseBody extends $dara.Model {
   serviceTasks?: { [key: string]: any }[];
   /**
    * @remarks
-   * The total number of entries that match the conditions.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 2

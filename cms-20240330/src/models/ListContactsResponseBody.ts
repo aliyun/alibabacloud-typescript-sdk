@@ -34,7 +34,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   groupList?: string[];
   /**
    * @remarks
-   * The mapping of IM user IDs. Multiple instant messaging tools are supported.
+   * The mapping of instant messaging (IM) user IDs. Multiple IM tools are supported.
    * 
    * @example
    * {"dingtalk":"abc123","wechat":"def456"}
@@ -167,7 +167,7 @@ export class ListContactsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 56

@@ -118,9 +118,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
 export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
-   * 
-   * The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+   * The creation time. The time follows the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) and is in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -138,7 +136,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
+   * The additional labels attached to all delivered metrics, where the key is the label name and the value is the label value.
    * 
    * @example
    * {"region":"cn-hangzhou"}
@@ -151,7 +149,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   extraInfo?: GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo;
   /**
    * @remarks
-   * The metric filter conditions used in conjunction with labelFiltersType. The key is the metric label name and the value is the match value.
+   * The metric filtering conditions used with labelFiltersType, where the key is the metric label name and the value is the matched value.
    * 
    * @example
    * {"__name__":"up"}
@@ -159,7 +157,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   labelFilters?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filter mode.
+   * The metric filtering mode.
    * 
    * @example
    * Allow
@@ -217,9 +215,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The update time.
-   * 
-   * The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+   * The update time. The time follows the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) and is in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 

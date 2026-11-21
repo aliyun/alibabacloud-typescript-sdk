@@ -65,7 +65,7 @@ export class GetCloudResourceDataResponseBodyResponseStatusStatusItem extends $d
 export class GetCloudResourceDataResponseBodyResponseStatus extends $dara.Model {
   /**
    * @remarks
-   * The information during the execution process.
+   * The information generated during execution.
    * 
    * @example
    * {}
@@ -135,7 +135,7 @@ export class GetCloudResourceDataResponseBodyResponseStatus extends $dara.Model 
 export class GetCloudResourceDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of returned data records.
+   * The total count of returned data items.
    */
   data?: string[][];
   /**

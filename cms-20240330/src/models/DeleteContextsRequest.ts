@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContextsRequest extends $dara.Model {
   /**
    * @remarks
-   * A comma-separated list of context IDs.
+   * A comma-separated list of context IDs. This parameter can only be specified as a query parameter.
    * 
    * @example
    * mem_long_01,mem_long_02
@@ -13,7 +13,7 @@ export class DeleteContextsRequest extends $dara.Model {
   contextIds?: string;
   /**
    * @remarks
-   * The filter condition, specified as a JSON string in the query. The syntax is the same as the `filter` parameter of the `SearchContext` operation.
+   * The filter conditions. The syntax is the same as that of SearchContext.filter. This parameter is passed as a JSON string in the query.
    * 
    * @example
    * {"userId":"u-10001"}

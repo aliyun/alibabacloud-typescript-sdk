@@ -46,7 +46,8 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstanceTags extends $da
 export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.Model {
   /**
    * @remarks
-   * The access type. Valid values: readWrite, readOnly, and httpReadOnly.
+   * The access type. Valid values:
+   * readWrite, readOnly, httpReadOnly
    * 
    * @example
    * readOnly
@@ -54,7 +55,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   accessType?: string;
   /**
    * @remarks
-   * The number of days to automatically archive data after the storage expires. A value of 0 indicates that data is not archived. A value of 3650 indicates permanent retention.
+   * The number of days to automatically archive and retain data after the storage expires. A value of 0 indicates that data is not archived, and a value of 3650 indicates permanent retention.
    * 
    * @example
    * 90
@@ -62,7 +63,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   archiveDuration?: number;
   /**
    * @remarks
-   * The auth-free read policy. IP CIDR blocks and VPC IDs are supported.
+   * The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
    * 
    * @example
    * {
@@ -79,7 +80,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * The auth-free write policy. IP CIDR blocks and VPC IDs are supported.
+   * The authentication-free write policy. IP CIDR blocks and VPC IDs are supported.
    * 
    * @example
    * {
@@ -96,7 +97,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * The auth token.
+   * The authentication token string.
    * 
    * @example
    * eJwixxxxx
@@ -112,7 +113,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * Specifies whether auth-free read is enabled.
+   * Specifies whether authentication-free read is enabled.
    * 
    * @example
    * true
@@ -120,7 +121,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether auth-free write is enabled.
+   * Specifies whether authentication-free write is enabled.
    * 
    * @example
    * true
@@ -137,11 +138,14 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   /**
    * @remarks
    * The extended information.
+   * 
+   * @example
+   * {"key":"value"}
    */
   extraInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The URL of the dashboard folder.
+   * The URL of the visualization dashboard directory.
    * 
    * @example
    * https://gnew.console.aliyun.com/dashboards/f/c49a80d2a551d4a20a8c4b996b0be4e52/xxxxxxx
@@ -160,7 +164,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
    * The name of the bound managed Grafana instance.
    * 
    * @example
-   * Shared edition
+   * Shared Edition
    */
   grafanaInstanceName?: string;
   /**
@@ -198,8 +202,8 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   /**
    * @remarks
    * The billing method. Valid values:
-   * - POSTPAY: Pay-as-you-go based on the volume of reported metrics.
-   * - POSTPAY_GB: Pay-as-you-go based on the volume of written metrics.
+   * POSTPAY: Pay-as-you-go based on the number of reported metrics.
+   * POSTPAY_GB: Pay-as-you-go based on the volume of written metrics.
    * 
    * @example
    * POSTPAY
@@ -207,7 +211,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   paymentType?: string;
   /**
    * @remarks
-   * The time when the billing method of the instance was updated (UTC format).
+   * The time when the billing method of the instance was updated. The time is in UTC format.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -511,7 +515,7 @@ export class GetPrometheusInstanceResponseBody extends $dara.Model {
   prometheusInstance?: GetPrometheusInstanceResponseBodyPrometheusInstance;
   /**
    * @remarks
-   * The unique identifier of the request.
+   * The unique request ID.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC

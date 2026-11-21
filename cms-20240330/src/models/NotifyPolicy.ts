@@ -8,7 +8,7 @@ import { SubscriptionDetail } from "./SubscriptionDetail";
 export class NotifyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp string in milliseconds.
+   * The creation time, which is a UNIX timestamp string in milliseconds.
    * 
    * @example
    * 1710000000000
@@ -16,15 +16,15 @@ export class NotifyPolicy extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The policy description.
+   * The description of the policy.
    * 
    * @example
-   * 生产环境告警通知策略
+   * Production environment alert notification policy
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the policy is enabled. This is a read-only field controlled by the Enable or Disable operation.
+   * Indicates whether the policy is enabled. This field is read-only and is controlled by the Enable or Disable API operations.
    * 
    * @example
    * true
@@ -35,12 +35,12 @@ export class NotifyPolicy extends $dara.Model {
    * The policy name.
    * 
    * @example
-   * 生产环境告警通知策略
+   * Production environment alert notification policy
    */
   name?: string;
   /**
    * @remarks
-   * The notification policy sub-entity details.
+   * The details of the notification policy sub-entity.
    * 
    * @example
    * {}
@@ -48,7 +48,7 @@ export class NotifyPolicy extends $dara.Model {
   notifyStrategy?: NotifyStrategyDetail;
   /**
    * @remarks
-   * The response plan sub-entity details.
+   * The details of the response plan sub-entity.
    * 
    * @example
    * {}
@@ -56,7 +56,7 @@ export class NotifyPolicy extends $dara.Model {
   responsePlan?: ResponsePlanDetail;
   /**
    * @remarks
-   * The subscription sub-entity details.
+   * The details of the subscription sub-entity.
    * 
    * @example
    * {}
@@ -64,7 +64,7 @@ export class NotifyPolicy extends $dara.Model {
   subscription?: SubscriptionDetail;
   /**
    * @remarks
-   * The update time. The value is a UNIX timestamp string in milliseconds.
+   * The update time, which is a UNIX timestamp string in milliseconds.
    * 
    * @example
    * 1710000000000
@@ -72,7 +72,7 @@ export class NotifyPolicy extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account UID.
+   * The UID of the Alibaba Cloud account.
    * 
    * @example
    * 1234567890123456
@@ -88,7 +88,7 @@ export class NotifyPolicy extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The optimistic locking version number.
+   * The optimistic lock version number.
    * 
    * @example
    * 1

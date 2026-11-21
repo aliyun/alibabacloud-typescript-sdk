@@ -119,7 +119,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The role of the message initiator.
+   * The role that initiated the message.
    * 
    * @example
    * user

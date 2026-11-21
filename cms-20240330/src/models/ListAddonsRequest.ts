@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language environment. Valid values: zh and en. Default value: zh.
+   * The locale. Valid values: zh and en. Default value: zh.
    * 
    * @example
    * zh

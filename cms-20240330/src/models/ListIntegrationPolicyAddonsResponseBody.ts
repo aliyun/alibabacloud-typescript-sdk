@@ -55,7 +55,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsDashboards extends $da
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsDependencies extends $dara.Model {
   /**
    * @remarks
-   * The dependencies on cluster types.
+   * The cluster type dependencies.
    */
   clusterTypes?: string[];
   /**
@@ -195,7 +195,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesPr
 export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Model {
   /**
    * @remarks
-   * The enabled status of the default alert rule policy.
+   * The enabling status of the default alert rule policy.
    * 
    * @example
    * RUNNING
@@ -203,7 +203,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies e
   alertDefaultStatus?: string;
   /**
    * @remarks
-   * Specifies whether the add-on is installed by default.
+   * Specifies whether it is installed by default.
    * 
    * @example
    * true
@@ -237,7 +237,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPolicies e
   protocols?: ListIntegrationPolicyAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols[];
   /**
    * @remarks
-   * The name of the target add-on.
+   * The target add-on name.
    * 
    * @example
    * mysql
@@ -298,7 +298,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments extends $
   description?: string;
   /**
    * @remarks
-   * Indicates whether the environment is enabled.
+   * Specifies whether it is enabled.
    * 
    * @example
    * true
@@ -306,7 +306,7 @@ export class ListIntegrationPolicyAddonsResponseBodyAddonsEnvironments extends $
   enable?: boolean;
   /**
    * @remarks
-   * The display name of the environment.
+   * The environment display name.
    * 
    * @example
    * Cloud

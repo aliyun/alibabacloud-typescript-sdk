@@ -6,7 +6,7 @@ export class DeleteServiceRecordRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the association entry. Valid values:
-   * logCorrelation: application log association
+   * - logCorrelation: application log association
    * 
    * This parameter is required.
    * 

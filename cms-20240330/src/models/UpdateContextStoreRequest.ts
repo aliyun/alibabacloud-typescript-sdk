@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContextStoreRequestConfigSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the Logstore.
    * 
    * @example
    * sls-test-logstore
@@ -13,7 +13,7 @@ export class UpdateContextStoreRequestConfigSource extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the project.
    * 
    * @example
    * sls-test-project

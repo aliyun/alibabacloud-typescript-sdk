@@ -16,7 +16,7 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
    * The list of contacts. Multiple contacts are separated by commas.
    * 
    * @example
-   * Zhang San,Li Si
+   * Zhang San, Li Si
    */
   contacts?: string;
   /**
@@ -24,7 +24,7 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
    * The list of contact groups. Multiple contact groups are separated by commas.
    * 
    * @example
-   * O&M group,On-call group
+   * O&M group, On-call group
    */
   groups?: string;
   /**
@@ -46,8 +46,8 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the notification record has no actual delivery channel. Valid values:
-   * - true: the record has no channel, which means the notifyResult is NO_CHANNEL.
-   * - false: the record has an actual delivery channel.
+   * - true: The record has no channel, which means the notifyResult is NO_CHANNEL.
+   * - false: The record has an actual delivery channel.
    */
   noChannel?: boolean;
   /**
@@ -76,7 +76,7 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
   receiver?: string;
   /**
    * @remarks
-   * The details of the notification delivery result. This is the raw response content returned by the channel, such as the API response from a DingTalk or Lark bot.
+   * The notification delivery result details. This is the raw response content returned by the channel, such as the API response from a DingTalk or Lark bot.
    * 
    * @example
    * {"errcode":0,"errmsg":"ok"}
@@ -101,9 +101,9 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
   /**
    * @remarks
    * The notification delivery type. Valid values:
-   * - SUBSCRIBE: subscription notifications
-   * - DIRECT: direct event notifications
-   * - ITSM: ticket or action notifications
+   * - SUBSCRIBE: Subscription notification.
+   * - DIRECT: Direct event notification.
+   * - ITSM: Ticket or action notification.
    * 
    * @example
    * SUBSCRIBE
@@ -112,10 +112,10 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
   /**
    * @remarks
    * The alert severity. Valid values:
-   * - CRITICAL: critical
-   * - ERROR: error
-   * - WARNING: warning
-   * - INFO: info
+   * - CRITICAL: Critical.
+   * - ERROR: Error.
+   * - WARNING: Warning.
+   * - INFO: Info.
    * 
    * @example
    * CRITICAL
@@ -124,15 +124,15 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
   /**
    * @remarks
    * The incident status. Valid values:
-   * - TRIGGERED: triggered
-   * - RESOLVED: resolved
-   * - ACK: acknowledged
-   * - ESCALATED: escalated
-   * - MANUAL_RESOLVED: manually resolved
-   * - TIMEOUT: automatically resolved due to timeout
-   * - RETRIGGERED: retriggered
-   * - PARTIAL_RESOLVED: partially resolved
-   * - INVALID: invalid
+   * - TRIGGERED: Triggered.
+   * - RESOLVED: Resolved.
+   * - ACK: Acknowledged.
+   * - ESCALATED: Escalated.
+   * - MANUAL_RESOLVED: Manually resolved.
+   * - TIMEOUT: Automatically resolved due to timeout.
+   * - RETRIGGERED: Retriggered.
+   * - PARTIAL_RESOLVED: Partially resolved.
+   * - INVALID: Invalid.
    * 
    * @example
    * TRIGGERED
@@ -157,8 +157,8 @@ export class ListUserNotifyHistoriesResponseBodyHistoryList extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the notification was delivered successfully. Valid values:
-   * - true: the delivery was successful.
-   * - false: the delivery failed.
+   * - true: Delivered successfully.
+   * - false: Delivery failed.
    */
   success?: boolean;
   /**
@@ -244,7 +244,7 @@ export class ListUserNotifyHistoriesResponseBody extends $dara.Model {
   historyList?: ListUserNotifyHistoriesResponseBodyHistoryList[];
   /**
    * @remarks
-   * The maximum number of entries returned for the current request.
+   * The maximum number of records returned for the current request.
    * 
    * @example
    * 20
@@ -268,7 +268,7 @@ export class ListUserNotifyHistoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of notification history entries that meet the query conditions.
+   * The total number of notification history records that meet the query conditions.
    * 
    * @example
    * 128

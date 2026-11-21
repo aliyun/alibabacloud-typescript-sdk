@@ -13,7 +13,10 @@ export class GetCmsServiceResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * PROM_NOT_OPEN: Prometheus is not activated.SLS_NOT_OPEN: Simple Log Service (SLS), a dependency of Prometheus, is not activated.CMS_SLR_NOT_EXIST: The service-linked role (SLR) for CloudMonitor does not exist.SLS_SLR_NOT_EXIST: The SLR for SLS does not exist.
+   * PROM_NOT_OPEN: Prometheus is not activated.
+   * SLS_NOT_OPEN: Simple Log Service, which Prometheus depends on, is not activated.
+   * CMS_SLR_NOT_EXIST: The CloudMonitor service-linked role is not created.
+   * SLS_SLR_NOT_EXIST: The Simple Log Service service-linked role is not created.
    * 
    * @example
    * PROM_NOT_OPEN
@@ -21,7 +24,7 @@ export class GetCmsServiceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

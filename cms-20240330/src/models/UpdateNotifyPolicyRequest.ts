@@ -6,12 +6,12 @@ import { NotifyPolicyConfig } from "./NotifyPolicyConfig";
 export class UpdateNotifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body. This is the complete notification policy configuration object NotifyPolicyConfig.
+   * The request body, which contains the complete NotifyPolicyConfig configuration object for the notification policy.
    */
   body?: NotifyPolicyConfig;
   /**
    * @remarks
-   * The workspace ID. This parameter is used to isolate notification policy resources across different business spaces.
+   * The workspace ID, which is used to isolate notification policy resources for different business workspaces.
    * 
    * This parameter is required.
    * 

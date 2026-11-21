@@ -15,7 +15,7 @@ export class IncidentPlanStruct extends $dara.Model {
   autoRecoverSeconds?: number;
   /**
    * @remarks
-   * The timeout period for closing an event.
+   * The timeout period for closing the incident.
    * 
    * @example
    * 86400000
@@ -23,25 +23,25 @@ export class IncidentPlanStruct extends $dara.Model {
   closeExpire?: number;
   /**
    * @remarks
-   * A list of collaborating teams or roles.
+   * The list of teams or roles involved in the collaboration.
    */
   corporation?: IncidentPlanCorporationStruct[];
   /**
    * @remarks
-   * The description of the plan.
+   * The plan description.
    * 
    * @example
-   * Emergency response plan for excessively high database connection count.
+   * Emergency response plan for excessive database connections
    */
   description?: string;
   /**
    * @remarks
-   * A list of escalation policy IDs.
+   * The list of escalation policy IDs.
    */
   escalationId?: string[];
   /**
    * @remarks
-   * The time when the plan was created.
+   * The creation time.
    * 
    * @example
    * 1741234567890
@@ -49,7 +49,7 @@ export class IncidentPlanStruct extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the plan was last modified.
+   * The last modification time.
    * 
    * @example
    * 1741234567890
@@ -70,15 +70,15 @@ export class IncidentPlanStruct extends $dara.Model {
   incidentPlanId?: string;
   /**
    * @remarks
-   * The name of the plan.
+   * The plan name.
    * 
    * @example
-   * Database connection count alert contingency plan.
+   * Incident plan for database connection alerts
    */
   name?: string;
   /**
    * @remarks
-   * A list of resource field mapping paths.
+   * The list of resource field mapping paths.
    */
   resourceFiled?: IncidentPlanFieldPath[];
   /**
@@ -94,12 +94,12 @@ export class IncidentPlanStruct extends $dara.Model {
    * The user ID.
    * 
    * @example
-   * uesr-12345
+   * 123456
    */
   userId?: number;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * workspace-test

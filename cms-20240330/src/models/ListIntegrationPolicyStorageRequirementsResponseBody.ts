@@ -71,7 +71,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. Specify this parameter to narrow down the scope to the instance level. This depends on the data in EntityStore.
+   * The instance ID. Specify this parameter to narrow the scope to the instance level. This parameter depends on the data in the EntityStore.
    * 
    * @example
    * es-xxxxx
@@ -127,7 +127,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   storageType?: string;
   /**
    * @remarks
-   * The tags to be added to the destination storage. These tags are injected as system tags.
+   * The tags to be added to the target storage, injected as system tags.
    * 
    * @example
    * {"system-key":"value"}
@@ -135,7 +135,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   systemTags?: { [key: string]: string };
   /**
    * @remarks
-   * The tags to be added to the destination storage. These tags are injected as regular tags.
+   * The tags to be added to the target storage, injected as regular tags.
    * 
    * @example
    * {"environment":"production"}
@@ -250,7 +250,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
    * The Prometheus metric center.
    * 
    * @example
-   * xxxx
+   * aliyun-prom-ca9d365990bf
    */
   promMetricStore?: string;
   /**
@@ -317,12 +317,12 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirements extends $dara.Model {
   /**
    * @remarks
-   * The collection of add-on releases.
+   * The collection of AddonReleases.
    */
   addonReleaseNames?: string[];
   /**
    * @remarks
-   * The API version.
+   * The version number.
    * 
    * @example
    * v1
@@ -343,7 +343,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   metadata?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsMetadata;
   /**
    * @remarks
-   * The resource specification.
+   * The specification of the resource.
    */
   spec?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec;
   /**

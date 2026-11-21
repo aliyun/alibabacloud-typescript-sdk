@@ -6,12 +6,12 @@ import { MaintainWindowForView } from "./MaintainWindowForView";
 export class ListMaintainWindowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of silence policies. An empty list is returned when no items match. The list items do not include workspaceFilterSetting.
+   * The list of silence policies. An empty list is returned if no matches are found. List items do not include workspaceFilterSetting.
    */
   maintainWindowList?: MaintainWindowForView[];
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of records returned for this request.
    * 
    * @example
    * 20
@@ -19,7 +19,7 @@ export class ListMaintainWindowsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. A non-empty value indicates that more results may be available, but the next page may still be empty. An empty value indicates the end of pagination.
+   * The starting cursor for the next page. If this value is not empty, you can continue to query, but the next page may still be empty. An empty value indicates the end of pagination.
    * 
    * @example
    * Y21zRXZlbnRCYXNlUGFnZT0y
@@ -27,7 +27,7 @@ export class ListMaintainWindowsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique ID of this request, used for troubleshooting and ticket tracking.
+   * The unique ID of the request, which is used for troubleshooting and ticket tracking.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A0D1C36
