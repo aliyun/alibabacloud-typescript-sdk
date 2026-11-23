@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model {
   /**
    * @remarks
-   * The CVE ID of the vulnerability.
+   * The vulnerability ID.
    * 
    * @example
    * CVE-2026-62690
@@ -13,7 +13,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model 
   cveId?: string;
   /**
    * @remarks
-   * The vulnerability level.
+   * The severity level of the vulnerability.
    * 
    * @example
    * low
@@ -21,15 +21,15 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model 
   cveLevel?: string;
   /**
    * @remarks
-   * The vulnerability name.
+   * The name of the vulnerability.
    * 
    * @example
-   * Windows Push Notification Elevation of Privilege Vulnerability
+   * Windows Push Notifications Elevation of Privilege Vulnerability
    */
   cveTitle?: string;
   /**
    * @remarks
-   * The CVE URL.
+   * The CVE link.
    * 
    * @example
    * https://avd.aliyun.com/detail/CVE-2026-62690
@@ -45,7 +45,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model 
   impactScore?: string;
   /**
    * @remarks
-   * The reference URL for the vulnerability details.
+   * The reference link for the vulnerability details.
    * 
    * @example
    * https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62690
@@ -53,7 +53,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsCves extends $dara.Model 
   referenceUrl?: string;
   /**
    * @remarks
-   * The release time. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+   * The release time. The time is in the ISO 8601 standard UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-08-11 07:00:00
@@ -103,7 +103,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsFixRecords extends $dara.
   batchId?: string;
   /**
    * @remarks
-   * The failure reason.
+   * The reason for the failure.
    * 
    * @example
    * Update failed
@@ -119,7 +119,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsFixRecords extends $dara.
   fixResult?: string;
   /**
    * @remarks
-   * The timestamp when the fix task ended, in milliseconds.
+   * The timestamp when the fix task ended. Unit: milliseconds.
    * 
    * @example
    * 2026-08-05 13:57:31
@@ -165,7 +165,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktopsFixRecords extends $dara.
 export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   /**
    * @remarks
-   * The configuration task ID.
+   * The ID of the configuration task.
    * 
    * @example
    * ccg-0bbay4w7bwbxd****
@@ -189,7 +189,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   cveCount?: number;
   /**
    * @remarks
-   * The vulnerability details.
+   * The list of vulnerability details.
    */
   cves?: DescribeVulDesktopsResponseBodyVulDesktopsCves[];
   /**
@@ -218,7 +218,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The time when the vulnerability was first detected. Format: yyyy-MM-dd HH:mm:ss.
+   * The time when the vulnerability was first detected. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-08-05 00:00:00
@@ -226,17 +226,17 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   firstFoundTime?: string;
   /**
    * @remarks
-   * The fix records of the cloud desktop.
+   * The list of fix details for the cloud desktop.
    */
   fixRecords?: DescribeVulDesktopsResponseBodyVulDesktopsFixRecords[];
   /**
    * @remarks
-   * The patch IDs.
+   * The list of patch IDs.
    */
   patchIds?: string[];
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by WUYING Workspace.
    * 
    * @example
    * cn-shenzhen
@@ -244,7 +244,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The enterprise resource group ID.
+   * The ID of the enterprise resource group.
    * 
    * @example
    * rg-acfm2tswogr****
@@ -260,7 +260,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The patch level.
+   * The severity level of the patch.
    * 
    * @example
    * high
@@ -325,11 +325,7 @@ export class DescribeVulDesktopsResponseBodyVulDesktops extends $dara.Model {
 export class DescribeVulDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query.
-   * 
-   * Maximum value: 100.
-   * 
-   * Default value: 10.
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -337,7 +333,7 @@ export class DescribeVulDesktopsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. An empty value indicates that no more results exist.
+   * The token for the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kRxd1mKkNnHlUy14zdjl/I
@@ -353,7 +349,7 @@ export class DescribeVulDesktopsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 20
@@ -361,7 +357,7 @@ export class DescribeVulDesktopsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The details of cloud desktops affected by the vulnerability.
+   * The list of details about cloud desktops affected by the vulnerability.
    */
   vulDesktops?: DescribeVulDesktopsResponseBodyVulDesktops[];
   static names(): { [key: string]: string } {

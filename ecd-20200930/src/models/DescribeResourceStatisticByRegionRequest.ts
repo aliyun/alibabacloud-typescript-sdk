@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeResourceStatisticByRegionRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the statistics include the number of shared cloud desktops.
+   * 
    * @example
    * true
    */
   includeGroupDesktops?: boolean;
   /**
+   * @remarks
+   * The ID of the service region. Valid values: China (Shanghai) and Singapore.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the region to search. This parameter is used to filter cloud desktops in the specified region.
+   * 
    * @example
    * cn-shanghai
    */

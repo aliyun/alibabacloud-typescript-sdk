@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeResourceStatisticByRegionResponseBodyStatisticRegionStatistics extends $dara.Model {
   /**
+   * @remarks
+   * The number of assigned users in the current region.
+   * 
    * @example
    * 0
    */
   assignedEndUserCount?: number;
   /**
+   * @remarks
+   * The number of connected users in the current region.
+   * 
    * @example
    * 0
    */
   connectedEndUserCount?: number;
   /**
+   * @remarks
+   * The number of cloud desktops in the current region.
+   * 
    * @example
    * 0
    */
   desktopCount?: number;
   /**
+   * @remarks
+   * The number of shared cloud desktops in the current region.
+   * 
    * @example
    * 0
    */
   desktopGroupCount?: number;
   /**
+   * @remarks
+   * The number of network packages in the current region.
+   * 
    * @example
    * 0
    */
   networkPackageCount?: number;
   /**
+   * @remarks
+   * The number of policy groups in the current region.
+   * 
    * @example
    * 0
    */
   policyGroupCount?: number;
   /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://next.api.aliyun.com/document/ecd/2020-09-30/DescribeRegions) operation to query the regions supported by WUYING Workspace.
+   * 
    * @example
    * cn-shenzhen
    */
@@ -72,6 +93,10 @@ export class DescribeResourceStatisticByRegionResponseBodyStatisticRegionStatist
 }
 
 export class DescribeResourceStatisticByRegionResponseBodyStatistic extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics by region.
+   */
   regionStatistics?: DescribeResourceStatisticByRegionResponseBodyStatisticRegionStatistics[];
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +124,17 @@ export class DescribeResourceStatisticByRegionResponseBodyStatistic extends $dar
 
 export class DescribeResourceStatisticByRegionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics information.
+   */
   statistic?: DescribeResourceStatisticByRegionResponseBodyStatistic;
   static names(): { [key: string]: string } {
     return {

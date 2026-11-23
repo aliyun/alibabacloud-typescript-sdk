@@ -12463,10 +12463,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询地域化的统计数据
+   * Retrieves the statistics on the number of different resources by region.
    * 
    * @remarks
-   * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+   * - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
    * 
    * @param request - DescribeResourceStatisticByRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12505,10 +12505,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询地域化的统计数据
+   * Retrieves the statistics on the number of different resources by region.
    * 
    * @remarks
-   * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+   * - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
    * 
    * @param request - DescribeResourceStatisticByRegionRequest
    * @returns DescribeResourceStatisticByRegionResponse
@@ -13489,11 +13489,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves cloud desktop information for a vulnerability.
+   * Retrieves the cloud desktop information for vulnerabilities.
    * 
    * @remarks
-   * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
-   * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+   * - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+   * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
    * 
    * @param request - DescribeVulDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13520,6 +13520,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.includeFixResult)) {
       query["IncludeFixResult"] = request.includeFixResult;
+    }
+
+    if (!$dara.isNull(request.includePatchTask)) {
+      query["IncludePatchTask"] = request.includePatchTask;
     }
 
     if (!$dara.isNull(request.language)) {
@@ -13588,11 +13592,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves cloud desktop information for a vulnerability.
+   * Retrieves the cloud desktop information for vulnerabilities.
    * 
    * @remarks
-   * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
-   * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+   * - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+   * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
    * 
    * @param request - DescribeVulDesktopsRequest
    * @returns DescribeVulDesktopsResponse
@@ -13606,7 +13610,7 @@ export default class Client extends OpenApi {
    * Retrieves vulnerability information.
    * 
    * @remarks
-   * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+   * After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
    * 
    * @param request - DescribeVulnerabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13668,7 +13672,7 @@ export default class Client extends OpenApi {
    * Retrieves vulnerability information.
    * 
    * @remarks
-   * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+   * After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
    * 
    * @param request - DescribeVulnerabilityRequest
    * @returns DescribeVulnerabilityResponse

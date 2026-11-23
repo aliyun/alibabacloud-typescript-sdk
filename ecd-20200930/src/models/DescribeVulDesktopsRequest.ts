@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVulDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the cloud desktop. Valid values: CONNECTED and DISCONNECTED.
+   * The connection status of the cloud desktop.
    * 
    * @example
    * Connected
@@ -13,7 +13,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The CVE ID of the vulnerability.
+   * The vulnerability ID.
    * 
    * @example
    * CVE-2026-43284
@@ -34,7 +34,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * Specifies whether to include patch update results.
+   * Specifies whether to include the patch update results.
    * 
    * @example
    * false
@@ -42,10 +42,12 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   includeFixResult?: boolean;
   /**
    * @remarks
-   * The language of the returned information. Valid values:
-   * 
-   * - **ch**: Chinese.
-   * - **en**: English.
+   * Specifies whether to include cloud desktops that have scheduled patch tasks.
+   */
+  includePatchTask?: boolean;
+  /**
+   * @remarks
+   * The language of the response.
    * 
    * @example
    * ch
@@ -53,10 +55,8 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
-   * 
+   * The number of entries per page for a paging query.
    * Maximum value: 100.
-   * 
    * Default value: 10.
    * 
    * @example
@@ -65,7 +65,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The token for the next page.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -73,7 +73,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Specifies whether to include only cloud desktops that have had fix tasks executed in the current month.
+   * Specifies whether to include only cloud desktops for which fix tasks have been executed in the current month.
    * 
    * @example
    * false
@@ -81,7 +81,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   onlyCurrentMonthFixAttempted?: boolean;
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The page number of the current page for a paging query.
    * 
    * @example
    * 1
@@ -89,7 +89,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page number of the current page in a paged query.
+   * The page size for a paging query.
    * 
    * @example
    * 10
@@ -105,7 +105,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   patchId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by WUYING Workspace.
    * 
    * @example
    * cn-shanghai
@@ -121,7 +121,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The region ID used to filter cloud desktop information for a specific region.
+   * The search region ID. This parameter is used to filter cloud desktop information for a specified region.
    * 
    * @example
    * cn-shanghai
@@ -134,13 +134,12 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
   statusList?: string[];
   /**
    * @remarks
-   * The severity level of the intrusion prevention event. Valid values:
+   * The security level of the intrusion prevention event. Valid values:
+   * - **low**: low-risk.
+   * - **medium**: medium-risk.
+   * - **critical**: high-risk.
    * 
-   * - **low**: Low.
-   * - **medium**: Medium.
-   * - **critical**: Critical.
-   * 
-   * > If you do not set this parameter, vulnerabilities of all severity levels are queried.
+   * > If you do not specify this parameter, vulnerabilities of all security levels are queried.
    * 
    * @example
    * low
@@ -153,6 +152,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
       desktopIdList: 'DesktopIdList',
       desktopStatus: 'DesktopStatus',
       includeFixResult: 'IncludeFixResult',
+      includePatchTask: 'IncludePatchTask',
       language: 'Language',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -175,6 +175,7 @@ export class DescribeVulDesktopsRequest extends $dara.Model {
       desktopIdList: { 'type': 'array', 'itemType': 'string' },
       desktopStatus: 'string',
       includeFixResult: 'boolean',
+      includePatchTask: 'boolean',
       language: 'string',
       maxResults: 'number',
       nextToken: 'string',
