@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "marketing_event";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("marketing_event", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -457,6 +461,10 @@ export default class Client extends OpenApi {
       body["ActivityId"] = request.activityId;
     }
 
+    if (!$dara.isNull(request.checkinPoint)) {
+      body["CheckinPoint"] = request.checkinPoint;
+    }
+
     if (!$dara.isNull(request.extParam)) {
       body["ExtParam"] = request.extParam;
     }
@@ -494,6 +502,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * MOS活动报名查询
+   * 
+   * @param request - MosQueryRegistrationInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MosQueryRegistrationInfoResponse
+   */
+  async mosQueryRegistrationInfoWithOptions(request: $_model.MosQueryRegistrationInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MosQueryRegistrationInfoResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MosQueryRegistrationInfo",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MosQueryRegistrationInfoResponse>(await this.callApi(params, req, runtime), new $_model.MosQueryRegistrationInfoResponse({}));
+  }
+
+  /**
+   * MOS活动报名查询
+   * 
+   * @param request - MosQueryRegistrationInfoRequest
+   * @returns MosQueryRegistrationInfoResponse
+   */
+  async mosQueryRegistrationInfo(request: $_model.MosQueryRegistrationInfoRequest): Promise<$_model.MosQueryRegistrationInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.mosQueryRegistrationInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过活动id查询所有审核通过的报名信息
+   * 
    * @param request - QueryAllActivityInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAllActivityInfoResponse
@@ -519,6 +567,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过活动id查询所有审核通过的报名信息
+   * 
    * @param request - QueryAllActivityInfoRequest
    * @returns QueryAllActivityInfoResponse
    */
@@ -788,6 +838,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过活动id, 参会人名称等查询单个审核通过的报名信息
+   * 
    * @param request - QuerySingleActivityInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySingleActivityInfoResponse
@@ -813,6 +865,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过活动id, 参会人名称等查询单个审核通过的报名信息
+   * 
    * @param request - QuerySingleActivityInfoRequest
    * @returns QuerySingleActivityInfoResponse
    */
@@ -822,6 +876,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 签到处理
+   * 
    * @param request - SyncSignInInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncSignInInfoResponse
@@ -847,6 +903,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 签到处理
+   * 
    * @param request - SyncSignInInfoRequest
    * @returns SyncSignInInfoResponse
    */
@@ -1027,6 +1085,52 @@ export default class Client extends OpenApi {
   async updateTicketRecordByticketCodePop(request: $_model.UpdateTicketRecordByticketCodePopRequest): Promise<$_model.UpdateTicketRecordByticketCodePopResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTicketRecordByticketCodePopWithOptions(request, runtime);
+  }
+
+  /**
+   * 核验指定活动当天的入场权限
+   * 
+   * @param request - VerifyActivityAdmissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyActivityAdmissionResponse
+   */
+  async verifyActivityAdmissionWithOptions(request: $_model.VerifyActivityAdmissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyActivityAdmissionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.activityId)) {
+      body["ActivityId"] = request.activityId;
+    }
+
+    if (!$dara.isNull(request.idCardNo)) {
+      body["IdCardNo"] = request.idCardNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyActivityAdmission",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyActivityAdmissionResponse>(await this.callApi(params, req, runtime), new $_model.VerifyActivityAdmissionResponse({}));
+  }
+
+  /**
+   * 核验指定活动当天的入场权限
+   * 
+   * @param request - VerifyActivityAdmissionRequest
+   * @returns VerifyActivityAdmissionResponse
+   */
+  async verifyActivityAdmission(request: $_model.VerifyActivityAdmissionRequest): Promise<$_model.VerifyActivityAdmissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyActivityAdmissionWithOptions(request, runtime);
   }
 
 }

@@ -12,6 +12,7 @@ export class MosCheckInRequest extends $dara.Model {
    * @example
    * {}
    */
+  checkinPoint?: string;
   extParam?: string;
   /**
    * @example
@@ -21,6 +22,7 @@ export class MosCheckInRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       activityId: 'ActivityId',
+      checkinPoint: 'CheckinPoint',
       extParam: 'ExtParam',
       qrCode: 'QrCode',
     };
@@ -29,6 +31,7 @@ export class MosCheckInRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       activityId: 'string',
+      checkinPoint: 'string',
       extParam: 'string',
       qrCode: 'string',
     };

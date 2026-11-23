@@ -9,6 +9,9 @@ export { FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelThreeOwner } 
 export { FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelTwoOwner } from './FindGuestTicketRecordResponseBody';
 export { FindGuestTicketRecordResponseBodyDataChannelLevelInfo } from './FindGuestTicketRecordResponseBody';
 export { FindGuestTicketRecordResponseBodyData } from './FindGuestTicketRecordResponseBody';
+export { MosQueryRegistrationInfoResponseBodyDataListTagInfos } from './MosQueryRegistrationInfoResponseBody';
+export { MosQueryRegistrationInfoResponseBodyDataList } from './MosQueryRegistrationInfoResponseBody';
+export { MosQueryRegistrationInfoResponseBodyData } from './MosQueryRegistrationInfoResponseBody';
 export { QueryAllActivityInfoResponseBodyData } from './QueryAllActivityInfoResponseBody';
 export { QueryOrderSessionListPopResponseBodyData } from './QueryOrderSessionListPopResponseBody';
 export { QueryQwenConferenceSgTicketPopResponseBodyData } from './QueryQwenConferenceSgTicketPopResponseBody';
@@ -17,6 +20,7 @@ export { QuerySessionByActivityIdPopResponseBodyData } from './QuerySessionByAct
 export { QuerySessionListPopResponseBodyData } from './QuerySessionListPopResponseBody';
 export { QuerySignInRecordPopResponseBodyData } from './QuerySignInRecordPopResponseBody';
 export { QuerySingleActivityInfoResponseBodyData } from './QuerySingleActivityInfoResponseBody';
+export { VerifyActivityAdmissionResponseBodyData } from './VerifyActivityAdmissionResponseBody';
 export { AddAgendaSumRecordFlowPopRequest } from './AddAgendaSumRecordFlowPopRequest';
 export { AddAgendaSumRecordFlowPopResponseBody } from './AddAgendaSumRecordFlowPopResponseBody';
 export { AddAgendaSumRecordFlowPopResponse } from './AddAgendaSumRecordFlowPopResponse';
@@ -41,6 +45,9 @@ export { FindGuestTicketRecordResponse } from './FindGuestTicketRecordResponse';
 export { MosCheckInRequest } from './MosCheckInRequest';
 export { MosCheckInResponseBody } from './MosCheckInResponseBody';
 export { MosCheckInResponse } from './MosCheckInResponse';
+export { MosQueryRegistrationInfoRequest } from './MosQueryRegistrationInfoRequest';
+export { MosQueryRegistrationInfoResponseBody } from './MosQueryRegistrationInfoResponseBody';
+export { MosQueryRegistrationInfoResponse } from './MosQueryRegistrationInfoResponse';
 export { QueryAllActivityInfoRequest } from './QueryAllActivityInfoRequest';
 export { QueryAllActivityInfoResponseBody } from './QueryAllActivityInfoResponseBody';
 export { QueryAllActivityInfoResponse } from './QueryAllActivityInfoResponse';
@@ -77,3 +84,6 @@ export { UpdateCredentialsStatusPopResponse } from './UpdateCredentialsStatusPop
 export { UpdateTicketRecordByticketCodePopRequest } from './UpdateTicketRecordByticketCodePopRequest';
 export { UpdateTicketRecordByticketCodePopResponseBody } from './UpdateTicketRecordByticketCodePopResponseBody';
 export { UpdateTicketRecordByticketCodePopResponse } from './UpdateTicketRecordByticketCodePopResponse';
+export { VerifyActivityAdmissionRequest } from './VerifyActivityAdmissionRequest';
+export { VerifyActivityAdmissionResponseBody } from './VerifyActivityAdmissionResponseBody';
+export { VerifyActivityAdmissionResponse } from './VerifyActivityAdmissionResponse';
