@@ -94,6 +94,7 @@ export { CreateCustomAgentResponseBodyDataRuntimeHpa } from './CreateCustomAgent
 export { CreateCustomAgentResponseBodyDataRuntimeSessionPolicy } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyDataRuntime } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyData } from './CreateCustomAgentResponseBody';
+export { CreateCustomAgentDebugTokenResponseBodyData } from './CreateCustomAgentDebugTokenResponseBody';
 export { CreateEventsRequestBodyEventsDataContent } from './CreateEventsRequest';
 export { CreateEventsRequestBodyEventsDataParentScope } from './CreateEventsRequest';
 export { CreateEventsRequestBodyEventsData } from './CreateEventsRequest';
@@ -1052,6 +1053,9 @@ export { CreateCustomAgentRequest } from './CreateCustomAgentRequest';
 export { CreateCustomAgentShrinkRequest } from './CreateCustomAgentShrinkRequest';
 export { CreateCustomAgentResponseBody } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponse } from './CreateCustomAgentResponse';
+export { CreateCustomAgentDebugTokenRequest } from './CreateCustomAgentDebugTokenRequest';
+export { CreateCustomAgentDebugTokenResponseBody } from './CreateCustomAgentDebugTokenResponseBody';
+export { CreateCustomAgentDebugTokenResponse } from './CreateCustomAgentDebugTokenResponse';
 export { CreateEventsRequest } from './CreateEventsRequest';
 export { CreateEventsShrinkRequest } from './CreateEventsShrinkRequest';
 export { CreateEventsResponseBody } from './CreateEventsResponseBody';

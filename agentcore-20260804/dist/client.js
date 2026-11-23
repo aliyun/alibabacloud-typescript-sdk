@@ -762,6 +762,48 @@ class Client extends openapi_core_1.default {
         return await this.createCustomAgentWithOptions(workspaceId, request, headers, runtime);
     }
     /**
+     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     *
+     * @param request - CreateCustomAgentDebugTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCustomAgentDebugTokenResponse
+     */
+    async createCustomAgentDebugTokenWithOptions(workspaceId, agentId, request, headers, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.networkType)) {
+            query["networkType"] = request.networkType;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CreateCustomAgentDebugToken",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/custom-agents/${$dara.URL.percentEncode(agentId)}/debug/token`,
+            method: "POST",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateCustomAgentDebugTokenResponse({}));
+    }
+    /**
+     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     *
+     * @param request - CreateCustomAgentDebugTokenRequest
+     * @returns CreateCustomAgentDebugTokenResponse
+     */
+    async createCustomAgentDebugToken(workspaceId, agentId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.createCustomAgentDebugTokenWithOptions(workspaceId, agentId, request, headers, runtime);
+    }
+    /**
      * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
      *
      * @remarks
