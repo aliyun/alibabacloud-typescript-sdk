@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStsTokenResponseBodyStsTokenModel extends $dara.Model {
   /**
    * @remarks
-   * The tenant ID, which is the UID of the Alibaba Cloud account.
+   * The tenant ID (Alibaba Cloud account UID).
    * 
    * @example
    * 105552640689****
@@ -21,7 +21,7 @@ export class GetStsTokenResponseBodyStsTokenModel extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The temporary credentials.
+   * The temporary identity credential.
    * 
    * @example
    * sts****
@@ -29,7 +29,7 @@ export class GetStsTokenResponseBodyStsTokenModel extends $dara.Model {
   stsToken?: string;
   /**
    * @remarks
-   * The tenant ID, which is the UID of the Alibaba Cloud account.
+   * The tenant ID (Alibaba Cloud account UID).
    * 
    * @example
    * 105552640689****
@@ -73,7 +73,7 @@ export class GetStsTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the token.
+   * The token details.
    */
   stsTokenModel?: GetStsTokenResponseBodyStsTokenModel;
   static names(): { [key: string]: string } {

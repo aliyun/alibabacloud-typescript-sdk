@@ -3,12 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAuthCodeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The account type. Valid values: ad (enterprise AD account) and simple (convenience account).
+   * 
+   * @example
+   * simple
+   */
   accountType?: string;
+  /**
+   * @remarks
+   * The Active Directory domain name. This parameter is required when the account type is ad.
+   * 
+   * @example
+   * ad.example.com
+   */
   adDomain?: string;
+  /**
+   * @remarks
+   * The password of the enterprise AD account.
+   * 
+   * @example
+   * Qa****7!Z9
+   */
   adPassword?: string;
   /**
    * @remarks
-   * Specifies whether to synchronously create an EndUserId based on ExternalUserId. This parameter takes effect only when EndUserId is empty.
+   * Specifies whether to synchronously create an EndUserId based on ExternalUserId. This parameter takes effect only when EndUserId is left empty.
    * 
    * @example
    * false
@@ -16,7 +37,7 @@ export class GetAuthCodeRequest extends $dara.Model {
   autoCreateUser?: boolean;
   /**
    * @remarks
-   * The username of the China Desktop Service (China Desktop Service) convenience account. The username must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot both be empty.
+   * The username of the Wuying convenience account. The username must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot be left empty at the same time.
    * 
    * @example
    * alice
@@ -24,7 +45,7 @@ export class GetAuthCodeRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The external user ID. This ID is defined by the caller and must be unique within an Alibaba Cloud account. This parameter and EndUserId cannot both be empty.
+   * The external user ID. This ID is customized by the caller and must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot be left empty at the same time.
    * 
    * @example
    * alice
@@ -40,16 +61,16 @@ export class GetAuthCodeRequest extends $dara.Model {
    * {
    *       "Version": "1",
    *       "Resource": {
-   *             "Type": "<Resource type>",
-   *             "Id": "<Resource ID>"
+   *             "Type": "<resource type>",
+   *             "Id": "<resource ID>"
    *       }
    * }
    * ```
    * 
-   * Valid values of <Resource type>:
+   * Valid values for <resource type>:
    * 
-   * - AppInstanceGroup: delivery group. You can call the ListAppInstanceGroup operation to obtain the ID.
-   * - AppInstance: application instance (dedicated field).
+   * - AppInstanceGroup: app instance group. You can call the ListAppInstanceGroup operation to obtain the ID.
+   * - AppInstance: app instance. This is a dedicated field.
    * - App: application. You can call the ListAppInstanceGroup operation to obtain the ID.
    * 
    * @example
@@ -62,6 +83,13 @@ export class GetAuthCodeRequest extends $dara.Model {
    * }
    */
   policy?: string;
+  /**
+   * @remarks
+   * The token type. Valid values: LoginToken (logon token) and StsToken (temporary identity credential).
+   * 
+   * @example
+   * StsToken
+   */
   tokenType?: string;
   static names(): { [key: string]: string } {
     return {

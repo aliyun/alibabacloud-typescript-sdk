@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetStsTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The Elastic Desktop Service (EDS) username.
+   * The Wuying username.
    * 
-   * > Either EndUserId or ExternalId is required.
+   * 
+   * > Either the Wuying username or the external ID is required.
    * 
    * @example
    * Alex
@@ -15,7 +16,7 @@ export class GetStsTokenRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The validity period of the token, in seconds. The maximum period is two days.
+   * The expiration time in seconds. The maximum validity period is two days.
    * 
    * @example
    * 600
@@ -23,7 +24,7 @@ export class GetStsTokenRequest extends $dara.Model {
   expiration?: number;
   /**
    * @remarks
-   * The ID of the external user.
+   * The external user ID.
    * 
    * @example
    * Alex
