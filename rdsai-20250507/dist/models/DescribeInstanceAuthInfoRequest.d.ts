@@ -2,12 +2,12 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeInstanceAuthInfoRequest extends $dara.Model {
     /**
      * @remarks
-     * Reserved parameter.
+     * A reserved parameter.
      */
     branchName?: string;
     /**
      * @remarks
-     * The instance ID of the AI application.
+     * The ID of the AI application instance.
      *
      * @example
      * ra-supabase-8moov5lxba****
