@@ -119,6 +119,7 @@ export { ListRayLogsResponseBodyDataObjectList } from './ListRayLogsResponseBody
 export { ListRayLogsResponseBodyData } from './ListRayLogsResponseBody';
 export { ListRegionsResponseBodyRegions } from './ListRegionsResponseBody';
 export { ListReleaseVersionsResponseBodyReleaseVersions } from './ListReleaseVersionsResponseBody';
+export { ListSecretValueResponseBodySecrets } from './ListSecretValueResponseBody';
 export { ListSessionClustersResponseBodySessionClustersApplicationConfigs } from './ListSessionClustersResponseBody';
 export { ListSessionClustersResponseBodySessionClustersAutoStartConfiguration } from './ListSessionClustersResponseBody';
 export { ListSessionClustersResponseBodySessionClustersAutoStopConfiguration } from './ListSessionClustersResponseBody';
@@ -222,6 +223,9 @@ export { CreateProcessDefinitionWithScheduleResponse } from './CreateProcessDefi
 export { CreateRayClusterRequest } from './CreateRayClusterRequest';
 export { CreateRayClusterResponseBody } from './CreateRayClusterResponseBody';
 export { CreateRayClusterResponse } from './CreateRayClusterResponse';
+export { CreateSecretValueRequest } from './CreateSecretValueRequest';
+export { CreateSecretValueResponseBody } from './CreateSecretValueResponseBody';
+export { CreateSecretValueResponse } from './CreateSecretValueResponse';
 export { CreateSessionClusterRequest } from './CreateSessionClusterRequest';
 export { CreateSessionClusterResponseBody } from './CreateSessionClusterResponseBody';
 export { CreateSessionClusterResponse } from './CreateSessionClusterResponse';
@@ -247,6 +251,9 @@ export { DeleteLivyComputeTokenResponseBody } from './DeleteLivyComputeTokenResp
 export { DeleteLivyComputeTokenResponse } from './DeleteLivyComputeTokenResponse';
 export { DeleteRayClusterResponseBody } from './DeleteRayClusterResponseBody';
 export { DeleteRayClusterResponse } from './DeleteRayClusterResponse';
+export { DeleteSecretValueRequest } from './DeleteSecretValueRequest';
+export { DeleteSecretValueResponseBody } from './DeleteSecretValueResponseBody';
+export { DeleteSecretValueResponse } from './DeleteSecretValueResponse';
 export { DeleteWorkspaceQueueRequest } from './DeleteWorkspaceQueueRequest';
 export { DeleteWorkspaceQueueResponseBody } from './DeleteWorkspaceQueueResponseBody';
 export { DeleteWorkspaceQueueResponse } from './DeleteWorkspaceQueueResponse';
@@ -368,6 +375,9 @@ export { ListRegionsResponse } from './ListRegionsResponse';
 export { ListReleaseVersionsRequest } from './ListReleaseVersionsRequest';
 export { ListReleaseVersionsResponseBody } from './ListReleaseVersionsResponseBody';
 export { ListReleaseVersionsResponse } from './ListReleaseVersionsResponse';
+export { ListSecretValueRequest } from './ListSecretValueRequest';
+export { ListSecretValueResponseBody } from './ListSecretValueResponseBody';
+export { ListSecretValueResponse } from './ListSecretValueResponse';
 export { ListSessionClustersRequest } from './ListSessionClustersRequest';
 export { ListSessionClustersResponseBody } from './ListSessionClustersResponseBody';
 export { ListSessionClustersResponse } from './ListSessionClustersResponse';

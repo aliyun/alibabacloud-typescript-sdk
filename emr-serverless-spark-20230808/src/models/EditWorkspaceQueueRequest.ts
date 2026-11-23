@@ -29,7 +29,7 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
    * The maximum number of CUs.
    * 
    * @example
-   * 0.5
+   * 2
    */
   maxCu?: number;
   static names(): { [key: string]: string } {
@@ -78,6 +78,10 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
    * The list of GPU instance types.
    */
   gpuSpec?: string[];
+  /**
+   * @remarks
+   * The ID of the subscription GPU quota instance.
+   */
   instanceId?: string;
   /**
    * @remarks

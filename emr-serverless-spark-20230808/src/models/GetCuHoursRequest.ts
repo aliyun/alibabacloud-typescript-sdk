@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCuHoursRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query time range.
+   * The end time of the query range.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCuHoursRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The start time of the query time range.
+   * The start time of the query range.
    * 
    * This parameter is required.
    * 

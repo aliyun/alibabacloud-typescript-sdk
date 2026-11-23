@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivyComputeRequestAutoStartConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically start the gateway after creation.
+   * Specifies whether to automatically start the gateway after creation. Valid values:
    * - true: Yes.
    * - false: No.
    * 
@@ -37,7 +37,7 @@ export class UpdateLivyComputeRequestAutoStartConfiguration extends $dara.Model 
 export class UpdateLivyComputeRequestAutoStopConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow automatic stopping.
+   * Specifies whether to allow automatic stopping. Valid values:
    * - true: Yes.
    * - false: No.
    * 
@@ -97,7 +97,7 @@ export class UpdateLivyComputeRequest extends $dara.Model {
   autoStopConfiguration?: UpdateLivyComputeRequestAutoStopConfiguration;
   /**
    * @remarks
-   * The number of CPU cores for the Livy server.
+   * The number of CPU cores for the Livy server. Valid values:
    * - 1
    * - 2
    * - 4
@@ -108,7 +108,7 @@ export class UpdateLivyComputeRequest extends $dara.Model {
   cpuLimit?: string;
   /**
    * @remarks
-   * The Spark DPI engine database engine version number.
+   * The Spark DPI engine version number.
    * 
    * @example
    * esr-4.3.0 (Spark 3.5.2, Scala 2.12)
@@ -136,6 +136,9 @@ export class UpdateLivyComputeRequest extends $dara.Model {
    */
   fusion?: boolean;
   /**
+   * @remarks
+   * The Livy DPI engine version. This is a new parameter used to replace livyVersion.
+   * 
    * @example
    * 0.9.0
    */
@@ -168,7 +171,7 @@ export class UpdateLivyComputeRequest extends $dara.Model {
   livyVersion?: string;
   /**
    * @remarks
-   * The memory size of the Livy server.
+   * The memory size of the Livy server. Valid values:
    * - 4Gi
    * - 8Gi
    * - 16Gi
@@ -187,7 +190,7 @@ export class UpdateLivyComputeRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network connectivity name.
+   * The network connection name.
    * 
    * @example
    * test
@@ -203,7 +206,7 @@ export class UpdateLivyComputeRequest extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * **[Deprecated]** The Spark DPI engine database engine version number. Use displayReleaseVersion instead.
+   * **[Deprecated]** The Spark DPI engine version number. Use displayReleaseVersion instead.
    * 
    * @example
    * esr-4.3.0 (Spark 3.5.2, Scala 2.12, Java Runtime)

@@ -915,6 +915,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a ciphertext.
+   * 
+   * @param request - CreateSecretValueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecretValueResponse
+   */
+  async createSecretValueWithOptions(workspaceId: string, request: $_model.CreateSecretValueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecretValueResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecretValue",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/secret`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecretValueResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecretValueResponse({}));
+  }
+
+  /**
+   * Creates a ciphertext.
+   * 
+   * @param request - CreateSecretValueRequest
+   * @returns CreateSecretValueResponse
+   */
+  async createSecretValue(workspaceId: string, request: $_model.CreateSecretValueRequest): Promise<$_model.CreateSecretValueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSecretValueWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Creates a session.
    * 
    * @param request - CreateSessionClusterRequest
@@ -1489,6 +1542,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteRayClusterWithOptions(workspaceId, clusterId, headers, runtime);
+  }
+
+  /**
+   * Deletes a ciphertext.
+   * 
+   * @param request - DeleteSecretValueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecretValueResponse
+   */
+  async deleteSecretValueWithOptions(workspaceId: string, secretId: string, request: $_model.DeleteSecretValueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecretValueResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecretValue",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/secret/${$dara.URL.percentEncode(secretId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecretValueResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecretValueResponse({}));
+  }
+
+  /**
+   * Deletes a ciphertext.
+   * 
+   * @param request - DeleteSecretValueRequest
+   * @returns DeleteSecretValueResponse
+   */
+  async deleteSecretValue(workspaceId: string, secretId: string, request: $_model.DeleteSecretValueRequest): Promise<$_model.DeleteSecretValueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSecretValueWithOptions(workspaceId, secretId, request, headers, runtime);
   }
 
   /**
@@ -3607,6 +3699,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listReleaseVersionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Lists secrets.
+   * 
+   * @param request - ListSecretValueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecretValueResponse
+   */
+  async listSecretValueWithOptions(workspaceId: string, request: $_model.ListSecretValueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSecretValueResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSecretValue",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/secret`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSecretValueResponse>(await this.callApi(params, req, runtime), new $_model.ListSecretValueResponse({}));
+  }
+
+  /**
+   * Lists secrets.
+   * 
+   * @param request - ListSecretValueRequest
+   * @returns ListSecretValueResponse
+   */
+  async listSecretValue(workspaceId: string, request: $_model.ListSecretValueRequest): Promise<$_model.ListSecretValueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSecretValueWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**

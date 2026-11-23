@@ -13,7 +13,7 @@ export class UpdateRayClusterRequestHeadSpecGftConfig extends $dara.Model {
   redisPassword?: string;
   /**
    * @remarks
-   * The Redis address.
+   * The Redis endpoint.
    * 
    * @example
    * 10.4.5.6:6379
@@ -63,7 +63,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The Ray DPI engine version.
+   * The database engine version of the Ray DPI engine.
    * 
    * @example
    * ray-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -99,6 +99,9 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
    */
   gftEnabled?: boolean;
   /**
+   * @remarks
+   * The GPU driver version.
+   * 
    * @example
    * 550
    */
@@ -121,7 +124,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   idleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The memory size. Unit: GiB.
+   * The memory size. Unit: Gi.
    * 
    * @example
    * 8Gi
@@ -129,7 +132,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue
@@ -200,7 +203,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The DPI engine version.
+   * The database engine version of the DPI engine.
    * 
    * @example
    * ray-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -215,6 +218,9 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
    */
   env?: string;
   /**
+   * @remarks
+   * The GPU driver version.
+   * 
    * @example
    * 550
    */
@@ -229,7 +235,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The worker group name.
+   * The name of the worker group.
    * 
    * @example
    * WorkerGroup1
@@ -245,7 +251,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size. Unit: GiB.
+   * The memory size. Unit: Gi.
    * 
    * @example
    * 8Gi
@@ -261,7 +267,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
   minReplica?: number;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue
@@ -347,12 +353,16 @@ export class UpdateRayClusterRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Ray DPI engine version.
+   * The database engine version of the Ray DPI engine.
    * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
    */
   displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to upload metrics.
+   */
   enableMetricsUpload?: boolean;
   /**
    * @remarks
@@ -364,7 +374,7 @@ export class UpdateRayClusterRequest extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The head node information for the Ray cluster.
+   * The head node information of the Ray cluster.
    */
   headSpec?: UpdateRayClusterRequestHeadSpec;
   /**
@@ -377,30 +387,36 @@ export class UpdateRayClusterRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network connection name.
+   * The name of the network connectivity.
    * 
    * @example
    * vpc
    */
   networkServiceName?: string;
   /**
+   * @remarks
+   * The SLS Logstore used to upload metrics.
+   * 
    * @example
    * myLogStore
    */
   slsLogStore?: string;
   /**
+   * @remarks
+   * The Simple Log Service (SLS) project used to upload metrics.
+   * 
    * @example
    * myproject
    */
   slsProject?: string;
   /**
    * @remarks
-   * The list of managed directory IDs to mount.
+   * The IDs of the managed directories to mount.
    */
   volumeIds?: string[];
   /**
    * @remarks
-   * The worker node information for the Ray cluster. A maximum of 50 worker groups are supported.
+   * The worker node information of the Ray cluster. A maximum of 50 worker groups are supported.
    */
   workerSpec?: UpdateRayClusterRequestWorkerSpec[];
   static names(): { [key: string]: string } {
