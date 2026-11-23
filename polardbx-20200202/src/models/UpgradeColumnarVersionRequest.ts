@@ -13,7 +13,7 @@ export class UpgradeColumnarVersionRequest extends $dara.Model {
   columnarVersion?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-xxx
@@ -21,7 +21,7 @@ export class UpgradeColumnarVersionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-hzrh51fze****pon-cdc
@@ -29,7 +29,7 @@ export class UpgradeColumnarVersionRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

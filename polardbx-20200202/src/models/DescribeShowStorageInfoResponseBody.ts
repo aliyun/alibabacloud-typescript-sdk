@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeShowStorageInfoResponseBodyDataStorageInfos extends $dara.Model {
   /**
    * @remarks
-   * The specification type (specification code) of the instance.
+   * The instance type (specification code).
    * 
    * @example
    * polar.mysql.x4.large
@@ -38,10 +38,9 @@ export class DescribeShowStorageInfoResponseBodyDataStorageInfos extends $dara.M
   /**
    * @remarks
    * The role type of the instance. Valid values:
-   * 
-   * - MASTER: primary instance.
-   * - READONLY: read-only instance.
-   * - STANDBY: standby instance (high-availability scenario).
+   * - MASTER: primary instance
+   * - READONLY: read-only instance
+   * - STANDBY: secondary instance in high-availability scenarios
    * 
    * @example
    * MASTER
@@ -149,7 +148,7 @@ export class DescribeShowStorageInfoResponseBodyData extends $dara.Model {
 export class DescribeShowStorageInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the request. > This parameter is empty when the request is successful. When the request fails, exception information such as error codes is returned.
+   * The return code of the request. This parameter is empty if the request is successful. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * 200

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRdsVswitchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class DescribeRdsVswitchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the access endpoint resides.
+   * The ID of the VPC where the access endpoint resides.
    * 
    * @example
    * vpc-bp1ndou****twoedlmru0

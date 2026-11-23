@@ -6,9 +6,9 @@ export class DescribePolarxDataNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The type of nodes to query. Valid values:
-   * - all: queries both dn and gms nodes.
-   * - gms: queries only gms nodes.
-   * - dn: queries only dn nodes.
+   * - all: Queries both dn and gms nodes.
+   * - gms: Queries only gms nodes.
+   * - dn: Queries only dn nodes.
    * 
    * @example
    * dn
@@ -16,7 +16,7 @@ export class DescribePolarxDataNodesRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the integer data type. Default value: **1**.
+   * The page number. The value must be an integer greater than 0 and less than or equal to the maximum value of the INTEGER data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -32,7 +32,7 @@ export class DescribePolarxDataNodesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class DescribePolarxDataNodesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keyword for filtering results.
+   * The keyword.
    * 
    * @example
    * pc-bp1c5w4fx****2274

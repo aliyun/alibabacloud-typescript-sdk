@@ -8,7 +8,7 @@ export class ScaleOutOpenSearchResponseBodyAccessDeniedDetail extends $dara.Mode
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ScaleOutOpenSearch
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class ScaleOutOpenSearchResponseBodyAccessDeniedDetail extends $dara.Mode
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -45,7 +45,7 @@ export class ScaleOutOpenSearchResponseBodyAccessDeniedDetail extends $dara.Mode
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the denied permission.
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class ScaleOutOpenSearchResponseBodyAccessDeniedDetail extends $dara.Mode
 export class ScaleOutOpenSearchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: ScaleOutOpenSearchResponseBodyAccessDeniedDetail;
   /**

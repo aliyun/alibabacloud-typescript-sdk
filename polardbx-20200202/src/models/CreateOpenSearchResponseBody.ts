@@ -8,20 +8,20 @@ export class CreateOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:CreateOpenSearch
    */
   authAction?: string;
   /**
    * @remarks
-   * The name of the security principal.
+   * The name of the authenticated principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the security principal.
+   * The ID of the Alibaba Cloud account to which the authenticated principal belongs.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreateOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * Same as above.
+   * The type of the authenticated principal.
    * 
    * @example
    * 222

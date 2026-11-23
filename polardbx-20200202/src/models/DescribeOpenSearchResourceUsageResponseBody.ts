@@ -8,7 +8,7 @@ export class DescribeOpenSearchResourceUsageResponseBodyAccessDeniedDetail exten
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeOpenSearchResourceUsage
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeOpenSearchResourceUsageResponseBodyAccessDeniedDetail exten
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribeOpenSearchResourceUsageResponseBodyAccessDeniedDetail exten
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -103,10 +103,10 @@ export class DescribeOpenSearchResourceUsageResponseBodyData extends $dara.Model
   docCount?: number;
   /**
    * @remarks
-   * The number of indexes. This is a filter condition for the number of indexes that the missing index table currently has. The input format is `operator + separator "" + index count`, for example, `>=100`.
+   * The number of indexes.
    * 
    * @example
-   * >=
+   * 0
    */
   indexCount?: number;
   /**
@@ -127,7 +127,7 @@ export class DescribeOpenSearchResourceUsageResponseBodyData extends $dara.Model
   storageTotalInBytes?: number;
   /**
    * @remarks
-   * The storage space usage.
+   * The storage usage percentage.
    * 
    * @example
    * 20.0
@@ -165,7 +165,7 @@ export class DescribeOpenSearchResourceUsageResponseBodyData extends $dara.Model
 export class DescribeOpenSearchResourceUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: DescribeOpenSearchResourceUsageResponseBodyAccessDeniedDetail;
   /**

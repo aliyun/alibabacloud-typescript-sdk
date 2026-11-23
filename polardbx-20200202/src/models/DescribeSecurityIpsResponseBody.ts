@@ -13,7 +13,7 @@ export class DescribeSecurityIpsResponseBodyDataGroupItems extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The details of the whitelist in the group.
+   * The IP addresses in the whitelist group.
    * 
    * @example
    * 127.0.0.1,172.168.0.0
@@ -45,7 +45,7 @@ export class DescribeSecurityIpsResponseBodyDataGroupItems extends $dara.Model {
 export class DescribeSecurityIpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-hzjasd****
@@ -90,7 +90,7 @@ export class DescribeSecurityIpsResponseBody extends $dara.Model {
   data?: DescribeSecurityIpsResponseBodyData;
   /**
    * @remarks
-   * The additional information returned. "success" is returned if the request is successful. Otherwise, an error code is returned.
+   * The additional message returned by the API operation. If the call is successful, success is returned. Otherwise, the corresponding error code is returned.
    * 
    * @example
    * success
@@ -98,7 +98,7 @@ export class DescribeSecurityIpsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 14036EBE-CF2E-44DB-ACE9-AC6157D3A6FC
@@ -106,7 +106,7 @@ export class DescribeSecurityIpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

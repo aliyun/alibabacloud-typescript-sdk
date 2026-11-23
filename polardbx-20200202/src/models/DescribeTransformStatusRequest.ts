@@ -13,7 +13,7 @@ export class DescribeTransformStatusRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The check report.
+   * The validation report.
    * 
    * @example
    * true

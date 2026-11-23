@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserEncryptionKeyListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The key list.
+   * The list of keys.
    */
   keyIds?: string[];
   static names(): { [key: string]: string } {

@@ -37,7 +37,7 @@ export class CreateMem0ResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -125,7 +125,7 @@ export class CreateMem0ResponseBodyData extends $dara.Model {
 export class CreateMem0ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reasons for the access denial.
+   * The details of the access denial.
    */
   accessDeniedDetail?: CreateMem0ResponseBodyAccessDeniedDetail;
   /**

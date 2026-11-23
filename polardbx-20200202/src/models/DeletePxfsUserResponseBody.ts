@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action.
+   * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeletePxfsUser
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authorization principal.
+   * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The description is the same as above.
+   * Same as above.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DeletePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authorization principal.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DeletePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DeletePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the no-permission error.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -103,7 +103,7 @@ export class DeletePxfsUserResponseBodyData extends $dara.Model {
   deleted?: boolean;
   /**
    * @remarks
-   * The identity name.
+   * The name of the identity.
    * 
    * @example
    * agent-runtime
@@ -111,7 +111,7 @@ export class DeletePxfsUserResponseBodyData extends $dara.Model {
   identityName?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * tenant-001
@@ -155,7 +155,7 @@ export class DeletePxfsUserResponseBody extends $dara.Model {
   data?: DeletePxfsUserResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

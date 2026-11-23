@@ -8,20 +8,20 @@ export class DescribeOpenSearchConnectionInfoResponseBodyAccessDeniedDetail exte
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeOpenSearchConnectionInfo
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The display name of the authenticated principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The owner ID of the authenticated principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DescribeOpenSearchConnectionInfoResponseBodyAccessDeniedDetail exte
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The description is the same as above.
+   * The description is as above.
    * 
    * @example
    * 222
@@ -95,7 +95,7 @@ export class DescribeOpenSearchConnectionInfoResponseBodyAccessDeniedDetail exte
 export class DescribeOpenSearchConnectionInfoResponseBodyDataDashboardEndpoint extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether static frame check is enabled. Default value: false.
+   * Specifies whether still frame checking is enabled. Default value: false.
    * 
    * @example
    * true
@@ -119,7 +119,7 @@ export class DescribeOpenSearchConnectionInfoResponseBodyDataDashboardEndpoint e
   port?: number;
   /**
    * @remarks
-   * The URL.
+   * The article URL.
    * 
    * @example
    * https://static.yipigai.cn/timuocr/tmp_c29e30497575a40193a24a7a83654e30e21b951cc6856cdb.jpg
@@ -156,7 +156,6 @@ export class DescribeOpenSearchConnectionInfoResponseBodyDataDashboardPublicEndp
   /**
    * @remarks
    * The service activation status. Valid values:
-   * 
    * - **on**: Activated.
    * - **off**: Not activated.
    * 
@@ -166,7 +165,7 @@ export class DescribeOpenSearchConnectionInfoResponseBodyDataDashboardPublicEndp
   enabled?: boolean;
   /**
    * @remarks
-   * The hostname. Retrieves data under the specified host.
+   * The hostname.
    * 
    * @example
    * https://secnet-defense-vastip.oss-cn-hangzhou.aliyuncs.com
@@ -182,7 +181,7 @@ export class DescribeOpenSearchConnectionInfoResponseBodyDataDashboardPublicEndp
   port?: number;
   /**
    * @remarks
-   * The URL.
+   * The article URL.
    * 
    * @example
    * https://static.yipigai.cn/timuocr/tmp_c29e30497575a40193a24a7a83654e30e21b951cc6856cdb.jpg
@@ -218,7 +217,7 @@ export class DescribeOpenSearchConnectionInfoResponseBodyDataDashboardPublicEndp
 export class DescribeOpenSearchConnectionInfoResponseBodyDataPrivateEndpoint extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the echo feature. This parameter is required. Valid values: true/false.
+   * Specifies whether additional features are enabled. This parameter is required. Valid values: true and false.
    * 
    * @example
    * True
@@ -268,7 +267,7 @@ export class DescribeOpenSearchConnectionInfoResponseBodyDataPrivateEndpoint ext
 export class DescribeOpenSearchConnectionInfoResponseBodyDataPublicEndpoint extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable dead-letter message delivery.
+   * Specifies whether dead-letter message delivery is enabled.
    * 
    * @example
    * True
@@ -318,17 +317,17 @@ export class DescribeOpenSearchConnectionInfoResponseBodyDataPublicEndpoint exte
 export class DescribeOpenSearchConnectionInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The internal endpoint of the OpenSearch Dashboard.
+   * The internal endpoint of OpenSearch Dashboard.
    */
   dashboardEndpoint?: DescribeOpenSearchConnectionInfoResponseBodyDataDashboardEndpoint;
   /**
    * @remarks
-   * The public network access endpoint of the OpenSearch Dashboard.
+   * The public network access endpoint of OpenSearch Dashboard.
    */
   dashboardPublicEndpoint?: DescribeOpenSearchConnectionInfoResponseBodyDataDashboardPublicEndpoint;
   /**
    * @remarks
-   * The default account name of OpenSearch.
+   * The default username for OpenSearch.
    * 
    * @example
    * elastic
@@ -341,13 +340,13 @@ export class DescribeOpenSearchConnectionInfoResponseBodyData extends $dara.Mode
   privateEndpoint?: DescribeOpenSearchConnectionInfoResponseBodyDataPrivateEndpoint;
   /**
    * @remarks
-   * The protocol of the monitoring task. Valid values:
+   * The protocol of the probe task. Valid values:
    * 
-   * - **ICMP**.
-   * - **TCP**.
-   * - **HTTP**.
+   * - **ICMP**
+   * - **TCP**
+   * - **HTTP**
    * 
-   * > Private network monitoring supports only the ICMP and TCP protocols.
+   * > Internal network probing supports only the ICMP and TCP protocols.
    * 
    * @example
    * HTTP
@@ -404,12 +403,12 @@ export class DescribeOpenSearchConnectionInfoResponseBodyData extends $dara.Mode
 export class DescribeOpenSearchConnectionInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: DescribeOpenSearchConnectionInfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: DescribeOpenSearchConnectionInfoResponseBodyData;
   /**

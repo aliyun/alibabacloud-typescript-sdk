@@ -8,7 +8,7 @@ export class DescribeContextDBInfoResponseBodyAccessDeniedDetail extends $dara.M
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeContextDBInfo
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeContextDBInfoResponseBodyAccessDeniedDetail extends $dara.M
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeContextDBInfoResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeContextDBInfoResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeContextDBInfoResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of missing permission.
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -103,7 +103,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceConnAddrs extends $dar
   connectionString?: string;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The type of the target node. Valid values: service and dashboard.
    * 
    * @example
    * service
@@ -111,7 +111,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceConnAddrs extends $dar
   nodeType?: string;
   /**
    * @remarks
-   * The port.
+   * The port number.
    * 
    * @example
    * 3306
@@ -143,7 +143,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceConnAddrs extends $dar
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The VPC instance ID.
    * 
    * @example
    * pxc-spsil01pww4hfzjayd-cn-20251013180429
@@ -193,7 +193,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSetsConnAddrs e
   connectionString?: string;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The type of the target node. Valid values: service and dashboard.
    * 
    * @example
    * service
@@ -201,7 +201,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSetsConnAddrs e
   nodeType?: string;
   /**
    * @remarks
-   * The port.
+   * The port number.
    * 
    * @example
    * 3306
@@ -211,8 +211,8 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSetsConnAddrs e
    * @remarks
    * The instance type. Valid values:
    * 
-   * - **ReadWrite**: primary instance.
-   * - **ReadOnly**: read-only instance.
+   * - **ReadWrite**: primary instance
+   * - **ReadOnly**: read-only instance
    * 
    * @example
    * RemoveHeader
@@ -236,7 +236,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSetsConnAddrs e
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-8vbdw66evguopfcfvieoi
@@ -278,7 +278,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSetsConnAddrs e
 export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSets extends $dara.Model {
   /**
    * @remarks
-   * The instance specifications.
+   * The instance type.
    * 
    * @example
    * pg.x2.13large.2c
@@ -315,7 +315,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSets extends $d
   nodeCount?: number;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The type of the target node. Valid values: service and dashboard.
    * 
    * @example
    * service
@@ -325,13 +325,13 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSets extends $d
    * @remarks
    * The node status. Valid values:
    * 
-   * - **0**: Running.
-   * - **1**: Creating.
-   * - **2**: Abnormal.
-   * - **3**: Expired.
-   * - **4**: Releasing.
-   * - **5**: Released.
-   * - **6**: Locked.
+   * - **0**: running
+   * - **1**: creating
+   * - **2**: abnormal
+   * - **3**: expired
+   * - **4**: releasing
+   * - **5**: released
+   * - **6**: locked
    * 
    * @example
    * enabled
@@ -396,7 +396,7 @@ export class DescribeContextDBInfoResponseBodyDataInstanceReplicaSets extends $d
 export class DescribeContextDBInfoResponseBodyDataInstance extends $dara.Model {
   /**
    * @remarks
-   * The instance specifications.
+   * The instance type.
    * 
    * @example
    * mysql.x2.large.2c
@@ -417,7 +417,7 @@ export class DescribeContextDBInfoResponseBodyDataInstance extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The database instance name.
+   * The name of the database instance.
    * 
    * @example
    * pxc-hzr9qzafkeury3
@@ -433,6 +433,14 @@ export class DescribeContextDBInfoResponseBodyDataInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The full tag of the minor version currently confirmed by the service. This parameter is empty if the version is unknown.
+   * 
+   * @example
+   * polardb-2.6.0_release_contextdb-20261023
+   */
+  minorVersion?: string;
+  /**
+   * @remarks
    * The number of nodes.
    * 
    * @example
@@ -441,7 +449,7 @@ export class DescribeContextDBInfoResponseBodyDataInstance extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The PolarDB-X Search instance name.
+   * The name of the PolarDB-X Search instance.
    * 
    * @example
    * pxs-********
@@ -457,7 +465,7 @@ export class DescribeContextDBInfoResponseBodyDataInstance extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The VPC instance ID of the replica set node.
+   * The VPC instance IDs of the replica set nodes.
    * > This parameter is returned only when the network type of the instance is VPC.
    */
   replicaSets?: DescribeContextDBInfoResponseBodyDataInstanceReplicaSets[];
@@ -508,6 +516,7 @@ export class DescribeContextDBInfoResponseBodyDataInstance extends $dara.Model {
       createTime: 'CreateTime',
       DBInstanceName: 'DBInstanceName',
       instanceId: 'InstanceId',
+      minorVersion: 'MinorVersion',
       nodeCount: 'NodeCount',
       openSearchInstanceName: 'OpenSearchInstanceName',
       regionId: 'RegionId',
@@ -527,6 +536,7 @@ export class DescribeContextDBInfoResponseBodyDataInstance extends $dara.Model {
       createTime: 'string',
       DBInstanceName: 'string',
       instanceId: 'string',
+      minorVersion: 'string',
       nodeCount: 'number',
       openSearchInstanceName: 'string',
       regionId: 'string',

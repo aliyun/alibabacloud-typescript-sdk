@@ -105,7 +105,7 @@ export class DescribeArchiveTableListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of tables in the PAUSE state.
+   * The number of tables whose archiving is paused.
    * 
    * @example
    * 0
@@ -113,7 +113,7 @@ export class DescribeArchiveTableListResponseBodyData extends $dara.Model {
   pausedCount?: number;
   /**
    * @remarks
-   * The number of tables being archived.
+   * The number of tables currently being archived.
    * 
    * @example
    * 0

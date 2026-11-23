@@ -13,7 +13,7 @@ export class DescribeRplInspectionTaskRequest extends $dara.Model {
   failPageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeRplInspectionTaskRequest extends $dara.Model {
   failPageSize?: number;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeRplInspectionTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The switchover task ID.
+   * The ID of the switchover task.
    * 
    * @example
    * etx-szr2rr6i*****
@@ -47,7 +47,7 @@ export class DescribeRplInspectionTaskRequest extends $dara.Model {
   successPageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 15

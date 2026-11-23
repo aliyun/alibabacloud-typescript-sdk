@@ -23,7 +23,7 @@ export class DescribeColumnarClassListRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance is located.
    * 
    * This parameter is required.
    * 

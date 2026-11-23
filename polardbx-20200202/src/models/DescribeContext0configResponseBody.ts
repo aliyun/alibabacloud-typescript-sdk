@@ -8,7 +8,7 @@ export class DescribeContext0ConfigResponseBodyAccessDeniedDetail extends $dara.
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeContext0Config
    */
   authAction?: string;
   /**
@@ -16,12 +16,12 @@ export class DescribeContext0ConfigResponseBodyAccessDeniedDetail extends $dara.
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The OwnerId of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DescribeContext0ConfigResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The description is as above.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeContext0ConfigResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -53,7 +53,7 @@ export class DescribeContext0ConfigResponseBodyAccessDeniedDetail extends $dara.
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMem0InfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance Name
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeMem0InfoRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * Region
+   * The region ID.
    * 
    * This parameter is required.
    * 

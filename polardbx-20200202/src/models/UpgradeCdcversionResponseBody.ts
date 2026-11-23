@@ -13,10 +13,10 @@ export class UpgradeCDCVersionResponseBodyDataTaskList extends $dara.Model {
   dbInstanceName?: string;
   /**
    * @remarks
-   * The target task ID.
+   * The task ID.
    * 
    * @example
-   * 1861190497624654848
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class UpgradeCDCVersionResponseBodyDataTaskList extends $dara.Model {
 export class UpgradeCDCVersionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The target version number.
+   * The target minor version.
    * 
    * @example
    * polardb-2.4.0_5.4.19-20250116_xcluster5.4.20-20241213
@@ -85,12 +85,12 @@ export class UpgradeCDCVersionResponseBodyData extends $dara.Model {
 export class UpgradeCDCVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: UpgradeCDCVersionResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message returned in the response.
    * 
    * @example
    * success

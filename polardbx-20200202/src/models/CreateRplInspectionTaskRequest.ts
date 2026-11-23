@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRplInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ApsaraDB RDS instance to which the migration object belongs in the target instance. > You can invoke the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all ApsaraDB RDS instances in the specified region, including instance IDs.
+   * The ID of the ApsaraDB RDS instance to which the migrated objects belong in the destination instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all ApsaraDB RDS instances in the destination region, including instance IDs.
    * 
    * @example
    * transfer_test3
@@ -13,15 +13,15 @@ export class CreateRplInspectionTaskRequest extends $dara.Model {
   dstDb?: string;
   /**
    * @remarks
-   * The password of the privileged user for the destination ApsaraDB RDS instance. > * The password must be 8 to 32 characters in length. * The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. * Special characters include ! @ # $ & % ^ * ( ) _ + - =
+   * The password of the privileged account for the destination ApsaraDB RDS instance. * It must be 8 to 32 characters in length. * It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. * Special characters include !@#$&%^*()_+-=
    * 
    * @example
-   * ******
+   * DemoPass1!
    */
   dstPassword?: string;
   /**
    * @remarks
-   * The destination task ID.
+   * The ID of the destination task.
    * 
    * @example
    * pxc-zkrc1****l54rc
@@ -29,7 +29,7 @@ export class CreateRplInspectionTaskRequest extends $dara.Model {
   dstResId?: string;
   /**
    * @remarks
-   * The username used to connect to the target instance.
+   * The username used to connect to the destination instance.
    * 
    * @example
    * bbt_item
@@ -37,7 +37,7 @@ export class CreateRplInspectionTaskRequest extends $dara.Model {
   dstUserName?: string;
   /**
    * @remarks
-   * The region ID. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateRplInspectionTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The switchover task ID.
+   * The ID of the switchover task.
    * 
    * This parameter is required.
    * 
@@ -57,10 +57,10 @@ export class CreateRplInspectionTaskRequest extends $dara.Model {
   slinkTaskId?: string;
   /**
    * @remarks
-   * The password of the source ApsaraDB RDS instance. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the specified region, including the password.
+   * The password of the user for the source ApsaraDB RDS instance.
    * 
    * @example
-   * ******
+   * DemoPass1@
    */
   srcPassword?: string;
   /**

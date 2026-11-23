@@ -17,8 +17,8 @@ export class ModifyOpenSearchAccessProtocolRequest extends $dara.Model {
    * @remarks
    * The access protocol. Valid values:
    * 
-   * - **http**: HTTP protocol.
-   * - **https**: HTTPS protocol.
+   * - **http**: HTTP.
+   * - **https**: HTTPS.
    * 
    * This parameter is required.
    * 

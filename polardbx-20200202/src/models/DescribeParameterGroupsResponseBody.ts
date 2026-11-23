@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a forced restart of CN is required.
+   * Specifies whether a forcible restart is required for CN.
    */
   cnForceRestart?: boolean;
   /**
@@ -26,7 +26,7 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
   dbType?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The database version.
    * 
    * @example
    * 5.7
@@ -34,7 +34,7 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
   dbVersion?: string;
   /**
    * @remarks
-   * Indicates whether a forced restart of DN is required.
+   * Specifies whether a forcible restart is required for DN.
    */
   dnForceRestart?: boolean;
   /**
@@ -55,7 +55,7 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
   gmtCreated?: string;
   /**
    * @remarks
-   * The modification time, in timestamp format.
+   * The modification time in timestamp format.
    * 
    * @example
    * 1605079985000
@@ -64,7 +64,7 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
   /**
    * @remarks
    * The parameter template ID.
-   * > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the details of all parameter templates in the specified region, including the parameter template ID.
+   * > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the details of all parameter templates in the target region, including the parameter template IDs.
    * 
    * @example
    * rpg-s1y1xy06****fqs7y
@@ -72,7 +72,7 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
   parameterGroupId?: string;
   /**
    * @remarks
-   * The parameter template name.
+   * The name of the parameter template.
    * 
    * @example
    * dstest_api_new
@@ -80,7 +80,7 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
   parameterGroupName?: string;
   /**
    * @remarks
-   * The parameter templatetype.
+   * The parameter template type.
    * 
    * @example
    * 0
@@ -143,7 +143,7 @@ export class DescribeParameterGroupsResponseBodyDataParameterGroups extends $dar
 export class DescribeParameterGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The parameter template name.
+   * The name of the parameter template.
    */
   parameterGroups?: DescribeParameterGroupsResponseBodyDataParameterGroups[];
   /**
@@ -183,7 +183,7 @@ export class DescribeParameterGroupsResponseBodyData extends $dara.Model {
 export class DescribeParameterGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance details.
+   * The list of instance details.
    */
   data?: DescribeParameterGroupsResponseBodyData;
   /**

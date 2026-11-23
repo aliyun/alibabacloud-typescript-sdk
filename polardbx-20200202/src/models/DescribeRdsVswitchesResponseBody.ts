@@ -21,7 +21,7 @@ export class DescribeRdsVswitchesResponseBodyDataVswitchList extends $dara.Model
   cidrBlock?: string;
   /**
    * @remarks
-   * The description of the database.
+   * The database description.
    * 
    * @example
    * describe
@@ -32,7 +32,7 @@ export class DescribeRdsVswitchesResponseBodyDataVswitchList extends $dara.Model
    * The node ID.
    * 
    * @example
-   * babac91eff704edf9bdccfaa6ba4efce
+   * 123456
    */
   id?: number;
   /**
@@ -45,9 +45,9 @@ export class DescribeRdsVswitchesResponseBodyDataVswitchList extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the VPC is the default VPC. Valid values:
-   * - **true**: The VPC is the default VPC.
-   * - **false**: The VPC is not the default VPC.
+   * Specifies whether the VPC is the default VPC. Valid values:
+   * - true: The VPC is the default VPC.
+   * - false: The VPC is not the default VPC.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class DescribeRdsVswitchesResponseBodyDataVswitchList extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * vpc id。
+   * The VPC ID.
    * 
    * @example
    * vpc-uf6lis7xmm****t9wrxb5
@@ -117,7 +117,7 @@ export class DescribeRdsVswitchesResponseBodyDataVswitchList extends $dara.Model
 export class DescribeRdsVswitchesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch list.
+   * The list of vSwitches.
    */
   vswitchList?: DescribeRdsVswitchesResponseBodyDataVswitchList[];
   static names(): { [key: string]: string } {
@@ -147,7 +147,7 @@ export class DescribeRdsVswitchesResponseBodyData extends $dara.Model {
 export class DescribeRdsVswitchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: DescribeRdsVswitchesResponseBodyData;
   /**

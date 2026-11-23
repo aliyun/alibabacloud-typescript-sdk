@@ -25,7 +25,7 @@ export class ScaleInOpenSearchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The total number of data nodes after the scale-in. The value must be a positive integer and less than the current number of data nodes.
+   * The total number of data nodes after the scale-down. The value must be a positive integer and less than the current number of data nodes.
    * 
    * This parameter is required.
    * 

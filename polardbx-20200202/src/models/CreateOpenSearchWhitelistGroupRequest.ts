@@ -45,7 +45,7 @@ export class CreateOpenSearchWhitelistGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description of the group.
+   * The description of the whitelist group.
    * 
    * @example
    * MAIN

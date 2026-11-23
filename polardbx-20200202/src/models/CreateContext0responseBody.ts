@@ -8,15 +8,15 @@ export class CreateContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:CreateContext0
    */
   authAction?: string;
   /**
    * @remarks
-   * The name of the authentication principal.
+   * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class CreateContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -119,7 +119,7 @@ export class CreateContext0ResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The dashboard instance name of the context service.
+   * The dashboard replica set name of the context service.
    * 
    * @example
    * pxt-*********-d
@@ -127,7 +127,7 @@ export class CreateContext0ResponseBodyData extends $dara.Model {
   dashboardReplicaSetName?: string;
   /**
    * @remarks
-   * The name of the PolarDB-X Search instance.
+   * The name of the PolarDBX Search instance.
    * 
    * @example
    * pxs-*********
@@ -135,7 +135,7 @@ export class CreateContext0ResponseBodyData extends $dara.Model {
   openSearchInstanceName?: string;
   /**
    * @remarks
-   * The service instance name of the context service.
+   * The service replica set name of the context service.
    * 
    * @example
    * pxt-*********-s
@@ -185,7 +185,7 @@ export class CreateContext0ResponseBodyData extends $dara.Model {
 export class CreateContext0ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details of the access denial.
    */
   accessDeniedDetail?: CreateContext0ResponseBodyAccessDeniedDetail;
   /**

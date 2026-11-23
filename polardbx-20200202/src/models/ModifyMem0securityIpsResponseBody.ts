@@ -8,20 +8,20 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
    * The API operation name.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyMem0SecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The identity identifier used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the identity used for authentication belongs.
+   * The ID of the Alibaba Cloud account to which the authenticated principal belongs.
    * 
    * @example
    * 111
@@ -30,9 +30,9 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   /**
    * @remarks
    * The type of identity used for authentication in the request. Valid values:
-   * - SubUser: RAM user.
-   * - AssumedRoleUser: RAM role.
-   * - Federated: SSO federated identity.
+   * - SubUser: RAM user
+   * - AssumedRoleUser: RAM role
+   * - Federated: SSO federated identity
    * 
    * @example
    * 222
@@ -40,7 +40,7 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted complete diagnostic information.
+   * The encoded complete diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -48,8 +48,8 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial. Valid values:
-   * - **ImplicitDeny**: The resource owner has not granted the required permissions to the current user. Unauthorized operations are denied by default.
+   * The type of access policy denial. Valid values:
+   * - **ImplicitDeny**: The resource owner has not configured a relevant access policy for the current user, and unauthorized operations are denied by default.
    * - **ExplicitDeny**: The RAM policy configured by the resource owner explicitly denies the current user access to the corresponding resource.
    * 
    * @example
@@ -58,7 +58,7 @@ export class ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * PolicyType
    * 
    * @example
    * PRIORITY
@@ -130,12 +130,12 @@ export class ModifyMem0SecurityIpsResponseBodyData extends $dara.Model {
 export class ModifyMem0SecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for access denial.
    */
   accessDeniedDetail?: ModifyMem0SecurityIpsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data structure.
+   * The data struct.
    */
   data?: ModifyMem0SecurityIpsResponseBodyData;
   /**

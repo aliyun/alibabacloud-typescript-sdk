@@ -25,7 +25,7 @@ export class DescribePxfsTenantRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * This parameter is required.
    * 

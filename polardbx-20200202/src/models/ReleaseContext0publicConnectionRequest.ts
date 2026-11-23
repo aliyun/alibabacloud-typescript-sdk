@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseContext0PublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The public network connection string to release. If this parameter is not specified, the Mem0 public address is subject to automatic release.
+   * The public connection string to release. This parameter is optional. If you do not specify this parameter, the Mem0 public endpoint is automatically released.
    * 
    * @example
    * pxc-hzjasdyuoo.polarx.rds.aliyuncs.com
@@ -23,9 +23,7 @@ export class ReleaseContext0PublicConnectionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The target node type. Valid values:
-   * - service
-   * - dashboard
+   * The type of the target node. Valid values: service, dashboard.
    * 
    * @example
    * dn

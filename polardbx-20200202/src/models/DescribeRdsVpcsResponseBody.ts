@@ -13,7 +13,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The time when the vSwitch was created. The value is a UNIX timestamp accurate to milliseconds.
+   * The creation time, which is a UNIX timestamp accurate to milliseconds.
    * 
    * @example
    * 1574156944000
@@ -21,7 +21,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the vSwitch was last modified. The value is a UNIX timestamp.
+   * The last modification time. The value is a UNIX timestamp.
    * 
    * @example
    * 2025-09-03T19:19:13+08:00
@@ -45,7 +45,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   izNo?: string;
   /**
    * @remarks
-   * The vSwitch status.
+   * The status of the vSwitch.
    * 
    * @example
    * Available
@@ -53,7 +53,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-8vbkwmpn****4nrd639ih
@@ -145,7 +145,9 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the VPC is the default VPC. Valid values: **true**: The VPC is the default VPC. **false**: The VPC is not the default VPC.
+   * Indicates whether the VPC is the default VPC. Valid values:
+   * - true: The VPC is the default VPC.
+   * - false: The VPC is not the default VPC.
    * 
    * @example
    * False
@@ -153,7 +155,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The region in which the VPC resides.
+   * The region where the VPC resides.
    * 
    * @example
    * cn-shanghai
@@ -161,7 +163,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The VPC status.
+   * The status of the VPC.
    * 
    * @example
    * True

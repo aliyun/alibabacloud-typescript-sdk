@@ -8,7 +8,7 @@ export class DescribeContext0InfoResponseBodyAccessDeniedDetail extends $dara.Mo
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeContext0Info
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeContext0InfoResponseBodyAccessDeniedDetail extends $dara.Mo
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeContext0InfoResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The no-permission type.
+   * The type of the access denial.
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +53,7 @@ export class DescribeContext0InfoResponseBodyAccessDeniedDetail extends $dara.Mo
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY
@@ -103,7 +103,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceConnAddrs extends $dara
   connectionString?: string;
   /**
    * @remarks
-   * The target node type. Valid values: service, dashboard.
+   * The type of the target node: service or dashboard.
    * 
    * @example
    * service
@@ -111,7 +111,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceConnAddrs extends $dara
   nodeType?: string;
   /**
    * @remarks
-   * The port.
+   * The port number.
    * 
    * @example
    * 3306
@@ -119,7 +119,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceConnAddrs extends $dara
   port?: number;
   /**
    * @remarks
-   * The endpoint type.
+   * The type of the endpoint.
    * 
    * @example
    * VPC
@@ -143,7 +143,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceConnAddrs extends $dara
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC instance ID.
+   * The VPC-connected instance ID.
    * 
    * @example
    * pxc-spsil01pww4hfzjayd-cn-20251013180429
@@ -193,7 +193,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
   connectionString?: string;
   /**
    * @remarks
-   * The target node type. Valid values: service, dashboard.
+   * The type of the target node: service or dashboard.
    * 
    * @example
    * service
@@ -201,7 +201,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
   nodeType?: string;
   /**
    * @remarks
-   * The port.
+   * The port number.
    * 
    * @example
    * 3306
@@ -211,8 +211,8 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
    * @remarks
    * The instance type. Valid values:
    * 
-   * - **ReadWrite**: primary instance
-   * - **ReadOnly**: read-only instance
+   * - **ReadWrite**: primary instance.
+   * - **ReadOnly**: read-only instance.
    * 
    * @example
    * RemoveHeader
@@ -236,7 +236,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC instance ID.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-8vbdw66evguopfcfvieoi
@@ -278,7 +278,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
 export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $dara.Model {
   /**
    * @remarks
-   * The instance class.
+   * The instance type.
    * 
    * @example
    * pg.x2.13large.2c
@@ -315,7 +315,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $da
   nodeCount?: number;
   /**
    * @remarks
-   * The target node type. Valid values: service, dashboard.
+   * The type of the target node: service or dashboard.
    * 
    * @example
    * service
@@ -325,13 +325,13 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $da
    * @remarks
    * The node status. Valid values:
    * 
-   * - **0**: running
-   * - **1**: creating
-   * - **2**: abnormal
-   * - **3**: expired
-   * - **4**: releasing
-   * - **5**: released
-   * - **6**: locked
+   * - **0**: running.
+   * - **1**: creating.
+   * - **2**: abnormal.
+   * - **3**: expired.
+   * - **4**: releasing.
+   * - **5**: released.
+   * - **6**: locked.
    * 
    * @example
    * enabled
@@ -396,7 +396,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $da
 export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
   /**
    * @remarks
-   * The instance class.
+   * The instance type.
    * 
    * @example
    * mysql.x2.large.2c
@@ -433,7 +433,7 @@ export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The full tag of the minor version currently confirmed for the service. This parameter is empty when the version is unknown.
+   * The full tag of the currently confirmed minor version of the service. This parameter is empty if the version is unknown.
    * 
    * @example
    * polardb-2.6.0_release_contextdb-20261023
@@ -596,7 +596,7 @@ export class DescribeContext0InfoResponseBodyData extends $dara.Model {
 export class DescribeContext0InfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: DescribeContext0InfoResponseBodyAccessDeniedDetail;
   /**

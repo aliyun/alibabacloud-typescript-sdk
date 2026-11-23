@@ -8,20 +8,20 @@ export class UpgradePxfsVersionResponseBodyAccessDeniedDetail extends $dara.Mode
    * The authorization action.
    * 
    * @example
-   * xxx
+   * polardbx:UpgradePxfsVersion
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authorization in the request.
+   * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authorization principal.
+   * The owner ID of the authenticated principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class UpgradePxfsVersionResponseBodyAccessDeniedDetail extends $dara.Mode
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authorization principal type.
+   * The type of the authenticated principal.
    * 
    * @example
    * 222
@@ -45,7 +45,7 @@ export class UpgradePxfsVersionResponseBodyAccessDeniedDetail extends $dara.Mode
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of missing permission.
+   * The type of the access denial.
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +53,7 @@ export class UpgradePxfsVersionResponseBodyAccessDeniedDetail extends $dara.Mode
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY
@@ -119,7 +119,7 @@ export class UpgradePxfsVersionResponseBodyData extends $dara.Model {
   pxfsInstanceId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 123456789
@@ -155,7 +155,7 @@ export class UpgradePxfsVersionResponseBodyData extends $dara.Model {
 export class UpgradePxfsVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the unauthorized access.
    */
   accessDeniedDetail?: UpgradePxfsVersionResponseBodyAccessDeniedDetail;
   /**
@@ -165,7 +165,7 @@ export class UpgradePxfsVersionResponseBody extends $dara.Model {
   data?: UpgradePxfsVersionResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

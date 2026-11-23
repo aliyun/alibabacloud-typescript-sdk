@@ -8,7 +8,7 @@ export class DeletePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeletePxfuse
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DeletePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DeletePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DeletePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -125,7 +125,7 @@ export class DeletePxfuseResponseBodyData extends $dara.Model {
 export class DeletePxfuseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: DeletePxfuseResponseBodyAccessDeniedDetail;
   /**

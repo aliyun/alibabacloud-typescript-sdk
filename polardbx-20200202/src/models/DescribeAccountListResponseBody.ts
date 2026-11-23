@@ -29,10 +29,9 @@ export class DescribeAccountListResponseBodyData extends $dara.Model {
   accountPrivilege?: string;
   /**
    * @remarks
-   * The type of the account.
-   * 
-   * - Before three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged user account.
-   * - After three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
+   * The type of the account. Valid values:
+   * - Before the three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged account.
+   * - After the three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
    * 
    * @example
    * 0
@@ -48,7 +47,7 @@ export class DescribeAccountListResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database to which the account is granted permissions.
+   * The database on which the account is granted permissions.
    * 
    * @example
    * testdb
@@ -103,7 +102,7 @@ export class DescribeAccountListResponseBody extends $dara.Model {
   data?: DescribeAccountListResponseBodyData[];
   /**
    * @remarks
-   * The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
+   * The message returned. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
    * 
    * @example
    * success
@@ -111,7 +110,7 @@ export class DescribeAccountListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9B2F3840-5C98-475C-B269-2D5C3A31797C
@@ -119,7 +118,7 @@ export class DescribeAccountListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

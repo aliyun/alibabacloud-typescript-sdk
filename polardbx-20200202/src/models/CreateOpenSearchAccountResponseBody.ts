@@ -8,15 +8,15 @@ export class CreateOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
    * The description is as above.
    * 
    * @example
-   * xxx
+   * polardbx:CreateOpenSearchAccount
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -135,7 +135,7 @@ export class CreateOpenSearchAccountResponseBodyData extends $dara.Model {
 export class CreateOpenSearchAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denied error.
+   * The details of the access denial.
    */
   accessDeniedDetail?: CreateOpenSearchAccountResponseBodyAccessDeniedDetail;
   /**

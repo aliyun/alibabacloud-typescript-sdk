@@ -8,20 +8,20 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:CreateSupabaseNetType
    */
   authAction?: string;
   /**
    * @remarks
-   * The security principal name.
+   * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the security principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The security principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -95,7 +95,7 @@ export class CreateSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
 export class CreateSupabaseNetTypeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The public network connection endpoint.
+   * The public endpoint.
    * 
    * @example
    * test2.polarx.huhehaote.rds.aliyuncs.com
@@ -103,7 +103,7 @@ export class CreateSupabaseNetTypeResponseBodyData extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-*********
@@ -114,7 +114,7 @@ export class CreateSupabaseNetTypeResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class CreateSupabaseNetTypeResponseBodyData extends $dara.Model {
 export class CreateSupabaseNetTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The access denied details.
    */
   accessDeniedDetail?: CreateSupabaseNetTypeResponseBodyAccessDeniedDetail;
   /**

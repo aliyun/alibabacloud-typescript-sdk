@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGdnStandbyMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. Default value: true.
+   * Specifies whether to enable auto-renewal. Default value: true. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true
@@ -24,7 +24,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   CNNodeCount?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Make sure that the value is different for each request.
+   * The client token that is used to ensure the idempotence of the request. Make sure that the token is unique for each request.
    * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
@@ -42,7 +42,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   cloneInstanceName?: string;
   /**
    * @remarks
-   * The compute node specifications. This parameter is required for Enterprise Edition instances and is not required for Standard Edition instances.
+   * The compute node specifications. This parameter is required when you create an Enterprise Edition instance and is not required when you create a Standard Edition instance.
    * 
    * Enterprise Edition with local disks:
    * 
@@ -90,7 +90,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   DNNodeCount?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The description.
    * 
    * @example
    * go-to-the-docks-for-french-fries
@@ -98,7 +98,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The storage node specifications. This parameter is required for Enterprise Edition instances and is not required for Standard Edition instances.
+   * The storage node specifications. This parameter is required when you create an Enterprise Edition instance and is not required when you create a Standard Edition instance.
    * 
    * Enterprise Edition with local disks:
    * 
@@ -147,7 +147,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   dnClass?: string;
   /**
    * @remarks
-   * The MySQL DPI engine version. Valid values: 5.7 and 8.0.
+   * The MySQL DPI engine version. Valid values: 5.7 or 8.0
    * 
    * This parameter is required.
    * 
@@ -165,7 +165,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The billing method of the instance.
+   * The billing method of the instance. Valid values:
    * 
    * - **PREPAY**: subscription
    * - **POSTPAY**: pay-as-you-go
@@ -178,12 +178,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
-   * 
-   * - Year
-   * - Month
-   * 
-   * For pay-as-you-go instances, the default value is Hour.
+   * The billing cycle. Valid values for the subscription billing method are Year and Month. The default value for the pay-as-you-go billing method is Hour.
    * 
    * @example
    * Month
@@ -199,7 +194,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   primaryZone?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 
@@ -209,7 +204,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This parameter can be left empty. This parameter is not supported.
+   * The resource group ID. This parameter can be left empty. Resource groups are not supported.
    * 
    * @example
    * null
@@ -227,8 +222,8 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
    * @remarks
    * The edition of the instance. Valid values:
    * 
-   * - enterprise: Enterprise Edition.
-   * - standard: Standard Edition.
+   * - **enterprise**: Enterprise Edition
+   * - **standard**: Standard Edition
    * 
    * @example
    * enterprise
@@ -236,7 +231,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   series?: string;
   /**
    * @remarks
-   * The region in which the source instance resides.
+   * The region where the source instance resides.
    * 
    * This parameter is required.
    * 
@@ -254,7 +249,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The zone for Three-zone deployment.
+   * The third active zone in a Three-zone deployment.
    * 
    * @example
    * cn-shenzhen-e
@@ -264,8 +259,8 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
    * @remarks
    * The topology type. Valid values:
    * 
-   * - **3azones**: three-zone deployment.
-   * - **1azone**: single-zone deployment.
+   * - **3azones**: three-zone deployment
+   * - **1azone**: single-zone deployment
    * 
    * This parameter is required.
    * 
@@ -275,9 +270,9 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   topologyType?: string;
   /**
    * @remarks
-   * The subscription duration. Unit: months or years.
+   * The subscription duration. You can specify a duration in months or years.
    * 
-   * > If Period is set to Year, valid values of this parameter are 1, 2, and 3.
+   * > If Period is set to Year, valid values are 1, 2, and 3.
    * 
    * @example
    * 1
@@ -285,7 +280,7 @@ export class CreateGdnStandbyMemberRequest extends $dara.Model {
   usedTime?: number;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-*****

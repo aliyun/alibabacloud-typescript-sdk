@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the event can be canceled. Valid values:
-   * 
-   * - **0**: No.
-   * - **1**: Yes.
+   * Indicates whether cancellation is allowed. Valid values:
+   * - **0**: no
+   * - **1**: yes
    * 
    * @example
    * 0
@@ -16,10 +15,9 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowCancel?: string;
   /**
    * @remarks
-   * Indicates whether the time can be modified. Valid values:
-   * 
-   * - **0**: No.
-   * - **1**: Yes.
+   * Indicates whether modification is allowed. Valid values:
+   * - **0**: no
+   * - **1**: yes
    * 
    * @example
    * 0
@@ -51,7 +49,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   changeLevelZh?: string;
   /**
    * @remarks
-   * The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The creation time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -139,7 +137,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The modification time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The modification time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -171,7 +169,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   resultInfo?: string;
   /**
    * @remarks
-   * The start time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The start time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -180,8 +178,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * 
-   * - **3**: pending 
+   * - **3**: pending
    * - **4**: running
    * 
    * @example
@@ -195,7 +192,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   subInsNames?: string[];
   /**
    * @remarks
-   * The switchover time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The switchover time. The time is in UTC and follows the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-15T16:00:00Z
@@ -328,7 +325,7 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * xxxx
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
    */
   requestId?: string;
   /**

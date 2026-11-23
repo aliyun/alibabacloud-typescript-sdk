@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model {
   /**
    * @remarks
-   * The instance type.
+   * The instance specifications.
    * 
    * @example
    * polarx.x4.large.2e
@@ -126,19 +126,19 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   cdcInstanceName?: string;
   /**
    * @remarks
-   * The CN node specifications. Valid values:
+   * The node specifications of the CN node. Valid values:
    * 
-   * - **polarx.x4.medium.2e**: 2 cores, 8 GB
-   * - **polarx.x4.large.2e**: 4 cores, 16 GB
-   * - **polarx.x8.large.2e**: 4 cores, 32 GB
-   * - **polarx.x4.xlarge.2e**: 8 cores, 32 GB
-   * - **polarx.x8.xlarge.2e**: 8 cores, 64 GB
-   * - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB
-   * - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB
-   * - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
-   * - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
-   * - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
-   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
+   * - **polarx.x4.medium.2e**: 2 cores and 8 GB memory
+   * - **polarx.x4.large.2e**: 4 cores and 16 GB memory
+   * - **polarx.x8.large.2e**: 4 cores and 32 GB memory
+   * - **polarx.x4.xlarge.2e**: 8 cores and 32 GB memory
+   * - **polarx.x8.xlarge.2e**: 8 cores and 64 GB memory
+   * - **polarx.x4.2xlarge.2e**: 16 cores and 64 GB memory
+   * - **polarx.x8.2xlarge.2e**: 16 cores and 128 GB memory
+   * - **polarx.x4.4xlarge.2e**: 32 cores and 128 GB memory
+   * - **polarx.x8.4xlarge.2e**: 32 cores and 256 GB memory
+   * - **polarx.st.8xlarge.2e**: 60 cores and 470 GB memory
+   * - **polarx.st.12xlarge.2e**: 90 cores and 720 GB memory
    * 
    * @example
    * polarx.x4.large.2e
@@ -167,7 +167,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   columnarReadDBInstances?: string[];
   /**
    * @remarks
-   * The commodity code.
+   * The commodity type.
    * 
    * @example
    * drds_polarxpre_public_cn
@@ -175,7 +175,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * Indicates whether the multi-flow log service is included. Valid values:
+   * Indicates whether the multi-stream log service is included. Valid values:
    * 
    * - **true**: yes
    * - **false**: no
@@ -234,22 +234,22 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The DN node specifications. Valid values:
-   * - **mysql.n2.medium.25**: 2 cores, 4 GB
-   * - **mysql.n4.medium.25**: 2 cores, 8 GB
-   * - **mysql.x8.medium.25**: 2 cores, 16 GB
-   * - **mysql.n2.large.25**: 4 cores, 8 GB
-   * - **mysql.n4.large.25**: 4 cores, 16 GB
-   * - **mysql.x8.large.25**: 4 cores, 32 GB
-   * - **mysql.n2.xlarge.25**: 8 cores, 16 GB
-   * - **mysql.n4.xlarge.25**: 8 cores, 32 GB
-   * - **mysql.x8.xlarge.25**: 8 cores, 64 GB
-   * - **mysql.n4.2xlarge.25**: 16 cores, 64 GB
-   * - **mysql.x8.2xlarge.25**: 16 cores, 128 GB
-   * - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
-   * - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
-   * - **mysql.st.8xlarge.25**: 60 cores, 470 GB
-   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB
+   * The node specifications of the DN node. Valid values:
+   * - **mysql.n2.medium.25**: 2 cores and 4 GB memory
+   * - **mysql.n4.medium.25**: 2 cores and 8 GB memory
+   * - **mysql.x8.medium.25**: 2 cores and 16 GB memory
+   * - **mysql.n2.large.25**: 4 cores and 8 GB memory
+   * - **mysql.n4.large.25**: 4 cores and 16 GB memory
+   * - **mysql.x8.large.25**: 4 cores and 32 GB memory
+   * - **mysql.n2.xlarge.25**: 8 cores and 16 GB memory
+   * - **mysql.n4.xlarge.25**: 8 cores and 32 GB memory
+   * - **mysql.x8.xlarge.25**: 8 cores and 64 GB memory
+   * - **mysql.n4.2xlarge.25**: 16 cores and 64 GB memory
+   * - **mysql.x8.2xlarge.25**: 16 cores and 128 GB memory
+   * - **mysql.x4.4xlarge.25**: 32 cores and 128 GB memory
+   * - **mysql.x8.4xlarge.25**: 32 cores and 256 GB memory
+   * - **mysql.st.8xlarge.25**: 60 cores and 470 GB memory
+   * - **mysql.st.12xlarge.25**: 90 cores and 720 GB memory
    * 
    * @example
    * mysql.n4.medium.25
@@ -316,7 +316,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
    * The lock reason.
    * 
    * @example
-   * Overdue payments
+   * Overdue payment
    */
   lockReason?: string;
   /**
@@ -359,7 +359,6 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
    * - **Postpaid**: pay-as-you-go
    * - **Prepaid**: subscription
    * 
@@ -417,7 +416,6 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   /**
    * @remarks
    * The instance edition. Valid values:
-   * 
    * - **enterprise**: Enterprise Edition
    * - **standard**: Standard Edition
    * 
@@ -427,7 +425,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   series?: string;
   /**
    * @remarks
-   * The instance status. For more information, see the following section.
+   * The instance status. For more information, see the following table.
    * 
    * @example
    * Running
@@ -443,7 +441,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The storage usage.
+   * The used storage.
    * 
    * @example
    * 40658534400
@@ -452,7 +450,6 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the current instance supports multi-stream. Valid values:
-   * 
    * - **true**: yes
    * - **false**: no
    * 
@@ -467,7 +464,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   tagSet?: DescribeDBInstancesResponseBodyDBInstancesTagSet[];
   /**
    * @remarks
-   * The third active zone in a Three-zone deployment.
+   * The third zone in a Three-zone deployment.
    * 
    * @example
    * cn-hangzhou-k
@@ -477,8 +474,8 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
    * @remarks
    * The topology type. Valid values:
    * 
-   * - **3azones**: Three-zone deployment (three active zones)
-   * - **1azone**: Single-zone deployment (single active zone)
+   * - **3azones**: Three-zone deployment
+   * - **1azone**: Single zone
    * 
    * This parameter is required.
    * 
@@ -489,7 +486,6 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
    * - **ReadWrite**: primary instance
    * - **ReadOnly**: read-only instance
    * 
@@ -523,7 +519,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   gdnRole?: string;
   /**
    * @remarks
-   * Indicates whether the instance belongs to a global database network (GDN).
+   * Indicates whether the instance belongs to a GDN.
    * 
    * @example
    * false

@@ -33,7 +33,7 @@ export class DescribeBinaryLogListRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1

@@ -8,20 +8,20 @@ export class ModifyContextDBSecurityIpsResponseBodyAccessDeniedDetail extends $d
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyContextDBSecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the authentication principal belongs.
+   * The Alibaba Cloud account ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class ModifyContextDBSecurityIpsResponseBodyAccessDeniedDetail extends $d
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The identity type used for authentication in the request. Valid values:
+   * The type of identity used for authentication in the request. Valid values:
    * - SubUser: RAM user.
    * - AssumedRoleUser: RAM role.
    * - Federated: SSO federated identity.
@@ -40,7 +40,7 @@ export class ModifyContextDBSecurityIpsResponseBodyAccessDeniedDetail extends $d
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -48,7 +48,7 @@ export class ModifyContextDBSecurityIpsResponseBodyAccessDeniedDetail extends $d
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -98,7 +98,7 @@ export class ModifyContextDBSecurityIpsResponseBodyAccessDeniedDetail extends $d
 export class ModifyContextDBSecurityIpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The context service instance name.
+   * The name of the context service instance.
    * 
    * @example
    * pxt-*********
@@ -109,7 +109,7 @@ export class ModifyContextDBSecurityIpsResponseBodyData extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * pxc-xxxxxxxxxx
+   * 123456
    */
   DBInstanceId?: number;
   /**
@@ -125,7 +125,7 @@ export class ModifyContextDBSecurityIpsResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   /**
@@ -168,12 +168,12 @@ export class ModifyContextDBSecurityIpsResponseBodyData extends $dara.Model {
 export class ModifyContextDBSecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: ModifyContextDBSecurityIpsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: ModifyContextDBSecurityIpsResponseBodyData;
   /**

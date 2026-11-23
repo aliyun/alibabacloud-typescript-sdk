@@ -29,7 +29,7 @@ export class DescribeColdDataBasicInfoResponseBodyData extends $dara.Model {
   cloudProduct?: string;
   /**
    * @remarks
-   * The data size of cold storage.
+   * The data size in cold storage.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeColdDataBasicInfoResponseBodyData extends $dara.Model {
   currentSpaceSize?: number;
   /**
    * @remarks
-   * The data redundancy type of cold storage. LRS indicates locally redundant storage.
+   * The data redundancy type for cold storage. LRS indicates locally redundant storage.
    * 
    * @example
    * LRS

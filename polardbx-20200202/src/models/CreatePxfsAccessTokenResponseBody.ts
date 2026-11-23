@@ -16,7 +16,7 @@ export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.M
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class CreatePxfsAccessTokenResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -143,7 +143,7 @@ export class CreatePxfsAccessTokenResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The plaintext of the token.
+   * The plaintext token.
    * 
    * @example
    * pxfs_tenant-001.token-001.******

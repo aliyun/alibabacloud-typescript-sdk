@@ -20,7 +20,7 @@ export class ModifySupabaseDashboardPasswordRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ********
+   * DemoPass1@
    */
   newPassword?: string;
   /**

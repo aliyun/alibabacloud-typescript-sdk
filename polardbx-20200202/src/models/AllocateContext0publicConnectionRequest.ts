@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateContext0PublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the public network connection string.
+   * The prefix of the public connection string.
    * 
    * @example
    * pxc-**************
@@ -23,7 +23,7 @@ export class AllocateContext0PublicConnectionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The target node type. Valid values: service and dashboard.
+   * The target node type. Valid values: service, dashboard.
    * 
    * @example
    * dn

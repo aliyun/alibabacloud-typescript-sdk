@@ -8,7 +8,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:CreatePolardbxSupabaseInstance
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The no permission type.
+   * The access denial type.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
 export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The connection endpoint.
    * 
    * @example
    * test2.polarx.huhehaote.rds.aliyuncs.com
@@ -155,7 +155,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model 
 export class CreatePolardbxSupabaseInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    */
   accessDeniedDetail?: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail;
   /**

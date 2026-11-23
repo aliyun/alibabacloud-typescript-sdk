@@ -8,14 +8,14 @@ export class DescribeComponentPropetiesResponseBodyProperties extends $dara.Mode
    * The name.
    * 
    * @example
-   * 4C32G
+   * 4 vCPUs and 32 GB
    */
   name?: string;
   /**
    * @remarks
-   * The display order of the commodity module property.
+   * The display order of the commodity module properties.
    * 
-   * The returned content varies depending on the commodity module.
+   * The returned content varies based on the commodity module.
    * 
    * @example
    * 1
@@ -67,7 +67,7 @@ export class DescribeComponentPropetiesResponseBodyProperties extends $dara.Mode
 export class DescribeComponentPropetiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The export parameters of exception events.
+   * The export parameters of the exception event.
    */
   properties?: DescribeComponentPropetiesResponseBodyProperties[];
   /**

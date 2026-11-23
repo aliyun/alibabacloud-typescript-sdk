@@ -33,7 +33,7 @@ export class ExecuteMetaQueryRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The SQL statement to execute.
+   * The SQL statement to be executed.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.Model {
   /**
    * @remarks
-   * The specification type of the instance (the specification code).
+   * The instance type, which is the specification code.
    * 
    * @example
    * polar.mysql.x4.large
@@ -16,7 +16,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
    * The list of DNs.
    * 
    * @example
-   * [pxc-xdb-s-pxcbj****xxnwp0wac2c4\\",\\"pxc-xdb-s-pxcbjr3b8****p0wa1589\\"]
+   * ["pxc-xdb-s-pxcbj****xxnwp0wac2c4","pxc-xdb-s-pxcbjr3b8****p0wa1589"]
    */
   dnIdList?: string[];
   /**
@@ -29,7 +29,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
   dnIdString?: string;
   /**
    * @remarks
-   * A reserved field.
+   * The reserved field.
    * 
    * @example
    * {\\"appId\\":\\"APP_ETLUP1E5FMI5ND5IFO8W\\"}
@@ -45,7 +45,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the storage pool was last modified, in timestamp format.
+   * The modification time, in timestamp format.
    * 
    * @example
    * 2025-09-02 16:52:47.0
@@ -56,7 +56,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
    * The list of idle DNs.
    * 
    * @example
-   * none
+   * []
    */
   idleDNIdList?: string[];
   /**
@@ -159,7 +159,7 @@ export class DescribeStoragePoolInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The instance details.
+   * The list of instance details.
    */
   data?: DescribeStoragePoolInfoResponseBodyData;
   /**

@@ -13,7 +13,7 @@ export class DescribeColumnarVersionListRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region where the instance is located.
    * 
    * @example
    * cn-hangzhou

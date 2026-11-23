@@ -15,7 +15,7 @@ export class DescribeEvaluateAndImportTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the link task.
+   * The ID of the slink task.
    * 
    * @example
    * etx-szr2rr6i*****

@@ -8,7 +8,7 @@ export class EnableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail extend
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:EnableOpenSearchPublicEndpoint
    */
   authAction?: string;
   /**
@@ -16,12 +16,12 @@ export class EnableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail extend
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The description is the same as above.
+   * The description is as described above.
    * 
    * @example
    * 111
@@ -108,15 +108,15 @@ export class EnableOpenSearchPublicEndpointResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The additional information returned by the operation. "success" is returned if the operation is successful. Otherwise, the corresponding error code is returned.
+   * The additional information returned by the API operation. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
    * 
    * @example
-   * *****
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * The public endpoint port.
+   * The port of the public endpoint.
    * 
    * @example
    * 3306

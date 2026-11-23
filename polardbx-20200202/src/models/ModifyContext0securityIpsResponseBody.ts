@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyContext0SecurityIpsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authentication action.
+   * The authorization action.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyContext0SecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The name of the authentication principal.
+   * The display name of the authenticated principal.
    * 
    * @example
-   * xxx
+   * Example RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The owner ID of the authenticated principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class ModifyContext0SecurityIpsResponseBodyAccessDeniedDetail extends $da
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of identity used for authentication in the request. Valid values:
+   * The type of the identity used for authentication in the request. Valid values:
    * - SubUser: RAM user.
    * - AssumedRoleUser: RAM role.
    * - Federated: SSO federated identity.
@@ -109,7 +109,7 @@ export class ModifyContext0SecurityIpsResponseBodyData extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * 123456
    */
   DBInstanceId?: number;
   /**
@@ -125,12 +125,12 @@ export class ModifyContext0SecurityIpsResponseBodyData extends $dara.Model {
    * The ID of the task.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   /**
    * @remarks
-   * The list of task IDs in the task group.
+   * The IDs of the tasks in the task group.
    */
   taskIds?: number[];
   static names(): { [key: string]: string } {

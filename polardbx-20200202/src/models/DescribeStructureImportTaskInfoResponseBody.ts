@@ -13,7 +13,7 @@ export class DescribeStructureImportTaskInfoResponseBodyDataStructureImportResul
   exceptionDetail?: string;
   /**
    * @remarks
-   * The name of the table that encountered an exception.
+   * The name of the table with exceptions.
    * 
    * @example
    * hash_realtime_new.wm_in_job_et
@@ -29,7 +29,7 @@ export class DescribeStructureImportTaskInfoResponseBodyDataStructureImportResul
   finishedNum?: number;
   /**
    * @remarks
-   * The current progress in percentage.
+   * The current progress (percentage).
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class DescribeStructureImportTaskInfoResponseBodyDataStructureImportResul
 export class DescribeStructureImportTaskInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The slink status.
+   * The Slink status.
    * 
    * @example
    * STRUCTURE_IMPORT
@@ -93,7 +93,7 @@ export class DescribeStructureImportTaskInfoResponseBodyData extends $dara.Model
   slinkStage?: string;
   /**
    * @remarks
-   * The import result of the schema import task.
+   * The import result of the structure import task.
    */
   structureImportResult?: DescribeStructureImportTaskInfoResponseBodyDataStructureImportResult;
   static names(): { [key: string]: string } {
@@ -125,12 +125,12 @@ export class DescribeStructureImportTaskInfoResponseBodyData extends $dara.Model
 export class DescribeStructureImportTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result set.
+   * The returned result set.
    */
   data?: DescribeStructureImportTaskInfoResponseBodyData;
   /**
    * @remarks
-   * The returned message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
+   * The returned message. This parameter is empty when the request is successful. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * success
@@ -146,7 +146,7 @@ export class DescribeStructureImportTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

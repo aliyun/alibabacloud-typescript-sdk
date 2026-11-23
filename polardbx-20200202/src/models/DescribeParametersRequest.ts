@@ -26,7 +26,7 @@ export class DescribeParametersRequest extends $dara.Model {
   paramLevel?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 

@@ -46,7 +46,7 @@ export class DescribeMem0InfoResponseBodyAccessDeniedDetail extends $dara.Model 
 export class DescribeMem0InfoResponseBodyDataInstanceConnAddrs extends $dara.Model {
   /**
    * @remarks
-   * Connection address
+   * The endpoint.
    * 
    * @example
    * pxc-spsil01pww4hfz.polarx.singapore.rds.aliyuncs.com
@@ -54,7 +54,7 @@ export class DescribeMem0InfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   connectionString?: string;
   /**
    * @remarks
-   * Port
+   * The port.
    * 
    * @example
    * 3306
@@ -62,7 +62,7 @@ export class DescribeMem0InfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   port?: number;
   /**
    * @remarks
-   * Connection address type
+   * The endpoint type.
    * 
    * @example
    * VPC
@@ -78,7 +78,7 @@ export class DescribeMem0InfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   VPCId?: string;
   /**
    * @remarks
-   * vSwitch ID
+   * The vSwitch ID.
    * 
    * @example
    * vsw-t4ny14pr37spmjsbv5dc2
@@ -86,7 +86,7 @@ export class DescribeMem0InfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC instance ID
+   * The VPC instance ID.
    * 
    * @example
    * pxc-spsil01pww4hfzjayd-cn-20251013180429
@@ -126,7 +126,7 @@ export class DescribeMem0InfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
 export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   /**
    * @remarks
-   * Instance specifications
+   * The instance type.
    * 
    * @example
    * mysql.x2.large.2c
@@ -134,7 +134,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * Connection address list
+   * The list of endpoints.
    */
   connAddrs?: DescribeMem0InfoResponseBodyDataInstanceConnAddrs[];
   /**
@@ -147,7 +147,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * pxc-spsil01pww4hfz-mem
@@ -155,7 +155,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Number of nodes
+   * The number of nodes.
    * 
    * @example
    * 1
@@ -163,7 +163,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * ap-southeast-1
@@ -171,7 +171,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Instance status
+   * The instance status.
    * 
    * @example
    * Running
@@ -179,7 +179,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Storage type
+   * The storage type.
    * 
    * @example
    * local_ssd
@@ -195,7 +195,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * vSwitch ID
+   * The vSwitch ID.
    * 
    * @example
    * vsw-t4ny14pr37spmjsbv5dc2
@@ -203,7 +203,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * Zone ID
+   * The zone ID.
    * 
    * @example
    * ap-southeast-1a
@@ -256,7 +256,7 @@ export class DescribeMem0InfoResponseBodyDataInstance extends $dara.Model {
 export class DescribeMem0InfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Instance information
+   * The instance information.
    */
   instance?: DescribeMem0InfoResponseBodyDataInstance;
   static names(): { [key: string]: string } {
@@ -287,12 +287,12 @@ export class DescribeMem0InfoResponseBody extends $dara.Model {
   accessDeniedDetail?: DescribeMem0InfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * Response data
+   * The returned data.
    */
   data?: DescribeMem0InfoResponseBodyData;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * C457B28E-9CAB-4B77-B5C6-5D71B7870B6E

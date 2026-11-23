@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePxfsInfoResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action. Same as described above.
+   * Same as above.
    * 
    * @example
-   * xxx
+   * polardbx:DescribePxfsInfo
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribePxfsInfoResponseBodyAccessDeniedDetail extends $dara.Model 
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authorization action. Same as described above.
+   * Same as above.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribePxfsInfoResponseBodyAccessDeniedDetail extends $dara.Model 
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribePxfsInfoResponseBodyAccessDeniedDetail extends $dara.Model 
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of missing permission.
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -103,7 +103,7 @@ export class DescribePxfsInfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   connectionString?: string;
   /**
    * @remarks
-   * The endpoint.
+   * The access endpoint.
    * 
    * @example
    * agent-files.example.com
@@ -111,7 +111,7 @@ export class DescribePxfsInfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   endpoint?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 12049
@@ -127,7 +127,7 @@ export class DescribePxfsInfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   protocol?: string;
   /**
    * @remarks
-   * Indicates whether TLS is enabled.
+   * Specifies whether TLS is enabled.
    * 
    * @example
    * true
@@ -151,7 +151,7 @@ export class DescribePxfsInfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
   type?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-xxxxxxxx
@@ -205,7 +205,7 @@ export class DescribePxfsInfoResponseBodyDataInstanceConnAddrs extends $dara.Mod
 export class DescribePxfsInfoResponseBodyDataInstance extends $dara.Model {
   /**
    * @remarks
-   * The node specification.
+   * The node specifications.
    * 
    * @example
    * polarx.pxfs.x4.xlarge
@@ -213,7 +213,7 @@ export class DescribePxfsInfoResponseBodyDataInstance extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The list of connection addresses.
+   * The list of endpoints.
    */
   connAddrs?: DescribePxfsInfoResponseBodyDataInstanceConnAddrs[];
   /**
@@ -274,7 +274,7 @@ export class DescribePxfsInfoResponseBodyDataInstance extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage size.
+   * The storage capacity.
    * 
    * @example
    * 500
@@ -290,7 +290,7 @@ export class DescribePxfsInfoResponseBodyDataInstance extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-xxxxxxxx
@@ -405,12 +405,12 @@ export class DescribePxfsInfoResponseBodyData extends $dara.Model {
 export class DescribePxfsInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    */
   accessDeniedDetail?: DescribePxfsInfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: DescribePxfsInfoResponseBodyData;
   /**

@@ -8,7 +8,7 @@ export class DeleteContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeleteContext0
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DeleteContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -111,7 +111,7 @@ export class DeleteContext0ResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the context service dashboard instance.
+   * The name of the dashboard instance for the context service.
    * 
    * @example
    * pxt-*********-d
@@ -119,7 +119,7 @@ export class DeleteContext0ResponseBodyData extends $dara.Model {
   dashboardReplicaSetName?: string;
   /**
    * @remarks
-   * The name of the context service instance.
+   * The name of the service instance for the context service.
    * 
    * @example
    * pxt-*********-s
@@ -130,7 +130,7 @@ export class DeleteContext0ResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -170,7 +170,7 @@ export class DeleteContext0ResponseBody extends $dara.Model {
   accessDeniedDetail?: DeleteContext0ResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: DeleteContext0ResponseBodyData;
   /**

@@ -8,7 +8,7 @@ export class DeleteOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail extend
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeleteOpenSearchWhitelistGroup
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail extend
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DeleteOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail extend
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,7 +95,7 @@ export class DeleteOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail extend
 export class DeleteOpenSearchWhitelistGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
+   * The returned message. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * get app list success

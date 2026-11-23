@@ -35,7 +35,7 @@ export class CreateOpenSearchAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 

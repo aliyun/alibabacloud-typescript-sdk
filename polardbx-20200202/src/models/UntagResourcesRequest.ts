@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete all tags. This parameter is valid only when TagKey.N is empty. Valid values: true, false, True, and False. Default value: false.
+   * Specifies whether to delete all tags. This parameter takes effect only when TagKey.N is empty. Valid values:
+   * - true: Deletes all tags.
+   * - false: Does not delete all tags.
+   * Default value: false.
    * 
    * @example
-   * Specifies whether to delete all tags
+   * false
    */
   all?: boolean;
   /**
@@ -23,14 +26,14 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. A maximum of 50 subkeys are supported.
+   * The resource IDs. You can specify up to 50 resource IDs.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. The value must be PolarDBXInstance.
+   * The resource type. Valid value: PolarDBXInstance.
    * 
    * This parameter is required.
    * 
@@ -40,7 +43,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag keys. A maximum of 20 subkeys are supported.
+   * The tag keys. You can specify up to 20 tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

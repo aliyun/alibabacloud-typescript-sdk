@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayConsumerForPolarDBXResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-**************
@@ -21,7 +21,7 @@ export class CreateGatewayConsumerForPolarDBXResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The backend task ID.
+   * The ID of the backend task.
    * 
    * @example
    * 422922413

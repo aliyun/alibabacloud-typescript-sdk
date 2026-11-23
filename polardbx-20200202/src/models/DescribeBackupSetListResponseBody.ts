@@ -6,9 +6,8 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * 
-   * - **0**: automatic backup.
-   * - **1**: manual backup.
+   * - **0**: automatic backup
+   * - **1**: manual backup
    * 
    * @example
    * 0
@@ -16,7 +15,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   backupModel?: number;
   /**
    * @remarks
-   * The backup set ID.
+   * The ID of the backup set.
    * 
    * @example
    * 111
@@ -33,9 +32,8 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The backup type. Valid values:
-   * 
-   * - **0**: fast backup.
-   * - **1**: consistent backup.
+   * - **0**: quick backup
+   * - **1**: consistent backup
    * 
    * @example
    * 1
@@ -43,7 +41,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   backupType?: number;
   /**
    * @remarks
-   * The backup start time.
+   * The start time of the backup.
    * 
    * @example
    * 1635706960956
@@ -51,7 +49,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The backup end time.
+   * The end time of the backup.
    * 
    * @example
    * 1635706960956
@@ -60,10 +58,9 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status of the backup set. Valid values:
-   * 
-   * - **0**: Backing up.
-   * - **1**: Backup succeeded.
-   * - **2**: Backup failed.
+   * - **0**: The backup is in progress.
+   * - **1**: The backup was successful.
+   * - **2**: The backup failed.
    * 
    * @example
    * 1
@@ -110,7 +107,7 @@ export class DescribeBackupSetListResponseBody extends $dara.Model {
   data?: DescribeBackupSetListResponseBodyData[];
   /**
    * @remarks
-   * The returned message. "success" is returned if the request is successful. Otherwise, an error code is returned.
+   * The returned message. If the request is successful, success is returned. If the request fails, an error code is returned.
    * 
    * @example
    * success
@@ -118,7 +115,7 @@ export class DescribeBackupSetListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1A6D328C-84B8-40DC-BF49-6C73984D7494
@@ -126,7 +123,7 @@ export class DescribeBackupSetListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

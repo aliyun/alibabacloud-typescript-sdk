@@ -21,10 +21,10 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   creator?: string;
   /**
    * @remarks
-   * Indicates whether the task is deleted.
+   * Specifies whether the task is deleted.
    * 
    * @example
-   * fase
+   * false
    */
   deleted?: boolean;
   /**
@@ -32,15 +32,15 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
    * The timestamp when the task was created. Unit: milliseconds.
    * 
    * @example
-   * 2025-01-08T15:00Z
+   * 1736348400000
    */
   gmtCreated?: number;
   /**
    * @remarks
-   * The time when the metadata information was last modified.
+   * The time when the metadata was modified.
    * 
    * @example
-   * 2025-04-02T02:10:59Z
+   * 1743559859000
    */
   gmtModified?: number;
   /**
@@ -48,7 +48,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
    * The task ID.
    * 
    * @example
-   * ap-northeast-1
+   * 76251
    */
   id?: number;
   /**
@@ -61,7 +61,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The name of the slink destination database.
+   * The name of the destination Slink database.
    * 
    * @example
    * e3plus_*****_prod
@@ -69,7 +69,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkDstDb?: string;
   /**
    * @remarks
-   * The instance ID of the destination.
+   * The destination instance ID.
    * 
    * @example
    * pxc-hzrehc****5zye
@@ -77,7 +77,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkDstResId?: string;
   /**
    * @remarks
-   * The username for the data connection of the destination.
+   * The username for the destination data connection.
    * 
    * @example
    * dts_temp_2_23
@@ -85,7 +85,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkDstUserName?: string;
   /**
    * @remarks
-   * The name of the slink source database.
+   * The name of the source Slink database.
    * 
    * @example
    * stock
@@ -93,7 +93,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkSrcDb?: string;
   /**
    * @remarks
-   * The instance ID of the source.
+   * The source instance ID.
    * 
    * @example
    * drdshbga*****w4p
@@ -101,7 +101,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkSrcResId?: string;
   /**
    * @remarks
-   * The resource type of the source.
+   * The type of the source resource.
    * 
    * @example
    * RDS_MYSQL
@@ -109,7 +109,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkSrcResType?: string;
   /**
    * @remarks
-   * The username for the data connection of the source.
+   * The username for the source data connection.
    * 
    * @example
    * dtdba
@@ -117,7 +117,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkSrcUserName?: string;
   /**
    * @remarks
-   * The stage of the synchronization task.
+   * The stage of the synchronization.
    * 
    * @example
    * DATA_IMPORT_RUNNING
@@ -125,7 +125,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkStage?: string;
   /**
    * @remarks
-   * The running status of the synchronization task.
+   * The running status of the synchronization.
    * 
    * @example
    * IMPORT_NOT_BEGIN
@@ -133,7 +133,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkStatus?: string;
   /**
    * @remarks
-   * The description of the slink task.
+   * The description of the Slink task.
    * 
    * @example
    * test
@@ -141,7 +141,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   slinkTaskDesc?: string;
   /**
    * @remarks
-   * The slink task ID.
+   * The Slink task ID.
    * 
    * @example
    * etx-szr2rr6i*****
@@ -215,12 +215,12 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
 export class DescribeEvaluateAndImportTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the restoration tasks.
+   * The recovery task details.
    */
   data?: DescribeEvaluateAndImportTasksResponseBodyData[];
   /**
    * @remarks
-   * The returned message. > This parameter is empty when the request succeeds. When the request fails, exception information such as an error code is returned.
+   * The returned message. > This parameter is empty if the request is successful. If the request fails, an error message (such as an error code) is returned.
    * 
    * @example
    * success
@@ -252,7 +252,7 @@ export class DescribeEvaluateAndImportTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

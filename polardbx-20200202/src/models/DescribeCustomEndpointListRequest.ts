@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomEndpointListRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to check if the CN node has been deleted.
+   * Specifies whether to check whether the compute node (CN) is deleted.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeCustomEndpointListRequest extends $dara.Model {
   checkDeleteCN?: boolean;
   /**
    * @remarks
-   * The custom endpoint IDs.
+   * The IDs of the custom endpoints.
    * 
    * @example
    * pxe-b6e****no4pfap1s
@@ -31,7 +31,7 @@ export class DescribeCustomEndpointListRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou

@@ -15,7 +15,7 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the instance on which the target SQL statement is executed. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of the target SQL statement, including the instance ID.
+   * The ID of the instance that executes the target SQL statement. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of the target SQL statement, including the instance ID.
    * 
    * @example
    * transfer_for_st
@@ -23,10 +23,10 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   dstDb?: string;
   /**
    * @remarks
-   * The password of the target SQL statement. > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of the target SQL statement, including the password.
+   * The password of the target SQL statement.
    * 
    * @example
-   * ******
+   * DemoPass1@
    */
   dstPassword?: string;
   /**
@@ -39,7 +39,7 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   dstResId?: string;
   /**
    * @remarks
-   * The username of the destination instance.
+   * The destination username.
    * 
    * @example
    * drds_test
@@ -47,7 +47,7 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   dstUserName?: string;
   /**
    * @remarks
-   * The region ID of the instance. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * The region ID of the instance. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the details of regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   slinkTaskDesc?: string;
   /**
    * @remarks
-   * The task ID for executing the target SQL statement. > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the IDs of target SQL statements supported by PolarDB-X.
+   * The ID of the task that executes the target SQL statement. > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the IDs of target SQL statements supported by PolarDB-X.
    * 
    * @example
    * etx-szr2rr6i*****
@@ -73,7 +73,9 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   slinkTaskId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the source ApsaraDB RDS instance. Valid values: **enable**: enables the source ApsaraDB RDS instance. **disabled**: disables the source ApsaraDB RDS instance.
+   * Specifies whether the source ApsaraDB RDS instance is enabled. Valid values:
+   * - **enable**: The source ApsaraDB RDS instance is enabled.
+   * - **disabled**: The source ApsaraDB RDS instance is disabled.
    * 
    * @example
    * transfer_test3
@@ -81,10 +83,10 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   srcDb?: string;
   /**
    * @remarks
-   * The port number of the source instance. Valid values: 3200 to 3999. > This parameter is available and required only when **DBEndpointInstanceType** is set to **polardb-o**.
+   * The source port number. Valid values: 3200 to 3999. > This parameter is available and required only when **dbendpointinstancetype** is set to **polardb-o**.
    * 
    * @example
-   * ******
+   * 3306
    */
   srcPassword?: string;
   /**
@@ -97,7 +99,7 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   srcResId?: string;
   /**
    * @remarks
-   * The type of the source instance. Valid values: RDS_MYSQL, POLARX1, POLARX2_STANDARD, POLARX2_ENTERPRISE, and POLARDB_M.
+   * The source instance type. Valid values: RDS_MYSQL, POLARX1, POLARX2_STANDARD, POLARX2_ENTERPRISE, and POLARDB_M.
    * 
    * @example
    * POLARX2
@@ -105,7 +107,7 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   srcResType?: string;
   /**
    * @remarks
-   * The username of the source instance.
+   * The source username.
    * 
    * @example
    * drds_test

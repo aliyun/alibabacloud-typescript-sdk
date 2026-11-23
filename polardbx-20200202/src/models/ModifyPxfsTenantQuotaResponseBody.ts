@@ -8,20 +8,20 @@ export class ModifyPxfsTenantQuotaResponseBodyAccessDeniedDetail extends $dara.M
    * The name of the API operation.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyPxfsTenantQuota
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The display name of the authenticated principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The owner ID of the authenticated principal.
    * 
    * @example
    * 111
@@ -40,7 +40,7 @@ export class ModifyPxfsTenantQuotaResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -48,7 +48,7 @@ export class ModifyPxfsTenantQuotaResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of access denial.
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -114,7 +114,7 @@ export class ModifyPxfsTenantQuotaResponseBodyData extends $dara.Model {
   logicalBytes?: number;
   /**
    * @remarks
-   * The current number of logical files for the tenant.
+   * The current number of logical files of the tenant.
    * 
    * @example
    * 1000
@@ -130,7 +130,7 @@ export class ModifyPxfsTenantQuotaResponseBodyData extends $dara.Model {
   physicalBytes?: number;
   /**
    * @remarks
-   * The capacity quota.
+   * The storage capacity quota.
    * 
    * @example
    * 107374182400
@@ -146,7 +146,7 @@ export class ModifyPxfsTenantQuotaResponseBodyData extends $dara.Model {
   quotaFiles?: number;
   /**
    * @remarks
-   * The request rate limit.
+   * The maximum request rate.
    * 
    * @example
    * 1000
@@ -154,7 +154,7 @@ export class ModifyPxfsTenantQuotaResponseBodyData extends $dara.Model {
   rateLimitRps?: number;
   /**
    * @remarks
-   * The write bandwidth limit.
+   * The maximum write bandwidth.
    * 
    * @example
    * 104857600

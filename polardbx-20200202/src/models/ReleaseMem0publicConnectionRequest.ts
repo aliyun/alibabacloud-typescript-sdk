@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseMem0PublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The public endpoint to be released. This parameter is optional. If this parameter is not specified, the public endpoint of Mem0 is automatically released.
+   * The public network connection string to be released. This parameter is optional. If you do not specify this parameter, automatic release of the Mem0 public endpoint is performed.
    * 
    * @example
    * pxc-hzjasdyuoo.polarx.rds.aliyuncs.com
@@ -23,7 +23,7 @@ export class ReleaseMem0PublicConnectionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region ID of the instance. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the details of regions supported by PolarDB-X, including region IDs.
+   * The ID of the region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to view the details of regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 

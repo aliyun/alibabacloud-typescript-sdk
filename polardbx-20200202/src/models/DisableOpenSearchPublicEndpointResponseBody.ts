@@ -8,20 +8,20 @@ export class DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail exten
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DisableOpenSearchPublicEndpoint
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The display name of the principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The ID of the principal owner.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail exten
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The type of the authenticated principal.
    * 
    * @example
    * 222
@@ -95,7 +95,7 @@ export class DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail exten
 export class DisableOpenSearchPublicEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The detailed reason for the access denial.
    */
   accessDeniedDetail?: DisableOpenSearchPublicEndpointResponseBodyAccessDeniedDetail;
   /**

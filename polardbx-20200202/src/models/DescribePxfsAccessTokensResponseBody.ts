@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePxfsAccessTokensResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action.
+   * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribePxfsAccessTokens
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authorization in the request.
+   * The identity identifier used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authorization principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DescribePxfsAccessTokensResponseBodyAccessDeniedDetail extends $dar
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authorization principal.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribePxfsAccessTokensResponseBodyAccessDeniedDetail extends $dar
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -205,7 +205,7 @@ export class DescribePxfsAccessTokensResponseBodyData extends $dara.Model {
 export class DescribePxfsAccessTokensResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for the access denial.
    */
   accessDeniedDetail?: DescribePxfsAccessTokensResponseBodyAccessDeniedDetail;
   /**

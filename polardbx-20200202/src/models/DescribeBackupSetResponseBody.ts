@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupSetResponseBodyDataOSSList extends $dara.Model {
   /**
    * @remarks
-   * The OSS file name.
+   * The name of the OSS file.
    * 
    * @example
    * hins3084_data_20220418110623_qp.xb
@@ -13,7 +13,7 @@ export class DescribeBackupSetResponseBodyDataOSSList extends $dara.Model {
   backupSetFile?: string;
   /**
    * @remarks
-   * The public download URL.
+   * The Internet download URL.
    * 
    * @example
    * https://pre-rdsbak-cn-xxx.oss-cn-beijing.aliyuncs.com/custins2255/hins3084_data_20220418110623_qp.xb?OSSAccessKeyId=LTAI****************&Expires=1650441697&dd=7KJzkUSbXf6dwy
@@ -21,7 +21,7 @@ export class DescribeBackupSetResponseBodyDataOSSList extends $dara.Model {
   downloadLink?: string;
   /**
    * @remarks
-   * The internal network OSS download URL.
+   * The internal OSS download URL.
    * 
    * @example
    * http://pre-rdsbak-cn-beijing.oss-cn-beijing-internal.aliyuncs.com/custins2255/hins3084_data_20220418110623_qp.xb?
@@ -29,7 +29,7 @@ export class DescribeBackupSetResponseBodyDataOSSList extends $dara.Model {
   intranetDownloadLink?: string;
   /**
    * @remarks
-   * The expiration time of the OSS file link.
+   * The expiration time of the OSS file download link.
    * 
    * @example
    * 2022-04-20T08:01:37Z
@@ -66,9 +66,8 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * 
-   * - **0**: Automatic backup.
-   * - **1**: Manual backup.
+   * - **0**: automatic backup
+   * - **1**: manual backup
    * 
    * @example
    * 0
@@ -76,7 +75,7 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   backupModel?: number;
   /**
    * @remarks
-   * The backup set ID.
+   * The ID of the backup set.
    * 
    * @example
    * 111
@@ -84,7 +83,7 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   backupSetId?: number;
   /**
    * @remarks
-   * The size of the backup set, in bytes.
+   * The size of the backup set. Unit: bytes.
    * 
    * @example
    * 88803195
@@ -93,9 +92,8 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The backup type. Valid values:
-   * 
-   * - **0**: Fast backup.
-   * - **1**: Consistent backup.
+   * - **0**: quick backup
+   * - **1**: consistent backup
    * 
    * @example
    * 1
@@ -103,7 +101,7 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   backupType?: number;
   /**
    * @remarks
-   * The backup start time.
+   * The start time of the backup.
    * 
    * @example
    * 1650250861754
@@ -111,7 +109,7 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The backup end time.
+   * The end time of the backup.
    * 
    * @example
    * 1650251308000
@@ -125,10 +123,9 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status of the backup set. Valid values:
-   * 
-   * - **0**: Backing up.
-   * - **1**: Backup succeeded.
-   * - **2**: Backup failed.
+   * - **0**: in progress
+   * - **1**: successful
+   * - **2**: failed
    * 
    * @example
    * 1
@@ -175,7 +172,7 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
 export class DescribeBackupSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data list.
+   * The list of data.
    */
   data?: DescribeBackupSetResponseBodyData[];
   /**
@@ -196,7 +193,7 @@ export class DescribeBackupSetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

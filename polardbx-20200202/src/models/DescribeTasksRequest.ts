@@ -38,7 +38,7 @@ export class DescribeTasksRequest extends $dara.Model {
    * The number of entries per page. Valid values: 5 to 1000.
    * 
    * @example
-   * 20
+   * 30
    */
   pageSize?: number;
   /**

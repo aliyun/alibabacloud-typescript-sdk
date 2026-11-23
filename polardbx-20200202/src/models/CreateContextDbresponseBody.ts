@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextDBResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * As described above.
+   * The description as above.
    * 
    * @example
-   * xxx
+   * polardbx:CreateContextDB
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateContextDBResponseBodyAccessDeniedDetail extends $dara.Model {
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -119,7 +119,7 @@ export class CreateContextDBResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the context service dashboard instance.
+   * The name of the context service dashboard replica set.
    * 
    * @example
    * pxt-*********-d
@@ -135,7 +135,7 @@ export class CreateContextDBResponseBodyData extends $dara.Model {
   openSearchInstanceName?: string;
   /**
    * @remarks
-   * The name of the context service service instance.
+   * The name of the context service replica set.
    * 
    * @example
    * pxt-*********-s

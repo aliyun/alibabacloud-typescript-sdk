@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableRightsSeparationRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the audit account.
+   * The description of the auditor account.
    * 
    * @example
    * test123
@@ -13,7 +13,7 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   auditAccountDescription?: string;
   /**
    * @remarks
-   * The name of the audit account.
+   * The name of the auditor account.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,12 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   auditAccountName?: string;
   /**
    * @remarks
-   * The password of the audit account.
+   * The password of the auditor account.
    * 
    * This parameter is required.
    * 
    * @example
-   * ******
+   * DemoPass1@
    */
   auditAccountPassword?: string;
   /**
@@ -61,7 +61,7 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   securityAccountDescription?: string;
   /**
    * @remarks
-   * The name of the security administrator account.
+   * The security administrator account.
    * 
    * This parameter is required.
    * 
@@ -71,12 +71,12 @@ export class EnableRightsSeparationRequest extends $dara.Model {
   securityAccountName?: string;
   /**
    * @remarks
-   * The password of the security administrator account.
+   * The password of the security administrator.
    * 
    * This parameter is required.
    * 
    * @example
-   * *****
+   * DemoPass1@
    */
   securityAccountPassword?: string;
   static names(): { [key: string]: string } {

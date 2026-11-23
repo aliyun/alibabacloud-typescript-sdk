@@ -8,7 +8,7 @@ export class DescribePxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribePxfsSecurityIps
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribePxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribePxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The description is as described above.
+   * Same as above.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribePxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -111,7 +111,7 @@ export class DescribePxfsSecurityIpsResponseBodyDataGroups extends $dara.Model {
   groupTag?: string;
   /**
    * @remarks
-   * The IP addresses.
+   * The list of IP addresses.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1
@@ -153,7 +153,7 @@ export class DescribePxfsSecurityIpsResponseBodyData extends $dara.Model {
   custinsName?: string;
   /**
    * @remarks
-   * The whitelist groups.
+   * The list of whitelist groups.
    */
   groups?: DescribePxfsSecurityIpsResponseBodyDataGroups[];
   static names(): { [key: string]: string } {

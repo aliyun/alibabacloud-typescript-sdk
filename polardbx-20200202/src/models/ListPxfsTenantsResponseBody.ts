@@ -8,7 +8,7 @@ export class ListPxfsTenantsResponseBodyAccessDeniedDetail extends $dara.Model {
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ListPxfsTenants
    */
   authAction?: string;
   /**
@@ -16,12 +16,12 @@ export class ListPxfsTenantsResponseBodyAccessDeniedDetail extends $dara.Model {
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The ID of the owner of the authentication principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -45,7 +45,7 @@ export class ListPxfsTenantsResponseBodyAccessDeniedDetail extends $dara.Model {
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the access denial.
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class ListPxfsTenantsResponseBodyAccessDeniedDetail extends $dara.Model {
 export class ListPxfsTenantsResponseBodyDataTenants extends $dara.Model {
   /**
    * @remarks
-   * The number of bytes saved for the tenant after data deduplication.
+   * The number of bytes saved by data deduplication for the tenant.
    * 
    * @example
    * 268435456
@@ -127,7 +127,7 @@ export class ListPxfsTenantsResponseBodyDataTenants extends $dara.Model {
   physicalBytes?: number;
   /**
    * @remarks
-   * The capacity quota.
+   * The storage capacity quota.
    * 
    * @example
    * 107374182400
@@ -143,7 +143,7 @@ export class ListPxfsTenantsResponseBodyDataTenants extends $dara.Model {
   quotaFiles?: number;
   /**
    * @remarks
-   * The request rate limit.
+   * The maximum request rate.
    * 
    * @example
    * 0
@@ -151,7 +151,7 @@ export class ListPxfsTenantsResponseBodyDataTenants extends $dara.Model {
   rateLimitRps?: number;
   /**
    * @remarks
-   * The write bandwidth limit.
+   * The maximum write bandwidth.
    * 
    * @example
    * 0
@@ -255,12 +255,12 @@ export class ListPxfsTenantsResponseBodyData extends $dara.Model {
 export class ListPxfsTenantsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details of the access denial.
    */
   accessDeniedDetail?: ListPxfsTenantsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: ListPxfsTenantsResponseBodyData;
   /**

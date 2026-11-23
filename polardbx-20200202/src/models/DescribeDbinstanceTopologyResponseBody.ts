@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the node is enabled. In the compute layer, only the nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary nodes in the compute layer are switched to primary nodes. All nodes in the storage layer are enabled.
+   * Indicates whether the node is enabled. In the compute layer, only nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary node in the compute layer is switched to the primary node. All nodes in the storage layer are enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   activated?: boolean;
   /**
    * @remarks
-   * The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons (;).
+   * The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons.
    * 
    * @example
    * cn-hangzhou-a
@@ -21,7 +21,8 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   azone?: string;
   /**
    * @remarks
-   * The node attribute. Valid values:
+   * The node type. Valid values:
+   * 
    * - **polarx_cn**: Compute node.
    * - **polarx_store**: Data node.
    * - **polarx_gms**: GMS node.
@@ -56,7 +57,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   phyInstanceName?: string;
   /**
    * @remarks
-   * The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons (;).
+   * The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons.
    * 
    * @example
    * cn-hangzhou
@@ -65,6 +66,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
   /**
    * @remarks
    * The node role. Valid values:
+   * 
    * - **master**: Primary node.
    * - **standby**: Secondary node.
    * 
@@ -110,7 +112,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList extends $dara.Model {
   /**
    * @remarks
-   * The zone to which a specific node in the three-node ApsaraDB RDS deployment belongs.
+   * The zone to which a specific node among the three ApsaraDB RDS nodes belongs.
    * 
    * @example
    * cn-hangzhou-a
@@ -118,7 +120,8 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   azone?: string;
   /**
    * @remarks
-   * The role of a specific node in the three-node ApsaraDB RDS deployment. Valid values:
+   * The role of a specific node among the three ApsaraDB RDS nodes. Valid values:
+   * 
    * - **leader**: Primary node.
    * - **follower**: Secondary node.
    * - **logger**: Logger node.
@@ -203,7 +206,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the node is enabled. In the compute layer, only the nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary nodes in the compute layer are switched to primary nodes. All nodes in the storage layer are enabled.
+   * Indicates whether the node is enabled. In the compute layer, only nodes in the primary zone are enabled. After a primary/secondary switchover is performed on the instance, the secondary node in the compute layer is switched to the primary node. All nodes in the storage layer are enabled.
    * 
    * @example
    * true
@@ -211,7 +214,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   activated?: boolean;
   /**
    * @remarks
-   * The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons (;).
+   * The zone to which the node belongs. If the node is an ApsaraDB RDS node, the zones of multiple child nodes are separated by semicolons.
    * 
    * @example
    * cn-hangzhou-a
@@ -219,12 +222,13 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   azone?: string;
   /**
    * @remarks
-   * The list of data information for the three-node ApsaraDB RDS deployment.
+   * The list of information about the three ApsaraDB RDS nodes.
    */
   azoneRoleList?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList[];
   /**
    * @remarks
-   * The node attribute. Valid values:
+   * The node type. Valid values:
+   * 
    * - **polarx_cn**: Compute node.
    * - **polarx_store**: Data node.
    * - **polarx_gms**: GMS node.
@@ -304,7 +308,8 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   diskSize?: number;
   /**
    * @remarks
-   * The DPI engine version. Valid values:
+   * The database engine version. Valid values:
+   * 
    * - **mysql**
    * - **polarx_cdc**
    * - **polarx_dn**
@@ -315,7 +320,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   engine?: string;
   /**
    * @remarks
-   * The DPI engine version. Default value: 2.0.
+   * The database engine version. Default value: 2.0.
    * 
    * @example
    * 5.7
@@ -331,7 +336,8 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   instanceClusterName?: string;
   /**
    * @remarks
-   * The lock status. Valid values:
+   * Indicates whether the node is locked. Valid values:
+   * 
    * - **0**: Unlocked.
    * - **1**: Locked.
    * 
@@ -382,6 +388,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   /**
    * @remarks
    * The node specifications. Valid values:
+   * 
    * - **polarx.x4.medium.2e**: 2 vCPUs and 8 GB of memory.
    * - **polarx.x4.large.2e**: 4 vCPUs and 16 GB of memory.
    * - **polarx.x8.large.2e**: 4 vCPUs and 32 GB of memory.
@@ -416,7 +423,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   readType?: string;
   /**
    * @remarks
-   * The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons (;).
+   * The region to which the node belongs. If the node is an ApsaraDB RDS node, the regions of multiple child nodes are separated by semicolons.
    * 
    * @example
    * cn-hangzhou
@@ -425,6 +432,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   /**
    * @remarks
    * The node role. Valid values:
+   * 
    * - **master**: Primary node.
    * - **standby**: Secondary node.
    * 
@@ -435,6 +443,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   /**
    * @remarks
    * The node status. Valid values:
+   * 
    * - **0**: Running.
    * - **1**: Creating.
    * - **2**: Abnormal.
@@ -623,7 +632,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
   engine?: string;
   /**
    * @remarks
-   * The DPI engine version. Default value: 2.0.
+   * The database engine version. Default value: 2.0.
    * 
    * @example
    * 2.0
@@ -642,6 +651,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
   /**
    * @remarks
    * The lock status. Valid values:
+   * 
    * - **0**: Unlocked.
    * - **1**: Locked.
    * 

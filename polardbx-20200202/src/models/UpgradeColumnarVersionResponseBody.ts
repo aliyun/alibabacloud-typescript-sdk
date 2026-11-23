@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeColumnarVersionResponseBodyDataTaskList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * rm-uf68f345****88zf8
@@ -13,10 +13,10 @@ export class UpgradeColumnarVersionResponseBodyDataTaskList extends $dara.Model 
   dbInstanceName?: string;
   /**
    * @remarks
-   * The target task ID.
+   * The ID of the target task.
    * 
    * @example
-   * 1861190497624654848
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class UpgradeColumnarVersionResponseBodyDataTaskList extends $dara.Model 
 export class UpgradeColumnarVersionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The target version number.
+   * The target minor version.
    * 
    * @example
    * polardb-2.4.0_5.4.19-20250116_xcluster5.4.20-20241213
@@ -90,7 +90,7 @@ export class UpgradeColumnarVersionResponseBody extends $dara.Model {
   data?: UpgradeColumnarVersionResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message returned for the request.
    * 
    * @example
    * success

@@ -37,7 +37,7 @@ export class DeleteMem0ResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -98,7 +98,7 @@ export class DeleteMem0ResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DeleteMem0ResponseBodyData extends $dara.Model {
 export class DeleteMem0ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed cause of the access denial.
+   * The detailed reasons for the access denial.
    */
   accessDeniedDetail?: DeleteMem0ResponseBodyAccessDeniedDetail;
   /**

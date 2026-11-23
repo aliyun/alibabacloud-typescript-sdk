@@ -13,7 +13,7 @@ export class CreateSupabaseNetTypeRequest extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 

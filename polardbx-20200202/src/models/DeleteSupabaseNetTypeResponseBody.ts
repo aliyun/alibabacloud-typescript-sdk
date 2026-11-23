@@ -8,15 +8,15 @@ export class DeleteSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeleteSupabaseNetType
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The authentication principal name.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DeleteSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DeleteSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DeleteSupabaseNetTypeResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of denied permission.
    * 
    * @example
    * ImplicitDeny
@@ -135,7 +135,7 @@ export class DeleteSupabaseNetTypeResponseBodyData extends $dara.Model {
 export class DeleteSupabaseNetTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: DeleteSupabaseNetTypeResponseBodyAccessDeniedDetail;
   /**

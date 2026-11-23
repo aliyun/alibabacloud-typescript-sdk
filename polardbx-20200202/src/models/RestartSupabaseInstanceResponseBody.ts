@@ -8,7 +8,7 @@ export class RestartSupabaseInstanceResponseBodyAccessDeniedDetail extends $dara
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:RestartSupabaseInstance
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class RestartSupabaseInstanceResponseBodyAccessDeniedDetail extends $dara
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * 示例 RAM 用户
    */
   authPrincipalDisplayName?: string;
   /**

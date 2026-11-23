@@ -13,7 +13,7 @@ export class DescribeDBInstanceSSLRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region where the instance resides.
    * 
    * @example
    * cn-hangzhou

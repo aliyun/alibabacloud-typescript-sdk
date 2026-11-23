@@ -8,20 +8,20 @@ export class DescribeContextDBSecurityIpsResponseBodyAccessDeniedDetail extends 
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeContextDBSecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authenticated principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The owner ID of the authenticated principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DescribeContextDBSecurityIpsResponseBodyAccessDeniedDetail extends 
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authenticated principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeContextDBSecurityIpsResponseBodyAccessDeniedDetail extends 
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,7 +95,7 @@ export class DescribeContextDBSecurityIpsResponseBodyAccessDeniedDetail extends 
 export class DescribeContextDBSecurityIpsResponseBodyDataGroupItems extends $dara.Model {
   /**
    * @remarks
-   * The whitelist group name.
+   * The name of the whitelist group.
    * 
    * @example
    * defaultGroup
@@ -111,7 +111,7 @@ export class DescribeContextDBSecurityIpsResponseBodyDataGroupItems extends $dar
   groupTag?: string;
   /**
    * @remarks
-   * The details of the whitelist group.
+   * The whitelist details of the group.
    * 
    * @example
    * 127.0.0.1,172.168.0.0
@@ -145,7 +145,7 @@ export class DescribeContextDBSecurityIpsResponseBodyDataGroupItems extends $dar
 export class DescribeContextDBSecurityIpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The context service instance name.
+   * The name of the context service instance.
    * 
    * @example
    * pxt-*********
@@ -161,7 +161,7 @@ export class DescribeContextDBSecurityIpsResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The whitelist group list.
+   * The list of whitelist groups.
    */
   groupItems?: DescribeContextDBSecurityIpsResponseBodyDataGroupItems[];
   static names(): { [key: string]: string } {
@@ -195,7 +195,7 @@ export class DescribeContextDBSecurityIpsResponseBodyData extends $dara.Model {
 export class DescribeContextDBSecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: DescribeContextDBSecurityIpsResponseBodyAccessDeniedDetail;
   /**

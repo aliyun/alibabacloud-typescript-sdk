@@ -8,7 +8,7 @@ export class DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail extends
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeOpenSearchAccountInfo
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail extends
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail extends
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail extends
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The encoded diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,8 +95,7 @@ export class DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail extends
 export class DescribeOpenSearchAccountInfoResponseBodyDataAccounts extends $dara.Model {
   /**
    * @remarks
-   * The account status. Valid values: 
-   * 
+   * The account status. Valid values:
    * - **Creating**: The account is being created.
    * - **Available**: The account is available.
    * - **Deleting**: The account is being deleted.
@@ -109,8 +108,8 @@ export class DescribeOpenSearchAccountInfoResponseBodyDataAccounts extends $dara
    * @remarks
    * The account type.
    * 
-   * - Before three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged account.
-   * - After three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
+   * - Before the three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged account.
+   * - After the three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
    * 
    * @example
    * 2,3,4
@@ -118,7 +117,7 @@ export class DescribeOpenSearchAccountInfoResponseBodyDataAccounts extends $dara
   accountType?: string;
   /**
    * @remarks
-   * The account name of the OpenSearch instance.
+   * The username of the OpenSearch instance account.
    * 
    * @example
    * elastic
@@ -165,7 +164,7 @@ export class DescribeOpenSearchAccountInfoResponseBodyData extends $dara.Model {
   passwordLastModified?: string;
   /**
    * @remarks
-   * The account name of the OpenSearch instance.
+   * The username of the OpenSearch instance account.
    * 
    * @example
    * elastic

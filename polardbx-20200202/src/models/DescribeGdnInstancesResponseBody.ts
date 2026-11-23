@@ -33,7 +33,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   cnNodeClassCode?: string;
   /**
    * @remarks
-   * The number of compute nodes (CNs).
+   * The number of CNs.
    * 
    * @example
    * 2
@@ -50,6 +50,9 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   /**
    * @remarks
    * The data synchronization status of the member.
+   * 
+   * @example
+   * SYNC
    */
   dataSyncStatus?: string;
   /**
@@ -78,7 +81,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   dnNodeClassCode?: string;
   /**
    * @remarks
-   * The number of data nodes (DNs).
+   * The number of DNs.
    * 
    * @example
    * 2
@@ -86,7 +89,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   dnNodeCount?: string;
   /**
    * @remarks
-   * The expiration time. The format is YYYY-MM-DDTHH:mm:ss.SSS±HHmm, which includes the time zone offset.
+   * The expiration time. The time is in the YYYY-MM-DDTHH:mm:ss.SSS±HHmm format, which includes the time zone offset.
    * 
    * @example
    * 2025-01-02T13:11:10.000+0000
@@ -112,8 +115,8 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go
-   * - **Prepaid**: subscription
+   * - **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription.
    * 
    * @example
    * Prepaid
@@ -130,6 +133,9 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   /**
    * @remarks
    * The read/write status of the member.
+   * 
+   * @example
+   * R
    */
   readWriteStatus?: string;
   /**
@@ -178,16 +184,16 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * The status of the switchover task.
    * 
    * @example
-   * prepared: Parameter initialization completed
-   * set_old_primary_readonly: Write operations disabled on the original primary instance
-   * set_new_primary_read_write: Switchover completed
-   * timeout: Task timed out
-   * rollback: Rolled back
+   * prepared: Parameter initialization is complete.
+   * set_old_primary_readonly: The original primary instance is set to read-only.
+   * set_new_primary_read_write: The switchover is complete.
+   * timeout: The task timed out.
+   * rollback: The task is rolled back
    */
   taskStatus?: string;
   /**
    * @remarks
-   * The third active zone in a three-zone deployment.
+   * The third active zone in a Three-zone deployment.
    * 
    * @example
    * cn-zhangjiakou-a
@@ -281,7 +287,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
   gdnInstanceName?: string;
   /**
    * @remarks
-   * The replication mode of the GDN. Valid values: gdn_mode_master_slave and gdn_mode_bidirectional.
+   * The GDN replication mode. Valid values: gdn_mode_master_slave and gdn_mode_bidirectional.
    * 
    * @example
    * gdn_mode_master_slave
@@ -339,7 +345,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The switchover logs.
+   * The switchover log.
    * 
    * @example
    * ""
@@ -405,7 +411,7 @@ export class DescribeGdnInstancesResponseBodyData extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -457,8 +463,7 @@ export class DescribeGdnInstancesResponseBody extends $dara.Model {
   data?: DescribeGdnInstancesResponseBodyData;
   /**
    * @remarks
-   * The message returned for the request.
-   * > This parameter is empty if the request is successful. If the request fails, an error message such as an error code is returned.
+   * The returned message. If the request is successful, this parameter is empty. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * success

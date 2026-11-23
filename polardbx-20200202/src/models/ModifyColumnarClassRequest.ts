@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyColumnarClassRequest extends $dara.Model {
   /**
    * @remarks
-   * The column store specifications.
+   * The column store specification.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ModifyColumnarClassRequest extends $dara.Model {
    * The number of column store nodes.
    * 
    * @example
-   * **
+   * 2
    */
   columnarNodeCount?: string;
   /**
@@ -33,7 +33,7 @@ export class ModifyColumnarClassRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * The region where the instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to view the regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 

@@ -8,7 +8,7 @@ export class CreatePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:CreatePxfuse
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class CreatePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Example RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -45,7 +45,7 @@ export class CreatePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of access denial.
+   * The type of the missing permission.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class CreatePxfuseResponseBodyAccessDeniedDetail extends $dara.Model {
 export class CreatePxfuseResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the resource already exists.
+   * Indicates whether the instance already exists.
    * 
    * @example
    * False
@@ -155,12 +155,12 @@ export class CreatePxfuseResponseBodyData extends $dara.Model {
 export class CreatePxfuseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: CreatePxfuseResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The details of the returned policy.
+   * The returned policy details.
    */
   data?: CreatePxfuseResponseBodyData;
   /**

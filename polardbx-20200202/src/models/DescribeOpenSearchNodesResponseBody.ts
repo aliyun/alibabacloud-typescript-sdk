@@ -8,15 +8,15 @@ export class DescribeOpenSearchNodesResponseBodyAccessDeniedDetail extends $dara
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeOpenSearchNodes
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The identity identifier used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeOpenSearchNodesResponseBodyAccessDeniedDetail extends $dara
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The description as above.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeOpenSearchNodesResponseBodyAccessDeniedDetail extends $dara
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeOpenSearchNodesResponseBodyAccessDeniedDetail extends $dara
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -103,7 +103,7 @@ export class DescribeOpenSearchNodesResponseBodyDataResult extends $dara.Model {
   cpuCores?: number;
   /**
    * @remarks
-   * The CPU usage (%).
+   * The CPU utilization (%).
    * 
    * @example
    * 35.6
@@ -119,7 +119,7 @@ export class DescribeOpenSearchNodesResponseBodyDataResult extends $dara.Model {
   diskSizeGB?: number;
   /**
    * @remarks
-   * The disk space usage of the node.
+   * The disk space utilization of the node.
    * 
    * @example
    * 42.5
@@ -127,7 +127,7 @@ export class DescribeOpenSearchNodesResponseBodyDataResult extends $dara.Model {
   diskUsedPercent?: string;
   /**
    * @remarks
-   * The total number of unresolved baseline check items.
+   * The total number of unresolved baseline checks.
    * 
    * @example
    * GREEN
@@ -135,7 +135,7 @@ export class DescribeOpenSearchNodesResponseBodyDataResult extends $dara.Model {
   health?: string;
   /**
    * @remarks
-   * The JVM heap memory usage of the node.
+   * The JVM heap memory utilization of the node.
    * 
    * @example
    * 38.2
@@ -151,7 +151,7 @@ export class DescribeOpenSearchNodesResponseBodyDataResult extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The name of the host on which the node instance runs. You can log on to the host and run the `hostname` command to view the hostname.
+   * The name of the host where the node instance runs. You can log on to the host and run the `hostname` command to view the hostname.
    * 
    * @example
    * hb2h-ali-oceanbase-public-online-013
@@ -167,7 +167,7 @@ export class DescribeOpenSearchNodesResponseBodyDataResult extends $dara.Model {
   loadOneM?: string;
   /**
    * @remarks
-   * The amount of memory used.
+   * The amount of used memory.
    * 
    * @example
    * 16
@@ -175,10 +175,10 @@ export class DescribeOpenSearchNodesResponseBodyDataResult extends $dara.Model {
   memoryGB?: number;
   /**
    * @remarks
-   * The node type to query. Valid values:
-   * - all: queries both dn and gms nodes.
-   * - gms: queries only gms nodes.
-   * - dn: queries only dn nodes.
+   * The type of node to query. Valid values:
+   * - all: Queries both dn and gms nodes.
+   * - gms: Queries only gms nodes.
+   * - dn: Queries only dn nodes.
    * 
    * @example
    * dn
@@ -283,7 +283,7 @@ export class DescribeOpenSearchNodesResponseBody extends $dara.Model {
   accessDeniedDetail?: DescribeOpenSearchNodesResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: DescribeOpenSearchNodesResponseBodyData;
   /**

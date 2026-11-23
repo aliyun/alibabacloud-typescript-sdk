@@ -8,7 +8,7 @@ export class DescribeMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara
    * Same as above.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeMem0SecurityIps
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeMem0SecurityIpsResponseBodyAccessDeniedDetail extends $dara
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * 示例 RAM 用户
    */
   authPrincipalDisplayName?: string;
   /**

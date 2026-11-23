@@ -8,12 +8,12 @@ export class CreateServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:CreateServiceAccount
    */
   authAction?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authenticated principal.
    * 
    * @example
    * 222
@@ -83,7 +83,7 @@ export class CreateServiceAccountResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the account already exists.
+   * Indicates whether it already exists.
    * 
    * @example
    * False
@@ -99,10 +99,10 @@ export class CreateServiceAccountResponseBodyData extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the service account.
+   * The service account type.
    * 
    * @example
-   * 服务账号类型
+   * Service account type
    */
   serviceAccountType?: string;
   /**
@@ -165,10 +165,10 @@ export class CreateServiceAccountResponseBody extends $dara.Model {
   data?: CreateServiceAccountResponseBodyData;
   /**
    * @remarks
-   * The additional information returned. If the request is successful, **success** is returned. If the request fails, the corresponding error code is returned.
+   * The additional information returned by the API. success is returned for a successful request, and an error code is returned for a failed request.
    * 
    * @example
-   * *****
+   * success
    */
   message?: string;
   /**

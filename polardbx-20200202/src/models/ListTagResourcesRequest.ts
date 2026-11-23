@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the label.
+   * The key of the tag.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the label.
+   * The value of the tag.
    * 
    * @example
    * 2
@@ -63,12 +63,12 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify up to 50 subkeys.
+   * The IDs of the resources. You can specify up to 50 resource IDs.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Set this parameter to PolarDBXInstance.
+   * The resource type. Set the value to PolarDBXInstance.
    * 
    * This parameter is required.
    * 
@@ -78,7 +78,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of labels. You can specify up to 20 subkeys.
+   * The list of tags. You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

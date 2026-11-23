@@ -41,7 +41,7 @@ export class ModifySupabaseSecurityIPListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP whitelist. Separate multiple IP addresses with commas.
+   * The list of IP addresses in the whitelist. Separate multiple IP addresses with commas.
    * 
    * This parameter is required.
    * 

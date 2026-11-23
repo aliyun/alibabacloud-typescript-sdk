@@ -40,10 +40,10 @@ export class CreateDataImportTaskResponseBody extends $dara.Model {
   data?: CreateDataImportTaskResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the request.
    * 
    * @example
-   * *****
+   * Sample returned message: The request is processed
    */
   message?: string;
   /**
@@ -56,7 +56,7 @@ export class CreateDataImportTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

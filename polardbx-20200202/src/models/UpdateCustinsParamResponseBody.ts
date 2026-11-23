@@ -8,7 +8,7 @@ export class UpdateCustinsParamResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ******
+   * 123456
    */
   taskId?: number;
   static names(): { [key: string]: string } {

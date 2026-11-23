@@ -8,7 +8,7 @@ export class ModifyOpenSearchAccessProtocolResponseBodyAccessDeniedDetail extend
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyOpenSearchAccessProtocol
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class ModifyOpenSearchAccessProtocolResponseBodyAccessDeniedDetail extend
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class ModifyOpenSearchAccessProtocolResponseBodyAccessDeniedDetail extend
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The identity type used for authentication in the request. Valid values:
+   * The type of identity used for authentication in the request. Valid values:
    * - SubUser: RAM user
    * - AssumedRoleUser: RAM role
    * - Federated: SSO federated identity
@@ -48,7 +48,7 @@ export class ModifyOpenSearchAccessProtocolResponseBodyAccessDeniedDetail extend
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The permission denial type.
    * 
    * @example
    * ImplicitDeny
@@ -98,12 +98,12 @@ export class ModifyOpenSearchAccessProtocolResponseBodyAccessDeniedDetail extend
 export class ModifyOpenSearchAccessProtocolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: ModifyOpenSearchAccessProtocolResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The response message. "success" is returned for a successful request. An error code is returned for a failed request.
+   * The response message. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
    * 
    * @example
    * success
@@ -113,11 +113,11 @@ export class ModifyOpenSearchAccessProtocolResponseBody extends $dara.Model {
    * @remarks
    * The backend protocol. Valid values:
    * 
-   * - **HTTP** (default): supports association with HTTPS, HTTP, and QUIC listeners.
+   * - **HTTP** (default): Supports association with HTTPS, HTTP, and QUIC listeners.
    * 
-   * - **HTTPS**: supports association with HTTPS listeners.
+   * - **HTTPS**: Supports association with HTTPS listeners.
    * 
-   * - **gRPC**: supports association with HTTPS and QUIC listeners.
+   * - **gRPC**: Supports association with HTTPS and QUIC listeners.
    * 
    * > If **ServerGroupType** is set to **Fc**, you do not need to configure the backend protocol.
    * 

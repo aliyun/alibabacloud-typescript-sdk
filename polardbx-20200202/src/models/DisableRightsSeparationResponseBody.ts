@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableRightsSeparationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returns success if the request is successful, or returns the corresponding error code if an error occurs.
+   * The returned message. If the request is successful, "success" is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class DisableRightsSeparationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The ID of the request.
    * 
    * @example
    * FE5D94E3-3C93-3594-95D9-AAED2A980915

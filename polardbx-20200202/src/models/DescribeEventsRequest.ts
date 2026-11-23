@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The end time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-10-18T03:07:25Z
@@ -39,7 +39,7 @@ export class DescribeEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The start time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-10-18T03:07:25Z

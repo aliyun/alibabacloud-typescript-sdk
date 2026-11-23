@@ -8,7 +8,7 @@ export class ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ReleasePxfsPublicConnection
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,7 +95,7 @@ export class ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $
 export class ReleasePxfsPublicConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the PolarDB-X instance.
+   * The PolarDB-X instance ID.
    * 
    * @example
    * pxc-xxxxxxxx
@@ -103,7 +103,7 @@ export class ReleasePxfsPublicConnectionResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The instance ID of the Agent file service.
+   * The Agent file service instance ID.
    * 
    * @example
    * pxfs-xxxxxxxx
@@ -145,7 +145,7 @@ export class ReleasePxfsPublicConnectionResponseBodyData extends $dara.Model {
 export class ReleasePxfsPublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The detailed cause of the access denial.
    */
   accessDeniedDetail?: ReleasePxfsPublicConnectionResponseBodyAccessDeniedDetail;
   /**

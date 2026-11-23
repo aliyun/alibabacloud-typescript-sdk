@@ -8,7 +8,7 @@ export class MigrateDBInstanceResponseBody extends $dara.Model {
    * The returned message. If the request is successful, "success" is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
-   * *****
+   * success
    */
   message?: string;
   /**

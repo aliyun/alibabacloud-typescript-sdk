@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseContext0PublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The description is as above.
+   * The description as mentioned above.
    * 
    * @example
-   * xxx
+   * polardbx:ReleaseContext0PublicConnection
    */
   authAction?: string;
   /**
@@ -16,12 +16,12 @@ export class ReleaseContext0PublicConnectionResponseBodyAccessDeniedDetail exten
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The description is as above.
+   * The description as mentioned above.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class ReleaseContext0PublicConnectionResponseBodyAccessDeniedDetail exten
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The description is as above.
+   * The description as mentioned above.
    * 
    * @example
    * 222
@@ -95,7 +95,7 @@ export class ReleaseContext0PublicConnectionResponseBodyAccessDeniedDetail exten
 export class ReleaseContext0PublicConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The context service instance name.
+   * The name of the context service instance.
    * 
    * @example
    * context0-example
@@ -106,7 +106,7 @@ export class ReleaseContext0PublicConnectionResponseBodyData extends $dara.Model
    * The instance ID.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * 123456
    */
   DBInstanceId?: number;
   /**
@@ -127,7 +127,7 @@ export class ReleaseContext0PublicConnectionResponseBodyData extends $dara.Model
   netType?: number;
   /**
    * @remarks
-   * The query node type. Valid values:
+   * The type of the queried node. Valid values:
    * - service
    * - dashboard
    * 
@@ -145,7 +145,7 @@ export class ReleaseContext0PublicConnectionResponseBodyData extends $dara.Model
   oldConnectionString?: string;
   /**
    * @remarks
-   * The previous port value.
+   * The previous port number.
    * 
    * @example
    * 8080
@@ -197,7 +197,7 @@ export class ReleaseContext0PublicConnectionResponseBodyData extends $dara.Model
 export class ReleaseContext0PublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The detailed reasons for the access denial.
    */
   accessDeniedDetail?: ReleaseContext0PublicConnectionResponseBodyAccessDeniedDetail;
   /**

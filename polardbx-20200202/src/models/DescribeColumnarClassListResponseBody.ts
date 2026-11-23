@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeColumnarClassListResponseBodyDataClassCodeList extends $dara.Model {
   /**
    * @remarks
-   * The instance type.
+   * The instance specification.
    * 
    * @example
    * polarx.n8.large.col

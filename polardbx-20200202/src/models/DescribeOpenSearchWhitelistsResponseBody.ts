@@ -8,20 +8,20 @@ export class DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail extends 
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeOpenSearchWhitelists
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authentication principal.
+   * The OwnerId of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail extends 
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The description is the same as above.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail extends 
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail extends 
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the missing permission.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -119,7 +119,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyDataWhitelists extends $dar
   groupName?: string;
   /**
    * @remarks
-   * The IP address list.
+   * The list of IP addresses.
    * 
    * @example
    * []
@@ -127,7 +127,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyDataWhitelists extends $dar
   ips?: string;
   /**
    * @remarks
-   * The network type. Only VPC is supported.
+   * The network type. Only VPC networks are supported.
    * 
    * @example
    * vpc
@@ -135,7 +135,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyDataWhitelists extends $dar
   networkType?: string;
   /**
    * @remarks
-   * The policy remarks.
+   * The policy remark.
    * 
    * @example
    * vpc-t4nt9qxfgbzab587cshhc
@@ -143,7 +143,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyDataWhitelists extends $dar
   remark?: string;
   /**
    * @remarks
-   * The time when the task was last updated, in timestamp format.
+   * The last update time of the task in timestamp format.
    * 
    * @example
    * 0001-01-01T00:00:00Z
@@ -215,7 +215,7 @@ export class DescribeOpenSearchWhitelistsResponseBodyData extends $dara.Model {
 export class DescribeOpenSearchWhitelistsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail;
   /**

@@ -24,7 +24,7 @@ export class DescribeDBInstanceSSLResponseBodyData extends $dara.Model {
   SSLEnabled?: boolean;
   /**
    * @remarks
-   * The expiration time of the certificate. The time is in the YYYY-MM-DDTHH:mm:ssZ format and is in UTC.
+   * The expiration time of the certificate. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-11-04T09:39:07Z

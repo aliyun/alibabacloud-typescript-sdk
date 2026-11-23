@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGdnInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The message filter type.
+   * The filter type.
    * 
    * @example
    * gdn_id、
@@ -14,9 +14,7 @@ export class DescribeGdnInstancesRequest extends $dara.Model {
   filterType?: string;
   /**
    * @remarks
-   * The filter value used when querying resources.
-   * 
-   * This parameter is used in conjunction with FilterKey.
+   * The filter value used to query resources. This parameter is used in conjunction with FilterKey.
    * 
    * @example
    * gdn-***、
@@ -41,7 +39,7 @@ export class DescribeGdnInstancesRequest extends $dara.Model {
   pageNum?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 30

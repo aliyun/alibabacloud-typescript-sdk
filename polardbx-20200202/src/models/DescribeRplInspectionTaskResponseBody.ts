@@ -8,7 +8,7 @@ export class DescribeRplInspectionTaskResponseBodyDataInspectionTaskList extends
    * The timestamp when the task was created.
    * 
    * @example
-   * 2025-09-25T02:36:20.000+0000
+   * 1758597921000
    */
   createTime?: number;
   /**
@@ -29,7 +29,7 @@ export class DescribeRplInspectionTaskResponseBodyDataInspectionTaskList extends
   id?: number;
   /**
    * @remarks
-   * slinktaskid。
+   * The Slink task ID.
    * 
    * @example
    * etx-hzrez23btmb6aq
@@ -53,10 +53,10 @@ export class DescribeRplInspectionTaskResponseBodyDataInspectionTaskList extends
   status?: string;
   /**
    * @remarks
-   * The timestamp when the task was last updated.
+   * The timestamp of the last task update.
    * 
    * @example
-   * 2025-09-23T03:25:21.000+0000
+   * 1758767780000
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -100,7 +100,7 @@ export class DescribeRplInspectionTaskResponseBodyData extends $dara.Model {
   inspectionTaskList?: DescribeRplInspectionTaskResponseBodyDataInspectionTaskList[];
   /**
    * @remarks
-   * The slink status.
+   * The Slink status.
    * 
    * @example
    * PRE_CHECK
@@ -156,7 +156,7 @@ export class DescribeRplInspectionTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

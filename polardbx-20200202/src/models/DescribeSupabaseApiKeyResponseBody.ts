@@ -8,15 +8,15 @@ export class DescribeSupabaseApiKeyResponseBodyAccessDeniedDetail extends $dara.
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeSupabaseApiKey
    */
   authAction?: string;
   /**
    * @remarks
-   * The authentication principal name.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeSupabaseApiKeyResponseBodyAccessDeniedDetail extends $dara.
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The no permission type.
+   * The access denied type.
    * 
    * @example
    * ImplicitDeny

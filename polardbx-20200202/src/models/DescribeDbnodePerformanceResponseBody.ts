@@ -118,7 +118,7 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeys extends $dara.
 export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-********
@@ -126,7 +126,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The end time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
+   * The end time of the query. The time is in the YYYY-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2021-10-20T02:00Z
@@ -143,7 +143,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
+   * The start time of the query. The time is in the YYYY-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2021-10-20T00:00Z

@@ -37,7 +37,7 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
   eventReason?: string;
   /**
    * @remarks
-   * The record time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The record time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-10-15T06:39:49Z
@@ -45,7 +45,7 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
   eventRecordTime?: string;
   /**
    * @remarks
-   * The event time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The event time. The time must be in UTC and in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-10-15T06:35:00Z

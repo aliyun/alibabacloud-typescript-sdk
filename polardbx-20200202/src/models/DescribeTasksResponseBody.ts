@@ -13,7 +13,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The name of the database associated with the task. This field is usually empty.
+   * The name of the database associated with the task. This parameter is usually empty.
    * 
    * @example
    * DBName
@@ -37,7 +37,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The detailed progress of the task. This field is usually empty.
+   * The detailed task progress. This parameter is usually empty.
    * 
    * @example
    * ProgressInfo
@@ -45,7 +45,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   progressInfo?: string;
   /**
    * @remarks
-   * The scale-out token. If the task is a scale-out task, this field returns a scale-out ID, which is a unique backend key.
+   * The scale-out ID, which is a unique backend key. This parameter is returned only for scale-out tasks.
    * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
@@ -54,6 +54,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
+   * 
    * - **RUNNING**: The task is running.
    * - **FAILED**: The task failed and was interrupted.
    * 
@@ -63,7 +64,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task action. This is a unique key for the backend task type.
+   * The task action, which is a unique key for the backend task type.
    * 
    * @example
    * multi_scale_out
@@ -71,7 +72,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   taskAction?: string;
   /**
    * @remarks
-   * The error code of the failed task.
+   * The error code returned when the task fails.
    * 
    * @example
    * TaskErrorCode
@@ -79,7 +80,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   taskErrorCode?: string;
   /**
    * @remarks
-   * The error message of the failed task.
+   * The error message returned when the task fails.
    * 
    * @example
    * TaskErrorMessage
@@ -137,7 +138,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
 export class DescribeTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of result items.
+   * The list of items.
    */
   items?: DescribeTasksResponseBodyItems[];
   /**
@@ -150,7 +151,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 30

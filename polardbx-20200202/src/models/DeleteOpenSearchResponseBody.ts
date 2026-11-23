@@ -8,7 +8,7 @@ export class DeleteOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeleteOpenSearch
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -45,7 +45,7 @@ export class DeleteOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class DeleteOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
 export class DeleteOpenSearchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * pxc-*********

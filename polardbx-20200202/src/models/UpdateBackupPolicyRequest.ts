@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup cycle. You must specify at least 2 days. The value is a 7-digit number. From left to right, each digit represents whether backup is enabled from Monday to Sunday. A value of 0 indicates that backup is disabled, and a value of 1 indicates that backup is enabled:
+   * The backup cycle. Specify at least two days. The value is a 7-digit string, where each digit from left to right represents whether backups are enabled for Monday through Sunday. A value of 0 indicates that backups are disabled, and a value of 1 indicates that backups are enabled:
    * 
    * - First digit: Monday
    * - Second digit: Tuesday
@@ -21,7 +21,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   backupPeriod?: string;
   /**
    * @remarks
-   * The daily backup start time in UTC.
+   * The time when the daily backup starts, in UTC.
    * 
    * @example
    * 03:00Z
@@ -29,7 +29,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   backupPlanBegin?: string;
   /**
    * @remarks
-   * The retention period of backup sets. Unit: days.
+   * The retention period of the backup set, in days.
    * 
    * @example
    * 30
@@ -37,7 +37,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   backupSetRetention?: number;
   /**
    * @remarks
-   * The backup type. Currently, only "0" is supported, which indicates fast backup.
+   * The backup type. Currently, only 0 is supported, which indicates a quick backup.
    * 
    * @example
    * 0
@@ -47,8 +47,8 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
    * @remarks
    * The backup method. Valid values:
    * 
-   * - **P**: physical backup.
-   * - **L**: logical backup.
+   * - **P**: physical backup
+   * - **L**: logical backup
    * 
    * @example
    * P
@@ -56,7 +56,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   backupWay?: string;
   /**
    * @remarks
-   * The interval of cold data backups. Unit: days. Valid values: 1 to 59.
+   * The interval at which cold data is backed up, in days. Valid values: 1 to 59.
    * 
    * @example
    * 30
@@ -64,7 +64,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   coldDataBackupInterval?: number;
   /**
    * @remarks
-   * The retention period of cold data backups. Unit: days. Valid values: 30 to 730.
+   * The retention period of cold data backups, in days. Valid values: 30 to 730.
    * 
    * @example
    * 30
@@ -72,20 +72,23 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   coldDataBackupRetention?: number;
   /**
    * @remarks
-   * The retention period of cross-region data backups. Unit: days.
+   * The retention period of cross-region data backups, in days.
    * 
    * @example
    * 30
    */
   crossRegionDataBackupRetention?: number;
   /**
+   * @remarks
+   * The number of days selected for cross-region backups.
+   * 
    * @example
    * 3,7,1,5,6,2,4
    */
   crossRegionFilterValue?: string;
   /**
    * @remarks
-   * The retention period of cross-region log backups. Unit: days.
+   * The retention period of cross-region log backups, in days.
    * 
    * @example
    * 30
@@ -103,7 +106,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The destination region for cross-region backup.
+   * The destination region for cross-region backups.
    * 
    * @example
    * cn-shanghai
@@ -111,10 +114,10 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   destCrossRegion?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly clean up binary logs when the total space usage of the instance exceeds 80% or the remaining space is less than 50 GB. The cleanup starts from the earliest logs until the total space usage drops below 80% and the remaining space exceeds 50 GB. Valid values:
+   * Specifies whether to forcibly clear binary logs when the total storage usage of the instance exceeds 80% or the remaining storage is less than 50 GB. The system clears the earliest binary logs until the total storage usage drops below 80% and the remaining storage is greater than 50 GB. Valid values:
    * 
-   * - **1**: Yes.
-   * - **0**: No.
+   * - **1**: yes
+   * - **0**: no
    * 
    * @example
    * 1
@@ -122,7 +125,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   forceCleanOnHighSpaceUsage?: number;
   /**
    * @remarks
-   * Specifies whether to enable cross-region data backup. Default value: false.
+   * Specifies whether to enable cross-region data backups. Default value: false.
    * 
    * @example
    * false
@@ -130,7 +133,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   isCrossRegionDataBackupEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable cross-region log backup. Default value: false.
+   * Specifies whether to enable cross-region log backups. Default value: false.
    * 
    * @example
    * false
@@ -138,7 +141,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   isCrossRegionLogBackupEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable backup. The value is fixed to 1, which indicates that backup is enabled.
+   * Specifies whether to enable backups. The fixed value is 1, which indicates that backups are enabled.
    * 
    * @example
    * 1
@@ -146,7 +149,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   isEnabled?: number;
   /**
    * @remarks
-   * The number of hours that log backups are retained locally. Valid values: 0 to 168 (7 × 24 hours). A value of 0 indicates that log backups are not retained locally. Default value: 7.
+   * The local retention period of log backups, in hours. Valid values: 0 to 168. A value of 0 indicates that log backups are not retained. Default value: 7.
    * 
    * @example
    * 7
@@ -154,7 +157,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   localLogRetention?: number;
   /**
    * @remarks
-   * The number of local binary logs to retain. Default value: 60. Valid values: 6 to 100.
+   * The number of local binary logs to retain. Valid values: 6 to 100. Default value: 60.
    * 
    * @example
    * 60
@@ -162,7 +165,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   localLogRetentionNumber?: number;
   /**
    * @remarks
-   * The maximum binary log space usage in percentage. Valid values: 0 to 50. This parameter specifies a loop space. Default value: 30.
+   * The maximum space usage for binary logs. The parameter value ranges from 0 to 50. This is a loop space. Default value: 30.
    * 
    * @example
    * 30
@@ -180,7 +183,7 @@ export class UpdateBackupPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of days that log backups are retained remotely. Valid values: 7 to 730. Unit: days. Default value: 7.
+   * The remote retention period of log backups, in days. Valid values: 7 to 730. Default value: 7.
    * 
    * @example
    * 7

@@ -40,10 +40,10 @@ export class DescribeAvailableCrossRegionsResponseBody extends $dara.Model {
   data?: DescribeAvailableCrossRegionsResponseBodyData[];
   /**
    * @remarks
-   * The additional information returned. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
+   * The additional information returned by the API operation. If the request is successful, success is returned. If an error occurs, the corresponding error code is returned.
    * 
    * @example
-   * *****
+   * success
    */
   message?: string;
   /**

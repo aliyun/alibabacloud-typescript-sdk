@@ -13,7 +13,7 @@ export class CheckHealthResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the component is healthy. A return value of UP indicates healthy. Any other value or an empty value indicates an exception.
+   * Indicates whether the component is healthy. A value of UP indicates that the component is healthy. Any other value or an empty value indicates an abnormal state.
    * 
    * @example
    * UP

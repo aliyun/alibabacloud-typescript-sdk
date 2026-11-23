@@ -55,7 +55,7 @@ export class DescribeSqlAuditInfoResponseBodyData extends $dara.Model {
 export class DescribeSqlAuditInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result set.
+   * The result set.
    */
   data?: DescribeSqlAuditInfoResponseBodyData;
   /**

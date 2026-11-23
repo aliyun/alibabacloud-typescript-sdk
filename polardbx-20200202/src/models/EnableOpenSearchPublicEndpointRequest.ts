@@ -15,7 +15,7 @@ export class EnableOpenSearchPublicEndpointRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The target node type. Valid values:
+   * The type of the target node. Valid values:
    * 
    * - **search**: data node. This is the default value.
    * - **dashboard**: dashboard node.

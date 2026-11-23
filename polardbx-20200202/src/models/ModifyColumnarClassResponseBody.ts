@@ -8,7 +8,7 @@ export class ModifyColumnarClassResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {

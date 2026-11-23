@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action.
+   * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyPxfsSecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The identity identifier used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authorization principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class ModifyPxfsSecurityIpsResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The description is the same as above.
+   * Same as above.
    * 
    * @example
    * 222
@@ -125,7 +125,7 @@ export class ModifyPxfsSecurityIpsResponseBodyData extends $dara.Model {
 export class ModifyPxfsSecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: ModifyPxfsSecurityIpsResponseBodyAccessDeniedDetail;
   /**

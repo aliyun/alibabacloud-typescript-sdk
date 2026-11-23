@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action.
+   * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyOpenSearchClass
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authorization principal.
+   * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authorization principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,10 +29,10 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of identity used for authorization in the request. Valid values:
-   * - SubUser: RAM user.
-   * - AssumedRoleUser: RAM role.
-   * - Federated: SSO federated identity.
+   * The type of identity used for authentication in the request. Valid values:
+   * - SubUser: RAM user
+   * - AssumedRoleUser: RAM role
+   * - Federated: SSO federated identity
    * 
    * @example
    * 222
@@ -40,7 +40,7 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded full diagnostic message.
+   * The encoded complete diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -48,7 +48,7 @@ export class ModifyOpenSearchClassResponseBodyAccessDeniedDetail extends $dara.M
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The no permission type.
+   * The permission denial type.
    * 
    * @example
    * ImplicitDeny
@@ -128,7 +128,7 @@ export class ModifyOpenSearchClassResponseBodyData extends $dara.Model {
 export class ModifyOpenSearchClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: ModifyOpenSearchClassResponseBodyAccessDeniedDetail;
   /**

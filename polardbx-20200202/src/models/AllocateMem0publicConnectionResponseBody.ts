@@ -8,15 +8,15 @@ export class AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail extends 
    * Same as above.
    * 
    * @example
-   * xxx
+   * polardbx:AllocateMem0PublicConnection
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The identity identifier used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**

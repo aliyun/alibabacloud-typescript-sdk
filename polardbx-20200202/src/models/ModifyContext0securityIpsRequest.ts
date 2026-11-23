@@ -24,9 +24,10 @@ export class ModifyContext0SecurityIpsRequest extends $dara.Model {
   /**
    * @remarks
    * The modification mode of the whitelist. Valid values:
+   * 
    * - 0: Overwrites the whitelist group.
-   * - 1: Adds a whitelist group.
-   * - 2: Deletes a whitelist group.
+   * - 1: Appends IP addresses to the whitelist group.
+   * - 2: Deletes the whitelist group.
    * 
    * @example
    * 1

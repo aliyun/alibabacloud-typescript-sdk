@@ -45,7 +45,7 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the cryptographic officer (CO) account.
+   * The security administrator account.
    * 
    * @example
    * account_sec
@@ -53,7 +53,7 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   securityAccountName?: string;
   /**
    * @remarks
-   * The password of the cryptographic officer (CO) account.
+   * The password of the security administrator account.
    * 
    * @example
    * *****

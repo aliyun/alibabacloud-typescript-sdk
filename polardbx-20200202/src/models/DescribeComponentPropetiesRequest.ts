@@ -25,7 +25,7 @@ export class DescribeComponentPropetiesRequest extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including the region IDs.
    * 
    * This parameter is required.
    * 

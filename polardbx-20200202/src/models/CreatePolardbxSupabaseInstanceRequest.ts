@@ -57,7 +57,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   nodeSpec?: string;
   /**
    * @remarks
-   * The billing method. Valid values: PREPAY and POSTPAY.
+   * The billing method.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The billing cycle. Valid values: Year, Month, and Hour.
+   * The billing cycle.
    * 
    * @example
    * Month
@@ -93,7 +93,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable multi-tenant mode.
+   * Specifies whether to enable the multi-tenant mode.
    * 
    * @example
    * false

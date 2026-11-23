@@ -8,15 +8,15 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeSupabaseIpWhitelist
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The authentication principal name.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +53,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
   noPermissionType?: string;
   /**
    * @remarks
-   * The type of the policy.
+   * The policy type.
    * 
    * @example
    * PRIORITY
@@ -95,7 +95,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail extends $
 export class DescribeSupabaseIpWhitelistResponseBodyDataGroupItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the group.
+   * The group name.
    * 
    * @example
    * defaultGroup
@@ -103,7 +103,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyDataGroupItems extends $dara
   groupName?: string;
   /**
    * @remarks
-   * The tag of the group.
+   * The group tag.
    * 
    * @example
    * group1
@@ -153,7 +153,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The list of whitelist groups.
+   * The whitelist group list.
    */
   groupItems?: DescribeSupabaseIpWhitelistResponseBodyDataGroupItems[];
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class DescribeSupabaseIpWhitelistResponseBodyData extends $dara.Model {
 export class DescribeSupabaseIpWhitelistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denied error.
+   * The access denied details.
    */
   accessDeniedDetail?: DescribeSupabaseIpWhitelistResponseBodyAccessDeniedDetail;
   /**

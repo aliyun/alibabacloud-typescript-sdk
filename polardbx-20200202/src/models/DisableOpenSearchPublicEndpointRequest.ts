@@ -15,7 +15,7 @@ export class DisableOpenSearchPublicEndpointRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The type of the target node. Valid values:
+   * The type of the destination node. Valid values:
    * 
    * - **search**: data node. This is the default value.
    * - **dashboard**: dashboard node.
@@ -26,7 +26,7 @@ export class DisableOpenSearchPublicEndpointRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 

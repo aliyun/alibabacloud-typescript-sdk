@@ -100,7 +100,7 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model
   config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
   /**
    * @remarks
-   * Specifies whether the settings are configured. Valid values:
+   * Specifies whether the O&M window is configured. Valid values:
    * 
    * - 1: Configured.
    * - 0: Not configured.

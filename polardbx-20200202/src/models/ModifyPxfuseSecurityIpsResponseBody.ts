@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPxfuseSecurityIpsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the operation.
+   * The name of the API operation.
    * 
    * @example
-   * xxx
+   * polardbx:ModifyPxfuseSecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authenticated principal.
+   * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authenticated principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class ModifyPxfuseSecurityIpsResponseBodyAccessDeniedDetail extends $dara
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the identity used for authentication in the request. Valid values:
+   * The type of identity used for authentication in the request. Valid values:
    * - SubUser: RAM user.
    * - AssumedRoleUser: RAM role.
    * - Federated: SSO federated identity.
@@ -40,7 +40,7 @@ export class ModifyPxfuseSecurityIpsResponseBodyAccessDeniedDetail extends $dara
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -48,7 +48,7 @@ export class ModifyPxfuseSecurityIpsResponseBodyAccessDeniedDetail extends $dara
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of access denial.
    * 
    * @example
    * ImplicitDeny
@@ -101,7 +101,7 @@ export class ModifyPxfuseSecurityIpsResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {

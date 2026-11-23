@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
-   * xxx
+   * polardbx:AllocatePxfsPublicConnection
    */
   authAction?: string;
   /**
@@ -16,12 +16,12 @@ export class AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail extends 
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * 111
@@ -53,7 +53,7 @@ export class AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail extends 
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY
@@ -145,7 +145,7 @@ export class AllocatePxfsPublicConnectionResponseBodyData extends $dara.Model {
 export class AllocatePxfsPublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details of the access denial.
    */
   accessDeniedDetail?: AllocatePxfsPublicConnectionResponseBodyAccessDeniedDetail;
   /**

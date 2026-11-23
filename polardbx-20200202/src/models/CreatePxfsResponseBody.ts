@@ -8,20 +8,20 @@ export class CreatePxfsResponseBodyAccessDeniedDetail extends $dara.Model {
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:CreatePxfs
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the security principal.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the security principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class CreatePxfsResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the security principal.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -45,7 +45,7 @@ export class CreatePxfsResponseBodyAccessDeniedDetail extends $dara.Model {
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of permission denial.
    * 
    * @example
    * ImplicitDeny

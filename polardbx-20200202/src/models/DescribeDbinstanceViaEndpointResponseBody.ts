@@ -13,7 +13,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extend
   connectionString?: string;
   /**
    * @remarks
-   * The port number.
+   * The connection port number.
    * 
    * @example
    * 3306
@@ -21,7 +21,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extend
   port?: number;
   /**
    * @remarks
-   * The connection type. **VPC** indicates an internal network connection. **PUBLIC** indicates a public network connection.
+   * The connection type. **VPC** indicates an internal network connection, and **PUBLIC** indicates a public network connection.
    * 
    * @example
    * VPC
@@ -29,7 +29,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extend
   type?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-xxxxxx
@@ -45,7 +45,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extend
   vSwitchId?: string;
   /**
    * @remarks
-   * The internal CloudInstanceId within the VPC. This parameter can be ignored.
+   * The internal CloudInstanceId in the VPC. You can ignore this parameter.
    * 
    * @example
    * pxc-zkralxpc5d****
@@ -117,7 +117,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes extends 
   nodeClass?: string;
   /**
    * @remarks
-   * The region ID of the node.
+   * The ID of the region where the node resides.
    * 
    * @example
    * cn-hangzhou
@@ -125,7 +125,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes extends 
   regionId?: string;
   /**
    * @remarks
-   * The zone where the node resides.
+   * The name of the zone where the node resides.
    * 
    * @example
    * cn-hangzhou-a
@@ -206,6 +206,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   /**
    * @remarks
    * The CN node specifications. Valid values:
+   * 
    * - **polarx.x4.medium.2e**: 2 cores, 8 GB
    * - **polarx.x4.large.2e**: 4 cores, 16 GB
    * - **polarx.x8.large.2e**: 4 cores, 32 GB
@@ -232,7 +233,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   cnNodeCount?: number;
   /**
    * @remarks
-   * The commodity code of the instance. The value is fixed as drds_polarxpost_public_cn.
+   * The commodity type of the instance. The value is fixed as drds_polarxpost_public_cn.
    * 
    * @example
    * drds_polarxpost_public_cn
@@ -263,8 +264,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * The instance type. Valid values:
    * 
-   * - **ReadWrite**: primary instance.
-   * - **ReadOnly**: read-only instance.
+   * - **ReadWrite**: primary instance
+   * - **ReadOnly**: read-only instance
    * 
    * @example
    * ReadWrite
@@ -280,7 +281,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   DBNodeClass?: string;
   /**
    * @remarks
-   * The number of instance nodes.
+   * The number of nodes in the instance.
    * 
    * @example
    * 2
@@ -293,7 +294,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   DBNodes?: DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes[];
   /**
    * @remarks
-   * The database type. The value is fixed as polarx.
+   * The database engine type. The value is fixed as polarx.
    * 
    * @example
    * polarx
@@ -301,7 +302,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   DBType?: string;
   /**
    * @remarks
-   * The database version.
+   * The database engine version.
    * 
    * @example
    * 5.5
@@ -309,7 +310,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   DBVersion?: string;
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
    * test instance
@@ -318,6 +319,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   /**
    * @remarks
    * The DN node specifications. Valid values:
+   * 
    * - **mysql.n2.medium.25**: 2 cores, 4 GB
    * - **mysql.n4.medium.25**: 2 cores, 8 GB
    * - **mysql.x8.medium.25**: 2 cores, 16 GB
@@ -348,7 +350,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   dnNodeCount?: number;
   /**
    * @remarks
-   * The database type. The value is fixed as MySQL.
+   * The database engine. The value is fixed as MySQL.
    * 
    * @example
    * MySQL
@@ -356,7 +358,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   engine?: string;
   /**
    * @remarks
-   * The expiration time. The time is in the yyyy-MM-ddTHH:mm:ss.sss+0000 format (UTC).
+   * The expiration time. The format is yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC).
    * 
    * @example
    * 2022-08-31T16:00:00.000+0000
@@ -366,8 +368,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * Indicates whether the instance has expired. Valid values:
    * 
-   * - **true**: Expired.
-   * - **false**: Not expired.
+   * - **true**: The instance has expired.
+   * - **false**: The instance has not expired.
    * 
    * @example
    * false
@@ -391,14 +393,14 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   kindCode?: number;
   /**
    * @remarks
-   * The LTS version numbers.
+   * The LTS version number.
    * 
    * This parameter is required.
    */
   LTSVersions?: string[];
   /**
    * @remarks
-   * The latest kernel version supported by the instance.
+   * The latest kernel version supported by the current instance.
    * 
    * @example
    * polarx-kernel_5.4.11-16301083_xcluster-20210805
@@ -408,12 +410,12 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * The lock mode of the instance. Valid values:
    * 
-   * - **Unlock**: Normal.
-   * - **ManualLock**: Manually locked.
-   * - **LockByExpiration**: Automatically locked due to instance expiration.
-   * - **LockByRestoration**: Automatically locked before instance rollback.
-   * - **LockByDiskQuota**: Automatically locked due to insufficient disk space.
-   * - **LockReadInstanceByDiskQuota**: Read-only instance automatically locked due to insufficient disk space.
+   * - **Unlock**: normal
+   * - **ManualLock**: manually locked
+   * - **LockByExpiration**: automatically locked due to expiration
+   * - **LockByRestoration**: automatically locked before a rollback
+   * - **LockByDiskQuota**: automatically locked due to full storage space
+   * - **LockReadInstanceByDiskQuota**: automatically locked due to full storage space of the read-only instance
    * 
    * @example
    * Unlock
@@ -421,7 +423,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   lockMode?: string;
   /**
    * @remarks
-   * The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+   * The end time of the maintenance window for the instance. The time is in UTC. Add 8 hours to the time to obtain the maintenance window displayed in the console.
    * 
    * @example
    * 06:00
@@ -429,7 +431,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+   * The start time of the maintenance window for the instance. The time is in UTC. Add 8 hours to the time to obtain the maintenance window displayed in the console.
    * 
    * @example
    * 06:00
@@ -445,7 +447,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   minorVersion?: string;
   /**
    * @remarks
-   * The network type of the instance. Only VPC is supported, which indicates a virtual private cloud (VPC).
+   * The network type of the instance. The only valid value is VPC, which indicates a VPC.
    * 
    * @example
    * VPC
@@ -455,8 +457,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -464,7 +466,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   payType?: string;
   /**
    * @remarks
-   * The port of the instance endpoint.
+   * The connection port of the instance.
    * 
    * @example
    * 3306
@@ -472,7 +474,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   port?: string;
   /**
    * @remarks
-   * The names of read-only instances.
+   * The names of the read-only instances.
    */
   readDBInstances?: string[];
   /**
@@ -495,8 +497,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * Indicates whether the three-role mode is enabled. Valid values:
    * 
-   * - **false**: Disabled.
-   * - **true**: Enabled.
+   * - **false**: The three-role mode is not enabled.
+   * - **true**: The three-role mode is enabled.
    * 
    * @example
    * false
@@ -506,10 +508,10 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * The three-role mode status. Valid values:
    * 
-   * - **disabled**: Disabled.
-   * - **enabled**: Enabled.
-   * - **processing**: Being processed.
-   * - **unknown**: Unknown. This may be caused by the instance being unreachable.
+   * - **disabled**: not enabled
+   * - **enabled**: enabled
+   * - **processing**: processing
+   * - **unknown**: unknown, which may be caused by the inability to connect to the instance
    * 
    * @example
    * disabled
@@ -519,8 +521,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * The instance edition. Valid values:
    * 
-   * - **enterprise**: Enterprise Edition.
-   * - **standard**: Standard Edition.
+   * - **enterprise**: Enterprise Edition
+   * - **standard**: Standard Edition
    * 
    * @example
    * enterprise
@@ -528,7 +530,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   series?: string;
   /**
    * @remarks
-   * The instance status. For more information, see [Instance status](https://help.aliyun.com/document_detail/339826.html).
+   * The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/339826.html).
    * 
    * @example
    * Running
@@ -551,8 +553,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * The instance type. Valid values:
    * 
-   * - **ReadWrite**: primary instance.
-   * - **ReadOnly**: read-only instance.
+   * - **ReadWrite**: primary instance
+   * - **ReadOnly**: read-only instance
    * 
    * @example
    * ReadWrite
@@ -560,7 +562,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   type?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-xxxxx

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskCountRequest extends $dara.Model {
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * The reserved parameter. You do not need to specify this parameter.
    * 
    * @example
    * Category

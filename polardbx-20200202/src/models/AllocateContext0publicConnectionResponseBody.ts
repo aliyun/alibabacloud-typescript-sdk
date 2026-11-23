@@ -7,18 +7,18 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The action that is evaluated.
+   * The authorization action.
    * 
    * @example
-   * xxx
+   * polardbx:AllocateContext0PublicConnection
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The identity identifier used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -31,7 +31,7 @@ export class AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail exte
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The action that is evaluated.
+   * The authorization action.
    * 
    * @example
    * 222
@@ -116,12 +116,12 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
    * The instance ID.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * 123456
    */
   DBInstanceId?: number;
   /**
    * @remarks
-   * The instance name.
+   * The instance ID.
    * 
    * @example
    * pxc-hzjasd****
@@ -137,7 +137,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   DBInstanceNetType?: number;
   /**
    * @remarks
-   * The target node type. Valid values: service and dashboard.
+   * The target node type. Valid values: service, dashboard.
    * 
    * @example
    * service
@@ -161,7 +161,7 @@ export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Mode
   taskId?: number;
   /**
    * @remarks
-   * The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance protected by the policy.
+   * The IP address of the Anti-DDoS instance protected by the policy.
    * 
    * @example
    * https://anchashi.aliyun-inc.coM

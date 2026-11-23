@@ -16,7 +16,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
    * The summary information.
    * 
    * @example
-   * "{\\"structureImportResult\\":{\\"status\\":\\"finish\\",\\"finishedNum\\":382,\\"totalNum\\":382,\\"percentage\\":100},\\"switchTips\\":\\"Forward switchover is allowed only when the forward synchronization latency is low\\",\\"autoTableSuggestionSwitch\\":false,\\"structureAlterationMap\\":{},\\"acceptFilterMap\\":{\\"fr_import\\":[\\"dy_dr_new\\"],\\"e3plus_drp_prod_new\\":[],\\"qbtong_prod\\":[],\\"e3plus_account_prod\\":[],\\"e3plus_drp_prod\\":[]},\\"structChunkMap\\":{},\\"count\\":1,\\"requestId\\":\\"9380D025-C9B1-51D6-A4B9-733C4879CC4A\\"}",
+   * "{\\"structureImportResult\\":{\\"status\\":\\"finish\\",\\"finishedNum\\":382,\\"totalNum\\":382,\\"percentage\\":100},\\"switchTips\\":\\"Forward switchover is allowed only when the forward synchronization latency is low.\\",\\"autoTableSuggestionSwitch\\":false,\\"structureAlterationMap\\":{},\\"acceptFilterMap\\":{\\"fr_import\\":[\\"dy_dr_new\\"],\\"e3plus_drp_prod_new\\":[],\\"qbtong_prod\\":[],\\"e3plus_account_prod\\":[],\\"e3plus_drp_prod\\":[]},\\"structChunkMap\\":{},\\"count\\":1,\\"requestId\\":\\"9380D025-C9B1-51D6-A4B9-733C4879CC4A\\"}",
    */
   context?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * Indicates whether the import task is successful.
+   * Indicates whether the import task is deleted.
    * 
    * @example
    * false
@@ -40,12 +40,12 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
    * The timestamp when the task was created.
    * 
    * @example
-   * 2025-06-08T15:00Z
+   * 1749394800000
    */
   gmtCreated?: number;
   /**
    * @remarks
-   * The modification time in timestamp format.
+   * The timestamp when the task was last modified.
    * 
    * @example
    * 1605080537000
@@ -53,7 +53,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 76251
@@ -69,7 +69,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the slink destination database.
+   * The name of the destination database.
    * 
    * @example
    * fr_import
@@ -77,7 +77,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkDstDb?: string;
   /**
    * @remarks
-   * The instance ID of the destination.
+   * The destination instance ID.
    * 
    * @example
    * pxc-hzrehc60jz5zye
@@ -85,7 +85,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkDstResId?: string;
   /**
    * @remarks
-   * The username for the data connection of the destination.
+   * The username for the destination data connection.
    * 
    * @example
    * dts_dtdba
@@ -93,7 +93,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkDstUserName?: string;
   /**
    * @remarks
-   * The name of the slink source database.
+   * The name of the source database.
    * 
    * @example
    * fr_import
@@ -101,7 +101,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkSrcDb?: string;
   /**
    * @remarks
-   * The instance ID of the source.
+   * The source instance ID.
    * 
    * @example
    * drdshbga69378w4p
@@ -109,7 +109,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkSrcResId?: string;
   /**
    * @remarks
-   * The resource type of the source.
+   * The source resource type.
    * 
    * @example
    * POLARX1
@@ -117,7 +117,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkSrcResType?: string;
   /**
    * @remarks
-   * The username for the data connection of the source.
+   * The username for the source data connection.
    * 
    * @example
    * dtdba
@@ -125,7 +125,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkSrcUserName?: string;
   /**
    * @remarks
-   * The stage of the synchronization.
+   * The current stage of the synchronization.
    * 
    * @example
    * DATA_IMPORT_RUNNING
@@ -149,7 +149,7 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
   slinkTaskDesc?: string;
   /**
    * @remarks
-   * The slink task ID.
+   * The ID of the slink task.
    * 
    * @example
    * etx-szr2rr6i*****
@@ -225,12 +225,12 @@ export class DescribeEvaluateAndImportTaskResponseBodyData extends $dara.Model {
 export class DescribeEvaluateAndImportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: DescribeEvaluateAndImportTaskResponseBodyData;
   /**
    * @remarks
-   * The response message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
+   * The message returned by the request. This parameter is empty if the request is successful. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Success
@@ -238,7 +238,7 @@ export class DescribeEvaluateAndImportTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 73559800-****-11ec-bd40-99cfcff3fe1e
@@ -246,7 +246,7 @@ export class DescribeEvaluateAndImportTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

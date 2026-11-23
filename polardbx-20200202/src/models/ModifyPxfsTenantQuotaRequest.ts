@@ -15,7 +15,7 @@ export class ModifyPxfsTenantQuotaRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The capacity quota.
+   * The storage capacity quota.
    * 
    * @example
    * 107374182400
@@ -31,7 +31,7 @@ export class ModifyPxfsTenantQuotaRequest extends $dara.Model {
   quotaFiles?: number;
   /**
    * @remarks
-   * The request rate limit.
+   * The maximum request rate.
    * 
    * @example
    * 1000
@@ -39,7 +39,7 @@ export class ModifyPxfsTenantQuotaRequest extends $dara.Model {
   rateLimitRps?: number;
   /**
    * @remarks
-   * The write bandwidth limit.
+   * The maximum write bandwidth.
    * 
    * @example
    * 104857600

@@ -8,7 +8,7 @@ export class DescribeOpenSearchInstancesResponseBodyAccessDeniedDetail extends $
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeOpenSearchInstances
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeOpenSearchInstancesResponseBodyAccessDeniedDetail extends $
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribeOpenSearchInstancesResponseBodyAccessDeniedDetail extends $
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeOpenSearchInstancesResponseBodyAccessDeniedDetail extends $
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The access denial type.
    * 
    * @example
    * ImplicitDeny
@@ -145,7 +145,7 @@ export class DescribeOpenSearchInstancesResponseBodyDataInstances extends $dara.
   description?: string;
   /**
    * @remarks
-   * The DPI engine version. Default value: 2.0.
+   * The database engine version of the DPI engine. Default value: 2.0.
    * 
    * @example
    * 8.0
@@ -161,7 +161,7 @@ export class DescribeOpenSearchInstancesResponseBodyDataInstances extends $dara.
   instanceId?: string;
   /**
    * @remarks
-   * The memory size. Unit: GB.
+   * The configured memory size, in GB.
    * 
    * @example
    * 16
@@ -188,10 +188,10 @@ export class DescribeOpenSearchInstancesResponseBodyDataInstances extends $dara.
   regionId?: string;
   /**
    * @remarks
-   * The display name of the instance specifications.
+   * The display name of the instance type.
    * 
    * @example
-   * 8 cores 32 GB
+   * 8 vCPUs, 32 GB
    */
   specDisplay?: string;
   /**
@@ -204,7 +204,7 @@ export class DescribeOpenSearchInstancesResponseBodyDataInstances extends $dara.
   status?: string;
   /**
    * @remarks
-   * The storage size of a single data node. Unit: GB.
+   * The storage space of a single data node, in GB.
    * 
    * @example
    * 500
@@ -265,7 +265,7 @@ export class DescribeOpenSearchInstancesResponseBodyData extends $dara.Model {
   instances?: DescribeOpenSearchInstancesResponseBodyDataInstances[];
   /**
    * @remarks
-   * The maximum number of entries per page for a paging query. Maximum value: 100. Default value: If you do not specify a value or the value is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+   * The number of entries per page for paging in a paged query. Maximum value: 100. Default value: 10 if no Settings are specified or the Settings value is less than 10. If the Settings value is greater than 100, the default value is 100.
    * 
    * @example
    * 10

@@ -16,7 +16,7 @@ export class DescribePxfsTenantResponseBodyAccessDeniedDetail extends $dara.Mode
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribePxfsTenantResponseBodyAccessDeniedDetail extends $dara.Mode
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribePxfsTenantResponseBodyAccessDeniedDetail extends $dara.Mode
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class DescribePxfsTenantResponseBodyAccessDeniedDetail extends $dara.Mode
 export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The capacity quota.
+   * The storage quota.
    * 
    * @example
    * 107374182400
@@ -135,7 +135,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * tenant-001
@@ -143,7 +143,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The tenant name.
+   * The name of the tenant.
    * 
    * @example
    * agent-files
@@ -151,7 +151,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   tenantName?: string;
   /**
    * @remarks
-   * The used capacity.
+   * The used storage capacity.
    * 
    * @example
    * 1048576
@@ -159,7 +159,7 @@ export class DescribePxfsTenantResponseBodyData extends $dara.Model {
   usedBytes?: number;
   /**
    * @remarks
-   * The used file count.
+   * The number of used files.
    * 
    * @example
    * 128
@@ -210,12 +210,12 @@ export class DescribePxfsTenantResponseBody extends $dara.Model {
   accessDeniedDetail?: DescribePxfsTenantResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribePxfsTenantResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

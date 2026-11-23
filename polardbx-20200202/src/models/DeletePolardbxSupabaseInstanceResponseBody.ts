@@ -8,15 +8,15 @@ export class DeletePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeletePolardbxSupabaseInstance
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The authentication principal name.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DeletePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DeletePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The encoded diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DeletePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -135,7 +135,7 @@ export class DeletePolardbxSupabaseInstanceResponseBodyData extends $dara.Model 
 export class DeletePolardbxSupabaseInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: DeletePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail;
   /**

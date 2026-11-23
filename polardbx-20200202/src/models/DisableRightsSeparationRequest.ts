@@ -30,7 +30,7 @@ export class DisableRightsSeparationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * *****
+   * DemoPass1@
    */
   dbaAccountPassword?: string;
   /**

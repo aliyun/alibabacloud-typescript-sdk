@@ -23,7 +23,7 @@ export class AllocateContextDBPublicConnectionRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The type of the target node. Valid values: service and dashboard.
+   * The target node type. Valid values: service and dashboard.
    * 
    * @example
    * service
@@ -31,7 +31,7 @@ export class AllocateContextDBPublicConnectionRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The port.
+   * The port number.
    * 
    * @example
    * 3306
@@ -39,7 +39,7 @@ export class AllocateContextDBPublicConnectionRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID.
    * 
    * This parameter is required.
    * 

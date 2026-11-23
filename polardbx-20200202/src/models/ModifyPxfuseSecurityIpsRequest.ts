@@ -23,11 +23,10 @@ export class ModifyPxfuseSecurityIpsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The modification mode of the whitelist. Valid values:
-   * 
-   * - 0: overwrites the whitelist group.
-   * - 1: adds a whitelist group.
-   * - 2: deletes a whitelist group.
+   * The modification mode for the whitelist. Valid values:
+   * - 0: Overwrites the whitelist group.
+   * - 1: Appends to the whitelist group.
+   * - 2: Deletes the whitelist group.
    * 
    * @example
    * 1
@@ -35,7 +34,7 @@ export class ModifyPxfuseSecurityIpsRequest extends $dara.Model {
   modifyMode?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 
@@ -45,7 +44,7 @@ export class ModifyPxfuseSecurityIpsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist group. Separate multiple IP addresses with commas (,).
+   * The list of IP addresses in the whitelist group. Separate multiple IP addresses with commas (,).
    * 
    * This parameter is required.
    * 

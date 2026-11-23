@@ -8,7 +8,7 @@ export class DescribePxfuseInfoResponseBodyAccessDeniedDetail extends $dara.Mode
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribePxfuseInfo
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribePxfuseInfoResponseBodyAccessDeniedDetail extends $dara.Mode
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribePxfuseInfoResponseBodyAccessDeniedDetail extends $dara.Mode
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class DescribePxfuseInfoResponseBodyAccessDeniedDetail extends $dara.Mode
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribePxfuseInfoResponseBodyAccessDeniedDetail extends $dara.Mode
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of missing permission.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -111,7 +111,7 @@ export class DescribePxfuseInfoResponseBodyDataInstanceConnAddrs extends $dara.M
   port?: number;
   /**
    * @remarks
-   * The endpoint type.
+   * The type of the endpoint.
    * 
    * @example
    * VPC
@@ -335,7 +335,7 @@ export class DescribePxfuseInfoResponseBodyData extends $dara.Model {
 export class DescribePxfuseInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: DescribePxfuseInfoResponseBodyAccessDeniedDetail;
   /**

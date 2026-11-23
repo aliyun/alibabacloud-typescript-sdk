@@ -105,7 +105,7 @@ export class DescribeParametersResponseBodyDataRunningParameters extends $dara.M
 export class DescribeParametersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of original parameters.
+   * The original parameter list.
    */
   configParameters?: DescribeParametersResponseBodyDataConfigParameters[];
   /**
@@ -134,7 +134,7 @@ export class DescribeParametersResponseBodyData extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The list of running parameter details.
+   * The list of running parameters.
    */
   runningParameters?: DescribeParametersResponseBodyDataRunningParameters[];
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
    * xxx
@@ -37,7 +37,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail ext
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -155,7 +155,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyDataConnAddrs extends 
 export class DescribeSupabaseInstanceAttributeResponseBodyDataNodes extends $dara.Model {
   /**
    * @remarks
-   * The class code.
+   * The specification code.
    * 
    * @example
    * polarx.supabase.x2.small
@@ -215,7 +215,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyDataNodes extends $dar
 export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of endpoints.
+   * The endpoints.
    */
   connAddrs?: DescribeSupabaseInstanceAttributeResponseBodyDataConnAddrs[];
   /**
@@ -236,7 +236,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database engine version.
+   * The DPI engine version.
    * 
    * @example
    * 2.0
@@ -260,7 +260,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   lockMode?: string;
   /**
    * @remarks
-   * The minor engine version.
+   * The minor version.
    * 
    * @example
    * polardb-2.6.0_xcluster8.4.21-20260716_pxbaas-20260915
@@ -284,7 +284,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   nodeCount?: number;
   /**
    * @remarks
-   * The list of nodes.
+   * The nodes.
    */
   nodes?: DescribeSupabaseInstanceAttributeResponseBodyDataNodes[];
   /**
@@ -313,7 +313,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The Supabase class code.
+   * The Supabase specification code.
    * 
    * @example
    * polarx.supabase.x4.xlarge
@@ -425,7 +425,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
 export class DescribeSupabaseInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail;
   /**

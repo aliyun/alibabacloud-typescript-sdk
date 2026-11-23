@@ -15,7 +15,7 @@ export class ModifyMem0SecurityIpsRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the whitelist group of the instance.
+   * The name of the whitelist group for the instance.
    * 
    * @example
    * default
@@ -23,11 +23,11 @@ export class ModifyMem0SecurityIpsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The modification mode of the whitelist. Valid values:
+   * The modification mode for the whitelist. Valid values:
    * 
    * - 0: overwrites the whitelist group.
-   * - 1: adds a whitelist group.
-   * - 2: deletes a whitelist group.
+   * - 1: adds IP addresses to the whitelist group.
+   * - 2: removes IP addresses from the whitelist group.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ModifyMem0SecurityIpsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist group. Separate multiple IP addresses with commas (,).
+   * The list of IP addresses in the whitelist group. Separate multiple IP addresses with commas (,).
    * 
    * This parameter is required.
    * 

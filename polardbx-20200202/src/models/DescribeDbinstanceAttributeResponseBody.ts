@@ -219,7 +219,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList exte
 export class DescribeDBInstanceAttributeResponseBodyDBInstanceSearchInstance extends $dara.Model {
   /**
    * @remarks
-   * The name of the Search engine instance.
+   * The name of the search engine instance.
    * 
    * @example
    * pxs-***
@@ -227,7 +227,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceSearchInstance ext
   instanceId?: string;
   /**
    * @remarks
-   * The status of the Search engine.
+   * The status of the search engine.
    * 
    * @example
    * Running
@@ -334,7 +334,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   cnNodeClassCode?: string;
   /**
    * @remarks
-   * The number of CN nodes.
+   * The number of compute nodes (CNs).
    * 
    * @example
    * 2
@@ -345,7 +345,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
    * The name of the column store engine instance.
    * 
    * @example
-   * xxxx
+   * pxc-examplecolumnar
    */
   columnarInstanceName?: string;
   /**
@@ -355,7 +355,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   columnarReadDBInstances?: string[];
   /**
    * @remarks
-   * The commodity type of the instance. The value is fixed to drds_polarxpost_public_cn.
+   * The commodity type of the instance. The value is fixed as drds_polarxpost_public_cn.
    * 
    * @example
    * drds_polarxpost_public_cn
@@ -423,7 +423,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   DBNodes?: DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes[];
   /**
    * @remarks
-   * The database type. The value is fixed to polarx.
+   * The database type. The value is fixed as polarx.
    * 
    * @example
    * polarx
@@ -447,7 +447,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * Indicates whether the specifications of the DN nodes in the instance are different. Valid values:
+   * Indicates whether the specifications of the data nodes (DNs) in the instance are different. Valid values:
    * - true: The specifications are different.
    * - false: The specifications are the same.
    * 
@@ -480,7 +480,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   dnNodeClassCode?: string;
   /**
    * @remarks
-   * The number of DN nodes.
+   * The number of data nodes (DNs).
    * 
    * @example
    * 2
@@ -496,7 +496,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   dnStorageSpace?: string;
   /**
    * @remarks
-   * The database type. The value is fixed to polarx.
+   * The database type. The value is fixed as polarx.
    * 
    * @example
    * polarx
@@ -504,7 +504,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   engine?: string;
   /**
    * @remarks
-   * The DPI engine version. Default value: 2.0.
+   * The database DPI engine version. Default value: 2.0.
    * 
    * @example
    * 2.0 | 3.0
@@ -512,7 +512,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time. The format is yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC).
+   * The expiration time. The format is yyyy-MM-ddTHH:mm:ss.sss+0000 (UTC time).
    * 
    * @example
    * 2022-08-31T16:00:00.000+0000
@@ -521,8 +521,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * Indicates whether the instance has expired. Valid values:
-   * - **true**: expired
-   * - **false**: normal
+   * - **true**: The instance has expired.
+   * - **false**: The instance is running normally.
    * 
    * @example
    * false
@@ -530,7 +530,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   expired?: string;
   /**
    * @remarks
-   * The name of the GDN instance.
+   * The name of the global database network (GDN) instance.
    * 
    * @example
    * gdn-zkrkuykqglbizdhm
@@ -538,7 +538,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   gdnInstanceName?: string;
   /**
    * @remarks
-   * The GDN member list.
+   * The list of GDN members.
    */
   gdnMemberList?: DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList[];
   /**
@@ -559,7 +559,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * The instance DPI engine version. This is an internal parameter.
+   * The DPI engine version of the instance. This is an internal parameter.
    * 
    * @example
    * 18
@@ -567,14 +567,14 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   kindCode?: number;
   /**
    * @remarks
-   * The instance versions.
+   * The instance version.
    * 
    * This parameter is required.
    */
   LTSVersions?: string[];
   /**
    * @remarks
-   * The latest Milvus version supported by the current instance.
+   * The latest kernel version supported by the instance.
    * 
    * @example
    * polarx-kernel_5.4.11-16301083_xcluster-20210805
@@ -583,12 +583,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The lock mode of the instance. Valid values:
-   * - **Unlock**: normal
-   * - **ManualLock**: manually locked
-   * - **LockByExpiration**: automatically locked due to expiration
-   * - **LockByRestoration**: automatically locked before rollback
-   * - **LockByDiskQuota**: automatically locked due to full disk space
-   * - **LockReadInstanceByDiskQuota**: automatically locked due to full disk space of the read-only instance
+   * - **Unlock**: The instance is running normally.
+   * - **ManualLock**: The instance is manually locked.
+   * - **LockByExpiration**: The instance is automatically locked upon expiration.
+   * - **LockByRestoration**: The instance is automatically locked before a rollback.
+   * - **LockByDiskQuota**: The instance is automatically locked when the storage space is exhausted.
+   * - **LockReadInstanceByDiskQuota**: The read-only instance is automatically locked when the storage space is exhausted.
    * 
    * @example
    * Unlock
@@ -612,7 +612,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   maintainStartTime?: string;
   /**
    * @remarks
-   * The current Milvus version.
+   * The current kernel version.
    * 
    * @example
    * polarx-kernel_5.4.11-16301083_xcluster-20210805
@@ -620,7 +620,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   minorVersion?: string;
   /**
    * @remarks
-   * The network type of the instance. Only VPC is supported, which indicates a virtual private cloud.
+   * The network type of the instance. Only VPC is supported, which indicates a virtual private cloud (VPC).
    * 
    * @example
    * VPC
@@ -696,10 +696,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The status of the three-role mode. Valid values:
-   * - **disabled**: disabled
-   * - **enabled**: enabled
-   * - **processing**: processing
-   * - **unknown**: unknown, which may be caused by the inability to connect to the instance
+   * - **disabled**: The feature is disabled.
+   * - **enabled**: The feature is enabled.
+   * - **processing**: The feature is being configured.
+   * - **unknown**: The status is unknown, which may be caused by a connection failure to the instance.
    * 
    * @example
    * disabled
@@ -707,12 +707,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   rightsSeparationStatus?: string;
   /**
    * @remarks
-   * Indicates whether an associated Search instance that is not deleted exists, including instances that are being created or deleted.
+   * Indicates whether the search engine is activated.
    */
   searchEnabled?: boolean;
   /**
    * @remarks
-   * The unique Search instance associated with the current primary instance. This parameter is empty if the feature is not enabled.
+   * Indicates whether the search engine is activated.
    */
   searchInstance?: DescribeDBInstanceAttributeResponseBodyDBInstanceSearchInstance;
   /**
@@ -735,8 +735,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   series?: string;
   /**
    * @remarks
-   * exclusive: Exclusive.
-   * general: General.
+   * Valid values:
+   * - exclusive: Exclusive.
+   * - general: General.
    * 
    * @example
    * exclusive | general
@@ -760,7 +761,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   storageType?: string;
   /**
    * @remarks
-   * The used storage capacity, in bytes.
+   * The amount of storage used, in bytes.
    * 
    * @example
    * 17042505728
@@ -782,6 +783,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The topology type. Valid values:
+   * 
    * - **3azones**: Three-zone deployment.
    * - **1azone**: Single-zone deployment.
    * 

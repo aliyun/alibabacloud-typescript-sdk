@@ -8,7 +8,7 @@ export class ReleaseMem0PublicConnectionResponseBodyAccessDeniedDetail extends $
    * Same as above.
    * 
    * @example
-   * xxx
+   * polardbx:ReleaseMem0PublicConnection
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class ReleaseMem0PublicConnectionResponseBodyAccessDeniedDetail extends $
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -45,7 +45,7 @@ export class ReleaseMem0PublicConnectionResponseBodyAccessDeniedDetail extends $
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of missing permission.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +53,7 @@ export class ReleaseMem0PublicConnectionResponseBodyAccessDeniedDetail extends $
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * PolicyType
    * 
    * @example
    * PRIORITY
@@ -95,12 +95,12 @@ export class ReleaseMem0PublicConnectionResponseBodyAccessDeniedDetail extends $
 export class ReleaseMem0PublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for access denial.
    */
   accessDeniedDetail?: ReleaseMem0PublicConnectionResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 173CA69A-3513-591D-8A09-C1EA37CBE2D9

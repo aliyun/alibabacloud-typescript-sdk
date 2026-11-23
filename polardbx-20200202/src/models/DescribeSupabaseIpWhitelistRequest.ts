@@ -15,7 +15,7 @@ export class DescribeSupabaseIpWhitelistRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the whitelist group.
+   * The whitelist group name.
    * 
    * @example
    * default

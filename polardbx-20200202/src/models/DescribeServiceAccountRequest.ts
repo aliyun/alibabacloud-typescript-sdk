@@ -15,7 +15,7 @@ export class DescribeServiceAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

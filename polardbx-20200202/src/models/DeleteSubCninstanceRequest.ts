@@ -13,10 +13,17 @@ export class DeleteSubCNInstanceRequest extends $dara.Model {
    * pxc-********
    */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The name of the instance cluster. You can call the DescribeDBInstanceTopology operation to query the name.
+   * 
+   * @example
+   * example_cluster
+   */
   instanceClusterName?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

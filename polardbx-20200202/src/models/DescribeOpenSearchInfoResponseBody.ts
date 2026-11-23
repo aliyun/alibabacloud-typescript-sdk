@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authorization action.
+   * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeOpenSearchInfo
    */
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authorization in the request.
+   * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The ID of the owner of the authorization principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authorization principal.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -45,7 +45,7 @@ export class DescribeOpenSearchInfoResponseBodyAccessDeniedDetail extends $dara.
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of access denial.
+   * The type of the missing permission.
    * 
    * @example
    * ImplicitDeny
@@ -190,7 +190,7 @@ export class DescribeOpenSearchInfoResponseBodyDataInstance extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The last task update time in UNIX timestamp format.
+   * The last task update time in timestamp format.
    * 
    * @example
    * 2025-09-02T16:01:51Z
@@ -278,7 +278,7 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   coordinatorNodeCpu?: number;
   /**
    * @remarks
-   * Indicates whether the coordinator node is enabled.
+   * Specifies whether the coordinator node is enabled.
    */
   coordinatorNodeEnabled?: boolean;
   /**
@@ -316,8 +316,8 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   /**
    * @remarks
    * The master node type. Valid values:
-   * - **0**: single-node master
-   * - **2**: cluster-edition master
+   * - **0**: The master node is a single node.
+   * - **2**: The master node is of the Cluster Edition.
    * 
    * @example
    * 2
@@ -333,7 +333,7 @@ export class DescribeOpenSearchInfoResponseBodyDataSpec extends $dara.Model {
   masterNodeCpu?: number;
   /**
    * @remarks
-   * Indicates whether the dedicated master node is enabled.
+   * Specifies whether the dedicated master node is enabled.
    */
   masterNodeEnabled?: boolean;
   /**

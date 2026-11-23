@@ -23,11 +23,11 @@ export class ModifyContextDBSecurityIpsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The modification mode of the whitelist. Valid values:
+   * The whitelist modification mode. Valid values:
    * 
    * - 0: overwrites the whitelist group.
-   * - 1: adds a whitelist group.
-   * - 2: deletes a whitelist group.
+   * - 1: adds IP addresses to the whitelist group.
+   * - 2: removes IP addresses from the whitelist group.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class ModifyContextDBSecurityIpsRequest extends $dara.Model {
   modifyMode?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region ID.
    * 
    * This parameter is required.
    * 

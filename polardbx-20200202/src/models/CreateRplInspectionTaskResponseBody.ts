@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRplInspectionTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The slink task ID.
+   * The ID of the Slink task.
    * 
    * @example
    * etx-szr2rr6i*****
@@ -40,7 +40,7 @@ export class CreateRplInspectionTaskResponseBody extends $dara.Model {
   data?: CreateRplInspectionTaskResponseBodyData;
   /**
    * @remarks
-   * The error message of the task. > This parameter is returned only when the task status is **stop**.
+   * The error message of the task. This parameter is returned only when the task status is **stop**.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class CreateRplInspectionTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9B2F3840-5C98-475C-B269-2D5C3A31797C

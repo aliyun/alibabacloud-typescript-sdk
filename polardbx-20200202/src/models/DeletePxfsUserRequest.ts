@@ -15,7 +15,7 @@ export class DeletePxfsUserRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The identity name.
+   * The name of the identity.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DeletePxfsUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * This parameter is required.
    * 

@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePxfuseSecurityIpsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The description is the same as above.
+   * The description as mentioned above.
    * 
    * @example
-   * xxx
+   * polardbx:DescribePxfuseSecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribePxfuseSecurityIpsResponseBodyAccessDeniedDetail extends $da
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribePxfuseSecurityIpsResponseBodyAccessDeniedDetail extends $da
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the no-permission error.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -111,11 +111,11 @@ export class DescribePxfuseSecurityIpsResponseBodyDataGroups extends $dara.Model
   groupTag?: string;
   /**
    * @remarks
-   * Specifies whether an IP address that is already used for a DNAT entry can also be used for an SNAT entry. Valid values:
+   * Specifies whether an IP address that is already used in a DNAT entry can also be used in an SNAT entry. Valid values:
    * 
-   * - **true**: Destination IP address can also be used for an SNAT entry.
+   * - **true**: Destination IP address can also be used in an SNAT entry.
    * 
-   * - **false**: Destination IP address cannot be used for an SNAT entry.
+   * - **false**: Destination IP address cannot be used in an SNAT entry.
    * 
    * @example
    * 127.0.0.1
@@ -157,7 +157,7 @@ export class DescribePxfuseSecurityIpsResponseBodyData extends $dara.Model {
   custinsName?: string;
   /**
    * @remarks
-   * The groups corresponding to the consumed service.
+   * The groups corresponding to the consumed services.
    */
   groups?: DescribePxfuseSecurityIpsResponseBodyDataGroups[];
   static names(): { [key: string]: string } {
@@ -189,12 +189,12 @@ export class DescribePxfuseSecurityIpsResponseBodyData extends $dara.Model {
 export class DescribePxfuseSecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    */
   accessDeniedDetail?: DescribePxfuseSecurityIpsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The instance details.
+   * The list of instance details.
    */
   data?: DescribePxfuseSecurityIpsResponseBodyData;
   /**

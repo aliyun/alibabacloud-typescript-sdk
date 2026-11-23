@@ -8,7 +8,7 @@ export class ScaleInOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ScaleInOpenSearch
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class ScaleInOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class ScaleInOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted complete diagnostic message.
+   * The encoded complete diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class ScaleInOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the access denial.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class ScaleInOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model
 export class ScaleInOpenSearchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: ScaleInOpenSearchResponseBodyAccessDeniedDetail;
   /**

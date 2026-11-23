@@ -15,7 +15,7 @@ export class ModifyOpenSearchWhitelistGroupRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The group ID.
+   * The ID of the group.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ModifyOpenSearchWhitelistGroupRequest extends $dara.Model {
   IPs?: string;
   /**
    * @remarks
-   * The region of the instance.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ModifyOpenSearchWhitelistGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remark.
+   * The description.
    * 
    * @example
    * 000G2DJ1YGee321432

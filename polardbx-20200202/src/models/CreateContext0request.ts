@@ -15,7 +15,7 @@ export class CreateContext0Request extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the PolarDB-X Search instance.
+   * The name of the PolarDBX Search instance.
    * 
    * This parameter is required.
    * 

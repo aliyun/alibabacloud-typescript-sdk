@@ -13,7 +13,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
   delay?: number;
   /**
    * @remarks
-   * The most recent error message.
+   * The latest error message.
    * 
    * @example
    * null
@@ -21,7 +21,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
   lastError?: string;
   /**
    * @remarks
-   * The physical database name.
+   * The name of the physical database.
    * 
    * @example
    * drds_test
@@ -61,7 +61,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
    * The task ID.
    * 
    * @example
-   * fc3b1568-ad96-****-adca-dfe018b38077
+   * 1991610
    */
   taskId?: number;
   /**
@@ -131,10 +131,9 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
   taskDetailList?: DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList[];
   /**
    * @remarks
-   * The replication type. Valid values:
-   * 
-   * - FULL_COPY: full replication.
-   * - INC_COPY: incremental replication.
+   * Valid values:
+   * - FULL_COPY: Full replication.
+   * - INC_COPY: Incremental replication.
    * 
    * @example
    * FULL_COPY
@@ -181,7 +180,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo 
   fsmId?: number;
   /**
    * @remarks
-   * The state identifier in the data migration or synchronization task.
+   * A state identifier in a data migration or synchronization task.
    * 
    * @example
    * RECON_FINISHED_CATCH_UP
@@ -189,7 +188,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo 
   fsmState?: string;
   /**
    * @remarks
-   * The status in the data migration, import, or synchronization system.
+   * The status in systems such as data migration, import, and synchronization.
    * 
    * @example
    * IMPORT_NOT_BEGIN
@@ -197,7 +196,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo 
   fsmStatus?: string;
   /**
    * @remarks
-   * The data import task details.
+   * The details of the data import task.
    */
   serviceDetailList?: DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList[];
   static names(): { [key: string]: string } {
@@ -263,7 +262,7 @@ export class DescribeDataImportTaskInfoResponseBodyData extends $dara.Model {
 export class DescribeDataImportTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
+   * The response code. This parameter is empty when the request is successful. If the request fails, an exception message such as an error code is returned.
    * 
    * @example
    * 200
@@ -271,12 +270,12 @@ export class DescribeDataImportTaskInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The result set.
+   * The returned result set.
    */
   data?: DescribeDataImportTaskInfoResponseBodyData;
   /**
    * @remarks
-   * The response message. This parameter has a value only when the task status is success. Otherwise, an empty value is returned.
+   * The returned message. This parameter has a value only when the task status is success. Otherwise, it is empty.
    * 
    * @example
    * success
@@ -292,7 +291,7 @@ export class DescribeDataImportTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

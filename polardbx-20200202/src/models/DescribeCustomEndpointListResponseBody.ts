@@ -18,7 +18,7 @@ export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.M
   connectionString?: string;
   /**
    * @remarks
-   * The custom endpoint ID.
+   * The ID of the custom endpoint.
    * 
    * @example
    * pxe-b6e****o4pfap1s
@@ -42,7 +42,7 @@ export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.M
   name?: string;
   /**
    * @remarks
-   * Specifies whether the node automatically joins the cluster and starts providing services after being added or restored.
+   * Indicates whether the node automatically joins the cluster and starts providing services after being added or restored.
    * 
    * @example
    * true
@@ -50,8 +50,8 @@ export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.M
   nodeAutoEnter?: string;
   /**
    * @remarks
-   * If you want to query the metrics of a read-only node in a cloud-native read/write splitting architecture instance, set this parameter to **READONLY** along with the specific **NodeId**.
-   * >  In other cases, you do not need to specify this parameter (or set it to **MASTER**).
+   * If you want to query the metrics of read-only nodes in a cloud-native instance with the read/write splitting architecture, you must set this parameter to **READONLY** and specify the **NodeId** parameter.
+   * > In other cases, you do not need to specify this parameter or you can set it to **MASTER**.
    * 
    * @example
    * same_azone_as_last
@@ -75,7 +75,7 @@ export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-8vbkw****5yh4nrd639ih
@@ -83,7 +83,7 @@ export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.M
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC where the endpoint resides.
+   * The ID of the virtual private cloud (VPC) where the endpoint resides.
    * 
    * @example
    * vpc-uf61h****dj1zg5fqp5x7
@@ -144,7 +144,7 @@ export class DescribeCustomEndpointListResponseBodyData extends $dara.Model {
   canDeleteCount?: number;
   /**
    * @remarks
-   * The endpoint details.
+   * The detailed information about the endpoints.
    */
   endpoints?: DescribeCustomEndpointListResponseBodyDataEndpoints[];
   static names(): { [key: string]: string } {
@@ -176,7 +176,7 @@ export class DescribeCustomEndpointListResponseBodyData extends $dara.Model {
 export class DescribeCustomEndpointListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: DescribeCustomEndpointListResponseBodyData;
   /**

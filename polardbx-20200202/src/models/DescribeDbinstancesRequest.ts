@@ -13,7 +13,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The description or remark of the database.
+   * The description or remarks of the database.
    * 
    * @example
    * app-test

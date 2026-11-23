@@ -8,15 +8,15 @@ export class DescribeContext0SecurityIpsResponseBodyAccessDeniedDetail extends $
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeContext0SecurityIps
    */
   authAction?: string;
   /**
    * @remarks
-   * The name of the authentication principal.
+   * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -53,7 +53,7 @@ export class DescribeContext0SecurityIpsResponseBodyAccessDeniedDetail extends $
   noPermissionType?: string;
   /**
    * @remarks
-   * The type of the policy.
+   * The policy type.
    * 
    * @example
    * PRIORITY
@@ -111,7 +111,7 @@ export class DescribeContext0SecurityIpsResponseBodyDataGroupItems extends $dara
   groupTag?: string;
   /**
    * @remarks
-   * The details of the whitelist in the group.
+   * The whitelist details for the group.
    * 
    * @example
    * 127.0.0.1,172.168.0.0
@@ -195,7 +195,7 @@ export class DescribeContext0SecurityIpsResponseBodyData extends $dara.Model {
 export class DescribeContext0SecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denied error.
+   * The details of the access denial.
    */
   accessDeniedDetail?: DescribeContext0SecurityIpsResponseBodyAccessDeniedDetail;
   /**

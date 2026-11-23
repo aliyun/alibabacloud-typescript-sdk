@@ -37,7 +37,7 @@ export class ResetOpenSearchPasswordResponseBodyAccessDeniedDetail extends $dara
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,10 +95,10 @@ export class ResetOpenSearchPasswordResponseBodyAccessDeniedDetail extends $dara
 export class ResetOpenSearchPasswordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The additional information returned by the operation. "success" is returned if the operation is successful. Otherwise, the corresponding error code is returned.
+   * The additional information returned by the API operation. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
-   * 【环境：huanghe】\\nhuanghe 503_UC_OUTBOUND告警超过阈值！\\n\\n详情请查看: https://grafana-cn-lbj34sreu03.grafana.aliyuncs.com/d/_rOiq2lNk/asm-status-code-monitor?var-datasource=DataSource-HUANGHE\\n
+   * [Environment: huanghe]\\nhuanghe 503_UC_OUTBOUND alert exceeds the threshold!\\n\\nFor details, see: https://grafana-cn-lbj34sreu03.grafana.aliyuncs.com/d/_rOiq2lNk/asm-status-code-monitor?var-datasource=DataSource-HUANGHE\\n
    */
   message?: string;
   /**
@@ -135,7 +135,7 @@ export class ResetOpenSearchPasswordResponseBodyData extends $dara.Model {
 export class ResetOpenSearchPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The detailed reasons for access denial.
    */
   accessDeniedDetail?: ResetOpenSearchPasswordResponseBodyAccessDeniedDetail;
   /**

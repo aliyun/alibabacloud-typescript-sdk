@@ -8,7 +8,7 @@ export class DeleteOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeleteOpenSearchAccount
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DeleteOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,7 +95,7 @@ export class DeleteOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
 export class DeleteOpenSearchAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * @example
    * polardbx_meta_ro
@@ -135,12 +135,12 @@ export class DeleteOpenSearchAccountResponseBodyData extends $dara.Model {
 export class DeleteOpenSearchAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    */
   accessDeniedDetail?: DeleteOpenSearchAccountResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The data struct.
+   * The data structure.
    */
   data?: DeleteOpenSearchAccountResponseBodyData;
   /**

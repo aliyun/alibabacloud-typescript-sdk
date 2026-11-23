@@ -15,7 +15,7 @@ export class DeleteOpenSearchAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 

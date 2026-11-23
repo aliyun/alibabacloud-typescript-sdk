@@ -8,7 +8,7 @@ export class DescribePxfsUsersResponseBodyAccessDeniedDetail extends $dara.Model
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribePxfsUsers
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribePxfsUsersResponseBodyAccessDeniedDetail extends $dara.Model
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribePxfsUsersResponseBodyAccessDeniedDetail extends $dara.Model
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==

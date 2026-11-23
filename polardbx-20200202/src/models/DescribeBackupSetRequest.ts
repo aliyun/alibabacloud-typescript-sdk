@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup set ID.
+   * The ID of the backup set.
    * 
    * This parameter is required.
    * 

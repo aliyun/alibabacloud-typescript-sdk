@@ -8,15 +8,15 @@ export class ModifySupabaseDashboardPasswordResponseBodyAccessDeniedDetail exten
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:ModifySupabaseDashboardPassword
    */
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Example RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -29,7 +29,7 @@ export class ModifySupabaseDashboardPasswordResponseBodyAccessDeniedDetail exten
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class ModifySupabaseDashboardPasswordResponseBodyAccessDeniedDetail exten
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class ModifySupabaseDashboardPasswordResponseBodyAccessDeniedDetail exten
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The no permission type.
    * 
    * @example
    * ImplicitDeny
@@ -125,7 +125,7 @@ export class ModifySupabaseDashboardPasswordResponseBodyData extends $dara.Model
 export class ModifySupabaseDashboardPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    */
   accessDeniedDetail?: ModifySupabaseDashboardPasswordResponseBodyAccessDeniedDetail;
   /**

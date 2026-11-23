@@ -33,7 +33,7 @@ export class ModifyOpenSearchClassRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The node specifications code for PolarDBX Search data nodes. This parameter is required. The active node specifications depend on the region and sales configuration, and must differ from the current node specifications.
+   * The data node specifications code for PolarDB-X Search. This parameter is required. Active node specifications depend on the region and sales configuration, and must be different from the current node specifications.
    * 
    * @example
    * opensearch.sn2ne.large.1

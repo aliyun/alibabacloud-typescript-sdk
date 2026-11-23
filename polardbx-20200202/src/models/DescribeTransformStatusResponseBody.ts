@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTransformStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the task can be canceled.
+   * Specifies whether the task can be canceled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class DescribeTransformStatusResponseBodyData extends $dara.Model {
   canFinish?: boolean;
   /**
    * @remarks
-   * Indicates whether a migration switchover can be performed. Valid values:
+   * Specifies whether a migration switchover can be performed. Valid values:
    * - **true**: Yes.
    * - **false**: No.
    * 
@@ -30,12 +30,12 @@ export class DescribeTransformStatusResponseBodyData extends $dara.Model {
   canSwitch?: boolean;
   /**
    * @remarks
-   * Indicates whether the switchover operation can be undone.
+   * Specifies whether the switchover operation can be undone.
    */
   canUndoSwitch?: boolean;
   /**
    * @remarks
-   * The name of the Enterprise instance.
+   * The name of the enterprise instance.
    * 
    * @example
    * pxc-*****
@@ -51,7 +51,10 @@ export class DescribeTransformStatusResponseBodyData extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The report summary.
+   * The report summary information.
+   * 
+   * @example
+   * {"example":["Sample report summary"]}
    */
   reportSummary?: { [key: string]: any };
   /**

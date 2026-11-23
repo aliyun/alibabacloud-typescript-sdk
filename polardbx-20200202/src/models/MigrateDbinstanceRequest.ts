@@ -15,7 +15,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The zone ID of the primary zone for a multi-zone instance. **This parameter is required if you want to create a multi-zone instance.**
+   * The zone ID of the primary zone for a multi-zone instance. **This parameter is required to create a multi-zone instance.**
    * 
    * This parameter is required.
    * 
@@ -35,8 +35,8 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The secondary zone ID.
-   * > This parameter cannot be the same as the ZoneId property.
+   * The zone ID of the secondary zone.
+   * > This parameter cannot have the same value as the ZoneId property.
    * 
    * @example
    * cn-beijing-l
@@ -44,7 +44,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   secondaryZoneId?: string;
   /**
    * @remarks
-   * The switch mode. Valid values:
+   * The switchover mode. Valid values:
    * 
    * - 0: Immediate switchover.
    * - 1: Switchover within the O&M window.
@@ -55,7 +55,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   switchMode?: string;
   /**
    * @remarks
-   * The third active zone.
+   * The tertiary zone for a Three-zone deployment. The zone must be active.
    * 
    * @example
    * cn-beijing-h
@@ -76,7 +76,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   topologyType?: string;
   /**
    * @remarks
-   * The ID of the VPC where the access endpoint resides.
+   * The ID of the VPC where the access endpoint is located.
    * 
    * @example
    * vpc-****

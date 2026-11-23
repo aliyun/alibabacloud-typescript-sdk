@@ -70,9 +70,8 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   /**
    * @remarks
    * The cleanup status. Valid values:
-   * 
-   * - 0: Not deleted. 
-   * - 1: Deleted.
+   * - 0: not deleted
+   * - 1: deleted
    * 
    * @example
    * 0
@@ -89,10 +88,9 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   /**
    * @remarks
    * The backup status. Valid values:
-   * 
-   * - 0: Not backed up. 
-   * - 1: Being backed up. 
-   * - 2: Backed up.
+   * - 0: not backed up
+   * - 1: being backed up
+   * - 2: backed up
    * 
    * @example
    * 2
@@ -147,7 +145,7 @@ export class DescribeBinaryLogListResponseBody extends $dara.Model {
   logList?: DescribeBinaryLogListResponseBodyLogList[];
   /**
    * @remarks
-   * The current page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1

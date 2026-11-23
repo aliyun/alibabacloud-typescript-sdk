@@ -8,7 +8,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:AllocateContextDBPublicConnection
    */
   authAction?: string;
   /**
@@ -16,12 +16,12 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
    * The identity used for authentication in the request.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * See the preceding description.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * See the preceding description.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the missing permission.
    * 
    * @example
    * ImplicitDeny
@@ -95,7 +95,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
 export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The connection string.
    * 
    * @example
    * test2.polarx.huhehaote.rds.aliyuncs.com
@@ -114,7 +114,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
    * The instance ID.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * 123456
    */
   DBInstanceId?: number;
   /**
@@ -127,7 +127,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   DBInstanceName?: string;
   /**
    * @remarks
-   * The network type of the endpoint.
+   * The network type of the connection string.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   DBInstanceNetType?: number;
   /**
    * @remarks
-   * The type of the target node. Valid values: service and dashboard.
+   * The target node type. Valid values: service and dashboard.
    * 
    * @example
    * service
@@ -143,7 +143,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   nodeType?: string;
   /**
    * @remarks
-   * The port of the endpoint.
+   * The port number.
    * 
    * @example
    * 3300
@@ -159,7 +159,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   taskId?: number;
   /**
    * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
+   * The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance protected by the policy.
    * 
    * @example
    * https://anchashi.aliyun-inc.coM

@@ -8,12 +8,12 @@ export class DescribeServiceAccountResponseBodyAccessDeniedDetail extends $dara.
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DescribeServiceAccount
    */
   authAction?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authenticated principal.
    * 
    * @example
    * 222
@@ -21,7 +21,7 @@ export class DescribeServiceAccountResponseBodyAccessDeniedDetail extends $dara.
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic information.
+   * The diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -29,7 +29,7 @@ export class DescribeServiceAccountResponseBodyAccessDeniedDetail extends $dara.
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the access denial.
    * 
    * @example
    * ImplicitDeny
@@ -37,7 +37,7 @@ export class DescribeServiceAccountResponseBodyAccessDeniedDetail extends $dara.
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY
@@ -75,7 +75,7 @@ export class DescribeServiceAccountResponseBodyAccessDeniedDetail extends $dara.
 export class DescribeServiceAccountResponseBodyDataServiceAccounts extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * @example
    * polardbx_meta_ro
@@ -91,7 +91,7 @@ export class DescribeServiceAccountResponseBodyDataServiceAccounts extends $dara
   createdTime?: string;
   /**
    * @remarks
-   * The service account type.
+   * The type of the service account.
    * 
    * @example
    * METADATA_READONLY
@@ -99,7 +99,7 @@ export class DescribeServiceAccountResponseBodyDataServiceAccounts extends $dara
   serviceAccountType?: string;
   /**
    * @remarks
-   * The status of the backup set. Valid values:
+   * The status of the backup set:
    * 
    * - **0**: Backing up.
    * - **1**: Backup succeeded.
@@ -169,7 +169,7 @@ export class DescribeServiceAccountResponseBodyData extends $dara.Model {
 export class DescribeServiceAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the access denied error.
    */
   accessDeniedDetail?: DescribeServiceAccountResponseBodyAccessDeniedDetail;
   /**
@@ -179,10 +179,10 @@ export class DescribeServiceAccountResponseBody extends $dara.Model {
   data?: DescribeServiceAccountResponseBodyData;
   /**
    * @remarks
-   * The response message. "success" is returned if the request was successful. Otherwise, an error code is returned.
+   * The message returned. If the request is successful, \\"success\\" is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
-   * ****
+   * success
    */
   message?: string;
   /**
@@ -195,7 +195,7 @@ export class DescribeServiceAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

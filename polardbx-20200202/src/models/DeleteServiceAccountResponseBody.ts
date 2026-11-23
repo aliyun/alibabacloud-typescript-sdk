@@ -8,7 +8,7 @@ export class DeleteServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:DeleteServiceAccount
    */
   authAction?: string;
   /**
@@ -29,7 +29,7 @@ export class DeleteServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the missing permission.
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -37,7 +37,7 @@ export class DeleteServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * PRIORITY
@@ -75,7 +75,7 @@ export class DeleteServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
 export class DeleteServiceAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * @example
    * polardbx_meta_ro
@@ -83,15 +83,15 @@ export class DeleteServiceAccountResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the import task is successful.
+   * Indicates whether the import task was successful.
    * 
    * @example
-   * fase
+   * false
    */
   deleted?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1E5DCFFC-A00D-****-836E-73318F8CA577
@@ -115,10 +115,10 @@ export class DeleteServiceAccountResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
-   * ******
+   * 2209883
    */
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class DeleteServiceAccountResponseBody extends $dara.Model {
   data?: DeleteServiceAccountResponseBodyData;
   /**
    * @remarks
-   * The error message returned if the request failed. This parameter is empty if the request is successful.
+   * The error message returned if the request fails. This parameter is empty if the request succeeds.
    * 
    * @example
    * success
@@ -173,7 +173,7 @@ export class DeleteServiceAccountResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9B2F3840-5C98-475C-B269-2D5C3A31797C
@@ -181,7 +181,7 @@ export class DeleteServiceAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

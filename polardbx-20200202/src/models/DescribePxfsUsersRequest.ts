@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePxfsUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the PolarDB-X instance.
+   * The PolarDB-X instance ID.
    * 
    * This parameter is required.
    * 

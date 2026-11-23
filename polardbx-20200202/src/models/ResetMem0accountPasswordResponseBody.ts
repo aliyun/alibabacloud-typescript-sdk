@@ -13,7 +13,7 @@ export class ResetMem0AccountPasswordResponseBodyAccessDeniedDetail extends $dar
   authAction?: string;
   /**
    * @remarks
-   * The display name of the security principal.
+   * The display name of the authentication principal.
    * 
    * @example
    * Sample RAM user
@@ -21,7 +21,7 @@ export class ResetMem0AccountPasswordResponseBodyAccessDeniedDetail extends $dar
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the security principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class ResetMem0AccountPasswordResponseBodyAccessDeniedDetail extends $dar
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the security principal, such as RAM user SubUser or RAM role AssumedRoleUser.
+   * The type of the authentication principal, such as RAM user SubUser or RAM role AssumedRoleUser.
    * 
    * @example
    * SubUser
@@ -45,7 +45,7 @@ export class ResetMem0AccountPasswordResponseBodyAccessDeniedDetail extends $dar
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the missing permission.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
