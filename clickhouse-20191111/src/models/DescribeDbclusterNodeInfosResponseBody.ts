@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterNodeInfosResponseBodyNodeInfos extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a disaster recovery test is in progress.
+   * Indicates whether a disaster recovery drill is in progress.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeDBClusterNodeInfosResponseBodyNodeInfos extends $dara.Model
   failoverTesting?: boolean;
   /**
    * @remarks
-   * The IP address of the node.
+   * The node IP address.
    * 
    * @example
    * 172.168.0.1
@@ -75,7 +75,7 @@ export class DescribeDBClusterNodeInfosResponseBodyNodeInfos extends $dara.Model
 export class DescribeDBClusterNodeInfosResponseBodyZkNodeInfos extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a disaster recovery test is in progress.
+   * Indicates whether a disaster recovery drill is in progress.
    * 
    * @example
    * true
@@ -125,7 +125,7 @@ export class DescribeDBClusterNodeInfosResponseBodyZkNodeInfos extends $dara.Mod
 export class DescribeDBClusterNodeInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the ClickHouse nodes.
+   * The ApsaraDB for ClickHouse node information.
    */
   nodeInfos?: DescribeDBClusterNodeInfosResponseBodyNodeInfos[];
   /**
@@ -139,11 +139,8 @@ export class DescribeDBClusterNodeInfosResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -168,7 +165,7 @@ export class DescribeDBClusterNodeInfosResponseBody extends $dara.Model {
   totalNodeCount?: number;
   /**
    * @remarks
-   * The information about the ZooKeeper nodes.
+   * The ZooKeeper node information.
    */
   zkNodeInfos?: DescribeDBClusterNodeInfosResponseBodyZkNodeInfos[];
   static names(): { [key: string]: string } {

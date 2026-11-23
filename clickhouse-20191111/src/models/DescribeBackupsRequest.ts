@@ -23,7 +23,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * The end time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * The start time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * This parameter is required.
    * 

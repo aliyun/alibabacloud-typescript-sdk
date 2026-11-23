@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the destination region, including cluster IDs.
+   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in the specified region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -26,11 +26,8 @@ export class RestartInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
    * - 30 (default)
-   * 
    * - 50
-   * 
    * - 100
    * 
    * @example
@@ -39,7 +36,7 @@ export class RestartInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query available region IDs.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -51,9 +48,8 @@ export class RestartInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scheduled restart time. The time must be in the yyyy-MM-ddTHH:mmZ format and in UTC.
-   * 
-   * > If this parameter is empty or specifies a time earlier than the current time, the cluster is restarted immediately.
+   * The scheduled restart time. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * >If this parameter is left empty or set to a time earlier than the current time, the cluster restarts immediately.
    * 
    * @example
    * 2023-03-22T00:00:50Z

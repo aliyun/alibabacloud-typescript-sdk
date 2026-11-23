@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the task can be canceled. Return values:
-   * 
-   * - **-1**: All
-   * 
-   * - **0**: No
-   * 
-   * - **1**: Yes
+   * Indicates whether the task can be canceled. Valid values:
+   * - **-1**: all
+   * - **0**: not allowed
+   * - **1**: allowed
    * 
    * @example
    * -1
@@ -19,13 +16,10 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowCancel?: string;
   /**
    * @remarks
-   * Specifies whether the time can be changed. Return values:
-   * 
-   * - **-1**: All
-   * 
-   * - **0**: No
-   * 
-   * - **1**: Yes
+   * Indicates whether the execution time can be modified. Valid values:
+   * - **-1**: all
+   * - **0**: not allowed
+   * - **1**: allowed
    * 
    * @example
    * -1
@@ -33,11 +27,9 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowChange?: string;
   /**
    * @remarks
-   * The event level code.
-   * 
-   * - **S1**: System O\\&M.
-   * 
-   * - **S0**: Threat fixing.
+   * The event level code. Valid values:
+   * - **S1**: system O&M.
+   * - **S0**: risk fix.
    * 
    * @example
    * S1
@@ -56,12 +48,12 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * The event level in Chinese.
    * 
    * @example
-   * 系统运维
+   * System O&M
    */
   changeLevelZh?: string;
   /**
    * @remarks
-   * The creation time. The time is in UTC format (YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time in UTC. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -85,7 +77,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The kernel version of the cluster.
+   * The Milvus version of the cluster kernel.
    * 
    * @example
    * 23.8
@@ -93,7 +85,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The latest time to which the task execution time can be adjusted. The time is in UTC format (YYYY-MM-DDTHH:mm:ssZ).
+   * The deadline for adjusting the task execution time in UTC. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T23:59:59Z
@@ -128,7 +120,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * The business impact in Chinese.
    * 
    * @example
-   * 实例闪断。
+   * Transient instance disconnection
    */
   impactZh?: string;
   /**
@@ -149,7 +141,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The modification time. The time is in UTC format (YYYY-MM-DDTHH:mm:ssZ).
+   * The modification time in UTC. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2023-11-15T06:17:54Z
@@ -181,7 +173,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   resultInfo?: string;
   /**
    * @remarks
-   * The time when the backend executes the task. The time is in UTC format (YYYY-MM-DDTHH:mm:ssZ).
+   * The time when the backend executes the task in UTC. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2025-04-22T01:06Z
@@ -189,19 +181,13 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The running status of the task. Return values:
-   * 
-   * - **2**: Waiting for the user to specify a time.
-   * 
-   * - **3**: To be processed.
-   * 
-   * - **4**: In progress.
-   * 
-   * - **5**: Successful.
-   * 
-   * - **6**: Failed.
-   * 
-   * - **7**: Canceled.
+   * The running status of the task. Valid values:
+   * - **2**: waiting for the user to specify a time.
+   * - **3**: pending.
+   * - **4**: in progress.
+   * - **5**: successful.
+   * - **6**: failed.
+   * - **7**: canceled.
    * 
    * @example
    * 2
@@ -209,12 +195,12 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The sub-instance IDs.
+   * The instance ID of the sub-instances.
    */
   subInsNames?: string[];
   /**
    * @remarks
-   * The time when the backend initiates the switchover. The time is in UTC format (YYYY-MM-DDTHH:mm:ssZ).
+   * The time when the backend initiates the switchover operation in UTC. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2018-05-30T14:30:00Z
@@ -222,7 +208,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The O\\&M event parameters.
+   * The O&M event parameters.
    * 
    * @example
    * {
@@ -232,7 +218,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskParams?: string;
   /**
    * @remarks
-   * The O\\&M event task type.
+   * The O&M event task type.
    * 
    * @example
    * rds_apsaradb_upgrade
@@ -248,10 +234,10 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskTypeEn?: string;
   /**
    * @remarks
-   * The task reason in Chinese.
+   * The task cause in Chinese.
    * 
    * @example
-   * 小版本升级
+   * Minor version update
    */
   taskTypeZh?: string;
   static names(): { [key: string]: string } {
@@ -335,7 +321,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
 export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of O\\&M tasks.
+   * The list of O&M tasks.
    */
   items?: DescribeActiveOperationTasksResponseBodyItems[];
   /**
@@ -348,12 +334,9 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Valid values:
-   * 
-   * - **30** (Default)
-   * 
+   * The number of entries per page. Valid values:
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example

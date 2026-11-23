@@ -25,7 +25,7 @@ export class DescribeSynDbsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 20

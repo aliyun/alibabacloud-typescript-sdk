@@ -25,12 +25,9 @@ export class CancelAppointmentElectZookeeperLeaderRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
+   * The number of entries per page. Valid values:
    * - 30 (default)
-   * 
    * - 50
-   * 
    * - 100
    * 
    * @example

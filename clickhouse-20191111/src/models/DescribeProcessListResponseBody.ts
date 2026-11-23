@@ -69,15 +69,15 @@ export class DescribeProcessListResponseBodyProcessListData extends $dara.Model 
 export class DescribeProcessListResponseBodyProcessListStatistics extends $dara.Model {
   /**
    * @remarks
-   * The size of the scanned data, in bytes.
+   * The size of the scanned data. Unit: bytes.
    * 
    * @example
-   * 9141300000
+   * 1048576
    */
   bytesRead?: number;
   /**
    * @remarks
-   * The elapsed time.
+   * The average response time. Unit: milliseconds.
    * 
    * @example
    * 4156
@@ -85,7 +85,7 @@ export class DescribeProcessListResponseBodyProcessListStatistics extends $dara.
   elapsedTime?: number;
   /**
    * @remarks
-   * The number of rows scanned.
+   * The number of scanned data rows.
    * 
    * @example
    * 1000000
@@ -172,7 +172,7 @@ export class DescribeProcessListResponseBodyProcessList extends $dara.Model {
   data?: DescribeProcessListResponseBodyProcessListData;
   /**
    * @remarks
-   * The number of rows returned for the query.
+   * The number of data rows returned by the query.
    * 
    * @example
    * 1145700
@@ -180,7 +180,7 @@ export class DescribeProcessListResponseBodyProcessList extends $dara.Model {
   rows?: string;
   /**
    * @remarks
-   * The page size in rows.
+   * The page size.
    * 
    * @example
    * 1
@@ -188,7 +188,7 @@ export class DescribeProcessListResponseBodyProcessList extends $dara.Model {
   rowsBeforeLimitAtLeast?: string;
   /**
    * @remarks
-   * The statistics of the query result.
+   * The statistics information of the query results.
    */
   statistics?: DescribeProcessListResponseBodyProcessListStatistics;
   tableSchema?: DescribeProcessListResponseBodyProcessListTableSchema;
@@ -233,7 +233,7 @@ export class DescribeProcessListResponseBodyProcessList extends $dara.Model {
 export class DescribeProcessListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of tasks.
+   * The process list.
    */
   processList?: DescribeProcessListResponseBodyProcessList;
   /**

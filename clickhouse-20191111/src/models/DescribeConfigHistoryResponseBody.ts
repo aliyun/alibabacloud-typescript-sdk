@@ -21,7 +21,7 @@ export class DescribeConfigHistoryResponseBodyConfigHistoryItems extends $dara.M
   ownerId?: string;
   /**
    * @remarks
-   * The reason for the parameter change.
+   * The description of the configuration parameter change.
    * 
    * @example
    * test
@@ -29,10 +29,8 @@ export class DescribeConfigHistoryResponseBodyConfigHistoryItems extends $dara.M
   reason?: string;
   /**
    * @remarks
-   * Indicates whether the parameter change took effect. Valid values:
-   * 
+   * Indicates whether the configuration parameter change took effect. Valid values:
    * - **true**: The change took effect.
-   * 
    * - **false**: The change did not take effect.
    * 
    * @example
@@ -41,7 +39,7 @@ export class DescribeConfigHistoryResponseBodyConfigHistoryItems extends $dara.M
   success?: boolean;
   /**
    * @remarks
-   * The time when the change was made. Use the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+   * The time when the change occurred. The time is in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2022-08-22T10:00:00Z
@@ -79,7 +77,7 @@ export class DescribeConfigHistoryResponseBodyConfigHistoryItems extends $dara.M
 export class DescribeConfigHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The change history of the configuration parameters.
+   * The change history of configuration parameters.
    */
   configHistoryItems?: DescribeConfigHistoryResponseBodyConfigHistoryItems[];
   /**

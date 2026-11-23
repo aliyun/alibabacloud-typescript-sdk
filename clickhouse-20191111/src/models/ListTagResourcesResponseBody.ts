@@ -5,13 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * <props="china">
+   * <props="china">The ID of the Community-Compatible Edition cluster.
    * 
-   * The cluster ID.
-   * 
-   * 
-   * 
-   * <props="intl">
+   * <props="intl">The cluster ID.
    * 
    * @example
    * cc-bp1t9lbb7a4z7****
@@ -19,7 +15,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. The value is **DBCLUSTER**.
+   * The resource type. Valid value: **DBCLUSTER**.
    * 
    * @example
    * DBCLUSTER
@@ -35,7 +31,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value corresponding to the tag key.
    * 
    * @example
    * testvalue1
@@ -71,7 +67,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. This parameter is returned only if the results are not fully returned in the current request. You can use this token in a subsequent request to retrieve the next page of results.
+   * The token used to return more results. If not all results are returned in the current query, you can pass the NextToken value returned in the previous response to continue the query.
    * 
    * @example
    * 212db86sca4384811e0b5e8707ec21345
@@ -87,7 +83,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Information about the clusters and their tags.
+   * The information about the queried clusters and tags.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

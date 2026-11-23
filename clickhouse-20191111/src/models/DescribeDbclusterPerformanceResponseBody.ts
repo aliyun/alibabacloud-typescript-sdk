@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * The value of the performance metric.
+   * The performance value.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeriesValues ex
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends $dara.Model {
   /**
    * @remarks
-   * The name of the time series.
+   * The name of the performance data list.
    * 
    * @example
    * cc-bp125e3uu94wo1s0k16****
@@ -43,7 +43,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
   name?: string;
   /**
    * @remarks
-   * The values of the performance metrics, each associated with a sampling timestamp.
+   * The performance metric values. Each value corresponds to a collection time point.
    */
   values?: DescribeDBClusterPerformanceResponseBodyPerformancesSeriesValues[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
 export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.Model {
   /**
    * @remarks
-   * The name of the performance metric.
+   * The name of the performance metrics.
    * 
    * @example
    * MEM_USAGE
@@ -83,7 +83,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
   key?: string;
   /**
    * @remarks
-   * The name of the performance metric.
+   * The name of the performance value.
    * 
    * @example
    * mem_usage
@@ -91,12 +91,12 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
   name?: string;
   /**
    * @remarks
-   * The time series data for the metric.
+   * The collection of performance metrics.
    */
   series?: DescribeDBClusterPerformanceResponseBodyPerformancesSeries[];
   /**
    * @remarks
-   * The unit of the metric.
+   * The data unit.
    * 
    * @example
    * %
@@ -143,7 +143,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
+   * The end time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC time).
    * 
    * @example
    * 2021-11-27T16:38Z
@@ -151,7 +151,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The list of performance metrics for the cluster.
+   * The list of cluster performance metric values.
    */
   performances?: DescribeDBClusterPerformanceResponseBodyPerformances[];
   /**
@@ -164,7 +164,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range that was queried. The time is in UTC, formatted as `yyyy-MM-ddTHH:mmZ`.
+   * The start time of the query. Format: yyyy-MM-ddTHH:mmZ (UTC time).
    * 
    * @example
    * 2021-11-27T16:37Z

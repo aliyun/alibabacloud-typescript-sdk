@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelRestartInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in a specific region. The information includes the cluster IDs.
+   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in the specified region, including their cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -25,12 +25,9 @@ export class CancelRestartInstanceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
+   * The number of entries per page. Valid values:
    * - 30 (default)
-   * 
    * - 50
-   * 
    * - 100
    * 
    * @example
@@ -49,7 +46,7 @@ export class CancelRestartInstanceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scheduled restart time. The time must be in the \\`yyyy-MM-ddTHH:mmZ\\` format and in UTC.
+   * The scheduled restart time. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2023-03-22T00:00:50Z

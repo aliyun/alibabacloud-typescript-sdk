@@ -13,9 +13,8 @@ export class DeleteSyndbResponseBody extends $dara.Model {
   errorCode?: number;
   /**
    * @remarks
-   * - This parameter is not returned if **Status** is **true**.
-   * 
-   * - If **Status** is **false**, this parameter indicates the reason for the failure.
+   * - If **Status** is **true**, this parameter is not returned.
+   * - If **Status** is **false**, this parameter indicates the cause of the deletion failure.
    * 
    * @example
    * ClickHouse exception, code: 49, host: 100.100.xx.xx, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
@@ -34,7 +33,6 @@ export class DeleteSyndbResponseBody extends $dara.Model {
    * Indicates whether the deletion was successful. Valid values:
    * 
    * - **true**: The deletion was successful.
-   * 
    * - **false**: The deletion failed.
    * 
    * @example

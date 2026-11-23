@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   /**
    * @remarks
-   * The password of the ApsaraDB for ClickHouse database account.
+   * The password of the database account for the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   dbClusterId?: string;
   /**
    * @remarks
-   * The maximum number of rows to sync per second.
+   * The maximum number of rows that can be synchronized per second.
    * 
    * @example
    * 50000
@@ -53,7 +53,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The instance ID of the ApsaraDB RDS for MySQL instance.
+   * The instance ID of the ApsaraDB RDS for MySQL database.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The password of the ApsaraDB RDS for MySQL database account.
+   * The password of the database account for the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
   rdsPort?: number;
   /**
    * @remarks
-   * The database in the ApsaraDB RDS for MySQL instance.
+   * The databases in the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -123,9 +123,8 @@ export class ModifyRDSToClickhouseDbRequest extends $dara.Model {
    * @remarks
    * Specifies whether to ignore databases that do not support synchronization. Valid values:
    * 
-   * - **true**: Ignore the databases.
-   * 
-   * - **false**: Do not ignore the databases.
+   * - **true**: Ignore.
+   * - **false**: Do not ignore.
    * 
    * This parameter is required.
    * 

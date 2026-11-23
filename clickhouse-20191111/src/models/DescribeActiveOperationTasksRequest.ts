@@ -6,10 +6,8 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the task can be canceled. Valid values:
-   * 
-   * - **0**: The task cannot be canceled.
-   * 
-   * - **1**: The task can be canceled.
+   * - **0**: not allowed.
+   * - **1**: allowed.
    * 
    * @example
    * -1
@@ -17,11 +15,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   allowCancel?: number;
   /**
    * @remarks
-   * Specifies whether the time can be changed. Valid values:
-   * 
-   * - **0**: The time cannot be changed.
-   * 
-   * - **1**: The time can be changed.
+   * Specifies whether the execution time can be modified. Valid values:
+   * - **0**: not allowed.
+   * - **1**: allowed.
    * 
    * @example
    * -1
@@ -30,12 +26,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The task level. Valid values:
-   * 
-   * - **all** (Default): All levels.
-   * 
-   * - **S0**: Returns tasks for fixing exceptions.
-   * 
-   * - **S1**: Returns tasks for system O\\&M.
+   * - **all** (default): all levels.
+   * - **S0**: exception fix tasks.
+   * - **S1**: system O&M tasks.
    * 
    * @example
    * all
@@ -69,12 +62,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * - **30** (Default)
-   * 
+   * The number of entries per page. Valid values:
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -91,7 +81,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-beijing
@@ -102,19 +92,13 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The task status. This parameter is used to filter tasks.
-   * 
-   * - **-1:** All tasks.
-   * 
-   * - **3:** Tasks to be processed.
-   * 
-   * - **4:** Tasks in progress.
-   * 
-   * - **5:** Successfully completed tasks.
-   * 
-   * - **6:** Failed tasks.
-   * 
-   * - **7:** Canceled tasks.
+   * The task status, which is used to filter returned tasks. Valid values:
+   * - **-1**: all tasks.
+   * - **3**: pending tasks.
+   * - **4**: in-progress tasks.
+   * - **5**: successfully completed tasks.
+   * - **6**: failed tasks.
+   * - **7**: canceled tasks.
    * 
    * @example
    * -1
@@ -123,10 +107,8 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * 
-   * - **rds_apsaradb_upgrade**: Minor version upgrade.
-   * 
-   * - **all**: All task types.
+   * - **rds_apsaradb_upgrade**: minor version update.
+   * - **all**: all task types.
    * 
    * @example
    * all

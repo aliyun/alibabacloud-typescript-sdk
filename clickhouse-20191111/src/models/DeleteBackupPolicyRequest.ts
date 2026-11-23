@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token used to ensure the idempotence of the request. The value must be a string that contains a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. The token must be a string that contains a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -14,8 +14,7 @@ export class DeleteBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the destination region, including cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in the specified region, including their cluster IDs.
    * 
    * @example
    * cc-bp1t9lbb7a4z7****
@@ -23,7 +22,7 @@ export class DeleteBackupPolicyRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The number of records to return on each page. Valid values: 1 to **100**. Default value: **30**.
+   * The number of entries to return on each page. Valid values: **1 to 100**. Default value: **30**.
    * 
    * @example
    * 30

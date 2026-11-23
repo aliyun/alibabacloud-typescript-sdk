@@ -7,7 +7,7 @@ export class CheckModifyConfigNeedRestartResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether a restart is required after the configuration parameters are modified. Valid values:
    * - **true**: A restart is required.
-   * - **false**: A restart is not required.
+   * - **false**: No restart is required.
    * 
    * @example
    * true
@@ -15,7 +15,7 @@ export class CheckModifyConfigNeedRestartResponseBody extends $dara.Model {
   needRestart?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06798FEE-BEF2-5FAF-A30D-728973BBE97C

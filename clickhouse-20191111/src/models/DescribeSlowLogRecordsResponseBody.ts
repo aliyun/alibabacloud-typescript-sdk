@@ -84,7 +84,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecordsData extends $dara.
 export class DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics extends $dara.Model {
   /**
    * @remarks
-   * The amount of data read, in bytes.
+   * The maximum amount of data read. Unit: bytes.
    * 
    * @example
    * 123456
@@ -92,7 +92,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics extends 
   bytesRead?: number;
   /**
    * @remarks
-   * The time elapsed for the slow query, in milliseconds.
+   * The time elapsed for the slow query. Unit: milliseconds.
    * 
    * @example
    * 21.35
@@ -100,7 +100,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics extends 
   elapsedTime?: number;
   /**
    * @remarks
-   * The number of rows read.
+   * The maximum number of rows read.
    * 
    * @example
    * 2016722
@@ -187,7 +187,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecords extends $dara.Mode
   data?: DescribeSlowLogRecordsResponseBodySlowLogRecordsData;
   /**
    * @remarks
-   * The number of rows in the result set.
+   * The number of rows in the returned result set.
    * 
    * @example
    * 1
@@ -195,7 +195,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecords extends $dara.Mode
   rows?: string;
   /**
    * @remarks
-   * The number of entries on each page.
+   * The page size.
    * 
    * @example
    * 1
@@ -203,7 +203,7 @@ export class DescribeSlowLogRecordsResponseBodySlowLogRecords extends $dara.Mode
   rowsBeforeLimitAtLeast?: string;
   /**
    * @remarks
-   * The statistics of the query results.
+   * The statistics information of the query results.
    */
   statistics?: DescribeSlowLogRecordsResponseBodySlowLogRecordsStatistics;
   tableSchema?: DescribeSlowLogRecordsResponseBodySlowLogRecordsTableSchema;
@@ -256,7 +256,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the slow query logs.
+   * The list of slow log details.
    */
   slowLogRecords?: DescribeSlowLogRecordsResponseBodySlowLogRecords;
   static names(): { [key: string]: string } {

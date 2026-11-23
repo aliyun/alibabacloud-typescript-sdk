@@ -86,7 +86,7 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
    * The number of entries per page. Valid values:
    * - **30** (default)
    * - **50**
-   * - **100**.
+   * - **100**
    * 
    * @example
    * 30
@@ -103,7 +103,7 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
   tableDetails?: CheckScaleOutBalancedResponseBodyTableDetails;
   /**
    * @remarks
-   * The time required for the migration scale-out. Unit: minutes.
+   * The time required for migration and scaling. Unit: minutes.
    * 
    * @example
    * 21

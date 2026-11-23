@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the destination region, including cluster IDs.
+   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in the specified region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,8 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The format is \\`yyyy-MM-dd hh:mm:ss\\`. The time is in UTC.
-   * 
-   * > The end time must be later than the start time. The interval between the start time and the end time cannot exceed 7 days.
+   * The end time of the query. Format: yyyy-MM-dd hh:mm:ss (UTC).
+   * >The end time must be later than the start time, and the interval between the start time and the end time must be less than 7 days.
    * 
    * This parameter is required.
    * 
@@ -29,7 +28,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -37,12 +36,9 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * - **30** (Default)
-   * 
+   * The number of entries per page. Valid values:
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -51,7 +47,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The minimum query duration, in milliseconds. The minimum value is **1000**. The default value is **1000**. The response returns information about queries that take longer than the specified duration.
+   * The minimum query duration. Minimum value: **1000**. Default value: **1000**. Unit: milliseconds. The response includes queries that exceed this duration.
    * 
    * @example
    * 1000
@@ -59,7 +55,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   queryDurationMs?: number;
   /**
    * @remarks
-   * The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +65,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The format is \\`yyyy-MM-dd hh:mm:ss\\`. The time is in UTC.
+   * The start time of the query. Format: yyyy-MM-dd hh:mm:ss (UTC).
    * 
    * This parameter is required.
    * 

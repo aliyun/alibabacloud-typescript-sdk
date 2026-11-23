@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database account name.
+   * The database account.
    * 
    * @example
    * test
@@ -25,9 +25,8 @@ export class DescribeAccountAuthorityResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the account has DDL permissions. Valid values:
    * 
-   * - **true**: DDL permissions are granted.
-   * 
-   * - **false**: DDL permissions are denied.
+   * - **true**: DDL is allowed.
+   * - **false**: DDL is not allowed.
    * 
    * @example
    * true
@@ -35,11 +34,10 @@ export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   ddlAuthority?: boolean;
   /**
    * @remarks
-   * The DML permission level for the account. Valid values:
+   * Indicates whether the account has DML permissions. Valid values:
    * 
-   * - **all**: read, write, and settings permissions.
-   * 
-   * - **readOnly,modify**: read and settings permissions.
+   * - **all**: Read, write, and settings permissions.
+   * - **readOnly,modify**: Read and settings permissions.
    * 
    * @example
    * all
@@ -55,12 +53,12 @@ export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of all databases in the cluster.
+   * The list of all databases.
    */
   totalDatabases?: string[];
   /**
    * @remarks
-   * A list of all dictionaries in the cluster.
+   * The list of all dictionaries.
    */
   totalDictionaries?: string[];
   static names(): { [key: string]: string } {

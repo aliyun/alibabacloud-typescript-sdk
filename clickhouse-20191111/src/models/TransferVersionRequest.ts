@@ -15,7 +15,7 @@ export class TransferVersionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The time windows during which writes are disabled.
+   * The write suspension window.
    * 
    * @example
    * 2025-02-08T00:00:00+08:00,2025-02-12T00:00:00+08:00
@@ -33,12 +33,10 @@ export class TransferVersionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries per page. Valid values:
    * 
-   * - **30** (Default)
-   * 
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -47,7 +45,7 @@ export class TransferVersionRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent list of regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -69,8 +67,7 @@ export class TransferVersionRequest extends $dara.Model {
   sourceAccount?: string;
   /**
    * @remarks
-   * The name of the self-managed ClickHouse cluster.
-   * To obtain the name, execute `SELECT * FROM system.clusters`.
+   * The cluster name of the self-managed ClickHouse cluster. You can execute the `SELECT * FROM system.clusters` statement to obtain the cluster name.
    * 
    * @example
    * default
@@ -88,7 +85,7 @@ export class TransferVersionRequest extends $dara.Model {
   sourcePassword?: string;
   /**
    * @remarks
-   * The addresses and TCP ports of the shards in the self-managed ClickHouse cluster.
+   * The address and TCP port information of the self-managed ClickHouse cluster.
    * 
    * @example
    * 192.168.0.4:9000,192.168.0.5:9000,192.168.0.6:9000

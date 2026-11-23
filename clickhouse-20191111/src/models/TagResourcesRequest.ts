@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can add up to **20** tag keys.
+   * The tag key. You can add N tag keys. N is an integer and ranges from **1 to 20**.
    * 
    * @example
    * testkey1
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag key. You can add up to **20** tag values.
+   * The tag value that corresponds to the tag key. You can add N tag values. N is an integer and ranges from **1 to 20**.
    * 
    * @example
    * testvalue1
@@ -48,8 +48,7 @@ export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query region IDs.
+   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -68,7 +67,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource type. The value must be **DBCLUSTER**.
+   * The resource type. Valid value: **DBCLUSTER**.
    * 
    * This parameter is required.
    * 

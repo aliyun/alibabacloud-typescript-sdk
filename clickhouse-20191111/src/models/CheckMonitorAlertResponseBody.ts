@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckMonitorAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The parameters for alert monitoring.
+   * The monitoring and alerting parameters.
    * 
    * @example
    * {   "monitor":{     "key1":"value1",     "key2":"value2"   },   "alert":{     "key1":"value1",     "key2":"value2"   } }
@@ -21,11 +21,9 @@ export class CheckMonitorAlertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the alert monitoring feature is enabled. Valid values:
-   * 
-   * - **enable**: The feature is enabled.
-   * 
-   * - **disable**: The feature is disabled.
+   * Indicates whether the monitoring and alerting feature is enabled. Valid values:
+   * - **enable**: Enabled.
+   * - **disable**: Disabled.
    * 
    * @example
    * enable

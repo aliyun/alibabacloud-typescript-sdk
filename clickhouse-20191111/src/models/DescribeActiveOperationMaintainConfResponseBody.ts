@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-18T06:51:11+08:00
@@ -13,11 +13,10 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   createdTime?: string;
   /**
    * @remarks
-   * The day of the cycle.
+   * The cycle time.
    * 
-   * - If CycleType is Month, this parameter returns one or more numbers from 1 to 28 that indicate the day of the month. Multiple numbers are separated by commas (,).
-   * 
-   * - If CycleType is Week, this parameter returns one or more numbers from 1 to 7 that indicate the day of the week. Multiple numbers are separated by commas (,).
+   * - If CycleType is set to Month, the return value is a number from 1 to 28, which indicates the day of the month. Multiple values are separated by commas (,).
+   * - If CycleType is set to Week, the return value is a number from 1 to 7, which indicates the day of the week. Multiple values are separated by commas (,).
    * 
    * @example
    * 1
@@ -25,11 +24,10 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   cycleTime?: string;
   /**
    * @remarks
-   * The cycle type.
+   * The cycle type. Valid values:
    * 
-   * - Month
-   * 
-   * - Week
+   * - Month: Monthly.
+   * - Week: Weekly.
    * 
    * @example
    * Week
@@ -53,7 +51,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainStartTime?: string;
   /**
    * @remarks
-   * The time when the configuration was last modified.
+   * The modification time.
    * 
    * @example
    * 2025-06-27T07:12:53Z
@@ -61,7 +59,10 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   modifiedTime?: string;
   /**
    * @remarks
-   * The status of the configuration. A value of 1 indicates that the configuration is enabled. A value of 2 indicates that the configuration is disabled.
+   * Indicates whether the configuration takes effect. Valid values:
+   * 
+   * - 1: Yes.
+   * - 2: No.
    * 
    * @example
    * 1
@@ -103,16 +104,15 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
 export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The active O\\&M configuration items.
+   * The proactive maintenance configuration.
    */
   config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
   /**
    * @remarks
-   * Indicates whether a configuration is set.
+   * Indicates whether proactive maintenance is configured. Valid values:
    * 
-   * - 1: A configuration is set.
-   * 
-   * - 0: No configuration is set.
+   * - 1: Configured.
+   * - 0: Not configured.
    * 
    * @example
    * 1

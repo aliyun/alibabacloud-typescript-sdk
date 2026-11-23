@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckClickhouseToRDSRequest extends $dara.Model {
   /**
    * @remarks
-   * The password for the ApsaraDB for ClickHouse database account.
+   * The password of the database account for the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   ckPassword?: string;
   /**
    * @remarks
-   * The database account for the ApsaraDB for ClickHouse cluster.
+   * The database account of the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   clickhousePort?: number;
   /**
    * @remarks
-   * The ID of the community-compatible ApsaraDB for ClickHouse cluster.
+   * The ID of the ApsaraDB for ClickHouse Community-compatible Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the ApsaraDB RDS instance.
+   * The instance ID of the ApsaraDB RDS database.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The password for the ApsaraDB RDS database account.
+   * The password of the database account for the ApsaraDB RDS instance.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class CheckClickhouseToRDSRequest extends $dara.Model {
   rdsPort?: number;
   /**
    * @remarks
-   * The database account for the ApsaraDB RDS instance.
+   * The database account of the ApsaraDB RDS instance.
    * 
    * This parameter is required.
    * 

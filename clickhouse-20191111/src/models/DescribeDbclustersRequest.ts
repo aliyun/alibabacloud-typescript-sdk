@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * department
@@ -13,7 +13,7 @@ export class DescribeDBClustersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * it
@@ -45,7 +45,7 @@ export class DescribeDBClustersRequestTag extends $dara.Model {
 export class DescribeDBClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster description.
+   * The description of the cluster.
    * 
    * @example
    * cc-bp108z124a8o7****
@@ -53,9 +53,8 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * > If you do not specify this parameter, information about all clusters is queried by default.
+   * The cluster IDs.
+   * >If you do not specify this parameter, the information about all clusters is queried by default.
    * 
    * @example
    * cc-bp108z124a8o7****
@@ -63,17 +62,12 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterIds?: string;
   /**
    * @remarks
-   * The state of the cluster. Valid values:
-   * 
-   * - **Preparing**: The cluster is being prepared.
-   * 
-   * - **Creating**: The cluster is being created.
-   * 
-   * - **Running**: The cluster is running.
-   * 
-   * - **Deleting**: The cluster is being deleted.
-   * 
-   * - **SCALING_OUT**: The cluster is being scaled out.
+   * The status of the cluster. Valid values:
+   * - **Preparing**: preparing
+   * - **Creating**: creating
+   * - **Running**: running
+   * - **Deleting**: deleting
+   * - **SCALING_OUT**: scaling out
    * 
    * @example
    * Running
@@ -92,11 +86,8 @@ export class DescribeDBClustersRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * - **30** (Default)
-   * 
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -128,6 +119,14 @@ export class DescribeDBClustersRequest extends $dara.Model {
    * The tags.
    */
   tag?: DescribeDBClustersRequestTag[];
+  /**
+   * @remarks
+   * The VPC IDs.
+   * 
+   * @example
+   * vpc-2ze4ee9z******,vpc-2ze4ee9z5l******
+   */
+  vpcIds?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterDescription: 'DBClusterDescription',
@@ -142,6 +141,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
+      vpcIds: 'VpcIds',
     };
   }
 
@@ -159,6 +159,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeDBClustersRequestTag },
+      vpcIds: 'string',
     };
   }
 

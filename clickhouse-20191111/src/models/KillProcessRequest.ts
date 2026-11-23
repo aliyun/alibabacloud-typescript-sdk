@@ -15,9 +15,8 @@ export class KillProcessRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The search statement to stop. To stop multiple statements, separate them with commas (,).
-   * 
-   * > If you do not specify this parameter, all search statements are stopped by default.
+   * The query statements to stop. Separate multiple statements with commas (,).
+   * > If this parameter is not specified, all query statements are stopped by default.
    * 
    * @example
    * SELECT * FROM `test01` ;
@@ -27,7 +26,7 @@ export class KillProcessRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou

@@ -28,7 +28,7 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
    * The number of entries per page. Valid values:
    * - **30** (default)
    * - **50**
-   * - **100**.
+   * - **100**
    * 
    * @example
    * 30
@@ -48,11 +48,11 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The specification change type. Valid values:
-   * - ScaleOut: horizontal scale-out
+   * The upgrade/downgrade type. Valid values:
+   * - ScaleOut: horizontal scaling
    * - ScaleIn: horizontal scale-in
-   * - MultiAzUpgrade: upgrade to multi-active zone deployment
-   * - DiskDownGrade: cloud disk downgrade.
+   * - MultiAzUpgrade: upgrade to multi-zone deployment
+   * - DiskDownGrade: decrease the quota for disks
    * 
    * @example
    * ScaleOut

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   /**
    * @remarks
-   * The password for the database account of the ApsaraDB for ClickHouse cluster.
+   * The password of the database account for the ApsaraDB for ClickHouse cluster.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   dbClusterId?: string;
   /**
    * @remarks
-   * The maximum number of rows to sync per second.
+   * The maximum number of rows to synchronize per second.
    * 
    * @example
    * 50000
@@ -53,7 +53,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the ApsaraDB RDS for MySQL instance.
+   * The instance ID of the ApsaraDB RDS for MySQL database.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The password for the database account of the ApsaraDB RDS for MySQL instance.
+   * The password of the database account for the ApsaraDB RDS for MySQL instance.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   rdsVpcId?: string;
   /**
    * @remarks
-   * The internal endpoint of the ApsaraDB RDS instance.
+   * The internal endpoint of ApsaraDB RDS.
    * 
    * @example
    * rm-bp16t9h3999xb0a7****.mysql.rds.aliyuncs.com
@@ -109,11 +109,10 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to skip unsupported table schemas. Valid values:
+   * Specifies whether to ignore table schemas that are not supported for synchronization. Valid values:
    * 
-   * - **true**: Skip.
-   * 
-   * - **false**: Do not skip.
+   * - **true**: Ignore.
+   * - **false**: Do not ignore.
    * 
    * This parameter is required.
    * 
@@ -123,7 +122,7 @@ export class CreateRDSToClickhouseDbRequest extends $dara.Model {
   skipUnsupported?: boolean;
   /**
    * @remarks
-   * The tables to sync.
+   * The tables to be synchronized.
    * 
    * This parameter is required.
    * 

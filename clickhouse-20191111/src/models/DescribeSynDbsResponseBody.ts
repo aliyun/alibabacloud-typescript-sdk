@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   /**
    * @remarks
-   * - This parameter is not returned if **SynStatus** is **true**.
-   * 
-   * - If **SynStatus** is **false**, this parameter indicates the reason for the synchronization failure.
+   * - This parameter is not returned when **SynStatus** is **true**.
+   * - When **SynStatus** is **false**, this parameter indicates the cause of the synchronization failure.
    * 
    * @example
    * ClickHouse exception, code: 49, host: 100.100.118.132, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
@@ -15,7 +14,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The instance ID of the ApsaraDB RDS for MySQL instance.
+   * The instance ID of the ApsaraDB RDS for MySQL database.
    * 
    * @example
    * rm-wz9d11qg1j0h4****
@@ -23,7 +22,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   rdsId?: string;
   /**
    * @remarks
-   * The database account for the ApsaraDB RDS for MySQL instance.
+   * The database account of the ApsaraDB RDS for MySQL instance.
    * 
    * @example
    * test
@@ -31,7 +30,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   rdsUserName?: string;
   /**
    * @remarks
-   * The internal endpoint of the ApsaraDB RDS for MySQL instance.
+   * The internal network connection endpoint of the ApsaraDB RDS for MySQL database.
    * 
    * @example
    * rm-bp16t9h3999xb0a711****.mysql.rds.aliyuncs.com:3306
@@ -39,7 +38,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   rdsVpcUrl?: string;
   /**
    * @remarks
-   * The database in the ApsaraDB RDS for MySQL instance.
+   * The database of the ApsaraDB RDS for MySQL instance.
    * 
    * @example
    * database
@@ -47,10 +46,9 @@ export class DescribeSynDbsResponseBodySynDbs extends $dara.Model {
   synDb?: string;
   /**
    * @remarks
-   * Indicates whether the synchronization was successful. Valid values:
+   * Indicates whether the synchronization is successful. Valid values:
    * 
-   * - **true**: The synchronization was successful.
-   * 
+   * - **true**: The synchronization is successful.
    * - **false**: The synchronization failed.
    * 
    * @example
@@ -99,7 +97,7 @@ export class DescribeSynDbsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on each page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -115,12 +113,12 @@ export class DescribeSynDbsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The synchronized data.
+   * The synchronization data.
    */
   synDbs?: DescribeSynDbsResponseBodySynDbs[];
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 0

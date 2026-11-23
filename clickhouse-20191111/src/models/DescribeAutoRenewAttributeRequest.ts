@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoRenewAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster IDs.
    * 
    * @example
    * cc-uf6g4417bo*****

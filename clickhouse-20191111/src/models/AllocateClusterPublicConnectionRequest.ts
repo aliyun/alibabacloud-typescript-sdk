@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateClusterPublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the public endpoint. The value is the cluster ID.
+   * The prefix of the endpoint used to connect to the database. The value is fixed as the cluster ID.
    * 
    * @example
    * cc-bp108z124a8o7****

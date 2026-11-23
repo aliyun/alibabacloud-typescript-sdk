@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup retention period. Default value: 7. Valid values: 7 to 730. Unit: day.
+   * The backup retention period. Default value: 7 days. Valid values: 7 to 730. Unit: days.
    * 
    * @example
    * 7
@@ -23,19 +23,13 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
    * @remarks
    * The backup cycle. Valid values:
    * 
-   * - **Monday**
-   * 
-   * - **Tuesday**
-   * 
-   * - **Wednesday**
-   * 
-   * - **Thursday**
-   * 
-   * - **Friday**
-   * 
-   * - **Saturday**
-   * 
-   * - **Sunday**
+   * - **Monday**: Monday.
+   * - **Tuesday**: Tuesday.
+   * - **Wednesday**: Wednesday.
+   * - **Thursday**: Thursday.
+   * - **Friday**: Friday.
+   * - **Saturday**: Saturday.
+   * - **Sunday**: Sunday.
    * 
    * @example
    * Monday
@@ -59,11 +53,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the backup feature is enabled. Valid values:
+   * Indicates whether the backup service is enabled. Valid values:
    * 
-   * - **true**: The backup feature is enabled.
-   * 
-   * - **false**: The backup feature is disabled.
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true

@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOSSStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether tiered storage for hot and cold data can be enabled. Valid values:
+   * Indicates whether hot and cold tiered storage is supported. Valid values:
    * 
-   * - **true**: Tiered storage can be enabled.
-   * 
-   * - **false**: Tiered storage cannot be enabled.
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -17,7 +16,7 @@ export class DescribeOSSStorageResponseBody extends $dara.Model {
   coldStorage?: boolean;
   /**
    * @remarks
-   * The parameters of the tiered storage policy for hot and cold data.
+   * The parameters of the hot and cold tiered storage policy.
    * 
    * @example
    * [{ "currentValue":"0.1", "defaultValue":"0.1", "desc":"Ratio of free disk space. When the ratio exceeds the value of configuration parameter, ClickHouse start to move data to the cold storage", "name":"move_factor", "restart":true, "valueRange":"(0, 1]" },{ "currentValue":"true", "defaultValue":"true", "desc":"Disables merging of data parts on cold storage", "name":"prefer_not_to_merge", "restart":true, "valueRange":"true|false" }]
@@ -33,13 +32,11 @@ export class DescribeOSSStorageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of tiered storage for hot and cold data. Valid values:
+   * The status of the hot and cold tiered storage. Valid values:
    * 
-   * - **CREATING**: Tiered storage is being enabled.
-   * 
-   * - **DISABLE**: Tiered storage is disabled.
-   * 
-   * - **ENABLE**: Tiered storage is enabled.
+   * - **CREATING**: Enabling.
+   * - **DISABLE**: Disabled.
+   * - **ENABLE**: Enabled.
    * 
    * @example
    * ENABLE
@@ -47,7 +44,7 @@ export class DescribeOSSStorageResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The cold storage space used. Unit: GB.
+   * The amount of storage space used by cold data. Unit: GB.
    * 
    * @example
    * 0.00

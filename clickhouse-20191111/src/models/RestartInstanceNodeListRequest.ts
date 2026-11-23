@@ -30,12 +30,10 @@ export class RestartInstanceNodeListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
+   * The number of entries per page. Valid values:
    * 
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -54,9 +52,8 @@ export class RestartInstanceNodeListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scheduled restart time. The time is in the yyyy-MM-ddTHH:mmZ format and is in UTC.
-   * 
-   * > If this parameter is left empty or set to a time earlier than the current time, the cluster restarts immediately.
+   * The scheduled restart time. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * >If this parameter is left empty or set to a time earlier than the current time, the cluster is restarted immediately.
    * 
    * @example
    * 2023-03-22T00:00:50Z

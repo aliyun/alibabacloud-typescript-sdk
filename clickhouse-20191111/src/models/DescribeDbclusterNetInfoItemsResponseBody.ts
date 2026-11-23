@@ -86,11 +86,9 @@ export class DescribeDBClusterNetInfoItemsResponseBody extends $dara.Model {
   clusterNetworkType?: string;
   /**
    * @remarks
-   * Indicates whether Server Load Balancer (SLB) is enabled in the VPC. Valid values:
-   * 
-   * - true: enabled.
-   * 
-   * - false: disabled.
+   * Indicates whether SLB is enabled in the VPC. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * This parameter is required.
    * 

@@ -15,7 +15,7 @@ export class ElectZookeeperLeaderRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to disable writes.
+   * Specifies whether to disable write operations.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class ElectZookeeperLeaderRequest extends $dara.Model {
   disableWrite?: boolean;
   /**
    * @remarks
-   * The time to perform the leader switchover.
+   * The time when the primary switchover is performed. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-12-12T07:28:00Z
@@ -41,12 +41,9 @@ export class ElectZookeeperLeaderRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * - **30** (Default)
-   * 
+   * The number of entries per page. Valid values:
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -55,9 +52,7 @@ export class ElectZookeeperLeaderRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou

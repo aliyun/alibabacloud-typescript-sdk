@@ -26,11 +26,8 @@ export class DescribeDBClusterNodeInfosRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example

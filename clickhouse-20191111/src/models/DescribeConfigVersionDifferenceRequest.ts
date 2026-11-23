@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigVersionDifferenceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change record. Call the [DescribeConfigHistory](https://help.aliyun.com/document_detail/452209.html) operation to query the IDs of change records.
+   * The ID of the change record. You can call the [DescribeConfigHistory](https://help.aliyun.com/document_detail/452209.html) operation to query the ID of the change record.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeConfigVersionDifferenceRequest extends $dara.Model {
   changeId?: string;
   /**
    * @remarks
-   * The cluster ID. Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the IDs of all clusters in the destination region.
+   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query all clusters in the specified region, including their cluster IDs.
    * 
    * This parameter is required.
    * 

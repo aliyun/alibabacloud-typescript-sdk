@@ -21,11 +21,11 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to upgrade the minor engine version immediately. Valid values:
    * 
-   * - **true**: The minor engine version is upgraded immediately.
+   * - **true**: Upgrades the minor engine version immediately.
    * 
-   * - **false**: The minor engine version is upgraded at a specified time or within the maintenance window.
+   * - **false**: Upgrades the minor engine version at a specified time or during the maintenance window.
    * 
-   * > The **UpgradeTime** parameter is required if you want to upgrade the minor engine version at a specified time.
+   * > If you specify a time to upgrade the minor engine version, **UpgradeTime** is required.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,8 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
   upgradeImmediately?: boolean;
   /**
    * @remarks
-   * The time to perform the upgrade. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
-   * 
-   * > If you do not specify this parameter, the ApsaraDB for ClickHouse cluster is upgraded within the maintenance window.
+   * The specified upgrade time. Format: yyyy-MM-ddTHH:mmZ (UTC time).
+   * > If this parameter is left empty, the ApsaraDB for ClickHouse cluster performs a minor kernel version upgrade during the maintenance window.
    * 
    * @example
    * 2022-08-07T16:38Z
@@ -45,9 +44,8 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
   upgradeTime?: string;
   /**
    * @remarks
-   * The minor engine version to which you want to upgrade.
-   * 
-   * > If you do not specify this parameter, the cluster is upgraded to the latest minor engine version.
+   * The target minor engine version.
+   * > By default, this parameter is left empty, and the minor engine version is upgraded to the latest version.
    * 
    * @example
    * 1.37.0
