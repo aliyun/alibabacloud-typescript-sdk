@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePromptRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace visibility. Valid values:
+   * The visibility of the workspace. Valid values:
    * - PRIVATE (default): Visible only to you and administrators in this workspace.
-   * - PUBLIC: Visible to everyone in this workspace.
+   * - PUBLIC: Visible to all users in this workspace.
    * 
    * @example
    * PUBLIC
@@ -15,22 +15,22 @@ export class CreatePromptRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The prompt description.
+   * The description of the prompt.
    * 
    * @example
-   * This is a prompt for information extraction in autonomous driving highway scenarios, focusing on extracting lane and weather information
+   * This is an information extraction prompt for autonomous driving highway scenarios, focusing on extracting information such as lanes and weather
    */
   description?: string;
   /**
    * @remarks
-   * The prompt framework content.
+   * The content of the prompt framework.
    * 
    * @example
    * {
-   *   "context":"You are an experienced driver with ten years of driving experience. Please analyze and make judgments about the following image scenarios.",
+   *   "context":"You are an experienced driver with ten years of driving experience. Please analyze and evaluate the following image scenario.",
    *   "inputData":"{
-   *     \\"Reflective strips\\": \\"Usually yellow or yellow-black alternating, attached to permanent protruding obstacles such as wall corners to remind drivers to avoid them.\\",
-   *     \\"Ground lock\\": \\"Also called a parking space lock. When raised, it prevents the parking space from being occupied. When a ground lock is present, you must indicate whether it is in the raised or lowered state.\\",
+   *     \\"Reflective tape\\": \\"Usually yellow or alternating yellow and black, attached to permanent protruding obstacles such as wall corners to remind drivers to avoid them.\\",
+   *     \\"Parking lock\\": \\"Also known as a parking space lock, it prevents the parking space from being occupied when raised. If a parking lock is present, be sure to output whether it is in the raised or lowered state.\\",
    *   }"
    * }
    */
@@ -45,7 +45,7 @@ export class CreatePromptRequest extends $dara.Model {
   frameworkType?: string;
   /**
    * @remarks
-   * The prompt name.
+   * The name of the prompt.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreatePromptRequest extends $dara.Model {
   promptName?: string;
   /**
    * @remarks
-   * The workspace ID. You can obtain the ID by calling the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation.
+   * The workspace ID. You can call the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

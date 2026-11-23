@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDefaultWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 17915******4216

@@ -6,6 +6,7 @@ export { AddImageRequestLabels } from './AddImageRequest';
 export { AddImageLabelsRequestLabels } from './AddImageLabelsRequest';
 export { CreateConnectionRequestModels } from './CreateConnectionRequest';
 export { CreateConnectionRequestResourceMeta } from './CreateConnectionRequest';
+export { CreateImageBuildRequestBuildConfigDataSources } from './CreateImageBuildRequest';
 export { CreateImageBuildRequestBuildConfig } from './CreateImageBuildRequest';
 export { CreateImageBuildRequestImageLabels } from './CreateImageBuildRequest';
 export { CreateImageBuildRequestImage } from './CreateImageBuildRequest';

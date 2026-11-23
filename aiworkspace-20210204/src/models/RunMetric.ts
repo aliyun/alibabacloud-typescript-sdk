@@ -15,12 +15,18 @@ export class RunMetric extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The step count at which the metric is generated.
+   * The step at which the metric is generated.
+   * 
+   * @example
+   * 10
    */
   step?: number;
   /**
    * @remarks
-   * The timestamp at which the metric is generated.
+   * The timestamp when the metric is generated.
+   * 
+   * @example
+   * 1793248584453
    */
   timestamp?: number;
   /**
@@ -28,6 +34,9 @@ export class RunMetric extends $dara.Model {
    * The metric value.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 0.25
    */
   value?: number;
   static names(): { [key: string]: string } {

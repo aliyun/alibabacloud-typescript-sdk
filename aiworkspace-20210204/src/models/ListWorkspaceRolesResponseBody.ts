@@ -181,7 +181,7 @@ export class ListWorkspaceRolesResponseBodyRolesModulePermissions extends $dara.
 export class ListWorkspaceRolesResponseBodyRoles extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account UID of the creator.
+   * The UID of the Alibaba Cloud account of the creator.
    * 
    * @example
    * 2680******4103
@@ -189,7 +189,7 @@ export class ListWorkspaceRolesResponseBodyRoles extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creation time, in UTC and ISO 8601 format.
+   * The creation time. The time is in UTC and formatted in ISO 8601.
    * 
    * @example
    * 2025-09-14T07:40:01.000Z
@@ -197,7 +197,7 @@ export class ListWorkspaceRolesResponseBodyRoles extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time, in UTC and ISO 8601 format.
+   * The modification time. The time is in UTC and formatted in ISO 8601.
    * 
    * @example
    * 2026-04-15T02:29:52Z
@@ -205,7 +205,7 @@ export class ListWorkspaceRolesResponseBodyRoles extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The permission configuration of the role.
+   * The permission configurations of the role.
    */
   modulePermissions?: ListWorkspaceRolesResponseBodyRolesModulePermissions[];
   /**
@@ -274,7 +274,7 @@ export class ListWorkspaceRolesResponseBody extends $dara.Model {
   roles?: ListWorkspaceRolesResponseBodyRoles[];
   /**
    * @remarks
-   * The total count of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 15

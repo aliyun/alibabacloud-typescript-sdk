@@ -6,8 +6,8 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The clone mode. Valid values:
-   * - 0 (default): creates a new subdirectory.
-   * - 1: tiles to the current directory.
+   * - 0 (default): Create a subdirectory.
+   * - 1: Tile to the current directory.
    * 
    * @example
    * 0
@@ -15,7 +15,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   cloneType?: number;
   /**
    * @remarks
-   * The branch name of the code.
+   * The name of the code branch.
    * 
    * @example
    * dev
@@ -39,7 +39,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The access token associated with the username.
+   * The access token corresponding to the username.
    * 
    * @example
    * ***
@@ -47,7 +47,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username used to access the access code repository.
+   * The username used to access the code repository.
    * 
    * @example
    * demo-user
@@ -55,15 +55,15 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The description of the code source configuration.
+   * The description of the code configuration.
    * 
    * @example
-   * 用于XX的训练代码
+   * Training code for XX
    */
   description?: string;
   /**
    * @remarks
-   * The name of the code source configuration.
+   * The name of the code configuration.
    * 
    * @example
    * MyCodeSource1

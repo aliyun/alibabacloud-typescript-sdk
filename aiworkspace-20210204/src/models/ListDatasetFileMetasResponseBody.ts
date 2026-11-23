@@ -27,7 +27,7 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The maximum number of results returned per request when using NextToken-based pagination.
+   * The maximum number of results to return per query when NextToken is used.
    * 
    * @example
    * 10
@@ -35,7 +35,7 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If the number of results that match the query conditions exceeds the page size, this pagination token is returned. To retrieve the next page of data, pass the returned token value as a request parameter until no token value is returned, which indicates that all data has been retrieved.
+   * The pagination cursor. If the number of returned results that match the query conditions exceeds the page size, this pagination cursor is returned. To obtain the next page of data, use the returned cursor value as a request parameter until no cursor value is returned, which indicates that all data is retrieved.
    * 
    * @example
    * 90******-f5c5-4cd4-927e-1f45e1cb8b62_1729644433000
@@ -43,7 +43,7 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page size.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -53,7 +53,7 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 123

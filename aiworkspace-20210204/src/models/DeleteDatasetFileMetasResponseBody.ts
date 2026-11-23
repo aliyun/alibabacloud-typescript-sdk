@@ -6,7 +6,7 @@ import { DatasetFileMetaResponse } from "./DatasetFileMetaResponse";
 export class DeleteDatasetFileMetasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of file metadata records that failed to be deleted.
+   * The list of file metadata records that failed to be deleted.
    */
   failedDetails?: DatasetFileMetaResponse[];
   /**
@@ -19,7 +19,7 @@ export class DeleteDatasetFileMetasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the batch deletion. A value of \\`true\\` indicates that all metadata records were deleted. If the value is \\`false\\`, check the \\`FailedDetails\\` parameter for more information.
+   * The status of the metadata deletion result for the current batch. A value of true indicates that all deletions succeeded. If the value is false, check FailedDetails.
    * 
    * @example
    * true

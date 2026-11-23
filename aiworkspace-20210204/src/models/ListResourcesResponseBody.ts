@@ -407,7 +407,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
    * The resource specifications.
    * 
    * @example
-   * 对于MaxCompute {"Endpoint": "odps.alibaba-inc.com", "Project": "mignshi"}
+   * {"Endpoint":"odps.alibaba-inc.com","Project":"mignshi"}
    */
   spec?: { [key: string]: any };
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code returned when the request fails.
    * 
    * @example
    * 403
@@ -18,7 +18,7 @@ export class ValidateConnectionResponseBody extends $dara.Model {
   details?: { [key: string]: string };
   /**
    * @remarks
-   * A description of the validation result.
+   * The description of the validation result.
    * 
    * @example
    * The connection is reachable.
@@ -34,10 +34,8 @@ export class ValidateConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The validation status.
-   * 
-   * - success: The validation is successful.
-   * 
+   * The status of the validation result. Valid values:
+   * - success: The validation succeeded.
    * - failed: The validation failed.
    * 
    * @example

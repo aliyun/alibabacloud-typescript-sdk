@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPromptsRequest extends $dara.Model {
   /**
    * @remarks
-   * The prompt template framework type.
+   * The framework type of the prompt template.
    * 
    * @example
    * ICIO
@@ -13,9 +13,9 @@ export class ListPromptsRequest extends $dara.Model {
   frameworkType?: string;
   /**
    * @remarks
-   * The sorting order for the specified field during paging. Default value: ASC.
-   * - ASC: ascending order.
-   * - DESC: descending order.
+   * The sorting order for the specified field during paging in a paged query. Default value: ASC. Valid values:
+   * - ASC: Ascending order.
+   * - DESC: Descending order.
    * 
    * @example
    * ASC
@@ -23,7 +23,7 @@ export class ListPromptsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListPromptsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The page size. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -39,9 +39,9 @@ export class ListPromptsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The field used for sorting. Valid values:
-   * - Name: the run name.
-   * - GmtCreateTime (default): the run creation time.
+   * The name of the field used for sorting. Valid values:
+   * - Name: the name of the Run
+   * - GmtCreateTime: the creation time of the Run (default)
    * 
    * @example
    * GmtCreateTime
@@ -49,7 +49,7 @@ export class ListPromptsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The workspace ID. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 

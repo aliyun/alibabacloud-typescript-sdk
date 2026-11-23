@@ -22,11 +22,8 @@ export class UpdateConnectionRequestModels extends $dara.Model {
   /**
    * @remarks
    * The model type. Valid values:
-   * 
    * - LLM
-   * 
    * - Embedding
-   * 
    * - ReRank
    * 
    * @example
@@ -35,11 +32,9 @@ export class UpdateConnectionRequestModels extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * Indicates whether tool calling is supported. Valid values:
-   * 
-   * - true: Tool calling is supported.
-   * 
-   * - false: Tool calling is not supported.
+   * Specifies whether tool calling is supported. Valid values:
+   * - true: Supported.
+   * - false: Not supported.
    * 
    * @example
    * true
@@ -75,7 +70,7 @@ export class UpdateConnectionRequestModels extends $dara.Model {
 export class UpdateConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the connection, specified as key-value pairs. The keys in the Configs parameter vary based on the connection type. For more information, see the request parameters in the CreateConnection topic.
+   * The configuration information of the connection. The configurations are in key-value pairs. The keys in the Config parameter vary based on the connection type. For more information, see the supplementary description of the request parameters for the CreateConnection operation.
    */
   configs?: { [key: string]: string };
   /**
@@ -83,17 +78,17 @@ export class UpdateConnectionRequest extends $dara.Model {
    * The description of the connection.
    * 
    * @example
-   * Connection for data labeling.
+   * Connection used for annotation
    */
   description?: string;
   /**
    * @remarks
-   * A list of model information.
+   * The list of model information.
    */
   models?: UpdateConnectionRequestModels[];
   /**
    * @remarks
-   * Key-value pairs that require encryption, such as database logon passwords and keys for model connections.
+   * The key-value configurations that need to be encrypted, such as the database logon password and the key for the model connection.
    */
   secrets?: { [key: string]: string };
   static names(): { [key: string]: string } {

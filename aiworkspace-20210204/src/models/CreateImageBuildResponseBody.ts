@@ -13,7 +13,7 @@ export class CreateImageBuildResponseBody extends $dara.Model {
   imageBuildId?: string;
   /**
    * @remarks
-   * The build task ID.
+   * The build job ID.
    * 
    * @example
    * dlc-****ks92

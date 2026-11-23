@@ -13,7 +13,7 @@ export class DeleteWorkspaceResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The affected resource IDs.
+   * The list of affected resource IDs.
    */
   resourceIds?: string[];
   static names(): { [key: string]: string } {

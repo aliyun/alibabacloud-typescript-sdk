@@ -6,11 +6,17 @@ export class UserMetricsEndpoint extends $dara.Model {
   /**
    * @remarks
    * The HTTP path of the metric collection API.
+   * 
+   * @example
+   * /metrics
    */
   path?: string;
   /**
    * @remarks
    * The port number on which the metric collection service listens.
+   * 
+   * @example
+   * 40002
    */
   port?: number;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPromptRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace ID. To obtain the workspace ID, refer to [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 

@@ -7,6 +7,9 @@ export class Relation extends $dara.Model {
   /**
    * @remarks
    * ErrMsg
+   * 
+   * @example
+   * Failed to create lineage relation.
    */
   errMsg?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWorkspaceRolesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the roles to delete.
+   * (Required) The list of role IDs.
    */
   roleIds?: string[];
   static names(): { [key: string]: string } {

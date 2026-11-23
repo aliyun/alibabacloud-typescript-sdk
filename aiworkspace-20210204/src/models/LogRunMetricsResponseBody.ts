@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LogRunMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ADF6D849-*****-7E7030F0CE53

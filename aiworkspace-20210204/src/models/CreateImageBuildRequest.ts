@@ -2,14 +2,92 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateImageBuildRequestBuildConfigDataSources extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the dataset in the workspace. Example: d-************zbs.
+   * 
+   * @example
+   * d-************zbs
+   */
+  dataSourceId?: string;
+  /**
+   * @remarks
+   * The dataset version. If you specify this parameter, you must also specify DataSourceId. Example: v1.
+   * 
+   * @example
+   * v1
+   */
+  dataSourceVersion?: string;
+  /**
+   * @remarks
+   * The read and write permissions. Valid values: RW (default) and RO.
+   * 
+   * @example
+   * RO
+   */
+  mountAccess?: string;
+  /**
+   * @remarks
+   * The mount path. Example: /mnt/data/.
+   * 
+   * @example
+   * /mnt/data/
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The mount property for the custom dataset. Only OSS is supported. Example: {"fs.oss.download.thread.concurrency":"10"}.
+   * 
+   * @example
+   * {"fs.oss.download.thread.concurrency":"10"}
+   */
+  options?: string;
+  /**
+   * @remarks
+   * The storage path, including the endpoint. This parameter is mutually exclusive with DataSourceId. Example: OSS storage path oss://{bucket-name}.oss-{region}-internal.aliyuncs.com/{subPath}/.
+   * 
+   * @example
+   * oss://{bucket-name}.oss-{region}-internal.aliyuncs.com/{subPath}/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      dataSourceVersion: 'DataSourceVersion',
+      mountAccess: 'MountAccess',
+      mountPath: 'MountPath',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      dataSourceVersion: 'string',
+      mountAccess: 'string',
+      mountPath: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageBuildRequestBuildConfig extends $dara.Model {
   /**
    * @remarks
-   * The build type. The following types are supported:
-   * 
-   * - **PackageInstallation**: Installs software packages based on a specified image.
-   * 
-   * - **CustomDockerfile**: Builds an image based on a custom Dockerfile.
+   * The build type. Valid values:
+   * * **PackageInstallation**: Installs software packages based on a specified image.
+   * * **CustomDockerfile**: Uses a custom Dockerfile.
    * 
    * This parameter is required.
    * 
@@ -19,9 +97,12 @@ export class CreateImageBuildRequestBuildConfig extends $dara.Model {
   buildType?: string;
   /**
    * @remarks
+   * The list of data sources.
+   */
+  dataSources?: CreateImageBuildRequestBuildConfigDataSources[];
+  /**
+   * @remarks
    * The content of the Dockerfile to be built.
-   * 
-   * This parameter is required.
    * 
    * @example
    * FROM ubuntu:18:04
@@ -30,7 +111,15 @@ export class CreateImageBuildRequestBuildConfig extends $dara.Model {
   dockerfile?: string;
   /**
    * @remarks
-   * The authentication information for the private image repository. You can specify the authentication information for an ACR image repository that does not belong to you. The format is \\`{"user_registry_domain":{"Auth":"base64 encoded auth"}}\\`.
+   * The Dockerfile path, which is a relative path to the mounted context path. Example: docker/Dockerfile. If the mount path is /mnt/data/, the file is located at /mnt/data/docker/Dockerfile.
+   * 
+   * @example
+   * docker/Dockerfile
+   */
+  dockerfilePath?: string;
+  /**
+   * @remarks
+   * The authentication information for private image repositories. You can specify the authentication information for an ACR image repository that does not belong to the current user. Format: {"user_registry_domain":{"Auth":"base64 encoded auth"}}.
    * 
    * @example
    * {
@@ -43,7 +132,9 @@ export class CreateImageBuildRequestBuildConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       buildType: 'BuildType',
+      dataSources: 'DataSources',
       dockerfile: 'Dockerfile',
+      dockerfilePath: 'DockerfilePath',
       registryAuths: 'RegistryAuths',
     };
   }
@@ -51,12 +142,17 @@ export class CreateImageBuildRequestBuildConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       buildType: 'string',
+      dataSources: { 'type': 'array', 'itemType': CreateImageBuildRequestBuildConfigDataSources },
       dockerfile: 'string',
+      dockerfilePath: 'string',
       registryAuths: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
     if(this.registryAuths) {
       $dara.Model.validateMap(this.registryAuths);
     }
@@ -111,7 +207,7 @@ export class CreateImageBuildRequestImageLabels extends $dara.Model {
 export class CreateImageBuildRequestImage extends $dara.Model {
   /**
    * @remarks
-   * The description of the image.
+   * The image description.
    * 
    * @example
    * Build test image
@@ -124,13 +220,10 @@ export class CreateImageBuildRequestImage extends $dara.Model {
   labels?: CreateImageBuildRequestImageLabels[];
   /**
    * @remarks
-   * The name of the image. The name must meet the following requirements:
-   * 
-   * - The name must be 1 to 50 characters in length.
-   * 
-   * - The name can contain lowercase letters, digits, and hyphens (-). It must start with a letter.
-   * 
-   * - The name must be unique within the same workspace.
+   * The image name. The naming rules are as follows:
+   * * The name must be 1 to 50 characters in length.
+   * * The name can contain lowercase letters, digits, and hyphens (-), and must start with a letter.
+   * * The name must be unique within the same workspace.
    * 
    * This parameter is required.
    * 
@@ -140,7 +233,7 @@ export class CreateImageBuildRequestImage extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The image URL.
+   * The image URI.
    * 
    * This parameter is required.
    * 
@@ -189,7 +282,7 @@ export class CreateImageBuildRequestResourceResourceConfig extends $dara.Model {
   CPU?: string;
   /**
    * @remarks
-   * The memory size.
+   * The memory capacity.
    * 
    * @example
    * 8Gi
@@ -221,7 +314,7 @@ export class CreateImageBuildRequestResourceResourceConfig extends $dara.Model {
 export class CreateImageBuildRequestResource extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the pay-as-you-go resource. This parameter is required when you use the public resource group.
+   * The pay-as-you-go resource specifications. This parameter is required when you use a public resource group.
    * 
    * @example
    * ecs.c6.large
@@ -229,12 +322,12 @@ export class CreateImageBuildRequestResource extends $dara.Model {
   ecsSpec?: string;
   /**
    * @remarks
-   * The resource configuration. Specify this parameter when you use subscription resources. Leave it empty when you use the public resource group.
+   * The resource configuration. This parameter is required when you use subscription resources and must be left empty when you use a public resource group.
    */
   resourceConfig?: CreateImageBuildRequestResourceResourceConfig;
   /**
    * @remarks
-   * The resource quota ID. This parameter applies only to subscription resources. Do not set this parameter for pay-as-you-go resources.
+   * The resource quota ID. This parameter applies only to subscription resources and must not be specified when you use pay-as-you-go resources.
    * 
    * @example
    * quotaadzoqup693z
@@ -242,7 +335,7 @@ export class CreateImageBuildRequestResource extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the subscription resource. Currently, only Lingjun resources are supported. Specify this parameter when you use subscription resources.
+   * The subscription resource type. Only Lingjun resources are supported. This parameter is required when you use subscription resources.
    * 
    * @example
    * Lingjun
@@ -281,7 +374,7 @@ export class CreateImageBuildRequestResource extends $dara.Model {
 export class CreateImageBuildRequestTargetRegistry extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image repository instance. This parameter is required when you use ACR as the image repository.
+   * The registry instance ID. This parameter is required when you use Container Registry (ACR) as the image service.
    * 
    * @example
    * cri-**abcd
@@ -289,7 +382,7 @@ export class CreateImageBuildRequestTargetRegistry extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the target image repository. Only ACR Enterprise Edition is supported.
+   * The registry type. Only Container Registry Enterprise Edition is supported as the target registry.
    * 
    * This parameter is required.
    * 
@@ -323,9 +416,8 @@ export class CreateImageBuildRequestTargetRegistry extends $dara.Model {
 export class CreateImageBuildRequestUserVpc extends $dara.Model {
   /**
    * @remarks
-   * The default route.
-   * 
-   * - eth1: Indicates that the user\\"s elastic network interface (ENI) is used to access the external network through a private gateway. For more information, see [Configure a Distribution Switch (DSW) instance to access the Internet through a private NAT gateway](https://help.aliyun.com/zh/pai/user-guide/configure-a-dsw-instance-to-access-the-internet-through-a-private-nat-gateway?spm=a2c4g.11186623.0.0.3b3965f6SZWm85).
+   * The default routing of the network interface controller (NIC). Valid values:
+   * * eth1: Uses the user\\"s elastic network interfaces (ENIs) to access external networks through a private NAT gateway. For the configuration method, refer to [Configure a DSW instance to access the Internet through a private NAT gateway](https://www.alibabacloud.com/help/en/pai/user-guide/configure-a-dsw-instance-to-access-the-internet-through-a-private-nat-gateway).
    * 
    * @example
    * eth1
@@ -334,15 +426,13 @@ export class CreateImageBuildRequestUserVpc extends $dara.Model {
   /**
    * @remarks
    * The extended CIDR blocks.
-   * 
-   * - If you do not specify a vSwitch ID, you can leave this parameter empty. The system automatically obtains all CIDR blocks of the VPC.
-   * 
-   * - If you specify a vSwitch ID, you must specify this parameter. For best results, include all CIDR blocks of the VPC.
+   * * If the vSwitch ID is empty, this parameter is optional and the system automatically retrieves all CIDR blocks under the VPC.
+   * * If the vSwitch ID is not empty, this parameter is required. We recommend that you specify all CIDR blocks under the VPC.
    */
   extendedCidrs?: string[];
   /**
    * @remarks
-   * The security group ID. This parameter is required when you configure a VPC.
+   * The security group ID. This parameter is required when you specify the VPC configuration.
    * 
    * @example
    * sg-abcdef**
@@ -358,7 +448,7 @@ export class CreateImageBuildRequestUserVpc extends $dara.Model {
   switchId?: string;
   /**
    * @remarks
-   * The VPC ID. If the build task needs to access your ACR Enterprise Edition instance, specify a VPC that is in the access control list of the instance.
+   * The VPC ID. When the build task accesses a user\\"s Container Registry Enterprise Edition instance, you must specify a VPC that is added to the access control list of the instance.
    * 
    * @example
    * vpc-abcdef**
@@ -399,7 +489,7 @@ export class CreateImageBuildRequestUserVpc extends $dara.Model {
 export class CreateImageBuildRequest extends $dara.Model {
   /**
    * @remarks
-   * An idempotence token.
+   * The idempotency parameter.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -407,11 +497,9 @@ export class CreateImageBuildRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The visibility of the image.
-   * 
-   * - **PUBLIC**: The image is public.
-   * 
-   * - **PRIVATE**: The image is private.
+   * The visibility. Valid values:
+   * - **PUBLIC**: Public.
+   * - **PRIVATE**: Private.
    * 
    * @example
    * PUBLIC
@@ -419,14 +507,14 @@ export class CreateImageBuildRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * **The build configuration. Specify the content of the Dockerfile to be built.**
+   * **The build configuration, which specifies the content of the Dockerfile to be built.**
    * 
    * This parameter is required.
    */
   buildConfig?: CreateImageBuildRequestBuildConfig;
   /**
    * @remarks
-   * The metadata of the image.
+   * The image metadata.
    * 
    * This parameter is required.
    */
@@ -441,7 +529,7 @@ export class CreateImageBuildRequest extends $dara.Model {
   imageBuildJobName?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite an existing image version in the image repository.
+   * Specifies whether to overwrite the existing image version in the image repository.
    */
   overwriteImageTag?: boolean;
   /**
@@ -461,14 +549,14 @@ export class CreateImageBuildRequest extends $dara.Model {
   resource?: CreateImageBuildRequestResource;
   /**
    * @remarks
-   * **The configuration of the target image repository.**
+   * **The target registry configuration.**
    * 
    * This parameter is required.
    */
   targetRegistry?: CreateImageBuildRequestTargetRegistry;
   /**
    * @remarks
-   * The information about the user\\"s virtual private cloud (VPC). This parameter is required when you use the public resource group.
+   * The user VPC information. This parameter is required when you use a public resource group.
    */
   userVpc?: CreateImageBuildRequestUserVpc;
   /**

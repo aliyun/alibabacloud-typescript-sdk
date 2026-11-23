@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the request fails.
    * 
    * @example
    * 100600017
@@ -13,7 +13,7 @@ export class DeleteMembersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when the request fails.
    * 
    * @example
    * Owner not allowed to delete

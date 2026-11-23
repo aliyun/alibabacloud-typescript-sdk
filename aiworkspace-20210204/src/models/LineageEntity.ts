@@ -6,21 +6,33 @@ export class LineageEntity extends $dara.Model {
   /**
    * @remarks
    * Attributes
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Path":"training/data/","ResourceType":"dataset","ResourceUse":"train","RegionId":"cn-hangzhou"}
    */
   attributes?: { [key: string]: any };
   /**
    * @remarks
    * The type of the data lineage entity.
+   * 
+   * @example
+   * oss-file
    */
   entityType?: string;
   /**
    * @remarks
    * The name of the data lineage entity.
+   * 
+   * @example
+   * training-dataset
    */
   name?: string;
   /**
    * @remarks
    * The unique qualified name of the data lineage entity.
+   * 
+   * @example
+   * maxcompute-table.demo_project.training_data
    */
   qualifiedName?: string;
   static names(): { [key: string]: string } {

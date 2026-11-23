@@ -6,7 +6,7 @@ import { DatasetFileMetaResponse } from "./DatasetFileMetaResponse";
 export class UpdateDatasetFileMetasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of file metadata that failed to be updated.
+   * The list of file metadata that failed to be updated.
    */
   failedDetails?: DatasetFileMetaResponse[];
   /**
@@ -19,7 +19,7 @@ export class UpdateDatasetFileMetasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the batch metadata update. A value of \\`true\\` indicates that all updates succeeded. If the value is \\`false\\`, check the \\`FailedDetails\\` parameter.
+   * The status of the metadata update result for the current batch. A value of true indicates that all updates succeeded. If the value is false, check FailedDetails.
    * 
    * @example
    * true

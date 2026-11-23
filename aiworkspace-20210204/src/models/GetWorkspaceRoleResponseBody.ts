@@ -181,7 +181,7 @@ export class GetWorkspaceRoleResponseBodyModulePermissions extends $dara.Model {
 export class GetWorkspaceRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account UID of the creator.
+   * The UID of the Alibaba Cloud account of the creator.
    * 
    * @example
    * 2680******4103
@@ -189,7 +189,7 @@ export class GetWorkspaceRoleResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The time when the role was created. It is specified in UTC and formatted in ISO 8601.
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * 2025-06-11T08:58:35.438Z
@@ -197,7 +197,7 @@ export class GetWorkspaceRoleResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the role was last modified. It is specified in UTC and formatted in ISO 8601.
+   * The modification time in ISO 8601 format.
    * 
    * @example
    * 2026-03-27T02:26:33.872Z
@@ -205,7 +205,7 @@ export class GetWorkspaceRoleResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The permission configuration of the role.
+   * The permission configurations of the role.
    */
   modulePermissions?: GetWorkspaceRoleResponseBodyModulePermissions[];
   /**
@@ -218,7 +218,7 @@ export class GetWorkspaceRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The role ID.
+   * The ID of the role.
    * 
    * @example
    * role-dhg*******
@@ -226,7 +226,7 @@ export class GetWorkspaceRoleResponseBody extends $dara.Model {
   roleId?: string;
   /**
    * @remarks
-   * The role name.
+   * The name of the role.
    * 
    * @example
    * dev-test
@@ -235,16 +235,11 @@ export class GetWorkspaceRoleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * 
-   * - `Creating`: The role is being created.
-   * 
-   * - `Updating`: The role is being updated.
-   * 
-   * - `Deleting`: The role is being deleted.
-   * 
-   * - `Succeeded`: The task succeeded.
-   * 
-   * - `Failed`: The task failed.
+   * - Creating: creating
+   * - Updating: updating
+   * - Deleting: deleting
+   * - Successful: succeeded (final state)
+   * - Failed: failed (final state)
    * 
    * @example
    * Successful

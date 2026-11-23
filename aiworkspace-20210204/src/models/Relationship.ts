@@ -16,6 +16,9 @@ export class Relationship extends $dara.Model {
   /**
    * @remarks
    * The globally unique identifier of the lineage relationship.
+   * 
+   * @example
+   * 0f94c587-e926-48c8-9efe-bf9f8d9aa5c2
    */
   relationshipGuid?: string;
   /**

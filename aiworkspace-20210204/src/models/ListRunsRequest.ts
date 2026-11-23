@@ -23,7 +23,7 @@ export class ListRunsRequest extends $dara.Model {
    * @remarks
    * The labels of the task for exact matching. Supported formats:
    * - Single-label query: "is_evaluation:true"
-   * - Multi-label scenario (not recommended for common scenarios due to potential performance issues): "is_evaluation:true,LLM_evaluation:true". Use commas (,) to separate multiple labels, which means all specified label key-value pairs must be matched at the same time.
+   * - Multi-label query (not recommended unless necessary due to potential performance issues): "is_evaluation:true,LLM_evaluation:true". Separate multiple label key-value pairs with commas (,). All specified label key-value pairs must be matched at the same time.
    * 
    * @example
    * is_evaluation:true
@@ -47,7 +47,7 @@ export class ListRunsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies the sorting of the specified field during a paged query. This parameter is used together with SortBy for paging. Valid values:
+   * The sorting order of the specified field for a paging query. This parameter is used together with SortBy. Valid values:
    * - ASC: ascending order.
    * - DESC (default): descending order.
    * 
@@ -57,7 +57,7 @@ export class ListRunsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The list of strings that specify the sort order. Supported fields for sorting include GmtCreateTime and Name. The sort orders include DESC and ASC. Default value: ASC. You can specify multiple fields and separate them with commas (,).
+   * The list of strings that specify the sorting methods. Supported fields for sorting include GmtCreateTime and Name. Valid sorting methods are DESC and ASC. Default value: ASC. You can specify multiple fields and separate them with commas (,).
    * 
    * @example
    * GmtCreateTime DESC,Name ASC
@@ -81,7 +81,7 @@ export class ListRunsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The pagination token. The value starts from 0. Default value: 0.
+   * The pagination token. The token starts from 0. Default value: 0.
    * 
    * @example
    * 0
@@ -116,8 +116,8 @@ export class ListRunsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to display detailed information, including Metrics, Params, and Labels. Valid values:
-   * - true: Displays detailed information.
-   * - false (default): Does not display detailed information.
+   * - true: displays detailed information.
+   * - false (default): does not display detailed information.
    * 
    * @example
    * true
@@ -125,7 +125,9 @@ export class ListRunsRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The ID of the workspace to which the experiment belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html). If you do not specify the workspace ID, the system returns the runs in the default workspace.
+   * The ID of the workspace to which the experiment belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * > If you do not specify the workspace ID, the system returns the list of runs in the default workspace.
+   * >
    * 
    * @example
    * 228**

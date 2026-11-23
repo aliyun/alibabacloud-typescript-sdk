@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dataset file metadata.
+   * The IDs of the file metadata records in the dataset.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteDatasetFileMetasRequest extends $dara.Model {
   datasetFileMetaIds?: string;
   /**
    * @remarks
-   * The name of the dataset version.
+   * The dataset version name.
    * 
    * @example
    * v1
@@ -23,7 +23,7 @@ export class DeleteDatasetFileMetasRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The ID of the workspace where the dataset is located. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The ID of the workspace to which the dataset belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 132602

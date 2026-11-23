@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941

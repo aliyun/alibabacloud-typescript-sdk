@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class RunParam extends $dara.Model {
   /**
    * @remarks
-   * The run parameter\\"s key.
+   * The parameter name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * learning_rate
    */
   key?: string;
   /**
    * @remarks
-   * The run parameter\\"s value.
+   * The parameter value.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 0.001
    */
   value?: string;
   static names(): { [key: string]: string } {
