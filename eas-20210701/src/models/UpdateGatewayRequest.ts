@@ -29,6 +29,14 @@ export class UpdateGatewayRequest extends $dara.Model {
   enableSSLRedirection?: boolean;
   /**
    * @remarks
+   * The idle connection timeout period. Unit: seconds. Default value: 600. Valid values: 1 to 3600.
+   * 
+   * @example
+   * 600
+   */
+  idleTimeout?: number;
+  /**
+   * @remarks
    * The instance type used by the private gateway. Valid values:
    * - 2c4g
    * - 4c8g
@@ -65,12 +73,20 @@ export class UpdateGatewayRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The list of vSwitches. This parameter is only applicable to application dedicated gateways.
+   * The request timeout period. Unit: seconds. Default value: 600. Valid values: 1 to 3600.
+   * 
+   * @example
+   * 600
+   */
+  requestTimeout?: number;
+  /**
+   * @remarks
+   * The list of vSwitches. This parameter applies only to dedicated gateways for applications.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC to which the gateway belongs. This parameter is only applicable to application dedicated gateways.
+   * The ID of the VPC to which the gateway belongs. This parameter applies only to dedicated gateways for applications.
    * 
    * @example
    * vpc-bp1jkde2******3mew
@@ -89,10 +105,12 @@ export class UpdateGatewayRequest extends $dara.Model {
       enableInternet: 'EnableInternet',
       enableIntranet: 'EnableIntranet',
       enableSSLRedirection: 'EnableSSLRedirection',
+      idleTimeout: 'IdleTimeout',
       instanceType: 'InstanceType',
       isDefault: 'IsDefault',
       name: 'Name',
       replicas: 'Replicas',
+      requestTimeout: 'RequestTimeout',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
       workspaceId: 'WorkspaceId',
@@ -104,10 +122,12 @@ export class UpdateGatewayRequest extends $dara.Model {
       enableInternet: 'boolean',
       enableIntranet: 'boolean',
       enableSSLRedirection: 'boolean',
+      idleTimeout: 'number',
       instanceType: 'string',
       isDefault: 'boolean',
       name: 'string',
       replicas: 'number',
+      requestTimeout: 'number',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       workspaceId: 'string',

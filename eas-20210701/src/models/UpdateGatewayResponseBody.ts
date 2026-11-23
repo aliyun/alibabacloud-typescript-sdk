@@ -13,7 +13,7 @@ export class UpdateGatewayResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * Gateway is updated

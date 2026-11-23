@@ -85,6 +85,14 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   gatewayName?: string;
   /**
    * @remarks
+   * The idle connection timeout. Default value: 600. Valid values: 1 to 3600. Unit: seconds.
+   * 
+   * @example
+   * 600
+   */
+  idleTimeout?: string;
+  /**
+   * @remarks
    * The instance type used by the private gateway.
    * 
    * @example
@@ -101,7 +109,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetDomain?: string;
   /**
    * @remarks
-   * Indicates whether public network access is enabled.
+   * Specifies whether public network access is enabled.
    * 
    * @example
    * true
@@ -109,7 +117,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * The status of public network access.
+   * The status of enabling or disabling public network access.
    * 
    * @example
    * Running
@@ -125,7 +133,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   intranetDomain?: string;
   /**
    * @remarks
-   * Indicates whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is disabled.
+   * Specifies whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is disabled.
    * 
    * @example
    * true
@@ -133,7 +141,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   intranetEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the private gateway is the default private gateway.
+   * Specifies whether the private gateway is the default private gateway.
    * 
    * @example
    * true
@@ -162,7 +170,17 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether HTTP redirection to HTTPS is enabled.
+   * The request timeout. Unit: seconds.
+   * 
+   * Default value: 600. Valid values: 1 to 3600.
+   * 
+   * @example
+   * 600
+   */
+  requestTimeout?: string;
+  /**
+   * @remarks
+   * Specifies whether HTTP to HTTPS redirection is enabled.
    * 
    * @example
    * true
@@ -199,6 +217,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       externalClusterId: 'ExternalClusterId',
       gatewayId: 'GatewayId',
       gatewayName: 'GatewayName',
+      idleTimeout: 'IdleTimeout',
       instanceType: 'InstanceType',
       internetDomain: 'InternetDomain',
       internetEnabled: 'InternetEnabled',
@@ -209,6 +228,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       labels: 'Labels',
       replicas: 'Replicas',
       requestId: 'RequestId',
+      requestTimeout: 'RequestTimeout',
       SSLRedirectionEnabled: 'SSLRedirectionEnabled',
       status: 'Status',
       updateTime: 'UpdateTime',
@@ -223,6 +243,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       externalClusterId: 'string',
       gatewayId: 'string',
       gatewayName: 'string',
+      idleTimeout: 'string',
       instanceType: 'string',
       internetDomain: 'string',
       internetEnabled: 'boolean',
@@ -233,6 +254,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       labels: { 'type': 'array', 'itemType': DescribeGatewayResponseBodyLabels },
       replicas: 'number',
       requestId: 'string',
+      requestTimeout: 'string',
       SSLRedirectionEnabled: 'boolean',
       status: 'string',
       updateTime: 'string',

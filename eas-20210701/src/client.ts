@@ -5543,6 +5543,10 @@ export default class Client extends OpenApi {
       body["EnableSSLRedirection"] = request.enableSSLRedirection;
     }
 
+    if (!$dara.isNull(request.idleTimeout)) {
+      body["IdleTimeout"] = request.idleTimeout;
+    }
+
     if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
@@ -5557,6 +5561,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.replicas)) {
       body["Replicas"] = request.replicas;
+    }
+
+    if (!$dara.isNull(request.requestTimeout)) {
+      body["RequestTimeout"] = request.requestTimeout;
     }
 
     if (!$dara.isNull(request.vSwitchIds)) {
