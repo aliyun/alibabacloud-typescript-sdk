@@ -29,12 +29,20 @@ export class CreateSessionResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The session status. The value is fixed to `IDLE` upon successful creation.
+   * The session status. The value is fixed to `IDLE` when the session is successfully created.
    * 
    * @example
    * IDLE
    */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether session UI enhancement is enabled. A value of true indicates that it is enabled, and a value of false indicates that it is disabled. Only common sessions support this feature. If this field is not returned, it is considered disabled.
+   * 
+   * @example
+   * true
+   */
+  uiEnabled?: boolean;
   /**
    * @remarks
    * The time when the session was last updated, in ISO 8601 format.
@@ -49,6 +57,7 @@ export class CreateSessionResponseBodyData extends $dara.Model {
       pinned: 'pinned',
       sessionId: 'sessionId',
       status: 'status',
+      uiEnabled: 'uiEnabled',
       updatedAt: 'updatedAt',
     };
   }
@@ -59,6 +68,7 @@ export class CreateSessionResponseBodyData extends $dara.Model {
       pinned: 'boolean',
       sessionId: 'string',
       status: 'string',
+      uiEnabled: 'boolean',
       updatedAt: 'string',
     };
   }
@@ -75,7 +85,7 @@ export class CreateSessionResponseBodyData extends $dara.Model {
 export class CreateSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The session information of the created session.
+   * The created session information.
    */
   data?: CreateSessionResponseBodyData;
   /**

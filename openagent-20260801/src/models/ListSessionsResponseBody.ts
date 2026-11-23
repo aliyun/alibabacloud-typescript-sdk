@@ -21,7 +21,7 @@ export class ListSessionsResponseBodyDataSessions extends $dara.Model {
   lastRunId?: string;
   /**
    * @remarks
-   * The status of the most recent run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for user intervention), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), and `REJECTED` (rejected).
+   * The status of the most recent run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for interrupt handling), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), and `REJECTED` (rejected).
    * 
    * @example
    * COMPLETED
@@ -61,6 +61,14 @@ export class ListSessionsResponseBodyDataSessions extends $dara.Model {
   title?: string;
   /**
    * @remarks
+   * Indicates whether session UI enhancement is enabled. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled. This feature is supported only for regular sessions. If this field is not returned, the feature is considered disabled.
+   * 
+   * @example
+   * true
+   */
+  uiEnabled?: boolean;
+  /**
+   * @remarks
    * The time when the session was last updated, in RFC 3339 format.
    * 
    * @example
@@ -76,6 +84,7 @@ export class ListSessionsResponseBodyDataSessions extends $dara.Model {
       sessionId: 'sessionId',
       status: 'status',
       title: 'title',
+      uiEnabled: 'uiEnabled',
       updatedAt: 'updatedAt',
     };
   }
@@ -89,6 +98,7 @@ export class ListSessionsResponseBodyDataSessions extends $dara.Model {
       sessionId: 'string',
       status: 'string',
       title: 'string',
+      uiEnabled: 'boolean',
       updatedAt: 'string',
     };
   }
@@ -168,7 +178,7 @@ export class ListSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. true indicates success.
+   * Indicates whether the request is successful. A value of true indicates success.
    * 
    * @example
    * true

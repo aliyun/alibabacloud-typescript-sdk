@@ -13,7 +13,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The ID of the latest run.
+   * The ID of the last run.
    * 
    * @example
    * run_example_001
@@ -21,7 +21,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
   lastRunId?: string;
   /**
    * @remarks
-   * The status of the latest run. Valid values: `PENDING` (Pending), `RUNNING` (Running), `WAITING_USER` (Waiting for interrupt handling), `COMPLETED` (Completed), `FAILED` (Failed), `CANCELLED` (Cancelled), and `REJECTED` (Rejected).
+   * The status of the last run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for interrupt handling), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), and `REJECTED` (rejected).
    * 
    * @example
    * COMPLETED
@@ -45,7 +45,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The status of the session. Valid values: `IDLE` (Idle), `ACTIVE` (Running), `WAITING_USER_INPUT` (Waiting for user input), `WAITING_APPROVAL` (Waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (Waiting for out-of-band approval), and `CLOSED` (Closed).
+   * The session status. Valid values: `IDLE` (idle), `ACTIVE` (running), `WAITING_USER_INPUT` (waiting for user input), `WAITING_APPROVAL` (waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (waiting for out-of-band approval), and `CLOSED` (closed).
    * 
    * @example
    * IDLE
@@ -59,6 +59,14 @@ export class GetSessionResponseBodyData extends $dara.Model {
    * Cloud resource inspection example
    */
   title?: string;
+  /**
+   * @remarks
+   * Indicates whether session UI enhancement is enabled. Valid values: true (enabled) and false (disabled). This feature is supported only for common sessions. If this field is not returned, the feature is considered disabled.
+   * 
+   * @example
+   * true
+   */
+  uiEnabled?: boolean;
   /**
    * @remarks
    * The time when the session was last updated, in ISO 8601 format.
@@ -76,6 +84,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
       sessionId: 'sessionId',
       status: 'status',
       title: 'title',
+      uiEnabled: 'uiEnabled',
       updatedAt: 'updatedAt',
     };
   }
@@ -89,6 +98,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
       sessionId: 'string',
       status: 'string',
       title: 'string',
+      uiEnabled: 'boolean',
       updatedAt: 'string',
     };
   }
@@ -118,7 +128,7 @@ export class GetSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

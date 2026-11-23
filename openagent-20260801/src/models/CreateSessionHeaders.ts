@@ -6,7 +6,7 @@ export class CreateSessionHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The request idempotency key. Use the same value and the same business parameters when retrying the same request.
+   * The idempotency key of the request. Use the same value and the same business parameters when you retry the request.
    * 
    * @example
    * create-session-example-001

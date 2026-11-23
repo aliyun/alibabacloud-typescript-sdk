@@ -11,15 +11,22 @@ export class CreateSessionRequest extends $dara.Model {
    * Cloud resource inspection example
    */
   title?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable session UI enhancement. Only common sessions support this feature.
+   */
+  uiEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       title: 'title',
+      uiEnabled: 'uiEnabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       title: 'string',
+      uiEnabled: 'boolean',
     };
   }
 

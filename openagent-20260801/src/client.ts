@@ -97,7 +97,7 @@ export default class Client extends OpenApi {
    * Creates a session.
    * 
    * @remarks
-   * Creates a session and returns the session information. Use the returned sessionId for subsequent operations such as sending messages, querying records, and updating the session.
+   * Creates a session and returns the session information. Use the returned sessionId when sending messages, querying records, and updating the session.
    * 
    * @param request - CreateSessionRequest
    * @param headers - CreateSessionHeaders
@@ -109,6 +109,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.title)) {
       body["title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.uiEnabled)) {
+      body["uiEnabled"] = request.uiEnabled;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -142,7 +146,7 @@ export default class Client extends OpenApi {
    * Creates a session.
    * 
    * @remarks
-   * Creates a session and returns the session information. Use the returned sessionId for subsequent operations such as sending messages, querying records, and updating the session.
+   * Creates a session and returns the session information. Use the returned sessionId when sending messages, querying records, and updating the session.
    * 
    * @param request - CreateSessionRequest
    * @returns CreateSessionResponse
@@ -301,7 +305,7 @@ export default class Client extends OpenApi {
    * Queries a session.
    * 
    * @remarks
-   * Queries the title, status, pinned status, and the ID and status of the latest run of a specified session.
+   * Queries the title, status, and pinned status of a specified session, as well as the ID and status of its last run.
    * 
    * @param request - GetSessionRequest
    * @param headers - map
@@ -331,7 +335,7 @@ export default class Client extends OpenApi {
    * Queries a session.
    * 
    * @remarks
-   * Queries the title, status, pinned status, and the ID and status of the latest run of a specified session.
+   * Queries the title, status, and pinned status of a specified session, as well as the ID and status of its last run.
    * 
    * @param request - GetSessionRequest
    * @returns GetSessionResponse
@@ -405,7 +409,7 @@ export default class Client extends OpenApi {
    * Lists sessions.
    * 
    * @remarks
-   * Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
+   * Performs a paging query for the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
    * 
    * @param request - ListSessionsRequest
    * @param headers - map
@@ -445,7 +449,7 @@ export default class Client extends OpenApi {
    * Lists sessions.
    * 
    * @remarks
-   * Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
+   * Performs a paging query for the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
    * 
    * @param request - ListSessionsRequest
    * @returns ListSessionsResponse
@@ -667,10 +671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the title or pinned status of a session.
+   * Updates a session.
    * 
    * @remarks
-   * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+   * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
    * 
    * @param request - UpdateSessionRequest
    * @param headers - UpdateSessionHeaders
@@ -686,6 +690,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.title)) {
       body["title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.uiEnabled)) {
+      body["uiEnabled"] = request.uiEnabled;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -716,10 +724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the title or pinned status of a session.
+   * Updates a session.
    * 
    * @remarks
-   * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+   * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
    * 
    * @param request - UpdateSessionRequest
    * @returns UpdateSessionResponse
