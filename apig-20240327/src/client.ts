@@ -5270,6 +5270,10 @@ export default class Client extends OpenApi {
       query["gatewayId"] = request.gatewayId;
     }
 
+    if (!$dara.isNull(request.includeModelTpm)) {
+      query["includeModelTpm"] = request.includeModelTpm;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6541,6 +6545,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getModelGroupWithOptions(modelGroupId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the token throttling rules for a model.
+   * 
+   * @param request - GetModelTokenRateLimitRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelTokenRateLimitResponse
+   */
+  async getModelTokenRateLimitWithOptions(gatewayId: string, modelId: string, request: $_model.GetModelTokenRateLimitRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelTokenRateLimitResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelTokenRateLimit",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/model-tpm/${$dara.URL.percentEncode(modelId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelTokenRateLimitResponse>(await this.callApi(params, req, runtime), new $_model.GetModelTokenRateLimitResponse({}));
+  }
+
+  /**
+   * Queries the token throttling rules for a model.
+   * 
+   * @param request - GetModelTokenRateLimitRequest
+   * @returns GetModelTokenRateLimitResponse
+   */
+  async getModelTokenRateLimit(gatewayId: string, modelId: string, request: $_model.GetModelTokenRateLimitRequest): Promise<$_model.GetModelTokenRateLimitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelTokenRateLimitWithOptions(gatewayId, modelId, request, headers, runtime);
   }
 
   /**
@@ -9047,10 +9090,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+   * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
    * 
    * @remarks
-   * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+   * Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
    * 
    * @param request - ListGatewayWebsocketEventsRequest
    * @param headers - map
@@ -9115,10 +9158,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+   * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
    * 
    * @remarks
-   * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+   * Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
    * 
    * @param request - ListGatewayWebsocketEventsRequest
    * @returns ListGatewayWebsocketEventsResponse
@@ -14324,7 +14367,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+   * Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
    * 
    * @param request - UpdateMcpServerRequest
    * @param headers - map
@@ -14408,7 +14451,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+   * Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
    * 
    * @param request - UpdateMcpServerRequest
    * @returns UpdateMcpServerResponse
@@ -14628,6 +14671,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelGroupWithOptions(modelGroupId, request, headers, runtime);
+  }
+
+  /**
+   * Modifies the token throttling rules for a model.
+   * 
+   * @param request - UpdateModelTokenRateLimitRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelTokenRateLimitResponse
+   */
+  async updateModelTokenRateLimitWithOptions(gatewayId: string, modelId: string, request: $_model.UpdateModelTokenRateLimitRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelTokenRateLimitResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumers)) {
+      body["consumers"] = request.consumers;
+    }
+
+    if (!$dara.isNull(request.expectedRevision)) {
+      body["expectedRevision"] = request.expectedRevision;
+    }
+
+    if (!$dara.isNull(request.globalTpm)) {
+      body["globalTpm"] = request.globalTpm;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelTokenRateLimit",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/model-tpm/${$dara.URL.percentEncode(modelId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelTokenRateLimitResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelTokenRateLimitResponse({}));
+  }
+
+  /**
+   * Modifies the token throttling rules for a model.
+   * 
+   * @param request - UpdateModelTokenRateLimitRequest
+   * @returns UpdateModelTokenRateLimitResponse
+   */
+  async updateModelTokenRateLimit(gatewayId: string, modelId: string, request: $_model.UpdateModelTokenRateLimitRequest): Promise<$_model.UpdateModelTokenRateLimitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelTokenRateLimitWithOptions(gatewayId, modelId, request, headers, runtime);
   }
 
   /**

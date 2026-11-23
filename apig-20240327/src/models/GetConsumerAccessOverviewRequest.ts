@@ -13,15 +13,25 @@ export class GetConsumerAccessOverviewRequest extends $dara.Model {
    * gw-123456
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * Specifies whether to also query the model TPM limits. Default value: false. If set to true, modelTpmLimits is returned for dedicated instances.
+   * 
+   * @example
+   * true
+   */
+  includeModelTpm?: boolean;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
+      includeModelTpm: 'includeModelTpm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       gatewayId: 'string',
+      includeModelTpm: 'boolean',
     };
   }
 

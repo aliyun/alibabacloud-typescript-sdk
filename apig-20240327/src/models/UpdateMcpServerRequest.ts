@@ -64,10 +64,10 @@ export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The protocol. Valid values:
-   * - TCP.
-   * - HTTP.
-   * - DUBBO.
+   * The service protocol. Valid values:
+   * - TCP: TCP
+   * - HTTP: HTTP
+   * - DUBBO: Dubbo
    * 
    * @example
    * HTTP
@@ -177,7 +177,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   port?: number;
   /**
    * @remarks
-   * The protocol.
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -329,7 +329,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
 export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * The MCP server configurations. This parameter is mutually exclusive with swaggerConfig.
+   * The MCP server configurations. This parameter is mutually exclusive with the swaggerConfig parameter.
    * 
    * @example
    * mcp-server-spec-yaml
@@ -380,11 +380,11 @@ export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
    * The creation source type. Valid values:
-   * - ApiGatewayHttpToMCP: API Gateway-managed HTTP-to-MCP
-   * - ApiGatewayProxyMcpHosting: API Gateway-managed direct MCP proxy
-   * - ApiGatewayAssembly: API Gateway MCP assembly
-   * - NacosHttpToMCP: API Gateway-managed Nacos-synchronized HTTP-to-MCP
-   * - NacosMcpHosting: API Gateway-managed Nacos-synchronized direct MCP proxy
+   * - ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP
+   * - ApiGatewayProxyMcpHosting: Gateway-hosted direct MCP proxy
+   * - ApiGatewayAssembly: Gateway MCP assembly
+   * - NacosHttpToMCP: Gateway-hosted Nacos-synchronized HTTP-to-MCP
+   * - NacosMcpHosting: Gateway-hosted Nacos-synchronized direct MCP proxy
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -418,7 +418,13 @@ export class UpdateMcpServerRequest extends $dara.Model {
   grayMcpServerConfigs?: UpdateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The MCP service description.
+   * The MCP service instructions. Only gateway-hosted HTTP-to-MCP services of AI Gateway Professional Edition are supported. The maximum length is 2,048 UTF-8 bytes.
+   * 
+   * - Passing a non-empty string replaces the saved instructions.
+   * - Omitting this field retains the saved instructions.
+   * - Passing an empty string `""` clears the saved instructions.
+   * 
+   * After you republish the MCP service, newly established MCP connections can read the updated instructions in `result.instructions` of the `initialize` response. If cleared, the response omits `instructions`.
    * 
    * @example
    * Used to query order status. An order number is required for the query
