@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDeviceInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * AppKey information.
+   * The AppKey information.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryDeviceInfoRequest extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
-   * The unique identity of the device in the push system. Query only one at a time.
+   * The unique identifier of the device in the push system. Only one device can be queried at a time.
    * 
    * This parameter is required.
    * 

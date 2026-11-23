@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   /**
    * @remarks
-   * Account attached to the device.
+   * The account bound to the device.
    * 
    * @example
    * test@aliyun.com
@@ -13,7 +13,7 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * Alias attached to the device.
+   * The alias bound to the device.
    * 
    * @example
    * test_alias,test_alias2
@@ -21,15 +21,12 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * Device brand.
-   * 
-   * @example
-   * HUAWEI
+   * The device brand.
    */
   brand?: string;
   /**
    * @remarks
-   * Device ID.
+   * The device ID.
    * 
    * @example
    * a64ae296f3b04a58a05b30c95****
@@ -37,7 +34,7 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
-   * Device token.
+   * The APNs token of the iOS device.
    * 
    * @example
    * 5ecc7b4012aaa801b63******5543ccbda6b4930d09629e936e1ac4b762a7df
@@ -45,7 +42,7 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   deviceToken?: string;
   /**
    * @remarks
-   * Device type.
+   * The device type.
    * 
    * @example
    * iOS
@@ -53,7 +50,7 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   deviceType?: string;
   /**
    * @remarks
-   * Last online time.
+   * The last online time.
    * 
    * @example
    * 2018-03-27T02:19:40Z
@@ -61,15 +58,12 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   lastOnlineTime?: string;
   /**
    * @remarks
-   * Device model.
-   * 
-   * @example
-   * VOG-AL00
+   * The device model.
    */
   model?: string;
   /**
    * @remarks
-   * Is online.
+   * Indicates whether the device is online.
    * 
    * @example
    * false
@@ -77,7 +71,7 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   online?: boolean;
   /**
    * @remarks
-   * Phone number.
+   * The mobile phone number.
    * 
    * @example
    * 133********
@@ -85,7 +79,7 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Is push feature enabled.
+   * Indicates whether the push feature is enabled.
    * 
    * @example
    * true
@@ -93,7 +87,7 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
   pushEnabled?: boolean;
   /**
    * @remarks
-   * Tags attached to the device.
+   * The tags bound to the device.
    * 
    * @example
    * test_tag,test_tag2
@@ -145,12 +139,12 @@ export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
 export class QueryDeviceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Device details.
+   * The device details.
    */
   deviceInfo?: QueryDeviceInfoResponseBodyDeviceInfo;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
