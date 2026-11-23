@@ -5,8 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ActivateQwenEduApiResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The failure description.
+   * 
+   * @example
+   * Service activation failed. Try again later
+   */
   failMessage?: string;
   /**
+   * @remarks
+   * The activation status. Valid values:
+   * - ACTIVE: Activated.
+   * - ACTIVATING: Activating.
+   * - FAILED: Activation failed.
+   * 
    * @example
    * ACTIVE
    */
@@ -36,16 +49,33 @@ export class ActivateQwenEduApiResponseBodyData extends $dara.Model {
 
 export class ActivateQwenEduApiResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status or POP error code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The activation result. This parameter is null when an error occurs.
+   */
   data?: ActivateQwenEduApiResponseBodyData;
   /**
+   * @remarks
+   * The request error message.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The POP request ID. This parameter is not returned when signature or identity verification fails.
+   * 
+   * @example
+   * 5C5E3F0A-2B0E-4F7B-9C55-0E1A6A0E2F11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

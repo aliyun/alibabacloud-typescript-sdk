@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResultsAnswerPoints extends $dara.Model {
   /**
+   * @remarks
+   * The X-axis coordinate value.
+   * 
    * @example
-   * 0.0
+   * 120
    */
   x?: number;
   /**
+   * @remarks
+   * The Y-axis coordinate value.
+   * 
    * @example
-   * 0.03
+   * 980
    */
   y?: number;
   static names(): { [key: string]: string } {
@@ -38,13 +44,19 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswer
 
 export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResultsCheckPoint extends $dara.Model {
   /**
+   * @remarks
+   * The X-axis coordinate.
+   * 
    * @example
-   * 0.0
+   * 120
    */
   x?: number;
   /**
+   * @remarks
+   * The Y-axis coordinate.
+   * 
    * @example
-   * 0.90
+   * 980
    */
   y?: number;
   static names(): { [key: string]: string } {
@@ -71,10 +83,39 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswer
 }
 
 export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResults extends $dara.Model {
+  /**
+   * @remarks
+   * The coordinate group of the user\\"s answering area. It generally contains four vertex coordinates arranged in the order of top-left, top-right, bottom-right, and bottom-left, formatted as `[{"x": ..., "y": ...}, ...]`.
+   */
   answerPoints?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResultsAnswerPoints[];
+  /**
+   * @remarks
+   * The coordinates of the grading mark point, formatted as `{ "x": ..., "y": ... }`.
+   */
   checkPoint?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResultsCheckPoint;
+  /**
+   * @remarks
+   * The grading conclusion, such as `correct`, `wrong`, or `partial`.
+   * 
+   * @example
+   * correct
+   */
   checkResult?: string;
+  /**
+   * @remarks
+   * The ground truth.
+   * 
+   * @example
+   * 2
+   */
   standardAnswer?: string;
+  /**
+   * @remarks
+   * The student\\"s answer.
+   * 
+   * @example
+   * 2
+   */
   userAnswer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,13 +154,19 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswer
 
 export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsQuestionPoints extends $dara.Model {
   /**
+   * @remarks
+   * The X-axis coordinate value.
+   * 
    * @example
-   * 0.0
+   * 120
    */
   x?: number;
   /**
+   * @remarks
+   * The Y-axis coordinate value.
+   * 
    * @example
-   * 0.0
+   * 980
    */
   y?: number;
   static names(): { [key: string]: string } {
@@ -146,19 +193,60 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsQuesti
 }
 
 export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults extends $dara.Model {
+  /**
+   * @remarks
+   * The array of answering and grading results for the question.
+   */
   answerResults?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResults[];
   /**
+   * @remarks
+   * Specifies whether the task is completed:
+   * 
+   * - **true**: The task is completed.
+   * - **false**: The task is not completed.
+   * 
    * @example
-   * True
+   * true
    */
   finish?: boolean;
+  /**
+   * @remarks
+   * The text content of the question.
+   * 
+   * @example
+   * 1 + 1 = ?
+   */
   questionContent?: string;
+  /**
+   * @remarks
+   * The question ID.
+   * 
+   * @example
+   * q-001
+   */
   questionId?: string;
+  /**
+   * @remarks
+   * The coordinate group of the question area. It generally contains four vertex coordinates arranged in the order of top-left, top-right, bottom-right, and bottom-left.
+   * 
+   * @example
+   * Formatted as `[[{"x": 0, "y": 0}, ...]]`
+   */
   questionPoints?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsQuestionPoints[][];
+  /**
+   * @remarks
+   * The question type.
+   * 
+   * @example
+   * choice
+   */
   questionType?: string;
   /**
+   * @remarks
+   * The question analysis and solution.
+   * 
    * @example
-   * 已处理：接口耗时已恢复低于阈值（09:53后分钟平均约1.8s～3.3s）
+   * The question analysis and solution
    */
   solution?: string;
   static names(): { [key: string]: string } {
@@ -201,14 +289,42 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults exten
 }
 
 export class CreateEduHomeworkCorrectSubmitResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The clockwise rotation angle of the image, in degrees.
+   * 
+   * @example
+   * 0
+   */
   angle?: number;
+  /**
+   * @remarks
+   * The URL of the corrected image. If `dewarp` is set to `false`, the URL of the original image is returned.
+   * 
+   * @example
+   * https://example.com/dewarp.jpg
+   */
   dewarpUrl?: string;
+  /**
+   * @remarks
+   * The array of question recognition and grading results.
+   */
   questionResults?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults[];
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
-   * OK
+   * Examples: submitted, processing, finished, or failed
    */
   status?: string;
+  /**
+   * @remarks
+   * The unique identifier of the task. You must include this ID in subsequent queries.
+   * 
+   * @example
+   * task-20261116-abc123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -244,16 +360,33 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyData extends $dara.Model 
 
 export class CreateEduHomeworkCorrectSubmitResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status.
+   * 
    * @example
-   * OK
+   * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The import command.
+   */
   data?: CreateEduHomeworkCorrectSubmitResponseBodyData;
   /**
+   * @remarks
+   * The request error message.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The request ID on the caller side.
+   * 
+   * @example
+   * req-20261116-0001
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

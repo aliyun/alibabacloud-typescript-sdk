@@ -3,12 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEduProblemSolveRequestQueryImage extends $dara.Model {
+  /**
+   * @remarks
+   * **The Base64-encoded image**. If both this parameter and the URL are provided, this parameter takes precedence.
+   * 
+   * @example
+   * iVBORw0KGgoAAAANSUhEUgAAAAUA...
+   */
   base64?: string;
   /**
    * @remarks
+   * **The image format**: jpg, jpeg, or png. The value must match the actual file format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * jpg
    */
   format?: string;
+  /**
+   * @remarks
+   * The URL of a single question image.
+   * 
+   * @example
+   * https://your-cdn.example.com/question.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,6 +55,10 @@ export class CreateEduProblemSolveRequestQueryImage extends $dara.Model {
 }
 
 export class CreateEduProblemSolveRequestQuery extends $dara.Model {
+  /**
+   * @remarks
+   * **The image information.**
+   */
   image?: CreateEduProblemSolveRequestQueryImage;
   static names(): { [key: string]: string } {
     return {
@@ -64,10 +87,13 @@ export class CreateEduProblemSolveRequestQuery extends $dara.Model {
 export class CreateEduProblemSolveRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is required.
+   * **The question image container.**
    */
   query?: CreateEduProblemSolveRequestQuery;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 019F593F-D6EE-5F44-819A-6CDA127D1637
    */

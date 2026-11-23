@@ -5,10 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEduProblemSolveShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is required.
+   * **The question image container.**
    */
   queryShrink?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 019F593F-D6EE-5F44-819A-6CDA127D1637
    */

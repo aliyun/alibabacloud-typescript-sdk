@@ -7,10 +7,9 @@ export { CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults } from '.
 export { CreateEduHomeworkCorrectSubmitResponseBodyData } from './CreateEduHomeworkCorrectSubmitResponseBody';
 export { CreateEduProblemSolveRequestQueryImage } from './CreateEduProblemSolveRequest';
 export { CreateEduProblemSolveRequestQuery } from './CreateEduProblemSolveRequest';
-export { CreateEduProblemSolveResponseBodyDataItemsThinking } from './CreateEduProblemSolveResponseBody';
-export { CreateEduProblemSolveResponseBodyDataItems } from './CreateEduProblemSolveResponseBody';
-export { CreateEduProblemSolveResponseBodyDataUsage } from './CreateEduProblemSolveResponseBody';
-export { CreateEduProblemSolveResponseBodyData } from './CreateEduProblemSolveResponseBody';
+export { CreateEduProblemSolveResponseBodyItemsThinking } from './CreateEduProblemSolveResponseBody';
+export { CreateEduProblemSolveResponseBodyItems } from './CreateEduProblemSolveResponseBody';
+export { CreateEduProblemSolveResponseBodyUsage } from './CreateEduProblemSolveResponseBody';
 export { GetEduHomeworkCorrectionResultResponseBodyDataQuestionResultsAnswerResultsAnswerPoints } from './GetEduHomeworkCorrectionResultResponseBody';
 export { GetEduHomeworkCorrectionResultResponseBodyDataQuestionResultsAnswerResultsCheckPoint } from './GetEduHomeworkCorrectionResultResponseBody';
 export { GetEduHomeworkCorrectionResultResponseBodyDataQuestionResultsAnswerResults } from './GetEduHomeworkCorrectionResultResponseBody';

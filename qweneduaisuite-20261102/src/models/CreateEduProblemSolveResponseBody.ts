@@ -2,13 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEduProblemSolveResponseBodyDataItemsThinking extends $dara.Model {
+export class CreateEduProblemSolveResponseBodyItemsThinking extends $dara.Model {
   /**
+   * @remarks
+   * The current thinking content.
+   * 
    * @example
    * 8ci7nsj9WPYXvQb9MJfA
    */
   content?: string;
   /**
+   * @remarks
+   * The thinking status. Valid values:
+   * * processing: Processing.
+   * * complete: Complete.
+   * 
    * @example
    * 200
    */
@@ -36,20 +44,46 @@ export class CreateEduProblemSolveResponseBodyDataItemsThinking extends $dara.Mo
   }
 }
 
-export class CreateEduProblemSolveResponseBodyDataItems extends $dara.Model {
+export class CreateEduProblemSolveResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The complete Markdown content of the question resolution, including the deduction process and the final result.
+   * 
    * @example
    * {}
    */
   content?: string;
+  /**
+   * @remarks
+   * The URL of the unique image for the current question. The URL may be time-sensitive. If the question is not associated with an image resource and no request URL is available for fallback, an empty string is returned.
+   * 
+   * @example
+   * https://xxx.jpg
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The question identifier. The value is the question title, such as Question 1. The server does not return a separate title field. If the downstream service does not provide a question title, which is always the case for single-question scenarios, titles such as Question 1 and Question 2 are generated in the order of the questions.
+   * 
+   * @example
+   * 50a10e43a33e36179e355556d319ebd5
+   */
   questionId?: string;
   /**
+   * @remarks
+   * The current question status. Valid values:
+   * * processing: Processing.
+   * * complete: Complete.
+   * 
    * @example
    * 200
    */
   status?: string;
-  thinking?: CreateEduProblemSolveResponseBodyDataItemsThinking;
+  /**
+   * @remarks
+   * The thinking process. This field is returned only when result_type is single, and is not returned for multiple questions.
+   */
+  thinking?: CreateEduProblemSolveResponseBodyItemsThinking;
   static names(): { [key: string]: string } {
     return {
       content: 'content',
@@ -66,7 +100,7 @@ export class CreateEduProblemSolveResponseBodyDataItems extends $dara.Model {
       imageUrl: 'string',
       questionId: 'string',
       status: 'string',
-      thinking: CreateEduProblemSolveResponseBodyDataItemsThinking,
+      thinking: CreateEduProblemSolveResponseBodyItemsThinking,
     };
   }
 
@@ -82,8 +116,22 @@ export class CreateEduProblemSolveResponseBodyDataItems extends $dara.Model {
   }
 }
 
-export class CreateEduProblemSolveResponseBodyDataUsage extends $dara.Model {
+export class CreateEduProblemSolveResponseBodyUsage extends $dara.Model {
+  /**
+   * @remarks
+   * The number of output tokens.
+   * 
+   * @example
+   * 1024
+   */
   completionTokens?: number;
+  /**
+   * @remarks
+   * The number of input tokens.
+   * 
+   * @example
+   * 1024
+   */
   promptTokens?: number;
   static names(): { [key: string]: string } {
     return {
@@ -108,27 +156,61 @@ export class CreateEduProblemSolveResponseBodyDataUsage extends $dara.Model {
   }
 }
 
-export class CreateEduProblemSolveResponseBodyData extends $dara.Model {
+export class CreateEduProblemSolveResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API data identifier.
+   * 
    * @example
    * change_batch
    */
   code?: string;
-  finished?: boolean;
-  items?: CreateEduProblemSolveResponseBodyDataItems[];
   /**
+   * @remarks
+   * Specifies whether this is the final full snapshot. The value is fixed to true in the complete event.
+   */
+  finished?: boolean;
+  /**
+   * @remarks
+   * The current list of complete question results.
+   */
+  items?: CreateEduProblemSolveResponseBodyItems[];
+  /**
+   * @remarks
+   * The actual response message of the request.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Echo request ID echoed from echo request.
+   * 
    * @example
    * 098E23F7-A74C-5584-87A1-39734D5B83CE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The type of the question resolution result. Valid values:
+   * * single: Single question.
+   * * multiple: Multiple questions.
+   * 
+   * @example
+   * single
+   */
   resultType?: string;
+  /**
+   * @remarks
+   * Specifies whether the error is retryable. Default value: true.
+   */
   retryable?: boolean;
-  usage?: CreateEduProblemSolveResponseBodyDataUsage;
+  /**
+   * @remarks
+   * The token usage. Only the complete event carries the final value. The message event does not return this field.
+   */
+  usage?: CreateEduProblemSolveResponseBodyUsage;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
@@ -146,12 +228,12 @@ export class CreateEduProblemSolveResponseBodyData extends $dara.Model {
     return {
       code: 'string',
       finished: 'boolean',
-      items: { 'type': 'array', 'itemType': CreateEduProblemSolveResponseBodyDataItems },
+      items: { 'type': 'array', 'itemType': CreateEduProblemSolveResponseBodyItems },
       message: 'string',
       requestId: 'string',
       resultType: 'string',
       retryable: 'boolean',
-      usage: CreateEduProblemSolveResponseBodyDataUsage,
+      usage: CreateEduProblemSolveResponseBodyUsage,
     };
   }
 
@@ -161,39 +243,6 @@ export class CreateEduProblemSolveResponseBodyData extends $dara.Model {
     }
     if(this.usage && typeof (this.usage as any).validate === 'function') {
       (this.usage as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEduProblemSolveResponseBody extends $dara.Model {
-  data?: CreateEduProblemSolveResponseBodyData;
-  /**
-   * @example
-   * message
-   */
-  event?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      event: 'event',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateEduProblemSolveResponseBodyData,
-      event: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
     }
     super.validate();
   }
