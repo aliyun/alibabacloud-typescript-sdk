@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlowlogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -13,7 +13,7 @@ export class DeleteFlowlogResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * Indicates whether the call was successful. A return value of 200 indicates success, and any other value indicates failure. For the cause of failure, see error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,9 @@ export class DeleteFlowlogResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -47,7 +47,7 @@ export class DeleteFlowlogResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the operation.
    * 
    * @example
    * OK
@@ -63,10 +63,11 @@ export class DeleteFlowlogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - **True**
-   * - **False**
+   * - **True**: The call was successful.
+   * 
+   * - **False**: The call failed.
    * 
    * @example
    * True

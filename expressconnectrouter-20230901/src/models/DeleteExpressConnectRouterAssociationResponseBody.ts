@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteExpressConnectRouterAssociationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -13,7 +13,7 @@ export class DeleteExpressConnectRouterAssociationResponseBody extends $dara.Mod
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * Indicates whether the call was successful. A return value of 200 indicates that the request was successful. Any other value indicates that the request failed. For more information about the causes of failure, see the error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,8 @@ export class DeleteExpressConnectRouterAssociationResponseBody extends $dara.Mod
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-   * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -47,7 +46,7 @@ export class DeleteExpressConnectRouterAssociationResponseBody extends $dara.Mod
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the API.
    * 
    * @example
    * OK
@@ -55,7 +54,7 @@ export class DeleteExpressConnectRouterAssociationResponseBody extends $dara.Mod
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 05130E79-588D-5C40-A718-C4863A59****
@@ -63,10 +62,11 @@ export class DeleteExpressConnectRouterAssociationResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **True**: Successful.
+   * 
+   * - **False**: Failed.
    * 
    * @example
    * True

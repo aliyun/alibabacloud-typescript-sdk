@@ -13,7 +13,7 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The code that indicates whether the call was successful. A value of 200 indicates that the request was successful. Any other value indicates that the request failed. For the causes of failure, see the error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,9 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -47,7 +47,7 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the instance operation.
    * 
    * @example
    * OK
@@ -55,7 +55,7 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -63,10 +63,10 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether routes are disabled by the ECR. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **True**: The call was successful.
+   * - **False**: The call failed.
    * 
    * @example
    * True

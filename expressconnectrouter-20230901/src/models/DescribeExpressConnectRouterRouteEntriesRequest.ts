@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The Autonomous System (AS) path of the route.
+   * The AS path traversed by the route entry.
    * 
    * @example
    * [64993,64512]
@@ -15,9 +15,9 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate the parameter value from your client to ensure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-00****
@@ -25,7 +25,7 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
   clientToken?: string;
   /**
    * @remarks
-   * The community value that is carried in the Border Gateway Protocol (BGP) route.
+   * The community value carried by the BGP route entry.
    * 
    * @example
    * 9001:9263
@@ -33,18 +33,19 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
   community?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route that you want to query.
+   * The destination CIDR block of the route entry to query.
    * 
    * @example
-   * 172.20.47.0/24
+   * 172.20.4.0/24
    */
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether it is a dry run for this request. Valid values:
    * 
-   * *   **true**: performs only a dry run.
-   * *   **false** (default): performs a dry run and performs the actual request.
+   * - **true**: sends a check request and does not modify EPS resources.
+   * 
+   * - **false** (default): sends a normal request.
    * 
    * @example
    * true
@@ -52,7 +53,7 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
   dryRun?: boolean;
   /**
    * @remarks
-   * The ECR ID.
+   * The instance ID of the Express Connect Router (ECR).
    * 
    * This parameter is required.
    * 
@@ -62,7 +63,7 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
   ecrId?: string;
   /**
    * @remarks
-   * The maximum number of entries to read. Valid values: 1 to 2147483647. Default value: 10.
+   * The maximum number of entries to return. Valid values: 1 to 2147483647. Default value: 10.
    * 
    * @example
    * 10
@@ -70,10 +71,9 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token for the next query. Valid values:
+   * - For the first query or when no subsequent query is required, leave this parameter empty.
+   * - If a subsequent query is required, set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * FF9nMec/RZ6H9oqFn1pvyir/SLRlxCCyHJonbGzqL01hiM6Jb3wJowdHvjCfog7ww1b9rSHMRFJnrUBfVba68TJg==
@@ -81,15 +81,15 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the next-hop instance.
+   * The next hop instance ID.
    * 
    * @example
-   * br-hp3u4u5f03tfuljis****
+   * vbr-hp3u4u5f03tfuljis****
    */
   nexthopInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the ECR.
+   * The region where the Express Connect Router (ECR) instance resides.
    * 
    * @example
    * cn-hangzhou

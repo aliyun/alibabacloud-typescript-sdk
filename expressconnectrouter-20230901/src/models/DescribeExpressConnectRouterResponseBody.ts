@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressConnectRouterResponseBodyEcrListTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the Express Connect Router (ECR) instance.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrListTags extends $dara.M
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the Express Connect Router (ECR) instance.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrListTags extends $dara.M
 export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model {
   /**
    * @remarks
-   * The autonomous system number (ASN) of the ECR.
+   * The ASN of the Express Connect Router (ECR) instance.
    * 
    * @example
    * 45104
@@ -53,10 +53,11 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   alibabaSideAsn?: number;
   /**
    * @remarks
-   * The business state of the ECR. Valid values:
+   * The business status of the service instance. Valid values:
    * 
-   * *   **Normal:** The ECR is running as expected.
-   * *   **FinancialLocked**: The ECR is locked due to overdue payments.
+   * - **Normal**: Normal.
+   * 
+   * - **FinancialLocked**: Locked due to overdue payment.
    * 
    * @example
    * Normal
@@ -64,7 +65,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   bizStatus?: string;
   /**
    * @remarks
-   * The description of the ECR.
+   * The description of the Express Connect Router (ECR) instance.
    * 
    * @example
    * test
@@ -72,7 +73,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The ECR ID.
+   * The ID of the Express Connect Router (ECR) instance.
    * 
    * @example
    * ecr-mezk2idmsd0vx2****
@@ -80,7 +81,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   ecrId?: string;
   /**
    * @remarks
-   * The time when the ECR was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the Express Connect Router (ECR) instance was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2023-02-16T01:44:50Z
@@ -88,7 +89,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the ECR was modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the Express Connect Router (ECR) instance was modified. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2023-02-16T01:44:50Z
@@ -96,7 +97,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   gmtModified?: string;
   /**
    * @remarks
-   * The name of the ECR.
+   * The name of the Express Connect Router (ECR) instance.
    * 
    * @example
    * test
@@ -104,7 +105,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the ECR.
+   * The Alibaba Cloud account ID to which the Express Connect Router (ECR) instance belongs.
    * 
    * @example
    * 170646818729****
@@ -112,7 +113,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the ECR belongs.
+   * The ID of the resource group to which the Express Connect Router (ECR) instance belongs.
    * 
    * @example
    * rg-aekzuscospt****
@@ -120,16 +121,23 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The deployment state of the ECR. Valid values:
+   * The deployment status of the service instance. Valid values:
    * 
-   * *   **ACTIVE**: The ECR is created.
-   * *   **UPDATING**: The ECR is being modified.
-   * *   **ASSOCIATING**: The ECR is being associated with resources.
-   * *   **DISSOCIATING**: The resource is being disassociated from resources.
-   * *   **LOCKED_ATTACHING**: The ECR is locked because it is being associated with an external system.
-   * *   **LOCKED_DETACHING**: The ECR is locked because it is being disassociated from an external system.
-   * *   **RECLAIMING**: The ECR is waiting to release resources.
-   * *   **DELETING**: The ECR is being deleted.
+   * - **ACTIVE**: Created.
+   * 
+   * - **UPDATING**: Updating.
+   * 
+   * - **ASSOCIATING**: Associating resources.
+   * 
+   * - **DISSOCIATING**: Dissociating resources.
+   * 
+   * - **LOCKED_ATTACHING**: Locked for association by an external system.
+   * 
+   * - **LOCKED_DETACHING**: Locked for dissociation by an external system.
+   * 
+   * - **RECLAIMING**: Pending resource release.
+   * 
+   * - **DELETING**: Deleting.
    * 
    * @example
    * Active
@@ -137,7 +145,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: DescribeExpressConnectRouterResponseBodyEcrListTags[];
   static names(): { [key: string]: string } {
@@ -187,7 +195,7 @@ export class DescribeExpressConnectRouterResponseBodyEcrList extends $dara.Model
 export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -195,7 +203,7 @@ export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * Indicates whether the call was successful. A return value of 200 indicates success, while other values indicate failure. For the cause of failure, see the error codes.
    * 
    * @example
    * 200
@@ -211,9 +219,9 @@ export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of Name **** is illegal.
@@ -221,7 +229,7 @@ export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The ECRs.
+   * The list of Express Connect Router (ECR) instances.
    */
   ecrList?: DescribeExpressConnectRouterResponseBodyEcrList[];
   /**
@@ -234,15 +242,15 @@ export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The total number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
+   * The maximum number of entries to return. Valid values: 1 to 2147483647. Default value: 20.
    * 
    * @example
-   * 10
+   * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the operation.
    * 
    * @example
    * OK
@@ -250,10 +258,10 @@ export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   If NextToken is empty, no next page exists.
-   * *   If a value of NextToken is returned, the value indicates the token that is used for the next query.
+   * - If NextToken is empty, no next query is available.
+   * - If NextToken has a return value, the value indicates the token for the next query.
    * 
    * @example
    * AAAAAdDWBF2w6Olxc+cMPjUtUMpttDGZkffvHCfhBKKNEyCVaq+WUEzuUWpp9+QOApNf6g==
@@ -269,10 +277,9 @@ export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the query for created ECR instances was successful. Valid values:
+   * - **True**: The query was successful.
+   * - **False**: The query failed.
    * 
    * @example
    * True
@@ -280,7 +287,7 @@ export class DescribeExpressConnectRouterResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of ECRs.
+   * The total number of Express Connect Router (ECR) instances.
    * 
    * @example
    * 2

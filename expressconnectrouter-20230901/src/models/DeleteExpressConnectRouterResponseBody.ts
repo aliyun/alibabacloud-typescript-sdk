@@ -13,7 +13,7 @@ export class DeleteExpressConnectRouterResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code that indicates whether the ECR instance was deleted. A value of 200 indicates that the deletion was successful. Any other value indicates that the deletion failed. For the cause of the failure, see the error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,8 @@ export class DeleteExpressConnectRouterResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-   * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message that is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -47,7 +46,7 @@ export class DeleteExpressConnectRouterResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the operation.
    * 
    * @example
    * OK
@@ -55,7 +54,7 @@ export class DeleteExpressConnectRouterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -63,10 +62,9 @@ export class DeleteExpressConnectRouterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the ECR instance was deleted. Valid values:
+   * - **True**: succeeded.
+   * - **False**: failed.
    * 
    * @example
    * True

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateFlowLogRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. If you specify this parameter, it cannot be an empty string. It can be up to 128 characters in length, and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. Valid values of N: 1 to 20. If you specify this parameter, it can be an empty string. It can be up to 128 characters in length, and cannot start with acs:. It cannot contain http:// or https://.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,9 +47,9 @@ export class CreateFlowLogRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate a parameter value on your client to ensure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-00****
@@ -44,8 +58,7 @@ export class CreateFlowLogRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the flow log.
-   * 
-   * > The description can be empty or 1 to 256 characters in length. It cannot start with http:// or https://.
+   * > The description can be empty or 0 to 256 characters in length. It cannot start with http:// or https://.
    * 
    * @example
    * myFlowlog
@@ -53,10 +66,11 @@ export class CreateFlowLogRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether the request is only a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run.
-   * *   **false** (default): performs a dry run and performs the actual request.
+   * - **true**: Performs a dry run without modifying EPS resources.
+   * 
+   * - **false** (default): Sends a normal request.
    * 
    * @example
    * false
@@ -64,7 +78,7 @@ export class CreateFlowLogRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the ECR.
+   * The instance ID of the Express Connect Router (ECR).
    * 
    * This parameter is required.
    * 
@@ -75,8 +89,7 @@ export class CreateFlowLogRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the flow log.
-   * 
-   * > The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
+   * > The name can be empty or 0 to 128 characters in length. It cannot start with http:// or https://.
    * 
    * @example
    * myFlowlog
@@ -84,7 +97,10 @@ export class CreateFlowLogRequest extends $dara.Model {
   flowLogName?: string;
   /**
    * @remarks
-   * The VBR ID.
+   * The instance ID of the VBR.
+   * 
+   * >The VBR instance must be created by calling the CreateVirtualBorderRouter operation of the Vpc/2016-04-28 API version. The prerequisite is that a physical connection exists.
+   * >The VBR instance must be mounted as a child instance to the Express Connect Router (ECR) corresponding to EcrId by calling AttachExpressConnectRouterChildInstance, and the mount status must be ACTIVE before you can create a flow log. You can call DescribeExpressConnectRouterChildInstance to query the mount status of the child instance.
    * 
    * This parameter is required.
    * 
@@ -94,9 +110,8 @@ export class CreateFlowLogRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of network instance. Valid values:
-   * 
-   * *   **VBR**
+   * The type of the network instance. Valid values:
+   * - **VBR**: virtual border router (VBR) instance.
    * 
    * This parameter is required.
    * 
@@ -106,9 +121,9 @@ export class CreateFlowLogRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The time window for collecting log data. Unit: seconds. Valid values:
+   * The duration of the capture window for traffic captured by the flow log. Unit: seconds. Valid values:
    * 
-   * - **60**
+   * - **60** 
    * - **600**
    * 
    * Default value: **600**.
@@ -119,14 +134,14 @@ export class CreateFlowLogRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The Logstore that stores the captured traffic data.
+   * The name of the Logstore used to store catch traffic.
+   * - If you have already created a Logstore in the current region, you can enter the name of the existing Logstore.
+   * - If you have not created a Logstore in the current region, you can specify a custom name for the Logstore, and the system will automatically create the Logstore. The naming rules for the Logstore name are as follows:
    * 
-   * *   If a Logstore is already created in the selected region, enter the name of the Logstore.
-   * *   If no Logstores are created in the selected region, enter a name and the system automatically creates a Logstore. The name of the Logstore. The name must meet the following requirements:
-   * *   The name must be unique in a project.
-   * *   It can contain only lowercase letters, digits, hyphens (-), and underscores (_).
-   * *   The name must start and end with a lowercase letter or a digit.
-   * *   The name must be 3 to 63 characters in length.
+   * - The Logstore name must be unique within the same project.
+   * - It can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * - It must start and end with a lowercase letter or a digit.
+   * - It must be 3 to 63 characters in length.
    * 
    * This parameter is required.
    * 
@@ -136,18 +151,18 @@ export class CreateFlowLogRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The project that stores the captured traffic data.
+   * The name of the Simple Log Service project used to store catch traffic.
+   * - If you have already created a project in the current region, you can enter the name of the existing project.
+   * - If you have not created a project in the current region, you can specify a custom name for the project, and the system will automatically create the project.
    * 
-   * *   If a project is already created in the selected region, enter the name of the project.
-   * *   If no projects are created in the selected region, enter a name and the system automatically creates a project.
    * 
-   * The project name must be unique in a region. You cannot change the name after the project is created. The name must meet the following requirements:
-   * 
-   * *   The name must be globally unique.
-   * *   The name can contain only lowercase letters,
-   * *   digits, and hyphens (-).
-   * *   The name must start and end with a lowercase letter or a digit.
-   * *   The name must be 3 to 63 characters in length.
+   * The project name must be globally unique within an Alibaba Cloud region and cannot be modified after creation. The naming rules are as follows:
+   *    
+   * - The project name must be globally unique.
+   * - It can contain only lowercase
+   * - letters, digits, and hyphens (-).
+   * - It must start and end with a lowercase letter or a digit.
+   * - It must be 3 to 63 characters in length.
    * 
    * This parameter is required.
    * 
@@ -155,10 +170,17 @@ export class CreateFlowLogRequest extends $dara.Model {
    * flowlog-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the flow log instance belongs.
+   * 
+   * @example
+   * rg-aek2aq7f4va****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The sampling proportion. Valid values:
+   * The sampling ratio. Valid values:
    * 
    * - **1:4096**
    * - **1:2048**
@@ -170,7 +192,20 @@ export class CreateFlowLogRequest extends $dara.Model {
    * 1:4096
    */
   samplingRate?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * You can add up to 20 tags.
+   */
   tag?: CreateFlowLogRequestTag[];
+  /**
+   * @remarks
+   * The region where the project to which logs are delivered resides. You only need to specify this parameter for cross-region log delivery. You do not need to specify this parameter for same-region log delivery.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   targetSlsRegionId?: string;
   version?: string;
   static names(): { [key: string]: string } {

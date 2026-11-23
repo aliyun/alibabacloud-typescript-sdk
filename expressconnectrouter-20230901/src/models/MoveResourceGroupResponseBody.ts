@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The response code. A value of 200 indicates success. Other values indicate failure. For more information about failure causes, see error codes.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class MoveResourceGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class MoveResourceGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -29,10 +29,10 @@ export class MoveResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the association between the ECR and the VPC or TR.
+   * The ID used to associate the Express Connect Router (ECR) with the VBR.
    * 
    * @example
    * ecr-assoc-9p2qxx5phpca2m****
@@ -13,16 +13,23 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   associationId?: string;
   /**
    * @remarks
-   * The VBR ID.
+   * The instance ID of the border router for routing.
    * 
    * @example
    * vbr-gw8vjq2zjux3ifsc9****
    */
   childInstanceId?: string;
+  /**
+   * @remarks
+   * The name of the child instance.
+   * 
+   * @example
+   * test
+   */
   childInstanceName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the VBR.
+   * The Alibaba Cloud account ID to which the child instance belongs.
    * 
    * @example
    * 112101171212****
@@ -30,7 +37,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   childInstanceOwnerId?: number;
   /**
    * @remarks
-   * The region ID of the VBR.
+   * The region where the child instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -38,7 +45,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   childInstanceRegionId?: string;
   /**
    * @remarks
-   * The type of the VBR. The value is **VBR**.
+   * The type of the child instance. Valid values: **VBR**: virtual border router.
    * 
    * @example
    * VBR
@@ -46,7 +53,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   childInstanceType?: string;
   /**
    * @remarks
-   * The description of the ECR.
+   * The description of the child instance.
    * 
    * @example
    * test
@@ -54,7 +61,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   description?: string;
   /**
    * @remarks
-   * The ECR ID.
+   * The instance ID of the Express Connect Router (ECR).
    * 
    * @example
    * ecr-mezk2idmsd0vx2****
@@ -62,7 +69,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   ecrId?: string;
   /**
    * @remarks
-   * The time when the association was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the association was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2024-01-09T12:18:23Z
@@ -70,7 +77,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the association was modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the association was modified. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2024-01-09T12:18:23Z
@@ -78,7 +85,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the VBR.
+   * The Alibaba Cloud account ID to which the border router for routing belongs.
    * 
    * @example
    * 167509154715****
@@ -86,7 +93,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the VBR.
+   * The region where the VBR resides.
    * 
    * @example
    * cn-hangzhou
@@ -94,14 +101,19 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   regionId?: string;
   /**
    * @remarks
-   * The deployment state of the associated resource. Valid values:
+   * The deployment status of the associated resource. Valid values:
    * 
-   * - **CREATING**: The resource is being created.
-   * - **ACTIVE**: The resource is created.
-   * - **ASSOCIATING**: The resource is being associated.
-   * - **DISSOCIATING**: The resource is being disassociated.
-   * - **UPDATING**: The resource is being modified.
-   * - **DELETING**: The resource is being deleted.
+   * - **CREATING**: creating.
+   * 
+   * - **ACTIVE**: created.
+   * 
+   * - **ASSOCIATING**: associating.
+   * 
+   * - **DISSOCIATING**: dissociating.
+   * 
+   * - **UPDATING**: updating.
+   * 
+   * - **DELETING**: deleting.
    * 
    * @example
    * ACTIVE
@@ -155,7 +167,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
 export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -163,12 +175,12 @@ export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The VBRs.
+   * The list of child instances.
    */
   childInstanceList?: DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceList[];
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code that indicates whether the call was successful. A value of 200 indicates that the attachment was successful. Other values indicate that the attachment failed. For more information about the causes of failures, see the error codes.
    * 
    * @example
    * 200
@@ -184,9 +196,8 @@ export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-   * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -202,7 +213,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara
   httpStatusCode?: number;
   /**
    * @remarks
-   * The total number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
+   * The maximum number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
    * 
    * @example
    * 20
@@ -210,7 +221,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara
   maxResults?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the operation.
    * 
    * @example
    * OK
@@ -218,10 +229,10 @@ export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If NextToken is empty, no next query is required.
+   * - If NextToken is returned, the value indicates the token for the next query.
    * 
    * @example
    * AAAAAYws9fJ0Ur4MGm/5OkDoW/Zn0J0/sCjivzwX9oBcwFnWaaas/kSG+J/WzLOxJHS4****
@@ -229,7 +240,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 05130E79-588D-5C40-A718-C4863A59****
@@ -237,10 +248,9 @@ export class DescribeExpressConnectRouterChildInstanceResponseBody extends $dara
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **True**: successful.
+   * - **False**: failed.
    * 
    * @example
    * True

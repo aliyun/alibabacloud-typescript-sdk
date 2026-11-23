@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExpressConnectRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -13,7 +13,7 @@ export class CreateExpressConnectRouterResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The code that indicates whether the ECR instance was created. A value of 200 indicates that the instance was created. Other values indicate that the creation failed. For more information about the failure causes, see the error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,8 @@ export class CreateExpressConnectRouterResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-   * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of Name **** is illegal.
@@ -39,7 +38,7 @@ export class CreateExpressConnectRouterResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The ECR ID.
+   * The Express Connect Router (ECR) instance ID.
    * 
    * @example
    * ecr-fu8rszhgv7623c****
@@ -55,7 +54,7 @@ export class CreateExpressConnectRouterResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * OK
@@ -71,10 +70,9 @@ export class CreateExpressConnectRouterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the ECR is created. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the ECR instance was created. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * True

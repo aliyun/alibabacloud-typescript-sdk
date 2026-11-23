@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGrantedInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The ECR ID.
+   * The instance ID of the Express Connect Router (ECR).
    * 
    * @example
    * ecr-mezk2idmsd0vx2****
@@ -13,15 +13,15 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   ecrId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the ECR to which you want to grant permissions.
+   * The ID of the Alibaba Cloud account to which the Express Connect Router (ECR) instance that receives the authorization belongs.
    * 
    * @example
-   * 1456408190545060
+   * 229845258050****
    */
   ecrOwnerAliUid?: string;
   /**
    * @remarks
-   * The time when the network instance was created.
+   * The time when the instance was created.
    * 
    * @example
    * 1669023139000
@@ -29,7 +29,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the network instance was modified.
+   * The time when the instance was modified.
    * 
    * @example
    * 1669023139000
@@ -37,7 +37,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   gmtModified?: string;
   /**
    * @remarks
-   * The authorization ID.
+   * The ID of the authorization.
    * 
    * @example
    * gr-8gdelo13mi99g1****
@@ -45,7 +45,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   grantId?: string;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The instance ID of the authorization.
    * 
    * @example
    * vbr-j6cwxhgg0s5nuephp****
@@ -53,15 +53,15 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   nodeId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud enterprise account that owns the network instance.
+   * The ID of the Alibaba Cloud enterprise account to which the instance belongs.
    * 
    * @example
-   * 26842
+   * 26842****
    */
   nodeOwnerBid?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the network instance.
+   * The ID of the Alibaba Cloud account to which the instance belongs.
    * 
    * @example
    * 129845258050****
@@ -69,7 +69,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   nodeOwnerUid?: number;
   /**
    * @remarks
-   * The region ID of the network instance.
+   * The ID of the region to which the authorized instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -78,9 +78,8 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   /**
    * @remarks
    * The type of the network instance. Valid values:
-   * 
-   * *   **VBR**
-   * *   **VPC**
+   * - **VBR**: VBR instance.
+   * - **VPC**: VPC instance.
    * 
    * @example
    * VBR
@@ -88,7 +87,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
   nodeType?: string;
   /**
    * @remarks
-   * The state of the network instance.
+   * The status of the authorized network instance.
    * 
    * @example
    * Active
@@ -138,7 +137,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGranted
 export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -146,7 +145,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code. A value of 200 indicates that the call was successful. Other values indicate that the call failed. For more information about the failure causes, see the error codes.
    * 
    * @example
    * 200
@@ -162,9 +161,9 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of Name **** is illegal.
@@ -172,7 +171,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   dynamicMessage?: string;
   /**
    * @remarks
-   * The network instances whose permissions are granted to the ECR.
+   * The list of instances authorized to the ECR.
    */
   ecrGrantedInstanceList?: DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGrantedInstanceList[];
   /**
@@ -185,15 +184,15 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   httpStatusCode?: number;
   /**
    * @remarks
-   * The total number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
+   * The maximum number of entries returned. Valid values: 1 to 2147483647. Default value: 20.
    * 
    * @example
-   * 6
+   * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the operation.
    * 
    * @example
    * OK
@@ -201,10 +200,10 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next query is available.
+   * - If **NextToken** returns a value, the value indicates the token for the next query.
    * 
    * @example
    * FFlMqGuJ10uN3l+FX/cBrGDNXUOUifNeOuAJlT4dc3vsWD6DsNSFAC2FtpeH5QOSG2WFdyRoun7gSLCm5o69YnAQ==
@@ -212,7 +211,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -220,10 +219,9 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **True**: The call was successful.
+   * - **False**: The call failed.
    * 
    * @example
    * True
@@ -231,7 +229,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterResponseBody extends $
   success?: boolean;
   /**
    * @remarks
-   * The total number of network instances whose permissions are granted to the ECR.
+   * The total number of network instances for which authorization is granted to the Express Connect Router (ECR).
    * 
    * @example
    * 10

@@ -17,6 +17,7 @@ export { DescribeFlowLogsResponseBodyFlowLogsTags } from './DescribeFlowLogsResp
 export { DescribeFlowLogsResponseBodyFlowLogs } from './DescribeFlowLogsResponseBody';
 export { DescribeInstanceGrantedToExpressConnectRouterRequestTagModels } from './DescribeInstanceGrantedToExpressConnectRouterRequest';
 export { DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGrantedInstanceList } from './DescribeInstanceGrantedToExpressConnectRouterResponseBody';
+export { ListRouteMapAssociationsResponseBodyRouteMapAssociationList } from './ListRouteMapAssociationsResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ModifyExpressConnectRouterInterRegionTransitModeRequestTransitModeList } from './ModifyExpressConnectRouterInterRegionTransitModeRequest';
@@ -39,6 +40,9 @@ export { CreateExpressConnectRouterAssociationResponse } from './CreateExpressCo
 export { CreateFlowLogRequest } from './CreateFlowLogRequest';
 export { CreateFlowLogResponseBody } from './CreateFlowLogResponseBody';
 export { CreateFlowLogResponse } from './CreateFlowLogResponse';
+export { CreateRouteMapAssociationRequest } from './CreateRouteMapAssociationRequest';
+export { CreateRouteMapAssociationResponseBody } from './CreateRouteMapAssociationResponseBody';
+export { CreateRouteMapAssociationResponse } from './CreateRouteMapAssociationResponse';
 export { DeactivateFlowLogRequest } from './DeactivateFlowLogRequest';
 export { DeactivateFlowLogResponseBody } from './DeactivateFlowLogResponseBody';
 export { DeactivateFlowLogResponse } from './DeactivateFlowLogResponse';
@@ -51,6 +55,9 @@ export { DeleteExpressConnectRouterAssociationResponse } from './DeleteExpressCo
 export { DeleteFlowlogRequest } from './DeleteFlowlogRequest';
 export { DeleteFlowlogResponseBody } from './DeleteFlowlogResponseBody';
 export { DeleteFlowlogResponse } from './DeleteFlowlogResponse';
+export { DeleteRouteMapAssociationRequest } from './DeleteRouteMapAssociationRequest';
+export { DeleteRouteMapAssociationResponseBody } from './DeleteRouteMapAssociationResponseBody';
+export { DeleteRouteMapAssociationResponse } from './DeleteRouteMapAssociationResponse';
 export { DescribeDisabledExpressConnectRouterRouteEntriesRequest } from './DescribeDisabledExpressConnectRouterRouteEntriesRequest';
 export { DescribeDisabledExpressConnectRouterRouteEntriesResponseBody } from './DescribeDisabledExpressConnectRouterRouteEntriesResponseBody';
 export { DescribeDisabledExpressConnectRouterRouteEntriesResponse } from './DescribeDisabledExpressConnectRouterRouteEntriesResponse';
@@ -99,6 +106,9 @@ export { GrantInstanceToExpressConnectRouterResponse } from './GrantInstanceToEx
 export { ListExpressConnectRouterSupportedRegionRequest } from './ListExpressConnectRouterSupportedRegionRequest';
 export { ListExpressConnectRouterSupportedRegionResponseBody } from './ListExpressConnectRouterSupportedRegionResponseBody';
 export { ListExpressConnectRouterSupportedRegionResponse } from './ListExpressConnectRouterSupportedRegionResponse';
+export { ListRouteMapAssociationsRequest } from './ListRouteMapAssociationsRequest';
+export { ListRouteMapAssociationsResponseBody } from './ListRouteMapAssociationsResponseBody';
+export { ListRouteMapAssociationsResponse } from './ListRouteMapAssociationsResponse';
 export { ListTagResourcesRequest } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBody } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponse } from './ListTagResourcesResponse';
@@ -135,3 +145,6 @@ export { TagResourcesResponse } from './TagResourcesResponse';
 export { UntagResourcesRequest } from './UntagResourcesRequest';
 export { UntagResourcesResponseBody } from './UntagResourcesResponseBody';
 export { UntagResourcesResponse } from './UntagResourcesResponse';
+export { UpdateRouteMapAssociationRequest } from './UpdateRouteMapAssociationRequest';
+export { UpdateRouteMapAssociationResponseBody } from './UpdateRouteMapAssociationResponseBody';
+export { UpdateRouteMapAssociationResponse } from './UpdateRouteMapAssociationResponse';

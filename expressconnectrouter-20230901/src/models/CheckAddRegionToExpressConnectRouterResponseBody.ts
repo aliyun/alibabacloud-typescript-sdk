@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -13,10 +13,11 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether the ECR is used to establish connections between regions in the Chinese mainland and regions outside China. Valid values:
+   * Indicates whether the Express Connect Router (ECR) instance has cross-border connections between the Chinese mainland and regions outside the Chinese mainland. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -24,10 +25,11 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   anyCrossBorderLink?: boolean;
   /**
    * @remarks
-   * Indicates whether the ECR is used to establish connections between regions in the Chinese mainland. Valid values:
+   * Indicates whether the Express Connect Router (ECR) instance has cross-region connections in the Chinese mainland. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -35,7 +37,7 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   anyInterRegionLink?: boolean;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * Indicates whether the call was successful. A return value of 200 indicates that the request was successful. Any other value indicates that the request failed. For more information about the causes of failure, see Error codes.
    * 
    * @example
    * 200
@@ -51,9 +53,9 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsInstanceId**, the request parameter **DtsInstanceId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsInstanceId**, it indicates that the **DtsInstanceId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -69,10 +71,11 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether the cross-border CDT service is activated for the account to which the ECR belongs. Valid values:
+   * Indicates whether the cross-border Cloud Data Transfer (CDT) service is enabled for the account to which the Express Connect Router (ECR) instance belongs. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -80,10 +83,11 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   isCdtCrossBorderEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the CDT service is activated for the account to which the ECR belongs. Valid values:
+   * Indicates whether the Cloud Data Transfer (CDT) service is enabled for the account to which the Express Connect Router (ECR) instance belongs. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -91,10 +95,11 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   isCdtInterRegionEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the account to which the ECR belongs can create cross-border connections. Valid values:
+   * Indicates whether the account to which the Express Connect Router (ECR) instance belongs is allowed to create cross-border connections. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -102,7 +107,7 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   isUserAllowedToCreateCrossBorderLink?: boolean;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the operation.
    * 
    * @example
    * OK
@@ -110,7 +115,7 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -118,10 +123,11 @@ export class CheckAddRegionToExpressConnectRouterResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **True**: The call was successful.
+   * 
+   * - **False**: The call failed.
    * 
    * @example
    * True

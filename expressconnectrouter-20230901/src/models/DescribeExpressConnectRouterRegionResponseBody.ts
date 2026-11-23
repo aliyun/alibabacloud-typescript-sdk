@@ -13,7 +13,7 @@ export class DescribeExpressConnectRouterRegionResponseBody extends $dara.Model 
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * Indicates whether the call is successful. A value of 200 indicates success, and other values indicate failure. For the cause of failure, see error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,9 @@ export class DescribeExpressConnectRouterRegionResponseBody extends $dara.Model 
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -55,7 +55,7 @@ export class DescribeExpressConnectRouterRegionResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The region in which the ECR feature is activated.
+   * The list of regions where sub-resources are located.
    */
   regionIdList?: string[];
   /**
@@ -68,10 +68,11 @@ export class DescribeExpressConnectRouterRegionResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **True**: The call is successful.
+   * 
+   * - **False**: The call failed.
    * 
    * @example
    * True

@@ -13,7 +13,11 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. The value is **EXPRESSCONNECTROUTER**.
+   * The resource type. Valid values:
+   * - **EXPRESSCONNECTROUTER**: Express Connect Router (ECR) instance.
+   * - **EXPRESSCONNECTROUTERVPCASSOCIATION**: association between an ECR and a VPC.
+   * - **EXPRESSCONNECTROUTERTRASSOCIATION**: association between an ECR and a transit router.
+   * - **ECRFLOWLOG**: ECR flow log.
    * 
    * @example
    * EXPRESSCONNECTROUTER
@@ -21,7 +25,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
    * @example
    * TestKey
@@ -29,7 +33,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The label value of the Express Connect Router (ECR).
    * 
    * @example
    * TestValue
@@ -65,7 +69,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The response code. A value of 200 indicates success. Other values indicate failure. For more information, see error codes.
    * 
    * @example
    * 200
@@ -73,7 +77,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -89,10 +93,10 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * AAAAAYws9fJ0Ur4MGm/5OkDoW/Zn0J0/sCjivzwX9oBcwFnWaaas/kSG+J/WzLOxJHS4****
@@ -108,10 +112,9 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **True**: The call was successful.
+   * - **False**: The call failed.
    * 
    * @example
    * True
@@ -119,12 +122,12 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   /**
    * @remarks
-   * The total number of records that meet the query conditions.
+   * The total number of records that match the query conditions.
    * 
    * @example
    * 2

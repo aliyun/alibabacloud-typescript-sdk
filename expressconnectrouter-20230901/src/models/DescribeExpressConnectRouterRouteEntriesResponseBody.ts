@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesList extends $dara.Model {
   /**
    * @remarks
-   * The AS path of the route.
+   * The AS path traversed by the route entry.
    * 
    * @example
    * [64993,64512]
@@ -13,7 +13,7 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesLis
   asPath?: string;
   /**
    * @remarks
-   * The community value that is carried in the BGP route.
+   * The community value carried by the BGP route entry.
    * 
    * @example
    * 9001:9263
@@ -21,19 +21,15 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesLis
   community?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route.
-   * 
-   * @example
-   * 192.168.0.0/16
+   * The destination CIDR block of the route entry.
    */
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The MED value of the BGP route, which is used between the ECR and the transit router.
-   * 
-   * *   You can set the MED value to 2000. In this case, the transit router and the ECR are used as default paths.
-   * *   If a non-default path is used, the MED value is empty.
-   * *   You can set the MED value to 2000 only for one object associated with a transit router of a CEN instance.
+   * The MED value carried by the BGP route entry, which takes effect for routing between the Express Connect Router (ECR) and the TR. 
+   * - The MED value can be set to 2000. After the configuration, the TR and the Express Connect Router (ECR) serve as the default path. 
+   * - For a non-default path, the MED value is empty. 
+   * - For TRs in the same Cloud Enterprise Network (CEN), only one associated object can have the MED value set to 2000.
    * 
    * @example
    * 2000
@@ -41,15 +37,15 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesLis
   med?: number;
   /**
    * @remarks
-   * The ID of the next-hop instance.
+   * The next hop instance ID.
    * 
    * @example
-   * br-hp3u4u5f03tfuljis****
+   * vbr-hp3u4u5f03tfuljis****
    */
   nexthopInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the next-hop instance.
+   * The region where the next hop instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -57,7 +53,7 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesLis
   nexthopInstanceRegionId?: string;
   /**
    * @remarks
-   * The state of the ECR.
+   * The status of the Express Connect Router (ECR) instance.
    * 
    * @example
    * ACTIVE
@@ -99,7 +95,7 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesLis
 export class DescribeExpressConnectRouterRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -107,7 +103,7 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBody extends $dara.
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code that indicates whether the call is successful. A value of 200 indicates success. Other values indicate failure. For more information about the cause of failure, see Error codes.
    * 
    * @example
    * 200
@@ -123,9 +119,9 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBody extends $dara.
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -141,15 +137,15 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBody extends $dara.
   httpStatusCode?: number;
   /**
    * @remarks
-   * The total number of entries returned. Valid values: 1 to 2147483647. Default value: 10
+   * The maximum number of entries returned. Valid values: 1 to 2147483647. Default value: 10.
    * 
    * @example
-   * 6
+   * 10
    */
   maxResults?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the instance operation.
    * 
    * @example
    * OK
@@ -157,10 +153,10 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBody extends $dara.
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no subsequent query is required.
+   * - If **NextToken** has a return value, the value indicates the token for the next query.
    * 
    * @example
    * gAAAAABkWwFTUMNCdWC0VMYOIylA56Hx6JUfCZlk5hQ5g_fnKmetN6303tqq5UJ2ouJzyT2fDOdzb-NqyEB5jcY8Z2euX7qHDA==
@@ -176,15 +172,14 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * The routes.
+   * The list of route entries.
    */
   routeEntriesList?: DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesList[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **True**: The call was successful.
+   * - **False**: The call failed.
    * 
    * @example
    * True
@@ -192,7 +187,7 @@ export class DescribeExpressConnectRouterRouteEntriesResponseBody extends $dara.
   success?: boolean;
   /**
    * @remarks
-   * The total number of route entries.
+   * The total number of entries.
    * 
    * @example
    * 2

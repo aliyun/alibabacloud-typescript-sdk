@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried information about the request denial.
+   * The details about the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -13,7 +13,7 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code that indicates whether the call was successful. A value of 200 indicates that the request was successful. Other values indicate that the request failed. For more information about the causes of failure, see the error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,9 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message. This parameter is used to replace the % **s** in the **ErrMessage** error message of the response parameter.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** error message.
    * 
-   * > For example, if the value of **ErrMessage** is **The Value of Input Parameter** %**s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -39,10 +39,10 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The ID of the flow log.
+   * The ID of the flow log instance.
    * 
    * @example
-   * flowlog-m5evbtbpt****
+   * ecr-flog-m5evbtbpt****
    */
   flowLogId?: string;
   /**
@@ -55,7 +55,7 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the operation.
    * 
    * @example
    * OK
@@ -71,10 +71,10 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - **True**
-   * - **False**
+   * - **True**: The call was successful.
+   * - **False**: The call failed.
    * 
    * @example
    * True

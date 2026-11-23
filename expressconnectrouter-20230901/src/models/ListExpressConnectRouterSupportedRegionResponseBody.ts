@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExpressConnectRouterSupportedRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code. A value of 200 indicates that the call was successful. For more information about other values, see the error codes.
    * 
    * @example
    * 200
@@ -37,10 +37,11 @@ export class ListExpressConnectRouterSupportedRegionResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   True
-   * *   False
+   * - True: The call was successful.
+   * 
+   * - False: The call failed.
    * 
    * @example
    * True
@@ -48,7 +49,7 @@ export class ListExpressConnectRouterSupportedRegionResponseBody extends $dara.M
   success?: boolean;
   /**
    * @remarks
-   * The regions in which the ECR feature is activated.
+   * The list of supported regions.
    */
   supportedRegionIdList?: string[];
   static names(): { [key: string]: string } {

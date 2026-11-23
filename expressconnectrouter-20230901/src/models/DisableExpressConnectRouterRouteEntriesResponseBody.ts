@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableExpressConnectRouterRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -13,7 +13,7 @@ export class DisableExpressConnectRouterRouteEntriesResponseBody extends $dara.M
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code that indicates whether the call is successful. A return value of 200 indicates that the call is successful. Any other value indicates that the call failed. For the cause of the failure, see error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,8 @@ export class DisableExpressConnectRouterRouteEntriesResponseBody extends $dara.M
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-   * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -47,7 +46,7 @@ export class DisableExpressConnectRouterRouteEntriesResponseBody extends $dara.M
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the operation.
    * 
    * @example
    * OK
@@ -55,7 +54,7 @@ export class DisableExpressConnectRouterRouteEntriesResponseBody extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -63,10 +62,9 @@ export class DisableExpressConnectRouterRouteEntriesResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call is successful. Valid values:
+   * - **True**: Successful.
+   * - **False**: Failed.
    * 
    * @example
    * True

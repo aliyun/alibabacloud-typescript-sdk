@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisabledRouteEntryList extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR block of the route entry.
    * 
    * @example
    * 192.168.100.110/32
@@ -13,7 +13,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisable
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The ECR ID.
+   * The instance ID of the Express Connect Router (ECR).
    * 
    * @example
    * ecr-mezk2idmsd0vx2****
@@ -29,7 +29,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisable
   gmtCreate?: string;
   /**
    * @remarks
-   * The ID of the next-hop instance.
+   * The instance ID of the next hop.
    * 
    * @example
    * br-hp3u4u5f03tfuljis****
@@ -37,7 +37,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisable
   nexthopInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the next-hop instance.
+   * The region ID of the next hop instance.
    * 
    * @example
    * cn-hangzhou
@@ -83,7 +83,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The status code. A value of 200 indicates that the call was successful. Other values indicate that the call failed. For more information about the causes of failure, see error codes.
    * 
    * @example
    * 200
@@ -91,7 +91,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   code?: string;
   /**
    * @remarks
-   * The routes that are queried.
+   * The list of queried route entries.
    */
   disabledRouteEntryList?: DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisabledRouteEntryList[];
   /**
@@ -104,9 +104,9 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsInstanceId**, the request parameter **DtsInstanceId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsInstanceId**, it indicates that the **DtsInstanceId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -122,7 +122,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   httpStatusCode?: number;
   /**
    * @remarks
-   * The total number of entries returned. Valid values: 1 to 2147483647. Default value: 10.
+   * The maximum number of entries to return. Valid values: 1 to 2147483647. Default value: 10.
    * 
    * @example
    * 6
@@ -130,7 +130,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   maxResults?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the operation.
    * 
    * @example
    * OK
@@ -138,10 +138,10 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   If NextToken is empty, no next page exists.
-   * *   If a value of NextToken is returned, the value indicates the token that is used for the next query.
+   * - If NextToken is empty, no next query is required.
+   * - If NextToken is returned, the value indicates the token for the next query.
    * 
    * @example
    * gAAAAABkDTaRFnmxUoMLVOn8YTIgYFeL2ch8j0sJs8VCIU8SS5438m3D9X1VqspCcaUEHRN9I_AfVwMhZHAhcNivifK_OtQxJQ==
@@ -149,7 +149,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -157,10 +157,9 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether routes are disabled by the ECR. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the disabled Express Connect Router (ECR) routing is successfully queried. Valid values:
+   * - **True**: The query was successful.
+   * - **False**: The query failed.
    * 
    * @example
    * True
@@ -168,7 +167,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBody extend
   success?: boolean;
   /**
    * @remarks
-   * The total number of routes.
+   * The total number of route entry.
    * 
    * @example
    * 2

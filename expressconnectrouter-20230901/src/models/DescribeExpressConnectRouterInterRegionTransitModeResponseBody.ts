@@ -6,9 +6,8 @@ export class DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInter
   /**
    * @remarks
    * The cross-region forwarding mode of the ECR. Valid values:
-   * 
-   * *   **ECMP**: the load balancing mode.
-   * *   **NearBy**: the nearby forwarding mode.
+   * - **ECMP**: load balancing mode.
+   * - **NearBy**: nearest forwarding mode.
    * 
    * @example
    * ECMP
@@ -16,7 +15,7 @@ export class DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInter
   mode?: string;
   /**
    * @remarks
-   * The region ID of the ECR.
+   * The ID of the region to which the Express Connect Router (ECR) belongs.
    * 
    * @example
    * cn-hangzhou
@@ -56,7 +55,7 @@ export class DescribeExpressConnectRouterInterRegionTransitModeResponseBody exte
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * Indicates whether the call was successful. A return value of 200 indicates success, and any other value indicates failure. For the cause of failure, see error codes.
    * 
    * @example
    * 200
@@ -72,9 +71,8 @@ export class DescribeExpressConnectRouterInterRegionTransitModeResponseBody exte
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
-   * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -90,12 +88,12 @@ export class DescribeExpressConnectRouterInterRegionTransitModeResponseBody exte
   httpStatusCode?: number;
   /**
    * @remarks
-   * The cross-region forwarding modes.
+   * The list of cross-region forwarding modes.
    */
   interRegionTransitModeList?: DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the operation.
    * 
    * @example
    * OK
@@ -103,7 +101,7 @@ export class DescribeExpressConnectRouterInterRegionTransitModeResponseBody exte
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -111,10 +109,9 @@ export class DescribeExpressConnectRouterInterRegionTransitModeResponseBody exte
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **True**: The call was successful.
+   * - **False**: The call failed.
    * 
    * @example
    * True

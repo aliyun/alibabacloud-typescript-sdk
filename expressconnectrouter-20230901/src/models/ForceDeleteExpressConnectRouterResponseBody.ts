@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ForceDeleteExpressConnectRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * Details about the access denial.
    * 
    * @example
    * Authentication is failed for ****
@@ -13,7 +13,7 @@ export class ForceDeleteExpressConnectRouterResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * The response code. A value of 200 indicates that the request was successful. For more information about other response codes, see Error codes.
    * 
    * @example
    * 200
@@ -29,9 +29,9 @@ export class ForceDeleteExpressConnectRouterResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * The dynamic error message that is used to replace the `%s` placeholder in the value of the **ErrMessage** parameter.
    * 
-   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, it indicates that the specified **DtsJobId** parameter is invalid.
    * 
    * @example
    * The param format of EcrId **** is illegal.
@@ -47,7 +47,7 @@ export class ForceDeleteExpressConnectRouterResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * OK
@@ -55,7 +55,7 @@ export class ForceDeleteExpressConnectRouterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
@@ -65,8 +65,9 @@ export class ForceDeleteExpressConnectRouterResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **True**: The request was successful.
+   * 
+   * - **False**: The request failed.
    * 
    * @example
    * True

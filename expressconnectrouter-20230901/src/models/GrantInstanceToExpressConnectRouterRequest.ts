@@ -9,7 +9,7 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-00****
@@ -17,10 +17,11 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform only a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run.
-   * *   **false** (default): performs a dry run and performs the actual request.
+   * - **true**: performs a dry run without modifying the EPS resource.
+   * 
+   * - **false** (default): sends a normal request.
    * 
    * @example
    * true
@@ -28,7 +29,7 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ECR ID.
+   * The instance ID of the associated Express Connect Router (ECR).
    * 
    * This parameter is required.
    * 
@@ -38,7 +39,7 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
   ecrId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the ECR to which you want to grant permissions.
+   * The ID of the Alibaba Cloud account that owns the Express Connect Router (ECR) instance that accepts the authorization.
    * 
    * This parameter is required.
    * 
@@ -58,7 +59,7 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the network instance.
+   * The region ID of the network instance to be authorized.
    * 
    * This parameter is required.
    * 
@@ -69,9 +70,8 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the network instance. Valid values:
-   * 
-   * *   **VBR**
-   * *   **VPC**
+   * - **VBR**: virtual border router instance.
+   * - **VPC**: virtual private cloud instance.
    * 
    * This parameter is required.
    * 

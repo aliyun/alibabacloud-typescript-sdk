@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressConnectRouterRegionRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request. You can generate the token on your client to ensure that it is unique among different requests. The client token supports only ASCII characters.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-   * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-00****
@@ -17,10 +15,11 @@ export class DescribeExpressConnectRouterRegionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether this request is a dry run. Valid values:
    * 
-   * *   true: performs only a dry run.
-   * *   false (default): performs a dry run and performs the actual request.
+   * - **true**: sends a check request and does not modify the EPS resource.
+   * 
+   * - **false** (default): sends a normal request.
    * 
    * @example
    * false
@@ -28,7 +27,7 @@ export class DescribeExpressConnectRouterRegionRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the ECR that you want to query.
+   * The instance ID of the Express Connect Router (ECR).
    * 
    * This parameter is required.
    * 

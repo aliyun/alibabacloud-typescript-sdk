@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SynchronizeExpressConnectRouterInterRegionBandwidthRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client-generated token that ensures the idempotence of the request. The token must be unique for each request and can contain only ASCII characters.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a unique value from your client for each request. The ClientToken parameter can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-00****
@@ -17,10 +17,11 @@ export class SynchronizeExpressConnectRouterInterRegionBandwidthRequest extends 
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run.
-   * *   **false** (default): performs a dry run and performs the actual request.
+   * - **true**: Sends a check request. The service resource is not modified.
+   * 
+   * - **false** (default): Sends a normal request.
    * 
    * @example
    * false
@@ -28,7 +29,7 @@ export class SynchronizeExpressConnectRouterInterRegionBandwidthRequest extends 
   dryRun?: boolean;
   /**
    * @remarks
-   * The ECR ID.
+   * The ID of the Express Connect Router (ECR) instance.
    * 
    * This parameter is required.
    * 
