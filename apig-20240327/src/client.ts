@@ -349,6 +349,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Publishes specified routes or all visible routes under the same HTTP API in batches.
+   * 
+   * @remarks
+   * Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+   * 
+   * @param request - BatchDeployHttpApiRoutesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeployHttpApiRoutesResponse
+   */
+  async batchDeployHttpApiRoutesWithOptions(httpApiId: string, request: $_model.BatchDeployHttpApiRoutesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchDeployHttpApiRoutesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.async)) {
+      body["async"] = request.async;
+    }
+
+    if (!$dara.isNull(request.deployAll)) {
+      body["deployAll"] = request.deployAll;
+    }
+
+    if (!$dara.isNull(request.routeIds)) {
+      body["routeIds"] = request.routeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchDeployHttpApiRoutes",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-apis/${$dara.URL.percentEncode(httpApiId)}/routes/batch-deploy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchDeployHttpApiRoutesResponse>(await this.callApi(params, req, runtime), new $_model.BatchDeployHttpApiRoutesResponse({}));
+  }
+
+  /**
+   * Publishes specified routes or all visible routes under the same HTTP API in batches.
+   * 
+   * @remarks
+   * Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+   * 
+   * @param request - BatchDeployHttpApiRoutesRequest
+   * @returns BatchDeployHttpApiRoutesResponse
+   */
+  async batchDeployHttpApiRoutes(httpApiId: string, request: $_model.BatchDeployHttpApiRoutesRequest): Promise<$_model.BatchDeployHttpApiRoutesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchDeployHttpApiRoutesWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
    * Performs a batch export of HTTP APIs.
    * 
    * @param request - BatchExportHttpApisRequest
@@ -7932,6 +7991,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBatchExportTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of batch import tasks.
+   * 
+   * @param request - ListBatchImportTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBatchImportTasksResponse
+   */
+  async listBatchImportTasksWithOptions(request: $_model.ListBatchImportTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListBatchImportTasksResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statuses)) {
+      query["statuses"] = request.statuses;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBatchImportTasks",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-api-batch-import-tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBatchImportTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListBatchImportTasksResponse({}));
+  }
+
+  /**
+   * Queries the list of batch import tasks.
+   * 
+   * @param request - ListBatchImportTasksRequest
+   * @returns ListBatchImportTasksResponse
+   */
+  async listBatchImportTasks(request: $_model.ListBatchImportTasksRequest): Promise<$_model.ListBatchImportTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listBatchImportTasksWithOptions(request, headers, runtime);
   }
 
   /**

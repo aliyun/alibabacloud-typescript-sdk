@@ -136,6 +136,7 @@ export { AddGatewayQuotaRuleResponseBodyData } from './AddGatewayQuotaRuleRespon
 export { AuthorizeConsumerModelCardGrantsResponseBodyDataEntitlementState } from './AuthorizeConsumerModelCardGrantsResponseBody';
 export { AuthorizeConsumerModelCardGrantsResponseBodyData } from './AuthorizeConsumerModelCardGrantsResponseBody';
 export { BatchAddConsumerGroupConsumersResponseBodyData } from './BatchAddConsumerGroupConsumersResponseBody';
+export { BatchDeployHttpApiRoutesResponseBodyData } from './BatchDeployHttpApiRoutesResponseBody';
 export { BatchExportHttpApisRequestExtensionConfig } from './BatchExportHttpApisRequest';
 export { BatchExportHttpApisResponseBodyData } from './BatchExportHttpApisResponseBody';
 export { BatchImportHttpApisRequestSpecOssConfig } from './BatchImportHttpApisRequest';
@@ -438,6 +439,8 @@ export { ListApiPathFieldTemplatesResponseBodyDataItems } from './ListApiPathFie
 export { ListApiPathFieldTemplatesResponseBodyData } from './ListApiPathFieldTemplatesResponseBody';
 export { ListBatchExportTasksResponseBodyDataItems } from './ListBatchExportTasksResponseBody';
 export { ListBatchExportTasksResponseBodyData } from './ListBatchExportTasksResponseBody';
+export { ListBatchImportTasksResponseBodyDataItems } from './ListBatchImportTasksResponseBody';
+export { ListBatchImportTasksResponseBodyData } from './ListBatchImportTasksResponseBody';
 export { ListChatSessionsResponseBodyDataContent } from './ListChatSessionsResponseBody';
 export { ListChatSessionsResponseBodyData } from './ListChatSessionsResponseBody';
 export { ListConsumerAuthorizationRulesResponseBodyDataItems } from './ListConsumerAuthorizationRulesResponseBody';
@@ -807,6 +810,7 @@ export { ValidationOptions } from './ValidationOptions';
 export { HttpApiApiInfoDeployCntMapValue } from './HttpApiApiInfoDeployCntMapValue';
 export { ModelApiApiInfoDeployCntMapValue } from './ModelApiApiInfoDeployCntMapValue';
 export { ModelApiListApiInfoDeployCntMapValue } from './ModelApiListApiInfoDeployCntMapValue';
+export { DataResultsValue } from './DataResultsValue';
 export { DataPathConfigsFieldPathsValue } from './DataPathConfigsFieldPathsValue';
 export { DataFieldPathsValue } from './DataFieldPathsValue';
 export { AddGatewayQuotaRuleRequest } from './AddGatewayQuotaRuleRequest';
@@ -824,6 +828,9 @@ export { BatchAddConsumerGroupConsumersResponse } from './BatchAddConsumerGroupC
 export { BatchDeleteConsumerAuthorizationRuleRequest } from './BatchDeleteConsumerAuthorizationRuleRequest';
 export { BatchDeleteConsumerAuthorizationRuleResponseBody } from './BatchDeleteConsumerAuthorizationRuleResponseBody';
 export { BatchDeleteConsumerAuthorizationRuleResponse } from './BatchDeleteConsumerAuthorizationRuleResponse';
+export { BatchDeployHttpApiRoutesRequest } from './BatchDeployHttpApiRoutesRequest';
+export { BatchDeployHttpApiRoutesResponseBody } from './BatchDeployHttpApiRoutesResponseBody';
+export { BatchDeployHttpApiRoutesResponse } from './BatchDeployHttpApiRoutesResponse';
 export { BatchExportHttpApisRequest } from './BatchExportHttpApisRequest';
 export { BatchExportHttpApisResponseBody } from './BatchExportHttpApisResponseBody';
 export { BatchExportHttpApisResponse } from './BatchExportHttpApisResponse';
@@ -1237,6 +1244,9 @@ export { ListApiPathFieldTemplatesResponse } from './ListApiPathFieldTemplatesRe
 export { ListBatchExportTasksRequest } from './ListBatchExportTasksRequest';
 export { ListBatchExportTasksResponseBody } from './ListBatchExportTasksResponseBody';
 export { ListBatchExportTasksResponse } from './ListBatchExportTasksResponse';
+export { ListBatchImportTasksRequest } from './ListBatchImportTasksRequest';
+export { ListBatchImportTasksResponseBody } from './ListBatchImportTasksResponseBody';
+export { ListBatchImportTasksResponse } from './ListBatchImportTasksResponse';
 export { ListChatSessionsRequest } from './ListChatSessionsRequest';
 export { ListChatSessionsResponseBody } from './ListChatSessionsResponseBody';
 export { ListChatSessionsResponse } from './ListChatSessionsResponse';
