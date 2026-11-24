@@ -85,7 +85,7 @@ export class DescribeOrderResponseBody extends $dara.Model {
    * - value: the component value.
    * 
    * @example
-   * { "package_quantity": { "code": "package_quantity", "globarKey": "cmapi014302_package_quantity_package_quantity_10000", "name": "10000次", "value": "10000" }, "package_version": { "code": "package_version", "globarKey": "cmapi014302_package_version_package_version_yuncode830200000", "name": "0元／10000次", "value": "yuncode830200000" }, "ord_time": { "code": "ord_time", "globarKey": "cmapi014302_ord_time_ord_time_6:Month", "name": "6个月", "value": "6:Month" }, "order_num": { "code": "order_num", "globarKey": "cmapi014302_order_num_order_num_1", "name": "1", "value": "1" } }
+   * { "package_quantity": { "code": "package_quantity", "globarKey": "cmapi014302_package_quantity_package_quantity_10000", "name": "10,000 times", "value": "10000" }, "package_version": { "code": "package_version", "globarKey": "cmapi014302_package_version_package_version_yuncode830200000", "name": "0 yuan/10,000 times", "value": "yuncode830200000" }, "ord_time": { "code": "ord_time", "globarKey": "cmapi014302_ord_time_ord_time_6:Month", "name": "6 months", "value": "6:Month" }, "order_num": { "code": "order_num", "globarKey": "cmapi014302_order_num_order_num_1", "name": "1", "value": "1" } }
    */
   components?: { [key: string]: any };
   /**
@@ -200,7 +200,7 @@ export class DescribeOrderResponseBody extends $dara.Model {
    * The name of the subscribed product.
    * 
    * @example
-   * saas服务产品
+   * SaaS service product
    */
   productName?: string;
   /**
@@ -232,7 +232,7 @@ export class DescribeOrderResponseBody extends $dara.Model {
    * The company name of the seller.
    * 
    * @example
-   * **科技股份有限公司
+   * ** Technology Co., Ltd.
    */
   supplierCompanyName?: string;
   supplierTelephones?: DescribeOrderResponseBodySupplierTelephones;

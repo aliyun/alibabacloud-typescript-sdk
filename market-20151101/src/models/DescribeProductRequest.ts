@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProductRequest extends $dara.Model {
   /**
    * @remarks
-   * AliUid.
+   * AliUid
    * 
    * @example
    * 190********569
@@ -13,7 +13,7 @@ export class DescribeProductRequest extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The commodity code of the product.
+   * The product code.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeProductRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Specifies whether to query the product draft. In most cases, you do not need to query the product draft. Product drafts are used to query product information before the product is officially listed for sale.
+   * Specifies whether to query the product draft. Typically, you do not need to query the product draft. Product drafts are used for queries before a product is officially listed for sale.
    * 
    * @example
    * false

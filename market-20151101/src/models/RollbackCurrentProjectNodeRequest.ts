@@ -28,7 +28,7 @@ export class RollbackCurrentProjectNodeRequest extends $dara.Model {
    * The remarks for the rejection reason.
    * 
    * @example
-   * 尊敬的顾客您好，您提交的收货地址存在多个匹配结果，请您核对后再重新提交。
+   * Dear customer, the shipping address you submitted matches multiple records. Check the address and submit it again.
    */
   remark?: string;
   static names(): { [key: string]: string } {

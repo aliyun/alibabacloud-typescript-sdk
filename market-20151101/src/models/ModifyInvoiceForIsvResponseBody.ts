@@ -24,7 +24,7 @@ export class ModifyInvoiceForIsvResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * "成功"
+   * "Success"
    */
   message?: string;
   /**

@@ -16,7 +16,7 @@ export class DescribeDistributionProductsLinkResponseBodyResult extends $dara.Mo
    * The name of the promoted product.
    * 
    * @example
-   * 测试商品
+   * Test product
    */
   name?: string;
   /**

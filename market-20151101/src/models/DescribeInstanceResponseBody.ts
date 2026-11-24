@@ -295,7 +295,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
    * The extended information.
    * 
    * @example
-   * {"说明": "如有使用问题，请联系..."}
+   * {"description": "If you have any problems, contact us..."}
    */
   extendJson?: string;
   /**
@@ -350,7 +350,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
    * The product name.
    * 
    * @example
-   * ***协同办公
+   * ***Collaborative Office
    */
   productName?: string;
   /**
@@ -414,7 +414,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
    * The service provider name.
    * 
    * @example
-   * *****有限公司
+   * ***** Co., Ltd.
    */
   supplierName?: string;
   static names(): { [key: string]: string } {

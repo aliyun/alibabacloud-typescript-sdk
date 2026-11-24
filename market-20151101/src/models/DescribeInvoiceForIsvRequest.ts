@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvoiceForIsvRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. The time 23:59:59 is appended to the date by default.
+   * The end time. By default, 23:59:59 is appended to the date.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -13,7 +13,7 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The start time. The time 00:00:00 is appended to the date by default.
+   * The start time. By default, 00:00:00 is appended to the date.
    * 
    * @example
    * 2025-01-31 23:59:59
@@ -21,7 +21,7 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   createTimeStart?: string;
   /**
    * @remarks
-   * The invoice application ID. This corresponds to the Result.Id field in the response of the DescribeInvoiceForIsv operation.
+   * The ID of the invoice application. This corresponds to the Result.Id field in the response of the DescribeInvoiceForIsv operation.
    * 
    * @example
    * 4072040****
@@ -29,7 +29,7 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   invoiceId?: number;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. Maximum value: 50. Default value: 10. (This parameter is not enabled.)
+   * The maximum number of entries per page in a paging query. Maximum value: 50. Default value: 10. (This parameter is not enabled.)
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token returned by this call. (This parameter is not enabled.)
+   * The pagination token returned by the current call. This parameter is not enabled.
    * 
    * @example
    * 3v3mzZN1QdVsTPNiT0OkD9v+MeV8LSqSQDSuTTVFCUMMWShmnj/LXRMScqm242bB
@@ -45,7 +45,7 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of instances per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -62,8 +62,8 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   /**
    * @remarks
    * The current invoice status. Valid values:
-   * - 0: processing
-   * - 1: completed
+   * - 0: Applying.
+   * - 1: Completed.
    * 
    * @example
    * 0
@@ -72,8 +72,8 @@ export class DescribeInvoiceForIsvRequest extends $dara.Model {
   /**
    * @remarks
    * The invoice type. If this parameter is left empty, all types are queried by default. Valid values:
-   * - 2: general digital electronic invoice
-   * - 3: special digital electronic invoice
+   * - 2: Digital electronic ordinary invoice.
+   * - 3: Digital electronic special invoice.
    * 
    * @example
    * 2

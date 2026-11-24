@@ -7,7 +7,7 @@ export class PushTimesUsageRequest extends $dara.Model {
   adjustDate?: number;
   /**
    * @remarks
-   * The client token that ensures the idempotency of the request. We recommend that you use a UUID. The same `ClientToken` can be submitted only once within 24 hours. Use the same `ClientToken` when retrying the same operation. Use a new `ClientToken` for new business operations.
+   * The client token used to ensure request idempotence. We recommend that you use a UUID. The same `ClientToken` can be submitted only once within 24 hours. Retries for the same operation must use the same `ClientToken`, and new operations must use a new `ClientToken`.
    * 
    * @example
    * 6dff6c70-3484-4a39-b725-164e3ad9b20d

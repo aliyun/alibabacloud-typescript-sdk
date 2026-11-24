@@ -8,7 +8,7 @@ export class DescribeProjectOperateLogsResponseBodyResult extends $dara.Model {
    * The description of the operation.
    * 
    * @example
-   * 进入分配服务商操作人
+   * Entered the service provider assignment step
    */
   description?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeProjectOperateLogsResponseBodyResult extends $dara.Model {
    * The name of the operator.
    * 
    * @example
-   * 系统
+   * System
    */
   operatorName?: string;
   /**

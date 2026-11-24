@@ -92,7 +92,7 @@ export class DescribeProjectInfoResponseBodyResult extends $dara.Model {
    * The name of the Cloud Marketplace product.
    * 
    * @example
-   * 公司宝****记账
+   * Gongsibao**** accounting
    */
   productName?: string;
   /**
@@ -108,7 +108,7 @@ export class DescribeProjectInfoResponseBodyResult extends $dara.Model {
    * The name of the Cloud Marketplace product SKU.
    * 
    * @example
-   * 小***纳税人
+   * Small*** taxpayer
    */
   productSkuName?: string;
   /**

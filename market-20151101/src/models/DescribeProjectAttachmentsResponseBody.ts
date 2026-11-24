@@ -13,7 +13,7 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
   attachmentToken?: string;
   /**
    * @remarks
-   * The attachment type.
+   * The type of the attachment.
    * 
    * @example
    * File
@@ -24,12 +24,12 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
    * The content text.
    * 
    * @example
-   * 无
+   * None
    */
   content?: string;
   /**
    * @remarks
-   * The file access URL.
+   * The access URL of the file.
    * 
    * @example
    * http://delivery-center.oss-cn-shanghai.aliyuncs.com/6a8****0e2/e0a***f3.jpg?Expires=1589334682&OSSAccessKeyId=wI2r*********&Signature=JWB39pUxs7RCqrcw58qXPEGu6M0%3D
@@ -45,7 +45,7 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
   fileLinkGmtExpired?: number;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * f8-test-perview.jpeg
@@ -53,7 +53,7 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The size of the file (in bytes).
    * 
    * @example
    * 109124
@@ -77,7 +77,7 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The ID of the process node where the attachment was uploaded.
+   * The ID of the flow node where the attachment was uploaded.
    * 
    * @example
    * 8472
@@ -85,10 +85,10 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The node name.
+   * The name of the node.
    * 
    * @example
-   * 等待服务开通
+   * Waiting for service activation
    */
   nodeName?: string;
   /**
@@ -104,7 +104,7 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
    * The name of the operator.
    * 
    * @example
-   * **科技技术有限公司
+   * ** Technology Co., Ltd
    */
   operatorName?: string;
   /**
@@ -117,7 +117,7 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
   operatorRole?: string;
   /**
    * @remarks
-   * The sequence number of the process node.
+   * The sequence number of the flow node.
    * 
    * @example
    * 3
@@ -175,16 +175,20 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
 export class DescribeProjectAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * e03a9f78-7b40-4fb3-a015-350913e37e3f
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of project attachments.
+   */
   result?: DescribeProjectAttachmentsResponseBodyResult[];
   /**
    * @remarks
-   * The success status identifier.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

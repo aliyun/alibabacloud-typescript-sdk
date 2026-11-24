@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PushTimesUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authentication error message.
+   * The authentication error details.
    * 
    * @example
    * {}
@@ -26,7 +26,7 @@ export class PushTimesUsageResponseBody extends $dara.Model {
   forceFatal?: boolean;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code of the request.
    * 
    * @example
    * 200
@@ -58,7 +58,7 @@ export class PushTimesUsageResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

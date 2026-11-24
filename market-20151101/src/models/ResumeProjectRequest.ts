@@ -28,7 +28,7 @@ export class ResumeProjectRequest extends $dara.Model {
    * The reason for the remark.
    * 
    * @example
-   * 仓库库存已补充，可安排发货。
+   * The warehouse inventory has been replenished. Delivery can be arranged.
    */
   remark?: string;
   static names(): { [key: string]: string } {

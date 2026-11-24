@@ -32,7 +32,7 @@ export class DescribeOrderForIsvResponseBody extends $dara.Model {
    * - value: the module value.
    * 
    * @example
-   * {"package_version":{"code":"package_version","globarKey":"cmgj0******8_package_version_package_version_yuncode4176*****1","name":"0.01","value":"yuncode4176*****1"},"ord_time":{"code":"ord_time","globarKey":"cmgj0******8_ord_time_ord_time_1:Month","name":"1个月","value":"1:Month"},"order_num":{"code":"order_num","globarKey":"cmgj0******8_order_num_order_num_1","name":"1","value":"1"}}
+   * {"package_version":{"code":"package_version","globarKey":"cmgj0******8_package_version_package_version_yuncode4176*****1","name":"0.01","value":"yuncode4176*****1"},"ord_time":{"code":"ord_time","globarKey":"cmgj0******8_ord_time_ord_time_1:Month","name":"1 month","value":"1:Month"},"order_num":{"code":"order_num","globarKey":"cmgj0******8_order_num_order_num_1","name":"1","value":"1"}}
    */
   components?: any;
   /**
@@ -150,7 +150,7 @@ export class DescribeOrderForIsvResponseBody extends $dara.Model {
    * The name of the subscribed product.
    * 
    * @example
-   * saas服务产品
+   * SaaS service product
    */
   productName?: string;
   /**

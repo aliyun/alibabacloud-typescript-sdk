@@ -16,7 +16,7 @@ export class DescribeDistributionProductsResponseBodyResults extends $dara.Model
    * The first-level category name of the product.
    * 
    * @example
-   * API市场
+   * API Marketplace
    */
   firstCategoryName?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeDistributionProductsResponseBodyResults extends $dara.Model
    * The product name.
    * 
    * @example
-   * 手机号码在网状态查询
+   * Mobile phone number online status query
    */
   name?: string;
   /**
@@ -56,7 +56,7 @@ export class DescribeDistributionProductsResponseBodyResults extends $dara.Model
    * The second-level category name of the product.
    * 
    * @example
-   * 生活服务
+   * Life services
    */
   secondCategoryName?: string;
   /**
@@ -64,7 +64,7 @@ export class DescribeDistributionProductsResponseBodyResults extends $dara.Model
    * The brief description of the product.
    * 
    * @example
-   * 运营商号码状态查询】精准实时空号检测，手机号在网状态查询，返回正常、空号、通话中、在网但不可用、关机、呼叫转移、疑似关机、携号转网、号码错误、停机等多种状态。
+   * Carrier phone number status query] Provides accurate and real-time detection of empty numbers. You can query the online status of phone numbers, and statuses such as normal, empty, in-call, online but unavailable, powered off, call forwarding, suspected power-off, number portability, wrong number, and suspended are returned.
    */
   shortDescription?: string;
   /**
@@ -80,7 +80,7 @@ export class DescribeDistributionProductsResponseBodyResults extends $dara.Model
    * The name of the promotion service provider.
    * 
    * @example
-   * 深圳市****有限公司
+   * Shenzhen **** Co., Ltd.
    */
   supplierName?: string;
   /**
@@ -128,7 +128,7 @@ export class DescribeDistributionProductsResponseBodyResults extends $dara.Model
    *         SAAS_WUYING: application software - Wuying application.
    * 
    * @example
-   * API类
+   * API
    */
   type?: string;
   /**

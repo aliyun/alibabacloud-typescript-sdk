@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApiMeteringResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud primary key.
+   * The Alibaba Cloud PK.
    * 
    * @example
    * 102277855749****
@@ -24,9 +24,16 @@ export class DescribeApiMeteringResponseBodyResult extends $dara.Model {
    * The commodity name.
    * 
    * @example
-   * 身份证实名认证-身份证实名
+   * ID card real-name authentication - ID card real-name
    */
   productName?: string;
+  /**
+   * @remarks
+   * The total API capacity.
+   * 
+   * @example
+   * 100
+   */
   totalCapacity?: number;
   /**
    * @remarks
@@ -49,7 +56,7 @@ export class DescribeApiMeteringResponseBodyResult extends $dara.Model {
    * The unit.
    * 
    * @example
-   * 次
+   * Calls
    */
   unit?: string;
   static names(): { [key: string]: string } {
@@ -115,7 +122,7 @@ export class DescribeApiMeteringResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * "成功"
+   * "Success"
    */
   message?: string;
   /**
@@ -144,12 +151,12 @@ export class DescribeApiMeteringResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of results.
+   * The list of return values.
    */
   result?: DescribeApiMeteringResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * The result indicator.
    * 
    * @example
    * true

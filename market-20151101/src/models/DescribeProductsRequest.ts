@@ -167,7 +167,7 @@ export class DescribeProductsRequest extends $dara.Model {
    * The search keyword.
    * 
    * @example
-   * 镜像
+   * Image
    */
   searchTerm?: string;
   static names(): { [key: string]: string } {

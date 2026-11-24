@@ -28,7 +28,7 @@ export class PauseProjectRequest extends $dara.Model {
    * The reason for the remark.
    * 
    * @example
-   * 等待与仓库确认库存，目前库存显示异常。
+   * Waiting for the warehouse to confirm the inventory. The inventory is displayed as abnormal.
    */
   remark?: string;
   static names(): { [key: string]: string } {

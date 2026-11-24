@@ -9,6 +9,9 @@ export class AutoRenewInstanceRequest extends $dara.Model {
    * - Day: day.
    * - Month: month.
    * - Year: year.
+   * 
+   * @example
+   * Month
    */
   autoRenewCycle?: string;
   /**
@@ -33,6 +36,9 @@ export class AutoRenewInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * open
    */
   type?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProjectMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the Alibaba Cloud Marketplace business instance.
+   * The instance ID of the Alibaba Cloud Marketplace business.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeProjectMessagesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the query. Each page contains 20 entries.
+   * The page number. Each page returns 20 entries.
    * 
    * @example
    * 1

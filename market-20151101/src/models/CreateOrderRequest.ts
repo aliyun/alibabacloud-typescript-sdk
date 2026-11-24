@@ -41,7 +41,7 @@ export class CreateOrderRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * InstanceBuyCommodity示例：{"components":{"package_version":"yuncode1394000000"},"duration":100,"pricingCycle":"Year","productCode":"cmfw019940","properties":{},"quantity":1,"skuCode":"cmfw019940-prepay"}；InstanceRenewCommodity示例：{“components”:{“package_version”:”yuncode1806900001”},”quantity”:1,”duration”:2,”instanceId”:”6227091”,”productCode”:”cmgj024069”,”pricingCycle”:”Month”,”properties”:{},”skuCode”:”cmgj024069-prepay”}；InstanceUpgradeCommodity示例：{“components”:{“package_version”:”yuncode1806900002”},”quantity”:1,”duration”:1,”instanceId”:”6227091”,”productCode”:”cmgj024069”,”pricingCycle”:”Month”,”properties”:{},”skuCode”:”cmgj024069-prepay”}
+   * InstanceBuyCommodity example: {"components":{"package_version":"yuncode1394000000"},"duration":100,"pricingCycle":"Year","productCode":"cmfw019940","properties":{},"quantity":1,"skuCode":"cmfw019940-prepay"}；InstanceRenewCommodity example: {"components":{"package_version":"yuncode1806900001"},"quantity":1,"duration":2,"instanceId":"6227091","productCode":"cmgj024069","pricingCycle":"Month","properties":{},"skuCode":"cmgj024069-prepay"}；InstanceUpgradeCommodity example: {"components":{"package_version":"yuncode1806900002"},"quantity":1,"duration":1,"instanceId":"6227091","productCode":"cmgj024069","pricingCycle":"Month","properties":{},"skuCode":"cmgj024069-prepay"}
    */
   commodity?: string;
   /**

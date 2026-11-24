@@ -80,7 +80,7 @@ export class DescribeProjectNodesResponseBodyResult extends $dara.Model {
    * The node name.
    * 
    * @example
-   * 分配服务商节点
+   * Assign service provider node
    */
   nodeName?: string;
   /**
@@ -136,7 +136,7 @@ export class DescribeProjectNodesResponseBodyResult extends $dara.Model {
    * The form content of the flow node.
    * 
    * @example
-   * [ {"fieldKey": "TFD0","isRequired": true,"maxLength": 50, "placeHolder": "姓名","stepNum": 0,"title": "收货人姓名","type": "text" },{ "fieldKey": "TFD1","isRequired": true,"maxLength": 50,"placeHolder": "手机号码","stepNum": 1,"title": "收货人电话","type": "text"},{"fieldKey": "TFD2","isRequired": true,"maxLength": 50,"placeHolder": "省市区街道门牌号码","stepNum": 2,"title": "详细收货地址","type": "textarea"}]
+   * [ {"fieldKey": "TFD0","isRequired": true,"maxLength": 50, "placeHolder": "Name","stepNum": 0,"title": "Consignee name","type": "text" },{ "fieldKey": "TFD1","isRequired": true,"maxLength": 50,"placeHolder": "Phone number","stepNum": 1,"title": "Consignee phone number","type": "text"},{"fieldKey": "TFD2","isRequired": true,"maxLength": 50,"placeHolder": "Province, city, district, street, and house number","stepNum": 2,"title": "Detailed shipping address","type": "textarea"}]
    */
   templateForm?: string;
   static names(): { [key: string]: string } {

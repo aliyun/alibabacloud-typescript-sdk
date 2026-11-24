@@ -28,7 +28,7 @@ export class FinishCurrentProjectNodeRequest extends $dara.Model {
    * The remarks.
    * 
    * @example
-   * 收货地址已提交，请尽快安排发货。
+   * The shipping address has been submitted. Arrange delivery as soon as possible.
    */
   remark?: string;
   /**
@@ -36,7 +36,7 @@ export class FinishCurrentProjectNodeRequest extends $dara.Model {
    * The form content to submit, in JSON format. Example: {"TFD0":"mr.go","TFD1":"1330010xxxx","TFD2":"Chaoyang District, Wangjing Street, Block x, No. y"}.
    * 
    * @example
-   * {"TFD0": "Mr.Go","TFD1": "1330010xxxx","TFD2": "北京市朝阳区望京街道X区Y号" }
+   * {"TFD0": "Mr.Go","TFD1": "1330010xxxx","TFD2": "Wangjing Street, Block X, No. Y, Chaoyang District, Beijing" }
    */
   templateForm?: string;
   static names(): { [key: string]: string } {

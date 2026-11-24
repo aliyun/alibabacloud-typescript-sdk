@@ -8,12 +8,12 @@ export class DescribeProjectMessagesResponseBodyResult extends $dara.Model {
    * The content of the message.
    * 
    * @example
-   * 尊敬的客户您好，我们已经为您上传了方案，请您查阅，然后尽快将您的意见反馈给我们。
+   * Dear customer, we have uploaded the solution for you. Please review it and provide your feedback as soon as possible
    */
   content?: string;
   /**
    * @remarks
-   * The time when the message was created, in UNIX timestamp format.
+   * The time when the message was created. The value is a UNIX timestamp.
    * 
    * @example
    * 1589015560000
@@ -21,7 +21,7 @@ export class DescribeProjectMessagesResponseBodyResult extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The Alibaba Cloud UID of the user who left the message.
+   * The Alibaba Cloud UID of the message sender.
    * 
    * @example
    * 452611111****
@@ -29,19 +29,19 @@ export class DescribeProjectMessagesResponseBodyResult extends $dara.Model {
   operator?: number;
   /**
    * @remarks
-   * The name of the user who left the message.
+   * The name of the message sender.
    * 
    * @example
-   * ***科技技术有限公司
+   * *** Technology Co., Ltd
    */
   operatorName?: string;
   /**
    * @remarks
    * The role of the operator. Valid values:
    * 
-   * - System: system.
-   * - Custom: customer.
-   * - Provider: service provider.
+   * - System: The system.
+   * - Custom: The customer.
+   * - Provider: The service provider.
    * 
    * @example
    * Provider
@@ -85,6 +85,10 @@ export class DescribeProjectMessagesResponseBody extends $dara.Model {
    * 00eb4de1-6cff-4f56-833e-7b1e070e398d
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of project messages.
+   */
   result?: DescribeProjectMessagesResponseBodyResult[];
   /**
    * @remarks

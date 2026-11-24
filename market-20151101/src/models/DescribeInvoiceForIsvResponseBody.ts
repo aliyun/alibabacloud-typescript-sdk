@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether invoicing is performed by an agent.
+   * Specifies whether proxy invoicing is used.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
   amount?: string;
   /**
    * @remarks
-   * The time when the business transaction occurred.
+   * The time when the transaction occurred.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -29,7 +29,7 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
   bizTimeStr?: string;
   /**
    * @remarks
-   * The invoicing object ID.
+   * The ID of the invoicing object.
    * 
    * @example
    * 9540765
@@ -37,11 +37,9 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
   id?: string;
   /**
    * @remarks
-   * The order or bill type. Valid values:
-   * 
-   * - 0: order
-   * 
-   * - 1: bill
+   * The type of the order or bill. Valid values:
+   * - 0: Order.
+   * - 1: Bill.
    * 
    * @example
    * 0
@@ -49,7 +47,7 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
   orderType?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 2024091610072000****
@@ -65,10 +63,10 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
   productCode?: string;
   /**
    * @remarks
-   * The product name. (Deprecated.)
+   * **[Deprecated]** The product name.
    * 
    * @example
-   * 图像识别OCR***
+   * Image recognition OCR***
    */
   productName?: string;
   /**
@@ -129,7 +127,7 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
 export class DescribeInvoiceForIsvResponseBodyResultInvoiceList extends $dara.Model {
   /**
    * @remarks
-   * The invoice object ID.
+   * The ID of the invoice object.
    * 
    * @example
    * 4072040****
@@ -137,7 +135,7 @@ export class DescribeInvoiceForIsvResponseBodyResultInvoiceList extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The invoicing amount applied for. Unit: CNY.
+   * The applied invoicing amount. Unit: CNY.
    * 
    * @example
    * 99.99
@@ -169,7 +167,7 @@ export class DescribeInvoiceForIsvResponseBodyResultInvoiceList extends $dara.Mo
 export class DescribeInvoiceForIsvResponseBodyResultReceiptUserInfoDto extends $dara.Model {
   /**
    * @remarks
-   * The bank account number.
+   * The bank account.
    * 
    * @example
    * 000000
@@ -177,7 +175,7 @@ export class DescribeInvoiceForIsvResponseBodyResultReceiptUserInfoDto extends $
   bankAccount?: string;
   /**
    * @remarks
-   * The bank name.
+   * The name of the bank.
    * 
    * @example
    * 111111
@@ -188,12 +186,12 @@ export class DescribeInvoiceForIsvResponseBodyResultReceiptUserInfoDto extends $
    * The registered address.
    * 
    * @example
-   * 杭州市****
+   * Hangzhou ****
    */
   regAddress?: string;
   /**
    * @remarks
-   * The registered phone number.
+   * The registered landline number.
    * 
    * @example
    * 0571-****
@@ -242,7 +240,7 @@ export class DescribeInvoiceForIsvResponseBodyResultUserAddressDto extends $dara
    * The recipient.
    * 
    * @example
-   * ***
+   * Zhang San
    */
   addressee?: string;
   /**
@@ -255,7 +253,7 @@ export class DescribeInvoiceForIsvResponseBodyResultUserAddressDto extends $dara
   aliyunPk?: string;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * ******
@@ -266,7 +264,7 @@ export class DescribeInvoiceForIsvResponseBodyResultUserAddressDto extends $dara
    * The delivery address.
    * 
    * @example
-   * 杭州市****
+   * Hangzhou ****
    */
   deliveryAddress?: string;
   /**
@@ -274,7 +272,7 @@ export class DescribeInvoiceForIsvResponseBodyResultUserAddressDto extends $dara
    * The email address.
    * 
    * @example
-   * ******
+   * demo@example.com
    */
   emails?: string;
   /**
@@ -337,10 +335,10 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   aliyunPk?: string;
   /**
    * @remarks
-   * The supplier invoice remarks.
+   * The service provider invoice remarks.
    * 
    * @example
-   * 无
+   * None
    */
   checkNotice?: string;
   /**
@@ -353,12 +351,12 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   createTimeStr?: string;
   /**
    * @remarks
-   * The order, bill, or contract numbers.
+   * The order, bill, or contract number.
    */
   evaluateList?: DescribeInvoiceForIsvResponseBodyResultEvaluateList[];
   /**
    * @remarks
-   * The invoice application ID. This corresponds to the InvoiceId parameter used when calling the ModifyInvoiceForIsv operation.
+   * The ID of the invoice application. This corresponds to the InvoiceId parameter when you call the ModifyInvoiceForIsv operation.
    * 
    * @example
    * 4072040****
@@ -366,7 +364,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The invoice object ID.
+   * The ID of the invoice object.
    * 
    * @example
    * 4072040****
@@ -374,14 +372,22 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   invoiceId?: string;
   /**
    * @remarks
-   * The invoice sub-collection. (Deprecated.)
+   * **[Deprecated]** The invoice sub-collection.
    */
   invoiceList?: DescribeInvoiceForIsvResponseBodyResultInvoiceList[];
   /**
    * @remarks
+   * The relationship between the invoice title and the customer real-name information. Valid values: `REAL_NAME_MATCH` (The real-name information is consistent), `PERSONAL_APPLY_ENTERPRISE_TITLE` (An individual applies for an enterprise title), `ENTERPRISE_MULTI_TITLE` (Multiple titles for an enterprise), `MASTER_ACCOUNT_OPERATION` (Operated by the main account), and `OTHER` (Other). If not provided, the value is null.
+   * 
+   * @example
+   * REAL_NAME_MATCH
+   */
+  invoiceTitleRelation?: string;
+  /**
+   * @remarks
    * The invoice issuance type. Valid values:
-   * - 0: paper
-   * - 1: electronic
+   * - 0: Paper.
+   * - 1: Electronic.
    * 
    * @example
    * 1
@@ -389,7 +395,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   materialType?: string;
   /**
    * @remarks
-   * The time when the order status was modified (GMT).
+   * The time when the order status was modified. The time is displayed in GMT.
    * 
    * @example
    * 2025-03-04T09:43:18+08:00
@@ -397,7 +403,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The invoice modification time.
+   * The time when the invoice was modified.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -413,12 +419,12 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   price?: string;
   /**
    * @remarks
-   * The invoice applicant user information.
+   * The user information of the invoice applicant.
    */
   receiptUserInfoDto?: DescribeInvoiceForIsvResponseBodyResultReceiptUserInfoDto;
   /**
    * @remarks
-   * The invoice status. Valid values: 0: pending invoicing. 1: invoiced.
+   * The invoice status. Valid values: 0: Pending. 1: Invoiced.
    * 
    * @example
    * Success
@@ -429,14 +435,14 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
    * The invoice title.
    * 
    * @example
-   * 阿里云计算有限公司
+   * Alibaba Cloud Computing Ltd
    */
   title?: string;
   /**
    * @remarks
    * The invoice type. Valid values:
-   * - 2: general digital electronic invoice
-   * - 3: special digital electronic invoice
+   * - 2: Digital electronic general invoice.
+   * - 3: Digital electronic special invoice.
    * 
    * @example
    * 2
@@ -452,7 +458,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
    * The user invoice remarks.
    * 
    * @example
-   * 无
+   * None
    */
   userNotice?: string;
   static names(): { [key: string]: string } {
@@ -464,6 +470,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
       id: 'Id',
       invoiceId: 'InvoiceId',
       invoiceList: 'InvoiceList',
+      invoiceTitleRelation: 'InvoiceTitleRelation',
       materialType: 'MaterialType',
       modifiedTime: 'ModifiedTime',
       modifiedTimeStr: 'ModifiedTimeStr',
@@ -486,6 +493,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
       id: 'string',
       invoiceId: 'string',
       invoiceList: { 'type': 'array', 'itemType': DescribeInvoiceForIsvResponseBodyResultInvoiceList },
+      invoiceTitleRelation: 'string',
       materialType: 'string',
       modifiedTime: 'string',
       modifiedTimeStr: 'string',
@@ -523,7 +531,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
 export class DescribeInvoiceForIsvResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The commodity code corresponding to the product.
+   * The product code.
    * 
    * @example
    * 200
@@ -563,7 +571,7 @@ export class DescribeInvoiceForIsvResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of instances per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -579,12 +587,12 @@ export class DescribeInvoiceForIsvResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The process node information upon success.
+   * The information about the successful flow node.
    */
   result?: DescribeInvoiceForIsvResponseBodyResult[];
   /**
    * @remarks
-   * The result indicator.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

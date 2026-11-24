@@ -23,9 +23,7 @@ export class DescribeApiMeteringRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The type. Valid values:
-   * - 1: subscription package.
-   * - 2: resource plan.
+   * The type. Valid values: 1: package. 2: resource plan.
    * 
    * @example
    * 1
