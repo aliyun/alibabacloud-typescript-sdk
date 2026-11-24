@@ -39,6 +39,10 @@ export class DeleteLaunchTemplateResponseBody extends $dara.Model {
    * lt-bp1apo0bbbkuy0rj****
    */
   launchTemplateId?: string;
+  /**
+   * @example
+   * [3,2,1]
+   */
   launchTemplateVersionNumbers?: DeleteLaunchTemplateResponseBodyLaunchTemplateVersionNumbers;
   /**
    * @remarks

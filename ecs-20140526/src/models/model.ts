@@ -292,6 +292,7 @@ export { DescribeDiagnosticReportsResponseBodyReportsReportIssuesIssue } from '.
 export { DescribeDiagnosticReportsResponseBodyReportsReportIssues } from './DescribeDiagnosticReportsResponseBody';
 export { DescribeDiagnosticReportsResponseBodyReportsReport } from './DescribeDiagnosticReportsResponseBody';
 export { DescribeDiagnosticReportsResponseBodyReports } from './DescribeDiagnosticReportsResponseBody';
+export { DescribeDiskAttachmentsResponseBodyDiskAttachments } from './DescribeDiskAttachmentsResponseBody';
 export { DescribeDiskMonitorDataResponseBodyMonitorDataDiskMonitorData } from './DescribeDiskMonitorDataResponseBody';
 export { DescribeDiskMonitorDataResponseBodyMonitorData } from './DescribeDiskMonitorDataResponseBody';
 export { DescribeDisksRequestFilter } from './DescribeDisksRequest';
@@ -1350,6 +1351,9 @@ export { DescribeDiagnosticReportAttributesResponse } from './DescribeDiagnostic
 export { DescribeDiagnosticReportsRequest } from './DescribeDiagnosticReportsRequest';
 export { DescribeDiagnosticReportsResponseBody } from './DescribeDiagnosticReportsResponseBody';
 export { DescribeDiagnosticReportsResponse } from './DescribeDiagnosticReportsResponse';
+export { DescribeDiskAttachmentsRequest } from './DescribeDiskAttachmentsRequest';
+export { DescribeDiskAttachmentsResponseBody } from './DescribeDiskAttachmentsResponseBody';
+export { DescribeDiskAttachmentsResponse } from './DescribeDiskAttachmentsResponse';
 export { DescribeDiskDefaultKMSKeyIdRequest } from './DescribeDiskDefaultKmskeyIdRequest';
 export { DescribeDiskDefaultKMSKeyIdResponseBody } from './DescribeDiskDefaultKmskeyIdResponseBody';
 export { DescribeDiskDefaultKMSKeyIdResponse } from './DescribeDiskDefaultKmskeyIdResponse';

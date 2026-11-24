@@ -13,7 +13,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   accountId?: number;
   /**
    * @remarks
-   * The ID of the Elastic network interface controller (NIC).
+   * The ID of the Elastic Network Interface (ENI).
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -21,7 +21,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The ID of the Elastic network interface controller (NIC) permission.
+   * The ID of the elastic network interface controller (NIC) permission.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -29,7 +29,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfacePermissionId?: string;
   /**
    * @remarks
-   * The Elastic network interface controller (NIC) permission.
+   * The elastic network interface controller (NIC) permission.
    * 
    * @example
    * InstanceAttach
@@ -37,7 +37,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   permission?: string;
   /**
    * @remarks
-   * The state of the Elastic network interface controller (NIC) permission. Valid values:
+   * The state of the elastic network interface controller (NIC) permission. Valid values:
    * 
    * - Pending: The authorization is in progress.
    * - Granted: The authorization is granted.
@@ -90,7 +90,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
 export class CreateNetworkInterfacePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of information composed of the Elastic network interface controller (NIC) permission list.
+   * The collection of elastic network interface controller (NIC) permissions.
    */
   networkInterfacePermission?: CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission;
   /**

@@ -290,7 +290,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the query result.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -315,7 +315,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of commands.
-   * > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is meaningless.
+   * > The returned TotalCount value is meaningless when you use the MaxResults and NextToken parameters for paging in a paged query.
    * 
    * @example
    * 1

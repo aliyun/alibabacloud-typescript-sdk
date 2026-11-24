@@ -13,7 +13,7 @@ export class DescribePortRangeListAssociationsResponseBodyPortRangeListAssociati
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. Valid values: SecurityGroup.
+   * The resource type. Valid value: SecurityGroup.
    * 
    * @example
    * SecurityGroup
@@ -45,7 +45,7 @@ export class DescribePortRangeListAssociationsResponseBodyPortRangeListAssociati
 export class DescribePortRangeListAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token returned by the current call. If this value is empty, no more data is returned.
+   * The pagination token returned by the current call. If this value is empty, no more data is available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -53,7 +53,7 @@ export class DescribePortRangeListAssociationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The array of resources associated with the port list.
+   * The array of resources associated with the port range list.
    */
   portRangeListAssociations?: DescribePortRangeListAssociationsResponseBodyPortRangeListAssociations[];
   /**

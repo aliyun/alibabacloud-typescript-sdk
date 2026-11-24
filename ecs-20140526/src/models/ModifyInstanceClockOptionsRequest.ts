@@ -13,11 +13,11 @@ export class ModifyInstanceClockOptionsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. Valid values:
+   * Specifies whether to perform only a dry run on the request. Valid values:
    * 
-   * - true: sends a check request without querying resource status. The check items include whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+   * - true: Sends a check request and does not query the resource status. The check items include whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the check, a corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
    * 
-   * - false: sends a Normal request. If the request passes the check, a 2xx HTTP status code is returned and the resource status is directly queried.
+   * - false: Sends a normal request. If the request passes the check, a 2XX HTTP status code is returned and the resource status is directly queried.
    * 
    * Default value: false.
    * 

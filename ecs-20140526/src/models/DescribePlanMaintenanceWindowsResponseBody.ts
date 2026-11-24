@@ -95,7 +95,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriodRangeList extends $dara.Model {
   /**
    * @remarks
-   * The end time of the maintenance time window. Format: DayOfWeek,HH:mm. Example: Monday,22:00.
+   * The end time of the maintenance time window. The format is DayOfWeek,HH:mm, such as Monday,22:00.
    * 
    * @example
    * Monday,22:00
@@ -103,7 +103,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   endTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance time window. Format: DayOfWeek,HH:mm. Example: Monday,22:00.
+   * The start time of the maintenance time window. The format is DayOfWeek,HH:mm, such as Monday,22:00.
    * 
    * @example
    * Monday,22:00
@@ -135,7 +135,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The type of the recurrence cycle. Valid values: Daily and Weekly.
+   * The type of the recurrence period. Valid values: Daily and Weekly.
    * 
    * @example
    * Year
@@ -143,7 +143,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   periodUnit?: string;
   /**
    * @remarks
-   * The time periods of the O&M window recurrence cycle in the UTC time zone.
+   * The time ranges of the recurrence period of the O&M window in UTC.
    */
   rangeList?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriodRangeList[];
   static names(): { [key: string]: string } {
@@ -175,9 +175,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList extends $dara.Model {
   /**
    * @remarks
-   * The time when the O&M window was created.
-   * 
-   * The time is displayed in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the O&M window was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-04-11T02:20:41Z
@@ -201,9 +199,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   minMaintenanceInterval?: number;
   /**
    * @remarks
-   * The time when the O&M window was last modified.
-   * 
-   * The time is displayed in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the O&M window was modified. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-02-22 10:14:28 +0800
@@ -240,7 +236,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   targetResource?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTargetResource;
   /**
    * @remarks
-   * The recurrence cycle of the window.
+   * The recurrence period of the window.
    */
   timePeriod?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriod;
   static names(): { [key: string]: string } {
@@ -289,7 +285,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page in a paging query. Maximum value: 100. Default value: 10. If you do not specify a value or the specified value is less than 10, the default value 10 is used. If the specified value is greater than 100, the default value 100 is used.
+   * The number of entries per page in a paging query. Maximum value: 100. Default value: 10. If no value is specified or the specified value is less than 10, the default value 10 is used. If the specified value is greater than 100, the default value 100 is used.
    * 
    * @example
    * 10

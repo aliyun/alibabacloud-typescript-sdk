@@ -7,7 +7,7 @@ export class DescribeManagedInstancesResponseBodyInstancesTags extends $dara.Mod
    * @remarks
    * The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources attached to multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * If you use a single tag to filter resources, the number of returned resources cannot exceed 1,000. If you use multiple tags to filter resources, the number of returned resources that have multiple tags attached cannot exceed 1,000. If the number of resources exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
    * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -69,7 +69,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
    * @remarks
    * Indicates whether the managed instance is connected. Valid values:
    * 
-   * - true: The managed instance is connected. You can manage the managed instance by using Cloud Assistant.
+   * - true: The managed instance is connected. You can use Cloud Assistant to manage the managed instance.
    * 
    * - false: The managed instance is not connected. The server may be stopped or the Cloud Assistant Agent is not properly installed.
    * 
@@ -87,7 +87,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The managed instance ID.
+   * The ID of the managed instance.
    * 
    * @example
    * mi-hz018jrc1o0****
@@ -127,7 +127,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   invocationCount?: number;
   /**
    * @remarks
-   * The time when the Cloud Assistant task was last executed. The time follows the ISO 8601 standard in the UTC time zone.
+   * The time when the Cloud Assistant task was last executed. The time is in ISO 8601 format and in UTC.
    * 
    * @example
    * 2021-01-20T09:00:40Z
@@ -159,7 +159,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   osVersion?: string;
   /**
    * @remarks
-   * The time when the managed instance was registered. The time follows the ISO 8601 standard in the UTC time zone.
+   * The time when the managed instance was registered. The time is in ISO 8601 format and in UTC.
    * 
    * @example
    * 2021-01-20T08:57:56Z
@@ -256,7 +256,7 @@ export class DescribeManagedInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -272,8 +272,8 @@ export class DescribeManagedInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of managed instances returned.
-   * > When you use the MaxResults and NextToken parameters for paging and paged query, the returned TotalCount value is meaningless.
+   * The total number of managed instances queried.
+   * > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is meaningless.
    * 
    * @example
    * 1

@@ -45,7 +45,7 @@ export class ModifyManagedInstanceResponseBodyInstance extends $dara.Model {
 export class ModifyManagedInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The managed instance information.
+   * The collection of managed instance information.
    */
   instance?: ModifyManagedInstanceResponseBodyInstance;
   /**

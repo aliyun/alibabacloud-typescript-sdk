@@ -7,8 +7,8 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values: 
    *          
-   * - true (default): enables automatic payment. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated and can only be canceled. 
-   * - false: generates an order without deducting fees. If your account balance is insufficient, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Order Management](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
+   * - true: enables automatic payment. This is the default value. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated and can only be canceled. 
+   * - false: generates an order without deducting fees. If your account balance is insufficient, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
    * 
    * @example
    * true
@@ -24,12 +24,12 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The billing method of the disk. Valid values: 
+   * The new billing method of the disk. Valid values: 
    *          
-   * - PrePaid (default): switches the pay-as-you-go data disk to a subscription data disk. 
-   * - PostPaid: switches the subscription data disk to a pay-as-you-go data disk.
+   * - PrePaid: changes the billing method of the data disk from pay-as-you-go to subscription. This is the default value. 
+   * - PostPaid: changes the billing method of the data disk from subscription to pay-as-you-go.
    * 
-   * > When you switch a pay-as-you-go disk to a subscription disk, the billing cycle of the disk capacity is automatically synchronized with that of the associated ECS instance.
+   * > When you change the billing method of a pay-as-you-go disk to subscription, the billing cycle of the disk capacity fee is automatically synchronized with that of the associated ECS instance.
    * 
    * @example
    * PostPaid
@@ -37,7 +37,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   diskChargeType?: string;
   /**
    * @remarks
-   * The list of disk IDs. The value is a JSON array. You can specify up to 16 disk IDs. Separate multiple IDs with commas (,).
+   * The IDs of the disks. The value is a JSON array. You can specify up to 16 disk IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeReservedInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the reserved instance. The tag key cannot be an empty string and can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag key of the reserved instance. The tag key cannot be an empty string. It can be up to 128 characters in length, and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
-   * > If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have multiple tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * > If you use a single tag to filter resources, the resource count of resources under this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have multiple tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
    * @example
    * TestKey
@@ -15,7 +15,7 @@ export class DescribeReservedInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the reserved instance. The tag value cannot be an empty string and can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+   * The tag value of the reserved instance. The tag value cannot be an empty string. It can be up to 128 characters in length, and cannot start with `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -49,8 +49,8 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
    * @remarks
    * The allocation type. Valid values:
    * 
-   * - Normal: queries the reserved instances under the current account.
-   * - Shared: queries the reserved instances that are shared between the main account and linked accounts under the current account.
+   * - Normal: Queries the reserved instances within the current account.
+   * - Shared: Queries the reserved instances that are shared between the main account and linked accounts within the current account.
    * 
    * Default value: Normal.
    * 
@@ -62,7 +62,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
    * @remarks
    * The instance type that matches the reserved instance. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html). 
    * 
-   * > This is the instance type selected when you purchase the reserved instance. When the reserved instance is applied, a regional reserved instance can be applied to different instance types within the same instance family based on the equivalence calculation.
+   * > This is the instance type that you selected when you purchased the reserved instance. When the reserved instance is applied to offset the bills of pay-as-you-go instances, regional reserved instances support size flexibility within the same instance family.
    * 
    * @example
    * ecs.g5.large
@@ -70,7 +70,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The instance family that matches the reserved instance. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The instance type family that matches the reserved instance. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * ecs.g5
@@ -91,9 +91,9 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
    * @remarks
    * The payment type of the reserved instance. Valid values:
    * 
-   * - No Upfront: no upfront.
-   * - Partial Upfront: partial upfront.
-   * - All Upfront: all upfront.
+   * - No Upfront: no upfront
+   * - Partial Upfront: partial upfront
+   * - All Upfront: all upfront
    * 
    * @example
    * All Upfront
@@ -113,7 +113,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paging query. Maximum value: 100.
+   * The number of entries per page in a paging query. Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -133,7 +133,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The reserved instance IDs. Array length: 1 to 100.
+   * The IDs of the reserved instances. Array length: 1 to 100.
    * 
    * @example
    * ri-bpzhex2ulpzf53****
@@ -155,8 +155,8 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
    * @remarks
    * The scope of the reserved instance. Valid values:
    *          
-   * - Region: regional.
-   * - Zone: zonal.
+   * - Region: regional
+   * - Zone: zonal
    * 
    * @example
    * Region

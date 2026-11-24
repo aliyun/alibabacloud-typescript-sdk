@@ -13,12 +13,14 @@ export class ModifySnapshotAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to shutdown the instant access feature for the snapshot. Valid values:
-   * - true: shutdown the instant access feature.
-   * - false: do not shutdown the instant access feature.
+   * Specifies whether to trigger a shutdown of the snapshot instant access (active) feature. Valid values:
+   * 
+   * - true: Triggers a shutdown of the snapshot instant access (active) feature.
+   * - false: Does not trigger a shutdown of the snapshot instant access (active) feature.
+   * 
    * Default value: false.
    * 
-   * > **[Deprecated]** This parameter is deprecated. Standard snapshots of ESSD cloud disks have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to perform additional configurations, and no additional fees are incurred.
+   * > **[Deprecated]** This parameter is deprecated. Standard snapshots of an ESSD disk (enterprise SSD, not standard SSD) are upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to perform additional configurations, and no additional fees are incurred.
    * 
    * @example
    * false
@@ -31,7 +33,8 @@ export class ModifySnapshotAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The retention period of the snapshot in days. When you specify this parameter, the retention period is calculated from the **creation time** of the snapshot. The creation time is represented in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC. Valid values: 1 to 65536.
-   * > You can only extend the retention period of a snapshot. You cannot shorten the existing retention period.
+   * 
+   * >The retention period of a snapshot can only be extended. You cannot shorten the existing retention period of a snapshot.
    * 
    * @example
    * 10

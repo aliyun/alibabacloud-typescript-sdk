@@ -7,7 +7,7 @@ export class ResizeDiskResponseBody extends $dara.Model {
    * @remarks
    * The ID of the generated order.
    * 
-   * > The order ID is returned only when you resize a subscription cloud disk.
+   * > The order ID is returned only when you resize a subscription disk.
    * 
    * @example
    * 20413515388****

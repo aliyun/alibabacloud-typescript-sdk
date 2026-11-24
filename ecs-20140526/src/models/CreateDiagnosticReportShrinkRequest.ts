@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiagnosticReportShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional options in JSON format.
+   * The extended parameters in JSON format.
+   * 
+   * @example
+   * {"key":"value"}
    */
   additionalOptionsShrink?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the ISO 8601 standard in the UTC time zone. This parameter takes effect only for diagnostic metrics that do not require Cloud Assistant commands to be executed in the guest OS.
+   * The end time. The time follows the ISO 8601 standard and is displayed in UTC. This parameter takes effect only for diagnostic metrics that do not require Cloud Assistant commands to be executed in the guest OS.
    * 
    * @example
    * 2022-07-11T14:00Z
@@ -26,7 +29,7 @@ export class CreateDiagnosticReportShrinkRequest extends $dara.Model {
   metricSetId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -46,7 +49,7 @@ export class CreateDiagnosticReportShrinkRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the ISO 8601 standard in the UTC time zone. This parameter takes effect only for diagnostic metrics that do not require Cloud Assistant commands to be executed in the guest OS.
+   * The start time. The time follows the ISO 8601 standard and is displayed in UTC. This parameter takes effect only for diagnostic metrics that do not require Cloud Assistant commands to be executed in the guest OS.
    * 
    * @example
    * 2022-07-11T12:00Z

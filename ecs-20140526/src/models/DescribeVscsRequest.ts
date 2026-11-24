@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVscsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the command. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string.
-   * 
-   * If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources to which you attach multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
-   * 
-   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key of the command. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string. If you use a single tag to filter resources, the resource count cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all the specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources. The tag key can be up to 64 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * Environment
@@ -17,7 +13,7 @@ export class DescribeVscsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Valid values of N: 1 to 20. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value. Valid values of N: 1 to 20. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -65,7 +61,7 @@ export class DescribeVscsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token returned for the current request.
+   * The query token returned by this request.
    * 
    * @example
    * AAAAAdDWBF2
@@ -85,7 +81,7 @@ export class DescribeVscsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. If you use this parameter to filter resources, the resource count cannot exceed 1,000. Note: Filtering by the default resource group is not supported.
+   * The ID of the resource group to which the instance belongs. If you use this parameter to filter resources, the resource count cannot exceed 1,000. Note: You cannot filter resources by the default resource group.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -96,14 +92,12 @@ export class DescribeVscsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the VSCs to query. If you do not specify this parameter, VSCs in all states are returned. Valid values:
-   * 
-   * - In_use: The VSC is in use.
-   * - Attaching: The VSC is being attached.
-   * - Detaching: The VSC is being detached.
-   * - AttachFailed: The VSC failed to be attached.
-   * - DetachFailed: The VSC failed to be detached.
+   * - In_use: In use.
+   * - Attaching: Being attached.
+   * - Detaching: Being detached.
+   * - AttachFailed: Attachment failed.
+   * - DetachFailed: Detachment failed.
    * - All: All states.
-   * 
    * Default value: All.
    * 
    * @example

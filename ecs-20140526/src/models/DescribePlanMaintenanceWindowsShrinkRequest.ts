@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlanMaintenanceWindowsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the O&M window is enabled.
+   * Specifies whether the window is enabled or disabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribePlanMaintenanceWindowsShrinkRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page in a paging query. Maximum value: 100. Default value: 10. If you do not specify a value or the specified value is less than 10, the default value 10 is used. If the specified value is greater than 100, the default value 100 is used.
+   * The number of entries per page in a paging query. Maximum value: 100. Default value: 10. If no value is specified or the specified value is less than 10, the default value 10 is used. If the specified value is greater than 100, the default value 100 is used.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribePlanMaintenanceWindowsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set the value to the NextToken value returned from the previous API call.
+   * The pagination token. Set the value to the NextToken value returned in the last API call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -45,7 +45,7 @@ export class DescribePlanMaintenanceWindowsShrinkRequest extends $dara.Model {
   planWindowName?: string;
   /**
    * @remarks
-   * The region ID. This parameter is required for Alibaba Cloud SDK routing. However, setting any region ID for this operation makes no difference. The operation returns all O&M windows across the network that meet the specified conditions.
+   * The region ID. This parameter is required for Alibaba Cloud SDK routing. However, setting any region ID for this operation makes no difference, and the operation returns O&M windows that meet the conditions across the entire network.
    * 
    * This parameter is required.
    * 

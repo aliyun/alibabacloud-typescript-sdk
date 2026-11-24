@@ -7,7 +7,7 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
    * @remarks
    * The maximum inbound internal bandwidth limit.
    * 
-   * Unit: Kbit/s. Step size: 1000 (1 Mbit/s). Valid values: [50000, +∞).
+   * Unit: Kbit/s. Step: 1000 (1 Mbit/s). Valid values: [50000, +∞).
    * 
    * @example
    * 50000
@@ -17,7 +17,7 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
    * @remarks
    * The maximum outbound internal bandwidth limit.
    * 
-   * Unit: Kbit/s. Step size: 1000 (1 Mbit/s). Valid values: [50000, +∞).
+   * Unit: Kbit/s. Step: 1000 (1 Mbit/s). Valid values: [50000, +∞).
    * 
    * @example
    * 50000
@@ -25,9 +25,9 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
   bandwidthTx?: number;
   /**
    * @remarks
-   * The maximum number of sessions.
+   * The maximum number of concurrent connections.
    * 
-   * Step size: 10000. Valid values: [10000, +∞).
+   * Step: 10000. Valid values: [10000, +∞).
    * 
    * @example
    * 50000
@@ -37,7 +37,7 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
    * @remarks
    * The inbound internal packet forwarding rate.
    * 
-   * Unit: PPS. Step size: 10000. Valid values: [10000, +∞).
+   * Unit: PPS. Step: 10000. Valid values: [10000, +∞).
    * 
    * @example
    * 50000
@@ -47,7 +47,7 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
    * @remarks
    * The outbound internal packet forwarding rate.
    * 
-   * Unit: PPS. Step size: 10000. Valid values: [10000, +∞).
+   * Unit: PPS. Step: 10000. Valid values: [10000, +∞).
    * 
    * @example
    * 50000

@@ -145,7 +145,7 @@ export class DescribeDiagnosticReportsResponseBodyReports extends $dara.Model {
 export class DescribeDiagnosticReportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query token returned for the current call.
+   * The query token returned by the current call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

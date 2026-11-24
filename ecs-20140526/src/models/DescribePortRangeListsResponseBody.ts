@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePortRangeListsResponseBodyPortRangeListsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the port range list.
+   * The key of the tag.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribePortRangeListsResponseBodyPortRangeListsTags extends $dara.
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the port range list.
+   * The value of the tag.
    * 
    * @example
    * TestValue
@@ -53,7 +53,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   associationCount?: number;
   /**
    * @remarks
-   * The time when the port range list was created. The time is in ISO 8601 format and displayed in UTC.
+   * The creation time of the port list. The time follows the ISO 8601 standard in the UTC time zone.
    * 
    * @example
    * 2024-12-04T07:11Z
@@ -61,7 +61,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   creationTime?: string;
   /**
    * @remarks
-   * The description of the port range list.
+   * The description of the port list.
    * 
    * @example
    * This is description.
@@ -69,7 +69,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The maximum number of entries supported by the port range list.
+   * The maximum number of entries that the port list supports.
    * 
    * @example
    * 20
@@ -77,7 +77,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   maxEntries?: number;
   /**
    * @remarks
-   * The ID of the port range list.
+   * The ID of the port list.
    * 
    * @example
    * prl-2ze9743****
@@ -85,7 +85,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   portRangeListId?: string;
   /**
    * @remarks
-   * The name of the port range list.
+   * The name of the port list.
    * 
    * @example
    * PortRangeListNameSample
@@ -93,7 +93,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   portRangeListName?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the port range list belongs.
+   * The ID of the resource group to which the port list belongs.
    * 
    * @example
    * rg-2zeg82g****
@@ -101,7 +101,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the port range list.
+   * The tags of the port list.
    */
   tags?: DescribePortRangeListsResponseBodyPortRangeListsTags[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class DescribePortRangeListsResponseBodyPortRangeLists extends $dara.Mode
 export class DescribePortRangeListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token returned in this call. If the return value is empty, no more data is available.
+   * The pagination token returned for the current call. If the value is empty, no more data is available.
    * 
    * @example
    * AAAAAdDWBF2
@@ -153,7 +153,7 @@ export class DescribePortRangeListsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The port range list information.
+   * The port lists.
    */
   portRangeLists?: DescribePortRangeListsResponseBodyPortRangeLists[];
   /**

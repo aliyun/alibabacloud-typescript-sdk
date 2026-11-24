@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveBandwidthPackageIpsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-42d3-a456-426614174000
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

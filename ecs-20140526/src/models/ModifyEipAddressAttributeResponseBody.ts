@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyEipAddressAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

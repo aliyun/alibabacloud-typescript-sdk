@@ -7,7 +7,7 @@ export class DescribePortRangeListEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the port list.
+   * The port list ID.
    * 
    * This parameter is required.
    * 

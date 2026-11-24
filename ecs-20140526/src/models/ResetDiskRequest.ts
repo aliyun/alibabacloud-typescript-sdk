@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk to be rolled back.
+   * The ID of the disk to be rolled back.
    * 
    * This parameter is required.
    * 
@@ -17,8 +17,8 @@ export class ResetDiskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run on the request. Valid values:
    * 
-   * - true: performs a dry run without rolling back the cloud disk. The system checks whether the required parameters are specified, the request format, and the resource status limits. If the request fails the check, the corresponding error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * - false: performs a normal request. If the request passes the check, the cloud disk rollback operation is initiated.
+   * - true: performs a dry run without rolling back the disk. The system checks the required parameters, request format, and resource status. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * - false: performs a normal request. If the request passes the check, the disk is rolled back.
    * 
    * Default value: false.
    * 
@@ -32,7 +32,7 @@ export class ResetDiskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the snapshot to which the cloud disk is rolled back.
+   * The ID of the historical snapshot to which the disk is rolled back.
    * 
    * This parameter is required.
    * 

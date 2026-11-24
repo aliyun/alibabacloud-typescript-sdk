@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateActivationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The activation code. The code is returned only once when the operation is called and cannot be queried later. Make sure that you securely store the return value.
+   * The activation code. The code is returned only once when the operation is called and cannot be queried later. Therefore, make sure to securely save the return value.
    * 
    * @example
    * a-hz0ch3SwhOlE1234+Xo32lAZC****
@@ -13,7 +13,7 @@ export class CreateActivationResponseBody extends $dara.Model {
   activationCode?: string;
   /**
    * @remarks
-   * The ID of the activation code.
+   * The activation code ID.
    * 
    * @example
    * 4ECEEE12-56F1-4FBC-9AB1-890F1234****

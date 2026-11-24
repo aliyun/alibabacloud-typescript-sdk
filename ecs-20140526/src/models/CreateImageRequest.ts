@@ -19,8 +19,8 @@ export class CreateImageRequestDiskDeviceMapping extends $dara.Model {
    * @remarks
    * The disk type in the new image. You can use this parameter to use a data disk snapshot as the system disk of the image. If you do not specify this parameter, the default value is the disk type corresponding to the snapshot. Valid values:
    * 
-   * - system: system disk. Only one system disk snapshot can be specified.
-   * - data: data disk. Up to 16 data disk snapshots can be specified.
+   * - system: system disk. You can specify only one system disk snapshot.
+   * - data: data disk. You can specify up to 16 data disk snapshots.
    * 
    * @example
    * system
@@ -31,9 +31,9 @@ export class CreateImageRequestDiskDeviceMapping extends $dara.Model {
    * The size of the disk. Unit: GiB. The valid values and default value of DiskDeviceMapping.N.Size depend on DiskDeviceMapping.N.SnapshotId:
    * 
    * - If SnapshotId is not specified, the valid values and default value of Size are as follows:
-   *     - Basic disk: 5 to 2000 GiB. Default value: 5.
+   *     - Basic disks: 5 to 2000 GiB. Default value: 5.
    *     - Other disks: 20 to 32768 GiB. Default value: 20.
-   * - If SnapshotId is specified, the value of Size must be greater than or equal to the size of the snapshot specified by SnapshotId. The default value is the size of the snapshot.
+   * - If SnapshotId is specified, the value of Size must be greater than or equal to the size of the snapshot specified by SnapshotId. Default value: the size of the snapshot specified by SnapshotId.
    * 
    * @example
    * 2000
@@ -78,8 +78,8 @@ export class CreateImageRequestFeatures extends $dara.Model {
   /**
    * @remarks
    * The metadata access mode of the image. Valid values:
-   * - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to Reinforced.
-   * - v2: When you create an ECS instance from this image, you can set the metadata access mode to Reinforced.
+   * - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to enforced.
+   * - v2: When you create an ECS instance from this image, you can set the metadata access mode to enforced.
    * 
    * Default value: If you create an image from a snapshot, the default value is v1. If you create an image from an instance, the default value is the ImdsSupport attribute value of the image used when the instance was created.
    * 
@@ -114,7 +114,7 @@ export class CreateImageRequestSecureBootOptions extends $dara.Model {
    * Specifies whether the image supports secure boot. Valid values:
    * - supported: The image supports secure boot.
    * - unsupported: The image does not support secure boot.
-   * > Secure Boot only supports the UEFI or UEFI-Preferred boot mode.
+   * > Secure Boot is supported only in UEFI or UEFI-Preferred boot mode.
    */
   secureBootSupport?: string;
   static names(): { [key: string]: string } {
@@ -203,7 +203,7 @@ export class CreateImageRequest extends $dara.Model {
    * 
    * <notice>
    * 
-   * To prevent the instance from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the target image before you select this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
+   * To prevent the instance from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the destination image before you select this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
    * 
    * </notice>
    * 
@@ -213,7 +213,7 @@ export class CreateImageRequest extends $dara.Model {
   bootMode?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -239,7 +239,7 @@ export class CreateImageRequest extends $dara.Model {
   detectionStrategy?: string;
   /**
    * @remarks
-   * The disks and snapshots used to create the custom image. If you want to create a custom image from a system disk snapshot and data disk snapshots, use this parameter to specify the snapshots.
+   * The disks and snapshots that are used to create the custom image. If you want to create a custom image from a system disk snapshot and data disk snapshots, use this parameter to specify the snapshots.
    */
   diskDeviceMapping?: CreateImageRequestDiskDeviceMapping[];
   dryRun?: boolean;
@@ -250,7 +250,7 @@ export class CreateImageRequest extends $dara.Model {
   features?: CreateImageRequestFeatures;
   /**
    * @remarks
-   * The name of the image family. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with aliyun or acs:, and cannot contain http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
+   * The image family name. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character, cannot start with aliyun or acs:, and cannot contain http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * hangzhou-daily-update
@@ -258,7 +258,7 @@ export class CreateImageRequest extends $dara.Model {
   imageFamily?: string;
   /**
    * @remarks
-   * The image name. It must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
+   * The image name. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * TestCentOS
@@ -268,7 +268,7 @@ export class CreateImageRequest extends $dara.Model {
    * @remarks
    * The image version.
    * 
-   * > If you specify the instance ID (`InstanceId`) and the image of the instance is an Alibaba Cloud Marketplace image or a custom image created from an Alibaba Cloud Marketplace image, this parameter must be the same as the `ImageVersion` of the current instance image or left empty.
+   * > If you specify an instance ID (InstanceId) and the image of the instance is an Alibaba Cloud Marketplace image or a custom image created from an Alibaba Cloud Marketplace image, this parameter must be the same as the ImageVersion of the current instance image or left empty.
    * 
    * @example
    * 2017011017
@@ -323,7 +323,7 @@ export class CreateImageRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest list of Alibaba Cloud regions.
+   * The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -333,9 +333,9 @@ export class CreateImageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the custom image belongs. If you do not specify this parameter, the created image belongs to the default resource group.
+   * The ID of the resource group to which the custom image belongs. If you do not specify the Settings for this parameter, the created image belongs to the default resource group.
    * 
-   * > If you use a Resource Access Management (RAM) user to invoke this operation and `ResourceGroupId` is left empty, note that if the RAM user does not have permissions on the default resource group, the operation returns the error message `Forbidden: User not authorized to operate on the specified resource`. Specify the ID of a resource group that the RAM user has permissions on, or use the corresponding Alibaba Cloud account to grant the RAM user permissions on the default resource group in the RAM Settings before you invoke this operation again.
+   * > If you use a Resource Access Management (RAM) user to invoke this operation and `ResourceGroupId` is left empty, note that if the Resource Access Management (RAM) user does not have permissions on the default resource group, the operation returns the error message `Forbidden: User not authorized to operate on the specified resource`. Configure the Settings for a resource group ID supported by the Resource Access Management (RAM) user, or use the corresponding Alibaba Cloud account to grant the Resource Access Management (RAM) user permissions on the default resource group before you invoke this operation again.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -352,7 +352,7 @@ export class CreateImageRequest extends $dara.Model {
    * @remarks
    * The ID of the snapshot used to create the custom image.
    * 
-   * > If you create a custom image only from the system disk snapshot of an instance, you can use this parameter or the `DiskDeviceMapping.N.SnapshotId` parameter. If you add data disk snapshots, you can only use the `DiskDeviceMapping.N.SnapshotId` parameter to specify the snapshots.
+   * > If you create a custom image by using only the system disk snapshot of an instance, you can use this parameter or the DiskDeviceMapping.N.SnapshotId parameter. If you add data disk snapshots, you can only use the DiskDeviceMapping.N.SnapshotId parameter to specify the snapshots.
    * 
    * @example
    * s-bp17441ohwkdca0****

@@ -6,7 +6,7 @@ export class DescribeDiskEncryptionByDefaultStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the latest list of Alibaba Cloud regions.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the latest Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 

@@ -29,7 +29,7 @@ export class ModifyManagedInstanceRequest extends $dara.Model {
    * @remarks
    * The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
    * 
-   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query region IDs and other information.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query region IDs and other information.
    * 
    * This parameter is required.
    * 

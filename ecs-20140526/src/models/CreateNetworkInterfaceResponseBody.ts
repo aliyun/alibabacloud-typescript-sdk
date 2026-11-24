@@ -354,7 +354,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   securityGroupIds?: CreateNetworkInterfaceResponseBodySecurityGroupIds;
   /**
    * @remarks
-   * The ID of the Virtual Network Operator (VNO) associated with the Elastic Network Interface (ENI).
+   * The ID of the Virtual Network Operator (VNO) corresponding to the Elastic Network Interface (ENI).
    * 
    * @example
    * 12345678910
@@ -378,7 +378,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   sourceDestCheck?: boolean;
   /**
    * @remarks
-   * The status of the Elastic Network Interface (ENI).
+   * The status of the elastic network interface (ENI).
    * 
    * @example
    * Available
@@ -403,7 +403,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the ENI belongs.
+   * The ID of the VPC to which the ENI belongs.
    * 
    * @example
    * vpc-bp1j7w3gc1cexjqd****

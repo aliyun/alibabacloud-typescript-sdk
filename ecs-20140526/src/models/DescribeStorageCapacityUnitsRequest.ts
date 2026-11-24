@@ -45,10 +45,10 @@ export class DescribeStorageCapacityUnitsRequestTag extends $dara.Model {
 export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   /**
    * @remarks
-   * The allocate type. Valid values:
+   * The type used to allocate SCUs. Valid values:
    * 
-   * - Normal: queries SCUs that belong to the current Alibaba Cloud account.
-   * - Shared: queries SCUs that are shared between the Alibaba Cloud account and a Resource Access Management (RAM) user.
+   * - Normal: Queries the SCUs under the current Alibaba Cloud account.
+   * - Shared: Queries the SCUs shared between the Alibaba Cloud account and a Resource Access Management (RAM) user.
    * 
    * Default value: Normal.
    * 
@@ -58,7 +58,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   allocationType?: string;
   /**
    * @remarks
-   * The capacity of the SCU. Unit: GiB. Valid values: {20, 40, 100, 200, 500, 1024, 2048, 5120, 10240, 20480, 51200}.
+   * The capacity of the SCU. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5120, 10240, 20480, and 51200.
    * 
    * @example
    * 20
@@ -66,7 +66,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The name of the SCU. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
+   * The name of the SCU. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter or Chinese character and cannot start with `http://` or `https://`.
    * 
    * @example
    * testScuName
@@ -78,7 +78,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
    * @remarks
    * The page number of the SCU list.
    * 
-   * Minimum value: 1.
+   * Starting value: 1.
    * 
    * Default value: 1.
    * 
@@ -88,7 +88,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page for paging in a paged query.
    * 
    * Maximum value: 100.
    * 
@@ -100,7 +100,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the SCU. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the SCU. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -112,7 +112,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The statuses of SCUs. Array length: 1 to 4.
+   * The statuses of the SCUs. Array length: 1 to 4.
    * 
    * @example
    * Active
@@ -120,7 +120,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The IDs of SCUs. Array length: 1 to 100.
+   * The IDs of the SCUs. Array length: 1 to 100.
    * 
    * @example
    * scu-bp67acfmxazb4p****

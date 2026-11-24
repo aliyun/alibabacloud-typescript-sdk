@@ -147,7 +147,7 @@ export class DescribeStorageCapacityUnitsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in paging queries.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 10

@@ -14,6 +14,9 @@ export class RemoveBandwidthPackageIpsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   /**

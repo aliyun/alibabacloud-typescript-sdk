@@ -57,7 +57,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
    * @remarks
    * The ID of the automatic snapshot policy applied to the data disk.
    * 
-   * Take note of the following items when you configure this parameter:
+   * When you specify this parameter, take note of the following items:
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    * 
    * @example
@@ -86,7 +86,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
    * - cloud_essd: enterprise SSD.
    * - cloud: basic disk.
    * 
-   * For instances with I/O optimization, the default value is cloud_efficiency. For instances without I/O optimization, the default value is cloud.
+   * For an I/O optimized instance, the default value is cloud_efficiency. For a non-I/O optimized instance, the default value is cloud.
    * 
    * If both the launch template and the launch configurations are specified, the launch template takes precedence.
    * 
@@ -126,11 +126,11 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
   device?: string;
   /**
    * @remarks
-   * The name of the data disk. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
+   * The name of the data disk. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
    * 
-   * Default value: empty.
+   * Default value: null.
    * 
-   * If both a launch template and launch configurations are specified, the launch template takes precedence.
+   * If both a launch template and a launch configuration are specified, the launch template takes precedence.
    * 
    * @example
    * cloud_ssdData
@@ -169,14 +169,14 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
   kmsKeyId?: string;
   /**
    * @remarks
-   * When you create an enterprise SSD to use as a data disk, configure the Settings for the performance level of the disk. The value of N must be the same as the value of N in LaunchConfiguration.DataDisk.N.Category. Valid values:
+   * The performance level settings of the ESSD when it is used as a data disk. The value of N must be the same as the value of N in LaunchConfiguration.DataDisk.N.Category. Valid values:
    * 
-   * - PL0: A single enterprise SSD delivers up to 10,000 random read/write IOPS.
-   * - PL1 (default): A single enterprise SSD delivers up to 50,000 random read/write IOPS.
-   * - PL2: A single enterprise SSD delivers up to 100,000 random read/write IOPS.
-   * - PL3: A single enterprise SSD delivers up to 1,000,000 random read/write IOPS.
+   * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1 (default): A single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
-   * For more information about how to select the performance level of an enterprise SSD, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
+   * For more information about how to select the performance level of an ESSD, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
    * 
    * If both the launch template and the launch configurations are specified, the launch template takes precedence.
    * 
@@ -186,10 +186,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}.
+   * The number of provisioned read/write IOPS for the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × Disk capacity - Baseline performance}.
    * 
-   * Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
-   * 
+   * Baseline performance = min{1,800 + 50 × Disk capacity, 50,000}.
    * 
    * > This parameter is supported only when the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
@@ -203,7 +202,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
    * 
    * - cloud_efficiency: 20 to 32768.
    * - cloud_ssd: 20 to 32768.
-   * - cloud_essd: The valid values are related to the value of LaunchConfiguration.DataDisk.N.PerformanceLevel.
+   * - cloud_essd: The valid values are subject to the value of LaunchConfiguration.DataDisk.N.PerformanceLevel.
    *     - PL0: 40 to 32768.
    *     - PL1: 20 to 32768.
    *     - PL2: 461 to 32768.
@@ -222,7 +221,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
    * @remarks
    * The ID of the snapshot used to create data disk N. Valid values of N: 1 to 16.
    * 
-   * If this parameter is specified, the LaunchConfiguration.DataDisk.N.Size parameter is ignored, and the size of the created disk is the same as the size of the specified snapshot. You cannot use snapshots that were created on or before July 15, 2013. Otherwise, the request is rejected and an error is returned.
+   * If this parameter is specified, the LaunchConfiguration.DataDisk.N.Size parameter is ignored, and the size of the created disk is equal to the size of the specified snapshot. You cannot use snapshots that were created on or before July 15, 2013. Otherwise, the request is rejected and an error is returned.
    * 
    * If both the launch template and the launch configurations are specified, the launch template takes precedence.
    * 
@@ -282,7 +281,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDi
    * @remarks
    * The ID of the automatic snapshot policy applied to the system disk.
    * 
-   * Take note of the following items when you configure this parameter:
+   * When you specify this parameter, take note of the following items:
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    * 
    * @example
@@ -348,9 +347,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDi
   KMSKeyId?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}.
+   * The number of provisioned read/write IOPS for the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × Disk capacity - Baseline performance}.
    * 
-   * Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
+   * Baseline performance = min{1,800 + 50 × Disk capacity, 50,000}.
    * > This parameter is supported only when the SystemDisk.Category parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
@@ -391,7 +390,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDi
 export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance. Valid values of N: 1 to 20. If this parameter is specified, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://. If both the launch template and the launch configurations are specified, the launch template takes precedence.
+   * The tag key of the instance. Valid values of N: 1 to 20. If this parameter is specified, it cannot be left empty. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://. If both the launch template and the launch configurations are specified, the launch template takes precedence.
    * 
    * @example
    * TestKey
@@ -447,7 +446,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptio
    * 
    * Only specific instance types support the configuration of the number of threads per core.
    * 
-   * Valid values and default value: For more information, see [Customize CPU options](https://www.alibabacloud.com/help/en/ecs/user-guide/specify-and-view-cpu-options).
+   * For the valid values and default value, see [Customize CPU options](https://www.alibabacloud.com/help/en/ecs/user-guide/specify-and-view-cpu-options).
    * 
    * @example
    * 2
@@ -479,7 +478,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptio
 export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the instance that uses this image supports logons by using the ecs-user username. Valid values:
+   * Specifies whether the instance that uses this image supports logons by using the ecs-user user. Valid values:
    * - true: yes.
    * - false: no.
    * 
@@ -586,14 +585,13 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   arn?: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationArn[];
   /**
    * @remarks
-   * The automatic release time of the pay-as-you-go instance. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * - If the value of the seconds (ss) field is not 00, the time is automatically rounded down to the current minute (mm).
+   * - If the value of seconds (ss) is not 00, the release time is automatically rounded down to the current minute (mm).
    * 
-   * - The release time must be at least 30 minutes later than the current time.
+   * - The earliest release time is half an hour after the current time.
    * 
-   * - The release time cannot be more than three years later than the current time.
-   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
+   * - The latest release time cannot be more than three years after the current time.
    * 
    * @example
    * 2018-01-01T12:05:00Z
@@ -601,13 +599,10 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   autoReleaseTime?: string;
   /**
    * @remarks
-   * The performance mode of the burstable instance. Valid values:
-   * 
+   * The running mode of the burstable instance. Valid values:
    * - Standard: standard mode. For more information about instance performance, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * - Unlimited: unlimited mode. For more information about instance performance, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-   * 
    * Default value: null.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -630,11 +625,10 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * The hostname of the instance. Limits:
-   * 
    * - The hostname cannot start or end with a period (.) or a hyphen (-), and cannot contain consecutive periods (.) or hyphens (-).
    * - For Windows instances: The hostname must be 2 to 15 characters in length. It cannot contain periods (.) and cannot contain only digits. It can contain letters, digits, and hyphens (-).
-   * - For other instances such as Linux instances: The hostname must be 2 to 64 characters in length. It can contain multiple periods (.). The characters between two consecutive periods are considered a segment. Each segment can contain letters, digits, and hyphens (-).
-   * - You cannot specify both `LaunchConfiguration.HostName` and `LaunchConfiguration.HostNames.N`. Otherwise, an error is returned.
+   * - For other instances such as Linux instances: The hostname must be 2 to 64 characters in length. It can contain multiple periods (.). The string between two consecutive periods is a segment, which can contain letters, digits, and hyphens (-).
+   * - You cannot specify both LaunchConfiguration.HostName and LaunchConfiguration.HostNames.N at the same time. Otherwise, an error is returned.
    * - If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -647,11 +641,11 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    * 
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    * - N indicates the number of instances. Valid values of N: 1 to 1000. The value of N must be the same as the value of the TotalTargetCapacity parameter.
-   * - Periods (.) and hyphens (-) cannot be used as the first or last character and cannot be used consecutively.
+   * - Periods (.) and hyphens (-) cannot be used as the first or last characters and cannot be used consecutively.
    * - If both the launch template and the launch configurations are specified, the launch template takes precedence.
    * 
    * @example
-   * ecs-host-01
+   * ["ecs-host-01"]
    */
   hostNames?: string[];
   /**
@@ -664,7 +658,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   imageFamily?: string;
   /**
    * @remarks
-   * The ID of the image. The image resource selected when the instance is started. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available image resources. If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
+   * The image ID. The image used to create the instance. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images. If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
    * m-bp1g7004ksh0oeuc****
@@ -672,7 +666,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   imageId?: string;
   /**
    * @remarks
-   * The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
+   * The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://. If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
    * Instance_Description
@@ -680,13 +674,13 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   instanceDescription?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the instance. The name must be 2 to 128 characters in length. It must start with an uppercase or lowercase letter or a Chinese character and cannot start with `http://` or `https://`. It can contain Chinese characters, English letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * Default value: the `InstanceId` of the instance.
    * 
-   * When you create multiple ECS instances, you can batch configure sequential instance names. For more information, see [Batch configure sequential instance names or hostnames](https://help.aliyun.com/document_detail/196048.html).
+   * When you create multiple ECS instances, you can specify sequential instance names in batches. For more information, see [Specify sequential instance names or hostnames](https://help.aliyun.com/document_detail/196048.html).
    * 
-   * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
+   * If you specify both a launch template and launch configurations, the launch template takes precedence.
    * 
    * @example
    * k8s-node-[1,4]-alibabacloud
@@ -695,12 +689,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * The network billing method. Valid values:
-   * 
    * - PayByBandwidth: pay-by-bandwidth.
    * - PayByTraffic: pay-by-traffic.
-   * 
-   * > In pay-by-traffic mode, the peak inbound and outbound bandwidths are upper limits and are not guaranteed. During resource contention, the peak bandwidths may be limited. If your business requires guaranteed bandwidth, use the pay-by-bandwidth mode.
-   * 
+   * > In pay-by-traffic mode, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed. During resource contention, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the pay-by-bandwidth mode.
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -710,10 +701,8 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
-   * 
    * - When the outbound public bandwidth is less than or equal to 10 Mbit/s: 1 to 10. Default value: 10.
-   * - When the outbound public bandwidth is greater than 10 Mbit/s: 1 to the value of `LaunchConfiguration.InternetMaxBandwidthOut`. Default value: the value of `LaunchConfiguration.InternetMaxBandwidthOut`.
-   * 
+   * - When the outbound public bandwidth is greater than 10 Mbit/s: 1 to the value of LaunchConfiguration.InternetMaxBandwidthOut. Default value: the value of LaunchConfiguration.InternetMaxBandwidthOut.
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -723,9 +712,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
-   * 
    * Default value: 0.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -734,13 +721,10 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Specifies whether the instance is an I/O optimization instance. Valid values:
-   * 
-   * - none: The instance does not support I/O optimization.
-   * - optimized: The instance supports I/O optimization.
-   * 
+   * Specifies whether the instance is an I/O optimized instance. Valid values:
+   * - none: The instance is not I/O optimization.
+   * - optimized: The instance is I/O optimization.
    * The default value is none for retired instance types and optimized for other instance types.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -749,11 +733,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   ioOptimized?: string;
   /**
    * @remarks
-   * The name of the key pair.
-   * 
-   * - For Windows instances, this parameter is ignored. Default value: null.
+   * The name of the SSH key pair.
+   * - For Windows instances, this parameter is ignored and is empty by default.
    * - For Linux instances, password logon is disabled by default.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -762,12 +744,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   keyPairName?: string;
   /**
    * @remarks
-   * The password of the instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
-   * 
+   * The password of the instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The special characters can be:
    * ``()`~!@#$%^&*-_+=|{}`[]`:;\\"<>,.?/``
-   * 
    * For Windows instances, the password cannot start with a forward slash (/).
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -777,10 +756,8 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * Specifies whether to use the password preset in the image. Valid values:
-   * 
    * - true: uses the preset password.
    * - false: does not use the preset password.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -797,7 +774,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   ramRoleName?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
+   * The ID of the enterprise resource group to which the instance belongs. If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -806,10 +783,8 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable security hardening. Valid values:
-   * 
    * - Active: enables security hardening. This value is applicable only to public images.
    * - Deactive: disables security hardening. This value is applicable to all image types.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -837,14 +812,11 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * The category of the system disk. Valid values:
-   * 
    * - cloud_efficiency: ultra disk.
    * - cloud_ssd: standard SSD.
    * - cloud_essd: enterprise SSD.
    * - cloud: basic disk.
-   * 
    * The default value is cloud for retired instance types that are not I/O optimization instances, and cloud_efficiency for other instance types.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -853,8 +825,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The description of the system disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * 
+   * The description of the system disk. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -863,11 +834,11 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   systemDiskDescription?: string;
   /**
    * @remarks
-   * The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
+   * The name of the system disk. It must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
    * 
-   * Default value: null.
+   * Default value: empty.
    * 
-   * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
+   * If both a launch template and launch configurations are specified, the launch template takes precedence.
    * 
    * @example
    * cloud_ssdSystem
@@ -875,15 +846,12 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   systemDiskName?: string;
   /**
    * @remarks
-   * The performance level Settings for the standard SSD used as the system disk. Valid values:
-   * 
+   * Settings for the performance level of the enterprise SSD used as the system disk. Valid values:
    * - PL0 (default): A single enterprise SSD can deliver up to 10,000 random read/write IOPS.
    * - PL1: A single enterprise SSD can deliver up to 50,000 random read/write IOPS.
    * - PL2: A single enterprise SSD can deliver up to 100,000 random read/write IOPS.
    * - PL3: A single enterprise SSD can deliver up to 1,000,000 random read/write IOPS.
-   * 
-   * For more information about how to select an enterprise SSD performance level, see [enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
-   * 
+   * For more information about how to select a standard SSD performance level, see [standard SSD](https://help.aliyun.com/document_detail/122389.html).
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -893,9 +861,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * The size of the system disk. Unit: GiB. Valid values: 20 to 500. The value of this parameter must be greater than or equal to max{20, the size of the image specified by LaunchConfiguration.ImageId}.
-   * 
    * Default value: max{40, the size of the image specified by LaunchConfiguration.ImageId}.
-   * 
    * If you specify both a launch template and launch configurations, the system preferentially uses the launch template.
    * 
    * @example
@@ -953,13 +919,13 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    * @remarks
    * The image properties.
    * 
-   * Take note of the following items when you configure this parameter:
+   * When you specify this parameter, take note of the following items:
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    */
   imageOptions?: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions;
   /**
    * @remarks
-   * The subscription period of the resource. The unit is specified by the PeriodUnit parameter. This parameter is required and takes effect only when you create subscription instances. Valid values:
+   * The subscription period of the resource. The unit is specified by PeriodUnit. This parameter is required and takes effect only when you create subscription instances. Valid values:
    * 
    * <props="china">
    * - When PeriodUnit is set to Week, valid values of Period are 1, 2, 3, and 4.
@@ -977,7 +943,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   period?: number;
   /**
    * @remarks
-   * The time unit of the subscription Billable methods. Valid values: 
+   * The billing unit for subscription. Valid values: 
    * 
    * <props="china">
    * - Week.
@@ -1004,12 +970,12 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
-   * - 1: Alibaba Cloud guarantees that the instance is not subject to automatic release within 1 hour after it is created. After 1 hour, the system automatically compares your bid with the marketplace price and checks resource inventory to determine whether to retain or revoke the instance.
-   * - 0: Alibaba Cloud does not guarantee that the instance is retained for 1 hour after it is created. The system automatically compares your bid with the marketplace price and checks resource inventory to determine whether to retain or revoke the instance.
+   * - 1: Alibaba Cloud guarantees that no automatic release occurs within 1 hour after the instance is created. After 1 hour, the system automatically compares your bid with the marketplace price and checks resource inventory to determine whether to retain or revoke the instance.
+   * - 0: Alibaba Cloud does not guarantee that the instance runs for 1 hour after it is created. The system automatically compares your bid with the marketplace price and checks resource inventory to determine whether to retain or revoke the instance.
    * 
-   * Alibaba Cloud sends you a notification by using an ECS system event 5 minutes before the instance is revoked. Spot instances use pay-as-you-go billing by the second. We recommend that you select an appropriate protection period based on the execution duration of your specific nodes.
+   * Alibaba Cloud sends you a notification through an ECS system event 5 minutes before the instance is revoked. Spot instances use billing by the second. We recommend that you select an appropriate protection period based on the execution duration of your tasks.
    * 
-   * Take note of the following items when you configure the Settings for this parameter:
+   * When you configure the settings for this parameter, take note of the following items:
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    * 
    * @example
@@ -1024,11 +990,11 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    * 
    * - Stop: The instance enters economical mode.
    * 
-   * For more information about economical mode, see [Economical mode](https://help.aliyun.com/document_detail/63353.html).
+   * For more information about economical mode, see [economical mode](https://help.aliyun.com/document_detail/63353.html).
    * 
    * Default value: Terminate.
    * 
-   * Take note of the following items when you configure the Settings for this parameter:
+   * When you configure the settings for this parameter, take note of the following items:
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    * 
    * @example
@@ -1169,12 +1135,12 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
 export class CreateAutoProvisioningGroupShrinkRequestCandidateOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to only evaluate the success rate of candidate delivery for the target capacity in the current request. If you set this parameter to true, no scale-out is performed. The system only evaluates the delivery success rate and returns the result in the LaunchResult.CandidateEvaluateLevel field of the response. Default value: false.
+   * Specifies whether to only evaluate the success rate of delivering the target capacity by using candidate instance types in the current request. If this parameter is set to true, no scale-out is performed. The system only evaluates the delivery success rate and returns the result in the LaunchResult.CandidateEvaluateLevel response parameter. Default value: false.
    */
   evaluate?: boolean;
   /**
    * @remarks
-   * The timeout period for the auto provisioning group to scale out instances to reach the target capacity. After the timeout period expires, no further scale-out attempts are made. Unit: minutes.
+   * The timeout period for the auto provisioning group to scale out instances to the target capacity. After the timeout period expires, no further scale-out attempts are made. Unit: minutes.
    * 
    * @example
    * 60
@@ -1206,7 +1172,7 @@ export class CreateAutoProvisioningGroupShrinkRequestCandidateOptions extends $d
 export class CreateAutoProvisioningGroupShrinkRequestDataDiskConfig extends $dara.Model {
   /**
    * @remarks
-   * The category of the instance data disk. You can use this parameter to specify multiple candidate disk categories. The specified order determines the priority of the disk categories. If a disk category is not active, the system automatically switches to the next disk category. Valid values:
+   * The data disk category of the instance. You can use this parameter to specify multiple candidate disk categories. The specified order determines the priority of the disk categories. If a disk category is not active, the system automatically switches to the next disk category. Valid values:
    * 
    * -   cloud_efficiency: ultra disk.
    * -   cloud_ssd: standard SSD.
@@ -1247,11 +1213,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
   /**
    * @remarks
    * Specifies whether the instance type is a burstable instance type. Valid values:
-   * 
-   * - Exclude: does not include burstable instance types.
+   * - Exclude: excludes burstable instance types.
    * - Include: includes burstable instance types.
    * - Required: includes only burstable instance types.
-   * 
    * Default value: Include.
    * 
    * @example
@@ -1265,13 +1229,13 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
   cores?: number[];
   /**
    * @remarks
-   * The list of instance types to be excluded.
+   * The list of instance types to exclude.
    */
   excludedInstanceTypes?: string[];
   /**
    * @remarks
-   * The ID of the image. You can use this parameter to specify the image used by the current resource pool. If this parameter is not specified, the image specified by `LaunchConfiguration.ImageId` or the image configured in the launch template is used by default. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available image resources.
-   * Note: This parameter is supported only when `AutoProvisioningGroupType` is set to `instant`.
+   * The image ID. You can use this parameter to specify the image used by the current resource pool. If this parameter is not specified, the image specified by LaunchConfiguration.ImageId or in the launch template is used by default. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images.
+   * Note: This parameter is supported only when AutoProvisioningGroupType is set to instant.
    * 
    * @example
    * aliyun_3_x64_20G_alibase_20210425.vhd
@@ -1279,12 +1243,10 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
   imageId?: string;
   /**
    * @remarks
-   * The level of the instance family, which is used to filter the instance types that meet the requirements. Valid values:
-   * 
-   * - EntryLevel: entry-level, which refers to shared instance types. These instance types are more cost-effective but cannot guarantee stable computing performance. They are suitable for business scenarios with low CPU utilization. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-   * - EnterpriseLevel: enterprise-level. These instance types provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-   * - CreditEntryLevel: credit entry-level, which refers to burstable instances. These instance types use CPU credits to ensure computing performance and are suitable for business scenarios with low CPU utilization but occasional CPU bursts. For more information, see [Burstable instances](https://help.aliyun.com/document_detail/59977.html).
-   * 
+   * The level of the instance family. This parameter is used to filter instance types that meet the requirements. Valid values:
+   * - EntryLevel: entry-level, which refers to shared instance types. These instance types are more cost-effective but do not guarantee stable computing performance. They are suitable for scenarios with low CPU utilization. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+   * - EnterpriseLevel: enterprise-level. These instance types provide stable performance and dedicated resources, and are suitable for scenarios that require high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - CreditEntryLevel: credit entry-level, which refers to burstable instances. These instance types use CPU credits to ensure computing performance and are suitable for scenarios with low CPU utilization but occasional CPU usage spikes. For more information, see [Burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * Valid values of N: 1 to 10.
    * 
    * @example
@@ -1293,7 +1255,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
   instanceFamilyLevel?: string;
   /**
    * @remarks
-   * The instance type in the extension launch template. Valid values of N: 1 to 20. For more information about valid instance types, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
+   * The instance type specified in the extension launch template. Valid values of N: 1 to 20. For more information about valid instance family, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * ecs.g5.large
@@ -1302,8 +1264,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
   /**
    * @remarks
    * The maximum price of spot instances in the extended launch template.
-   * 
-   * > After `LaunchTemplateConfig` is specified, `LaunchTemplateConfig.N.MaxPrice` is required.
+   * > After LaunchTemplateConfig is specified, LaunchTemplateConfig.N.MaxPrice is required.
    * 
    * @example
    * 3
@@ -1343,11 +1304,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
   /**
    * @remarks
    * The weight of the instance type in the extended launch template. A higher weight indicates that a single instance has more computing power and fewer instances are required. Valid values: greater than 0.
-   * 
    * You can determine the weight based on the computing power of the specified instance type and the minimum computing power of a single node in the cluster. For example, if the minimum computing power of a single node is 8 vCPUs and 60 GiB of memory:
-   * 
-   * - The weight of an instance type with 8 vCPUs and 60 GiB of memory can be set to 1.
-   * - The weight of an instance type with 16 vCPUs and 120 GiB of memory can be set to 2.
+   * - You can set the weight to 1 for an instance type that provides 8 vCPUs and 60 GiB of memory.
+   * - You can set the weight to 2 for an instance type that provides 16 vCPUs and 120 GiB of memory.
    * 
    * @example
    * 2
@@ -1413,14 +1372,14 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
 export class CreateAutoProvisioningGroupShrinkRequestPrePaidOptionsSpecifyCapacityDistribution extends $dara.Model {
   /**
    * @remarks
-   * The set of instance types. Duplicate instance types are not allowed, and the instance types must be within the range of LaunchTemplateConfig.InstanceType.
+   * The set of instance types. Duplicate values are not allowed, and the instance types must be within the scope of LaunchTemplateConfig.InstanceType.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * The minimum number of instances to be delivered within the InstanceTypes range.
+   * The minimum number of instances to be delivered within the scope of InstanceTypes.
    * 
-   * > sum(MinTargetCapacity) <= TotalTargetCapacity. The sum of MinTargetCapacity for all instance type sets cannot exceed TotalTargetCapacity. If any instance type set cannot meet the MinTargetCapacity requirement due to inventory or other reasons, the entire request fails.
+   * > sum(MinTargetCapacity) <= TotalTargetCapacity. The sum of MinTargetCapacity for all instance type sets cannot exceed TotalTargetCapacity. If the MinTargetCapacity requirement for any instance type set cannot be met due to insufficient inventory or other reasons, the entire request fails to create instances.
    * 
    * @example
    * 5
@@ -1485,7 +1444,7 @@ export class CreateAutoProvisioningGroupShrinkRequestPrePaidOptions extends $dar
 export class CreateAutoProvisioningGroupShrinkRequestSystemDiskConfig extends $dara.Model {
   /**
    * @remarks
-   * The category of the instance system disk. You can use this parameter to specify multiple candidate disk categories. The specified order determines the priority of the disk categories. If a disk category is not active, the system automatically switches to the next disk category. Valid values:
+   * The system disk category of the instance. You can use this parameter to specify multiple candidate disk categories. The specified order determines the priority of the disk categories. If a disk category is not active, the system automatically switches to the next disk category. Valid values:
    * 
    * -   cloud_efficiency: ultra disk.
    * -   cloud_ssd: standard SSD.
@@ -1522,7 +1481,7 @@ export class CreateAutoProvisioningGroupShrinkRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the auto provisioning group.
    * 
-   * Valid values of N: 1 to 20. If this parameter is specified, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * Valid values of N: 1 to 20. If this parameter is specified, it cannot be left empty. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -1565,7 +1524,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   launchConfiguration?: CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration;
   /**
    * @remarks
-   * The name of the auto provisioning group. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the auto-provisioning group. The name must be 2 to 128 characters in length. It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * apg-test
@@ -1574,13 +1533,9 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The delivery type of the auto provisioning group. Valid values:
-   * 
    * - request: one-time asynchronous delivery. The auto provisioning group asynchronously delivers the instance cluster only at startup and does not retry if the scheduling fails.
-   * 
-   * - instant: one-time synchronization delivery. The auto provisioning group synchronously creates instances only at startup and returns the list of successfully created instances and the reasons for creation failed in the response.
-   * 
-   * - maintain: continuous delivery. The auto provisioning group attempts to deliver the instance cluster at startup, monitoring the real-time capacity, and continues to create ECS instances if the target capacity is not reached.
-   * 
+   * - instant: one-time synchronization delivery. The auto provisioning group creates instances in synchronization only at startup and returns the list of successfully created instances and the reasons why the creation failed in the response.
+   * - maintain: continuous delivery. The auto provisioning group attempts to deliver the instance cluster at startup, performs monitoring on the real-time capacity, and continues to create ECS instances if the target capacity is not reached.
    * Default value: maintain.
    * 
    * @example
@@ -1594,7 +1549,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   candidateOptions?: CreateAutoProvisioningGroupShrinkRequestCandidateOptions;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that the token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -1607,11 +1562,9 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   dataDiskConfig?: CreateAutoProvisioningGroupShrinkRequestDataDiskConfig[];
   /**
    * @remarks
-   * The Billable methods for the capacity difference when the sum of `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` is less than `TotalTargetCapacity`. Valid values:
-   * 
+   * The billing method for the capacity difference when the sum of PayAsYouGoTargetCapacity and SpotTargetCapacity is less than TotalTargetCapacity. Valid values:
    * - PayAsYouGo: pay-as-you-go instances.
    * - Spot: spot instances.
-   * 
    * Default value: Spot.
    * 
    * @example
@@ -1629,10 +1582,8 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to release the instances that are removed during a scale-down event when the real-time capacity of the auto provisioning group exceeds the target capacity and trigger a scale-down. Valid values:
-   * 
-   * - termination: releases the removed instances.
-   * - no-termination: only removes the instances from the auto provisioning group without releasing them.
-   * 
+   * - termination: releases the instances.
+   * - no-termination: only removes the instances from the auto provisioning group.
    * Default value: no-termination.
    * 
    * @example
@@ -1655,7 +1606,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   launchTemplateConfig?: CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig[];
   /**
    * @remarks
-   * The ID of the launch template associated with the auto provisioning group. You can invoke the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation to query active instance launch templates. If you specify both a launch template and launch configurations (`LaunchConfiguration.*`), the system preferentially uses the launch template.
+   * The ID of the instance launch template associated with the auto provisioning group. You can invoke the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation to query active instance launch templates. If you specify both a launch template and launch configurations (LaunchConfiguration.*), the system preferentially uses the launch template.
    * 
    * @example
    * lt-bp1fgzds4bdogu03****
@@ -1663,8 +1614,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   launchTemplateId?: string;
   /**
    * @remarks
-   * The version of the launch template associated with the auto provisioning group. You can invoke the [DescribeLaunchTemplateVersions](https://help.aliyun.com/document_detail/73761.html) operation to query active instance launch template versions.
-   * 
+   * The version of the instance launch template associated with the auto provisioning group. You can invoke the [DescribeLaunchTemplateVersions](https://help.aliyun.com/document_detail/73761.html) operation to query active instance launch template versions.
    * Default value: the default version of the launch template.
    * 
    * @example
@@ -1674,8 +1624,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum price of spot instances in the auto provisioning group.
-   * 
-   * > If the Settings for both `MaxSpotPrice` and `LaunchTemplateConfig.N.MaxPrice` are specified, the lower value takes precedence.
+   * > If both MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice are Settings, the lower value is used.
    * 
    * @example
    * 2
@@ -1685,7 +1634,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The minimum target capacity of the auto provisioning group. Valid values: positive integers.
    * 
-   * Take note of the following items when you configure this parameter:
+   * When you specify this parameter, take note of the following items:
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    * - If the instance inventory in the current region is less than the value of this parameter, the API call fails and no instances are created.
    * - If the instance inventory in the current region is greater than the value of this parameter, instances are created based on the values of other specified parameters.
@@ -1698,12 +1647,9 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The policy for creating pay-as-you-go instances. Valid values:
-   * 
-   * - lowest-price: cost optimization policy. The instance type with the lowest price is selected.
-   * 
-   * - prioritized: priority-based policy. Instances are created based on the priority specified by `LaunchTemplateConfig.N.Priority`.
-   * 
+   * The strategy for creating pay-as-you-go instances. Valid values:
+   * - lowest-price: the cost optimization strategy. The instance type with the lowest price is selected.
+   * - prioritized: the priority-based strategy. Instances are created based on the priorities specified by LaunchTemplateConfig.N.Priority.
    * Default value: lowest-price.
    * 
    * @example
@@ -1712,7 +1658,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   payAsYouGoAllocationStrategy?: string;
   /**
    * @remarks
-   * The target capacity of pay-as-you-go instances in the auto provisioning group. Valid values: an integer less than or equal to the parameter value of `TotalTargetCapacity`.
+   * The target capacity of pay-as-you-go instances in the auto provisioning group. Valid values: an integer less than or equal to the parameter value of TotalTargetCapacity.
    * 
    * @example
    * 30
@@ -1725,7 +1671,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   prePaidOptions?: CreateAutoProvisioningGroupShrinkRequestPrePaidOptions;
   /**
    * @remarks
-   * The ID of the region where the auto provisioning group resides. You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the auto provisioning group. You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -1735,7 +1681,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the auto provisioning group belongs.
+   * The ID of the enterprise resource group to which the auto provisioning group belongs.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -1745,21 +1691,17 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource pool policy used when creating instances. Take note of the following items when you configure this parameter:
+   * The resource pool policy used when creating instances. When you specify this parameter, take note of the following items:
    * - This parameter takes effect only when you create pay-as-you-go instances.
    * - This parameter takes effect only when you create an auto provisioning group of the one-time synchronous delivery type (AutoProvisioningGroupType=instant).
    */
   resourcePoolOptionsShrink?: string;
   /**
    * @remarks
-   * The policy for creating spot instances. Valid values:
-   * 
-   * - lowest-price: cost optimization policy. The instance type with the lowest price is selected.
-   * 
-   * - diversified: balanced zone distribution policy. Instances are created in the zones specified by the extended launch template and evenly distributed across the zones.
-   * 
-   * - capacity-optimized: capacity optimization distribution policy. The optimal instance type and zone are selected based on inventory.
-   * 
+   * The strategy for creating spot instances. Valid values:
+   * - lowest-price: the cost optimization strategy. The instance type with the lowest price is selected.
+   * - diversified: the balanced zone distribution strategy. Instances are created in the zones specified by the extended launch template and evenly distributed across the zones.
+   * - capacity-optimized: the capacity optimization distribution strategy. The optimal instance type and zone are selected based on inventory availability.
    * Default value: lowest-price.
    * 
    * @example
@@ -1768,12 +1710,9 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   spotAllocationStrategy?: string;
   /**
    * @remarks
-   * The behavior when a spot instance is interrupted. Valid values:
-   * 
-   * - stop: stops the instance.
-   * 
-   * - terminate: releases the instance.
-   * 
+   * The behavior of spot instances when they are interrupted. Valid values:
+   * - stop: stops the instances.
+   * - terminate: releases the instances.
    * Default value: terminate.
    * 
    * @example
@@ -1782,9 +1721,8 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   spotInstanceInterruptionBehavior?: string;
   /**
    * @remarks
-   * The number of instance types with the lowest prices that are selected by the auto provisioning group to create instances. This parameter takes effect only when `SpotAllocationStrategy` is set to `lowest-price`.
-   * 
-   * Valid values: an integer less than the value of N in `LaunchTemplateConfig.N`.
+   * The number of instance types with the lowest price that are selected by the auto provisioning group to create instances. This parameter takes effect only when SpotAllocationStrategy is set to lowest-price.
+   * Valid values: an integer less than the value of N in LaunchTemplateConfig.N.
    * 
    * @example
    * 2
@@ -1792,7 +1730,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   spotInstancePoolsToUseCount?: number;
   /**
    * @remarks
-   * The target capacity of spot instances in the auto provisioning group. Valid values: an integer less than or equal to the parameter value of `TotalTargetCapacity`.
+   * The target capacity of spot instances in the auto provisioning group. Valid values: an integer less than or equal to the parameter value of TotalTargetCapacity.
    * 
    * @example
    * 20
@@ -1811,10 +1749,8 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to release the instances in the auto-provisioning group when the group is deleted. Valid values:
-   * 
    * - true: releases the instances auto provisioning group.
    * - false: retains the instances auto provisioning group.
-   * 
    * Default value: false.
    * 
    * @example
@@ -1824,10 +1760,8 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to release the instances in the auto provisioning group when the group expires. Valid values:
-   * 
    * - true: releases the instances in the group.
-   * - false: only removes the instances from the group without releasing them.
-   * 
+   * - false: only removes the instances from the auto provisioning group.
    * Default value: false.
    * 
    * @example
@@ -1837,8 +1771,7 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The total target capacity of the auto provisioning group. Valid values: positive integers.
-   * 
-   * The total target capacity must be greater than or equal to the sum of `PayAsYouGoTargetCapacity` (the target capacity of pay-as-you-go instances) and `SpotTargetCapacity` (the target capacity of spot instances).
+   * The total target capacity must be greater than or equal to the sum of PayAsYouGoTargetCapacity (the target capacity of pay-as-you-go instances) and SpotTargetCapacity (the target capacity of spot instances).
    * 
    * This parameter is required.
    * 
@@ -1848,10 +1781,8 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   totalTargetCapacity?: string;
   /**
    * @remarks
-   * The time when the auto provisioning group starts. This parameter and `ValidUntil` determine the validity period.
-   * 
+   * The time when the auto provisioning group starts. This parameter and ValidUntil determine the validity period.
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
    * Default value: the UNIX timestamp when the API operation takes effect.
    * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
@@ -1861,10 +1792,8 @@ export class CreateAutoProvisioningGroupShrinkRequest extends $dara.Model {
   validFrom?: string;
   /**
    * @remarks
-   * The time when the auto provisioning group expires. This parameter and `ValidFrom` determine the validity period.
-   * 
+   * The time when the auto provisioning group expires. This parameter and ValidFrom determine the validity period.
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
    * Default value: 2099-12-31T23:59:59Z.
    * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 

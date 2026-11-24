@@ -55,7 +55,7 @@ export class CopySnapshotRequestArn extends $dara.Model {
 export class CopySnapshotRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the new snapshot. If specified, the value cannot be an empty string. The value can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * The tag key of the new snapshot. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -63,7 +63,7 @@ export class CopySnapshotRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the new snapshot. This parameter can be left empty. It can be up to 128 characters in length, and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * The tag value of the new snapshot. If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -100,7 +100,7 @@ export class CopySnapshotRequest extends $dara.Model {
   arn?: CopySnapshotRequestArn[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -130,7 +130,7 @@ export class CopySnapshotRequest extends $dara.Model {
   destinationSnapshotDescription?: string;
   /**
    * @remarks
-   * The name of the new snapshot. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character, and cannot start with http:// or https://. It supports characters in the Unicode Letter category, including English letters, Chinese characters, and digits. It can contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the new snapshot. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain letters, digits, and Chinese characters. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * Default value: empty.
    * 
@@ -163,7 +163,7 @@ export class CopySnapshotRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The customer master key (CMK) managed by Key Management Service (KMS) in the destination region.
+   * The KMS customer master key (CMK) in the destination region.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -172,7 +172,7 @@ export class CopySnapshotRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region of the source snapshot. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region where the source snapshot resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -194,7 +194,7 @@ export class CopySnapshotRequest extends $dara.Model {
    * @remarks
    * The retention period of the new snapshot. Unit: days. The snapshot is subject to automatic release when the retention period expires. Valid values: 1 to 65536.
    * 
-   * Default value: empty, which indicates that the snapshot is not scheduled for automatic release.
+   * Default value: empty, which indicates that the snapshot is not subject to automatic release.
    * 
    * @example
    * 60

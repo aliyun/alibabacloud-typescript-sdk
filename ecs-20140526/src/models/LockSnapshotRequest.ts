@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LockSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
+   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * @example
    * 5EC38E7D-389F-1925-ABE2-D7925A8F****
@@ -34,8 +34,8 @@ export class LockSnapshotRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to only precheck the request. Valid values: 
-   * - true: sends a check request. The operation is not performed. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned. 
-   * - false (default): sends a normal request. The request is executed after the check succeeds.
+   * - true: Sends a check request. The operation is not performed. The system checks whether required parameters are specified, the request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned. 
+   * - false (default): Sends a normal request. The request is directly executed after the check succeeds.
    * 
    * @example
    * false
@@ -58,7 +58,7 @@ export class LockSnapshotRequest extends $dara.Model {
   /**
    * @remarks
    * The lock mode. Valid values: 
-   * - compliance: locks the snapshot in compliance mode. A snapshot locked in compliance mode cannot be unlocked by any user and can be deleted only after the lock duration expires. Users cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When you lock a snapshot in compliance mode, you can optionally specify a cool-off period.
+   * - compliance: Locks the snapshot in compliance mode. A snapshot locked in compliance mode cannot be unlocked by any user and can be deleted only after the lock duration expires. Users cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When you lock a snapshot in compliance mode, you can optionally specify a cool-off period.
    * 
    * This parameter is required.
    * 

@@ -145,7 +145,7 @@ export class DescribeTerminalSessionsResponseBodySessions extends $dara.Model {
 export class DescribeTerminalSessionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token returned in the current call.
+   * The query token returned by the current call.
    * 
    * @example
    * AAAAAdDWBF2****

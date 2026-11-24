@@ -15,7 +15,7 @@ export class DeletePlanMaintenanceWindowRequest extends $dara.Model {
   planWindowId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 

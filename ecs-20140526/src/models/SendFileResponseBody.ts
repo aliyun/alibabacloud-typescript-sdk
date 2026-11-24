@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution ID.
+   * The invocation ID.
    * 
    * @example
    * f-7d2a745b412b46****

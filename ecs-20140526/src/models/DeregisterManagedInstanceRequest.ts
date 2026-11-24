@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeregisterManagedInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures the idempotence of the request. You can generate the value on your client to ensure that the value is unique across different requests. **ClientToken** supports only ASCII characters and can be up to 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,7 +13,7 @@ export class DeregisterManagedInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID of the managed instance.
+   * The managed instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,7 @@ export class DeregisterManagedInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query region IDs.
+   * The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia). You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

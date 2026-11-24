@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstancesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key used to query resources. The value must be CreationStartTime. If you specify both Filter.1.Key and Filter.1.Value, you can query the resources created after the specified point in time.
+   * The filter key used when querying resources. The value must be `CreationStartTime`. If you specify both `Filter.1.Key` and `Filter.1.Value`, you can query resources created after a specified point in time.
    * 
    * @example
    * CreationStartTime
@@ -13,7 +13,7 @@ export class DescribeInstancesRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The filter value used to query resources. If you specify this parameter, you must also specify the Filter.1.Key parameter. The value must be in the `yyyy-MM-ddTHH:mmZ` format and use the UTC+0 time zone.
+   * The filter value used when querying resources. If you specify this parameter, you must also specify the `Filter.1.Key` parameter. The value must be in the `yyyy-MM-ddTHH:mmZ` format and use the UTC+0 time zone.
    * 
    * @example
    * 2017-12-05T22:40Z
@@ -47,7 +47,7 @@ export class DescribeInstancesRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the instance. Valid values of N: 1 to 20.
    * 
-   * If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that attach multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+   * When you use a single tag to filter resources, the resource count under the tag cannot exceed 1,000. When you use multiple tags to filter resources, the resource count of queried resources that are attached to all the specified tags cannot exceed 1,000. If the resource count exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
    * @example
    * TestKey
@@ -106,8 +106,8 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run on the request. Valid values:
    * 
-   * - true: Sends a check request without querying resources. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.  
-   * - false: Sends a normal request. If the request passes the dry run, the 2xx HTTP status code is returned and resources are queried. 
+   * - true: performs a dry run and does not query resources. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.  
+   * - false: sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and resources are queried. 
    * 
    * Default value: false.
    * 
@@ -117,7 +117,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The elastic IP addresses (EIPs) of the instances. This parameter takes effect only when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
+   * The elastic IP addresses (EIPs) of the instance. This parameter takes effect only when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * ["42.1.1.**", "42.1.2.**", … "42.1.10.**"]
@@ -134,8 +134,8 @@ export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the access channel for instance metadata. Valid values:
-   * - enabled: Enable.
-   * - disabled: Disable.
+   * - enabled: enables the access channel.
+   * - disabled: disables the access channel.
    * 
    * Default value: enabled.
    * > For more information about instance metadata, see [Overview of instance metadata](https://help.aliyun.com/document_detail/49122.html).
@@ -155,8 +155,8 @@ export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to forcibly use the security access mode (IMDSv2) to access instance metadata. Valid values:
-   * - optional: Do not forcibly use the security access mode.
-   * - required: Forcibly use the security access mode. After you set this value, you cannot access instance metadata in normal mode.
+   * - optional: does not forcibly use the security access mode.
+   * - required: forcibly uses the security access mode. After you set this value, you cannot access instance metadata in normal mode.
    * 
    * Default value: optional.
    * > For more information about the modes of accessing instance metadata, see [Modes of accessing instance metadata](https://help.aliyun.com/document_detail/150575.html).
@@ -177,7 +177,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * The internal IP addresses of instances in the classic network. This parameter takes effect only when InstanceNetworkType is set to classic. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,). 
    * 
-   * > - The classic network feature is retired. For more information, see [retirement notice](https://help.aliyun.com/document_detail/2833134.html).
+   * > - The classic network feature is retired. For more information, see [retirement announcement](https://help.aliyun.com/document_detail/2833134.html).
    * 
    * @example
    * ["10.1.1.1", "10.1.2.1", … "10.1.10.1"]
@@ -204,7 +204,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The name of the instance. You can use the wildcard (*) for fuzzy search.
+   * The instance name. Wildcard characters (*) are supported for fuzzy search.
    * 
    * @example
    * Test
@@ -215,7 +215,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * The network type of the instance. Valid values:
    * 
    * - vpc: VPC.
-   * - classic: classic network. The classic network feature is retired. For more information, see [retirement notice](https://help.aliyun.com/document_detail/2833134.html).
+   * - classic: classic network. The classic network feature is retired. For more information, see [retirement announcement](https://help.aliyun.com/document_detail/2833134.html).
    * 
    * @example
    * vpc
@@ -244,7 +244,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * - PayByBandwidth: pay-by-bandwidth.
    * - PayByTraffic: pay-by-traffic.
    * 
-   * > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidths are the upper limits of bandwidths and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your business requires guaranteed bandwidths, use the **pay-by-bandwidth** mode.
+   * > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidth values are upper limits and are not guaranteed service level indicators. When resource contention occurs, the peak bandwidth may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -254,8 +254,8 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether the instance is I/O optimized. Valid values:
    * 
-   * - true: Yes.
-   * - false: No.
+   * - true: yes.
+   * - false: no.
    * 
    * @example
    * true
@@ -283,9 +283,9 @@ export class DescribeInstancesRequest extends $dara.Model {
    * 
    * - financial: The resource is locked due to overdue payments.
    * 
-   * - security: The resource is locked for security reasons.
+   * - security: The resource is locked due to security reasons.
    * 
-   * - Recycling: The spot instance is in the pending release state.
+   * - Recycling: The spot instance is locked and pending release.
    * 
    * - dedicatedhostfinancial: The ECS instance is locked due to overdue payments for the dedicated host.
    * 
@@ -301,7 +301,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * 
    * Default values:
    * 
-   * - If you do not specify this parameter or the specified value is less than 10, the default value is 10.
+   * - If this parameter is not specified or the specified value is less than 10, the default value is 10.
    * - If the specified value is greater than 100, the default value is 100.
    * 
    * @example
@@ -318,7 +318,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   needSaleCycle?: boolean;
   /**
    * @remarks
-   * The query token. The value is the NextToken parameter value returned by the previous API call.
+   * The query token. The value is the `NextToken` parameter value returned by the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -328,7 +328,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged query operations.
+   * > This parameter will be retired soon. We recommend that you use NextToken and MaxResults to perform paged query operations.
    * 
    * @example
    * 1
@@ -336,7 +336,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. We recommend that you use NextToken and MaxResults for paged query operations.
+   * > This parameter will be retired soon. We recommend that you use NextToken and MaxResults to perform paged query operations.
    * 
    * @example
    * 10
@@ -344,7 +344,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The private IP addresses of instances in the VPC. This parameter takes effect only when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
+   * The private IP addresses of instances in a VPC. This parameter takes effect only when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * ["172.16.1.1", "172.16.2.1", … "172.16.10.1"]
@@ -352,7 +352,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   privateIpAddresses?: string;
   /**
    * @remarks
-   * The public IP addresses of the instances. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
+   * The public IP addresses of the instance. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * ["42.1.1.**", "42.1.2.**", … "42.1.10.**"]
@@ -400,11 +400,11 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * The instance status. Valid values: 
    * 
-   * - Pending: The instance is being created.
-   * - Running: The instance is running.
-   * - Starting: The instance is being started.
-   * - Stopping: The instance is being stopped.
-   * - Stopped: The instance is stopped.
+   * - Pending: creating.
+   * - Running: running.
+   * - Starting: starting.
+   * - Stopping: stopping.
+   * - Stopped: stopped.
    * 
    * @example
    * Running
@@ -412,12 +412,12 @@ export class DescribeInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeInstancesRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp67acfmxazb4p****
@@ -425,7 +425,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * v-bp67acfmxazb4p****

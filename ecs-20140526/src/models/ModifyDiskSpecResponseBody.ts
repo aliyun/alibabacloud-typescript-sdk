@@ -7,7 +7,7 @@ export class ModifyDiskSpecResponseBody extends $dara.Model {
    * @remarks
    * The ID of the generated order.
    * 
-   * > The order ID is returned only when you change the specifications of a subscription cloud disk.
+   * > This parameter is returned only when you change the specifications of a subscription disk.
    * 
    * @example
    * 20413515388****
@@ -23,9 +23,9 @@ export class ModifyDiskSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task for the disk specification change.
+   * The ID of the disk specification change task.
    * 
-   * > This parameter is not returned if you only modify the performance level (PL) of an enterprise SSD.
+   * > This parameter is not returned if you only modify the performance level (PL) of an ESSD.
    * 
    * @example
    * t-bp67acfmxazb4p****

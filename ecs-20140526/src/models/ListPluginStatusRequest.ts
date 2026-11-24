@@ -10,7 +10,7 @@ export class ListPluginStatusRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query.
+   * The maximum number of entries per page for a paging query.
    * 
    * Maximum value: 50.
    * 
@@ -24,7 +24,7 @@ export class ListPluginStatusRequest extends $dara.Model {
    * @remarks
    * The plugin name. All characters are supported. The name can be up to 255 characters in length.
    * 
-   * - If you do not specify this parameter, the status of installed plugins on the instance is queried.
+   * - If you do not specify this parameter, the status of all installed plugins on the instance is queried.
    * 
    *     > If you do not specify this parameter, you can specify only one instance ID.
    * 
@@ -36,7 +36,7 @@ export class ListPluginStatusRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Set the value to the NextToken value returned in the previous call.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -46,7 +46,7 @@ export class ListPluginStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform paging query operations.
+   * > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults for paging.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class ListPluginStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform paging query operations.
+   * > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults for paging.
    * 
    * @example
    * 10

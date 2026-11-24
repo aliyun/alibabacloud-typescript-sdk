@@ -302,6 +302,11 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
   portable?: boolean;
   productCode?: string;
   provisionedIops?: number;
+  /**
+   * @example
+   * ReadWrite
+   */
+  readWriteMode?: string;
   regionId?: string;
   resourceGroupId?: string;
   serialNumber?: string;
@@ -359,6 +364,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
       portable: 'Portable',
       productCode: 'ProductCode',
       provisionedIops: 'ProvisionedIops',
+      readWriteMode: 'ReadWriteMode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       serialNumber: 'SerialNumber',
@@ -415,6 +421,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $dara.Model {
       portable: 'boolean',
       productCode: 'string',
       provisionedIops: 'number',
+      readWriteMode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       serialNumber: 'string',
@@ -499,7 +506,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * > This parameter will be deprecated soon. Use the `NextToken` and `MaxResults` parameters for paged queries.
+   * > This parameter will be deprecated soon. Use the `NextToken` and `MaxResults` parameters for pagination.
    * 
    * @example
    * 1
@@ -507,7 +514,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated soon. Use the `NextToken` and `MaxResults` parameters for paged queries.
+   * > This parameter will be deprecated soon. Use the `NextToken` and `MaxResults` parameters for pagination.
    * 
    * @example
    * 1
@@ -523,8 +530,8 @@ export class DescribeDisksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
-   * > When you use the `MaxResults` and `NextToken` parameters for paged queries, the returned `TotalCount` value is invalid.
+   * The total number of queried entries.
+   * > When you use the `MaxResults` and `NextToken` parameters for pagination, the returned value of the `TotalCount` parameter is invalid.
    * 
    * @example
    * 15

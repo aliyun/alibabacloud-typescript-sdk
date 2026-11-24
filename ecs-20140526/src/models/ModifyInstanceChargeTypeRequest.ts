@@ -7,13 +7,13 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - true: enables automatic payment. Make sure that your account balance is sufficient. If your account balance is insufficient, abnormal orders are generated, and you can only cancel the orders.
+   * - true: Automatic payment is enabled. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated and can only be canceled.
    * 
-   * - false: generates orders without charging.
+   * - false: Only an order is generated and no payment is made.
    * 
    * Default value: true.
    * 
-   * > If your payment method has an insufficient balance, you can set AutoPay to false. In this case, unpaid orders are generated, and you can log on to the ECS console to complete the payment.
+   * > If the balance of your payment method is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ECS console to complete the payment.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and make sure that the value is unique across different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -29,11 +29,11 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. Valid values:
+   * Specifies whether to only perform a dry run for this request. Valid values:
    * 
-   * - true: sends a check request without querying resource status. The check items include whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is granted the required authorization, and whether the required parameters are specified. If the check fails, the corresponding error message is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - true: send a dry run request. The system does not query resources. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether required parameters are specified. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the `DryRunOperation` error code is returned.
    * 
-   * - false: sends a normal request. If the request passes the check, a 2XX HTTP status code is returned and the operation is performed.
+   * - false: send a normal request. If the dry run succeeds, the 2xx HTTP status code is returned and resources are queried.
    * 
    * Default value: false.
    * 
@@ -43,10 +43,10 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to convert all pay-as-you-go data disks attached to the instance to subscription data disks.
+   * Specifies whether to change the billing method of all pay-as-you-go data disks attached to the instance to subscription. Valid values:
    * 
-   * - true: Yes.
-   * - false: No.
+   * - true
+   * - false
    * 
    * Default value: false.
    * 
@@ -58,9 +58,9 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * The target billing method of the instance. Valid values:
    * 
-   * - PrePaid: converts pay-as-you-go instances to subscription instances.
+   * - PrePaid: switches the billing method of the instance from pay-as-you-go to subscription.
    * 
-   * - PostPaid: converts subscription instances to pay-as-you-go instances.
+   * - PostPaid: switches the billing method of the instance from subscription to pay-as-you-go.
    * 
    * Default value: PrePaid.
    * 
@@ -70,7 +70,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The IDs of instances. The value can be a JSON array that consists of up to 20 instance IDs. Separate the IDs with commas (,).
+   * The instance IDs. The value can be a JSON array that consists of up to 20 instance IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -80,10 +80,10 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * Specifies whether to return order fee details when the billing method is converted from subscription to pay-as-you-go. Valid values:
+   * Specifies whether to return the order fee details when you switch the billing method from subscription to pay-as-you-go. Valid values:
    * 
-   * - true: Returns the fee details.
-   * - false: Does not return the fee details.
+   * - true
+   * - false
    * 
    * Default value: false.
    * 
@@ -95,14 +95,14 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription renewal period. If the ECS instance is hosted on a dedicated host, the value cannot exceed the subscription period of the dedicated host. Valid values:
+   * The subscription period. If the host of the ECS instance is a dedicated host (DDH), the value cannot exceed the subscription period of the DDH. Valid values:
    * 
    * <props="china">
-   * - If `PeriodUnit` is set to `Week`, valid values of `Period`: 1, 2, 3, and 4.
-   * - If `PeriodUnit` is set to `Month`, valid values of `Period`: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * - When `PeriodUnit` is set to `Week`, valid values of `Period` are 1, 2, 3, and 4.
+   * - When `PeriodUnit` is set to `Month`, valid values of `Period` are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * 
-   * <props="intl">If `PeriodUnit` is set to `Month`, valid values of `Period`: 1, 2, 3, 4, 5, 6, 7, 8, 9, and 12.
+   * <props="intl">When `PeriodUnit` is set to `Month`, valid values of `Period` are 1, 2, 3, 4, 5, 6, 7, 8, 9, and 12.
    * 
    * @example
    * 1
@@ -110,7 +110,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal period, which is the unit of the `Period` parameter. Valid values:
+   * The unit of the subscription period, which is the unit of the `Period` parameter. Valid values:
    * 
    * <props="china">
    * - Week

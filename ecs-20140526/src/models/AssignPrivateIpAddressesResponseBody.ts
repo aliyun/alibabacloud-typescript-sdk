@@ -58,7 +58,7 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
   ipv4PrefixSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetIpv4PrefixSet;
   /**
    * @remarks
-   * The elastic network interfaces (ENIs) ID.
+   * The ID of the Elastic Network Interface (ENI).
    * 
    * @example
    * eni-bp125p95hhdhn3ot****
@@ -99,7 +99,7 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
 export class AssignPrivateIpAddressesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the elastic network interfaces (ENIs) to which secondary private IP addresses are assigned.
+   * The set of information about the Elastic Network Interfaces (ENIs) to which secondary private IP addresses (private IP addresses or private IPs) are allocated.
    */
   assignedPrivateIpAddressesSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet;
   /**

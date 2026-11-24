@@ -7,7 +7,7 @@ export class EndTerminalSessionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the session resides.
+   * The ID of the region where the session is located.
    * 
    * This parameter is required.
    * 

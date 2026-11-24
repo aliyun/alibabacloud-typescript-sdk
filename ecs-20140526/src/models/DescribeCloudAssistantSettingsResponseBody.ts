@@ -40,7 +40,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   bootstrapUpgrade?: boolean;
   /**
    * @remarks
-   * Specifies whether to disable the Cloud Assistant Agent from checking for and performing updates.
+   * Specifies whether to prohibit the Cloud Assistant Agent from checking for and performing updates.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   disableUpgrade?: boolean;
   /**
    * @remarks
-   * Specifies whether the custom Cloud Assistant Agent upgrade configuration is enabled. If the value is false or empty, the system attempts to upgrade the agent every 30 minutes by default.
+   * Specifies whether custom Agent upgrade configurations are enabled. If the query result is false or empty, the system attempts to upgrade the agent every 30 minutes by default.
    * 
    * @example
    * true
@@ -56,7 +56,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   enabled?: boolean;
   /**
    * @remarks
-   * The time zone of the allowed upgrade time windows.
+   * The time zone for the allowed upgrade time windows.
    * 
    * @example
    * Asia/Shanghai
@@ -188,7 +188,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   logFileCountLimit?: number;
   /**
    * @remarks
-   * The size limit of Cloud Assistant log files.
+   * The size limit for Cloud Assistant log files.
    * 
    * @example
    * 100MB
@@ -204,7 +204,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   memoryLimit?: string;
   /**
    * @remarks
-   * The maximum number of consecutive times that the usage of CPU or memory resources exceeds the limit. After reaching this limit, the Cloud Assistant Agent automatically stops.
+   * The maximum number of consecutive times that CPU or memory resources exceed the limit. After reaching this limit, the Cloud Assistant Agent automatically stops.
    * 
    * @example
    * 3
@@ -245,8 +245,8 @@ export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig exte
   /**
    * @remarks
    * The switch for the Cloud Assistant session feature. Valid values:
-   * * true: enabled
-   * * false: disabled
+   * * true: Enabled.
+   * * false: Disabled.
    * 
    * Precautions:
    * * Enabling or disabling the session feature takes effect in all regions.

@@ -13,7 +13,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The version number of the Cloud Assistant Agent.
+   * The version number of the Cloud Assistant agent.
    * 
    * @example
    * 2.2.0.102
@@ -29,7 +29,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The instance ID of the managed instance.
+   * The managed instance ID.
    * 
    * @example
    * mi-hz01axdfas****
@@ -69,7 +69,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   invocationCount?: number;
   /**
    * @remarks
-   * The time when the last Cloud Assistant task was executed. The time follows the ISO 8601 standard and is in the UTC time zone.
+   * The time when the last Cloud Assistant task was executed. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2021-01-20T09:00:40Z
@@ -93,7 +93,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The version information of the operating system.
+   * The version of the operating system.
    * 
    * @example
    * Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
@@ -101,7 +101,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   osVersion?: string;
   /**
    * @remarks
-   * The time when the managed instance was registered. The time follows the ISO 8601 standard and is in the UTC time zone.
+   * The time when the managed instance was registered. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2021-01-20T08:57:56Z
@@ -165,7 +165,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
 export class DeregisterManagedInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of managed instance information.
+   * The details of the managed instances.
    */
   instance?: DeregisterManagedInstanceResponseBodyInstance;
   /**

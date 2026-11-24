@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnlockSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/en/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * @example
    * 5EC38E7D-389F-1925-ABE2-D7925A8F****
@@ -13,10 +13,9 @@ export class UnlockSnapshotRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - true: performs a dry run without executing the actual request. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the check fails, an error is returned. If the check succeeds, the DryRunOperation error code is returned.
-   * - false: performs no dry run and directly executes the request if the check succeeds.
-   * Default value: false.
+   * Specifies whether to perform only a dry run. Valid values: 
+   * - true: performs only a dry run. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the check fails, the system returns an error. If the check succeeds, the system returns the error code DryRunOperation. 
+   * - false: sends a normal request and executes it after the check succeeds. This is the default value.
    * 
    * @example
    * false

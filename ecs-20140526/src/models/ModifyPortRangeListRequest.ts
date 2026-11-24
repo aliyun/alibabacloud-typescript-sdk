@@ -15,11 +15,11 @@ export class ModifyPortRangeListRequestAddEntry extends $dara.Model {
    * @remarks
    * The port range. Valid values of N: 0 to 200. Limits:
    * 
-   * - The number of entries cannot exceed the maximum entry capacity (`MaxEntries`).
+   * - The number of entries cannot exceed the maximum number of entries (`MaxEntries`).
    * 
    * - Duplicate `PortRange` values are not allowed.
    * 
-   * - The value cannot be the same as the `RemoveEntry.N.PortRange` parameter value.
+   * - The value cannot be the same as the value of `RemoveEntry.N.PortRange`.
    * 
    * @example
    * 80/80
@@ -55,7 +55,7 @@ export class ModifyPortRangeListRequestRemoveEntry extends $dara.Model {
    * 
    * - Duplicate `PortRange` values are not allowed.
    * 
-   * - The value cannot be the same as the `AddEntry.N.PortRange` parameter value.
+   * - The value cannot be the same as the value of `AddEntry.N.PortRange`.
    * 
    * @example
    * 80/80

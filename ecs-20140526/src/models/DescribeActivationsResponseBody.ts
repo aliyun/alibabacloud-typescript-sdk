@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActivationsResponseBodyActivationListTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the managed instance activation code.
+   * The tag key of the activation code for the managed instance.
    * 
    * @example
    * owner
@@ -13,7 +13,7 @@ export class DescribeActivationsResponseBodyActivationListTags extends $dara.Mod
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the managed instance activation code.
+   * The tag value of the activation code for the managed instance.
    * 
    * @example
    * zhangsan
@@ -125,7 +125,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag information of the managed instance activation code.
+   * The tag information of the activation code for the managed instance.
    */
   tags?: DescribeActivationsResponseBodyActivationListTags[];
   /**
@@ -190,7 +190,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   activationList?: DescribeActivationsResponseBodyActivationList[];
   /**
    * @remarks
-   * The query token returned by the current call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -206,7 +206,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Settings for the number of entries returned per page in a paged query. This parameter is used for paging.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -222,8 +222,8 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of record entries that meet the conditional query.
-   * > If you use the MaxResults and NextToken parameters for a paged query (paging), the returned TotalCount value is meaningless.
+   * The total number of records that meet the query conditions.
+   * > When you use the MaxResults and NextToken parameters for pagination, the returned TotalCount value is meaningless.
    * 
    * @example
    * 1

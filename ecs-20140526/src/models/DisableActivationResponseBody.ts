@@ -13,7 +13,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The time when the activation code was created. The time follows the ISO 8601 standard in UTC.
+   * The creation time. The time is formatted in ISO 8601 and displayed in UTC.
    * 
    * @example
    * 2021-01-20T06:00:00Z
@@ -61,7 +61,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The IP addresses of hosts that are allowed to use the activation code.
+   * The IP addresses of the hosts that are allowed to use the activation code.
    * 
    * @example
    * 0.0.0.0/0

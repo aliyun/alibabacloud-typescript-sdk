@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoSnapshotPolicyExRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the automatic snapshot policy. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
+   * The key of tag N of the automatic snapshot policy. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeAutoSnapshotPolicyExRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the automatic snapshot policy. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+   * The value of tag N of the automatic snapshot policy. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -53,7 +53,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length and can contain characters that are classified as letter in Unicode, including Chinese characters, English letters, and digits. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length, and can contain letters and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * TestName
@@ -63,11 +63,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return for the automatic snapshot policy list.
-   * 
-   * Minimum value: 1.
-   * 
-   * Default value: 1.
+   * The page number. The returned automatic snapshot policy list is displayed in a paging manner. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -75,11 +71,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for the automatic snapshot policy list.
-   * 
-   * Maximum value: 100.
-   * 
-   * Default value: 10.
+   * The number of entries per page when the returned automatic snapshot policy list is displayed in a paging manner. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -87,7 +79,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the automatic snapshot policies that you want to query. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the automatic snapshot policy to query. You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -109,7 +101,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: DescribeAutoSnapshotPolicyExRequestTag[];
   static names(): { [key: string]: string } {

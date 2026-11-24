@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskDeploymentRequest extends $dara.Model {
   /**
    * @remarks
-   * The new disk category. This parameter is valid only during migration between different dedicated block storage clusters. Currently, only cloud_essd (ESSD) is supported.
+   * The new disk type. This parameter is valid only during disk migration between different dedicated block storage clusters. Only cloud_essd (ESSD) is supported.
    * 
-   * Default value: empty, which indicates that the disk category is not changed.
+   * Default value: empty, which indicates that the disk type is not changed.
    * 
    * @example
    * cloud_essd
@@ -15,7 +15,7 @@ export class ModifyDiskDeploymentRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The disk ID.
+   * The ID of the disk.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class ModifyDiskDeploymentRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck the request. Valid values:
-   * - true: sends a precheck request. The check items include whether required parameters are specified, the request format, business limits, and ECS inventory. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-   * - false: sends a normal request. If the check succeeds, a 2xx HTTP status code is returned and the disk is directly migrated.
+   * Specifies whether to perform a dry run. Valid values:
+   * - true: performs a dry run without executing the request. The system checks whether required parameters are specified, the request format is valid, service limits are met, and ECS resources are sufficient. If the request fails the check, the corresponding error is returned. If the request passes the check, the DryRunOperation error code is returned.
+   * - false: executes the request. If the request passes the check, a 2xx HTTP status code is returned and the disk is migrated.
    * 
    * Default value: false.
    * 
@@ -39,9 +39,9 @@ export class ModifyDiskDeploymentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The new ESSD performance level. This parameter is valid only during migration between different dedicated block storage clusters. Valid values:
-   * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
-   * - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
+   * The new ESSD performance level. This parameter is valid only during disk migration between different dedicated block storage clusters. Valid values:
+   * - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+   * - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
    * 
    * Default value: empty, which indicates that the performance level is not changed.
    * 
@@ -53,9 +53,9 @@ export class ModifyDiskDeploymentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster. Before migrating a disk into a dedicated block storage cluster, you must purchase and create the cluster, and ensure that the disk and the destination cluster are in the same zone.
-   * - When migrating a disk to a dedicated block storage cluster, you must specify `StorageClusterId`.
-   * - When migrating a disk to a public cloud block storage cluster, `StorageClusterId` must be empty.
+   * The ID of the dedicated block storage cluster. Before you migrate a disk into a dedicated block storage cluster, you must purchase and create the cluster, and ensure that the disk and the destination cluster are in the same zone.
+   * - To migrate a disk to a dedicated block storage cluster, you must specify `StorageClusterId`.
+   * - To migrate a disk to a public cloud block storage cluster, you must leave `StorageClusterId` empty.
    * 
    * Default value: empty, which indicates that the disk is migrated to a public cloud block storage cluster.
    * 

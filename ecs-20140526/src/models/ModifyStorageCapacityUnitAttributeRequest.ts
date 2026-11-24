@@ -13,7 +13,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), or hyphens (-).
+   * The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testNewScuName
@@ -23,7 +23,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the SCU. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the SCU. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * SCU ID。
+   * The SCU ID.
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UnassignPrivateIpAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * One or more IPv4 prefixes to remove.
+   * The IPv4 prefixes to delete.
    */
   ipv4Prefix?: string[];
   /**
    * @remarks
-   * The ID of the Elastic Network Interface (ENI).
+   * The ID of the Elastic Network Interface (ENI) (network interface controller (NIC)).
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class UnassignPrivateIpAddressesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * One or more secondary private IP addresses to remove.
+   * The secondary private IP addresses to delete.
    * 
    * @example
    * ``192.168.**.**``
@@ -30,7 +30,7 @@ export class UnassignPrivateIpAddressesRequest extends $dara.Model {
   privateIpAddress?: string[];
   /**
    * @remarks
-   * The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
