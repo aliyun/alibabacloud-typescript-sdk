@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable the accelerated data transfer feature. This feature is in public preview. It optimizes scheduling policies and network paths to improve the speed of artifact subscription.
+   * Specifies whether to enable link acceleration. The subscription acceleration feature is in public preview and can improve image subscription speed through scheduling policies and network link optimization.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the rule was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1570759546000
@@ -37,11 +37,11 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * - `true`: The request succeeded.
+   * - `true`: The API call was successful.
    * 
-   * - `false`: The request failed.
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -49,7 +49,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The time when the rule was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1638259914000
@@ -57,7 +57,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The destination ACR namespace.
+   * The ACR namespace.
    * 
    * @example
    * test-ns
@@ -65,7 +65,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * Indicates whether to overwrite the existing images that have the same tag in the destination repository.
+   * Specifies whether to overwrite images.
    * 
    * @example
    * true
@@ -73,12 +73,12 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   override?: boolean;
   /**
    * @remarks
-   * The operating systems and architectures. If a source repository contains multi-architecture images, only images that match the specified platforms are synchronized to the destination repository of the Enterprise Edition instance.
+   * The operating system and architecture. If the source repository contains multi-architecture images, only images with the specified operating system and architecture are subscribed to the destination repository of the Enterprise instance.
    */
   platform?: string[];
   /**
    * @remarks
-   * The destination ACR repository.
+   * The ACR repository.
    * 
    * @example
    * test-repo
@@ -102,7 +102,10 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The domain name of the artifact source.
+   * The domain name of the source image repository for the subscription rule.
+   * 
+   * @example
+   * registry-1.docker.io
    */
   sourceDomain?: string;
   /**
@@ -131,7 +134,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   sourceRepoName?: string;
   /**
    * @remarks
-   * The number of images to subscribe to.
+   * The number of subscribed images.
    * 
    * @example
    * 1
@@ -139,7 +142,15 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   tagCount?: number;
   /**
    * @remarks
-   * The regular expression that is used to match the tags of images in the source repository for subscription.
+   * The list of subscribed tags.
+   * 
+   * @example
+   * latest
+   */
+  tagList?: string[];
+  /**
+   * @remarks
+   * The image versions in the source repository to subscribe to. Regular expressions are supported.
    * 
    * @example
    * release-v.*
@@ -164,6 +175,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
       sourceProvider: 'SourceProvider',
       sourceRepoName: 'SourceRepoName',
       tagCount: 'TagCount',
+      tagList: 'TagList',
       tagRegexp: 'TagRegexp',
     };
   }
@@ -187,6 +199,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
       sourceProvider: 'string',
       sourceRepoName: 'string',
       tagCount: 'number',
+      tagList: { 'type': 'array', 'itemType': 'string' },
       tagRegexp: 'string',
     };
   }
@@ -194,6 +207,9 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.platform)) {
       $dara.Model.validateArray(this.platform);
+    }
+    if(Array.isArray(this.tagList)) {
+      $dara.Model.validateArray(this.tagList);
     }
     super.validate();
   }

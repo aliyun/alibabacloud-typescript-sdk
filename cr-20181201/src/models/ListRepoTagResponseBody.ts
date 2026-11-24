@@ -29,7 +29,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image size, in bytes.
+   * The size of the image. Unit: bytes.
    * 
    * @example
    * 27107966
@@ -37,7 +37,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   imageSize?: number;
   /**
    * @remarks
-   * The time when the image was last updated.
+   * The time when the image was updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572875608000
@@ -95,7 +95,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
 export class ListRepoTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -108,7 +108,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   images?: ListRepoTagResponseBodyImages[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -116,7 +116,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned.
    * 
    * @example
    * 30
@@ -124,7 +124,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+   * The pagination token. If a next page exists, the service returns a NextToken value, which you can include in the subsequent request.
    * 
    * @example
    * *****V3MpHK1AP0pfERHZN5pu6lESTRpd5hnHNnmKOP/+w9F
@@ -140,7 +140,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30

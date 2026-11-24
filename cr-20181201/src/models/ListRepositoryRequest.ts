@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepositoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID. You can call the ListInstance operation to query existing Enterprise instances.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ListRepositoryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of returned results.
    * 
-   * Use this parameter together with NextToken. This parameter takes priority over PageNo and PageSize.
+   * Use this parameter together with the NextToken parameter. This parameter takes precedence over PageNo and PageSize.
    * 
    * @example
    * 30
@@ -25,9 +25,9 @@ export class ListRepositoryRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+   * The token for the next page. If a next page exists, the service returns a NextToken value, which you can pass in the next request.
    * 
-   * Use this parameter together with MaxResults. This parameter takes priority over PageNo and PageSize.
+   * Use this parameter together with the MaxResults parameter. This parameter takes precedence over PageNo and PageSize.
    * 
    * @example
    * *****V3MpHK1AP0pfERHZN5pu6lESTRpd5hnHNnmKOP/+w9F
@@ -45,7 +45,7 @@ export class ListRepositoryRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. The maximum value is 100. If the specified value exceeds 100, the system returns a parameter error or uses 100 as the actual maximum number of entries returned.
+   * The number of entries per page. Maximum value: 100. If the specified value exceeds 100, the system returns a parameter error or uses 100 as the maximum number of returned entries.
    * 
    * @example
    * 30
@@ -63,7 +63,7 @@ export class ListRepositoryRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The repository namespace name.
+   * The name of the repository namespace.
    * 
    * @example
    * repo-namespace-test
@@ -75,7 +75,7 @@ export class ListRepositoryRequest extends $dara.Model {
    * 
    * - `NORMAL`: Normal.
    * 
-   * - `DELETING`: Being deleted.
+   * - `DELETING`: Deleting.
    * 
    * - `DELETED`: Deleted.
    * 

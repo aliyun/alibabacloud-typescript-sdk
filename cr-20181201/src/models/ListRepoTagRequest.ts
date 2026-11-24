@@ -15,9 +15,7 @@ export class ListRepoTagRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
-   * 
-   * Use this parameter together with NextToken. This parameter takes priority over PageNo and PageSize.
+   * The maximum number of results to return. Use this parameter together with the NextToken parameter. This parameter takes precedence over PageNo and PageSize.
    * 
    * @example
    * 30
@@ -25,9 +23,7 @@ export class ListRepoTagRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
-   * 
-   * Use this parameter together with MaxResults. This parameter takes priority over PageNo and PageSize.
+   * The pagination token. If a next page exists, the service returns a NextToken value, which you can include in the subsequent request. Use this parameter together with the MaxResults parameter. This parameter takes precedence over PageNo and PageSize.
    * 
    * @example
    * *****V3MpHK1AP0pfERHZN5pu6lESTRpd5hnHNnmKOP/+w9F
@@ -45,7 +41,7 @@ export class ListRepoTagRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. A maximum of 100 entries can be returned per page.
+   * The page size. The maximum number of entries per page is 100.
    * 
    * @example
    * 30

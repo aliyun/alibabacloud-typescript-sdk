@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $dara.Model {
   /**
    * @remarks
-   * The end time of the subscription task.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1692756630000
@@ -21,7 +21,15 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
   instanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The error message returned when the task fails.
+   * 
+   * @example
+   * Tag not found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The namespace.
    * 
    * @example
    * test-ns
@@ -29,7 +37,7 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
   namespaceName?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test-reop
@@ -37,7 +45,7 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
   repoName?: string;
   /**
    * @remarks
-   * The result of the task.
+   * The result.
    * 
    * @example
    * SUCCESS
@@ -45,7 +53,7 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
   result?: string;
   /**
    * @remarks
-   * The start time of the subscription task.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1691719501000
@@ -53,7 +61,7 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
   startTime?: number;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * COMPLETED
@@ -79,6 +87,7 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
     return {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      message: 'Message',
       namespaceName: 'NamespaceName',
       repoName: 'RepoName',
       result: 'Result',
@@ -93,6 +102,7 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
     return {
       endTime: 'number',
       instanceId: 'string',
+      message: 'string',
       namespaceName: 'string',
       repoName: 'string',
       result: 'string',
@@ -115,7 +125,7 @@ export class GetArtifactSubscriptionTaskResultResponseBodyTaskResults extends $d
 export class GetArtifactSubscriptionTaskResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -123,10 +133,11 @@ export class GetArtifactSubscriptionTaskResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Specifies whether the call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -158,12 +169,12 @@ export class GetArtifactSubscriptionTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the artifact subscription task.
+   * The image task results.
    */
   taskResults?: GetArtifactSubscriptionTaskResultResponseBodyTaskResults[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

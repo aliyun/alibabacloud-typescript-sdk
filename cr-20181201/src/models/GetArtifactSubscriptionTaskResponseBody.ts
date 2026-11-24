@@ -13,7 +13,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The end time of the artifact subscription task.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1691979202000
@@ -37,10 +37,11 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the API request is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call was successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -48,7 +49,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * success
@@ -56,7 +57,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the Container Registry namespace.
+   * The ACR namespace.
    * 
    * @example
    * test
@@ -64,7 +65,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The name of the Container Registry repository.
+   * The ACR repository.
    * 
    * @example
    * test-repo
@@ -80,7 +81,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the source namespace.
+   * The source namespace.
    * 
    * @example
    * library
@@ -96,7 +97,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   sourceProvider?: string;
   /**
    * @remarks
-   * The name of the source repository.
+   * The source repository.
    * 
    * @example
    * nginx
@@ -104,7 +105,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   sourceRepoName?: string;
   /**
    * @remarks
-   * The type of the source repository.
+   * The source artifact type.
    * 
    * @example
    * PUBLIC
@@ -112,7 +113,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   sourceRepoType?: string;
   /**
    * @remarks
-   * The start time of the artifact subscription task.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1568718468000
@@ -120,7 +121,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The total subscribed tags.
+   * The number of subscribed tags.
    * 
    * @example
    * 1
@@ -144,7 +145,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task results.
+   * The task result.
    * 
    * @example
    * SUCCESS
@@ -152,7 +153,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   taskResult?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * RUNNING
@@ -160,7 +161,7 @@ export class GetArtifactSubscriptionTaskResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type.
    * 
    * @example
    * AUTO

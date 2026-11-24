@@ -20,7 +20,7 @@ export class CreateInstanceEndpointAclPolicyShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * internet
+   * Internet
    */
   endpointType?: string;
   entriesShrink?: string;

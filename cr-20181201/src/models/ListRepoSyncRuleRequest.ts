@@ -39,7 +39,7 @@ export class ListRepoSyncRuleRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The image repository name.
+   * The repository name.
    * 
    * @example
    * test-repo

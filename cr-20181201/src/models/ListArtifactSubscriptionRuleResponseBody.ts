@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable the accelerated subscription channel. This feature is in public preview. Based on an optimized scheduling policy and network link, the speed of image subscription is improved.
+   * Indicates whether the acceleration link is enabled. The subscription acceleration feature is in public preview and can improve image subscription speed based on scheduling policies and network link optimization.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   accelerate?: boolean;
   /**
    * @remarks
-   * The time when the rule was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1638187989000
@@ -29,7 +29,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the rule was last modified.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1678341923385
@@ -37,7 +37,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test-ns
@@ -45,7 +45,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * Indicates whether to overwrite the image.
+   * Specifies whether to overwrite images.
    * 
    * @example
    * true
@@ -53,12 +53,12 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   override?: boolean;
   /**
    * @remarks
-   * The operating system and architecture. If the source repository contains a multi-architecture image, only images that have a specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance.
+   * The operating system and architecture. If the source repository contains multi-architecture images, only the specified operating system and architecture are subscribed to the destination repository of the Enterprise instance.
    */
   platform?: string[];
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test-repo
@@ -72,6 +72,13 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
    * crasr-mdbpung4i1rm****
    */
   ruleId?: string;
+  /**
+   * @remarks
+   * The domain name of the source image repository for the subscription rule.
+   * 
+   * @example
+   * anolis-registry.cn-zhangjiakou.cr.aliyuncs.com
+   */
   sourceDomain?: string;
   /**
    * @remarks
@@ -83,7 +90,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   sourceNamespaceName?: string;
   /**
    * @remarks
-   * The source of the artifact. Valid values:
+   * The artifact source.
    * 
    * @example
    * DOCKER_HUB
@@ -107,7 +114,15 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   tagCount?: number;
   /**
    * @remarks
-   * The regular expression that is used to subscribe to the source repository.
+   * The list of subscribed tags.
+   * 
+   * @example
+   * latest
+   */
+  tagList?: string[];
+  /**
+   * @remarks
+   * The image versions subscribed from the source repository. Regular expressions are supported.
    * 
    * @example
    * release.*
@@ -129,6 +144,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
       sourceProvider: 'SourceProvider',
       sourceRepoName: 'SourceRepoName',
       tagCount: 'TagCount',
+      tagList: 'TagList',
       tagRegexp: 'TagRegexp',
     };
   }
@@ -149,6 +165,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
       sourceProvider: 'string',
       sourceRepoName: 'string',
       tagCount: 'number',
+      tagList: { 'type': 'array', 'itemType': 'string' },
       tagRegexp: 'string',
     };
   }
@@ -156,6 +173,9 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
   validate() {
     if(Array.isArray(this.platform)) {
       $dara.Model.validateArray(this.platform);
+    }
+    if(Array.isArray(this.tagList)) {
+      $dara.Model.validateArray(this.tagList);
     }
     super.validate();
   }
@@ -168,7 +188,7 @@ export class ListArtifactSubscriptionRuleResponseBodyRules extends $dara.Model {
 export class ListArtifactSubscriptionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * success
@@ -176,11 +196,11 @@ export class ListArtifactSubscriptionRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - `true`: The request was successful.
+   * - `true`: The call was successful.
    * 
-   * - `false`: The request failed.
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -212,7 +232,7 @@ export class ListArtifactSubscriptionRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The subscription rules.
+   * The list of rules.
    */
   rules?: ListArtifactSubscriptionRuleResponseBodyRules[];
   /**

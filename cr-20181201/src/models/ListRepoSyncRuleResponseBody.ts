@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572604642000
@@ -13,13 +13,10 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether images are synchronized across accounts. Valid values:
-   * 
-   * - `true`: Images are synchronized across accounts.
-   * 
-   * - `false`: Images are synchronized within the same account.
-   * 
-   * Default value: `false`
+   * Specifies whether to synchronize images across accounts. Valid values:
+   * - `true`: synchronizes images across accounts
+   * - `false`: synchronizes images within the same account
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -67,7 +64,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   localRepoName?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572604642000
@@ -75,16 +72,17 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The namespace regex at the instance level.
-   * > This parameter is valid only when SyncScope is set to `INSTANCE`.
+   * The instance-level namespace regular expression.
+   * > This parameter is valid only when the SyncScope parameter is set to `INSTANCE`.
+   * 
+   * @example
+   * .*
    */
   namespaceNameFilter?: string;
   /**
    * @remarks
-   * The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
-   * 
+   * The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Synchronization tasks with the same priority are executed in random order.
    * Valid values: 1 to 5.
-   * 
    * Default value: 3.
    * 
    * @example
@@ -94,7 +92,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   /**
    * @remarks
    * The repository filtering rule.
-   * > This parameter is valid only when SyncScope is set to `INSTANCE` or `NAMESPACE`.
+   * > This parameter is valid only when the SyncScope parameter is set to `INSTANCE` or `NAMESPACE`.
    * 
    * @example
    * .*
@@ -103,9 +101,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * 
    * - `FROM`: synchronizes from the source instance to the target instance
-   * 
    * - `TO`: synchronizes from the target instance to the source instance
    * 
    * @example
@@ -131,12 +127,9 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   /**
    * @remarks
    * The synchronization scope. Valid values:
-   * 
-   * - `INSTANCE`: synchronizes based on namespace regex and repository regex rules
-   * 
-   * - `NAMESPACE`: synchronizes by namespace
-   * 
-   * - `REPO`: synchronizes by image repository
+   * - `INSTANCE`: synchronizes based on namespace and repository regular expressions
+   * - `NAMESPACE`: synchronizes based on namespaces
+   * - `REPO`: synchronizes based on image repositories
    * 
    * @example
    * NAMESPACE
@@ -145,9 +138,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
   /**
    * @remarks
    * The trigger policy. Valid values:
-   * 
-   * - `INITIATIVE`: proactive trigger
-   * 
+   * - `INITIATIVE`: active trigger
    * - `PASSIVE`: passive trigger
    * 
    * @example
@@ -298,7 +289,7 @@ export class ListRepoSyncRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of synchronization rules.
+   * The synchronization rules.
    */
   syncRules?: ListRepoSyncRuleResponseBodySyncRules[];
   /**

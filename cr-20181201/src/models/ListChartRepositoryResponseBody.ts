@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   /**
    * @remarks
-   * The time when the repository was created.
+   * The time when the repository was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1571926644000
@@ -13,7 +13,7 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-xkx6vujuhay0****
@@ -21,7 +21,7 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the repository was last modified.
+   * The time when the repository was last modified. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1571930329000
@@ -29,7 +29,7 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The ID of the repository.
+   * The repository ID.
    * 
    * @example
    * crcr-gpsu7b8chmxk****
@@ -37,7 +37,7 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * repo1
@@ -45,7 +45,7 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The namespace of the repository.
    * 
    * @example
    * ns1
@@ -55,8 +55,9 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
    * @remarks
    * The status of the repository. Valid values:
    * 
-   * *   `NORMAL`: The repository is normal.
-   * *   `DELETING`: The repository is being deleted.
+   * - `NORMAL`: Normal.
+   * 
+   * - `DELETING`: The repository is being deleted.
    * 
    * @example
    * NORMAL
@@ -66,8 +67,8 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
    * @remarks
    * The type of the repository. Valid values:
    * 
-   * *   `PRIVATE`: a private repository
-   * *   `PUBLIC`: a public repository
+   * - `PRIVATE`: a private repository.
+   * - `PUBLIC`: a public repository.
    * 
    * @example
    * PUBLIC
@@ -75,7 +76,7 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the repository belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-aek2ikd5rxxxxxx
@@ -83,7 +84,7 @@ export class ListChartRepositoryResponseBodyRepositories extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The summary about the repository.
+   * The summary of the repository.
    * 
    * @example
    * test
@@ -139,7 +140,7 @@ export class ListChartRepositoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -147,7 +148,7 @@ export class ListChartRepositoryResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -155,7 +156,7 @@ export class ListChartRepositoryResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -163,12 +164,12 @@ export class ListChartRepositoryResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The queried repositories.
+   * The list of repositories.
    */
   repositories?: ListChartRepositoryResponseBodyRepositories[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0AB62FB8-6873-4032-8515-4578D27523B7
@@ -176,7 +177,7 @@ export class ListChartRepositoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 1

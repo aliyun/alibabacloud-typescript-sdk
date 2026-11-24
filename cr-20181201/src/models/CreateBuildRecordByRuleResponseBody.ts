@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBuildRecordByRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image building record.
+   * The build record ID.
    * 
    * @example
    * 0A311FC5-B8C6-4332-80E4-539EB73****

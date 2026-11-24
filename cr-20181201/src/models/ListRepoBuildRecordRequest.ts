@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoBuildRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRepoBuildRecordRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListRepoBuildRecordRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class ListRepoBuildRecordRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the repository.
+   * The repository ID.
    * 
    * This parameter is required.
    * 

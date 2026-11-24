@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChainRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the delivery chain in the JSON format.
+   * The JSON-formatted entity object that describes the delivery chain.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateChainRequest extends $dara.Model {
   chainConfig?: string;
   /**
    * @remarks
-   * The ID of the delivery chain.
+   * The delivery chain ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateChainRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateChainRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Repositories in which the delivery chain does not take effect.
+   * The set of repositories excluded from delivery chain execution.
    */
   scopeExclude?: string[];
   static names(): { [key: string]: string } {

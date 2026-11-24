@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelArtifactBuildTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the artifact building task.
+   * The artifact build task ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CancelArtifactBuildTaskRequest extends $dara.Model {
   buildTaskId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

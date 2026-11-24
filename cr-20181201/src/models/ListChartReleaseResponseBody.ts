@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChartReleaseResponseBodyChartReleases extends $dara.Model {
   /**
    * @remarks
-   * The name of the chart version.
+   * The chart version name.
    * 
    * @example
    * chart1
@@ -13,7 +13,7 @@ export class ListChartReleaseResponseBodyChartReleases extends $dara.Model {
   chart?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-xkx6vujuhay0****
@@ -21,7 +21,7 @@ export class ListChartReleaseResponseBodyChartReleases extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the chart was last modified.
+   * The time when the chart was last modified. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1571930323000
@@ -29,7 +29,7 @@ export class ListChartReleaseResponseBodyChartReleases extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The version number of the chart.
+   * The chart version number.
    * 
    * @example
    * 0.1.0
@@ -37,7 +37,7 @@ export class ListChartReleaseResponseBodyChartReleases extends $dara.Model {
   release?: string;
   /**
    * @remarks
-   * The ID of the chart repository.
+   * The chart repository ID.
    * 
    * @example
    * crcr-gpsu7b8chmxk****
@@ -45,7 +45,7 @@ export class ListChartReleaseResponseBodyChartReleases extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The size of the chart of the version. Unit: bytes.
+   * The size of the chart version, in bytes.
    * 
    * @example
    * 2826
@@ -53,7 +53,7 @@ export class ListChartReleaseResponseBodyChartReleases extends $dara.Model {
   size?: string;
   /**
    * @remarks
-   * The status of the chart.
+   * The status.
    * 
    * @example
    * ENABLED
@@ -100,7 +100,7 @@ export class ListChartReleaseResponseBody extends $dara.Model {
   chartReleases?: ListChartReleaseResponseBodyChartReleases[];
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -116,7 +116,7 @@ export class ListChartReleaseResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -124,7 +124,7 @@ export class ListChartReleaseResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -132,7 +132,7 @@ export class ListChartReleaseResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F68823F6-F1B5-4A4E-8421-A83CAB8F2963
@@ -140,7 +140,7 @@ export class ListChartReleaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 1

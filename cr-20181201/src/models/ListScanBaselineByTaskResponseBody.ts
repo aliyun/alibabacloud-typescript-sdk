@@ -5,31 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model {
   /**
    * @remarks
-   * The category to which the baseline risk belongs.
+   * The baseline check category.
    * 
    * @example
-   * 服务配置
+   * Service Configuration
    */
   baselineClassAlias?: string;
   /**
    * @remarks
-   * Suggestions about how to fix the baseline risk.
+   * The baseline check remediation suggestion.
    * 
    * @example
-   * 建议对ak混淆加密，避免被利用
+   * Obfuscate and encrypt the AccessKey to prevent exploitation
    */
   baselineDetailAdvice?: string;
   /**
    * @remarks
-   * The description of the baseline risk.
+   * The baseline description.
    * 
    * @example
-   * Access Key明文存储
+   * Access Key stored in plaintext
    */
   baselineDetailDescription?: string;
   /**
    * @remarks
-   * The path and content of the baseline risk.
+   * The baseline check path and content.
    * 
    * @example
    * usr/local/www/project/environments/dev/common/config/paramsxxx
@@ -37,7 +37,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   baselineDetailPrompt?: string;
   /**
    * @remarks
-   * The number of baseline risks.
+   * The number of baseline check items.
    * 
    * @example
    * 1
@@ -45,15 +45,15 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   baselineItemCount?: number;
   /**
    * @remarks
-   * The name of the baseline risk.
+   * The baseline check name.
    * 
    * @example
-   * 服务配置
+   * Service Configuration
    */
   baselineNameAlias?: string;
   /**
    * @remarks
-   * The key of the baseline name.
+   * The baseline name key.
    * 
    * @example
    * ak_leak
@@ -61,7 +61,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   baselineNameKey?: string;
   /**
    * @remarks
-   * The severity of the baseline risk.
+   * The baseline check risk level.
    * 
    * @example
    * high
@@ -69,7 +69,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   baselineNameLevel?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1695090008000
@@ -85,7 +85,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   firstScanTime?: number;
   /**
    * @remarks
-   * High risk quantity.
+   * The number of high-risk items.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   highRiskItemCount?: number;
   /**
    * @remarks
-   * Low risk quantity.
+   * The number of low-risk items.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   lowRiskItemCount?: number;
   /**
    * @remarks
-   * Medium risk quantity.
+   * The number of medium-risk items.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   middleRiskItemCount?: number;
   /**
    * @remarks
-   * The ID of the image scan task.
+   * The image scan task ID.
    * 
    * @example
    * 2328fcaa-f28a-405d-a357-asdvfrew23
@@ -117,7 +117,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
   scanTaskId?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1684220824226
@@ -175,7 +175,7 @@ export class ListScanBaselineByTaskResponseBodyScanBaselines extends $dara.Model
 export class ListScanBaselineByTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -183,10 +183,10 @@ export class ListScanBaselineByTaskResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Indicates whether the API request was successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   `true`: successful
-   * *   `false`: failed
+   * - `true`: The API call is successful.
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -218,12 +218,12 @@ export class ListScanBaselineByTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scanned baseline risks.
+   * The baseline list.
    */
   scanBaselines?: ListScanBaselineByTaskResponseBodyScanBaselines[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

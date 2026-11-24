@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChartRepositoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetChartRepositoryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetChartRepositoryRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * This parameter is required.
    * 

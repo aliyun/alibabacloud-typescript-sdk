@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The type of the artifact.
+   * The artifact type.
    * 
    * @example
    * IMAGE
@@ -13,7 +13,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   artifactType?: string;
   /**
    * @remarks
-   * The end time of the artifact subscription task.
+   * The end time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1692756630000
@@ -37,7 +37,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test-ns
@@ -45,7 +45,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test-repo
@@ -53,7 +53,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the source namespace.
+   * The source namespace.
    * 
    * @example
    * library
@@ -69,7 +69,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   sourceProvider?: string;
   /**
    * @remarks
-   * The name of the source repository.
+   * The source repository.
    * 
    * @example
    * nginx
@@ -77,7 +77,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   sourceRepoName?: string;
   /**
    * @remarks
-   * The type of the source artifact.
+   * The source artifact type.
    * 
    * @example
    * PUBLIC
@@ -85,7 +85,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   sourceRepoType?: string;
   /**
    * @remarks
-   * The start time of the artifact subscription task.
+   * The start time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1695348301000
@@ -93,7 +93,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of subscribed tags.
+   * The number of subscribed tags.
    * 
    * @example
    * 3
@@ -125,7 +125,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   taskResult?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * RUNNING
@@ -133,7 +133,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * AUTO
@@ -195,7 +195,7 @@ export class ListArtifactSubscriptionTaskResponseBodyTasks extends $dara.Model {
 export class ListArtifactSubscriptionTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -203,10 +203,11 @@ export class ListArtifactSubscriptionTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the API request is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call is successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -238,12 +239,12 @@ export class ListArtifactSubscriptionTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried artifact subscription tasks.
+   * The task list.
    */
   tasks?: ListArtifactSubscriptionTaskResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

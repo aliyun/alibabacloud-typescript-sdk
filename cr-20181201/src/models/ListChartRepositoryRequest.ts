@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChartRepositoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListChartRepositoryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListChartRepositoryRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class ListChartRepositoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * ns1
@@ -39,7 +39,7 @@ export class ListChartRepositoryRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The namespace.
    * 
    * @example
    * repo1
@@ -47,11 +47,11 @@ export class ListChartRepositoryRequest extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The status of the chart repositories that you want to query. Valid values:
+   * The status of the chart repository. Valid values:
    * 
-   * *   `ALL`: query repositories of all status.
-   * *   `NORMAL`: query normal repositories.
-   * *   `DELETING`: query repositories that are being deleted.
+   * - `NORMAL`: The chart repository is in the Normal state.
+   *  
+   * - `DELETING`: The chart repository is being deleted.
    * 
    * @example
    * NORMAL

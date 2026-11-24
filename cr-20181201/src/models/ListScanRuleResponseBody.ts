@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScanRuleResponseBodyScanRules extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1702361810000
@@ -23,7 +23,7 @@ export class ListScanRuleResponseBodyScanRules extends $dara.Model {
   repoNames?: string[];
   /**
    * @remarks
-   * The tag that triggers the scan matches the regular expression.
+   * The regular expression used to match tags that trigger a scan.
    * 
    * @example
    * .*
@@ -39,7 +39,7 @@ export class ListScanRuleResponseBodyScanRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The scan rule id.
+   * The scan rule ID.
    * 
    * @example
    * crscnr-2sdveqjhpzd****
@@ -57,8 +57,8 @@ export class ListScanRuleResponseBodyScanRules extends $dara.Model {
    * @remarks
    * The scan type. Valid values:
    * 
-   * *   `VUL`: Products Cloud Security Scanner
-   * *   `SBOM`: Product Content Analysis
+   * - `VUL`: artifact vulnerability scanning.
+   * - `SBOM`: artifact content analysis.
    * 
    * @example
    * SBOM
@@ -74,7 +74,7 @@ export class ListScanRuleResponseBodyScanRules extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1764122725000
@@ -128,7 +128,7 @@ export class ListScanRuleResponseBodyScanRules extends $dara.Model {
 export class ListScanRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code
+   * The return code.
    * 
    * @example
    * success
@@ -136,7 +136,7 @@ export class ListScanRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True
@@ -152,7 +152,7 @@ export class ListScanRuleResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -173,7 +173,7 @@ export class ListScanRuleResponseBody extends $dara.Model {
   scanRules?: ListScanRuleResponseBodyScanRules[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

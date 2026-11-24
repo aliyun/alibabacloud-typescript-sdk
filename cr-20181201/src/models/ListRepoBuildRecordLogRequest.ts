@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoBuildRecordLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image building record.
+   * The build record ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRepoBuildRecordLogRequest extends $dara.Model {
   buildRecordId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListRepoBuildRecordLogRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The offset of log lines.
+   * The log line offset.
    * 
    * @example
    * 0
@@ -33,7 +33,7 @@ export class ListRepoBuildRecordLogRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * @example
    * crr-z4dvahhku9wv4****

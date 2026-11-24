@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRepoTriggerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateRepoTriggerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateRepoTriggerRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The ID of the trigger.
+   * The trigger ID.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,7 @@ export class UpdateRepoTriggerRequest extends $dara.Model {
   triggerId?: string;
   /**
    * @remarks
-   * The name of the trigger.
-   * 
-   * You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+   * The trigger name. This parameter is optional. You must specify either TriggerName or TriggerUrl.
    * 
    * @example
    * test_trigger
@@ -45,7 +43,7 @@ export class UpdateRepoTriggerRequest extends $dara.Model {
   triggerName?: string;
   /**
    * @remarks
-   * The image tag based on which the trigger is set.
+   * The image version that triggers the trigger.
    * 
    * @example
    * master
@@ -53,11 +51,13 @@ export class UpdateRepoTriggerRequest extends $dara.Model {
   triggerTag?: string;
   /**
    * @remarks
-   * The type of the trigger. Valid values:
+   * The trigger type. Valid values:
    * 
-   * *   `ALL`: a trigger that supports both tags and regular expressions.
-   * *   `TAG_LISTTAG`: a tag-based trigger.
-   * *   `TAG_REG_EXP`: a regular expression-based trigger.
+   * - `ALL`: all.
+   * 
+   * - `TAG_LISTTAG`: tag list.
+   * 
+   * - `TAG_REG_EXP`: regular expression.
    * 
    * @example
    * ALL
@@ -65,7 +65,7 @@ export class UpdateRepoTriggerRequest extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The URL of the trigger.
+   * The trigger URL.
    * 
    * @example
    * https://www.test.com

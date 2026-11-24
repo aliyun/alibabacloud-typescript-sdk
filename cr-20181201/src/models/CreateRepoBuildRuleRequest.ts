@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoBuildRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Building arguments.
+   * The build arguments.
    */
   buildArgs?: string[];
   /**
    * @remarks
-   * The path of the Dockerfile.
+   * The Dockerfile path.
    * 
    * @example
    * /
@@ -18,7 +18,7 @@ export class CreateRepoBuildRuleRequest extends $dara.Model {
   dockerfileLocation?: string;
   /**
    * @remarks
-   * The name of the Dockerfile.
+   * The Dockerfile name.
    * 
    * @example
    * Dockerfile
@@ -26,7 +26,7 @@ export class CreateRepoBuildRuleRequest extends $dara.Model {
   dockerfileName?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * The image version.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class CreateRepoBuildRuleRequest extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -46,20 +46,24 @@ export class CreateRepoBuildRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Architecture for image building. Valid values:
+   * The image architecture. Valid values:
    * 
-   * *   `linux/amd64`
-   * *   `linux/arm64`
-   * *   `linux/386`
-   * *   `linux/arm/v7`
-   * *   `inux/arm/v6`
+   * - `linux/amd64`
    * 
-   * Default value: `linux/amd64`
+   * - `linux/arm64`
+   * 
+   * - `linux/386`
+   * 
+   * - `linux/arm/v7`
+   * 
+   * - `linux/arm/v6`
+   * 
+   * Default value: `linux/amd64`.
    */
   platforms?: string[];
   /**
    * @remarks
-   * The name of the push that triggers the building rule.
+   * The trigger name.
    * 
    * This parameter is required.
    * 
@@ -69,10 +73,11 @@ export class CreateRepoBuildRuleRequest extends $dara.Model {
   pushName?: string;
   /**
    * @remarks
-   * The type of the push that triggers the building rule. Valid values:
+   * The push type. Valid values:
    * 
-   * *   `GIT_TAG`: tag push
-   * *   `GIT_BRANCH`: branch push
+   * - `GIT_TAG`: Triggered by tag.
+   * 
+   * - `GIT_BRANCH`: Triggered by branch.
    * 
    * This parameter is required.
    * 
@@ -82,7 +87,7 @@ export class CreateRepoBuildRuleRequest extends $dara.Model {
   pushType?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * This parameter is required.
    * 

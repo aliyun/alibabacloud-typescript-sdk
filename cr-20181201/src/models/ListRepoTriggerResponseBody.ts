@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoTriggerResponseBodyTriggers extends $dara.Model {
   /**
    * @remarks
-   * The type of the event that activates the trigger. Valid values:
-   * 
-   * *   `BUILD_SUCCESS`: The trigger is activated when an image building task is successful.
-   * *   `BUILD_Fail`: The trigger is activated when an image building task fails.
+   * The event type of the trigger. Valid values:
+   * - `BUILD_SUCCESS`: The trigger was successful.
+   * - `BUILD_Fail`: The trigger failed.
    * 
    * @example
    * BUILD_SUCCESS
@@ -32,7 +31,7 @@ export class ListRepoTriggerResponseBodyTriggers extends $dara.Model {
   triggerName?: string;
   /**
    * @remarks
-   * The image tag based on which the trigger is set.
+   * The image version that triggers the trigger.
    * 
    * @example
    * *
@@ -40,11 +39,10 @@ export class ListRepoTriggerResponseBodyTriggers extends $dara.Model {
   triggerTag?: string;
   /**
    * @remarks
-   * The type of the trigger. Valid values:
-   * 
-   * *   `ALL`: a trigger that supports both tags and regular expressions.
-   * *   `TAG_LISTTAG`: a tag-based trigger.
-   * *   `TAG_REG_EXP`: a regular expression-based trigger.
+   * The trigger type. Valid values:
+   * - `ALL`: All.
+   * - `TAG_LISTTAG`: Tag list.
+   * - `TAG_REG_EXP`: Regular expression.
    * 
    * @example
    * ALL
@@ -92,7 +90,7 @@ export class ListRepoTriggerResponseBodyTriggers extends $dara.Model {
 export class ListRepoTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -100,10 +98,9 @@ export class ListRepoTriggerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * Indicates whether the API call was successful. Valid values:
+   * - `true`: The API call was successful.
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -111,7 +108,7 @@ export class ListRepoTriggerResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2CA76D52-A8F0-4D0B-854E-FBD9F6C99049
@@ -119,7 +116,7 @@ export class ListRepoTriggerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The triggers of the repository.
+   * The list of triggers.
    */
   triggers?: ListRepoTriggerResponseBodyTriggers[];
   static names(): { [key: string]: string } {

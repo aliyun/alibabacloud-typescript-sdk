@@ -3,19 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
+  /**
+   * @remarks
+   * The list of build arguments.
+   */
   buildArgs?: string[];
   /**
    * @remarks
-   * The ID of the build rule.
+   * The build rule ID.
    * 
    * @example
    * crbr-khys0nd3asbe****
    */
   buildRuleId?: string;
+  /**
+   * @remarks
+   * The destination artifact type.
+   */
   destArtifactType?: string;
   /**
    * @remarks
-   * The directory of the Dockerfile.
+   * The directory where the Dockerfile is located.
    * 
    * @example
    * /
@@ -23,7 +31,7 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   dockerfileLocation?: string;
   /**
    * @remarks
-   * Dockerfile name
+   * The name of the Dockerfile.
    * 
    * @example
    * Dockerfile
@@ -31,7 +39,7 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   dockerfileName?: string;
   /**
    * @remarks
-   * Image Tag
+   * The image tag.
    * 
    * @example
    * v0.1
@@ -39,12 +47,12 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   imageTag?: string;
   /**
    * @remarks
-   * Image operating system and platform
+   * The operating system and platform of the image.
    */
   platforms?: string[];
   /**
    * @remarks
-   * Code push-triggered build name
+   * The name of the code push that triggers the build.
    * 
    * @example
    * v0.1
@@ -52,11 +60,11 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
   pushName?: string;
   /**
    * @remarks
-   * The type of the event that triggers the build rule. Valid values:
+   * The type of source code push that triggers the build. Valid values:
    * 
-   * - `GIT_BRANCH`: A code branch is pushed.
+   * - GIT_BRANCH: Source code is pushed from a branch.
    * 
-   * - GIT_TAG: Push source code from a tag.
+   * - GIT_TAG: Source code is pushed from a tag.
    * 
    * @example
    * GIT_BRANCH
@@ -108,12 +116,12 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $dara.Model {
 export class ListRepoBuildRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The build rules.
+   * The list of build rules.
    */
   buildRules?: ListRepoBuildRuleResponseBodyBuildRules[];
   /**
    * @remarks
-   * The response code. A value of `success` indicates that the request was successful.
+   * The return value.
    * 
    * @example
    * success
@@ -121,11 +129,11 @@ export class ListRepoBuildRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * - `true`: The request was successful.
+   * - `true`: The API call was successful.
    * 
-   * - `false`: The request failed.
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -141,7 +149,7 @@ export class ListRepoBuildRuleResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -157,7 +165,7 @@ export class ListRepoBuildRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of build rules.
+   * The total number of entries.
    * 
    * @example
    * 1

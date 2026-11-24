@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether an acceleration link is enabled for image subscription. The subscription acceleration feature is in public preview. The feature is optimized based on scheduling policies and network links to accelerate image subscription.
+   * Specifies whether to enable the acceleration link. The subscription acceleration feature is in public preview. Based on scheduling policies and network link optimization, it can improve the image subscription speed.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the Container Registry namespace.
+   * The ACR namespace.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * Indicates whether the original image is overwritten.
+   * Specifies whether to overwrite images.
    * 
    * @example
    * true
@@ -41,14 +41,14 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   override?: boolean;
   /**
    * @remarks
-   * The operating system and architecture. If the source repository contains a multi-arch image, only the specified operating system and architecture are subscribed to the destination repository of the Enterprise Edition instance. Subscribe to the destination repository of an Enterprise Edition instance
+   * The operating system or architecture. If the source repository contains multi-architecture images, only images with the specified operating system or architecture are subscribed to the destination repository of the Enterprise instance.
    * 
    * This parameter is required.
    */
   platform?: string[];
   /**
    * @remarks
-   * The name of the Container Registry repository.
+   * The ACR repository.
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The source namespace.
+   * The source namespace. If `SourceProvider` is set to `DOCKER_HUB`, the default value is `library`. This parameter is required in other scenarios.
    * 
    * @example
    * library
@@ -66,13 +66,7 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   sourceNamespaceName?: string;
   /**
    * @remarks
-   * The source of the artifact.
-   * 
-   * Valid values:
-   * 
-   * *   DOCKER_HUB: Docker Hub
-   * *   GCR: GCR
-   * *   QUAY: Quay.io
+   * The artifact source.
    * 
    * This parameter is required.
    * 
@@ -92,9 +86,7 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   sourceRepoName?: string;
   /**
    * @remarks
-   * The number of subscribed images.
-   * 
-   * This parameter is required.
+   * The number of images to subscribe to.
    * 
    * @example
    * 1
@@ -102,9 +94,17 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   tagCount?: number;
   /**
    * @remarks
-   * The image tag in the subscription source repository. Regular expressions are supported.
+   * - The image tags to subscribe to when matching by tag list. A maximum of 10 tags are supported.
+   * - If TagList is specified, these tags are queried one by one. TagRegexp and TagCount cannot be specified at the same time. If TagList is not specified, TagRegexp and TagCount are used for matching, and both must be specified.
+   * - The matching method cannot be changed after the rule is created. To change the matching method, delete the rule and create a new one.
    * 
-   * This parameter is required.
+   * @example
+   * latest
+   */
+  tagList?: string[];
+  /**
+   * @remarks
+   * The image versions to subscribe to from the source repository. Regular expressions are supported.
    * 
    * @example
    * release-v.*
@@ -122,6 +122,7 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
       sourceProvider: 'SourceProvider',
       sourceRepoName: 'SourceRepoName',
       tagCount: 'TagCount',
+      tagList: 'TagList',
       tagRegexp: 'TagRegexp',
     };
   }
@@ -138,6 +139,7 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
       sourceProvider: 'string',
       sourceRepoName: 'string',
       tagCount: 'number',
+      tagList: { 'type': 'array', 'itemType': 'string' },
       tagRegexp: 'string',
     };
   }
@@ -145,6 +147,9 @@ export class CreateArtifactSubscriptionRuleRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.platform)) {
       $dara.Model.validateArray(this.platform);
+    }
+    if(Array.isArray(this.tagList)) {
+      $dara.Model.validateArray(this.tagList);
     }
     super.validate();
   }

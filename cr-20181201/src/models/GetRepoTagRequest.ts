@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRepoTagRequest extends $dara.Model {
   /**
    * @remarks
-   * The return value of status code.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetRepoTagRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **GetRepoTag**.
+   * The repository ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetRepoTagRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The number of milliseconds that have elapsed since the image was created.
+   * The repository tag.
    * 
    * This parameter is required.
    * 

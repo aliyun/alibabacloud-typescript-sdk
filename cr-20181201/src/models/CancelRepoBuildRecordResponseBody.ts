@@ -21,7 +21,7 @@ export class CancelRepoBuildRecordResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4CE1F661-75DD-4EBD-A4AD-057B26834ABB

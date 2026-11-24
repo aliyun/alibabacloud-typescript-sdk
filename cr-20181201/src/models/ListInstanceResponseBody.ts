@@ -45,7 +45,7 @@ export class ListInstanceResponseBodyInstancesTags extends $dara.Model {
 export class ListInstanceResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1562849679000
@@ -64,14 +64,14 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
    * The instance issue.
    * 
    * @example
-   * 实例问题，取值：
-   * OSS_TOO_MANY_BUCKETS：OSS Bucket 数量超限
+   * Instance issue. Valid values:
+   * OSS_TOO_MANY_BUCKETS: The number of OSS buckets exceeds the limit.
    * 
-   * OSS_BUCKET_ALREADY_EXISTS：同名 OSS Bucket 已存在
+   * OSS_BUCKET_ALREADY_EXISTS: An OSS bucket with the same name already exists.
    * 
-   * OSS_SERVICE_ROLE_UNAUTHORIZED：OSS 权限未授权
+   * OSS_SERVICE_ROLE_UNAUTHORIZED: OSS permissions are not authorized.
    * 
-   * USER_NOT_REGISTERED_BY_REAL_NAME：国际站账号在购买中国站 OSS Bucket 时未进行实名认证
+   * USER_NOT_REGISTERED_BY_REAL_NAME: The China site account has not completed real-name verification when purchasing an OSS bucket on the China site
    */
   instanceIssue?: string;
   /**
@@ -100,7 +100,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modification time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1562849760000
@@ -124,7 +124,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the instance.
+   * The collection of instance tags.
    */
   tags?: ListInstanceResponseBodyInstancesTags[];
   static names(): { [key: string]: string } {
@@ -172,7 +172,7 @@ export class ListInstanceResponseBodyInstances extends $dara.Model {
 export class ListInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success

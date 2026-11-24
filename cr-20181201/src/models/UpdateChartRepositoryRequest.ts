@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChartRepositoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateChartRepositoryRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The name of the repository namespace.
    * 
    * This parameter is required.
    * 
@@ -35,10 +35,10 @@ export class UpdateChartRepositoryRequest extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The type of the repository. Valid values:
+   * The repository type. Valid values:
+   * - `PUBLIC`: public repository
    * 
-   * *   `PUBLIC`: a public repository.
-   * *   `PRIVATE`: a private repository.
+   * - `PRIVATE`: private repository
    * 
    * @example
    * PUBLIC
@@ -46,7 +46,7 @@ export class UpdateChartRepositoryRequest extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
-   * The summary of the repository.
+   * The summary.
    * 
    * @example
    * test

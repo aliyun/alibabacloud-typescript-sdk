@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoBuildRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the building rule.
+   * The build rule ID.
    * 
    * @example
    * crbr-ly77w5i3t31f****
@@ -13,7 +13,7 @@ export class CreateRepoBuildRuleResponseBody extends $dara.Model {
   buildRuleId?: string;
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -21,10 +21,11 @@ export class CreateRepoBuildRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call is successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -32,7 +33,7 @@ export class CreateRepoBuildRuleResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4CE1F661-75DD-4EBD-A4AD-057B26834ABB

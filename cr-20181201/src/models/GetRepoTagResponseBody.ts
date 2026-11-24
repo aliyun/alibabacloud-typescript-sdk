@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRepoTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image.
+   * The return code.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The size of the image. Unit: Bytes.
+   * The digest value.
    * 
    * @example
    * 67bfbcc12b67936ec7f867927817cbb071832b873dbcaed312a1930ba5f1****
@@ -21,7 +21,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * crr-tquyps22md8p****
+   * The time when the image was created.
    * 
    * @example
    * 1572839125000
@@ -29,7 +29,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   imageCreate?: number;
   /**
    * @remarks
-   * Image ID
+   * The image ID.
    * 
    * @example
    * 45023655bf39c382e26a8607d057c27871dee163c1ecf48cc1ebf2a1****
@@ -37,7 +37,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The number of milliseconds that have elapsed since the image was last updated.
+   * The size of the image.
    * 
    * @example
    * 27107966
@@ -45,7 +45,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   imageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The time when the image was last updated. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572875608000
@@ -53,10 +53,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   imageUpdate?: number;
   /**
    * @remarks
-   * The status of the image. Valid values:
-   * 
-   * *   `NORMAL`: The image is normal.
-   * *   `DELETING`: The image is being deleted.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -64,7 +61,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * 1.0
+   * The request ID.
    * 
    * @example
    * 031572FA-7D8F-4C05-B790-1071E0E05DE6
@@ -72,7 +69,11 @@ export class GetRepoTagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The status of the image. Valid values:
+   * 
+   * - `NORMAL`: Normal.
+   * 
+   * - `DELETING`: The image is being deleted.
    * 
    * @example
    * NORMAL
@@ -80,7 +81,7 @@ export class GetRepoTagResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version of the repository.
+   * The repository tag.
    * 
    * @example
    * 1.0

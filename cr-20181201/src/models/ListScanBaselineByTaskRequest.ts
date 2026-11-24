@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScanBaselineByTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The digest value of the image.
+   * The image digest value.
    * 
    * @example
    * sha256:1c89806cfaf66d2990e2cf1131ebd56ff24b133745a33abf1228*************
@@ -13,7 +13,7 @@ export class ListScanBaselineByTaskRequest extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The instance ID.
    * 
    * @example
    * cri-***********
@@ -21,7 +21,7 @@ export class ListScanBaselineByTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The level of the baseline risk.
+   * The level.
    * 
    * @example
    * High
@@ -37,7 +37,7 @@ export class ListScanBaselineByTaskRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -45,7 +45,7 @@ export class ListScanBaselineByTaskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The repository ID.
    * 
    * @example
    * crr-**************
@@ -53,7 +53,7 @@ export class ListScanBaselineByTaskRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The ID of the image scan task.
+   * The image scan task ID.
    * 
    * @example
    * 3e526d7e-4b45-4703-b046-***********

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelRepoBuildRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image building record.
+   * The build record ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CancelRepoBuildRecordRequest extends $dara.Model {
   buildRecordId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CancelRepoBuildRecordRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * This parameter is required.
    * 

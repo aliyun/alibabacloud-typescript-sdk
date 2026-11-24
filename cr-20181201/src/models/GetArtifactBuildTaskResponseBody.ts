@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactBuildTaskResponseBodyArtifactCompression extends $dara.Model {
   /**
    * @remarks
-   * The operating system and architecture.
+   * The operating system/architecture.
    * 
    * @example
    * linux/arm64
@@ -13,7 +13,7 @@ export class GetArtifactBuildTaskResponseBodyArtifactCompression extends $dara.M
   platform?: string;
   /**
    * @remarks
-   * The number of layers to retain after compression.
+   * The number of layers retained after compression.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class GetArtifactBuildTaskResponseBodyArtifactCompression extends $dara.M
 export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model {
   /**
    * @remarks
-   * The artifact type. Only IMAGE is supported.
+   * The artifact type. Currently, only IMAGE is supported.
    * 
    * @example
    * IMAGE
@@ -71,7 +71,7 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   layerCount?: number;
   /**
    * @remarks
-   * The repository ID. Only image repositories are supported.
+   * The repository ID. Currently, only image repositories are supported.
    * 
    * @example
    * cri-shac42yvqzvq****
@@ -87,7 +87,7 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
   size?: number;
   /**
    * @remarks
-   * The artifact version. Only image versions are supported.
+   * The artifact version. Currently, only image versions are supported.
    * 
    * @example
    * latest
@@ -125,7 +125,7 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $dara.Model 
 export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model {
   /**
    * @remarks
-   * The artifact type. Only IMAGE is supported.
+   * The artifact type. Currently, only IMAGE is supported.
    * 
    * @example
    * IMAGE
@@ -141,7 +141,7 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   layerCount?: number;
   /**
    * @remarks
-   * The repository ID. Only image repositories are supported. The repository ID of the target artifact must be the same as that of the source artifact.
+   * The repository ID. Currently, only image repositories are supported. The repository ID of the target artifact must be the same as that of the source artifact.
    * 
    * @example
    * crr-1234567
@@ -157,7 +157,7 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $dara.Model 
   size?: number;
   /**
    * @remarks
-   * The artifact version. Only images are supported.
+   * The artifact version. Currently, only images are supported.
    * 
    * @example
    * latest_accelerated
@@ -197,9 +197,9 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
    * @remarks
    * The artifact build type. Valid values:
    * 
-   * - `IMAGE_TO_ACCELERATED_IMAGE`: Accelerated image creation optimized for ACK scenarios.
+   * - `IMAGE_TO_ACCELERATED_IMAGE`: accelerated image optimized for ACK scenarios.
    * 
-   * - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: Accelerated image artifact optimized for ECI scenarios.
+   * - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: accelerated image artifact optimized for Elastic Container Instance (ECI) scenarios.
    * 
    * @example
    * IMAGE_TO_ACCELERATED_IMAGE
@@ -241,13 +241,16 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   instructions?: string[];
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * The task priority.
+   * 
    * @example
    * 3
    */
@@ -281,9 +284,9 @@ export class GetArtifactBuildTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The artifact build status. Valid values:
-   * - `PENDING`: Scheduling in progress.
+   * - `PENDING`: Scheduling.
    * 
-   * - `BUILDING`: Building in progress.
+   * - `BUILDING`: Building.
    * 
    * - `SUCCESS`: Build succeeded.
    * 

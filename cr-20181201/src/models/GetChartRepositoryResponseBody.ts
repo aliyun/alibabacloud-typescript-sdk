@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChartRepositoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the chart repository was created.
+   * The time when the chart repository was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1563767620000
@@ -21,7 +21,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-kmsiwlxxdcva****
@@ -29,10 +29,11 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call is successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -40,7 +41,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The time when the chart repository was last modified.
+   * The time when the chart repository was last modified. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1563767700000
@@ -48,7 +49,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The ID of the chart repository.
+   * The chart repository ID.
    * 
    * @example
    * crcr-c7letfwev5oq****
@@ -56,7 +57,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The name of the chart repository.
+   * The chart repository name.
    * 
    * @example
    * test
@@ -64,7 +65,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the chart repository belongs.
+   * The namespace to which the chart repository belongs.
    * 
    * @example
    * test
@@ -74,8 +75,9 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
    * @remarks
    * The status of the chart repository. Valid values:
    * 
-   * *   `NORMAL`: The repository is normal.
-   * *   `DELETING`: The repository is being deleted.
+   * - `NORMAL`: Normal.
+   *   
+   * - `DELETING`: Being deleted.
    * 
    * @example
    * NORMAL
@@ -85,8 +87,9 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
    * @remarks
    * The type of the chart repository. Valid values:
    * 
-   * *   `PUBLIC`: a public repository
-   * *   `PRIVATE`: a private repository
+   * - `PUBLIC`: public repository.
+   * 
+   * - `PRIVATE`: private repository.
    * 
    * @example
    * PUBLIC
@@ -102,7 +105,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmv36i4is****
@@ -110,7 +113,7 @@ export class GetChartRepositoryResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The summary about the chart repository.
+   * The chart repository summary.
    * 
    * @example
    * test

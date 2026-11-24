@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnosisIssue extends $dara.Model {
   /**
    * @remarks
-   * A unique code that identifies the issue type.
+   * The event code.
    * 
    * @example
    * RepoNumOverLimit
@@ -13,12 +13,12 @@ export class DiagnosisIssue extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * An object that contains additional, unstructured key-value information about the issue.
+   * The additional information.
    */
   extra?: { [key: string]: string };
   /**
    * @remarks
-   * The time, in ISO 8601 format, when the issue was first detected.
+   * The first occurrence time of the event.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -28,7 +28,7 @@ export class DiagnosisIssue extends $dara.Model {
   firstOccurrence?: string;
   /**
    * @remarks
-   * The time, in ISO 8601 format, when the issue was last detected.
+   * The last occurrence time of the event.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -38,7 +38,7 @@ export class DiagnosisIssue extends $dara.Model {
   lastOccurrence?: string;
   /**
    * @remarks
-   * Specifies the severity of the issue. Valid values are `INFO`, `WARN`, and `ERROR`.
+   * The event level.
    * 
    * @example
    * INFO
@@ -46,7 +46,7 @@ export class DiagnosisIssue extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The total number of times the issue has occurred.
+   * The number of occurrences of the event.
    * 
    * @example
    * 10
@@ -54,7 +54,7 @@ export class DiagnosisIssue extends $dara.Model {
   occurrenceCount?: number;
   /**
    * @remarks
-   * The recommended action to resolve the issue.
+   * The Solutions.
    * 
    * @example
    * Buy repository quota

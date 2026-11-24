@@ -7,7 +7,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * A tag key can be up to 128 characters in length. It cannot start with acs: or aliyun, and cannot contain http:// or https://.
+   * A tag key can be up to 128 characters in length, and cannot start with aliyun or acs:, or contain http:// or https://.
    * 
    * @example
    * test-key
@@ -17,7 +17,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * A tag value can be up to 128 characters in length. It cannot start with acs: or aliyun, and cannot contain http:// or https://.
+   * A tag value can be up to 128 characters in length, and cannot start with aliyun or acs:, or contain http:// or https://.
    * 
    * @example
    * test-val
@@ -49,7 +49,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the resources.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -59,14 +59,14 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify a maximum of 20 resource IDs.
+   * The resource IDs. You can specify up to 20 resources.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Instance resources are supported.
+   * The resource type. Currently supports Instance resources.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag list.
+   * The tags.
    * 
    * This parameter is required.
    */

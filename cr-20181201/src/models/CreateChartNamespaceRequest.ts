@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChartNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically create repositories in the namespace. Valid values:
+   * Specifies whether automatic creation of a repository is enabled. Valid values:
    * 
-   * \\-`  true `: automatically creates repositories in the namespace.
+   * - `true`: Automatic creation of a repository is enabled.
    * 
-   * \\-`  false `: does not automatically create repositories in the namespace.
+   * - `false`: Automatic creation of a repository is disabled.
    * 
    * @example
    * true
@@ -19,8 +19,9 @@ export class CreateChartNamespaceRequest extends $dara.Model {
    * @remarks
    * The default repository type. Valid values:
    * 
-   * *   `PUBLIC`: a public repository
-   * *   `PRIVATE`: a private repository
+   * - `PUBLIC`: Public repository.
+   * 
+   * - `PRIVATE`: Private repository.
    * 
    * @example
    * PUBLIC
@@ -28,7 +29,7 @@ export class CreateChartNamespaceRequest extends $dara.Model {
   defaultRepoType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -38,7 +39,7 @@ export class CreateChartNamespaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * This parameter is required.
    * 

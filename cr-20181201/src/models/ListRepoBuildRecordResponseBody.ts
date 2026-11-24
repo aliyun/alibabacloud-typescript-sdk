@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $dara.Model {
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * v0.1
@@ -13,7 +13,7 @@ export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $dara.Mode
   imageTag?: string;
   /**
    * @remarks
-   * The ID of the repository.
+   * The repository ID.
    * 
    * @example
    * crr-gzsrlevmvoaq****
@@ -21,7 +21,7 @@ export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $dara.Mode
   repoId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $dara.Mode
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The repository namespace name.
    * 
    * @example
    * test
@@ -65,7 +65,7 @@ export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $dara.Mode
 export class ListRepoBuildRecordResponseBodyBuildRecords extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image building record.
+   * The build record ID.
    * 
    * @example
    * 537e08ab-735e-415f-b7c2-160eb87f8****
@@ -73,7 +73,7 @@ export class ListRepoBuildRecordResponseBodyBuildRecords extends $dara.Model {
   buildRecordId?: string;
   /**
    * @remarks
-   * The status of the image building.
+   * The build status.
    * 
    * @example
    * SUCCESS
@@ -81,7 +81,7 @@ export class ListRepoBuildRecordResponseBodyBuildRecords extends $dara.Model {
   buildStatus?: string;
   /**
    * @remarks
-   * The time when the image building ended.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572875610000
@@ -89,12 +89,12 @@ export class ListRepoBuildRecordResponseBodyBuildRecords extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The information about the image.
+   * The image information.
    */
   image?: ListRepoBuildRecordResponseBodyBuildRecordsImage;
   /**
    * @remarks
-   * The time when the image building started.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572872207000
@@ -135,7 +135,7 @@ export class ListRepoBuildRecordResponseBodyBuildRecords extends $dara.Model {
 export class ListRepoBuildRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of image building records.
+   * The list of build records.
    */
   buildRecords?: ListRepoBuildRecordResponseBodyBuildRecords[];
   /**
@@ -148,10 +148,11 @@ export class ListRepoBuildRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call is successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -159,7 +160,7 @@ export class ListRepoBuildRecordResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -167,7 +168,7 @@ export class ListRepoBuildRecordResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -175,7 +176,7 @@ export class ListRepoBuildRecordResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9D23DEDF-E91D-434B-B7D5-9D12C648D166
@@ -183,7 +184,7 @@ export class ListRepoBuildRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 1

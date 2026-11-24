@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoBuildRecordLogResponseBodyBuildRecordLogs extends $dara.Model {
   /**
    * @remarks
-   * The stage of the building that is recorded in the log entry.
+   * The build stage of the log entry.
    * 
    * @example
    * GIT_CLONE
@@ -21,7 +21,7 @@ export class ListRepoBuildRecordLogResponseBodyBuildRecordLogs extends $dara.Mod
   lineNumber?: number;
   /**
    * @remarks
-   * The content of the log.
+   * The log content.
    * 
    * @example
    * fetch stage begin
@@ -55,7 +55,7 @@ export class ListRepoBuildRecordLogResponseBodyBuildRecordLogs extends $dara.Mod
 export class ListRepoBuildRecordLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log content of the image building record.
+   * The build log content.
    */
   buildRecordLogs?: ListRepoBuildRecordLogResponseBodyBuildRecordLogs[];
   /**
@@ -76,7 +76,7 @@ export class ListRepoBuildRecordLogResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class ListRepoBuildRecordLogResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of log entries displayed per page.
    * 
    * @example
    * 100
@@ -92,7 +92,7 @@ export class ListRepoBuildRecordLogResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4CE1F661-75DD-4EBD-A4AD-057B26834ABB
@@ -100,7 +100,7 @@ export class ListRepoBuildRecordLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 1000

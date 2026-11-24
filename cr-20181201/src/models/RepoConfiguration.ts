@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RepoConfigurationArtifactBuildRuleParameters extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to build only the image index.
+   * 
    * This parameter is required.
    */
   imageIndexOnly?: boolean;
@@ -30,14 +32,25 @@ export class RepoConfigurationArtifactBuildRuleParameters extends $dara.Model {
 }
 
 export class RepoConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The default parameters for the image build rule.
+   */
   artifactBuildRuleParameters?: RepoConfigurationArtifactBuildRuleParameters;
   /**
    * @remarks
+   * The type of the image repository for automatic creation. Valid values: PRIVATE (private repository) and PUBLIC (public repository).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * PRIVATE
    */
   repoType?: string;
   /**
    * @remarks
+   * Specifies whether image version immutability is enabled. After it is enabled, you cannot overwrite image versions other than latest.
+   * 
    * This parameter is required.
    */
   tagImmutability?: boolean;

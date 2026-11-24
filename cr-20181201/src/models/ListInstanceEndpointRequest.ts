@@ -21,7 +21,7 @@ export class ListInstanceEndpointRequest extends $dara.Model {
    * *   `Chart`: Helm charts.
    * 
    * @example
-   * Registry
+   * Chart
    */
   moduleName?: string;
   /**

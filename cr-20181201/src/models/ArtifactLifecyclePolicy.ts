@@ -5,8 +5,29 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ArtifactLifecyclePolicyCondition extends $dara.Model {
+  /**
+   * @remarks
+   * Retains artifact versions whose most recent pull time is within the specified number of days.
+   * 
+   * @example
+   * 0
+   */
   lastPullOlderThanDays?: number;
+  /**
+   * @remarks
+   * Retains artifact versions whose most recent push time is within the specified number of days.
+   * 
+   * @example
+   * 0
+   */
   lastPushOlderThanDays?: number;
+  /**
+   * @remarks
+   * The number of most recently pushed artifact versions to retain.
+   * 
+   * @example
+   * 0
+   */
   latestTagCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34,6 +55,10 @@ export class ArtifactLifecyclePolicyCondition extends $dara.Model {
 }
 
 export class ArtifactLifecyclePolicyFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The matching expression for the names of additionally retained artifact versions.
+   */
   tagWildcard?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,8 +82,20 @@ export class ArtifactLifecyclePolicyFilter extends $dara.Model {
 }
 
 export class ArtifactLifecyclePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The retention conditions for artifact versions.
+   */
   condition?: ArtifactLifecyclePolicyCondition;
+  /**
+   * @remarks
+   * The filter conditions for artifact versions.
+   */
   filter?: ArtifactLifecyclePolicyFilter;
+  /**
+   * @remarks
+   * The type of the artifact version data retention policy.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRepositoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetRepositoryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the repository.
+   * The repository ID. This API supports querying by RepoId, or by RepoNamespaceName and RepoName together.
    * 
    * @example
    * crr-03cuozrsqhkw****
@@ -23,7 +23,7 @@ export class GetRepositoryRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name. This API supports querying by RepoId, or by RepoNamespaceName and RepoName together.
    * 
    * @example
    * test
@@ -31,7 +31,7 @@ export class GetRepositoryRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The repository namespace name. This API supports querying by RepoId, or by RepoNamespaceName and RepoName together.
    * 
    * @example
    * test

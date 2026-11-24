@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateArtifactBuildRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the accelerated image building rule.
+   * The ID of the build rule.
    * 
    * @example
    * crabr-7dfa5qye5****
@@ -21,7 +21,7 @@ export class CreateArtifactBuildRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

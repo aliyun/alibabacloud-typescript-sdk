@@ -21,7 +21,7 @@ export class UpdateRepoTriggerResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 32535049-ED91-4589-98C0-7C88766EDF1F

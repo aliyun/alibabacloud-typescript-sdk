@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $dara.Model {
   /**
    * @remarks
-   * The time when the image was created.
+   * The creation time.
    * 
    * @example
    * 2023-04-10 11:42:06
@@ -13,7 +13,7 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
   createTime?: number;
   /**
    * @remarks
-   * The path of the file.
+   * The file path.
    * 
    * @example
    * tenant/0000000000000000/
@@ -21,7 +21,7 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
   filePath?: string;
   /**
    * @remarks
-   * The time when the image was first scanned.
+   * The time of the first scan.
    * 
    * @example
    * 2023-04-10 11:42:06
@@ -29,7 +29,7 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
   firstScanTime?: number;
   /**
    * @remarks
-   * The severity of the malicious file.
+   * The severity level.
    * 
    * @example
    * remind
@@ -37,7 +37,7 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
   level?: string;
   /**
    * @remarks
-   * The MD5 hash value of the malicious file.
+   * The MD5 hash of the malicious file.
    * 
    * @example
    * e76c9759783cbbc9be0ff91ca3xxxxxx
@@ -45,10 +45,10 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
   maliciousMd5?: string;
   /**
    * @remarks
-   * The type of the malicious file.
+   * The type of the malicious sample.
    * 
    * @example
-   * 疑似含有Webshell代码
+   * Suspected webshell code
    */
   maliciousName?: string;
   /**
@@ -61,7 +61,7 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
   scanTaskId?: string;
   /**
    * @remarks
-   * The time when the image was updated.
+   * The update time.
    * 
    * @example
    * 2023-04-10 11:42:06
@@ -105,7 +105,7 @@ export class ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles extends $
 export class ListScanMaliciousFileByTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -113,10 +113,11 @@ export class ListScanMaliciousFileByTaskResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Indicates whether the API request is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   `true`: successful
-   * *   `false`: failed
+   * - `true`: The API call was successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -124,7 +125,7 @@ export class ListScanMaliciousFileByTaskResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number of the queried data. You can specify this parameter to determine the page from which the queried data is returned. Default value: 1.
    * 
    * @example
    * 1
@@ -148,12 +149,12 @@ export class ListScanMaliciousFileByTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried malicious files.
+   * The list of malicious files.
    */
   scanMaliciousFiles?: ListScanMaliciousFileByTaskResponseBodyScanMaliciousFiles[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 13

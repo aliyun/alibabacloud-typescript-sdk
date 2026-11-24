@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceEndpointResponseBodyAclEntries extends $dara.Model {
   /**
    * @remarks
-   * Remarks for public IP address whitelists.
+   * The comment for adding an Internet whitelist entry.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetInstanceEndpointResponseBodyAclEntries extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The public IP address whitelist.
+   * The CIDR block added to the Internet whitelist.
    * 
    * @example
    * 192.168.1.0/24
@@ -45,7 +45,7 @@ export class GetInstanceEndpointResponseBodyAclEntries extends $dara.Model {
 export class GetInstanceEndpointResponseBodyDomains extends $dara.Model {
   /**
    * @remarks
-   * The domain name that is used to access the Container Registry Enterprise Edition instance.
+   * The domain name used to access the Enterprise instance.
    * 
    * @example
    * shanghai-instance1-registry.cn-shanghai.cr.aliyuncs.com
@@ -53,10 +53,11 @@ export class GetInstanceEndpointResponseBodyDomains extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The type of the domain name. Valid values:
+   * The domain name type. Valid values:
    * 
-   * *   `SYSTEM`: a system domain name.
-   * *   `USER`: a user domain name.
+   * - `SYSTEM`: system domain name
+   * 
+   * - `USER`: user domain name
    * 
    * @example
    * SYSTEM
@@ -88,7 +89,7 @@ export class GetInstanceEndpointResponseBodyDomains extends $dara.Model {
 export class GetInstanceEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the access control list (ACL) feature is enabled.
+   * Indicates whether the access control list (ACL) is enabled.
    * 
    * @example
    * true
@@ -96,7 +97,7 @@ export class GetInstanceEndpointResponseBody extends $dara.Model {
   aclEnable?: boolean;
   /**
    * @remarks
-   * The ACLs.
+   * The list of ACL entries.
    */
   aclEntries?: GetInstanceEndpointResponseBodyAclEntries[];
   /**
@@ -109,12 +110,12 @@ export class GetInstanceEndpointResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Domain names.
+   * The list of domain names.
    */
   domains?: GetInstanceEndpointResponseBodyDomains[];
   /**
    * @remarks
-   * Indicates whether the ACL feature is enabled.
+   * Indicates whether the access endpoint is enabled.
    * 
    * @example
    * true
@@ -130,7 +131,7 @@ export class GetInstanceEndpointResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8F3D5EC5-39D1-4C53-A198-48C54C658FA3
@@ -138,7 +139,13 @@ export class GetInstanceEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the instance.
+   * The running status. Valid values:
+   * 
+   * `CREATING`: Creating.
+   * 
+   * `RUNNING`: Running.
+   * 
+   * `DELETING`: Deleting.
    * 
    * @example
    * RUNNING

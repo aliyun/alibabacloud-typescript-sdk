@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateArtifactLifecycleRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -13,10 +13,11 @@ export class CreateArtifactLifecycleRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * True

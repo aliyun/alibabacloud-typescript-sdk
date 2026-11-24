@@ -45,7 +45,7 @@ export class GetInstanceResponseBodyTags extends $dara.Model {
 export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return value
+   * The return code.
    * 
    * @example
    * success
@@ -53,7 +53,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1571926439000
@@ -61,7 +61,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The instance ID.
    * 
    * @example
    * cri-xkx6vujuhay0****
@@ -69,22 +69,22 @@ export class GetInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The issue occurs on the instance.
+   * The instance issue.
    * 
    * @example
-   * 实例问题，取值：
-   * OSS_TOO_MANY_BUCKETS：OSS Bucket 数量超限
+   * The instance issue. Valid values:
+   * OSS_TOO_MANY_BUCKETS: The number of OSS buckets exceeds the limit.
    * 
-   * OSS_BUCKET_ALREADY_EXISTS：同名 OSS Bucket 已存在
+   * OSS_BUCKET_ALREADY_EXISTS: An OSS bucket with the same name already exists.
    * 
-   * OSS_SERVICE_ROLE_UNAUTHORIZED：OSS 权限未授权
+   * OSS_SERVICE_ROLE_UNAUTHORIZED: OSS permissions are not authorized.
    * 
-   * USER_NOT_REGISTERED_BY_REAL_NAME：国际站账号在购买中国站 OSS Bucket 时未进行实名认证
+   * USER_NOT_REGISTERED_BY_REAL_NAME: The China site account has not completed real-name verification when purchasing an OSS bucket on the China site
    */
   instanceIssue?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * shanghai-instance1
@@ -92,7 +92,10 @@ export class GetInstanceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The edition of the instance. Valid values: Enterprise_Basic: Basic Edition instances Enterprise_Standard: Standard Edition instances Enterprise_Advanced: Advanced Edition instances
+   * The instance specification. Valid values:
+   * Enterprise_Basic: basic instance.
+   * Enterprise_Standard: standard instance.
+   * Enterprise_Advanced: advanced instance.
    * 
    * @example
    * Enterprise_Basic
@@ -100,16 +103,23 @@ export class GetInstanceResponseBody extends $dara.Model {
   instanceSpecification?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values:
+   * The instance status. Valid values:
    * 
-   * *   `PENDING`: The instance is being initialized.
-   * *   `INIT_ERROR`: The instance failed to be initialized.
-   * *   `STARTING`: The instance is being started.
-   * *   `RUNNING`: The instance is running.
-   * *   `STOPPING`: The instance is being stopped.
-   * *   `STOPPED`: The instance is stopped.
-   * *   `DELETING`: The instance is being deleted.
-   * *   `DELETED`: The instance is deleted.
+   * - `PENDING`: Initializing.
+   * 
+   * - `INIT_ERROR`: Initialization failed.
+   * 
+   * - `STARTING`: Starting.
+   * 
+   * - `RUNNING`: Running.
+   * 
+   * - `STOPPING`: Stopping.
+   * 
+   * - `STOPPED`: Stopped.
+   * 
+   * - `DELETING`: Deleting.
+   * 
+   * - `DELETED`: Deleted.
    * 
    * @example
    * RUNNING
@@ -117,10 +127,11 @@ export class GetInstanceResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -128,7 +139,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The time when the instance was last modified.
+   * The modification time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1571926560000
@@ -144,7 +155,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmv36i4isx****
@@ -152,7 +163,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the instance.
+   * The tag collection of the instance.
    */
   tags?: GetInstanceResponseBodyTags[];
   static names(): { [key: string]: string } {

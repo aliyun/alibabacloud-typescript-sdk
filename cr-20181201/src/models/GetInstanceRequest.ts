@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

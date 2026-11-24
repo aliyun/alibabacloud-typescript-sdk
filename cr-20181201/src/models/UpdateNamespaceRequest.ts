@@ -6,7 +6,7 @@ import { RepoConfiguration } from "./RepoConfiguration";
 export class UpdateNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to automatically create a repository when an image is pushed.
+   * Specifies whether to allow automatic creation of a repository upon push.
    * 
    * @example
    * true
@@ -14,16 +14,16 @@ export class UpdateNamespaceRequest extends $dara.Model {
   autoCreateRepo?: boolean;
   /**
    * @remarks
-   * The default configuration for automatically created repositories.
+   * The default repository configuration.
    */
   defaultRepoConfiguration?: RepoConfiguration;
   /**
    * @remarks
-   * The default type for automatically created repositories. This parameter applies only if `AutoCreateRepo` is set to `true`. Valid values:
+   * The default repository type. Valid values:
    * 
-   * - `PUBLIC`: a public repository
+   * - `PUBLIC`: public repository
    * 
-   * - `PRIVATE`: a private repository
+   * - `PRIVATE`: private repository
    * 
    * @example
    * PRIVATE
@@ -43,7 +43,7 @@ export class UpdateNamespaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * This parameter is required.
    * 

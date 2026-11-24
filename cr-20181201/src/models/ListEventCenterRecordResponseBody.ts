@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The time when the event was created.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1638188622000
@@ -13,7 +13,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The event notification channel.
+   * The notification channel.
    * 
    * @example
    * EVENT_BRIDGE
@@ -21,7 +21,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   eventChannel?: string;
   /**
    * @remarks
-   * The ID of the event notification.
+   * The event ID of the downstream notification.
    * 
    * @example
    * 7d478419-61df-49e5-b92b-30ce730c2127
@@ -31,9 +31,11 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
    * @remarks
    * The notification method. Valid values:
    * 
-   * *   `http`: The notification is sent over HTTP.
-   * *   `https`: The notification is sent over HTTPS.
-   * *   `dingding`: The notification is sent by using DingTalk.
+   * - `http`: HTTP notification.
+   * 
+   * - `https`: HTTPS notification.
+   * 
+   * - `dingding`: DingTalk notification.
    * 
    * @example
    * http
@@ -41,7 +43,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   eventNotifyMethod?: string;
   /**
    * @remarks
-   * The type of the event.
+   * The event type.
    * 
    * @example
    * cr:Artifact:DeliveryChainCompleted
@@ -49,7 +51,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-gl34plsa****
@@ -65,7 +67,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the event record.
+   * The event record ID.
    * 
    * @example
    * crecrr-ctdbzwtkpr*****
@@ -73,7 +75,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   recordId?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The repository name.
    * 
    * @example
    * ruby-2.4.0
@@ -81,7 +83,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The ID of the event notification rule.
+   * The event rule ID.
    * 
    * @example
    * crecr-n6pbhgjxtla*****
@@ -89,7 +91,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the event notification rule.
+   * The event rule name.
    * 
    * @example
    * chain-demo
@@ -97,7 +99,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The tags.
+   * The label.
    * 
    * @example
    * ruby-2.4.0
@@ -105,7 +107,7 @@ export class ListEventCenterRecordResponseBodyRecords extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The time when the event was last updated.
+   * The update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1638188622000
@@ -175,7 +177,7 @@ export class ListEventCenterRecordResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -183,7 +185,7 @@ export class ListEventCenterRecordResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -191,7 +193,7 @@ export class ListEventCenterRecordResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of historical events.
+   * The event history list.
    * 
    * @example
    * []
@@ -199,7 +201,7 @@ export class ListEventCenterRecordResponseBody extends $dara.Model {
   records?: ListEventCenterRecordResponseBodyRecords[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 665C7A5E-BAEC-5BCD-AF9F-5F9260D672BF
@@ -207,7 +209,7 @@ export class ListEventCenterRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total entries of historical events.
+   * The total number of event history records.
    * 
    * @example
    * 50

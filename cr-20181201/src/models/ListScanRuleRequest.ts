@@ -21,7 +21,7 @@ export class ListScanRuleRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -29,12 +29,12 @@ export class ListScanRuleRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
+   * The vulnerability type. Valid values:
    * 
-   * *   `VUL`: Products Cloud Security Scanner.
-   * *   `SBOM`: Product Content Analysis.
+   * - `VUL`: artifact vulnerability scanning.
+   * - `SBOM`: artifact content analysis.
    * 
-   * Default value: `VUL`
+   * Default value: `VUL`.
    * 
    * @example
    * SBOM

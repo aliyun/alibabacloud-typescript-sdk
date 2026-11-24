@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceRegionResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
-   * 华南1（深圳）
+   * China South 1 (Shenzhen)
    */
   localName?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-shenzhen
@@ -53,10 +53,11 @@ export class ListInstanceRegionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call is successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true
@@ -69,7 +70,7 @@ export class ListInstanceRegionResponseBody extends $dara.Model {
   regions?: ListInstanceRegionResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 11F182E1-0F84-4F5B-8D3B-61E991482727

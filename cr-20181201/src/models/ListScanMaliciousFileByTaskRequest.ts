@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScanMaliciousFileByTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The image digest.
+   * The digest of the image.
    * 
    * @example
    * sha256:aa4bffff6406785e930dab1f94c9a1297ba22xxxx71d71504a015764*********
@@ -21,7 +21,7 @@ export class ListScanMaliciousFileByTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The severity of the malicious file.
+   * The severity level of the malicious file.
    * 
    * @example
    * serious、suspicious、remind
@@ -37,7 +37,7 @@ export class ListScanMaliciousFileByTaskRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. If you specify a value greater than 100 for this parameter, the system reports a parameter error or uses 100 as the maximum value.
+   * The number of entries to return on each page. Maximum value: 100. If the value that you specify exceeds 100, the system returns a parameter error or uses 100 as the maximum number of entries to return.
    * 
    * @example
    * 30
@@ -45,7 +45,7 @@ export class ListScanMaliciousFileByTaskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The image repository ID.
+   * The ID of the image repository.
    * 
    * @example
    * crr-h1y4l279wb8*****
@@ -61,7 +61,7 @@ export class ListScanMaliciousFileByTaskRequest extends $dara.Model {
   scanTaskId?: string;
   /**
    * @remarks
-   * The image tag.
+   * The image version.
    * 
    * @example
    * V6.11

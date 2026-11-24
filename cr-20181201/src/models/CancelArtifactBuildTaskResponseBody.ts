@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelArtifactBuildTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -13,10 +13,11 @@ export class CancelArtifactBuildTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call was successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class CancelArtifactBuildTaskResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C4C7DD0C-C9D6-437A-A7EE-121EFD70D002

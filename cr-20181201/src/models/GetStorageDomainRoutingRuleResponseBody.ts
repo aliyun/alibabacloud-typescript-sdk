@@ -14,7 +14,7 @@ export class GetStorageDomainRoutingRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1571926439000
@@ -22,7 +22,7 @@ export class GetStorageDomainRoutingRuleResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1571926439000
@@ -38,7 +38,7 @@ export class GetStorageDomainRoutingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The routing list.
+   * The list of routes.
    */
   routes?: RouteItem[];
   /**
@@ -51,7 +51,7 @@ export class GetStorageDomainRoutingRuleResponseBody extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The request status identifier.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

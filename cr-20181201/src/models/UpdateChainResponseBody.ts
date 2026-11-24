@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpdateChainResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85A99B10-3926-5201-958E-C06FA47F****

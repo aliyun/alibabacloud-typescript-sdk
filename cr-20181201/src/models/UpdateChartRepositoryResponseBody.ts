@@ -13,10 +13,11 @@ export class UpdateChartRepositoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The API call was successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class UpdateChartRepositoryResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EB9C5722-51E2-4497-A573-575B0CA5CE0C

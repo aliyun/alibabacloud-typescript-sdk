@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "cr";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cr", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an artifact building task.
+   * Cancels an artifact build task.
    * 
    * @param request - CancelArtifactBuildTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,7 +69,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an artifact building task.
+   * Cancels an artifact build task.
    * 
    * @param request - CancelArtifactBuildTaskRequest
    * @returns CancelArtifactBuildTaskResponse
@@ -76,7 +80,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a repository building record.
+   * Cancels a repository build.
    * 
    * @param request - CancelRepoBuildRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -115,7 +119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a repository building record.
+   * Cancels a repository build.
    * 
    * @param request - CancelRepoBuildRecordRequest
    * @returns CancelRepoBuildRecordResponse
@@ -126,7 +130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a single replication task.
+   * Cancels a single synchronization task.
    * 
    * @param request - CancelRepoSyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -161,7 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a single replication task.
+   * Cancels a single synchronization task.
    * 
    * @param request - CancelRepoSyncTaskRequest
    * @returns CancelRepoSyncTaskResponse
@@ -172,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a resource belongs.
+   * Modifies the resource group of a resource.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -211,7 +215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a resource belongs.
+   * Modifies the resource group of a resource.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -222,11 +226,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create image repository acceleration rules for image building.
+   * Creates an accelerated image build rule for an image repository.
    * 
    * @remarks
-   * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
-   * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+   * <props="intl">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+   * <props="china">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+   * Accelerated image conversion is not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
    * 
    * @param tmpReq - CreateArtifactBuildRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -279,11 +284,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create image repository acceleration rules for image building.
+   * Creates an accelerated image build rule for an image repository.
    * 
    * @remarks
-   * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
-   * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+   * <props="intl">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+   * <props="china">You can create accelerated image build rules only for Standard Edition and Advanced Edition instances. Basic Edition does not support accelerated image build rules. For more information about instance specifications, see [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+   * Accelerated image conversion is not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
    * 
    * @param request - CreateArtifactBuildRuleRequest
    * @returns CreateArtifactBuildRuleResponse
@@ -294,7 +300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a lifecycle management rule for an artifact.
+   * Creates a lifecycle management rule for artifacts.
    * 
    * @param request - CreateArtifactLifecycleRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -365,7 +371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a lifecycle management rule for an artifact.
+   * Creates a lifecycle management rule for artifacts.
    * 
    * @param request - CreateArtifactLifecycleRuleRequest
    * @returns CreateArtifactLifecycleRuleResponse
@@ -423,6 +429,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tagCount)) {
       query["TagCount"] = request.tagCount;
+    }
+
+    if (!$dara.isNull(request.tagList)) {
+      query["TagList"] = request.tagList;
     }
 
     if (!$dara.isNull(request.tagRegexp)) {
@@ -504,7 +514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image building record based on an existing record.
+   * Rebuilds a build record based on an existing build record.
    * 
    * @param request - CreateBuildRecordByRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -543,7 +553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image building record based on an existing record.
+   * Rebuilds a build record based on an existing build record.
    * 
    * @param request - CreateBuildRecordByRecordRequest
    * @returns CreateBuildRecordByRecordResponse
@@ -554,7 +564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image building record based on a rule.
+   * Creates a build record based on a build rule.
    * 
    * @param request - CreateBuildRecordByRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -593,7 +603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image building record based on a rule.
+   * Creates a build record based on a build rule.
    * 
    * @param request - CreateBuildRecordByRuleRequest
    * @returns CreateBuildRecordByRuleResponse
@@ -670,7 +680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a chart namespace in an instance.
+   * Creates a chart namespace.
    * 
    * @param request - CreateChartNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -713,7 +723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a chart namespace in an instance.
+   * Creates a chart namespace.
    * 
    * @param request - CreateChartNamespaceRequest
    * @returns CreateChartNamespaceResponse
@@ -972,7 +982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a repository namespace.
+   * Creates a namespace for an image repository.
    * 
    * @param tmpReq - CreateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1025,7 +1035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a repository namespace.
+   * Creates a namespace for an image repository.
    * 
    * @param request - CreateNamespaceRequest
    * @returns CreateNamespaceResponse
@@ -1036,7 +1046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image building rule for a repository.
+   * Creates a build rule for an image repository.
    * 
    * @param request - CreateRepoBuildRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1099,7 +1109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image building rule for a repository.
+   * Creates a build rule for an image repository.
    * 
    * @param request - CreateRepoBuildRuleRequest
    * @returns CreateRepoBuildRuleResponse
@@ -1110,7 +1120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a source code repository to an image repository.
+   * Associates a source code repository with an image repository.
    * 
    * @param request - CreateRepoSourceCodeRepoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1169,7 +1179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a source code repository to an image repository.
+   * Associates a source code repository with an image repository.
    * 
    * @param request - CreateRepoSourceCodeRepoRequest
    * @returns CreateRepoSourceCodeRepoResponse
@@ -1480,7 +1490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a security scan task for an image.
+   * Creates an image scan task.
    * 
    * @param request - CreateRepoTagScanTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1531,7 +1541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a security scan task for an image.
+   * Creates an image scan task.
    * 
    * @param request - CreateRepoTagScanTaskRequest
    * @returns CreateRepoTagScanTaskResponse
@@ -1758,9 +1768,6 @@ export default class Client extends OpenApi {
   /**
    * Creates an instance store domain name routing rule.
    * 
-   * @remarks
-   * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
-   * 
    * @param tmpReq - CreateStorageDomainRoutingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateStorageDomainRoutingRuleResponse
@@ -1801,9 +1808,6 @@ export default class Client extends OpenApi {
 
   /**
    * Creates an instance store domain name routing rule.
-   * 
-   * @remarks
-   * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
    * 
    * @param request - CreateStorageDomainRoutingRuleRequest
    * @returns CreateStorageDomainRoutingRuleResponse
@@ -2208,7 +2212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a whitelist policy from the public access endpoint of an instance.
+   * Deletes a whitelist policy from the public endpoint of an instance.
    * 
    * @param tmpReq - DeleteInstanceEndpointAclPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2261,7 +2265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a whitelist policy from the public access endpoint of an instance.
+   * Deletes a whitelist policy from the public endpoint of an instance.
    * 
    * @param request - DeleteInstanceEndpointAclPolicyRequest
    * @returns DeleteInstanceEndpointAclPolicyResponse
@@ -2636,9 +2640,6 @@ export default class Client extends OpenApi {
   /**
    * Deletes a scan rule.
    * 
-   * @remarks
-   * 删除扫描规则。
-   * 
    * @param request - DeleteScanRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteScanRuleResponse
@@ -2674,9 +2675,6 @@ export default class Client extends OpenApi {
   /**
    * Deletes a scan rule.
    * 
-   * @remarks
-   * 删除扫描规则。
-   * 
    * @param request - DeleteScanRuleRequest
    * @returns DeleteScanRuleResponse
    */
@@ -2687,9 +2685,6 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an instance store domain name routing rule.
-   * 
-   * @remarks
-   * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
    * 
    * @param request - DeleteStorageDomainRoutingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2725,9 +2720,6 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an instance store domain name routing rule.
-   * 
-   * @remarks
-   * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
    * 
    * @param request - DeleteStorageDomainRoutingRuleRequest
    * @returns DeleteStorageDomainRoutingRuleResponse
@@ -2776,7 +2768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the build task of an artifact.
+   * Retrieves the build task of a cloud native artifact.
    * 
    * @param request - GetArtifactBuildTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2803,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the build task of an artifact.
+   * Retrieves the build task of a cloud native artifact.
    * 
    * @param request - GetArtifactBuildTaskRequest
    * @returns GetArtifactBuildTaskResponse
@@ -2814,7 +2806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the lifecycle management rules of artifacts.
+   * Queries the lifecycle management rule of an artifact.
    * 
    * @param request - GetArtifactLifecycleRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2841,7 +2833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the lifecycle management rules of artifacts.
+   * Queries the lifecycle management rule of an artifact.
    * 
    * @param request - GetArtifactLifecycleRuleRequest
    * @returns GetArtifactLifecycleRuleResponse
@@ -2852,7 +2844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an artifact subscription rule.
+   * Queries artifact subscription rules.
    * 
    * @param request - GetArtifactSubscriptionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2879,7 +2871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an artifact subscription rule.
+   * Queries artifact subscription rules.
    * 
    * @param request - GetArtifactSubscriptionRuleRequest
    * @returns GetArtifactSubscriptionRuleResponse
@@ -2890,7 +2882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an artifact subscription task.
+   * Retrieves artifact subscription tasks.
    * 
    * @param request - GetArtifactSubscriptionTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2917,7 +2909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an artifact subscription task.
+   * Retrieves artifact subscription tasks.
    * 
    * @param request - GetArtifactSubscriptionTaskRequest
    * @returns GetArtifactSubscriptionTaskResponse
@@ -2928,7 +2920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an artifact subscription task.
+   * Lists the details of subscription tasks.
    * 
    * @param request - GetArtifactSubscriptionTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2955,7 +2947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an artifact subscription task.
+   * Lists the details of subscription tasks.
    * 
    * @param request - GetArtifactSubscriptionTaskResultRequest
    * @returns GetArtifactSubscriptionTaskResultResponse
@@ -3024,7 +3016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
+   * Retrieves the definition of a delivery chain to understand the node execution order.
    * 
    * @param request - GetChainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3059,7 +3051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
+   * Retrieves the definition of a delivery chain to understand the node execution order.
    * 
    * @param request - GetChainRequest
    * @returns GetChainResponse
@@ -3116,7 +3108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a chart repository.
+   * Queries the repository information of a chart.
    * 
    * @param request - GetChartRepositoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3155,7 +3147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a chart repository.
+   * Queries the repository information of a chart.
    * 
    * @param request - GetChartRepositoryRequest
    * @returns GetChartRepositoryResponse
@@ -3166,7 +3158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query instance information.
+   * Queries instance information.
    * 
    * @param request - GetInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3197,7 +3189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query instance information.
+   * Queries instance information.
    * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
@@ -3289,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an endpoint of an instance.
+   * Queries the access endpoints of an instance.
    * 
    * @param request - GetInstanceEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3328,7 +3320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an endpoint of an instance.
+   * Queries the access endpoints of an instance.
    * 
    * @param request - GetInstanceEndpointRequest
    * @returns GetInstanceEndpointResponse
@@ -3477,7 +3469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about image building records of a repository.
+   * Queries the build records of a repository.
    * 
    * @remarks
    * ***
@@ -3515,7 +3507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about image building records of a repository.
+   * Queries the build records of a repository.
    * 
    * @remarks
    * ***
@@ -3671,7 +3663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve information about a single image tag.
+   * Retrieves the tag information of a specific image.
    * 
    * @param request - GetRepoTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3698,7 +3690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve information about a single image tag.
+   * Retrieves the tag information of a specific image.
    * 
    * @param request - GetRepoTagRequest
    * @returns GetRepoTagResponse
@@ -3709,7 +3701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the scan status of a specific image tag.
+   * Retrieves the scan status of an image version.
    * 
    * @param request - GetRepoTagScanStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3760,7 +3752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the scan status of a specific image tag.
+   * Retrieves the scan status of an image version.
    * 
    * @param request - GetRepoTagScanStatusRequest
    * @returns GetRepoTagScanStatusResponse
@@ -3829,7 +3821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries details about an image repository.
+   * Queries repository information.
    * 
    * @param request - GetRepositoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3872,7 +3864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries details about an image repository.
+   * Queries repository information.
    * 
    * @param request - GetRepositoryRequest
    * @returns GetRepositoryResponse
@@ -3935,10 +3927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the instance storage domain name routing list.
+   * Retrieves the list of instance storage domain name routes.
    * 
    * @remarks
-   * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
+   * This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
    * 
    * @param request - GetStorageDomainRoutingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3973,10 +3965,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the instance storage domain name routing list.
+   * Retrieves the list of instance storage domain name routes.
    * 
    * @remarks
-   * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
+   * This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
    * 
    * @param request - GetStorageDomainRoutingRuleRequest
    * @returns GetStorageDomainRoutingRuleResponse
@@ -4063,7 +4055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List artifact subscription rules.
+   * Lists artifact subscription rules.
    * 
    * @param request - ListArtifactSubscriptionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4090,7 +4082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List artifact subscription rules.
+   * Lists artifact subscription rules.
    * 
    * @param request - ListArtifactSubscriptionRuleRequest
    * @returns ListArtifactSubscriptionRuleResponse
@@ -4313,7 +4305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of a chart in a chart repository.
+   * Queries the list of chart versions.
    * 
    * @param request - ListChartReleaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4364,7 +4356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of a chart in a chart repository.
+   * Queries the list of chart versions.
    * 
    * @param request - ListChartReleaseRequest
    * @returns ListChartReleaseResponse
@@ -4375,7 +4367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the chart repositories of a Container Registry instance.
+   * Queries a list of repositories.
    * 
    * @param request - ListChartRepositoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4426,7 +4418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the chart repositories of a Container Registry instance.
+   * Queries a list of repositories.
    * 
    * @param request - ListChartRepositoryRequest
    * @returns ListChartRepositoryResponse
@@ -4437,7 +4429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical events of an event rule.
+   * Retrieves the event history of an event rule.
    * 
    * @param request - ListEventCenterRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4464,7 +4456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical events of an event rule.
+   * Retrieves the event history of an event rule.
    * 
    * @param request - ListEventCenterRecordRequest
    * @returns ListEventCenterRecordResponse
@@ -4475,7 +4467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the name of an event rule.
+   * Retrieves event rule names.
    * 
    * @param request - ListEventCenterRuleNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4502,7 +4494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the name of an event rule.
+   * Retrieves event rule names.
    * 
    * @param request - ListEventCenterRuleNameRequest
    * @returns ListEventCenterRuleNameResponse
@@ -4513,7 +4505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Queries the list of instances.
    * 
    * @param request - ListInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4560,7 +4552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Queries the list of instances.
    * 
    * @param request - ListInstanceRequest
    * @returns ListInstanceResponse
@@ -4621,7 +4613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions in which you can create Container Registry instances.
+   * Queries the list of instance regions.
    * 
    * @param request - ListInstanceRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4652,7 +4644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions in which you can create Container Registry instances.
+   * Queries the list of instance regions.
    * 
    * @param request - ListInstanceRegionRequest
    * @returns ListInstanceRegionResponse
@@ -4721,7 +4713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries image building records of an image repository.
+   * Queries the list of build records for an image repository.
    * 
    * @param request - ListRepoBuildRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4764,7 +4756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries image building records of an image repository.
+   * Queries the list of build records for an image repository.
    * 
    * @param request - ListRepoBuildRecordRequest
    * @returns ListRepoBuildRecordResponse
@@ -4775,7 +4767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log of an image building record.
+   * Retrieves the logs of a build record.
    * 
    * @param request - ListRepoBuildRecordLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4818,7 +4810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log of an image building record.
+   * Retrieves the logs of a build record.
    * 
    * @param request - ListRepoBuildRecordLogRequest
    * @returns ListRepoBuildRecordLogResponse
@@ -4829,7 +4821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the build rules of an image repository.
+   * Queries the build rules of an image repository.
    * 
    * @param request - ListRepoBuildRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4872,7 +4864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the build rules of an image repository.
+   * Queries the build rules of an image repository.
    * 
    * @param request - ListRepoBuildRuleRequest
    * @returns ListRepoBuildRuleResponse
@@ -4883,7 +4875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of repository synchronization rules.
+   * Queries the repository synchronization rules.
    * 
    * @param request - ListRepoSyncRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4938,7 +4930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of repository synchronization rules.
+   * Queries the repository synchronization rules.
    * 
    * @param request - ListRepoSyncRuleRequest
    * @returns ListRepoSyncRuleResponse
@@ -5017,6 +5009,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of image versions (tags).
    * 
+   * @remarks
+   * Before you invoke this operation, prepare an Enterprise Edition instance and an image repository. You can invoke ListInstance to query the InstanceId and invoke ListRepository to query the RepoId.
+   * 
    * @param request - ListRepoTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRepoTagResponse
@@ -5068,6 +5063,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of image versions (tags).
    * 
+   * @remarks
+   * Before you invoke this operation, prepare an Enterprise Edition instance and an image repository. You can invoke ListInstance to query the InstanceId and invoke ListRepository to query the RepoId.
+   * 
    * @param request - ListRepoTagRequest
    * @returns ListRepoTagResponse
    */
@@ -5077,7 +5075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the results of a security scan that is created for an image tag.
+   * Queries the list of scan results for an image version.
    * 
    * @param request - ListRepoTagScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5148,7 +5146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the results of a security scan that is created for an image tag.
+   * Queries the list of scan results for an image version.
    * 
    * @param request - ListRepoTagScanResultRequest
    * @returns ListRepoTagScanResultResponse
@@ -5159,7 +5157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the triggers of a repository.
+   * Queries the list of repository triggers.
    * 
    * @param request - ListRepoTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5194,7 +5192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the triggers of a repository.
+   * Queries the list of repository triggers.
    * 
    * @param request - ListRepoTriggerRequest
    * @returns ListRepoTriggerResponse
@@ -5205,7 +5203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of image repositories.
+   * Queries image repositories.
    * 
    * @param request - ListRepositoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5264,7 +5262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of image repositories.
+   * Queries image repositories.
    * 
    * @param request - ListRepositoryRequest
    * @returns ListRepositoryResponse
@@ -5275,10 +5273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the baseline risks of a scan task by page.
+   * Queries baseline vulnerabilities of a cloud security scan task by paging.
    * 
    * @remarks
-   * Before you call this operation, use a Security Center scan engine to scan the image.
+   * Before calling this operation, scan the image by using the cloud security engine.
    * 
    * @param request - ListScanBaselineByTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5305,10 +5303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the baseline risks of a scan task by page.
+   * Queries baseline vulnerabilities of a cloud security scan task by paging.
    * 
    * @remarks
-   * Before you call this operation, use a Security Center scan engine to scan the image.
+   * Before calling this operation, scan the image by using the cloud security engine.
    * 
    * @param request - ListScanBaselineByTaskRequest
    * @returns ListScanBaselineByTaskResponse
@@ -5319,10 +5317,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the malicious files of a scan task by page.
+   * Performs a paged query for the malicious file vulnerabilities of a scan node by paging.
    * 
    * @remarks
-   * Before you call this operation, use a Security Center scan engine to scan the image.
+   * Before calling this operation, scan the image by using the cloud security engine.
    * 
    * @param request - ListScanMaliciousFileByTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5349,10 +5347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the malicious files of a scan task by page.
+   * Performs a paged query for the malicious file vulnerabilities of a scan node by paging.
    * 
    * @remarks
-   * Before you call this operation, use a Security Center scan engine to scan the image.
+   * Before calling this operation, scan the image by using the cloud security engine.
    * 
    * @param request - ListScanMaliciousFileByTaskRequest
    * @returns ListScanMaliciousFileByTaskResponse
@@ -5363,10 +5361,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the scan rules.
+   * Lists scan rules.
    * 
    * @remarks
-   * 列举扫描规则。
+   * Lists scan rules.
    * 
    * @param request - ListScanRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5393,10 +5391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the scan rules.
+   * Lists scan rules.
    * 
    * @remarks
-   * 列举扫描规则。
+   * Lists scan rules.
    * 
    * @param request - ListScanRuleRequest
    * @returns ListScanRuleResponse
@@ -5407,12 +5405,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to cloud resources. Instance resources are supported.
+   * Queries the list of tags that are bound to resources. Currently, Instance resources are supported.
    * 
    * @remarks
-   * - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
-   * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
-   * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
+   * - At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified in the request to determine the objects to query.
+   * - Tag.N is a tag of the resource, which consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the specified tag key are returned. If you specify only Tag.N.Value, an error is returned.
+   * - ResourceId.N must match all specified key-value pairs. If you specify multiple key-value pairs, the query results include only resources that contain all the specified key-value pairs.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5459,12 +5457,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to cloud resources. Instance resources are supported.
+   * Queries the list of tags that are bound to resources. Currently, Instance resources are supported.
    * 
    * @remarks
-   * - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
-   * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
-   * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
+   * - At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified in the request to determine the objects to query.
+   * - Tag.N is a tag of the resource, which consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the specified tag key are returned. If you specify only Tag.N.Value, an error is returned.
+   * - ResourceId.N must match all specified key-value pairs. If you specify multiple key-value pairs, the query results include only resources that contain all the specified key-value pairs.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -5521,10 +5519,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to resources. Instance resources are supported.
+   * Tags resources. Currently supports Instance resources.
    * 
    * @remarks
-   * 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+   * You can attach up to 20 tags to a single instance. Before attaching tags, Alibaba Cloud verifies the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5567,10 +5565,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to resources. Instance resources are supported.
+   * Tags resources. Currently supports Instance resources.
    * 
    * @remarks
-   * 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+   * You can attach up to 20 tags to a single instance. Before attaching tags, Alibaba Cloud verifies the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -5581,7 +5579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources. Instance resources are supported.
+   * Deletes resource tags. Currently, Instance resources are supported.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5628,7 +5626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources. Instance resources are supported.
+   * Deletes resource tags. Currently, Instance resources are supported.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -5727,6 +5725,11 @@ export default class Client extends OpenApi {
   /**
    * Updates an artifact subscription rule.
    * 
+   * @remarks
+   * <props="intl">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+   * <props="china">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+   * Accelerated image conversion is currently not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
+   * 
    * @param request - UpdateArtifactSubscriptionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateArtifactSubscriptionRuleResponse
@@ -5778,6 +5781,10 @@ export default class Client extends OpenApi {
       query["TagCount"] = request.tagCount;
     }
 
+    if (!$dara.isNull(request.tagList)) {
+      query["TagList"] = request.tagList;
+    }
+
     if (!$dara.isNull(request.tagRegexp)) {
       query["TagRegexp"] = request.tagRegexp;
     }
@@ -5802,6 +5809,11 @@ export default class Client extends OpenApi {
   /**
    * Updates an artifact subscription rule.
    * 
+   * @remarks
+   * <props="intl">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+   * <props="china">Accelerated image build rules can only be created for Standard and Advanced Edition instances. Basic Edition does not support the creation of accelerated image build rules. For differences in instance specifications, refer to [Specifications](https://help.aliyun.com/document_detail/257112.html#section-go7-lhg-qbc).
+   * Accelerated image conversion is currently not supported in Alibaba Finance Cloud and Alibaba Gov Cloud regions.
+   * 
    * @param request - UpdateArtifactSubscriptionRuleRequest
    * @returns UpdateArtifactSubscriptionRuleResponse
    */
@@ -5811,7 +5823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+   * Modifies the definition of a delivery chain, such as the execution order of nodes in the delivery chain.
    * 
    * @param request - UpdateChainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5862,7 +5874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+   * Modifies the definition of a delivery chain, such as the execution order of nodes in the delivery chain.
    * 
    * @param request - UpdateChainRequest
    * @returns UpdateChainResponse
@@ -5927,7 +5939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a chart repository of a Container Registry instance.
+   * Updates the repository information.
    * 
    * @param request - UpdateChartRepositoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5974,7 +5986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a chart repository of a Container Registry instance.
+   * Updates the repository information.
    * 
    * @param request - UpdateChartRepositoryRequest
    * @returns UpdateChartRepositoryResponse
@@ -6249,7 +6261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an image building rule for a repository.
+   * Updates a build rule for an image repository.
    * 
    * @param request - UpdateRepoBuildRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6316,7 +6328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an image building rule for a repository.
+   * Updates a build rule for an image repository.
    * 
    * @param request - UpdateRepoBuildRuleRequest
    * @returns UpdateRepoBuildRuleResponse
@@ -6401,7 +6413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a trigger of an image repository.
+   * Updates a trigger for an image repository.
    * 
    * @param request - UpdateRepoTriggerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6456,7 +6468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a trigger of an image repository.
+   * Updates a trigger for an image repository.
    * 
    * @param request - UpdateRepoTriggerRequest
    * @returns UpdateRepoTriggerResponse
@@ -6467,7 +6479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates repository information.
+   * Updates the repository information.
    * 
    * @param request - UpdateRepositoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6526,7 +6538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates repository information.
+   * Updates the repository information.
    * 
    * @param request - UpdateRepositoryRequest
    * @returns UpdateRepositoryResponse
@@ -6540,7 +6552,7 @@ export default class Client extends OpenApi {
    * Updates a scan rule.
    * 
    * @remarks
-   * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
+   * This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
    * 
    * @param tmpReq - UpdateScanRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6612,7 +6624,7 @@ export default class Client extends OpenApi {
    * Updates a scan rule.
    * 
    * @remarks
-   * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
+   * This API is available through a whitelist. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
    * 
    * @param request - UpdateScanRuleRequest
    * @returns UpdateScanRuleResponse
@@ -6624,9 +6636,6 @@ export default class Client extends OpenApi {
 
   /**
    * Updates a routing rule for an instance store domain name.
-   * 
-   * @remarks
-   * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
    * 
    * @param tmpReq - UpdateStorageDomainRoutingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6672,9 +6681,6 @@ export default class Client extends OpenApi {
 
   /**
    * Updates a routing rule for an instance store domain name.
-   * 
-   * @remarks
-   * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
    * 
    * @param request - UpdateStorageDomainRoutingRuleRequest
    * @returns UpdateStorageDomainRoutingRuleResponse

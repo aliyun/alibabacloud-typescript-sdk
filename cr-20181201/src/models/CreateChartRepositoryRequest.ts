@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChartRepositoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateChartRepositoryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The name of the image repository.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateChartRepositoryRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The name of the namespace.
    * 
    * This parameter is required.
    * 
@@ -35,12 +35,13 @@ export class CreateChartRepositoryRequest extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The default repository type. Valid values:
+   * The default type of the repository. Valid values:
    * 
-   * *   `PUBLIC`: a public repository.
-   * *   `PRIVATE`: a private repository.
+   * - `PUBLIC`: public repository
    * 
-   * You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
+   * - `PRIVATE`: private repository
+   * 
+   * Specify either RepoType or Summary. This parameter is optional.
    * 
    * @example
    * PUBLIC

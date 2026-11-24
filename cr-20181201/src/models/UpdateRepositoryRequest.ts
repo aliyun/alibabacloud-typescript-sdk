@@ -48,10 +48,8 @@ export class UpdateRepositoryRequest extends $dara.Model {
   /**
    * @remarks
    * The repository type. Valid values:
-   * 
    * - `PUBLIC`: public repository
-   * 
-   * - `PRIVATE`: private repository.
+   * - `PRIVATE`: private repository
    * 
    * This parameter is required.
    * 
@@ -72,10 +70,8 @@ export class UpdateRepositoryRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether image tag immutability is enabled. Valid values:
-   * 
    * - `true`: enabled
-   * 
-   * - `false`: disabled.
+   * - `false`: disabled
    * 
    * @example
    * true

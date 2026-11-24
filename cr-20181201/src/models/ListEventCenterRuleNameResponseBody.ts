@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventCenterRuleNameResponseBodyRuleNames extends $dara.Model {
   /**
    * @remarks
-   * The ID of the event notification rule.
+   * The event rule ID.
    * 
    * @example
    * crecr-n6pbhgjxtl*****
@@ -13,7 +13,7 @@ export class ListEventCenterRuleNameResponseBodyRuleNames extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the event notification rule.
+   * The event rule name.
    * 
    * @example
    * test-chain
@@ -45,7 +45,7 @@ export class ListEventCenterRuleNameResponseBodyRuleNames extends $dara.Model {
 export class ListEventCenterRuleNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -61,7 +61,7 @@ export class ListEventCenterRuleNameResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 031572FA-7D8F-4C05-B790-1071E0E05DE6
@@ -69,7 +69,7 @@ export class ListEventCenterRuleNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of names of event notification rules.
+   * The list of event rule names.
    * 
    * @example
    * [{\\"RuleName\\": \\"mlf\\", \\"RuleId\\": \\"crecr-73q93pgljm1pc2fp\\"}]

@@ -14,6 +14,10 @@ export class DeleteInstanceEndpointAclPolicyRequest extends $dara.Model {
    * internet
    */
   endpointType?: string;
+  /**
+   * @remarks
+   * The list of public access whitelist entries to delete for the instance.
+   */
   entries?: AccessControlEntry[];
   /**
    * @remarks
@@ -37,11 +41,11 @@ export class DeleteInstanceEndpointAclPolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The module for which the access policy is set. Valid values:
+   * The module for which the access policy is configured. Valid values:
    * 
-   * - `Registry`: access to the image repository
+   * - `Registry`: Access to the image repository.
    * 
-   * - `Chart`: access to Helm Chart
+   * - `Chart`: Access to Helm Chart.
    * 
    * @example
    * Chart

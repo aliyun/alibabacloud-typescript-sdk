@@ -145,7 +145,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $dara.Model {
 export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572839126000
@@ -193,7 +193,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572839133000
@@ -203,7 +203,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   modifedTime?: number;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1572839133000
@@ -275,9 +275,9 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
    * @remarks
    * The trigger policy. Valid values:
    * 
-   * - `PASSIVE`: Synchronization is automatically triggered.
+   * - `PASSIVE`: Automatically triggered synchronization.
    * 
-   * - `INITIATIVE`: Synchronization is manually triggered.
+   * - `INITIATIVE`: Manually triggered synchronization.
    * 
    * Default value: `PASSIVE`
    * 

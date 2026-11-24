@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRepositoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the repository was created.
+   * The creation time, represented as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1570759546000
@@ -21,7 +21,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The details of the repository.
+   * The detailed information.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cri-kmsiwlxxdcva****
@@ -37,7 +37,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The time when the repository was last modified.
+   * The last modification time, represented as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1570759546100
@@ -53,10 +53,11 @@ export class GetRepositoryResponseBody extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * Indicates how the repository was created. Valid values:
+   * The repository build type. Valid values:
    * 
-   * *   `MANUAL`: The repository was manually created.
-   * *   `AUTO`: The repository was automatically created.
+   * - `MANUAL`: manually triggered build.
+   * 
+   * - `AUTO`: automatically triggered build.
    * 
    * @example
    * MANUAL
@@ -64,7 +65,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   repoBuildType?: string;
   /**
    * @remarks
-   * The ID of the repository.
+   * The repository ID.
    * 
    * @example
    * crr-l5eoubonp0l****
@@ -72,7 +73,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test
@@ -80,7 +81,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * test
@@ -88,7 +89,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The status of the repository.
+   * The repository status.
    * 
    * @example
    * NORMAL
@@ -96,10 +97,11 @@ export class GetRepositoryResponseBody extends $dara.Model {
   repoStatus?: string;
   /**
    * @remarks
-   * The type of the repository. Valid values:
+   * The repository type. Valid values:
    * 
-   * *   `PUBLIC`: public repository.
-   * *   `PRIVATE`: private repository.
+   * - `PUBLIC`: public repository.
+   * 
+   * - `PRIVATE`: private repository.
    * 
    * @example
    * PRIVATE
@@ -107,7 +109,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 915E6734-3E50-4640-8DBA-126D2D94DE29
@@ -115,7 +117,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmv36i4is****
@@ -123,7 +125,7 @@ export class GetRepositoryResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The summary of the repository.
+   * The summary information.
    * 
    * @example
    * Automatically created repository
@@ -131,10 +133,11 @@ export class GetRepositoryResponseBody extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * Indicates whether the feature of image tag immutability is enabled. Valid values:
+   * The image tag immutability setting. Valid values:
    * 
-   * *   `true`: The feature of image tag immutability is enabled.
-   * *   `false`: The feature of image tag immutability is disabled.
+   * - `true`: Enabled.
+   * 
+   * - `false`: Disabled.
    * 
    * @example
    * true

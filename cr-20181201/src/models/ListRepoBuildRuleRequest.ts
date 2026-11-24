@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoBuildRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListRepoBuildRuleRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class ListRepoBuildRuleRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * This parameter is required.
    * 

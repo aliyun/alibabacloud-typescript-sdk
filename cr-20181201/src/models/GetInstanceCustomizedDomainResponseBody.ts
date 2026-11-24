@@ -21,7 +21,7 @@ export class GetInstanceCustomizedDomainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1571926439000
@@ -69,7 +69,7 @@ export class GetInstanceCustomizedDomainResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1638259914000

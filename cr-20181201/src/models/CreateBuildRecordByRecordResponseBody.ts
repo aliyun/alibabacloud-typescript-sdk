@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBuildRecordByRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image building record.
+   * The build record ID.
    * 
    * @example
    * crbr-ly77w5i3t31f****
@@ -13,8 +13,7 @@ export class CreateBuildRecordByRecordResponseBody extends $dara.Model {
   buildRecordId?: string;
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request is successful.\\
-   * Other status codes indicate that the request failed.
+   * The return code of the API operation. A value of 200 indicates success. Other values indicate error codes.
    * 
    * @example
    * success
@@ -22,10 +21,11 @@ export class CreateBuildRecordByRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   `true`: The request is successful.
-   * *   `false`: The request fails.
+   * - `true`: The call was successful.
+   * 
+   * - `false`: The call failed.
    * 
    * @example
    * true

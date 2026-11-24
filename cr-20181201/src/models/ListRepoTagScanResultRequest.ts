@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoTagScanResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The digest of the image.
+   * The image digest.
    * 
    * @example
    * sha256:6b0b094f8a904f8fb6602427aed0d1fa
@@ -13,7 +13,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The parameter whose value that you want to query. Fox example, if the value is `FixCmd`, only the `FixCmd` parameter is returned.
+   * The query filter parameter. If the value is `FixCmd`, only the `FixCmd` result is returned, and other fields are not returned.
    * 
    * @example
    * FixCmd
@@ -21,7 +21,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   filterValue?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the scan result list.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in the scan result list.
    * 
    * @example
    * 30
@@ -47,7 +47,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * @example
    * crr-uf082u9dg8do****
@@ -55,7 +55,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The ID of the security scan task.
+   * The image scan task ID.
    * 
    * @example
    * 6b0b094f-8a90-4f8f-b660-2427aed0****
@@ -63,10 +63,10 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   scanTaskId?: string;
   /**
    * @remarks
-   * The type of the vulnerability. Valid values:
+   * The vulnerability type. Valid values:
    * 
-   * *   `cve`: image system vulnerability
-   * *   `sca`: image application vulnerability
+   * - `cve`: Image system vulnerability
+   * - `sca`: Image application vulnerability
    * 
    * @example
    * sca
@@ -74,12 +74,15 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The severity of the vulnerability. Valid values:
+   * The severity level of the scanned vulnerability. Valid values:
    * 
-   * *   `High`
-   * *   `Medium`
-   * *   `Low`
-   * *   `Unknown`
+   * - `High`: High
+   * 
+   * - `Medium`: Medium
+   * 
+   * - `Low`: Low
+   * 
+   * - `Unknown`: Unknown
    * 
    * @example
    * High
@@ -87,7 +90,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * The name of the image tag.
+   * The image version name.
    * 
    * @example
    * 1
@@ -95,7 +98,7 @@ export class ListRepoTagScanResultRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The keyword for fuzzy search used in scanning. The value can be a CVE name.
+   * The fuzzy search keyword for scanning. Fuzzy match by CVE name is supported.
    * 
    * @example
    * CVE-2021

@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $dara.Model {
   /**
    * @remarks
-   * Deny action. Valid values:
+   * The blocking action. Valid values:
    * 
-   * - `BLOCK`: Block further execution of the delivery chain
+   * - `BLOCK`: Blocks the delivery chain from continuing execution.
    * 
-   * - `BLOCK_RETAG`: Block overwriting and pushing image tags
+   * - `BLOCK_RETAG`: Blocks and overwrites the pushed image tag.
    * 
-   * - `BLOCK_DELETE_TAG`: Block deleting image tags
+   * - `BLOCK_DELETE_TAG`: Blocks and deletes the image tag.
    * 
    * @example
    * BLOCK
@@ -19,7 +19,7 @@ export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $d
   action?: string;
   /**
    * @remarks
-   * Collection of baseline samples to block. Separate multiple baseline sample names with commas.
+   * The collection of baseline samples to block. Separate multiple baseline sample names with commas (,).
    * 
    * @example
    * identification,hc_image_exploit
@@ -27,7 +27,7 @@ export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $d
   baselineList?: string;
   /**
    * @remarks
-   * Number of scanned vulnerabilities that triggers a block
+   * The number of vulnerabilities that triggers blocking.
    * 
    * @example
    * 10
@@ -35,7 +35,7 @@ export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $d
   issueCount?: string;
   /**
    * @remarks
-   * The vulnerability Level at which blocking is triggered during a scan
+   * The vulnerability severity level that triggers blocking.
    * 
    * @example
    * HIGH
@@ -43,7 +43,7 @@ export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $d
   issueLevel?: string;
   /**
    * @remarks
-   * Collection of CVE vulnerabilities to block. Separate multiple CVE vulnerability names with commas.
+   * The collection of CVE vulnerabilities to block. Separate multiple CVE vulnerability names with commas (,).
    * 
    * @example
    * CVE-2020-8286,CVE-2020-8285
@@ -51,7 +51,7 @@ export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $d
   issueList?: string;
   /**
    * @remarks
-   * The logic that triggers blocking upon scan detection
+   * The logic that triggers blocking during scanning.
    * 
    * @example
    * AND
@@ -59,7 +59,7 @@ export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $d
   logic?: string;
   /**
    * @remarks
-   * The collection of malicious samples to block, with multiple sample names separated by commas
+   * The collection of malicious samples to block. Separate multiple malicious sample names with commas (,).
    * 
    * @example
    * mutate_cockhorse,abnormal_program
@@ -101,12 +101,12 @@ export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $d
 export class GetChainResponseBodyChainConfigNodesNodeConfig extends $dara.Model {
   /**
    * @remarks
-   * Deny rules for scan nodes in the delivery chain
+   * The blocking policy for the scan node in the delivery chain.
    */
   denyPolicy?: GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy;
   /**
    * @remarks
-   * Retry Count
+   * The number of retries.
    * 
    * @example
    * 3
@@ -114,10 +114,10 @@ export class GetChainResponseBodyChainConfigNodesNodeConfig extends $dara.Model 
   retry?: number;
   /**
    * @remarks
-   * Scan engine for the delivery chain node  
+   * The scan engine of the delivery chain scan node. Valid values:
    * 
-   * - `SAS_SCAN_SERVICE`, Security Center scan engine (requires paid activation)  
-   * - `ACR_SCAN_SERVICE`, ACR scan engine
+   * - `SAS_SCAN_SERVICE`: Security Center scan engine (requires paid activation).
+   * - `ACR_SCAN_SERVICE`: ACR scan engine.
    * 
    * @example
    * ACR_SCAN_SERVICE
@@ -125,7 +125,7 @@ export class GetChainResponseBodyChainConfigNodesNodeConfig extends $dara.Model 
   scanEngine?: string;
   /**
    * @remarks
-   * Timeout (in seconds)
+   * The timeout period, in seconds.
    * 
    * @example
    * 900
@@ -164,11 +164,11 @@ export class GetChainResponseBodyChainConfigNodesNodeConfig extends $dara.Model 
 export class GetChainResponseBodyChainConfigNodes extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable the delivery chain edge zone. Valid values:
+   * Indicates whether the delivery chain node is enabled. Valid values:
    * 
-   * - `true`: Enable the delivery chain edge zone.
+   * - `true`: Enabled.
    * 
-   * - `false`: Do not enable the delivery chain edge zone.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -176,12 +176,12 @@ export class GetChainResponseBodyChainConfigNodes extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Delivery chain edge zone configuration
+   * The configuration of the delivery chain node.
    */
   nodeConfig?: GetChainResponseBodyChainConfigNodesNodeConfig;
   /**
    * @remarks
-   * Delivery chain edge zone name
+   * The name of the delivery chain node.
    * 
    * @example
    * VULNERABILITY_SCANNING
@@ -218,7 +218,7 @@ export class GetChainResponseBodyChainConfigNodes extends $dara.Model {
 export class GetChainResponseBodyChainConfigRoutersFrom extends $dara.Model {
   /**
    * @remarks
-   * source edge zone name
+   * The name of the source node.
    * 
    * @example
    * DOCKER_IMAGE_BUILD
@@ -248,7 +248,7 @@ export class GetChainResponseBodyChainConfigRoutersFrom extends $dara.Model {
 export class GetChainResponseBodyChainConfigRoutersTo extends $dara.Model {
   /**
    * @remarks
-   * destination edge zone name
+   * The name of the destination node.
    * 
    * @example
    * DOCKER_IMAGE_PUSH
@@ -278,12 +278,12 @@ export class GetChainResponseBodyChainConfigRoutersTo extends $dara.Model {
 export class GetChainResponseBodyChainConfigRouters extends $dara.Model {
   /**
    * @remarks
-   * source edge zone
+   * The source node.
    */
   from?: GetChainResponseBodyChainConfigRoutersFrom;
   /**
    * @remarks
-   * destination edge zone
+   * The destination node.
    */
   to?: GetChainResponseBodyChainConfigRoutersTo;
   static names(): { [key: string]: string } {
@@ -318,7 +318,7 @@ export class GetChainResponseBodyChainConfigRouters extends $dara.Model {
 export class GetChainResponseBodyChainConfig extends $dara.Model {
   /**
    * @remarks
-   * Delivery chain configuration ID
+   * The configuration ID of the delivery chain.
    * 
    * @example
    * cci-lz3ycgo69ukt****
@@ -328,9 +328,9 @@ export class GetChainResponseBodyChainConfig extends $dara.Model {
    * @remarks
    * Indicates whether the delivery chain configuration is active. Valid values:
    * 
-   * - `true`: The configuration is active.
+   * - `true`: Active.
    * 
-   * - `false`: The configuration is not active.
+   * - `false`: Inactive.
    * 
    * @example
    * true
@@ -338,17 +338,17 @@ export class GetChainResponseBodyChainConfig extends $dara.Model {
   isActive?: boolean;
   /**
    * @remarks
-   * Each edge zone in the delivery chain
+   * The nodes in the delivery chain.
    */
   nodes?: GetChainResponseBodyChainConfigNodes[];
   /**
    * @remarks
-   * Execution order relationships between edge zones in the delivery chain
+   * The execution order between delivery chain nodes.
    */
   routers?: GetChainResponseBodyChainConfigRouters[];
   /**
    * @remarks
-   * Delivery chain version
+   * The version of the delivery chain.
    * 
    * @example
    * 1
@@ -392,12 +392,12 @@ export class GetChainResponseBodyChainConfig extends $dara.Model {
 export class GetChainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Delivery chain configuration description
+   * The configuration of the delivery chain.
    */
   chainConfig?: GetChainResponseBodyChainConfig;
   /**
    * @remarks
-   * Delivery chain ID
+   * The delivery chain ID.
    * 
    * @example
    * chi-0ops0gsmw5x2****
@@ -405,7 +405,7 @@ export class GetChainResponseBody extends $dara.Model {
   chainId?: string;
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * success
@@ -413,7 +413,7 @@ export class GetChainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Delivery chain creation time
+   * The time when the delivery chain was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1638255427000
@@ -421,7 +421,7 @@ export class GetChainResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Delivery chain description
+   * The description of the delivery chain.
    * 
    * @example
    * description
@@ -429,7 +429,7 @@ export class GetChainResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * cri-4cdrlqmhn4gm****
@@ -437,7 +437,7 @@ export class GetChainResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -445,7 +445,7 @@ export class GetChainResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * Updated At of the delivery chain description
+   * The time when the delivery chain description was last modified. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1638259914000
@@ -453,7 +453,7 @@ export class GetChainResponseBody extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * Delivery chain name
+   * The name of the delivery chain.
    * 
    * @example
    * test
@@ -461,7 +461,7 @@ export class GetChainResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * C87993B5-7D61-5CAC-8D64-1AC732DD69FF
@@ -469,12 +469,12 @@ export class GetChainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Collection of repositories excluded from delivery chain execution
+   * The collection of repositories excluded from the delivery chain execution.
    */
   scopeExclude?: string[];
   /**
    * @remarks
-   * Delivery chain scope ID
+   * The scope ID of the delivery chain.
    * 
    * @example
    * crr-nyrh2oko32xb****
@@ -482,7 +482,7 @@ export class GetChainResponseBody extends $dara.Model {
   scopeId?: string;
   /**
    * @remarks
-   * Delivery chain scope type
+   * The scope type of the delivery chain.
    * 
    * @example
    * REPOSITORY

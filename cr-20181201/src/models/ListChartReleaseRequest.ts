@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChartReleaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The chart whose versions you want to query.
+   * The version prefix.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class ListChartReleaseRequest extends $dara.Model {
   chart?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListChartReleaseRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListChartReleaseRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class ListChartReleaseRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ListChartReleaseRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * This parameter is required.
    * 

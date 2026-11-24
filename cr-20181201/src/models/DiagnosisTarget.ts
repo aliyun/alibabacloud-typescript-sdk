@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnosisTarget extends $dara.Model {
   /**
    * @remarks
-   * The end of the diagnostic time window, in ISO 8601 format. Must be after `StartTime`.
+   * The end time of the diagnostic.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -15,12 +15,12 @@ export class DiagnosisTarget extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * A map of key-value pairs providing additional context for the diagnosis.
+   * The extra parameters.
    */
   extra?: { [key: string]: string };
   /**
    * @remarks
-   * The namespace that contains the repository.
+   * The namespace name.
    * 
    * @example
    * test_namespace
@@ -28,12 +28,12 @@ export class DiagnosisTarget extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of a related operation, such as a previous diagnostic task.
+   * The ID of the diagnosed item.
    */
   relatedId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test_repo
@@ -41,7 +41,7 @@ export class DiagnosisTarget extends $dara.Model {
   repository?: string;
   /**
    * @remarks
-   * The start of the diagnostic time window, in ISO 8601 format.
+   * The start time of the diagnostic.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -51,7 +51,7 @@ export class DiagnosisTarget extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The container image tag.
+   * The image tag.
    * 
    * @example
    * latest

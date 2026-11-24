@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   /**
    * @remarks
-   * The time when the repository was created.
+   * The time when the repository was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1564153576000
@@ -21,7 +21,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the repository was last modified.
+   * The time when the repository was last modified. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1564153576000
@@ -31,9 +31,9 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
    * @remarks
    * The repository build type. Valid values:
    * 
-   * - `AUTO`: Automatically triggered build.
+   * - `AUTO`: Automatically triggered.
    * 
-   * - `MANUAL`: Manually triggered build.
+   * - `MANUAL`: Manually triggered.
    * 
    * @example
    * MANUAL
@@ -93,7 +93,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The summary.
+   * The summary information.
    * 
    * @example
    * test OK
@@ -101,7 +101,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * The tag immutability of the image.
+   * The immutability of image tags.
    * 
    * @example
    * true
@@ -153,7 +153,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
 export class ListRepositoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -161,7 +161,7 @@ export class ListRepositoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -169,7 +169,7 @@ export class ListRepositoryResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of returned results.
    * 
    * @example
    * 30
@@ -177,7 +177,7 @@ export class ListRepositoryResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
+   * The token for the next page. If a next page exists, the service returns a NextToken value, which you can pass in the next request.
    * 
    * @example
    * *****V3MpHK1AP0pfERHZN5pu6lESTRpd5hnHNnmKOP/+w9F
@@ -193,7 +193,7 @@ export class ListRepositoryResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 30

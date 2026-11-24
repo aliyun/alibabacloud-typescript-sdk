@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelRepoSyncTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * success
@@ -13,10 +13,11 @@ export class CancelRepoSyncTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the CancelRepoSyncTask request is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   `true`: successful
-   * *   `false`: failed
+   * - `true`: The API call was successful.
+   * 
+   * - `false`: The API call failed.
    * 
    * @example
    * true

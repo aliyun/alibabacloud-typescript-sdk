@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRepoTagScanTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The return value.
    * 
    * @example
    * success
@@ -13,9 +13,9 @@ export class CreateRepoTagScanTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * - `true`: The API call succeeded.
+   * - `true`: The API call was successful.
    * 
    * - `false`: The API call failed.
    * 

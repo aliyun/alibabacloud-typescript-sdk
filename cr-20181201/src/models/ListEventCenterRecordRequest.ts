@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventCenterRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the event. Valid values:
-   * 
-   * *   `cr:Artifact:DeliveryChainCompleted`: The delivery chain is processed.
-   * *   `cr:Artifact:SynchronizationCompleted`: The image is replicated.
-   * *   `cr:Artifact:BuildCompleted`: The image is built.
-   * *   `cr:Artifact:ScanCompleted`: The image is scanned.
-   * *   `cr:Artifact:SigningCompleted`: The image is signed.
+   * The event type. Valid values:
+   * - `cr:Artifact:DeliveryChainCompleted`: Delivery chain processing completed.
+   * - `cr:Artifact:SynchronizationCompleted`: Image synchronization completed.
+   * - `cr:Artifact:BuildCompleted`: Image building completed.
+   * - `cr:Artifact:ScanCompleted`: Image scanning completed.
+   * - `cr:Artifact:SigningCompleted`: Image signing completed.
    * 
    * @example
    * cr:Artifact:DeliveryChainCompleted
@@ -19,7 +18,7 @@ export class ListEventCenterRecordRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +28,7 @@ export class ListEventCenterRecordRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -37,7 +36,7 @@ export class ListEventCenterRecordRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 30
@@ -45,7 +44,7 @@ export class ListEventCenterRecordRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test
@@ -53,7 +52,7 @@ export class ListEventCenterRecordRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The repository namespace name.
    * 
    * @example
    * test
@@ -61,7 +60,7 @@ export class ListEventCenterRecordRequest extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The ID of the event notification rule.
+   * The event rule ID.
    * 
    * @example
    * crecr-n6pbhgjxtla***

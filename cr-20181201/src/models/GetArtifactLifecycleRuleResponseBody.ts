@@ -129,7 +129,7 @@ export class GetArtifactLifecycleRuleResponseBodyPolicies extends $dara.Model {
 export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic execution is enabled.
+   * Indicates whether the rule is automatically executed.
    * 
    * @example
    * true
@@ -145,13 +145,16 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The creation time. This value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1571926439000
    */
   createTime?: number;
   /**
+   * @remarks
+   * Indicates whether DryRun mode is enabled. When DryRun mode is enabled, only lifecycle task scanning is performed, and actual data cleanup is not executed. This mode is disabled by default.
+   * 
    * @example
    * false
    */
@@ -167,6 +170,11 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
    */
   enableDeleteTag?: boolean;
   /**
+   * @remarks
+   * Indicates whether artifact cleanup is enabled.
+   * 
+   * Only one of this parameter and EnableDeleteTag can be set to true.
+   * 
    * @example
    * False
    */
@@ -193,7 +201,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The last modification time. This value is a UNIX timestamp in milliseconds.
+   * The last modification time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1638259914000
@@ -209,7 +217,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The next execution time. This value is a UNIX timestamp in milliseconds.
+   * The next execution time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1701878400000
@@ -238,7 +246,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of images to retain.
+   * The number of retained images.
    * 
    * @example
    * 30
@@ -270,7 +278,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The regular expression used to match image versions to retain.
+   * The regular expression used to retain image versions.
    * 
    * @example
    * .*-alpine

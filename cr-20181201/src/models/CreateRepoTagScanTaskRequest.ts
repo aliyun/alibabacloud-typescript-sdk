@@ -33,20 +33,25 @@ export class CreateRepoTagScanTaskRequest extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The scan engine type:
-   * 
-   * - `SAS_SCAN_SERVICE`: The cloud security scan engine. This is a paid service.
-   * 
-   * - `ACR_SCAN_SERVICE`: The ACR scan engine.
+   * The scan engine type. Valid values:
+   * - `SAS_SCAN_SERVICE`: Security Center scan engine (requires paid activation).
+   * - `ACR_SCAN_SERVICE`: ACR scan engine.
    * 
    * @example
    * ACR_SCAN_SERVICE
    */
   scanService?: string;
+  /**
+   * @remarks
+   * The image security scan type.
+   * 
+   * @example
+   * cve
+   */
   scanType?: string;
   /**
    * @remarks
-   * The image tag.
+   * The image version.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the endpoint. Set the value to Internet.
+   * The endpoint type. Only Internet is supported.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetInstanceEndpointRequest extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,11 @@ export class GetInstanceEndpointRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the module that you want to access. Valid values:
+   * The access module. Valid values:
    * 
-   * *   `Registry`: the image repository.
-   * *   `Chart`: a Helm chart.
+   * - `Registry`: image repository
+   * 
+   * - `Chart`: Helm chart
    * 
    * @example
    * Registry

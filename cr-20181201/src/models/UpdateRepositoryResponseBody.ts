@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRepositoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The return value.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoTriggerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRepoTriggerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the repository.
+   * The image repository ID.
    * 
    * This parameter is required.
    * 
