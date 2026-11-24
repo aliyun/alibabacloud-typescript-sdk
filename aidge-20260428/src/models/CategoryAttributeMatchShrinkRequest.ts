@@ -14,9 +14,6 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The URLs of the product images. Up to 10 images are supported.
-   * 
-   * @example
-   * https://frametour-assets.oss-cn-shanghai.aliyuncs.com/user-faces/viid_face/dd0dd06c-9351-4e5f-bc70-24166a754d7f.jpg
    */
   imageUrlShrink?: string;
   /**
@@ -61,7 +58,7 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * The target platform. Currently, only TEMU is supported.
+   * The target platform for product listing. Currently, only TEMU is supported.
    * 
    * This parameter is required.
    * 
@@ -76,7 +73,7 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Women\\"s spring new arrival clothing
+   * Women\\"s spring new clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

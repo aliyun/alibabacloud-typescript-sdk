@@ -22,8 +22,6 @@ export { EcomVideoRecreationRequestInputProductInfo } from './EcomVideoRecreatio
 export { EcomVideoRecreationRequestInput } from './EcomVideoRecreationRequest';
 export { EcomVideoRecreationRequestOutput } from './EcomVideoRecreationRequest';
 export { EcomVideoRecreationResponseBodyData } from './EcomVideoRecreationResponseBody';
-export { GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions } from './GeneralRephotographyDetectionResponseBody';
-export { GeneralRephotographyDetectionResponseBodyDataResultGrounding } from './GeneralRephotographyDetectionResponseBody';
 export { GeneralRephotographyDetectionResponseBodyDataResult } from './GeneralRephotographyDetectionResponseBody';
 export { GeneralRephotographyDetectionResponseBodyData } from './GeneralRephotographyDetectionResponseBody';
 export { GenerateProductContentResponseBodyData } from './GenerateProductContentResponseBody';
@@ -282,6 +280,9 @@ export { QueryDisplayKnowledgeRequest } from './QueryDisplayKnowledgeRequest';
 export { QueryDisplayKnowledgeShrinkRequest } from './QueryDisplayKnowledgeShrinkRequest';
 export { QueryDisplayKnowledgeResponseBody } from './QueryDisplayKnowledgeResponseBody';
 export { QueryDisplayKnowledgeResponse } from './QueryDisplayKnowledgeResponse';
+export { RealtimeSpeechTranslationRequest } from './RealtimeSpeechTranslationRequest';
+export { RealtimeSpeechTranslationResponseBody } from './RealtimeSpeechTranslationResponseBody';
+export { RealtimeSpeechTranslationResponse } from './RealtimeSpeechTranslationResponse';
 export { SizeChartDetectRequest } from './SizeChartDetectRequest';
 export { SizeChartDetectResponseBody } from './SizeChartDetectResponseBody';
 export { SizeChartDetectResponse } from './SizeChartDetectResponse';

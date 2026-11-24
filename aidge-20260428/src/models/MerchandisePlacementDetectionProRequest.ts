@@ -15,10 +15,10 @@ export class MerchandisePlacementDetectionProRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The detection rule. If this parameter is not empty, it is preferentially used as the model prompt.
+   * The detection rule. If this parameter is not empty, it takes precedence as the model prompt.
    * 
    * @example
-   * Recognize all Genki Forest beverages on the shelf and draw bounding boxes around them
+   * Recognize all Genki Forest beverages on the shelf and draw bounding boxes around their positions
    */
   rule?: string;
   /**

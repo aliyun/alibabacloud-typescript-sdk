@@ -48,7 +48,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   data?: DocumentTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message, such as "The parameters contain sensitive information. Try other inputs."
+   * The error message, such as "The parameter contains sensitive information. Try another input."
    * This parameter is not returned when the call is successful.
    * 
    * @example

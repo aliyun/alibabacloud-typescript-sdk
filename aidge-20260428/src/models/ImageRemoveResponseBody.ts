@@ -13,7 +13,7 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The URL of the result image after removal.
+   * The URL of the result image.
    * 
    * @example
    * “http://dashscope-7c2c.oss-cn-shanghai.aliyuncs.com/xxx.jpg
@@ -77,7 +77,7 @@ export class ImageRemoveResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The intelligent removal result.
+   * The object removal result.
    */
   data?: ImageRemoveResponseBodyData;
   /**
@@ -98,7 +98,7 @@ export class ImageRemoveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

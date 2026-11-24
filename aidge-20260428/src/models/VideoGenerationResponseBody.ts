@@ -48,7 +48,7 @@ export class VideoGenerationResponseBodyData extends $dara.Model {
 export class VideoGenerationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. success indicates a successful call, and failed indicates a failed call.
+   * The response code. This parameter is not returned for successful calls. A value of success indicates a successful call, and a value of failed indicates a failed call.
    * 
    * @example
    * success
@@ -61,7 +61,7 @@ export class VideoGenerationResponseBody extends $dara.Model {
   data?: VideoGenerationResponseBodyData;
   /**
    * @remarks
-   * The returned message. An error message is returned when the call fails.
+   * The return message. This parameter is not returned for successful calls. An error message is returned when the call fails.
    * 
    * @example
    * Success
@@ -77,7 +77,7 @@ export class VideoGenerationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. true indicates success, and false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

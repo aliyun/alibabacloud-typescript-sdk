@@ -26,7 +26,7 @@ export class AddDisplayKnowledgeRequestRecords extends $dara.Model {
    * The SKU name.
    * 
    * @example
-   * Product front image
+   * Front image of the product
    */
   skuName?: string;
   static names(): { [key: string]: string } {

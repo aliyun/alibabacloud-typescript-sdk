@@ -13,7 +13,7 @@ export class VacancyDetectionResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage details. This parameter is left empty during asynchronous commit and is populated by scheduling after the node reaches the desired state.
+   * The usage details. This field is left empty during asynchronous commit and is populated by scheduling after the node reaches the desired state.
    * 
    * @example
    * {"ProcessingCount":1}
@@ -59,7 +59,7 @@ export class VacancyDetectionResponseBody extends $dara.Model {
    * The submission result of the asynchronous task.
    * 
    * @example
-   * {\\"TaskId\\": \\"TID_2f567233-78dd-4226-8b69-ac9288a66da0\\"}
+   * {"TaskId":"TID_2f567233-78dd-4226-8b69-ac9288a66da0"}
    */
   data?: VacancyDetectionResponseBodyData;
   /**

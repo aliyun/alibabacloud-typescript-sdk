@@ -15,7 +15,7 @@ export class VirtualTryOnRequest extends $dara.Model {
   clothImageUrl?: string;
   /**
    * @remarks
-   * The garment type. Valid values: tops, bottoms, dresses, tops_and_bottoms, shoes, and hats. If you do not specify this parameter, the system automatically recognizes the garment type.
+   * The type of the garment. Valid values: tops, bottoms, dresses, tops_and_bottoms, shoes, and hats. If this parameter is not specified, the system automatically recognizes the garment type.
    * 
    * @example
    * tops
@@ -33,7 +33,7 @@ export class VirtualTryOnRequest extends $dara.Model {
   modelImageUrl?: string;
   /**
    * @remarks
-   * Required. The image resolution. Valid values: 1K and 2K.
+   * Required. The resolution of the generated image. Valid values: 1K and 2K.
    * 
    * This parameter is required.
    * 

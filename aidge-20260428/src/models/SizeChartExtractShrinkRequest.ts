@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SizeChartExtractShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of column names (such as Size, Bust, and Length).
+   * The list of column names, such as Size, Bust, and Length.
    * 
    * @example
    * ["Size","Bust","Length"]
@@ -13,7 +13,7 @@ export class SizeChartExtractShrinkRequest extends $dara.Model {
   columnNameListShrink?: string;
   /**
    * @remarks
-   * The URL of the size chart image to extract.
+   * The URL of the image from which the size chart is extracted.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class SizeChartExtractShrinkRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The language model (such as en and cn).
+   * The language model, such as en and cn.
    * 
    * @example
    * en

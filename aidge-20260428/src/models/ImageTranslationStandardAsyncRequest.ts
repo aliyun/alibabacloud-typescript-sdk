@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationStandardAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The business order ID of the caller. It is recorded upon acceptance and returned as-is when querying the asynchronous task result.
+   * The business order ID of the caller. This ID is recorded upon acceptance and returned as-is when querying the asynchronous task result.
    * 
    * @example
    * order-20260928-001
@@ -59,7 +59,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate the brand text in the product area.
+   * Specifies whether to translate brand text in the product area.
    * 
    * @example
    * true

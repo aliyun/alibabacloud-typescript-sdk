@@ -21,7 +21,7 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The index of the item in the original request array.
+   * The index in the original request array.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The SKU ID. This parameter is empty in the deletion result.
+   * The SKU ID. This parameter is empty in deletion results.
    * 
    * @example
    * sku-001
@@ -45,15 +45,15 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   skuId?: string;
   /**
    * @remarks
-   * The record status. This parameter is empty in the deletion result.
+   * The record status. This parameter is empty in deletion results.
    * 
    * @example
-   * Empty for the delete operation
+   * Empty for deletion operations
    */
   status?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True
@@ -127,7 +127,7 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The status of the knowledge base.
+   * The knowledge base status.
    * 
    * @example
    * UPDATING
@@ -151,12 +151,12 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   remainingCount?: number;
   /**
    * @remarks
-   * The processing result of each record.
+   * The processing results for each record.
    */
   results?: DeleteDisplayKnowledgeResponseBodyDataResults[];
   /**
    * @remarks
-   * Indicates whether the business processing was successful.
+   * Indicates whether the business processing is successful.
    * 
    * @example
    * True
@@ -164,7 +164,7 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the asynchronous task. This parameter is empty for synchronous API operations.
+   * The asynchronous task ID. This parameter is empty for synchronous API operations.
    * 
    * @example
    * task-xxxxx
@@ -236,7 +236,7 @@ export class DeleteDisplayKnowledgeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of deleting content from the display knowledge base.
+   * The deletion result of the display knowledge base content.
    */
   data?: DeleteDisplayKnowledgeResponseBodyData;
   /**
@@ -257,7 +257,7 @@ export class DeleteDisplayKnowledgeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

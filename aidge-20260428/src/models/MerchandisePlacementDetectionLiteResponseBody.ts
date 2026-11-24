@@ -18,7 +18,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultGroundingReg
   label?: string;
   /**
    * @remarks
-   * The confirmable short name or text of up to 24 characters. This field is an empty string if the text is unclear.
+   * The confirmable short name or text of up to 24 characters. This is an empty string when the text is unclear.
    * 
    * @example
    * 5.50
@@ -55,8 +55,8 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultGroundingReg
 export class MerchandisePlacementDetectionLiteResponseBodyDataResultGrounding extends $dara.Model {
   /**
    * @remarks
-   * The coverage status of the grounding. Valid values:
-   * - complete: All relevant visible targets are complete.
+   * The coverage status. Valid values:
+   * - complete: The relevant visible targets are complete.
    * - partial: Only some targets are valid or recognizable.
    * - Empty string: No valid supplementary grounding result is obtained.
    * 
@@ -66,7 +66,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultGrounding ex
   coverage?: string;
   /**
    * @remarks
-   * The array of targets, containing up to 12 items. This array can be empty if no relevant targets are found.
+   * The target array, which contains up to 12 items. This array can be empty when no relevant targets exist.
    */
   regions?: MerchandisePlacementDetectionLiteResponseBodyDataResultGroundingRegions[];
   static names(): { [key: string]: string } {
@@ -163,7 +163,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultProducts ext
   boxes?: MerchandisePlacementDetectionLiteResponseBodyDataResultProductsBoxes[];
   /**
    * @remarks
-   * The recognition code, which is obtained by removing the _ce suffix from the recognition name.
+   * The recognition code, which is obtained by removing the trailing _ce from the recognition name.
    * 
    * @example
    * sku_test
@@ -208,12 +208,12 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResult extends $da
   products?: MerchandisePlacementDetectionLiteResponseBodyDataResultProducts[];
   /**
    * @remarks
-   * The deduplicated list of SkuId values.
+   * The deduplicated list of SkuIds.
    */
   skuIds?: string[];
   /**
    * @remarks
-   * The result type. The value is fixed as sku.
+   * The type, which is fixed to sku.
    * 
    * @example
    * sku

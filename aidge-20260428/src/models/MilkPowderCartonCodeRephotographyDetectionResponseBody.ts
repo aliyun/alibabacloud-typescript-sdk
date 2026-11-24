@@ -7,8 +7,8 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
    * @remarks
    * The bounding box coordinates.
    * - `[top-left x, top-left y, bottom-right x, bottom-right y]`
-   * - Value range: 0 to 1000.
-   * - The left value must be less than the right value, and the top value must be less than the bottom value.
+   * - Value range: 0–1000.
+   * - Left < right, top < bottom.
    */
   bbox2d?: number[];
   /**
@@ -21,7 +21,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
   label?: string;
   /**
    * @remarks
-   * The confirmed short name or text, up to 24 characters. If the text is unclear, an empty string is returned.
+   * The recognized text. It contains up to 24 characters of a confirmed short name or text. It is an empty string if the text is unclear.
    * 
    * @example
    * Milk powder
@@ -68,7 +68,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
   coverage?: string;
   /**
    * @remarks
-   * The target array, containing up to 12 items. This array can be empty if no relevant targets are found.
+   * The target array. It contains up to 12 items. It can be empty if no relevant targets are found.
    */
   regions?: MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGroundingRegions[];
   static names(): { [key: string]: string } {
@@ -100,12 +100,12 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
 export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The supplementary element grounding result.
+   * The supplementary element localization result.
    */
   grounding?: MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGrounding;
   /**
    * @remarks
-   * Indicates whether the image is recaptured.
+   * Indicates whether the image is a recapture.
    * 
    * @example
    * true
@@ -113,7 +113,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult ex
   isFake?: boolean;
   /**
    * @remarks
-   * Indicates whether the image is suspected to be recaptured.
+   * Indicates whether the image is suspected to be a recapture.
    * 
    * @example
    * true
@@ -140,7 +140,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult ex
   score?: number;
   /**
    * @remarks
-   * Fixed to `boxCode`.
+   * The detection type. Fixed to `boxCode`.
    * 
    * @example
    * boxCode
@@ -188,7 +188,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyData extends 
   result?: MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult;
   /**
    * @remarks
-   * The usage information. If the call is successful, the value is `{"ProcessingCount":1}`. If the call fails, the value is an empty object.
+   * The usage information. It is `{"ProcessingCount":1}` if the call is successful, or an empty object if the call fails.
    * 
    * @example
    * {"ProcessingCount":1}
@@ -239,7 +239,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBody extends $dar
   data?: MilkPowderCartonCodeRephotographyDetectionResponseBodyData;
   /**
    * @remarks
-   * The returned message or failure description.
+   * The response message or failure description.
    * 
    * @example
    * Success

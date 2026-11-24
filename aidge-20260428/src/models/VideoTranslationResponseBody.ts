@@ -48,7 +48,7 @@ export class VideoTranslationResponseBody extends $dara.Model {
   data?: VideoTranslationResponseBodyData;
   /**
    * @remarks
-   * The message.
+   * The description message.
    * 
    * @example
    * Translation processing
@@ -56,7 +56,7 @@ export class VideoTranslationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * req_20260608_jkl012
@@ -64,7 +64,9 @@ export class VideoTranslationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: `true`: The call is successful. `false`: The call fails.
+   * Indicates whether the call is successful. Valid values:
+   * - `true`: The call is successful.
+   * - `false`: The call fails.
    * 
    * @example
    * True

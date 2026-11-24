@@ -13,10 +13,10 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * - Image URL: Must be publicly accessible over the Internet.
+   * - Image URL: Must be publicly accessible.
    * - Formats: PNG, JPEG, JPG, BMP, and WEBP.
-   * - Pixels: Both width and height must not exceed 4,000 pixels.
-   * - File size: The original file must be 10 MB or smaller.
+   * - Pixels: Both width and height must not exceed 4,000.
+   * - File size: The original file must be 10 MB or less.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate the text on the product subject in the image. This parameter is optional. Default value: true. This helps protect the subject information from being translated, avoiding the translation of embedded information such as product names.
+   * Specifies whether to translate the text on the product subject in the image. This parameter is optional. Default value: true. This helps protect the subject information from being translated, preventing the translation of embedded information such as product names.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate brand names in the image. This parameter is optional. Default value: false. This helps protect brand name information from being translated.
+   * Specifies whether to translate the brand names in the image. This parameter is optional. Default value: false. This helps protect brand name information from being translated.
    * 
    * @example
    * false
@@ -66,7 +66,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * Specifies whether to return layer information such as text position, font, and color. If this parameter is set to true, layer information is returned, which can be used to integrate with image editors for secondary editing. Default value: false.
+   * Specifies whether to return layer information such as the position, font, and color of the text. If this parameter is set to true, layer information is returned and can be used to integrate with an image editor for secondary editing. Default value: false.
    * 
    * @example
    * false

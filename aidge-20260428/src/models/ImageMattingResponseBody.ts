@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageMattingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The height of the result image. Unit: pixels.
+   * The height of the result image, in pixels.
    * 
    * @example
    * 800
@@ -13,7 +13,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The URL of the result image.
+   * The URL of the matting result image.
    * 
    * @example
    * http://dashscope-7c2c.oss-cn-shanghai.aliyuncs.com/xxx.jpg
@@ -29,7 +29,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The returned layer information. This includes the URL of the original image, the URL of the matting result, and the matting area information.
+   * The returned layer information, which includes the original image URL, the matting result URL, and the matting area information.
    * 
    * @example
    * "origin_url": "xxx",
@@ -56,7 +56,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   usageMap?: { [key: string]: number };
   /**
    * @remarks
-   * The width of the result image. Unit: pixels.
+   * The width of the result image, in pixels.
    * 
    * @example
    * 800
@@ -107,7 +107,7 @@ export class ImageMattingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The image matting result.
+   * The matting result.
    */
   data?: ImageMattingResponseBodyData;
   /**
@@ -129,8 +129,8 @@ export class ImageMattingResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call fails.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True

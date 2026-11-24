@@ -13,7 +13,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The task result.
+   * The node result.
    * 
    * @example
    * {\\"url\\":\\"https://aidge-bailian-oss.oss-cn-beijing.aliyuncs.com/gaolinfeng/pdf_trans/translated_en.pdf?security-token=CAISzwJ1q6Ft5B2yfSjIr5ntKv7urOdn9YTeaVbb1lQRfcxi2Kz%2BgDz2IHhMeHFgAeAbs%2Fw%2Fm29W6v4SlqZdVplOWU3Da%2BB364xK7Q754wRDcULuv9I%2Bk5SANTW5KXyShb3%2FAYjQSNfaZY3eCTTtnTNyxr3XbCirW0ffX7SClZ9gaKZ8PGD6F00kYu1bPQx%2FssQXGGLMPPK2SH7Qj3HXEVBjt3gX6wo9y9zmk53FsUWA1QKmlr9F%2BdWhGPX%2BMZkwZqUYesyuwel7epDG1CNt8BVQ%2FM909vccoWuf7onNXgQJs0rZbbaMoscSJQ51aaV%2FFaUBt%2FXmi%2Fxzt6nJkID626jAvGbZzsW0rumBtyikcIvBXr5RHT3rIrVAU%2BuEf19557bo3dbfkNdWOrtHZDY5Qn9nURKxAbSEg2uBaWTIIJPmvc97r9wbhjuH87JeC0jQHt3xuRqAATp5EbLOeo%2BZktMLbi%2FUsZgcvdIEIv3tPBCYfyJnh%2Bj6U8IyaLKQYHQBtjsfyMngFfS09jFdjBcUebzvYJs21gyU5u%2FZ9SeReh%2FacuIMVoggWy3o9Y%2BnBA2QPCcKqVM7XlwriM%2FJOAyhvj%2Bjtj7BUoyD%2BrSgF5brq5ykjN7t2U7oIAA%3D&OSSAccessKeyId=STS.NZXaDZA8FBF5kpj2TDqCN7iUb&Expires=1780315869&Signature=CdbMkhcED4Ovhw438ZVe5nzU1mk%3D\\"}
@@ -21,7 +21,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the task.
    * 
    * @example
    * COMPLETED
@@ -86,7 +86,7 @@ export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of the asynchronous task.
+   * The asynchronous node result.
    */
   data?: QueryAsyncTaskResultResponseBodyData;
   /**
@@ -107,7 +107,9 @@ export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True

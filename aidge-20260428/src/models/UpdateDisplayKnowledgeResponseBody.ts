@@ -21,7 +21,7 @@ export class UpdateDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The index of the original request array.
+   * The index in the original request array.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class UpdateDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the record was accepted.
+   * Indicates whether the record is accepted.
    * 
    * @example
    * True
@@ -143,12 +143,12 @@ export class UpdateDisplayKnowledgeResponseBodyData extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The processing results for each record.
+   * The processing result of each record.
    */
   results?: UpdateDisplayKnowledgeResponseBodyDataResults[];
   /**
    * @remarks
-   * Indicates whether the business processing was successful.
+   * Indicates whether the business processing is successful.
    * 
    * @example
    * True
@@ -156,7 +156,7 @@ export class UpdateDisplayKnowledgeResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The asynchronous task ID. This parameter is empty for synchronous API operations.
+   * The asynchronous task ID. This field is empty for synchronous API operations.
    * 
    * @example
    * ed9d8504-6141-9fbb-8345-4fa36433483f
@@ -164,7 +164,7 @@ export class UpdateDisplayKnowledgeResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage information. This parameter is empty for free API operations.
+   * The usage information. This field is empty for free API operations.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -226,12 +226,12 @@ export class UpdateDisplayKnowledgeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The modification result of the display knowledge base content.
+   * The content modification result of the display knowledge base.
    */
   data?: UpdateDisplayKnowledgeResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The returned message or failure description.
    * 
    * @example
    * success
@@ -247,7 +247,7 @@ export class UpdateDisplayKnowledgeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

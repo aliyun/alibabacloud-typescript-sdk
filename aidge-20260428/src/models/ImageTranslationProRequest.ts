@@ -13,7 +13,7 @@ export class ImageTranslationProRequest extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * The ID of the intervention glossary. This parameter is optional. You must create the glossary in the console and provide its ID. If the provided intervention glossary ID is empty, the translation results are not modified.
+   * The ID of the intervention glossary. This parameter is optional. You must create the glossary in the console and provide its ID. If the intervention glossary ID is empty, the translation results are not modified.
    * 
    * @example
    * glossary_1
@@ -23,10 +23,10 @@ export class ImageTranslationProRequest extends $dara.Model {
    * @remarks
    * The URL of the original image. This parameter is required.  
    * Image requirements:  
-   * • Image URL: The image must be accessible over the Internet.   
-   * • Format: PNG, JPEG, JPG, BMP, or WebP.   
-   * • Pixels: The width and height must not exceed 4,000 pixels.  
-   * • File size: The original file size must not exceed 10 MB.
+   * - Image URL: Must be publicly accessible.   
+   * - Formats: PNG, JPEG, JPG, BMP, and WebP.   
+   * - Pixels: Both width and height must not exceed 4,000 pixels.  
+   * - File size: The original file must be less than or equal to 10 MB.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ImageTranslationProRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate the text on the image subject. This parameter is optional. Default value: false. This helps you protect information and prevents embedded information such as product names from being translated.
+   * Specifies whether to translate the text on the product subject in the image. Default value: false. This helps protect information and prevents embedded information such as product names from being translated.
    * 
    * @example
    * false
@@ -68,7 +68,7 @@ export class ImageTranslationProRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate brand names in the image. This parameter is optional. Default value: false. This helps you protect brand name information from being translated.
+   * Specifies whether to translate brand names in the image. Default value: false. This helps protect brand name information from being translated.
    * 
    * @example
    * false

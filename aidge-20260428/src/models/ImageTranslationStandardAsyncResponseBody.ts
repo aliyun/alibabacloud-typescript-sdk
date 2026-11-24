@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationStandardAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task used to query the asynchronous task result.
+   * The task ID used to query the asynchronous task result.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000

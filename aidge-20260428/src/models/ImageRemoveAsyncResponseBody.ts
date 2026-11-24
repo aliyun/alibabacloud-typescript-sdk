@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemoveAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID, which is used to query the result of the asynchronous task.
+   * The task ID used to query the asynchronous task result.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class ImageRemoveAsyncResponseBodyData extends $dara.Model {
 export class ImageRemoveAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code, such as "success". This parameter is not returned for successful calls.
+   * The status code, such as "success".
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class ImageRemoveAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to identify a unique request.
+   * The request ID, which is used to identify a unique request call.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,9 +64,7 @@ export class ImageRemoveAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call fails.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

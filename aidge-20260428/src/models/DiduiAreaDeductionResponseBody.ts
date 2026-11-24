@@ -104,7 +104,7 @@ export class DiduiAreaDeductionResponseBodyData extends $dara.Model {
    * The downstream HTTP status code.
    * 
    * @example
-   * OK
+   * 200
    */
   httpStatus?: number;
   /**

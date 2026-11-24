@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssetOptimizeProShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of column names to be recognized in the size chart. This parameter is optional.
+   * The list of column names to be recognized in the size chart. Optional.
    * 
    * @example
    * ["Bust","Waist","Hip"]
@@ -13,7 +13,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   columnNameListShrink?: string;
   /**
    * @remarks
-   * The ID of the intervention glossary. This parameter is optional. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
+   * The ID of the intervention glossary. Optional. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
    * 
    * @example
    * glossary_1
@@ -29,7 +29,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * The output language format for the size chart. If this parameter is left empty, the original language is used. Valid values: en for English, cn for Chinese.
+   * The output language format for the size chart. If this parameter is left empty, the original language is used. Set this parameter to en for English output or cn for Chinese output.
    * 
    * @example
    * cn
@@ -47,7 +47,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   needTrans?: boolean;
   /**
    * @remarks
-   * The product URL. This parameter is required. Currently, only 1688 product links are supported.
+   * The product URL. Required. Only 1688 product links are supported.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   productUrl?: string;
   /**
    * @remarks
-   * The source language code. This parameter is optional. For supported language pairs, see the list of supported translation languages. This parameter is required if NeedTrans is set to true.
+   * The source language code. Optional. For supported language pairs, refer to the list of supported translation language pairs. Required if NeedTrans is set to true.
    * 
    * @example
    * zh
@@ -65,7 +65,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The source platform. Currently, only 1688 is supported.
+   * The source platform. Only 1688 is supported.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * The target language code. This parameter is optional. For supported language pairs, see the list of supported translation languages. This parameter is required if NeedTrans is set to true.
+   * The target language code. Optional. For supported language pairs, refer to the list of supported translation language pairs. Required if NeedTrans is set to true.
    * 
    * @example
    * en
@@ -83,7 +83,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * The target platform for product listing. Currently, only TEMU is supported.
+   * The target platform for listing. Only TEMU is supported.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class AssetOptimizeProShrinkRequest extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * Specifies whether to translate brand names in images. This parameter is optional. Default value: false. This helps protect brand names from being translated.
+   * Specifies whether to translate the brand name in the image. Optional. Default value: false. This helps protect brand name information from being translated.
    * 
    * @example
    * false

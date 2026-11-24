@@ -35,7 +35,7 @@ export class AssetOptimizeProResponseBodyData extends $dara.Model {
 export class AssetOptimizeProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of success is returned for successful calls.
+   * The status code. A value of success indicates a successful call.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class AssetOptimizeProResponseBody extends $dara.Model {
   data?: AssetOptimizeProResponseBodyData;
   /**
    * @remarks
-   * The error message. A value of Success is returned for successful calls.
+   * The error message. A value of Success is returned for a successful call.
    * 
    * @example
    * Success

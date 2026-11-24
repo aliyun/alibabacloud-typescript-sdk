@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MerchandisePlacementDetectionResponseBodyDataDataTop1 extends $dara.Model {
   /**
    * @remarks
-   * The similarity score. Valid values: 0 to 1.
+   * The similarity score, which ranges from 0 to 1.
    * 
    * @example
    * 0.53
@@ -63,7 +63,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
   rank?: number;
   /**
    * @remarks
-   * The similarity score. Valid values: 0 to 1.
+   * The similarity score, which ranges from 0 to 1.
    * 
    * @example
    * 0.82
@@ -115,20 +115,20 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
 export class MerchandisePlacementDetectionResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * The coordinates of the detection box in the [x1,y1,x2,y2] format.
+   * The coordinates of the bounding box in the [x1,y1,x2,y2] format.
    */
   bbox?: number[];
   /**
    * @remarks
-   * The reason for the failure of the detection box. This parameter is null if the detection is successful.
+   * The reason why the bounding box processing failed. This parameter is null if the processing is successful.
    * 
    * @example
-   * "Embedding failed"
+   * Embedding failed
    */
   error?: string;
   /**
    * @remarks
-   * The index of the detection box.
+   * The index of the bounding box.
    * 
    * @example
    * 1
@@ -136,12 +136,12 @@ export class MerchandisePlacementDetectionResponseBodyDataData extends $dara.Mod
   idx?: number;
   /**
    * @remarks
-   * The top-1 retrieved product for the detection box.
+   * The top-1 retrieved product for the bounding box.
    */
   top1?: MerchandisePlacementDetectionResponseBodyDataDataTop1;
   /**
    * @remarks
-   * The list of top-K retrieved products for the detection box.
+   * The list of top-K retrieved products for the bounding box.
    */
   topk?: MerchandisePlacementDetectionResponseBodyDataDataTopk[];
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class MerchandisePlacementDetectionResponseBodyDataData extends $dara.Mod
 export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of valid detection boxes.
+   * The number of valid bounding boxes.
    * 
    * @example
    * 100
@@ -193,7 +193,7 @@ export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
   boxCount?: number;
   /**
    * @remarks
-   * The list of retrieval details for each detection box.
+   * The list of retrieval details for each bounding box.
    */
   data?: MerchandisePlacementDetectionResponseBodyDataData[];
   /**

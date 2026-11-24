@@ -168,7 +168,7 @@ export class MerchandisePriceTagDetectionResponseBodyDataResultPriceTags extends
   originalPrice?: string;
   /**
    * @remarks
-   * The selling price, retained as a string.
+   * The selling price, retained as a character string.
    * 
    * @example
    * 5.50
@@ -230,12 +230,12 @@ export class MerchandisePriceTagDetectionResponseBodyDataResult extends $dara.Mo
   grounding?: MerchandisePriceTagDetectionResponseBodyDataResultGrounding;
   /**
    * @remarks
-   * The list of price tags. This can be an empty array if no price tags are recognized.
+   * The list of price tags. This can be an empty array if no price tags are recognized under normal conditions.
    */
   priceTags?: MerchandisePriceTagDetectionResponseBodyDataResultPriceTags[];
   /**
    * @remarks
-   * Fixed to priceTag.
+   * The fixed value priceTag.
    * 
    * @example
    * priceTag
@@ -275,7 +275,7 @@ export class MerchandisePriceTagDetectionResponseBodyDataResult extends $dara.Mo
 export class MerchandisePriceTagDetectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the detection and recognition result.
+   * The detection and recognition result details.
    */
   result?: MerchandisePriceTagDetectionResponseBodyDataResult;
   /**
@@ -326,12 +326,12 @@ export class MerchandisePriceTagDetectionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The recognition result.
+   * The scenario recognition result.
    */
   data?: MerchandisePriceTagDetectionResponseBodyData;
   /**
    * @remarks
-   * The returned message or failure description.
+   * The response message or failure description.
    * 
    * @example
    * Success
@@ -347,7 +347,7 @@ export class MerchandisePriceTagDetectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

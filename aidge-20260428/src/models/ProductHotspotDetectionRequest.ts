@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ProductHotspotDetectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The HTTPS URLs of reference images that define the SKU whitelist. A maximum of 20 images are supported.
+   * The HTTPS URLs of the reference images that define the SKU whitelist. A maximum of 20 images are supported.
    * 
    * This parameter is required.
    */
   referenceImageUrls?: string[];
   /**
    * @remarks
-   * The unique business ID for this single-scene call.
+   * The unique business ID for the single-scene call.
    * 
    * @example
    * hotspot-request-001

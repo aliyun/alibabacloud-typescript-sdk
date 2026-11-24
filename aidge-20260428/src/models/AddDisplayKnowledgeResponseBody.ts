@@ -21,7 +21,7 @@ export class AddDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The index in the original request array.
+   * The index of the original request array.
    * 
    * @example
    * 3
@@ -45,7 +45,7 @@ export class AddDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   skuId?: string;
   /**
    * @remarks
-   * The record status.
+   * The status of the record.
    * 
    * @example
    * UPDATING-Updating
@@ -129,7 +129,7 @@ export class AddDisplayKnowledgeResponseBodyData extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The knowledge base status.
+   * The status of the knowledge base.
    * 
    * @example
    * UPDATING-Updating
@@ -147,7 +147,7 @@ export class AddDisplayKnowledgeResponseBodyData extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The processing results for each record.
+   * The processing result of each record.
    */
   results?: AddDisplayKnowledgeResponseBodyDataResults[];
   /**
@@ -235,7 +235,7 @@ export class AddDisplayKnowledgeResponseBody extends $dara.Model {
   data?: AddDisplayKnowledgeResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The returned message or failure description.
    * 
    * @example
    * Success

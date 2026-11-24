@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResultGroundingRegions extends $dara.Model {
   /**
    * @remarks
-   * The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. The value range is 0 to 1000. The left coordinate is less than the right coordinate, and the top coordinate is less than the bottom coordinate.
+   * The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. The values range from 0 to 1000. The left coordinate is less than the right coordinate, and the top coordinate is less than the bottom coordinate.
    */
   bbox2d?: number[];
   /**
@@ -102,7 +102,7 @@ export class MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResult
   grounding?: MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResultGrounding;
   /**
    * @remarks
-   * Indicates whether the image is recaptured.
+   * Indicates whether the image is a recapture.
    * 
    * @example
    * true
@@ -110,7 +110,7 @@ export class MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResult
   isFake?: boolean;
   /**
    * @remarks
-   * The detection type, which is fixed to canBottom.
+   * The detection type. Fixed to canBottom.
    * 
    * @example
    * canBottom

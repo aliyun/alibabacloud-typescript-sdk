@@ -13,7 +13,7 @@ export class SizeChartDetectResponseBodyData extends $dara.Model {
   isSizeChart?: boolean;
   /**
    * @remarks
-   * The usage information. The key is the usage name and the value is the count.
+   * The usage information. The key is the usage metric name and the value is the count.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -48,7 +48,7 @@ export class SizeChartDetectResponseBodyData extends $dara.Model {
 export class SizeChartDetectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned when the call is successful.
    * 
    * @example
    * 200
@@ -61,7 +61,7 @@ export class SizeChartDetectResponseBody extends $dara.Model {
   data?: SizeChartDetectResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
    * OK
@@ -77,9 +77,9 @@ export class SizeChartDetectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VisionFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI capabilities to be processed. Multiple values are supported. Valid values: 1 (Intelligent element recognition), 2 (Intelligent cutout), 3 (Intelligent erasure), 4 (Image translation Pro), 5 (Intelligent cropping), and 6 (High-definition upscaling).
+   * The AI capabilities to be processed. Valid values: 1 for intelligent element recognition, 2 for intelligent cutout, 3 for intelligent erasure, 4 for image translation Pro, 5 for intelligent cropping, and 6 for high-definition upscaling. You can specify multiple values.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class VisionFlowRequest extends $dara.Model {
   ability?: number[];
   /**
    * @remarks
-   * The background type of the returned image. Valid values: WHITE_BACKGROUND (White background image) and TRANSPARENT (Transparent background image). Required when the intelligent cutout capability is selected.
+   * The background type of the returned image. Valid values: WHITE_BACKGROUND (white background) and TRANSPARENT (transparent background). Required if you select the intelligent cutout capability.
    * 
    * @example
    * WHITE_BACKGROUND
@@ -23,7 +23,7 @@ export class VisionFlowRequest extends $dara.Model {
   backGroundType?: string;
   /**
    * @remarks
-   * The ID of the intervention glossary. Optional. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
+   * The ID of the intervention glossary. Optional. You must create the glossary in the console and provide its ID. If this parameter is empty, the translation results are not modified.
    * 
    * @example
    * glossary_1
@@ -31,7 +31,7 @@ export class VisionFlowRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * The URL of the image to be processed. Required. The resolution must be greater than 256×256, the long side must not exceed 1920 pixels, and the short side must not exceed 1080 pixels. The size must not exceed 5 MB. Supported formats include PNG, JPEG, JPG, BMP, and WEBP.
+   * The URL of the image to be processed. Required. The resolution must be greater than 256×256, the long edge must not exceed 1920 pixels, and the short edge must not exceed 1080 pixels. The maximum size is 5 MB. Supported formats include PNG, JPEG, JPG, BMP, and WEBP.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class VisionFlowRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * Specifies whether to include images with the specified elements in subsequent processing. A value of true indicates that images with the elements are included in subsequent processing. A value of false indicates that images with the elements are not included. Required when the intelligent element recognition capability is selected.
+   * Specifies whether to include images with the specified elements in subsequent processing. A value of true indicates that images with the elements are included. A value of false indicates that images with the elements are excluded. Required if you select the intelligent element recognition capability.
    * 
    * @example
    * true
@@ -57,7 +57,7 @@ export class VisionFlowRequest extends $dara.Model {
   isFilter?: boolean;
   /**
    * @remarks
-   * The specific erasure area in Run-Length Encoding (RLE) format. Optional. If this parameter is specified, it takes precedence and the ObjectRemoveElements and NonobjectRemoveElements parameters are ignored.
+   * The specific area to remove in Run-Length Encoding (RLE) format. Optional. If specified, this parameter takes precedence, and the ObjectRemoveElements and NonobjectRemoveElements parameters are ignored.
    * 
    * @example
    * 474556 160 475356 160
@@ -65,7 +65,7 @@ export class VisionFlowRequest extends $dara.Model {
   mask?: string;
   /**
    * @remarks
-   * The elements to detect on the non-subject area of the image. Multiple values are supported. Valid values: 1 (Watermark), 2 (Logo), 3 (Text), and 4 (Text block). When the intelligent element recognition capability is selected, at least one of this parameter and ObjectDetectElements must be specified.
+   * The elements to detect on the non-subject area of the image. Valid values: 1 for watermark, 2 for logo, 3 for text, and 4 for text block. You can specify multiple values. If you select the intelligent element recognition capability, you must specify at least one of this parameter and ObjectDetectElements.
    * 
    * @example
    * [1,2,3]
@@ -73,7 +73,7 @@ export class VisionFlowRequest extends $dara.Model {
   nonobjectDetectElements?: number[];
   /**
    * @remarks
-   * The elements to remove from the non-subject area of the image. Multiple values are supported. Valid values: 1 (Transparent text block), 2 (Specific name), 3 (Text), and 4 (Cluttered text). When the intelligent erasure capability is selected, at least one of this parameter and ObjectRemoveElements must be specified.
+   * The elements to remove from the non-subject area of the image. Valid values: 1 for transparent text block, 2 for specific name, 3 for text, and 4 for cluttered text overlay. You can specify multiple values. If you select the intelligent erasure capability, you must specify at least one of this parameter and ObjectRemoveElements.
    * 
    * @example
    * [1,2,4]
@@ -81,7 +81,7 @@ export class VisionFlowRequest extends $dara.Model {
   nonobjectRemoveElements?: number[];
   /**
    * @remarks
-   * The elements to detect on the image subject. Multiple values are supported. Valid values: 1 (Watermark), 2 (Logo), 3 (Text), and 4 (Text block). When the intelligent element recognition capability is selected, at least one of this parameter and NonobjectDetectElements must be specified.
+   * The elements to detect on the image subject. Valid values: 1 for watermark, 2 for logo, 3 for text, and 4 for text block. You can specify multiple values. If you select the intelligent element recognition capability, you must specify at least one of this parameter and NonobjectDetectElements.
    * 
    * @example
    * [1,2,3,4]
@@ -89,7 +89,7 @@ export class VisionFlowRequest extends $dara.Model {
   objectDetectElements?: number[];
   /**
    * @remarks
-   * The elements to remove from the image subject. Multiple values are supported. Valid values: 1 (Transparent text block), 2 (Specific name), 3 (Text), and 4 (Cluttered text). When the intelligent erasure capability is selected, at least one of this parameter and NonobjectRemoveElements must be specified.
+   * The elements to remove from the image subject. Valid values: 1 for transparent text block, 2 for specific name, 3 for text, and 4 for cluttered text overlay. You can specify multiple values. If you select the intelligent erasure capability, you must specify at least one of this parameter and NonobjectRemoveElements.
    * 
    * @example
    * [1,2,4]
@@ -105,7 +105,7 @@ export class VisionFlowRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The expected height of the cropped image, in pixels. Valid values: 100 to 5000. Required when the intelligent cropping capability is selected.
+   * The expected height of the cropped image in pixels. Valid values: 100 to 5000. Required if you select the intelligent cropping capability.
    * 
    * @example
    * 800
@@ -121,7 +121,7 @@ export class VisionFlowRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * The expected width of the cropped image, in pixels. Valid values: 100 to 5000. Required when the intelligent cropping capability is selected.
+   * The expected width of the cropped image in pixels. Valid values: 100 to 5000. Required if you select the intelligent cropping capability.
    * 
    * @example
    * 800
@@ -137,7 +137,7 @@ export class VisionFlowRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * The image upscaling factor. Optional. Default value: 2. Valid values: 2 to 4. Required when the high-definition upscaling capability is selected.
+   * The image upscaling factor. Optional. Default value: 2. Valid values: 2 to 4. Required if you select the high-definition upscaling capability.
    * 
    * @example
    * 2

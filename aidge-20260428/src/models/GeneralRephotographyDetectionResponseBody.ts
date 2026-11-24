@@ -2,104 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions extends $dara.Model {
-  /**
-   * @remarks
-   * The bounding box coordinates.
-   */
-  bbox2d?: number[];
-  /**
-   * @remarks
-   * The target category. For valid values, see the following table.
-   * 
-   * @example
-   * product
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The confirmed short name or text of up to 24 characters. This is an empty string if the text is unclear.
-   * 
-   * @example
-   * Product
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bbox2d: 'Bbox2d',
-      label: 'Label',
-      text: 'Text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bbox2d: { 'type': 'array', 'itemType': 'number' },
-      label: 'string',
-      text: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.bbox2d)) {
-      $dara.Model.validateArray(this.bbox2d);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GeneralRephotographyDetectionResponseBodyDataResultGrounding extends $dara.Model {
-  /**
-   * @remarks
-   * The coverage. Valid values:
-   * - `complete`: The relevant visible targets are complete.
-   * - `partial`: Only some targets are valid or recognizable.
-   * 
-   * @example
-   * complete
-   */
-  coverage?: string;
-  /**
-   * @remarks
-   * The target array. A maximum of 12 items are returned. This can be empty if no relevant targets are found.
-   */
-  regions?: GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions[];
-  static names(): { [key: string]: string } {
-    return {
-      coverage: 'Coverage',
-      regions: 'Regions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coverage: 'string',
-      regions: { 'type': 'array', 'itemType': GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.regions)) {
-      $dara.Model.validateArray(this.regions);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GeneralRephotographyDetectionResponseBodyDataResult extends $dara.Model {
-  /**
-   * @remarks
-   * The supplementary element localization result.
-   */
-  grounding?: GeneralRephotographyDetectionResponseBodyDataResultGrounding;
   /**
    * @remarks
    * Indicates whether the image is recaptured.
@@ -110,7 +13,7 @@ export class GeneralRephotographyDetectionResponseBodyDataResult extends $dara.M
   isFake?: boolean;
   /**
    * @remarks
-   * The detection type. Fixed to general.
+   * Fixed to general.
    * 
    * @example
    * general
@@ -118,7 +21,6 @@ export class GeneralRephotographyDetectionResponseBodyDataResult extends $dara.M
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      grounding: 'Grounding',
       isFake: 'IsFake',
       type: 'Type',
     };
@@ -126,16 +28,12 @@ export class GeneralRephotographyDetectionResponseBodyDataResult extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
-      grounding: GeneralRephotographyDetectionResponseBodyDataResultGrounding,
       isFake: 'boolean',
       type: 'string',
     };
   }
 
   validate() {
-    if(this.grounding && typeof (this.grounding as any).validate === 'function') {
-      (this.grounding as any).validate();
-    }
     super.validate();
   }
 
@@ -219,7 +117,7 @@ export class GeneralRephotographyDetectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

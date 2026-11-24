@@ -24,7 +24,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
    * The full path of the category, separated by forward slashes (/).
    * 
    * @example
-   * Pet Supplies/Cat Supplies/Cat Charms, Collars & Leashes/Location and Activity Trackers
+   * Pet Supplies/Cat Supplies/Cat Collars, Harnesses and Leashes/Location and Activity Trackers
    */
   categoryPath?: string;
   /**
@@ -37,7 +37,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   confidence?: number;
   /**
    * @remarks
-   * Indicates whether the match is successful.
+   * Indicates whether the matching is successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   matchSuccessful?: boolean;
   /**
    * @remarks
-   * The matching rationale.
+   * The matching reason.
    * 
    * @example
    * The core of the product is a cat collar with AirTag tracking functionality, which belongs to the \\"Location and Activity Trackers\\" category. The leaf node semantics precisely match its tracking function and cat-specific attributes
@@ -98,7 +98,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
 export class CategoryMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. "success" is returned for successful calls.
+   * The status code. Returns "success" for normal calls.
    * 
    * @example
    * success
@@ -111,7 +111,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   data?: CategoryMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for successful calls.
+   * The error message. Returns "Success" for normal calls.
    * 
    * @example
    * Success
@@ -119,7 +119,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to identify a unique request call.
+   * The request ID, which identifies a unique request.
    * 
    * @example
    * 2157065A-D6C8-1F3E-A4D0-B1234567890

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MilkPowderCartonCodeRephotographyDetectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The HTTP(S) URL of the image to be analyzed.
+   * The HTTP or HTTPS URL of the image to be analyzed.
    * 
    * This parameter is required.
    * 

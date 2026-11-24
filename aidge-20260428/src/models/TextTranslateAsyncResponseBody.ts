@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TextTranslateAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task, which is used for result queries and notification association. Do not use the example prefix as a business validation rule.
+   * The identifier of the asynchronous task, which is used for result queries and notification association. Do not use the example prefix as a business validation rule.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class TextTranslateAsyncResponseBodyData extends $dara.Model {
 export class TextTranslateAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code of the submission call. Example of a successful call: success.
+   * The response code of the submission call. This parameter is not returned during normal calls. Example of a successful response: success.
    * 
    * @example
    * success
@@ -43,12 +43,12 @@ export class TextTranslateAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The commit result of the text translation asynchronous node.
+   * The submission result of the text translation asynchronous node.
    */
   data?: TextTranslateAsyncResponseBodyData;
   /**
    * @remarks
-   * The call description. Example of a successful call: Success. If the call fails, read the actual error message.
+   * The invocation message. This parameter is not returned during normal calls. Example of a successful invocation: Success. If the invocation fails, check the actual error message.
    * 
    * @example
    * success
@@ -64,7 +64,7 @@ export class TextTranslateAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the submission call is successful. A successful call does not mean that the translation is complete.
+   * Indicates whether the submission call is successful. This does not mean that the translation is complete.
    * 
    * @example
    * True

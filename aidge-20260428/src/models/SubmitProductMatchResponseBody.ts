@@ -13,7 +13,7 @@ export class SubmitProductMatchResponseBodyData extends $dara.Model {
   submittedAt?: string;
   /**
    * @remarks
-   * The ID of the asynchronous task used to query the task result by calling QueryAsyncTaskResult.
+   * The asynchronous task ID used to query the task result by calling QueryAsyncTaskResult.
    * 
    * @example
    * b7ea15cb609f47b7999d2d68dfbf3c90
@@ -45,7 +45,7 @@ export class SubmitProductMatchResponseBodyData extends $dara.Model {
 export class SubmitProductMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for normal calls.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class SubmitProductMatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submission result of the asynchronous task for identical product identification.
+   * The submission result of the asynchronous task for identical product recognition.
    */
   data?: SubmitProductMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for normal calls.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * OK
@@ -74,9 +74,7 @@ export class SubmitProductMatchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * Indicates whether the call was successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

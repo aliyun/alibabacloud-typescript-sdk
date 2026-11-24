@@ -10,15 +10,15 @@ export class CategoryMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Silk, new spring arrival
+   * Silk, spring new arrival
    */
   description?: string;
   /**
    * @remarks
-   * The product attributes and feature descriptions, such as the material of the product. Enter the product attribute name and attribute value.
+   * The product attributes and feature descriptions, such as the product material. Specify the attribute names and values.
    * 
    * @example
-   * Material:Polyester,Target user:Universal,Brand:AMASON PET
+   * Material:Polyester,Target audience:Universal,Brand:AMASON PET
    */
   itemSpec?: string;
   /**
@@ -66,7 +66,7 @@ export class CategoryMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Women\\"s new spring clothing
+   * Women\\"s spring new arrival clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

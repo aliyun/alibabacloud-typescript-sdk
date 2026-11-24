@@ -8,12 +8,12 @@ export class StorefrontSceneRecognitionResponseBodyDataResultDetails extends $da
    * The non-empty category name.
    * 
    * @example
-   * oppo vivo smartphone store
+   * OPPO VIVO Smartphone Store
    */
   clazz?: string;
   /**
    * @remarks
-   * A finite numerical value. The source document does not specify the value range.
+   * A finite numeric value. The value range is not specified.
    * 
    * @example
    * 0.99
@@ -138,7 +138,7 @@ export class StorefrontSceneRecognitionResponseBodyDataResultGrounding extends $
 export class StorefrontSceneRecognitionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The classification details, which can be an empty array.
+   * The classification details. This can be an empty array.
    */
   details?: StorefrontSceneRecognitionResponseBodyDataResultDetails[];
   /**
@@ -244,7 +244,7 @@ export class StorefrontSceneRecognitionResponseBody extends $dara.Model {
   data?: StorefrontSceneRecognitionResponseBodyData;
   /**
    * @remarks
-   * The returned message or failure description.
+   * The response message or failure description.
    * 
    * @example
    * Success

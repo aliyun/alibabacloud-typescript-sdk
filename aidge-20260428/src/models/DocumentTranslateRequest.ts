@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DocumentTranslateRequest extends $dara.Model {
   /**
    * @remarks
-   * Supports PDF, WORD, and EXCEL formats. Use uppercase letters when specifying this parameter.
+   * Supports PDF, WORD, and EXCEL formats. Use uppercase letters for the input parameter.
    * 
    * This parameter is required.
    * 
@@ -19,8 +19,8 @@ export class DocumentTranslateRequest extends $dara.Model {
    * ● Supports custom translation results, including:   
    * ○ Do-not-translate (ABC-ABC).   
    * ○ Specified translation (ABC-DEF).   
-   * ○ Translation omission (ABC-null value).
-   * This is commonly used in scenarios such as brand word protection.   
+   * ○ Translation omission (ABC-null).
+   * Commonly used in scenarios such as brand word protection.   
    * Example value: "glossary_1"
    * 
    * @example
@@ -44,7 +44,7 @@ export class DocumentTranslateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * https://aib-innovation-oss.oss-accelerate.aliyuncs.com/AI_Business/38dao/testdemo.pdf?Expires=3356578313&OSSAccessKeyId=LTAI5tE8X3gEy66SRU1V8dig&Signature=8niQY2HtMQY7h05zmSUdyORML9E%3D
+   * https://aib-innovation-oss.oss-accelerate.aliyuncs.com/AI_Business/38dao/testdemo.pdf?Expires=3356578313&OSSAccessKeyId=LTAI5tE8X3****6SRU1V8dig&Signature=8niQY2HtMQY7h****SUdyORML9E%3D
    */
   url?: string;
   static names(): { [key: string]: string } {

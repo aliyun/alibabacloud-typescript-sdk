@@ -97,7 +97,9 @@ export class ImageCroppingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True

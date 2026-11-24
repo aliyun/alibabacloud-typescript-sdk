@@ -13,7 +13,7 @@ export class ImageUpscaleResponseBodyDataData extends $dara.Model {
   imageHeight?: number;
   /**
    * @remarks
-   * The result information of the upscaled image.
+   * The URL of the upscaled single image.
    * 
    * @example
    * https://example.com/output.png
@@ -85,12 +85,12 @@ export class ImageUpscaleResponseBodyDataUsageMap extends $dara.Model {
 export class ImageUpscaleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The high-definition upscaling result data.
+   * The upscaling result data.
    */
   data?: ImageUpscaleResponseBodyDataData;
   /**
    * @remarks
-   * The error code returned when the request fails, such as InvalidParameter or DownstreamUnavailable.
+   * The error code returned when the operation fails, such as InvalidParameter or DownstreamUnavailable.
    * 
    * @example
    * success
@@ -98,7 +98,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the request fails.
+   * The error message returned when the operation fails.
    * 
    * @example
    * Success
@@ -106,7 +106,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values: true and false.
+   * Indicates whether the operation was successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True
@@ -122,7 +122,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage information.
+   * The usage information. The key is the billing dimension name.
    */
   usageMap?: ImageUpscaleResponseBodyDataUsageMap;
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
 export class ImageUpscaleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code, such as success.
+   * The status code, such as "success".
    * 
    * @example
    * success
@@ -194,7 +194,7 @@ export class ImageUpscaleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful. Valid values: true and false.
+   * Indicates whether the call was successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

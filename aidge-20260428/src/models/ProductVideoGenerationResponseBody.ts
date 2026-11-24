@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ProductVideoGenerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The planning route written upon acceptance. Valid values: DIRECT (with script) and AUTO_PLAN (automatic planning).
+   * The planning path written upon acceptance. Valid values: DIRECT (with script) and AUTO_PLAN (automatic planning).
    * 
    * @example
    * AUTO_PLAN
@@ -13,7 +13,7 @@ export class ProductVideoGenerationResponseBodyData extends $dara.Model {
   route?: string;
   /**
    * @remarks
-   * The current status of the task.
+   * The current status.
    * 
    * @example
    * PENDING
@@ -21,7 +21,7 @@ export class ProductVideoGenerationResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID of the service.
+   * The task ID of this service.
    * 
    * @example
    * task_778fa8bd21804828a5d147050e30edac
@@ -84,7 +84,7 @@ export class ProductVideoGenerationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ProductHotspotDetectionResponseBodyDataProductsBoxes extends $dara.Model {
   /**
    * @remarks
-   * The bottom boundary of the bounding box.
+   * The bottom boundary of the detection box.
    * 
    * @example
    * 947
@@ -13,7 +13,7 @@ export class ProductHotspotDetectionResponseBodyDataProductsBoxes extends $dara.
   bottom?: number;
   /**
    * @remarks
-   * The left boundary of the bounding box.
+   * The left boundary of the detection box.
    * 
    * @example
    * 280
@@ -21,7 +21,7 @@ export class ProductHotspotDetectionResponseBodyDataProductsBoxes extends $dara.
   left?: number;
   /**
    * @remarks
-   * The right boundary of the bounding box.
+   * The right boundary of the detection box.
    * 
    * @example
    * 743
@@ -29,7 +29,7 @@ export class ProductHotspotDetectionResponseBodyDataProductsBoxes extends $dara.
   right?: number;
   /**
    * @remarks
-   * The top boundary of the bounding box.
+   * The top boundary of the detection box.
    * 
    * @example
    * 965
@@ -65,7 +65,7 @@ export class ProductHotspotDetectionResponseBodyDataProductsBoxes extends $dara.
 export class ProductHotspotDetectionResponseBodyDataProducts extends $dara.Model {
   /**
    * @remarks
-   * The bounding boxes of the detected product instances.
+   * The detection boxes for product instances.
    */
   boxes?: ProductHotspotDetectionResponseBodyDataProductsBoxes[];
   /**
@@ -115,7 +115,7 @@ export class ProductHotspotDetectionResponseBodyDataProducts extends $dara.Model
 export class ProductHotspotDetectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of detected products and their bounding boxes.
+   * The list of recognized products and detection boxes.
    */
   products?: ProductHotspotDetectionResponseBodyDataProducts[];
   /**
@@ -166,7 +166,7 @@ export class ProductHotspotDetectionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The product hotzone recognition result.
+   * The product hot zone recognition results.
    */
   data?: ProductHotspotDetectionResponseBodyData;
   /**

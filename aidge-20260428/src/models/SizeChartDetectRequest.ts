@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SizeChartDetectRequest extends $dara.Model {
   /**
    * @remarks
-   * The URL of the image to detect.
+   * The URL of the image to be detected.
    * 
    * This parameter is required.
    * 

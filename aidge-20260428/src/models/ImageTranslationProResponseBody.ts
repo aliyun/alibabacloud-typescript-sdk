@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects extends $dara.Model {
   /**
    * @remarks
-   * The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
+   * The rotation angle of the text box in degrees. A value of less than 1 indicates a horizontal text box.
    * 
    * @example
    * 0
@@ -75,7 +75,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects exten
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsImageRect extends $dara.Model {
   /**
    * @remarks
-   * The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
+   * The rotation angle of the text box in degrees. A value of less than 1 indicates a horizontal text box.
    * 
    * @example
    * 0
@@ -145,7 +145,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsIm
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect extends $dara.Model {
   /**
    * @remarks
-   * The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
+   * The rotation angle of the text box in degrees. A value of less than 1 indicates a horizontal text box.
    * 
    * @example
    * 0
@@ -231,7 +231,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   fontsize?: number;
   /**
    * @remarks
-   * The horizontal layout method. Valid values: center, left, and right.
+   * The horizontal layout. Valid values: center, left, and right.
    * 
    * @example
    * center
@@ -260,12 +260,12 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   lineCount?: number;
   /**
    * @remarks
-   * The coordinates of the text box area.
+   * The coordinates of the text box.
    */
   textRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect;
   /**
    * @remarks
-   * Indicates whether the TextItem is valid. If this value does not exist or is false, the item is invalid.
+   * Indicates whether the text item is valid. If this value does not exist or is set to false, the item is invalid.
    * 
    * @example
    * true
@@ -281,7 +281,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   value?: string;
   /**
    * @remarks
-   * The vertical layout method. Valid values: center, top, and down.
+   * The vertical layout. Valid values: center, top, and down.
    * 
    * @example
    * center
@@ -346,7 +346,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
    * The original text before translation.
    * 
    * @example
-   * Cute design · crisp bell
+   * Cute design and crisp bell
    */
   content?: string;
   /**
@@ -359,7 +359,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   fontsize?: number;
   /**
    * @remarks
-   * The horizontal layout method. Valid values: center, left, and right.
+   * The horizontal layout. Valid values: center, left, and right.
    * 
    * @example
    * left
@@ -380,7 +380,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   texts?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts[];
   /**
    * @remarks
-   * The vertical layout method. Valid values: center, top, and down.
+   * The vertical layout. Valid values: center, top, and down.
    * 
    * @example
    * center
@@ -430,7 +430,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   font?: string[];
   /**
    * @remarks
-   * The coordinate information of the product area bounding box.
+   * The coordinate information of the product bounding box.
    */
   goodsRects?: ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects;
   /**
@@ -440,7 +440,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   languages?: string[];
   /**
    * @remarks
-   * The URL of the image with all text masked.
+   * The URL of the image with all text removed.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/repaired.png
@@ -453,7 +453,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   resultImageIds?: string[];
   /**
    * @remarks
-   * The list of text boxes, which includes information about all recognized text areas.
+   * The list of text boxes, including information about all recognized text areas.
    */
   textAreas?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas[];
   static names(): { [key: string]: string } {
@@ -545,7 +545,7 @@ export class ImageTranslationProResponseBodyDataGenFilesResultList extends $dara
 export class ImageTranslationProResponseBodyDataGenFiles extends $dara.Model {
   /**
    * @remarks
-   * The editor information, which includes recognition information such as text areas, product areas, and fonts.
+   * The editor information, including recognition information such as text areas, product areas, and fonts.
    */
   editInfo?: ImageTranslationProResponseBodyDataGenFilesEditInfo;
   /**
@@ -635,7 +635,7 @@ export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
 export class ImageTranslationProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The editor protocol, which includes the translation result files and editing information.
+   * The editor protocol, including the translation result files and editing information.
    */
   genFiles?: ImageTranslationProResponseBodyDataGenFiles[];
   /**
@@ -698,7 +698,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
 export class ImageTranslationProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates a successful call. For other response codes, see Error codes.
+   * The response code. A value of 200 indicates that the call is successful. For other response codes, see Error codes.
    * 
    * @example
    * 200
@@ -711,7 +711,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   data?: ImageTranslationProResponseBodyData;
   /**
    * @remarks
-   * The error message. Success is returned for a successful call. For an exception, a specific error message is returned, such as "The content contains sensitive data. Try another input."
+   * The error message. "Success" is returned for a normal call. For an abnormal call, a specific error message is returned, such as "The content contains sensitive data. Try another input."
    * 
    * @example
    * Success

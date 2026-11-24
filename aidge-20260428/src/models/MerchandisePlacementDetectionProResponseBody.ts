@@ -10,7 +10,7 @@ export class MerchandisePlacementDetectionProResponseBodyDataData extends $dara.
   bbox2d?: number[];
   /**
    * @remarks
-   * The name of the detected product. If the name cannot be determined, the value is unknown.
+   * The recognized product name. If the name cannot be determined, the value is unknown.
    * 
    * @example
    * unknown
@@ -116,12 +116,12 @@ export class MerchandisePlacementDetectionProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The detection result of the retail display detection Pro edition.
+   * The detection results of the Pro edition.
    */
   data?: MerchandisePlacementDetectionProResponseBodyData;
   /**
    * @remarks
-   * The returned message or failure description.
+   * The return message or failure description.
    * 
    * @example
    * Success

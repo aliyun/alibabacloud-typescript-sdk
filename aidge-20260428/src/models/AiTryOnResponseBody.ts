@@ -13,7 +13,7 @@ export class AiTryOnResponseBodyDataUsageMap extends $dara.Model {
   processedImageCount?: number;
   /**
    * @remarks
-   * The resolution of the image.
+   * The image resolution.
    * 
    * @example
    * 1K
@@ -53,7 +53,7 @@ export class AiTryOnResponseBodyData extends $dara.Model {
   imageHeight?: string;
   /**
    * @remarks
-   * The URL of the generated image.
+   * The recognition result of a single image.
    * 
    * @example
    * https://example.com/virtual-try-on-result.png
@@ -69,7 +69,7 @@ export class AiTryOnResponseBodyData extends $dara.Model {
   imageWidth?: string;
   /**
    * @remarks
-   * The usage fields.
+   * The usage field.
    * 
    * @example
    * {"ProcessedImageCount":1,"Resolution":"1K"}
@@ -108,7 +108,7 @@ export class AiTryOnResponseBodyData extends $dara.Model {
 export class AiTryOnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned when the call is successful.
    * 
    * @example
    * 200
@@ -121,7 +121,7 @@ export class AiTryOnResponseBody extends $dara.Model {
   data?: AiTryOnResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
    * OK
@@ -129,7 +129,7 @@ export class AiTryOnResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to identify a unique API call.
+   * The request ID, which is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F

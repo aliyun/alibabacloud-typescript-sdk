@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationPlusAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the asynchronous task. This ID is used for result queries and notification association. Do not use the example prefix as a business validation rule.
+   * The identifier of the asynchronous task. It is used for result queries and notification association. Do not use the example prefix as a business validation rule.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class ImageTranslationPlusAsyncResponseBodyData extends $dara.Model {
 export class ImageTranslationPlusAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code for the submission call. A value of success indicates that the call is successful.
+   * The response code for the submission call. A value of success indicates a successful call.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class ImageTranslationPlusAsyncResponseBody extends $dara.Model {
   data?: ImageTranslationPlusAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message, such as The content contains sensitive data. Try another input.
+   * The error message, such as "The content contains sensitive data. Try another input."
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class ImageTranslationPlusAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identity of the request, used for troubleshooting and Tracing Analysis.
+   * The unique identity of the request. It is used for troubleshooting and Tracing Analysis.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,7 +64,7 @@ export class ImageTranslationPlusAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the submission call is successful. This does not indicate that the translation is complete. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the submission call is successful. This does not mean that the translation is completed. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

@@ -21,7 +21,7 @@ export class QueryDisplayKnowledgeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the knowledge base.
+   * The knowledge base ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationPlusAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The business order ID of the caller. This ID is recorded when the request is accepted and returned as is when you query the asynchronous task result.
+   * The business order number of the caller. This number is recorded when the request is accepted and returned as-is when you query the asynchronous task results.
    * 
    * @example
    * order-20260928-001
@@ -21,10 +21,10 @@ export class ImageTranslationPlusAsyncRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * • Image URL: The image must be accessible over the Internet.    
-   * • Format: PNG, JPEG, JPG, BMP, or WEBP.    
-   * • Pixel: The width and height do not exceed 4,000 pixels.   
-   * • File size: The original file size is less than or equal to 10 MB.
+   * * Image URL: The URL must be publicly accessible.    
+   * * Format: PNG, JPEG, JPG, BMP, or WebP.    
+   * * Resolution: The width and height do not exceed 4,000 pixels.   
+   * * File size: The size of the original file is less than or equal to 10 MB.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class ImageTranslationPlusAsyncRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate the text on the image subject. This helps you protect information and prevents embedded information such as product names from being translated. In the sample image, the text in the red box represents the text on the subject, and the text in the blue box represents the text not on the subject. Default value: false.
+   * Specifies whether to translate the text on the product subject in the image. This helps you protect information and prevents embedded information such as product names from being translated. In the sample image, the text in the red box represents the text on the subject, and the text in the blue box represents the text not on the subject.
    * 
    * @example
    * false
@@ -62,7 +62,7 @@ export class ImageTranslationPlusAsyncRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate the brand names in the image. This helps you protect the brand name information from being translated. Default value: false, which indicates that brand names are not translated. In the sample image, Lazy Corner represents a brand name.
+   * Specifies whether to translate the brand names in the image. This helps you protect the brand name information from being translated. Default value: false, which indicates that brand names are not translated. In the sample image, "Lazy Corner" represents the brand name.
    * 
    * @example
    * false
@@ -70,7 +70,7 @@ export class ImageTranslationPlusAsyncRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * Specifies whether to return layout information such as the position, font, and color of the text. This can be used to obtain data when you integrate the image editor for secondary editing. You can call the image translation result query API operation to obtain the complete parameter information.
+   * Specifies whether to return layout information such as the position, font, and color of the text. This information can be used to obtain data when you integrate the image editor for secondary editing. You can call the API operation for querying image translation results to obtain the complete parameter information.
    * 
    * @example
    * true

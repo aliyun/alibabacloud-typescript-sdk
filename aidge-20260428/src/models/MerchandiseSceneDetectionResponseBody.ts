@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MerchandiseSceneDetectionResponseBodyDataResultGroundingRegions extends $dara.Model {
   /**
    * @remarks
-   * The 2D bounding box in the format of [top-left x, top-left y, bottom-right x, bottom-right y]. Valid values: 0 to 1000. The left coordinate must be less than the right coordinate, and the top coordinate must be less than the bottom coordinate.
+   * The 2D bounding box in the format of [top-left X, top-left Y, bottom-right X, bottom-right Y]. Values range from 0 to 1000. Left < right, and top < bottom.
    * 
    * @example
    * [0,130,1000,850]
@@ -98,7 +98,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultGrounding extends $d
 export class MerchandiseSceneDetectionResponseBodyDataResultScenesSceneLocation extends $dara.Model {
   /**
    * @remarks
-   * The x-coordinate of the area point.
+   * The X-coordinate of the region point.
    * 
    * @example
    * 0.431
@@ -106,7 +106,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenesSceneLocation 
   x?: number;
   /**
    * @remarks
-   * The y-coordinate of the area point.
+   * The Y-coordinate of the region point.
    * 
    * @example
    * 0.973
@@ -154,7 +154,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenes extends $dara
   ownPurity?: number;
   /**
    * @remarks
-   * Optional. The display fullness metric.
+   * Optional. The display plumpness metric.
    * 
    * @example
    * 0
@@ -170,7 +170,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenes extends $dara
   sceneActualName?: string;
   /**
    * @remarks
-   * The center point of the scene, which retains the original normalized coordinates. If omitted, the value is an empty array.
+   * The center point of the scene. The original normalized coordinates are retained. If omitted, the value is an empty array.
    * 
    * @example
    * [0.501,0.493]
@@ -178,12 +178,12 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenes extends $dara
   sceneCenter?: number[];
   /**
    * @remarks
-   * The list of area points. Each item is in the format of {x,y} and retains the original normalized coordinates. If omitted, the value is an empty array.
+   * The list of region points. Each item is in the {x,y} format and retains the original normalized coordinates. If omitted, the value is an empty array.
    */
   sceneLocation?: MerchandiseSceneDetectionResponseBodyDataResultScenesSceneLocation[];
   /**
    * @remarks
-   * The scene identifier. This parameter is required and cannot be empty.
+   * The scene identifier. This field is required and cannot be empty.
    * 
    * @example
    * yl_cj_lfg
@@ -251,7 +251,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResult extends $dara.Model
   scenes?: MerchandiseSceneDetectionResponseBodyDataResultScenes[];
   /**
    * @remarks
-   * The type. Fixed value: scene.
+   * The type. Fixed to scene.
    * 
    * @example
    * scene

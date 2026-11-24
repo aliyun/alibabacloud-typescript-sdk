@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationProAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the asynchronous task, which is used for result queries and notification association. Do not use the example prefix as a business validation rule.
+   * The ID of the asynchronous task, which is used to query results and associate notifications. Do not use the example prefix as a business validation rule.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class ImageTranslationProAsyncResponseBodyData extends $dara.Model {
 export class ImageTranslationProAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of success indicates that the task is submitted.
+   * The response code. A value of success indicates that the task is submitted successfully.
    * 
    * @example
    * success

@@ -21,7 +21,7 @@ export class ProductVideoGenerationShrinkRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The public image URLs. At least one image URL is required. Each URL must start with http:// or https:// after leading and trailing whitespaces are removed.
+   * The public URLs of the product images. At least one image is required. After leading and trailing whitespaces are removed, each URL must start with http:// or https://.
    * 
    * This parameter is required.
    */

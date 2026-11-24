@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDisplayKnowledgeRequestRecords extends $dara.Model {
   /**
    * @remarks
-   * The HTTP or HTTPS URL of the product image.
+   * The HTTP(S) URL of the product image.
    * 
    * @example
    * https://xxxx/96f21ebdaeeba27a.jpg
@@ -21,7 +21,7 @@ export class UpdateDisplayKnowledgeRequestRecords extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The SKU ID. If this parameter is not empty, the original value is overwritten.
+   * The SKU ID. If specified, this value overwrites the original value.
    * 
    * @example
    * sku-001

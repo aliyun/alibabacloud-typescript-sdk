@@ -13,7 +13,7 @@ export class MaterialInspectionRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The URL of the reference image. This parameter is optional. If it is not empty, the multi-image difference comparison mode is used.
+   * The URL of the reference image. This parameter is optional. If it is not empty, multi-image difference comparison is used.
    * 
    * @example
    * https://example.com/reference.jpg
@@ -42,7 +42,7 @@ export class MaterialInspectionRequest extends $dara.Model {
    * The rule prompt.
    * 
    * @example
-   * Door-shaped display stands must be placed in the entrance area. Functional table cards must be placed on the middle counter
+   * Door display stands must be placed in the entrance area; functional table cards must be placed on the middle counter surface
    */
   rules?: string;
   static names(): { [key: string]: string } {

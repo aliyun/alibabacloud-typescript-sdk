@@ -61,12 +61,12 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   reason?: string;
   /**
    * @remarks
-   * The list of selected attribute value texts, such as ["iOS","Android"].
+   * The list of selected attribute value texts, such as ["iOS","Android"\\].
    */
   selectedValues?: string[];
   /**
    * @remarks
-   * The list of selected attribute value IDs, such as [30127,30128].
+   * The list of selected attribute value IDs, such as [30127,30128\\].
    * 
    * @example
    * [30127,30128]
@@ -156,7 +156,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
    * The category ID.
    * 
    * @example
-   * FC-F3A8A2802D10606D
+   * 1516
    */
   categoryId?: number;
   /**
@@ -172,7 +172,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
    * The full path of the category, separated by forward slashes (/).
    * 
    * @example
-   * Pet Supplies/Cat Supplies/Cat Pendants, Collars, Leashes/Cat Collar
+   * Pet Supplies/Cat Supplies/Cat Pendants, Collars, and Leashes/Cat Collar
    */
   categoryPath?: string;
   /**
@@ -248,7 +248,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
 export class CategoryAttributeMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned when the call is successful.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -261,7 +261,7 @@ export class CategoryAttributeMatchResponseBody extends $dara.Model {
   data?: CategoryAttributeMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned when the call is successful.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * null

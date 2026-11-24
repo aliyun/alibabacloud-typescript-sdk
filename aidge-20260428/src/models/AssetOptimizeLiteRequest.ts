@@ -31,7 +31,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   needTrans?: boolean;
   /**
    * @remarks
-   * The product URL.
+   * The product link URL.
    * 
    * This parameter is required.
    * 

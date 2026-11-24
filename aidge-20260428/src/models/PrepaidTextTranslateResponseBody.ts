@@ -98,7 +98,7 @@ export class PrepaidTextTranslateResponseBodyData extends $dara.Model {
 export class PrepaidTextTranslateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. If the call is successful, success is returned.
+   * The response code. success is returned for successful calls.
    * 
    * @example
    * success
@@ -111,7 +111,7 @@ export class PrepaidTextTranslateResponseBody extends $dara.Model {
   data?: PrepaidTextTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. If the call is successful, Success is returned. If an exception occurs, a specific error message is returned, such as "The parameter contains sensitive information. Try another input".
+   * The error message. Success is returned for successful calls. If an exception occurs, a specific error message is returned, such as \\"The parameter contains sensitive information. Try another input.\\"
    * 
    * @example
    * Success
@@ -119,7 +119,7 @@ export class PrepaidTextTranslateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to identify a unique API call.
+   * The ID of the request, which is used to identify a unique request call.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F

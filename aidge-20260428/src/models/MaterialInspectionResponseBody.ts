@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
   /**
    * @remarks
-   * The judgment result. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
+   * The judgment result. Valid values: PASS, FAIL, UNABLE_TO_JUDGE.
    * 
    * @example
    * PASS
@@ -16,7 +16,7 @@ export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
    * The step ID.
    * 
    * @example
-   * XXX
+   * S1
    */
   stepId?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
 export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The natural language summary, such as \\"1 rule: 1 PASS, all detection items are compliant\\".
+   * The natural language summary, such as "1 rule: 1 PASS, all detection items are compliant".
    * 
    * @example
    * 1 rule: 1 PASS, all detection items are compliant
@@ -53,7 +53,7 @@ export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   evidence?: string;
   /**
    * @remarks
-   * The overall judgment. Valid values: PASS and FAIL.
+   * The overall judgment. Valid values: PASS, FAIL.
    * 
    * @example
    * PASS

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationProAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The business order ID of the caller. This ID is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
+   * The business order number of the caller. It is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
    * 
    * @example
    * order-20260928-001
@@ -22,7 +22,7 @@ export class ImageTranslationProAsyncRequest extends $dara.Model {
   /**
    * @remarks
    * • Image URL: The URL must be publicly accessible over the Internet.   
-   * • Formats: PNG, JPEG, JPG, BMP, and WebP.   
+   * • Format: PNG, JPEG, JPG, BMP, and WEBP.   
    * • Pixels: The width and height must not exceed 4,000 pixels.  
    * • File size: The original file size must be less than or equal to 10 MB.
    * 
@@ -34,7 +34,7 @@ export class ImageTranslationProAsyncRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate the text on the image subject. Set this parameter to false to protect the subject information, such as the product name, from being translated. Default value: false.
+   * Specifies whether to translate the text on the product subject in the image. If you set this parameter to false, the subject information, such as the product name, is protected from being translated. Default value: false.
    * 
    * @example
    * false
@@ -62,7 +62,7 @@ export class ImageTranslationProAsyncRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate brand names in the image. Default value: false, which indicates that brand names are not translated.
+   * Specifies whether to translate the brand names in the image. Default value: false, which indicates that brand names are not translated.
    * 
    * @example
    * false
@@ -70,7 +70,7 @@ export class ImageTranslationProAsyncRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which can be used for secondary editing when you integrate an image editor. Default value: true.
+   * Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which allows you to integrate an image editor for secondary editing. Default value: true.
    * 
    * @example
    * true

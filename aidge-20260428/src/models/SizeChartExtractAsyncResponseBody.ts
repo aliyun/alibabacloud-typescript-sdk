@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SizeChartExtractAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID, which is used to query the result of the asynchronous task.
+   * The task ID used to query the asynchronous task result.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class SizeChartExtractAsyncResponseBodyData extends $dara.Model {
 export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for successful calls.
+   * The error code. This parameter is not returned for normal calls.
    * 
    * @example
    * success
@@ -43,12 +43,12 @@ export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submission result of the asynchronous task for size chart extraction.
+   * The submission result of the size chart extraction asynchronous task.
    */
   data?: SizeChartExtractAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned for normal calls.
    * 
    * @example
    * OK
@@ -64,9 +64,7 @@ export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call fails.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

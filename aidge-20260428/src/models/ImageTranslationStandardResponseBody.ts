@@ -565,7 +565,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   editInfo?: ImageTranslationStandardResponseBodyDataEditInfo;
   /**
    * @remarks
-   * The URL of the generated translated image.
+   * The URL of the image generated after image translation.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -573,7 +573,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The usage information, such as the number of processed images.
+   * The usage information, including the number of processed images.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -613,7 +613,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
 export class ImageTranslationStandardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+   * The response code. A value of 200 indicates a successful call. For other response codes, see the error codes.
    * 
    * @example
    * 200
@@ -621,7 +621,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data, which includes the URL of the translated image and usage information.
+   * The translation result data, including the translated image URL and usage information.
    */
   data?: ImageTranslationStandardResponseBodyData;
   /**

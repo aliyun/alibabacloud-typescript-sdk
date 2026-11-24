@@ -35,7 +35,7 @@ export class ImageMattingRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The height of the target image. Unit: pixels.
+   * The target height of the image, in pixels.
    * 
    * @example
    * 800
@@ -43,7 +43,7 @@ export class ImageMattingRequest extends $dara.Model {
   targetHeight?: number;
   /**
    * @remarks
-   * The width of the target image. Unit: pixels.
+   * The target width of the image, in pixels.
    * 
    * @example
    * 800
