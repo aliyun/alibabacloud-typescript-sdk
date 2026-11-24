@@ -896,6 +896,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves an intelligent workflow task.
+   * 
+   * @param request - GetAIAppJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAIAppJobResponse
+   */
+  async getAIAppJobWithOptions(request: $_model.GetAIAppJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAIAppJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.onlyOutputs)) {
+      query["OnlyOutputs"] = request.onlyOutputs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAIAppJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAIAppJobResponse>(await this.callApi(params, req, runtime), new $_model.GetAIAppJobResponse({}));
+  }
+
+  /**
+   * Retrieves an intelligent workflow task.
+   * 
+   * @param request - GetAIAppJobRequest
+   * @returns GetAIAppJobResponse
+   */
+  async getAIAppJob(request: $_model.GetAIAppJobRequest): Promise<$_model.GetAIAppJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAIAppJobWithOptions(request, runtime);
+  }
+
+  /**
    * Queries an asynchronous task of the agent node.
    * 
    * @param request - GetAgentJobRequest
@@ -1414,7 +1460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video generation job.
+   * Queries a video generation task.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1449,7 +1495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video generation job.
+   * Queries a video generation task.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @returns GetVideoGenerationJobResponse
@@ -2194,6 +2240,62 @@ export default class Client extends OpenApi {
   async searchMedia(request: $_model.SearchMediaRequest): Promise<$_model.SearchMediaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.searchMediaWithOptions(request, runtime);
+  }
+
+  /**
+   * Starts an intelligent workflow.
+   * 
+   * @param request - SubmitAIAppJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAIAppJobResponse
+   */
+  async submitAIAppJobWithOptions(request: $_model.SubmitAIAppJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAIAppJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputs)) {
+      body["Inputs"] = request.inputs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAIAppJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAIAppJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAIAppJobResponse({}));
+  }
+
+  /**
+   * Starts an intelligent workflow.
+   * 
+   * @param request - SubmitAIAppJobRequest
+   * @returns SubmitAIAppJobResponse
+   */
+  async submitAIAppJob(request: $_model.SubmitAIAppJobRequest): Promise<$_model.SubmitAIAppJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAIAppJobWithOptions(request, runtime);
   }
 
   /**

@@ -13,7 +13,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   aspectRatio?: string;
   /**
    * @remarks
-   * The video duration, in seconds.
+   * The video duration. Unit: seconds.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   duration?: string;
   /**
    * @remarks
-   * The error message. The value is a string. This parameter is returned only when the job status is Failed.
+   * The error message. The value is a string and is returned when the task status is Failed.
    * 
    * @example
    * Input file not found.
@@ -29,10 +29,10 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   errorMessage?: string;
   /**
    * @remarks
-   * The job input.
+   * The task input.
    * 
    * @example
-   * {"Prompt":"Image 1 is on the basketball court, performing a slam dunk with Image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
+   * {"Prompt":"Image 1 is on the basketball court, performing a slam dunk using Image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
    */
   input?: string;
   /**
@@ -40,12 +40,12 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
    * The job ID.
    * 
    * @example
-   * fdc7f121056249c2b64e04bba27bcc8c
+   * ag_68ca759b4903b255*******
    */
   jobId?: string;
   /**
    * @remarks
-   * The job feature configurations. This parameter does not require configuration at this time.
+   * The task feature configuration. Currently, no configuration is required.
    * 
    * @example
    * {}
@@ -78,8 +78,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   /**
    * @remarks
    * The generation result. The value is a JSON string that contains the following fields:
-   * 
-   * Medias: the list of media information (Media objects). Fields of a Media object:
+   * Medias: the list of media information (Media objects). The Media object includes the following fields:
    * MediaId: String. The media asset ID.
    * OutputUrl: String. The media URL, including the authentication string.
    * 
@@ -105,12 +104,12 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   scene?: string;
   /**
    * @remarks
-   * The job status. Valid values:
-   * - Created: The job is created.
-   * - Queuing: The job is queued.
-   * - Executing: The job is executing.
-   * - Finished: The job succeeded.
-   * - Failed: The job failed.
+   * The task status. Valid values:
+   * - Created: The task is created.
+   * - Queuing: The task is queuing.
+   * - Executing: The task is executing.
+   * - Finished: The task ran successfully.
+   * - Failed: The task failed.
    * 
    * @example
    * Executing
@@ -182,7 +181,7 @@ export class GetVideoGenerationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The video generation job.
+   * The video generation task.
    */
   videoGenerationJob?: GetVideoGenerationJobResponseBodyVideoGenerationJob;
   static names(): { [key: string]: string } {

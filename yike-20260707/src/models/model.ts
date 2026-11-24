@@ -15,6 +15,8 @@ export { BatchGetVideoCharacterReplaceJobsResponseBodyJobList } from './BatchGet
 export { CreateAssetCategoryResponseBodyCategory } from './CreateAssetCategoryResponseBody';
 export { CreateOssUploadResponseBodyUploadCredentials } from './CreateOssUploadResponseBody';
 export { CreateUploadMediaResponseBodyUploadCredentials } from './CreateUploadMediaResponseBody';
+export { GetAIAppJobResponseBodyAIAppJob } from './GetAiappJobResponseBody';
+export { GetAIAppJobResponseBodyArtifacts } from './GetAiappJobResponseBody';
 export { GetAgentJobResponseBodyJob } from './GetAgentJobResponseBody';
 export { GetAssetCategoryResponseBodyCategory } from './GetAssetCategoryResponseBody';
 export { GetAssetCategoryResponseBodySubCategories } from './GetAssetCategoryResponseBody';
@@ -103,6 +105,9 @@ export { DeleteProjectResponse } from './DeleteProjectResponse';
 export { GenerateYikeLoginTokenRequest } from './GenerateYikeLoginTokenRequest';
 export { GenerateYikeLoginTokenResponseBody } from './GenerateYikeLoginTokenResponseBody';
 export { GenerateYikeLoginTokenResponse } from './GenerateYikeLoginTokenResponse';
+export { GetAIAppJobRequest } from './GetAiappJobRequest';
+export { GetAIAppJobResponseBody } from './GetAiappJobResponseBody';
+export { GetAIAppJobResponse } from './GetAiappJobResponse';
 export { GetAgentJobRequest } from './GetAgentJobRequest';
 export { GetAgentJobResponseBody } from './GetAgentJobResponseBody';
 export { GetAgentJobResponse } from './GetAgentJobResponse';
@@ -178,6 +183,9 @@ export { PrecheckVideoCharacterReplaceJobResponse } from './PrecheckVideoCharact
 export { SearchMediaRequest } from './SearchMediaRequest';
 export { SearchMediaResponseBody } from './SearchMediaResponseBody';
 export { SearchMediaResponse } from './SearchMediaResponse';
+export { SubmitAIAppJobRequest } from './SubmitAiappJobRequest';
+export { SubmitAIAppJobResponseBody } from './SubmitAiappJobResponseBody';
+export { SubmitAIAppJobResponse } from './SubmitAiappJobResponse';
 export { SubmitAgentJobRequest } from './SubmitAgentJobRequest';
 export { SubmitAgentJobResponseBody } from './SubmitAgentJobResponseBody';
 export { SubmitAgentJobResponse } from './SubmitAgentJobResponse';
