@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComputeInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The billing method. Only 5 (pay-as-you-go) is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateComputeInstanceRequest extends $dara.Model {
   paidType?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class CreateComputeInstanceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfm2pz25js****
    */

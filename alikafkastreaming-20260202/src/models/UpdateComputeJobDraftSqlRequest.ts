@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeJobDraftSqlRequest extends $dara.Model {
   /**
    * @remarks
+   * The Flink SQL draft.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateComputeJobDraftSqlRequest extends $dara.Model {
   draftSql?: string;
   /**
    * @remarks
+   * The compute instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateComputeJobDraftSqlRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The name of the compute job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class UpdateComputeJobDraftSqlRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

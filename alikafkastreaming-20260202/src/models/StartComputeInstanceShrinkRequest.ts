@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartComputeInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class StartComputeInstanceShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the compute instance.
+   * 
    * @example
    * streaming-prod
    */
   instanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,11 +33,15 @@ export class StartComputeInstanceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The list of vSwitch IDs.
+   * 
    * This parameter is required.
    */
   vSwitchIdsShrink?: string;
   /**
    * @remarks
+   * The ID of the VPC where the instance is deployed.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSqlContentRequest extends $dara.Model {
   /**
    * @remarks
+   * The compute instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CheckSqlContentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The compute job name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CheckSqlContentRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CheckSqlContentRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The Flink SQL statement to be validated.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteComputeJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 062D8E8B-8D47-5DCC-BB12-5A1D93C3A66B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

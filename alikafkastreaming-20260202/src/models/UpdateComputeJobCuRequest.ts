@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeJobCuRequest extends $dara.Model {
   /**
    * @remarks
+   * **The CU limit for the job.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,14 +15,20 @@ export class UpdateComputeJobCuRequest extends $dara.Model {
   cuLimit?: number;
   /**
    * @remarks
+   * **The reserved CUs for the job.**
+   * 
+   * > The number of reserved CUs must not exceed the CU limit.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1.0
+   * 2.0
    */
   cuReserved?: number;
   /**
    * @remarks
+   * **The compute instance ID.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +37,8 @@ export class UpdateComputeJobCuRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * **The name of the compute job.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +47,8 @@ export class UpdateComputeJobCuRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
+   * **The region ID.**
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateComputeInstanceNameResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 019F6DD7-A85E-56CF-BF45-BACA73D3FC2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

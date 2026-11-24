@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetComputeInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The billing method.
+   * 
    * @example
    * POST_PAID
    */
   chargeType?: string;
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -17,22 +22,33 @@ export class GetComputeInstanceResponseBodyData extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The total CU limit.
+   * 
    * @example
    * 4.0
    */
   cuLimitSum?: number;
   /**
+   * @remarks
+   * The total number of reserved CUs.
+   * 
    * @example
    * 2.0
    */
   cuReservedSum?: number;
   /**
+   * @remarks
+   * The total number of used CUs.
+   * 
    * @example
    * 2.5
    */
   cuUsedSum?: number;
   /**
    * @remarks
+   * The expiration time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -40,42 +56,70 @@ export class GetComputeInstanceResponseBodyData extends $dara.Model {
    */
   expireTime?: string;
   /**
+   * @remarks
+   * The compute instance ID.
+   * 
    * @example
    * alikafka_streaming-cn-pe333xxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the compute instance.
+   * 
    * @example
    * streaming-prod
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-aek53bg4tl6fgma
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The service status of the instance.
+   * 
    * @example
    * RUNNING
    */
   serviceStatus?: string;
   /**
+   * @remarks
+   * The total number of jobs.
+   * 
    * @example
    * 3
    */
   totalJobs?: number;
   /**
+   * @remarks
+   * The number of running jobs.
+   * 
    * @example
    * 2
    */
   totalRunningJobs?: number;
+  /**
+   * @remarks
+   * The list of vSwitch IDs.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * VPC ID
+   * 
    * @example
    * vpc-bp1abcdefg
    */
@@ -134,17 +178,30 @@ export class GetComputeInstanceResponseBodyData extends $dara.Model {
 
 export class GetComputeInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetComputeInstanceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 019F5939-507B-57C1-B82C-E55821456FA6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

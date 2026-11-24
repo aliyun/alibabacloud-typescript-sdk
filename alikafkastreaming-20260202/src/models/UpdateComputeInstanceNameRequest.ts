@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeInstanceNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the compute instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateComputeInstanceNameRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The name of the compute instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateComputeInstanceNameRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

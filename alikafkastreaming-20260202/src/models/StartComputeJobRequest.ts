@@ -4,22 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartComputeJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The CU limit for the job. Integers and decimals are supported.
+   * 
    * @example
    * 2.0
    */
   cuLimit?: number;
   /**
+   * @remarks
+   * The number of reserved CUs for the job. Integers and decimals are supported.
+   * 
+   * > The number of reserved CUs cannot exceed the CU limit.
+   * 
    * @example
-   * 1.0
+   * 2.0
    */
   cuReserved?: number;
   /**
+   * @remarks
+   * **The Flink SQL draft, which must be a self-contained and complete DDL and DML statement.**
+   * 
    * @example
    * CREATE TEMPORARY TABLE src (id BIGINT) WITH (\\"connector\\" = \\"datagen\\"); CREATE TEMPORARY TABLE sink (id BIGINT) WITH (\\"connector\\" = \\"print\\"); INSERT INTO sink SELECT id FROM src;
    */
   draftSql?: string;
   /**
    * @remarks
+   * **The compute instance ID.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +41,8 @@ export class StartComputeJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * **The name of the compute job.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,12 +50,17 @@ export class StartComputeJobRequest extends $dara.Model {
    */
   jobName?: string;
   /**
+   * @remarks
+   * **The recovery mode, such as savepoint or stateless.**
+   * 
    * @example
    * savepoint
    */
   recoveryMode?: string;
   /**
    * @remarks
+   * **The region ID.**
+   * 
    * This parameter is required.
    * 
    * @example

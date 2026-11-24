@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListComputeJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -12,51 +14,81 @@ export class ListComputeJobsResponseBodyData extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The CU limit for the job.
+   * 
    * @example
    * 2.0
    */
   cuLimit?: number;
   /**
+   * @remarks
+   * The reserved CUs for the job.
+   * 
    * @example
    * 1.0
    */
   cuReserved?: number;
   /**
+   * @remarks
+   * The number of CUs used.
+   * 
    * @example
    * 1.5
    */
   cuUsed?: number;
   /**
+   * @remarks
+   * Specifies whether the job is a debug job. Valid values: 0: No. 1: Yes.
+   * 
    * @example
    * 0
    */
   debugMode?: number;
   /**
+   * @remarks
+   * The compute instance ID.
+   * 
    * @example
    * alikafka_streaming-cn-a1b2c3d4
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the compute job.
+   * 
    * @example
    * order_enrichment
    */
   jobName?: string;
   /**
+   * @remarks
+   * The owner of the resource.
+   * 
    * @example
    * 1234567890123456
    */
   owner?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The job remark.
+   * 
    * @example
-   * 订单流实时清洗
+   * Real-time order stream cleansing
    */
   remark?: string;
   /**
+   * @remarks
+   * The job status.
+   * 
    * @example
    * RUNNING
    */
@@ -104,32 +136,54 @@ export class ListComputeJobsResponseBodyData extends $dara.Model {
 
 export class ListComputeJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListComputeJobsResponseBodyData[];
   /**
+   * @remarks
+   * The maximum number of returned entries.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 062D8E8B-8D47-5DCC-BB12-5A1D93C3A66B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of records that match the query conditions.
+   * 
    * @example
    * 3
    */

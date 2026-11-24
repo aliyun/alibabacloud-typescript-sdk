@@ -6,36 +6,57 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CheckSqlContentResponseBodyDataErrorList extends $dara.Model {
   /**
+   * @remarks
+   * The SQL snippet where the error occurred.
+   * 
    * @example
    * SELECT FROM source_table
    */
   codeSnippet?: string;
   /**
+   * @remarks
+   * The starting column number of the error.
+   * 
    * @example
    * 8
    */
   columnNumber?: number;
   /**
+   * @remarks
+   * The ending column number of the error.
+   * 
    * @example
    * 12
    */
   endColumnNumber?: number;
   /**
+   * @remarks
+   * The ending line number of the error.
+   * 
    * @example
    * 1
    */
   endLineNumber?: number;
   /**
+   * @remarks
+   * The error type.
+   * 
    * @example
    * SYNTAX_ERROR
    */
   errorType?: string;
   /**
+   * @remarks
+   * The starting line number of the error.
+   * 
    * @example
    * 1
    */
   lineNumber?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SQL parse failed near FROM
    */
@@ -74,8 +95,15 @@ export class CheckSqlContentResponseBodyDataErrorList extends $dara.Model {
 }
 
 export class CheckSqlContentResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of SQL validation errors.
+   */
   errorList?: CheckSqlContentResponseBodyDataErrorList[];
   /**
+   * @remarks
+   * Indicates whether the SQL statement passed the validation.
+   * 
    * @example
    * false
    */
@@ -108,17 +136,30 @@ export class CheckSqlContentResponseBodyData extends $dara.Model {
 
 export class CheckSqlContentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CheckSqlContentResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 062D8E8B-8D47-5DCC-BB12-5A1D93C3A66B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

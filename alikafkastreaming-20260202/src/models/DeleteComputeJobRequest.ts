@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteComputeJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the compute instance, excluding the region name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteComputeJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The name of the compute job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteComputeJobRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

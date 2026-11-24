@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeJobRequest extends $dara.Model {
   /**
    * @remarks
+   * **The compute instance ID.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateComputeJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * **The compute job name.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateComputeJobRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
+   * **The region ID.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,8 +34,11 @@ export class UpdateComputeJobRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * **The job remarks.**
+   * 
    * @example
-   * 订单流实时清洗
+   * Real-time order flow cleaning
    */
   remark?: string;
   static names(): { [key: string]: string } {
