@@ -29,7 +29,7 @@ export class DescribeApsDatasourcesResponseBodyApsDatasources extends $dara.Mode
   datasourceId?: number;
   /**
    * @remarks
-   * The name of the data source.
+   * The name of the target data source.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeApsDatasourcesResponseBodyApsDatasources extends $dara.Mode
   datasourceType?: string;
   /**
    * @remarks
-   * Indicates whether a job is using the data source.
+   * Indicates whether a task is using the data source.
    * 
    * @example
    * false
@@ -85,10 +85,10 @@ export class DescribeApsDatasourcesResponseBodyApsDatasources extends $dara.Mode
 export class DescribeApsDatasourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data sources.
+   * The array of data sources.
    * 
    * @example
-   * -
+   * [{"CreateTime":"2024-01-10 14:44:33","DatasourceDescription":"Sample data source","DatasourceId":1,"DatasourceName":"example-source","DatasourceType":"SLS","HasJob":false}]
    */
   apsDatasources?: DescribeApsDatasourcesResponseBodyApsDatasources[];
   /**
@@ -117,7 +117,7 @@ export class DescribeApsDatasourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of returned results.
    * 
    * @example
    * 1

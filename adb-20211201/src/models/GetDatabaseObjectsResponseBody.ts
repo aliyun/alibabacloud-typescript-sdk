@@ -11,7 +11,7 @@ export class GetDatabaseObjectsResponseBodyData extends $dara.Model {
   databaseSummaryModels?: DatabaseSummaryModel[];
   /**
    * @remarks
-   * The page number. The value must be greater than 0 and no greater than the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1

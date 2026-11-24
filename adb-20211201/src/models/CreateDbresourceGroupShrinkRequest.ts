@@ -10,7 +10,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   atmConfigShrink?: string;
   /**
    * @remarks
-   * The automatic stop interval, in minutes (m).
+   * The auto-stop time, in minutes.
    * 
    * @example
    * 5m
@@ -30,18 +30,18 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   classification?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * The reserved parameter. This parameter is not applicable.
    * 
    * @example
-   * -
+   * AutoScale
    */
   clusterMode?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * The reserved parameter. This parameter is not applicable.
    * 
    * @example
-   * -
+   * 24ACU
    */
   clusterSizeResource?: string;
   /**
@@ -56,9 +56,9 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the spot instance feature for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
-   * - **True**: Enables the spot instance feature.
-   * - **False**: Disables the spot instance feature.
+   * Specifies whether to enable the spot instance feature for the resource group. After you enable spot instances, the unit price of resources decreases, but the instances may be released. This feature can be enabled only for Job resource groups. Valid values:
+   * - **True**: enables the spot instance feature.
+   * - **False**: disables the spot instance feature.
    * 
    * @example
    * True
@@ -77,15 +77,15 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The engine configuration.
+   * The engine configurations.
    * 
    * @example
-   * {\\"spark.adb.version\\":\\"3.5\\"}
+   * {"spark.adb.version":"3.5"}
    */
   engineParamsShrink?: string;
   /**
    * @remarks
-   * The GPU time-sharing elastic plan.
+   * The GPU time-based elastic plan.
    */
   gpuElasticPlanShrink?: string;
   /**
@@ -106,7 +106,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
    * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about resource groups in Data Lakehouse Edition, refer to [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -116,17 +116,17 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * The reserved parameter. This parameter is not applicable.
    * 
    * @example
-   * -
+   * 1
    */
   maxClusterCount?: number;
   /**
    * @remarks
    * The maximum reserved computing resources, in ACUs.
-   * - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 8 ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources are the currently unallocated resources of the cluster, and the step size is 16 ACUs.
+   * - If the resource group type is Job, the maximum reserved computing resources are the currently unallocated resources of the cluster, and the step size is 8 ACUs.
    * 
    * @example
    * 48ACU
@@ -142,10 +142,10 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   maxGpuQuantity?: number;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * The reserved parameter. This parameter is not applicable.
    * 
    * @example
-   * -
+   * 1
    */
   minClusterCount?: number;
   /**
@@ -176,7 +176,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region IDs of AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region ID of an AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster.
    * 
    * @example
    * cn-hangzhou
@@ -189,10 +189,10 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   rulesShrink?: string;
   /**
    * @remarks
-   * The scaling policy of the resource group. Valid values:
-   * - AutoScaling: enables the AutoScaling automatic scaling policy.
-   * - Disable: disables automatic scaling.
-   * - MultiCluster: enables the MultiCluster automatic scaling policy.
+   * The scale-out policy for the resource group. Valid values:
+   * - AutoScaling: enables the AutoScaling policy for auto scaling.
+   * - Disable: disables auto scaling.
+   * - MultiCluster: enables the MultiCluster policy for auto scaling.
    * 
    * @example
    * AutoScaling

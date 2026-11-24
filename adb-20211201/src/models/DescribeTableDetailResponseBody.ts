@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTableDetailResponseBodyItemsShard extends $dara.Model {
   /**
    * @remarks
-   * The shard ID. Only the numeric part of the shard name is returned.
+   * The shard number. Only the numeric part of the shard name is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeTableDetailResponseBodyItemsShard extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The number of rows in the table.
+   * The table size and number of rows.
    * 
    * @example
    * 9484858
@@ -45,7 +45,7 @@ export class DescribeTableDetailResponseBodyItemsShard extends $dara.Model {
 export class DescribeTableDetailResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The queried shards.
+   * The list of shards.
    */
   shard?: DescribeTableDetailResponseBodyItemsShard[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeTableDetailResponseBodyItems extends $dara.Model {
 export class DescribeTableDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why the access was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {
@@ -91,7 +91,7 @@ export class DescribeTableDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The average number of rows in a shard.
+   * The average number of rows per shard.
    * 
    * @example
    * 160
@@ -99,7 +99,7 @@ export class DescribeTableDetailResponseBody extends $dara.Model {
   avgSize?: string;
   /**
    * @remarks
-   * The queried data distribution.
+   * The details.
    */
   items?: DescribeTableDetailResponseBodyItems;
   /**
@@ -112,7 +112,7 @@ export class DescribeTableDetailResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 30
@@ -128,7 +128,7 @@ export class DescribeTableDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 9

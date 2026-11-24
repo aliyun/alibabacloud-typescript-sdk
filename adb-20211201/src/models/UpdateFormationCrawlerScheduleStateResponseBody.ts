@@ -29,7 +29,7 @@ export class UpdateFormationCrawlerScheduleStateResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. OK is returned if the call was successful.
+   * The message returned. OK is returned when the call is successful.
    * 
    * @example
    * OK
@@ -46,8 +46,8 @@ export class UpdateFormationCrawlerScheduleStateResponseBody extends $dara.Model
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

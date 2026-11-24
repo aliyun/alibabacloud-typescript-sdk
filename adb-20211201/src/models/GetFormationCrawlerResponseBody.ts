@@ -26,7 +26,7 @@ export class GetFormationCrawlerResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. OK is returned if the call was successful.
+   * The returned message. The value is OK if the call is successful.
    * 
    * @example
    * OK
@@ -34,7 +34,7 @@ export class GetFormationCrawlerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

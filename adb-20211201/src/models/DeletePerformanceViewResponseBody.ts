@@ -28,7 +28,7 @@ export class DeletePerformanceViewResponseBody extends $dara.Model {
    * - **FAILED**: Failed.
    * 
    * @example
-   * SUCCESS
+   * true
    */
   deleteStatus?: boolean;
   /**

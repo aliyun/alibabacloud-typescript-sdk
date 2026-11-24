@@ -46,11 +46,11 @@ export class UpdateFormationCrawlerScheduleStateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scheduling state. Valid values:
+   * The schedule state. Valid values:
    * 
-   * - NORMAL: resume.
+   * - NORMAL: resumes the schedule.
    * 
-   * - DISABLED: pause.
+   * - DISABLED: pauses the schedule.
    * 
    * This parameter is required.
    * 

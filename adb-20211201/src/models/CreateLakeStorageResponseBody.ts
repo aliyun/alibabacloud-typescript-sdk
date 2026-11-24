@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLakeStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code.
+   * The API status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -13,7 +13,7 @@ export class CreateLakeStorageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The resource usage details of the cluster.
+   * The details of cluster resource usage.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateLakeStorageResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The HTTP status code returned. A value of 200 indicates that the request was successful.
+   * The HTTP status code returned. 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class CreateLakeStorageResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * If the creation operation is implemented asynchronously, a specific JobId is returned.
+   * The explicit job ID returned if the creation operation is asynchronous.
    * 
    * @example
    * OK
@@ -40,14 +40,14 @@ export class CreateLakeStorageResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * ******
+   * 12345678-1234-4ABC-8DEF-123456789012
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

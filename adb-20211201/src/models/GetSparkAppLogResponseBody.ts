@@ -25,12 +25,12 @@ export class GetSparkAppLogResponseBodyData extends $dara.Model {
    * The number of log lines. A value of 0 indicates that no valid logs exist.
    * 
    * @example
-   * 3517972480
+   * 100
    */
   logSize?: number;
   /**
    * @remarks
-   * The alert information, such as task execution failure or insufficient resources. If no alerts are triggered, an empty value is returned.
+   * The alert information, such as task execution failure or insufficient resources. This parameter is empty if no alerts are generated.
    * 
    * @example
    * WARNING:  log file maybe deleted, please check oss path: oss://TestBucketName/applog/

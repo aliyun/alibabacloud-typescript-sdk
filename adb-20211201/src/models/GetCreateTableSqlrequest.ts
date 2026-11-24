@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCreateTableSQLRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The cluster ID of the AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,8 @@ export class GetCreateTableSQLRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region IDs supported by AnalyticDB for MySQL.
    * 
    * This parameter is required.
    * 
@@ -31,7 +30,7 @@ export class GetCreateTableSQLRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -39,7 +38,7 @@ export class GetCreateTableSQLRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test

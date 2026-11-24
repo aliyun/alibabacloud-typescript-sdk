@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApsSlsADBJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code.
+   * The status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -16,12 +16,12 @@ export class ModifyApsSlsADBJobResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * -
+   * {"test":"test","test2":1}
    */
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The HTTP status code returned by the request. A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -29,10 +29,9 @@ export class ModifyApsSlsADBJobResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, a success message is returned.****
-   * *   If the request failed, an error message is returned.
+   * The execution result of applying the suggestion. Valid values:
+   * - If the request is successful, **SUCCESS** is returned.
+   * - If an exception occurs, the specific error message is returned.
    * 
    * @example
    * SUCCESS
@@ -40,7 +39,7 @@ export class ModifyApsSlsADBJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******-3EEC-******-9F06-******
@@ -48,10 +47,9 @@ export class ModifyApsSlsADBJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

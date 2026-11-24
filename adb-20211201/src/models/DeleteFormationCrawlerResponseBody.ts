@@ -13,9 +13,7 @@ export class DeleteFormationCrawlerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the task is deleted. Valid values:
-   * - true: The task is deleted.
-   * - false: The task failed to be deleted.
+   * Indicates whether the deletion is successful. Valid values: - true: The deletion is successful. - false: The deletion fails.
    * 
    * @example
    * True

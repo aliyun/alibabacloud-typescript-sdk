@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountPrivilegeObjectsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the column. This parameter is returned when PrivilegeType is set to Column.
+   * The column name. This field is returned when the privilege level is Column.
    * 
    * @example
    * column1
@@ -13,7 +13,7 @@ export class DescribeAccountPrivilegeObjectsResponseBodyData extends $dara.Model
   column?: string;
   /**
    * @remarks
-   * The name of the database. This parameter is returned when PrivilegeType is set to Database, Table, or Column.
+   * The database name. This field is returned when the privilege level is Database, Table, or Column.
    * 
    * @example
    * tdb1
@@ -21,7 +21,7 @@ export class DescribeAccountPrivilegeObjectsResponseBodyData extends $dara.Model
   database?: string;
   /**
    * @remarks
-   * The description that is specified when you create a table or column. This parameter is returned only when PrivilegeType is set to Database or Table, indicating the database description or table description.
+   * The description specified when the table or column is created. This field has a value only when the privilege level is Database or Table, representing the description of the database or table, respectively.
    * 
    * @example
    * a test db
@@ -29,7 +29,7 @@ export class DescribeAccountPrivilegeObjectsResponseBodyData extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The name of the table. This parameter is returned when PrivilegeType is set to Table or Column.
+   * The table name. This field is returned when the privilege level is Table or Column.
    * 
    * @example
    * table1
@@ -65,12 +65,12 @@ export class DescribeAccountPrivilegeObjectsResponseBodyData extends $dara.Model
 export class DescribeAccountPrivilegeObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The permissions.
+   * The list of privileges.
    */
   data?: DescribeAccountPrivilegeObjectsResponseBodyData[];
   /**
    * @remarks
-   * The page number.
+   * The page number, which is the same as the value passed in the request.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class DescribeAccountPrivilegeObjectsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size, which is the same as the value passed in the request.
    * 
    * @example
    * 20

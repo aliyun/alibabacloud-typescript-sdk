@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The advice ID.
+   * The suggestion ID.
    * 
    * @example
    * 7417db9c-914d-43f3-a123-4d0e448f****
@@ -13,15 +13,15 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   adviceId?: string;
   /**
    * @remarks
-   * The benefit of the advice.
+   * The benefit of the suggestion.
    * 
    * @example
-   * 节省0.4 GB的存储空间
+   * Saves 0.4 GB of storage space
    */
   benefit?: string;
   /**
    * @remarks
-   * The SQL statement of the build task.
+   * The SQL statement used to execute the build task.
    * 
    * @example
    * build table `schema1`.`table1`
@@ -37,11 +37,9 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   indexFields?: string;
   /**
    * @remarks
-   * The status of the task that is used to apply the advice. Valid values:
-   * 
-   * - **SUCCEED**: The task is successful.
-   * 
-   * - **FAILED**: The task has failed.
+   * The status of the task that executes the suggestion. Valid values:
+   * - **SUCCEED**: Succeeded.
+   * - **FAILED**: Failed.
    * 
    * @example
    * SUCCEED
@@ -49,7 +47,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   jobStatus?: string;
   /**
    * @remarks
-   * The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+   * The page number. The value must be greater than 0 and no more than the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -57,12 +55,9 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * - **30** (Default)
-   * 
+   * The number of entries per page. Valid values:
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -71,7 +66,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The SQL statement that is used to roll back the advice.
+   * The rollback SQL statement for the suggestion.
    * 
    * @example
    * alter table `schema1`.`table1` add key col1_1_idx(col1)
@@ -79,7 +74,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   rollbackSQL?: string;
   /**
    * @remarks
-   * The SQL statement that is used to apply the advice.
+   * The SQL statement used to apply the suggestion.
    * 
    * @example
    * alter table `schema1`.`table1` drop key col1_1_idx
@@ -95,11 +90,9 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The submission status of the advice. Valid values:
-   * 
-   * - **SUCCEED**: The advice is submitted.
-   * 
-   * - **FAILED**: The advice fails to be submitted.
+   * The delivery status of the suggestion. Valid values:
+   * - **SUCCEED**: Succeeded.
+   * - **FAILED**: Failed.
    * 
    * @example
    * SUCCEED
@@ -107,7 +100,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   submitStatus?: string;
   /**
    * @remarks
-   * The time when the advice was submitted. The time is in the `yyMMddHHmm` format. The time is displayed in UTC.
+   * The time when the suggestion was issued. Format: yyMMddHHmm (UTC).
    * 
    * @example
    * 2208131600
@@ -123,7 +116,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
+   * The total number of returned results. The value must be greater than or equal to 0 and no more than the maximum value of the Integer data type. Default value: 0.
    * 
    * @example
    * 1
@@ -179,12 +172,12 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
 export class DescribeAppliedAdvicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details.
+   * The details.
    */
   items?: DescribeAppliedAdvicesResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+   * The page number. The value must be greater than 0 and no more than the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -192,12 +185,9 @@ export class DescribeAppliedAdvicesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * - **30** (Default)
-   * 
+   * The number of entries per page. Valid values:
+   * - **30** (default)
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -214,12 +204,12 @@ export class DescribeAppliedAdvicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The concatenated strings of database and table names.
+   * The concatenated string of the database name and table name.
    */
   schemaTableNames?: string[];
   /**
    * @remarks
-   * The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
+   * The total number of returned results. The value must be greater than or equal to 0 and no more than the maximum value of the Integer data type. Default value: 0.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsKafkaHudiJobRequestColumns extends $dara.Model {
   /**
    * @remarks
-   * The name of the destination field.
+   * The name of the target field.
    * 
    * @example
    * b
@@ -13,7 +13,7 @@ export class CreateApsKafkaHudiJobRequestColumns extends $dara.Model {
   mapName?: string;
   /**
    * @remarks
-   * The type of the destination field.
+   * The data type of the target field.
    * 
    * @example
    * string
@@ -29,7 +29,7 @@ export class CreateApsKafkaHudiJobRequestColumns extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the source field.
+   * The data type of the source field.
    * 
    * @example
    * string
@@ -65,8 +65,7 @@ export class CreateApsKafkaHudiJobRequestColumns extends $dara.Model {
 export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The RAM role whose trusted entity is an Alibaba Cloud account. For more information about how to create a RAM role, see Create a RAM role for a trusted Alibaba Cloud account.
-   * In the RAM role, the Alibaba Cloud account to which AnalyticDB for MySQL belongs must be configured as a trusted account for the Alibaba Cloud account to which the Kafka instance belongs.
+   * The RAM role whose trusted entity is an Alibaba Cloud account. For more information about how to create a RAM role, see Create a RAM role for a trusted Alibaba Cloud account. In the RAM role, the Alibaba Cloud account to which AnalyticDB for MySQL belongs is configured as a trusted account for the Alibaba Cloud account to which Kafka belongs.
    * 
    * @example
    * aps
@@ -98,7 +97,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (3.0) clusters in the specified region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (3.0) clusters in the target region.
    * 
    * This parameter is required.
    * 
@@ -117,8 +116,8 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   /**
    * @remarks
    * The data output format. Valid values:
-   * - Single: The source is a single-line JSON record.
-   * - Multi: The source is a JSON array. A single JSON record must be output.
+   * - Single: the source is a single-line JSON record.
+   * - Multi: the source is a JSON array. A single JSON record must be output.
    * 
    * @example
    * Single
@@ -144,7 +143,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The full synchronization configurations.
+   * The full data synchronization configurations.
    * 
    * @example
    * 2ACU
@@ -152,7 +151,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   fullComputeUnit?: string;
   /**
    * @remarks
-   * The destination Hudi configurations.
+   * The advanced HUDI configurations for the target.
    * 
    * @example
    * hoodie.keep.min.commits=20
@@ -160,7 +159,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   hudiAdvancedConfig?: string;
   /**
    * @remarks
-   * The incremental synchronization configurations.
+   * The incremental data synchronization configurations.
    * 
    * This parameter is required.
    * 
@@ -170,13 +169,13 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   incrementalComputeUnit?: string;
   /**
    * @remarks
-   * The nesting parse level for JSON. Valid values:
-   * - 0: No parsing.
-   * - 1: Parse one level.
-   * - 2: Parse two levels.
-   * - 3: Parse three levels.
-   * - 4: Parse four levels.
-   * Default value: 1. For more information about the JSON nesting parse strategy, see JSON parse levels and schema field inference examples.
+   * Specifies the JSON nesting parse level. Valid values:
+   * - 0: does not parse JSON.
+   * - 1: parses one level.
+   * - 2: parses two levels.
+   * - 3: parses three levels.
+   * - 4: parses four levels.
+   * Default value: 1. For more information about the JSON nesting parse strategy, see JSON parsing levels and schema field inference examples.
    * 
    * @example
    * 0
@@ -184,15 +183,15 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   jsonParseLevel?: number;
   /**
    * @remarks
-   * Instance ID of the Kafka instance. You can obtain instance ID in the Kafka console.
+   * Instance ID of the Kafka instance. You can obtain instance ID from the Kafka console.
    * 
    * @example
-   * xxx
+   * alikafka_pre-cn-aaa1a1aa1111
    */
   kafkaClusterId?: string;
   /**
    * @remarks
-   * The ID of the Kafka topic. You can obtain the ID in the Kafka console.
+   * The ID of the Kafka topic. You can obtain the ID from the Kafka console.
    * 
    * @example
    * test
@@ -216,7 +215,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   maxOffsetsPerTrigger?: number;
   /**
    * @remarks
-   * The destination lakehouse address, which is a complete OSS path.
+   * The destination data lakehouse address, which is the complete OSS path.
    * 
    * @example
    * oss://test-xx-zzz/yyy/
@@ -248,8 +247,8 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
    *  "f1",
    *  "f2"
    * ],
-   * "RecordVersionField","xxx"
-   * RecordVersionField specifies the Hudi record version.
+   * "RecordVersionField":"xxx"
+   * RecordVersionField specifies the HUDI record version.
    * 
    * @example
    * "Strategy": "mapping"
@@ -286,9 +285,9 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   /**
    * @remarks
    * The starting consumption offset for Kafka. Valid values:
-   * - begin_cursor: The earliest offset.
-   * - end_cursor: The latest offset.
-   * - timestamp: A specified time.
+   * - begin_cursor: the earliest offset.
+   * - end_cursor: the latest offset.
+   * - timestamp: a specified timestamp.
    * 
    * This parameter is required.
    * 
@@ -308,7 +307,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The destination generation rule.
+   * The target generation rule.
    * 
    * @example
    * xxx
@@ -316,7 +315,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
   targetGenerateRule?: string;
   /**
    * @remarks
-   * The destination type.
+   * The target type.
    * 
    * @example
    * OSS

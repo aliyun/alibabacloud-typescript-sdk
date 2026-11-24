@@ -8,12 +8,12 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
    * The number of ACUs.
    * 
    * @example
-   * -
+   * 16
    */
   acuCount?: number;
   /**
    * @remarks
-   * The time when the task was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
+   * The time when the task was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-21T02:15:16Z
@@ -24,7 +24,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
    * The error message.
    * 
    * @example
-   * -
+   * The task execution failed
    */
   failedMsg?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
   maxRT?: string;
   /**
    * @remarks
-   * The time when the task was modified. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
+   * The time when the task was modified. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-21T02:15:16Z

@@ -15,7 +15,7 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the data source.
+   * The data source description.
    * 
    * @example
    * test
@@ -33,7 +33,7 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * sls-******
@@ -41,23 +41,23 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
-   * The information about the Kafka instance.
+   * The Kafka data source information.
    * 
    * @example
-   * -
+   * {"KafkaTopic":"test-topic"}
    */
   kafkaInfoShrink?: string;
   /**
    * @remarks
-   * The lakehouse ID.
+   * The Lakehouse ID.
    * 
    * @example
-   * 123
+   * {"VpcId":"vpc-******"}
    */
   lakehouseIdShrink?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * The deprecated data source information.
    * 
    * @example
    * -
@@ -65,7 +65,7 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   polarDBMysqlInfoShrink?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * The deprecated data source information.
    * 
    * @example
    * -
@@ -83,10 +83,10 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The information about Simple Log Service (SLS).
+   * The Simple Log Service (SLS) information.
    * 
    * @example
-   * -
+   * {"Project":"example-project","Store":"example-logstore","Across":false}
    */
   slsInfoShrink?: string;
   static names(): { [key: string]: string } {

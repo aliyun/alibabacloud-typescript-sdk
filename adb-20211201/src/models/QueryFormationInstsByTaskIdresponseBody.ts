@@ -61,9 +61,7 @@ export class QueryFormationInstsByTaskIDResponseBodyData extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The task source. Valid values:
-   * - **system**: System.
-   * - **custom**: Custom.
+   * The task source. Valid values: - **system**: System. - **custom**: Custom.
    * 
    * @example
    * shareScreen
@@ -173,7 +171,7 @@ export class QueryFormationInstsByTaskIDResponseBody extends $dara.Model {
   items?: { [key: string]: any }[];
   /**
    * @remarks
-   * The message. The value is OK when the request is successful.
+   * The message. The value is OK if the request is successful.
    * 
    * @example
    * OK
@@ -189,7 +187,7 @@ export class QueryFormationInstsByTaskIDResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The total number of pages.
+   * The page size.
    * 
    * @example
    * 30
@@ -205,7 +203,7 @@ export class QueryFormationInstsByTaskIDResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

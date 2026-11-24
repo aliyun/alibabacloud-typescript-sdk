@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSparkAppTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why the access was denied.
+   * The details of the access denial.
    * 
    * @example
    * {
@@ -30,9 +30,8 @@ export class DescribeSparkAppTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The type of the Spark application. Valid values:
-   * 
-   * *   BATCH
-   * *   SQLENGINE
+   * - BATCH: batch application.
+   * - SQLENGINE: SQL engine application.
    * 
    * @example
    * Batch

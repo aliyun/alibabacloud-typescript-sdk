@@ -6,8 +6,8 @@ export class DescribeAdbMySqlTablesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The additional information about the call result. Valid values:
-   * - If the request is successful, **Success** is returned.
-   * - If the request fails, a specific error code is returned.
+   * - **Success**: The request is successful. 
+   * - Specific error code: The request is abnormal.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class DescribeAdbMySqlTablesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7A7D49E3-5585-5DF8-B62C-75C46B4991DC

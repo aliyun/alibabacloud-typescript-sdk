@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApsDatasoureRequestKafkaInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Kafka instance.
+   * The Kafka instance ID.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class ModifyApsDatasoureRequestKafkaInfo extends $dara.Model {
   kafkaClusterId?: string;
   /**
    * @remarks
-   * The topic of the Kafka instance.
+   * The Kafka topic name.
    * 
    * @example
    * test-topic
@@ -45,7 +45,7 @@ export class ModifyApsDatasoureRequestKafkaInfo extends $dara.Model {
 export class ModifyApsDatasoureRequestLakehouseId extends $dara.Model {
   /**
    * @remarks
-   * The name of the security group.
+   * The security group name.
    * 
    * @example
    * sg-******
@@ -53,7 +53,7 @@ export class ModifyApsDatasoureRequestLakehouseId extends $dara.Model {
   securityGroup?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-******
@@ -61,7 +61,7 @@ export class ModifyApsDatasoureRequestLakehouseId extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The name of the vSwitch.
+   * The vSwitch name.
    * 
    * @example
    * vsw-******
@@ -95,7 +95,7 @@ export class ModifyApsDatasoureRequestLakehouseId extends $dara.Model {
 export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -103,7 +103,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   connectUrl?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -111,7 +111,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -119,7 +119,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -155,7 +155,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
 export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -163,7 +163,7 @@ export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   connectUrl?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -171,7 +171,7 @@ export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -179,7 +179,7 @@ export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -215,10 +215,10 @@ export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
 export class ModifyApsDatasoureRequestSlsInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to use a cross-account resource as the data source. Valid values:
+   * Specifies whether the resource is cross-account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The current network instance is a cross-account resource.
+   * - **false**: The current network instance is a resource within the current account.
    * 
    * @example
    * false
@@ -226,7 +226,7 @@ export class ModifyApsDatasoureRequestSlsInfo extends $dara.Model {
   across?: boolean;
   /**
    * @remarks
-   * The name of the cross-account role.
+   * The cross-account role.
    * 
    * @example
    * test-role
@@ -242,7 +242,7 @@ export class ModifyApsDatasoureRequestSlsInfo extends $dara.Model {
   acrossUid?: string;
   /**
    * @remarks
-   * The region ID.
+   * The source region ID.
    * 
    * @example
    * cn-beijing
@@ -288,7 +288,7 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the data source.
+   * The data source description.
    * 
    * @example
    * test
@@ -306,7 +306,7 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * sls-******
@@ -314,23 +314,23 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
-   * The information about the Kafka instance.
+   * The Kafka data source information.
    * 
    * @example
-   * -
+   * {"KafkaTopic":"test-topic"}
    */
   kafkaInfo?: ModifyApsDatasoureRequestKafkaInfo;
   /**
    * @remarks
-   * The lakehouse ID.
+   * The Lakehouse ID.
    * 
    * @example
-   * 123
+   * {"VpcId":"vpc-******"}
    */
   lakehouseId?: ModifyApsDatasoureRequestLakehouseId;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * The deprecated data source information.
    * 
    * @example
    * -
@@ -338,7 +338,7 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   polarDBMysqlInfo?: ModifyApsDatasoureRequestPolarDBMysqlInfo;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * The deprecated data source information.
    * 
    * @example
    * -
@@ -356,10 +356,10 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The information about Simple Log Service (SLS).
+   * The Simple Log Service (SLS) information.
    * 
    * @example
-   * -
+   * {"Project":"example-project","Store":"example-logstore","Across":false}
    */
   slsInfo?: ModifyApsDatasoureRequestSlsInfo;
   static names(): { [key: string]: string } {

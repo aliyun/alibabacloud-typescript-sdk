@@ -10,12 +10,12 @@ export class UpdateLakeStorageRequestPermissions extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * 1234567890123456
    */
   account?: string;
   /**
    * @remarks
-   * The read permissions.
+   * The read permission.
    * 
    * This parameter is required.
    * 
@@ -30,12 +30,12 @@ export class UpdateLakeStorageRequestPermissions extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * SUB
+   * User
    */
   type?: string;
   /**
    * @remarks
-   * The write permissions.
+   * The write permission.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class UpdateLakeStorageRequestPermissions extends $dara.Model {
 export class UpdateLakeStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster that is associated with the lake storage.
+   * The ADB instance ID.
    * 
    * @example
    * amv-*******
@@ -92,15 +92,15 @@ export class UpdateLakeStorageRequest extends $dara.Model {
    * The unique identifier of the lake storage.
    * 
    * @example
-   * -
+   * adb-lake-cn-hangzhou-1a1aaaa11a
    */
   lakeStorageId?: string;
   /**
    * @remarks
-   * The permissions on the lake storage.
+   * The permissions of the lake storage.
    * 
    * @example
-   * -
+   * [{"Account":"1234567890123456","Read":true,"Type":"User","Write":true}]
    */
   permissions?: UpdateLakeStorageRequestPermissions[];
   /**

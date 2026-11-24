@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetViewDDLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 421794A3-72A5-5D27-9E8B-A75A4C503E17
@@ -13,7 +13,7 @@ export class GetViewDDLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SQL statement.
+   * The details of the SQL statement.
    * 
    * @example
    * CREATE VIEW `test`.`test_view` AS SELECT

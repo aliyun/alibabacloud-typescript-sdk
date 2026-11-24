@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdviceServiceEnabledResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message about the call result. Valid values:
-   * - **Success**: The request is successful. 
-   * - Specific error message: Returned when an exception occurs.
+   * The message returned for the call result. 
+   * - If the request is successful, **Success** is returned. 
+   * - If the request fails, the specific error message is returned.
    * 
    * @example
    * Success
@@ -24,8 +24,8 @@ export class DescribeAdviceServiceEnabledResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the advisory service is enabled. Valid values:
-   * - **True**: The advisory service is enabled. 
-   * - **False**: The advisory service is disabled.
+   * - **True**: Enabled. 
+   * - **False**: Disabled.
    * 
    * @example
    * False

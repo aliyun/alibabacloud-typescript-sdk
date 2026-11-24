@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsWebhookShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,8 @@ export class CreateApsWebhookShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The task type. Valid values:
-   * 
-   * ResultExport: SLS/OSS export task.
+   * The node type. Valid values:
+   * - ResultExport: SLS or OSS export task.
    * 
    * This parameter is required.
    * 

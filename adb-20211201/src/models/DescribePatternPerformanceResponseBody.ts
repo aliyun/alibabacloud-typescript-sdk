@@ -5,33 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePatternPerformanceResponseBodyPerformancesSeries extends $dara.Model {
   /**
    * @remarks
-   * The name of the performance value. The value of this parameter varies based on the value of `Key`:
-   * 
-   * - If `Key` is `AnalyticDB_PatternQueryCount`, this parameter returns `pattern_query_count`, which indicates the query count for the sql pattern.
-   * 
-   * - If `Key` is `AnalyticDB_PatternQueryTime`, this parameter can be one of the following values:
-   * 
-   *   - `average_query_time`: the average total time of queries that match the sql pattern.
-   * 
-   *   - `max_query_time`: the maximum total time of queries that match the sql pattern.
-   * 
-   * - If `Key` is `AnalyticDB_PatternExecutionTime`, this parameter can be one of the following values:
-   * 
-   *   - `average_execution_time`: the average execution time of queries that match the sql pattern.
-   * 
-   *   - `max_execution_time`: the maximum execution time of queries that match the sql pattern.
-   * 
-   * - If `Key` is `AnalyticDB_PatternPeakMemory`, this parameter can be one of the following values:
-   * 
-   *   - `average_peak_memory`: the average peak memory usage of queries that match the sql pattern.
-   * 
-   *   - `max_peak_memory`: the maximum peak memory usage of queries that match the sql pattern.
-   * 
-   * - If `Key` is `AnalyticDB_PatternScanSize`, this parameter can be one of the following values:
-   * 
-   *   - `average_scan_size`: the average data scan size of queries that match the sql pattern.
-   * 
-   *   - `max_scan_size`: the maximum data scan size of queries that match the sql pattern.
+   * The name of the performance value. Valid values:
+   * - When the `Key` value is `AnalyticDB_PatternQueryCount`, this parameter returns `pattern_query_count`, which indicates the executions of SQL statements related to the current pattern.
+   * - When the `Key` value is `AnalyticDB_PatternQueryTime`, this parameter returns:
+   *     - `average_query_time`: the average total time consumed by SQL statements related to the current pattern.
+   *     - `max_query_time`: the maximum total time consumed by SQL statements related to the current pattern.
+   * - When the `Key` value is `AnalyticDB_PatternExecutionTime`, this parameter returns:
+   *     - `average_execution_time`: the average execution duration of SQL statements related to the current pattern.
+   *     - `max_execution_time`: the maximum execution duration of SQL statements related to the current pattern.
+   * - When the `Key` value is `AnalyticDB_PatternPeakMemory`, this parameter returns:
+   *     - `average_peak_memory`: the average peak memory consumed by SQL statements related to the current pattern.
+   *     - `max_peak_memory`: the maximum peak memory consumed by SQL statements related to the current pattern.
+   * - When the `Key` value is `AnalyticDB_PatternScanSize`, this parameter returns:
+   *     - `average_scan_size`: the average data volume read by SQL statements related to the current pattern.
+   *     - `max_scan_size`: the maximum data volume read by SQL statements related to the current pattern.
    * 
    * @example
    * max_query_time
@@ -71,17 +58,12 @@ export class DescribePatternPerformanceResponseBodyPerformancesSeries extends $d
 export class DescribePatternPerformanceResponseBodyPerformances extends $dara.Model {
   /**
    * @remarks
-   * The performance metric. Valid values:
-   * 
-   * - **AnalyticDB_PatternQueryCount**: The total number of queries that match the sql pattern.
-   * 
-   * - **AnalyticDB_PatternQueryTime**: The total time for queries that match the sql pattern.
-   * 
-   * - **AnalyticDB_PatternExecutionTime**: The total execution time of queries that match the sql pattern.
-   * 
-   * - **AnalyticDB_PatternPeakMemory**: The peak memory usage of queries that match the sql pattern.
-   * 
-   * - **AnalyticDB_PatternScanSize**: The total data scan size of queries that match the sql pattern.
+   * The queried performance metrics. Valid values:
+   * - **AnalyticDB_PatternQueryCount**: the total number of queries related to the pattern.
+   * - **AnalyticDB_PatternQueryTime**: the total time consumed by queries related to the pattern.
+   * - **AnalyticDB_PatternExecutionTime**: the execution duration of queries related to the pattern.
+   * - **AnalyticDB_PatternPeakMemory**: the peak memory consumed by queries related to the pattern.
+   * - **AnalyticDB_PatternScanSize**: the data volume read by queries related to the pattern.
    * 
    * @example
    * AnalyticDB_PatternExecutionTime
@@ -89,20 +71,16 @@ export class DescribePatternPerformanceResponseBodyPerformances extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The time series data for the performance metric.
+   * The details of each performance value under the performance metrics.
    */
   series?: DescribePatternPerformanceResponseBodyPerformancesSeries[];
   /**
    * @remarks
-   * The unit of the performance metric. The returned unit varies based on the value of `Key`:
-   * 
-   * - If `Key` is `AnalyticDB_PatternQueryTime` or `AnalyticDB_PatternExecutionTime`, the unit is **ms**.
-   * 
-   * - If `Key` is `AnalyticDB_PatternPeakMemory`, the unit is **MB**.
-   * 
-   * - If `Key` is `AnalyticDB_PatternScanSize`, the unit is **MB**.
-   * 
-   * - If `Key` is `AnalyticDB_PatternQueryCount`, this parameter is empty.
+   * The units corresponding to the performance metrics. Valid values:
+   * - **ms**: returned when the performance metric is related to query time, which means the `Key` value is `AnalyticDB_PatternQueryTime` or `AnalyticDB_PatternExecutionTime`.
+   * - **MB**: returned when the performance metric is related to peak memory, which means the `Key` value is `AnalyticDB_PatternPeakMemory`.
+   * - **MB**: returned when the performance metric is the data volume read, which means the `Key` value is `AnalyticDB_PatternScanSize`.
+   * - Empty: returned when the performance metric is the number of queries, which means the `Key` value is `AnalyticDB_PatternQueryCount`.
    * 
    * @example
    * ms
@@ -139,7 +117,7 @@ export class DescribePatternPerformanceResponseBodyPerformances extends $dara.Mo
 export class DescribePatternPerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The client IP address that submitted the queries that match the sql pattern.
+   * The IP address of the client that submits the SQL statements related to the pattern.
    * 
    * @example
    * 172.16.14.*
@@ -147,7 +125,7 @@ export class DescribePatternPerformanceResponseBody extends $dara.Model {
   accessIp?: string;
   /**
    * @remarks
-   * The end of the query time range. The time is in UTC and is formatted as *yyyy-MM-ddTHH:mmZ*.
+   * The end time of the query. The time is in UTC and follows the <i>yyyy-MM-ddTHH:mmZ</i> format.
    * 
    * @example
    * 2022-08-22T01:06:00Z
@@ -155,7 +133,7 @@ export class DescribePatternPerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of failed executions for the sql pattern within the query time range.
+   * The number of failures of the pattern within the query time range.
    * 
    * @example
    * 1
@@ -163,12 +141,12 @@ export class DescribePatternPerformanceResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The performance metrics.
+   * The performance details.
    */
   performances?: DescribePatternPerformanceResponseBodyPerformances[];
   /**
    * @remarks
-   * The number of executions for the sql pattern within the query time range.
+   * The number of executions of the pattern within the query time range.
    * 
    * @example
    * 1202
@@ -184,7 +162,7 @@ export class DescribePatternPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SQL statement for the sql pattern.
+   * The specific statement of the SQL pattern.
    * 
    * @example
    * SELECT *nFROM HIVE.`ADB_EXTERNAL_TPCH_10GB`.`External_customer`nLIMIT ?
@@ -192,7 +170,7 @@ export class DescribePatternPerformanceResponseBody extends $dara.Model {
   SQLPattern?: string;
   /**
    * @remarks
-   * The start of the query time range. The time is in UTC and is formatted as *yyyy-MM-ddTHH:mmZ*.
+   * The start time of the query. The time is in UTC and follows the <i>yyyy-MM-ddTHH:mmZ</i> format.
    * 
    * @example
    * 2022-08-21T02:15:00Z
@@ -200,7 +178,7 @@ export class DescribePatternPerformanceResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The tables queried by the sql pattern.
+   * The information about the tables involved in the SQL pattern query.
    * 
    * @example
    * tpch_1g.part;tpch_1g.supplier;tpch_1g.lineitem;tpch_1g.partsupp;tpch_1g.orders;tpch_1g.nation
@@ -208,7 +186,7 @@ export class DescribePatternPerformanceResponseBody extends $dara.Model {
   tables?: string;
   /**
    * @remarks
-   * The database account that executes the SQL statements.
+   * The database account that executes the SQL statement.
    * 
    * @example
    * test_user

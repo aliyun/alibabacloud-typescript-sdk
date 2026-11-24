@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenStructMvDetailModelBaseTableInfos extends $dara.Model {
   /**
    * @remarks
-   * Whether the base table is a materialized view.
+   * Specifies whether the base table is a materialized view.
    * 
    * @example
    * false
@@ -65,36 +65,34 @@ export class OpenStructMvDetailModelBaseTableInfos extends $dara.Model {
 export class OpenStructMvDetailModel extends $dara.Model {
   /**
    * @remarks
-   * All direct parent base tables of the materialized view.
+   * All direct parent base tables of the current materialized view.
    */
   baseTableInfos?: OpenStructMvDetailModelBaseTableInfos[];
   /**
    * @remarks
-   * All direct parent base tables of the materialized view.
+   * All direct parent base tables of the current materialized view.
    */
   baseTableNames?: string[][];
   /**
    * @remarks
-   * Indicates whether to enable alerting for refresh latency. Valid values:
+   * Specifies whether to enable the refresh delay alert. Valid values:
    * 
-   * - true: Yes.
-   * 
-   * - false: No.
+   * - 1: Yes.
+   * - 0: No.
    * 
    * @example
-   * false
+   * 0
    */
   enableDelayAlert?: number;
   /**
    * @remarks
-   * Indicates whether to enable alerting for refresh task failures. Valid values:
+   * Specifies whether to enable the refresh task failure alert. Valid values:
    * 
-   * - true: Yes.
-   * 
-   * - false: No.
+   * - 1: Yes.
+   * - 0: No.
    * 
    * @example
-   * false
+   * 0
    */
   enableFailureAlert?: number;
   /**
@@ -123,7 +121,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   implicitHit?: number;
   /**
    * @remarks
-   * Indicates whether the materialized view has not been accessed by explicit or implicit queries for more than 30 days since its creation.
+   * Indicates whether the current materialized view has not been accessed (including explicit and implicit queries) for more than 30 days since its creation.
    * 
    * @example
    * false
@@ -131,7 +129,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   isInactive?: boolean;
   /**
    * @remarks
-   * The refresh latency toleration, in minutes.
+   * The refresh delay tolerance, in minutes.
    * 
    * @example
    * 2
@@ -139,7 +137,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   latencyTolerance?: number;
   /**
    * @remarks
-   * The disk space that the materialized view occupies for hot data, in bytes.
+   * The hot data disk space occupied by the materialized view, in bytes.
    * 
    * @example
    * 1234
@@ -147,7 +145,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   localSize?: number;
   /**
    * @remarks
-   * Whether query rewrite is enabled for the materialized view.
+   * Specifies whether query rewrite is enabled for the current materialized view.
    * 
    * @example
    * false
@@ -171,7 +169,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   refreshState?: string;
   /**
    * @remarks
-   * The disk space that the materialized view occupies for cold data, in bytes.
+   * The cold data disk space occupied by the materialized view, in bytes.
    * 
    * @example
    * 1234
@@ -179,7 +177,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   remoteSize?: number;
   /**
    * @remarks
-   * The resource group on which the refresh depends.
+   * The resource group that the refresh depends on.
    * 
    * @example
    * user_default

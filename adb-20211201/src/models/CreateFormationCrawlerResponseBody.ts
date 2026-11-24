@@ -13,7 +13,7 @@ export class CreateFormationCrawlerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed.
+   * Indicates whether the request was processed successfully.
    * 
    * @example
    * True
@@ -29,7 +29,7 @@ export class CreateFormationCrawlerResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. A value of OK indicates success.
+   * The returned message. The value is OK if the request is successful.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class CreateFormationCrawlerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019F3BE7-E8FA-3DC5-8EE7-501A90B5A54D
@@ -45,8 +45,8 @@ export class CreateFormationCrawlerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - **true**: The call is successful.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
    * - **false**: The call failed.
    * 
    * @example
@@ -55,7 +55,7 @@ export class CreateFormationCrawlerResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The operation result. A value of true indicates that the task is created.
+   * The operation result. A value of true indicates that the task was created successfully.
    * 
    * @example
    * 241

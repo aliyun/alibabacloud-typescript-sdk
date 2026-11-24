@@ -38,7 +38,7 @@ export class CreateAPSJobRequest extends $dara.Model {
    * The password of the destination instance.
    * 
    * @example
-   * ******
+   * Example****123!
    */
   destinationEndpointPassword?: string;
   /**
@@ -46,7 +46,7 @@ export class CreateAPSJobRequest extends $dara.Model {
    * The username of the destination instance.
    * 
    * @example
-   * ******
+   * example_user
    */
   destinationEndpointUserName?: string;
   /**
@@ -59,8 +59,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   partitionList?: string;
   /**
    * @remarks
-   * The region ID.
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -83,7 +82,7 @@ export class CreateAPSJobRequest extends $dara.Model {
    * The password of the source endpoint.
    * 
    * @example
-   * ******
+   * Example****123!
    */
   sourceEndpointPassword?: string;
   /**
@@ -99,12 +98,12 @@ export class CreateAPSJobRequest extends $dara.Model {
    * The username of the source endpoint.
    * 
    * @example
-   * xxxx
+   * example_user
    */
   sourceEndpointUserName?: string;
   /**
    * @remarks
-   * The destination table mode.
+   * The mode of the destination table.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSqlPatternCompareReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created report. This value only indicates that the request has been accepted.
+   * The ID of the newly created report. The returned value only indicates that the request is accepted.
    * 
    * @example
    * 1001

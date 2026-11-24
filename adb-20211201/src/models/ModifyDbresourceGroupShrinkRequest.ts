@@ -10,7 +10,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   atmConfigShrink?: string;
   /**
    * @remarks
-   * The auto-stop time.
+   * The automatic stop time.
    * 
    * @example
    * 5m
@@ -45,7 +45,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the resources may be released. This feature can be enabled only for Job resource groups. Valid values:
+   * Specifies whether to enable the spot instance feature for the resource group. After you enable spot instances, the unit price of resources decreases, but the instances may be released. This feature can be enabled only for Job resource groups. Valid values:
    * - **True**: Enables the spot instance feature.
    * - **False**: Disables the spot instance feature.
    * 
@@ -55,10 +55,10 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   enableSpot?: boolean;
   /**
    * @remarks
-   * The engine configurations.
+   * The engine configuration.
    * 
    * @example
-   * {\\"spark.adb.version\\":\\"3.5\\"}
+   * {"spark.adb.version":"3.5"}
    */
   engineParamsShrink?: string;
   /**
@@ -82,7 +82,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about Data Lakehouse Edition resource groups, refer to [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -95,14 +95,14 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * None
+   * 1
    */
   maxClusterCount?: number;
   /**
    * @remarks
    * The maximum reserved computing resources.
-   * - If the resource group type is Interactive, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 8 ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 16 ACU.
+   * - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 8 ACU.
    * 
    * @example
    * 48ACU
@@ -113,7 +113,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * Reserved parameter
+   * 1
    */
   maxGpuQuantity?: number;
   /**
@@ -121,14 +121,14 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * None
+   * 1
    */
   minClusterCount?: number;
   /**
    * @remarks
    * The minimum reserved computing resources.
-   * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
-   * - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
+   * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACU.
+   * - If the resource group type is Job, the minimum reserved computing resources is 0 ACU.
    * 
    * @example
    * 0ACU
@@ -139,7 +139,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * Reserved parameter
+   * 1
    */
   minGpuQuantity?: number;
   /**
@@ -158,7 +158,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The job delivery rules.
+   * The job routing rules.
    */
   rulesShrink?: string;
   /**

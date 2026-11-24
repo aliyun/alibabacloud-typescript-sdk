@@ -21,7 +21,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The SQL execution error message.
+   * The error message of the SQL execution.
    * 
    * @example
    * notFoundIp
@@ -29,7 +29,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The SQL execution error stack trace.
+   * The error stack trace of the SQL execution.
    * 
    * @example
    * notFoundIpException
@@ -37,7 +37,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   errorTrace?: string;
   /**
    * @remarks
-   * The start time of the SQL statement. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+   * The start time of the SQL execution. The time is in UTC and follows the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2022-01-23T16:05:08Z
@@ -45,7 +45,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   executeTime?: string;
   /**
    * @remarks
-   * The ID of the query executed within the Spark application.
+   * The internal query execution ID of the Spark application.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   innerQueryId?: string;
   /**
    * @remarks
-   * Whether it can be diagnosed.
+   * Indicates whether the SQL statement can be diagnosed.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * @example
    * test_job
@@ -77,7 +77,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The SQL statement.
+   * The details of the SQL statement.
    * 
    * @example
    * SELECT * FROM adb_hdfs_import_source
@@ -85,7 +85,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   SQLText?: string;
   /**
    * @remarks
-   * The ID of the statement.
+   * The statement ID.
    * 
    * @example
    * fbd22066-1c03-xxxx-aa16-6ae28288****
@@ -93,12 +93,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   statementId?: string;
   /**
    * @remarks
-   * The source from which the query was initiated.
-   * 
-   * Valid values:
-   * 
-   * *   SQL_EDITOR: SQL_EDITOR.
-   * *   JDBC: JDBC.
+   * The source from which the query is initiated.
    * 
    * @example
    * SQL_EDITOR
@@ -108,20 +103,13 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
    * @remarks
    * The execution status of the SQL statement.
    * 
-   * Valid values:
-   * 
-   * *   cancel: The task is canceled .
-   * *   finished: The execution succeeds .
-   * *   error: The execution fails .
-   * *   timeout: The execution of the command timed out.
-   * 
    * @example
    * finish
    */
   status?: string;
   /**
    * @remarks
-   * The duration of the SQL statement. Unit: milliseconds.
+   * The execution duration of the SQL statement. Unit: milliseconds.
    * 
    * @example
    * 40000
@@ -129,7 +117,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
   totalTime?: number;
   /**
    * @remarks
-   * The username that is used to execute SQL statements.
+   * The username that executed the SQL statement.
    * 
    * @example
    * test_user
@@ -187,7 +175,7 @@ export class DescribeSparkAuditLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeSparkAuditLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    * 
    * @example
    * {
@@ -211,7 +199,7 @@ export class DescribeSparkAuditLogRecordsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The list of SQL audit logs.
+   * The list of SQL records.
    */
   items?: DescribeSparkAuditLogRecordsResponseBodyItems[];
   /**
@@ -224,7 +212,7 @@ export class DescribeSparkAuditLogRecordsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -240,7 +228,7 @@ export class DescribeSparkAuditLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 100

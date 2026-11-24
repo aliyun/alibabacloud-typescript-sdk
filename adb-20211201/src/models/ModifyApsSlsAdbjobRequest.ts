@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApsSlsADBJobRequestColumns extends $dara.Model {
   /**
    * @remarks
-   * The name of the mapping.
+   * The mapped name.
    * 
    * @example
    * map_name
@@ -13,7 +13,7 @@ export class ModifyApsSlsADBJobRequestColumns extends $dara.Model {
   mapName?: string;
   /**
    * @remarks
-   * The type of the mapping.
+   * The mapping type.
    * 
    * @example
    * bigint
@@ -21,7 +21,7 @@ export class ModifyApsSlsADBJobRequestColumns extends $dara.Model {
   mapType?: string;
   /**
    * @remarks
-   * The name of the column.
+   * The name.
    * 
    * @example
    * test_name
@@ -65,15 +65,15 @@ export class ModifyApsSlsADBJobRequestColumns extends $dara.Model {
 export class ModifyApsSlsADBJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about columns.
+   * The column information.
    * 
    * @example
-   * -
+   * [{"MapName":"map_name","MapType":"bigint","Name":"test_name","Type":"bigint"}]
    */
   columns?: ModifyApsSlsADBJobRequestColumns[];
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
   dirtyDataProcessPattern?: string;
   /**
    * @remarks
-   * Specifies whether to enable the consistency check.
+   * Specifies whether exactly-once processing is enabled.
    * 
    * @example
    * true
@@ -107,7 +107,7 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
   exactlyOnce?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * The password.
    * 
    * @example
    * test_123
@@ -125,7 +125,7 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start offset.
+   * The starting offset.
    * 
    * @example
    * end_cursor
@@ -144,12 +144,12 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
    * The timestamp conversion.
    * 
    * @example
-   * -
+   * {"Transform":false}
    */
   unixTimestampConvert?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * user-name
@@ -157,7 +157,7 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the data link task.
    * 
    * This parameter is required.
    * 

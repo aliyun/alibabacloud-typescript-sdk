@@ -40,7 +40,7 @@ export class UpdateApsWebhookResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Operation succeeded
+   * 操作成功
    */
   message?: string;
   /**

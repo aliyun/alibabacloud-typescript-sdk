@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableAdvicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The generation date of the suggestion, in the yyyyMMdd format.
+   * The generation date of the suggestions, in the yyyyMMdd format.
    * 
-   * > Data is generated after daily analysis in the early morning. Therefore, you must specify a date of T-1 or earlier to query the data. For example, if today is 20240627, you must specify 20240626 or an earlier date.
+   * > Data is generated after daily analysis in the early morning. Therefore, you must specify a date of T-1 or earlier to query the data. For example, if today is 20240627, you should pass 20240626 or an earlier date.
    * 
    * @example
    * 20221124
@@ -16,8 +16,8 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the suggestion. Valid values:
-   * - **INDEX**: Index optimization.
-   * - **TIERING**: Hot and cold data optimization.
+   * - **INDEX**: index optimization.
+   * - **TIERING**: hot and cold data optimization.
    * 
    * @example
    * INDEX
@@ -55,7 +55,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The field by which to sort the query results. The value is a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. Parameters:
+   * The field by which to sort the query results. The value must be a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. Parameters:
    * - `Field`: the sort field. Valid values:
    *     - `SchemaName`: the database name.
    *     - `TableName`: the table name.
@@ -101,7 +101,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The concatenated string of the database name and table name.
+   * The concatenated string of the database name and the table name.
    * 
    * @example
    * tpch.lineitem

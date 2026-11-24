@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model {
   /**
    * @remarks
-   * The advanced configurations.
+   * The advanced configuration.
    * 
    * @example
    * test.adv.config=value
@@ -13,7 +13,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   advancedConfig?: string;
   /**
    * @remarks
-   * The handling strategy when a database or table with the same name exists at the destination.
+   * The handling strategy for databases or tables with the same name in the destination.
    * 
    * @example
    * Intercept
@@ -56,12 +56,12 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
    * The EMR cluster ID.
    * 
    * @example
-   * -
+   * c-b933c5aac8fe****
    */
   emrClusterId?: string;
   /**
    * @remarks
-   * The number of ACUs required for migration.
+   * The number of ACUs required for the migration.
    * 
    * @example
    * 16
@@ -101,7 +101,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The resource pool to which the SQL statement belongs.
+   * The resource pool to which the SQL statements belong.
    * 
    * @example
    * test
@@ -165,7 +165,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   workloadName?: string;
   /**
    * @remarks
-   * The workload name.
+   * The workload type name.
    * 
    * @example
    * test
@@ -238,7 +238,7 @@ export class DescribeApsHiveWorkloadResponseBody extends $dara.Model {
    * The workload information.
    * 
    * @example
-   * -
+   * {"WorkloadName":"test","State":"COMPLETED","FullComputeUnit":"16"}
    */
   apsWorkload?: DescribeApsHiveWorkloadResponseBodyApsWorkload;
   /**

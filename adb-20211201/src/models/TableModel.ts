@@ -70,11 +70,17 @@ export class TableModel extends $dara.Model {
   /**
    * @remarks
    * The creation source of the table.
+   * 
+   * @example
+   * XIHE
    */
   createdBySource?: string;
   /**
    * @remarks
    * The user who created the table.
+   * 
+   * @example
+   * example_user
    */
   createdByUser?: string;
   /**
@@ -95,7 +101,7 @@ export class TableModel extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * Indicates whether encryption is enabled.
+   * Specifies whether encryption is enabled.
    * 
    * @example
    * false
@@ -116,7 +122,7 @@ export class TableModel extends $dara.Model {
   distributeType?: string;
   /**
    * @remarks
-   * Indicates whether DFS is enabled.
+   * Specifies whether DFS is enabled.
    * 
    * @example
    * false
@@ -137,7 +143,7 @@ export class TableModel extends $dara.Model {
   indexes?: CstoreIndexModel[];
   /**
    * @remarks
-   * Indicates whether full indexing is enabled.
+   * Specifies whether full indexing is enabled.
    * 
    * @example
    * true
@@ -145,7 +151,7 @@ export class TableModel extends $dara.Model {
   isAllIndex?: boolean;
   /**
    * @remarks
-   * Indicates whether it is a full-text index dictionary.
+   * Specifies whether it is a full-text index dictionary.
    * 
    * @example
    * false
@@ -156,12 +162,15 @@ export class TableModel extends $dara.Model {
    * The maximum column ID.
    * 
    * @example
-   * MaxColumnId
+   * 1
    */
   maxColumnId?: number;
   /**
    * @remarks
    * The parameters.
+   * 
+   * @example
+   * {"format":"columnstore"}
    */
   parameters?: { [key: string]: string };
   /**
@@ -253,7 +262,7 @@ export class TableModel extends $dara.Model {
   rtEngineType?: string;
   /**
    * @remarks
-   * Indicates whether all indexes are routed.
+   * Specifies whether all indexes are routed.
    * 
    * @example
    * false
@@ -269,7 +278,7 @@ export class TableModel extends $dara.Model {
   rtModeType?: string;
   /**
    * @remarks
-   * The storage description.
+   * The storage descriptor information.
    */
   sd?: StorageDescriptorModel;
   /**
@@ -338,7 +347,7 @@ export class TableModel extends $dara.Model {
   tblId?: number;
   /**
    * @remarks
-   * Indicates whether the table is a temporary table.
+   * Specifies whether the table is a temporary table.
    * 
    * @example
    * false
@@ -370,7 +379,7 @@ export class TableModel extends $dara.Model {
   viewOriginalText?: string;
   /**
    * @remarks
-   * The view safe mode pattern.
+   * The view security pattern.
    * 
    * @example
    * ViewSecurityMode

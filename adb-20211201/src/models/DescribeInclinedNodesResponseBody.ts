@@ -13,7 +13,7 @@ export class DescribeInclinedNodesResponseBodyItems extends $dara.Model {
   diskUsageRatio?: string;
   /**
    * @remarks
-   * The number of the storage node.
+   * The storage node number.
    * 
    * @example
    * Node1
@@ -45,7 +45,7 @@ export class DescribeInclinedNodesResponseBodyItems extends $dara.Model {
 export class DescribeInclinedNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried storage nodes.
+   * The list information.
    */
   items?: DescribeInclinedNodesResponseBodyItems[];
   /**

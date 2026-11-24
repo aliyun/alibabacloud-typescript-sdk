@@ -24,7 +24,7 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKey
   keyName?: string;
   /**
    * @remarks
-   * Indicates whether the metric is selected. Valid values:
+   * Specifies whether the metric is selected. Valid values:
    * 
    * - true
    * - false
@@ -120,7 +120,7 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetail extends $dar
   categories?: DescribePerformanceViewAttributeResponseBodyViewDetailCategories[];
   /**
    * @remarks
-   * Indicates whether it is a linkage chart. Valid values:
+   * Specifies whether it is a linkage chart. Valid values:
    * 
    * - true
    * - false
@@ -203,7 +203,7 @@ export class DescribePerformanceViewAttributeResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Indicates whether the keys completed in the original monitoring view are populated when you view the monitoring view. Valid values:
+   * Specifies whether to populate the keys from the original monitoring view when querying the monitoring view. Valid values:
    * 
    * - true
    * - false
@@ -230,7 +230,7 @@ export class DescribePerformanceViewAttributeResponseBody extends $dara.Model {
    * The name of the monitoring view.
    * 
    * @example
-   * Custom-All metrics-2 columns-Linked
+   * Custom-All metrics-2 columns-linked
    */
   viewName?: string;
   static names(): { [key: string]: string } {

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppliedAdvicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the advice. Valid values:
-   * 
-   * - **INDEX**: index optimization
-   * 
-   * - **TIERING**: hot/cold data optimization
+   * The type of the suggestion. Valid values:
+   * - **INDEX**: Index optimization.
+   * - **TIERING**: Hot and cold data optimization.
    * 
    * @example
    * INDEX
@@ -27,7 +25,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end date of the query. The date is in the `yyyyMMdd` format.
+   * The end date for querying suggestions, in the yyyyMMdd format.
    * 
    * @example
    * 20220824
@@ -35,7 +33,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The keyword for the query. Fuzzy match by table name is supported.
+   * The query keyword. Fuzzy search by table name is supported.
    * 
    * @example
    * you_table_name
@@ -43,15 +41,11 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language of the query results. Valid values:
-   * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
-   * 
-   * - **ja**: Japanese
-   * 
-   * - **zh-tw**: Traditional Chinese
+   * The display language for the suggestions. Valid values:
+   * - **zh**: Simplified Chinese (default).
+   * - **en**: English.
+   * - **ja**: Japanese.
+   * - **zh-tw**: Traditional Chinese.
    * 
    * @example
    * zh
@@ -59,27 +53,18 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The order by which to sort the query results. The value is a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. Fields:
+   * The field by which to sort the query results. The value is a JSON string, such as [{"Field":"SchemaName","Type":"Asc"}].
+   * - `Field`: the sort field. Valid values:
+   *     - `SchemaName`: the database name.
+   *     - `TableName`: the table name.
+   *     - `JobStatus`: the status of the table build task.
+   *     - `SubmitTime`: the time when the suggestion was issued.
+   *     - `Benefit`: the expected optimization benefit.
+   * - `Type`: the sort order. Valid values:
+   *     - `Asc`: ascending order.
+   *     - `Desc`: descending order.
    * 
-   * - `Field`: The field by which to sort the results. Valid values:
-   * 
-   *   - `SchemaName`: the database name
-   * 
-   *   - `TableName`: the table name
-   * 
-   *   - `JobStatus`: the status of the build job for the table
-   * 
-   *   - `SubmitTime`: the time when the advice was submitted
-   * 
-   *   - `Benefit`: the estimated benefit
-   * 
-   * - `Type`: The sort order. Valid values:
-   * 
-   *   - `Asc`: ascending
-   * 
-   *   - `Desc`: descending
-   * 
-   * > If you do not set this parameter, the query results are sorted by advice submission time in descending order.
+   * > If this parameter is not specified, the results are sorted in descending order by the time when the optimization suggestions were issued.
    * 
    * @example
    * [{\\"Field\\":\\"AdviceType\\",\\"Type\\":\\"Desc\\"}]
@@ -87,7 +72,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. The value must be an integer that is greater than 0. Default value: 1.
+   * The page number. The value must be greater than 0 and no more than the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -95,12 +80,9 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
+   * The number of entries per page. Valid values:
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -119,7 +101,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the database and table. Format: **database.table**.
+   * The database name and table name. Format: **database.table**.
    * 
    * @example
    * tpch.lineitem
@@ -127,7 +109,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   schemaTableName?: string;
   /**
    * @remarks
-   * The start date of the query. The date is in the `yyyyMMdd` format.
+   * The start date for querying suggestions, in the yyyyMMdd format.
    * 
    * @example
    * 20220811

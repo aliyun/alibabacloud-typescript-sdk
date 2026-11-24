@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableDDLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 863D51B7-5321-41D8-A0B6-A088B0******

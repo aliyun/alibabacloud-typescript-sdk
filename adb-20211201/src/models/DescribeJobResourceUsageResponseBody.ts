@@ -8,7 +8,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
    * The number of elastic ACUs.
    * 
    * @example
-   * 16ACU
+   * 16
    */
   elasticAcuNumber?: number;
   /**
@@ -16,7 +16,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
    * The number of reserved ACUs.
    * 
    * @example
-   * 16ACU
+   * 16
    */
   reservedAcuNumber?: number;
   /**
@@ -24,12 +24,12 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
    * The number of spot instance ACUs.
    * 
    * @example
-   * 16ACU
+   * 16
    */
   spotAcuNumber?: number;
   /**
    * @remarks
-   * The percentage of spot instance resources in the total elastic resources.
+   * The ratio of spot instance resources to total elastic resources.
    * 
    * @example
    * 0.9
@@ -40,7 +40,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
    * The total number of ACUs.
    * 
    * @example
-   * 32ACU
+   * 32
    */
   totalAcuNumber?: number;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
 export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.Model {
   /**
    * @remarks
-   * The ACU resource usage details.
+   * The ACU resource usage.
    */
   acuUsageDetail?: DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail;
   /**
@@ -120,7 +120,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
   sparkAppName?: string;
   /**
    * @remarks
-   * Indicates whether the cache pool is used.
+   * Indicates whether the hot pool is used.
    * 
    * @example
    * false
@@ -182,7 +182,7 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ACU usage of the job resource group.
+   * The ACU usage of job resource groups.
    */
   jobAcuUsage?: DescribeJobResourceUsageResponseBodyDataJobAcuUsage[];
   /**
@@ -264,7 +264,7 @@ export class DescribeJobResourceUsageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribeJobResourceUsageResponseBodyData;
   /**

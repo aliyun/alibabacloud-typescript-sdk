@@ -8,7 +8,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo extend
    * The token used to access Databricks.
    * 
    * @example
-   * ******
+   * example****token
    */
   accessToken?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo extend
    * The URL of the workspace.
    * 
    * @example
-   * -
+   * https://workspace.example.com
    */
   workspaceURL?: string;
   static names(): { [key: string]: string } {
@@ -45,10 +45,10 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo extend
 export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the E-MapReduce (EMR) cluster.
+   * The ID of the EMR cluster.
    * 
    * @example
-   * -
+   * c-b933c5aac8fe****
    */
   emrClusterId?: string;
   /**
@@ -61,7 +61,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $dar
   metaStoreUri?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-******
@@ -69,7 +69,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $dar
   securityGroup?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-******
@@ -108,7 +108,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo extends $da
    * The Kafka instance ID.
    * 
    * @example
-   * -
+   * alikafka_pre-cn-aaa1a1aaa111
    */
   kafkaClusterId?: string;
   /**
@@ -315,7 +315,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
 export class DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the resource is cross-account. Valid values:
+   * Specifies whether the resource belongs to a different account. Valid values:
    * 
    * - **true**: The current network instance is a cross-account resource.
    * - **false**: The current network instance belongs to the current account.
@@ -345,7 +345,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo extends $dara
    * The name of the SLS project.
    * 
    * @example
-   * ***
+   * example-project
    */
   project?: string;
   /**
@@ -361,7 +361,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo extends $dara
    * The name of the SLS Logstore.
    * 
    * @example
-   * ***
+   * example-logstore
    */
   store?: string;
   static names(): { [key: string]: string } {
@@ -417,7 +417,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
    * The Databricks information.
    * 
    * @example
-   * -
+   * {"workspaceURL":"https://workspace.example.com"}
    */
   databricksInfo?: DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo;
   /**
@@ -449,7 +449,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
    * The Hive data source information.
    * 
    * @example
-   * -
+   * {"Vswitch":"vsw-******","SecurityGroup":"sg-******"}
    */
   hiveInfo?: DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo;
   /**
@@ -457,7 +457,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
    * The Kafka instance information.
    * 
    * @example
-   * -
+   * {"KafkaClusterId":"alikafka_pre-cn-aaa1a1aaa111","KafkaTopic":"example-topic"}
    */
   kafkaInfo?: DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo;
   /**
@@ -481,7 +481,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
    * The Simple Log Service (SLS) project.
    * 
    * @example
-   * -
+   * {"Project":"example-project","Store":"example-logstore"}
    */
   slsInfo?: DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo;
   static names(): { [key: string]: string } {
@@ -546,7 +546,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
 export class DescribeApsDatasourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * -
+   * The APS data source information.
    */
   apsDatasource?: DescribeApsDatasourceResponseBodyApsDatasource;
   /**

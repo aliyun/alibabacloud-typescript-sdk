@@ -15,11 +15,17 @@ export class TableSummaryModel extends $dara.Model {
   /**
    * @remarks
    * The creation source of the table or view.
+   * 
+   * @example
+   * XIHE
    */
   createdBySource?: string;
   /**
    * @remarks
    * The user who created the table or view.
+   * 
+   * @example
+   * example_user
    */
   createdByUser?: string;
   /**

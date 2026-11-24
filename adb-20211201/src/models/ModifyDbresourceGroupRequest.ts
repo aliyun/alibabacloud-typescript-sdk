@@ -37,7 +37,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   insertNodeSpec?: string;
   /**
    * @remarks
-   * The query node cache size (GB).
+   * The query node cache size (in GB).
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   storageNodeDiskSize?: number;
   /**
    * @remarks
-   * The storage node disk type (essd_pl1, essd_pl2).
+   * The disk type of the storage node (essd_pl1, essd_pl2).
    * 
    * @example
    * essd_pl1
@@ -135,7 +135,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
 export class ModifyDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model {
   /**
    * @remarks
-   * The end time specified by a cron expression. The interval must be at least 1 hour.
+   * The end time, specified as a cron expression. The interval must be no less than 1 hour.
    * 
    * @example
    * 0 0 3 * * ?
@@ -143,7 +143,7 @@ export class ModifyDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model
   endCronExpression?: string;
   /**
    * @remarks
-   * The start time specified by a cron expression. The interval must be at least 1 hour.
+   * The start time, specified as a cron expression. The interval must be no less than 1 hour.
    * 
    * @example
    * 0 0 2 * * ?
@@ -217,7 +217,7 @@ export class ModifyDBResourceGroupRequestGpuElasticPlan extends $dara.Model {
 export class ModifyDBResourceGroupRequestRayConfigAppConfigImageSelector extends $dara.Model {
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * lab2.10.0-ray2.43.0
@@ -267,7 +267,7 @@ export class ModifyDBResourceGroupRequestRayConfigAppConfigImageSelector extends
 export class ModifyDBResourceGroupRequestRayConfigAppConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * app01
@@ -275,7 +275,7 @@ export class ModifyDBResourceGroupRequestRayConfigAppConfig extends $dara.Model 
   appName?: string;
   /**
    * @remarks
-   * The type of the application.
+   * The application type.
    * 
    * @example
    * IsaacLab
@@ -325,7 +325,7 @@ export class ModifyDBResourceGroupRequestRayConfigStorageMounts extends $dara.Mo
   mountPath?: string;
   /**
    * @remarks
-   * The ID of the storage.
+   * The storage ID.
    * 
    * @example
    * 1
@@ -333,7 +333,7 @@ export class ModifyDBResourceGroupRequestRayConfigStorageMounts extends $dara.Mo
   storageId?: number;
   /**
    * @remarks
-   * The name of the storage to mount. You must specify either this parameter or StorageId.
+   * The name of the storage to mount. Specify either this parameter or StorageId.
    * 
    * @example
    * training-data
@@ -464,9 +464,9 @@ export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
    * @remarks
    * The type of the Ray cluster. Valid values:
    * 
-   * - BASIC: Basic type, non-high-availability.
+   * - BASIC: basic type without high availability
    * 
-   * - HIGH_AVAILABILITY: High-availability type.
+   * - HIGH_AVAILABILITY: high-availability type
    * 
    * @example
    * BASIC
@@ -511,12 +511,12 @@ export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
   headSpecType?: string;
   /**
    * @remarks
-   * The list of storage mounts.
+   * The storage mount list.
    */
   storageMounts?: ModifyDBResourceGroupRequestRayConfigStorageMounts[];
   /**
    * @remarks
-   * The custom Python dependencies for RayCluster. The content must be in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are allowed, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported, but shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
+   * The custom Python dependencies for RayCluster. Specify the content in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are supported, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported. Shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
    * 
    * @example
    * numpy==1.24.0
@@ -524,7 +524,7 @@ export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
   userDefinedRequirements?: string;
   /**
    * @remarks
-   * The list of Ray worker group configuration information.
+   * The Ray worker group configuration list.
    */
   workerGroups?: ModifyDBResourceGroupRequestRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
@@ -586,7 +586,7 @@ export class ModifyDBResourceGroupRequestRules extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The threshold for query execution time, in milliseconds.
+   * The query execution time threshold, in milliseconds.
    * 
    * @example
    * 180000
@@ -633,7 +633,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   atmConfig?: ModifyDBResourceGroupRequestAtmConfig;
   /**
    * @remarks
-   * The auto-stop time.
+   * The automatic stop time.
    * 
    * @example
    * 5m
@@ -668,7 +668,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the resources may be released. This feature can be enabled only for Job resource groups. Valid values:
+   * Specifies whether to enable the spot instance feature for the resource group. After you enable spot instances, the unit price of resources decreases, but the instances may be released. This feature can be enabled only for Job resource groups. Valid values:
    * - **True**: Enables the spot instance feature.
    * - **False**: Disables the spot instance feature.
    * 
@@ -678,10 +678,10 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   enableSpot?: boolean;
   /**
    * @remarks
-   * The engine configurations.
+   * The engine configuration.
    * 
    * @example
-   * {\\"spark.adb.version\\":\\"3.5\\"}
+   * {"spark.adb.version":"3.5"}
    */
   engineParams?: { [key: string]: any };
   /**
@@ -705,7 +705,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about Data Lakehouse Edition resource groups, refer to [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -718,14 +718,14 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * None
+   * 1
    */
   maxClusterCount?: number;
   /**
    * @remarks
    * The maximum reserved computing resources.
-   * - If the resource group type is Interactive, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 8 ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 16 ACU.
+   * - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 8 ACU.
    * 
    * @example
    * 48ACU
@@ -736,7 +736,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * Reserved parameter
+   * 1
    */
   maxGpuQuantity?: number;
   /**
@@ -744,14 +744,14 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * None
+   * 1
    */
   minClusterCount?: number;
   /**
    * @remarks
    * The minimum reserved computing resources.
-   * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
-   * - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
+   * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACU.
+   * - If the resource group type is Job, the minimum reserved computing resources is 0 ACU.
    * 
    * @example
    * 0ACU
@@ -762,7 +762,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * Reserved parameter.
    * 
    * @example
-   * Reserved parameter
+   * 1
    */
   minGpuQuantity?: number;
   /**
@@ -781,7 +781,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The job delivery rules.
+   * The job routing rules.
    */
   rules?: ModifyDBResourceGroupRequestRules[];
   /**

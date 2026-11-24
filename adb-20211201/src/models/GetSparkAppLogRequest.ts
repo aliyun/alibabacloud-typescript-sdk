@@ -6,7 +6,7 @@ export class GetSparkAppLogRequest extends $dara.Model {
   /**
    * @remarks
    * The application ID.
-   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
+   * > Call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class GetSparkAppLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of data rows per page.
+   * The number of rows per page.
    * 
    * @example
    * 500

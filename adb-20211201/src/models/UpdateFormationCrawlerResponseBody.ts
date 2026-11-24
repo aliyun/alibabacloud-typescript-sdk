@@ -29,7 +29,8 @@ export class UpdateFormationCrawlerResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The additional information about the call result.
+   * The additional information about the call result. Valid values:
+   * 
    * - If the request is normal, OK is returned.
    * - If an exception occurs, a specific error code is returned.
    * 
@@ -48,8 +49,8 @@ export class UpdateFormationCrawlerResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

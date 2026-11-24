@@ -22,7 +22,7 @@ export class DescribeSparkSQLDiagnosisListResponseBodySQLDiagnosisList extends $
   elapsedTime?: number;
   /**
    * @remarks
-   * The internal query execution ID within the Spark application.
+   * The internal query execution ID of the Spark application.
    * 
    * @example
    * 1
@@ -72,10 +72,10 @@ export class DescribeSparkSQLDiagnosisListResponseBodySQLDiagnosisList extends $
    * @remarks
    * The final execution state of the query. Valid values:
    * 
-   * - COMPLETED: The query is completed.
-   * - CANCELED: The query is canceled.
-   * - ABORTED: The query is aborted.
-   * - FAILED: The query failed.
+   * - COMPLETED: completed.
+   * - CANCELED: canceled.
+   * - ABORTED: aborted.
+   * - FAILED: failed.
    * 
    * @example
    * COMPLETED
@@ -163,7 +163,7 @@ export class DescribeSparkSQLDiagnosisListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SQL diagnostics information collection.
+   * The collection of SQL diagnostic information.
    */
   SQLDiagnosisList?: DescribeSparkSQLDiagnosisListResponseBodySQLDiagnosisList[];
   /**

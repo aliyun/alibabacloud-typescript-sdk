@@ -13,7 +13,7 @@ export class StartFormationCrawlerResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627FA5A19
@@ -22,8 +22,8 @@ export class StartFormationCrawlerResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * True
@@ -31,7 +31,7 @@ export class StartFormationCrawlerResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 1564657730

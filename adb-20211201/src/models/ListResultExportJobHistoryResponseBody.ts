@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The RAM user ID.
+   * The ID of the Resource Access Management (RAM) user.
    * 
    * @example
    * 120010511678****
@@ -13,7 +13,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The time when the result set export job was created. The time follows the ISO 8601 standard in the *yyyy-mm-ddThh:mm:ssZ* format. The time is displayed in UTC.
+   * The time when the result set export task was created. Specify the time in the <i>yyyy-mm-ddThh:mm:ssZ</i> format. The time must be in UTC.
    * 
    * @example
    * 2022-04-01T09:50:18Z
@@ -21,7 +21,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster.
    * 
    * @example
    * amv-7xv5ty5m9o4v****
@@ -29,7 +29,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database account that is associated with the RAM user.
+   * The name of the database account associated with the Resource Access Management (RAM) user.
    * 
    * @example
    * ram_user
@@ -37,9 +37,8 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   databaseUser?: string;
   /**
    * @remarks
-   * The end time of the result set export job. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
-   * 
-   * >  The end time must be later than the start time.
+   * The end time of the query. Specify the time in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format. The time must be in UTC.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2023-06-15T02:13:00Z
@@ -47,7 +46,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The engine that is used to execute the result set export job. Only XIHE is returned.
+   * The engine used to execute the task. Only XIHE is supported.
    * 
    * @example
    * XIHE
@@ -55,7 +54,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The unique identifier of the result set export job.
+   * The unique identifier of the result set export task.
    * 
    * @example
    * export_2024051319271219802100800401300****
@@ -63,12 +62,12 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   exportJobId?: string;
   /**
    * @remarks
-   * The complete URL of the path to store the exported result set.
+   * The complete address of the result set.
    */
   exportPath?: string;
   /**
    * @remarks
-   * The number of exported rows. This parameter is returned only when the request was successful.
+   * The number of exported rows. This parameter is returned only when the operation call is successful.
    * 
    * @example
    * 10000
@@ -76,23 +75,23 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   exportRows?: string;
   /**
    * @remarks
-   * The type of the result set export job.
+   * The export type.
    * 
    * @example
-   * -
+   * OSS
    */
   exportType?: string;
   /**
    * @remarks
-   * Indicates whether the result set export job has expired. Valid values:
+   * Indicates whether the task has expired. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: The task has not expired.
+   * - **true**: The task has expired.
    */
   isExpired?: boolean;
   /**
    * @remarks
-   * The returned message. This parameter is returned only when the request failed.
+   * The error message of the SQL execution for the result set export. This message is returned only when the task fails.
    * 
    * @example
    * Failed to execute SQL
@@ -100,9 +99,8 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The query ID that can be used for diagnostics.
-   * 
-   * >  You can call the [DescribeDiagnosisSQLInfo](https://help.aliyun.com/document_detail/612337.html) operation to query the execution information about a query.
+   * The SQL query ID returned for diagnostics.
+   * > You can call the [DescribeDiagnosisSQLInfo](https://help.aliyun.com/document_detail/612495.html) operation to diagnose the query.
    * 
    * @example
    * 202306121421111720161451770345339****
@@ -110,7 +108,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The progress of the result set export job. Unit: %. Valid values: 0 to 100.
+   * The export progress. Unit: percentage (%). Valid values: 0 to 100.
    * 
    * @example
    * 30
@@ -118,7 +116,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The name of the resource group that runs the result set export job.
+   * The resource group in which the task is executed.
    * 
    * @example
    * test
@@ -134,7 +132,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The SQL statement that is used in the result set export job.
+   * The details of the SQL statement used in the result set export task.
    * 
    * @example
    * SELECT * FROM `ADB_SampleData_TPCH`.`supplier` LIMIT 20
@@ -142,7 +140,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   sql?: string;
   /**
    * @remarks
-   * The start time of the result set export job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2021-07-03T04:00:00Z
@@ -150,12 +148,11 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The execution status of the result set export job. Valid values:
-   * 
-   * 1.  **SUBMITTED**
-   * 2.  **RUNNING**
-   * 3.  **SUCCEEDED**
-   * 4.  **FAILED**
+   * The execution status of the export task. Valid values:
+   * 1. **SUBMITTED**: The task is submitted.
+   * 2. **RUNNING**: The task is running.
+   * 3. **SUCCEEDED**: The task succeeded.
+   * 4. **FAILED**: The task failed.
    * 
    * @example
    * RUNNING
@@ -163,9 +160,9 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The amount of time consumed to export execution records. Unit: milliseconds.
+   * The time consumed for data export, in milliseconds.
    * 
-   * >  The value is the duration between the time when the result set export job starts and the time when the result set export job ends.
+   * > The time is calculated from the start of the data export task to the end of the export.
    * 
    * @example
    * 560
@@ -233,7 +230,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
 export class ListResultExportJobHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The operation status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -241,7 +238,7 @@ export class ListResultExportJobHistoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The HTTP status code returned. A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -249,15 +246,14 @@ export class ListResultExportJobHistoryResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The queried result set export jobs.
+   * The list details.
    */
   items?: ListResultExportJobHistoryResponseBodyItems[];
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, an **OK** message is returned.
-   * *   If the request failed, an error message is returned.
+   * The additional information about the call result. Valid values:
+   * - **Ok**: The request is normal.                                
+   * - Specific error code: An exception occurred.
    * 
    * @example
    * OK
@@ -265,7 +261,7 @@ export class ListResultExportJobHistoryResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number, which is the same as the value passed in the request.
    * 
    * @example
    * 1
@@ -273,7 +269,7 @@ export class ListResultExportJobHistoryResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -289,10 +285,9 @@ export class ListResultExportJobHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true
@@ -300,7 +295,7 @@ export class ListResultExportJobHistoryResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 174

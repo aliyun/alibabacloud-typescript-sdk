@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * A fixed value. This value cannot be modified.
+   * A fixed value. This parameter cannot be modified.
    * 
    * @example
    * Not modifiable
@@ -21,7 +21,7 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * A fixed value. This value cannot be modified.
+   * A fixed value. This parameter cannot be modified.
    * 
    * @example
    * Not modifiable
@@ -34,7 +34,7 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
    * - Asc
    * - Desc
    * 
-   * Valid values for the sort field:
+   * Valid values for the field:
    * - StartTime
    * - EndTime
    * 

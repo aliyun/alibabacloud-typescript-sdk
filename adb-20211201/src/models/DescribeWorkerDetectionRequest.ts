@@ -6,7 +6,7 @@ export class DescribeWorkerDetectionRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all AnalyticDB for MySQL clusters in a region, including the cluster ID.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all AnalyticDB for MySQL clusters in a specific region, including the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeWorkerDetectionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the query time range. Specify the time in the <i>yyyy-MM-ddTHH:mmZ</i> format (UTC).
+   * The end time of the query. Specify the time in the <i>yyyy-MM-ddTHH:mmZ</i> format. The time must be in UTC.
    * 
    * @example
    * 2024-04-25T02:04Z
@@ -24,8 +24,8 @@ export class DescribeWorkerDetectionRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The display language of suggestions. Valid values:
-   * - **zh**: simplified Chinese (default).
+   * The display language of the suggestions. Valid values:
+   * - **zh**: Simplified Chinese (default).
    * - **en**: English.
    * 
    * @example
@@ -37,7 +37,7 @@ export class DescribeWorkerDetectionRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DescribeWorkerDetectionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the query time range. Specify the time in the <i>yyyy-MM-ddTHH:mmZ</i> format (UTC).
+   * The start time of the query. Specify the time in the <i>yyyy-MM-ddTHH:mmZ</i> format. The time must be in UTC.
    * 
    * @example
    * 2021-11-18T00:00Z

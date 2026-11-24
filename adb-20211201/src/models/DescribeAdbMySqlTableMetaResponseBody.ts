@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model {
   /**
    * @remarks
-   * The time when the table was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-14 02:18:08.0
@@ -29,7 +29,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   distributeType?: string;
   /**
    * @remarks
-   * Indicates whether full-column indexes are used.
+   * Indicates whether full indexing is enabled.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   isAllIndex?: boolean;
   /**
    * @remarks
-   * Indicates whether dictionary encoding is used.
+   * Indicates whether dictionary encoding is enabled.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   isDictEncode?: boolean;
   /**
    * @remarks
-   * Indicates whether full-text indexes are used.
+   * Indicates whether full-text indexing is enabled.
    * 
    * @example
    * true
@@ -53,10 +53,9 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   isFullTextDict?: boolean;
   /**
    * @remarks
-   * Indicates whether pages are hidden.
-   * 
-   * *   **false**
-   * *   **true**
+   * Indicates whether the page is hidden. Valid values:
+   * - **false**: The page is not hidden.
+   * - **true**: The page is hidden.
    * 
    * @example
    * true
@@ -64,7 +63,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   isHidden?: boolean;
   /**
    * @remarks
-   * The partition key column.
+   * The partition column information.
    * 
    * @example
    * DATE_FORMAT(login_time, \\"%Y%m%d\\")
@@ -72,7 +71,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   partitionColumn?: string;
   /**
    * @remarks
-   * The type of the partition.
+   * The partition type.
    * 
    * @example
    * value
@@ -97,10 +96,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   /**
    * @remarks
    * The name of the table.
-   * 
-   * **
-   * 
-   * ****
+   * > If this parameter is left empty, the usage frequency data of all tables in the specified cluster on the current day is returned.
    * 
    * @example
    * external_supplier
@@ -124,7 +120,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
   tableType?: string;
   /**
    * @remarks
-   * The time when the table was updated.
+   * The update time.
    * 
    * @example
    * 2024-07-25 02:07:23.0
@@ -182,10 +178,9 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
 export class DescribeAdbMySqlTableMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, a success message is returned.****
-   * *   If the request failed, an error message is returned.
+   * The additional information about the call result. Valid values:
+   * - **Success**: The request is successful. 
+   * - Specific error code: The request is abnormal.
    * 
    * @example
    * Success
@@ -201,10 +196,9 @@ export class DescribeAdbMySqlTableMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true
@@ -212,7 +206,7 @@ export class DescribeAdbMySqlTableMetaResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The queried table metadata.
+   * The table metadata.
    */
   tableMeta?: DescribeAdbMySqlTableMetaResponseBodyTableMeta;
   static names(): { [key: string]: string } {

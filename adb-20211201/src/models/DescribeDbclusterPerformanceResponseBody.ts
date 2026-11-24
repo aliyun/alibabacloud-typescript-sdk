@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends $dara.Model {
   /**
    * @remarks
-   * The name of the performance metric (monitoring metric value name). For more information, see [Monitoring metrics overview](https://help.aliyun.com/document_detail/2863211.html).
+   * The name of the performance metrics (the value name of the monitoring metrics). For details, see [Overview of monitoring metrics](https://help.aliyun.com/document_detail/2863211.html).
    * 
    * @example
    * AnalyticDB_Storage_CPU_Avg_Usage_Percentage
@@ -13,7 +13,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
   name?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag values.
    * 
    * @example
    * {instance_name: "am-***"}
@@ -21,7 +21,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
   tags?: string;
   /**
    * @remarks
-   * The key used for internationalization translation. You can ignore this parameter in most cases.
+   * The key used for internationalization. You can ignore this parameter.
    * 
    * @example
    * AnalyticDB_RP_WaitTime
@@ -29,7 +29,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
   translateKey?: string;
   /**
    * @remarks
-   * The performance values at different points in time.
+   * The details of the performance values at different points in time.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
 export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.Model {
   /**
    * @remarks
-   * The name of the performance metric.
+   * The name of the performance metrics.
    * 
    * @example
    * AnalyticDB_CPU_Usage_Percentage
@@ -78,7 +78,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
   series?: DescribeDBClusterPerformanceResponseBodyPerformancesSeries[];
   /**
    * @remarks
-   * The unit of the monitoring metric.
+   * The unit of the monitoring metrics.
    * 
    * @example
    * %
@@ -115,7 +115,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
 export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in a specified region.
    * 
    * @example
@@ -124,7 +124,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query. The time is in UTC in the format of <i>yyyy-MM-ddTHH:mmZ</i>.
+   * The end time of the query. The time is in UTC and follows the <i>yyyy-MM-ddTHH:mmZ</i> format.
    * 
    * @example
    * 2022-03-11T15:01Z
@@ -137,7 +137,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   performances?: DescribeDBClusterPerformanceResponseBodyPerformances[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BD8C3096-8BC6-51DF-A4AB-BACD9DC10435
@@ -145,7 +145,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in UTC in the format of <i>yyyy-MM-ddTHH:mmZ</i>.
+   * The start time of the query. Specify the time in UTC in the <i>yyyy-MM-ddTHH:mmZ</i> format.
    * 
    * @example
    * 2022-03-10T23:56Z

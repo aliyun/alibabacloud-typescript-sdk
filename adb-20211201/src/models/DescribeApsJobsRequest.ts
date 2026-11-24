@@ -13,7 +13,7 @@ export class DescribeApsJobsRequest extends $dara.Model {
   apsJobName?: string;
   /**
    * @remarks
-   * The end time of creation.
+   * The end of the creation time range.
    * 
    * @example
    * 2022-04-23T01:10Z
@@ -21,7 +21,7 @@ export class DescribeApsJobsRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The start time of creation.
+   * The start of the creation time range.
    * 
    * @example
    * 2022-03-23T01:10Z

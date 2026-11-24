@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsActionLogsResponseBodyActionLogs extends $dara.Model {
   /**
    * @remarks
-   * The content of the log.
+   * The log content.
    * 
    * @example
    * DDL migration job finished
@@ -13,11 +13,11 @@ export class DescribeApsActionLogsResponseBodyActionLogs extends $dara.Model {
   context?: string;
   /**
    * @remarks
-   * The phase during which the log was generated. Valid values:
+   * The task stage. Valid values:
    * 
-   * *   **StructureMigrate**: schema migration.
-   * *   **FullDataSync**: full data synchronization.
-   * *   **IncrementalSync**: incremental data synchronization.
+   * - **StructureMigrate**: Schema migration.
+   * - **FullDataSync**: Full data synchronization.
+   * - **IncrementalSync**: Incremental data synchronization.
    * 
    * @example
    * FullDataSync
@@ -25,11 +25,11 @@ export class DescribeApsActionLogsResponseBodyActionLogs extends $dara.Model {
   stage?: string;
   /**
    * @remarks
-   * The type of the log. Multiple log types are separated by commas (,). Valid values:
+   * The log type. Separate multiple log types with commas (,). Valid values:
    * 
-   * *   **INFO**
-   * *   **WARN**
-   * *   **ERROR**
+   * - **INFO**: Information.
+   * - **WARN**: Warning.
+   * - **ERROR**: Error.
    * 
    * @example
    * INFO,WARN,ERROR
@@ -37,7 +37,7 @@ export class DescribeApsActionLogsResponseBodyActionLogs extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The time when the log was generated. The time follows the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time is displayed in UTC.
+   * The log time. The time is in the **yyyy-MM-ddTHH:mm:ssZ** format and must be in UTC.
    * 
    * @example
    * 2023-02-01T05:46:30Z
@@ -73,7 +73,7 @@ export class DescribeApsActionLogsResponseBodyActionLogs extends $dara.Model {
 export class DescribeApsActionLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the request denial.
+   * The details of the access denial.
    * 
    * @example
    * {
@@ -89,12 +89,12 @@ export class DescribeApsActionLogsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The queried logs.
+   * The list of logs.
    */
   actionLogs?: DescribeApsActionLogsResponseBodyActionLogs[];
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The cluster ID.
    * 
    * @example
    * amv-bp1r053byu48p****
@@ -126,7 +126,7 @@ export class DescribeApsActionLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -134,7 +134,7 @@ export class DescribeApsActionLogsResponseBody extends $dara.Model {
   totalCount?: string;
   /**
    * @remarks
-   * The ID of the real-time data ingestion job.
+   * The ID of the data link task.
    * 
    * @example
    * aps-hz109vpvt4fg8528d****

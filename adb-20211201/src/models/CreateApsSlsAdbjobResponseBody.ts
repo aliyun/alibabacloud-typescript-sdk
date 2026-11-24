@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsSlsADBJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code.
+   * The operation status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -16,12 +16,12 @@ export class CreateApsSlsADBJobResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * -
+   * aps-aa11111aa1aa1a1a
    */
   data?: string;
   /**
    * @remarks
-   * The HTTP status code returned. A value of 200 indicates that the request was successful.
+   * The HTTP status code returned by the request. A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -29,9 +29,9 @@ export class CreateApsSlsADBJobResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the call. Valid values:
-   * - If the request was successful, **Success** is returned. 
-   * - If the request failed, the specific error message is returned.
+   * The message returned for the call result. Valid values:
+   * - If the request is normal, **Success** is returned. 
+   * - If the request is abnormal, the specific error message is returned.
    * 
    * @example
    * Success
@@ -47,7 +47,7 @@ export class CreateApsSlsADBJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the precheck. Valid values:
+   * The precheck result. Valid values:
    * 
    * - **success**: The check passed.
    * - **false**: The check failed.

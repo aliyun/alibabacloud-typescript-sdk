@@ -65,12 +65,12 @@ export class DescribeAccountPrivilegesResponseBodyDataPrivilegeObject extends $d
 export class DescribeAccountPrivilegesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The privilege object, which specifies the database, table, column, and description.
+   * The privilege object, which is a triplet of database, table, and column, along with additional description information.
    */
   privilegeObject?: DescribeAccountPrivilegesResponseBodyDataPrivilegeObject;
   /**
    * @remarks
-   * The privilege level. Valid values: `Global`, `Database`, `Table`, and `Column`. The `DescribeEnabledPrivileges` API returns this value.
+   * The privilege level, which can be Global, Databae, Table, or Column. This value is returned by the DescribeEnabledPrivileges operation.
    * 
    * @example
    * Column
@@ -78,7 +78,7 @@ export class DescribeAccountPrivilegesResponseBodyData extends $dara.Model {
   privilegeType?: string;
   /**
    * @remarks
-   * A list of privileges.
+   * The list of permissions.
    */
   privileges?: string[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class DescribeAccountPrivilegesResponseBodyData extends $dara.Model {
 export class DescribeAccountPrivilegesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of privilege details.
+   * The list of permission details.
    */
   data?: DescribeAccountPrivilegesResponseBodyData[];
   /**
    * @remarks
-   * The page number. This value matches the `PageNumber` input parameter.
+   * The page number, which is the same as the page number in the request.
    * 
    * @example
    * 1
@@ -128,7 +128,7 @@ export class DescribeAccountPrivilegesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. This value matches the `PageSize` input parameter.
+   * The number of entries per page, which is the same as the page size in the request.
    * 
    * @example
    * 20
@@ -144,7 +144,7 @@ export class DescribeAccountPrivilegesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of privileges at the specified privilege level.
+   * The total number of permissions that the user has at the privilege level.
    * 
    * @example
    * 100

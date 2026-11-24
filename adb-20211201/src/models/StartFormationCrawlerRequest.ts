@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartFormationCrawlerRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StartFormationCrawlerRequest extends $dara.Model {
   crawlerTaskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * test-crawler-dbname
@@ -23,7 +23,7 @@ export class StartFormationCrawlerRequest extends $dara.Model {
   crawlerTaskName?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * am-bp1pke2pcfavw****
@@ -32,7 +32,7 @@ export class StartFormationCrawlerRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query available region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the IDs of available regions.
    * 
    * This parameter is required.
    * 

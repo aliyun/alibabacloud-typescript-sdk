@@ -38,7 +38,7 @@ export class DeletePerformanceViewRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Custom-All metrics-2 columns-Linked
+   * 自定义-全部指标-2列-联动
    */
   viewName?: string;
   static names(): { [key: string]: string } {

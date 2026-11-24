@@ -6,7 +6,7 @@ import { SerDeInfoModel } from "./SerDeInfoModel";
 export class StorageDescriptorModel extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the storage description is compressed.
+   * Specifies whether the data is compressed.
    * 
    * @example
    * false
@@ -14,7 +14,7 @@ export class StorageDescriptorModel extends $dara.Model {
   compressed?: boolean;
   /**
    * @remarks
-   * The input format of the storage description.
+   * The input format.
    * 
    * @example
    * org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
@@ -22,7 +22,7 @@ export class StorageDescriptorModel extends $dara.Model {
   inputFormat?: string;
   /**
    * @remarks
-   * The location of the storage description.
+   * The storage location.
    * 
    * @example
    * oss://**************
@@ -38,7 +38,7 @@ export class StorageDescriptorModel extends $dara.Model {
   numBuckets?: number;
   /**
    * @remarks
-   * The output format of the storage description.
+   * The output format.
    * 
    * @example
    * org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
@@ -46,12 +46,15 @@ export class StorageDescriptorModel extends $dara.Model {
   outputFormat?: string;
   /**
    * @remarks
-   * The storage configuration parameter.
+   * The storage configuration parameters.
+   * 
+   * @example
+   * {}
    */
   parameters?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the storage description.
+   * The storage ID of the description.
    * 
    * @example
    * 1
@@ -59,12 +62,12 @@ export class StorageDescriptorModel extends $dara.Model {
   sdId?: number;
   /**
    * @remarks
-   * The information about serialization or deserialization.
+   * The serialization and deserialization sequence information.
    */
   serDeInfo?: SerDeInfoModel;
   /**
    * @remarks
-   * Indicates whether the storage description is stored in subdirectories.
+   * Specifies whether the data is stored in subdirectories.
    * 
    * @example
    * false

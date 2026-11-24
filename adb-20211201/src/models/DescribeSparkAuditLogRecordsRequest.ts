@@ -15,9 +15,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * > 
-   * 
-   * *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query cluster IDs.
+   * > - You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +25,8 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Query end time. The end time must be later than the start time, and the interval between them must be less than 1 day. Format: yyyy-MM-ddTHH:mmZ (UTC time).
+   * The end time of the query. The end time must be later than the start time, and the interval between the start time and the end time must be less than one day.
+   * Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2025-09-25T01:00Z
@@ -35,23 +34,21 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Sort the SQL statements based on specified fields. The format is a JSON array that preserves order, and composite sorting is performed according to the sequence of objects in the array. Each object contains two fields: `Field` and `Type`. For example:`[{"Field":"CreateTime", "Type": "desc" }]`. Where:
+   * The sorting rule for SQL statements based on specified fields. The value is a JSON array that specifies composite sorting in the order of the input array. The array contains the `Field` and `Type` fields. Example: `[{"Field":"TotalTime", "Type": "desc" }]`.
    * 
-   * *   `Field` specifies the field that is used to sort the SQL statements. Valid values:
+   * - `Field`: the name of the field to sort by. Valid values:
+   *     - `ResourceGroupName`: the name of the resource group.
+   *     - `Status`: the execution status of the SQL statement.
+   *     - `User`: the username that executed the SQL statement.
+   *     - `ExecuteTime`: the start time of the SQL execution.
+   *     - `TotalTime`: the execution duration of the SQL statement.
+   *     - `ProcessId`: the query ID.
+   *     - `ClientIp`: the source IP address.
+   *     - `StatementSource`: the source from which the query is initiated.
    * 
-   *     *   `ResourceGroupName`: The name of the resource group.
-   *     *   `Status` :SQL execution status.
-   *     *   `User`: The username that is used to execute the SQL statement.
-   *     *   `ExecuteTime`: The start time of SQL execution.
-   *     *   `TotalTime`: The amount of time consumed to execute the SQL statement.
-   *     *   `ProcessId`: Query ID.
-   *     *   `ClientIp`: The source IP address.
-   *     *   `StatementSource`: The source from which the query was initiated.
-   * 
-   * *   `Type` specifies the sorting order. Valid values (case-insensitive):
-   * 
-   *     *   `Desc`: Descending order.
-   *     *   `Asc`: Ascending order.
+   * - `Type`: the sorting type. Valid values (case-insensitive):
+   *     - `Desc`: descending order.
+   *     - `Asc`: ascending order.
    * 
    * @example
    * [{\\"Field\\":\\"ExecuteTime\\",\\"Type\\":\\"Desc\\"}]
@@ -69,7 +66,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -85,7 +82,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * user
@@ -94,8 +91,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the available regions and zones, including region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to view the regions and zones supported by AnalyticDB for MySQL, including region IDs.
    * 
    * This parameter is required.
    * 
@@ -105,9 +101,8 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group name.
-   * 
-   * >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/612410.html) operation to query the resource group ID within a cluster.
+   * The name of the resource group.
+   * > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/612410.html) operation to view the resource group ID of the cluster.
    * 
    * @example
    * test_job
@@ -125,9 +120,8 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   SQLText?: string;
   /**
    * @remarks
-   * Query start time. Format: *yyyy-MM-ddTHH:mmZ* (UTC time).
-   * 
-   * >  We recommend that you set the query start time to any point in time within 30 days.
+   * The start time of the query. Format: <i>yyyy-MM-ddTHH:mmZ</i> (UTC).
+   * > Set the start time to a point in time within the last 30 days.
    * 
    * @example
    * 2025-09-25T00:00Z
@@ -135,7 +129,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the statement.
+   * The statement ID.
    * 
    * @example
    * fbd22066-1c03-xxxx-aa16-6ae28288****
@@ -143,12 +137,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   statementId?: string;
   /**
    * @remarks
-   * The source from which the query was initiated.
-   * 
-   * Valid values:
-   * 
-   * *   SQL_EDITOR: SQL_EDITOR.
-   * *   JDBC: JDBC.
+   * The source from which the query is initiated.
    * 
    * @example
    * SQL_EDITOR
@@ -158,20 +147,13 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
    * @remarks
    * The execution status of the SQL statement.
    * 
-   * Valid values:
-   * 
-   * *   cancel: The task is canceled .
-   * *   finished: The execution succeeds .
-   * *   error:The execution fails .
-   * *   timeout: The execution timed out .
-   * 
    * @example
    * finish
    */
   status?: string;
   /**
    * @remarks
-   * The duration of the SQL statement. Unit: milliseconds.
+   * The execution duration of the SQL statement. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -179,7 +161,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
   totalTime?: string;
   /**
    * @remarks
-   * The username that is used to execute SQL statements.
+   * The username that executed the SQL statement.
    * 
    * @example
    * test_user

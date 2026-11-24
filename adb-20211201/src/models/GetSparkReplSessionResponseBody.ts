@@ -6,9 +6,8 @@ export class GetSparkReplSessionResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the session is active. Valid values:
-   * 
-   * *   true
-   * *   false
+   * - true: Active.
+   * - false: Inactive.
    * 
    * @example
    * true
@@ -16,7 +15,7 @@ export class GetSparkReplSessionResponseBodyData extends $dara.Model {
   active?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the cluster.
+   * The ID of the Alibaba Cloud account to which the instance belongs.
    * 
    * @example
    * 178157466101****
@@ -24,7 +23,7 @@ export class GetSparkReplSessionResponseBodyData extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * The attempt ID of the Spark application.
+   * The retry ID of the Spark application.
    * 
    * @example
    * s202301061000hz57d797b00002****
@@ -40,7 +39,7 @@ export class GetSparkReplSessionResponseBodyData extends $dara.Model {
   error?: string;
   /**
    * @remarks
-   * The ID of the session that executes the code.
+   * The ID of the session for code execution.
    * 
    * @example
    * 1
@@ -48,11 +47,10 @@ export class GetSparkReplSessionResponseBodyData extends $dara.Model {
   sessionId?: number;
   /**
    * @remarks
-   * The status of the session. Valid values:
-   * 
-   * *   IDLE
-   * *   BUSY
-   * *   DEAD
+   * The current session status. Valid values:
+   * - IDLE: The session is idle.
+   * - BUSY: The session is busy and executing a task.
+   * - DEAD: The session is closed.
    * 
    * @example
    * IDEL
@@ -60,7 +58,7 @@ export class GetSparkReplSessionResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The URL of the web UI for the Spark application.
+   * The Web UI address of the Spark application.
    * 
    * @example
    * https://adbsparkui-cn-hangzhou.aliyuncs.com/?token=****

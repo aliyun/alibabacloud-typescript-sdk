@@ -29,7 +29,7 @@ export class CreateApsSlsADBJobRequestColumns extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The column data type.
+   * The data type of the column.
    * 
    * @example
    * bigint
@@ -65,7 +65,7 @@ export class CreateApsSlsADBJobRequestColumns extends $dara.Model {
 export class CreateApsSlsADBJobRequestUnixTimestampConvert extends $dara.Model {
   /**
    * @remarks
-   * The conversion method.
+   * The conversion.
    * 
    * @example
    * false。
@@ -81,7 +81,7 @@ export class CreateApsSlsADBJobRequestUnixTimestampConvert extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * Specifies whether to enable conversion.
+   * Specifies whether to enable the conversion.
    * 
    * @example
    * false
@@ -115,7 +115,7 @@ export class CreateApsSlsADBJobRequestUnixTimestampConvert extends $dara.Model {
 export class CreateApsSlsADBJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The role name for cross-account access.
+   * The cross-account role name.
    * 
    * @example
    * test-role
@@ -123,7 +123,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   acrossRole?: string;
   /**
    * @remarks
-   * The UID for cross-account access.
+   * The cross-account UID.
    * 
    * @example
    * 123456
@@ -144,7 +144,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * -
+   * [{"MapName":"test","MapType":"int","Name":"id","Type":"bigint"}]
    */
   columns?: CreateApsSlsADBJobRequestColumns[];
   /**
@@ -182,7 +182,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * -
+   * STOP
    */
   dirtyDataHandleMode?: string;
   /**
@@ -195,7 +195,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   dirtyDataProcessPattern?: string;
   /**
    * @remarks
-   * Specifies whether to enable exactly-once semantics.
+   * Specifies whether exactly-once semantics is enabled.
    * 
    * @example
    * false
@@ -203,7 +203,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   exactlyOnce?: string;
   /**
    * @remarks
-   * The number of AnalyticDB compute units (ACUs) for full data synchronization.
+   * The full ACUs.
    * 
    * @example
    * 16
@@ -219,7 +219,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   hudiAdvancedConfig?: string;
   /**
    * @remarks
-   * The number of AnalyticDB compute units (ACUs) for incremental data synchronization.
+   * The incremental ACUs.
    * 
    * @example
    * 168
@@ -227,7 +227,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   incrementalComputeUnit?: string;
   /**
    * @remarks
-   * lakehosue ID。
+   * The lakehouse ID.
    * 
    * @example
    * 123
@@ -235,15 +235,15 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   lakehouseId?: number;
   /**
    * @remarks
-   * The maximum offset.
+   * The maximum number of offsets per trigger.
    * 
    * @example
-   * -
+   * 20000
    */
   maxOffsetsPerTrigger?: number;
   /**
    * @remarks
-   * The OSS address.
+   * The OSS location.
    * 
    * @example
    * oss://test*
@@ -262,7 +262,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    * The partition information.
    * 
    * @example
-   * -
+   * []
    */
   partitionSpecs?: { [key: string]: any }[];
   /**
@@ -319,7 +319,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   sourceRegionId?: string;
   /**
    * @remarks
-   * The starting offset for delivery.
+   * The starting offset.
    * 
    * This parameter is required.
    * 
@@ -329,7 +329,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   startingOffsets?: string;
   /**
    * @remarks
-   * sls Store。
+   * The SLS store.
    * 
    * @example
    * test
@@ -347,7 +347,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The generation rule for the destination.
+   * The destination generation rule.
    * 
    * @example
    * -
@@ -363,10 +363,10 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The UNIX timestamp conversion configuration.
+   * The UNIX timestamp conversion.
    * 
    * @example
-   * -
+   * {"Transform":false}
    */
   unixTimestampConvert?: CreateApsSlsADBJobRequestUnixTimestampConvert;
   /**

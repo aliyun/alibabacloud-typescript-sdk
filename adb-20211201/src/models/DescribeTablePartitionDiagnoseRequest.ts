@@ -15,12 +15,11 @@ export class DescribeTablePartitionDiagnoseRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: simplified Chinese.
-   * *   **en**: English.
-   * *   **ja**: Japanese.
-   * *   **zh-tw**: traditional Chinese.
+   * Specifies the language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
+   * - **ja**: Japanese
+   * - **zh-tw**: Traditional Chinese
    * 
    * @example
    * zh
@@ -28,21 +27,17 @@ export class DescribeTablePartitionDiagnoseRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The order by which to sort query results. Specify the parameter value in the JSON string format. Example: `[{"Field":"TotalSize","Type":"Desc"}]`.
+   * Sorts the query results by a specified field. The value must be a JSON string. Example: `[{"Field":"TotalSize","Type":"Desc"}]`. The JSON string contains the following parameters:
+   * - `Field`: the field by which to sort the results. Valid values:
+   *     - `SchemaName`: the name of the database to which the table belongs.
+   *     - `TableName`: the table name.
+   *     - `TotalSize`: the total data volume.
+   *     - `SpaceRatio`: the storage space proportion.
+   * - `Type`: the sort order. Valid values:
+   *     - `Asc`: ascending order.
+   *     - `Desc`: descending order.
    * 
-   * *   `Field` specifies the field by which to sort the query results. Valid values:
-   * 
-   *     *   `SchemaName`: the name of the database to which the table belongs.
-   *     *   `TableName`: the name of the table.
-   *     *   `TotalSize`: the total data size of the table.
-   *     *   `SpaceRatio`: the storage percentage of the table.
-   * 
-   * *   `Type` specifies the sorting order. Valid values:
-   * 
-   *     *   `Asc`: ascending order.
-   *     *   `Desc`: descending order.
-   * 
-   * >  If you do not specify this parameter, the query results are sorted by the TotalSize field in descending order.
+   * > If this parameter is not specified, the results are sorted in descending order of the total data volume of the target table by default.
    * 
    * @example
    * [{\\"Field\\":\\"TotalSize\\",\\"Type\\":\\"Desc\\"}]

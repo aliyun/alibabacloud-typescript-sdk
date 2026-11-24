@@ -28,11 +28,17 @@ export class TableDetailModel extends $dara.Model {
   /**
    * @remarks
    * The creation source of the table.
+   * 
+   * @example
+   * APS
    */
   createdBySource?: string;
   /**
    * @remarks
    * The user who created the table.
+   * 
+   * @example
+   * example_user
    */
   createdByUser?: string;
   /**
@@ -62,6 +68,9 @@ export class TableDetailModel extends $dara.Model {
   /**
    * @remarks
    * The table property parameters.
+   * 
+   * @example
+   * {"escape.delim":"\\\\","field.delim":" "}
    */
   parameters?: { [key: string]: string };
   /**

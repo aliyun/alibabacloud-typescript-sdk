@@ -14,16 +14,25 @@ export class DatabaseSummaryModel extends $dara.Model {
   /**
    * @remarks
    * The creation source of the database.
+   * 
+   * @example
+   * XIHE
    */
   createdBySource?: string;
   /**
    * @remarks
    * The user who created the database.
+   * 
+   * @example
+   * example_user
    */
   createdByUser?: string;
   /**
    * @remarks
    * The database type.
+   * 
+   * @example
+   * EXTERNAL_DB
    */
   dbType?: string;
   /**
@@ -37,6 +46,9 @@ export class DatabaseSummaryModel extends $dara.Model {
   /**
    * @remarks
    * The data storage location of the database.
+   * 
+   * @example
+   * oss://example-bucket/database/
    */
   location?: string;
   /**

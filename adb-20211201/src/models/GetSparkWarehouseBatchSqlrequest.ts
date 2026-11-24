@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSparkWarehouseBatchSQLRequest extends $dara.Model {
   /**
    * @remarks
-   * The client name for auxiliary logging. The value is a meaningful string of up to 16 characters.
+   * The client name used for logging. This is a meaningful string up to 16 characters in length.
    * 
    * @example
    * DMS
@@ -21,7 +21,7 @@ export class GetSparkWarehouseBatchSQLRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The execution ID of the Spark SQL statement.
+   * The Spark SQL execution ID.
    * 
    * This parameter is required.
    * 

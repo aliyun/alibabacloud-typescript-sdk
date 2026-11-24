@@ -21,7 +21,7 @@ export class DescribeViewJobsRequest extends $dara.Model {
   filterOwner?: string;
   /**
    * @remarks
-   * The view name.
+   * The name of the view.
    * 
    * @example
    * test_mv
@@ -29,13 +29,9 @@ export class DescribeViewJobsRequest extends $dara.Model {
   filterViewName?: string;
   /**
    * @remarks
-   * The view type.
-   * 
-   * Valid values:
-   * 
+   * The view type. Valid values:
    * - VIRTUAL_VIEW
    * - MATERIALIZED_VIEW
-   * 
    * Default value: empty.
    * 
    * @example
@@ -44,13 +40,10 @@ export class DescribeViewJobsRequest extends $dara.Model {
   filterViewType?: string;
   /**
    * @remarks
-   * The sort field.
-   * 
-   * Valid values for the sort order:
+   * The sort field. Valid values for the sort order:
    * - Asc
    * - Desc
-   * 
-   * Valid values for the sort field:
+   * Valid values for the field:
    * - StartTime
    * - EndTime
    * - ScheduledStartTime
@@ -69,7 +62,7 @@ export class DescribeViewJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -85,7 +78,7 @@ export class DescribeViewJobsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * demo_db

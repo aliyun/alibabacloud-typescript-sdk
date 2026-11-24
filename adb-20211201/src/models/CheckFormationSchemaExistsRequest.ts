@@ -16,7 +16,7 @@ export class CheckFormationSchemaExistsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the prefix mode. Valid values:
+   * Specifies whether the prefix mode is enabled. Valid values:
    * - true: Yes.
    * - false: No.
    * 

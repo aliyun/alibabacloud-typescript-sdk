@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The code, which is the same as the HTTP status code.
    * 
    * @example
    * 200
@@ -16,7 +16,7 @@ export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
    * The ID of the created task.
    * 
    * @example
-   * xxx
+   * aps-aa1a1a11a1aaaa1a
    */
   data?: string;
   /**
@@ -46,8 +46,8 @@ export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * - true: The request is successful.
-   * - false: The request fails.
+   * - True: successful.
+   * - False: unsuccessful.
    * 
    * @example
    * true

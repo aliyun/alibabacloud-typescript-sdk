@@ -37,7 +37,7 @@ export class StopFormationCrawlerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9CCFAAB4-97B7-5800-B9F2-685EB596E3EF
@@ -45,7 +45,7 @@ export class StopFormationCrawlerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

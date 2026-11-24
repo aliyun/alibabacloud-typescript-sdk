@@ -6,7 +6,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The client IP address.
-   * > This parameter is returned only when the Type parameter is set to accessip.
+   * > This parameter is returned only when the **Type** parameter is set to **accessip**.
    * 
    * @example
    * 100.104.xx.xx
@@ -22,7 +22,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   avgCpuTime?: string;
   /**
    * @remarks
-   * The average peak memory. Unit: KB.
+   * The average peak memory usage. Unit: KB.
    * 
    * @example
    * 240048
@@ -30,7 +30,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   avgPeakMemory?: string;
   /**
    * @remarks
-   * The average scan size. Unit: KB.
+   * The average scanned data size. Unit: KB.
    * 
    * @example
    * 244
@@ -78,7 +78,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   maxPeakMemory?: string;
   /**
    * @remarks
-   * The maximum scan size. Unit: KB.
+   * The maximum scanned data size. Unit: KB.
    * 
    * @example
    * 1024
@@ -127,7 +127,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The username.
-   * > This parameter is returned only when the Type parameter is left empty or set to user.
+   * > This parameter is returned only when the **Type** parameter is left empty or set to **user**.
    * 
    * @example
    * test_acc

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopFormationCrawlerRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StopFormationCrawlerRequest extends $dara.Model {
   crawlerTaskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class StopFormationCrawlerRequest extends $dara.Model {
   crawlerTaskName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

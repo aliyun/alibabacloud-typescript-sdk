@@ -23,7 +23,7 @@ export class DescribeTableDetailRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -31,7 +31,7 @@ export class DescribeTableDetailRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test

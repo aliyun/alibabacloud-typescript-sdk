@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLakeStorageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster that is associated with the lake storage.
+   * The ADB instance ID.
    * 
    * @example
    * amv-*******
@@ -24,15 +24,15 @@ export class UpdateLakeStorageShrinkRequest extends $dara.Model {
    * The unique identifier of the lake storage.
    * 
    * @example
-   * -
+   * adb-lake-cn-hangzhou-1a1aaaa11a
    */
   lakeStorageId?: string;
   /**
    * @remarks
-   * The permissions on the lake storage.
+   * The permissions of the lake storage.
    * 
    * @example
-   * -
+   * [{"Account":"1234567890123456","Read":true,"Type":"User","Write":true}]
    */
   permissionsShrink?: string;
   /**

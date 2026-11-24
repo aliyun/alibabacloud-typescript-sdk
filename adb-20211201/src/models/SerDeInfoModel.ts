@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SerDeInfoModel extends $dara.Model {
   /**
    * @remarks
-   * The name of the serialization or deserialization information.
+   * The name of the serialization information.
    * 
    * @example
    * example
@@ -13,12 +13,15 @@ export class SerDeInfoModel extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The serialization or deserialization configuration parameter.
+   * The configuration parameters for the serialization and deserialization sequence.
+   * 
+   * @example
+   * {"serialization.format":"|","field.delim":"|"}
    */
   parameters?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the serialization or deserialization information.
+   * The ID.
    * 
    * @example
    * 123
@@ -26,7 +29,7 @@ export class SerDeInfoModel extends $dara.Model {
   serDeId?: number;
   /**
    * @remarks
-   * The library that is used for serialization.
+   * The library used for serialization.
    * 
    * @example
    * org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe

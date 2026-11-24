@@ -13,7 +13,7 @@ export class CheckFormationSchemaExistsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the schema exists.
+   * Indicates whether the metadata discovery schema exists.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class CheckFormationSchemaExistsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. OK is returned if the request is successful.
+   * The returned message. The value is OK if the request is successful.
    * 
    * @example
    * OK
@@ -45,7 +45,7 @@ export class CheckFormationSchemaExistsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

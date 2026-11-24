@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language used for the names of regions and zones (the LocalName values in the response). Valid values:
-   * - **zh-CN**: simplified Chinese (default).
+   * The language used for the region and zone names (the LocalName field in the response). Valid values:
+   * - **zh-CN**: Simplified Chinese (default).
    * - **en-US**: English.
    * - **ja**: Japanese.
    * 

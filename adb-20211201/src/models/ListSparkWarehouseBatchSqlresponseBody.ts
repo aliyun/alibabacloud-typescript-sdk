@@ -22,7 +22,7 @@ export class ListSparkWarehouseBatchSQLResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The queried Spark SQL statements.
+   * The list of executed Spark SQL statements.
    */
   queries?: SparkBatchSQL[];
   /**

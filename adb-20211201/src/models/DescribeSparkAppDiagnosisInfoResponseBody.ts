@@ -6,7 +6,7 @@ import { Adb4MysqlSparkDiagnosisInfo } from "./Adb4mysqlSparkDiagnosisInfo";
 export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the request denial.
+   * The details of the access denial.
    * 
    * @example
    * {
@@ -23,8 +23,7 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The application ID.
-   * 
-   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query all application IDs.
+   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query all application IDs.
    * 
    * @example
    * s202404141952sz6a1391200****
@@ -32,7 +31,7 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The CPU utilization. Unit: %.
+   * The CPU utilization. Unit: percentage (%).
    * 
    * @example
    * 100
@@ -40,12 +39,12 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   cpuUtilization?: number;
   /**
    * @remarks
-   * The queried diagnostic information.
+   * The list of Spark analysis information.
    */
   diagnosisInfoList?: Adb4MysqlSparkDiagnosisInfo[];
   /**
    * @remarks
-   * The execution duration of the application. Unit: milliseconds.
+   * The execution duration of the Spark application. Unit: milliseconds.
    * 
    * @example
    * 281063
@@ -53,7 +52,7 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   durationInMillis?: number;
   /**
    * @remarks
-   * The amount of time consumed by the Java virtual machine to perform garbage collection operations. Unit: milliseconds.
+   * The time consumed by the Java Virtual Machine (JVM) to perform garbage collection. Unit: milliseconds.
    * 
    * @example
    * 81055
@@ -77,7 +76,7 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The amount of data used for shuffle reads. Unit: bytes.
+   * The amount of data read during the shuffle process. Unit: bytes.
    * 
    * @example
    * 4096000
@@ -85,7 +84,7 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   shuffleReadInByte?: number;
   /**
    * @remarks
-   * The amount of data used for shuffle writes. Unit: bytes.
+   * The amount of data written during the shuffle process. Unit: bytes.
    * 
    * @example
    * 4096000
@@ -93,7 +92,7 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   shuffleWriteInByte?: number;
   /**
    * @remarks
-   * The amount of data spilled to disks when the memory is insufficient. Unit: bytes.
+   * The data volume spilled to disk when out of memory. Unit: bytes.
    * 
    * @example
    * 0
@@ -101,7 +100,7 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   spillInByte?: number;
   /**
    * @remarks
-   * The time when the application started to be executed.
+   * The start time of the execution.
    * 
    * @example
    * 1718329831000
@@ -109,11 +108,10 @@ export class DescribeSparkAppDiagnosisInfoResponseBody extends $dara.Model {
   startedTime?: number;
   /**
    * @remarks
-   * The status of the asynchronous import or export job. Valid values:
-   * 
-   * *   **RUNNING**
-   * *   **FINISHED**
-   * *   **FAILED**
+   * The status of the asynchronous import or export task to query. Valid values:
+   * * **RUNNING**: The task is in progress.
+   * * **FINISHED**: The task succeeded.
+   * * **FAILED**: The task failed.
    * 
    * @example
    * FINISHED

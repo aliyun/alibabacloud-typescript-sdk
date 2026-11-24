@@ -7,7 +7,7 @@ export class DescribeClusterNetInfoRequest extends $dara.Model {
    * @remarks
    * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * <props="intl">The ID of the Data Lakehouse Edition cluster.
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of clusters in a specified region, including the cluster ID.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of clusters in a specific region, including the cluster ID.
    * 
    * This parameter is required.
    * 

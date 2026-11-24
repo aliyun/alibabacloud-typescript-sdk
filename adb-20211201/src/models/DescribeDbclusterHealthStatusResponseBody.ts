@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterHealthStatusResponseBodyCS extends $dara.Model {
   /**
    * @remarks
-   * The number of healthy instance access nodes.
+   * The number of healthy nodes.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeDBClusterHealthStatusResponseBodyCS extends $dara.Model {
   activeCount?: number;
   /**
    * @remarks
-   * The total number of instance access nodes.
+   * The total number of access nodes.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeDBClusterHealthStatusResponseBodyCS extends $dara.Model {
   expectedCount?: number;
   /**
    * @remarks
-   * The number of instance access nodes at risk.
+   * The number of nodes at risk.
    * 
    * @example
    * 0
@@ -29,13 +29,10 @@ export class DescribeDBClusterHealthStatusResponseBodyCS extends $dara.Model {
   riskCount?: number;
   /**
    * @remarks
-   * The health status of the instance access nodes. Valid values:
-   * 
-   * - **RISK**: The instance access nodes are at risk.
-   * 
-   * - **NORMAL**: The instance access nodes are healthy.
-   * 
-   * - **UNAVAILABLE**: The instance access nodes are unavailable.
+   * The status of instance access nodes. Valid values:
+   * - **RISK**: At risk.
+   * - **NORMAL**: Healthy.
+   * - **UNAVAILABLE**: Unavailable.
    * 
    * @example
    * UNAVAILABLE
@@ -43,7 +40,7 @@ export class DescribeDBClusterHealthStatusResponseBodyCS extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of unavailable instance access nodes.
+   * The number of unavailable nodes.
    * 
    * @example
    * 1
@@ -81,7 +78,7 @@ export class DescribeDBClusterHealthStatusResponseBodyCS extends $dara.Model {
 export class DescribeDBClusterHealthStatusResponseBodyExecutor extends $dara.Model {
   /**
    * @remarks
-   * The number of healthy executor nodes.
+   * The number of healthy nodes.
    * 
    * @example
    * 0
@@ -89,7 +86,7 @@ export class DescribeDBClusterHealthStatusResponseBodyExecutor extends $dara.Mod
   activeCount?: number;
   /**
    * @remarks
-   * The total number of executor nodes.
+   * The total number of compute nodes.
    * 
    * @example
    * 1
@@ -97,7 +94,7 @@ export class DescribeDBClusterHealthStatusResponseBodyExecutor extends $dara.Mod
   expectedCount?: number;
   /**
    * @remarks
-   * The number of executor nodes at risk.
+   * The number of nodes at risk.
    * 
    * @example
    * 0
@@ -105,13 +102,10 @@ export class DescribeDBClusterHealthStatusResponseBodyExecutor extends $dara.Mod
   riskCount?: number;
   /**
    * @remarks
-   * The health status of the executor groups. Valid values:
-   * 
-   * - **RISK**: The executor groups are at risk.
-   * 
-   * - **NORMAL**: The executor groups are healthy.
-   * 
-   * - **UNAVAILABLE**: The executor groups are unavailable.
+   * The health status of compute node groups. Valid values:
+   * - **RISK**: At risk.
+   * - **NORMAL**: Healthy.
+   * - **UNAVAILABLE**: Unavailable.
    * 
    * @example
    * UNAVAILABLE
@@ -119,7 +113,7 @@ export class DescribeDBClusterHealthStatusResponseBodyExecutor extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The number of unavailable executor nodes.
+   * The number of unavailable nodes.
    * 
    * @example
    * 1
@@ -157,7 +151,7 @@ export class DescribeDBClusterHealthStatusResponseBodyExecutor extends $dara.Mod
 export class DescribeDBClusterHealthStatusResponseBodyWorker extends $dara.Model {
   /**
    * @remarks
-   * The number of healthy worker node groups.
+   * The number of healthy storage node groups.
    * 
    * @example
    * 0
@@ -165,7 +159,7 @@ export class DescribeDBClusterHealthStatusResponseBodyWorker extends $dara.Model
   activeCount?: number;
   /**
    * @remarks
-   * The total number of worker node groups.
+   * The total number of storage node groups.
    * 
    * @example
    * 1
@@ -173,7 +167,7 @@ export class DescribeDBClusterHealthStatusResponseBodyWorker extends $dara.Model
   expectedCount?: number;
   /**
    * @remarks
-   * The number of worker node groups at risk.
+   * The number of storage node groups at risk.
    * 
    * @example
    * 1
@@ -181,13 +175,10 @@ export class DescribeDBClusterHealthStatusResponseBodyWorker extends $dara.Model
   riskCount?: number;
   /**
    * @remarks
-   * The health status of the worker node groups. Valid values:
-   * 
-   * - **RISK**: The worker node groups are at risk.
-   * 
-   * - **NORMAL**: The worker node groups are healthy.
-   * 
-   * - **UNAVAILABLE**: The worker node groups are unavailable.
+   * The health status of storage node groups. Valid values:
+   * - **RISK**: At risk.
+   * - **NORMAL**: Healthy.
+   * - **UNAVAILABLE**: Unavailable.
    * 
    * @example
    * UNAVAILABLE
@@ -195,7 +186,7 @@ export class DescribeDBClusterHealthStatusResponseBodyWorker extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The number of unavailable worker node groups.
+   * The number of unavailable storage node groups.
    * 
    * @example
    * 1
@@ -233,7 +224,7 @@ export class DescribeDBClusterHealthStatusResponseBodyWorker extends $dara.Model
 export class DescribeDBClusterHealthStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the authentication failure.
+   * The details of the authentication failure.
    * 
    * @example
    * Authentication failed.
@@ -241,25 +232,21 @@ export class DescribeDBClusterHealthStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The health status of the instance access nodes.
+   * The list of instance access node statuses.
    */
   CS?: DescribeDBClusterHealthStatusResponseBodyCS;
   /**
    * @remarks
-   * The health status of the executor groups.
+   * The list of health statuses for compute node groups.
    */
   executor?: DescribeDBClusterHealthStatusResponseBodyExecutor;
   /**
    * @remarks
    * The health status of the cluster. Valid values:
-   * 
-   * - **RISK**: The cluster is at risk.
-   * 
-   * - **NORMAL**: The cluster is healthy.
-   * 
-   * - **UNAVAILABLE**: The cluster is unavailable.
-   * 
-   * > The cluster health status is considered **NORMAL** only if the instance access nodes, executor groups, and worker node groups are all **NORMAL**, and the instance is responsive. If any of these components has a **RISK** status, the cluster status is **RISK**. If any component has an **UNAVAILABLE** status, the cluster status is **UNAVAILABLE**.
+   * - **RISK**: At risk.
+   * - **NORMAL**: Healthy.
+   * - **UNAVAILABLE**: Unavailable.
+   * > If the instance access node status, compute node group health status, and storage node group health status are all **Healthy** and the instance health check succeeds, the cluster health status is **Healthy**. If any of the three statuses is **At risk**, the cluster health status is **At risk**. If any of the three statuses is **Unavailable**, the cluster health status is **Unavailable**.
    * 
    * @example
    * NORMAL
@@ -275,7 +262,7 @@ export class DescribeDBClusterHealthStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The health status of the worker node groups.
+   * The list of health statuses for storage node groups.
    */
   worker?: DescribeDBClusterHealthStatusResponseBodyWorker;
   static names(): { [key: string]: string } {

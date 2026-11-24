@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddKnowledgeFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The AnalyticDB for MySQL cluster ID.
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Specifies whether the path is a folder.
+   * Specifies whether the object is a directory.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The file tags in JSON format.
+   * The tags of the file, in JSON format.
    * 
    * @example
    * {"type":"game"}
@@ -57,7 +57,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The user who uploads the knowledge base file.
+   * The user who uploads the file to the knowledge base.
    * 
    * @example
    * user1

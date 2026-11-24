@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the column.
+   * The column name.
    * 
    * @example
    * assist_user_phone
@@ -23,7 +23,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. Valid values: an integer greater than 0 and up to the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -52,7 +52,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -60,7 +60,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test

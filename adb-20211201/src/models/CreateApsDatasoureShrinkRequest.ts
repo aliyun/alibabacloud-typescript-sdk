@@ -54,7 +54,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    * The Hive data source information.
    * 
    * @example
-   * -
+   * {"Vswitch":"vsw-bp1*****k","SecurityGroup":"sg-uf*******h"}
    */
   hiveInfoShrink?: string;
   /**
@@ -62,7 +62,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    * The Kafka information.
    * 
    * @example
-   * -
+   * {"KafkaClusterId":"alikafka_pre-cn-aaa1a1aaa111","KafkaTopic":"example-topic"}
    */
   kafkaInfoShrink?: string;
   /**
@@ -78,7 +78,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    * The PolarDB for MySQL data source information.
    * 
    * @example
-   * -
+   * {"RegionId":"cn-shanghai"}
    */
   polarDBMysqlInfoShrink?: string;
   /**
@@ -94,7 +94,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    * The ApsaraDB RDS for MySQL data source information.
    * 
    * @example
-   * -
+   * {"RegionId":"cn-shanghai"}
    */
   rdsMysqlInfoShrink?: string;
   /**
@@ -112,7 +112,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    * The Simple Log Service (SLS) information.
    * 
    * @example
-   * -
+   * {"Project":"example-project","Store":"example-logstore","Across":false}
    */
   slsInfoShrink?: string;
   static names(): { [key: string]: string } {

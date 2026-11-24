@@ -13,7 +13,7 @@ export class CreateAPSJobResponseBody extends $dara.Model {
   apsJobId?: string;
   /**
    * @remarks
-   * The operation status code or POP error code.
+   * The API status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -21,7 +21,7 @@ export class CreateAPSJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned. A value of 200 indicates that the request was sent successfully.
+   * The HTTP status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200

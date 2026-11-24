@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about columns.
+   * The column information.
    * 
    * @example
-   * -
+   * [{"MapName":"map_name","MapType":"bigint","Name":"test_name","Type":"bigint"}]
    */
   columnsShrink?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
   dirtyDataProcessPattern?: string;
   /**
    * @remarks
-   * Specifies whether to enable the consistency check.
+   * Specifies whether exactly-once processing is enabled.
    * 
    * @example
    * true
@@ -47,7 +47,7 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
   exactlyOnce?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * The password.
    * 
    * @example
    * test_123
@@ -65,7 +65,7 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start offset.
+   * The starting offset.
    * 
    * @example
    * end_cursor
@@ -84,12 +84,12 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
    * The timestamp conversion.
    * 
    * @example
-   * -
+   * {"Transform":false}
    */
   unixTimestampConvert?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * user-name
@@ -97,7 +97,7 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the data link task.
    * 
    * This parameter is required.
    * 

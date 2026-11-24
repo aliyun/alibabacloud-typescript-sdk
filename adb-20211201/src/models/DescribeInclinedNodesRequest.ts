@@ -15,12 +15,11 @@ export class DescribeInclinedNodesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The language of file titles and error messages. Valid values:
-   * 
-   * *   **zh**: simplified Chinese.
-   * *   **en**: English.
-   * *   **ja**: Japanese.
-   * *   **zh-tw**: traditional Chinese.
+   * Specifies the language for the title of the downloaded file and some error messages. Valid values:
+   * - **zh**: Simplified Chinese.
+   * - **en**: English.
+   * - **ja**: Japanese.
+   * - **zh-tw**: Traditional Chinese.
    * 
    * @example
    * zh
@@ -31,8 +30,7 @@ export class DescribeInclinedNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

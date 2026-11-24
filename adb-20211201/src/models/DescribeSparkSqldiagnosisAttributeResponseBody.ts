@@ -8,12 +8,12 @@ import { SparkOperatorInfo } from "./SparkOperatorInfo";
 export class DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByMetrics extends $dara.Model {
   /**
    * @remarks
-   * The operator queue sorted by execution time.
+   * The list of operators sorted by execution time.
    */
   operatorListSortedByExclusiveTime?: SparkOperatorInfo[];
   /**
    * @remarks
-   * The operator queue sorted by maximum memory consumption.
+   * The list of operators sorted by maximum memory consumption.
    */
   operatorListSortedByMaxMemory?: SparkOperatorInfo[];
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model 
   appId?: string;
   /**
    * @remarks
-   * The collection of diagnostic suggestions.
+   * The diagnostic suggestions.
    */
   diagnosisInfos?: Adb4MysqlSparkDiagnosisInfo[];
   /**
@@ -86,7 +86,7 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model 
   innerQueryId?: number;
   /**
    * @remarks
-   * The operator queue sorted by metrics.
+   * The list of operators sorted by metrics.
    */
   operatorListSortedByMetrics?: DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByMetrics;
   /**

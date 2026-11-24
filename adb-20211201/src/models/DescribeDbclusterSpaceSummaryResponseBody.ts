@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterSpaceSummaryResponseBodyDataColdData extends $dara.Model {
   /**
    * @remarks
-   * The data volume of table records. Unit: bytes.
+   * The table record data size. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -13,7 +13,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataColdData extends $dara
   dataSize?: number;
   /**
    * @remarks
-   * The data volume of regular indexes. Unit: bytes.
+   * The secondary index data size. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -21,7 +21,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataColdData extends $dara
   indexSize?: number;
   /**
    * @remarks
-   * The volume of other data. Unit: bytes.
+   * The size of other data. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -29,7 +29,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataColdData extends $dara
   otherSize?: number;
   /**
    * @remarks
-   * The data volume of primary key indexes. Unit: bytes.
+   * The primary key index data size. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -37,9 +37,9 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataColdData extends $dara
   primaryKeyIndexSize?: number;
   /**
    * @remarks
-   * The total cold data volume. Unit: bytes.
+   * The total cold data size. Unit: bytes.
    * 
-   * > Calculation formula: Total cold data volume = Table record data volume + Regular index data volume + Primary key index data volume + Others.
+   * > Calculation formula: Total cold data size = Table record data size + Secondary index data size + Primary key index data size + Others.
    * 
    * @example
    * 4194304
@@ -77,9 +77,9 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataColdData extends $dara
 export class DescribeDBClusterSpaceSummaryResponseBodyDataDataGrowth extends $dara.Model {
   /**
    * @remarks
-   * The data growth in the past day. Unit: bytes.
+   * The data growth over the past day. Unit: bytes.
    * 
-   * > Calculation formula: Data growth in the past day = Current total data volume - Total data volume 1 day ago.
+   * > Calculation formula: Data growth over the past day = Current total data size - Total data size one day ago.
    * 
    * @example
    * 1048576
@@ -89,7 +89,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataDataGrowth extends $da
    * @remarks
    * The average daily data growth over the past 7 days. Unit: bytes.
    * 
-   * > Calculation formula: Average daily data growth over the past 7 days = (Current total data volume - Total data volume 7 days ago) / 7.
+   * > Calculation formula: Average daily data growth over the past 7 days = (Current total data size - Total data size 7 days ago) / 7.
    * 
    * @example
    * 1048576
@@ -121,7 +121,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataDataGrowth extends $da
 export class DescribeDBClusterSpaceSummaryResponseBodyDataHotData extends $dara.Model {
   /**
    * @remarks
-   * The data volume of table records. Unit: bytes.
+   * The table record data size. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -129,7 +129,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataHotData extends $dara.
   dataSize?: number;
   /**
    * @remarks
-   * The data volume of regular indexes. Unit: bytes.
+   * The secondary index data size. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -137,7 +137,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataHotData extends $dara.
   indexSize?: number;
   /**
    * @remarks
-   * The volume of other data. Unit: bytes.
+   * The size of other data. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -145,7 +145,7 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataHotData extends $dara.
   otherSize?: number;
   /**
    * @remarks
-   * The data volume of primary key indexes. Unit: bytes.
+   * The primary key index data size. Unit: bytes.
    * 
    * @example
    * 1048576
@@ -153,9 +153,9 @@ export class DescribeDBClusterSpaceSummaryResponseBodyDataHotData extends $dara.
   primaryKeyIndexSize?: number;
   /**
    * @remarks
-   * The total hot data volume. Unit: bytes.
+   * The total hot data size. Unit: bytes.
    * 
-   * > Calculation formula: Total hot data volume = Table record data volume + Regular index data volume + Primary key index data volume + Others.
+   * > Calculation formula: Total hot data size = Table record data size + Secondary index data size + Primary key index data size + Others.
    * 
    * @example
    * 4194304
@@ -208,9 +208,9 @@ export class DescribeDBClusterSpaceSummaryResponseBodyData extends $dara.Model {
   hotData?: DescribeDBClusterSpaceSummaryResponseBodyDataHotData;
   /**
    * @remarks
-   * The total data volume. Unit: bytes.
+   * The total data size. Unit: bytes.
    * 
-   * > Calculation formula: Total data volume = Total hot data volume + Total cold data volume.
+   * > Calculation formula: Total data size = Total hot data size + Total cold data size.
    * 
    * @example
    * 8388608

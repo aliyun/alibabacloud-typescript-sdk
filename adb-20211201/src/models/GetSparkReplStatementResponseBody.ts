@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the cluster.
+   * The ID of the Alibaba Cloud account to which the instance belongs.
    * 
    * @example
    * 144740799645****
@@ -13,7 +13,7 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   aliyunUid?: number;
   /**
    * @remarks
-   * The code that is executed.
+   * The executed code.
    * 
    * @example
    * print(1+1)
@@ -21,12 +21,11 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The code execution status. Valid values:
-   * 
-   * *   CANCELLED
-   * *   RUNNING
-   * *   SUCCEEDED
-   * *   ERROR
+   * The execution status of the code. Valid values:
+   * - CANCELLED: The execution is canceled.
+   * - RUNNING: The execution is in progress.
+   * - SUCCEEDED: The execution is completed.
+   * - ERROR: The execution failed.
    * 
    * @example
    * RUNNING
@@ -34,10 +33,9 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   codeState?: string;
   /**
    * @remarks
-   * The code type. Valid values:
-   * 
-   * *   PYTHON
-   * *   SCALA
+   * The type of the code. Valid values:
+   * - PYTHON
+   * - SCALA
    * 
    * @example
    * PYTHON
@@ -45,12 +43,12 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The column names.
+   * The array of column names.
    */
   columns?: string[];
   /**
    * @remarks
-   * The end time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time of the task. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1730968194000
@@ -66,7 +64,7 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   error?: string;
   /**
    * @remarks
-   * The code execution result, which is a JSON string.
+   * The output result, which is a string in JSON format.
    * 
    * @example
    * {"text/plain": 2}
@@ -74,12 +72,7 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   output?: string;
   /**
    * @remarks
-   * The execution result type.
-   * 
-   * Valid values:
-   * 
-   * *   TABLE
-   * *   TEXT
+   * The type of the output result.
    * 
    * @example
    * TEXT
@@ -87,7 +80,7 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of the task. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1730968194000
@@ -95,7 +88,7 @@ export class GetSparkReplStatementResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The unique ID of the code block in the Spark job.
+   * The unique ID of the code block in this Spark job.
    * 
    * @example
    * 123

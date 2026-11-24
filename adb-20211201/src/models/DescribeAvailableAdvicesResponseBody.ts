@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the suggestion was generated, in the yyyyMMdd format.
+   * The generation time of the suggestion, in the yyyyMMdd format.
    * 
    * @example
    * 20221124
@@ -22,8 +22,8 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The type of the suggestion. Valid values:
-   * - **INDEX**: Index optimization.
-   * - **TIERING**: Hot and cold data optimization.
+   * - **INDEX**: index optimization.
+   * - **TIERING**: hot and cold data optimization.
    * 
    * @example
    * INDEX
@@ -66,15 +66,15 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The reason for generating optimization suggestions.
+   * The reason for generating the optimization suggestions.
    * 
    * @example
-   * Not used for 15 days, and the historical usage probability is less than 1%
+   * Unused for 15 days, with a historical usage probability of less than 1%
    */
   reason?: string;
   /**
    * @remarks
-   * The SQL statement to apply the suggestion.
+   * The SQL statement used to apply the suggestion.
    * 
    * @example
    * alter table `schema1`.`table1` drop key col1_1_idx
@@ -98,7 +98,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The total number of returned results. Valid values: greater than or equal to 0 and up to the maximum value of the Integer data type. Default value: 0.
+   * The total number of returned results. Valid values: 0 to the maximum value of the Integer data type. Default value: 0.
    * 
    * @example
    * 10192
@@ -182,12 +182,12 @@ export class DescribeAvailableAdvicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The concatenated string of the database name and table name.
+   * The concatenated string of the database name and the table name.
    */
   schemaTableNames?: string[];
   /**
    * @remarks
-   * The total number of returned results. Valid values: greater than or equal to 0 and up to the maximum value of the Integer data type. Default value: 0.
+   * The total number of returned results. Valid values: 0 to the maximum value of the Integer data type. Default value: 0.
    * 
    * @example
    * 10192

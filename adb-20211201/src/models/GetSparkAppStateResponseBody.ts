@@ -29,7 +29,7 @@ export class GetSparkAppStateResponseBodyData extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The alert message returned, such as task execution failure or insufficient resources. This parameter is empty if no alerts are generated.
+   * The alert message, such as task execution failure or insufficient resources. This field is empty if no alerts are triggered.
    * 
    * @example
    * Insufficient resources.

@@ -13,7 +13,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   dbList?: string;
   /**
    * @remarks
-   * The target database instance ID.
+   * The instance ID of the destination database.
    * 
    * @example
    * amv-******
@@ -29,7 +29,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   destinationEndpointRegion?: string;
   /**
    * @remarks
-   * The list of partitions.
+   * The partition list.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   partitionList?: string;
   /**
    * @remarks
-   * The source database instance ID.
+   * The instance ID of the source database.
    * 
    * @example
    * pc-*******
@@ -108,7 +108,7 @@ export class DescribeApsJobDetailResponseBody extends $dara.Model {
    * The job details.
    * 
    * @example
-   * -
+   * {"SourceEndpointRegion":"cn-beijing","DestinationEndpointRegion":"cn-beijing","Status":"Running","TargetTableMode":"0"}
    */
   APSJobDetail?: DescribeApsJobDetailResponseBodyAPSJobDetail;
   /**

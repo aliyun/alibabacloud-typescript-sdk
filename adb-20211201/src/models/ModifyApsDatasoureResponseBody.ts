@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApsDatasoureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code.
+   * The API status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -13,7 +13,7 @@ export class ModifyApsDatasoureResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The list of resource group information.
    * 
    * @example
    * 150
@@ -21,7 +21,7 @@ export class ModifyApsDatasoureResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The HTTP status code returned. A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -29,10 +29,9 @@ export class ModifyApsDatasoureResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, a success message is returned.****
-   * *   If the request failed, an error message is returned.
+   * The execution result of the application suggestion. Valid values:
+   * - If the request is normal, **SUCCESS** is returned. 
+   * - If the request is abnormal, the specific error message is returned.
    * 
    * @example
    * OK
@@ -40,7 +39,7 @@ export class ModifyApsDatasoureResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * A3EB3BCD-D974-52D4-B75C-BB06505916CB
@@ -48,10 +47,9 @@ export class ModifyApsDatasoureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Specifies whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * True

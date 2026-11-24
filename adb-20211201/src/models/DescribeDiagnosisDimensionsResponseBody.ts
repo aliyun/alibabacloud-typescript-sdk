@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosisDimensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried source IP addresses.
+   * The source IP addresses.
    */
   clientIps?: string[];
   /**
    * @remarks
-   * The queried database names.
+   * The database names.
    */
   databases?: string[];
   /**
@@ -23,12 +23,12 @@ export class DescribeDiagnosisDimensionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried resource group names.
+   * The resource group names.
    */
   resourceGroups?: string[];
   /**
    * @remarks
-   * The queried usernames.
+   * The usernames.
    */
   userNames?: string[];
   static names(): { [key: string]: string } {

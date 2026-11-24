@@ -13,7 +13,7 @@ export class QueryFormationTasksByTypeResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The execution duration of the most recent task.
+   * The execution time of the most recent task.
    * 
    * @example
    * 2
@@ -32,12 +32,12 @@ export class QueryFormationTasksByTypeResponseBodyData extends $dara.Model {
    * The error message of the most recent task.
    * 
    * @example
-   * xxx
+   * The task execution failed.
    */
   lastTaskInstMessage?: string;
   /**
    * @remarks
-   * The instance status of the most recent node.
+   * The status of the most recent task instance.
    * 
    * @example
    * SUCCESS
@@ -163,7 +163,7 @@ export class QueryFormationTasksByTypeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. OK is returned if the call was successful.
+   * The message returned. The value is OK if the call is successful.
    * 
    * @example
    * OK
@@ -179,7 +179,7 @@ export class QueryFormationTasksByTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call was successful.
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 

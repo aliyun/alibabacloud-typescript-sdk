@@ -118,12 +118,12 @@ export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
    * The Kafka instance ID.
    * 
    * @example
-   * ******
+   * alikafka_pre-cn-aaa1a1aaa111
    */
   kafkaClusterId?: string;
   /**
    * @remarks
-   * The name of the allocated Kafka topic.
+   * The assigned Kafka topic name.
    * 
    * @example
    * test
@@ -182,7 +182,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   acrossUid?: string;
   /**
    * @remarks
-   * The endpoint of the private custom RDS instance.
+   * The private custom RDS endpoint.
    * 
    * @example
    * ****
@@ -201,7 +201,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
    * The password.
    * 
    * @example
-   * ***
+   * Example****123!
    */
   password?: string;
   /**
@@ -317,7 +317,7 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
    * The password.
    * 
    * @example
-   * ******
+   * Example****123!
    */
   password?: string;
   /**
@@ -341,7 +341,7 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
    * The username.
    * 
    * @example
-   * Username.
+   * username
    */
   userName?: string;
   static names(): { [key: string]: string } {
@@ -386,7 +386,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   across?: boolean;
   /**
    * @remarks
-   * The name of the cross-account role.
+   * The cross-account role name.
    * 
    * @example
    * yyy
@@ -418,7 +418,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   sourceRegionId?: string;
   /**
    * @remarks
-   * The Simple Log Service Logstore.
+   * The Simple Log Service (SLS) Logstore.
    * 
    * @example
    * test-store
@@ -507,7 +507,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    * The Hive data source information.
    * 
    * @example
-   * -
+   * {"Vswitch":"vsw-bp1*****k","SecurityGroup":"sg-uf*******h"}
    */
   hiveInfo?: CreateApsDatasoureRequestHiveInfo;
   /**
@@ -515,7 +515,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    * The Kafka information.
    * 
    * @example
-   * -
+   * {"KafkaClusterId":"alikafka_pre-cn-aaa1a1aaa111","KafkaTopic":"example-topic"}
    */
   kafkaInfo?: CreateApsDatasoureRequestKafkaInfo;
   /**
@@ -531,7 +531,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    * The PolarDB for MySQL data source information.
    * 
    * @example
-   * -
+   * {"RegionId":"cn-shanghai"}
    */
   polarDBMysqlInfo?: CreateApsDatasoureRequestPolarDBMysqlInfo;
   /**
@@ -547,7 +547,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    * The ApsaraDB RDS for MySQL data source information.
    * 
    * @example
-   * -
+   * {"RegionId":"cn-shanghai"}
    */
   rdsMysqlInfo?: CreateApsDatasoureRequestRdsMysqlInfo;
   /**
@@ -565,7 +565,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    * The Simple Log Service (SLS) information.
    * 
    * @example
-   * -
+   * {"Project":"example-project","Store":"example-logstore","Across":false}
    */
   slsInfo?: CreateApsDatasoureRequestSlsInfo;
   static names(): { [key: string]: string } {

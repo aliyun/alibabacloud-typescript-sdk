@@ -68,7 +68,7 @@ export class DescribeApsProgressResponseBody extends $dara.Model {
    * The migration progress.
    * 
    * @example
-   * -
+   * [{"DbName":"example_db","TbName":"example_table","Progress":"95","Speed":"2"}]
    */
   apsHiveProgress?: DescribeApsProgressResponseBodyApsHiveProgress[];
   /**

@@ -8,7 +8,7 @@ export class DescribeEnabledPrivilegesResponseBodyDataPrivileges extends $dara.M
    * The permission description.
    * 
    * @example
-   * 查询数据
+   * Query data
    */
   description?: string;
   /**
@@ -50,7 +50,7 @@ export class DescribeEnabledPrivilegesResponseBodyData extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 全局权限
+   * Global permissions
    */
   description?: string;
   /**
@@ -101,7 +101,7 @@ export class DescribeEnabledPrivilegesResponseBodyData extends $dara.Model {
 export class DescribeEnabledPrivilegesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The supported permission levels and the list of permissions.
+   * The supported permission levels and permissions.
    */
   data?: DescribeEnabledPrivilegesResponseBodyData[];
   /**

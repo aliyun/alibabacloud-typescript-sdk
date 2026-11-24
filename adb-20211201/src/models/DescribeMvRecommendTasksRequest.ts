@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMvRecommendTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * A fixed value. This parameter cannot be modified.
+   * A fixed value that cannot be modified.
    * 
    * @example
-   * Not modifiable
+   * Cannot be modified
    */
   actionInner?: string;
   /**
@@ -21,10 +21,10 @@ export class DescribeMvRecommendTasksRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * A fixed value. This parameter cannot be modified.
+   * A fixed value that cannot be modified.
    * 
    * @example
-   * Not modifiable
+   * Cannot be modified
    */
   from?: string;
   /**

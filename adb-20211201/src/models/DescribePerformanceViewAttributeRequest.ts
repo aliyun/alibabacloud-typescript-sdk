@@ -21,7 +21,7 @@ export class DescribePerformanceViewAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the supported regions and zones, including region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query information about supported regions and zones, including region IDs.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class DescribePerformanceViewAttributeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Custom-All metrics-2 columns-Linked
+   * Custom-All metrics-2 columns-linked
    */
   viewName?: string;
   static names(): { [key: string]: string } {

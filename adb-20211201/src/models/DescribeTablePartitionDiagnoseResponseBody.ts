@@ -5,27 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTablePartitionDiagnoseResponseBodyDetectionItems extends $dara.Model {
   /**
    * @remarks
-   * The detection result.
+   * The check result message.
    * 
    * @example
-   * Multiple oversized non-partitioned tables are detected.
+   * Unreasonable partitions detected in the table
    */
   message?: string;
   /**
    * @remarks
-   * The name of the detection item.
+   * The name of the check item.
    * 
    * @example
-   * Improper partition field diagnostics
+   * Table partition rationality check
    */
   name?: string;
   /**
    * @remarks
-   * The severity level of the detection result. Valid values:
+   * The status of the check result. Valid values:
    * 
-   * *   NORMAL
-   * *   WARNING
-   * *   CRITICAL
+   * - NORMAL
+   * - WARNING
+   * - CRITICAL
    * 
    * @example
    * WARNING
@@ -59,7 +59,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyDetectionItems extends $d
 export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The improper partitions.
+   * The unreasonable partitions.
    * 
    * @example
    * [20210110, 20210113,20210123]
@@ -75,7 +75,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
   partitionNumber?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * test_db
@@ -83,9 +83,9 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
   schemaName?: string;
   /**
    * @remarks
-   * The storage percentage of the table. Unit: %.
+   * The table storage proportion. Unit: %.
    * 
-   * >  Formula: Table storage percentage = Total data size of a table/Total data size of the cluster × 100%.
+   * > Calculation formula: Table storage proportion = Total data volume of the table / Total data volume of the instance × 100.
    * 
    * @example
    * 66.23
@@ -93,7 +93,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
   spaceRatio?: number;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * user
@@ -101,7 +101,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
   tableName?: string;
   /**
    * @remarks
-   * The total data size of the table. Unit: bytes.
+   * The total data volume. Unit: bytes.
    * 
    * @example
    * 42949672960
@@ -141,7 +141,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
 export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the request denial.
+   * The details of the access denial.
    * 
    * @example
    * {
@@ -165,12 +165,12 @@ export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The queried detection items and detection results.
+   * The list of check items and check results.
    */
   detectionItems?: DescribeTablePartitionDiagnoseResponseBodyDetectionItems[];
   /**
    * @remarks
-   * The queried partition diagnostic information.
+   * The details.
    */
   items?: DescribeTablePartitionDiagnoseResponseBodyItems[];
   /**
@@ -199,7 +199,7 @@ export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The recommended maximum number of rows in each partition.
+   * The recommended maximum number of rows for subpartitions.
    * 
    * @example
    * 640000000
@@ -207,7 +207,7 @@ export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
   suggestMaxRecordsPerPartition?: number;
   /**
    * @remarks
-   * The recommended minimum number of rows in each partition.
+   * The recommended minimum number of rows for subpartitions.
    * 
    * @example
    * 64000000
@@ -215,7 +215,7 @@ export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
   suggestMinRecordsPerPartition?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 185

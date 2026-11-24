@@ -13,7 +13,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   accessIp?: string;
   /**
    * @remarks
-   * The average execution time of the pattern within the specified time range. Unit: milliseconds.
+   * The average execution duration of the pattern within the specified time range. Unit: milliseconds.
    * 
    * @example
    * 234.78
@@ -37,7 +37,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   averagePeakMemory?: number;
   /**
    * @remarks
-   * The average total time consumed by the pattern within the specified time range. Unit: milliseconds.
+   * The average total duration of the pattern within the specified time range. Unit: milliseconds.
    * 
    * @example
    * 4
@@ -45,7 +45,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   averageQueryTime?: number;
   /**
    * @remarks
-   * The average scan time.
+   * The average scan duration.
    * 
    * @example
    * 5
@@ -72,7 +72,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   blockable?: boolean;
   /**
    * @remarks
-   * The number of failed executions of the pattern within the specified time range.
+   * The number of failures of the pattern within the specified time range.
    * 
    * @example
    * 18
@@ -80,7 +80,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The maximum execution time of the pattern within the specified time range. Unit: milliseconds.
+   * The maximum execution duration of the pattern within the specified time range. Unit: milliseconds.
    * 
    * @example
    * 2142
@@ -96,7 +96,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   maxOperatorCost?: number;
   /**
    * @remarks
-   * The maximum peak memory usage for the SQL statement related to the pattern. Unit: bytes.
+   * The maximum peak memory for the SQL statement related to the pattern. Unit: bytes.
    * 
    * @example
    * 234149
@@ -104,7 +104,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   maxPeakMemory?: number;
   /**
    * @remarks
-   * The maximum total time consumed by the pattern within the specified time range. Unit: milliseconds.
+   * The maximum total duration of the pattern within the specified time range. Unit: milliseconds.
    * 
    * @example
    * 2341
@@ -112,7 +112,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   maxQueryTime?: number;
   /**
    * @remarks
-   * The maximum scan time.
+   * The maximum scan duration.
    * 
    * @example
    * 5
@@ -152,7 +152,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   patternCreationTime?: string;
   /**
    * @remarks
-   * The ID of the SQL pattern.
+   * The ID of the SQL pattern statement.
    * 
    * @example
    * 5575924945138******
@@ -184,7 +184,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   queryCount?: number;
   /**
    * @remarks
-   * The percentage of the time consumed by a single pattern within the query time range out of the total time consumed by all patterns. Unit: %.
+   * The percentage of the total duration of a single pattern within the query time range out of the total duration of all patterns. Unit: %.
    * 
    * @example
    * 10
@@ -192,7 +192,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   queryTimePercentage?: number;
   /**
    * @remarks
-   * The total time consumed. Unit: milliseconds.
+   * The total duration. Unit: milliseconds.
    * 
    * @example
    * 5
@@ -200,7 +200,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   queryTimeSum?: number;
   /**
    * @remarks
-   * The SQL statement of the pattern.
+   * The SQL pattern statement.
    * 
    * @example
    * SELECT * FROM KEPLER_META_NODE_STATIC_INFO WHERE elastic_node = ? OR (elastic_node = ? AND enable = ?)
@@ -338,7 +338,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
 export class DescribeSQLPatternsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial. This field is returned only when RAM authentication fails.
+   * The details of the access denial. This field is returned only when the RAM authentication fails.
    * 
    * @example
    * {
@@ -370,7 +370,7 @@ export class DescribeSQLPatternsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of patterns.
+   * The list.
    */
   patternDetails?: DescribeSQLPatternsResponseBodyPatternDetails[];
   /**

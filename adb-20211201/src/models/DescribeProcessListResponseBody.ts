@@ -79,7 +79,7 @@ export class DescribeProcessListResponseBody extends $dara.Model {
   items?: DescribeProcessListResponseBodyItems;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class DescribeProcessListResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of pages.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -95,7 +95,7 @@ export class DescribeProcessListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -103,7 +103,7 @@ export class DescribeProcessListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total records.
+   * The total number of entries.
    * 
    * @example
    * 10

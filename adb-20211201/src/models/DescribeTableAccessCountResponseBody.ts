@@ -13,7 +13,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   accessCount?: string;
   /**
    * @remarks
-   * The cluster ID of the cluster to which the table belongs.
+   * The ID of the cluster to which the table belongs.
    * 
    * @example
    * amv-2ze627uzpkh8a8****
@@ -21,7 +21,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The date on which the table was used.
+   * The date when the table was used.
    * 
    * @example
    * 2022-09-26
@@ -29,7 +29,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   reportDate?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * CUSTOMER
@@ -104,7 +104,7 @@ export class DescribeTableAccessCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

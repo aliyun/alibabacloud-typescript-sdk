@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdbMySqlColumnsResponseBodyColumns extends $dara.Model {
   /**
    * @remarks
-   * The column comment.
+   * The comment of the column.
    * 
    * @example
    * test
@@ -68,8 +68,8 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   columns?: DescribeAdbMySqlColumnsResponseBodyColumns[];
   /**
    * @remarks
-   * The additional information about the call result. Valid values:
-   * - If the request is successful, **Success** is returned.
+   * The additional information about the call result.
+   * - If the request is successful, **Success** is returned. 
    * - If the request fails, a specific error code is returned.
    * 
    * @example

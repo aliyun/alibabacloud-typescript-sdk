@@ -22,7 +22,7 @@ export class GetTableResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -38,7 +38,7 @@ export class GetTableResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The detailed table information.
+   * The details of the table.
    */
   table?: TableModel;
   static names(): { [key: string]: string } {

@@ -21,7 +21,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   apsJobName?: string;
   /**
    * @remarks
-   * The creation time in the yyyy-MM-dd HH:mm:ss format.
+   * The creation time. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2022-06-28 15:00:04
@@ -72,7 +72,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
    * The status of the task.
    * 
    * @example
-   * -
+   * Synchronizing
    */
   status?: string;
   /**
@@ -80,7 +80,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
    * The status of the subtask.
    * 
    * @example
-   * -
+   * Synchronizing
    */
   subStatus?: string;
   static names(): { [key: string]: string } {
@@ -125,10 +125,10 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
 export class DescribeApsJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of APS tasks.
+   * The list of tasks.
    * 
    * @example
-   * -
+   * [{"ApsJobId":"aps-example","ApsJobName":"example-job","CreateTime":"2022-06-28 15:00:04"}]
    */
   APSJobs?: DescribeApsJobsResponseBodyAPSJobs[];
   /**
@@ -141,7 +141,7 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned for the request. A value of 200 indicates that the request was successful.
+   * The HTTP status code. A status code of 200 indicates that the request was successful.
    * 
    * @example
    * ok
@@ -150,8 +150,8 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The additional information about the call result. Valid values:
-   * - If the request is successful, **Success** is returned. 
-   * - If the request fails, a specific error code is returned.
+   * - If the request is normal, **Success** is returned. 
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * OK
@@ -184,8 +184,8 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * True

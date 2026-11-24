@@ -8,7 +8,7 @@ export class CreateApsWebhookRequestWebhook extends $dara.Model {
    * The signing key.
    * 
    * @example
-   * ***
+   * example****key
    */
   key?: string;
   /**
@@ -32,7 +32,6 @@ export class CreateApsWebhookRequestWebhook extends $dara.Model {
   /**
    * @remarks
    * The notification method. Valid values:
-   * 
    * - dingtalk: DingTalk.
    * - lark: Lark.
    * 
@@ -72,7 +71,7 @@ export class CreateApsWebhookRequestWebhook extends $dara.Model {
 export class CreateApsWebhookRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -82,9 +81,8 @@ export class CreateApsWebhookRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The task type. Valid values:
-   * 
-   * ResultExport: SLS/OSS export task.
+   * The node type. Valid values:
+   * - ResultExport: SLS or OSS export task.
    * 
    * This parameter is required.
    * 

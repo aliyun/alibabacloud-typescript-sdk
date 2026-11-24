@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLakeStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteLakeStorageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the delete operation was successful.
+   * The deletion result.
    * 
    * @example
    * True
@@ -29,7 +29,7 @@ export class DeleteLakeStorageResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. If the operation is asynchronously implemented, the job ID is returned.
+   * The job ID returned if the creation API is implemented asynchronously.
    * 
    * @example
    * Success
@@ -45,10 +45,9 @@ export class DeleteLakeStorageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call is successful.
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

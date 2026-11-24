@@ -15,7 +15,7 @@ export class ListSparkWarehouseBatchSQLRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

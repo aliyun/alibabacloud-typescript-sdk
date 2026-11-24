@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Spark application.
+   * The application ID.
    * 
    * @example
    * s202207151211hz0c****
@@ -21,7 +21,7 @@ export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The third-party JAR package.
+   * The third-party JAR packages.
    * 
    * @example
    * oss://test-bucket/test.jar
@@ -29,7 +29,7 @@ export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
   jars?: string;
   /**
    * @remarks
-   * The maximum number of started Spark executors.
+   * The maximum number of Spark executors to start.
    * 
    * @example
    * 3
@@ -37,7 +37,7 @@ export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
   maxExecutor?: string;
   /**
    * @remarks
-   * The minimum number of started Spark executors.
+   * The minimum number of Spark executors to start.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
   minExecutor?: string;
   /**
    * @remarks
-   * The slot number of the Spark application.
+   * The slot value of the Spark application.
    * 
    * @example
    * 2
@@ -53,19 +53,18 @@ export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
   slotNum?: string;
   /**
    * @remarks
-   * The execution state of the application. Valid values:
-   * 
-   * *   SUBMITTED
-   * *   STARTING
-   * *   RUNNING
-   * *   FAILING
-   * *   FAILED
-   * *   KILLING
-   * *   KILLED
-   * *   SUCCEEDING
-   * *   COMPLETED
-   * *   FATAL
-   * *   UNKNOWN
+   * The execution status of the application. Valid values:
+   * * SUBMITTED: Submitted.
+   * * STARTING: Starting.
+   * * RUNNING: Running.
+   * * FAILING: The task failed and the environment is being cleaned up.
+   * * FAILED: Failed.
+   * * KILLING: The task is being terminated and the environment is being cleaned up.
+   * * KILLED: Terminated.
+   * * SUCCEEDING: The task execution is complete and the environment is being cleaned up.
+   * * COMPLETED: Completed.
+   * * FATAL: Unexpected failure.
+   * * UNKNOWN: Unknown error.
    * 
    * @example
    * COMPLETED
@@ -73,7 +72,7 @@ export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The timestamp when the Spark SQL application was submitted. Unit: milliseconds.
+   * The submission time of the Spark SQL application. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1651213645000
@@ -117,12 +116,12 @@ export class GetSparkSQLEngineStateResponseBodyData extends $dara.Model {
 export class GetSparkSQLEngineStateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The state information about the Spark SQL engine.
+   * The status details of the Spark SQL engine.
    */
   data?: GetSparkSQLEngineStateResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * xxxx-xxx-xx

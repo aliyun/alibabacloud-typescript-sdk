@@ -14,8 +14,8 @@ export class DescribeAccountsRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * <props="china">The ID of the cluster. The cluster can be of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
-   * <props="intl">The ID of the Data Lakehouse Edition cluster.
+   * <props="china">The ID of the cluster. The cluster runs Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
+   * <props="intl">The ID of the cluster. The cluster runs Data Lakehouse Edition.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class DescribeAccountsRequest extends $dara.Model {
    * The database engine. Valid values:
    * 
    * - **AnalyticDB** (default): AnalyticDB for MySQL engine
-   * - **Clickhouse**: wide-table engine
+   * - **Clickhouse**: wide table engine
    * 
    * @example
    * Clickhouse

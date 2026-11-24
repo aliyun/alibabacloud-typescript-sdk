@@ -21,7 +21,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   authNodeSpec?: string;
   /**
    * @remarks
-   * The number of insert nodes.
+   * The number of write nodes.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   insertNodeNum?: string;
   /**
    * @remarks
-   * The insert node specifications.
+   * The write node specifications.
    * 
    * @example
    * 8ACU
@@ -37,7 +37,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   insertNodeSpec?: string;
   /**
    * @remarks
-   * The cache size of the query node.
+   * The cache size of query nodes.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   selectNodeSpec?: string;
   /**
    * @remarks
-   * The disk size of the storage node.
+   * The disk size of storage nodes.
    * 
    * @example
    * 100
@@ -69,7 +69,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
   storageNodeDiskSize?: string;
   /**
    * @remarks
-   * The disk type of the storage node.
+   * The disk type of storage nodes.
    * 
    * @example
    * essd_pl1
@@ -135,7 +135,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
 export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules extends $dara.Model {
   /**
    * @remarks
-   * The end time in cron expression format. The interval must be no less than 1 hour.
+   * The end time specified by a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 3 * * ?
@@ -143,7 +143,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules ex
   endCronExpression?: string;
   /**
    * @remarks
-   * The start time in cron expression format. The interval must be no less than 1 hour.
+   * The start time specified by a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 2 * * ?
@@ -175,7 +175,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules ex
 export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the GPU time-based elastic plan is enabled.
+   * Specifies whether the plan is enabled.
    * 
    * @example
    * false
@@ -231,7 +231,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImag
   inferenceEngine?: string;
   /**
    * @remarks
-   * The large language model (LLM).
+   * The LLM model.
    * 
    * @example
    * Deepseek-R1
@@ -408,7 +408,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups 
   workerDiskCapacity?: string;
   /**
    * @remarks
-   * The specification of the worker.
+   * The resource specification of the worker.
    * 
    * @example
    * large
@@ -466,11 +466,11 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
   appConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfig;
   /**
    * @remarks
-   * The Ray cluster type. Valid values:
+   * The type of the Ray cluster. Valid values:
    * 
-   * - **BASIC**: the basic type, which is not highly available.
+   * - BASIC: The basic type. High availability is not supported.
    * 
-   * - **HIGH_AVAILABILITY**: the high-availability type.
+   * - HIGH_AVAILABILITY: The high-availability type.
    * 
    * @example
    * BASIC
@@ -478,7 +478,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
   category?: string;
   /**
    * @remarks
-   * Specifies whether to enable the elastic network interface (ENI).
+   * Specifies whether to enable ENIs.
    * 
    * **if can be null:**
    * false
@@ -555,7 +555,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
   storageMounts?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts[];
   /**
    * @remarks
-   * The custom Python dependencies for RayCluster. Specify the content in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are allowed, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported, but shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
+   * The custom Python dependencies for RayCluster. Specify the content in the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are supported, and each line cannot exceed 512 characters. Version constraints, extras, PEP 440 direct URLs, and # comments are supported. Shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
    * 
    * @example
    * numpy==1.24.0
@@ -633,7 +633,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Mo
   groupName?: string;
   /**
    * @remarks
-   * The threshold for query execution time. Unit: milliseconds.
+   * The threshold for query execution time, in milliseconds.
    * 
    * @example
    * 180000
@@ -724,7 +724,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The minimum elastic compute resources. Unit: ACU.
+   * The minimum elastic computing resources, in ACUs.
    * 
    * @example
    * 16ACU
@@ -733,8 +733,8 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the instances may be released. Valid values:
-   * - **True**: enables the spot instance feature.
-   * - **False**: disables the spot instance feature.
+   * - **True**: Enables the spot instance feature.
+   * - **False**: Disables the spot instance feature.
    * 
    * This parameter can be set to True only for Job resource groups.
    * 
@@ -753,6 +753,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   /**
    * @remarks
    * The engine parameters.
+   * 
+   * @example
+   * {"spark.adb.version":"3.5"}
    */
   engineParams?: { [key: string]: any };
   /**
@@ -773,7 +776,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
    * The resource group type. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about resource groups in Data Lakehouse Edition, see [Resource groups in Data Lakehouse Edition](https://help.aliyun.com/document_detail/428610.html).
    * 
    * @example
    * Job
@@ -792,12 +795,12 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
    * The reserved parameter. This parameter is not applicable.
    * 
    * @example
-   * Reserved parameter
+   * 1
    */
   maxClusterCount?: number;
   /**
    * @remarks
-   * The maximum reserved compute resources. Unit: ACU.
+   * The maximum reserved computing resources, in ACUs.
    * 
    * @example
    * 512ACU
@@ -813,7 +816,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   maxGpuQuantity?: number;
   /**
    * @remarks
-   * The message of the job delivery rule.
+   * The message of the job routing rule.
    * 
    * This parameter is required.
    * 
@@ -826,12 +829,12 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
    * The reserved parameter. This parameter is not applicable.
    * 
    * @example
-   * Reserved parameter
+   * 1
    */
   minClusterCount?: number;
   /**
    * @remarks
-   * The minimum reserved compute resources. Unit: ACU.
+   * The minimum reserved computing resources, in ACUs.
    * 
    * @example
    * 0ACU
@@ -852,7 +855,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   rayConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig;
   /**
    * @remarks
-   * The job delivery rules.
+   * The job routing rules.
    */
   rules?: DescribeDBResourceGroupResponseBodyGroupsInfoRules[];
   /**
@@ -860,7 +863,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
    * The reserved parameter. This parameter is not applicable.
    * 
    * @example
-   * Reserved parameter
+   * 1
    */
   runningClusterCount?: number;
   /**
