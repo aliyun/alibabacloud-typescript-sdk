@@ -85,12 +85,12 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswer
 export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResults extends $dara.Model {
   /**
    * @remarks
-   * The coordinate group of the user\\"s answering area. It generally contains four vertex coordinates arranged in the order of top-left, top-right, bottom-right, and bottom-left, formatted as `[{"x": ..., "y": ...}, ...]`.
+   * The coordinate group of the user\\"s answering area. It generally contains four vertex coordinates, arranged in the order of top-left, top-right, bottom-right, and bottom-left, such as `[{"x": ..., "y": ...}, ...]`.
    */
   answerPoints?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResultsAnswerPoints[];
   /**
    * @remarks
-   * The coordinates of the grading mark point, formatted as `{ "x": ..., "y": ... }`.
+   * The coordinates of the grading mark point, such as `{ "x": ..., "y": ... }`.
    */
   checkPoint?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResultsCheckPoint;
   /**
@@ -200,7 +200,7 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults exten
   answerResults?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsAnswerResults[];
   /**
    * @remarks
-   * Specifies whether the task is completed:
+   * Specifies whether the task is completed. Valid values:
    * 
    * - **true**: The task is completed.
    * - **false**: The task is not completed.
@@ -227,10 +227,10 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults exten
   questionId?: string;
   /**
    * @remarks
-   * The coordinate group of the question area. It generally contains four vertex coordinates arranged in the order of top-left, top-right, bottom-right, and bottom-left.
+   * The coordinate group of the question area. It generally contains four vertex coordinates, arranged in the order of top-left, top-right, bottom-right, and bottom-left.
    * 
    * @example
-   * Formatted as `[[{"x": 0, "y": 0}, ...]]`
+   * Example: `[[{"x": 0, "y": 0}, ...]]`
    */
   questionPoints?: CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResultsQuestionPoints[][];
   /**
@@ -246,7 +246,7 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults exten
    * The question analysis and solution.
    * 
    * @example
-   * The question analysis and solution
+   * Question analysis and solution
    */
   solution?: string;
   static names(): { [key: string]: string } {
@@ -291,7 +291,7 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyDataQuestionResults exten
 export class CreateEduHomeworkCorrectSubmitResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The clockwise rotation angle of the image, in degrees.
+   * The rotation angle of the image in the clockwise direction, in degrees.
    * 
    * @example
    * 0
@@ -299,7 +299,7 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyData extends $dara.Model 
   angle?: number;
   /**
    * @remarks
-   * The URL of the corrected image. If `dewarp` is set to `false`, the URL of the original image is returned.
+   * The URL of the corrected image. If `dewarp` is set to `false`, the original image is returned.
    * 
    * @example
    * https://example.com/dewarp.jpg
@@ -315,12 +315,12 @@ export class CreateEduHomeworkCorrectSubmitResponseBodyData extends $dara.Model 
    * The task status.
    * 
    * @example
-   * Examples: submitted, processing, finished, or failed
+   * Examples: submitted, processing, finished, and failed
    */
   status?: string;
   /**
    * @remarks
-   * The unique identifier of the task. You must include this ID in subsequent queries.
+   * The unique identifier of the task, which must be included in subsequent queries.
    * 
    * @example
    * task-20261116-abc123
@@ -382,7 +382,7 @@ export class CreateEduHomeworkCorrectSubmitResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID on the caller side.
+   * The request ID of the caller.
    * 
    * @example
    * req-20261116-0001

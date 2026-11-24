@@ -5,31 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEduHomeworkCorrectSubmitRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to correct the image distortion. Default value: `true`. If you set this parameter to `false`, the image is not corrected, `dewarp_url` returns the original image, and the coordinates are based on `dewarp_url`.
+   * Specifies whether to correct the image distortion.
+   * 
+   * @example
+   * true
    */
   dewarp?: boolean;
   /**
    * @remarks
-   * The pure Base64-encoded string of the image, excluding the `data:` prefix and MIME declaration. The encoded size cannot exceed 15 MB. If both parameters are specified, `image_base64` takes precedence.
+   * The Base64-encoded image.
    * 
    * @example
-   * The pure Base64-encoded string of the image, excluding the data: prefix and MIME declaration. The encoded size cannot exceed 15 MB. If both parameters are specified, image_base64 takes precedence
+   * /9j/4AAQSkZJRgABAQAASABIAAD/4QCMRXhpZgAATU0AK...
    */
   imageBase64?: string;
   /**
    * @remarks
-   * The publicly accessible HTTP or HTTPS URL of the image. The server downloads the image from this URL.
+   * The URL of the image.
    * 
    * @example
-   * https://example.com/homework.jpg
+   * https://xxx/xxx.jpg
    */
   imageUrl?: string;
   /**
    * @remarks
-   * The request ID on the caller side. Use a UUID for reconciliation and troubleshooting. If this parameter is not specified, the server generates a request ID and returns it in the response.
+   * The request ID.
    * 
    * @example
-   * req-20261116-0001
+   * 019F593F-D6EE-5F44-819A-6CDA127D1637
    */
   requestId?: string;
   static names(): { [key: string]: string } {

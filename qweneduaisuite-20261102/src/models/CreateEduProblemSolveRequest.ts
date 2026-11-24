@@ -5,17 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEduProblemSolveRequestQueryImage extends $dara.Model {
   /**
    * @remarks
-   * **The Base64-encoded image**. If both this parameter and the URL are provided, this parameter takes precedence.
+   * The Base64 encoding of the image.
    * 
    * @example
-   * iVBORw0KGgoAAAANSUhEUgAAAAUA...
+   * /9j/4AAQSkZJRgABAQAASABIAAD/4QCMRXhpZgAATU0AK...
    */
   base64?: string;
   /**
    * @remarks
-   * **The image format**: jpg, jpeg, or png. The value must match the actual file format.
-   * 
-   * This parameter is required.
+   * The image format. Valid values: jpg, jpeg, and png. The value must match the actual file format.
    * 
    * @example
    * jpg
@@ -23,10 +21,10 @@ export class CreateEduProblemSolveRequestQueryImage extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The URL of a single question image.
+   * The image URL.
    * 
    * @example
-   * https://your-cdn.example.com/question.jpg
+   * https://xxx/xxx.jpg
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -57,7 +55,7 @@ export class CreateEduProblemSolveRequestQueryImage extends $dara.Model {
 export class CreateEduProblemSolveRequestQuery extends $dara.Model {
   /**
    * @remarks
-   * **The image information.**
+   * The query image.
    */
   image?: CreateEduProblemSolveRequestQueryImage;
   static names(): { [key: string]: string } {
@@ -87,7 +85,7 @@ export class CreateEduProblemSolveRequestQuery extends $dara.Model {
 export class CreateEduProblemSolveRequest extends $dara.Model {
   /**
    * @remarks
-   * **The question image container.**
+   * The query information.
    */
   query?: CreateEduProblemSolveRequestQuery;
   /**

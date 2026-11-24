@@ -24,7 +24,6 @@ export { CreateEduHomeworkCorrectSubmitRequest } from './CreateEduHomeworkCorrec
 export { CreateEduHomeworkCorrectSubmitResponseBody } from './CreateEduHomeworkCorrectSubmitResponseBody';
 export { CreateEduHomeworkCorrectSubmitResponse } from './CreateEduHomeworkCorrectSubmitResponse';
 export { CreateEduProblemSolveRequest } from './CreateEduProblemSolveRequest';
-export { CreateEduProblemSolveShrinkRequest } from './CreateEduProblemSolveShrinkRequest';
 export { CreateEduProblemSolveResponseBody } from './CreateEduProblemSolveResponseBody';
 export { CreateEduProblemSolveResponse } from './CreateEduProblemSolveResponse';
 export { GetEduHomeworkCorrectionResultRequest } from './GetEduHomeworkCorrectionResultRequest';

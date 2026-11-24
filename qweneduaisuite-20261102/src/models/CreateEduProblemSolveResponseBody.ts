@@ -14,8 +14,8 @@ export class CreateEduProblemSolveResponseBodyItemsThinking extends $dara.Model 
   /**
    * @remarks
    * The thinking status. Valid values:
-   * * processing: Processing.
-   * * complete: Complete.
+   * - processing: The thinking process is in progress.
+   * - complete: The thinking process is complete.
    * 
    * @example
    * 200
@@ -47,7 +47,7 @@ export class CreateEduProblemSolveResponseBodyItemsThinking extends $dara.Model 
 export class CreateEduProblemSolveResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The complete Markdown content of the question resolution, including the deduction process and the final result.
+   * The complete question resolution content in Markdown format, including the deduction process and the final result.
    * 
    * @example
    * {}
@@ -63,7 +63,7 @@ export class CreateEduProblemSolveResponseBodyItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The question identifier. The value is the question title, such as Question 1. The server does not return a separate title field. If the downstream service does not provide a question title, which is always the case for single-question scenarios, titles such as Question 1 and Question 2 are generated in the order of the questions.
+   * The question identifier. The value is the question title, such as Question 1. The server does not return a separate title field. If the downstream service does not provide a question title, which is always the case in single-question scenarios, titles such as Question 1 and Question 2 are generated in the order of the questions.
    * 
    * @example
    * 50a10e43a33e36179e355556d319ebd5
@@ -72,8 +72,8 @@ export class CreateEduProblemSolveResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The current question status. Valid values:
-   * * processing: Processing.
-   * * complete: Complete.
+   * - processing: The question is being processed.
+   * - complete: The question processing is complete.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class CreateEduProblemSolveResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The thinking process. This field is returned only when result_type is single, and is not returned for multiple questions.
+   * The thinking process. This field is returned only when result_type is single. It is not returned for multiple questions.
    */
   thinking?: CreateEduProblemSolveResponseBodyItemsThinking;
   static names(): { [key: string]: string } {
@@ -167,7 +167,7 @@ export class CreateEduProblemSolveResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Specifies whether this is the final full snapshot. The value is fixed to true in the complete event.
+   * Specifies whether the response is the final full snapshot. This value is fixed to true in the complete event.
    */
   finished?: boolean;
   /**
@@ -177,7 +177,7 @@ export class CreateEduProblemSolveResponseBody extends $dara.Model {
   items?: CreateEduProblemSolveResponseBodyItems[];
   /**
    * @remarks
-   * The actual response message of the request.
+   * The actual message returned by the request.
    * 
    * @example
    * ok
@@ -194,8 +194,8 @@ export class CreateEduProblemSolveResponseBody extends $dara.Model {
   /**
    * @remarks
    * The type of the question resolution result. Valid values:
-   * * single: Single question.
-   * * multiple: Multiple questions.
+   * - single: A single question.
+   * - multiple: Multiple questions.
    * 
    * @example
    * single
@@ -208,7 +208,7 @@ export class CreateEduProblemSolveResponseBody extends $dara.Model {
   retryable?: boolean;
   /**
    * @remarks
-   * The token usage. Only the complete event carries the final value. The message event does not return this field.
+   * The token usage. Only the complete event carries the final value. This field is not returned in message events.
    */
   usage?: CreateEduProblemSolveResponseBodyUsage;
   static names(): { [key: string]: string } {
