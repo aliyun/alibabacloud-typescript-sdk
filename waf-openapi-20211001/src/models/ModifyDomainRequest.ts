@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDomainRequestListen extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate to add.
+   * The ID of the certificate to be added.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The type of cipher suite to add. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The type of cipher suite to be added. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
    * - **1**: adds all cipher suites.
    * 
@@ -27,7 +27,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   cipherSuite?: number;
   /**
    * @remarks
-   * The custom cipher suites to add. This parameter takes effect only when **CipherSuite** is set to **99**.
+   * The custom cipher suites to be added. This parameter takes effect only when **CipherSuite** is set to **99**.
    */
   customCiphers?: string[];
   /**
@@ -90,7 +90,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   hstsMaxAge?: number;
   /**
    * @remarks
-   * Specifies whether to enable HSTS preload. Default value: false. Valid values:
+   * Specifies whether to enable HSTS preload. By default, this feature is disabled. Valid values:
    * - true: enables HSTS preload.
    * - false: disables HSTS preload.
    * 
@@ -134,7 +134,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   IPv6Enabled?: boolean;
   /**
    * @remarks
-   * The type of protection resource to use. Valid values:
+   * The type of protection resource to be used. Valid values:
    * 
    * - **share**: uses a shared cluster. This is the default value.
    * 
@@ -146,11 +146,11 @@ export class ModifyDomainRequestListen extends $dara.Model {
   protectionResource?: string;
   /**
    * @remarks
-   * Specifies whether to allow access only from SM2 clients. This parameter takes effect only when SM2Enabled is set to true. Valid values:
+   * Specifies whether to allow access only from clients that support SM2. This parameter takes effect only when SM2Enabled is set to true. Valid values:
    * 
-   * - true: allows access only from SM2 clients.
+   * - true: allows access only from clients that support SM2.
    * 
-   * - false: allows access from both SM2 and non-SM2 clients.
+   * - false: allows access from clients that support SM2 and clients that do not support SM2.
    * 
    * @example
    * true
@@ -158,7 +158,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   SM2AccessOnly?: boolean;
   /**
    * @remarks
-   * The ID of the SM2 certificate to add. This parameter takes effect only when SM2Enabled is set to true.
+   * The ID of the SM2 certificate to be added. This parameter takes effect only when SM2Enabled is set to true.
    * 
    * @example
    * 123-cn-hangzhou
@@ -174,7 +174,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   SM2Enabled?: boolean;
   /**
    * @remarks
-   * The TLS version to add. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The TLS version. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * - **tlsv1**: supports TLS 1.0 and later. This version provides the highest compatibility but lower security.
    * - **tlsv1.1**: supports TLS 1.1 and later. This version provides good compatibility and security.
    * - **tlsv1.2**: supports TLS 1.2 and later. This version provides good compatibility and the highest security.
@@ -186,7 +186,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   TLSVersion?: string;
   /**
    * @remarks
-   * The method that WAF uses to obtain the actual IP address of the client.
+   * The method for WAF to obtain the actual IP address of the client.
    * 
    * @example
    * 2
@@ -196,7 +196,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
    * @remarks
    * The list of custom fields used to obtain the client IP address. Specify the fields in the [**"header1","header2",...**] format.
    * 
-   * > You need to set this parameter only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom field that you specified in the request header as the client IP address.
+   * > You must specify this parameter only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom field that you specify in the request header as the client IP address.
    */
   xffHeaders?: string[];
   static names(): { [key: string]: string } {
@@ -270,6 +270,46 @@ export class ModifyDomainRequestListen extends $dara.Model {
   }
 }
 
+export class ModifyDomainRequestRedirectBackendConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The origin server.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
+  backend?: string;
+  /**
+   * @remarks
+   * The weight.
+   * 
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backend: 'Backend',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backend: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDomainRequestRedirectBackendPorts extends $dara.Model {
   /**
    * @remarks
@@ -291,9 +331,9 @@ export class ModifyDomainRequestRedirectBackendPorts extends $dara.Model {
    * @remarks
    * The protocol of the listening port. Valid values:
    * 
-   * - **http**: the protocol of the listening port is HTTP.
+   * - **http**: HTTP.
    * 
-   * - **https**: the protocol of the listening port is HTTPS.
+   * - **https**: HTTPS.
    * 
    * @example
    * http
@@ -327,7 +367,7 @@ export class ModifyDomainRequestRedirectBackendPorts extends $dara.Model {
 export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The specified custom request header field.
+   * The custom request header field.
    * 
    * @example
    * aaa
@@ -335,7 +375,7 @@ export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value set for the specified custom request header field.
+   * The value of the custom request header field.
    * 
    * @example
    * bbb
@@ -367,30 +407,35 @@ export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
 export class ModifyDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
+   * The custom back-to-origin configurations.
+   */
+  backendConfig?: ModifyDomainRequestRedirectBackendConfig[];
+  /**
+   * @remarks
    * The custom port configurations.
    */
   backendPorts?: ModifyDomainRequestRedirectBackendPorts[];
   /**
    * @remarks
-   * The IP addresses of the origin servers or the back-to-origin domain names for the domain name. You can specify either origin server IP addresses or back-to-origin domain names. If the back-to-origin address is a domain name, only IPv4 is supported. IPv6 is not supported.
+   * The IP addresses of the origin servers or the domain names to which requests are forwarded for the domain name. You can specify either IP addresses or domain names. If you specify domain names, only IPv4 addresses are supported. IPv6 addresses are not supported.
    * 
-   * - To specify origin server IP addresses, use the [**"ip1","ip2",...**] format. You can add up to 20 IP addresses.
+   * - To specify IP addresses of origin servers, use the [**"ip1","ip2",...**] format. You can add up to 20 IP addresses.
    * 
-   * - To specify back-to-origin domain names, use the [**"domain"**] format. You can add up to 20 domain names.
+   * - To specify domain names, use the [**"domain"**] format. You can add up to 20 domain names.
    */
   backends?: string[];
   /**
    * @remarks
-   * The IP addresses of the secondary origin servers or the secondary back-to-origin domain names for the domain name.
+   * The IP addresses of the secondary origin servers or the secondary domain names to which requests are forwarded for the domain name.
    */
   backupBackends?: string[];
   /**
    * @remarks
-   * Specifies whether to enable public cloud disaster recovery. Valid values:
+   * Specifies whether to enable disaster recovery on Alibaba Cloud. Valid values:
    * 
-   * - **true**: enables public cloud disaster recovery.
+   * - **true**: enables disaster recovery on Alibaba Cloud.
    * 
-   * - **false**: disables public cloud disaster recovery. This is the default value.
+   * - **false**: disables disaster recovery on Alibaba Cloud. This is the default value.
    * 
    * @example
    * true
@@ -408,11 +453,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   connectTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to enable force back-to-origin over HTTP. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable force redirect to HTTP for back-to-origin requests. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
-   * - **true**: enables force back-to-origin over HTTP.
+   * - **true**: enables force redirect to HTTP for back-to-origin requests.
    * 
-   * - **false**: disables force back-to-origin over HTTP.
+   * - **false**: disables force redirect to HTTP for back-to-origin requests.
    * 
    * @example
    * true
@@ -420,11 +465,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   focusHttpBackend?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable HTTP/2 back-to-origin. Valid values:
+   * Specifies whether to enable HTTP/2 for back-to-origin requests. Valid values:
    * 
-   * - **true**: enables HTTP/2 back-to-origin.
+   * - **true**: enables HTTP/2 for back-to-origin requests.
    * 
-   * - **false**: disables HTTP/2 back-to-origin.
+   * - **false**: disables HTTP/2 for back-to-origin requests.
    * 
    * @example
    * true
@@ -432,7 +477,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   http2Origin?: boolean;
   /**
    * @remarks
-   * The maximum number of concurrent HTTP/2 back-to-origin connections. Valid values: 1 to 512. Default value: 2. Unit: connections.
+   * The maximum number of concurrent HTTP/2 back-to-origin connections. Valid values: 1 to 512. Default value: 2.
    * 
    * @example
    * 128
@@ -452,9 +497,9 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   keepalive?: boolean;
   /**
    * @remarks
-   * The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000. Unit: requests.
+   * The number of requests that can be reused over a persistent connection. Valid values: 60 to 1000. Default value: 1000.
    * 
-   * > This parameter specifies the number of requests that can reuse a persistent connection after persistent connections are enabled.
+   * > This parameter specifies the number of requests that can be multiplexed over a persistent connection after persistent connections are enabled.
    * 
    * @example
    * 1000
@@ -462,7 +507,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * The timeout period for an idle persistent connection. Valid values: 1 to 60. Default value: 15. Unit: seconds.
    * 
    * > This parameter specifies the duration after which an idle persistent connection is released.
    * 
@@ -489,7 +534,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
    * The maximum size of the request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
-   * > This parameter is supported only by the Ultimate Edition.
+   * > This parameter is supported only by WAF Ultimate Edition.
    * 
    * @example
    * 2
@@ -521,7 +566,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
    * @remarks
    * The traffic marking fields and values for the domain name, which are used to mark the traffic processed by WAF.
    * 
-   * By specifying custom request header fields and their corresponding values, WAF automatically adds the specified custom field values to the request headers as traffic marks when the access traffic of the domain name passes through WAF. This facilitates the collection of relevant information by backend services.
+   * By specifying custom request header fields and their values, WAF automatically adds the specified custom field values to the request headers as traffic marks when the access traffic of the domain name passes through WAF. This facilitates the collection of related information by backend services.
    */
   requestHeaders?: ModifyDomainRequestRedirectRequestHeaders[];
   /**
@@ -538,10 +583,10 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   retry?: boolean;
   /**
    * @remarks
-   * The hybrid cloud forwarding rules. The value is a string transformed from a JSON array. Each element in the JSON array is a struct that contains the following fields:
-   * - **rs**: Array | The list of back-to-origin IP addresses or back-to-origin CNAMEs.
+   * The forwarding rules for Hybrid Cloud WAF. The value is a string transformed from a JSON array. Each element in the JSON array is a struct that contains the following fields:
+   * - **rs**: Array | The list of back-to-origin IP addresses or CNAME records.
    * 
-   * - **backupRs**: Array | The list of secondary back-to-origin IP addresses or back-to-origin CNAMEs. This field is required. An empty array [] indicates that no secondary back-to-origin addresses are set.
+   * - **backupRs**: Array | The list of secondary back-to-origin IP addresses or CNAME records. This field is required. An empty array [] indicates that no secondary back-to-origin addresses are configured.
    * 
    * - **location**: String | The name of the protection node.
    * 
@@ -566,11 +611,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   routingRules?: string;
   /**
    * @remarks
-   * Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable Server Name Indication (SNI) for back-to-origin requests. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
-   * - **true**: enables back-to-origin SNI.
+   * - **true**: enables SNI for back-to-origin requests.
    * 
-   * - **false**: disables back-to-origin SNI. This is the default value.
+   * - **false**: disables SNI for back-to-origin requests. This is the default value.
    * 
    * @example
    * true
@@ -578,10 +623,10 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   sniEnabled?: boolean;
   /**
    * @remarks
-   * The value of the custom SNI extension field. If you do not set this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
-   * In most cases, you do not need to customize the SNI unless your service has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in the back-to-origin request.
+   * The value of the custom SNI extension field. If you do not specify this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
+   * In most cases, you do not need to customize the SNI. You can customize the SNI only when your service has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests.
    * 
-   * > You need to set this parameter only when **SniEnabled** is set to true, which indicates that a custom back-to-origin SNI is used.
+   * > You must specify this parameter only when **SniEnabled** is set to true, which indicates that a custom SNI is used for back-to-origin requests.
    * 
    * @example
    * www.aliyundoc.com
@@ -659,11 +704,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   XTrueIp?: boolean;
   /**
    * @remarks
-   * Specifies whether to pass the WAF protocol in the X-Forwarded-Proto header. Valid values:
+   * Specifies whether to pass the protocol used by WAF in the X-Forwarded-Proto header. Valid values:
    * 
-   * - **true**: passes the WAF protocol. This is the default value.
+   * - **true**: passes the protocol used by WAF. This is the default value.
    * 
-   * - **false**: does not pass the WAF protocol.
+   * - **false**: does not pass the protocol used by WAF.
    * 
    * @example
    * true
@@ -671,6 +716,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   xffProto?: boolean;
   static names(): { [key: string]: string } {
     return {
+      backendConfig: 'BackendConfig',
       backendPorts: 'BackendPorts',
       backends: 'Backends',
       backupBackends: 'BackupBackends',
@@ -702,6 +748,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backendConfig: { 'type': 'array', 'itemType': ModifyDomainRequestRedirectBackendConfig },
       backendPorts: { 'type': 'array', 'itemType': ModifyDomainRequestRedirectBackendPorts },
       backends: { 'type': 'array', 'itemType': 'string' },
       backupBackends: { 'type': 'array', 'itemType': 'string' },
@@ -732,6 +779,9 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.backendConfig)) {
+      $dara.Model.validateArray(this.backendConfig);
+    }
     if(Array.isArray(this.backendPorts)) {
       $dara.Model.validateArray(this.backendPorts);
     }
@@ -759,7 +809,7 @@ export class ModifyDomainRequest extends $dara.Model {
    * 
    * - **share**: CNAME access. This is the default value.
    * 
-   * - **hybrid_cloud_cname**: hybrid cloud CNAME access.
+   * - **hybrid_cloud_cname**: Hybrid Cloud CNAME access.
    * 
    * @example
    * share
@@ -767,7 +817,7 @@ export class ModifyDomainRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name to manage.
+   * The domain name.
    * 
    * @example
    * www.aliyundoc.com
@@ -795,14 +845,14 @@ export class ModifyDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener settings.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
   listen?: ModifyDomainRequestListen;
   /**
    * @remarks
-   * The forwarding settings.
+   * The forwarding configurations.
    * 
    * This parameter is required.
    */

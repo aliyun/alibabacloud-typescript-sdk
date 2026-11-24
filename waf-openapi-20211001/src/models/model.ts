@@ -7,6 +7,7 @@ export { CreateCloudResourceShrinkRequestTag } from './CreateCloudResourceShrink
 export { CreateDefenseResourceRequestTag } from './CreateDefenseResourceRequest';
 export { CreateDefenseResourceShrinkRequestTag } from './CreateDefenseResourceShrinkRequest';
 export { CreateDomainRequestListen } from './CreateDomainRequest';
+export { CreateDomainRequestRedirectBackendConfig } from './CreateDomainRequest';
 export { CreateDomainRequestRedirectBackendPorts } from './CreateDomainRequest';
 export { CreateDomainRequestRedirectRequestHeaders } from './CreateDomainRequest';
 export { CreateDomainRequestRedirect } from './CreateDomainRequest';
@@ -91,6 +92,7 @@ export { DescribeDefenseTemplateResponseBodyTemplate } from './DescribeDefenseTe
 export { DescribeDefenseTemplatesResponseBodyTemplates } from './DescribeDefenseTemplatesResponseBody';
 export { DescribeDomainDetailResponseBodyCertDetail } from './DescribeDomainDetailResponseBody';
 export { DescribeDomainDetailResponseBodyListen } from './DescribeDomainDetailResponseBody';
+export { DescribeDomainDetailResponseBodyRedirectBackendConfig } from './DescribeDomainDetailResponseBody';
 export { DescribeDomainDetailResponseBodyRedirectBackendPorts } from './DescribeDomainDetailResponseBody';
 export { DescribeDomainDetailResponseBodyRedirectBackends } from './DescribeDomainDetailResponseBody';
 export { DescribeDomainDetailResponseBodyRedirectBackupBackends } from './DescribeDomainDetailResponseBody';
@@ -229,6 +231,7 @@ export { ModifyDefenseResourceXffRequestCookieConfig } from './ModifyDefenseReso
 export { ModifyDefenseResourceXffRequestResponseHeaders } from './ModifyDefenseResourceXffRequest';
 export { ModifyDefenseResourceXffShrinkRequestResponseHeaders } from './ModifyDefenseResourceXffShrinkRequest';
 export { ModifyDomainRequestListen } from './ModifyDomainRequest';
+export { ModifyDomainRequestRedirectBackendConfig } from './ModifyDomainRequest';
 export { ModifyDomainRequestRedirectBackendPorts } from './ModifyDomainRequest';
 export { ModifyDomainRequestRedirectRequestHeaders } from './ModifyDomainRequest';
 export { ModifyDomainRequestRedirect } from './ModifyDomainRequest';

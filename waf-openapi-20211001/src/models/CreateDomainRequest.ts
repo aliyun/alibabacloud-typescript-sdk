@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainRequestListen extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS.
+   * The ID of the certificate to be added. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol.
    * 
    * @example
    * 123
@@ -16,7 +16,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The type of cipher suite to be added. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * 
    * - **1**: adds all cipher suites.
    * 
@@ -30,7 +30,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   cipherSuite?: number;
   /**
    * @remarks
-   * The custom cipher suites to add.
+   * The custom cipher suites to be added.
    */
   customCiphers?: string[];
   /**
@@ -41,7 +41,7 @@ export class CreateDomainRequestListen extends $dara.Model {
    * 
    * - **false**: does not support TLS 1.3.
    * 
-   * > This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses HTTPS. When TLSVersion is set to tlsv1.3, this parameter must be set to true.
+   * > This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be set to true.
    * 
    * @example
    * true
@@ -64,11 +64,11 @@ export class CreateDomainRequestListen extends $dara.Model {
   exclusiveIp?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable force redirect to HTTPS. This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses HTTPS, and HttpPorts is empty, which indicates that the domain name does not use HTTP. Valid values:
+   * Specifies whether to enable forced HTTPS redirection. This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol, and HttpPorts is empty, which indicates that the domain name does not use the HTTP protocol. Valid values:
    * 
-   * - **true**: enables force redirect to HTTPS.
+   * - **true**: enables forced HTTPS redirection.
    * 
-   * - **false**: disables force redirect to HTTPS.
+   * - **false**: disables forced HTTPS redirection.
    * 
    * @example
    * true
@@ -78,9 +78,9 @@ export class CreateDomainRequestListen extends $dara.Model {
    * @remarks
    * Specifies whether HTTP Strict Transport Security (HSTS) includes subdomains. Valid values:
    * 
-   * - **true**: enabled.
+   * - **true**: includes subdomains.
    * 
-   * - **false**: disabled.
+   * - **false**: does not include subdomains.
    * 
    * @example
    * true
@@ -96,9 +96,9 @@ export class CreateDomainRequestListen extends $dara.Model {
   hstsMaxAge?: number;
   /**
    * @remarks
-   * Specifies whether to enable HSTS preload. Default value: disabled. Valid values:
-   * - true: enabled.
-   * - false: disabled.
+   * Specifies whether to enable HSTS preload. Default value: false. Valid values:
+   * - true: enables HSTS preload.
+   * - false: disables HSTS preload.
    * 
    * @example
    * false
@@ -106,7 +106,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   hstsPreload?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * 
    * - **true**: enables HTTP/2.
    * 
@@ -118,12 +118,12 @@ export class CreateDomainRequestListen extends $dara.Model {
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The listening ports for HTTP.
+   * The listening ports for the HTTP protocol.
    */
   httpPorts?: number[];
   /**
    * @remarks
-   * The listening ports for HTTPS.
+   * The listening ports for the HTTPS protocol.
    */
   httpsPorts?: number[];
   /**
@@ -140,7 +140,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   IPv6Enabled?: boolean;
   /**
    * @remarks
-   * The type of protection resource to use. Valid values:
+   * The type of protection resource to be used. Valid values:
    * 
    * - **share** (default): uses a shared cluster.
    * 
@@ -167,7 +167,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   SM2AccessOnly?: boolean;
   /**
    * @remarks
-   * The ID of the SM2 certificate to add. This parameter is used only when SM2Enabled is set to true.
+   * The ID of the SM2 certificate to be added. This parameter is used only when SM2Enabled is set to true.
    * 
    * @example
    * 123-cn-hangzhou
@@ -189,7 +189,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   SM2Enabled?: boolean;
   /**
    * @remarks
-   * The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The TLS version to be added. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * - **tlsv1**: supports TLS 1.0 and later versions. This value provides the highest compatibility but lower security.
    * - **tlsv1.1**: supports TLS 1.1 and later versions. This value provides good compatibility and security.
    * - **tlsv1.2**: supports TLS 1.2 and later versions. This value provides good compatibility and the highest security.
@@ -201,7 +201,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   TLSVersion?: string;
   /**
    * @remarks
-   * The method for WAF to obtain the actual IP address of the client. Valid values:
+   * The method used by WAF to obtain the actual IP address of the client. Valid values:
    * 
    * - **0** (default): The client access traffic is not forwarded by other Layer 7 proxies before it reaches WAF.
    * 
@@ -209,7 +209,7 @@ export class CreateDomainRequestListen extends $dara.Model {
    * 
    * - **2**: WAF reads the value of a custom field that you specified in the request header as the client IP address.
    * 
-   * - **3**: WAF reads the Client IP field in the Proxy Protocol header as the client IP address.
+   * - **3**: WAF reads the Client IP address in the Proxy Protocol header as the client IP address.
    * 
    * @example
    * 1
@@ -291,6 +291,46 @@ export class CreateDomainRequestListen extends $dara.Model {
   }
 }
 
+export class CreateDomainRequestRedirectBackendConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The origin server.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
+  backend?: string;
+  /**
+   * @remarks
+   * The weight.
+   * 
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backend: 'Backend',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backend: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainRequestRedirectBackendPorts extends $dara.Model {
   /**
    * @remarks
@@ -312,9 +352,9 @@ export class CreateDomainRequestRedirectBackendPorts extends $dara.Model {
    * @remarks
    * The protocol of the listening port. Valid values:
    * 
-   * - **http**: The protocol of the listening port is HTTP.
+   * - **http**: the HTTP protocol.
    * 
-   * - **https**: The protocol of the listening port is HTTPS.
+   * - **https**: the HTTPS protocol.
    * 
    * @example
    * http
@@ -348,7 +388,7 @@ export class CreateDomainRequestRedirectBackendPorts extends $dara.Model {
 export class CreateDomainRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The specified custom request header field.
+   * The custom request header field.
    * 
    * @example
    * aaa
@@ -388,6 +428,11 @@ export class CreateDomainRequestRedirectRequestHeaders extends $dara.Model {
 export class CreateDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
+   * The custom back-to-origin configuration.
+   */
+  backendConfig?: CreateDomainRequestRedirectBackendConfig[];
+  /**
+   * @remarks
    * The custom port configuration.
    */
   backendPorts?: CreateDomainRequestRedirectBackendPorts[];
@@ -425,11 +470,11 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   connectTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to enable force back-to-origin over HTTP. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable forced HTTP back-to-origin. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * 
-   * - **true**: enables force back-to-origin over HTTP.
+   * - **true**: enables forced HTTP back-to-origin.
    * 
-   * - **false**: disables force back-to-origin over HTTP.
+   * - **false**: disables forced HTTP back-to-origin.
    * 
    * @example
    * true
@@ -471,7 +516,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
    * @remarks
    * The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000.
    * 
-   * > The maximum number of requests that can be served over a single persistent connection after persistent connections are enabled.
+   * > The number of requests that can reuse a persistent connection after persistent connections are enabled.
    * 
    * @example
    * 1000
@@ -505,7 +550,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   loadbalance?: string;
   /**
    * @remarks
-   * The maximum size of the request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
+   * The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
    * > This parameter is supported only by the Ultimate Edition.
    * 
    * @example
@@ -514,9 +559,9 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   maxBodySize?: number;
   /**
    * @remarks
-   * Specifies whether the feature to preserve the client source IP address is enabled. Valid values:
-   * - **true**: The feature is enabled. After this feature is enabled, backend services can view the original IP address of the client.
-   * - **false**: The feature is disabled.
+   * Specifies whether to enable the feature of preserving the client source IP address. Valid values:
+   * - **true**: enables the feature. After this feature is enabled, backend services can view the original IP address of the client.
+   * - **false**: disables the feature.
    * 
    * @example
    * false
@@ -581,7 +626,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   routingRules?: string;
   /**
    * @remarks
-   * Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * 
    * - **true**: enables back-to-origin SNI.
    * 
@@ -594,7 +639,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
    * The value of the custom SNI extension field. If you do not specify this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
-   * In most cases, you do not need to customize the SNI unless your business has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests.
+   * In most cases, you do not need to customize SNI unless your service has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests.
    * 
    * > This parameter is required only when **SniEnabled** is set to **true**, which indicates that back-to-origin SNI is enabled.
    * 
@@ -604,11 +649,11 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   sniHost?: string;
   /**
    * @remarks
-   * Specifies whether to allow WAF to overwrite the WL-Proxy-Client-IP header. Valid values:
+   * Specifies whether to allow WAF to overwrite WL-Proxy-Client-IP. Valid values:
    * 
-   * - **true** (default): allows WAF to overwrite the header.
+   * - **true** (default): allows WAF to overwrite WL-Proxy-Client-IP.
    * 
-   * - **false**: does not allow WAF to overwrite the header.
+   * - **false**: does not allow WAF to overwrite WL-Proxy-Client-IP.
    * 
    * @example
    * true
@@ -616,11 +661,11 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   WLProxyClientIp?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow WAF to overwrite the Web-Server-Type header. Valid values:
+   * Specifies whether to allow WAF to overwrite Web-Server-Type. Valid values:
    * 
-   * - **true** (default): allows WAF to overwrite the header.
+   * - **true** (default): allows WAF to overwrite Web-Server-Type.
    * 
-   * - **false**: does not allow WAF to overwrite the header.
+   * - **false**: does not allow WAF to overwrite Web-Server-Type.
    * 
    * @example
    * true
@@ -638,11 +683,11 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   writeTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to allow WAF to overwrite the X-Client-IP header. Valid values:
+   * Specifies whether to allow WAF to overwrite X-Client-IP. Valid values:
    * 
-   * - **true** (default): allows WAF to overwrite the header.
+   * - **true** (default): allows WAF to overwrite X-Client-IP.
    * 
-   * - **false**: does not allow WAF to overwrite the header.
+   * - **false**: does not allow WAF to overwrite X-Client-IP.
    * 
    * @example
    * true
@@ -650,11 +695,11 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   XClientIp?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow WAF to overwrite the X-True-IP header. Valid values:
+   * Specifies whether to allow WAF to overwrite X-True-IP. Valid values:
    * 
-   * - **true** (default): allows WAF to overwrite the header.
+   * - **true** (default): allows WAF to overwrite X-True-IP.
    * 
-   * - **false**: does not allow WAF to overwrite the header.
+   * - **false**: does not allow WAF to overwrite X-True-IP.
    * 
    * @example
    * true
@@ -662,7 +707,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   XTrueIp?: boolean;
   /**
    * @remarks
-   * Specifies whether to pass the WAF protocol in the X-Forwarded-Proto header. Valid values:
+   * Specifies whether to pass the WAF protocol by using X-Forwarded-Proto. Valid values:
    * 
    * - **true** (default): passes the WAF protocol.
    * 
@@ -674,6 +719,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   xffProto?: boolean;
   static names(): { [key: string]: string } {
     return {
+      backendConfig: 'BackendConfig',
       backendPorts: 'BackendPorts',
       backends: 'Backends',
       backupBackends: 'BackupBackends',
@@ -705,6 +751,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backendConfig: { 'type': 'array', 'itemType': CreateDomainRequestRedirectBackendConfig },
       backendPorts: { 'type': 'array', 'itemType': CreateDomainRequestRedirectBackendPorts },
       backends: { 'type': 'array', 'itemType': 'string' },
       backupBackends: { 'type': 'array', 'itemType': 'string' },
@@ -735,6 +782,9 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.backendConfig)) {
+      $dara.Model.validateArray(this.backendConfig);
+    }
     if(Array.isArray(this.backendPorts)) {
       $dara.Model.validateArray(this.backendPorts);
     }
@@ -804,7 +854,7 @@ export class CreateDomainRequest extends $dara.Model {
    * 
    * - **hybrid_cloud_cname**: hybrid cloud CNAME access.
    * 
-   * > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, you must invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to authenticate the domain name ownership first. If the website config is added to a region in the Chinese mainland, it must also have an ICP filing.
+   * > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, you must first invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to authenticate the domain name ownership. If the website config is added to a region in the Chinese mainland, it must also have an ICP filing.
    * >
    * > If the value is **hybrid_cloud_cname** and public cloud disaster recovery is disabled, you do not need to authenticate the domain name ownership and can directly invoke this operation.
    * 
@@ -814,7 +864,7 @@ export class CreateDomainRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name to query.
+   * The name of the domain name.
    * 
    * This parameter is required.
    * 
@@ -871,7 +921,7 @@ export class CreateDomainRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The list of tags, which can contain up to 20 items.
+   * The list of tags. A maximum of 20 tags are supported.
    */
   tag?: CreateDomainRequestTag[];
   static names(): { [key: string]: string } {

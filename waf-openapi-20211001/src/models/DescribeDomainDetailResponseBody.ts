@@ -13,7 +13,7 @@ export class DescribeDomainDetailResponseBodyCertDetail extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
+   * The time when the certificate expires. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1685590400000
@@ -42,7 +42,7 @@ export class DescribeDomainDetailResponseBodyCertDetail extends $dara.Model {
   sans?: string[];
   /**
    * @remarks
-   * The effective period of the certificate. The format is a UNIX timestamp in UTC. Unit: milliseconds.
+   * The effective period of the certificate. The format is a UNIX timestamp (UTC time) in milliseconds.
    * 
    * @example
    * 1677772800000
@@ -95,11 +95,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @remarks
    * The cipher suite type. Valid values:
    * 
-   * - **1**: All cipher suites.
+   * - **1**: All cipher suites are added.
    * 
-   * - **2**: Strong cipher suites. This value is available only when TLSVersion is set to tlsv1.2.
+   * - **2**: Strong cipher suites are added. This value is available only when TLSVersion is set to tlsv1.2.
    * 
-   * - **99**: Custom cipher suites. This value is available only when TLSVersion is not set to tlsv1.3.
+   * - **99**: Custom cipher suites are added. This value is available only when TLSVersion is not set to tlsv1.3.
    * 
    * @example
    * 2
@@ -138,11 +138,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   exclusiveIp?: boolean;
   /**
    * @remarks
-   * Specifies whether forcible redirect to HTTPS is enabled. Valid values:
+   * Specifies whether forcible HTTPS redirects are enabled. Valid values:
    * 
-   * - **true**: Forcible redirect to HTTPS is enabled.
+   * - **true**: Forcible HTTPS redirects are enabled.
    * 
-   * - **false**: Forcible redirect to HTTPS is not enabled.
+   * - **false**: Forcible HTTPS redirects are not enabled.
    * 
    * @example
    * true
@@ -213,9 +213,9 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @remarks
    * The type of protection resource to be used. Valid values:
    * 
-   * - **share**: Shared cluster.
+   * - **share**: shared cluster
    * 
-   * - **gslb**: Intelligent load balancing for shared clusters.
+   * - **gslb**: shared cluster with intelligent load balancing
    * 
    * @example
    * share
@@ -223,11 +223,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   protectionResource?: string;
   /**
    * @remarks
-   * Specifies whether only SM2 clients are allowed to access. This parameter is used only when SM2Enabled is set to true. Valid values:
+   * Specifies whether only SM clients are allowed to access the domain name. This parameter is used only when SM2Enabled is set to true. Valid values:
    * 
-   * - **true**: Only SM2 clients can access.
+   * - **true**: Only SM clients are allowed to access the domain name.
    * 
-   * - **false**: Both SM2 and non-SM2 clients can access.
+   * - **false**: Both SM and non-SM clients are allowed to access the domain name.
    * 
    * @example
    * true
@@ -235,7 +235,7 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   SM2AccessOnly?: boolean;
   /**
    * @remarks
-   * The ID of the SM2 certificate to be added. This parameter is used only when SM2Enabled is set to true.
+   * The ID of the SM certificate to be added. This parameter is used only when SM2Enabled is set to true.
    * 
    * @example
    * 123-cn-hangzhou
@@ -243,11 +243,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   SM2CertId?: string;
   /**
    * @remarks
-   * Specifies whether the SM2 certificate is enabled. Valid values:
+   * Specifies whether SM certificates are enabled. Valid values:
    * 
-   * - **true**: The SM2 certificate is enabled.
+   * - **true**: SM certificates are enabled.
    * 
-   * - **false**: The SM2 certificate is not enabled.
+   * - **false**: SM certificates are not enabled.
    * 
    * @example
    * true
@@ -273,13 +273,13 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @remarks
    * The method used by WAF to obtain the actual IP address of the client. Valid values:
    * 
-   * - **0**: The client access traffic is not forwarded by other Layer 7 proxies before reaching WAF.
+   * - **0**: The client access traffic is not forwarded by other Layer 7 proxies before it reaches WAF.
    * 
    * - **1**: WAF reads the first value of the X-Forwarded-For (XFF) field in the request header as the client IP address.
    * 
    * - **2**: WAF reads the value of a custom field that you specified in the request header as the client IP address.
    * 
-   * - **3**: WAF reads the Client IP in the Proxy Protocol header as the client IP address.
+   * - **3**: WAF reads the Client IP address in the Proxy Protocol header as the client IP address.
    * 
    * @example
    * 2
@@ -353,6 +353,46 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
     if(Array.isArray(this.xffHeaders)) {
       $dara.Model.validateArray(this.xffHeaders);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainDetailResponseBodyRedirectBackendConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The origin server.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
+  backend?: string;
+  /**
+   * @remarks
+   * The weight.
+   * 
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backend: 'Backend',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backend: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -487,7 +527,7 @@ export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $dar
   key?: string;
   /**
    * @remarks
-   * The value set for the specified custom request header field.
+   * The value of the specified custom request header field.
    * 
    * @example
    * bbb
@@ -524,19 +564,24 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   backUpBackendList?: string[];
   /**
    * @remarks
+   * The custom back-to-origin configurations.
+   */
+  backendConfig?: DescribeDomainDetailResponseBodyRedirectBackendConfig[];
+  /**
+   * @remarks
    * The list of IP addresses of the origin servers or back-to-origin domain names of the servers for the domain name.
    */
   backendList?: string[];
   /**
    * @remarks
-   * The custom port configurations. By default, the ports are the same as the listening ports.
+   * The custom port configurations. By default, the configurations are the same as the listening ports.
    */
   backendPorts?: DescribeDomainDetailResponseBodyRedirectBackendPorts[];
   /**
    * @remarks
    * The back-to-origin addresses for the domain name.
    * 
-   * > This parameter will be deprecated. We recommend that you use **BackendList** to obtain the relevant information.
+   * > This parameter will be deprecated soon. We recommend that you use **BackendList** to obtain the relevant information.
    * 
    * @deprecated
    */
@@ -545,7 +590,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * The secondary back-to-origin addresses for the domain name.
    * 
-   * > This parameter will be deprecated. We recommend that you use **BackUpBackendList** to obtain the relevant information.
+   * > This parameter will be deprecated soon. We recommend that you use **BackUpBackendList** to obtain the relevant information.
    * 
    * @deprecated
    */
@@ -560,11 +605,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   connectTimeout?: number;
   /**
    * @remarks
-   * Specifies whether forcible back-to-origin routing over HTTP is enabled. Valid values:
+   * Specifies whether forcible HTTP back-to-origin routing is enabled. Valid values:
    * 
-   * - **true**: Forcible back-to-origin routing over HTTP is enabled.
+   * - **true**: Forcible HTTP back-to-origin routing is enabled.
    * 
-   * - **false**: Forcible back-to-origin routing over HTTP is not enabled.
+   * - **false**: Forcible HTTP back-to-origin routing is not enabled.
    * 
    * @example
    * true
@@ -588,7 +633,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   http2OriginMaxConcurrency?: number;
   /**
    * @remarks
-   * Specifies whether to maintain persistent connections. Valid values:
+   * Specifies whether persistent connections are maintained. Valid values:
    * 
    * - **true**: Persistent connections are maintained. This is the default value.
    * 
@@ -602,7 +647,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * The number of requests that reuse a persistent connection. Valid values: 60 to 1000.
    * 
-   * > This parameter specifies the number of requests that can reuse a persistent connection after persistent connections are enabled.
+   * > This parameter specifies the number of persistent connections that can be reused after persistent connections are enabled.
    * 
    * @example
    * 1000
@@ -610,9 +655,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * The timeout period for idle persistent connections, in seconds. Valid values: 1 to 60. Default value: 15.
    * 
-   * > This parameter specifies the duration after which an idle persistent connection is released.
+   * > This parameter specifies the duration after which an idle reused persistent connection is released.
    * 
    * @example
    * 15
@@ -622,11 +667,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * The load balancing algorithm used for back-to-origin routing. Valid values:
    * 
-   * - **iphash**: IP hash algorithm.
+   * - **iphash**: IP hash algorithm
    * 
-   *  - **roundRobin**: Round-robin algorithm.
+   * - **roundRobin**: round-robin algorithm
    * 
-   * - **leastTime**: Least time algorithm.
+   * - **leastTime**: least time algorithm
    * 
    * @example
    * iphash
@@ -634,8 +679,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   loadbalance?: string;
   /**
    * @remarks
-   * The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
-   * > This parameter is supported only by the Ultimate Edition.
+   * The maximum request body size, in GB. Valid values: 2 to 10. Default value: 2.
+   * 
+   * > This feature is supported only by the Enterprise Edition.
    * 
    * @example
    * 2
@@ -644,7 +690,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the feature to preserve the originating IP address of the client is enabled. Valid values:
-   * - **true**: The feature is enabled. After this feature is enabled, backend services can view the originating IP address of the client.
+   * - **true**: The feature is enabled. After this feature is enabled, backend services can view the original IP address of the client.
    * - **false**: The feature is not enabled.
    * 
    * @example
@@ -754,7 +800,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   XTrueIp?: boolean;
   /**
    * @remarks
-   * Specifies whether the X-Forwarded-Proto header passes the protocol used by WAF. Valid values:
+   * Specifies whether the X-Forwarded-Proto header is used to pass the protocol used by WAF. Valid values:
    * 
    * - **true**: The protocol used by WAF is passed. This is the default value.
    * 
@@ -767,6 +813,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backUpBackendList: 'BackUpBackendList',
+      backendConfig: 'BackendConfig',
       backendList: 'BackendList',
       backendPorts: 'BackendPorts',
       backends: 'Backends',
@@ -798,6 +845,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backUpBackendList: { 'type': 'array', 'itemType': 'string' },
+      backendConfig: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackendConfig },
       backendList: { 'type': 'array', 'itemType': 'string' },
       backendPorts: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackendPorts },
       backends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackends },
@@ -829,6 +877,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   validate() {
     if(Array.isArray(this.backUpBackendList)) {
       $dara.Model.validateArray(this.backUpBackendList);
+    }
+    if(Array.isArray(this.backendConfig)) {
+      $dara.Model.validateArray(this.backendConfig);
     }
     if(Array.isArray(this.backendList)) {
       $dara.Model.validateArray(this.backendList);
@@ -864,7 +915,7 @@ export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
+   * The time when the certificate expires. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1665590400000
@@ -893,7 +944,7 @@ export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
   sans?: string[];
   /**
    * @remarks
-   * The effective period of the certificate. The format is a UNIX timestamp in UTC. Unit: milliseconds.
+   * The effective period of the certificate. The format is a UNIX timestamp (UTC time) in milliseconds.
    * 
    * @example
    * 1657551525000

@@ -9,7 +9,7 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
    * 
    * - **share**: CNAME access. This is the default value.
    * 
-   * - **hybrid_cloud_cname**: hybrid cloud CNAME access.
+   * - **hybrid_cloud_cname**: Hybrid Cloud CNAME access.
    * 
    * @example
    * share
@@ -17,7 +17,7 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name to manage.
+   * The domain name.
    * 
    * @example
    * www.aliyundoc.com
@@ -45,14 +45,14 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener settings.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
   listenShrink?: string;
   /**
    * @remarks
-   * The forwarding settings.
+   * The forwarding configurations.
    * 
    * This parameter is required.
    */

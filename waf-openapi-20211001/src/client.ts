@@ -961,9 +961,9 @@ export default class Client extends OpenApi {
    * Adds a website config to a WAF instance for protection.
    * 
    * @remarks
-   * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
-   * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
-   * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
+   * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+   * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+   * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
    * 
    * @param tmpReq - CreateDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1035,9 +1035,9 @@ export default class Client extends OpenApi {
    * Adds a website config to a WAF instance for protection.
    * 
    * @remarks
-   * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
-   * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
-   * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
+   * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+   * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+   * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
    * 
    * @param request - CreateDomainRequest
    * @returns CreateDomainResponse
@@ -7346,7 +7346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the website config.
+   * Queries the details of a website configuration.
    * 
    * @param request - DescribeDomainDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7389,7 +7389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the website config.
+   * Queries the details of a website configuration.
    * 
    * @param request - DescribeDomainDetailRequest
    * @returns DescribeDomainDetailResponse
@@ -14812,7 +14812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a domain name added in CNAME mode.
+   * Modifies a domain name that is added to WAF in CNAME access mode.
    * 
    * @param tmpReq - ModifyDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14877,7 +14877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a domain name added in CNAME mode.
+   * Modifies a domain name that is added to WAF in CNAME access mode.
    * 
    * @param request - ModifyDomainRequest
    * @returns ModifyDomainResponse

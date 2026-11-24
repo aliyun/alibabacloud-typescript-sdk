@@ -51,7 +51,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
    * 
    * - **hybrid_cloud_cname**: hybrid cloud CNAME access.
    * 
-   * > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, you must invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to authenticate the domain name ownership first. If the website config is added to a region in the Chinese mainland, it must also have an ICP filing.
+   * > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, you must first invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to authenticate the domain name ownership. If the website config is added to a region in the Chinese mainland, it must also have an ICP filing.
    * >
    * > If the value is **hybrid_cloud_cname** and public cloud disaster recovery is disabled, you do not need to authenticate the domain name ownership and can directly invoke this operation.
    * 
@@ -61,7 +61,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name to query.
+   * The name of the domain name.
    * 
    * This parameter is required.
    * 
@@ -118,7 +118,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The list of tags, which can contain up to 20 items.
+   * The list of tags. A maximum of 20 tags are supported.
    */
   tag?: CreateDomainShrinkRequestTag[];
   static names(): { [key: string]: string } {
