@@ -30,6 +30,7 @@ class AttachApplicationPolarFSRequest extends $dara.Model {
     static names() {
         return {
             applicationId: 'ApplicationId',
+            containerMountPath: 'ContainerMountPath',
             polarFSAccessKeyId: 'PolarFSAccessKeyId',
             polarFSAccessKeySecret: 'PolarFSAccessKeySecret',
             polarFSInstanceId: 'PolarFSInstanceId',
@@ -38,6 +39,7 @@ class AttachApplicationPolarFSRequest extends $dara.Model {
     static types() {
         return {
             applicationId: 'string',
+            containerMountPath: 'string',
             polarFSAccessKeyId: 'string',
             polarFSAccessKeySecret: 'string',
             polarFSInstanceId: 'string',

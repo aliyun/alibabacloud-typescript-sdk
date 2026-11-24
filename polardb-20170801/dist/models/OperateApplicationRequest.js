@@ -30,12 +30,16 @@ class OperateApplicationRequest extends $dara.Model {
     static names() {
         return {
             applicationId: 'ApplicationId',
+            componentTypes: 'ComponentTypes',
+            groupNames: 'GroupNames',
             operation: 'Operation',
         };
     }
     static types() {
         return {
             applicationId: 'string',
+            componentTypes: 'string',
+            groupNames: 'string',
             operation: 'string',
         };
     }

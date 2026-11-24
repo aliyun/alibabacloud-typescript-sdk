@@ -30,7 +30,7 @@ export declare class CreatePolarFsRequestCustomBucketPathList extends $dara.Mode
 export declare class CreatePolarFsRequest extends $dara.Model {
     /**
      * @remarks
-     * The acceleration space size. Unit: GB. The value must be no less than 5000 and must be a multiple of 1000. This parameter is required when acceleration is enabled for the basic edition.
+     * The acceleration space size. Unit: GB. The value must be no less than 5000 and must be a multiple of 1000. This parameter is required when acceleration is enabled for the Basic Edition.
      *
      * @example
      * 5000
@@ -60,7 +60,7 @@ export declare class CreatePolarFsRequest extends $dara.Model {
     accelerateType?: string;
     /**
      * @remarks
-     * The list of authorized accounts for the cold storage edition instance. Separate multiple accounts with commas (`,`).
+     * The list of authorized accounts for the Cold Storage Edition instance. Separate multiple accounts with commas (,).
      *
      * @example
      * 128***********，198***********
@@ -75,7 +75,7 @@ export declare class CreatePolarFsRequest extends $dara.Model {
      *
      * Default value: **false**.
      *
-     * > This parameter takes effect only when the **PayType** parameter is set to **Prepaid**.
+     * > This parameter takes effect only when **PayType** is set to **Prepaid**.
      *
      * @example
      * true
@@ -93,7 +93,7 @@ export declare class CreatePolarFsRequest extends $dara.Model {
     autoUseCoupon?: boolean;
     /**
      * @remarks
-     * The edition. Valid values: basic (Basic Edition, default), high_performance (High-performance Edition), and cold (Cold Storage Edition). For the basic edition, you must specify the AccelerateSwitch and AccelerateStorageSize parameters. For the high_performance edition, you must specify the StorageType parameter (essdpl0 or essdpl1). For the cold edition, the StorageType parameter (local_redundancy or city_redundancy) is optional.
+     * The edition. Valid values: basic (Basic Edition, default), high_performance (High-performance Edition), and cold (Cold Storage Edition). For the Basic Edition, you must specify AccelerateSwitch and AccelerateStorageSize. For the High-performance Edition, you must specify StorageType (essdpl0 or essdpl1). For the Cold Storage Edition, StorageType (local_redundancy or city_redundancy) is optional.
      *
      * @example
      * basic
@@ -123,7 +123,7 @@ export declare class CreatePolarFsRequest extends $dara.Model {
      * @remarks
      * The bucket and corresponding path information.
      *
-     * > This parameter is required for transparent acceleration scenarios.
+     * > This parameter is required for transparent acceleration.
      */
     customBucketPathList?: CreatePolarFsRequestCustomBucketPathList[];
     /**
@@ -171,10 +171,10 @@ export declare class CreatePolarFsRequest extends $dara.Model {
     payType?: string;
     /**
      * @remarks
-     * If the billing method is **Prepaid**, this is a required pass parameter. Specifies whether the subscription cluster is billed by year or by month.
+     * The subscription period. This parameter is required when PayType is set to **Prepaid**. Specifies whether the subscription cluster is billed on a yearly or monthly basis.
      *
-     * - **Year**: year. If you select subscription, the unit is year.
-     * - **Month**: month. If you select subscription, the unit is month.
+     * - **Year**: yearly.
+     * - **Month**: monthly.
      *
      * @example
      * Month
@@ -217,7 +217,7 @@ export declare class CreatePolarFsRequest extends $dara.Model {
     storageSpace?: number;
     /**
      * @remarks
-     * The storage type. For the high_performance edition, use lowercase essdpl0 or essdpl1. For the cold edition, use local_redundancy or city_redundancy. Select the value based on the edition. The value is case-sensitive.
+     * The storage type. For high_performance, use lowercase essdpl0 or essdpl1. For cold, use local_redundancy or city_redundancy. Select the value based on the edition. The value is case-sensitive.
      *
      * @example
      * local_redundancy
@@ -225,9 +225,9 @@ export declare class CreatePolarFsRequest extends $dara.Model {
     storageType?: string;
     /**
      * @remarks
-     * The subscription duration. This parameter is required when the **PayType** parameter is set to **Prepaid**.
-     * - If the **Period** parameter is set to **Month**, the value of **UsedTime** must be an integer in the range of `[1-9]`.
-     * - If the **Period** parameter is set to **Year**, the value of **UsedTime** must be an integer in the range of `[1-3]`.
+     * The subscription duration. This parameter is required when PayType is set to **Prepaid**.
+     * - When **Period** is set to **Month**, **UsedTime** must be an integer in the range of `[1-9]`.
+     * - When **Period** is set to **Year**, **UsedTime** must be an integer in the range of `[1-3]`.
      *
      * @example
      * 1

@@ -423,6 +423,7 @@ exports.DescribeApplicationAttributeResponseBodySecurityIPArrays = DescribeAppli
 class DescribeApplicationAttributeResponseBodyStorages extends $dara.Model {
     static names() {
         return {
+            containerMountPath: 'ContainerMountPath',
             storageCapacity: 'StorageCapacity',
             storageInstanceId: 'StorageInstanceId',
             storagePerformanceLevel: 'StoragePerformanceLevel',
@@ -431,6 +432,7 @@ class DescribeApplicationAttributeResponseBodyStorages extends $dara.Model {
     }
     static types() {
         return {
+            containerMountPath: 'string',
             storageCapacity: 'string',
             storageInstanceId: 'string',
             storagePerformanceLevel: 'string',
@@ -460,6 +462,7 @@ class DescribeApplicationAttributeResponseBody extends $dara.Model {
             endpoints: 'Endpoints',
             expireTime: 'ExpireTime',
             expired: 'Expired',
+            headSchedulingMode: 'HeadSchedulingMode',
             isLatestVersion: 'IsLatestVersion',
             latestVersion: 'LatestVersion',
             lockMode: 'LockMode',
@@ -467,12 +470,15 @@ class DescribeApplicationAttributeResponseBody extends $dara.Model {
             maintainStartTime: 'MaintainStartTime',
             memApplicationAttribute: 'MemApplicationAttribute',
             minorVersion: 'MinorVersion',
+            monitorCategory: 'MonitorCategory',
+            monitorRegionId: 'MonitorRegionId',
             natGatewayId: 'NatGatewayId',
             natMappingSnatIpAddress: 'NatMappingSnatIpAddress',
             payType: 'PayType',
             polarClawApplicationAttribute: 'PolarClawApplicationAttribute',
             polarClawSaaSApplicationAttribute: 'PolarClawSaaSApplicationAttribute',
             polarFSInstanceId: 'PolarFSInstanceId',
+            prometheusVirtualInstanceId: 'PrometheusVirtualInstanceId',
             regionId: 'RegionId',
             requestId: 'RequestId',
             securityGroups: 'SecurityGroups',
@@ -503,6 +509,7 @@ class DescribeApplicationAttributeResponseBody extends $dara.Model {
             endpoints: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodyEndpoints },
             expireTime: 'string',
             expired: 'boolean',
+            headSchedulingMode: 'string',
             isLatestVersion: 'boolean',
             latestVersion: 'string',
             lockMode: 'string',
@@ -510,12 +517,15 @@ class DescribeApplicationAttributeResponseBody extends $dara.Model {
             maintainStartTime: 'string',
             memApplicationAttribute: DescribeApplicationAttributeResponseBodyMemApplicationAttribute,
             minorVersion: 'string',
+            monitorCategory: 'string',
+            monitorRegionId: 'string',
             natGatewayId: 'string',
             natMappingSnatIpAddress: 'string',
             payType: 'string',
             polarClawApplicationAttribute: DescribeApplicationAttributeResponseBodyPolarClawApplicationAttribute,
             polarClawSaaSApplicationAttribute: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute,
             polarFSInstanceId: 'string',
+            prometheusVirtualInstanceId: 'string',
             regionId: 'string',
             requestId: 'string',
             securityGroups: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodySecurityGroups },

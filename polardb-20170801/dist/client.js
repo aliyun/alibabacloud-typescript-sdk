@@ -799,11 +799,11 @@ class Client extends openapi_core_1.default {
         return await this.approvePolarClawDevicePairWithOptions(request, runtime);
     }
     /**
-     * Mounts a specified Polarlakebase instance to a PolarDB application.
+     * Mounts a specified PolarLakebase instance to a PolarDB application.
      *
      * @remarks
      * ## Before you begin
-     * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+     * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
      *
      * @param request - AttachApplicationPolarFSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -814,6 +814,9 @@ class Client extends openapi_core_1.default {
         let query = {};
         if (!$dara.isNull(request.applicationId)) {
             query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.containerMountPath)) {
+            query["ContainerMountPath"] = request.containerMountPath;
         }
         if (!$dara.isNull(request.polarFSAccessKeyId)) {
             query["PolarFSAccessKeyId"] = request.polarFSAccessKeyId;
@@ -841,11 +844,11 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.AttachApplicationPolarFSResponse({}));
     }
     /**
-     * Mounts a specified Polarlakebase instance to a PolarDB application.
+     * Mounts a specified PolarLakebase instance to a PolarDB application.
      *
      * @remarks
      * ## Before you begin
-     * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+     * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
      *
      * @param request - AttachApplicationPolarFSRequest
      * @returns AttachApplicationPolarFSResponse
@@ -11380,6 +11383,9 @@ class Client extends openapi_core_1.default {
         if (!$dara.isNull(request.endTime)) {
             query["EndTime"] = request.endTime;
         }
+        if (!$dara.isNull(request.endpointId)) {
+            query["EndpointId"] = request.endpointId;
+        }
         if (!$dara.isNull(request.interval)) {
             query["Interval"] = request.interval;
         }
@@ -11683,10 +11689,10 @@ class Client extends openapi_core_1.default {
         return await this.describeApikeyAttributeWithOptions(request, runtime);
     }
     /**
-     * Retrieves the details of the specified PolarDB instance application.
+     * Queries the details of a specified PolarDB application.
      *
      * @remarks
-     * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+     * This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11715,10 +11721,10 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationAttributeResponse({}));
     }
     /**
-     * Retrieves the details of the specified PolarDB instance application.
+     * Queries the details of a specified PolarDB application.
      *
      * @remarks
-     * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+     * This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @returns DescribeApplicationAttributeResponse
@@ -29863,6 +29869,12 @@ class Client extends openapi_core_1.default {
         let query = {};
         if (!$dara.isNull(request.applicationId)) {
             query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.componentTypes)) {
+            query["ComponentTypes"] = request.componentTypes;
+        }
+        if (!$dara.isNull(request.groupNames)) {
+            query["GroupNames"] = request.groupNames;
         }
         if (!$dara.isNull(request.operation)) {
             query["Operation"] = request.operation;

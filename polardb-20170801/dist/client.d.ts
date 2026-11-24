@@ -243,11 +243,11 @@ export default class Client extends OpenApi {
      */
     approvePolarClawDevicePair(request: $_model.ApprovePolarClawDevicePairRequest): Promise<$_model.ApprovePolarClawDevicePairResponse>;
     /**
-     * Mounts a specified Polarlakebase instance to a PolarDB application.
+     * Mounts a specified PolarLakebase instance to a PolarDB application.
      *
      * @remarks
      * ## Before you begin
-     * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+     * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
      *
      * @param request - AttachApplicationPolarFSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -255,11 +255,11 @@ export default class Client extends OpenApi {
      */
     attachApplicationPolarFSWithOptions(request: $_model.AttachApplicationPolarFSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachApplicationPolarFSResponse>;
     /**
-     * Mounts a specified Polarlakebase instance to a PolarDB application.
+     * Mounts a specified PolarLakebase instance to a PolarDB application.
      *
      * @remarks
      * ## Before you begin
-     * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+     * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
      *
      * @param request - AttachApplicationPolarFSRequest
      * @returns AttachApplicationPolarFSResponse
@@ -3398,10 +3398,10 @@ export default class Client extends OpenApi {
      */
     describeApikeyAttribute(request: $_model.DescribeApikeyAttributeRequest): Promise<$_model.DescribeApikeyAttributeResponse>;
     /**
-     * Retrieves the details of the specified PolarDB instance application.
+     * Queries the details of a specified PolarDB application.
      *
      * @remarks
-     * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+     * This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3409,10 +3409,10 @@ export default class Client extends OpenApi {
      */
     describeApplicationAttributeWithOptions(request: $_model.DescribeApplicationAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationAttributeResponse>;
     /**
-     * Retrieves the details of the specified PolarDB instance application.
+     * Queries the details of a specified PolarDB application.
      *
      * @remarks
-     * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+     * This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @returns DescribeApplicationAttributeResponse

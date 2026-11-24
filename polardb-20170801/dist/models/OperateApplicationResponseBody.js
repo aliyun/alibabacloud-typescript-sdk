@@ -30,11 +30,13 @@ class OperateApplicationResponseBody extends $dara.Model {
     static names() {
         return {
             requestId: 'RequestId',
+            taskId: 'TaskId',
         };
     }
     static types() {
         return {
             requestId: 'string',
+            taskId: 'number',
         };
     }
     validate() {

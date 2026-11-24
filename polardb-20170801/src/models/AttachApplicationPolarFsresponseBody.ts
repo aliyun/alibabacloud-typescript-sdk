@@ -13,7 +13,15 @@ export class AttachApplicationPolarFSResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The Polarlakebase instance ID.
+   * The actual container path to which the file system is mounted. If ContainerMountPath is not specified, the effective default value /mnt/<PolarFSInstanceId> is returned. If the file system is repeatedly mounted without changing the path, the original mount point of the instance is returned.
+   * 
+   * @example
+   * /mnt/datasets
+   */
+  containerMountPath?: string;
+  /**
+   * @remarks
+   * The ID of the PolarLakebase instance.
    * 
    * @example
    * pcs-**************
@@ -30,6 +38,7 @@ export class AttachApplicationPolarFSResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      containerMountPath: 'ContainerMountPath',
       polarFSInstanceId: 'PolarFSInstanceId',
       requestId: 'RequestId',
     };
@@ -38,6 +47,7 @@ export class AttachApplicationPolarFSResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      containerMountPath: 'string',
       polarFSInstanceId: 'string',
       requestId: 'string',
     };

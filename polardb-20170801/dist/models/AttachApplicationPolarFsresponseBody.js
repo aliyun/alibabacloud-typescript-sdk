@@ -30,6 +30,7 @@ class AttachApplicationPolarFSResponseBody extends $dara.Model {
     static names() {
         return {
             applicationId: 'ApplicationId',
+            containerMountPath: 'ContainerMountPath',
             polarFSInstanceId: 'PolarFSInstanceId',
             requestId: 'RequestId',
         };
@@ -37,6 +38,7 @@ class AttachApplicationPolarFSResponseBody extends $dara.Model {
     static types() {
         return {
             applicationId: 'string',
+            containerMountPath: 'string',
             polarFSInstanceId: 'string',
             requestId: 'string',
         };

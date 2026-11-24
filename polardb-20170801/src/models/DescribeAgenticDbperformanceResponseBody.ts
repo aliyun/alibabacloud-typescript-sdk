@@ -56,12 +56,14 @@ export class DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceK
 
 export class DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceKeys extends $dara.Model {
   branchId?: string;
+  endpointId?: string;
   measurement?: string;
   metricName?: string;
   points?: DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceKeysPoints;
   static names(): { [key: string]: string } {
     return {
       branchId: 'BranchId',
+      endpointId: 'EndpointId',
       measurement: 'Measurement',
       metricName: 'MetricName',
       points: 'Points',
@@ -71,6 +73,7 @@ export class DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceK
   static types(): { [key: string]: any } {
     return {
       branchId: 'string',
+      endpointId: 'string',
       measurement: 'string',
       metricName: 'string',
       points: DescribeAgenticDBPerformanceResponseBodyPerformanceKeysPerformanceKeysPoints,
@@ -143,7 +146,7 @@ export class DescribeAgenticDBPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and in UTC.
+   * The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
    * 
    * @example
    * 2020-09-23T01:00Z

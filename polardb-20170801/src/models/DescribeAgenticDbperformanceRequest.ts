@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBPerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The statistical method for alerts. Valid values for different monitoring items:
-   * 
+   * The alert aggregation method. Valid values vary by metric:
    * - Value: The value of the HTTP status code.
    * - Average: The average HTTP wait time.
-   * - Value: The value of the TELNET status code.
-   * - TelnetLatency: The average TELNET wait time.
-   * - Average: The average PING packet loss rate.
+   * - Value: The value of the Telnet status code.
+   * - TelnetLatency: The average Telnet wait time.
+   * - Average: The average ping packet loss rate.
    * 
    * @example
    * Average
@@ -19,7 +18,7 @@ export class DescribeAgenticDBPerformanceRequest extends $dara.Model {
   aggregate?: boolean;
   /**
    * @remarks
-   * The anchor branch ID. If this parameter is not specified, the main branch of the project is used by default.
+   * The anchor branch ID. If you do not specify this parameter, the main branch of the project is used by default.
    * 
    * @example
    * br-7g8h9i0j1k2l
@@ -47,7 +46,15 @@ export class DescribeAgenticDBPerformanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The data granularity of performance data. Valid values:
+   * The endpoint ID.
+   * 
+   * @example
+   * ep-3m4n5o6p7q8r
+   */
+  endpointId?: string;
+  /**
+   * @remarks
+   * The granularity of performance data. Valid values:
    * 
    * - 5
    * - 30
@@ -89,6 +96,7 @@ export class DescribeAgenticDBPerformanceRequest extends $dara.Model {
       branchId: 'BranchId',
       DBClusterId: 'DBClusterId',
       endTime: 'EndTime',
+      endpointId: 'EndpointId',
       interval: 'Interval',
       key: 'Key',
       startTime: 'StartTime',
@@ -101,6 +109,7 @@ export class DescribeAgenticDBPerformanceRequest extends $dara.Model {
       branchId: 'string',
       DBClusterId: 'string',
       endTime: 'string',
+      endpointId: 'string',
       interval: 'string',
       key: 'string',
       startTime: 'string',
