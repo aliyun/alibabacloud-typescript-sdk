@@ -2,6 +2,14 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetConversationsRequest extends $dara.Model {
     /**
      * @remarks
+     * The ID of the flow.
+     *
+     * @example
+     * flow-c5007b4a03a2446cbe9d
+     */
+    flowId?: string;
+    /**
+     * @remarks
      * The ID of the last conversation record.
      *
      * @example
@@ -10,7 +18,7 @@ export declare class GetConversationsRequest extends $dara.Model {
     lastId?: string;
     /**
      * @remarks
-     * The number of entries per page for a paged query. Valid values: 1 to 100.
+     * The paging Settings for the number of entries per page in a paged query. Valid values: 1 to 100.
      *
      * @example
      * 10
@@ -18,7 +26,7 @@ export declare class GetConversationsRequest extends $dara.Model {
     limit?: string;
     /**
      * @remarks
-     * The pinned bookmark flag for the application.
+     * The pin mark for application favorites.
      *
      * @example
      * true
@@ -34,7 +42,7 @@ export declare class GetConversationsRequest extends $dara.Model {
     sortBy?: string;
     /**
      * @remarks
-     * The ContextDB workspace ID.
+     * The ID of the ContextDB workspace.
      *
      * @example
      * 00000000-0000-4000-8000-000000000001

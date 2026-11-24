@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatMessagesRequestFiles extends $dara.Model {
   /**
    * @remarks
-   * The file transfer method. Set this parameter to local_file when referencing an uploaded file, and provide the UploadFileId at the same time.
+   * The file transfer method. Set this parameter to local_file and provide the UploadFileId when referencing an uploaded file.
    * 
    * @example
    * local_file
@@ -21,7 +21,7 @@ export class ChatMessagesRequestFiles extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The identifier of the uploaded file. The ContextDB management agent can use the UploadFileId returned by the current workspace knowledge base.
+   * The identifier of the uploaded file. The ContextDB management agent can use the UploadFileId returned by the knowledge base of the current workspace.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000001
@@ -65,7 +65,7 @@ export class ChatMessagesRequestFiles extends $dara.Model {
 export class ChatMessagesRequestInputs extends $dara.Model {
   /**
    * @remarks
-   * The custom agent ID for the user.
+   * The custom agent ID.
    * 
    * @example
    * d1b7d639-f34e-44c7-8231-987da14d****
@@ -79,6 +79,14 @@ export class ChatMessagesRequestInputs extends $dara.Model {
    * true
    */
   enableThinking?: string;
+  /**
+   * @remarks
+   * The IM flow ID. Used to bind messages to a registered IM channel when a conversation is initiated through an IM channel.
+   * 
+   * @example
+   * flow-xxxxxxxxxx
+   */
+  flowId?: string;
   /**
    * @remarks
    * The conversation language.
@@ -105,7 +113,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tool approval call ID for resuming execution. Pass this parameter after the console completes all decisions for the current approval round to continue the interrupted ChatMessage loop. Do not pass this parameter for regular conversations.
+   * The tool approval call ID for resuming execution. Pass this parameter after the console completes all decisions for the current approval round to continue the interrupted ChatMessage loop. Do not pass this parameter for normal conversations.
    * 
    * @example
    * call-example
@@ -129,7 +137,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The tool approval mode for the current conversation. Valid values: read_only (read-only, rejects write tools), manual (write tools require manual approval), and auto (automatically determined by the approval sub-agent; escalated to manual approval when needs_human is returned). Passing this parameter updates the approval mode for the current conversation.
+   * Specifies the tool approval mode for the current conversation. Valid values: read_only (read-only, rejects write tools), manual (write tools require manual approval), and auto (automatically determined by the approval sub-agent; escalated to manual approval when needs_human is returned). If specified, updates the approval mode of the current conversation.
    * 
    * @example
    * manual
@@ -147,6 +155,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
     return {
       customAgentId: 'CustomAgentId',
       enableThinking: 'EnableThinking',
+      flowId: 'FlowId',
       language: 'Language',
       modelId: 'ModelId',
       regionId: 'RegionId',
@@ -162,6 +171,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
     return {
       customAgentId: 'string',
       enableThinking: 'string',
+      flowId: 'string',
       language: 'string',
       modelId: 'string',
       regionId: 'string',
@@ -193,7 +203,7 @@ export class ChatMessagesRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool calling invoke events, child node events, and document events are unified into the answer field of the event = message. When set to separate, tool calling invoke events, child node events, and document events have their own respective events.
+   * The event output mode. Valid values: inline and separate. Default value: inline. When set to inline, tool invoke events, child node events, and document events are unified into the answer field of the event where event = message. When set to separate, tool invoke events, child node events, and document events have their own respective events.
    * 
    * @example
    * inline
@@ -222,7 +232,7 @@ export class ChatMessagesRequest extends $dara.Model {
    * The query content.
    * 
    * @example
-   * Instance rm-bp14as9914vd3**** disk usage, and whether capacity expansion is required
+   * Disk usage of instance rm-bp14as9914vd3****, and whether it needs to be scaled up
    */
   query?: string;
   static names(): { [key: string]: string } {

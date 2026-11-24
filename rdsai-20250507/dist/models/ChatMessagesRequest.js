@@ -56,6 +56,7 @@ class ChatMessagesRequestInputs extends $dara.Model {
         return {
             customAgentId: 'CustomAgentId',
             enableThinking: 'EnableThinking',
+            flowId: 'FlowId',
             language: 'Language',
             modelId: 'ModelId',
             regionId: 'RegionId',
@@ -70,6 +71,7 @@ class ChatMessagesRequestInputs extends $dara.Model {
         return {
             customAgentId: 'string',
             enableThinking: 'string',
+            flowId: 'string',
             language: 'string',
             modelId: 'string',
             regionId: 'string',

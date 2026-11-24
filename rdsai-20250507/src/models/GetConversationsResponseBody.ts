@@ -13,7 +13,7 @@ export class GetConversationsResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The historical conversation ID.
+   * The ID of the historical conversation.
    * 
    * @example
    * 60b335ca-124d-4ee1-864b-de554987****
@@ -27,10 +27,17 @@ export class GetConversationsResponseBodyData extends $dara.Model {
    * Test searching for RDS resources
    */
   introduction?: string;
+  /**
+   * @remarks
+   * Indicates whether the session is running.
+   * 
+   * @example
+   * true
+   */
   isRunning?: boolean;
   /**
    * @remarks
-   * The historical conversation name.
+   * The name of the historical conversation.
    * 
    * @example
    * Search for RDS resources
@@ -38,17 +45,19 @@ export class GetConversationsResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The session status. Valid values:
-   * - idle: The session is idle.
-   * - running: The session is generating a response.
-   * - pending_approval: The session is waiting for approval or manual review.
-   * 
-   * If both pending_approval and running conditions are met, pending_approval is returned.
+   * The session status.
    * 
    * @example
    * idle
    */
   status?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1785919275
+   */
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,7 +100,7 @@ export class GetConversationsResponseBody extends $dara.Model {
   data?: GetConversationsResponseBodyData[];
   /**
    * @remarks
-   * Indicates whether there is a next page.
+   * Indicates whether more pages are available.
    * 
    * @example
    * true
@@ -99,7 +108,7 @@ export class GetConversationsResponseBody extends $dara.Model {
   hasMore?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
+   * The paging Settings for the number of entries per page in a paged query. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 100
@@ -107,7 +116,7 @@ export class GetConversationsResponseBody extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****

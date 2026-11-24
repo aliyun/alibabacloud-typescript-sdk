@@ -29,6 +29,7 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class GetConversationsRequest extends $dara.Model {
     static names() {
         return {
+            flowId: 'FlowId',
             lastId: 'LastId',
             limit: 'Limit',
             pinned: 'Pinned',
@@ -38,6 +39,7 @@ class GetConversationsRequest extends $dara.Model {
     }
     static types() {
         return {
+            flowId: 'string',
             lastId: 'string',
             limit: 'string',
             pinned: 'string',

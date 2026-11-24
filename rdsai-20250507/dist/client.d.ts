@@ -1404,7 +1404,7 @@ export default class Client extends OpenApi {
      */
     getContextDatabaseUsage(request: $_model.GetContextDatabaseUsageRequest): Promise<$_model.GetContextDatabaseUsageResponse>;
     /**
-     * Queries the historical conversations of a user.
+     * Queries the conversation history of a user.
      *
      * @param request - GetConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1412,7 +1412,7 @@ export default class Client extends OpenApi {
      */
     getConversationsWithOptions(request: $_model.GetConversationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConversationsResponse>;
     /**
-     * Queries the historical conversations of a user.
+     * Queries the conversation history of a user.
      *
      * @param request - GetConversationsRequest
      * @returns GetConversationsResponse
@@ -1449,7 +1449,7 @@ export default class Client extends OpenApi {
      */
     getInspectionReport(request: $_model.GetInspectionReportRequest): Promise<$_model.GetInspectionReportResponse>;
     /**
-     * Queries the details of specific conversation messages.
+     * Retrieves the details of a specific conversation message.
      *
      * @param request - GetMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1457,7 +1457,7 @@ export default class Client extends OpenApi {
      */
     getMessagesWithOptions(request: $_model.GetMessagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMessagesResponse>;
     /**
-     * Queries the details of specific conversation messages.
+     * Retrieves the details of a specific conversation message.
      *
      * @param request - GetMessagesRequest
      * @returns GetMessagesResponse

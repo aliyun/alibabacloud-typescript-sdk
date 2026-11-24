@@ -5,12 +5,12 @@ export declare class ChatMessagesResponseBody extends $dara.Model {
      * The answer content.
      *
      * @example
-     * The disk usage of instance rm-bp14as9914vd3**** is 23%, so capacity expansion is not required at this time. If you need to view detailed configurations, performance monitoring, or perform other operations for a specific instance, let me know your specific requirements
+     * The disk usage of the instance rm-bp14as9914vd3**** you asked about is 23%, and it does not need to be scaled up at the moment. If you need to further view the detailed configuration, performance monitoring, or perform other operations for a specific instance, please let me know your specific requirements!
      */
     answer?: string;
     /**
      * @remarks
-     * The tool calling invoke approval status.
+     * The tool invoke approval status.
      *
      * @example
      * pending
@@ -18,7 +18,7 @@ export declare class ChatMessagesResponseBody extends $dara.Model {
     approvalStatus?: string;
     /**
      * @remarks
-     * The tool calling invoke ID.
+     * The tool invoke ID.
      *
      * @example
      * call-example
@@ -42,7 +42,7 @@ export declare class ChatMessagesResponseBody extends $dara.Model {
     createdAt?: number;
     /**
      * @remarks
-     * The tool calling invoke description.
+     * The tool invoke description.
      *
      * @example
      * Search ContextDB records
@@ -77,7 +77,7 @@ export declare class ChatMessagesResponseBody extends $dara.Model {
      * The query mode.
      *
      * @example
-     * This will be deprecated in the future and can be ignored
+     * This will be deprecated in the future. You can ignore it
      */
     mode?: string;
     /**
@@ -106,7 +106,7 @@ export declare class ChatMessagesResponseBody extends $dara.Model {
     taskId?: string;
     /**
      * @remarks
-     * The tool calling invoke parameters.
+     * The tool invoke parameters.
      */
     toolArguments?: {
         [key: string]: any;

@@ -11,6 +11,13 @@ export class GetMessagesRequest extends $dara.Model {
    * 941c6f59-acf5-4e11-9adc-31e52e1f****
    */
   conversationId?: string;
+  /**
+   * @remarks
+   * The event output type. Valid values: inline and separate. Default value: inline. In inline mode, tool invocation events, child node events, and document events are unified into the answer field of the event where event = message. In separate mode, tool invocation events, child node events, and document events have their own respective events.
+   * 
+   * @example
+   * inline
+   */
   eventMode?: string;
   /**
    * @remarks
@@ -22,7 +29,15 @@ export class GetMessagesRequest extends $dara.Model {
   firstId?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
+   * The flow instance ID.
+   * 
+   * @example
+   * flow-90ea18a8254645968325
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The number of rows per page for paging. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 10
@@ -41,6 +56,7 @@ export class GetMessagesRequest extends $dara.Model {
       conversationId: 'ConversationId',
       eventMode: 'EventMode',
       firstId: 'FirstId',
+      flowId: 'FlowId',
       limit: 'Limit',
       workspaceId: 'WorkspaceId',
     };
@@ -51,6 +67,7 @@ export class GetMessagesRequest extends $dara.Model {
       conversationId: 'string',
       eventMode: 'string',
       firstId: 'string',
+      flowId: 'string',
       limit: 'number',
       workspaceId: 'string',
     };

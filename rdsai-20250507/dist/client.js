@@ -3727,7 +3727,7 @@ class Client extends openapi_core_1.default {
         return await this.getContextDatabaseUsageWithOptions(request, runtime);
     }
     /**
-     * Queries the historical conversations of a user.
+     * Queries the conversation history of a user.
      *
      * @param request - GetConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3736,6 +3736,9 @@ class Client extends openapi_core_1.default {
     async getConversationsWithOptions(request, runtime) {
         request.validate();
         let query = {};
+        if (!$dara.isNull(request.flowId)) {
+            query["FlowId"] = request.flowId;
+        }
         if (!$dara.isNull(request.lastId)) {
             query["LastId"] = request.lastId;
         }
@@ -3768,7 +3771,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetConversationsResponse({}));
     }
     /**
-     * Queries the historical conversations of a user.
+     * Queries the conversation history of a user.
      *
      * @param request - GetConversationsRequest
      * @returns GetConversationsResponse
@@ -3862,7 +3865,7 @@ class Client extends openapi_core_1.default {
         return await this.getInspectionReportWithOptions(request, runtime);
     }
     /**
-     * Queries the details of specific conversation messages.
+     * Retrieves the details of a specific conversation message.
      *
      * @param request - GetMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3879,6 +3882,9 @@ class Client extends openapi_core_1.default {
         }
         if (!$dara.isNull(request.firstId)) {
             query["FirstId"] = request.firstId;
+        }
+        if (!$dara.isNull(request.flowId)) {
+            query["FlowId"] = request.flowId;
         }
         if (!$dara.isNull(request.limit)) {
             query["Limit"] = request.limit;
@@ -3903,7 +3909,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetMessagesResponse({}));
     }
     /**
-     * Queries the details of specific conversation messages.
+     * Retrieves the details of a specific conversation message.
      *
      * @param request - GetMessagesRequest
      * @returns GetMessagesResponse

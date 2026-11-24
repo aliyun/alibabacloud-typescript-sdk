@@ -32,6 +32,7 @@ class GetMessagesRequest extends $dara.Model {
             conversationId: 'ConversationId',
             eventMode: 'EventMode',
             firstId: 'FirstId',
+            flowId: 'FlowId',
             limit: 'Limit',
             workspaceId: 'WorkspaceId',
         };
@@ -41,6 +42,7 @@ class GetMessagesRequest extends $dara.Model {
             conversationId: 'string',
             eventMode: 'string',
             firstId: 'string',
+            flowId: 'string',
             limit: 'number',
             workspaceId: 'string',
         };

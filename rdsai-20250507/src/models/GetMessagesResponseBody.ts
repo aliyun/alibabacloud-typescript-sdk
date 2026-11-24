@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessagesResponseBodyDataEvents extends $dara.Model {
   /**
    * @remarks
-   * The approval status of the tool calling.
+   * The tool invocation approval status.
    * 
    * @example
    * pending
@@ -13,7 +13,7 @@ export class GetMessagesResponseBodyDataEvents extends $dara.Model {
   approvalStatus?: string;
   /**
    * @remarks
-   * The tool calling ID.
+   * The tool invocation ID.
    * 
    * @example
    * call-example
@@ -21,7 +21,7 @@ export class GetMessagesResponseBodyDataEvents extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The session ID.
+   * The conversation ID.
    * 
    * @example
    * conversation-example
@@ -29,7 +29,7 @@ export class GetMessagesResponseBodyDataEvents extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The description of the tool calling.
+   * The tool invocation description.
    * 
    * @example
    * Search ContextDB records
@@ -53,7 +53,7 @@ export class GetMessagesResponseBodyDataEvents extends $dara.Model {
   roundId?: string;
   /**
    * @remarks
-   * The parameters of the tool calling.
+   * The tool invocation parameters.
    */
   toolArguments?: { [key: string]: any };
   /**
@@ -114,7 +114,7 @@ export class GetMessagesResponseBodyDataMessageFiles extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The upload file ID.
+   * The uploaded file ID.
    * 
    * @example
    * file-example
@@ -150,15 +150,15 @@ export class GetMessagesResponseBodyDataMessageFiles extends $dara.Model {
 export class GetMessagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The answer.
+   * The reply.
    * 
    * @example
-   * The disk usage of the instance rm-bp14as9914vd3**** you queried is 23%, and no capacity expansion is needed at this time. If you need to view the detailed configurations or performance monitoring of a specific instance, or perform other operations, let me know your specific requirements!
+   * The instance rm-bp14as9914vd3**** you inquired about has a disk usage of 23%, so no storage expansion is needed at the moment. If you need to view detailed configurations, check performance monitoring, or perform other operations on a specific instance, please let me know your specific requirements.
    */
   answer?: string;
   /**
    * @remarks
-   * The session ID.
+   * The conversation ID.
    * 
    * @example
    * 9cbbe885-b240-4803-9d15-6781a3fd****
@@ -166,12 +166,16 @@ export class GetMessagesResponseBodyData extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the message was created. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1763986004
    */
   createdAt?: string;
+  /**
+   * @remarks
+   * The list of events.
+   */
   events?: GetMessagesResponseBodyDataEvents[];
   /**
    * @remarks
@@ -199,12 +203,12 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    * The query statement.
    * 
    * @example
-   * Disk usage of instance rm-bp14as9914vd3****, is capacity expansion needed
+   * Disk usage of instance rm-bp14as9914vd3**** and whether capacity expansion is required
    */
   query?: string;
   /**
    * @remarks
-   * The retrieval resources.
+   * The retrieved resources.
    */
   retrieverResources?: any[];
   streamKey?: string;
@@ -267,7 +271,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
 export class GetMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query result.
+   * The query results.
    */
   data?: GetMessagesResponseBodyData[];
   /**
@@ -280,7 +284,7 @@ export class GetMessagesResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of query results.
    * 
    * @example
    * 100

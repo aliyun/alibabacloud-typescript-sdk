@@ -4088,7 +4088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical conversations of a user.
+   * Queries the conversation history of a user.
    * 
    * @param request - GetConversationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4097,6 +4097,10 @@ export default class Client extends OpenApi {
   async getConversationsWithOptions(request: $_model.GetConversationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConversationsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
     if (!$dara.isNull(request.lastId)) {
       query["LastId"] = request.lastId;
     }
@@ -4135,7 +4139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical conversations of a user.
+   * Queries the conversation history of a user.
    * 
    * @param request - GetConversationsRequest
    * @returns GetConversationsResponse
@@ -4238,7 +4242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of specific conversation messages.
+   * Retrieves the details of a specific conversation message.
    * 
    * @param request - GetMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4257,6 +4261,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.firstId)) {
       query["FirstId"] = request.firstId;
+    }
+
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
     }
 
     if (!$dara.isNull(request.limit)) {
@@ -4285,7 +4293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of specific conversation messages.
+   * Retrieves the details of a specific conversation message.
    * 
    * @param request - GetMessagesRequest
    * @returns GetMessagesResponse
