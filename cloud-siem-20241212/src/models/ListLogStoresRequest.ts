@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogStoresRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response message. Valid values:
+   * The language of the returned message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * Note: This parameter is actually required. If it is not provided, the API returns a 400 error (The specified Lang can not be empty.).
@@ -24,7 +24,7 @@ export class ListLogStoresRequest extends $dara.Model {
   logProjectName?: string;
   /**
    * @remarks
-   * The log storage region ID. This parameter is required when LogProjectName is provided, and the log storage region must match the log project. You can call the GetDataStorage operation to obtain valid values.
+   * The log storage region ID. This parameter is required when LogProjectName is provided, and the log storage region must be consistent with the log project. You can call the GetDataStorage operation to obtain valid values.
    * 
    * @example
    * cn-hangzhou
@@ -40,7 +40,7 @@ export class ListLogStoresRequest extends $dara.Model {
   logUserId?: number;
   /**
    * @remarks
-   * The maximum number of data entries to return in this request.
+   * The maximum number of entries to return for the current request.
    * 
    * @example
    * 50
@@ -51,7 +51,7 @@ export class ListLogStoresRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. You do not need to specify this parameter for the first query or when no subsequent query is required. If a subsequent query is required, set the value to the NextToken value returned by the previous API call.
+   * The token for the next query. If this is the first query or no subsequent query is required, you do not need to specify this parameter. If a subsequent query is required, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -59,9 +59,9 @@ export class ListLogStoresRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
-   * - cn-hangzhou: The assets are located in the Chinese mainland.
-   * - ap-southeast-1: The assets are located outside the Chinese mainland.
+   * The region of the data management center for threat analysis. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou

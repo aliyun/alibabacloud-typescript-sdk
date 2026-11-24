@@ -30,11 +30,11 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The threat level of the alert. Valid values:
-   * - 5: critical
-   * - 4: high
-   * - 3: medium
-   * - 2: low
-   * - 1: informational
+   * - 5: critical.
+   * - 4: high.
+   * - 3: medium.
+   * - 2: low.
+   * - 1: informational.
    * 
    * @example
    * 1
@@ -59,10 +59,10 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the alert template for the detection rule. Valid values:
-   * - ALERT_ACTIVITY: other alerts
-   * - EDR_ALERT_ACTIVITY: endpoint detection and response (EDR) alerts
-   * - FIREWALL_ALERT_ACTIVITY: firewall alerts
-   * - WAF_ALERT_ACTIVITY: Web Application Firewall (WAF) alerts
+   * - ALERT_ACTIVITY: other alerts.
+   * - EDR_ALERT_ACTIVITY: endpoint detection and response (EDR) alerts.
+   * - FIREWALL_ALERT_ACTIVITY: firewall alerts.
+   * - WAF_ALERT_ACTIVITY: Web Application Firewall (WAF) alerts.
    * 
    * @example
    * ALERT_ACTIVITY
@@ -86,7 +86,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertThresholdCount?: number;
   /**
    * @remarks
-   * The list of alert threshold fields, separated by commas.
+   * The list of fields for the alert threshold. Separate multiple fields with commas (,).
    * 
    * @example
    * alert_type,ip
@@ -94,7 +94,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertThresholdGroup?: string;
   /**
    * @remarks
-   * The length of the alert threshold period.
+   * The period length of the alert threshold.
    * 
    * @example
    * 5m
@@ -102,7 +102,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertThresholdPeriod?: string;
   /**
    * @remarks
-   * The alerting type.
+   * The alert type.
    * 
    * @example
    * WebShell
@@ -110,7 +110,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The alerting type mapping.
+   * The alert type mapping.
    * 
    * @example
    * benign_type_mapping
@@ -140,8 +140,8 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The expression type of the detection rule. Valid values:
-   * - sql: SQL
-   * - playbook: playbook
+   * - sql: SQL.
+   * - playbook: playbook.
    * 
    * @example
    * sql
@@ -190,9 +190,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the detection rule. Valid values:
-   * - preset: preset detection rule
-   * - custom: custom detection rule
-   * - custom_template: rule template
+   * - preset: preset detection rule.
+   * - custom: custom detection rule.
+   * - custom_template: rule template.
    * 
    * @example
    * custom
@@ -221,12 +221,12 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   incidentAggregationExpression?: string;
   /**
    * @remarks
-   * The event summaries type. Valid values:
-   * - none: no event generated
-   * - graph_compute: graph computing (supported by predefined rules)
-   * - expert: expert rules
-   * - passthrough: alerting pass-through (1-to-1)
-   * - window: homogeneous aggregation (window)
+   * The event aggregation type. Valid values:
+   * - none: no event is generated.
+   * - graph_compute: graph computing, supported by predefined rules.
+   * - expert: expert rules.
+   * - passthrough: alert pass-through (one-to-one).
+   * - window: homogeneous aggregation (window).
    * 
    * @example
    * window
@@ -235,10 +235,10 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response message. Valid values:
-   * - **zh** (default): Chinese
-   * - **en**: English
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
-   * Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error "The specified Lang can not be empty." Explicitly pass the language code.
+   * Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error with the message "The specified Lang can not be empty." Explicitly pass the language code.
    * 
    * @example
    * zh
@@ -262,7 +262,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   logSchemaId?: string;
   /**
    * @remarks
-   * The custom parameters for the playbook.
+   * The custom parameters of the playbook.
    * 
    * @example
    * {
@@ -282,9 +282,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
-   * - cn-hangzhou: Assets are located in the Chinese mainland.
-   * - ap-southeast-1: Assets are located outside the Chinese mainland.
+   * The region of the data management center for Threat Analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -316,7 +316,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   scheduleExpression?: string;
   /**
    * @remarks
-   * The maximum number of retries after a timeout. Valid values: 1 to 100.
+   * The maximum number of retries upon timeout. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -324,7 +324,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   scheduleMaxRetries?: number;
   /**
    * @remarks
-   * The maximum timeout period in seconds. Valid values: 60 to 1800.
+   * The maximum timeout period. Unit: seconds. Valid values: 60 to 1800.
    * 
    * @example
    * 60
@@ -332,9 +332,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   scheduleMaxTimeout?: number;
   /**
    * @remarks
-   * The schedule type. Valid values:
-   * - fixed_rate: fixed interval
-   * - cron: cron expression
+   * The scheduling type. Valid values:
+   * - fixed_rate: fixed interval.
+   * - cron: cron expression.
    * 
    * @example
    * fixed_rate
@@ -342,7 +342,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * The length of the schedule window.
+   * The length of the scheduling window.
    * 
    * @example
    * 5m

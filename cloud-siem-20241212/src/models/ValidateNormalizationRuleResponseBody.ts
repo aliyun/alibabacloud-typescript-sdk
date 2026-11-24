@@ -44,7 +44,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
    * - OperationDenied.TheValueLessThanMin: The field value is less than the specified minimum value.
    * - OperationDenied.TheValueMoreThanMax: The field value is greater than the specified maximum value.
    * - OperationDenied.TheValueNotMatchRegularExpression: The field value fails the regular expression match.
-   * - success: The validation is passed.
+   * - success: The validation passed.
    * 
    * @example
    * success
@@ -52,9 +52,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The source of the normalized field. Valid values:
-   * - preset: Built-in.
-   * - custom: Custom.
+   * The source of the normalized field. Valid values: preset and custom.
    * 
    * @example
    * preset
@@ -78,7 +76,7 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   normalizationFieldRequired?: boolean;
   /**
    * @remarks
-   * Specifies whether the normalized field name is built into the system.
+   * Indicates whether the normalized field name is built into the system.
    */
   normalizationFieldReserved?: boolean;
   /**
@@ -108,9 +106,9 @@ export class ValidateNormalizationRuleResponseBodyValidateResult extends $dara.M
   /**
    * @remarks
    * The validation result. Valid values:
-   * - 1: The validation is passed.
+   * - 1: The validation passed.
    * - 0: A warning is returned.
-   * - 1: The validation fails.
+   * - 1: The validation failed.
    * 
    * @example
    * 1

@@ -218,7 +218,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
    * - ALERT_ACTIVITY: other alerts
    * - EDR_ALERT_ACTIVITY: endpoint detection and response alerts
    * - FIREWALL_ALERT_ACTIVITY: firewall alerts
-   * - WAF_ALERT_ACTIVITY: Web Application Firewall alerts
+   * - WAF_ALERT_ACTIVITY: web application firewall alerts
    * 
    * @example
    * ALERT_ACTIVITY
@@ -267,14 +267,17 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   /**
    * @remarks
    * The alerting type mapping.
+   * 
+   * @example
+   * 进程异常行为
    */
   alertTypeMapping?: string;
   /**
    * @remarks
-   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
+   * The creation time.
    * 
    * @example
-   * 2023-03-21 13:47:01
+   * 1794302020000
    */
   createTime?: number;
   /**
@@ -359,7 +362,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   entityMappings?: ListDetectionRulesResponseBodyDetectionRulesEntityMappings[];
   /**
    * @remarks
-   * The incident aggregation period configuration.
+   * The event aggregation period configuration.
    * 
    * @example
    * 5m
@@ -367,12 +370,12 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   incidentAggregationExpression?: string;
   /**
    * @remarks
-   * The incident aggregation type. Valid values:
-   * - none: no event generated
+   * The event aggregation type. Valid values:
+   * - none: no event generation
    * - graph_compute: graph computing (supported by predefined rules)
-   * - expert: expert rule
+   * - expert: expert rules
    * - passthrough: alerting pass-through (one-to-one)
-   * - window: similar aggregation (window)
+   * - window: similar event aggregation (window)
    * 
    * @example
    * passthrough
@@ -401,7 +404,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   playbook?: ListDetectionRulesResponseBodyDetectionRulesPlaybook;
   /**
    * @remarks
-   * The user-defined parameters of the playbook.
+   * The custom parameters of the playbook.
    * 
    * @example
    * {
@@ -437,7 +440,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   scheduleExpression?: string;
   /**
    * @remarks
-   * The maximum number of retries upon timeout. Valid values: 1 to 100.
+   * The maximum number of retries for a timeout. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -471,10 +474,10 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   scheduleWindow?: string;
   /**
    * @remarks
-   * The update time. The format is YYYY-MM-DD HH:mm:ss.
+   * The update time.
    * 
    * @example
-   * 2023-04-16 10:51:00
+   * 1794302022000
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -582,7 +585,7 @@ export class ListDetectionRulesResponseBody extends $dara.Model {
   detectionRules?: ListDetectionRulesResponseBodyDetectionRules[];
   /**
    * @remarks
-   * The maximum number of data entries to return in this request.
+   * The maximum number of results to return in this request.
    * 
    * @example
    * 50

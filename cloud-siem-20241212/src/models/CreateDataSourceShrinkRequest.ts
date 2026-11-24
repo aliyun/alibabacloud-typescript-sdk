@@ -23,7 +23,7 @@ export class CreateDataSourceShrinkRequestDataSourceStores extends $dara.Model {
   dataSourceStoreId?: string;
   /**
    * @remarks
-   * The log storage status. Valid values:
+   * The status of the log storage. Valid values:
    * - normal
    * - abnormal
    * 
@@ -128,7 +128,7 @@ export class CreateDataSourceShrinkRequest extends $dara.Model {
   dataSourceRecognizer?: string;
   /**
    * @remarks
-   * The data ingestion IDs associated with the data source.
+   * The IDs of the data ingestion tasks associated with the data source.
    */
   dataSourceReferencesShrink?: string;
   /**
@@ -218,7 +218,7 @@ export class CreateDataSourceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user whose perspective the administrator switches to.
+   * The ID of the member whose perspective the administrator switches to.
    * 
    * @example
    * 173326*******

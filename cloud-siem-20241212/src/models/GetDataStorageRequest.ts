@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the returned message. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
-   * Note: This parameter is required for actual API calls. If you do not specify this parameter, the service returns a 400 error with the message "The specified Lang can not be empty.". Explicitly specify the language code.
+   * Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error with the message "The specified Lang can not be empty." Explicitly pass the language code.
    * 
    * @example
    * zh
@@ -17,9 +17,9 @@ export class GetDataStorageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: The assets reside in the Chinese mainland.
-   * - ap-southeast-1: The assets reside outside the Chinese mainland.
+   * The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -33,11 +33,17 @@ export class GetDataStorageRequest extends $dara.Model {
    * 113091674488****
    */
   roleFor?: number;
+  /**
+   * @remarks
+   * Specifies whether to read the auto-discovered index configuration of each Logstore. This operation requires accessing Simple Log Service (SLS) for each Logstore. Default value: false. Set this parameter to true only on the storage management page.
+   */
+  withAutoKeyDetect?: boolean;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
       regionId: 'RegionId',
       roleFor: 'RoleFor',
+      withAutoKeyDetect: 'WithAutoKeyDetect',
     };
   }
 
@@ -46,6 +52,7 @@ export class GetDataStorageRequest extends $dara.Model {
       lang: 'string',
       regionId: 'string',
       roleFor: 'number',
+      withAutoKeyDetect: 'boolean',
     };
   }
 

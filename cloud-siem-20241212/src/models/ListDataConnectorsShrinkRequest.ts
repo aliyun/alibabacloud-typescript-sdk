@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataConnectorsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of collector IDs.
+   * The list of data connector IDs.
    */
   dataConnectorIdsShrink?: string;
   /**
    * @remarks
-   * The collector name.
+   * The name of the data connector.
    * 
    * @example
    * SAS-CTDR-2026070210****
@@ -18,9 +18,9 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   dataConnectorName?: string;
   /**
    * @remarks
-   * The collector status. Valid values:
-   * - enabled: Enabled.
-   * - disabled (default): Disabled.
+   * The enabled status of the data connector. Valid values:
+   * - "enabled": Enabled.
+   * - "disabled" (default): Disabled.
    * 
    * @example
    * enabled
@@ -28,7 +28,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   dataConnectorStatus?: string;
   /**
    * @remarks
-   * The collector type. Valid values:
+   * The type of the data connector. Valid values:
    * - oss
    * - s3
    * - kafka
@@ -39,7 +39,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   dataConnectorType?: string;
   /**
    * @remarks
-   * The destination data source ID. This parameter is required only for synchronization.
+   * The ID of the destination data source. This parameter is required only for synchronization.
    * 
    * @example
    * ds-5sfe68t122pxnti1cjpl
@@ -47,11 +47,11 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   destDataSourceId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
-   * Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
+   * Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error with the message "The specified Lang can not be empty." Explicitly pass the language code.
    * 
    * @example
    * zh
@@ -59,7 +59,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of entries to return for a single query when you use the NextToken method. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -67,7 +67,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
+   * The token used to query the next page. You do not need to specify this parameter for the first query or when no next page exists. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -75,7 +75,9 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort field. Currently, only sorting by updateTime is supported. If OrderField is empty, the default order returned by the database is used.
+   * The field used for sorting.
+   * Currently, only sorting by updateTime is supported.
+   * If OrderField is empty, the default order returned by the database is used.
    * 
    * @example
    * Id
@@ -84,8 +86,8 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - asc: ascending order.
-   * - desc (default): descending order.
+   * - "asc"
+   * - "desc" (default)
    * 
    * @example
    * desc
@@ -101,7 +103,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 1000.
+   * The number of entries per page. Default value: 1000.
    * 
    * @example
    * 1
@@ -109,9 +111,9 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the threat analysis data management center resides. Specify the management center region based on the region of your assets. Valid values:
-   * - cn-hangzhou: The assets reside in the Chinese mainland.
-   * - ap-southeast-1: The assets reside outside China.
+   * The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -119,7 +121,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member to which the administrator switches the view.
+   * The ID of the user whose perspective the administrator assumes.
    * 
    * @example
    * 113091674488****
@@ -127,7 +129,7 @@ export class ListDataConnectorsShrinkRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The name of the Simple Log Service (SLS) data import job for the collector.
+   * The name of the Simple Log Service (SLS) data import job for the data connector.
    * 
    * @example
    * ingest-oss-dc-1a2b3c4d5e6f7a8****

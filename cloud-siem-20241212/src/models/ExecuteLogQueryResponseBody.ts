@@ -6,9 +6,6 @@ export class ExecuteLogQueryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The query result.
-   * 
-   * @example
-   * []。
    */
   queryResult?: any[];
   /**

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUpgradeItemRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
-   * Note: This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
+   * Note: This parameter is required. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
    * 
    * @example
    * zh
@@ -16,9 +16,9 @@ export class CheckUpgradeItemRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region where the threat analysis data management center resides. Specify the management center region based on the region of your assets. Valid values:
-   * - cn-hangzhou: The assets reside in the Chinese mainland.
-   * - ap-southeast-1: The assets reside outside China.
+   * The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +26,7 @@ export class CheckUpgradeItemRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member to which the administrator switches the view.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -34,7 +34,7 @@ export class CheckUpgradeItemRequest extends $dara.Model {
   roleFor?: string;
   /**
    * @remarks
-   * The upgrade item ID.
+   * The ID of the upgrade item.
    * 
    * @example
    * dispose_task_upgrade

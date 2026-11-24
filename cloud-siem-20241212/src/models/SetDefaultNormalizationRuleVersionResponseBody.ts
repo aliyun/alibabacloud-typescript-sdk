@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVersion extends $dara.Model {
   /**
    * @remarks
-   * The time when the normalization rule version was created. The value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -13,7 +13,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   createTime?: number;
   /**
    * @remarks
-   * The normalization rule category ID.
+   * The category ID of the normalization rule.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -21,7 +21,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationCategoryId?: string;
   /**
    * @remarks
-   * The normalization rule description.
+   * The description of the normalization rule.
    * 
    * @example
    * normalization_rule_Z57np
@@ -29,7 +29,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationRuleDescription?: string;
   /**
    * @remarks
-   * The normalization rule expression.
+   * The expression of the normalization rule.
    * 
    * @example
    * * | pack-fields -include=\\"[\\s\\S]+\\" as extend_content
@@ -37,7 +37,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationRuleExpression?: string;
   /**
    * @remarks
-   * The normalization rule format.
+   * The format of the normalization rule.
    * 
    * @example
    * SPL
@@ -45,7 +45,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationRuleFormat?: string;
   /**
    * @remarks
-   * The normalization rule ID.
+   * The ID of the normalization rule.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
@@ -53,7 +53,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The normalization rule name.
+   * The name of the normalization rule.
    * 
    * @example
    * normalization_rule_Z57np
@@ -61,7 +61,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationRuleName?: string;
   /**
    * @remarks
-   * The normalization rule status.
+   * The status of the normalization rule.
    * 
    * @example
    * started
@@ -69,9 +69,9 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationRuleStatus?: string;
   /**
    * @remarks
-   * The normalization rule type. Valid values:
-   * - predefined: predefined normalization rule.
-   * - custom: custom normalization rule.
+   * The type of the normalization rule. Valid values:
+   * - predefined: predefined normalization rule
+   * - custom: custom normalization rule
    * 
    * @example
    * predefined
@@ -82,12 +82,12 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
    * The current version of the normalization rule.
    * 
    * @example
-   * V1
+   * 1
    */
   normalizationRuleVersion?: number;
   /**
    * @remarks
-   * The normalization schema ID.
+   * The ID of the normalization schema.
    * 
    * @example
    * HTTP_ACTIVITY
@@ -95,7 +95,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationSchemaId?: string;
   /**
    * @remarks
-   * The normalization security domain ID.
+   * The ID of the normalization security domain.
    * 
    * @example
    * NETWORK_AND_WEB_SECURITY
@@ -103,7 +103,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   normalizationSecurityDomainId?: string;
   /**
    * @remarks
-   * The product ID.
+   * The ID of the product.
    * 
    * @example
    * alibaba_cloud_sas
@@ -111,7 +111,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   productId?: string;
   /**
    * @remarks
-   * The time when the normalization rule version was last updated. The value is a UNIX timestamp in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -119,7 +119,7 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
   updateTime?: number;
   /**
    * @remarks
-   * The vendor ID associated with the normalization rule.
+   * The ID of the vendor corresponding to the normalization rule.
    * 
    * @example
    * alibaba_cloud
@@ -177,12 +177,12 @@ export class SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVers
 export class SetDefaultNormalizationRuleVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The normalization rule version.
+   * The version of the normalization rule.
    */
   normalizationRuleVersion?: SetDefaultNormalizationRuleVersionResponseBodyNormalizationRuleVersion;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

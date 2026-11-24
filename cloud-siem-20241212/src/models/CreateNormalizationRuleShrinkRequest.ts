@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to pack non-standard fields into the extended field extend_content. Valid values:
+   * Specifies whether to pack non-standard fields into the extend_content extension field. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -15,7 +15,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   extendContentPacked?: string;
   /**
    * @remarks
-   * The storage mode for extended fields. Valid values: flat, pack, reject.
+   * The storage mode for extension fields. Valid values: flat, pack, and reject.
    * 
    * @example
    * flat
@@ -23,7 +23,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   extendFieldStoreMode?: string;
   /**
    * @remarks
-   * The language of the response messages. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -65,7 +65,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   normalizationRuleFormat?: string;
   /**
    * @remarks
-   * The list of normalization rule IDs.
+   * The IDs of the normalization rules.
    */
   normalizationRuleIdsShrink?: string;
   /**
@@ -90,8 +90,8 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the normalization rule. Valid values:
-   * - predefined: predefined normalization rule.
-   * - custom: custom normalization rule.
+   * - predefined: Predefined normalization rule.
+   * - custom: Custom normalization rule.
    * 
    * @example
    * custom
@@ -124,8 +124,8 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The field used to sort the rule list. Valid values:
-   * - GmtModified: sorts by modification time.
-   * - Id: sorts by rule ID (default).
+   * - GmtModified: Sorts by modification time.
+   * - Id: Sorts by rule ID. This is the default value.
    * 
    * @example
    * Id
@@ -141,9 +141,9 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Assets are located in the Chinese mainland.
-   * - ap-southeast-1: Assets are located outside China.
+   * The region where the data management center of Threat Analysis is located. Select the region based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -151,7 +151,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member accounts in the resource folder.
+   * The ID of the member account in the resource directory.
    * 
    * @example
    * 173326*******
@@ -159,7 +159,7 @@ export class CreateNormalizationRuleShrinkRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The vendor ID associated with the normalization rule.
+   * The ID of the vendor associated with the normalization rule.
    * 
    * @example
    * alibaba_cloud

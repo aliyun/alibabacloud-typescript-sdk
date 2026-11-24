@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataStorageResponseBodyDataDeliverySettingsAccounts extends $dara.Model {
   /**
    * @remarks
-   * The UID of the source Alibaba Cloud account, which is a decimal string.
+   * The UID of the source cloud account. The value is a decimal string.
    * 
    * @example
    * 1234567890123456
@@ -21,7 +21,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsAccounts extends $dar
   accountName?: string;
   /**
    * @remarks
-   * Specifies whether the account has the authorization required for log delivery. This parameter must be set to true when you add a selected member.
+   * Indicates whether the account has the authorization required for log delivery. This parameter must be set to true when you add a member.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsAccounts extends $dar
   authorized?: boolean;
   /**
    * @remarks
-   * Specifies whether the account is the current management and delivery target account, which is the current account.
+   * Indicates whether the account is the current management and delivery target account, which is the local account.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsAccounts extends $dar
 export class GetDataStorageResponseBodyDataDeliverySettingsTypesExecutions extends $dara.Model {
   /**
    * @remarks
-   * The UID of the source account for this delivery record, which is a decimal string.
+   * The UID of the source account for this delivery record. The value is a decimal string.
    * 
    * @example
    * 1234567890123457
@@ -73,7 +73,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypesExecutions exten
   accountId?: string;
   /**
    * @remarks
-   * A reserved compatibility field. The current implementation does not populate historical execution error codes, so this field is usually empty or not returned. If execution fails, read the error code returned by the corresponding write operation.
+   * A reserved compatibility field. The current implementation does not populate historical execution error codes. This field is usually empty or not returned. If execution fails, read the error code returned by the corresponding write operation.
    * 
    * @example
    * null
@@ -81,7 +81,10 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypesExecutions exten
   errorCode?: string;
   /**
    * @remarks
-   * The recorded delivery status. RUNNING indicates that the status is recorded as enabled after the last successful operation. STOPPED indicates that the status is recorded as disabled. This field does not indicate real-time log arrival.
+   * The recorded delivery status. Valid values:
+   * - RUNNING: The delivery is recorded as enabled after the last successful operation.
+   * - STOPPED: The delivery is recorded as disabled.
+   * This field does not indicate real-time log arrival.
    * 
    * @example
    * RUNNING
@@ -89,7 +92,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypesExecutions exten
   status?: string;
   /**
    * @remarks
-   * The last update time of the delivery status, which is a UNIX timestamp in milliseconds. This field is empty or not returned if the record has no update time.
+   * The time when the delivery status was last updated. The value is a UNIX timestamp in milliseconds. If the record has no update time, this field is empty or not returned.
    * 
    * @example
    * 1792399200000
@@ -125,7 +128,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypesExecutions exten
 export class GetDataStorageResponseBodyDataDeliverySettingsTypes extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically add subsequent new and available managed members to the selection scope of this log type.
+   * Indicates whether to automatically add subsequent new and available managed members to the selection scope of this log type.
    * 
    * @example
    * true
@@ -133,7 +136,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypes extends $dara.M
   autoIncludeNewAccounts?: boolean;
   /**
    * @remarks
-   * The status list of existing source delivery records for this log type.
+   * The list of statuses for existing source delivery records of this log type.
    * 
    * @example
    * []
@@ -141,7 +144,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypes extends $dara.M
   executions?: GetDataStorageResponseBodyDataDeliverySettingsTypesExecutions[];
   /**
    * @remarks
-   * The unique identifier of the log type, which corresponds to UpdateDataStorageDelivery.LogCode.
+   * The unique identifier of the log type. This corresponds to UpdateDataStorageDelivery.LogCode.
    * 
    * @example
    * aegis-log-client
@@ -149,7 +152,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypes extends $dara.M
   logCode?: string;
   /**
    * @remarks
-   * The array of UIDs of the selected source accounts for this log type, including the current account. The response is a JSON string array. When you write an array(simple) request, you must serialize it into comma-separated values.
+   * The array of UIDs of the source accounts selected for this log type, including the local account. The response is a JSON string array. When you write an array(simple) request, serialize the value as comma-separated values.
    * 
    * @example
    * ["1234567890123456"]
@@ -191,7 +194,7 @@ export class GetDataStorageResponseBodyDataDeliverySettingsTypes extends $dara.M
 export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model {
   /**
    * @remarks
-   * The account directory of the current account and managed member accounts.
+   * The account directory of the current local account and managed members.
    * 
    * @example
    * [{"AccountId":"1234567890123456","AccountName":"1234567890123456","DaAccount":true,"Authorized":true}]
@@ -199,7 +202,7 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
   accounts?: GetDataStorageResponseBodyDataDeliverySettingsAccounts[];
   /**
    * @remarks
-   * Specifies whether the current account meets the conditions for delivery setting operations. This is determined based on authorization, target project availability, capacity orders, and the current account identity. The PrerequisiteEnabled parameter must also be met.
+   * Indicates whether the current account meets the conditions for configuring delivery settings. This is determined based on authorization, target project availability, capacity orders, and the current account identity. The PrerequisiteEnabled parameter must also be set to true.
    * 
    * @example
    * true
@@ -207,7 +210,7 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
   canConfigure?: boolean;
   /**
    * @remarks
-   * The current version of the delivery settings. When you modify multi-account configurations or specify member delivery, pass this value back as ConfigurationVersion. You must query this value again after each modification and cannot use a fixed example value.
+   * The version of the current delivery settings. When you modify multi-account configurations or specify member delivery, pass this value back as the ConfigurationVersion parameter. Query this value again after each modification. Do not use a fixed sample value.
    * 
    * @example
    * 1
@@ -215,7 +218,7 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
   configurationVersion?: number;
   /**
    * @remarks
-   * The UID of the current management and delivery target account, which is a decimal string. This is also the current account that is permanently retained in the account selection list.
+   * The UID of the current management and delivery target account. The value is a decimal string. This account is also the fixed local account in the account selection list.
    * 
    * @example
    * 1234567890123456
@@ -223,7 +226,7 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
   daAccountId?: string;
   /**
    * @remarks
-   * The master switch for the saved multi-account centralized delivery. A value of true indicates that the switch is turned on. A value of false indicates that the switch is turned off.
+   * The master switch for saved multi-account centralized delivery. A value of true indicates that the switch is turned on. A value of false indicates that the switch is turned off.
    * 
    * @example
    * true
@@ -231,7 +234,7 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
   enabled?: boolean;
   /**
    * @remarks
-   * Specifies whether the initialization of the account scope and automatic inclusion settings is completed when the feature is enabled for the first time.
+   * Indicates whether the initialization of the account scope and automatic inclusion settings upon the first enabling is complete.
    * 
    * @example
    * true
@@ -239,7 +242,7 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
   initialized?: boolean;
   /**
    * @remarks
-   * Specifies whether the prerequisite of enabling multi-account security management in Security Center is met.
+   * Indicates whether the prerequisite of enabling multi-account security management in Security Center is met.
    * 
    * @example
    * true
@@ -271,7 +274,12 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
   types?: GetDataStorageResponseBodyDataDeliverySettingsTypes[];
   /**
    * @remarks
-   * The reason code for being unconfigurable. Valid values: DA_UNAUTHORIZED (the management account is not authorized), TARGET_PROJECT_UNAVAILABLE (the target project is unavailable), LOG_CAPACITY_UNAVAILABLE (no valid capacity order exists), and NOT_CURRENT_ACCOUNT (the operation is not performed by the current account). This field is empty or not returned if the conditions are met.
+   * The reason code for why the configuration is unavailable. Valid values:
+   * - DA_UNAUTHORIZED: The management account is not authorized.
+   * - TARGET_PROJECT_UNAVAILABLE: The target project is unavailable.
+   * - LOG_CAPACITY_UNAVAILABLE: No valid capacity order exists.
+   * - NOT_CURRENT_ACCOUNT: The operation is not performed by the current account.
+   * If the conditions are met, this parameter is empty or not returned.
    * 
    * @example
    * DA_UNAUTHORIZED
@@ -327,6 +335,22 @@ export class GetDataStorageResponseBodyDataDeliverySettings extends $dara.Model 
 export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.Model {
   /**
    * @remarks
+   * Indicates whether automatic index discovery is enabled for the full-text index of the Logstore in Simple Log Service. This field is returned only when WithAutoKeyDetect=true is specified in the request, and is not returned if the read operation fails.
+   * 
+   * @example
+   * true
+   */
+  autoKeyDetect?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the corresponding Logstore in Simple Log Service exists. A value of true indicates that the Logstore exists. A value of false indicates that the Logstore is not created and delivery is not enabled. In this case, automatic index discovery cannot be configured. This field is returned only when WithAutoKeyDetect=true is specified in the request.
+   * 
+   * @example
+   * true
+   */
+  logStoreExisted?: boolean;
+  /**
+   * @remarks
    * The name of the Logstore that stores normalized data.
    * 
    * @example
@@ -335,7 +359,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
   logStoreName?: string;
   /**
    * @remarks
-   * The storage duration of the normalized data.
+   * The storage duration for normalized data.
    * 
    * @example
    * 180
@@ -343,7 +367,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
   logStoreTtl?: number;
   /**
    * @remarks
-   * The amount of hot storage used.
+   * The used capacity of hot storage.
    * 
    * @example
    * 10.333
@@ -351,6 +375,8 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
   usedCapacity?: number;
   static names(): { [key: string]: string } {
     return {
+      autoKeyDetect: 'AutoKeyDetect',
+      logStoreExisted: 'LogStoreExisted',
       logStoreName: 'LogStoreName',
       logStoreTtl: 'LogStoreTtl',
       usedCapacity: 'UsedCapacity',
@@ -359,6 +385,8 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
 
   static types(): { [key: string]: any } {
     return {
+      autoKeyDetect: 'boolean',
+      logStoreExisted: 'boolean',
       logStoreName: 'string',
       logStoreTtl: 'number',
       usedCapacity: 'number',
@@ -377,7 +405,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
 export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.Model {
   /**
    * @remarks
-   * The log type of the normalized logs.
+   * The log type of the normalized log.
    * 
    * @example
    * API security risk log
@@ -385,7 +413,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   activityName?: string;
   /**
    * @remarks
-   * The category of the normalized logs.
+   * The category of the normalized log.
    * 
    * @example
    * Security Category
@@ -393,7 +421,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   categoryName?: string;
   /**
    * @remarks
-   * The number of times this normalized dataset is referenced in Threat Analysis and Response.
+   * The number of times the normalized dataset is referenced in the threat analysis integration center.
    * 
    * @example
    * 3
@@ -401,7 +429,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   detectionRuleReferenceCount?: number;
   /**
    * @remarks
-   * The list of products that reference this normalized dataset in Threat Analysis and Response.
+   * The list of products that reference the normalized dataset in the threat analysis integration center.
    * 
    * @example
    * ["sas"]
@@ -417,7 +445,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   logSearchConditions?: string;
   /**
    * @remarks
-   * The Logstore where Threat Analysis and Response stores normalized logs.
+   * The Logstore in threat analysis that stores normalized logs.
    * 
    * @example
    * risk-activity
@@ -425,7 +453,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   logStoreName?: string;
   /**
    * @remarks
-   * Specifies whether the normalized dataset exists. Valid values:
+   * Indicates whether the normalized dataset exists. Valid values:
    * - true: The dataset exists.
    * - false: The dataset does not exist.
    * 
@@ -532,7 +560,7 @@ export class GetDataStorageResponseBodyDataRecordLogStores extends $dara.Model {
 export class GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries extends $dara.Model {
   /**
    * @remarks
-   * The UID of the source cloud account. This field is an int64 number.
+   * The UID of the source Alibaba Cloud account for the logs. This field is an int64 number.
    * 
    * @example
    * 1234567890123456
@@ -540,7 +568,7 @@ export class GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries extends
   accountId?: number;
   /**
    * @remarks
-   * The display name of the source account. If the name is not obtained, the account UID string is used.
+   * The display name of the source account. If the name is unavailable, the account UID string is used.
    * 
    * @example
    * 1234567890123456
@@ -548,7 +576,7 @@ export class GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries extends
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the account is the current management or target account (the current account). A value of true indicates the current account. A value of false indicates a member source account.
+   * Indicates whether the account is the current management or target account. A value of true indicates the current account, and a value of false indicates a member source account.
    * 
    * @example
    * true
@@ -556,9 +584,7 @@ export class GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries extends
   isDaAccount?: boolean;
   /**
    * @remarks
-   * The recorded delivery status of the source account. Valid values:
-   * - enable: Enabled.
-   * - disable: Disabled.
+   * The recorded delivery status for the source account. Valid values: enable (enabled) and disable (disabled).
    * 
    * @example
    * enable
@@ -566,7 +592,7 @@ export class GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries extends
   logDeliveryStatus?: string;
   /**
    * @remarks
-   * The last update time of the delivery status for the source account. If no record is generated, this field is empty or not returned.
+   * The last update time of the delivery status for the source account. This field is empty or not returned if no records are generated.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -606,12 +632,20 @@ export class GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries extends
 export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   /**
    * @remarks
-   * The delivery records of this log type expanded by source account, including the current account and member accounts with existing records.
+   * The delivery records of the log type expanded by source account, including the current account and member accounts with existing records.
    * 
    * @example
    * [{"AccountId":1234567890123456,"AccountName":"1234567890123456","LogDeliveryStatus":"enable","LogDeliveryUpdateTime":"2026-10-19T14:00:00Z","IsDaAccount":true}]
    */
   accountDeliveries?: GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries[];
+  /**
+   * @remarks
+   * Indicates whether automatic index discovery is enabled for the full-text index of the Logstore in Simple Log Service. This field is returned only when WithAutoKeyDetect=true is specified in the request, and is not returned if the read operation fails.
+   * 
+   * @example
+   * true
+   */
+  autoKeyDetect?: boolean;
   /**
    * @remarks
    * The log code.
@@ -632,7 +666,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logDeliveryGroup?: string;
   /**
    * @remarks
-   * Specifies whether the log delivery switch can be operated. Log delivery is unavailable if the service is not purchased. Valid values:
+   * Specifies whether you are allowed to toggle the log delivery switch. Log delivery is unavailable if the service is not purchased. Valid values:
    * - allow: Allowed.
    * - deny: Not allowed.
    * 
@@ -643,8 +677,8 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   /**
    * @remarks
    * The log delivery status. Valid values:
-   * - enable: Log delivery is enabled.
-   * - disable: Log delivery is disabled.
+   * - enable: Delivery is enabled for the log.
+   * - disable: Delivery is disabled for the log.
    * 
    * @example
    * enable
@@ -668,7 +702,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logName?: string;
   /**
    * @remarks
-   * The default query conditions for the log. When multiple logs are stored in a single Logstore, you must use query conditions to perform a log query for a specific log.
+   * The default query conditions for the log. When multiple logs are stored in a single Logstore, you must use query conditions to perform a log query.
    * 
    * @example
    * [{\\"__topic__\\":\\"sas-net-block\\"}]
@@ -702,7 +736,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logStoreTtl?: number;
   /**
    * @remarks
-   * The amount of hot storage used.
+   * The used capacity of hot storage.
    * 
    * @example
    * 10.333
@@ -711,6 +745,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountDeliveries: 'AccountDeliveries',
+      autoKeyDetect: 'AutoKeyDetect',
       logCode: 'LogCode',
       logDeliveryGroup: 'LogDeliveryGroup',
       logDeliveryPermission: 'LogDeliveryPermission',
@@ -728,6 +763,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountDeliveries: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataSasLogStoresAccountDeliveries },
+      autoKeyDetect: 'boolean',
       logCode: 'string',
       logDeliveryGroup: 'string',
       logDeliveryPermission: 'string',
@@ -773,7 +809,7 @@ export class GetDataStorageResponseBodyDataUnusedLogStores extends $dara.Model {
   logStoreTtl?: number;
   /**
    * @remarks
-   * The amount of hot storage used.
+   * The used capacity of hot storage.
    * 
    * @example
    * 10.333
@@ -815,7 +851,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   coldStorageUsedCapacity?: number;
   /**
    * @remarks
-   * The storage region of user logs.
+   * The storage region for user-side logs.
    * 
    * @example
    * cn-shanghai
@@ -823,9 +859,9 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageRegionId?: string;
   /**
    * @remarks
-   * Specifies whether the storage region can be modified. By default, the region cannot be modified. You can contact the product manager to reset the region, and the region can be reset only once. Valid values:
-   * - allow: The region can be modified.
-   * - deny: The region cannot be modified.
+   * Indicates whether the storage region can be modified. By default, modification is not allowed. Contact the product manager to reset the region. The region can be reset only once. Valid values:
+   * - allow: The storage region can be modified.
+   * - deny: The storage region cannot be modified.
    * 
    * @example
    * deny
@@ -833,7 +869,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageRegionPermission?: string;
   /**
    * @remarks
-   * The storage capacity purchased for subscription.
+   * The storage capacity purchased in subscription scenarios.
    * 
    * @example
    * 100
@@ -841,7 +877,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageTotalCapacity?: number;
   /**
    * @remarks
-   * The amount of storage used in user log management.
+   * The storage capacity used in user log management.
    * 
    * @example
    * 100.0
@@ -849,7 +885,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageUsedCapacity?: number;
   /**
    * @remarks
-   * The storage usage details of the log management user.
+   * The details of storage usage by log management users.
    * 
    * @example
    * {\\"purchasedHotStorageCapacity\\":1000,\\"usedHotStorageCapacity\\":4.2,\\"usedHotStorageCapacityDetail\\":{\\"ap-southeast-1\\":4.2,\\"cn-shenzhen\\":0.0,\\"cn-shanghai\\":0.0}}
@@ -857,7 +893,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageUsedCapacityDetail?: string;
   /**
    * @remarks
-   * The multi-account delivery settings for the current storage resources. Returned when the query is successful. If the read operation fails, see DeliverySettingsError.
+   * The multi-account delivery settings for the current storage resource. This parameter is returned when the query is successful. If the read operation fails, refer to DeliverySettingsError.
    * 
    * @example
    * {"PrerequisiteEnabled":true,"CanConfigure":true,"Enabled":true,"Initialized":true,"DaAccountId":"1234567890123456","TargetProject":"aliyun-cloudsiem-data-1234567890123456-cn-shanghai","TargetRegion":"cn-shanghai","ConfigurationVersion":1,"Accounts":[{"AccountId":"1234567890123456","AccountName":"1234567890123456","DaAccount":true,"Authorized":true}],"Types":[{"LogCode":"aegis-log-client","SelectedAccountIds":["1234567890123456"],"AutoIncludeNewAccounts":true,"Executions":[]}]}
@@ -865,7 +901,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   deliverySettings?: GetDataStorageResponseBodyDataDeliverySettings;
   /**
    * @remarks
-   * The read error code for the optional multi-account delivery settings. If the read operation fails, DELIVERY_SETTINGS_UNAVAILABLE is returned. If the read operation is successful, this field is empty or not returned, and does not affect other storage fields.
+   * The read fault code for optional multi-account delivery settings. If the read failed, DELIVERY_SETTINGS_UNAVAILABLE is returned. If the read is successful, this field is empty or not returned and does not affect other storage fields.
    * 
    * @example
    * DELIVERY_SETTINGS_UNAVAILABLE
@@ -873,7 +909,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   deliverySettingsError?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project where user logs are stored.
+   * The name of the Simple Log Service project that stores user logs.
    * 
    * @example
    * aliyun-cloudsiem-data-171835723111****-cn-shanghai
@@ -889,7 +925,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   logProjectState?: string;
   /**
    * @remarks
-   * Specifies whether the status of the log project can be changed.
+   * Indicates whether the status of the log project can be changed.
    * 
    * @example
    * true
@@ -897,7 +933,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   logProjectStateChangeAllowed?: boolean;
   /**
    * @remarks
-   * Specifies whether Simple Log Service is disabled.
+   * Indicates whether the log service is disabled.
    * 
    * @example
    * false
@@ -905,7 +941,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   logServiceDisabled?: boolean;
   /**
    * @remarks
-   * The details of the Logstores for normalized data.
+   * The Logstore details for normalized data.
    * 
    * @example
    * [{"LogStoreName":"host-activity","LogStoreTtl":180,"UsedCapacity":10.3}]
@@ -913,7 +949,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   normalizationLogStores?: GetDataStorageResponseBodyDataNormalizationLogStores[];
   /**
    * @remarks
-   * The details of the normalized datasets.
+   * The details of normalized datasets.
    * 
    * @example
    * [{"CategoryName":"Endpoint security","ActivityName":"Host activity","LogViewName":"host_activity","LogStoreName":"host-activity","DetectionRuleReferenceCount":1,"DetectionRuleReferenceProductIds":["sas"],"LogSearchConditions":"[{\\"SCHEMA\\":\\"host-activity\\"}]","LogViewExisted":true}]
@@ -921,7 +957,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   normalizationLogViews?: GetDataStorageResponseBodyDataNormalizationLogViews[];
   /**
    * @remarks
-   * The list of Record Logstores.
+   * The list of record Logstores.
    * 
    * @example
    * [{"LogStoreName":"alert-record","LogStoreTtl":180,"UsedCapacity":10.3}]
@@ -929,7 +965,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   recordLogStores?: GetDataStorageResponseBodyDataRecordLogStores[];
   /**
    * @remarks
-   * The storage details of raw logs in Security Center.
+   * The storage details of raw logs from Security Center.
    * 
    * @example
    * [{"LogName":"Client events","LogStoreName":"aegis-log-client","LogDeliveryStatus":"enable","LogStoreTtl":180,"LogDeliveryUpdateTime":"2026-10-19T14:00:00","LogDeliveryPermission":"allow","LogDeliveryGroup":"host","LogSearchConditions":"[{\\"__topic__\\":\\"aegis-log-client\\"}]","LogCode":"aegis-log-client","LogStoreExisted":true,"UsedCapacity":10.3,"AccountDeliveries":[{"AccountId":1234567890123456,"AccountName":"1234567890123456","LogDeliveryStatus":"enable","LogDeliveryUpdateTime":"2026-10-19T14:00:00Z","IsDaAccount":true}]}]
@@ -937,7 +973,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   sasLogStores?: GetDataStorageResponseBodyDataSasLogStores[];
   /**
    * @remarks
-   * The list of legacy Logstores in SIEM V1.
+   * The list of legacy SIEM V1 Logstores.
    * 
    * @example
    * [{"LogStoreName":"cloud-siem","LogStoreTtl":180,"UsedCapacity":10.3}]
@@ -1017,7 +1053,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
 export class GetDataStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information returned.
+   * The detailed response content.
    * 
    * @example
    * {"DataStorageRegionId":"cn-shanghai","DataStorageTotalCapacity":1000,"DataStorageUsedCapacity":41.2,"LogProject":"aliyun-cloudsiem-data-1234567890123456-cn-shanghai","SasLogStores":[{"LogName":"Client events","LogStoreName":"aegis-log-client","LogDeliveryStatus":"enable","LogStoreTtl":180,"LogDeliveryUpdateTime":"2026-10-19T14:00:00","LogDeliveryPermission":"allow","LogDeliveryGroup":"host","LogSearchConditions":"[{\\"__topic__\\":\\"aegis-log-client\\"}]","LogCode":"aegis-log-client","LogStoreExisted":true,"UsedCapacity":10.3,"AccountDeliveries":[{"AccountId":1234567890123456,"AccountName":"1234567890123456","LogDeliveryStatus":"enable","LogDeliveryUpdateTime":"2026-10-19T14:00:00Z","IsDaAccount":true}]}],"NormalizationLogStores":[{"LogStoreName":"host-activity","LogStoreTtl":180,"UsedCapacity":10.3}],"UnusedLogStores":[{"LogStoreName":"cloud-siem","LogStoreTtl":180,"UsedCapacity":10.3}],"RecordLogStores":[{"LogStoreName":"alert-record","LogStoreTtl":180,"UsedCapacity":10.3}],"NormalizationLogViews":[{"CategoryName":"Endpoint security","ActivityName":"Host activity","LogViewName":"host_activity","LogStoreName":"host-activity","DetectionRuleReferenceCount":1,"DetectionRuleReferenceProductIds":["sas"],"LogSearchConditions":"[{\\"SCHEMA\\":\\"host-activity\\"}]","LogViewExisted":true}],"ColdStorageUsedCapacity":0.0,"DataStorageUsedCapacityDetail":"{\\"purchasedHotStorageCapacity\\":1000,\\"usedHotStorageCapacity\\":41.2,\\"usedColdStorageCapacity\\":0.0,\\"usedHotStorageCapacityDetail\\":{\\"cn-shanghai\\":41.2},\\"usedColdStorageCapacityDetail\\":{\\"cn-shanghai\\":0.0}}","DataStorageRegionPermission":"allow","LogServiceDisabled":false,"LogProjectStateChangeAllowed":true,"LogProjectState":"ACTIVE","DeliverySettings":{"PrerequisiteEnabled":true,"CanConfigure":true,"Enabled":true,"Initialized":true,"DaAccountId":"1234567890123456","TargetProject":"aliyun-cloudsiem-data-1234567890123456-cn-shanghai","TargetRegion":"cn-shanghai","ConfigurationVersion":1,"Accounts":[{"AccountId":"1234567890123456","AccountName":"1234567890123456","DaAccount":true,"Authorized":true}],"Types":[{"LogCode":"aegis-log-client","SelectedAccountIds":["1234567890123456"],"AutoIncludeNewAccounts":true,"Executions":[]}]}}
@@ -1025,7 +1061,7 @@ export class GetDataStorageResponseBody extends $dara.Model {
   data?: GetDataStorageResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The request message ID.
    * 
    * @example
    * 81FB0DEA-52C1-55A0-8631-8E1B9A9D****

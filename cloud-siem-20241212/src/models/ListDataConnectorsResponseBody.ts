@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   /**
    * @remarks
-   * The configuration item ID of the collector access object in the multi-cloud configuration.
+   * The ID of the configuration item for the data connector access object in the multi-cloud configuration.
    * 
    * @example
    * cn-smbc-prod-cloudtrail.s3.cn-north-1.amazonaws.com.cn_AKIAX4AUG6AYSJO7FAG4
@@ -13,7 +13,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   authConfigId?: string;
   /**
    * @remarks
-   * The cloud product to which the authentication configuration belongs.
+   * The cloud service to which the authentication configuration belongs.
    * 
    * @example
    * salesForceRestAPI
@@ -21,7 +21,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   authConfigProduct?: string;
   /**
    * @remarks
-   * The cloud vendor to which the authentication configuration belongs.
+   * The cloud provider to which the authentication configuration belongs.
    * 
    * @example
    * SALESFORCE
@@ -32,12 +32,12 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
    * The creation time.
    * 
    * @example
-   * 2026-06-01T02:14:24Z
+   * 1792515606000
    */
   creationTime?: number;
   /**
    * @remarks
-   * The collector configuration information.
+   * The configuration information of the data connector.
    * 
    * @example
    * {\\"endpoint\\":\\"csrm-sentinel.s3.cn-north-1.amazonaws.com.cn_AKIARGUYUGSX6A6VUXQJ\\",\\"bucket\\":\\"csrm-sentinel\\",\\"prefix\\":\\"AliTest/\\",\\"format\\":{\\"type\\":\\"JSON\\"},\\"encoding\\":\\"UTF-8\\"}
@@ -45,7 +45,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   dataConnectorConfig?: string;
   /**
    * @remarks
-   * The collector ID.
+   * The data connector ID.
    * 
    * @example
    * dc-07423146117d77db266f78bc41f4fd80
@@ -53,7 +53,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   dataConnectorId?: string;
   /**
    * @remarks
-   * The data connector name.
+   * The name of the data connector.
    * 
    * @example
    * dc-***
@@ -61,7 +61,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   dataConnectorName?: string;
   /**
    * @remarks
-   * The connector status.
+   * The enabled status of the data connector.
    * 
    * @example
    * enable
@@ -69,7 +69,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   dataConnectorStatus?: string;
   /**
    * @remarks
-   * The connector type.
+   * The type of the data connector.
    * 
    * @example
    * oss
@@ -77,7 +77,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   dataConnectorType?: string;
   /**
    * @remarks
-   * The destination data source ID. This parameter is required only for synchronization.
+   * The ID of the destination data source. This parameter is required only for synchronization.
    * 
    * @example
    * ds-t3ywipile7gctobaunx0
@@ -85,7 +85,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   destDataSourceId?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * aliyun-cloudsiem-channel-1371069058301795-cn-shanghai
@@ -101,7 +101,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The Simple Log Service Logstore name.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * ls-wecom-crontasklog-prod
@@ -109,7 +109,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The name of the SLS data import job for the collector.
+   * The name of the Simple Log Service (SLS) data import job for the data connector.
    * 
    * @example
    * 1a2b3c4d5e6f7a8b9c0d1e2f3a4b****
@@ -117,7 +117,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   slsIngestionJobName?: string;
   /**
    * @remarks
-   * The status of the SLS data import job for the collector.
+   * The status of the Simple Log Service (SLS) data import job for the data connector.
    * 
    * @example
    * running
@@ -125,7 +125,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
   slsIngestionJobState?: string;
   /**
    * @remarks
-   * The source data type.
+   * The type of the source data source.
    * 
    * @example
    * s3
@@ -136,7 +136,7 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
    * The update time.
    * 
    * @example
-   * 2025-01-04 22:31:54
+   * 1792515606000
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -195,12 +195,12 @@ export class ListDataConnectorsResponseBodyDataConnector extends $dara.Model {
 export class ListDataConnectorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of collectors.
+   * The list of data connectors.
    */
   dataConnector?: ListDataConnectorsResponseBodyDataConnector[];
   /**
    * @remarks
-   * The maximum number of records returned in this query.
+   * The maximum number of entries returned in the current request.
    * 
    * @example
    * 50
@@ -208,7 +208,7 @@ export class ListDataConnectorsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to query the next page.
    * 
    * @example
    * AAAAASLVeIxed4466E0LVmGkzwS6hJKd9DGVGMDRM6Lu****
@@ -224,7 +224,7 @@ export class ListDataConnectorsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -232,7 +232,7 @@ export class ListDataConnectorsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
@@ -240,7 +240,7 @@ export class ListDataConnectorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 57

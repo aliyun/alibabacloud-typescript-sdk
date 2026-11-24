@@ -37,7 +37,7 @@ export class CreateCopilotChatRequestCreateConversation extends $dara.Model {
   thinkingMode?: string;
   /**
    * @remarks
-   * The session title.
+   * The conversation title.
    * 
    * @example
    * Security event investigation
@@ -75,15 +75,15 @@ export class CreateCopilotChatRequestCreateConversation extends $dara.Model {
 export class CreateCopilotChatRequestMessages extends $dara.Model {
   /**
    * @remarks
-   * The content of the message.
+   * The message content.
    * 
    * @example
-   * Investigate the abnormal logon activities in the past hour
+   * Investigate abnormal logon activities in the last hour
    */
   content?: string;
   /**
    * @remarks
-   * The role of the message.
+   * The message role.
    * 
    * @example
    * user
@@ -115,7 +115,7 @@ export class CreateCopilotChatRequestMessages extends $dara.Model {
 export class CreateCopilotChatRequest extends $dara.Model {
   /**
    * @remarks
-   * The client session ID.
+   * The client conversation ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -133,7 +133,7 @@ export class CreateCopilotChatRequest extends $dara.Model {
   clientMessageId?: string;
   /**
    * @remarks
-   * The session ID.
+   * The conversation ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -141,12 +141,12 @@ export class CreateCopilotChatRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The session creation configuration.
+   * The conversation creation configuration.
    */
   createConversation?: CreateCopilotChatRequestCreateConversation;
   /**
    * @remarks
-   * The language of the returned message. Valid values:
+   * The language of the returned messages. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -187,9 +187,9 @@ export class CreateCopilotChatRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Assets reside in the Chinese mainland.
-   * - ap-southeast-1: Assets reside outside the Chinese mainland.
+   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located in regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

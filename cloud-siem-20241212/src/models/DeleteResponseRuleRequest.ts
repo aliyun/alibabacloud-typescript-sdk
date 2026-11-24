@@ -23,7 +23,7 @@ export class DeleteResponseRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position to start reading. If this parameter is left empty, the reading starts from the beginning.
+   * The token that specifies the starting position for reading. Leave this parameter empty to start reading from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****

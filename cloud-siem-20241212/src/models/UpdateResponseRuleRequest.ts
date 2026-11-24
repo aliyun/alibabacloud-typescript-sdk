@@ -15,7 +15,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of data records to read in the current request.
+   * The maximum number of data records to return in the current request.
    * 
    * @example
    * 50
@@ -23,7 +23,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position from which to start reading. If this parameter is left empty, the reading starts from the beginning.
+   * The token that indicates the position from which to start reading. An empty value indicates that the reading starts from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -63,7 +63,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseActionType?: string;
   /**
    * @remarks
-   * The rule trigger condition configuration.
+   * The trigger condition configuration of the rule.
    * 
    * @example
    * [{"left":{"value":"threat_level"},"operator":"equals","right":{"value":"suspicious"}}]
@@ -95,7 +95,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseRulePriority?: number;
   /**
    * @remarks
-   * The remarks of the response rule.
+   * The remarks for the response rule.
    * 
    * @example
    * Verified as a low-risk alert and scheduled for regular cleanup

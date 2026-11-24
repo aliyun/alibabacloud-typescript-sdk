@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNormalizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The normalization rule ID.
+   * The ID of the normalization rule.
    * 
    * @example
    * nr-z0b2ssjteut85uoh9nzp
@@ -13,7 +13,7 @@ export class CreateNormalizationRuleResponseBody extends $dara.Model {
   normalizationRuleId?: string;
   /**
    * @remarks
-   * The request message ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

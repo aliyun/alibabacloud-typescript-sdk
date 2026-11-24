@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoDisposeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether automatic analysis is enabled for the user. Valid values:
+   * Specifies whether the user has enabled automatic analysis. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 

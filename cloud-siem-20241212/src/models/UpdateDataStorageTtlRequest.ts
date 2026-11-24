@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataStorageTtlRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -17,7 +15,7 @@ export class UpdateDataStorageTtlRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The storage duration for cold storage in Simple Log Service. This setting is not yet available.
+   * The cold storage duration in Simple Log Service. This parameter is not available for configuration.
    * 
    * @example
    * 0
@@ -25,7 +23,7 @@ export class UpdateDataStorageTtlRequest extends $dara.Model {
   logStoreColdTtl?: string;
   /**
    * @remarks
-   * The storage duration for hot storage in Simple Log Service.
+   * The hot storage duration in Simple Log Service.
    * 
    * @example
    * 180
@@ -33,7 +31,7 @@ export class UpdateDataStorageTtlRequest extends $dara.Model {
   logStoreHotTtl?: string;
   /**
    * @remarks
-   * The name of the Logstore for threat analysis.
+   * The name of the Logstore for Threat Analysis.
    * 
    * @example
    * network-activity
@@ -49,11 +47,9 @@ export class UpdateDataStorageTtlRequest extends $dara.Model {
   logStoreTtl?: string;
   /**
    * @remarks
-   * The region of the Data Management Center for threat analysis. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: The Chinese mainland.
-   * 
-   * - ap-southeast-1: Regions outside the Chinese mainland.
+   * The region of the data management center for Threat Analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +57,7 @@ export class UpdateDataStorageTtlRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member whose perspective the administrator assumes.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****

@@ -33,7 +33,7 @@ export class ListCopilotMessagesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of results to return per page when you use the NextToken parameter for pagination. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -41,7 +41,7 @@ export class ListCopilotMessagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query. Leave this parameter empty to query from the beginning.
+   * The token that specifies the starting position of the current read operation. If this parameter is left empty, the read operation starts from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -49,9 +49,9 @@ export class ListCopilotMessagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the Cloud Threat Detection and Response (CTDR) data management center resides. Specify the management center based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland or Hong Kong (China).
-   * - ap-southeast-1: Your assets reside in regions outside China.
+   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-shanghai
@@ -59,7 +59,7 @@ export class ListCopilotMessagesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The trace ID, which is used to query specific call information.
+   * The trace ID, which is used to precisely query call information.
    * 
    * @example
    * 550e8400e29b41d4a71644665544****

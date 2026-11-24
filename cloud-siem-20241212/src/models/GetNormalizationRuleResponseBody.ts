@@ -14,8 +14,8 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   /**
    * @remarks
    * Specifies whether to pack non-standard fields into the extended field extend_content. Valid values:
-   * - enabled: Enabled.
-   * - disabled: Disabled.
+   * - enabled: enabled
+   * - disabled: disabled
    * 
    * @example
    * enabled
@@ -23,7 +23,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   extendContentPacked?: string;
   /**
    * @remarks
-   * The storage mode for extended fields. Valid values: flat (ingest as-is), reject (do not ingest), and pack (pack into the extend_content field).
+   * The storage mode for extended fields. Valid values: flat: ingested as-is, reject: not ingested, pack: packed into the extend_content field.
    * 
    * @example
    * flat
@@ -31,7 +31,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   extendFieldStoreMode?: string;
   /**
    * @remarks
-   * The category ID of the normalization rule.
+   * The ID of the normalization rule category.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -39,7 +39,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   normalizationCategoryId?: string;
   /**
    * @remarks
-   * The field source:
+   * The source of the field. Valid values:
    * - "native": raw logs
    * - "normalized": normalized logs
    * 
@@ -126,7 +126,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
    * The version of the normalization rule.
    * 
    * @example
-   * V1
+   * 5
    */
   normalizationRuleVersion?: number;
   /**
@@ -147,9 +147,9 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   normalizationSecurityDomainId?: string;
   /**
    * @remarks
-   * The field used to sort the rule list. Valid values:
-   * - GmtModified: sort by modification time
-   * - Id: sort by rule ID (default)
+   * The field by which the rule list is sorted. Valid values:
+   * - GmtModified: sorts by update time
+   * - Id: sorts by rule ID (default)
    * 
    * @example
    * GmtModified
@@ -157,7 +157,7 @@ export class GetNormalizationRuleResponseBodyNormalizationRule extends $dara.Mod
   orderField?: string;
   /**
    * @remarks
-   * The product ID.
+   * The ID of the product.
    * 
    * @example
    * alibaba_cloud_sas

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataSetRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The dataset ID.
+   * The ID of the dataset.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteDataSetRecordRequest extends $dara.Model {
   dataSetId?: string;
   /**
    * @remarks
-   * The list of dataset record IDs in JSON array format.
+   * The IDs of the dataset records, in JSON array format.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DeleteDataSetRecordRequest extends $dara.Model {
    * @remarks
    * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets are located. Valid values:
    * - cn-hangzhou: Assets are located in the Chinese mainland.
-   * - ap-southeast-1: Assets are located outside the Chinese mainland.
+   * - ap-southeast-1: Assets are located in regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +45,7 @@ export class DeleteDataSetRecordRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user whose perspective the administrator assumes.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****

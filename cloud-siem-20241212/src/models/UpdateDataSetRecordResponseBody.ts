@@ -45,12 +45,12 @@ export class UpdateDataSetRecordResponseBodyDataSetRecordStatistic extends $dara
 export class UpdateDataSetRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the dataset update.
+   * The dataset update results.
    */
   dataSetRecordStatistic?: UpdateDataSetRecordResponseBodyDataSetRecordStatistic;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

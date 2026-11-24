@@ -15,7 +15,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of data records to return in the current read operation.
+   * The maximum number of data records to return in the current request.
    * 
    * @example
    * 50
@@ -23,7 +23,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which the current read operation starts. If you leave this parameter empty, the read operation starts from the beginning.
+   * The token that marks the position from which to start reading. If this parameter is left empty, the reading starts from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -50,7 +50,6 @@ export class CreateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The action type of the automated response rule. Valid values:
-   * 
    * - doPlaybook: Executes a playbook.
    * - changeEventStatus: Updates the event status.
    * - changeThreatLevel: Updates the threat level of the event.
@@ -97,7 +96,6 @@ export class CreateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger type of the automated response rule. Valid values:
-   * 
    * - event: An event occurs.
    * - event_update: An event is updated.
    * - alert: An alert is triggered.
@@ -117,7 +115,6 @@ export class CreateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The view type. Valid values:
-   * 
    * - 0: The view of the current Alibaba Cloud account.
    * - 1: The view of all accounts in the enterprise.
    * 

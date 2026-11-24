@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCopilotConversationRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response messages. Valid values:
+   * The language of the returned message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -31,7 +31,7 @@ export class CreateCopilotConversationRequest extends $dara.Model {
   planMode?: string;
   /**
    * @remarks
-   * The security project ID.
+   * The ID of the security project.
    * 
    * @example
    * project-incident-****
@@ -39,9 +39,9 @@ export class CreateCopilotConversationRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region where the data management center for threat analysis is located. Select the management center region based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Assets are located in the Chinese mainland.
-   * - ap-southeast-1: Assets are located outside China.
+   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Assets reside in the Chinese mainland.
+   * - ap-southeast-1: Assets reside outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -49,7 +49,7 @@ export class CreateCopilotConversationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The thinking mode configuration.
+   * The deep thinking configuration.
    * 
    * @example
    * enabled
@@ -57,10 +57,10 @@ export class CreateCopilotConversationRequest extends $dara.Model {
   thinkingMode?: string;
   /**
    * @remarks
-   * The session title.
+   * The title of the session.
    * 
    * @example
-   * Security incident investigation
+   * Security event investigation
    */
   title?: string;
   /**

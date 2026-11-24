@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The export task parameters, which are concatenated based on query conditions in JSON format.
+   * The parameters of the export task. The parameters are concatenated based on query conditions and formatted in JSON.
    * 
    * @example
    * {
@@ -19,7 +19,7 @@ export class CreateExportTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The export type. Valid values:
-   * - incident_list: Event list.
+   * - incident_list: incident list.
    * 
    * @example
    * incident_list
@@ -27,10 +27,10 @@ export class CreateExportTaskRequest extends $dara.Model {
   exportTaskType?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
-   * > Note: This parameter is required. If you do not specify this parameter, the API returns a 400 error: "The specified Lang can not be empty."
+   * Note: This parameter is required. If it is not provided, the API returns a 400 error with the message "The specified Lang can not be empty.".
    * 
    * @example
    * zh
@@ -38,9 +38,9 @@ export class CreateExportTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region where the threat analysis data management center resides. Specify the management center region based on the region of your assets. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside outside China.
+   * The region of the data management center for Threat Analysis. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -48,7 +48,7 @@ export class CreateExportTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member to which the administrator switches the view.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****

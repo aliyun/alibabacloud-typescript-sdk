@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertResponseBodyAlert extends $dara.Model {
   /**
    * @remarks
-   * The alert content.
+   * The content of the alert.
    * 
    * @example
    * {***}
@@ -13,7 +13,7 @@ export class GetAlertResponseBodyAlert extends $dara.Model {
   alertRecord?: string;
   /**
    * @remarks
-   * The alert UUID.
+   * The UUID of the alert.
    * 
    * @example
    * sas_1175554881779200_e59368b3ce1690eae7978f7712a69050
@@ -45,14 +45,14 @@ export class GetAlertResponseBodyAlert extends $dara.Model {
 export class GetAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * If this value is true, the minor engine version is not the latest version.
+   * Indicates whether the minor version is not the latest version.
    * 
-   * > If the minor engine version of your server is not the latest version, the sampling logs may be inaccurate, which causes imprecise IP statistics. We recommend that you upgrade the minor engine version at your earliest convenience.
+   * > If the minor version of your server is not the latest, the sampled logs may be inaccurate, resulting in inaccurate IP address statistics. Therefore, we recommend that you upgrade the minor version of your server as soon as possible.
    */
   alert?: GetAlertResponseBodyAlert;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

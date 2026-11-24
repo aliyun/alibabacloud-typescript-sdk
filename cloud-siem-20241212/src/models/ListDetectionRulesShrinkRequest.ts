@@ -80,9 +80,9 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the detection rule. Valid values:
-   * - preset: Preset detection rule.
-   * - custom: Custom detection rule.
-   * - custom_template: Rule template.
+   * - preset: Preset detection rules.
+   * - custom: Custom detection rules.
+   * - custom_template: Rule templates.
    * 
    * @example
    * preset
@@ -91,10 +91,10 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The event summaries type. Valid values:
-   * - none: No event is generated.
+   * - none: No events are generated.
    * - graph_compute: Graph computing (supported by preset rules).
    * - expert: Expert rules.
-   * - passthrough: Alerting pass-through (one-to-one).
+   * - passthrough: alerting pass-through (one-to-one).
    * - window: Similar aggregation (window).
    * 
    * @example
@@ -107,7 +107,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
-   * Note: This parameter is required in actual calls. If it is not provided, the service returns a 400 error "The specified Lang can not be empty.". Explicitly specify the language code.
+   * Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error with the message "The specified Lang can not be empty." Explicitly pass the language code.
    * 
    * @example
    * zh
@@ -131,12 +131,12 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   logSchemaId?: string;
   /**
    * @remarks
-   * The collection of log schema IDs, which matches any schema by its full ID. If this parameter is not provided, this condition is not applied. If an empty array is explicitly provided, zero records are returned. If both this parameter and LogSchemaId are provided, the intersection is used.
+   * The collection of log schema IDs, which matches any schema by its full ID. If this parameter is not provided, this condition is not applied. If an explicit empty array is provided, zero records are returned. If both this parameter and LogSchemaId are provided, the intersection is used.
    */
   logSchemaIdsShrink?: string;
   /**
    * @remarks
-   * The maximum number of data entries to return in this request.
+   * The maximum number of results to return in this request.
    * 
    * @example
    * 50
@@ -152,8 +152,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort direction. Valid values:
-   * 
+   * The sorting direction. Valid values:
    * - **asc**: Ascending order. This is the default value.
    * - **desc**: Descending order.
    * 
@@ -189,7 +188,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * The region where the data management center for Threat Analysis is located. Select the region of the management center based on the region where your assets reside. Valid values:
    * - cn-hangzhou: The assets are located in the Chinese mainland.
    * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
@@ -199,7 +198,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user whose perspective the administrator switches to.
+   * The ID of the user whose perspective the administrator assumes.
    * 
    * @example
    * 113091674488****

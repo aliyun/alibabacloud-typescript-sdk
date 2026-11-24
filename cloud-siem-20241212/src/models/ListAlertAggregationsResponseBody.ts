@@ -16,7 +16,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCoun
    * The default right value displayed for the whitelist rule.
    * 
    * @example
-   * Test-Qiantu System AI
+   * 10
    */
   value?: number;
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts exte
    * The right value.
    * 
    * @example
-   * 123.123.123.123
+   * 11
    */
   value?: number;
   static names(): { [key: string]: string } {
@@ -90,12 +90,12 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   accountDisplayValues?: string[];
   /**
    * @remarks
-   * The list of IDs of the member accounts for which the report is generated. Note: You only need to specify this parameter when you generate a multi-account report and want to generate a report for a specified range of accounts.
+   * The list of IDs of member accounts for which the report is generated. Note: This parameter is required only when you generate a multi-account report and want to generate the report for a specified range of accounts.
    */
   accountIds?: string[];
   /**
    * @remarks
-   * The unique identifier of the aggregation group. It is concatenated by AggregationType, PrimaryValue, and SecondaryValue with colons (:). If there is no secondary aggregation value, the last segment is empty.
+   * The unique identifier of the aggregation group. It is concatenated by AggregationType, PrimaryValue, and SecondaryValue with colons (:). If no secondary aggregation value exists, the last segment is empty.
    * 
    * @example
    * vendor_product:alibaba_cloud:sas
@@ -111,7 +111,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   aggregationType?: string;
   /**
    * @remarks
-   * The number of consecutive failures. This parameter is optional.
+   * The number of consecutive failures. This field is optional.
    * 
    * @example
    * 25
@@ -124,7 +124,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   attackStages?: string[];
   /**
    * @remarks
-   * The distribution of alert counts by defense action in the aggregation group. Name is the value of the action field, and Value is the corresponding alert count.
+   * The distribution of the number of alerts in the aggregation group, counted by defense action. Name is the value of the action field, and Value is the corresponding number of alerts.
    */
   defenseActionCounts?: ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCounts[];
   /**
@@ -145,7 +145,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   latestTime?: number;
   /**
    * @remarks
-   * The display text of the primary aggregation value. For account aggregation, it returns "Username/Account ID". If there is no valid username, only the account ID is returned. For event summaries, it returns the event name based on Lang. If the name is missing, the event UUID is returned.
+   * The display text of the primary aggregation value. For account aggregation, "Username/Account ID" is returned. If no valid username exists, only the account ID is returned. For event summaries, the event name is returned based on Lang. If the name is missing, the event UUID is returned.
    * 
    * @example
    * Test incident
@@ -170,13 +170,12 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   /**
    * @remarks
    * The collection of event source codes.
-   * 
-   * > Example: [\\"MRM\\"]
+   * > Example: [\\\\\\"MRM\\\\\\"]
    */
   sourceCodes?: string[];
   /**
    * @remarks
-   * The distribution of alert counts by alert status in the aggregation group. Name is the alert status value, and Value is the corresponding alert count.
+   * The distribution of the number of alerts in the aggregation group, counted by alert status. Name is the alert status value, and Value is the corresponding number of alerts.
    */
   statusCounts?: ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts[];
   static names(): { [key: string]: string } {
@@ -247,12 +246,12 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
 export class ListAlertAggregationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of alert groups returned based on the specified aggregation method, sorted by alert count in descending order.
+   * The list of alert groups returned based on the specified aggregation method, sorted in descending order of the number of alerts.
    */
   alertAggregations?: ListAlertAggregationsResponseBodyAlertAggregations[];
   /**
    * @remarks
-   * The maximum number of entries returned in this request.
+   * The maximum number of entries returned for this request.
    * 
    * @example
    * 50
@@ -268,7 +267,7 @@ export class ListAlertAggregationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -284,7 +283,7 @@ export class ListAlertAggregationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

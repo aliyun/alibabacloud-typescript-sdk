@@ -16,7 +16,7 @@ export class ListCopilotMessagesResponseBodyItems extends $dara.Model {
    * The sent content.
    * 
    * @example
-   * The correlation analysis of alerts and network logs has been completed
+   * The correlation analysis of alerts and network logs is complete
    */
   content?: string;
   /**
@@ -106,7 +106,7 @@ export class ListCopilotMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The API version.
-   * >You can call the [DescribeGroupProductions](~~DescribeGroupProductions~~) operation to obtain this parameter.
+   * > You can call the [DescribeGroupProductions](~~DescribeGroupProductions~~) operation to obtain this parameter.
    * 
    * @example
    * v1.2
@@ -114,12 +114,12 @@ export class ListCopilotMessagesResponseBody extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * The list of conversation messages.
+   * The list of session messages.
    */
   items?: ListCopilotMessagesResponseBodyItems[];
   /**
    * @remarks
-   * The maximum amount of data read in this query.
+   * The maximum amount of data read in the current request.
    * 
    * @example
    * 50
@@ -127,7 +127,7 @@ export class ListCopilotMessagesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token for the start of the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateProductResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The product ID.
-   * 
-   * @example
-   * alibaba_cloud_sas
-   */
   productId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
