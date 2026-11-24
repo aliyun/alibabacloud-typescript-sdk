@@ -34,7 +34,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The name of the model API.
+   * The model API name.
    * 
    * @example
    * testName
@@ -90,7 +90,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the model API.
+   * The model API status.
    * 
    * @example
    * Enable

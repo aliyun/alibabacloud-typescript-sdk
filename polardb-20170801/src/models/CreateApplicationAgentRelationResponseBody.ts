@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationAgentRelationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Squad application.
+   * The ID of the squad application.
    * 
    * @example
    * pa-xxx

@@ -115,6 +115,7 @@ class DescribeCostRulesResponseBody extends $dara.Model {
             pageRecordCount: 'PageRecordCount',
             pageSize: 'PageSize',
             requestId: 'RequestId',
+            totalPages: 'TotalPages',
             totalRecordCount: 'TotalRecordCount',
         };
     }
@@ -125,6 +126,7 @@ class DescribeCostRulesResponseBody extends $dara.Model {
             pageRecordCount: 'number',
             pageSize: 'number',
             requestId: 'string',
+            totalPages: 'number',
             totalRecordCount: 'number',
         };
     }

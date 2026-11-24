@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateApplicationAgentRelationRequest extends $dara.Model {
     /**
      * @remarks
-     * The instance ID of the Agent to attach.
+     * The instance ID of the agent to attach.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class CreateApplicationAgentRelationRequest extends $dara.Model {
     agentId?: string;
     /**
      * @remarks
-     * The ID of the Squad application.
+     * The ID of the squad application.
      *
      * This parameter is required.
      *

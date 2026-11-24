@@ -13,7 +13,7 @@ export class DescribeGatewayListRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The gateway description.
+   * The description of the gateway.
    * 
    * @example
    * test

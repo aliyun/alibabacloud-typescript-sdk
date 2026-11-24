@@ -29,6 +29,7 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class DescribeGatewayListResponseBodyItems extends $dara.Model {
     static names() {
         return {
+            autoExpireTime: 'AutoExpireTime',
             createTime: 'CreateTime',
             dbType: 'DbType',
             expireTime: 'ExpireTime',
@@ -38,6 +39,7 @@ class DescribeGatewayListResponseBodyItems extends $dara.Model {
             modifyTime: 'ModifyTime',
             payType: 'PayType',
             regionId: 'RegionId',
+            smartRoutingEnabled: 'SmartRoutingEnabled',
             status: 'Status',
             vSwitchId: 'VSwitchId',
             vpcId: 'VpcId',
@@ -45,6 +47,7 @@ class DescribeGatewayListResponseBodyItems extends $dara.Model {
     }
     static types() {
         return {
+            autoExpireTime: 'string',
             createTime: 'string',
             dbType: 'string',
             expireTime: 'string',
@@ -54,6 +57,7 @@ class DescribeGatewayListResponseBodyItems extends $dara.Model {
             modifyTime: 'string',
             payType: 'string',
             regionId: 'string',
+            smartRoutingEnabled: 'boolean',
             status: 'string',
             vSwitchId: 'string',
             vpcId: 'string',

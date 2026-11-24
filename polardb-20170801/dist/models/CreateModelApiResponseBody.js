@@ -29,17 +29,33 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class CreateModelApiResponseBody extends $dara.Model {
     static names() {
         return {
+            category: 'Category',
+            gmtCreated: 'GmtCreated',
+            gmtModified: 'GmtModified',
             invokeEndpoint: 'InvokeEndpoint',
             modelApiId: 'ModelApiId',
+            modelMappings: 'ModelMappings',
+            name: 'Name',
+            pathPrefix: 'PathPrefix',
+            protocol: 'Protocol',
             requestId: 'RequestId',
+            routeRules: 'RouteRules',
             status: 'Status',
         };
     }
     static types() {
         return {
+            category: 'string',
+            gmtCreated: 'string',
+            gmtModified: 'string',
             invokeEndpoint: 'string',
             modelApiId: 'string',
+            modelMappings: 'string',
+            name: 'string',
+            pathPrefix: 'string',
+            protocol: 'string',
             requestId: 'string',
+            routeRules: 'string',
             status: 'string',
         };
     }

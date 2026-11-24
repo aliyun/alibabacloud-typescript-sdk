@@ -29,15 +29,22 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class DeleteCostRuleResponseBody extends $dara.Model {
     static names() {
         return {
+            affectedModelApiIds: 'AffectedModelApiIds',
             requestId: 'RequestId',
+            success: 'Success',
         };
     }
     static types() {
         return {
+            affectedModelApiIds: { 'type': 'array', 'itemType': 'string' },
             requestId: 'string',
+            success: 'boolean',
         };
     }
     validate() {
+        if (Array.isArray(this.affectedModelApiIds)) {
+            $dara.Model.validateArray(this.affectedModelApiIds);
+        }
         super.validate();
     }
     constructor(map) {

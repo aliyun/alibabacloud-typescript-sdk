@@ -57,7 +57,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   embeddingModel?: string;
   /**
    * @remarks
-   * Specifies whether to enforce ACL authentication for the knowledge space.
+   * Specifies whether to enable mandatory ACL authentication for the knowledge space.
    * 
    * @example
    * false
@@ -123,7 +123,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the reranking model.
+   * The name of the rerank model.
    * 
    * @example
    * qwen3-rerank
@@ -153,7 +153,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
    * @remarks
    * The sharding strategy. Valid values:
    * - hierarchical: The default value.
-   * - hybrid.
+   * - hybrid
    * 
    * This parameter is required.
    * 
@@ -163,7 +163,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   shardingStrategy?: string;
   /**
    * @remarks
-   * The ID of the vSwitch for the automatic creation of the database.
+   * The ID of the vSwitch for automatic creation of the database.
    * 
    * This parameter is required.
    * 
@@ -173,7 +173,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC for the automatic creation of the database.
+   * The ID of the VPC for automatic creation of the database.
    * 
    * This parameter is required.
    * 
@@ -183,7 +183,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The active zone for the automatic creation of the database.
+   * The active zone for automatic creation of the database.
    * 
    * This parameter is required.
    * 

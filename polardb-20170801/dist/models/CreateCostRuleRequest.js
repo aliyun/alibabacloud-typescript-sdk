@@ -29,6 +29,7 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class CreateCostRuleRequest extends $dara.Model {
     static names() {
         return {
+            bypassQuotaCheck: 'BypassQuotaCheck',
             cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
             cacheCreationCostPointsPerMillion: 'CacheCreationCostPointsPerMillion',
             effectiveStartTime: 'EffectiveStartTime',
@@ -38,6 +39,7 @@ class CreateCostRuleRequest extends $dara.Model {
             gwClusterId: 'GwClusterId',
             imageCostPointsPerCount: 'ImageCostPointsPerCount',
             inputCostPointsPerMillion: 'InputCostPointsPerMillion',
+            inputTokenTier: 'InputTokenTier',
             inputTokenTiers: 'InputTokenTiers',
             modelName: 'ModelName',
             modelServiceId: 'ModelServiceId',
@@ -48,6 +50,7 @@ class CreateCostRuleRequest extends $dara.Model {
     }
     static types() {
         return {
+            bypassQuotaCheck: 'boolean',
             cacheCostPointsPerMillion: 'string',
             cacheCreationCostPointsPerMillion: 'string',
             effectiveStartTime: 'string',
@@ -57,6 +60,7 @@ class CreateCostRuleRequest extends $dara.Model {
             gwClusterId: 'string',
             imageCostPointsPerCount: 'string',
             inputCostPointsPerMillion: 'string',
+            inputTokenTier: 'string',
             inputTokenTiers: 'string',
             modelName: 'string',
             modelServiceId: 'string',

@@ -23,23 +23,90 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateCostRuleResponseBody = void 0;
+exports.CreateCostRuleResponseBody = exports.CreateCostRuleResponseBodyInputTokenTiers = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
-class CreateCostRuleResponseBody extends $dara.Model {
+class CreateCostRuleResponseBodyInputTokenTiers extends $dara.Model {
     static names() {
         return {
-            costRuleId: 'CostRuleId',
-            requestId: 'RequestId',
+            inputCostPointsPerMillion: 'InputCostPointsPerMillion',
+            tier: 'Tier',
         };
     }
     static types() {
         return {
-            costRuleId: 'string',
-            requestId: 'string',
+            inputCostPointsPerMillion: 'string',
+            tier: 'string',
         };
     }
     validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateCostRuleResponseBodyInputTokenTiers = CreateCostRuleResponseBodyInputTokenTiers;
+class CreateCostRuleResponseBody extends $dara.Model {
+    static names() {
+        return {
+            affectedModelApiIds: 'AffectedModelApiIds',
+            cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
+            cacheCreationCostPointsPerMillion: 'CacheCreationCostPointsPerMillion',
+            costRuleId: 'CostRuleId',
+            effectiveEndTime: 'EffectiveEndTime',
+            effectiveStartTime: 'EffectiveStartTime',
+            effectiveTargetType: 'EffectiveTargetType',
+            effectiveTargetValue: 'EffectiveTargetValue',
+            explicitCacheCostPointsPerMillion: 'ExplicitCacheCostPointsPerMillion',
+            gmtCreated: 'GmtCreated',
+            gmtModified: 'GmtModified',
+            gwClusterId: 'GwClusterId',
+            imageCostPointsPerCount: 'ImageCostPointsPerCount',
+            inputCostPointsPerMillion: 'InputCostPointsPerMillion',
+            inputTokenTier: 'InputTokenTier',
+            inputTokenTiers: 'InputTokenTiers',
+            modelName: 'ModelName',
+            modelServiceId: 'ModelServiceId',
+            modelServiceName: 'ModelServiceName',
+            outputCostPointsPerMillion: 'OutputCostPointsPerMillion',
+            requestId: 'RequestId',
+            videoCostPointsPerSecond: 'VideoCostPointsPerSecond',
+        };
+    }
+    static types() {
+        return {
+            affectedModelApiIds: { 'type': 'array', 'itemType': 'string' },
+            cacheCostPointsPerMillion: 'string',
+            cacheCreationCostPointsPerMillion: 'string',
+            costRuleId: 'string',
+            effectiveEndTime: 'string',
+            effectiveStartTime: 'string',
+            effectiveTargetType: 'string',
+            effectiveTargetValue: 'string',
+            explicitCacheCostPointsPerMillion: 'string',
+            gmtCreated: 'string',
+            gmtModified: 'string',
+            gwClusterId: 'string',
+            imageCostPointsPerCount: 'string',
+            inputCostPointsPerMillion: 'string',
+            inputTokenTier: 'string',
+            inputTokenTiers: { 'type': 'array', 'itemType': CreateCostRuleResponseBodyInputTokenTiers },
+            modelName: 'string',
+            modelServiceId: 'string',
+            modelServiceName: 'string',
+            outputCostPointsPerMillion: 'string',
+            requestId: 'string',
+            videoCostPointsPerSecond: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.affectedModelApiIds)) {
+            $dara.Model.validateArray(this.affectedModelApiIds);
+        }
+        if (Array.isArray(this.inputTokenTiers)) {
+            $dara.Model.validateArray(this.inputTokenTiers);
+        }
         super.validate();
     }
     constructor(map) {

@@ -5,9 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
+   * The cumulative expiration time of the smart routing benefit. The time follows the ISO 8601 standard and is displayed in UTC. If smart routing is not enabled, this parameter may be omitted or set to null.
+   * 
+   * @example
+   * 2026-12-09T06:43:33Z
+   */
+  autoExpireTime?: string;
+  /**
+   * @remarks
    * The creation time.
    * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -27,7 +35,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
    * - If the billing method of the cluster is subscription, the actual expiration time is returned.
    * - If the billing method of the cluster is pay-as-you-go, an empty value is returned.
    * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2028-09-01T16:00:00Z
@@ -55,7 +63,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The gateway description.
+   * The description of the gateway.
    * 
    * @example
    * pg-xxxxxx
@@ -65,7 +73,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
    * @remarks
    * The last modification time.
    * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2024-10-29T09:31:37Z
@@ -92,10 +100,18 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * Indicates whether smart routing is enabled for the instance. This value is returned by ApsaraDB based on the benefit validity period. A value of true does not indicate that the data plane is healthy.
+   * 
+   * @example
+   * true
+   */
+  smartRoutingEnabled?: boolean;
+  /**
+   * @remarks
    * The application status. Valid values:
    * 
-   * - CREATE: being created.
-   * - ACTIVATION: running.
+   * - CREATE: creating
+   * - ACTIVATION: running
    * 
    * @example
    * ACTIVATION
@@ -103,7 +119,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-wz9u0v2yuskt1gth3uuju
@@ -111,7 +127,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-****************
@@ -119,6 +135,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoExpireTime: 'AutoExpireTime',
       createTime: 'CreateTime',
       dbType: 'DbType',
       expireTime: 'ExpireTime',
@@ -128,6 +145,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
       modifyTime: 'ModifyTime',
       payType: 'PayType',
       regionId: 'RegionId',
+      smartRoutingEnabled: 'SmartRoutingEnabled',
       status: 'Status',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -136,6 +154,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoExpireTime: 'string',
       createTime: 'string',
       dbType: 'string',
       expireTime: 'string',
@@ -145,6 +164,7 @@ export class DescribeGatewayListResponseBodyItems extends $dara.Model {
       modifyTime: 'string',
       payType: 'string',
       regionId: 'string',
+      smartRoutingEnabled: 'boolean',
       status: 'string',
       vSwitchId: 'string',
       vpcId: 'string',

@@ -26,7 +26,7 @@ export declare class CreateModelApiRequest extends $dara.Model {
     forceModel?: string;
     /**
      * @remarks
-     * The gateway instance ID. You can obtain this ID from the GwClusterId parameter returned by the CreateGateway operation.
+     * The ID of the gateway instance. You can obtain this ID from the GwClusterId value returned by the CreateGateway operation.
      *
      * This parameter is required.
      *
@@ -41,17 +41,29 @@ export declare class CreateModelApiRequest extends $dara.Model {
      * * **embedding**
      * * **rerank**
      *
-     * This parameter is required.
-     *
      * @example
      * text
      */
     modelCategory?: string;
     /**
      * @remarks
-     * The name of the model API.
+     * The model name mappings, specified as a JSON array string. Each element is in the format of {"Source":"client model name","Target":"upstream model name"}. The Source parameter is matched in a case-insensitive manner and must be unique. The Target parameter retains its original case when forwarded. Both parameters cannot be empty and cannot contain leading or trailing spaces.
      *
-     * This parameter is required.
+     * @example
+     * [{"Source":"client-model-a","Target":"upstream-model-a"},{"Source":"client-model-b","Target":"upstream-model-b"}]
+     */
+    modelMappings?: string;
+    /**
+     * @remarks
+     * The intelligent routing candidate list, specified as a JSON object string. Currently, it only contains AllowedModels, which is a non-empty array of unique model names. The order of the array determines the candidate order. Do not pass the Enabled, cost, or quality tier parameters. Saving candidates does not enable the feature. You must first call the EnableModelRouting operation to obtain the gateway entitlements.
+     *
+     * @example
+     * {"AllowedModels":["deepseek-v4-pro","glm-5.3","glm-5.3-flash"]}
+     */
+    modelRouting?: string;
+    /**
+     * @remarks
+     * The name of the model API.
      *
      * @example
      * test
@@ -60,8 +72,6 @@ export declare class CreateModelApiRequest extends $dara.Model {
     /**
      * @remarks
      * The API path prefix.
-     *
-     * This parameter is required.
      *
      * @example
      * /test
@@ -75,8 +85,6 @@ export declare class CreateModelApiRequest extends $dara.Model {
      * * **anthropic**
      * * **bailian**
      * * **vllm**
-     *
-     * This parameter is required.
      *
      * @example
      * openai
@@ -109,8 +117,6 @@ export declare class CreateModelApiRequest extends $dara.Model {
     /**
      * @remarks
      * The list of routing rules, specified as a JSON array string.
-     *
-     * This parameter is required.
      *
      * @example
      * [

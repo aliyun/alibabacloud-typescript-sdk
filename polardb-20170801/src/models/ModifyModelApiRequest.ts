@@ -46,17 +46,37 @@ export class ModifyModelApiRequest extends $dara.Model {
    * * **embedding**
    * * **rerank**
    * 
-   * This parameter is required.
-   * 
    * @example
    * text
    */
   modelCategory?: string;
   /**
    * @remarks
-   * The API path prefix.
+   * The model name mappings, specified as a JSON array string. Each element is in the format of {"Source":"client model name","Target":"upstream model name"}. If you do not specify this parameter, the current mappings are retained. If you specify "[]", the mappings are cleared. The Source field is matched in a case-insensitive manner and must be unique.
    * 
-   * This parameter is required.
+   * @example
+   * [{"Source":"client-model-a","Target":"upstream-model-a"},{"Source":"client-model-b","Target":"upstream-model-b"}]
+   */
+  modelMappings?: string;
+  /**
+   * @remarks
+   * The intelligent routing candidate list, specified as a JSON object string in the format of {"AllowedModels":["candidate model name"]}. If you do not specify this parameter, the current list is retained. If you specify this parameter, the existing list is fully replaced with the new list. You cannot use an empty list to disable the feature. Saving candidates does not enable the feature. You must call EnableModelRouting first.
+   * 
+   * @example
+   * {"AllowedModels":["deepseek-v4-pro","glm-5.3","glm-5.3-flash"]}
+   */
+  modelRouting?: string;
+  /**
+   * @remarks
+   * The name of the model API. This parameter is modifiable. If you do not specify this parameter, the original name is retained.
+   * 
+   * @example
+   * jev-chat-api
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The API path prefix.
    * 
    * @example
    * /test
@@ -70,8 +90,6 @@ export class ModifyModelApiRequest extends $dara.Model {
    * * **anthropic**
    * * **bailian**
    * * **vllm**
-   * 
-   * This parameter is required.
    * 
    * @example
    * openai
@@ -103,9 +121,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of routing rules, formatted as a JSON array string. Usage notes: Correct the value of FallbackMode in the RouteRules parameter example by replacing it with a valid value or removing the field, and add the list of valid values and their meanings for the FallbackMode subfield to the description of RouteRules.
-   * 
-   * This parameter is required.
+   * The list of routing rules, specified as a JSON array string. Usage note: Correct the value of FallbackMode in the RouteRules parameter example by replacing it with a valid value or removing the field, and add the list of valid values and their descriptions for the FallbackMode subfield in the description of RouteRules.
    * 
    * @example
    * [
@@ -140,6 +156,9 @@ export class ModifyModelApiRequest extends $dara.Model {
       gwClusterId: 'GwClusterId',
       modelApiId: 'ModelApiId',
       modelCategory: 'ModelCategory',
+      modelMappings: 'ModelMappings',
+      modelRouting: 'ModelRouting',
+      name: 'Name',
       pathPrefix: 'PathPrefix',
       protocol: 'Protocol',
       recordInput: 'RecordInput',
@@ -155,6 +174,9 @@ export class ModifyModelApiRequest extends $dara.Model {
       gwClusterId: 'string',
       modelApiId: 'string',
       modelCategory: 'string',
+      modelMappings: 'string',
+      modelRouting: 'string',
+      name: 'string',
       pathPrefix: 'string',
       protocol: 'string',
       recordInput: 'string',

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class AnswerKnowledgeBaseResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The unique identifier of the Q&A task.
+     * The unique identifier of the question answering task.
      *
      * @example
      * R3BGbnBqcXN******.2a5a23c9-******-179970533d30
@@ -18,7 +18,7 @@ export declare class AnswerKnowledgeBaseResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The status of the Q&A task.
+     * The status of the question answering task.
      *
      * @example
      * Running

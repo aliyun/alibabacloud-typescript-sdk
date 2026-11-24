@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class AnswerKnowledgeBaseRequest extends $dara.Model {
     /**
      * @remarks
-     * The unique identifier of the knowledge base. To obtain the ID, first call CreateKnowledgeSpace to create a knowledge space, use the returned KnowledgeSpaceId to call CreateKnowledgeBase, and then use the KnowledgeBaseId returned by CreateKnowledgeBase. Separate multiple knowledge base IDs with commas.
+     * The unique identifier of the knowledge base. To obtain this ID, call CreateKnowledgeSpace to create a knowledge space, use the returned KnowledgeSpaceId to call CreateKnowledgeBase, and then use the KnowledgeBaseId returned by CreateKnowledgeBase. You can specify up to 50 knowledge base IDs separated by commas.
      *
      * This parameter is required.
      *
@@ -25,7 +25,7 @@ export declare class AnswerKnowledgeBaseRequest extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * Summarize this year\\"s financial report
+     * Summarize the financial report for this year
      */
     queryText?: string;
     /**
@@ -80,7 +80,7 @@ export declare class AnswerKnowledgeBaseRequest extends $dara.Model {
     systemPrompt?: string;
     /**
      * @remarks
-     * The number of results to recall.
+     * The number of results to recall during retrieval.
      *
      * @example
      * 10

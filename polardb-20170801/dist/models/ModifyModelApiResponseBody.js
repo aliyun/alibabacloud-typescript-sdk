@@ -29,14 +29,34 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class ModifyModelApiResponseBody extends $dara.Model {
     static names() {
         return {
+            category: 'Category',
+            gmtCreated: 'GmtCreated',
+            gmtModified: 'GmtModified',
             modelApiId: 'ModelApiId',
+            modelMappings: 'ModelMappings',
+            modelRouting: 'ModelRouting',
+            name: 'Name',
+            pathPrefix: 'PathPrefix',
+            protocol: 'Protocol',
             requestId: 'RequestId',
+            routeRules: 'RouteRules',
+            status: 'Status',
         };
     }
     static types() {
         return {
+            category: 'string',
+            gmtCreated: 'string',
+            gmtModified: 'string',
             modelApiId: 'string',
+            modelMappings: 'string',
+            modelRouting: 'string',
+            name: 'string',
+            pathPrefix: 'string',
+            protocol: 'string',
             requestId: 'string',
+            routeRules: 'string',
+            status: 'string',
         };
     }
     validate() {

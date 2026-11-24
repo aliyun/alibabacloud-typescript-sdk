@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCostRulesResponseBodyItemsInputTokenTiers extends $dara.Model {
   /**
    * @remarks
-   * The input cost points per million tokens for the tier.
+   * The input cost points per million tokens for this tier.
    * 
    * @example
    * 1000
@@ -69,7 +69,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   costRuleId?: string;
   /**
    * @remarks
-   * The end time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The effective end time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2026-10-01T00:00:00Z
@@ -77,7 +77,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   effectiveEndTime?: string;
   /**
    * @remarks
-   * The start time of the effective period. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The effective start time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2026-09-01T00:00:00Z
@@ -85,7 +85,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   effectiveStartTime?: string;
   /**
    * @remarks
-   * The type of the effective target.
+   * The effective target type.
    * 
    * @example
    * global
@@ -93,7 +93,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   effectiveTargetType?: string;
   /**
    * @remarks
-   * The value of the effective target.
+   * The effective target value.
    * 
    * @example
    * user
@@ -109,7 +109,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   explicitCacheCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The time when the cost rule was created.
+   * The creation time.
    * 
    * @example
    * 2026-01-04T16:09:29+08:00
@@ -117,7 +117,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the cost rule was last updated.
+   * The last update time.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -278,7 +278,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 30
@@ -286,7 +286,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
+   * The number of records per page. Valid values: 30, 50, and 100. Default value: 30.
    * 
    * @example
    * 30
@@ -302,7 +302,15 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of pages.
+   * 
+   * @example
+   * 3
+   */
+  totalPages?: number;
+  /**
+   * @remarks
+   * The total number of records.
    * 
    * @example
    * 1
@@ -315,6 +323,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
       pageRecordCount: 'PageRecordCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalPages: 'TotalPages',
       totalRecordCount: 'TotalRecordCount',
     };
   }
@@ -326,6 +335,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
       pageRecordCount: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalPages: 'number',
       totalRecordCount: 'number',
     };
   }

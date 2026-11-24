@@ -31,8 +31,12 @@ class DescribeModelApisResponseBodyItems extends $dara.Model {
         return {
             category: 'Category',
             config: 'Config',
+            custinsName: 'CustinsName',
             gmtCreated: 'GmtCreated',
+            gmtModified: 'GmtModified',
             modelApiId: 'ModelApiId',
+            modelMappings: 'ModelMappings',
+            modelRouting: 'ModelRouting',
             name: 'Name',
             pathPrefix: 'PathPrefix',
             protocol: 'Protocol',
@@ -46,8 +50,12 @@ class DescribeModelApisResponseBodyItems extends $dara.Model {
         return {
             category: 'string',
             config: 'string',
+            custinsName: 'string',
             gmtCreated: 'string',
+            gmtModified: 'string',
             modelApiId: 'string',
+            modelMappings: 'string',
+            modelRouting: 'string',
             name: 'string',
             pathPrefix: 'string',
             protocol: 'string',
@@ -73,6 +81,7 @@ class DescribeModelApisResponseBody extends $dara.Model {
             pageRecordCount: 'PageRecordCount',
             pageSize: 'PageSize',
             requestId: 'RequestId',
+            totalPages: 'TotalPages',
             totalRecordCount: 'TotalRecordCount',
         };
     }
@@ -83,6 +92,7 @@ class DescribeModelApisResponseBody extends $dara.Model {
             pageRecordCount: 'number',
             pageSize: 'number',
             requestId: 'string',
+            totalPages: 'number',
             totalRecordCount: 'number',
         };
     }

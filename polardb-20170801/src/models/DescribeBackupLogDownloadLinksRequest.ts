@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupLogDownloadLinksRequest extends $dara.Model {
   /**
    * @remarks
-   * The redo log backup IDs.
+   * The physical log backup IDs.
    * 
-   * > First, invoke DescribeBackupLogs to obtain valid IDs. This parameter is required when you invoke the operation. If omitted, an InvalidArchiveLogIds.Malformed error (HTTP 400) is returned.
+   * > Call DescribeBackupLogs to obtain valid IDs. This parameter is required when you call the operation. If you omit this parameter, the InvalidArchiveLogIds.Malformed error (HTTP 400) is returned.
    * 
    * @example
    * 78167430
@@ -17,7 +17,7 @@ export class DescribeBackupLogDownloadLinksRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * > This parameter is required for the call. If omitted, an InvalidDBClusterId.Malformed error (HTTP 400) is returned.
+   * > This parameter is required when you call the operation. If you omit this parameter, the InvalidDBClusterId.Malformed error (HTTP 400) is returned.
    * 
    * @example
    * pc-**************
@@ -25,7 +25,7 @@ export class DescribeBackupLogDownloadLinksRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The validity period of the download links, in hours. Valid values: 1 to 596523.
+   * The validity period of the download link, in hours. Valid values: 1 to 596523.
    * 
    * @example
    * 3

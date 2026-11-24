@@ -24,12 +24,28 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The ID of the gateway instance to which the model API belongs.
+   * 
+   * @example
+   * pg-2ze3x6i1d7g5rto28
+   */
+  custinsName?: string;
+  /**
+   * @remarks
    * The creation time.
    * 
    * @example
    * 2024-10-16 16:46:20
    */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * The modification time of the model API.
+   * 
+   * @example
+   * 2026-11-09T06:43:33Z
+   */
+  gmtModified?: string;
   /**
    * @remarks
    * The model API IDs.
@@ -40,7 +56,23 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
-   * The name of the model API.
+   * The model name mappings, which is a JSON array string. Each element is in the format of {"Source":"client model name","Target":"upstream model name"}. If not configured, this parameter is empty.
+   * 
+   * @example
+   * [{"Source":"client-model-a","Target":"upstream-model-a"}]
+   */
+  modelMappings?: string;
+  /**
+   * @remarks
+   * The intelligent routing candidate list, which is a JSON object string in the format of {"AllowedModels":["candidate model name"]}. If not configured, this parameter is empty.
+   * 
+   * @example
+   * {"AllowedModels":["deepseek-v4-pro","glm-5.3","glm-5.3-flash"]}
+   */
+  modelRouting?: string;
+  /**
+   * @remarks
+   * The model API name.
    * 
    * @example
    * testName
@@ -68,7 +100,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of input tokens.
+   * The number of input points.
    * 
    * @example
    * 10
@@ -76,7 +108,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * The number of output tokens.
+   * The number of output points.
    * 
    * @example
    * 10
@@ -115,7 +147,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   routeRules?: string;
   /**
    * @remarks
-   * The status of the model API.
+   * The model API status.
    * 
    * @example
    * Enable
@@ -125,8 +157,12 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
     return {
       category: 'Category',
       config: 'Config',
+      custinsName: 'CustinsName',
       gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
       modelApiId: 'ModelApiId',
+      modelMappings: 'ModelMappings',
+      modelRouting: 'ModelRouting',
       name: 'Name',
       pathPrefix: 'PathPrefix',
       protocol: 'Protocol',
@@ -141,8 +177,12 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
     return {
       category: 'string',
       config: 'string',
+      custinsName: 'string',
       gmtCreated: 'string',
+      gmtModified: 'string',
       modelApiId: 'string',
+      modelMappings: 'string',
+      modelRouting: 'string',
       name: 'string',
       pathPrefix: 'string',
       protocol: 'string',
@@ -178,7 +218,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 30
@@ -186,9 +226,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **30**, **50**, and **100**.
-   * 
-   * Default value: **30**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -204,7 +242,15 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of pages.
+   * 
+   * @example
+   * 3
+   */
+  totalPages?: number;
+  /**
+   * @remarks
+   * The total number of records.
    * 
    * @example
    * 1
@@ -217,6 +263,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
       pageRecordCount: 'PageRecordCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalPages: 'TotalPages',
       totalRecordCount: 'TotalRecordCount',
     };
   }
@@ -228,6 +275,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
       pageRecordCount: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalPages: 'number',
       totalRecordCount: 'number',
     };
   }

@@ -10,7 +10,7 @@ export declare class CancelActiveOperationTasksResponseBody extends $dara.Model 
     requestId?: string;
     /**
      * @remarks
-     * The IDs of the O&M events to cancel in batches. Separate multiple IDs with commas (,).
+     * The IDs of the O&M events to be canceled in batches. Separate multiple IDs with commas (,).
      *
      * @example
      * 2355,2352

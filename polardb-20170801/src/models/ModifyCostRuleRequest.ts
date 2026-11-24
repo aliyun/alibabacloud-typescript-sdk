@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCostRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to bypass the quota check. This parameter is optional and has no default value. If omitted, it is not passed through. Both false and true are passed through as-is.
+   * 
+   * @example
+   * false
+   */
+  bypassQuotaCheck?: boolean;
+  /**
+   * @remarks
    * The cache cost points per million tokens. Default value: 0.
    * 
    * @example
@@ -21,7 +29,7 @@ export class ModifyCostRuleRequest extends $dara.Model {
   cacheCreationCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The ID of the cost rule.
+   * The cost rule ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +73,7 @@ export class ModifyCostRuleRequest extends $dara.Model {
   inputCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The input token tiered price (non-cumulative) specified as a JSON array character string. Each element contains Tier and InputCostPointsPerMillion. Valid values for Tier: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+. Example: [{"Tier":"0-32K","InputCostPointsPerMillion":"1200"}]. A non-empty value replaces all existing tiers. If this parameter is not specified or is set to an empty string, the original tiers are retained. An empty array [] is not allowed.
+   * The tiered price for input tokens (non-cumulative). This parameter is a JSON array character string. Each element contains Tier and InputCostPointsPerMillion. Valid values for Tier: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+. Example: [{"Tier":"0-32K","InputCostPointsPerMillion":"1200"}]. If this parameter is not empty, all tiers are replaced. If this parameter is not specified or an empty string is passed, the original tiers are retained. An empty array [] is not allowed.
    * 
    * @example
    * [{"Tier":"0-32K","InputCostPointsPerMillion":"1200"}]
@@ -83,7 +91,7 @@ export class ModifyCostRuleRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The ID of the model service.
+   * The model service ID.
    * 
    * This parameter is required.
    * 
@@ -117,6 +125,7 @@ export class ModifyCostRuleRequest extends $dara.Model {
   videoCostPointsPerSecond?: string;
   static names(): { [key: string]: string } {
     return {
+      bypassQuotaCheck: 'BypassQuotaCheck',
       cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
       cacheCreationCostPointsPerMillion: 'CacheCreationCostPointsPerMillion',
       costRuleId: 'CostRuleId',
@@ -135,6 +144,7 @@ export class ModifyCostRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bypassQuotaCheck: 'boolean',
       cacheCostPointsPerMillion: 'string',
       cacheCreationCostPointsPerMillion: 'string',
       costRuleId: 'string',

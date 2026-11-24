@@ -10,7 +10,7 @@ export declare class CreateActivationCodeResponseBody extends $dara.Model {
     activateAt?: string;
     /**
      * @remarks
-     * The content of the activation code. Decode the Base64-encoded content and save it to the license.lic file for PolarDB to read during startup.
+     * The content of the activation code. Decode this content by using Base64 and save it to the license.lic file for PolarDB to read during startup.
      *
      * @example
      * AAEAA******AAA=
@@ -26,7 +26,7 @@ export declare class CreateActivationCodeResponseBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The time when the activation code expires.
+     * The expiration time.
      *
      * @example
      * 2054-10-09 16:46:20
@@ -34,7 +34,7 @@ export declare class CreateActivationCodeResponseBody extends $dara.Model {
     expireAt?: string;
     /**
      * @remarks
-     * The time when the activation code was created.
+     * The creation time.
      *
      * @example
      * 2024-10-16 16:46:20
@@ -42,7 +42,7 @@ export declare class CreateActivationCodeResponseBody extends $dara.Model {
     gmtCreated?: string;
     /**
      * @remarks
-     * The time when the activation code was updated.
+     * The update time.
      *
      * @example
      * 2024-10-16 16:46:20

@@ -29,6 +29,7 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class ModifyCostRuleRequest extends $dara.Model {
     static names() {
         return {
+            bypassQuotaCheck: 'BypassQuotaCheck',
             cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
             cacheCreationCostPointsPerMillion: 'CacheCreationCostPointsPerMillion',
             costRuleId: 'CostRuleId',
@@ -46,6 +47,7 @@ class ModifyCostRuleRequest extends $dara.Model {
     }
     static types() {
         return {
+            bypassQuotaCheck: 'boolean',
             cacheCostPointsPerMillion: 'string',
             cacheCreationCostPointsPerMillion: 'string',
             costRuleId: 'string',

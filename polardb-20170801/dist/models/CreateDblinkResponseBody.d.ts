@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateDBLinkResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The request ID.
+     * The ID of the request.
      *
      * @example
      * F9F1CB1A-B1D5-4EF5-A53A-************

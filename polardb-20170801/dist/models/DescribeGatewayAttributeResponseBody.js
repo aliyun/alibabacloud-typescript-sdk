@@ -83,6 +83,7 @@ exports.DescribeGatewayAttributeResponseBodySecurityIPArrays = DescribeGatewayAt
 class DescribeGatewayAttributeResponseBody extends $dara.Model {
     static names() {
         return {
+            autoExpireTime: 'AutoExpireTime',
             classCode: 'ClassCode',
             createTime: 'CreateTime',
             currentVersion: 'CurrentVersion',
@@ -100,6 +101,7 @@ class DescribeGatewayAttributeResponseBody extends $dara.Model {
             runningVersion: 'RunningVersion',
             securityIPArrays: 'SecurityIPArrays',
             semanticCacheEnabled: 'SemanticCacheEnabled',
+            smartRoutingEnabled: 'SmartRoutingEnabled',
             status: 'Status',
             vSwitchId: 'VSwitchId',
             vpcId: 'VpcId',
@@ -107,6 +109,7 @@ class DescribeGatewayAttributeResponseBody extends $dara.Model {
     }
     static types() {
         return {
+            autoExpireTime: 'string',
             classCode: 'string',
             createTime: 'string',
             currentVersion: 'string',
@@ -124,6 +127,7 @@ class DescribeGatewayAttributeResponseBody extends $dara.Model {
             runningVersion: 'string',
             securityIPArrays: { 'type': 'array', 'itemType': DescribeGatewayAttributeResponseBodySecurityIPArrays },
             semanticCacheEnabled: 'boolean',
+            smartRoutingEnabled: 'boolean',
             status: 'string',
             vSwitchId: 'string',
             vpcId: 'string',

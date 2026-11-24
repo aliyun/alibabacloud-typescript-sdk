@@ -15,13 +15,13 @@ export class CreateDatabaseZonalRequest extends $dara.Model {
    * @remarks
    * The permissions of the account. Valid values:
    * 
-   * - ReadWrite: read and write permissions.
-   * - ReadOnly: read-only permissions.
-   * - DMLOnly: DML-only permissions.
-   * - DDLOnly: DDL-only permissions.
-   * - ReadIndex: read and index permissions.
+   * - ReadWrite: read and write permissions
+   * - ReadOnly: read-only permissions
+   * - DMLOnly: DML-only permissions
+   * - DDLOnly: DDL-only permissions
+   * - ReadIndex: read-only and index permissions
    * 
-   * Default value: ReadWrite.
+   * If this parameter is not specified, the default value is ReadWrite.
    * 
    * @example
    * ReadWrite
@@ -39,7 +39,7 @@ export class CreateDatabaseZonalRequest extends $dara.Model {
   characterSetName?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and is case-sensitive. It can contain up to 64 ASCII characters.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, and ensure that the value is unique across different requests. The value is case-sensitive and can be up to 64 ASCII characters in length.
    * 
    * @example
    * 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
@@ -75,8 +75,8 @@ export class CreateDatabaseZonalRequest extends $dara.Model {
    * @remarks
    * The description of the database. The description must meet the following requirements:
    * 
-   * - It cannot start with `http://` or `https://`.
-   * - It must be 2 to 256 characters in length.
+   * - cannot start with `http://` or `https://`
+   * - must be 2 to 256 characters in length
    * 
    * @example
    * testdesc
@@ -86,8 +86,8 @@ export class CreateDatabaseZonalRequest extends $dara.Model {
    * @remarks
    * The name of the database. The name must meet the following requirements:
    * 
-   * - It can contain lowercase letters, digits, hyphens (-), and underscores (_).
-   * - It must start with a letter and end with a letter or digit. It can be up to 64 characters in length.
+   * - consists of lowercase letters, digits, hyphens (-), and underscores (_)
+   * - starts with a letter and ends with a letter or digit, and can be up to 64 characters in length
    * 
    * This parameter is required.
    * 

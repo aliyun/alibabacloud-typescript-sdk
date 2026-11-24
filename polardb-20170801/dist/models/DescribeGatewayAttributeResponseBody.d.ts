@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
     /**
      * @remarks
-     * The endpoint address.
+     * The endpoint.
      *
      * @example
      * pg-xxxxx.polardbaigateway.pre.rds.aliyuncs.com
@@ -10,7 +10,7 @@ export declare class DescribeGatewayAttributeResponseBodyEndpoints extends $dara
     address?: string;
     /**
      * @remarks
-     * The ID of the endpoint node.
+     * The ID of the endpoint.
      *
      * @example
      * xxx
@@ -18,7 +18,7 @@ export declare class DescribeGatewayAttributeResponseBodyEndpoints extends $dara
     endpointId?: string;
     /**
      * @remarks
-     * The gateway instance ID.
+     * The instance ID of the gateway.
      *
      * @example
      * pg-xxxxxxx
@@ -26,9 +26,9 @@ export declare class DescribeGatewayAttributeResponseBodyEndpoints extends $dara
     gwClusterId?: string;
     /**
      * @remarks
-     * The type of the endpoint address. Valid values:
+     * The endpoint type. Valid values:
      * - Private: VPC address
-     * - Public: Internet address
+     * - Public: public network address
      *
      * @example
      * Public
@@ -108,7 +108,15 @@ export declare class DescribeGatewayAttributeResponseBodySecurityIPArrays extend
 export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The specification code.
+     * The cumulative expiration time of the smart routing privilege in UTC and ISO 8601 format. This parameter may be omitted or null if smart routing is not enabled.
+     *
+     * @example
+     * 2026-12-09T06:43:33Z
+     */
+    autoExpireTime?: string;
+    /**
+     * @remarks
+     * The instance type code.
      *
      * @example
      * polar.app.g2.medium
@@ -118,7 +126,7 @@ export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
      * @remarks
      * The creation time.
      *
-     * The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+     * The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2020-02-24T11:57:54Z
@@ -151,7 +159,7 @@ export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
      *
      * This parameter is empty when the billing method is Postpaid.
      *
-     * The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+     * The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2027-04-22T16:00:00Z
@@ -161,9 +169,8 @@ export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
      * @remarks
      * Indicates whether the cluster has expired. Valid values:
      *
-     * - true
-     *
-     * - false
+     * - true: The cluster has expired.
+     * - false: The cluster has not expired.
      *
      * @example
      * False
@@ -171,7 +178,7 @@ export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
     expired?: boolean;
     /**
      * @remarks
-     * The gateway instance ID.
+     * The instance ID of the gateway.
      *
      * @example
      * pg-xxxxxxx
@@ -197,7 +204,7 @@ export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
      * @remarks
      * The last modification time.
      *
-     * The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+     * The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2025-10-07T02:19:55Z
@@ -240,14 +247,22 @@ export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
     runningVersion?: string;
     /**
      * @remarks
-     * The application-level whitelist.
+     * The application-level IP whitelist.
      */
     securityIPArrays?: DescribeGatewayAttributeResponseBodySecurityIPArrays[];
     /**
      * @remarks
-     * Indicates whether the semantic cache is enabled. If the semantic cache is disabled or has never been enabled, the value is false.
+     * Indicates whether semantic caching is enabled. If it is disabled or has never been enabled, the value is false.
      */
     semanticCacheEnabled?: boolean;
+    /**
+     * @remarks
+     * Indicates whether smart routing is enabled for the instance. The value is returned by ApsaraDB based on the validity period of the privilege. A value of true does not indicate that the data plane is healthy.
+     *
+     * @example
+     * true
+     */
+    smartRoutingEnabled?: boolean;
     /**
      * @remarks
      * The application status. Valid values:

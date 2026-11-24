@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCostRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to bypass the quota check. This parameter is optional and has no default value. If omitted, it is not passed through. Both false and true are passed through as-is.
+   * 
+   * @example
+   * false
+   */
+  bypassQuotaCheck?: boolean;
+  /**
+   * @remarks
    * The cache read cost points per million tokens. Default value: 0.
    * 
    * @example
@@ -21,7 +29,7 @@ export class CreateCostRuleRequest extends $dara.Model {
   cacheCreationCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The effective start time in the yyyy-MM-dd HH:mm:ss format. If this parameter is not specified, the rule takes effect immediately.
+   * The effective start time in the yyyy-MM-dd HH:mm:ss format. If this parameter is not provided, the rule takes effect immediately.
    * 
    * @example
    * 2026-10-14 00:00:00
@@ -79,7 +87,15 @@ export class CreateCostRuleRequest extends $dara.Model {
   inputCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The tiered price for input tokens (non-cumulative). The value is a JSON array character string. Each element contains Tier and InputCostPointsPerMillion. Valid values for Tier: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+. Example: [{"Tier":"0-32K","InputCostPointsPerMillion":"1000"},{"Tier":"32K-64K","InputCostPointsPerMillion":"1800"}]. If this parameter is specified, it takes precedence over InputCostPointsPerMillion. An empty array [] is not allowed.
+   * The input token tier. An empty string indicates the default tier. If this parameter is omitted, it is processed by the backend.
+   * 
+   * @example
+   * 0-32K
+   */
+  inputTokenTier?: string;
+  /**
+   * @remarks
+   * The tiered price for input tokens (non-cumulative). The value is a JSON array character string. Each element contains Tier and InputCostPointsPerMillion. Valid values for Tier: "" (default tier), 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+. Example: [{"Tier":"0-32K","InputCostPointsPerMillion":"1000"},{"Tier":"32K-64K","InputCostPointsPerMillion":"1800"}]. If this parameter is provided, it takes precedence over InputCostPointsPerMillion. An empty array [] is not allowed.
    * 
    * @example
    * [{"Tier":"0-32K","InputCostPointsPerMillion":"1000"},{"Tier":"32K-64K","InputCostPointsPerMillion":"1800"}]
@@ -131,6 +147,7 @@ export class CreateCostRuleRequest extends $dara.Model {
   videoCostPointsPerSecond?: string;
   static names(): { [key: string]: string } {
     return {
+      bypassQuotaCheck: 'BypassQuotaCheck',
       cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
       cacheCreationCostPointsPerMillion: 'CacheCreationCostPointsPerMillion',
       effectiveStartTime: 'EffectiveStartTime',
@@ -140,6 +157,7 @@ export class CreateCostRuleRequest extends $dara.Model {
       gwClusterId: 'GwClusterId',
       imageCostPointsPerCount: 'ImageCostPointsPerCount',
       inputCostPointsPerMillion: 'InputCostPointsPerMillion',
+      inputTokenTier: 'InputTokenTier',
       inputTokenTiers: 'InputTokenTiers',
       modelName: 'ModelName',
       modelServiceId: 'ModelServiceId',
@@ -151,6 +169,7 @@ export class CreateCostRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bypassQuotaCheck: 'boolean',
       cacheCostPointsPerMillion: 'string',
       cacheCreationCostPointsPerMillion: 'string',
       effectiveStartTime: 'string',
@@ -160,6 +179,7 @@ export class CreateCostRuleRequest extends $dara.Model {
       gwClusterId: 'string',
       imageCostPointsPerCount: 'string',
       inputCostPointsPerMillion: 'string',
+      inputTokenTier: 'string',
       inputTokenTiers: 'string',
       modelName: 'string',
       modelServiceId: 'string',

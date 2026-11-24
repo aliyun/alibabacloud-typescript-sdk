@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
     /**
      * @remarks
-     * The time to live (TTL) for the access time. Unit: seconds.
+     * The time-to-live (TTL) for the access time. Unit: seconds.
      *
      * @example
      * 7200
@@ -10,7 +10,7 @@ export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
     accessTTL?: number;
     /**
      * @remarks
-     * The TTL for the change time. Unit: seconds.
+     * The time-to-live (TTL) for the change time. Unit: seconds.
      *
      * @example
      * 7200
@@ -26,11 +26,9 @@ export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * Specifies whether to enable the rule. Valid values:
-     *
-     * - **True**: The rule immediately applies to new items. This is the default value.
-     *
-     * - **False**: The rule does not apply to new items.
+     * Specifies whether the rule is enabled. Valid values:
+     * - **True**: New events take effect immediately for new resources. This is the default value.
+     * - **False**: New events do not take effect for new resources.
      *
      * @example
      * True
@@ -38,9 +36,8 @@ export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
     enabled?: boolean;
     /**
      * @remarks
-     * The rule to exclude specific paths from matching.
-     *
-     * - A path pattern that starts with a forward slash (/). Supports glob syntax, including `*`, `?`, and `**`.
+     * The matching rule used to exclude specific paths.
+     * - A path pattern that starts with `/`. Glob syntax such as `*`, `?`, and `**` is supported.
      *
      * @example
      * /a/*project*
@@ -48,7 +45,7 @@ export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
     exclude?: string;
     /**
      * @remarks
-     * The limit on the number of files for a user in the directory.
+     * The maximum number of files allowed in the directory.
      *
      * @example
      * 222
@@ -56,9 +53,8 @@ export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
     fileCountLimit?: number;
     /**
      * @remarks
-     * The wildcard pattern to match paths.
-     *
-     * - A path pattern that starts with a forward slash (/). Supports glob syntax, including `*`, `?`, and `**`.
+     * The wildcard pattern used to match paths.
+     * - A path pattern that starts with `/`. Glob syntax such as `*`, `?`, and `**` is supported.
      *
      * This parameter is required.
      *
@@ -86,8 +82,7 @@ export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
     priority?: number;
     /**
      * @remarks
-     * The total size limit for files in the directory. Unit: GB.
-     *
+     * The maximum total capacity of files in the directory. Unit: GB.
      * - Note: The value must be at least 1 GB.
      *
      * @example
@@ -108,7 +103,7 @@ export declare class AddPolarFsQuotaRequestQuotas extends $dara.Model {
 export declare class AddPolarFsQuotaRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the PolarDB instance on which the application depends.
+     * The PolarDB instance ID that the application depends on.
      *
      * @example
      * pc-**************
@@ -116,7 +111,7 @@ export declare class AddPolarFsQuotaRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The ID of the Polarlakebase instance.
+     * The Polarlakebase instance ID.
      *
      * This parameter is required.
      *

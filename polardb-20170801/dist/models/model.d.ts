@@ -18,6 +18,7 @@ export { CreateApplicationRequestTag } from './CreateApplicationRequest';
 export { CreateApplicationShrinkRequestTag } from './CreateApplicationShrinkRequest';
 export { CreateApplicationResponseBodyComponents } from './CreateApplicationResponseBody';
 export { CreateBatchConsumerResponseBodyItems } from './CreateBatchConsumerResponseBody';
+export { CreateCostRuleResponseBodyInputTokenTiers } from './CreateCostRuleResponseBody';
 export { CreateDBClusterRequestTag } from './CreateDbclusterRequest';
 export { CreateDBEndpointAddressRequestZoneInfo } from './CreateDbendpointAddressRequest';
 export { CreateDBNodesRequestDBNode } from './CreateDbnodesRequest';
@@ -479,6 +480,7 @@ export { ModifyApplicationEndpointAddressRequestNewPorts } from './ModifyApplica
 export { ModifyApplicationParameterRequestParameters } from './ModifyApplicationParameterRequest';
 export { ModifyApplicationServerlessConfRequestServerlessConfList } from './ModifyApplicationServerlessConfRequest';
 export { ModifyBackupPolicyRequestAdvancedDataPolicies } from './ModifyBackupPolicyRequest';
+export { ModifyCostRuleResponseBodyInputTokenTiers } from './ModifyCostRuleResponseBody';
 export { ModifyDBNodesClassRequestDBNode } from './ModifyDbnodesClassRequest';
 export { ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupResponseBody';
 export { ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupNameResponseBody';
