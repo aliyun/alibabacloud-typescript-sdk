@@ -8,7 +8,7 @@ export class RestartDBInstanceResponseBodyData extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * cc-bp100p4q1g9z3****
+   * 100001
    */
   DBInstanceID?: number;
   /**
@@ -16,7 +16,7 @@ export class RestartDBInstanceResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * Enterprise edition cluster test
+   * Enterprise Edition cluster test
    */
   DBInstanceName?: string;
   /**

@@ -3813,7 +3813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an ApsaraDB for ClickHouse cluster.
+   * Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - RestartDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3822,8 +3822,16 @@ export default class Client extends OpenApi {
   async restartDBInstanceWithOptions(request: $_model.RestartDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartDBInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.nodeList)) {
+      query["NodeList"] = request.nodeList;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -3848,7 +3856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an ApsaraDB for ClickHouse cluster.
+   * Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - RestartDBInstanceRequest
    * @returns RestartDBInstanceResponse
