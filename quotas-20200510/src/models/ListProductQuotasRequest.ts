@@ -54,7 +54,7 @@ export class ListProductQuotasRequest extends $dara.Model {
   dimensions?: ListProductQuotasRequestDimensions[];
   /**
    * @remarks
-   * The code of the dimension group.
+   * The dimension group code.
    * 
    * @example
    * entconsole_w1j3ms****
@@ -71,7 +71,7 @@ export class ListProductQuotasRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a single request.
+   * The maximum number of entries to return for the current query.
    * 
    * Valid values: 1 to 100. Default value: 30.
    * 
@@ -81,10 +81,10 @@ export class ListProductQuotasRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results.
+   * The token for the next query.
    * 
-   * - Leave this parameter empty for the first request or when no more results are available.
-   * - If more results are available, set this parameter to the NextToken value returned when you invoke the previous API call.
+   * - For the first query or when no subsequent query is required, you do not need to specify this parameter.
+   * - If a subsequent query is required, set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAd****
@@ -92,9 +92,9 @@ export class ListProductQuotasRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the cloud service.
+   * The abbreviated name of the cloud service.
    * 
-   * > For more information about how to obtain the abbreviation of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
+   * > For more information about how to obtain the abbreviated name of a cloud service, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * This parameter is required.
    * 
@@ -104,7 +104,7 @@ export class ListProductQuotasRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the quota.
+   * The quota ID.
    * 
    * @example
    * q_security-groups
@@ -124,7 +124,7 @@ export class ListProductQuotasRequest extends $dara.Model {
    * @remarks
    * The sorting method supported by the quota.
    * 
-   * > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
+   * > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If the Settings are not specified, it is left empty.
    * 
    * @example
    * TIME
@@ -134,7 +134,7 @@ export class ListProductQuotasRequest extends $dara.Model {
    * @remarks
    * The sorting method supported by the quota.
    * 
-   * > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If no Settings are specified, it is left empty.
+   * > This parameter applies only to Elastic Computing Service server instance type quotas (ecs-spec). If the Settings are not specified, it is left empty.
    * 
    * @example
    * Ascending

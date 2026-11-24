@@ -7,7 +7,7 @@ export class ListQuotaApplicationsRequestDimensions extends $dara.Model {
    * @remarks
    * The key of the quota dimension.
    * 
-   * > `Dimensions.N.Key` and `Dimensions.N.Value` must be specified together. The valid values of N depend on the number of dimensions supported by the cloud service. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The length of the returned array is the value of N.
+   * > Dimensions.N.Key and Dimensions.N.Value must be specified at the same time. The value range of N depends on the number of dimensions supported by the corresponding cloud service. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by the cloud service. The length of the returned array is the value of N.
    * 
    * @example
    * regionId
@@ -17,7 +17,7 @@ export class ListQuotaApplicationsRequestDimensions extends $dara.Model {
    * @remarks
    * The value of the quota dimension.
    * 
-   * > `Dimensions.N.Key` and `Dimensions.N.Value` must be specified together. The valid values of N depend on the number of dimensions supported by the cloud service. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The length of the returned array is the value of N.
+   * > Dimensions.N.Key and Dimensions.N.Value must be specified at the same time. The value range of N depends on the number of dimensions supported by the corresponding cloud service. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by the cloud service. The length of the returned array is the value of N.
    * 
    * @example
    * cn-hangzhou
@@ -50,13 +50,13 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   /**
    * @remarks
    * The quota dimensions.
-   * The dimensions are properties of a quota item. A combination of dimensions (Dimensions) and a quota ID (QuotaActionCode) uniquely identifies a quota item.
-   * > Some cloud services require dimensions. You can call [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) to query the quota dimensions supported by a cloud service. The `Requisite` response parameter indicates whether a dimension is required.
+   * The properties of the quota item. The combination of dimensions and the quota ID (QuotaActionCode) uniquely identifies a quota item.
+   * > The dimensions are required for some cloud services. You can call the [ListProductQuotaDimensions](~~ListProductQuotaDimensions~~) operation to query the quota dimensions supported by a cloud service. The Requisite response parameter indicates whether a dimension is required.
    */
   dimensions?: ListQuotaApplicationsRequestDimensions[];
   /**
    * @remarks
-   * The keyword for searching quota increase applications.
+   * The search keyword for quota increase applications.
    * 
    * @example
    * Cluster
@@ -64,7 +64,7 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The maximum number of records to return in this query.
+   * The maximum number of entries to return for the current query.
    * 
    * Valid values: 1 to 200. Default value: 30.
    * 
@@ -74,7 +74,7 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start the query. Leave this parameter empty to query from the beginning.
+   * The pagination token that specifies the start position of the query. An empty value indicates that the query starts from the beginning.
    * 
    * @example
    * 1
@@ -82,7 +82,7 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the cloud service name.
+   * The abbreviation of the cloud service.
    * 
    * @example
    * csk
@@ -98,10 +98,10 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
   quotaActionCode?: string;
   /**
    * @remarks
-   * The quota category. Valid values:
-   * - CommonQuota: general quota.
+   * The quota type. Valid values:
+   * - CommonQuota: General quota.
    * - FlowControl: API rate limit.
-   * - WhiteListLabel: privilege.
+   * - WhiteListLabel: Privilege.
    * 
    * @example
    * CommonQuota
@@ -118,6 +118,8 @@ export class ListQuotaApplicationsRequest extends $dara.Model {
    * - Process: Under review.
    * 
    * - Cancel: Closed.
+   * 
+   * - Withdrawn: Withdrawn.
    * 
    * @example
    * Agree

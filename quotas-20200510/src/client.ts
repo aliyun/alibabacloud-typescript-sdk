@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "quotas";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("quotas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -758,7 +762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取配额使用率概览
+   * Retrieves an overview of quota utilization.
    * 
    * @param request - GetQuotaUtilizationOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -789,7 +793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取配额使用率概览
+   * Retrieves an overview of quota utilization.
    * 
    * @param request - GetQuotaUtilizationOverviewRequest
    * @returns GetQuotaUtilizationOverviewResponse
@@ -1022,7 +1026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas of a specified cloud service.
+   * Queries the list of quotas for a specified cloud service.
    * 
    * @param request - ListProductQuotasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +1093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas of a specified cloud service.
+   * Queries the list of quotas for a specified cloud service.
    * 
    * @param request - ListProductQuotasRequest
    * @returns ListProductQuotasResponse
@@ -1358,7 +1362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of quota increase applications for a member in a resource directory.
+   * Queries the details of quota increase applications for members in a resource directory.
    * 
    * @param request - ListQuotaApplicationsDetailForTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1417,7 +1421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of quota increase applications for a member in a resource directory.
+   * Queries the details of quota increase applications for members in a resource directory.
    * 
    * @param request - ListQuotaApplicationsDetailForTemplateRequest
    * @returns ListQuotaApplicationsDetailForTemplateResponse
@@ -1498,7 +1502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举配额使用率报告
+   * Lists quota utilization reports.
    * 
    * @param request - ListQuotaUtilizationReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1557,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举配额使用率报告
+   * Lists quota utilization reports.
    * 
    * @param request - ListQuotaUtilizationReportRequest
    * @returns ListQuotaUtilizationReportResponse
@@ -1750,7 +1754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起配额使用率报告查询
+   * Initiates a quota usage report query. This API applies only to general quotas.
    * 
    * @param request - StartQuotaUtilizationReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1774,7 +1778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起配额使用率报告查询
+   * Initiates a quota usage report query. This API applies only to general quotas.
    * 
    * @param request - StartQuotaUtilizationReportRequest
    * @returns StartQuotaUtilizationReportResponse
@@ -1850,6 +1854,52 @@ export default class Client extends OpenApi {
   async updateQuotaAlarm(request: $_model.UpdateQuotaAlarmRequest): Promise<$_model.UpdateQuotaAlarmResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateQuotaAlarmWithOptions(request, runtime);
+  }
+
+  /**
+   * Withdraws a quota application.
+   * 
+   * @param request - WithdrawQuotaApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WithdrawQuotaApplicationResponse
+   */
+  async withdrawQuotaApplicationWithOptions(request: $_model.WithdrawQuotaApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.WithdrawQuotaApplicationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      body["Reason"] = request.reason;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "WithdrawQuotaApplication",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.WithdrawQuotaApplicationResponse>(await this.callApi(params, req, runtime), new $_model.WithdrawQuotaApplicationResponse({}));
+  }
+
+  /**
+   * Withdraws a quota application.
+   * 
+   * @param request - WithdrawQuotaApplicationRequest
+   * @returns WithdrawQuotaApplicationResponse
+   */
+  async withdrawQuotaApplication(request: $_model.WithdrawQuotaApplicationRequest): Promise<$_model.WithdrawQuotaApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.withdrawQuotaApplicationWithOptions(request, runtime);
   }
 
 }

@@ -16,7 +16,7 @@ export class ListProductQuotasResponseBodyQuotasPeriod extends $dara.Model {
    * The value of the quota calculation period.
    * 
    * @example
-   * {}
+   * 1
    */
   periodValue?: number;
   static names(): { [key: string]: string } {
@@ -109,11 +109,14 @@ export class ListProductQuotasResponseBodyQuotasUsageMetric extends $dara.Model 
    * 
    * Format: a collection of `key:value` pairs. Example:
    * `{"productCode":"***","metricKey":"***","regionId":"***","label":"***"}`.
+   * 
+   * @example
+   * {"productCode":"ecs"}
    */
   metricDimensions?: { [key: string]: string };
   /**
    * @remarks
-   * The name of the CloudMonitor monitoring metric.
+   * The CloudMonitor metric name.
    * 
    * @example
    * Usage
@@ -121,7 +124,7 @@ export class ListProductQuotasResponseBodyQuotasUsageMetric extends $dara.Model 
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the CloudMonitor monitoring data.
+   * The CloudMonitor monitoring data namespace.
    * 
    * @example
    * acs_quotas_flowcontrol
@@ -166,7 +169,10 @@ export class ListProductQuotasResponseBodyQuotas extends $dara.Model {
   adjustable?: boolean;
   /**
    * @remarks
-   * The range of quota values that can be applied for the current quota item, which serves as a reference for quota applications.
+   * The range of quota values that can be applied for the current quota item. This range is for reference when you apply for a quota.
+   * 
+   * @example
+   * [1010,10000]
    */
   applicableRange?: number[];
   /**
@@ -240,7 +246,7 @@ export class ListProductQuotasResponseBodyQuotas extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the quota.
+   * The quota ID.
    * 
    * @example
    * q_security-groups
@@ -301,7 +307,10 @@ export class ListProductQuotasResponseBodyQuotas extends $dara.Model {
   quotaUnit?: string;
   /**
    * @remarks
-   * The range of quota values supported by the current quota item, which serves as a reference when you configure a quota template.
+   * The range of quota values supported by the current quota item. This range is for reference when you configure a quota template.
+   * 
+   * @example
+   * [1009,10000]
    */
   supportedRange?: number[];
   /**
@@ -434,7 +443,7 @@ export class ListProductQuotasResponseBody extends $dara.Model {
    * Indicates whether a token for the next query is available.
    * 
    * - If NextToken is empty, it indicates that no subsequent query is available.
-   * - If NextToken is returned, the value is the token used to start the next query.
+   * - If NextToken has a return value, the value indicates the token for the next query.
    * 
    * @example
    * AAAAAd****

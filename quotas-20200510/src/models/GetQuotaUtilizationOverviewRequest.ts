@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetQuotaUtilizationOverviewRequest extends $dara.Model {
   /**
+   * @remarks
+   * CommonQuota, FlowControl
+   * 
    * @example
    * CommonQuota
    */

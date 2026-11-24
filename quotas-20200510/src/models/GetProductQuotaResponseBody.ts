@@ -7,15 +7,15 @@ export class GetProductQuotaResponseBodyQuotaPeriod extends $dara.Model {
    * @remarks
    * The unit of the quota period. Valid values:
    * 
-   * - second: Seconds.
+   * - second: seconds
    * 
-   * - minute: Minutes.
+   * - minute: minutes
    * 
-   * - hour: Hours.
+   * - hour: hours
    * 
-   * - day: Days.
+   * - day: days
    * 
-   * - week: Weeks.
+   * - week: weeks
    * 
    * @example
    * day
@@ -65,7 +65,7 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $dara.Model {
    * @remarks
    * The quota unit.
    * 
-   * > The unit varies for each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service servers is count.
+   * > The unit varies with each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service (ECS) servers is count.
    * 
    * @example
    * Count
@@ -73,11 +73,11 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $dara.Model {
   quotaUnit?: string;
   /**
    * @remarks
-   * The quota item type. Valid values:
+   * The type of the quota item. Valid values:
    * 
-   * - BaseQuota: Base quota.
+   * - BaseQuota: base quota
    * 
-   * - ReservedQuota: Reserved quota.
+   * - ReservedQuota: reserved quota
    * 
    * @example
    * BaseQuota
@@ -125,11 +125,14 @@ export class GetProductQuotaResponseBodyQuotaUsageMetric extends $dara.Model {
    * 
    * Format: a collection of `key:value` pairs. Example:
    * `{"productCode":"***","metricKey":"***","regionId":"***","label":"***"}`.
+   * 
+   * @example
+   * {"productCode":"ecs"}
    */
   metricDimensions?: { [key: string]: string };
   /**
    * @remarks
-   * The CloudMonitor metric name.
+   * The name of the CloudMonitor metric.
    * 
    * @example
    * Usage
@@ -137,7 +140,7 @@ export class GetProductQuotaResponseBodyQuotaUsageMetric extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The CloudMonitor metric namespace.
+   * The namespace of the CloudMonitor monitoring data.
    * 
    * @example
    * acs_quotas_flowcontrol
@@ -193,9 +196,9 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
    * @remarks
    * The type of quota adjustment. Valid values:
    * 
-   * - continuous: Continuous.
+   * - continuous: continuous
    * 
-   * - discontinuous: Discontinuous.
+   * - discontinuous: discontinuous
    * 
    * @example
    * continuous
@@ -287,11 +290,11 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   /**
    * @remarks
    * The quota category. Valid values:
-   * - CommonQuota: General quota.
+   * - CommonQuota: general quota
    * 
-   * - FlowControl: API rate limit.
+   * - FlowControl: API rate limit
    * 
-   * - WhiteListLabel: Privilege.
+   * - WhiteListLabel: privilege
    * 
    * @example
    * CommonQuota
@@ -322,9 +325,9 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
    * @remarks
    * The quota type. Valid values:
    * 
-   * - privilege: Privilege.
+   * - privilege: privileged
    * 
-   * - normal: Normal.
+   * - normal: normal
    * 
    * @example
    * normal
@@ -334,7 +337,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
    * @remarks
    * The quota unit.
    * 
-   * > The unit varies for each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service servers is count.
+   * > The unit varies with each quota. For example, the unit of the q_cbdch3 quota (maximum number of clusters) for Container Service for Kubernetes is Cluster, and the unit of the q_security-groups quota (maximum number of security groups) for Elastic Compute Service (ECS) servers is count.
    * 
    * @example
    * Count
@@ -343,6 +346,9 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
   /**
    * @remarks
    * The supported range of quota values for the current quota item, which can be used as a reference when configuring a quota template.
+   * 
+   * @example
+   * [802,1000]
    */
   supportedRange?: number[];
   /**
@@ -371,7 +377,7 @@ export class GetProductQuotaResponseBodyQuota extends $dara.Model {
    * 
    * - limitReached: The quota limit is reached.
    * 
-   * - supportTicketRequired: A ticket must be submitted for the application.
+   * - supportTicketRequired: A ticket is required.
    * 
    * @example
    * limitReached

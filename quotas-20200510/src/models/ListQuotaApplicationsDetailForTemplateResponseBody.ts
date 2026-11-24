@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplicationsPeriod extends $dara.Model {
   /**
    * @remarks
-   * The unit of the calculation cycle.
+   * The unit of the quota calculation period.
    * 
    * @example
    * second
@@ -13,7 +13,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   periodUnit?: string;
   /**
    * @remarks
-   * The value of the calculation cycle.
+   * The value of the quota calculation period.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   aliyunUid?: string;
   /**
    * @remarks
-   * The ID of the quota increase request.
+   * The ID of the quota increase application.
    * 
    * @example
    * b926571d-cc09-4711-b547-58a615f0****
@@ -61,7 +61,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   applicationId?: string;
   /**
    * @remarks
-   * The UTC time when the quota increase request was submitted.
+   * The time when the quota increase application was submitted. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-15T09:13:53Z
@@ -69,7 +69,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   applyTime?: string;
   /**
    * @remarks
-   * The approved quota value.
+   * The approved quota value for the quota increase application.
    * 
    * @example
    * 101
@@ -77,7 +77,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   approveValue?: number;
   /**
    * @remarks
-   * The reason for the approval.
+   * The approval comments for the quota increase application.
    * 
    * @example
    * Agree
@@ -85,7 +85,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   auditReason?: string;
   /**
    * @remarks
-   * The ID of the quota application batch.
+   * The ID of the batch quota application.
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d421a80****
@@ -93,7 +93,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   batchQuotaApplicationId?: string;
   /**
    * @remarks
-   * The requested quota value.
+   * The requested quota value in the quota increase application.
    * 
    * @example
    * 60
@@ -101,7 +101,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   desireValue?: number;
   /**
    * @remarks
-   * The UTC time when the new quota value takes effect.
+   * The time when the quota takes effect. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-15T11:46:25Z
@@ -109,10 +109,9 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   effectiveTime?: string;
   /**
    * @remarks
-   * The language of the alert notification. Valid values:
+   * The language of quota alert notifications. Valid values:
    * 
    * - zh: Chinese.
-   * 
    * - en: English.
    * 
    * @example
@@ -121,7 +120,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   envLanguage?: string;
   /**
    * @remarks
-   * The UTC time when the new quota value expires.
+   * The time when the quota expires. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-17T11:46:25Z
@@ -129,10 +128,9 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether a notification is sent for the quota increase request. Valid values:
+   * Specifies whether to send notifications for the result of the quota increase application. Valid values:
    * 
    * - 0: No.
-   * 
    * - 3: Yes.
    * 
    * @example
@@ -141,12 +139,12 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   noticeType?: number;
   /**
    * @remarks
-   * The calculation cycle of the quota.
+   * The quota calculation period.
    */
   period?: ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplicationsPeriod;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service name.
    * 
    * @example
    * ecs
@@ -171,12 +169,9 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   /**
    * @remarks
    * The quota type. Valid values:
-   * 
    * - CommonQuota (default): General quota.
-   * 
-   * - WhiteListLabel: Privilege quota.
-   * 
-   * - FlowControl: API rate limit quota.
+   * - WhiteListLabel: Privilege.
+   * - FlowControl: API rate limit.
    * 
    * @example
    * CommonQuota
@@ -193,6 +188,9 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   /**
    * @remarks
    * The quota dimensions.
+   * 
+   * @example
+   * {"regionId":"cn-hangzhou"}
    */
   quotaDimension?: { [key: string]: string };
   /**
@@ -213,7 +211,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   quotaUnit?: string;
   /**
    * @remarks
-   * The reason for the quota increase request.
+   * The reason for the quota increase application.
    * 
    * @example
    * Maximum Number of Nodes
@@ -221,15 +219,15 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
   reason?: string;
   /**
    * @remarks
-   * The approval status of the quota increase request. Valid values:
+   * The approval status of the quota increase application. Valid values:
    * 
-   * - Disagree: The request is rejected.
+   * - Disagree: Rejected.
    * 
-   * - Agree: The request is approved.
+   * - Agree: Approved.
    * 
-   * - Process: The request is in review.
+   * - Process: Under review.
    * 
-   * - Cancel: The request is closed.
+   * - Cancel: Closed.
    * 
    * @example
    * Agree
@@ -307,7 +305,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications
 export class ListQuotaApplicationsDetailForTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned for the current query.
+   * The maximum number of entries returned for the current query.
    * 
    * @example
    * 30
@@ -315,7 +313,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBody extends $dara.Mo
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which the next query starts.
+   * The token that specifies the starting position of the query.
    * 
    * @example
    * 1
@@ -323,7 +321,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBody extends $dara.Mo
   nextToken?: string;
   /**
    * @remarks
-   * A list of quota application details.
+   * The list of quota application details.
    */
   quotaApplications?: ListQuotaApplicationsDetailForTemplateResponseBodyQuotaApplications[];
   /**
@@ -336,7 +334,7 @@ export class ListQuotaApplicationsDetailForTemplateResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The total number of records returned for the request.
+   * The total number of entries returned for the current request.
    * 
    * @example
    * 9

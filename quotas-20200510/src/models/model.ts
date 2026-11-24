@@ -140,3 +140,6 @@ export { StartQuotaUtilizationReportResponse } from './StartQuotaUtilizationRepo
 export { UpdateQuotaAlarmRequest } from './UpdateQuotaAlarmRequest';
 export { UpdateQuotaAlarmResponseBody } from './UpdateQuotaAlarmResponseBody';
 export { UpdateQuotaAlarmResponse } from './UpdateQuotaAlarmResponse';
+export { WithdrawQuotaApplicationRequest } from './WithdrawQuotaApplicationRequest';
+export { WithdrawQuotaApplicationResponseBody } from './WithdrawQuotaApplicationResponseBody';
+export { WithdrawQuotaApplicationResponse } from './WithdrawQuotaApplicationResponse';

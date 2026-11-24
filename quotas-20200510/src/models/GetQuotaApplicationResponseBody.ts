@@ -13,7 +13,7 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
   applicationId?: string;
   /**
    * @remarks
-   * The time when the quota increase application was submitted.
+   * The time when the quota increase application was submitted. Format: ISO 8601, UTC time, ending with Z.
    * 
    * @example
    * 2021-01-19T09:25:56Z
@@ -29,7 +29,7 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
   approveValue?: number;
   /**
    * @remarks
-   * The review comments for the quota increase application.
+   * The approval comments for the quota increase application.
    * 
    * @example
    * Agree
@@ -45,17 +45,15 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
   desireValue?: number;
   /**
    * @remarks
-   * The quota dimension.
-   * 
-   * Format: `{"regionId":"region"}`.
+   * The quota dimension. Format: `{"regionId":"region"}`. Example of a region dimension: `{"regionId":"cn-shanghai"}` or `{"regionId":"cn-hangzhou"}`.
    * 
    * @example
-   * ["cn-shanghai","cn-hangzhou"]
+   * {"regionId":"cn-shanghai"}
    */
   dimension?: { [key: string]: any };
   /**
    * @remarks
-   * The effective period of the quota.
+   * The effective period of the quota. Format: YYYY-MM-DD HH:mm:ss, without a time zone identity.
    * 
    * @example
    * 2021-01-19 15:30:00
@@ -63,7 +61,7 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
   effectiveTime?: string;
   /**
    * @remarks
-   * The time when the quota expires.
+   * The time when the quota expires. Format: YYYY-MM-DD HH:mm:ss, without a time zone identifier.
    * 
    * @example
    * 2023-06-29 15:30:00
@@ -73,9 +71,9 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
    * @remarks
    * The notification type. Valid values:
    * 
-   * - 0: no notification
-   * - 1: email notification
-   * - 2: SMS notification
+   * - 0: No notification.
+   * - 1: Email notification.
+   * - 2: SMS notification.
    * 
    * @example
    * 0
@@ -99,7 +97,7 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
   quotaActionCode?: string;
   /**
    * @remarks
-   * The ARN of the quota.
+   * The quota ARN.
    * 
    * @example
    * acs:quotas:cn-hangzhou:120886317861****:quota/ecs/q_security-groups/
@@ -108,9 +106,10 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
   /**
    * @remarks
    * The quota category. Valid values:
-   * - CommonQuota: general quota
-   * - FlowControl: API rate limit
-   * - WhiteListLabel: privilege
+   * 
+   * - CommonQuota: General quota.
+   * - FlowControl: API rate limit.
+   * - WhiteListLabel: Privilege.
    * 
    * @example
    * CommonQuota
@@ -153,11 +152,8 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $dara.Model
    * The approval status of the quota increase application. Valid values:
    * 
    * - Disagree: Rejected.
-   * 
    * - Agree: Approved.
-   * 
    * - Process: Under review.
-   * 
    * - Cancel: Closed.
    * 
    * @example

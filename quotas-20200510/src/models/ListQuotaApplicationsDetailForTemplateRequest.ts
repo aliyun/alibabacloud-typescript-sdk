@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotaApplicationsDetailForTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account for which the quota increase is requested.
+   * The Alibaba Cloud account that submitted the quota increase application.
    * 
    * @example
    * 135048337611****
@@ -13,7 +13,7 @@ export class ListQuotaApplicationsDetailForTemplateRequest extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * The ID of the quota application batch.
+   * The ID of the batch quota application.
    * 
    * @example
    * d314d6ae-867d-484c-9009-3d421a80****
@@ -21,7 +21,7 @@ export class ListQuotaApplicationsDetailForTemplateRequest extends $dara.Model {
   batchQuotaApplicationId?: string;
   /**
    * @remarks
-   * The maximum number of records to return for the current query.
+   * The maximum number of entries to return for the current query.
    * 
    * Valid values: 1 to 100. Default value: 30.
    * 
@@ -31,7 +31,7 @@ export class ListQuotaApplicationsDetailForTemplateRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which the query starts.
+   * The token that specifies the starting position of the query.
    * 
    * > If you do not specify this parameter, the query starts from the beginning.
    * 
@@ -41,9 +41,9 @@ export class ListQuotaApplicationsDetailForTemplateRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
+   * The abbreviation of the cloud service name.
    * 
-   * > For more information about how to obtain the abbreviation of an Alibaba Cloud service name, see the `ProductCode` parameter in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
+   * > For more information about how to obtain the abbreviation of a cloud service name, see `ProductCode` in [ListProducts](https://help.aliyun.com/document_detail/440555.html).
    * 
    * @example
    * ecs
@@ -60,12 +60,9 @@ export class ListQuotaApplicationsDetailForTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The quota type. Valid values:
-   * 
    * - CommonQuota: General quota.
-   * 
-   * - FlowControl: API rate limit quota.
-   * 
-   * - WhiteListLabel: Privilege quota.
+   * - FlowControl: API rate limit.
+   * - WhiteListLabel: Privilege.
    * 
    * @example
    * CommonQuota
@@ -73,15 +70,15 @@ export class ListQuotaApplicationsDetailForTemplateRequest extends $dara.Model {
   quotaCategory?: string;
   /**
    * @remarks
-   * The approval status of the quota increase request. Valid values:
+   * The approval status of the quota increase application. Valid values:
    * 
-   * - Disagree: The request is rejected.
+   * - Disagree: Rejected.
    * 
-   * - Agree: The request is approved.
+   * - Agree: Approved.
    * 
-   * - Process: The request is in review.
+   * - Process: Under review.
    * 
-   * - Cancel: The request is closed.
+   * - Cancel: Closed.
    * 
    * @example
    * Agree

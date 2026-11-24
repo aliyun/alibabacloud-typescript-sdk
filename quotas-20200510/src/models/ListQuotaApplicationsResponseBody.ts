@@ -6,11 +6,11 @@ export class ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod extends $d
   /**
    * @remarks
    * The unit of the quota calculation period. Valid values:
-   * - second: seconds.
-   * - minute: minutes.
-   * - hour: hours.
-   * - day: days.
-   * - week: weeks.
+   * - second: Seconds.
+   * - minute: Minutes.
+   * - hour: Hours.
+   * - day: Days.
+   * - week: Weeks.
    * 
    * @example
    * second
@@ -58,7 +58,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   applicationId?: string;
   /**
    * @remarks
-   * The time when the quota increase application was submitted. The value is in ISO 8601 format, in UTC, and ends with Z.
+   * The time when the quota increase application was submitted. The time follows the ISO 8601 standard and is displayed in UTC, ending with Z.
    * 
    * @example
    * 2021-01-15T09:13:53Z
@@ -66,7 +66,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   applyTime?: string;
   /**
    * @remarks
-   * The approved quota value of the quota increase application.
+   * The approved quota value for the quota increase application.
    * 
    * @example
    * 101
@@ -74,7 +74,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   approveValue?: number;
   /**
    * @remarks
-   * The approval comment for the quota increase application.
+   * The approval comments for the quota increase application.
    * 
    * @example
    * Agree
@@ -82,7 +82,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   auditReason?: string;
   /**
    * @remarks
-   * The remarks of the quota increase application.
+   * The remarks for the quota increase application.
    * 
    * @example
    * test
@@ -90,7 +90,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   comment?: string;
   /**
    * @remarks
-   * The requested quota value of the quota increase application.
+   * The requested quota value for the quota increase application.
    * 
    * @example
    * 101
@@ -106,7 +106,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   dimension?: { [key: string]: any };
   /**
    * @remarks
-   * The effective period of the quota increase application. The value is in ISO 8601 format, in UTC, and ends with Z.
+   * The effective period of the quota increase application. Format: ISO 8601, UTC time, ending with Z.
    * 
    * @example
    * 2021-01-15T11:46:25Z
@@ -114,7 +114,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   effectiveTime?: string;
   /**
    * @remarks
-   * The expiration time of the quota increase application. The value is in ISO 8601 format, in UTC, and ends with Z.
+   * The expiration time of the quota increase application. The time follows the ISO 8601 standard and is displayed in UTC, ending with Z.
    * 
    * @example
    * 2021-01-17T11:46:25Z
@@ -122,7 +122,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   expireTime?: string;
   /**
    * @remarks
-   * Indicates whether a notification is sent for the quota increase application result. Valid values:
+   * Specifies whether to send notifications for the result of the quota increase application. Valid values:
    * 
    * - 0: No.
    * - 3: Yes.
@@ -154,7 +154,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   quotaActionCode?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the quota.
+   * The ARN of the quota.
    * 
    * @example
    * acs:quotas:*:120886317861****:quota/csk/q_i5uzm3
@@ -162,9 +162,9 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
   quotaArn?: string;
   /**
    * @remarks
-   * The quota category. Valid values:
-   * - CommonQuota (default): general quota.
-   * - WhiteListLabel: privilege.
+   * The quota type. Valid values:
+   * - CommonQuota (default): General quota.
+   * - WhiteListLabel: Privilege.
    * - FlowControl: API rate limit.
    * 
    * @example
@@ -287,7 +287,7 @@ export class ListQuotaApplicationsResponseBodyQuotaApplications extends $dara.Mo
 export class ListQuotaApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned in this query.
+   * The maximum number of entries returned for the current query.
    * 
    * @example
    * 1
@@ -295,7 +295,7 @@ export class ListQuotaApplicationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position of the returned data. An empty value indicates that all data has been returned.
+   * The pagination token that specifies the position of the returned data. An empty value indicates that all data has been queried.
    * 
    * @example
    * 1
