@@ -7,7 +7,7 @@ export class DescribeEciScalingConfigurationsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the scaling configuration list. Pages start from 1.
    * 
    * Default value: 1.
    * 
@@ -17,7 +17,7 @@ export class DescribeEciScalingConfigurationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 50.
+   * The number of entries per page for a paged query. Settings for paging: Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -39,21 +39,21 @@ export class DescribeEciScalingConfigurationsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of the scaling configurations that you want to query. You can specify 1 to 10 scaling configuration IDs.
+   * The IDs of the scaling configurations to be queried. You can specify 1 to 10 IDs.
    * 
-   * The IDs of active and inactive scaling configurations are displayed in the query results. You can distinguish between active and inactive scaling configurations based on the value of `LifecycleState`.
+   * The query results include both active and inactive scaling configurations, which are identified by the LifecycleState response parameter.
    */
   scalingConfigurationIds?: string[];
   /**
    * @remarks
-   * The names of the scaling configurations that you want to query. You can specify 1 to 10 scaling configuration names.
+   * The names of the scaling configurations to be queried. You can specify 1 to 10 names.
    * 
-   * The names of inactive scaling configurations are not displayed in the query results, and no error is reported.
+   * Invalid scaling configuration names are ignored in the query results, and no error is reported.
    */
   scalingConfigurationNames?: string[];
   /**
    * @remarks
-   * The ID of the scaling group. You can use the ID to query all scaling configurations in the scaling group.
+   * The ID of the scaling group. You can query all scaling configurations in the scaling group.
    * 
    * @example
    * asg-bp17pelvl720x3v7****

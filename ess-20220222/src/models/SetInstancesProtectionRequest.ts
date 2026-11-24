@@ -13,10 +13,10 @@ export class SetInstancesProtectionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to protect ECS instances from being stopped or removed from the scaling group during scale-ins. Valid values:
+   * Specifies whether to protect the ECS instance from being terminated or removed from the scaling group during automatic scale-in. Valid values: 
    * 
-   * *   true
-   * *   false
+   * - true: Protects the ECS instance.
+   * - false: Does not protect the ECS instance.
    * 
    * This parameter is required.
    * 

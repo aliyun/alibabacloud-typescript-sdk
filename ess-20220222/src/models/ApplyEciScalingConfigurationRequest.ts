@@ -36,13 +36,6 @@ export class ApplyEciScalingConfigurationRequest extends $dara.Model {
    *             - containerPort: 80
    */
   content?: string;
-  /**
-   * @remarks
-   * Optional. Set the value to YAML.
-   * 
-   * @example
-   * YAML
-   */
   format?: string;
   /**
    * @remarks
@@ -54,9 +47,7 @@ export class ApplyEciScalingConfigurationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the scaling configuration.
-   * 
-   * If you want the system to update a scaling configuration of the Elastic Container Instance type based on a YAML configuration file, you must specify `ScalingConfigurationId`. If you do not specify `ScalingConfigurationId`, the system creates a new scaling configuration based on the YAML configuration file.
+   * The ID of the scaling configuration to be updated. Specify ScalingConfigurationId when you update an ECI scaling configuration based on the Content parameter. If you do not specify ScalingConfigurationId, an ECI scaling configuration is created based on the Content parameter.
    * 
    * @example
    * asc-bp1i65jd06v04vdh****

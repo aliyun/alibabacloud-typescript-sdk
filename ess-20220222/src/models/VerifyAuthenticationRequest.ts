@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyAuthenticationRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to check only the authorization status. Valid values:
-   * 
-   * *   true: checks only the authorization status. The service-linked role is not created.
-   * *   false (default): checks the authorization status and resource usage.
+   * Specifies whether to only check the authorization status. Valid values:
+   * - true: Only checks the authorization status and does not create the service-linked role.
+   * - false: Checks the authorization status and resource usage.
+   * Default value: false.
    * 
    * @example
    * false
@@ -19,7 +19,7 @@ export class VerifyAuthenticationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of your Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 12345678123*****

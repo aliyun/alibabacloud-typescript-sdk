@@ -13,7 +13,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups exten
   albServerGroupId?: string;
   /**
    * @remarks
-   * The port number used by an ECS instance as a backend server in the ALB server group.
+   * The port number used by the ECS instance after Auto Scaling adds the ECS instance to the ALB server group.
    * 
    * @example
    * 80
@@ -21,7 +21,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups exten
   port?: number;
   /**
    * @remarks
-   * The weight of an ECS instance as a backend server in the ALB server group.
+   * The weight of the ECS instance as a backend server after Auto Scaling adds the ECS instance to the ALB server group.
    * 
    * @example
    * 100
@@ -55,10 +55,10 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups exten
 export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether pay-as-you-go ECS instances can be automatically created to reach the required number of ECS instances when preemptible ECS instances cannot be created due to high prices or insufficient inventory of resources. This parameter takes effect when you set `MultiAZPolicy` to `COST_OPTIMIZED`. Valid values:
+   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances when the MultiAZPolicy parameter is set to COST_OPTIMIZED and sufficient spot instances cannot be created due to price or inventory reasons. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Allowed.
+   * - false: Not allowed.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * The minimum number of pay-as-you-go instances required in the scaling group. When the actual number of pay-as-you-go instances drops below the minimum threshold, Auto Scaling preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
+   * The minimum number of pay-as-you-go instances required in the scaling group. If the number of pay-as-you-go instances in the scaling group is less than this value, the system preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
    * 
    * @example
    * 0
@@ -74,7 +74,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
   onDemandBaseCapacity?: number;
   /**
    * @remarks
-   * The percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances is reached. `OnDemandBaseCapacity` specifies the minimum number of pay-as-you-go instances required in the scaling group. Valid values: 0 to 100.
+   * The percentage of pay-as-you-go instances among the excess instances after the scaling group meets the minimum number of pay-as-you-go instances specified by OnDemandBaseCapacity. Valid values: 0 to 100.
    * 
    * @example
    * 0
@@ -82,13 +82,12 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * Indicates how prices are compared. Valid values:
+   * The price comparison mode of the cost optimization strategy for the scaling group. Valid values:
+   * - PricePerUnit: Compares prices based on the price per unit of capacity.
    * 
-   * *   PricePerUnit: Prices are compared based on the price per instance capacity.
+   *   The capacity of an instance in the scaling group is equal to the weight set for the instance type. The default weight is 1, which means one ECS instance occupies one unit of capacity.
    * 
-   *     Capacity is determined by the weights assigned to instance types in the scaling group. If no weight is specified, a default weight of 1 is used, meaning each instance is assigned a capacity of 1.
-   * 
-   * *   PricePerVCpu: Prices are compared based on the price per vCPU.
+   * - PricePerVCpu: Compares prices based on the price per vCPU.
    * 
    * @example
    * PricePerUnit
@@ -96,10 +95,10 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
   priceComparisonMode?: string;
   /**
    * @remarks
-   * Specifies whether to replace pay-as-you-go ECS instances with preemptible ECS instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible ECS instances to replace the surplus pay-as-you-go ECS instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go ECS instances if there are not enough preemptible instance types available. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
+   * Specifies whether to use spot instances to replace pay-as-you-go capacity when CompensateWithOnDemand is enabled and the percentage of pay-as-you-go instances exceeds the value of OnDemandPercentageAboveBaseCapacity. In common scenarios where CompensateWithOnDemand downgrades spot instances to pay-as-you-go instances due to spot inventory or price reasons, this feature attempts to use spot instances to replace the excess pay-as-you-go capacity to avoid long-term retention of pay-as-you-go instances. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Allowed.
+   * - false: Not allowed.
    * 
    * @example
    * false
@@ -137,7 +136,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
 export class DescribeScalingGroupsResponseBodyScalingGroupsDBInstances extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database.
+   * The database instance ID.
    * 
    * @example
    * rm-m5eqju85s45mu0***
@@ -145,16 +144,15 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsDBInstances extends $
   DBInstanceId?: string;
   /**
    * @remarks
-   * The IDs of the security groups that are added to the security group whitelist of the attached database.
+   * The list of security group whitelists added to the database by the scaling group.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
    * The type of the database. Valid values:
-   * 
-   * *   RDS.
-   * *   Redis.
-   * *   MongoDB.
+   * - RDS
+   * - Redis
+   * - MongoDB
    * 
    * @example
    * RDS
@@ -191,7 +189,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsDBInstances extends $
 export class DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrides extends $dara.Model {
   /**
    * @remarks
-   * The instance type. The instance type that is specified by this parameter overrides the instance type that is specified in the launch template.
+   * The specified instance type, which overrides the instance type in the launch template.
    * 
    * @example
    * ecs.c5.xlarge
@@ -199,9 +197,8 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrid
   instanceType?: string;
   /**
    * @remarks
-   * The maximum bid price of the instance type that is specified by `LaunchTemplateOverride.InstanceType`.
-   * 
-   * >  This parameter takes effect only if you use `LaunchTemplateId` to specify a launch template.
+   * The maximum hourly price for the instance type specified in the launch template override (namely LaunchTemplateOverride.InstanceType).
+   * > This parameter takes effect only when the LaunchTemplateId parameter is specified.
    * 
    * @example
    * 0.025
@@ -209,7 +206,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrid
   spotPriceLimit?: number;
   /**
    * @remarks
-   * The weight of the instance type. The value of this parameter indicates the capacity of a single instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity.
+   * The weight of the specified instance type, which indicates the capacity of a single instance of this type in the scaling group. A higher weight indicates that fewer instances of this type are required to meet the expected capacity.
    * 
    * @example
    * 4
@@ -243,7 +240,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrid
 export class DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CLB instance.
+   * The ID of the Classic Load Balancer (CLB) instance for load balancing.
    * 
    * @example
    * lb-2zep8alpq5zq1a2xwyxxx
@@ -251,7 +248,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs e
   loadBalancerId?: string;
   /**
    * @remarks
-   * The weight of an ECS instance as a backend server in the CLB server group. An increase in the weight of an ECS instance indicates an increase in the number of access requests that are forwarded to the ECS instance. If you set the weight of an ECS instance to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
+   * The weight of the ECS instance as a backend server after Auto Scaling adds the ECS instance to the SLB server group. A higher weight indicates that more access requests are distributed to the ECS instance. If the weight is 0, the ECS instance does not receive access requests. Valid values: 0 to 100.
    * 
    * @example
    * 10
@@ -283,7 +280,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs e
 export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends $dara.Model {
   /**
    * @remarks
-   * The port number used by each ECS instance in the server group.
+   * The port number used by the ECS instance after Auto Scaling adds the ECS instance to the server group.
    * 
    * @example
    * 80
@@ -300,10 +297,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends 
   /**
    * @remarks
    * The type of the server group. Valid values:
-   * 
-   * *   ALB
-   * *   NLB
-   * *   GWLB
+   * - ALB: Application Load Balancer (ALB).
+   * - NLB: Network Load Balancer (NLB).
+   * - GWLB: Gateway Load Balancer (GWLB).
    * 
    * @example
    * ALB
@@ -311,7 +307,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends 
   type?: string;
   /**
    * @remarks
-   * The weight of an ECS instance as a backend server in the server group.
+   * The weight of the ECS instance as a backend server after Auto Scaling adds the ECS instance to the server group.
    * 
    * @example
    * 100
@@ -347,10 +343,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends 
 export class DescribeScalingGroupsResponseBodyScalingGroupsTags extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the tags of the scaling group can be propagated to instances. Valid values:
-   * 
-   * *   true: The tags of the scaling group can be propagated only to new instances.
-   * *   false: The tags of the scaling group cannot be propagated to instances.
+   * Specifies whether the tag is propagated. Valid values:
+   * - true: Tags on the scaling group are propagated only to newly created instances, but not to existing instances in the scaling group.
+   * - false: Tags on the scaling group are not propagated to instances.
    * 
    * Default value: false.
    * 
@@ -402,7 +397,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsTags extends $dara.Mo
 export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroupsVServerGroupAttributes extends $dara.Model {
   /**
    * @remarks
-   * The port number that is used by the load balancer to provide external services.
+   * The port number used by the load balancing instance to provide services.
    * 
    * @example
    * 22
@@ -410,7 +405,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroupsVServerG
   port?: number;
   /**
    * @remarks
-   * The ID of the backend vServer group.
+   * The attributes of the backend server group.
    * 
    * @example
    * rsp-bp12bjrny****
@@ -418,7 +413,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroupsVServerG
   VServerGroupId?: string;
   /**
    * @remarks
-   * The weight of the backend vServer group.
+   * The weight of the backend server group.
    * 
    * @example
    * 1
@@ -452,7 +447,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroupsVServerG
 export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the load balancer to which the backend vServer group belongs.
+   * The ID of the load balancing instance to which the backend server group belongs.
    * 
    * @example
    * 147b46d767c-cn-qingdao-cm5****
@@ -460,7 +455,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroups extends
   loadBalancerId?: string;
   /**
    * @remarks
-   * The attributes of the backend vServer groups.
+   * The attributes of the backend server group.
    */
   VServerGroupAttributes?: DescribeScalingGroupsResponseBodyScalingGroupsVServerGroupsVServerGroupAttributes[];
   static names(): { [key: string]: string } {
@@ -489,10 +484,264 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroups extends
   }
 }
 
+export class DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfigurationCapacityOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The expected number of pre-warmed instances to cover. The system maintains the sum of the current number of instances in the scaling group and the number of instances in the warm pool at this value.
+   * 
+   * @example
+   * 5
+   */
+  desiredGroupPreparedCapacity?: number;
+  /**
+   * @remarks
+   * The minimum number of instances in the warm pool. The system always retains no less than this number of pre-warmed instances in the warm pool to ensure rapid scale-out from the warm pool at any time.
+   * 
+   * @example
+   * 0
+   */
+  minCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desiredGroupPreparedCapacity: 'DesiredGroupPreparedCapacity',
+      minCapacity: 'MinCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desiredGroupPreparedCapacity: 'number',
+      minCapacity: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfigurationInstanceReusePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether instances are returned to the warm pool when the scaling group scales in.
+   * 
+   * @example
+   * true
+   */
+  reuseOnScaleIn?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      reuseOnScaleIn: 'ReuseOnScaleIn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reuseOnScaleIn: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The capacity configuration of the warm pool.
+   */
+  capacityOptions?: DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfigurationCapacityOptions;
+  /**
+   * @remarks
+   * The instance reuse policy.
+   */
+  instanceReusePolicy?: DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfigurationInstanceReusePolicy;
+  /**
+   * @remarks
+   * The state of instances in the warm pool. Valid values:
+   * 
+   * - Running: The instances are in the running state. Scale-out is faster, but you are charged for the full cost of the instances.
+   * 
+   * - Stopped: The instances are in the economical mode. You are charged only for resources such as cloud disks, elastic IP addresses (EIPs), and snapshots of the instances. However, instance startup may fail during scale-out due to insufficient inventory.
+   * 
+   * @example
+   * Running
+   */
+  poolState?: string;
+  /**
+   * @remarks
+   * The status of the warm pool. Valid values:
+   * 
+   * - Active: Active.
+   * 
+   * - Deleting: Deleting.
+   * 
+   * @example
+   * Active
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacityOptions: 'CapacityOptions',
+      instanceReusePolicy: 'InstanceReusePolicy',
+      poolState: 'PoolState',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacityOptions: DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfigurationCapacityOptions,
+      instanceReusePolicy: DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfigurationInstanceReusePolicy,
+      poolState: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.capacityOptions && typeof (this.capacityOptions as any).validate === 'function') {
+      (this.capacityOptions as any).validate();
+    }
+    if(this.instanceReusePolicy && typeof (this.instanceReusePolicy as any).validate === 'function') {
+      (this.instanceReusePolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupsResponseBodyScalingGroupsZoneShiftOptionsZoneShiftPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The health check behavior in impaired zones. Valid values: 
+   * 
+   * - ReplaceUnhealthy: Unhealthy instances in all zones are replaced normally.
+   * - IgnoreUnhealthy: Unhealthy instances in impaired zones are not replaced. Healthy zones are not affected.
+   * 
+   * @example
+   * ReplaceUnhealthy
+   */
+  impairedZoneHealthCheckBehavior?: string;
+  /**
+   * @remarks
+   * Blocks scale-in triggered by specified types of scaling rules. The blocking scope covers all zones under the scaling group, not just the impaired zones. This prevents false scale-in caused by seemingly improved monitoring metrics due to unreachable instances in impaired zones. Valid values: 
+   * 
+   * - StepScalingRule: Blocks scale-in triggered by step scaling rules. 
+   * - TargetTrackingScalingRule: Blocks scale-in triggered by target tracking scaling rules. 
+   * - None: No blocking.
+   * 
+   * @example
+   * StepScalingRule
+   */
+  scaleInBlockedRuleTypes?: string[];
+  /**
+   * @remarks
+   * Specifies whether scale-out creates instances only in healthy zones during the shift. Valid values: 
+   * 
+   * - true: Scale-out creates instances only in healthy zones and skips impaired zones. 
+   * - false: Scale-out is not restricted by zone and can create instances in any zone under the scaling group.
+   * 
+   * @example
+   * true
+   */
+  scaleOutInHealthyZonesOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      impairedZoneHealthCheckBehavior: 'ImpairedZoneHealthCheckBehavior',
+      scaleInBlockedRuleTypes: 'ScaleInBlockedRuleTypes',
+      scaleOutInHealthyZonesOnly: 'ScaleOutInHealthyZonesOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      impairedZoneHealthCheckBehavior: 'string',
+      scaleInBlockedRuleTypes: { 'type': 'array', 'itemType': 'string' },
+      scaleOutInHealthyZonesOnly: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.scaleInBlockedRuleTypes)) {
+      $dara.Model.validateArray(this.scaleInBlockedRuleTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScalingGroupsResponseBodyScalingGroupsZoneShiftOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The expiration time of the zone shift. After the expiration time, the system automatically ends the shift and restores the related zones. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format.
+   * 
+   * @example
+   * 2026-01-01T12:05Z
+   */
+  expiryTime?: string;
+  /**
+   * @remarks
+   * The list of impaired zone IDs.
+   * 
+   * @example
+   * cn-hangzhou-g
+   */
+  impairedZoneIds?: string[];
+  /**
+   * @remarks
+   * The behavior policy of the scaling group during the zone shift.
+   */
+  zoneShiftPolicy?: DescribeScalingGroupsResponseBodyScalingGroupsZoneShiftOptionsZoneShiftPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      expiryTime: 'ExpiryTime',
+      impairedZoneIds: 'ImpairedZoneIds',
+      zoneShiftPolicy: 'ZoneShiftPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiryTime: 'string',
+      impairedZoneIds: { 'type': 'array', 'itemType': 'string' },
+      zoneShiftPolicy: DescribeScalingGroupsResponseBodyScalingGroupsZoneShiftOptionsZoneShiftPolicy,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.impairedZoneIds)) {
+      $dara.Model.validateArray(this.impairedZoneIds);
+    }
+    if(this.zoneShiftPolicy && typeof (this.zoneShiftPolicy as any).validate === 'function') {
+      (this.zoneShiftPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of ECS instances that are in the In Service state in the scaling group.
+   * The number of ECS instances that have been added to the scaling group and are running normally.
    * 
    * @example
    * 1
@@ -508,15 +757,15 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   activeScalingConfigurationId?: string;
   /**
    * @remarks
-   * The Application Load Balancer (ALB) server groups.
+   * The collection of information about Application Load Balancer (ALB) server groups.
    */
   albServerGroups?: DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups[];
   /**
    * @remarks
-   * The instance allocation policy. Auto Scaling selects instance types based on the allocation policy to create the required number of preemptible instances. The policy is suitable for pay-as-you-go instances and preemptible instances. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+   * The capacity allocation strategy, which determines how the scaling group selects available instance types to meet the capacity requirements. The capacity distribution strategy applies to both pay-as-you-go and spot capacity. This parameter takes effect only when the MultiAZPolicy parameter is set to COMPOSABLE. Valid values:
    * 
-   * *   priority: Auto Scaling adopts the predefined instance type sequence to create the required number of preemptible instances.
-   * *   lowestPrice: Auto Scaling selects instance types that have the most economical vCPU pricing to create the required number of instances.
+   * - priority: Creates instances based on the order of the configured instance types.
+   * - lowestPrice: Creates instances based on the unit vCPU price of the instance types in ascending order.
    * 
    * @example
    * priority
@@ -524,10 +773,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   allocationStrategy?: string;
   /**
    * @remarks
-   * Whether to enable automatic rebalancing for the scaling group. This takes effect only when BalancedOnly is enabled for the scaling group. Valid value:
-   * 
-   * *   false: Auto rebalancing is disabled for the scaling group.
-   * *   true: If Auto rebalancing is enabled, the scaling group automatically detects the capacity of the zone. If the capacity of the zone is unbalanced, the scaling group actively scales out the zone and re-balances the capacity of the zone.
+   * Specifies whether to enable automatic balancing for the scaling group. This parameter takes effect only when BalancedOnly is enabled for the zone balance scaling group. Valid values:
+   * - false: Automatic balancing for the scaling group is disabled.
+   * - true: Automatic balancing for the scaling group is enabled. The scaling group automatically detects the capacity across zones. If the capacity is unbalanced, the scaling group proactively scales in or out to rebalance the capacity across zones.
    * 
    * @example
    * false
@@ -535,10 +783,10 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   autoRebalance?: boolean;
   /**
    * @remarks
-   * Indicates whether instances in the scaling group are evenly distributed across the specified zones. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+   * Specifies whether the capacity of the scaling group is evenly distributed across multiple zones. This parameter takes effect only when the MultiAZPolicy parameter is set to COMPOSABLE. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The capacity of the scaling group is evenly distributed across multiple zones.
+   * - false: The capacity of the scaling group is not evenly distributed across multiple zones.
    * 
    * @example
    * false
@@ -546,10 +794,11 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   azBalance?: boolean;
   /**
    * @remarks
-   * The zone balancing mode. This mode takes effect only when the zone balancing mode is enabled. Valid value:
+   * The zone balance mode. This parameter takes effect only when the zone balance mode is enabled. Valid values:
+   *  
+   * - BalancedBestEffort: If resource creation fails in a zone, the system falls back to other zones to ensure best-effort delivery of resources.
    * 
-   * *   Default value: BalancedBestEffort. If a resource fails to be created in a zone, the resource is downgraded to another zone. This ensures best-effort delivery of the resource.
-   * *   BalancedOnly: If a resource fails to be created in a zone, the resource is not downgraded to another zone. The scale-out activity is partially successful to avoid excessive imbalance of resources in different zones.
+   * - BalancedOnly: If resource creation fails in a zone, the system does not fall back to other zones. The scale-out activity partially succeeds to avoid excessive imbalance of resources across different zones.
    * 
    * @example
    * BalancedBestEffort
@@ -562,10 +811,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   capacityOptions?: DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions;
   /**
    * @remarks
-   * Indicates whether Auto Scaling can create pay-as-you-go instances to supplement preemptible instances if preemptible instances cannot be created due to price-related factors or insufficient inventory when MultiAZPolicy is set to COST_OPTIMIZED. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to automatically create pay-as-you-go instances to meet the requirement for the number of ECS instances when the MultiAZPolicy parameter is set to COST_OPTIMIZED and spot instances cannot be created due to price or inventory issues. Valid values:
+   * - true: Allowed.
+   * - false: Not allowed.
    * 
    * @example
    * true
@@ -573,7 +821,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * The time when the scaling group was created.
+   * The time when the scaling group was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
    * 
    * @example
    * 2014-08-14T10:58Z
@@ -581,7 +829,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   creationTime?: string;
   /**
    * @remarks
-   * >  This parameter is unavailable.
+   * > This parameter is not available.
    * 
    * @example
    * hostname
@@ -589,7 +837,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   currentHostName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the function that is specified in the custom scale-in policy. This parameter takes effect only if you set the first value of RemovalPolicies to CustomPolicy.
+   * The Alibaba Cloud Resource Name (ARN) of the Function Compute function for the custom scale-in policy. This parameter takes effect only when the first removal policy in RemovalPolicies is set to CustomPolicy.
    * 
    * @example
    * acs:fc:cn-zhangjiakou:16145688****:services/ess_custom_terminate_policy.LATEST/functions/ess_custom_terminate_policy_name
@@ -597,17 +845,17 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   customPolicyARN?: string;
   /**
    * @remarks
-   * The IDs of the ApsaraDB RDS instances that are attached to the scaling group.
+   * The IDs of the ApsaraDB RDS instances associated with the scaling group.
    */
   DBInstanceIds?: string[];
   /**
    * @remarks
-   * The databases that are attached to the scaling group.
+   * The list of databases associated with the scaling group.
    */
   DBInstances?: DescribeScalingGroupsResponseBodyScalingGroupsDBInstances[];
   /**
    * @remarks
-   * The cooldown period of the scaling group. During the cooldown period, Auto Scaling does not execute the scaling activities that are triggered by [CloudMonitor](https://help.aliyun.com/document_detail/35170.html) event-triggered tasks.
+   * The default cooldown time of the scaling group. During the cooldown time, the scaling group does not execute any other scaling activity. This parameter takes effect only for a scaling activity triggered by [CloudMonitor](https://help.aliyun.com/document_detail/35170.html) event-triggered tasks.
    * 
    * @example
    * 60
@@ -615,7 +863,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   defaultCooldown?: number;
   /**
    * @remarks
-   * The expected number of ECS instances in the scaling group. Auto Scaling automatically maintains the expected number of ECS instances.
+   * The expected number of ECS instances in the scaling group. The scaling group automatically maintains the number of ECS instances at the expected number of instances.
    * 
    * @example
    * 5
@@ -623,10 +871,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   desiredCapacity?: number;
   /**
    * @remarks
-   * Indicates whether the Expected Number of Instances feature is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether the expected number of instances feature is enabled. Valid values:
+   * - true: The expected number of instances feature is enabled.
+   * - false: The expected number of instances feature is disabled.
    * 
    * @example
    * false
@@ -634,10 +881,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   enableDesiredCapacity?: boolean;
   /**
    * @remarks
-   * Indicates whether the Deletion Protection feature is enabled for the scaling group. Valid values:
-   * 
-   * *   true: The Deletion Protection feature is enabled for the scaling group. The scaling group cannot be deleted.
-   * *   false: The Deletion Protection feature is disabled for the scaling group.
+   * Indicates whether deletion protection is enabled for the scaling group. Valid values:
+   * - true: Deletion protection is enabled. The scaling group cannot be deleted.
+   * - false: Deletion protection is disabled.
    * 
    * @example
    * true
@@ -645,7 +891,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   groupDeletionProtection?: boolean;
   /**
    * @remarks
-   * The type of instances that are managed by the scaling group.
+   * The type of instances managed by the scaling group.
    * 
    * @example
    * ECS
@@ -654,10 +900,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   /**
    * @remarks
    * The health check mode of the scaling group. Valid values:
-   * 
-   * *   NONE: Auto Scaling does not perform health checks.
-   * *   ECS: Auto Scaling checks the health status of instances in the scaling group. If you want to enable instance health check, you can set the value to ECS, regardless of whether the scaling group is of ECS type or Elastic Container Instance type.
-   * *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of Classic Load Balancer (CLB) instances are not supported as the health check basis for instances in the scaling group.
+   * - NONE: No health check is performed.
+   * - ECS: Health checks are performed on instances in the scaling group. This value is used to enable instance health checks for both ECS and ECI scaling groups.
+   * - LOAD_BALANCER: The health status of instances is determined based on the health check results of load balancing (CLB load balancing is not supported).
    * 
    * @example
    * ECS
@@ -667,14 +912,14 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
    * @remarks
    * The health check mode of the scaling group. Valid values:
    * 
-   * *   NONE: Auto Scaling does not perform health checks.
-   * *   ECS: Auto Scaling checks the health status of instances in the scaling group. If you want to enable instance health check, you can set the value to ECS, regardless of whether the scaling group is of ECS type or Elastic Container Instance type.
-   * *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis for instances in the scaling group.
+   * - NONE: No health check is performed.
+   * - ECS: Health checks are performed on instances in the scaling group. This value is used to enable instance health checks for both ECS and ECI scaling groups.
+   * - LOAD_BALANCER: The health status of instances is determined based on the load balancing health check results (the CLB load balancing type is not currently supported).
    */
   healthCheckTypes?: string[];
   /**
    * @remarks
-   * The number of instances that are initialized before they are added into the scaling group.
+   * The number of instances in the initialization state before scale-out in the scaling group.
    * 
    * @example
    * 0
@@ -682,7 +927,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   initCapacity?: number;
   /**
    * @remarks
-   * >  This parameter is not available for use.
+   * > This parameter is not available.
    * 
    * @example
    * false
@@ -690,7 +935,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   isElasticStrengthInAlarm?: boolean;
   /**
    * @remarks
-   * The ID of the launch template that is used by the scaling group.
+   * The ID of the launch template used by the scaling group.
    * 
    * @example
    * lt-m5e3ofjr1zn1aw7****
@@ -698,12 +943,12 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   launchTemplateId?: string;
   /**
    * @remarks
-   * The instance types that are extended in the launch template.
+   * The instance type information that extends the launch template.
    */
   launchTemplateOverrides?: DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrides[];
   /**
    * @remarks
-   * The version of the launch template that is used by the scaling group.
+   * The version of the launch template used by the scaling group.
    * 
    * @example
    * Default
@@ -711,11 +956,10 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   launchTemplateVersion?: string;
   /**
    * @remarks
-   * The status of the scaling group. Valid values:
-   * 
-   * *   Active: The scaling group is active. Active scaling groups can receive requests to execute scaling rules and trigger scaling activities.
-   * *   Inactive: The scaling group is in the Disabled state. Disabled scaling groups cannot receive requests to execute scaling rules.
-   * *   Deleting: The scaling group is being deleted. Scaling groups that are being deleted cannot receive requests to execute scaling rules, and the parameter settings of the scaling groups cannot be modified.
+   * The lifecycle state of the scaling group. Valid values:
+   * - Active: The scaling group is active. Only active scaling groups can accept requests to execute scaling rules and trigger a scaling activity.
+   * - Inactive: The scaling group is inactive. Inactive scaling groups do not receive any requests to execute scaling rules.
+   * - Deleting: The scaling group is being deleted. Scaling groups in the deleting state do not receive any requests to execute scaling rules, and their parameters cannot be modified.
    * 
    * @example
    * Active
@@ -723,31 +967,31 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   lifecycleState?: string;
   /**
    * @remarks
-   * The load balancer configurations.
+   * The list of load balancing configurations.
    */
   loadBalancerConfigs?: DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs[];
   /**
    * @remarks
-   * The IDs of the load balancers that are attached to the scaling group.
+   * The list of IDs of the load balancing instances associated with the scaling group.
    */
   loadBalancerIds?: string[];
   /**
    * @remarks
-   * The maximum life span of each ECS instance in the scaling group. Unit: seconds.
+   * The maximum lifetime of an instance in the scaling group. Unit: seconds.
    * 
-   * Valid values: 0 or `[86400, Integer.maxValue]`. A value of 0 for MaxInstanceLifetime indicates that a previously set limit has been removed. This effectively disables the maximum instance lifetime constraint.
+   * Valid values: 0 or [86400, Integer.maxValue]. A value of 0 indicates that the configured value of MaxInstanceLifetime is cleared, which means MaxInstanceLifetime is not configured.
    * 
    * Default value: null.
    * 
-   * >  This parameter is not supported by scaling groups of the Elastic Container Instance type and scaling groups whose ScalingPolicy is set to Recycle.
+   * >This parameter is not supported for scaling groups of the Elastic Container Instance (ECI) type or scaling groups that have the No Fees for Stopped Instances feature enabled.
    * 
    * @example
-   * null
+   * 86400
    */
   maxInstanceLifetime?: number;
   /**
    * @remarks
-   * The maximum number of ECS instances that can be contained in the scaling group.
+   * The maximum number of ECS instances in the scaling group.
    * 
    * @example
    * 2
@@ -755,7 +999,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   maxSize?: number;
   /**
    * @remarks
-   * The minimum number of ECS instances that must be contained in the scaling group.
+   * The minimum number of ECS instances in the scaling group.
    * 
    * @example
    * 1
@@ -763,7 +1007,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   minSize?: number;
   /**
    * @remarks
-   * The time when the scaling group was last modified.
+   * The time when the scaling group was modified. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
    * 
    * @example
    * 2014-08-14T10:58Z
@@ -771,7 +1015,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   modificationTime?: string;
   /**
    * @remarks
-   * The ID of the CloudMonitor application group that is associated with the scaling group.
+   * The ID of the CloudMonitor application group associated with the scaling group.
    * 
    * @example
    * 1497****
@@ -779,17 +1023,11 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   monitorGroupId?: string;
   /**
    * @remarks
-   * The scaling policy of the ECS instances in the multi-zone scaling group. Valid values:
-   * 
-   * *   PRIORITY: ECS instances are created based on the value of VSwitchIds. If Auto Scaling cannot create ECS instances in the zone where the vSwitch of the highest priority resides, Auto Scaling creates ECS instances in the zone where the vSwitch of the next highest priority resides.
-   * 
-   * *   COST_OPTIMIZED: ECS instances are created based on the unit prices of their vCPUs. Auto Scaling preferentially creates ECS instances whose vCPUs are provided at the lowest price. If preemptible instance types are specified in the scaling configuration, Auto Scaling preferentially creates preemptible instances. You can also specify CompensateWithOnDemand to allow Auto Scaling to create pay-as-you-go instances if preemptible instances cannot be created due to limited stock.
-   * 
-   *     **
-   * 
-   *     **Note** The COST_OPTIMIZED setting takes effect only if your scaling configuration contains multiple instance types or contains preemptible instance types.
-   * 
-   * *   BALANCE: ECS instances are evenly distributed across the zones that are specified for the scaling group. If ECS instances become unevenly distributed across the specified zones due to limited instance type availability, you can call the RebalanceInstance operation to balance the distribution of the ECS instances.
+   * The scale-out and scale-in policy for ECS instances in a multi-zone scaling group. Valid values:
+   * - PRIORITY: Scales out and scales in instances based on the vSwitches defined in VSwitchIds. If ECS instances cannot be created in the active zone of the vSwitch with the highest priority, the system automatically uses the vSwitch with the next highest priority to create ECS instances.
+   * - COST_OPTIMIZED: Attempts to create instances based on the unit price of vCPUs from low to high. When the scaling configuration specifies multiple instance types with the spot billing method, the system preferentially creates spot instances. You can use the CompensateWithOnDemand parameter to specify whether to automatically attempt to create pay-as-you-go instances when spot instances cannot be created due to inventory issues.
+   *     > COST_OPTIMIZED takes effect only when the scaling configuration specifies multiple instance types or uses spot instances.
+   * - BALANCE: Evenly allocates ECS instances across the active zones specified for the scaling group. If the distribution becomes unbalanced due to insufficient inventory, you can call the RebalanceInstance operation to balance the resources.
    * 
    * @example
    * PRIORITY
@@ -797,7 +1035,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   multiAZPolicy?: string;
   /**
    * @remarks
-   * The minimum number of pay-as-you-go instances that must be contained in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances.
+   * The minimum number of pay-as-you-go instances required in the scaling group. Valid values: 0 to 1000. When the number of pay-as-you-go instances in the scaling group is less than this value, the system preferentially creates pay-as-you-go instances.
    * 
    * @example
    * 30
@@ -805,7 +1043,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   onDemandBaseCapacity?: number;
   /**
    * @remarks
-   * The percentage of pay-as-you-go instances in excess when the minimum number of pay-as-you-go instances reaches the threshold. Valid values: 0 to 100.
+   * The percentage of pay-as-you-go instances to be created when the scaling group exceeds the minimum number of pay-as-you-go instances specified by OnDemandBaseCapacity. Valid values: 0 to 100.
    * 
    * @example
    * 20
@@ -813,7 +1051,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The number of ECS instances that are being added to the scaling group and configured.
+   * The number of ECS instances that are being added to the scaling group but have not completed the related configurations.
    * 
    * @example
    * 0
@@ -821,7 +1059,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   pendingCapacity?: number;
   /**
    * @remarks
-   * The number of ECS instances that are in the Pending Add state in the scaling group.
+   * The number of ECS instances that are in the pending wait state in the scaling group.
    * 
    * @example
    * 1
@@ -829,7 +1067,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   pendingWaitCapacity?: number;
   /**
    * @remarks
-   * The number of ECS instances that are in the Protected state in the scaling group.
+   * The number of ECS instances that are in the protected state in the scaling group.
    * 
    * @example
    * 1
@@ -837,7 +1075,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   protectedCapacity?: number;
   /**
    * @remarks
-   * The region ID of the scaling group.
+   * The ID of the region to which the scaling group belongs.
    * 
    * @example
    * cn-qingdao
@@ -845,11 +1083,10 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The instance removal policies. Valid values:
-   * 
-   * *   OldestInstance: Auto Scaling removes ECS instances that are added at the earliest point in time to the scaling group.
-   * *   NewestInstance: Auto Scaling removes ECS instances that are most recently added to the scaling group.
-   * *   OldestScalingConfiguration: Auto Scaling removes ECS instances that are created from the earliest scaling configuration.
+   * The collection of policies for removing ECS instances from the scaling group. Valid values:
+   * - OldestInstance: Removes the ECS instance that was created earliest.
+   * - NewestInstance: Removes the ECS instance that was created latest.
+   * - OldestScalingConfiguration: Removes the ECS instance that was created earliest based on the scaling configuration.
    */
   removalPolicies?: string[];
   /**
@@ -862,7 +1099,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   removingCapacity?: number;
   /**
    * @remarks
-   * The number of ECS instances that are in the Pending Remove state in the scaling group.
+   * The number of ECS instances that are in the removing wait state in the scaling group.
    * 
    * @example
    * 1
@@ -894,13 +1131,11 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   scalingGroupName?: string;
   /**
    * @remarks
-   * The instance reclaim mode of the scaling group. Valid values:
-   * 
-   * *   recycle: economical mode.
-   * *   release: release mode.
-   * *   forcerelease: forced release mode.
-   * 
-   * For more information, see [RemoveInstances](https://help.aliyun.com/document_detail/25955.html).
+   * The reclaim mode of the scaling group. Valid values:
+   * - recycle: The scaling group uses the shutdown and reclaim mode.
+   * - release: The scaling group uses the release mode.
+   * - forcerelease: The scaling group uses the force release mode.
+   * For more information about the actions on removed instances, see [RemoveInstances](https://help.aliyun.com/document_detail/25955.html).
    * 
    * @example
    * recycle
@@ -908,17 +1143,17 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   scalingPolicy?: string;
   /**
    * @remarks
-   * The information about the server groups.
-   * 
-   * >  You can use this parameter to obtain the information about the ALB, NLB, and GWLB server groups associated with a scaling group.
+   * The collection of information about load balancing server groups.
+   * > You can use this parameter to obtain the collection of information about ALB service groups, NLB server groups, and GWLB service groups associated with the scaling group.
+   * >
    */
   serverGroups?: DescribeScalingGroupsResponseBodyScalingGroupsServerGroups[];
   /**
    * @remarks
-   * The allocation policy of preemptible instances. This parameter indicates the manner in which Auto Scaling selects instance types to create the required number of preemptible instances. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
+   * The spot capacity distribution strategy. You can use this parameter to separately specify the distribution strategy for spot capacity. This parameter takes effect only when the MultiAZPolicy parameter is set to COMPOSABLE. Valid values:
    * 
-   * *   priority: Auto Scaling adopts the predefined instance type sequence to create the required number of preemptible instances.
-   * *   lowestPrice: Auto Scaling selects instance types that have the most economical vCPU pricing to create the required number of preemptible instances.
+   * - priority: Creates instances based on the order of the configured instance types.
+   * - lowestPrice: Creates instances based on the unit vCPU price of the instance types in ascending order.
    * 
    * Default value: priority.
    * 
@@ -928,7 +1163,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   spotAllocationStrategy?: string;
   /**
    * @remarks
-   * The number of preemptible instances in the scaling group.
+   * The number of spot instances in the scaling group.
    * 
    * @example
    * 0
@@ -936,7 +1171,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   spotCapacity?: number;
   /**
    * @remarks
-   * The number of instance types in the scaling group. Auto Scaling evenly creates preemptible instances of multiple instance types that are provided at the lowest price across the zones of the scaling group. Valid values: 0 to 10.
+   * The number of available instance types specified. The scaling group evenly creates spot instances based on the most cost-effective instance types. Valid values: 0 to 10.
    * 
    * @example
    * 5
@@ -944,7 +1179,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   spotInstancePools?: number;
   /**
    * @remarks
-   * Indicates whether preemptible instances can be supplemented. If this parameter is set to true, Auto Scaling proactively creates instances to replace the preemptible instances for reclamation when Auto Scaling receives a system notification.
+   * Indicates whether the spot instance replacement feature is enabled. After this feature is enabled, when the scaling group receives a system message indicating that a spot instance will be reclaimed, the scaling group attempts to create a new instance to replace the spot instance to be reclaimed.
    * 
    * @example
    * true
@@ -952,7 +1187,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   spotInstanceRemedy?: boolean;
   /**
    * @remarks
-   * The number of ECS instances that are in the Standby state in the scaling group.
+   * The number of instances that are in the standby state in the scaling group.
    * 
    * @example
    * 1
@@ -960,7 +1195,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   standbyCapacity?: number;
   /**
    * @remarks
-   * The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds.
+   * The timeout period for waiting for an ECS instance to be stopped during the scale-in process. Unit: seconds.
    * 
    * @example
    * 60
@@ -968,7 +1203,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   stopInstanceTimeout?: number;
   /**
    * @remarks
-   * The number of instances that was stopped in Economical Mode in the scaling group.
+   * The number of instances in the scaling group that are in the economical mode.
    * 
    * @example
    * 1
@@ -976,21 +1211,19 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   stoppedCapacity?: number;
   /**
    * @remarks
-   * The processes that are suspended. If no process is suspended, null is returned. Valid values:
-   * 
-   * *   ScaleIn: scale-in processes.
-   * *   ScaleOut: scale-out processes.
-   * *   HealthCheck: health check processes.
-   * *   AlarmNotification: event-triggered task processes.
-   * *   ScheduledAction: scheduled task processes.
+   * The suspended processes. If no process is suspended, an empty value is returned. Valid values:
+   * - ScaleIn: The scale-in process.
+   * - ScaleOut: The scale-out process.
+   * - HealthCheck: The health check process.
+   * - AlarmNotification: The event-triggered task process.
+   * - ScheduledAction: The scheduled task process.
    */
   suspendedProcesses?: string[];
   /**
    * @remarks
-   * Indicates whether Auto Scaling stops executing scaling activities in the scaling group. Valid values:
-   * 
-   * *   true: Auto Scaling stops executing scaling activities in the scaling group if the scaling activities failed for more than seven consecutive days in the scaling group. In this case, you must modify the scaling group or scaling configuration to resume the scaling activities.
-   * *   false: Auto Scaling does not stop executing scaling activities in the scaling group.
+   * Indicates whether Auto Scaling stops executing any scaling activity in the scaling group. Valid values:
+   * - true: Auto Scaling stops executing any scaling activity in the scaling group. This indicates that the scaling group has failed to execute scale-out or scale-in for more than seven consecutive days. You must modify the scaling group or scaling configuration to resume the execution of the scaling activity.
+   * - false: Auto Scaling executes the scaling activity in the scaling group.
    * 
    * @example
    * true
@@ -1003,7 +1236,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   tags?: DescribeScalingGroupsResponseBodyScalingGroupsTags[];
   /**
    * @remarks
-   * The total weighted capacity of all ECS instances in the scaling group if Weighted is specified. In other cases, this parameter specifies the total number of ECS instances in the scaling group.
+   * The total weighted capacity of all ECS instances in the scaling group if instance type weights are configured. Otherwise, this parameter indicates the total number of ECS instances in the scaling group.
    * 
    * @example
    * 1
@@ -1019,12 +1252,12 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   totalInstanceCount?: number;
   /**
    * @remarks
-   * The backend vServer groups.
+   * The list of backend server groups.
    */
   VServerGroups?: DescribeScalingGroupsResponseBodyScalingGroupsVServerGroups[];
   /**
    * @remarks
-   * The vSwitch ID of the scaling group.
+   * The ID of the vSwitch associated with the scaling group.
    * 
    * @example
    * vsw-bp1whw2u46cn8zubm****
@@ -1032,17 +1265,35 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
   vSwitchId?: string;
   /**
    * @remarks
-   * The IDs of the vSwitches that are associated with the scaling group. If you specify VSwitchIds, VSwitchId is ignored.
+   * The collection of IDs of the vSwitches associated with the scaling group. If you use the VSwitchIds parameter, the VSwitchId parameter is ignored.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the scaling group resides.
+   * The ID of the VPC to which the scaling group belongs.
    * 
    * @example
    * vpc-bp1vwnn14rqpyiczj****
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * The number of instances in the warm pool.
+   * 
+   * @example
+   * 5
+   */
+  warmPoolCapacity?: number;
+  /**
+   * @remarks
+   * The current warm pool configuration of the scaling group.
+   */
+  warmPoolConfiguration?: DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfiguration;
+  /**
+   * @remarks
+   * The zone shift options.
+   */
+  zoneShiftOptions?: DescribeScalingGroupsResponseBodyScalingGroupsZoneShiftOptions;
   static names(): { [key: string]: string } {
     return {
       activeCapacity: 'ActiveCapacity',
@@ -1110,6 +1361,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
       vSwitchId: 'VSwitchId',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
+      warmPoolCapacity: 'WarmPoolCapacity',
+      warmPoolConfiguration: 'WarmPoolConfiguration',
+      zoneShiftOptions: 'ZoneShiftOptions',
     };
   }
 
@@ -1180,6 +1434,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
       vSwitchId: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
+      warmPoolCapacity: 'number',
+      warmPoolConfiguration: DescribeScalingGroupsResponseBodyScalingGroupsWarmPoolConfiguration,
+      zoneShiftOptions: DescribeScalingGroupsResponseBodyScalingGroupsZoneShiftOptions,
     };
   }
 
@@ -1226,6 +1483,12 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
     if(Array.isArray(this.vSwitchIds)) {
       $dara.Model.validateArray(this.vSwitchIds);
     }
+    if(this.warmPoolConfiguration && typeof (this.warmPoolConfiguration as any).validate === 'function') {
+      (this.warmPoolConfiguration as any).validate();
+    }
+    if(this.zoneShiftOptions && typeof (this.zoneShiftOptions as any).validate === 'function') {
+      (this.zoneShiftOptions as any).validate();
+    }
     super.validate();
   }
 
@@ -1237,7 +1500,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
 export class DescribeScalingGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -1266,7 +1529,7 @@ export class DescribeScalingGroupsResponseBody extends $dara.Model {
   scalingGroups?: DescribeScalingGroupsResponseBodyScalingGroups[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of scaling groups.
    * 
    * @example
    * 1

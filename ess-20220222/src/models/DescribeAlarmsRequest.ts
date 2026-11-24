@@ -13,10 +13,10 @@ export class DescribeAlarmsRequest extends $dara.Model {
   alarmTaskId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the event-triggered task. Valid values:
+   * Specifies whether the event-triggered task is enabled. Valid values:
    * 
-   * *   true: enables the event-triggered task.
-   * *   false: disables the event-triggered task.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -24,7 +24,7 @@ export class DescribeAlarmsRequest extends $dara.Model {
   isEnable?: boolean;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * @example
    * CpuUtilization
@@ -32,20 +32,20 @@ export class DescribeAlarmsRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
+   * The type of the metric. Valid values:
    * 
-   * *   system: a system metric of CloudMonitor
-   * *   custom: a custom metric that is reported to CloudMonitor.
-   * *   hybrid: a metric of Hybrid Cloud Monitoring.
+   * - system: system metrics of CloudMonitor.
+   * - custom: custom metrics reported to CloudMonitor.
+   * - hybrid: metrics of Hybrid Cloud Monitoring.
    * 
    * @example
-   * true
+   * system
    */
   metricType?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the scaling rule list. Pages start from page 1.
    * 
    * Default value: 1.
    * 
@@ -55,7 +55,7 @@ export class DescribeAlarmsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 50.
+   * The Settings for the number of entries per page in a paged query. Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -65,7 +65,7 @@ export class DescribeAlarmsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the event-triggered task.
+   * The ID of the region to which the event-triggered task belongs.
    * 
    * This parameter is required.
    * 
@@ -84,11 +84,11 @@ export class DescribeAlarmsRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * The status of the event-triggered task. Valid values:
+   * The state of the event-triggered task. Valid values:
    * 
-   * *   ALARM: The alert condition is met and an alert is triggered.
-   * *   OK: The alert condition is not met.
-   * *   INSUFFICIENT_DATA: Auto Scaling cannot determine whether the alert condition is met due to insufficient data.
+   * - ALARM: Alerting. The alert condition is met.
+   * - OK: Normal. The alert condition is not met.
+   * - INSUFFICIENT_DATA: Insufficient data. The data is insufficient to determine whether the alert condition is met.
    * 
    * @example
    * OK

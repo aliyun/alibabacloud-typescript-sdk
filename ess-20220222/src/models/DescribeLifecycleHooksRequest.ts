@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLifecycleHooksRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the lifecycle hooks that you want to query.
+   * The IDs of the lifecycle hooks.
+   * > Conditionally required: You must specify at least one of LifecycleHookIds or ScalingGroupId when you query lifecycle hooks. If you specify both parameters, LifecycleHookIds takes precedence. If you specify only RegionId without specifying either of the two parameters, a 400 InvalidParameter error is returned.
    */
   lifecycleHookIds?: string[];
   /**
@@ -20,7 +21,7 @@ export class DescribeLifecycleHooksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1.
+   * The page number of the instance status list. Pages start from 1.
    * 
    * Default value: 1.
    * 
@@ -50,6 +51,7 @@ export class DescribeLifecycleHooksRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the scaling group.
+   * > Conditionally required: You must specify at least one of LifecycleHookIds or ScalingGroupId when you query lifecycle hooks. If you specify only RegionId without specifying either of the two parameters, a 400 InvalidParameter error is returned.
    * 
    * @example
    * asg-bp1igpak5ft1flyp****

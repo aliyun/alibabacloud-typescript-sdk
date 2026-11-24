@@ -13,7 +13,7 @@ export class ApplyScalingGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the enabled scaling group.
+   * The ID of the applied scaling group.
    * 
    * @example
    * asg-bp1igpak5ft1flyp****

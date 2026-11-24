@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRefreshesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instance refresh tasks to query.
+   * The IDs of the instance refresh tasks to be queried.
    */
   instanceRefreshTaskIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query. Valid values: 1 to 50.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 50.
    * Default value: 10.
    * 
    * @example
@@ -19,7 +19,7 @@ export class DescribeInstanceRefreshesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
+   * The query token. Set the value to the NextToken value returned from the previous call. You do not need to specify this parameter for the first call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -42,8 +42,8 @@ export class DescribeInstanceRefreshesRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the scaling group.
-   * > You must specify at least one of ScalingGroupId and InstanceRefreshTaskIds. If neither parameter is specified, an error is returned.
-   * >.
+   * > When you call this operation, you must specify either ScalingGroupId or InstanceRefreshTaskIds. If neither is specified, an error occurs.
+   * >
    * 
    * @example
    * asg-bp1ffogfdauy0jw0****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeProcessesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request
+   * The request ID.
    * 
    * @example
    * E38EB733-D714-4658-8A5F-0688AB68****

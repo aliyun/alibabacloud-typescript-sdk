@@ -7,15 +7,23 @@ export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $dara.Mod
    * @remarks
    * The type of the diagnostic item. Valid values:
    * 
-   * *   AccountArrearage: Checks whether your Alibaba Cloud account has overdue payments.
-   * *   AccountNotEnoughBalance: Checks whether the balance of your Alibaba Cloud account at the China site (aliyun.com) is greater than or equal to CNY 100.
-   * *   ElasticStrength: Checks whether the instance types that are specified in the scaling configuration are sufficient.
-   * *   VSwitch: Checks whether a specific vSwitch can work as expected. For example, if a vSwitch is deleted, the vSwitch cannot provide services and an exception occurs.
-   * *   SecurityGroup: Checks whether a specific security group can work as expected. For example, if a security group is deleted, the security group cannot provide services and an exception occurs.
-   * *   KeyPair: Checks whether the key pair is available. If the specified key pair is deleted, specify another key pair for the scaling group.
-   * *   SlbBackendServerQuota: Checks whether the number of ECS instances that are added to the default server group and the vServer groups of the SLB instances associated with the scaling group has reached the upper limit.
-   * *   AlbBackendServerQuota: Checks whether the number of ECS instances that are added to the backend server groups of the ALB instances associated with the scaling group has reached the upper limit.
-   * *   NlbBackendServerQuota: Checks whether the number of ECS instances that are added to the backend server groups of the NLB instances associated with the scaling group has reached the upper limit.
+   * - AccountArrearage: account overdue payment. Checks whether the user account has overdue payments.
+   * 
+   * - AccountNotEnoughBalance: insufficient account balance. Checks whether the balance of a user account on the China site is greater than or equal to CNY 100.
+   * 
+   * - ElasticStrength: inventory health. Checks the inventory health of the instance type configured for the scaling group.
+   * 
+   * - VSwitch: vSwitch status. Checks whether the vSwitch is active, such as whether it is deleted.
+   * 
+   * - SecurityGroup: security group status. Checks whether the security group is active, such as whether it is deleted.
+   * 
+   * - KeyPair: key pair status. Checks whether the key pair is active, such as whether it is deleted.
+   * 
+   * - SlbBackendServerQuota: number of instances mounted to the SLB instance in the scaling group. Checks whether the number of ECS instances mounted to the default server group and virtual service groups of the SLB instance exceeds the quota.
+   * 
+   * - AlbBackendServerQuota: number of instances mounted to the ALB instance in the scaling group. Checks whether the number of ECS instances mounted to the server groups of the ALB instance exceeds the quota.
+   * 
+   * - NlbBackendServerQuota: number of instances mounted to the NLB instance in the scaling group. Checks whether the number of ECS instances mounted to the server groups of the NLB instance exceeds the quota.
    * 
    * @example
    * AccountArrearage
@@ -25,15 +33,23 @@ export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $dara.Mod
    * @remarks
    * The error code of the diagnostic item. Valid values:
    * 
-   * *   VSwitchIdNotFound: The vSwitch does not exist.
-   * *   SecurityGroupNotFound: The security group does not exist.
-   * *   KeyPairNotFound: The key pair does not exist.
-   * *   SlbBackendServerQuotaExceeded: The number of ECS instances that are added to the default server group and the vServer groups of the SLB instances associated with the scaling group has reached the upper limit.
-   * *   AlbBackendServerQuotaExceeded: The number of ECS instances that are attached to the ALB instances of the scaling group has reached the upper limit.
-   * *   NlbBackendServerQuotaExceeded: The number of ECS instances that are attached to the NLB instances of the scaling group has reached the upper limit.
-   * *   AccountArrearage: Your account has overdue payments.
-   * *   AccountNotEnoughBalance: The balance of your Alibaba Cloud account is less than CNY 100.
-   * *   ElasticStrengthAlert: The inventory levels are lower than expected.
+   * - VSwitchIdNotFound: the vSwitch does not exist.
+   * 
+   * - SecurityGroupNotFound: the security group does not exist.
+   * 
+   * - KeyPairNotFound: the key pair does not exist.
+   * 
+   * - SlbBackendServerQuotaExceeded: the number of ECS instances mounted to the default server group and virtual service groups of the SLB instance exceeds the quota.
+   * 
+   * - AlbBackendServerQuotaExceeded: the number of ECS instances mounted to the server groups of the ALB instance exceeds the quota.
+   * 
+   * - NlbBackendServerQuotaExceeded: the number of ECS instances mounted to the server groups of the NLB instance exceeds the quota.
+   * 
+   * - AccountArrearage: the account has overdue payments.
+   * 
+   * - AccountNotEnoughBalance: the account balance is insufficient (less than CNY 100).
+   * 
+   * - ElasticStrengthAlert: the inventory health is poor.
    * 
    * @example
    * VSwitchIdNotFound
@@ -41,7 +57,7 @@ export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $dara.Mod
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * sg-280ih****
@@ -49,11 +65,13 @@ export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $dara.Mod
   resourceId?: string;
   /**
    * @remarks
-   * The status of the diagnostic item. Valid values:
+   * The diagnostic status of the diagnostic item. Valid values:
    * 
-   * *   Normal: The diagnostic result is normal.
-   * *   Warn: The diagnostic result is warning.
-   * *   Critical: The diagnostic result is critical.
+   * - Normal: the diagnostic result is normal.
+   * 
+   * - Warn: the diagnostic result is a warning.
+   * 
+   * - Critical: the diagnostic result is critical.
    * 
    * @example
    * Normal
@@ -89,7 +107,7 @@ export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $dara.Mod
 export class DescribeDiagnoseReportsResponseBodyReports extends $dara.Model {
   /**
    * @remarks
-   * The time when the diagnostic report was created.
+   * The time when the diagnostic report was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-08-23T02:22:30Z
@@ -102,11 +120,13 @@ export class DescribeDiagnoseReportsResponseBodyReports extends $dara.Model {
   details?: DescribeDiagnoseReportsResponseBodyReportsDetails[];
   /**
    * @remarks
-   * The status of the diagnostic item. Only the severe status is displayed in the diagnostic report. Valid values:
+   * The diagnostic status. The value is the most severe status among the diagnostic details. Valid values:
    * 
-   * *   Normal: The diagnostic result is normal.
-   * *   Warn: The diagnostic result is warning.
-   * *   Critical: The diagnostic result is critical.
+   * - Normal: the diagnostic result is normal.
+   * 
+   * - Warn: the diagnostic result is a warning.
+   * 
+   * - Critical: the diagnostic result is critical.
    * 
    * @example
    * Normal
@@ -116,8 +136,9 @@ export class DescribeDiagnoseReportsResponseBodyReports extends $dara.Model {
    * @remarks
    * The status of the diagnostic report. Valid values:
    * 
-   * *   processing: The diagnosis is in progress.
-   * *   Finished: The diagnosis is complete.
+   * - Processing: in progress.
+   * 
+   * - Finished: completed.
    * 
    * @example
    * Finished
@@ -125,7 +146,7 @@ export class DescribeDiagnoseReportsResponseBodyReports extends $dara.Model {
   processStatus?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-qingdao
@@ -212,12 +233,12 @@ export class DescribeDiagnoseReportsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The diagnostic reports.
+   * The list of diagnostic reports.
    */
   reports?: DescribeDiagnoseReportsResponseBodyReports[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ECA123C6-107B-5F70-A177-740A7224C996

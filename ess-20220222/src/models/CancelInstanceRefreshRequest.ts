@@ -16,7 +16,7 @@ export class CancelInstanceRefreshRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the scaling group.
+   * The ID of the region to which the scaling group belongs.
    * 
    * This parameter is required.
    * 

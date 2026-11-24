@@ -58,7 +58,7 @@ export class QueryPredictiveMetricResponseBody extends $dara.Model {
   predictiveMetrics?: QueryPredictiveMetricResponseBodyPredictiveMetrics;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CC107349-57B7-4405-B1BF-9BF5AF7F****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScalingActivitiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance refresh task. If you specify this parameter, this operation returns the list of scaling activities associated with the instance refresh task.
+   * The ID of the instance refresh task node. You can configure the Settings of this parameter to perform a parameter query for the scaling activity list related to the instance refresh task.
    * 
    * @example
    * ir-a12ds234fasd*****
@@ -15,7 +15,7 @@ export class DescribeScalingActivitiesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the scaling activity list. Pages start from 1.
    * 
    * Default value: 1.
    * 
@@ -25,7 +25,7 @@ export class DescribeScalingActivitiesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 50.
+   * The paging Settings for the number of entries per page in a paged query. Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -35,7 +35,7 @@ export class DescribeScalingActivitiesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the scaling group to which the scaling activity that you want to query belongs.
+   * The region ID of the scaling group to which the scaling activity belongs.
    * 
    * This parameter is required.
    * 
@@ -47,16 +47,16 @@ export class DescribeScalingActivitiesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of the scaling activities that you want to query.
+   * The ID of the scaling activity to be queried.
    * 
-   * >  When you call this operation, you must specify one of the following parameters: `ScalingGroupId` and `ScalingActivityIds`. You cannot specify both of them at the same time. If you specify neither of them, an error is reported.
+   * > When you invoke this API, you must specify either the ScalingGroupId or ScalingActivityIds parameter. If neither parameter is specified, an error occurs.
    */
   scalingActivityIds?: string[];
   /**
    * @remarks
    * The ID of the scaling group.
    * 
-   * >  When you call this operation, you must specify one of the following parameters: `ScalingGroupId` and `ScalingActivityIds`. You cannot specify both of them at the same time. If you specify neither of them, an error is reported.
+   * > When you call this operation, you must specify either ScalingGroupId or ScalingActivityIds. If neither is specified, an error occurs.
    * 
    * @example
    * asg-bp18p2yfxow2dloq****
@@ -65,12 +65,12 @@ export class DescribeScalingActivitiesRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the scaling activity. Valid values:
-   * 
-   * *   Successful: The scaling activity is successful.
-   * *   Warning: The scaling activity is partially successful.
-   * *   Failed: The scaling activity failed.
-   * *   InProgress: The scaling activity is in progress.
-   * *   Rejected: The request to trigger the scaling activity is rejected.
+   *  
+   * - Successful: The scaling activity is successful. 
+   * - Warning: The scaling activity is partially successful. 
+   * - Failed: The scaling activity failed. 
+   * - InProgress: The scaling activity is in progress. 
+   * - Rejected: The request to execute the scaling activity is rejected.
    * 
    * @example
    * Successful

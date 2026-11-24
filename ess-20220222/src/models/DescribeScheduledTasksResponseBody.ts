@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeScheduledTasksResponseBodyScheduledTasksWarmPoolCapacityOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The expected number of instances covered by the warm pool. The system maintains the sum of the current number of instances in the scaling group and the number of instances in the warm pool at this value.
+   * 
+   * @example
+   * 5
+   */
+  desiredGroupPreparedCapacity?: number;
+  /**
+   * @remarks
+   * The minimum number of instances in the warm pool.
+   * 
+   * @example
+   * 0
+   */
+  minCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desiredGroupPreparedCapacity: 'DesiredGroupPreparedCapacity',
+      minCapacity: 'MinCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desiredGroupPreparedCapacity: 'number',
+      minCapacity: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Model {
   /**
    * @remarks
@@ -13,7 +53,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The expected number of instances in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
+   * The expected number of instances in the scaling group. This parameter takes effect when the scaling method of the scheduled task is set to adjust the number of instances in the scaling group.
    * 
    * @example
    * 10
@@ -21,7 +61,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   desiredCapacity?: number;
   /**
    * @remarks
-   * The time window during which the scheduled task can be retried. Unit: seconds. Valid values: 0 to 21600.
+   * The time period during which a retry is performed after the scheduled task fails to be triggered. Unit: seconds. Valid values: 0 to 21600.
    * 
    * @example
    * 600
@@ -29,7 +69,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   launchExpirationTime?: number;
   /**
    * @remarks
-   * The point in time at which the scheduled task is triggered.
+   * The time at which the scheduled task is triggered. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
    * 
    * @example
    * 2014-08-18T10:52Z
@@ -37,7 +77,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   launchTime?: string;
   /**
    * @remarks
-   * The maximum number of instances that must be contained in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
+   * The maximum number of instances in the scaling group. This parameter takes effect when the scaling method of the scheduled task is set to adjust the number of instances in the scaling group.
    * 
    * @example
    * 10
@@ -45,7 +85,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   maxValue?: number;
   /**
    * @remarks
-   * The minimum number of instances that must be contained in the scaling group. If you set `Scaling Method` to `Configure Number of Instances in Scaling Group`, you can specify this parameter.
+   * The minimum number of instances in the scaling group. This parameter takes effect when the scaling method of the scheduled task is set to adjust the number of instances in the scaling group.
    * 
    * @example
    * 0
@@ -53,7 +93,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   minValue?: number;
   /**
    * @remarks
-   * The end time of the recurrence of the scheduled task.
+   * The end time of the recurring scheduled task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
    * 
    * @example
    * 2014-08-20T16:55Z
@@ -61,7 +101,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   recurrenceEndTime?: string;
   /**
    * @remarks
-   * The recurring interval of the scheduled task.
+   * The recurrence type of the scheduled task.
    * 
    * @example
    * Daily
@@ -69,7 +109,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   recurrenceType?: string;
   /**
    * @remarks
-   * The frequency of recurrence of the scheduled task.
+   * The recurrence value of the scheduled task.
    * 
    * @example
    * 1
@@ -77,7 +117,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   recurrenceValue?: string;
   /**
    * @remarks
-   * The ID of the scaling group to which the scheduled task belongs.
+   * The ID of the scaling group that executes the scheduled task.
    * 
    * @example
    * asg-bp1bo5tca4m56nap****
@@ -85,7 +125,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   scalingGroupId?: string;
   /**
    * @remarks
-   * The scaling rule of the scheduled task. A value is returned for this parameter only after you specify ScheduledActions.
+   * The scaling rule used when the scheduled task is executed. This parameter is returned only when a scaling rule is specified for the scheduled task.
    * 
    * @example
    * ari:acs:ess:cn-hangzhou:1406926474****:scalingrule/asr-bp1id5rhu8edp7kd****
@@ -109,10 +149,9 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
   scheduledTaskName?: string;
   /**
    * @remarks
-   * Indicates whether the scheduled task is enabled.
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the scheduled task is started. Valid values: 
+   * - true: The task is started.
+   * - false: The task is stopped.
    * 
    * Default value: true.
    * 
@@ -120,6 +159,11 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
    * true
    */
   taskEnabled?: boolean;
+  /**
+   * @remarks
+   * The warm pool capacity configurations of the scaling group.
+   */
+  warmPoolCapacityOptions?: DescribeScheduledTasksResponseBodyScheduledTasksWarmPoolCapacityOptions;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -136,6 +180,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
       scheduledTaskId: 'ScheduledTaskId',
       scheduledTaskName: 'ScheduledTaskName',
       taskEnabled: 'TaskEnabled',
+      warmPoolCapacityOptions: 'WarmPoolCapacityOptions',
     };
   }
 
@@ -155,10 +200,14 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
       scheduledTaskId: 'string',
       scheduledTaskName: 'string',
       taskEnabled: 'boolean',
+      warmPoolCapacityOptions: DescribeScheduledTasksResponseBodyScheduledTasksWarmPoolCapacityOptions,
     };
   }
 
   validate() {
+    if(this.warmPoolCapacityOptions && typeof (this.warmPoolCapacityOptions as any).validate === 'function') {
+      (this.warmPoolCapacityOptions as any).validate();
+    }
     super.validate();
   }
 
@@ -170,7 +219,7 @@ export class DescribeScheduledTasksResponseBodyScheduledTasks extends $dara.Mode
 export class DescribeScheduledTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -189,12 +238,12 @@ export class DescribeScheduledTasksResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
   /**
    * @remarks
-   * The information collection of the scheduled tasks.
+   * The information about the scheduled tasks.
    */
   scheduledTasks?: DescribeScheduledTasksResponseBodyScheduledTasks[];
   /**

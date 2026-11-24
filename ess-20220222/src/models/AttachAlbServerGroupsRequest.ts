@@ -9,7 +9,7 @@ export class AttachAlbServerGroupsRequestAlbServerGroups extends $dara.Model {
    * @remarks
    * The ID of the ALB server group.
    * 
-   * You can attach only a limited number of ALB server groups to a scaling group. To view the predefined quota limit or manually request a quota increase, go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas).
+   * A scaling group can be associated with a limited number of ALB server groups. To view the quota or manually apply for a quota increase, go to the [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class AttachAlbServerGroupsRequestAlbServerGroups extends $dara.Model {
   albServerGroupId?: string;
   /**
    * @remarks
-   * The port used by ECS instances or elastic container instances after being added as backend servers to the ALB server group.
+   * The port number used by the ECS instance or elastic container instance after Auto Scaling adds the instance to the ALB server group.
    * 
    * Valid values: 1 to 65535.
    * 
@@ -31,9 +31,9 @@ export class AttachAlbServerGroupsRequestAlbServerGroups extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The weight of an ECS instance or elastic container instance after being added as a backend server to the ALB server group. Valid values: 0 to 100.
+   * The weight of the ECS instance or elastic container instance as a backend server after Auto Scaling adds the instance to the ALB server group. Valid values: 0 to 100.
    * 
-   * If you assign a higher weight to an instance, the instance is allocated a larger proportion of access requests. If you assign zero weight to an instance, the instance is allocated no access requests.
+   * A higher weight specifies that more access requests are distributed to the ECS instance or elastic container instance. If the weight is 0, the ECS instance or elastic container instance does not receive access requests.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class AttachAlbServerGroupsRequestAlbServerGroups extends $dara.Model {
 export class AttachAlbServerGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the ALB server groups.
+   * The details of the ALB server groups.
    * 
    * This parameter is required.
    */
@@ -78,7 +78,7 @@ export class AttachAlbServerGroupsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -86,10 +86,11 @@ export class AttachAlbServerGroupsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the new ALB server group. Valid values:
+   * Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the newly added ALB server groups. Valid values:
    * 
-   * *   true: adds the existing ECS instances or elastic container instances in the scaling group to the new ALB server group and returns the value of `ScalingActivityId`. You can query the value of ScalingActivityId to check whether the existing ECS instances are added to the ALB server group.
-   * *   false: does not add the existing ECS instances or elastic container instances in the scaling group to the new ALB server group.
+   * - true: adds ECS instances and returns `ScalingActivityId`. You can check whether the existing instances are added by viewing the ID of the scaling activity.
+   * 
+   * - false: does not add ECS instances.
    * 
    * Default value: false.
    * 
@@ -100,9 +101,9 @@ export class AttachAlbServerGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the scaling group.
+   * The ID of the region to which the scaling group belongs.
    * 
-   * Examples: `cn-hangzhou` and `cn-shanghai`. For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * Examples: `cn-hangzhou` and `cn-shanghai`. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * This parameter is required.
    * 

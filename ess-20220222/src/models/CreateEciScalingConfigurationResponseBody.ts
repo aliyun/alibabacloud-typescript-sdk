@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEciScalingConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 89945DD3-9072-47D0-A318-353284CF****
@@ -13,7 +13,7 @@ export class CreateEciScalingConfigurationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the elastic container instance (container group).
+   * The instance ID, which is the container group ID.
    * 
    * @example
    * eci-uf6fonnghi50u374****

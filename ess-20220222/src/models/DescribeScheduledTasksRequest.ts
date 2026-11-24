@@ -7,7 +7,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the scheduled task list. Pages start from page 1.
    * 
    * Default value: 1.
    * 
@@ -17,7 +17,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 50.
+   * The number of entries per page in a paged query. Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -27,12 +27,11 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The interval at which scheduled task N is repeatedly executed. Valid values:
-   * 
-   * *   Daily: Scheduled task N is executed once every specified number of days.
-   * *   Weekly: Scheduled task N is executed on each specified day of a week.
-   * *   Monthly: Scheduled task N is executed on each specified day of a month.
-   * *   Cron: Scheduled task N is executed based on the specified Cron expression.
+   * The recurrence type of the scheduled task. Valid values: 
+   * - Daily: The scheduled task is executed once every specified number of days. 
+   * - Weekly: The scheduled task is executed on specified days of each week. 
+   * - Monthly: The scheduled task is executed on specified days of each month. 
+   * - Cron: The scheduled task is executed based on a specified cron expression.
    * 
    * @example
    * Weekly
@@ -40,9 +39,9 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   recurrenceType?: string;
   /**
    * @remarks
-   * The number of times scheduled task N is repeatedly executed.
+   * The recurrence value of the scheduled task.
    * 
-   * You can specify this parameter only if you set RecurrenceType to Weekly. Separate multiple values with commas (,). The values that correspond to Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6.
+   * This parameter is supported only when RecurrenceType is set to Weekly. You can specify multiple values separated by commas (,). For example, the values for Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6.
    * 
    * @example
    * 1,2,3
@@ -62,7 +61,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the scaling group to which the scheduled task belongs.
+   * The ID of the scaling group that executes the scheduled task.
    * 
    * @example
    * asg-bp1bo5tca4m56nap****
@@ -70,25 +69,24 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * The scaling rules of the scheduled tasks. Once the scheduled tasks are triggered, the scaling rules are executed.
+   * The scaling rules that are used when the scheduled tasks are triggered. This parameter is valid only when a scaling rule is specified for the scheduled task.
    */
   scheduledActions?: string[];
   /**
    * @remarks
-   * The IDs of the scheduled tasks that you want to query.
+   * The IDs of the scheduled tasks to be queried.
    */
   scheduledTaskIds?: string[];
   /**
    * @remarks
-   * The names of the scheduled tasks that you want to query.
+   * The names of the scheduled tasks to be queried.
    */
   scheduledTaskNames?: string[];
   /**
    * @remarks
-   * Specifies whether scheduled task N is enabled.
-   * 
-   * *   true
-   * *   false
+   * Specifies whether the scheduled task is started. Valid values:
+   * - true: The task is started.
+   * - false: The task is stopped.
    * 
    * @example
    * true
@@ -96,7 +94,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   taskEnabled?: boolean;
   /**
    * @remarks
-   * The name of scheduled task N. Fuzzy search based on keywords is supported.
+   * The name of the task. Fuzzy match by keyword is supported.
    * 
    * @example
    * scheduled****

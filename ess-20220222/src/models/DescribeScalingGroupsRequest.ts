@@ -45,10 +45,11 @@ export class DescribeScalingGroupsRequestTags extends $dara.Model {
 export class DescribeScalingGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of instances that are managed by the scaling group. Valid values:
+   * The type of instances managed by the scaling group. Valid values:
    * 
-   * *   ECS: Elastic Compute Service (ECS) instances.
-   * *   ECI: elastic container instances.
+   * - ECS: The scaling group manages ECS instances.
+   * 
+   * - ECI: The scaling group manages ECI instances.
    * 
    * @example
    * ECS
@@ -58,7 +59,7 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Page starts from page 1.
+   * The page number. Pages start from 1.
    * 
    * Default value: 1.
    * 
@@ -68,7 +69,7 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 50.
+   * The Settings for the number of entries per page during paging in a paged query. Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -78,7 +79,7 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the scaling group.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -88,9 +89,9 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the scaling group that you want to query belongs.
+   * The ID of the resource group to which the scaling groups to query belong.
    * 
-   * >  If no scaling group belongs to the specified resource group, the query result is empty and no error is reported.
+   * > If no scaling group belongs to the specified resource group, an empty result is returned and no error is returned.
    * 
    * @example
    * rg-123******
@@ -100,9 +101,9 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of the scaling groups that you want to query.
+   * The IDs of the scaling groups to query.
    * 
-   * The IDs of inactive scaling groups are not included in the query results, and no error is returned.
+   * Invalid scaling group IDs are ignored in the response and no error is returned.
    */
   scalingGroupIds?: string[];
   /**
@@ -115,9 +116,9 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   scalingGroupName?: string;
   /**
    * @remarks
-   * The names of the scaling groups that you want to query.
+   * The names of the scaling groups to query.
    * 
-   * The names of inactive scaling groups are not displayed in the query results, and no error is reported.
+   * Invalid scaling group names are ignored in the response and no error is returned.
    */
   scalingGroupNames?: string[];
   /**

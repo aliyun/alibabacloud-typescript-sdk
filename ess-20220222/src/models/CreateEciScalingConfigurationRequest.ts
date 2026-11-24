@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEciScalingConfigurationRequestAcrRegistryInfos extends $dara.Model {
   /**
    * @remarks
-   * The domain names of the Container Registry Enterprise Edition instances. By default, all domain names are displayed. Separate multiple domain names with commas (,).
+   * The domain names of the Container Registry Enterprise instance. By default, all domain names of the instance are used. You can specify one or more domain names. Separate multiple domain names with commas (,).
    */
   domains?: string[];
   /**
    * @remarks
-   * The ID of the Container Registry Enterprise Edition instance.
+   * The instance ID of the Container Registry Enterprise instance.
    * 
    * @example
    * cri-nwj395hgf6f3****
@@ -18,7 +18,7 @@ export class CreateEciScalingConfigurationRequestAcrRegistryInfos extends $dara.
   instanceId?: string;
   /**
    * @remarks
-   * The name of the Container Registry Enterprise Edition instance.
+   * The name of the Container Registry Enterprise instance.
    * 
    * @example
    * acr-test
@@ -26,7 +26,7 @@ export class CreateEciScalingConfigurationRequestAcrRegistryInfos extends $dara.
   instanceName?: string;
   /**
    * @remarks
-   * The region ID of the Container Registry Enterprise Edition instance.
+   * The region where the Container Registry Enterprise instance resides.
    * 
    * @example
    * cn-beijing
@@ -65,7 +65,7 @@ export class CreateEciScalingConfigurationRequestAcrRegistryInfos extends $dara.
 export class CreateEciScalingConfigurationRequestContainersLivenessProbeExec extends $dara.Model {
   /**
    * @remarks
-   * The commands executed in the container when using the command line to perform the health check.
+   * The command executed in the container when the exec probe is used for health checks.
    */
   commands?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeExec ext
 export class CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet extends $dara.Model {
   /**
    * @remarks
-   * The path to which you want to send HTTP GET requests for liveness probing.
+   * The path accessed by the HTTP GET request when the HTTP probe is used for health checks.
    * 
    * @example
    * /healthyz
@@ -103,7 +103,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet 
   path?: string;
   /**
    * @remarks
-   * The port over which you want to send HTTP GET requests for liveness probing.
+   * The port number on which the HTTP GET probe performs health checks.
    * 
    * @example
    * 8888
@@ -111,10 +111,10 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet 
   port?: number;
   /**
    * @remarks
-   * The protocol type of HTTP GET requests for liveness probing. Valid values:
+   * The protocol type used for the HTTP GET request when the HTTP probe is used for health checks. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTP
@@ -148,7 +148,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet 
 export class CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocket extends $dara.Model {
   /**
    * @remarks
-   * The port detected by TCP sockets for liveness probing.
+   * The port number on which the TCP socket probe performs health checks.
    * 
    * @example
    * 8000
@@ -179,7 +179,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends
   exec?: CreateEciScalingConfigurationRequestContainersLivenessProbeExec;
   /**
    * @remarks
-   * The minimum count of consecutive failures that must occur for a liveness probe to be classified as failed.
+   * The minimum consecutive failures for the probe to be considered failed after having succeeded.
    * 
    * Default value: 3.
    * 
@@ -190,7 +190,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends
   httpGet?: CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet;
   /**
    * @remarks
-   * The number of seconds that elapse from the startup of the container to the start time of a liveness probe. Unit: seconds.
+   * The number of seconds after the container has started before the probe is initiated.
    * 
    * @example
    * 5
@@ -198,7 +198,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends
   initialDelaySeconds?: number;
   /**
    * @remarks
-   * The interval at which liveness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
+   * The interval at which the probe is performed in seconds. Default value: 10. Minimum value: 1.
    * 
    * @example
    * 5
@@ -206,7 +206,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends
   periodSeconds?: number;
   /**
    * @remarks
-   * The minimum count of consecutive successes that must occur for a liveness probe to be classified as successful. Default value: 1. Set the value to 1.
+   * The minimum consecutive successes for the probe to be considered successful after having failed. Default value: 1. The current value must be 1.
    * 
    * @example
    * 1
@@ -215,7 +215,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends
   tcpSocket?: CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocket;
   /**
    * @remarks
-   * The timeout limit for a liveness probe to be complete. Unit: seconds. Default value: 1. Minimum value: 1.
+   * The timeout period for the probe in seconds. Default value: 1. Minimum value: 1.
    * 
    * @example
    * 1
@@ -268,7 +268,7 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends
 export class CreateEciScalingConfigurationRequestContainersReadinessProbeExec extends $dara.Model {
   /**
    * @remarks
-   * The commands executed in the container when using the command line to perform the health check.
+   * The command executed in the container when the exec probe is used for health checks.
    */
   commands?: string[];
   static names(): { [key: string]: string } {
@@ -298,7 +298,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeExec ex
 export class CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet extends $dara.Model {
   /**
    * @remarks
-   * The path to which you want to send HTTP GET requests for readiness probing.
+   * The path accessed by the HTTP GET request when the HTTP probe is used for health checks.
    * 
    * @example
    * /healthz
@@ -306,7 +306,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet
   path?: string;
   /**
    * @remarks
-   * The port over which you want to send HTTP GET requests for readiness probing.
+   * The port number on which the HTTP GET probe performs health checks.
    * 
    * @example
    * 8080
@@ -314,10 +314,10 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet
   port?: number;
   /**
    * @remarks
-   * The protocol type of HTTP GET requests for readiness probing. Valid values:
+   * The protocol type used for the HTTP GET request when the HTTP probe is used for health checks. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTP
@@ -351,7 +351,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet
 export class CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSocket extends $dara.Model {
   /**
    * @remarks
-   * The port detected by TCP sockets for readiness probing.
+   * The port number on which the TCP socket probe performs health checks.
    * 
    * @example
    * 8000
@@ -382,7 +382,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbe extend
   exec?: CreateEciScalingConfigurationRequestContainersReadinessProbeExec;
   /**
    * @remarks
-   * The minimum count of consecutive failures that must occur for a readiness probe to be classified as failed. Default value: 3.
+   * The minimum consecutive failures for the probe to be considered failed after having succeeded. Default value: 3.
    * 
    * @example
    * 3
@@ -391,7 +391,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbe extend
   httpGet?: CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet;
   /**
    * @remarks
-   * The number of seconds that elapse from the startup of the container to the start time of a readiness probe. Unit: seconds.
+   * The number of seconds after the container has started before the probe is initiated.
    * 
    * @example
    * 3
@@ -399,7 +399,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbe extend
   initialDelaySeconds?: number;
   /**
    * @remarks
-   * The interval at which readiness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
+   * The interval at which the probe is performed in seconds. Default value: 10. Minimum value: 1.
    * 
    * @example
    * 3
@@ -407,7 +407,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbe extend
   periodSeconds?: number;
   /**
    * @remarks
-   * The minimum count of consecutive successes that must occur for a readiness probe to be classified as successful. Default value: 1. Set the value to 1.
+   * The minimum consecutive successes for the probe to be considered successful after having failed. Default value: 1. The current value must be 1.
    * 
    * @example
    * 1
@@ -416,7 +416,7 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbe extend
   tcpSocket?: CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSocket;
   /**
    * @remarks
-   * The timeout limit for a readiness probe to be complete. Unit: seconds. Default value: 1. Minimum value: 1.
+   * The timeout period for the probe in seconds. Default value: 1. Minimum value: 1.
    * 
    * @example
    * 5
@@ -469,9 +469,9 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbe extend
 export class CreateEciScalingConfigurationRequestContainersSecurityContextCapability extends $dara.Model {
   /**
    * @remarks
-   * The permissions that you want to grant to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
+   * Grants specific privileges to processes in the container. Currently, only NET_ADMIN and NET_RAW are supported.
    * 
-   * >  To use NET_RAW, you must submit a ticket.
+   * > NET_RAW is not supported by default. To use NET_RAW, submit a ticket.
    */
   add?: string[];
   static names(): { [key: string]: string } {
@@ -502,7 +502,7 @@ export class CreateEciScalingConfigurationRequestContainersSecurityContext exten
   capability?: CreateEciScalingConfigurationRequestContainersSecurityContextCapability;
   /**
    * @remarks
-   * Specifies whether the root file system on which the container runs is read-only.
+   * Specifies whether the root file system of the container is read-only. Currently, only true is supported.
    * 
    * @example
    * true
@@ -510,7 +510,7 @@ export class CreateEciScalingConfigurationRequestContainersSecurityContext exten
   readOnlyRootFilesystem?: boolean;
   /**
    * @remarks
-   * The ID of the user that runs the container.
+   * The user ID used to run the container.
    * 
    * @example
    * 1000
@@ -547,7 +547,7 @@ export class CreateEciScalingConfigurationRequestContainersSecurityContext exten
 export class CreateEciScalingConfigurationRequestContainersEnvironmentVars extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is unavailable for use.
+   * >This parameter is unavailable.
    * 
    * @example
    * fieldPath
@@ -555,7 +555,7 @@ export class CreateEciScalingConfigurationRequestContainersEnvironmentVars exten
   fieldRefFieldPath?: string;
   /**
    * @remarks
-   * The name of the environment variable. The name can be 1 to 128 characters in length and can contain letters, underscores (_), and digits. It cannot start with a digit. Specify the value in the [0-9a-zA-Z] format.
+   * The name of the environment variable. The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (_). It cannot start with a digit.
    * 
    * @example
    * PATH
@@ -563,7 +563,7 @@ export class CreateEciScalingConfigurationRequestContainersEnvironmentVars exten
   key?: string;
   /**
    * @remarks
-   * The value of the environment variable. The value can be up to 256 characters in length.
+   * The value of the environment variable. The value must be 0 to 256 characters in length.
    * 
    * @example
    * /usr/local/bin
@@ -597,7 +597,7 @@ export class CreateEciScalingConfigurationRequestContainersEnvironmentVars exten
 export class CreateEciScalingConfigurationRequestContainersPorts extends $dara.Model {
   /**
    * @remarks
-   * The port. Valid values: 1 to 65535.
+   * The port number. Valid values: 1 to 65535.
    * 
    * @example
    * 80
@@ -605,10 +605,10 @@ export class CreateEciScalingConfigurationRequestContainersPorts extends $dara.M
   port?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The protocol type. Valid values:
    * 
-   * *   TCP.
-   * *   UDP
+   * - TCP
+   * - UDP
    * 
    * @example
    * TCP
@@ -640,9 +640,9 @@ export class CreateEciScalingConfigurationRequestContainersPorts extends $dara.M
 export class CreateEciScalingConfigurationRequestContainersVolumeMounts extends $dara.Model {
   /**
    * @remarks
-   * The directory in which the container mounts the volume.
+   * The directory where the volume is mounted in the container.
    * 
-   * >  Data in this directory is overwritten by data on the volume. Specify this parameter with caution.
+   * >Notice: The contents of the container mount directory are directly overwritten by the contents of the volume. Proceed with caution.
    * 
    * @example
    * /pod/data
@@ -650,11 +650,11 @@ export class CreateEciScalingConfigurationRequestContainersVolumeMounts extends 
   mountPath?: string;
   /**
    * @remarks
-   * The mount propagation setting. Mount propagation enables volume sharing from one container to other containers within the same pod or to containers across separate pods on the same node. Valid values:
+   * The mount propagation settings for the volume. Mount propagation allows volumes mounted by a container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
    * 
-   * *   None: Subsequent mounts executed on the volume or its subdirectories are not propagated to the volume.
-   * *   HostToCotainer: Subsequent mounts executed on the volume or its subdirectories are propagated to the volume.
-   * *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed on the volume or its subdirectories are propagated to the volume. All volume mounts executed on the container are not only propagate back to the underlying host but also to all containers across every pod that uses the same volume.
+   * - None: The volume is not aware of any subsequent mount operations performed on the volume or its subdirectories.
+   * - HostToCotainer: The volume is aware of subsequent mount operations performed on the volume or its subdirectories.
+   * - Bidirectional: Similar to HostToCotainer, the volume is aware of mount operations. In addition, the volume is propagated back to the host and to all containers of all pods that use the same volume.
    * 
    * Default value: None.
    * 
@@ -664,7 +664,7 @@ export class CreateEciScalingConfigurationRequestContainersVolumeMounts extends 
   mountPropagation?: string;
   /**
    * @remarks
-   * The volume name. The value of this parameter is the same as the value of Volumes.Name.
+   * The name of the volume. The value must be the same as the Name value in Volumes.
    * 
    * @example
    * default-volume1
@@ -674,8 +674,9 @@ export class CreateEciScalingConfigurationRequestContainersVolumeMounts extends 
    * @remarks
    * Specifies whether the volume is read-only. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Yes.
+   * 
+   * - false: No.
    * 
    * Default value: false.
    * 
@@ -685,7 +686,7 @@ export class CreateEciScalingConfigurationRequestContainersVolumeMounts extends 
   readOnly?: boolean;
   /**
    * @remarks
-   * The volume subdirectory.
+   * The subpath of the volume.
    * 
    * @example
    * data2/
@@ -726,17 +727,17 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   securityContext?: CreateEciScalingConfigurationRequestContainersSecurityContext;
   /**
    * @remarks
-   * The startup arguments of the container. You can specify up to 10 arguments.
+   * The arguments for the container startup command. A maximum of 10 arguments are supported.
    */
   args?: string[];
   /**
    * @remarks
-   * The commands that you want to run by using the CLI for liveness probing within the container.
+   * The startup commands for the container. A maximum of 20 commands are supported. Each command can contain up to 256 characters.
    */
   commands?: string[];
   /**
    * @remarks
-   * The number of vCPUs per container.
+   * The number of CPU cores allocated to the container.
    * 
    * @example
    * 0.25
@@ -744,12 +745,12 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   cpu?: number;
   /**
    * @remarks
-   * The environment variables.
+   * The environment variable information.
    */
   environmentVars?: CreateEciScalingConfigurationRequestContainersEnvironmentVars[];
   /**
    * @remarks
-   * The number of GPUs per container.
+   * The number of GPUs allocated to the container.
    * 
    * @example
    * 1
@@ -757,7 +758,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   gpu?: number;
   /**
    * @remarks
-   * The image in the container.
+   * The container image. You can pull images from an image repository such as Docker Hub and Alibaba Cloud Container Registry (ACR). When you pull an image over the Internet, if no NAT gateway is created in the VPC, you must associate the ECI instance with an EIP.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/eci_open/nginx:latest
@@ -765,11 +766,13 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   image?: string;
   /**
    * @remarks
-   * The image pulling policy. Valid values:
+   * The image pull policy for the container. Valid values:
    * 
-   * *   Always: Each time instances are created, image pulling is performed.
-   * *   IfNotPresent: Image pulling is performed based on your business requirements. On-premises images are used by default. If no on-premises images are available, images are pulled from remote sources.
-   * *   Never: Image pulling is not performed. On-premises images are always used. Image pulling is not performed.
+   * - Always: Always pulls the image.
+   * - IfNotPresent: Pulls the image only if it is not present locally.
+   * - Never: Never pulls the image. Only local images are used.
+   * 
+   * > If image caching is enabled, ImagePullPolicy is overridden to Always when the container is created.
    * 
    * @example
    * Always
@@ -777,12 +780,12 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   imagePullPolicy?: string;
   /**
    * @remarks
-   * The commands that you want to run by using the CLI to configure the postStart callback function within the container.
+   * The command executed in the container when the command line method is used to configure the postStart callback function.
    */
   lifecyclePostStartHandlerExecs?: string[];
   /**
    * @remarks
-   * The IP address of the host to which you want to send HTTP GET requests to configure the postStart callback function.
+   * The host address that receives the HTTP GET request when the HTTP request method is used to configure the postStart callback function.
    * 
    * @example
    * 10.0.XX.XX
@@ -790,7 +793,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePostStartHandlerHttpGetHost?: string;
   /**
    * @remarks
-   * The path to which you want to send HTTP GET requests to configure the postStart callback function.
+   * The path accessed by the HTTP GET request when the HTTP request method is used to configure the postStart callback function.
    * 
    * @example
    * /healthyz
@@ -798,7 +801,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePostStartHandlerHttpGetPath?: string;
   /**
    * @remarks
-   * The port over which you want to send HTTP GET requests to configure the postStart callback function.
+   * The port number checked by the HTTP GET request when the HTTP request method is used to configure the postStart callback function.
    * 
    * @example
    * 5050
@@ -806,10 +809,10 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePostStartHandlerHttpGetPort?: number;
   /**
    * @remarks
-   * The protocol type of HTTP GET requests that you want to send to configure the postStart callback function. Valid values:
+   * The protocol type used for the HTTP GET request when the HTTP request method is used to configure the postStart callback function. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTPS
@@ -817,7 +820,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePostStartHandlerHttpGetScheme?: string;
   /**
    * @remarks
-   * The IP address of the host detected by the TCP sockets that you want to use to configure the postStart callback function.
+   * The host address checked by the TCP socket when the TCP socket method is used to configure the postStart callback function.
    * 
    * @example
    * 10.0.XX.XX
@@ -825,7 +828,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePostStartHandlerTcpSocketHost?: string;
   /**
    * @remarks
-   * The port detected by the TCP sockets that you want to use to configure the postStart callback function.
+   * The port checked by the TCP socket when the TCP socket method is used to configure the postStart callback function.
    * 
    * @example
    * 80
@@ -833,12 +836,12 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePostStartHandlerTcpSocketPort?: number;
   /**
    * @remarks
-   * The commands that you want to run by using the CLI to configure the preStop callback function within the container.
+   * The command executed in the container when the command line method is used to configure the preStop callback function.
    */
   lifecyclePreStopHandlerExecs?: string[];
   /**
    * @remarks
-   * The IP address of the host to which you want to send HTTP GET requests to configure the preStop callback function.
+   * The host address that receives the HTTP GET request when the HTTP request method is used to configure the preStop callback function.
    * 
    * @example
    * 10.0.XX.XX
@@ -846,7 +849,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePreStopHandlerHttpGetHost?: string;
   /**
    * @remarks
-   * The path to which you want to send HTTP GET requests to configure the preStop callback function.
+   * The path accessed by the HTTP GET request when the HTTP request method is used to configure the preStop callback function.
    * 
    * @example
    * /healthyz
@@ -854,7 +857,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePreStopHandlerHttpGetPath?: string;
   /**
    * @remarks
-   * The port over which you want to send HTTP GET requests to configure the preStop callback function.
+   * The port number checked by the HTTP GET request when the HTTP request method is used to configure the preStop callback function.
    * 
    * @example
    * 88
@@ -862,10 +865,10 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePreStopHandlerHttpGetPort?: number;
   /**
    * @remarks
-   * The protocol type of the HTTP GET requests that you want to send to configure the preStop callback function. Valid values:
+   * The protocol type used for the HTTP GET request when the HTTP request method is used to configure the preStop callback function. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTP
@@ -873,7 +876,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePreStopHandlerHttpGetScheme?: string;
   /**
    * @remarks
-   * The IP address of the host detected by the TCP sockets that you want to use to configure the preStop callback function.
+   * The host address checked by the TCP socket when the TCP socket method is used to configure the preStop callback function.
    * 
    * @example
    * 10.0.XX.XX
@@ -881,7 +884,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePreStopHandlerTcpSocketHost?: string;
   /**
    * @remarks
-   * The port detected by the TCP sockets that you want to use to configure the preStop callback function.
+   * The port checked by the TCP socket when the TCP socket method is used to configure the preStop callback function.
    * 
    * @example
    * 90
@@ -889,7 +892,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   lifecyclePreStopHandlerTcpSocketPort?: number;
   /**
    * @remarks
-   * The memory size that you want to allocate to the container. Unit: GiB.
+   * The memory size of the container. Unit: GiB.
    * 
    * @example
    * 0.5
@@ -905,12 +908,12 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The ports.
+   * The list of ports.
    */
   ports?: CreateEciScalingConfigurationRequestContainersPorts[];
   /**
    * @remarks
-   * Specifies whether the container allocates buffer resources to standard input streams during its active runtime. If you do not specify this parameter, an end-of-file (EOF) error occurs when standard input streams in the container are read.
+   * Specifies whether to allocate a buffer for standard input (stdin) during container runtime. If this parameter is not set, reads from stdin in the container result in an EOF.
    * 
    * Default value: false.
    * 
@@ -920,9 +923,9 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   stdin?: boolean;
   /**
    * @remarks
-   * Specifies whether standard input streams remain connected during multiple sessions if Stdin is set to true.
+   * Specifies whether the standard input stream maintains the enabling status across multiple attached sessions when stdin is set to true.
    * 
-   * If you set StdinOnce to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected and remain disconnected until the container is restarted.
+   * If StdinOnce is set to true, standard input is opened when the container starts and remains empty until the first client attaches to it. It then stays open to accept data until the client disconnects, at which point standard input is shutdown and remains shutdown until the container is restarted.
    * 
    * @example
    * false
@@ -930,12 +933,11 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   stdinOnce?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable interaction. Valid values:
+   * Specifies whether to enable interactive mode. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
-   * *   true
-   * *   false
-   * 
-   * If the command is a /bin/bash command, set the value to true.
+   * For example, if Command is set to /bin/bash, set this parameter to true.
    * 
    * Default value: false.
    * 
@@ -945,7 +947,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
   tty?: boolean;
   /**
    * @remarks
-   * The volume mounts of the container.
+   * The volume mount information of the container.
    */
   volumeMounts?: CreateEciScalingConfigurationRequestContainersVolumeMounts[];
   /**
@@ -1072,7 +1074,7 @@ export class CreateEciScalingConfigurationRequestContainers extends $dara.Model 
 export class CreateEciScalingConfigurationRequestDnsConfigOptions extends $dara.Model {
   /**
    * @remarks
-   * The variable name of the option.
+   * The name of the object variable.
    * 
    * @example
    * name
@@ -1080,7 +1082,7 @@ export class CreateEciScalingConfigurationRequestDnsConfigOptions extends $dara.
   name?: string;
   /**
    * @remarks
-   * The variable value of the option.
+   * The value of the object variable.
    * 
    * @example
    * value
@@ -1112,12 +1114,12 @@ export class CreateEciScalingConfigurationRequestDnsConfigOptions extends $dara.
 export class CreateEciScalingConfigurationRequestHostAliases extends $dara.Model {
   /**
    * @remarks
-   * The hostnames of the containers that you want to add.
+   * The hostname to be added.
    */
   hostnames?: string[];
   /**
    * @remarks
-   * The IP address of the container that you want to add.
+   * The IP address to be added.
    * 
    * @example
    * 1.1.1.1
@@ -1152,7 +1154,7 @@ export class CreateEciScalingConfigurationRequestHostAliases extends $dara.Model
 export class CreateEciScalingConfigurationRequestImageRegistryCredentials extends $dara.Model {
   /**
    * @remarks
-   * The password of the image repository.
+   * The password of the image registry.
    * 
    * @example
    * yourpassword
@@ -1160,7 +1162,7 @@ export class CreateEciScalingConfigurationRequestImageRegistryCredentials extend
   password?: string;
   /**
    * @remarks
-   * The endpoint of the image repository.
+   * The address of the image registry.
    * 
    * @example
    * registry-vpc.cn-shanghai.aliyuncs.com
@@ -1168,7 +1170,7 @@ export class CreateEciScalingConfigurationRequestImageRegistryCredentials extend
   server?: string;
   /**
    * @remarks
-   * The username of the image repository.
+   * The username of the image registry.
    * 
    * @example
    * yourusername
@@ -1202,9 +1204,8 @@ export class CreateEciScalingConfigurationRequestImageRegistryCredentials extend
 export class CreateEciScalingConfigurationRequestInitContainersSecurityContextCapability extends $dara.Model {
   /**
    * @remarks
-   * The permissions that you want to grant to the processes in the init container. Valid values: NET_ADMIN and NET_RAW.
-   * 
-   * >  To use NET_RAW, submit a ticket.
+   * Grants specific permissions to processes in the container. Only NET_ADMIN and NET_RAW are supported.
+   * > NET_RAW is not supported by default. Submit a ticket to apply for this permission.
    */
   adds?: string[];
   static names(): { [key: string]: string } {
@@ -1235,7 +1236,7 @@ export class CreateEciScalingConfigurationRequestInitContainersSecurityContext e
   capability?: CreateEciScalingConfigurationRequestInitContainersSecurityContextCapability;
   /**
    * @remarks
-   * Specifies whether the root file system on which the init container runs is read-only. Valid value: true.
+   * Specifies whether the root file system where the container runs is read-only. Only true is supported.
    * 
    * @example
    * true
@@ -1243,7 +1244,7 @@ export class CreateEciScalingConfigurationRequestInitContainersSecurityContext e
   readOnlyRootFilesystem?: boolean;
   /**
    * @remarks
-   * The ID of the user that runs the init container.
+   * The user ID used to run the container.
    * 
    * @example
    * 587
@@ -1280,7 +1281,7 @@ export class CreateEciScalingConfigurationRequestInitContainersSecurityContext e
 export class CreateEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVars extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is unavailable for use.
+   * >This parameter is unavailable.
    * 
    * @example
    * path
@@ -1288,7 +1289,7 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerEnvi
   fieldRefFieldPath?: string;
   /**
    * @remarks
-   * The name of the environment variable. The name can be 1 to 128 characters in length and can contain letters, underscores (_), and digits. It cannot start with a digit. Specify the value in the `[0-9a-zA-Z]` format.
+   * The name of the environment variable. The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (_). It cannot start with a digit.
    * 
    * @example
    * Path
@@ -1296,7 +1297,7 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerEnvi
   key?: string;
   /**
    * @remarks
-   * The value of the environment variable. The value can be up to 256 characters in length.
+   * The value of the environment variable. The value must be 0 to 256 characters in length.
    * 
    * @example
    * /usr/bin/
@@ -1340,8 +1341,8 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerPort
    * @remarks
    * The protocol type. Valid values:
    * 
-   * *   TCP
-   * *   UDP
+   * - TCP
+   * - UDP
    * 
    * @example
    * TCP
@@ -1373,7 +1374,7 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerPort
 export class CreateEciScalingConfigurationRequestInitContainersInitContainerVolumeMounts extends $dara.Model {
   /**
    * @remarks
-   * The directory to which the init container mounts the volume. The data stored in this directory is overwritten by the data on the volume. Specify this parameter with caution.
+   * The mount directory. The content in the mount directory of the container is directly overwritten by the content of the volume. Use this parameter with caution.
    * 
    * @example
    * /usr/share/
@@ -1381,11 +1382,10 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerVolu
   mountPath?: string;
   /**
    * @remarks
-   * The mount propagation settings of the volume. Mount propagation enables volume sharing from one container to other containers within the same pod or to containers across separate pods on the same node. Valid values:
-   * 
-   * *   None: Subsequent mounts executed on the volume or its subdirectories do not propagate to the volume.
-   * *   HostToCotainer: Subsequent mounts executed on the volume or its subdirectories propagate to the volume.
-   * *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed on the volume or its subdirectories propagate to the volume. All volume mounts executed on the container not only propagate back to the underlying host but also to all containers across every pod that uses the same volume.
+   * The mount propagation settings of the volume. Mount propagation allows a volume mounted by a container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
+   * - None: The volume is not aware of any subsequent mount operations performed on this volume or its subdirectories.
+   * - HostToCotainer: The volume is aware of subsequent mount operations performed on this volume or its subdirectories.
+   * - Bidirectional: Similar to HostToCotainer, the volume is aware of mount operations. In addition, the volume is propagated back to the host and to all containers of all pods that use the same volume.
    * 
    * @example
    * None
@@ -1393,7 +1393,7 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerVolu
   mountPropagation?: string;
   /**
    * @remarks
-   * The name of the volume.
+   * The name of the mounted volume.
    * 
    * @example
    * test-empty
@@ -1402,7 +1402,6 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerVolu
   /**
    * @remarks
    * Specifies whether the mount path is read-only.
-   * 
    * Default value: false.
    * 
    * @example
@@ -1411,7 +1410,7 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerVolu
   readOnly?: boolean;
   /**
    * @remarks
-   * The subdirectory of the volume. The pod can mount different directories of the same volume to different subdirectories of init containers.
+   * The subdirectory under the volume. This allows a pod to mount different directories under the same volume to different directories in the container.
    * 
    * @example
    * /usr/sub/
@@ -1450,17 +1449,17 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
   securityContext?: CreateEciScalingConfigurationRequestInitContainersSecurityContext;
   /**
    * @remarks
-   * The startup arguments of the init container. You can specify up to 10 arguments.
+   * The arguments for the container startup command. A maximum of 10 arguments are supported.
    */
   args?: string[];
   /**
    * @remarks
-   * The startup commands of the init container.
+   * The startup commands of the container.
    */
   commands?: string[];
   /**
    * @remarks
-   * The number of vCPUs per init container.
+   * The number of vCPUs for the container. Unit: cores.
    * 
    * @example
    * 0.5
@@ -1468,7 +1467,7 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
   cpu?: number;
   /**
    * @remarks
-   * The number of GPUs per init container.
+   * The number of GPUs allocated to the container.
    * 
    * @example
    * 1
@@ -1476,7 +1475,7 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
   gpu?: number;
   /**
    * @remarks
-   * The image of the init container.
+   * The image used by the container.
    * 
    * @example
    * nginx
@@ -1484,7 +1483,7 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
   image?: string;
   /**
    * @remarks
-   * The image pulling policy.
+   * The image pull policy.
    * 
    * @example
    * Always
@@ -1492,22 +1491,22 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
   imagePullPolicy?: string;
   /**
    * @remarks
-   * The environment variables of the init container.
+   * The environment variable information of the init container.
    */
   initContainerEnvironmentVars?: CreateEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVars[];
   /**
    * @remarks
-   * The ports of init containers.
+   * The list of port mappings for the init container.
    */
   initContainerPorts?: CreateEciScalingConfigurationRequestInitContainersInitContainerPorts[];
   /**
    * @remarks
-   * The volume mounts of the init container.
+   * The array of mount point information for the init container.
    */
   initContainerVolumeMounts?: CreateEciScalingConfigurationRequestInitContainersInitContainerVolumeMounts[];
   /**
    * @remarks
-   * The memory size per init container. Unit: GiB.
+   * The memory size. Unit: GiB.
    * 
    * @example
    * 1.0
@@ -1515,7 +1514,7 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
   memory?: number;
   /**
    * @remarks
-   * The name of the init container.
+   * The name of the container.
    * 
    * @example
    * test-init
@@ -1523,7 +1522,7 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The working directory of the init container.
+   * The working directory.
    * 
    * @example
    * /usr/local
@@ -1595,7 +1594,7 @@ export class CreateEciScalingConfigurationRequestInitContainers extends $dara.Mo
 export class CreateEciScalingConfigurationRequestSecurityContextSysctls extends $dara.Model {
   /**
    * @remarks
-   * The variable name of the security context in which the container group runs.
+   * The system name of the security context for the instance.
    * 
    * @example
    * kernel.msgmax
@@ -1603,7 +1602,7 @@ export class CreateEciScalingConfigurationRequestSecurityContextSysctls extends 
   name?: string;
   /**
    * @remarks
-   * The variable value of the security context in which the elastic container instance runs.
+   * The contextual variable value of the security context for the instance.
    * 
    * @example
    * 65536
@@ -1635,9 +1634,9 @@ export class CreateEciScalingConfigurationRequestSecurityContextSysctls extends 
 export class CreateEciScalingConfigurationRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the elastic container instance.
+   * The tag key of the instance.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` or contain `http://` or `https://`.
+   * If you specify this parameter, it cannot be an empty string. It can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * version
@@ -1645,9 +1644,9 @@ export class CreateEciScalingConfigurationRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the elastic container instance.
+   * The tag value of the instance.
    * 
-   * The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+   * If you specify this parameter, it can be an empty string. It can be up to 128 characters in length, and cannot start with `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * 3
@@ -1679,7 +1678,7 @@ export class CreateEciScalingConfigurationRequestTags extends $dara.Model {
 export class CreateEciScalingConfigurationRequestVolumesDiskVolume extends $dara.Model {
   /**
    * @remarks
-   * The ID of the disk volume.
+   * The ID of the DiskVolume.
    * 
    * @example
    * d-xx
@@ -1687,7 +1686,7 @@ export class CreateEciScalingConfigurationRequestVolumesDiskVolume extends $dara
   diskId?: string;
   /**
    * @remarks
-   * The size of the volume. Unit: GiB.
+   * The size of the DiskVolume. Unit: GiB.
    * 
    * @example
    * 15
@@ -1695,7 +1694,7 @@ export class CreateEciScalingConfigurationRequestVolumesDiskVolume extends $dara
   diskSize?: number;
   /**
    * @remarks
-   * The type of the disk volume. We recommend that you specify `FlexVolume.FsType` instead of DiskVolume.FsType.
+   * This file system type is not recommended. Use the FlexVolume.FsType parameter instead.
    * 
    * @example
    * xfs
@@ -1729,7 +1728,7 @@ export class CreateEciScalingConfigurationRequestVolumesDiskVolume extends $dara
 export class CreateEciScalingConfigurationRequestVolumesEmptyDirVolume extends $dara.Model {
   /**
    * @remarks
-   * The storage medium of the emptyDir volume. By default, this parameter is left empty. In this case, the emptyDir volume uses the file system of the node as the storage medium. A value of memory specifies that the emptyDir volume uses the memory as the storage medium.
+   * The storage medium of the EmptyDirVolume. The default value is empty, which indicates that the node file system is used. The value memory is supported, which indicates that memory is used.
    * 
    * @example
    * memory
@@ -1737,7 +1736,7 @@ export class CreateEciScalingConfigurationRequestVolumesEmptyDirVolume extends $
   medium?: string;
   /**
    * @remarks
-   * The size of the emptyDir volume. The value contains a unit. We recommend that you use Gi or Mi as the unit.
+   * The size of the EmptyDir volume. Specify a unit for the value. Use Gi or Mi.
    * 
    * @example
    * 256Mi
@@ -1769,7 +1768,7 @@ export class CreateEciScalingConfigurationRequestVolumesEmptyDirVolume extends $
 export class CreateEciScalingConfigurationRequestVolumesFlexVolume extends $dara.Model {
   /**
    * @remarks
-   * The name of the FlexVolume driver.
+   * The name of the driver used for the FlexVolume.
    * 
    * @example
    * flexvolume
@@ -1777,7 +1776,7 @@ export class CreateEciScalingConfigurationRequestVolumesFlexVolume extends $dara
   driver?: string;
   /**
    * @remarks
-   * The type of the file system that you want to mount. The default value is determined by the script of FlexVolume.
+   * The type of the file system to be mounted. The default value depends on the script of the FlexVolume.
    * 
    * @example
    * ext4
@@ -1785,9 +1784,8 @@ export class CreateEciScalingConfigurationRequestVolumesFlexVolume extends $dara
   fsType?: string;
   /**
    * @remarks
-   * The options of the FlexVolume object. Each option is a key-value pair in a JSON string.
-   * 
-   * For example, if you use FlexVolume to mount a disk, specify the value in the `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"} format`.
+   * The list of FlexVolume object options. The options are in key-value pairs and passed in JSON format.
+   * For example, when you mount a cloud disk by using FlexVolume, the format of Options is `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}`.
    * 
    * @example
    * {"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}
@@ -1829,7 +1827,7 @@ export class CreateEciScalingConfigurationRequestVolumesHostPathVolume extends $
   path?: string;
   /**
    * @remarks
-   * The type of host directory. For example: File, Directory, Socket, etc.
+   * The type of the host directory. Examples: File, Directory, and Socket.
    * 
    * @example
    * Directory
@@ -1861,7 +1859,7 @@ export class CreateEciScalingConfigurationRequestVolumesHostPathVolume extends $
 export class CreateEciScalingConfigurationRequestVolumesNFSVolume extends $dara.Model {
   /**
    * @remarks
-   * The path to the NFS volume.
+   * The path of the NFS volume.
    * 
    * @example
    * /share
@@ -1869,11 +1867,9 @@ export class CreateEciScalingConfigurationRequestVolumesNFSVolume extends $dara.
   path?: string;
   /**
    * @remarks
-   * Specifies whether the permissions on the NFS volume are read-only. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
+   * Specifies whether the NFS volume is read-only. Valid values:
+   * - true: Yes.
+   * - false: No.
    * Default value: false.
    * 
    * @example
@@ -1882,7 +1878,7 @@ export class CreateEciScalingConfigurationRequestVolumesNFSVolume extends $dara.
   readOnly?: boolean;
   /**
    * @remarks
-   * The endpoint of the NFS server.
+   * The address of the NFS server.
    * 
    * @example
    * 3f9cd4a596-naw76.cn-shanghai.nas.aliyuncs.com
@@ -1924,7 +1920,7 @@ export class CreateEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFi
   content?: string;
   /**
    * @remarks
-   * The permissions on the configuration file.
+   * The directory permissions of the ConfigFileVolume.
    * 
    * @example
    * 0644
@@ -1971,12 +1967,12 @@ export class CreateEciScalingConfigurationRequestVolumes extends $dara.Model {
   NFSVolume?: CreateEciScalingConfigurationRequestVolumesNFSVolume;
   /**
    * @remarks
-   * The paths to the configuration files.
+   * The list of configuration file paths.
    */
   configFileVolumeConfigFileToPaths?: CreateEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFileToPaths[];
   /**
    * @remarks
-   * The default permissions on the ConfigFile volume.
+   * The default permissions of the ConfigFileVolume.
    * 
    * @example
    * 0644
@@ -1992,7 +1988,13 @@ export class CreateEciScalingConfigurationRequestVolumes extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the Host directory. Examples: File, Directory, and Socket.
+   * The volume type. Valid values:
+   * - EmptyDirVolume: the EmptyDir volume, which represents an empty directory.
+   * - NFSVolume: the NFS volume, which represents a network file system.
+   * - ConfigFileVolume: the ConfigFile volume, which represents a configuration file.
+   * - FlexVolume: uses the FlexVolume plug-in to extend storage types and supports mounting cloud disks.
+   * - HostPathVolume: the HostPath volume, which represents a file or directory on the host node.
+   * - DiskVolume (not recommended): the cloud disk volume. Use FlexVolume to mount cloud disks instead.
    * 
    * @example
    * ConfigFileVolume
@@ -2056,12 +2058,12 @@ export class CreateEciScalingConfigurationRequestVolumes extends $dara.Model {
 export class CreateEciScalingConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The Container Registry Enterprise Edition instances.
+   * The information about the Container Registry Enterprise instances.
    */
   acrRegistryInfos?: CreateEciScalingConfigurationRequestAcrRegistryInfos[];
   /**
    * @remarks
-   * The validity period of the scaling configuration. Unit: seconds.
+   * The validity period. Unit: seconds.
    * 
    * @example
    * 1000
@@ -2069,7 +2071,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   activeDeadlineSeconds?: number;
   /**
    * @remarks
-   * Specifies whether to automatically create elastic IP addresses (EIPs) and bind the EIPs to elastic container instances.
+   * Specifies whether automatic creation of an elastic IP address (EIP) is performed and the EIP is attached to the ECI instance.
    * 
    * @example
    * true
@@ -2077,10 +2079,9 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   autoCreateEip?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically match the image cache. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to automatically match an image cache. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * Default value: false.
    * 
@@ -2090,9 +2091,26 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   autoMatchImageCache?: boolean;
   /**
    * @remarks
-   * The name series of elastic container instances.
+   * The name of the ECI instance, which is the name of the container group.
    * 
-   * If you want to use an ordered instance name, specify the value for this parameter in the following format: name_prefix[begin_number,bits]name_suffix.
+   * To set a sequential instance name, use the following format: name_prefix(AUTO_INCREMENT)[begin_number,bits]name_suffix.
+   * 
+   * - **name_prefix**: the prefix of the hostname.
+   * 
+   * - **(AUTO_INCREMENT)**: a fixed value that identifies this sorting method.
+   * 
+   * - **begin_number**: the start value of the sequential number. Valid values: 0 to 999999.
+   * 
+   * - **bits**: the number of digits of the sequential number. Valid values: 1 to 6. If the number of digits of the specified begin_number is greater than the value of bits, bits defaults to 6.
+   * <notice>We recommend that you set bits to at least 3. Otherwise, the upper limit of the sequential number is easily reached. After the upper limit is reached, if scale-out is still required, the scaling activity reports an error and stops. In this case, you must reset the rule for generating hostnames.</notice>
+   * 
+   * - **name_suffix** (optional): the suffix of the hostname.
+   * 
+   * <notice>No spaces are allowed in [begin_number,bits]. The system increments the number sequentially by default. However, if an ECI instance created during scale-out fails to start, the instance is removed from the scaling group and a new ECI instance is created. Therefore, the hostnames of ECI instances in the scaling group may be incremented discontinuously.</notice>
+   * 
+   * **Example:** If you set the value to nginx-test-(AUTO_INCREMENT)[0,3], the container group names are nginx-test-000, nginx-test-001, and nginx-test-002.
+   * 
+   * The rules for setting sequential ECI instance names are the same as those for setting sequential ECS instance names in a scaling group. For more information, see [Set a rule for sequential and unique instance names or hostnames](https://help.aliyun.com/document_detail/203831.html).
    * 
    * @example
    * nginx-test-(AUTO_INCREMENT)[0,3]
@@ -2100,15 +2118,14 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   containerGroupName?: string;
   /**
    * @remarks
-   * The containers per elastic container instance.
+   * The list of containers included in the instance.
    */
   containers?: CreateEciScalingConfigurationRequestContainers[];
   /**
    * @remarks
-   * Specifies whether to enable the Cost Optimization feature. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable cost optimization. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -2116,7 +2133,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   costOptimization?: boolean;
   /**
    * @remarks
-   * The number of vCPUs per elastic container instance.
+   * The number of vCPUs for the instance. Unit: cores.
    * 
    * @example
    * 1.0
@@ -2124,7 +2141,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The number of physical CPU cores. You can specify this parameter for specific instance types. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
+   * The number of physical CPU cores. Only specific instance types support custom settings. For more information, see [Customize CPU options](https://help.aliyun.com/document_detail/197781.html).
    * 
    * @example
    * 2
@@ -2132,7 +2149,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   cpuOptionsCore?: number;
   /**
    * @remarks
-   * The number of threads per core. You can specify this parameter for specific instance types. A value of 1 specifies that Hyper-Threading is disabled. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
+   * The number of threads per core. Only specific instance types support custom settings. A value of 1 indicates that hyper-threading is disabled. For more information, see [Customize CPU options](https://help.aliyun.com/document_detail/197781.html).
    * 
    * @example
    * 2
@@ -2140,7 +2157,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   cpuOptionsThreadsPerCore?: number;
   /**
    * @remarks
-   * The bucket that you want to use to store data caches.
+   * The data cache bucket.
    * 
    * @example
    * default
@@ -2148,14 +2165,13 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   dataCacheBucket?: string;
   /**
    * @remarks
-   * Specifies whether to enable the performance burst feature when ESSD AutoPL disks are used to store data caches. Valid values:
+   * Specifies whether to enable the burst feature for the ESSD AutoPL cloud disk used for data caching. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * Default value: false.
-   * 
-   * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * > For more information about ESSD AutoPL cloud disks, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * false
@@ -2163,16 +2179,15 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   dataCacheBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The PL of the cloud disk that you want to use to store data caches. We recommend that you use ESSDs. Valid values:
+   * The performance level of the cloud disk used for data caching. ESSDs are recommended. Valid values for the performance level of an ESSD:
    * 
-   * *   PL0: An ESSD can provide up to 10,000 random read/write IOPS.
-   * *   PL1: An ESSD can provide up to 50,000 random read/write IOPS.
-   * *   PL2: An ESSD can provide up to 100,000 random read/write IOPS.
-   * *   PL3: An ESSD can provide up to 1,000,000 random read/write IOPS.
+   * - PL0: An ESSD at PL0 delivers up to 10,000 random read/write IOPS.
+   * - PL1: An ESSD at PL1 delivers up to 50,000 random read/write IOPS.
+   * - PL2: An ESSD at PL2 delivers up to 100,000 random read/write IOPS.
+   * - PL3: An ESSD at PL3 delivers up to 1,000,000 random read/write IOPS.
    * 
    * Default value: PL1.
-   * 
-   * >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * > For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -2180,9 +2195,9 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   dataCachePL?: string;
   /**
    * @remarks
-   * The provisioned IOPS of the ESSD AutoPL disk that you want to use to store data caches. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × *Capacity, 50,000}.
+   * The provisioned read/write IOPS of the ESSD AutoPL cloud disk used for data caching. Valid values: 0 to min{50000, 1000 × capacity - baseline performance}, where baseline performance = min{1800 + 50 × capacity, 50000}.
    * 
-   * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * > For more information about ESSD AutoPL cloud disks, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 40000
@@ -2190,7 +2205,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   dataCacheProvisionedIops?: number;
   /**
    * @remarks
-   * >  This parameter is unavailable for use.
+   * >This parameter is unavailable.
    * 
    * @example
    * desc
@@ -2198,25 +2213,26 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IP addresses of the DNS servers.
+   * The list of IP addresses of DNS servers.
    */
   dnsConfigNameServers?: string[];
   /**
    * @remarks
-   * The options. Each option is a name-value pair. The value in the name-value pair is optional.
+   * The list of object options. Each object consists of a Name and an optional Value.
    */
   dnsConfigOptions?: CreateEciScalingConfigurationRequestDnsConfigOptions[];
   /**
    * @remarks
-   * The search domains of the DNS servers.
+   * The list of DNS search domains.
    */
   dnsConfigSearchs?: string[];
   /**
    * @remarks
-   * The Domain Name System (DNS) policy. Valid values:
+   * The DNS policy. Valid values:
    * 
-   * *   None: uses the DNS that is specified by DnsConfig.
-   * *   Default: uses the DNS that is specified for the runtime environment.
+   * - None: Uses the DNS settings specified in the DnsConfig field.
+   * 
+   * - Default: Inherits the DNS settings of the runtime environment.
    * 
    * @example
    * Default
@@ -2224,7 +2240,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   dnsPolicy?: string;
   /**
    * @remarks
-   * The maximum outbound bandwidth. Unit: bit/s.
+   * The outbound bandwidth limit. Unit: bytes.
    * 
    * @example
    * 1024000
@@ -2232,7 +2248,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   egressBandwidth?: number;
   /**
    * @remarks
-   * The EIP bandwidth. Default value: 5. Unit: Mbit/s.
+   * The bandwidth of the EIP. Default value: 5 Mbit/s.
    * 
    * @example
    * 5
@@ -2240,7 +2256,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   eipBandwidth?: number;
   /**
    * @remarks
-   * >  This parameter is unavailable for use.
+   * >This parameter is unavailable.
    * 
    * @example
    * false
@@ -2248,7 +2264,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   enableSls?: boolean;
   /**
    * @remarks
-   * The size of the temporary storage space. By default, an Enterprise SSD (ESSD) of performance level 1 (PL1) is used. Unit: GiB.
+   * The size of the ephemeral storage space. By default, a PL1 ESSD cloud disk is used. Unit: GiB.
    * 
    * @example
    * 20
@@ -2256,12 +2272,11 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   ephemeralStorage?: number;
   /**
    * @remarks
-   * The version of the GPU driver. Valid values:
+   * The GPU driver version. Valid values:
+   * - tesla=470.82.01 (default)
+   * - tesla=525.85.12
    * 
-   * *   tesla=470.82.01 (default)
-   * *   tesla=525.85.12
-   * 
-   * >  You can switch the GPU driver version only for a few Elastic Compute Service (ECS) instance types. For more information, see [Specify GPU-accelerated ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/2579486.html).
+   * > Only specific instance types support switching the GPU driver version. For more information, see [Create a GPU-accelerated instance](https://help.aliyun.com/document_detail/2579486.html).
    * 
    * @example
    * tesla=525.85.12
@@ -2269,12 +2284,12 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   gpuDriverVersion?: string;
   /**
    * @remarks
-   * The custom hostnames of the containers.
+   * The custom hostname mappings for a container in the instance.
    */
   hostAliases?: CreateEciScalingConfigurationRequestHostAliases[];
   /**
    * @remarks
-   * The hostname series of elastic container instances.
+   * The hostname, which is the name of the container group.
    * 
    * @example
    * test
@@ -2282,7 +2297,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The image repositories.
+   * The details of the image registry.
    */
   imageRegistryCredentials?: CreateEciScalingConfigurationRequestImageRegistryCredentials[];
   /**
@@ -2295,7 +2310,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   imageSnapshotId?: string;
   /**
    * @remarks
-   * The maximum inbound bandwidth. Unit: bit/s.
+   * The inbound bandwidth limit. Unit: bytes.
    * 
    * @example
    * 1024000
@@ -2303,16 +2318,16 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   ingressBandwidth?: number;
   /**
    * @remarks
-   * The init containers.
+   * The list of init containers.
    */
   initContainers?: CreateEciScalingConfigurationRequestInitContainers[];
   /**
    * @remarks
-   * The level of the instance family. You can specify this parameter to match the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
+   * The instance family level, which is used to filter instance types that meet your requirements. This parameter takes effect only when CostOptimization is enabled. Valid values:
    * 
-   * *   EntryLevel: entry level (shared instance types). Instance types of this level are the most cost-effective, but may not ensure stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-   * *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-   * *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
+   * - EntryLevel: entry-level, which indicates shared instance types. Shared instance types are more cost-effective but cannot guarantee stable computing performance. They are suitable for business scenarios with low average CPU utilization. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+   * - EnterpriseLevel: enterprise-level. Enterprise-level instance types provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - CreditEntryLevel: credit entry-level, which indicates burstable instances. Burstable instances use CPU credits to ensure computing performance and are suitable for business scenarios with low average CPU utilization but occasional CPU bursts. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * 
    * @example
    * EnterpriseLevel
@@ -2320,7 +2335,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   instanceFamilyLevel?: string;
   /**
    * @remarks
-   * The ECS instance types that you want to use to create elastic container instances. You can specify up to five ECS instance types.
+   * The specified ECS instance types. You can specify up to five instance types.
    */
   instanceTypes?: string[];
   /**
@@ -2333,7 +2348,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   ipv6AddressCount?: number;
   /**
    * @remarks
-   * The load balancing weight of each elastic container instance. Valid values: 1 to 100.
+   * The weight of the ECI instance when it is used as a backend server for load balancing. Valid values: 1 to 100.
    * 
    * Default value: 50.
    * 
@@ -2343,7 +2358,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   loadBalancerWeight?: number;
   /**
    * @remarks
-   * The memory size per elastic container instance. Unit: GiB.
+   * The memory size for the instance. Unit: GiB.
    * 
    * @example
    * 2.0
@@ -2351,13 +2366,13 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The endpoints of the Network Time Protocol (NTP) servers.
+   * The NTP server.
    */
   ntpServers?: string[];
   ownerId?: number;
   /**
    * @remarks
-   * The name of the instance Resource Access Management (RAM) role. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [RAM roles](https://help.aliyun.com/document_detail/61175.html).
+   * The name of the instance RAM role. ECI and ECS share instance RAM roles. For more information, see [Instance RAM roles](https://help.aliyun.com/document_detail/61175.html).
    * 
    * @example
    * RamTestRole
@@ -2374,11 +2389,11 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The restart policy of elastic container instances. Valid values:
+   * The restart policy of the ECI instance. Valid values:
    * 
-   * *   Always: always restarts elastic container instances.
-   * *   Never: never restarts elastic container instances.
-   * *   OnFailure: restarts elastic container instances upon failures.
+   * - Always: Always restarts the instance.
+   * - Never: Never restarts the instance.
+   * - OnFailure: Restarts the instance upon failure.
    * 
    * Default value: Always.
    * 
@@ -2388,9 +2403,9 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   restartPolicy?: string;
   /**
    * @remarks
-   * The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). It must start with a letter or a digit.
+   * The name of the scaling configuration. The name must be 2 to 64 characters in length and start with a digit, letter, or Chinese character. It can contain digits, underscores (_), hyphens (-), and periods (.).
    * 
-   * The name of the scaling configuration must be unique in a scaling group within a region. If you do not specify this parameter, the value of ScalingConfigurationId is used.
+   * The name must be unique within a scaling group in a region. If you do not specify this parameter, the ID of the scaling configuration is used by default.
    * 
    * @example
    * scalingconfig****
@@ -2408,14 +2423,14 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * The system information of the security context in which the elastic container instance runs.
+   * The security context system information for the instance.
    */
   securityContextSysctls?: CreateEciScalingConfigurationRequestSecurityContextSysctls[];
   /**
    * @remarks
-   * The ID of the security group to which elastic container instances belong. Elastic container instances that belong to the same security group can communicate with each other.
+   * The ID of the security group to which the ECI instance belongs. ECI instances in the same security group can access each other.
    * 
-   * If you do not specify a security group, the system uses the default security group in the region that you selected. Make sure that the inbound rules of the security group contain the protocols and port numbers of the containers that you want to expose. If you do not have a default security group in the region, the system creates a default security group, and then adds the container protocols and port numbers that you specified to the inbound rules of the security group.
+   * If you do not specify a security group, the system automatically uses the default security group in the selected region. You must ensure that the inbound rules of this security group include the protocols and ports that the containers need to expose. If no default security group exists in the region, the system performs automatic creation of a default security group and adds the declared container protocols and ports to the inbound rules of the security group.
    * 
    * @example
    * sg-uf66jeqopgqa9hdn****
@@ -2423,9 +2438,9 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The maximum hourly price of preemptible elastic container instances. The value can be accurate to three decimal places.
+   * The maximum hourly price for the spot instance. The value is accurate to three decimal places.
    * 
-   * If you set SpotStrategy to SpotWithPriceLimit, you must specify SpotPriceLimit.
+   * This parameter is required when SpotStrategy is set to SpotWithPriceLimit.
    * 
    * @example
    * 0.025
@@ -2433,11 +2448,11 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   spotPriceLimit?: number;
   /**
    * @remarks
-   * The instance bidding policy. Valid values:
+   * The preemption policy for the instance. Valid values:
    * 
-   * *   NoSpot: The instances are created as pay-as-you-go instances.
-   * *   SpotWithPriceLimit: The instances are preemptible instances for which you can specify the maximum hourly price.
-   * *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is used as the bid price.
+   * - NoSpot: Regular pay-as-you-go instance.
+   * - SpotWithPriceLimit: Spot instance with a maximum price limit.
+   * - SpotAsPriceGo: Spot instance whose price automatically follows the current market price.
    * 
    * Default value: NoSpot.
    * 
@@ -2447,15 +2462,15 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The tags of elastic container instances. Tags must be specified as key-value pairs. You can specify up to 20 tags for each elastic container instance. When you specify Key and Value, take note of the following items:
-   * 
-   * *   A tag key can be up to 64 characters in length. The key cannot start with acs: or aliyun or contain `http://` or `https://`. You cannot specify an empty string as a tag key.
-   * *   A tag value can be up to 128 characters in length. The value cannot start with acs: or aliyun or contain `http://` or `https://`. You can specify an empty string as a tag value.
+   * The tags of the ECI instance. Tags are passed as key-value pairs. You can use up to 20 tags. The requirements for keys and values are as follows:
+   *          
+   * - A key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. A key cannot be an empty string.
+   * - A value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. A value can be an empty string.
    */
   tags?: CreateEciScalingConfigurationRequestTags[];
   /**
    * @remarks
-   * The buffer time during which a program handles operations before the program stops. Unit: seconds.
+   * The buffer time for the program to handle operations before shutdown. Unit: seconds.
    * 
    * @example
    * 60
@@ -2463,7 +2478,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   terminationGracePeriodSeconds?: number;
   /**
    * @remarks
-   * The volumes.
+   * The volume information.
    */
   volumes?: CreateEciScalingConfigurationRequestVolumes[];
   static names(): { [key: string]: string } {

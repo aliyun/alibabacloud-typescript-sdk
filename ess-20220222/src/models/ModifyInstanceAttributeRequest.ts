@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the scaling group to manage the lifecycles of the manually added ECS instances. Valid values:
+   * Specifies whether the lifecycle (epoch) of an instance manually added to the scaling group is managed by the scaling group. Valid values:
    * 
-   * *   true: allows the scaling group to manage the lifecycles of the manually added ECS instances. The scaling group manages the lifecycles of manually added instances and automatically created instances in the same manner. In this case, Auto Scaling releases the instances when they are removed from the scaling group. This rule does not apply to instances that are removed by calling the DetachInstances operation.
-   * *   false: does not allow the scaling group to manage the lifecycles of the manually added ECS instances. In this case, Auto Scaling does not release the instances when they are removed from the scaling group.
+   * - true: Managed. The lifecycle (epoch) of the instance is managed by Auto Scaling, which is consistent with that of instances automatically created in the scaling group. The instance is automatically released when it is removed from the scaling group, excluding instances removed when you invoke the DetachInstances operation.
+   * - false: Unmanaged. The instance is not released when it is removed from the scaling group.
    * 
-   * >  You can specify this parameter only for ECS instances that are manually added to the scaling group.
+   * > This parameter applies only to instances manually added to the scaling group, not to instances created within the scaling group.
    * 
    * @example
    * true
@@ -18,7 +18,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   entrusted?: boolean;
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The ID of the ECS instance in the scaling group.
    * 
    * @example
    * i-bp109k5j3dum1ce6****
@@ -26,13 +26,13 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance IDs.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the scaling group.
+   * The ID of the region to which the scaling group belongs.
    * 
    * This parameter is required.
    * 

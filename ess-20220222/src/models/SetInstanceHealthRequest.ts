@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SetInstanceHealthRequest extends $dara.Model {
   /**
    * @remarks
-   * The health status of the instance. Valid values:
+   * The health status to set for the instance. Valid values:
    * 
-   * *   Healthy: sets the instance as healthy.
-   * *   Unhealthy: sets the instance as unhealthy.
+   * - Healthy: Sets the instance to the healthy state.
+   * - Unhealthy: Sets the instance to the unhealthy state.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class SetInstanceHealthRequest extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the instance in the scaling group.
    * 
    * This parameter is required.
    * 

@@ -5,17 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveInstancesResponseBodyIgnoredInstances extends $dara.Model {
   /**
    * @remarks
-   * The error code that indicates the reason why the instance was not removed.
+   * The code of the reason why the instance is ignored.
+   * 
+   * @example
+   * IncorrectInstanceStatus
    */
   code?: string;
   /**
    * @remarks
-   * The ID of the instance that was not removed.
+   * The instance ID of the ignored instance.
+   * 
+   * @example
+   * i-28wt4****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The error message that indicates the reason why the instance was not removed.
+   * The description of the reason why the instance is ignored.
+   * 
+   * @example
+   * The current status of instance "i-28wt4****" does not support this action.
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -46,12 +55,12 @@ export class RemoveInstancesResponseBodyIgnoredInstances extends $dara.Model {
 export class RemoveInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances that were not removed and the reasons why they were not removed.
+   * The list of ignored invalid instance information in the request.
    */
   ignoredInstances?: RemoveInstancesResponseBodyIgnoredInstances[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

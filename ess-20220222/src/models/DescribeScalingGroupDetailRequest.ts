@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScalingGroupDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The output format. Set the value to yaml.
+   * The output format. Only the YAML format is supported.
    * 
    * @example
    * YAML

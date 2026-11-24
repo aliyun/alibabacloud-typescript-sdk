@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachLoadBalancersRequestLoadBalancerConfigs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CLB instance.
+   * The ID of the load balancing CLB (formerly SLB) instance.
    * 
    * @example
    * 147b46d767c-cn-qingdao-cm5****
@@ -13,7 +13,7 @@ export class AttachLoadBalancersRequestLoadBalancerConfigs extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The weight of an Elastic Compute Service (ECS) instance or elastic container instance as a backend sever of the CLB instance. If an instance has a higher weight, more access traffic is routed to the instance. If an instance has zero weight, no access traffic is routed to the instance.
+   * The weight of the ECS instance or ECI instance as a backend server after Auto Scaling adds the instance to the SLB server group. A higher weight indicates that the ECS instance or ECI instance is allocated more access requests. If the weight is 0, the ECS instance or ECI instance does not receive access requests.
    * 
    * Valid values: 0 to 100.
    * 
@@ -47,10 +47,9 @@ export class AttachLoadBalancersRequestLoadBalancerConfigs extends $dara.Model {
 export class AttachLoadBalancersRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to attach the CLB instance to the scaling group in an asynchronous manner. If you attach the CLB instance from the scaling group in an asynchronous manner, the call is successful only after all operations are successful. If a specific operation fails, the call fails. We recommend that you set this parameter to true. Valid values:
-   * 
-   * *   true: attaches the CLB instance to the scaling group in an asynchronous manner. In this case, the ID of the scaling activity is returned.
-   * *   false: does not attach the CLB instance to the scaling group in an asynchronous manner.
+   * Specifies whether to use asynchronous calls when adding load balancing instances. Asynchronous calls ensure the transactionality of operations, meaning that either all operations succeed or none of the operations take effect if any operation fails. Use asynchronous calls. Valid values:
+   * - true: asynchronous call. The request returns the ID of the scaling activity.
+   * - false: synchronous call.
    * 
    * Default value: false.
    * 
@@ -60,9 +59,9 @@ export class AttachLoadBalancersRequest extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * Ensures the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+   * Generate a parameter value from your client to ensure that the value is unique across different requests. The value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -70,15 +69,13 @@ export class AttachLoadBalancersRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to add the existing instances in the scaling group as backend servers of the load balancer. Valid values:
+   * Specifies whether to add all existing instances in the scaling group as backend servers of the load balancing instances. Valid values:
+   *          
+   * - true: adds all existing instances. If this parameter is set to `true`, when the load balancing instances are added to the scaling group, the system adds all existing instances in the scaling group as backend servers of the load balancing instances.
    * 
-   * *   true: If you set this parameter to `true`, the attachment of the load balancer entails the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
+   *   > If a load balancing instance is already added to the scaling group and you want to add all instances in the scaling group as backend servers of the load balancing instance, you can add the load balancing instance to the scaling group again and set ForceAttach to true.
    * 
-   *     **
-   * 
-   *     **Note** If a load balancer is currently attached to your scaling group, and you only want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set ForceAttach request to true.
-   * 
-   * *   false: If you set this parameter to false, the attachment of the load balancer does not entail the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
+   * - false: does not add existing instances. If this parameter is set to false, when the load balancing instances are added to the scaling group, the system does not add the existing instances in the scaling group as backend servers of the load balancing instances.
    * 
    * Default value: false.
    * 
@@ -88,12 +85,12 @@ export class AttachLoadBalancersRequest extends $dara.Model {
   forceAttach?: boolean;
   /**
    * @remarks
-   * The configurations of the classic load balancer (CLB, formerly known as SLB) instance.
+   * The configurations of the load balancing CLB (formerly SLB) instances.
    */
   loadBalancerConfigs?: AttachLoadBalancersRequestLoadBalancerConfigs[];
   /**
    * @remarks
-   * The IDs of the load balancers that you want to attach to the scaling group.
+   * The IDs of the load balancing CLB (formerly SLB) instances to add.
    */
   loadBalancers?: string[];
   ownerId?: number;

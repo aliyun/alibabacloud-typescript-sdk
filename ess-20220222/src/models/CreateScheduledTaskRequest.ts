@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateScheduledTaskRequestWarmPoolCapacityOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The expected number of prepared instances to be covered. The system maintains the sum of the current number of instances in the scaling group and the number of instances in the warm pool at this value. Default value: the maximum number of instances in the scaling group, which is specified by MaxSize.
+   * 
+   * @example
+   * 5
+   */
+  desiredGroupPreparedCapacity?: number;
+  /**
+   * @remarks
+   * The minimum number of instances in the warm pool. The system always retains at least this number of prepared instances in the warm pool to ensure that instances can be quickly added from the warm pool during scale-out. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
+  minCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desiredGroupPreparedCapacity: 'DesiredGroupPreparedCapacity',
+      minCapacity: 'MinCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desiredGroupPreparedCapacity: 'number',
+      minCapacity: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -13,9 +53,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The expected number of instances in the scaling group if you specify the ScalingGroupId parameter.
+   * The expected number of instances in the scaling group when the scaling method of the scheduled task is set to specifying the number of instances in the scaling group.
    * 
-   * > You must specify the `DesiredCapacity` parameter when you create a scaling group.
+   * > The scaling group must support the expected number of instances. This means that DesiredCapacity must be specified when the scaling group is created.
    * 
    * @example
    * 10
@@ -23,7 +63,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   desiredCapacity?: number;
   /**
    * @remarks
-   * The time period during which the failed scheduled task can be retried. Unit: seconds. Valid values: 0 to 1800.
+   * The period within which the scheduled task retries after a trigger failure. Unit: seconds. Valid values: 0 to 1800.
    * 
    * Default value: 600.
    * 
@@ -33,10 +73,11 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   launchExpirationTime?: number;
   /**
    * @remarks
-   * The point in time at which the scheduled task is triggered. Specify the time in the ISO 8601 standard. The time must be in UTC. You cannot trigger a scheduled task more than 90 days after its creation.
+   * The time at which the scheduled task is triggered. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time must be in UTC. You cannot specify a time that is later than 90 days from the creation date. 
    * 
-   * *   If you specify `RecurrenceType`, the scheduled task is repeatedly triggered at the point in time that is specified by LaunchTime.
-   * *   If you do not specify `RecurrenceType`, the scheduled task is triggered only once at the time point that is specified by LaunchTime.
+   * - If RecurrenceType is specified, the time specified by this parameter is the default time for recurring execution.
+   * 
+   * - If RecurrenceType is not specified, the task is executed only once at the specified date and time.
    * 
    * @example
    * 2014-08-17T16:52Z
@@ -44,7 +85,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   launchTime?: string;
   /**
    * @remarks
-   * The maximum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+   * The maximum number of instances in the scaling group when the scaling method of the scheduled task is set to specifying the number of instances in the scaling group.
    * 
    * @example
    * 10
@@ -52,7 +93,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   maxValue?: number;
   /**
    * @remarks
-   * The minimum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+   * The minimum number of instances in the scaling group when the scaling method of the scheduled task is set to specifying the number of instances in the scaling group.
    * 
    * @example
    * 0
@@ -62,9 +103,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The end time of the scheduled task. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format.
-   * 
-   * The time must be in UTC. You cannot enter a point in time that is later than 365 days from the point in time at which the scheduled task is created.
+   * The end time of the scheduled task that is executed repeatedly. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time must be in UTC. You cannot specify a time that is later than 365 days from the creation date.
    * 
    * @example
    * 2014-08-17T16:55Z
@@ -72,14 +111,13 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   recurrenceEndTime?: string;
   /**
    * @remarks
-   * The interval at which the scheduled task is repeated. Valid values:
+   * The recurrence type of the scheduled task. Valid values: 
+   * - Daily: The scheduled task is executed once every specified number of days. 
+   * - Weekly: The scheduled task is executed on specified days of each week. 
+   * - Monthly: The scheduled task is executed on specified days of each month. 
+   * - Cron: The scheduled task is executed based on the specified cron expression. 
    * 
-   * *   Daily: The scheduled task is executed once every specified number of days.
-   * *   Weekly: The scheduled task is executed on each specified day of the week.
-   * *   Monthly: The scheduled task is executed on each specified day of the month.
-   * *   Cron: The scheduled task is executed based on the specified cron expression.
-   * 
-   * You must specify the `RecurrenceType` and `RecurrenceValue` parameters at the same time.
+   * You must specify both RecurrenceType and RecurrenceValue.
    * 
    * @example
    * Daily
@@ -87,14 +125,14 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   recurrenceType?: string;
   /**
    * @remarks
-   * The number of recurrences of the scheduled task.
+   * The recurrence value of the scheduled task. 
    * 
-   * *   If you set the `RecurrenceType` parameter to `Daily`, you can specify only one value for this parameter. Valid values: 1 to 31.
-   * *   If you set the `RecurrenceType` parameter to `Weekly`, you can specify multiple values for this parameter. Separate the values with commas (,). The values that correspond to Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6.``
-   * *   If you set the `RecurrenceType` parameter to `Monthly`, you can specify two values in the `A-B` format for this parameter. Valid values of A and B: 1 to 31. B must be greater than or equal to A.
-   * *   If you set the `RecurrenceType` parameter to `Cron`, you can specify a cron expression. A cron expression is written in UTC time and consists of the following fields: minute, hour, day, month, and week. The expression can contain the letters L and W and the following wildcard characters: commas (,), question marks (?), hyphens (-), asterisks (\\*), number signs (#), and forward slashes (/).
+   * - If RecurrenceType is set to Daily, you can specify only one value. Valid values: 1 to 31. 
+   * - If RecurrenceType is set to Weekly, you can specify multiple values separated by commas (,). For example, the values for Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0,1,2,3,4,5,6.  
+   * - If RecurrenceType is set to Monthly, the format is A-B. Valid values of A and B: 1 to 31. B must be greater than or equal to A. 
+   * - If RecurrenceType is set to Cron, the value represents UTC time and supports a five-field expression for minutes, hours, days, months, and days of the week. The expression supports the following wildcards: commas (,), question marks (?), hyphens (-), asterisks (*), number signs (#), forward slashes (/), L, and W.  
    * 
-   * You must specify both the `RecurrenceType` parameter and the `RecurrenceValue` parameter.
+   * You must specify both RecurrenceType and RecurrenceValue.
    * 
    * @example
    * 1
@@ -102,7 +140,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   recurrenceValue?: string;
   /**
    * @remarks
-   * The region ID of the scheduled task.
+   * The ID of the region to which the scheduled task belongs.
    * 
    * This parameter is required.
    * 
@@ -113,9 +151,14 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the scaling group. If you specify this parameter, the number of instances in the scaling group will be changed when the scheduled task is triggered.
+   * The ID of the scaling group in which you want to modify the number of instances or adjust the warm pool capacity when the scheduled task is triggered.
    * 
-   * If you specify `ScalingGroupId`, you must also specify at least one of the following parameters: `MinValue`, `MaxValue`, and `DesiredCapacity`. You cannot specify `ScheduledAction` and `ScalingGroupId` at the same time.
+   * After you specify ScalingGroupId, the scaling method of the scheduled task is set to specifying the number of instances in the scaling group or adjusting the warm pool capacity.
+   * 
+   * - To specify the number of instances in the scaling group, you must specify a value for at least one of the following parameters: MinValue, MaxValue, and DesiredCapacity.
+   * - To adjust the warm pool capacity, you must configure WarmPoolCapacityOptions.
+   * 
+   * > You cannot specify both ScheduledAction and ScalingGroupId at the same time.
    * 
    * @example
    * asg-bp18p2yfxow2dloq****
@@ -123,9 +166,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * The scaling rule that you want to execute when the scheduled task is triggered. Specify the unique identifier of the scaling rule.
+   * The unique identifier of the scaling rule to be executed when the scheduled task is triggered.
    * 
-   * If you specify `ScheduledAction`, the scheduled task uses an existing scaling rule. You cannot specify `ScheduledAction` and `ScalingGroupId` at the same time.
+   * After you specify ScheduledAction, the scaling method of the scheduled task is set to selecting an existing scaling rule. You cannot specify both ScheduledAction and ScalingGroupId at the same time.
    * 
    * @example
    * ari:acs:ess:cn-hangzhou:140692647****:scalingrule/asr-bp12tcnol686y1ik****
@@ -133,9 +176,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   scheduledAction?: string;
   /**
    * @remarks
-   * The name of the scheduled task. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit. The name of the scheduled task must be unique in the region and within the Alibaba Cloud account.
+   * The name of the scheduled task. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). It must start with a letter, digit, or Chinese character. The name must be unique within the same region and Alibaba Cloud account. 
    * 
-   * If you do not specify this parameter, the value of the `ScheduledTaskId` parameter is used.
+   * Default value: the value of ScheduledTaskId.
    * 
    * @example
    * scheduled****
@@ -143,10 +186,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   scheduledTaskName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the scheduled task.
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable the scheduled task. Valid values: 
+   * - true: enables the task.
+   * - false: disables the task.
    * 
    * Default value: true.
    * 
@@ -154,6 +196,13 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * true
    */
   taskEnabled?: boolean;
+  /**
+   * @remarks
+   * The warm pool capacity configurations of the scaling group. This parameter takes effect only when a warm pool is configured for the scaling group.
+   * 
+   * > When you configure this parameter, you must specify ScalingGroupId.
+   */
+  warmPoolCapacityOptions?: CreateScheduledTaskRequestWarmPoolCapacityOptions;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -173,6 +222,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       scheduledAction: 'ScheduledAction',
       scheduledTaskName: 'ScheduledTaskName',
       taskEnabled: 'TaskEnabled',
+      warmPoolCapacityOptions: 'WarmPoolCapacityOptions',
     };
   }
 
@@ -195,10 +245,14 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       scheduledAction: 'string',
       scheduledTaskName: 'string',
       taskEnabled: 'boolean',
+      warmPoolCapacityOptions: CreateScheduledTaskRequestWarmPoolCapacityOptions,
     };
   }
 
   validate() {
+    if(this.warmPoolCapacityOptions && typeof (this.warmPoolCapacityOptions as any).validate === 'function') {
+      (this.warmPoolCapacityOptions as any).validate();
+    }
     super.validate();
   }
 

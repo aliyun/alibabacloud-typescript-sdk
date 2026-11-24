@@ -13,7 +13,7 @@ export class ModifyAlarmResponseBody extends $dara.Model {
   alarmTaskId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BACACF83-7070-4953-A8FD-D81F89F1****

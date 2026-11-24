@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEciScalingConfigurationDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The output format. Set the value to YAML.
+   * The output format. Only YAML is supported.
    * 
    * @example
-   * yaml
+   * YAML
    */
   outputFormat?: string;
   /**
    * @remarks
-   * The region ID of the scaling group to which the scaling configuration belongs.
+   * The region ID of the scaling group to which the scaling rule belongs.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeEciScalingConfigurationDetailRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the scaling configuration based on which elastic container instances are created.
+   * The ID of the scaling configuration for the ECI scaling group.
    * 
    * This parameter is required.
    * 

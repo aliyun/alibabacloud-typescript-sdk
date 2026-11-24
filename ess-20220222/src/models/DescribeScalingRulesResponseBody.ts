@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScalingRulesResponseBodyScalingRulesAlarmDimensions extends $dara.Model {
   /**
    * @remarks
-   * The dimension key of the metric.
+   * The key of the dimension associated with the metric.
    * 
    * @example
    * rulePool
@@ -13,10 +13,10 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarmDimensions extends
   dimensionKey?: string;
   /**
    * @remarks
-   * The dimension value of the metric.
+   * The value of the dimension associated with the metric.
    * 
    * @example
-   * sgp-l1cbirz451yxu2dxxx
+   * sgp-l1cbirz451yxu2****
    */
   dimensionValue?: string;
   static names(): { [key: string]: string } {
@@ -45,10 +45,10 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarmDimensions extends
 export class DescribeScalingRulesResponseBodyScalingRulesAlarmsDimensions extends $dara.Model {
   /**
    * @remarks
-   * The key of the dimension that is associated with the metric. Valid values:
+   * The key of the dimension associated with the metric. Valid values:
    * 
-   * *   ScalingGroupId: the ID of the scaling group.
-   * *   userId: the ID of the user account.
+   * - scaling_group: the ID of the scaling group.
+   * - userId: the ID of the user account.
    * 
    * @example
    * scaling_group
@@ -56,7 +56,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarmsDimensions extend
   dimensionKey?: string;
   /**
    * @remarks
-   * The value of the dimension that is associated with the metric.
+   * The value of the dimension associated with the metric.
    * 
    * @example
    * asg-bp18p2yfxow2dloq****
@@ -88,7 +88,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarmsDimensions extend
 export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Model {
   /**
    * @remarks
-   * The ID of the event-triggered task that is associated with the scaling rule.
+   * The ID of the event-triggered task associated with the scaling rule.
    * 
    * @example
    * asg-bp18p2yfxow2dloq****_1f9458d1-70e1-4bee-8c7f-7a47695b****
@@ -96,7 +96,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   alarmTaskId?: string;
   /**
    * @remarks
-   * The name of the event-triggered task that is associated with the scaling rule.
+   * The name of the event-triggered task associated with the scaling rule.
    * 
    * @example
    * alarmtask****
@@ -104,12 +104,12 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   alarmTaskName?: string;
   /**
    * @remarks
-   * The comparison operator between the statistical value and the threshold of the metric of the event-triggered task that is associated with the scaling rule. The comparison operator indicates the relationship in which the metric value and the metric threshold can meet the alert condition.
+   * The comparison operator used to compare the statistical value of the metric with the threshold for the event-triggered task associated with the scaling rule. This operator specifies the relationship between the statistical value and the threshold that meets the condition. Valid values:
    * 
-   * *   Valid value if the metric value is greater than or equal to the threshold: >=
-   * *   Valid value if the metric value is less than or equal to the threshold: <=
-   * *   Valid value if the metric value is greater than the threshold: >
-   * *   Valid value if the metric value is less than the threshold: <
+   * - >=: the statistical value of the metric is greater than or equal to the threshold.
+   * - <=: the statistical value of the metric is less than or equal to the threshold.
+   * - >: the statistical value of the metric is greater than the threshold.
+   * - <: the statistical value of the metric is less than the threshold.
    * 
    * @example
    * >=
@@ -117,12 +117,12 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   comparisonOperator?: string;
   /**
    * @remarks
-   * The dimensions of the event-triggered task that is associated with the scaling rule.
+   * The dimension information of the event-triggered task associated with the scaling rule.
    */
   dimensions?: DescribeScalingRulesResponseBodyScalingRulesAlarmsDimensions[];
   /**
    * @remarks
-   * The number of consecutive times when the event-triggered task that is associated with the scaling rule must meet the alert condition before an alert is triggered.
+   * The number of consecutive times the threshold expression must be met for the event-triggered task associated with the scaling rule to reach the alert state.
    * 
    * @example
    * 3
@@ -130,7 +130,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   evaluationCount?: number;
   /**
    * @remarks
-   * The name of the metric of the event-triggered task that is associated with the scaling rule.
+   * The name of the metric for the event-triggered task associated with the scaling rule.
    * 
    * @example
    * CpuUtilization
@@ -138,10 +138,10 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   metricName?: string;
   /**
    * @remarks
-   * The type of the metric of the event-triggered task that is associated with the scaling rule. Valid values:
+   * The type of the event-triggered task associated with the scaling rule. Valid values:
    * 
-   * *   system: system metrics
-   * *   custom: custom metrics
+   * - system: system monitoring event-triggered task.
+   * - custom: custom monitoring event-triggered task.
    * 
    * @example
    * system
@@ -149,7 +149,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   metricType?: string;
   /**
    * @remarks
-   * The statistical period of the metric data in the target tracking scaling rule.
+   * The period for collecting metric data in the target tracking scaling rule.
    * 
    * @example
    * 60
@@ -157,11 +157,11 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   period?: number;
   /**
    * @remarks
-   * The statistical method of the event-triggered task that is associated with the scaling rule. Valid values:
+   * The statistical method of the event-triggered task associated with the scaling rule. Valid values:
    * 
-   * *   Average
-   * *   Maximum
-   * *   Minimum
+   * - Average: the average value.
+   * - Maximum: the maximum value.
+   * - Minimum: the minimum value.
    * 
    * @example
    * Average
@@ -169,7 +169,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
   statistics?: string;
   /**
    * @remarks
-   * The alert threshold of the event-triggered task that is associated with the scaling rule.
+   * The alert threshold of the event-triggered task associated with the scaling rule.
    * 
    * @example
    * 50
@@ -228,7 +228,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions
   dimensionKey?: string;
   /**
    * @remarks
-   * The key of the metric dimension.
+   * The value of the metric dimension.
    * 
    * @example
    * testQueue
@@ -260,14 +260,14 @@ export class DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions
 export class DescribeScalingRulesResponseBodyScalingRulesHybridMetrics extends $dara.Model {
   /**
    * @remarks
-   * The metric dimensions. This parameter is used to specify the monitored resources.
+   * The dimensions of the metric. Used to specify the resources monitored by the metric.
    */
   dimensions?: DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions[];
   /**
    * @remarks
-   * The metric expression that consists of multiple Hybrid Cloud Monitoring metrics. It calculates a result used to trigger scaling events.
+   * The metric operation expression for multiple Hybrid Cloud Monitoring metrics. The calculation result of the expression is used to trigger scaling.
    * 
-   * The expression is written in Reverse Polish Notation (RPN) format and supports only the following operators: `+, -, *, /`.
+   * The operation expression must meet the Reverse Polish Notation (RPN) specification, and only the `+ - * /` operators are supported.
    * 
    * @example
    * (a+b)/2
@@ -275,7 +275,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesHybridMetrics extends $
   expression?: string;
   /**
    * @remarks
-   * The reference ID of the metric in the metric expression.
+   * The reference ID of the metric in the metric operation expression.
    * 
    * @example
    * a
@@ -283,7 +283,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesHybridMetrics extends $
   id?: string;
   /**
    * @remarks
-   * The name of the Hybrid Cloud Monitoring metric.
+   * The name of the monitoring metrics in the monitoring metrics repository for Hybrid Cloud Monitoring.
    * 
    * @example
    * AliyunSmq_NumberOfMessagesVisible
@@ -291,11 +291,11 @@ export class DescribeScalingRulesResponseBodyScalingRulesHybridMetrics extends $
   metricName?: string;
   /**
    * @remarks
-   * The statistical method of the metric value. Valid values:
+   * The statistical method of the metric. Valid values:
    * 
-   * *   Average: The average value of all metric values within a specified interval is calculated.
-   * *   Minimum: The minimum value of all metric values within a specified interval is calculated.
-   * *   Maximum: The maximum value of all metric values within a specified interval is calculated.
+   * - Average: the average value of all data points in the specified period.
+   * - Minimum: the minimum value of all data points in the specified period.
+   * - Maximum: the maximum value of all data points in the specified period.
    * 
    * @example
    * Average
@@ -336,7 +336,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesHybridMetrics extends $
 export class DescribeScalingRulesResponseBodyScalingRulesStepAdjustments extends $dara.Model {
   /**
    * @remarks
-   * The lower limit of a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
+   * The lower boundary of the step adjustment. Valid values: -9.999999E18 to 9.999999E18.
    * 
    * @example
    * 1.0
@@ -344,7 +344,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesStepAdjustments extends
   metricIntervalLowerBound?: number;
   /**
    * @remarks
-   * The upper limit of a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
+   * The upper boundary of the step adjustment. Valid values: -9.999999E18 to 9.999999E18.
    * 
    * @example
    * 5.0
@@ -352,7 +352,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesStepAdjustments extends
   metricIntervalUpperBound?: number;
   /**
    * @remarks
-   * The number of ECS instances that are scaled in a step adjustment.
+   * The number of instances to be scaled for the step adjustment.
    * 
    * @example
    * 1
@@ -386,11 +386,11 @@ export class DescribeScalingRulesResponseBodyScalingRulesStepAdjustments extends
 export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   /**
    * @remarks
-   * The adjustment method of the scaling rule. Valid values:
+   * The adjustment type of the scaling rule. Valid values:
    * 
-   * *   QuantityChangeInCapacity: adds or removes the specified number of Elastic Compute Service (ECS) instances to or from the scaling group.
-   * *   PercentChangeInCapacity: adds or removes the specified percentage of ECS instances to or from the scaling group.
-   * *   TotalCapacity: adjusts the number of ECS instances in the scaling group to the specified number.
+   * - QuantityChangeInCapacity: increases or decreases a specified number of ECS instances.
+   * - PercentChangeInCapacity: increases or decreases a specified percentage of ECS instances.
+   * - TotalCapacity: adjusts the number of ECS instances in the scaling group to a specified number.
    * 
    * @example
    * QuantityChangeInCapacity
@@ -398,7 +398,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   adjustmentType?: string;
   /**
    * @remarks
-   * The number of instances that must be scaled based on the scaling rule.
+   * The adjustment value of the scaling rule.
    * 
    * @example
    * 1
@@ -406,17 +406,17 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   adjustmentValue?: number;
   /**
    * @remarks
-   * The dimensions. This parameter is applicable to target tracking scaling rules. You can specify this parameter if your predefined metric requires extra dimensions. For example, if you predefine the LoadBalancerRealServerAverageQps metric, you must use this parameter to specify the rulePool dimension.
+   * The dimension value of the metric. This parameter applies to target tracking scaling rules and is configured when the metric requires additional dimension information. For example, the LoadBalancerRealServerAverageQps metric requires the rulePool dimension information.
    */
   alarmDimensions?: DescribeScalingRulesResponseBodyScalingRulesAlarmDimensions[];
   /**
    * @remarks
-   * The event-triggered tasks that are associated with the scaling rule. The value of this parameter is returned only if you set ShowAlarmRules to true. Otherwise, null is returned.
+   * The CloudMonitor event-triggered tasks associated with the scaling rule. The associated CloudMonitor event-triggered tasks are returned only when the ShowAlarmRules parameter is set to true. Otherwise, an empty list is returned.
    */
   alarms?: DescribeScalingRulesResponseBodyScalingRulesAlarms[];
   /**
    * @remarks
-   * The cooldown period of the scaling rule. This parameter is available only if you set ScalingRuleType to SimpleScalingRule. Valid values: 0 to 86400. Unit: seconds.
+   * The cooldown time of the scaling rule. This parameter applies only to simple scaling rules. Valid values: 0 to 86400. Unit: seconds.
    * 
    * @example
    * 20
@@ -424,10 +424,10 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   cooldown?: number;
   /**
    * @remarks
-   * Indicates whether scale-in is disabled. This parameter takes effect only if you set ScalingRuleType to TargetTrackingScalingRule. Valid values:
+   * Specifies whether to disable scale-in. This parameter applies only to target tracking scaling rules. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: disables scale-in.
+   * - false: allows scale-in.
    * 
    * @example
    * true
@@ -435,7 +435,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   disableScaleIn?: boolean;
   /**
    * @remarks
-   * The warm-up period of instances. During the warm-up period, a series of preparation measures are taken for the new instances. Performance metrics of instances being warmed up are not counted towards the monitoring range.
+   * The warmup time required for newly created instances to complete a series of preparations. During the warmup period, the started instances do not affect the monitoring metrics of the scaling group.
    * 
    * @example
    * 300
@@ -443,14 +443,14 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   estimatedInstanceWarmup?: number;
   /**
    * @remarks
-   * The Hybrid Cloud Monitoring metrics. For more information, see [Create a custom target tracking scaling rule](https://help.aliyun.com/document_detail/2852162.html).
+   * The monitoring metrics settings for Hybrid Cloud Monitoring. For more information about how to configure the settings, see [Use formula operations to customize target tracking scaling rules](https://help.aliyun.com/document_detail/2852162.html).
    */
   hybridMetrics?: DescribeScalingRulesResponseBodyScalingRulesHybridMetrics[];
   /**
    * @remarks
-   * The ID of the Hybrid Cloud Monitoring namespace.
+   * The ID of the monitoring metrics repository for Hybrid Cloud Monitoring.
    * 
-   * For information about how to manage Hybrid Cloud Monitoring namespaces, see [Manage namespaces](https://help.aliyun.com/document_detail/217606.html).
+   * To manage monitoring metrics repositories, see [Manage monitoring metrics repositories](https://help.aliyun.com/document_detail/217606.html).
    * 
    * @example
    * aliyun-test
@@ -458,7 +458,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   hybridMonitorNamespace?: string;
   /**
    * @remarks
-   * The maximum number of ECS instances that can be contained in the scaling group. If you specify this parameter, you must also specify PredictiveValueBehavior.
+   * The maximum number of instances in the scaling group. This parameter is used in combination with PredictiveValueBehavior.
    * 
    * @example
    * 100
@@ -466,7 +466,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   initialMaxSize?: number;
   /**
    * @remarks
-   * The maximum number of ECS instances that can be contained in the scaling group.
+   * The maximum number of instances in the scaling group.
    * 
    * @example
    * 2
@@ -474,7 +474,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   maxSize?: number;
   /**
    * @remarks
-   * The name of the metric of the event-triggered task that is associated with the scaling rule.
+   * The name of the metric for the event-triggered task associated with the scaling rule.
    * 
    * @example
    * CpuUtilization
@@ -482,11 +482,11 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
+   * The type of the metric. Valid values:
    * 
-   * *   system: system metrics of CloudMonitor.
-   * *   custom: custom metrics that are reported to CloudMonitor.
-   * *   hybrid: metrics of Hybrid Cloud Monitoring.
+   * - system: uses system metrics of CloudMonitor.
+   * - custom: uses custom metrics reported to CloudMonitor.
+   * - hybrid: uses metrics of Hybrid Cloud Monitoring.
    * 
    * @example
    * system
@@ -494,7 +494,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The minimum number of instances that must be scaled. This parameter takes effect only if you set ScalingRuleType to SimpleScalingRule or StepScalingRule and set AdjustmentType to PercentChangeInCapacity.
+   * The minimum number of instances to be adjusted by the scaling rule. This parameter takes effect only when the scaling rule type is SimpleScalingRule or StepScalingRule and the AdjustmentType is PercentChangeInCapacity.
    * 
    * @example
    * 1
@@ -502,7 +502,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   minAdjustmentMagnitude?: number;
   /**
    * @remarks
-   * The minimum number of ECS instances that must be contained in the scaling group.
+   * The minimum number of instances in the scaling group.
    * 
    * @example
    * 1
@@ -512,8 +512,8 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
    * @remarks
    * The mode of the predictive scaling rule. Valid values:
    * 
-   * *   PredictAndScale: provides predictions and creates prediction tasks.
-   * *   PredictOnly: provides predictions but does not create prediction tasks.
+   * - PredictAndScale: generates prediction results and creates predictive tasks.
+   * - PredictOnly: generates prediction results but does not create predictive tasks.
    * 
    * @example
    * PredictAndScale
@@ -521,7 +521,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   predictiveScalingMode?: string;
   /**
    * @remarks
-   * The amount of buffer time before prediction tasks are executed. By default, all prediction tasks that are automatically created based on a predictive scaling rule are executed on the hour. You can specify a buffer time for resource preparation before prediction tasks are executed. Valid values: 0 to 60. Unit: minutes.
+   * The predictive tasks automatically created by the predictive scaling rule are executed on the hour by default. You can set the pre-start time to execute the predictive tasks in advance and prepare resources. Valid values: 0 to 60. Unit: minutes.
    * 
    * @example
    * 30
@@ -529,11 +529,11 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   predictiveTaskBufferTime?: number;
   /**
    * @remarks
-   * The action on the predicted maximum value. Valid values:
+   * The processing method for the maximum value of the predictive scaling rule. Valid values:
    * 
-   * *   MaxOverridePredictiveValue: uses the initial maximum capacity as the maximum value for prediction tasks if the predicted value is greater than the initial maximum capacity.
-   * *   PredictiveValueOverrideMax: uses the predicted value as the maximum value for prediction tasks when the predicted value is greater than the initial maximum capacity.
-   * *   PredictiveValueOverrideMaxWithBuffer: increases the predicted value by a ratio that is specified by PredictiveValueBuffer, and uses the increased value as the maximum value for prediction tasks if the predicted value increased by this ratio is greater than the initial maximum capacity.
+   * - MaxOverridePredictiveValue: the initial maximum value overrides the predicted value. If the predicted value is greater than the initial maximum value, the maximum value of the predictive task uses the initial maximum value.
+   * - PredictiveValueOverrideMax: the predicted value overrides the initial maximum value. If the predicted value is greater than the initial maximum value, the maximum value of the predictive task uses the predicted value.
+   * - PredictiveValueOverrideMaxWithBuffer: a certain percentage is added to the predicted value. The predicted value is increased by the percentage specified by PredictiveValueBuffer. If the increased value is greater than the initial maximum value, the increased value is used.
    * 
    * @example
    * MaxOverridePredictiveValue
@@ -541,7 +541,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   predictiveValueBehavior?: string;
   /**
    * @remarks
-   * The ratio based on which the predicted value is increased when PredictiveValueBehavior is set to PredictiveValueOverrideMaxWithBuffer. If the predicted value increased by this ratio is greater than the initial maximum capacity, the increased value is used as the maximum value for prediction tasks. Valid values: 0 to 100.
+   * This parameter takes effect when PredictiveValueBehavior is set to PredictiveValueOverrideMaxWithBuffer. The predicted value is increased by this percentage. If the increased value is greater than the initial maximum value, the increased value is used. Valid values: 0 to 100.
    * 
    * @example
    * 50
@@ -549,7 +549,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   predictiveValueBuffer?: number;
   /**
    * @remarks
-   * The number of consecutive times that the event-triggered task for scale-in purposes must meet the threshold conditions before an alert is triggered. After a target tracking scaling rule is created, an event-triggered task is automatically created and associated with the target tracking scaling rule.
+   * After a target tracking scaling rule is created, an event-triggered task is automatically created. This parameter specifies the number of consecutive times the threshold condition must be met to trigger the scale-in event-triggered task.
    * 
    * @example
    * 15
@@ -557,7 +557,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   scaleInEvaluationCount?: number;
   /**
    * @remarks
-   * The number of consecutive times that the event-triggered task created for scale-out purposes must meet the threshold conditions before an alert is triggered. After a target tracking scaling rule is created, an event-triggered task is automatically created and associated with the target tracking scaling rule.
+   * After a target tracking scaling rule is created, an event-triggered task is automatically created. This parameter specifies the number of consecutive times the threshold condition must be met to trigger the scale-out event-triggered task.
    * 
    * @example
    * 3
@@ -599,10 +599,10 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
    * @remarks
    * The type of the scaling rule. Valid values:
    * 
-   * *   SimpleScalingRule: a simple scaling rule. Once a simple scaling rule is executed, Auto Scaling adjusts the number of ECS instances in the scaling group based on the values of AdjustmentType and AdjustmentValue.
-   * *   TargetTrackingScalingRule: a target tracking scaling rule. Once a target tracking scaling rule is executed, Auto Scaling dynamically calculates the number of ECS instances or elastic container instances to scale based on the predefined metric (MetricName) and attempts to maintain the metric value close to the specified target value (TargetValue).
-   * *   StepScalingRule: a step scaling rule. Once a step scaling rule is executed, Auto Scaling scales instances step by step based on the predefined thresholds and metric values.
-   * *   PredictiveScalingRule: a predictive scaling rule. Once a predictive scaling rule is executed, Auto Scaling analyzes the historical monitoring data based on the machine learning technology and predicts the trends of metric data. Auto Scaling also creates scheduled tasks to enable dynamic adjustment of the boundary values for the scaling group.
+   * - SimpleScalingRule: simple scaling rule. Adjusts the number of ECS instances based on the adjustment type (AdjustmentType) and adjustment value (AdjustmentValue).
+   * - TargetTrackingScalingRule: target tracking scaling rule. Dynamically calculates the number of ECS instances to scale out or scale-in based on a predefined metric (MetricName) and attempts to maintain the metric value near the target value (TargetValue).
+   * - StepScalingRule: step scaling rule. Provides a step-by-step extension method based on thresholds and metric values.
+   * - PredictiveScalingRule: predictive scaling rule. Analyzes the historical monitoring data of the scaling group based on machine learning capabilities to predict future monitoring metrics, and supports the automatic creation of scheduled tasks to set the boundaries of the scaling group.
    * 
    * @example
    * SimpleScalingRule
@@ -615,7 +615,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   stepAdjustments?: DescribeScalingRulesResponseBodyScalingRulesStepAdjustments[];
   /**
    * @remarks
-   * The target value of the metric. If you set ScalingRuleType to TargetTrackingScalingRule or PredictiveScalingRule, Auto Scaling keeps the metric value close to the target value by adding instances to or removing instances from the scaling group.
+   * The target value. When the scaling rule is a target tracking scaling rule or a predictive scaling rule, the scaling rule maintains the metric near the target value by adding or removing instances.
    * 
    * @example
    * 0.125
@@ -711,7 +711,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
 export class DescribeScalingRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -719,7 +719,7 @@ export class DescribeScalingRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -727,7 +727,7 @@ export class DescribeScalingRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -735,7 +735,7 @@ export class DescribeScalingRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scaling rules.
+   * The information about the scaling rules.
    */
   scalingRules?: DescribeScalingRulesResponseBodyScalingRules[];
   /**

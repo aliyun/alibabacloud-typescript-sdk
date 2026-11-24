@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsCpuOptions extends $dara.Model {
   /**
    * @remarks
-   * Nested virtualization, whether to enable hardware-based nested virtualization. Valid values:
+   * Specifies whether to enable hardware-based nested virtualization. Valid values:
    * 
-   * - enabled: Enabled.
-   * 
-   * - disabled: Disabled.
+   * * enabled: Enabled.
+   * * disabled: Disabled.
    * 
    * @example
    * enabled
@@ -47,7 +46,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsCusto
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the virtual switch.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp14zolna43z266bq****
@@ -79,7 +78,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsCusto
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the automatic snapshot policy applied to the data disk.
+   * The ID of the automatic snapshot policy applied to the data cloud disk.
    * 
    * @example
    * sp-bp19nq9enxqkomib****
@@ -87,17 +86,11 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * Whether Burst (performance burst) is enabled for the data disk. Valid values:
-   * 
-   * - true: Enabled.
-   * 
-   * - false: Disabled.
-   * 
-   * > This parameter appears only when `DataDisk.Category` is `cloud_auto`.
-   * 
-   * <props="china">
-   * 
-   * For more information, see [ESSD AutoPL](https://help.aliyun.com/document_detail/368372.html).
+   * Specifies whether to enable the performance burst feature for the data cloud disk. Valid values:
+   * - true: enables the feature.
+   * - false: disables the feature.
+   * > This parameter is displayed only when the DataDisk.Category parameter is set to cloud_auto.
+   * <props="china">For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * false
@@ -105,32 +98,26 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * Multiple disk categories for the data disk. The first disk category has the highest priority, followed by others in descending order. If Auto Scaling cannot use a higher-priority disk category, it automatically tries the next priority category to create the data disk. Valid values:
-   * 
-   * - cloud: basic disk. Basic disks created with an instance have DeleteWithInstance set to true.
-   * 
+   * The disk types of the data cloud disks. The first disk type has the highest priority, and the priorities of other disk types decrease in sequence. If a disk type with a higher priority is unavailable, Auto Scaling automatically attempts to create the data cloud disk by using the disk type with the next highest priority. Valid values:
+   * - cloud: basic cloud disk. The DeleteWithInstance property of a basic cloud disk created along with an instance is set to true.
    * - cloud_efficiency: ultra disk.
-   * 
    * - cloud_ssd: standard SSD.
-   * 
    * - cloud_essd: ESSD.
+   * - ephemeral_ssd: local SSD.
+   * - cloud_auto: ESSD AutoPL disk.
+   * - cloud_regional_disk_auto: regional ESSD.
    */
   categories?: string[];
   /**
    * @remarks
-   * The disk category of the data disk. Valid values:
-   * 
-   * - cloud: basic disk. Basic disks created with an instance have DeleteWithInstance set to true.
-   * 
+   * The category of the data cloud disk. Valid values:
+   * - cloud: basic cloud disk. The DeleteWithInstance attribute of a basic cloud disk created along with an instance is set to true.
    * - cloud_efficiency: ultra disk.
-   * 
    * - cloud_ssd: standard SSD.
-   * 
    * - ephemeral_ssd: local SSD.
-   * 
    * - cloud_essd: ESSD.
-   * 
-   * - cloud_auto: ESSD AutoPL.
+   * - cloud_auto: ESSD AutoPL disk.
+   * - cloud_regional_disk_auto: regional ESSD.
    * 
    * @example
    * cloud
@@ -138,11 +125,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   category?: string;
   /**
    * @remarks
-   * Whether to release the data disk when releasing the instance. Valid values:
-   * 
-   * - true: Release the disk along with the instance.
-   * 
-   * - false: Keep the disk when releasing the instance.
+   * Specifies whether to release the data cloud disk when the instance is released. Valid values:
+   * - true: releases the data cloud disk when the instance is released.
+   * - false: retains the data cloud disk when the instance is released.
    * 
    * @example
    * true
@@ -150,7 +135,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   deleteWithInstance?: boolean;
   /**
    * @remarks
-   * The description of the data disk.
+   * The description of the data cloud disk.
    * 
    * @example
    * FinanceDept
@@ -158,7 +143,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   description?: string;
   /**
    * @remarks
-   * The mount target of the data disk.
+   * The mount point of the data cloud disk.
    * 
    * @example
    * /dev/xvdb
@@ -166,7 +151,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   device?: string;
   /**
    * @remarks
-   * The name of the data disk.
+   * The name of the data cloud disk.
    * 
    * @example
    * cloud_ssdData
@@ -174,12 +159,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   diskName?: string;
   /**
    * @remarks
-   * Whether the data disk is encrypted. Valid values:
-   * 
-   * - true: Encrypted.
-   * 
-   * - false: Not encrypted.
-   * 
+   * Specifies whether to encrypt the data cloud disk. Valid values:
+   * - true: encrypts the data cloud disk.
+   * - false: does not encrypt the data cloud disk.
    * Default value: false.
    * 
    * @example
@@ -188,7 +170,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   encrypted?: string;
   /**
    * @remarks
-   * The KMS key ID corresponding to the data disk.
+   * The ID of the Key Management Service (KMS) key used to encrypt the data cloud disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -196,7 +178,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   KMSKeyId?: string;
   /**
    * @remarks
-   * The performance level of the ESSD data disk.
+   * The performance level of the data cloud disk when it is an ESSD (standard SSD).
    * 
    * @example
    * PL1
@@ -204,9 +186,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned IOPS (Input/Output Operations Per Second) performance metric for the data disk.
-   * 
-   * > IOPS (Input/Output Operations Per Second) measures the number of I/O operations per second, indicating block storage read/write capability. Unit: operations.
+   * The provisioned IOPS (Input/Output Operations Per Second) performance metrics of the data cloud disk.
+   * > IOPS measures the number of I/O operations per second and indicates the read and write capabilities of the block storage. Unit: operations per second.
    * 
    * @example
    * 100
@@ -214,17 +195,12 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   provisionedIops?: number;
   /**
    * @remarks
-   * The size of the data disk. Unit: GiB. Valid values:
-   * 
-   * - cloud: 5–2000.
-   * 
-   * - cloud_efficiency: 20–32768.
-   * 
-   * - cloud_ssd: 20–32768.
-   * 
-   * - cloud_essd: 20–32768.
-   * 
-   * - ephemeral_ssd: 5–800.
+   * The size of the data cloud disk. Unit: GiB. Valid values:
+   * - cloud: 5 to 2000.
+   * - cloud_efficiency: 20 to 32768.
+   * - cloud_ssd: 20 to 32768.
+   * - cloud_essd: 20 to 32768.
+   * - ephemeral_ssd: 5 to 800.
    * 
    * @example
    * 200
@@ -232,7 +208,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
   size?: number;
   /**
    * @remarks
-   * The snapshot ID used to create the data disk.
+   * The ID of the snapshot used to create the data cloud disk.
    * 
    * @example
    * s-23f2i****
@@ -292,25 +268,18 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   /**
    * @remarks
    * The architecture type of the instance type. Valid values:
-   * 
-   * - X86: X86 compute.
-   * 
-   * - Heterogeneous: Heterogeneous compute, such as GPU or FPGA.
-   * 
-   * - BareMetal: ECS Bare Metal Instance.
-   * 
-   * - Arm: Arm compute.
+   * - X86: x86 computing.
+   * - Heterogeneous: heterogeneous computing, such as GPU or FPGA.
+   * - BareMental: ECS Bare Metal server.
+   * - Arm: Arm computing.
    */
   architectures?: string[];
   /**
    * @remarks
-   * Whether the instance type supports performance burst. Valid values:
-   * 
-   * - Exclude: Exclude burstable instance types.
-   * 
-   * - Include: Include burstable instance types.
-   * 
-   * - Required: Include only burstable instance types.
+   * Specifies whether the instance type is a burstable instance type. Valid values:
+   * - Exclude: excludes burstable instance types.
+   * - Include: includes burstable instance types.
+   * - Required: includes only burstable instance types.
    * 
    * @example
    * Include
@@ -318,7 +287,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   burstablePerformance?: string;
   /**
    * @remarks
-   * The number of vCPU cores for the instance type.
+   * The number of vCPU cores of the instance type.
    * 
    * @example
    * 2
@@ -327,74 +296,50 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   /**
    * @remarks
    * The CPU architecture of the instance type. Valid values:
-   * 
-   * > N indicates multiple CPU architectures can be specified. N ranges from 1 to 2.
-   * 
+   * > N indicates that you can specify multiple CPU architectures. Valid values of N: 1 to 2.
    * - X86.
-   * 
    * - ARM.
    */
   cpuArchitectures?: string[];
   /**
    * @remarks
-   * The instance types to exclude. Use wildcard characters (\\*) to exclude a single instance type or an entire instance family. Examples:
-   * 
-   * - ecs.c6.large: Excludes the ecs.c6.large instance type.
-   * 
-   * - ecs.c6.\\*: Excludes all instance types in the c6 family.
+   * The instance types to be excluded. You can use a wildcard (*) to exclude a single instance type or an entire instance family. Examples:
+   * - ecs.c6.large: excludes the ecs.c6.large instance type.
+   * - ecs.c6.*: excludes all instance types in the c6 instance family.
    */
   excludedInstanceTypes?: string[];
   /**
    * @remarks
-   * GPU types.
+   * The GPU type.
    */
   gpuSpecs?: string[];
   /**
    * @remarks
-   * Instance categories. Valid values:
-   * 
-   * > N indicates multiple instance categories can be specified. N ranges from 1 to 10.
-   * 
-   * - General-purpose: General-purpose.
-   * 
-   * - Compute-optimized: Compute-optimized.
-   * 
-   * - Memory-optimized: Memory-optimized.
-   * 
-   * - Big data: Big data.
-   * 
-   * - Local SSDs: Local SSD.
-   * 
-   * - High Clock Speed: High frequency.
-   * 
-   * - Enhanced: Enhanced.
-   * 
-   * - Shared: Shared-resource.
-   * 
-   * - Compute-optimized with GPU: GPU.
-   * 
-   * - Visual Compute-optimized: Visual compute.
-   * 
-   * - Heterogeneous Service: Heterogeneous computing.
-   * 
-   * - Compute-optimized with FPGA: FPGA.
-   * 
-   * - Compute-optimized with NPU: NPU.
-   * 
-   * - ECS Bare Metal: ECS Bare Metal Instance.
-   * 
-   * - High Performance Compute: High-performance computing (HPC).
+   * The instance categorization. Valid values:
+   * > N indicates that you can specify multiple instance categories in the Settings. Valid values of N: 1 to 10.
+   * - General-purpose: general-purpose.
+   * - Compute-optimized: compute-optimized.
+   * - Memory-optimized: memory-optimized.
+   * - Big data: big data.
+   * - Local SSDs: local SSD.
+   * - High Clock Speed: high frequency.
+   * - Enhanced: enhanced.
+   * - Shared: shared.
+   * - Compute-optimized with GPU: GPU computing.
+   * - Visual Compute-optimized: visual compute-optimized.
+   * - Heterogeneous Service: heterogeneous service.
+   * - Compute-optimized with FPGA: FPGA-accelerated compute-optimized.
+   * - Compute-optimized with NPU: NPU-accelerated compute-optimized.
+   * - ECS Bare Metal: ECS Bare Metal server.
+   * - High Performance Compute: high-performance computing (HPC).
    */
   instanceCategories?: string[];
   /**
    * @remarks
-   * The instance family level.
-   * 
-   * - EntryLevel: Entry-level, i.e., shared-resource instances. Lower cost but cannot guarantee stable compute performance. Suitable for workloads with low average CPU usage. For more information, see [Shared-resource instances](https://help.aliyun.com/document_detail/108489.html).
-   * 
-   * - EnterpriseLevel: Enterprise-level. Stable performance with dedicated resources. Suitable for workloads requiring high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-   * 
-   * - CreditEntryLevel: Credit entry-level, i.e., burstable instances. Uses CPU credits to ensure compute performance. Suitable for workloads with low average CPU usage and occasional bursts. For more information, see [Burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * The level of the instance family. Valid values:
+   * - EntryLevel: entry-level instance families, which are shared instance families. These instance families are more cost-effective but do not guarantee consistent computing performance. They are suitable for workloads with low CPU utilization. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+   * - EnterpriseLevel: enterprise-level instance families. These instance families provide stable performance and dedicated resources, and are suitable for workloads that require high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - CreditEntryLevel: credit entry-level instance families, which are burstable instances. These instance families use CPU credits to maintain computing performance and are suitable for workloads with low CPU utilization but occasional CPU bursts. For more information, see [Burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * 
    * @example
    * EnterpriseLevel
@@ -402,7 +347,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   instanceFamilyLevel?: string;
   /**
    * @remarks
-   * The instance families to query. N indicates multiple instance families can be specified. N ranges from 1 to 10.
+   * The instance families to be queried. N indicates that you can specify multiple instance families. Valid values of N: 1 to 10.
    */
   instanceTypeFamilies?: string[];
   /**
@@ -415,9 +360,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   maxPrice?: number;
   /**
    * @remarks
-   * The maximum number of vCPU cores for the instance type.
-   * 
-   * > MaximumCpuCoreCount cannot exceed four times MinimumCpuCoreCount.
+   * The maximum number of vCPU cores of the instance type.
+   * > The value of MaximumCpuCoreCount cannot exceed four times the value of MinimumCpuCoreCount.
    * 
    * @example
    * 4
@@ -425,7 +369,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   maximumCpuCoreCount?: number;
   /**
    * @remarks
-   * The maximum number of GPUs. Valid values: positive integers.
+   * The maximum number of GPUs for the instance. Valid values: positive integers.
    * 
    * @example
    * 2
@@ -433,7 +377,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   maximumGpuAmount?: number;
   /**
    * @remarks
-   * The maximum memory size. Unit: GiB.
+   * The maximum memory size of the instance. Unit: GiB.
    * 
    * @example
    * 4
@@ -441,7 +385,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   maximumMemorySize?: number;
   /**
    * @remarks
-   * The memory size for the instance type. Unit: GiB.
+   * The memory size of the instance type. Unit: GiB.
    * 
    * @example
    * 4
@@ -449,7 +393,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   memory?: number;
   /**
    * @remarks
-   * The minimum baseline vCPU compute performance (sum of all vCPUs) for burstable instances t5 and t6.
+   * The minimum baseline vCPU computing performance (the sum of all vCPUs) for t5 and t6 burstable instances.
    * 
    * @example
    * 12
@@ -457,7 +401,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumBaselineCredit?: number;
   /**
    * @remarks
-   * The minimum number of vCPU cores for the instance type.
+   * The minimum number of vCPU cores of the instance type.
    * 
    * @example
    * 2
@@ -465,7 +409,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumCpuCoreCount?: number;
   /**
    * @remarks
-   * The minimum number of IPv6 addresses per ENI.
+   * The minimum value for the maximum number of IPv6 addresses supported by a single elastic network interfaces (ENIs) on the instance. Each ENI is a network interface controller (NIC).
    * 
    * @example
    * 1
@@ -473,7 +417,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumEniIpv6AddressQuantity?: number;
   /**
    * @remarks
-   * The minimum number of IPv4 addresses per ENI.
+   * The minimum value for the maximum number of IPv4 addresses supported by a single elastic network interfaces (ENIs) on the instance. Each ENI is a network interface controller (NIC).
    * 
    * @example
    * 2
@@ -481,7 +425,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumEniPrivateIpAddressQuantity?: number;
   /**
    * @remarks
-   * The minimum number of elastic network interfaces (ENIs) that the instance type supports attaching.
+   * The minimum value for the maximum number of elastic network interfaces (ENIs) that can be attached to the instance.
    * 
    * @example
    * 2
@@ -489,7 +433,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumEniQuantity?: number;
   /**
    * @remarks
-   * The minimum number of GPUs. Valid values: positive integers.
+   * The minimum number of GPUs for the instance. Valid values: positive integers.
    * 
    * @example
    * 2
@@ -497,7 +441,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumGpuAmount?: number;
   /**
    * @remarks
-   * The minimum initial vCPU credit for burstable instances t5 and t6.
+   * The minimum initial vCPU credit value for t5 and t6 burstable instances.
    * 
    * @example
    * 12
@@ -505,7 +449,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumInitialCredit?: number;
   /**
    * @remarks
-   * The minimum memory size. Unit: GiB.
+   * The minimum memory size of the instance. Unit: GiB.
    * 
    * @example
    * 4
@@ -513,7 +457,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   minimumMemorySize?: number;
   /**
    * @remarks
-   * The processor models of the instance. N indicates multiple processor models can be specified. N ranges from 1 to 10.
+   * The processor model of the instance. N indicates that you can specify multiple processor models. Valid values of N: 1 to 10.
    */
   physicalProcessorModels?: string[];
   static names(): { [key: string]: string } {
@@ -605,15 +549,14 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstanceTypeCandidateOptions extends $dara.Model {
   /**
    * @remarks
-   * When supplementing switches in other zones, specify the CIDR blocks for eligible switches.
+   * The CIDR blocks of the vSwitches that can be selected when adding vSwitches from other zones is allowed.
    */
   allowCidrBlocks?: string[];
   /**
    * @remarks
-   * Indicates whether ESS can add vSwitches from other zones.
-   * 
-   * > The instance type remains unchanged. Only alternative zones are considered. If all selected zones in the scaling group cannot scale out due to inventory shortages or similar issues, ESS automatically adds a vSwitch from a new zone to the scaling group based on this setting.
-   * > For example, if the scaling group is configured with zones cn-hangzhou-h and cn-hangzhou-g, and neither zone can scale out, ESS might create a vSwitch in zone cn-hangzhou-k based on real-time inventory availability and add it to the scaling group.
+   * Specifies whether to allow adding vSwitches from other zones.
+   * > The instance types remain unchanged, and only new zones are selected as alternatives. When the scaling group fails to scale out in all selected zones due to inventory shortages or other issues, this configuration automatically adds vSwitches from new zones to the scaling group.
+   * > For example, if the scaling group is configured with the cn-hangzhou-h and cn-hangzhou-g zones and fails to scale out in both zones, Auto Scaling may create a vSwitch in the cn-hangzhou-k zone and add it to the scaling group based on real-time inventory.
    * 
    * @example
    * true
@@ -621,9 +564,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   allowCrossAz?: boolean;
   /**
    * @remarks
-   * Whether to allow supplementing instance types from different generations.
-   * 
-   * - For example, if the current type is ecs.c7.large, enabling this allows alternatives like ecs.c6.large and ecs.c8.large.
+   * Specifies whether to allow supplementing instance types from other generations.
+   * - For example, if the current instance type is ecs.c7.large, enabling this option allows fallback to instance types such as ecs.c6.large and ecs.c8.large.
    * 
    * @example
    * true
@@ -631,7 +573,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   allowDifferentGeneration?: boolean;
   /**
    * @remarks
-   * Whether to enable alternative mode.
+   * Specifies whether to enable the fallback mode.
    * 
    * @example
    * true
@@ -639,7 +581,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   enabled?: boolean;
   /**
    * @remarks
-   * The price cap for alternative instance types.
+   * The maximum price for fallback instance types.
    * 
    * @example
    * 2
@@ -680,11 +622,11 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces extends $dara.Model {
   /**
    * @remarks
-   * The elastic network interface type. Valid values:
+   * The type of the elastic network interfaces (ENIs). Valid values:
    * 
-   * - Primary: Primary network interface.
+   * - Primary: primary network interface controller (NIC).
    * 
-   * - Secondary: Secondary elastic network interface.
+   * - Secondary: secondary elastic network interfaces (ENIs).
    * 
    * @example
    * Primary
@@ -692,7 +634,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
   instanceType?: string;
   /**
    * @remarks
-   * The number of randomly generated IPv6 addresses assigned to the primary network interface.
+   * The number of randomly generated IPv6 addresses specified for the primary ENI.
    * 
    * @example
    * 1
@@ -700,11 +642,10 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
   ipv6AddressCount?: number;
   /**
    * @remarks
-   * The communication mode of the elastic network interface. Valid values:
+   * The communication pattern of the elastic network interfaces (ENIs), which act as a network interface controller (NIC). Valid values:
    * 
-   * - Standard: Uses TCP communication mode.
-   * 
-   * - HighPerformance: Enables ERI (Elastic RDMA Interface) and uses RDMA communication mode.
+   * - Standard: uses the TCP communication pattern.
+   * - HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the RDMA communication pattern.
    * 
    * @example
    * HighPerformance
@@ -712,11 +653,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
   networkInterfaceTrafficMode?: string;
   /**
    * @remarks
-   * The number of secondary private IPv4 addresses assigned to the network interface. Valid values: 1–49.
-   * 
-   * - The value cannot exceed the IP address limit for the instance type. For more information, see [Instance families](https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families).
-   * 
-   * - NetworkInterface.N.SecondaryPrivateIpAddressCount assigns secondary private IPv4 addresses (excluding the primary private IP) to the network interface. The system randomly assigns addresses from the available CIDR block of the virtual switch (NetworkInterface.N.VSwitchId).
+   * The number of secondary private IPv4 addresses specified for the ENI. Valid values: 1 to 49.
+   * - The value cannot exceed the limit on the number of IP addresses for the instance type. For more information, see [Instance families](https://www.alibabacloud.com/help/en/ecs/user-guide/overview-of-instance-families).
+   * - NetworkInterface.N.SecondaryPrivateIpAddressCount is used to specify the number of secondary private IPv4 addresses (excluding the primary private IP address of the ENI) to be assigned to the ENI. The system randomly assigns the addresses from the available CIDR block of the vSwitch (NetworkInterface.N.VSwitchId) to which the ENI belongs.
    * 
    * @example
    * 2
@@ -724,9 +663,14 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
   secondaryPrivateIpAddressCount?: number;
   /**
    * @remarks
-   * The IDs of one or more security groups to which the elastic network interface belongs.
+   * The IDs of one or more security groups to which the elastic network interfaces (ENIs) belong. Each ENI is a network interface controller (NIC).
    */
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the elastic network interfaces (ENIs) belong. Each ENI is a network interface controller (NIC).
+   */
+  vSwitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
       instanceType: 'InstanceType',
@@ -734,6 +678,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       secondaryPrivateIpAddressCount: 'SecondaryPrivateIpAddressCount',
       securityGroupIds: 'SecurityGroupIds',
+      vSwitchIds: 'VSwitchIds',
     };
   }
 
@@ -744,12 +689,16 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
       networkInterfaceTrafficMode: 'string',
       secondaryPrivateIpAddressCount: 'number',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
     }
     super.validate();
   }
@@ -802,7 +751,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsResou
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The private pool ID. This is either the elastic provisioning service ID or the capacity reservation service ID.
+   * The ID of the private pool, which is the ID of the elasticity assurance or capacity reservation.
    */
   privatePoolIds?: string[];
   /**
@@ -812,15 +761,11 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsResou
   privatePoolTags?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptionsPrivatePoolTags[];
   /**
    * @remarks
-   * Resource pools include private pools generated after elastic provisioning or capacity reservation services take effect, along with public pools, for instance startup selection. Valid values:
-   * 
-   * - PrivatePoolFirst: Private pool first. With this strategy, if ResourcePoolOptions.PrivatePoolIds is specified or PrivatePoolTags conditions are met, the corresponding private pool is prioritized. If no private pool is specified or the specified private pool lacks capacity, open-type private pools are automatically matched. If no matching private pool exists, public pool resources are used.
-   * 
-   * - PrivatePoolOnly: Private pool only. With this strategy, ResourcePoolOptions.PrivatePoolIds must be specified. If the specified private pool lacks capacity, the instance fails to start.
-   * 
-   * - PublicPoolFirst: Public pool first. Public pool resources are prioritized for instance creation. If public pool resources are insufficient, private pool resources supplement them. Open-type private pools are automatically matched first. If no matching private pool exists, specified ResourcePoolOptions.PrivatePoolIds or Target-type private pools meeting PrivatePoolTags conditions are used.
-   * 
-   * - None: Do not use resource pool strategy.
+   * Resource pools include private pools generated after the elasticity assurance or capacity reservation service takes effect, as well as public pools, which are available for selection when an instance starts. Valid values:
+   * - PrivatePoolFirst: private pool first. When this policy is selected, if ResourcePoolOptions.PrivatePoolIds is specified or the PrivatePoolTags condition is met, the corresponding private pool is used first. If no private pool is specified or the specified private pool has insufficient capacity, the system automatically matches an open private pool. If no eligible private pool is available, the public pool is used to create the instance.
+   * - PrivatePoolOnly: private pool only. When this policy is selected, ResourcePoolOptions.PrivatePoolIds must be specified. If the specified private pool has insufficient capacity, the instance fails to start.
+   * - PublicPoolFirst: public pool first. The public pool is used first to create the instance. When public pool resources are insufficient, private pool resources are used as a supplement. The system preferentially matches an open private pool. If no eligible private pool is available, the system uses the Target private pool specified by ResourcePoolOptions.PrivatePoolIds or the one that meets the PrivatePoolTags condition.
+   * - None: no resource pool policy is used.
    * 
    * @example
    * PrivatePoolFirst
@@ -860,7 +805,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsResou
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not yet available for general use.
+   * > This parameter is in invitational preview and is not available for public use.
    * 
    * @example
    * testManagedPrivateSpaceId
@@ -891,10 +836,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecur
   /**
    * @remarks
    * The confidential computing mode. Valid values:
-   * 
-   * - Enclave: The ECS instance uses Enclave to build a confidential computing environment. For more information, see [Use Enclave to build a confidential computing environment](https://help.aliyun.com/document_detail/203433.html).
-   * 
-   * - TDX: Builds a TDX confidential computing environment. For more information, see [Build a TDX confidential computing environment](https://help.aliyun.com/document_detail/479090.html).
+   * - Enclave: The ECS instance uses Enclave to build a confidential computing environment. For more information, see [Build a confidential computing environment by using Enclave](https://help.aliyun.com/document_detail/203433.html).
+   * - TDX: builds a TDX confidential computing environment. For more information, see [Build a TDX confidential computing environment](https://help.aliyun.com/document_detail/479090.html).
    * 
    * @example
    * TDX
@@ -964,9 +907,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSpotP
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance. N ranges from 1 to 20.
-   * 
-   * If you specify this value, it cannot be an empty string. It can contain up to 128 characters, must not start with `aliyun` or `acs:`, and must not contain `http://` or `https://`.
+   * The key of tag N of the instance. Valid values of N: 1 to 20.
+   * If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * binary
@@ -974,9 +916,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsTags 
   key?: string;
   /**
    * @remarks
-   * The tag value of the instance. N ranges from 1 to 20.
-   * 
-   * If you specify this value, it can be an empty string. It can contain up to 128 characters, must not start with `acs:`, and must not contain `http://` or `https://`.
+   * The value of tag N of the instance. Valid values of N: 1 to 20.
+   * If you specify this parameter, it can be an empty string. The tag value can be up to 128 characters in length. It cannot start with acs:, and cannot contain http:// or https://.
    * 
    * @example
    * alterTable
@@ -1008,11 +949,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsTags 
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurations extends $dara.Model {
   /**
    * @remarks
-   * Whether the Dedicated Host instance is associated with a dedicated host. Valid values:
-   * 
-   * - default: The instance is not associated with a dedicated host. If economical mode is enabled, when the instance restarts after being stopped and the original dedicated host lacks sufficient resources, the instance is placed on another dedicated host in the automatic deployment resource pool.
-   * 
-   * - host: The instance is associated with a dedicated host. If economical mode is enabled, when the instance restarts after being stopped, it remains on the original dedicated host. If the original dedicated host lacks sufficient resources, the instance fails to restart.
+   * Specifies whether the instance on a dedicated host is associated with the dedicated host. Valid values:
+   * - default: The instance is not associated with the dedicated host. If the economical mode is enabled and the original dedicated host has insufficient resources when the instance is restarted, the instance is automatically deployed to another dedicated host in the automatic deployment resource pool.
+   * - host: The instance is associated with the dedicated host. If the economical mode is enabled and the original dedicated host has insufficient resources when the instance is restarted, the instance fails to be restarted.
    * 
    * @example
    * default
@@ -1021,10 +960,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   /**
    * @remarks
    * The number of vCPUs.
-   * 
-   * Specifying both CPU and Memory defines a range of instance types. For example, CPU=2 and Memory=16 defines all instance types with 2 vCPUs and 16 GiB memory. Auto Scaling determines available instance types based on I/O optimization, zone, and other factors, then creates the lowest-priced instance according to price sorting.
-   * 
-   * > This range-based configuration takes effect only in cost optimization mode when no instance type is specified in the scaling configuration.
+   * You can specify both the Cpu and Memory parameters to define the instance type range. For example, if you set Cpu to 2 and Memory to 16, all instance types that have 2 vCPUs and 16 GiB of memory are matched. Auto Scaling determines the available instance types based on factors such as I/O optimization and zones, and creates instances of the type that has the lowest price.
+   * > This configuration takes effect only when the scaling mode is set to cost optimization and no instance types are specified in the scaling configuration.
    * 
    * @example
    * 2
@@ -1032,12 +969,12 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   cpu?: number;
   /**
    * @remarks
-   * CPU options.
+   * The CPU options.
    */
   cpuOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsCpuOptions;
   /**
    * @remarks
-   * The creation time of the scaling configuration.
+   * The time when the scaling configuration was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time is displayed in UTC.
    * 
    * @example
    * 2014-08-14T10:58Z
@@ -1045,11 +982,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   creationTime?: string;
   /**
    * @remarks
-   * The operating mode for burstable instances. Valid values:
-   * 
-   * - Standard: Standard mode. For performance details, see the Performance-constrained mode section in [What are burstable instances?](https://help.aliyun.com/document_detail/59977.html)
-   * 
-   * - Unlimited: Unlimited mode. For performance details, see the Unlimited mode section in [What are burstable instances?](https://help.aliyun.com/document_detail/59977.html)
+   * The performance mode of the burstable instance. Valid values:
+   * - Standard: standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * - Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * 
    * @example
    * Standard
@@ -1057,24 +992,21 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   creditSpecification?: string;
   /**
    * @remarks
-   * The custom priority for ECS instance type plus vSwitch combinations.
-   * >Notice: This parameter takes effect only when the scaling group\\"s scaling policy is set to priority-based.
-   * 
-   * If Auto Scaling cannot create an instance using a higher-priority instance type plus vSwitch combination, it automatically tries the next priority combination.
-   * 
-   * > If you specify custom priorities for only some instance type plus vSwitch combinations, unspecified combinations have lower priority. Among unspecified combinations, priority follows the scaling group\\"s vSwitch order and the scaling configuration\\"s instance type order.
-   * >
-   * > - Example: Scaling group vSwitch order is vsw1, vsw2. Scaling configuration instance type order is type1, type2. Custom priority order is ["vsw2+type2", "vsw1+type2"]. Final priority order is: "vsw2+type2" > "vsw1+type2" > "vsw1+type1" > "vsw2+type1".
+   * The custom priority of ECS instance type and vSwitch combination.
+   * >Notice: This parameter takes effect only when the scaling policy of the scaling group is set to priority-based policy.</notice>
+   * If an instance cannot be created by using ECS instance type and vSwitch combination that has the highest priority, Auto Scaling automatically uses the combination that has the next highest priority to create ECS instance.
+   * > If you specify custom priorities for only some instance type and vSwitch combinations, the unspecified combinations have lower priorities than the specified ones. The priorities of the unspecified combinations are determined based on the vSwitch sequence in the scaling group and ECS instance type sequence in the scaling configuration.
+   * > - For example, if the vSwitch sequence in the scaling group is vsw1 and vsw2, ECS instance type sequence in the scaling configuration is type1 and type2, and the custom priority sequence is ["vsw2+type2", "vsw1+type2"], the final priority sequence is: "vsw2+type2" > "vsw1+type2" > "vsw1+type1" > "vsw2+type1".
    */
   customPriorities?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities[];
   /**
    * @remarks
-   * The collection of data disk information.
+   * The data cloud disks.
    */
   dataDisks?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks[];
   /**
    * @remarks
-   * The dedicated host cluster ID.
+   * The ID of the dedicated host cluster.
    * 
    * @example
    * dc-zm04u8r3lohsq****
@@ -1082,9 +1014,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   dedicatedHostClusterId?: string;
   /**
    * @remarks
-   * Whether to create the ECS instance on a Dedicated Host. Since Dedicated Hosts do not support spot instances, specifying DedicatedHostId automatically ignores SpotStrategy and SpotPriceLimit settings in the request.
-   * 
-   * You can call the DescribeDedicatedHosts API to query the list of Dedicated Host IDs.
+   * The ID of the dedicated host on which to create the ECS instance. Dedicated hosts do not support spot instances. If you specify the DedicatedHostId parameter, the SpotStrategy and SpotPriceLimit parameters are ignored.
+   * You can call the DescribeDedicatedHosts operation to query the list of dedicated host IDs.
    * 
    * @example
    * dh-bp67acfmxazb4p****
@@ -1092,13 +1023,10 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   dedicatedHostId?: string;
   /**
    * @remarks
-   * The instance release protection attribute, specifying whether the instance can be directly released through the ECS console or API (DeleteInstance). Valid values:
-   * 
-   * - true: Enable instance release protection. The instance cannot be directly released through the ECS console or API (DeleteInstance).
-   * 
-   * - false: Disable instance release protection. The instance can be directly released through the ECS console or API (DeleteInstance).
-   * 
-   * > This attribute applies only to pay-as-you-go instances to prevent accidental deletion of instances scaled out by Auto Scaling. It does not affect normal scale-in activities. Instances with release protection enabled can still be released during scale-in activities.
+   * The release protection property of the instance, which specifies whether the instance can be directly released by using the ECS console or the DeleteInstance API operation. Valid values:
+   * - true: Release protection is enabled. The instance cannot be directly released by using the ECS console or the DeleteInstance API operation.
+   * - false: Release protection is shutdown. The instance can be directly released by using the ECS console or the DeleteInstance API operation.
+   * > This property applies only to pay-as-you-go instances. It prevents instances created by Auto Scaling during scale-out from being accidentally deleted, but does not affect normal scale-in activities. Instances with release protection enabled can still be released during scale-in activities.
    * 
    * @example
    * false
@@ -1122,7 +1050,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   hostName?: string;
   /**
    * @remarks
-   * The ID of the HPC cluster to which the ECS instance belongs.
+   * The ID of the High Performance Computing (HPC) cluster to which the ECS instance belongs.
    * 
    * @example
    * hpc-clus****
@@ -1130,11 +1058,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   hpcClusterId?: string;
   /**
    * @remarks
-   * Whether to enable the instance metadata access channel. Valid values:
-   * 
-   * - enabled: Enabled.
-   * 
-   * - disabled: Disabled.
+   * Specifies whether to enable the access channel for instance metadata. Valid values:
+   * - enabled: enabled.
+   * - disabled: disabled.
    * 
    * @example
    * enabled
@@ -1142,11 +1068,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   httpEndpoint?: string;
   /**
    * @remarks
-   * Whether to enforce hardened mode (IMDSv2) when accessing instance metadata. Valid values:
-   * 
-   * - optional: Do not enforce.
-   * 
-   * - required: Enforce. When set, standard mode cannot access instance metadata.
+   * Specifies whether to forcibly use the security hardening mode (IMDSv2) when accessing instance metadata. Valid values:
+   * - optional: not forcibly used.
+   * - required: forcibly used. If this value is set, instance metadata cannot be accessed in normal mode.
    * 
    * @example
    * optional
@@ -1154,7 +1078,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   httpTokens?: string;
   /**
    * @remarks
-   * The image family name. Setting this parameter retrieves the latest available image within the specified image family for instance creation. If ImageId is already set, do not set this parameter.
+   * The name of the image family. You can set this parameter to obtain the latest available image in the image family to create instances. If the ImageId parameter is specified, you cannot specify this parameter.
    * 
    * @example
    * hangzhou-daily-update
@@ -1162,7 +1086,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   imageFamily?: string;
   /**
    * @remarks
-   * The image file ID used as the image resource for automatic instance creation.
+   * The ID of the image file, which is the image resource used for the automatic creation of instances.
    * 
    * @example
    * centos6u5_64_20G_aliaegis_2014****.vhd
@@ -1170,7 +1094,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   imageId?: string;
   /**
    * @remarks
-   * The image file name.
+   * The name of the image.
    * 
    * @example
    * centos6u5_64_20G_aliaegis_2014****.vhd
@@ -1178,11 +1102,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   imageName?: string;
   /**
    * @remarks
-   * Whether the ECS instance uses the ecs-user account to log on. Valid values:
-   * 
-   * - true: Yes.
-   * 
-   * - false: No.
+   * Specifies whether to log on to the ECS instance as the ecs-user user. Valid values:
+   * - true: yes.
+   * - false: no.
    * 
    * @example
    * false
@@ -1190,15 +1112,11 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   imageOptionsLoginAsNonRoot?: boolean;
   /**
    * @remarks
-   * The image source. Valid values:
-   * 
-   * - system: Public images provided by Alibaba Cloud.
-   * 
-   * - self: Custom images you created.
-   * 
-   * - others: Shared or community images provided by other Alibaba Cloud users.
-   * 
-   * - marketplace: Images provided by Alibaba Cloud Marketplace.
+   * The source of the image. Valid values:
+   * - system: public images provided by Alibaba Cloud.
+   * - self: custom images created by you.
+   * - others: shared images or community images provided by other Alibaba Cloud users.
+   * - marketplace: images provided by Alibaba Cloud Marketplace.
    * 
    * @example
    * system
@@ -1214,7 +1132,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   instanceDescription?: string;
   /**
    * @remarks
-   * The series of the ECS instance.
+   * The generation of the ECS instance.
    * 
    * @example
    * ecs-3
@@ -1230,7 +1148,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   instanceName?: string;
   /**
    * @remarks
-   * The collection of intelligent configuration information used to filter eligible instance type ranges.
+   * The collection of intelligent configuration information used to filter instance types that meet your requirements.
    */
   instancePatternInfos?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos[];
   /**
@@ -1243,21 +1161,19 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   instanceType?: string;
   /**
    * @remarks
-   * When alternative mode is enabled, if issues like inventory shortages occur, similar instance types of the same size are supplemented based on the currently selected instance type, or switches in alternative zones are created and added to the scaling group.
+   * After the fallback mode is configured, if issues such as insufficient inventory occur, the system supplements the selected instance types with similar instance types of the same size, or creates vSwitches in fallback zones and adds them to the scaling group.
    */
   instanceTypeCandidateOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstanceTypeCandidateOptions;
   /**
    * @remarks
-   * The collection of ECS instance types.
+   * The collection of instance types for ECS instances.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * The network billing type. Valid values:
-   * 
-   * - PayByBandwidth: Pay-by-bandwidth. InternetMaxBandwidthOut is the fixed bandwidth value.
-   * 
-   * - PayByTraffic: Pay-by-data-transfer. InternetMaxBandwidthOut is only a bandwidth cap. Billing is based on actual network traffic.
+   * The network billing method. Valid values:
+   * - PayByBandwidth: pay-by-bandwidth. In this case, the InternetMaxBandwidthOut parameter specifies the fixed bandwidth value.
+   * - PayByTraffic: pay-by-traffic. In this case, the InternetMaxBandwidthOut parameter specifies the bandwidth cap, and you are billed based on the actual network traffic.
    * 
    * @example
    * PayByTraffic
@@ -1281,11 +1197,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Whether the instance is I/O optimized. Valid values:
-   * 
-   * - none: Not I/O optimized.
-   * 
-   * - optimized: I/O optimized.
+   * Specifies whether the instance is an I/O optimized instance. Valid values:
+   * - none: non-I/O optimization.
+   * - optimized: I/O optimization.
    * 
    * @example
    * none
@@ -1293,7 +1207,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   ioOptimized?: string;
   /**
    * @remarks
-   * The number of randomly generated IPv6 addresses assigned to the elastic network interface.
+   * The number of IPv6 addresses that are randomly generated for the elastic network interface controller (NIC).
    * 
    * @example
    * 1
@@ -1309,11 +1223,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   keyPairName?: string;
   /**
    * @remarks
-   * The status of the scaling configuration within the scaling group. Valid values:
-   * 
-   * - Active: The scaling configuration is active. The scaling group uses active scaling configurations to automatically create ECS instances.
-   * 
-   * - Inactive: The scaling configuration is inactive. Inactive scaling configurations exist in the scaling group but are not used to automatically create ECS instances.
+   * The lifecycle status of the scaling configuration in the scaling group. Valid values:
+   * - Active: The scaling configuration is active. The scaling group uses active scaling configurations for the automatic creation of ECS instances.
+   * - Inacitve: The scaling configuration is inactive. Inactive scaling configurations exist in the scaling group, but the scaling group does not use them for the automatic creation of ECS instances.
    * 
    * @example
    * Active
@@ -1321,7 +1233,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   lifecycleState?: string;
   /**
    * @remarks
-   * The weight of the ECS instance as a backend server. Valid values: 1 to 100.
+   * The weight of the ECS instance when it is used as an SLB backend server. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -1329,11 +1241,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   loadBalancerWeight?: number;
   /**
    * @remarks
-   * Memory size. Unit: GiB.
-   * 
-   * Specifying both CPU and Memory defines a range of instance types. For example, CPU=2 and Memory=16 defines all instance types with 2 vCPUs and 16 GiB memory. Auto Scaling determines available instance types based on I/O optimization, zone, and other factors, then creates the lowest-priced instance according to price sorting.
-   * 
-   * > This range-based configuration takes effect only in cost optimization mode when no instance type is specified in the scaling configuration.
+   * The memory size. Unit: GiB.
+   * You can specify both the Cpu and Memory parameters to define the instance type range. For example, if you set Cpu to 2 and Memory to 16, all instance types that have 2 vCPUs and 16 GiB of memory are matched. Auto Scaling determines the available instance types based on factors such as I/O optimization and zones, and creates instances of the type that has the lowest price.
+   * > This configuration takes effect only when the scaling mode is set to cost optimization and no instance types are specified in the scaling configuration.
    * 
    * @example
    * 16
@@ -1341,12 +1251,12 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   memory?: number;
   /**
    * @remarks
-   * The list of elastic network interfaces.
+   * The list of elastic network interfaces (ENIs). Each ENI is a network interface controller (NIC).
    */
   networkInterfaces?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces[];
   /**
    * @remarks
-   * Whether to use the password preset in the image.
+   * Specifies whether to use the password preset in the image.
    * 
    * @example
    * true
@@ -1354,11 +1264,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   passwordInherit?: boolean;
   /**
    * @remarks
-   * Whether to set an instance password. Valid values:
-   * 
-   * - true: Set instance password.
-   * 
-   * - false: Do not set instance password.
+   * Specifies whether an instance password is set. Valid values:
+   * - true: An instance password is set.
+   * - false: No instance password is set.
    * 
    * @example
    * false
@@ -1366,7 +1274,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   passwordSetted?: boolean;
   /**
    * @remarks
-   * The private pool ID. This is either the elastic provisioning service ID or the capacity reservation service ID.
+   * The ID of the private pool. The ID is the same as the ID of the elasticity assurance or capacity reservation.
    * 
    * @example
    * eap-bp67acfmxazb4****
@@ -1374,13 +1282,10 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   privatePoolOptions_id?: string;
   /**
    * @remarks
-   * The private pool capacity option for instance startup. After elastic provisioning or capacity reservation services take effect, they generate private pool capacity for instance startup selection. Valid values:
-   * 
-   * - Open: Open mode. Automatically matches open-type private pool capacity. If no matching private pool capacity exists, uses public pool resources to start the instance.
-   * 
-   * - Target: Target mode. Starts the instance using the specified private pool capacity. If that capacity is unavailable, the instance fails to start.
-   * 
-   * - None: Do not use mode. Instance startup does not use private pool capacity.
+   * The private pool type for starting the instance. After an elasticity assurance or capacity reservation takes effect, a private pool is generated. You can select a private pool type when you start an instance. Valid values:
+   * - Open: open mode. The system automatically matches a private pool of the Open type. If no matching private pool is available, the system uses resources from the public pool to start the instance.
+   * - Target: targeted mode. The system uses the specified private pool to start the instance. If the specified private pool is unavailable, the instance fails to be started.
+   * - None: no private pool. The system does not use private pools to start the instance.
    * 
    * @example
    * Open
@@ -1388,7 +1293,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   privatePoolOptions_matchCriteria?: string;
   /**
    * @remarks
-   * The RAM role name of the ECS instance. RAM role names are provided and maintained by RAM. You can call ListRoles to query available RAM roles.
+   * The name of the Resource Access Management (RAM) role for the ECS instance. RAM roles are provided and maintained by RAM. You can call the ListRoles operation to query available RAM roles.
    * 
    * @example
    * ramrole****
@@ -1404,8 +1309,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource pool strategy used when creating instances.
-   * 
+   * The resource pool policy used when creating instances.
    * - This parameter takes effect only when creating pay-as-you-go instances.
    */
   resourcePoolOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions;
@@ -1435,16 +1339,22 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   scalingGroupId?: string;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not yet available for general use.
+   * > This parameter is in invitational preview and is not available for public use.
    */
   schedulerOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions;
   /**
    * @remarks
-   * Whether to enable security hardening. Valid values:
+   * Specifies whether a vSwitch available for secondary elastic network interfaces (ENIs) must be selected from the list when the VSwitchIds parameter is specified.
    * 
-   * - Active: Enable security hardening. Applies only to public images.
-   * 
-   * - Deactive: Disable security hardening. Applies to all image types.
+   * @example
+   * Strict
+   */
+  secondaryEniVSwitchConstraint?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable security hardening. Valid values:
+   * - Active: enables security hardening. This value is applicable only to public images.
+   * - Deactive: disables security hardening. This value is applicable to all image types.
    * 
    * @example
    * Active
@@ -1460,17 +1370,17 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   securityGroupId?: string;
   /**
    * @remarks
-   * The IDs of multiple security groups to which the ECS instance belongs. ECS instances in the same security group can access each other.
+   * The IDs of the security groups to which the ECS instances belong. ECS instances in the same security group can access each other.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
-   * Security options.
+   * The security options.
    */
   securityOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions;
   /**
    * @remarks
-   * The reserved duration for the spot instance. Unit: hours.
+   * The protection period of the spot instance. Unit: hours.
    * 
    * @example
    * 1
@@ -1478,7 +1388,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   spotDuration?: number;
   /**
    * @remarks
-   * The interruption mode for spot instances.
+   * The interruption pattern of the spot instance.
    * 
    * @example
    * Terminate
@@ -1486,18 +1396,15 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   spotInterruptionBehavior?: string;
   /**
    * @remarks
-   * The collection of spot instance information.
+   * The spot instances.
    */
   spotPriceLimits?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSpotPriceLimits[];
   /**
    * @remarks
-   * The preemption policy for pay-as-you-go instances. Valid values:
-   * 
-   * - NoSpot: standard pay-as-you-go instance.
-   * 
-   * - SpotWithPriceLimit: spot instance with a maximum price limit.
-   * 
-   * - SpotAsPriceGo: system automatically bids based on current market price.
+   * The preemption policy for the pay-as-you-go instance. Valid values:
+   * - NoSpot: regular pay-as-you-go instances.
+   * - SpotWithPriceLimit: spot instances that have a maximum hourly price.
+   * - SpotAsPriceGo: spot instances for which the system automatically bids based on the current market price.
    * 
    * @example
    * NoSpot
@@ -1505,7 +1412,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   spotStrategy?: string;
   /**
    * @remarks
-   * The storage set ID.
+   * The ID of the storage set.
    * 
    * @example
    * ss-bp67acfmxazb4p****
@@ -1513,7 +1420,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   storageSetId?: string;
   /**
    * @remarks
-   * The maximum number of partitions in the storage set. Value must be an integer greater than or equal to 2.
+   * The maximum number of partitions in the storage set. The value must be an integer greater than or equal to 2.
    * 
    * @example
    * 2
@@ -1521,7 +1428,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   storageSetPartitionNumber?: number;
   /**
    * @remarks
-   * The ID of the automatic snapshot policy applied to the system disk.
+   * The ID of the automatic snapshot policy applied to the system cloud disk.
    * 
    * @example
    * sp-bp12m37ccmxvbmi5****
@@ -1529,13 +1436,10 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskAutoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * Whether Burst (performance burst) is enabled for the system disk. Valid values:
-   * 
-   * - true: Enabled.
-   * 
-   * - false: Disabled.
-   * 
-   * > This parameter is supported only when SystemDisk.Category is cloud_auto.
+   * Specifies whether to enable the burst feature for the system cloud disk. Valid values:
+   * - true: enabled.
+   * - false: disabled.
+   * > This parameter is supported only when SystemDisk.Category is set to cloud_auto.
    * 
    * @example
    * false
@@ -1543,32 +1447,22 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * Multiple disk categories for the system disk. The first disk category has the highest priority, followed by others in descending order. If Auto Scaling cannot use a higher-priority disk category, it automatically tries the next priority category to create the system disk. Valid values:
-   * 
-   * - cloud: basic disk.
-   * 
-   * - cloud_efficiency: ultra disk.
-   * 
-   * - cloud_ssd: standard SSD.
-   * 
-   * - cloud_essd: ESSD.
+   * The disk types for the system cloud disk. The first disk type has the highest priority, and the priorities of the other disk types decrease in sequence. If the disk type with a higher priority is unavailable, Auto Scaling automatically attempts to create the system cloud disk by using the disk type with the next highest priority. Valid values:
+   * - cloud: basic cloud disk.
+   * - cloud_efficiency: ultra cloud disk.
+   * - cloud_ssd: standard SSD cloud disk.
+   * - cloud_essd: ESSD cloud disk.
    */
   systemDiskCategories?: string[];
   /**
    * @remarks
-   * The disk category of the system disk. Valid values:
-   * 
-   * - cloud: basic disk.
-   * 
+   * The category of the system cloud disk. Valid values:
+   * - cloud: basic cloud disk.
    * - cloud_efficiency: ultra disk.
-   * 
    * - cloud_ssd: standard SSD.
-   * 
    * - ephemeral_ssd: local SSD.
-   * 
    * - cloud_essd: ESSD.
-   * 
-   * - cloud_auto: ESSD AutoPL.
+   * - cloud_auto: ESSD AutoPL disk.
    * 
    * @example
    * cloud
@@ -1576,7 +1470,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The description of the system disk.
+   * The description of the system cloud disk.
    * 
    * @example
    * Test system disk.
@@ -1584,10 +1478,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskDescription?: string;
   /**
    * @remarks
-   * The encryption algorithm used for the system disk. Valid values:
-   * 
+   * The encryption algorithm used for the system cloud disk. Valid values:
    * - AES-256.
-   * 
    * - SM4-128.
    * 
    * @example
@@ -1596,11 +1488,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskEncryptAlgorithm?: string;
   /**
    * @remarks
-   * Whether the system disk is encrypted. Valid values:
-   * 
-   * - true: Encrypted.
-   * 
-   * - false: Not encrypted.
+   * Specifies whether the system cloud disk is encrypted. Valid values:
+   * - true: The system cloud disk is encrypted.
+   * - false: The system cloud disk is not encrypted.
    * 
    * @example
    * false
@@ -1608,7 +1498,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskEncrypted?: boolean;
   /**
    * @remarks
-   * The KMS key ID used for the system disk.
+   * The ID of the KMS key used for the system cloud disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -1616,7 +1506,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskKMSKeyId?: string;
   /**
    * @remarks
-   * The name of the system disk.
+   * The name of the system cloud disk.
    * 
    * @example
    * cloud_ssd_Test
@@ -1624,7 +1514,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskName?: string;
   /**
    * @remarks
-   * The performance level of the ESSD system disk.
+   * The performance level of the system cloud disk when it is an ESSD (standard SSD).
    * 
    * @example
    * PL1
@@ -1632,9 +1522,8 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The provisioned IOPS (Input/Output Operations Per Second) performance metric for the system disk.
-   * 
-   * > IOPS (Input/Output Operations Per Second) measures the number of I/O operations per second, indicating block storage read/write capability. Unit: operations.
+   * The provisioned IOPS (Input/Output Operations Per Second) performance metrics for the system cloud disk.
+   * > IOPS refers to the number of I/O operations that can be processed per second, which indicates the read and write processing capability of the block storage. Unit: operations per second.
    * 
    * @example
    * 100
@@ -1642,7 +1531,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB.
+   * The size of the system cloud disk. Unit: GiB.
    * 
    * @example
    * 100
@@ -1650,17 +1539,14 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   systemDiskSize?: number;
   /**
    * @remarks
-   * The collection of tag information.
+   * The tags.
    */
   tags?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsTags[];
   /**
    * @remarks
-   * Whether to create the instance on a Dedicated Host. Valid values:
-   * 
-   * - default: Create a non-Dedicated Host instance.
-   * 
-   * - host: Create a Dedicated Host instance. If you do not specify DedicatedHostId, Alibaba Cloud automatically selects a Dedicated Host to place the instance.
-   * 
+   * Specifies whether to create the instance on a dedicated host. Valid values:
+   * - default: creates the instance on a non-dedicated host.
+   * - host: creates the instance on a dedicated host. If you do not specify the DedicatedHostId parameter, Alibaba Cloud automatically selects a dedicated host for the instance.
    * Default value: default.
    * 
    * @example
@@ -1669,7 +1555,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   tenancy?: string;
   /**
    * @remarks
-   * The custom data for the ECS instance.
+   * The user data of the ECS instance.
    * 
    * @example
    * echo hello ecs!
@@ -1677,12 +1563,12 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   userData?: string;
   /**
    * @remarks
-   * The weights corresponding to specified instance types, representing the capacity size of a single instance in the scaling group. Higher weights require fewer instances of that type to meet the desired capacity.
+   * The weight of the specified instance type, which indicates the capacity that a single instance of the specified instance type provides in the scaling group. A greater weight indicates that fewer instances of the instance type are required to meet the expected capacity.
    */
   weightedCapacities?: number[];
   /**
    * @remarks
-   * The zone ID of the instance. You can call DescribeZones to get the zone list.
+   * The zone ID of the instance. You can call the DescribeZones operation to query the zone list.
    * 
    * @example
    * cn-hangzhou-g
@@ -1738,6 +1624,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       scalingConfigurationName: 'ScalingConfigurationName',
       scalingGroupId: 'ScalingGroupId',
       schedulerOptions: 'SchedulerOptions',
+      secondaryEniVSwitchConstraint: 'SecondaryEniVSwitchConstraint',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
@@ -1818,6 +1705,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       scalingConfigurationName: 'string',
       scalingGroupId: 'string',
       schedulerOptions: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions,
+      secondaryEniVSwitchConstraint: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
@@ -1929,7 +1817,7 @@ export class DescribeScalingConfigurationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The collection of scaling configuration information.
+   * The scaling configurations.
    */
   scalingConfigurations?: DescribeScalingConfigurationsResponseBodyScalingConfigurations[];
   /**

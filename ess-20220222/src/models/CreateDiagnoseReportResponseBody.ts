@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiagnoseReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the diagnostic report.
+   * The diagnostic report ID, which is the unique identifier of the resource diagnostic report.
    * 
    * @example
    * dr-uf6enpbnri1xhcy9qc7s
@@ -13,7 +13,7 @@ export class CreateDiagnoseReportResponseBody extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0189C6CB-07BA-5AFE-B533-D93892324774

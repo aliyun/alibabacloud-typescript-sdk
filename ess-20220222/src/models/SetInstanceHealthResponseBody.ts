@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetInstanceHealthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B755AE57-6093-43E4-938E-DEA422A9****
