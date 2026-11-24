@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class InstancePatterns extends $dara.Model {
   /**
    * @remarks
-   * [This parameter is deprecated and replaced by cpu_architectures] The architectures of instance types.
+   * **[Deprecated]** Use the cpu_architectures parameter instead. The architecture type of the instance type.
    * 
    * @deprecated
    */
   architectures?: string[];
   /**
    * @remarks
-   * [This parameter is deprecated] Specifies whether to include burstable instance types.
+   * **[Deprecated]** Do not use this parameter. Specifies whether the instance type is a burstable instance type.
    * 
    * @example
    * Exclude
@@ -22,7 +22,7 @@ export class InstancePatterns extends $dara.Model {
   burstPerformanceOption?: string;
   /**
    * @remarks
-   * [This parameter is deprecated and replaced by cores] The number of vCores provided by the instance type.
+   * **[Deprecated]** Use the cores parameter instead. The number of vCPU cores of the instance type.
    * 
    * @example
    * 4
@@ -32,7 +32,7 @@ export class InstancePatterns extends $dara.Model {
   core?: number;
   /**
    * @remarks
-   * The number of vCPU cores for the instance type.
+   * The number of vCPU cores of the instance type.
    * 
    * @example
    * 4
@@ -40,17 +40,17 @@ export class InstancePatterns extends $dara.Model {
   cores?: number;
   /**
    * @remarks
-   * The CPU architecture of the instance type.
+   * The CPU architecture of the instance.
    */
   cpuArchitectures?: string[];
   /**
    * @remarks
-   * The instance type that you want to exclude.
+   * The instance types to exclude.
    */
   excludedInstanceTypes?: string[];
   /**
    * @remarks
-   * The type of the instance.
+   * The instance categories.
    */
   instanceCategories?: string[];
   /**
@@ -63,12 +63,12 @@ export class InstancePatterns extends $dara.Model {
   instanceFamilyLevel?: string;
   /**
    * @remarks
-   * The specified instance family.
+   * The specified instance families.
    */
   instanceTypeFamilies?: string[];
   /**
    * @remarks
-   * The maximum vCPU cores allowed for the instance type.
+   * The maximum number of vCPU cores of the instance type.
    * 
    * @example
    * 8
@@ -76,7 +76,7 @@ export class InstancePatterns extends $dara.Model {
   maxCpuCores?: number;
   /**
    * @remarks
-   * The maximum allowed memory size. Unit: GiB.
+   * The maximum memory of the instance type. Unit: GiB.
    * 
    * @example
    * 16
@@ -84,7 +84,7 @@ export class InstancePatterns extends $dara.Model {
   maxMemorySize?: number;
   /**
    * @remarks
-   * [This parameter is deprecated] The maximum hourly price of the instance.
+   * **[Deprecated]** Do not use this parameter. The maximum hourly price of the instance.
    * 
    * @example
    * 2
@@ -94,7 +94,7 @@ export class InstancePatterns extends $dara.Model {
   maxPrice?: number;
   /**
    * @remarks
-   * The maximum allowed number of GPUs per instance.
+   * The expected maximum number of GPUs.
    * 
    * @example
    * 8
@@ -110,7 +110,7 @@ export class InstancePatterns extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The minimum vCPU cores required for the instance type.
+   * The minimum number of vCPU cores of the instance type.
    * 
    * @example
    * 4
@@ -118,7 +118,7 @@ export class InstancePatterns extends $dara.Model {
   minCpuCores?: number;
   /**
    * @remarks
-   * The minimum required memory size. Unit: GiB.
+   * The minimum memory of the instance type. Unit: GiB.
    * 
    * @example
    * 8
@@ -126,7 +126,7 @@ export class InstancePatterns extends $dara.Model {
   minMemorySize?: number;
   /**
    * @remarks
-   * The minimum required number of IPv6 addresses per ENI.
+   * The expected minimum number of IPv6 addresses per elastic network interface controller (NIC).
    * 
    * @example
    * 1
@@ -134,7 +134,7 @@ export class InstancePatterns extends $dara.Model {
   minimumEniIpv6AddressQuantity?: number;
   /**
    * @remarks
-   * The minimum required number of IPv4 addresses per ENI.
+   * The expected minimum number of IPv4 addresses per elastic network interface controller (NIC).
    * 
    * @example
    * 10
@@ -142,7 +142,7 @@ export class InstancePatterns extends $dara.Model {
   minimumEniPrivateIpAddressQuantity?: number;
   /**
    * @remarks
-   * The minimum required number of elastic network interfaces (ENIs) per instance.
+   * The expected minimum number of elastic network interfaces (ENIs) that can be mounted.
    * 
    * @example
    * 3

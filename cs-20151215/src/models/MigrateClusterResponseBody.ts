@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * c21e0591548ba4c10bdb535d657******
@@ -13,7 +13,7 @@ export class MigrateClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 687C5BAA-D103-4993-884B-C35E43******
@@ -21,7 +21,7 @@ export class MigrateClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * T-62ccd14aacb8db06ca******

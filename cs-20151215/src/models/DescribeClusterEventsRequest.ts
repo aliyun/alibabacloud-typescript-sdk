@@ -29,7 +29,7 @@ export class DescribeClusterEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of results to return per page. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50

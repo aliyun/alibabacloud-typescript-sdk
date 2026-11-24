@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The bucket endpoint.
+   * The access endpoint of the bucket.
    * 
    * @example
    * *******.oss-cn-hangzhou.aliyuncs.com
@@ -13,7 +13,7 @@ export class MigrateClusterRequest extends $dara.Model {
   ossBucketEndpoint?: string;
   /**
    * @remarks
-   * The bucket name.
+   * The name of the bucket.
    * 
    * @example
    * bucket-****

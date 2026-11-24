@@ -13,7 +13,7 @@ export class ListOperationPlansResponseBodyPlans extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The creation time of the execution plan.
+   * The time when the execution plan was created.
    * 
    * @example
    * 2023-11-21T20:01:22+08:00
@@ -21,7 +21,7 @@ export class ListOperationPlansResponseBodyPlans extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The expected end time in ISO 8601 format, including time zone information.
+   * The expected end time in ISO 8601 format, including the time zone information.
    * 
    * @example
    * 2023-11-22T18:00:00+08:00
@@ -37,7 +37,7 @@ export class ListOperationPlansResponseBodyPlans extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * The expected start time in ISO 8601 format, including time zone information.
+   * The expected start time in ISO 8601 format, including the time zone information.
    * 
    * @example
    * 2023-11-22T15:18:00+08:00

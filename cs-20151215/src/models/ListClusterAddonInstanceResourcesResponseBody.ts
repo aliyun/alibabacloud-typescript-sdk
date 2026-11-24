@@ -89,7 +89,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects exte
   name?: string;
   /**
    * @remarks
-   * The namespace to which the object belongs.
+   * The namespace of the object.
    * 
    * @example
    * kube-system
@@ -135,7 +135,7 @@ export class ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects exte
 export class ListClusterAddonInstanceResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Helm release instance information corresponding to the component.
+   * The information about the Helm release instance corresponding to the component.
    */
   helmRelease?: ListClusterAddonInstanceResourcesResponseBodyHelmRelease;
   /**

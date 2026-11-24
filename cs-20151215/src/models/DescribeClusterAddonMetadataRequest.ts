@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterAddonMetadataRequest extends $dara.Model {
   /**
    * @remarks
-   * The component version.
+   * The version of the add-on.
    * 
    * @example
    * 1.8.4.1

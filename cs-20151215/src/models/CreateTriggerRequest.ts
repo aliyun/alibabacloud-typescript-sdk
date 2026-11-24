@@ -7,7 +7,7 @@ export class CreateTriggerRequest extends $dara.Model {
    * @remarks
    * The action of the trigger. Valid values:
    * 
-   * - `redeploy`: Redeploys the resources defined in `project_id`.
+   * `redeploy`: Redeploys the resources defined in `project_id`.
    * 
    * This parameter is required.
    * 
@@ -27,11 +27,7 @@ export class CreateTriggerRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The project name of the trigger.
-   * 
-   * It consists of the namespace and the name of the application, in the format of `${namespace}/${name}`.
-   * 
-   * Example: `default/test-app`.
+   * The project name of the trigger. It consists of the namespace and the application name in the `${namespace}/${name}` format. Example: `default/test-app`.
    * 
    * This parameter is required.
    * 
@@ -43,9 +39,9 @@ export class CreateTriggerRequest extends $dara.Model {
    * @remarks
    * The type of the trigger. Valid values:
    * 
-   * - `deployment`: The trigger for stateless applications. 
+   * - `deployment`: the trigger for stateless applications. 
    * 
-   * - `application`: The trigger for Application Center applications.
+   * - `application`: the trigger for Application Center applications.
    * 
    * Default value: `deployment`.
    * 

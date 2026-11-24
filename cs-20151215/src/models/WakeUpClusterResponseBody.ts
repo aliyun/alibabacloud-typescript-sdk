@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class WakeUpClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 49511F2D-D56A-5C24-B9AE-C8491E09B***
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * T-67d7ec016ce37c0106000***
    */

@@ -13,7 +13,7 @@ export class DescribeClustersRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The cluster name used for fuzzy matching.
+   * Performs a fuzzy match based on the cluster name.
    * 
    * @example
    * test

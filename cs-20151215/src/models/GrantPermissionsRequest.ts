@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GrantPermissionsRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the target cluster for authorization.
+   * The ID of the target cluster.
    * 
-   * - If the `role_type` parameter is set to `all-clusters`, set this parameter to an empty string.
+   * - If the value of the `role_type` parameter is `all-clusters`, set this parameter to an empty string.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GrantPermissionsRequestBody extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * Specifies whether the authorization is a custom authorization (the `role_name` parameter uses a custom ClusterRole name).
+   * Specifies whether the authorization is custom. For custom authorizations, the `role_name` parameter uses a custom ClusterRole name.
    * 
    * @example
    * false
@@ -52,8 +52,8 @@ export class GrantPermissionsRequestBody extends $dara.Model {
    * 
    * >Notice: 
    * 
-   * - `admin`, `admin-view`, `ops`: cannot be granted at the namespace level.
-   * - `admin-view`: cannot be granted at the all-clusters level.
+   * - `admin`, `admin-view`, and `ops`: Namespace-level authorization is not supported.
+   * - `admin-view`: Cluster-wide authorization is currently not supported.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class GrantPermissionsRequestBody extends $dara.Model {
    * 
    * - `cluster`: cluster level.
    * - `namespace`: namespace level.
-   * - `all-clusters`: all-clusters level.
+   * - `all-clusters`: all clusters.
    * 
    * This parameter is required.
    * 

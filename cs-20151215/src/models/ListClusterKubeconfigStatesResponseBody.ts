@@ -21,7 +21,7 @@ export class ListClusterKubeconfigStatesResponseBodyPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of results.
    * 
    * @example
    * 5
@@ -58,8 +58,8 @@ export class ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles exte
    * Specifies whether the content is consistent with the default cluster role template.
    * 
    * Valid values:
-   * - true: The content is consistent with the default cluster role template.
-   * - false: The content is inconsistent with the default cluster role template.
+   * - true: Consistent.
+   * - false: Inconsistent.
    */
   isDefaultTemplate?: boolean;
   /**
@@ -140,7 +140,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The account state.
+   * The account status.
    * 
    * Valid values:
    * - Active: The account is active.
@@ -166,7 +166,7 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The expiration time of the KubeConfig client certificate. The time is displayed in ISO 8601 format and includes time zone information.
+   * The expiration time of the KubeConfig client certificate. The time is in ISO 8601 format and includes time zone information.
    * 
    * @example
    * 2027-07-15T01:32:20Z
@@ -174,12 +174,12 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
   certExpireTime?: string;
   /**
    * @remarks
-   * The state of the KubeConfig client certificate.
+   * The status of the KubeConfig client certificate.
    * 
    * Valid values:
-   * - Unexpired: The certificate is not expired.
-   * - Expired: The certificate is expired.
-   * - Unknown: The certificate state is unknown (abnormal state).
+   * - Unexpired: The certificate has not expired.
+   * - Expired: The certificate has expired.
+   * - Unknown: The status is unknown, which indicates an exception.
    * 
    * @example
    * Expired

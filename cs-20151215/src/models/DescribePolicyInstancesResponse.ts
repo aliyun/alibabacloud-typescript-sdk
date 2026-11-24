@@ -69,11 +69,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   policySeverity?: string;
   /**
    * @remarks
-   * The enforcement scope of the policy instance.
-   * 
-   * A value of "*" indicates all namespaces in the cluster.
-   * 
-   * Otherwise, the names of the target namespaces are returned, separated by commas (,).
+   * The enforcement scope of the policy instance. A value of "*" indicates all namespaces in the cluster. Otherwise, the names of the target namespaces are returned, separated by commas (,).
    * 
    * @example
    * *
@@ -123,7 +119,7 @@ export class DescribePolicyInstancesResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The number of processed violations in the cluster. Do not use this parameter.
+   * **[Deprecated]** The count of processed violations in the cluster. Do not use this parameter.
    * 
    * @example
    * 0

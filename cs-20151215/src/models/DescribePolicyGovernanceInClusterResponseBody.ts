@@ -133,7 +133,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDen
   policyDescription?: string;
   /**
    * @remarks
-   * The Policy Name.
+   * The policy name.
    * 
    * @example
    * ACKNamespacesDeleteProtection
@@ -193,7 +193,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWar
   policyDescription?: string;
   /**
    * @remarks
-   * The Policy Name.
+   * The policy name.
    * 
    * @example
    * ACKRestrictALBCreation
@@ -334,8 +334,8 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   /**
    * @remarks
    * The action taken by the policy. Valid values:
-   * - warn: Generates an alert for the policy violation but does not intercept the request.
-   * - deny: Intercepts the request that violates the policy.
+   * - warn: Alerts on policy violations but does not intercept the requests.
+   * - deny: Intercepts requests that violate the policy.
    * 
    * @example
    * deny
@@ -367,7 +367,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   constraintGroup?: string;
   /**
    * @remarks
-   * The corresponding Policy Name in policy management.
+   * The policy name in policy management.
    * 
    * @example
    * ACKNamespacesDeleteProtection
@@ -513,7 +513,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   logProject?: string;
   /**
    * @remarks
-   * The Logstore that stores the policy action information.
+   * The log store that stores the policy action information.
    * 
    * @example
    * policyadmit-clusterid
@@ -521,14 +521,14 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   logStore?: string;
   /**
    * @remarks
-   * The log information about policy violations.
+   * The log information of policy violations.
    */
   logs?: DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs[];
   /**
    * @remarks
    * The status of the query result. Valid values:
-   * * `Complete`: The query is complete and the returned result is complete.
-   * * `Incomplete`: The query is complete but the returned result is incomplete. You must repeat the request to obtain the complete result.
+   * * `Complete`: The query is complete, and the returned result is complete.
+   * * `Incomplete`: The query is complete, but the returned result is incomplete. You must repeat the request to obtain the complete result.
    * 
    * @example
    * Complete
@@ -569,7 +569,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
 export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.Model {
   /**
    * @remarks
-   * The number of enabled policy types.
+   * The count of currently enabled policy types.
    * 
    * @example
    * 3
@@ -577,7 +577,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.
   enabledCount?: number;
   /**
    * @remarks
-   * The severity level of the policy governance.
+   * The policy governance severity level.
    * 
    * @example
    * high
@@ -629,7 +629,7 @@ export class DescribePolicyGovernanceInClusterResponseBody extends $dara.Model {
   admitLog?: DescribePolicyGovernanceInClusterResponseBodyAdmitLog;
   /**
    * @remarks
-   * The counts of enabled policies at different severity levels in the cluster.
+   * The counts of enabled policies at different severity levels in the current cluster.
    */
   onState?: DescribePolicyGovernanceInClusterResponseBodyOnState[];
   static names(): { [key: string]: string } {

@@ -21,7 +21,7 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   protection?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0527ac9a-c899-4341-a21a-xxxxxxxxx
@@ -37,7 +37,7 @@ export class UpdateResourcesDeleteProtectionResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of resources for which the deletion protection status is updated.
+   * The list of resources whose deletion protection status is updated.
    */
   resources?: string[];
   static names(): { [key: string]: string } {

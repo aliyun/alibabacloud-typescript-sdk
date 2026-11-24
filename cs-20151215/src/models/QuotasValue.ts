@@ -21,7 +21,7 @@ export class QuotasValue extends $dara.Model {
   operationCode?: string;
   /**
    * @remarks
-   * Indicates whether the quota can be adjusted.
+   * Specifies whether the quota can be adjusted.
    * 
    * @example
    * true

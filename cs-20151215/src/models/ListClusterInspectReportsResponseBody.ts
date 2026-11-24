@@ -107,7 +107,7 @@ export class ListClusterInspectReportsResponseBodyReports extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The inspection report summary.
+   * The summary of the inspection report.
    */
   summary?: ListClusterInspectReportsResponseBodyReportsSummary;
   static names(): { [key: string]: string } {

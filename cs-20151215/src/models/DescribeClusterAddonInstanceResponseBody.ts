@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterAddonInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The add-on configuration.
+   * The configuration of the add-on.
    * 
    * @example
    * {"NetworkPolicy":"true"}
@@ -13,7 +13,7 @@ export class DescribeClusterAddonInstanceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The add-on name.
+   * The name of the add-on.
    * 
    * @example
    * terway-eniip
@@ -21,14 +21,15 @@ export class DescribeClusterAddonInstanceResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The add-on state. Valid values:
-   * - initial: Installing.
-   * - active: Installed.
-   * - unhealthy: Abnormal.
-   * - upgrading: Upgrading.
-   * - updating: Updating.
-   * - deleting: Uninstalling.
-   * - deleted: Deleted.
+   * The state of the add-on. Valid values:
+   * 
+   * - initial: The add-on is being installed.
+   * - active: The add-on is installed.
+   * - unhealthy: The add-on is in an abnormal state.
+   * - upgrading: The add-on is being upgraded.
+   * - updating: The add-on is being updated.
+   * - deleting: The add-on is being uninstalled.
+   * - deleted: The add-on is deleted.
    * 
    * @example
    * active
@@ -36,7 +37,7 @@ export class DescribeClusterAddonInstanceResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The add-on version.
+   * The version of the add-on.
    * 
    * @example
    * v1.4.3

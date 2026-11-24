@@ -14,11 +14,14 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of results to return for a single request.
+   * 
+   * @example
+   * 50
    */
   maxResults?: number;
   /**
    * @remarks
-   * The query token. The value is the next_token parameter value returned by the previous API call.
+   * The pagination token. Set the value to the next_token value returned by the previous API call.
    */
   nextToken?: string;
   /**
@@ -31,7 +34,7 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of results to display per page.
    * 
    * Valid values: 1 to 100.
    * 

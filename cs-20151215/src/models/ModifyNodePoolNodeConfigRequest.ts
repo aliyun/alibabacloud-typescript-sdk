@@ -8,7 +8,7 @@ import { Hugepage } from "./Hugepage";
 export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
   /**
    * @remarks
-   * The hugepage configuration.
+   * The hugepage configurations.
    */
   hugepage?: Hugepage;
   /**
@@ -48,7 +48,7 @@ export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
 export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+   * The maximum number of nodes that are allowed to fail during a rolling update. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
    * 
    * @example
    * 0
@@ -56,9 +56,9 @@ export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $dara.Model {
   maxFailedNodes?: number;
   /**
    * @remarks
-   * Node updates in the node pool are performed in batches. This parameter specifies the maximum number of nodes that can be updated in parallel per batch.
+   * Nodes in the node pool are updated in batches. This parameter specifies the maximum number of nodes that can be updated in parallel in each batch.
    * 
-   * Valid values: [1,10].
+   * Valid values: 1 to 10.
    * 
    * Default value: 10.
    * 
@@ -92,7 +92,7 @@ export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $dara.Model {
 export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The containerd runtime configuration.
+   * The containerd runtime configurations.
    */
   containerdConfig?: ContainerdConfig;
   /**
@@ -102,7 +102,7 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   kubeletConfig?: KubeletConfig;
   /**
    * @remarks
-   * The list of nodes to upgrade.
+   * The list of specified nodes to upgrade.
    */
   nodeNames?: string[];
   /**

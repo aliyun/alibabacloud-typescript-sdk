@@ -13,7 +13,7 @@ export class InvokeAgentResponseBodyOutcomeInterrupts extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * The ID of the interrupt. It is used as resume[].interruptId when resuming the run.
+   * The interrupt ID, which is used as resume[].interruptId when resuming the run.
    * 
    * This parameter is required.
    * 
@@ -26,12 +26,12 @@ export class InvokeAgentResponseBodyOutcomeInterrupts extends $dara.Model {
    * The approval description or follow-up question text displayed to the user.
    * 
    * @example
-   * Proceed with execution?
+   * Do you want to proceed?
    */
   message?: string;
   /**
    * @remarks
-   * The optional extension information of the interrupt. It cannot replace tool events.
+   * The optional extension information of the interrupt, which cannot replace tool events.
    * 
    * @example
    * {}
@@ -57,7 +57,7 @@ export class InvokeAgentResponseBodyOutcomeInterrupts extends $dara.Model {
   responseSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The optional associated tool invoke ID. It is the same as the toolCallId of the preceding TOOL_CALL_START event.
+   * The optional associated tool invoke ID, which is the same as the toolCallId of the preceding TOOL_CALL_START event.
    * 
    * @example
    * call-1
@@ -113,7 +113,7 @@ export class InvokeAgentResponseBodyOutcome extends $dara.Model {
   interrupts?: InvokeAgentResponseBodyOutcomeInterrupts[];
   /**
    * @remarks
-   * The outcome type. A value of success indicates normal completion. A value of interrupt indicates waiting for a response, in which case the interrupts array contains at least one item.
+   * The outcome type. A value of success indicates normal completion, and interrupt indicates waiting for a response. When the value is interrupt, the interrupts array contains at least one item.
    * 
    * This parameter is required.
    * 
@@ -158,7 +158,7 @@ export class InvokeAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The tool output text for the TOOL_CALL_RESULT event. The text may be truncated.
+   * The tool output text for the TOOL_CALL_RESULT event, which may be truncated.
    * 
    * @example
    * done
@@ -230,7 +230,7 @@ export class InvokeAgentResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The thread snapshot for the STATE_SNAPSHOT event, including sessionId and requestId.
+   * The session snapshot for the STATE_SNAPSHOT event, which includes sessionId and requestId.
    * 
    * @example
    * {"sessionId":"abcdef0123456789abcdef0123456789","requestId":"req-1"}
@@ -238,7 +238,7 @@ export class InvokeAgentResponseBody extends $dara.Model {
   snapshot?: any;
   /**
    * @remarks
-   * The thread ID for RUN_STARTED and RUN_FINISHED events. It is consistent with the request and the thread snapshot.
+   * The thread ID for RUN_STARTED and RUN_FINISHED events. It is consistent with the request and the session snapshot.
    * 
    * @example
    * abcdef0123456789abcdef0123456789
@@ -272,7 +272,7 @@ export class InvokeAgentResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The extension value of the CUSTOM event. It can be any JSON object or null.
+   * The extension value of the CUSTOM event, which can be any JSON object or null.
    * 
    * @example
    * {"reference":null,"actions":[],"messageId":null}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplateAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the orchestration template. A new template ID is generated each time the template is modified.
+   * The ID of the orchestration template. This ID changes every time the template is modified.
    * 
    * @example
    * 72d20cf8-a533-4ea9-a10d-e7630d3d****

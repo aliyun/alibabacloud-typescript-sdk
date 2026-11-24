@@ -21,7 +21,7 @@ export class DeployPolicyInstanceRequest extends $dara.Model {
   namespaces?: string[];
   /**
    * @remarks
-   * The parameter settings of the current rule instance. For more information about the parameters supported by each policy governance rule and the corresponding metric description, see [Container security policy rule library](https://www.alibabacloud.com/help/doc-detail/359819.html).
+   * The parameter settings of the current rule instance. For more information about the parameters supported by each policy governance rule and the corresponding metric descriptions, see [Container security policy rule library](https://www.alibabacloud.com/help/doc-detail/359819.html).
    * 
    * @example
    * {   "repos": [     "registry-vpc.cn-hangzhou.aliyuncs.com/acs/",     "registry.cn-hangzhou.aliyuncs.com/acs/"   ] }

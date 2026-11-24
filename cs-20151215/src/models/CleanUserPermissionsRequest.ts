@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CleanUserPermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of cluster IDs. If you specify this list, only the KubeConfig credentials and RBAC permissions of the user in the specified clusters are cleared.
+   * The list of cluster IDs. If you specify this list, the system cleans up the KubeConfig credentials and revokes the RBAC permissions of the specified user only in the specified clusters.
    */
   clusterIds?: string[];
   /**
    * @remarks
    * Specifies whether to force delete the specified KubeConfig. Valid values:
-   * - false (default): Before deleting the KubeConfig, the system checks whether there are cluster access records within the last seven days. If such records exist or cannot be found, the deletion is not allowed.
+   * - false (default): Checks whether the cluster has been accessed within the last seven days before deleting the KubeConfig. If access records exist or cannot be found, the deletion is not allowed.
    * - true: Force deletes the KubeConfig without checking cluster access records.
    * 
    * @example

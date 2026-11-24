@@ -26,7 +26,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   enableFilter?: boolean;
   /**
    * @remarks
-   * The query language. Valid values:
+   * The query language.
    * - zh_CN
    * - en_US
    * 
@@ -64,7 +64,7 @@ export class GetClusterInspectReportDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The object type. Only check items that match the object type are returned.
+   * The inspection object type. Only inspection items that match the specified object type are returned.
    * 
    * @example
    * NodePool

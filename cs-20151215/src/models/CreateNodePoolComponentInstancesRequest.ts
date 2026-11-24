@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodePoolComponentInstancesRequestComponentsConfigEnvs extends $dara.Model {
   /**
    * @remarks
-   * The name of the environment variable.
+   * The environment variable name.
    * 
    * @example
    * LOG_LEVEL
@@ -13,7 +13,7 @@ export class CreateNodePoolComponentInstancesRequestComponentsConfigEnvs extends
   name?: string;
   /**
    * @remarks
-   * The value of the environment variable.
+   * The environment variable value.
    * 
    * @example
    * info
@@ -88,12 +88,12 @@ export class CreateNodePoolComponentInstancesRequestComponentsConfig extends $da
 export class CreateNodePoolComponentInstancesRequestComponents extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the component.
+   * The component configuration.
    */
   config?: CreateNodePoolComponentInstancesRequestComponentsConfig;
   /**
    * @remarks
-   * The name of the component.
+   * The component name.
    * 
    * This parameter is required.
    * 
@@ -103,7 +103,7 @@ export class CreateNodePoolComponentInstancesRequestComponents extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The version of the component.
+   * The component version.
    * 
    * This parameter is required.
    * 
@@ -158,7 +158,7 @@ export class CreateNodePoolComponentInstancesRequestRollingPolicy extends $dara.
   maxFailedNodes?: number;
   /**
    * @remarks
-   * The maximum number of parallel updates per batch. Default value: 1.
+   * The maximum number of parallel operations per batch. Default value: 1.
    * 
    * @example
    * 1
@@ -166,7 +166,7 @@ export class CreateNodePoolComponentInstancesRequestRollingPolicy extends $dara.
   maxParallelism?: number;
   /**
    * @remarks
-   * The auto-pause policy during the node upgrade process. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
+   * The automatic pause policy during the node upgrade. Valid values: NotPause, FirstBatch, and EveryBatch. Default value: NotPause.
    * 
    * @example
    * NotPause

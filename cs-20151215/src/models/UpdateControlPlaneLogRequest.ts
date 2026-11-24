@@ -21,7 +21,7 @@ export class UpdateControlPlaneLogRequest extends $dara.Model {
   components?: string[];
   /**
    * @remarks
-   * The name of the SLS project where control plane component logs are stored.
+   * The name of the Simple Log Service (SLS) project where the control plane component logs are stored.
    * 
    * Default value: k8s-log-$ClusterId.
    * 

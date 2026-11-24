@@ -84,7 +84,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The object associated with the event.
+   * The operation object associated with the event.
    * 
    * @example
    * npdd89dc2b76c04f14b06774883b******
@@ -92,7 +92,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The start time of the event. The time is in ISO 8601 format and includes time zone information.
+   * The start time of the event in ISO 8601 format, including the time zone.
    * 
    * @example
    * 2025-05-14T10:00:56+08:00
@@ -102,22 +102,22 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
    * @remarks
    * The event type. Valid values:
    * 
-   * - cluster_create: cluster creation
-   * - cluster_scaleout: cluster scale-out
-   * - cluster_attach: addition of existing nodes
-   * - cluster_delete: cluster deletion
-   * - cluster_upgrade: cluster upgrade
-   * - cluster_migrate: cluster migration
-   * - cluster_node_delete: node removal
-   * - cluster_node_drain: node draining
-   * - cluster_modify: cluster modification
-   * - cluster_configuration_modify: cluster management configuration modification
-   * - cluster_addon_install: add-on installation
-   * - cluster_addon_upgrade: add-on upgrade
-   * - cluster_addon_uninstall: add-on uninstallation
-   * - runtime_upgrade: runtime upgrade
-   * - nodepool_upgrade: node pool upgrade
-   * - nodepool_update: node pool update
+   * - cluster_create: Cluster creation.
+   * - cluster_scaleout: Cluster scale-out.
+   * - cluster_attach: Addition of existing nodes.
+   * - cluster_delete: Cluster deletion.
+   * - cluster_upgrade: Cluster upgrade.
+   * - cluster_migrate: Cluster migration.
+   * - cluster_node_delete: Node removal.
+   * - cluster_node_drain: Node draining.
+   * - cluster_modify: Cluster modification.
+   * - cluster_configuration_modify: Cluster management configuration modification.
+   * - cluster_addon_install: Add-on installation.
+   * - cluster_addon_upgrade: Add-on upgrade.
+   * - cluster_addon_uninstall: Add-on uninstallation.
+   * - runtime_upgrade: Runtime upgrade.
+   * - nodepool_upgrade: Node pool upgrade.
+   * - nodepool_update: Node pool update.
    * 
    * @example
    * nodepool_update
@@ -170,7 +170,7 @@ export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results to display on each page.
+   * The maximum number of results to return per page.
    * 
    * @example
    * 50

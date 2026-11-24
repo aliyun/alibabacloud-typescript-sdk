@@ -16,7 +16,7 @@ export class RunNodeOperationResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * xxxx
+   * 123e4567-e89b-12d3-a456-426614174000
    */
   requestId?: string;
   /**

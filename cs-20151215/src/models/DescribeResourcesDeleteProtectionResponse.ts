@@ -31,7 +31,7 @@ export class DescribeResourcesDeleteProtectionResponseBody extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * Indicates whether deletion protection is enabled. Valid values:
+   * Specifies whether deletion protection is enabled. Valid values:
    * - true: Enabled.
    * - false: Disabled.
    * 

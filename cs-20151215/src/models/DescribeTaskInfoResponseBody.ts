@@ -133,7 +133,7 @@ export class DescribeTaskInfoResponseBodyStages extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The information about the task stage.
+   * The message of the task stage.
    * 
    * @example
    * success to xxxxx
@@ -203,7 +203,7 @@ export class DescribeTaskInfoResponseBodyTarget extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The type of the task execution target.
+   * The object type of the execute target of the node.
    * 
    * @example
    * cluster
@@ -235,7 +235,7 @@ export class DescribeTaskInfoResponseBodyTarget extends $dara.Model {
 export class DescribeTaskInfoResponseBodyTaskResult extends $dara.Model {
   /**
    * @remarks
-   * The resource operated by the task. For example, if the operated resource during a scale-out is an instance, this value is the instance ID.
+   * The resource operated by the task. For example, if the operated resource during scale-out is an instance, this value is the instance ID.
    * 
    * @example
    * i-xxx
@@ -246,7 +246,7 @@ export class DescribeTaskInfoResponseBodyTaskResult extends $dara.Model {
    * The scale-out status of the resource. Valid values:
    * - `success`: The scale-out succeeded.
    * - `failed`: The scale-out failed.
-   * - `initial`: The scale-out is being initialized.
+   * - `initial`: The resource is being initialized.
    * 
    * @example
    * success
@@ -302,7 +302,7 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   currentStage?: string;
   /**
    * @remarks
-   * The task fault information.
+   * The error message of the node fault.
    */
   error?: DescribeTaskInfoResponseBodyError;
   /**
@@ -338,7 +338,7 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The task execution target.
+   * The execution target of the task.
    */
   target?: DescribeTaskInfoResponseBodyTarget;
   /**

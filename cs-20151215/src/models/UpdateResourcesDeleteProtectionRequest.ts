@@ -34,9 +34,9 @@ export class UpdateResourcesDeleteProtectionRequest extends $dara.Model {
    * @remarks
    * The type of the resource to update. Valid values:
    * 
-   * - namespaces: namespace.
+   * - namespaces: namespace
    * 
-   * - services: service.
+   * - services: service
    * 
    * @example
    * services

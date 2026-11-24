@@ -153,7 +153,7 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of results to display per page.
    * 
    * @example
    * 50
@@ -201,6 +201,9 @@ export class DescribeEventsForRegionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The pagination token.
+   * 
+   * @example
+   * 242x17815i414s****78ev616v3wd38o
    */
   nextToken?: string;
   /**

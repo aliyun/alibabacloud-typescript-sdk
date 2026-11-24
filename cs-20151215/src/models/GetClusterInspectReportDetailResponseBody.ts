@@ -26,10 +26,10 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   checkItemUid?: string;
   /**
    * @remarks
-   * The description of the check item.
+   * The description of the inspection item.
    * 
    * @example
-   * Cluster API Server load balancer instance failures affect cluster availability. Check whether the load balancer instance status is normal.
+   * API server load balancer instance failures in the cluster affect cluster availability. Check whether the load balancer instance status is normal.
    */
   description?: string;
   /**
@@ -54,7 +54,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   level?: string;
   /**
    * @remarks
-   * The name of the check item.
+   * The name of the inspection item.
    * 
    * @example
    * Abnormal API server CLB instance status
@@ -62,10 +62,10 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   name?: string;
   /**
    * @remarks
-   * The check result. Valid values:
-   * - true: The check item is abnormal.
-   * - false: The check item is normal.
-   * - disable: The check item is disabled.
+   * The inspection result. Valid values:
+   * - true: the inspection item is abnormal
+   * - false: the inspection item is normal
+   * - disable: the inspection item is disabled
    * 
    * @example
    * false
@@ -73,7 +73,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   result?: string;
   /**
    * @remarks
-   * The resource type of the check target.
+   * The resource type of the inspection target.
    * 
    * @example
    * CLB
@@ -81,7 +81,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   targetType?: string;
   /**
    * @remarks
-   * The list of check targets.
+   * The list of inspection targets.
    */
   targets?: string[];
   static names(): { [key: string]: string } {
@@ -127,7 +127,7 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
 export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Model {
   /**
    * @remarks
-   * The number of check items whose result is advice.
+   * The number of inspection items whose result is advice.
    * 
    * @example
    * 0
@@ -135,7 +135,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   adviceCount?: number;
   /**
    * @remarks
-   * The status code of the check task result.
+   * The status code of the inspection task result.
    * 
    * @example
    * warning
@@ -143,7 +143,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * The number of check items whose result is error.
+   * The number of inspection items whose result is error.
    * 
    * @example
    * 0
@@ -151,7 +151,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   errorCount?: number;
   /**
    * @remarks
-   * The number of check items whose result is normal.
+   * The number of inspection items whose result is normal.
    * 
    * @example
    * 10
@@ -159,7 +159,7 @@ export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Mode
   normalCount?: number;
   /**
    * @remarks
-   * The number of check items whose result is warning.
+   * The number of inspection items whose result is warning.
    * 
    * @example
    * 1
@@ -202,7 +202,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   checkItemResults?: GetClusterInspectReportDetailResponseBodyCheckItemResults[];
   /**
    * @remarks
-   * The completion time of the inspection report in ISO 8601 format with time zone information.
+   * The end time of the inspection report in ISO 8601 format, including the time zone.
    * 
    * @example
    * 2024-12-18T19:41:12.778433+08:00
@@ -234,7 +234,7 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the inspection report in ISO 8601 format with time zone information.
+   * The start time of the inspection report in ISO 8601 format, including the time zone.
    * 
    * @example
    * 2024-12-18T19:40:16.778333+08:00
@@ -243,8 +243,8 @@ export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The generation status of the inspection report. Valid values:
-   * - completed: The generation is completed.
-   * - running: The generation is in progress.
+   * - completed: Completed.
+   * - running: In progress.
    * 
    * @example
    * completed

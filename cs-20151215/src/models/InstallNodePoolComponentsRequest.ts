@@ -53,7 +53,7 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
   customConfig?: { [key: string]: any };
   /**
    * @remarks
-   * The environment variables for the node component.
+   * The environment variables of the node component.
    */
   envs?: InstallNodePoolComponentsRequestComponentsConfigEnvs[];
   static names(): { [key: string]: string } {

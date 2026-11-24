@@ -21,7 +21,7 @@ export class DescribeEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned from the previous API call.
+   * The query token, which is the value of the NextToken parameter returned by the previous API call.
    * 
    * @example
    * 5c0a1c0f91c14c6****
@@ -29,7 +29,7 @@ export class DescribeEventsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number for paging in the paged query.
+   * The page number for paging.
    * 
    * @example
    * 1
@@ -50,22 +50,22 @@ export class DescribeEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The event type. If you do not specify this parameter, events of all types are queried. Valid values:
-   * - `cluster_create`: Cluster creation.
-   * - `cluster_scaleout`: Cluster scale-out.
-   * - `cluster_attach`: Addition of existing nodes.
-   * - `cluster_delete`: Cluster deletion.
-   * - `cluster_upgrade`: Cluster upgrade.
-   * - `cluster_migrate`: Cluster migration.
-   * - `cluster_node_delete`: Node removal.
-   * - `cluster_node_drain`: Node draining.
-   * - `cluster_modify`: Cluster modification.
-   * - `cluster_configuration_modify`: Cluster control configuration modification.
-   * - `cluster_addon_install`: Add-on installation.
-   * - `cluster_addon_upgrade`: Add-on upgrade.
-   * - `cluster_addon_uninstall`: Add-on uninstallation.
-   * - `runtime_upgrade`: Runtime upgrade.
-   * - `nodepool_upgrade`: Node pool upgrade.
-   * - `nodepool_update`: Node pool update.
+   * - `cluster_create`: cluster creation
+   * - `cluster_scaleout`: cluster scale-out
+   * - `cluster_attach`: adding existing nodes
+   * - `cluster_delete`: cluster deletion
+   * - `cluster_upgrade`: cluster upgrade
+   * - `cluster_migrate`: cluster migration
+   * - `cluster_node_delete`: node removal
+   * - `cluster_node_drain`: node draining
+   * - `cluster_modify`: cluster modification
+   * - `cluster_configuration_modify`: cluster management configuration modification
+   * - `cluster_addon_install`: add-on installation
+   * - `cluster_addon_upgrade`: add-on upgrade
+   * - `cluster_addon_uninstall`: add-on uninstallation
+   * - `runtime_upgrade`: runtime upgrade
+   * - `nodepool_upgrade`: node pool upgrade
+   * - `nodepool_update`: node pool update
    * 
    * @example
    * nodepool_upgrade

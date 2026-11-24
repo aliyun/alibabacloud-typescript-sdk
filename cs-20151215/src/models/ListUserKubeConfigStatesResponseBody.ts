@@ -21,7 +21,7 @@ export class ListUserKubeConfigStatesResponseBodyPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of results.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class ListUserKubeConfigStatesResponseBodyPage extends $dara.Model {
 export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the KubeConfig certificate. The time is in UTC and follows the RFC 3339 format.
+   * The expiration time of the KubeConfig certificate. The time is displayed in UTC and follows the RFC 3339 standard.
    * 
    * @example
    * 2028-04-09T06:20:47Z
@@ -64,10 +64,12 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
   /**
    * @remarks
    * The current status of the KubeConfig certificate. Valid values:
+   * 
    * - Expired: The certificate has expired.
    * - Unexpired: The certificate has not expired.
    * - Unissued: The certificate has not been issued.
    * - Unknown: The status is unknown.
+   * 
    * - Removed: The certificate has been removed, but an issuance record exists.
    * 
    * @example
@@ -93,6 +95,7 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
   /**
    * @remarks
    * The running status of the cluster. Valid values:
+   * 
    * - `initial`: The cluster is being created.
    * - `failed`: The cluster failed to be created.
    * - `running`: The cluster is running.
@@ -145,7 +148,7 @@ export class ListUserKubeConfigStatesResponseBody extends $dara.Model {
   page?: ListUserKubeConfigStatesResponseBodyPage;
   /**
    * @remarks
-   * The KubeConfig status details for the user.
+   * The details of the KubeConfig status for the user.
    */
   states?: ListUserKubeConfigStatesResponseBodyStates[];
   static names(): { [key: string]: string } {

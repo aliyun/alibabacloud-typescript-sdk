@@ -31,7 +31,7 @@ export class DescribeTriggerResponseBody extends $dara.Model {
    * @remarks
    * The trigger project name.
    * 
-   * It consists of the namespace and application name in the `${namespace}/${name}` format. Example: default/test-app.
+   * It consists of the namespace and application name, in the `${namespace}/${name}` format. Example: default/test-app.
    * 
    * @example
    * default/test-app
@@ -43,9 +43,9 @@ export class DescribeTriggerResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - `deployment`: the trigger for stateless applications. 
+   * - `deployment`: trigger for stateless applications. 
    * 
-   * - `application`: the trigger for Hybrid Cloud Application Center applications.
+   * - `application`: trigger for Hybrid Cloud Application Center applications.
    * 
    * @example
    * deployment
@@ -55,7 +55,7 @@ export class DescribeTriggerResponseBody extends $dara.Model {
    * @remarks
    * The trigger action. Valid values:
    * 
-   * `redeploy`: redeploys the application.
+   * `redeploy`: Redeploys the application.
    * 
    * @example
    * redeploy

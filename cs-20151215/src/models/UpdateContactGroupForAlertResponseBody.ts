@@ -13,9 +13,9 @@ export class UpdateContactGroupForAlertResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The status of the update result. Valid values:
-   * - true: The operation succeeded.
-   * - false: The operation failed.
+   * Indicates whether the update was successful. Valid values:
+   * - true: The update was successful.
+   * - false: The update failed.
    * 
    * @example
    * true

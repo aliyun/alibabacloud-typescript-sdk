@@ -82,7 +82,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The data disk size of the node.
+   * The size of the data disk for the node.
    */
   dataDiskSize?: number;
   /**
@@ -116,7 +116,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   initVersion?: string;
   /**
    * @remarks
-   * The access address of the cluster API server, including the internal network access address and the public network access address.
+   * The access endpoint of the cluster API server, including the internal network access endpoint and the public network access endpoint.
    * 
    * @example
    * {"api_server_endpoint":"","intranet_api_server_endpoint":"https://192.0.2.10:6443"}
@@ -148,7 +148,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * Indicates whether Private Zone is enabled for the cluster. Default value: false.
+   * Indicates whether PrivateZone is enabled for the cluster. Default value: false.
    */
   privateZone?: boolean;
   /**
@@ -185,7 +185,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The current number of nodes in the cluster, including master and worker nodes.
+   * The current number of nodes in the cluster, including master nodes and worker nodes.
    * 
    * @example
    * 3
@@ -193,7 +193,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The state of the cluster.
+   * The running state of the cluster.
    * 
    * @example
    * running
@@ -201,7 +201,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The subnet CIDR of the cluster.
+   * The subnet CIDR block of the cluster.
    * 
    * @example
    * 172.16.0.0/16
@@ -222,7 +222,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   updated?: string;
   /**
    * @remarks
-   * The VPC ID of the cluster.
+   * The virtual private cloud (VPC) ID of the cluster.
    * 
    * @example
    * vpc-a1b2c3d4e5f6g7h8i9j0k
@@ -230,7 +230,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The vSwitch CIDR.
+   * The CIDR block of the vSwitch.
    */
   vswitchCidr?: string;
   /**
@@ -243,7 +243,7 @@ export class DescribeClustersResponseBody extends $dara.Model {
   vswitchId?: string;
   /**
    * @remarks
-   * The name of the RAM role used by the worker nodes.
+   * The name of the Resource Access Management (RAM) role used by the worker nodes.
    * 
    * @example
    * example-worker-ram-role

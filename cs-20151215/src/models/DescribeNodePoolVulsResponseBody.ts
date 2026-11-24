@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList extends $dara.Model {
   /**
    * @remarks
-   * The name of the package.
+   * The package name.
    * 
    * @example
    * WebLogic
@@ -48,7 +48,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
   cveList?: string[];
   /**
    * @remarks
-   * The name of the vulnerability.
+   * The vulnerability name.
    * 
    * @example
    * oval:com.redhat.rhsa:def:20193197
@@ -64,7 +64,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
   necessity?: string;
   /**
    * @remarks
-   * Indicates whether a restart is required.
+   * Specifies whether a restart is required.
    * 
    * @example
    * false
@@ -123,7 +123,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecords extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the node, which identifies the node in the cluster.
+   * The node name, which identifies the node in the cluster.
    * 
    * @example
    * cn-hangzhou.192.168.x.x
@@ -170,9 +170,10 @@ export class DescribeNodePoolVulsResponseBody extends $dara.Model {
   vulRecords?: DescribeNodePoolVulsResponseBodyVulRecords[];
   /**
    * @remarks
-   * Indicates whether the Security Center CVE fix service is purchased. Valid values:
+   * Specifies whether the Security Center CVE fix service is purchased.
    * 
    * - true: Purchased.
+   * 
    * - false: Not purchased.
    * 
    * @example

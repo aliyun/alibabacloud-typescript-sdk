@@ -85,7 +85,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
 export class ListClusterChecksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of checks.
+   * The check list.
    */
   checks?: ListClusterChecksResponseBodyChecks[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodePoolComponentsResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
-   * The parameter schema of the node component, including custom parameters and system parameters.
+   * The configuration schema of the node component, including custom parameters and system parameters.
    * 
    * @example
    * "{\\"$schema\\": \\"\\",\\"properties\\": {}"
@@ -55,12 +55,12 @@ export class ListNodePoolComponentsResponseBodyComponents extends $dara.Model {
 export class ListNodePoolComponentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node components.
+   * The list of node components.
    */
   components?: ListNodePoolComponentsResponseBodyComponents[];
   /**
    * @remarks
-   * The maximum number of results per page. Default value: 200.
+   * The maximum number of results to return. Default value: 200.
    * 
    * @example
    * 10
@@ -68,7 +68,7 @@ export class ListNodePoolComponentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token for pagination.
    * 
    * @example
    * 5c0a1c0f91c14c6****

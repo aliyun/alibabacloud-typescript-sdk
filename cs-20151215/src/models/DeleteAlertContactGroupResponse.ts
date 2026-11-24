@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertContactGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deletion status.
+   * The deletion status. Valid values:
    * 
-   * * true: Deletion succeeded.
-   * * false: Deletion failed.
+   * * true: The deletion succeeded.
+   * * false: The deletion failed.
    * 
    * @example
    * true

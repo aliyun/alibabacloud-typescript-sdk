@@ -54,7 +54,7 @@ export class RepairClusterNodePoolRequestOperations extends $dara.Model {
 export class RepairClusterNodePoolRequest extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** Specifies whether to restart the instance.
+   * **[Deprecated]** Specifies whether to allow restarting instances.
    * 
    * @example
    * null

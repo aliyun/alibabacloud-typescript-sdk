@@ -7,7 +7,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
    * @remarks
    * The governance action of the rule. Valid values:
    * - `enforce`: Blocks non-compliant deployments.
-   * - `inform`: Triggers alerts.
+   * - `inform`: Generates alerts.
    * 
    * @example
    * enforce
@@ -31,9 +31,9 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the rule is deleted. Valid values:
-   * - 0: Not deleted.
-   * - 1: Deleted.
+   * Specifies whether the rule is deleted. Valid values:
+   * - 0: The rule is not deleted.
+   * - 1: The rule is deleted.
    * 
    * @example
    * 0
@@ -49,7 +49,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether policy configuration is required. Valid values: 
+   * Specifies whether policy configuration is required. Valid values:
    * - 0: Parameter settings are required.
    * - 1: No parameter settings are required.
    * 
@@ -60,9 +60,9 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The governance severity of the rule. Valid values:
-   * * `high`: High-risk.
-   * * `medium`: Medium-risk.
-   * * `low`: Low-risk.
+   * * `high`: High risk.
+   * * `medium`: Medium risk.
+   * * `low`: Low risk.
    * 
    * @example
    * high

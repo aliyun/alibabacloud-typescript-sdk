@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * The time when the node was created. The time follows the ISO 8601 standard and includes the time zone.
+   * The time when the node was created. The time is displayed in ISO 8601 format and includes the time zone.
    * 
    * @example
    * 2025-04-16T07:28:00Z
@@ -21,7 +21,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The time when the node expires. The time follows the ISO 8601 standard and includes the time zone.
+   * The time when the node expires. The time is displayed in ISO 8601 format and includes the time zone.
    * 
    * @example
    * 2099-12-31T15:59:00Z
@@ -46,7 +46,6 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * The billing method of the node. Valid values:
-   * 
    * - `PrePaid`: subscription.
    * - `PostPaid`: pay-as-you-go.
    * 
@@ -73,9 +72,8 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * The role of the node. Valid values:
-   * 
-   * - Master: the master node of the cluster.
-   * - Worker: the worker node of the cluster.
+   * - Master: master node in the cluster.
+   * - Worker: worker node in the cluster.
    * 
    * @example
    * Worker
@@ -84,12 +82,11 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * The ECS instance status of the node. Valid values:
-   * 
-   * - `Pending`: the instance is being created.
-   * - `Running`: the instance is running.
-   * - `Starting`: the instance is starting.
-   * - `Stopping`: the instance is stopping.
-   * - `Stopped`: the instance is stopped.
+   * - `Pending`: being created.
+   * - `Running`: running.
+   * - `Starting`: starting.
+   * - `Stopping`: stopping.
+   * - `Stopped`: stopped.
    * 
    * @example
    * Running
@@ -118,10 +115,9 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   ipAddress?: string[];
   /**
    * @remarks
-   * Specifies whether the node is an Alibaba Cloud instance. Valid values:
-   * 
-   * - `true`: the node is an Alibaba Cloud instance.
-   * - `false`: the node is not an Alibaba Cloud instance.
+   * Indicates whether the node is an Alibaba Cloud instance. Valid values:
+   * - `true`: yes.
+   * - `false`: no.
    * 
    * @example
    * true
@@ -129,7 +125,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   isAliyunNode?: boolean;
   /**
    * @remarks
-   * The name of the node, which is the node identifier in the cluster.
+   * The name of the node. This name is used as the node identifier in the cluster.
    * 
    * @example
    * cn-chengdu.192.168xx.xx
@@ -137,12 +133,11 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * Specifies whether the node is ready. Valid values:
-   * 
-   * - `Ready`: the node is ready.
-   * - `NotReady`: the node is not ready.
-   * - `Unknown`: the status is unknown.
-   * - `Offline`: the node is offline.
+   * Indicates whether the node is ready. Valid values:
+   * - `Ready`: ready.
+   * - `NotReady`: not ready.
+   * - `Unknown`: unknown.
+   * - `Offline`: offline.
    * 
    * @example
    * Ready
@@ -158,7 +153,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   nodepoolId?: string;
   /**
    * @remarks
-   * The method used to initialize the node, such as manual creation or creation by Resource Orchestration Service (ROS).
+   * The method used to initialize the node, such as manual creation or creation by using Resource Orchestration Service (ROS).
    * 
    * @example
    * ess
@@ -167,10 +162,9 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * The type of the spot instance. Valid values:
-   * 
-   * - NoSpot: the instance is not a spot instance.
-   * - SpotWithPriceLimit: the instance is a spot instance with a maximum price limit.
-   * - SpotAsPriceGo: the instance is a spot instance whose price is automatically set based on the current market price.
+   * - NoSpot: non-spot instance.
+   * - SpotWithPriceLimit: spot instance with a maximum price limit.
+   * - SpotAsPriceGo: spot instance whose price is automatically set based on the current market price.
    * 
    * @example
    * NoSpot
@@ -179,12 +173,11 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * The running state of the node. Valid values:
-   * 
-   * - `pending`: the node is being created.
-   * - `running`: the node is running.
-   * - `starting`: the node is starting.
-   * - `stopping`: the node is stopping.
-   * - `stopped`: the node is stopped.
+   * - `pending`: being created.
+   * - `running`: running.
+   * - `starting`: starting.
+   * - `stopping`: stopping.
+   * - `stopped`: stopped.
    * 
    * @example
    * running
@@ -263,7 +256,7 @@ export class DescribeClusterNodesResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of records to return per page.
+   * The maximum number of entries that can be displayed on each page.
    * 
    * @example
    * 10

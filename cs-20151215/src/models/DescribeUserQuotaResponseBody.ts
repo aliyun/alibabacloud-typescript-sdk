@@ -35,7 +35,7 @@ export class DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota extends $dar
 export class DescribeUserQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The managed cluster quota. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+   * The quota for managed clusters. The default value is 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
    * 
    * @example
    * 20
@@ -43,7 +43,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
   amkClusterQuota?: number;
   /**
    * @remarks
-   * The ASK cluster quota. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+   * The quota for ASK clusters. The default value is 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
    * 
    * @example
    * 3
@@ -51,7 +51,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
   askClusterQuota?: number;
   /**
    * @remarks
-   * The node pool quota per cluster. Default value: 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+   * The node pool quota per cluster. The default value is 20. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
    * 
    * @example
    * 10
@@ -59,7 +59,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
   clusterNodepoolQuota?: number;
   /**
    * @remarks
-   * The total cluster quota per account. Default value: 50. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+   * The total cluster quota per account. The default value is 50. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
    * 
    * @example
    * 50
@@ -68,7 +68,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
   edgeImprovedNodepoolQuota?: DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota;
   /**
    * @remarks
-   * The node quota per cluster. Default value: 100. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
+   * The node quota per cluster. The default value is 100. To increase the quota, [submit an application in Quota Center](https://quotas.console.aliyun.com/products/csk/quotas).
    * 
    * @example
    * 100

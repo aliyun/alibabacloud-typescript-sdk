@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunNodeOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the O&M action to execute.
+   * The name of the O&M action to perform.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RunNodeOperationRequest extends $dara.Model {
   operationAction?: string;
   /**
    * @remarks
-   * The list of parameters for the O&M action.
+   * The list of parameters accepted by the O&M action.
    */
   operationArgs?: string[];
   static names(): { [key: string]: string } {

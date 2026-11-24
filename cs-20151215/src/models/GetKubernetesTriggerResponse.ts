@@ -29,7 +29,9 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The trigger project name. It consists of the namespace and name of the application, in the `${namespace}/${name}` format. Example: default/test-app.
+   * The trigger project name.
+   * 
+   * It consists of the namespace and application name, in the format of `${namespace}/${name}`. Example: default/test-app.
    * 
    * @example
    * default/test-app
@@ -37,11 +39,13 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
+   * The trigger type.
    * 
-   * - `deployment`: the trigger for stateless applications. 
+   * Valid values:
    * 
-   * - `application`: the trigger for applications in the Hybrid Cloud Application Center.
+   * - `deployment`: The trigger for stateless applications. 
+   * 
+   * - `application`: The trigger for applications in the Application Center.
    * 
    * Default value: `deployment`.
    * 
@@ -53,7 +57,7 @@ export class GetKubernetesTriggerResponseBody extends $dara.Model {
    * @remarks
    * The trigger action. Valid values:
    * 
-   * `redeploy`: redeploys the resources defined in project_id.
+   * `redeploy`: Redeploys the resources defined in project_id.
    * 
    * @example
    * redeploy

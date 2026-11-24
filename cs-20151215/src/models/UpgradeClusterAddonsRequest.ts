@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The component name.
+   * The name of the add-on.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * The custom component parameters, encoded as a JSON string.
+   * The custom parameters of the add-on, encoded as a JSON string.
    * 
    * @example
    * {"CpuRequest":"800m"}
@@ -23,7 +23,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The target version to upgrade to. You can call the `DescribeAddon` operation to query the upgradable versions of a component.
+   * The target version to which the add-on is upgraded. You can call the DescribeAddon operation to view the upgradable versions of the add-on.
    * 
    * This parameter is required.
    * 
@@ -33,9 +33,9 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   nextVersion?: string;
   /**
    * @remarks
-   * The component upgrade policy. Valid values:
-   * - overwrite: overwrite upgrade.
-   * - canary: canary upgrade.
+   * The upgrade policy for the add-on. Valid values:
+   * - overwrite: Overwrite.
+   * - canary: Canary.
    * 
    * @example
    * canary
@@ -43,7 +43,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The current component version.
+   * The current version of the add-on.
    * 
    * @example
    * v1.11.3.2-f57ea7ed6-aliyun

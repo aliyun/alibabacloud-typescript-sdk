@@ -13,7 +13,7 @@ export class DeleteNodePoolComponentInstanceRequest extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that are allowed to fail during the rolling process. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
+   * The maximum number of nodes that can fail during the rolling process. Default value: 0. A value of 0 indicates that the task fails if any node fails. A value greater than 0 indicates that the task fails and stops if the cumulative number of failed nodes exceeds this value.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DeleteNodePoolComponentInstanceRequest extends $dara.Model {
   maxFailedNodes?: number;
   /**
    * @remarks
-   * The maximum number of parallel nodes per batch. Default value: 1.
+   * The maximum number of parallel operations per batch. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DeleteNodePoolComponentInstanceRequest extends $dara.Model {
   maxParallelism?: number;
   /**
    * @remarks
-   * The list of nodes to rotate. Default value: all nodes.
+   * The list of nodes to be rotated. Default value: all nodes.
    * 
    * @example
    * ["cn-hangzhou.10.91.xx.xx"]
@@ -37,7 +37,7 @@ export class DeleteNodePoolComponentInstanceRequest extends $dara.Model {
   nodeNames?: string[];
   /**
    * @remarks
-   * The auto-pause policy during the node upgrade process. Valid values:
+   * The automatic pause policy during node upgrades. Valid values:
    * - NotPause
    * - FirstBatch
    * - EveryBatch
