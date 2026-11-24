@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCategoryResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
-   * The category ID. You can use it as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
+   * The category ID. You can use this ID as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
    * 
    * @example
    * 10020

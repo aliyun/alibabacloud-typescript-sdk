@@ -152,7 +152,7 @@ export class GetVideoListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of audio and video files.
+   * The total number of audio and video assets.
    * 
    * @example
    * 100

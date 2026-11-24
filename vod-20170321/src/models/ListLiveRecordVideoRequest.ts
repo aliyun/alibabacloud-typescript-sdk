@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveRecordVideoRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application used during recording.
+   * The application name used for recording.
    * 
    * @example
    * testApp
@@ -13,7 +13,7 @@ export class ListLiveRecordVideoRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The domain name used during recording.
+   * The live streaming domain name used for recording.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class ListLiveRecordVideoRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end time of the recording operation (when the live stream recording begins). The end time must be later than the start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The end time of the recording operation. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2017-01-11T13:00:00Z
@@ -45,10 +45,10 @@ export class ListLiveRecordVideoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting method for results. Valid values:
+   * The sorting method for the results. Valid values:
    * 
-   * - **CreationTime:Desc** (default): sorted by creation time in descending order.
-   * - **CreationTime:Asc**: sorted by creation time in ascending order.
+   * - **CreationTime:Desc** (default): Sorts the results by creation time in descending order.
+   * - **CreationTime:Asc**: Sorts the results by creation time in ascending order.
    * 
    * @example
    * CreationTime:Desc
@@ -56,7 +56,7 @@ export class ListLiveRecordVideoRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time of the recording operation (when the live stream recording begins). Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The start time of the recording operation, which is when the live program recording starts. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -64,7 +64,7 @@ export class ListLiveRecordVideoRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the live stream used during recording.
+   * The name of the live stream used for recording.
    * 
    * @example
    * live-test

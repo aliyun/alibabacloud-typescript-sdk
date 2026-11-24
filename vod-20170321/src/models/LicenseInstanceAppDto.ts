@@ -6,11 +6,17 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
   /**
    * @remarks
    * businessType
+   * 
+   * @example
+   * Player
    */
   businessType?: string;
   /**
    * @remarks
    * featureIds
+   * 
+   * @example
+   * 4326
    */
   featureIds?: string;
   /**
@@ -21,26 +27,41 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
   /**
    * @remarks
    * sdkId
+   * 
+   * @example
+   * 150
    */
   sdkId?: number;
   /**
    * @remarks
    * sdkName
+   * 
+   * @example
+   * VOD Player SDK
    */
   sdkName?: string;
   /**
    * @remarks
    * subscription
+   * 
+   * @example
+   * Standard_Bundling
    */
   subscription?: string;
   /**
    * @remarks
    * subscriptionImp
+   * 
+   * @example
+   * Standard
    */
   subscriptionImp?: string;
   /**
    * @remarks
    * subscriptionPkg
+   * 
+   * @example
+   * Standard_Bundling
    */
   subscriptionPkg?: string;
   static names(): { [key: string]: string } {
@@ -82,36 +103,57 @@ export class LicenseInstanceAppDTO extends $dara.Model {
   /**
    * @remarks
    * appId
+   * 
+   * @example
+   * 0d3f2a7c1b9e4f58
    */
   appId?: string;
   /**
    * @remarks
    * beginOn
+   * 
+   * @example
+   * 2026-01-02T03:04:05Z
    */
   beginOn?: string;
   /**
    * @remarks
    * contractNo
+   * 
+   * @example
+   * 782590648253664
    */
   contractNo?: string;
   /**
    * @remarks
    * creationTime
+   * 
+   * @example
+   * 2026-01-02T03:04:05Z
    */
   creationTime?: string;
   /**
    * @remarks
    * expiredOn
+   * 
+   * @example
+   * 2027-01-02T03:04:05Z
    */
   expiredOn?: string;
   /**
    * @remarks
    * instanceId
+   * 
+   * @example
+   * lsn_9f2a1c7b3d8e4f56
    */
   instanceId?: string;
   /**
    * @remarks
    * itemId
+   * 
+   * @example
+   * 3ba9c7d21f4e6a80
    */
   itemId?: string;
   /**
@@ -122,16 +164,25 @@ export class LicenseInstanceAppDTO extends $dara.Model {
   /**
    * @remarks
    * modificationTime
+   * 
+   * @example
+   * 2026-01-02T03:04:05Z
    */
   modificationTime?: string;
   /**
    * @remarks
    * status
+   * 
+   * @example
+   * Normal
    */
   status?: string;
   /**
    * @remarks
    * userId
+   * 
+   * @example
+   * 2544469002080159
    */
   userId?: number;
   static names(): { [key: string]: string } {
