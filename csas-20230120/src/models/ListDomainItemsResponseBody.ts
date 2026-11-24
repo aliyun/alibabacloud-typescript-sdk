@@ -13,20 +13,23 @@ export class ListDomainItemsResponseBodyDomainItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the entry was last modified.
+   * The time when the entry was last updated.
    * 
    * @example
    * 2026-08-01 10:20:30
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The entry ID.
+   * 
    * @example
    * 499
    */
   itemId?: number;
   /**
    * @remarks
-   * The domain name. Wildcard domain names are supported.
+   * The specific domain name. Wildcard domain names are supported.
    * 
    * @example
    * www.example.com
@@ -75,7 +78,7 @@ export class ListDomainItemsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the specified conditions. This is an optional parameter and may not be returned by default.
+   * The total number of records that match the specified conditions. This is an optional parameter and is not returned by default.
    * 
    * @example
    * 13

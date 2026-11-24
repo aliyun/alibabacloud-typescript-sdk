@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextEn extends $dara.Model {
   /**
    * @remarks
-   * The pop-up window content.
+   * The content of the pop-up window.
    * 
    * @example
    * After uninstalling, the device can no longer be used for company work, and it will lose access to the company\\"s intranet!
@@ -29,7 +29,7 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockT
   minorButtonText?: string;
   /**
    * @remarks
-   * The pop-up window title.
+   * The title of the pop-up window.
    * 
    * @example
    * Anti-Uninstall Warning
@@ -65,10 +65,10 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockT
 export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockTextZh extends $dara.Model {
   /**
    * @remarks
-   * The pop-up window content.
+   * The content of the pop-up window.
    * 
    * @example
-   * 卸载后该设备无法再用于公司办公，同时该设备将失去进入公司内网权限！
+   * After uninstallation, this device can no longer be used for company work and will lose access to the company intranet!
    */
   content?: string;
   /**
@@ -76,7 +76,7 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockT
    * The text of the primary button in the pop-up window.
    * 
    * @example
-   * 去报备
+   * Submit report
    */
   mainButtonText?: string;
   /**
@@ -84,15 +84,15 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContentBlockT
    * The text of the secondary button in the pop-up window.
    * 
    * @example
-   * 我知道了
+   * I understand
    */
   minorButtonText?: string;
   /**
    * @remarks
-   * The pop-up window title.
+   * The title of the pop-up window.
    * 
    * @example
-   * 防卸载警告
+   * Anti-uninstallation warning
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -178,7 +178,7 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategy extends $dara.Mod
   blockContent?: GetBootAndAntiUninstallPolicyResponseBodyStrategyBlockContent;
   /**
    * @remarks
-   * The time when the policy was created.
+   * The time when the policy was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-04-16 10:50:05
@@ -186,7 +186,7 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategy extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the anti-uninstall feature is enabled.
+   * Indicates whether the anti-uninstallation feature is enabled.
    * 
    * @example
    * true
@@ -202,7 +202,7 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategy extends $dara.Mod
   isBoot?: boolean;
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * auto-boot-anti-uninstall-6f6cbf5f6605****
@@ -218,7 +218,7 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategy extends $dara.Mod
   reportProcessId?: string;
   /**
    * @remarks
-   * The time when the policy was updated.
+   * The time when the policy was updated. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-06-14 10:17:14
@@ -231,7 +231,7 @@ export class GetBootAndAntiUninstallPolicyResponseBodyStrategy extends $dara.Mod
   userGroupIds?: string[];
   /**
    * @remarks
-   * The list of whitelist users.
+   * The list of whitelisted users.
    */
   whitelistUsers?: string[];
   static names(): { [key: string]: string } {
@@ -293,7 +293,7 @@ export class GetBootAndAntiUninstallPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The auto-start and anti-uninstall policy.
+   * The auto-start and anti-uninstallation policy.
    */
   strategy?: GetBootAndAntiUninstallPolicyResponseBodyStrategy;
   static names(): { [key: string]: string } {

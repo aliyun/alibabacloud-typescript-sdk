@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes.
+   * The bundle ID of the application. This field is applicable only to macOS processes.
    * 
    * @example
    * com.aliyun.security.sase
@@ -13,7 +13,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends 
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -29,7 +29,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends 
   directory?: string;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * kismain.exe
@@ -65,7 +65,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends 
 export class UpdateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes.
+   * The bundle ID of the application. This field is applicable only to macOS processes.
    * 
    * @example
    * com.autotest.app
@@ -73,7 +73,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends 
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -89,7 +89,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends 
   directory?: string;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * QQPCTray.exe
@@ -125,7 +125,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends 
 export class UpdateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes.
+   * The bundle ID of the application. This field is applicable only to macOS processes.
    * 
    * @example
    * com.aliyun.security.sase
@@ -133,7 +133,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extend
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -149,7 +149,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extend
   directory?: string;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * QQPCTray.exe
@@ -185,7 +185,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extend
 export class UpdateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   /**
    * @remarks
-   * The time when the prohibited software was created, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+   * The time when the prohibited software was created. The time is in the yyyy-MM-dd HH:mm:ss format and displayed in the UTC+8 time zone.
    * 
    * @example
    * 2023-08-17 09:49:03
@@ -219,7 +219,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The IDs of the software prohibition policies that directly reference this prohibited software.
+   * The IDs of the software prohibition policies that directly reference the prohibited software.
    */
   policyIds?: string[];
   /**
@@ -232,7 +232,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   softwareId?: string;
   /**
    * @remarks
-   * The IDs of the prohibited software tags associated with this prohibited software.
+   * The IDs of the prohibited software tags associated with the prohibited software.
    */
   tagIds?: string[];
   /**

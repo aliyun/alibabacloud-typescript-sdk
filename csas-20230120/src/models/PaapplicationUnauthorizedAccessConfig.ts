@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PAApplicationUnauthorizedAccessConfigBlockContentBlockTextEn extends $dara.Model {
   /**
    * @remarks
-   * The prompt content of the English block page.
+   * The English prompt message on the block page.
    * 
    * @example
    * You do not have permission to access this system. If you need to do so, please submit a permission request.
@@ -13,7 +13,7 @@ export class PAApplicationUnauthorizedAccessConfigBlockContentBlockTextEn extend
   browserAlertContent?: string;
   /**
    * @remarks
-   * The background pattern of the English block page.
+   * The English background pattern of the block page.
    * 
    * @example
    * https://img.alicdn.com/xxx.png
@@ -21,7 +21,7 @@ export class PAApplicationUnauthorizedAccessConfigBlockContentBlockTextEn extend
   browserAlertStyle?: string;
   /**
    * @remarks
-   * The title of the English block page.
+   * The English title of the block page.
    * 
    * @example
    * No Permission Access
@@ -29,7 +29,7 @@ export class PAApplicationUnauthorizedAccessConfigBlockContentBlockTextEn extend
   browserAlertTitle?: string;
   /**
    * @remarks
-   * The text of the English report approval button.
+   * The English text on the approval request button.
    * 
    * @example
    * Report
@@ -65,10 +65,10 @@ export class PAApplicationUnauthorizedAccessConfigBlockContentBlockTextEn extend
 export class PAApplicationUnauthorizedAccessConfigBlockContentBlockTextZh extends $dara.Model {
   /**
    * @remarks
-   * The prompt content of the block page.
+   * The prompt message on the block page.
    * 
    * @example
-   * 您暂无权限访问该系统。如有工作需要，请提交权限申请。
+   * You do not have permission to access this system. If you need access for work purposes, submit an access request
    */
   browserAlertContent?: string;
   /**
@@ -84,15 +84,15 @@ export class PAApplicationUnauthorizedAccessConfigBlockContentBlockTextZh extend
    * The title of the block page.
    * 
    * @example
-   * 无权限访问
+   * Access Denied
    */
   browserAlertTitle?: string;
   /**
    * @remarks
-   * The text of the report approval button.
+   * The text on the approval request button.
    * 
    * @example
-   * 前往报备
+   * Request Access
    */
   reportButtonText?: string;
   static names(): { [key: string]: string } {
@@ -173,14 +173,14 @@ export class PAApplicationUnauthorizedAccessConfig extends $dara.Model {
   allowReport?: boolean;
   /**
    * @remarks
-   * The content displayed in the client interception pop-up window.
+   * The content displayed in the client block pop-up window.
    */
   blockContent?: PAApplicationUnauthorizedAccessConfigBlockContent;
   /**
    * @remarks
    * Specifies whether the feature is enabled. Valid values:
-   * - **true**: Enabled. Users are redirected to an interception page when they access an unauthorized application.
-   * - **false**: Disabled. An error message is returned by default when users access an unauthorized application.
+   * - **true**: Enabled. If an application is unauthorized, the user is redirected to the block page.
+   * - **false**: Disabled. If an application is unauthorized, an error message is returned by default.
    * 
    * @example
    * true
@@ -188,7 +188,7 @@ export class PAApplicationUnauthorizedAccessConfig extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The ID of the approval flow associated with the policy.
+   * The ID of the approval process associated with the policy.
    * 
    * @example
    * approval-process-0ee84ac4f9c31bc5

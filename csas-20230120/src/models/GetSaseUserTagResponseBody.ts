@@ -13,7 +13,7 @@ export class GetSaseUserTagResponseBodySaseUserTag extends $dara.Model {
   aliuid?: string;
   /**
    * @remarks
-   * The user tag description.
+   * The description of the user tag.
    * 
    * @example
    * These are the company\\"s employees
@@ -21,7 +21,7 @@ export class GetSaseUserTagResponseBodySaseUserTag extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The user tag name.
+   * The name of the user tag.
    * 
    * @example
    * boss
@@ -29,7 +29,7 @@ export class GetSaseUserTagResponseBodySaseUserTag extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user tag ID.
+   * The ID of the user tag.
    * 
    * @example
    * su-tag-1ae52f66039fa0d4****

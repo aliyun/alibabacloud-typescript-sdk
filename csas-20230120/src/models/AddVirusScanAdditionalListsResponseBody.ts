@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddVirusScanAdditionalListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of IDs for the newly added entries. The order is consistent with AdditionalLists in the request.
+   * The IDs of the added list entries. The order of the IDs is the same as the order of the entries in the AdditionalLists parameter of the request.
    */
   listIds?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3D7EC0AF-DB2A-5D9C-90EC-F090A6BAAEA7

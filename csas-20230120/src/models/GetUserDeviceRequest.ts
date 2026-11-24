@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserDeviceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint device. Valid values:
+   * The ID of the terminal device. Valid values:
+   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of user terminal devices.
+   * - [ListUserDevices](~~ListUserDevices~~): Queries multiple user terminal devices.
    * 
    * This parameter is required.
    * 

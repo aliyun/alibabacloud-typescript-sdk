@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApprovalProcessesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page when paging is used. Valid values: 1 to 10000.
+   * The page number of the current page in a paging query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListApprovalProcessesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page when paging is used. Valid values: 1 to 500.
+   * The number of entries per page in a paging query. Valid values: 1 to 500.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListApprovalProcessesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the associated business policy.
+   * The ID of the associated business policy. If you use this parameter, you must also specify PolicyType.
    * 
    * @example
    * pid-6d6ad77d5b52****
@@ -33,12 +33,12 @@ export class ListApprovalProcessesRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The type of the associated policy. Valid values:
+   * The type of the business policy. Valid values:
    * - **DomainBlacklist**: domain name blacklist.
    * - **DomainWhitelist**: domain name whitelist.
-   * - **SoftwareBlock**: software blocking.
-   * - **AppUninstall**: agent uninstallation.
-   * - **DlpSend**: file outgoing.
+   * - **SoftwareBlock**: software block.
+   * - **AppUninstall**: endpoint uninstallation.
+   * - **DlpSend**: file sending.
    * - **PeripheralBlock**: peripheral control.
    * 
    * @example
@@ -47,21 +47,21 @@ export class ListApprovalProcessesRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The collection of approval process IDs.
+   * The IDs of the approval processes. A maximum of 100 approval process IDs are supported.
    */
   processIds?: string[];
   /**
    * @remarks
-   * The template name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+   * The name of the approval process. The name must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-). Fuzzy match is supported.
    * 
    * @example
-   * test
+   * File sending approval
    */
   processName?: string;
   /**
    * @remarks
-   * The ID of the associated approver. You can call the following operation to obtain the ID:
-   * - [ListUsers](~~ListUsers~~): lists users.
+   * The ID of the approver, which starts with su_. Only approval processes that include this approver in the approval nodes are returned. Value source:
+   * - [ListUsers](~~ListUsers~~): Lists users.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -69,10 +69,10 @@ export class ListApprovalProcessesRequest extends $dara.Model {
   saseUserId?: string;
   /**
    * @remarks
-   * The username of the associated approver.
+   * The username of the approver. Fuzzy match is supported. Only approval processes that include this approver in the approval nodes are returned.
    * 
    * @example
-   * 王先生
+   * Mr. Wang
    */
   username?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetBandwidthResponseBodyNetBandwidthList extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth value, in Mbps.
+   * The bandwidth value (Mbps).
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class ListNetBandwidthResponseBodyNetBandwidthList extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 2026-08-01 10:20:30
@@ -21,7 +21,7 @@ export class ListNetBandwidthResponseBodyNetBandwidthList extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the instance was last modified.
+   * The update time.
    * 
    * @example
    * 2026-08-02 15:00:00
@@ -124,7 +124,7 @@ export class ListNetBandwidthResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

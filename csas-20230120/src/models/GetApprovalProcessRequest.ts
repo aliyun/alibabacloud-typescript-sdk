@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetApprovalProcessRequest extends $dara.Model {
   /**
    * @remarks
-   * The approval flow ID. Valid values:
-   * - [ListApprovalProcesses](~~ListApprovalProcesses~~): Lists approval flows.
+   * The ID of the approval process. You can call the following operation to obtain the value:
+   * - [ListApprovalProcesses](~~ListApprovalProcesses~~): Queries a list of approval processes in batches.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDlpOutboundLogsResponseBodyLogsMatchedDictsInnerDicts extends $dara.Model {
   /**
    * @remarks
-   * The number of matches.
+   * The hit count.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListDlpOutboundLogsResponseBodyLogsMatchedDictsInnerDicts extends $
 export class ListDlpOutboundLogsResponseBodyLogsMatchedDictsKeywords extends $dara.Model {
   /**
    * @remarks
-   * The number of matches.
+   * The hit count.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListDlpOutboundLogsResponseBodyLogsMatchedDictsKeywords extends $da
 export class ListDlpOutboundLogsResponseBodyLogsMatchedDictsUserDicts extends $dara.Model {
   /**
    * @remarks
-   * The number of matches.
+   * The hit count.
    * 
    * @example
    * 1
@@ -186,12 +186,12 @@ export class ListDlpOutboundLogsResponseBodyLogsMatchedPolicies extends $dara.Mo
    * The corresponding data type.
    * 
    * @example
-   * Company Data
+   * Corporate data
    */
   engineDataType?: string;
   /**
    * @remarks
-   * The matched detection rule name.
+   * The name of the matched identification rule.
    * 
    * @example
    * ID No
@@ -207,7 +207,7 @@ export class ListDlpOutboundLogsResponseBodyLogsMatchedPolicies extends $dara.Mo
   policyDesc?: string;
   /**
    * @remarks
-   * The matched policy name.
+   * The hit Policy Name.
    * 
    * @example
    * default
@@ -264,7 +264,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
    * The primary channel.
    * 
    * @example
-   * Web Upload
+   * Web upload
    */
   channelType?: string;
   /**
@@ -277,7 +277,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   department?: string;
   /**
    * @remarks
-   * The local path of the file on the device.
+   * The local path of the file on the endpoint.
    * 
    * @example
    * C:\\Users\\a\\Desktop\\x.xlsx
@@ -285,7 +285,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   devFilePath?: string;
   /**
    * @remarks
-   * The unique identifier of the device.
+   * The unique identifier of the endpoint.
    * 
    * @example
    * 69FFB8EB-3E5E-5F11-A9D3-59ED8CBB345D
@@ -293,7 +293,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   deviceTag?: string;
   /**
    * @remarks
-   * The device type.
+   * The endpoint type.
    * 
    * @example
    * Windows
@@ -317,7 +317,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   dlpStorageType?: string;
   /**
    * @remarks
-   * The outbound destination address or URL.
+   * The destination address or URL of the outbound transfer.
    * 
    * @example
    * https://mail.example.com
@@ -349,7 +349,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   fileOriginReferrer?: string;
   /**
    * @remarks
-   * The file content preview snippet.
+   * The preview snippet of the file content.
    * 
    * @example
    * preview
@@ -368,12 +368,12 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
    * The organizational structure path.
    * 
    * @example
-   * R&D Center-Data Platform Team
+   * R&D Center - Data Platform Team
    */
   groupInfo?: string;
   /**
    * @remarks
-   * The hostname of the device.
+   * The endpoint hostname.
    * 
    * @example
    * MacBook-Pro
@@ -389,7 +389,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   logId?: string;
   /**
    * @remarks
-   * The matched dictionary statistics.
+   * The statistics of matched dictionaries.
    */
   matchedDicts?: ListDlpOutboundLogsResponseBodyLogsMatchedDicts;
   /**
@@ -420,7 +420,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   policyName?: string[];
   /**
    * @remarks
-   * The outbound process name.
+   * The outbound transfer process name.
    * 
    * @example
    * chrome.exe
@@ -431,7 +431,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
    * The secondary channel description.
    * 
    * @example
-   * WeCom-FileSend
+   * WeCom-File Transfer
    */
   processNameDesc?: string;
   /**
@@ -471,12 +471,12 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
    * The original file name.
    * 
    * @example
-   * 2026Q2FinancialReport.xlsx
+   * 2026Q2_Financial_Report.xlsx
    */
   srcFileName?: string;
   /**
    * @remarks
-   * The source IP address of the device.
+   * The source IP address of the endpoint.
    * 
    * @example
    * 10.0.0.5
@@ -484,7 +484,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   srcIp?: string;
   /**
    * @remarks
-   * The time when the event occurred.
+   * The time when the event occurred. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-08-10 14:03:22
@@ -492,7 +492,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The time when the log was reported.
+   * The time when the log was reported. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-08-10 14:03:25
@@ -610,7 +610,7 @@ export class ListDlpOutboundLogsResponseBody extends $dara.Model {
   logs?: ListDlpOutboundLogsResponseBodyLogs[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9350F06D-80FB-5B8B-983A-0E25CBD08479
@@ -618,7 +618,7 @@ export class ListDlpOutboundLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query conditions.
+   * The total number of records that meet the query conditions.
    * 
    * @example
    * 120

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteDomainItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of domain name list entries.
+   * The IDs of the domain name list entries.
    */
   itemIds?: number[];
   /**
    * @remarks
-   * The list ID. This is the unique business identifier used for policy references and CRUD operations.
+   * The ID of the list, which is a unique business identifier used for policy references and add, delete, and modify operations.
    * 
    * @example
    * ladl-61aae0c0ba715e3b
@@ -18,7 +18,7 @@ export class BatchDeleteDomainItemsRequest extends $dara.Model {
   listId?: string;
   /**
    * @remarks
-   * The list type (Blacklist/Whitelist).
+   * The type of the list (Blacklist/Whitelist).
    * 
    * @example
    * la_domain_white_list

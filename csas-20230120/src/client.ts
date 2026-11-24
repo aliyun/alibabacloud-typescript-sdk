@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "csas";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "csas.aliyuncs.com",
@@ -34,7 +38,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Appends associated terminal devices to a static device label in batches.
+   * Adds associated terminal devices to a static device tag in batches.
    * 
    * @param request - AddDeviceGroupMatchDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74,7 +78,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Appends associated terminal devices to a static device label in batches.
+   * Adds associated terminal devices to a static device tag in batches.
    * 
    * @param request - AddDeviceGroupMatchDevicesRequest
    * @returns AddDeviceGroupMatchDevicesResponse
@@ -85,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+   * Adds entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. The quota is calculated independently for each combination of matching dimension and list type. For each combination, the whitelist supports up to 10,000 entries and the blacklist supports up to 1,000 entries. If the quota is exceeded after the addition, the entire batch fails.
    * 
    * @param request - AddVirusScanAdditionalListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -125,7 +129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+   * Adds entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. The quota is calculated independently for each combination of matching dimension and list type. For each combination, the whitelist supports up to 10,000 entries and the blacklist supports up to 1,000 entries. If the quota is exceeded after the addition, the entire batch fails.
    * 
    * @param request - AddVirusScanAdditionalListsRequest
    * @returns AddVirusScanAdditionalListsResponse
@@ -241,7 +245,7 @@ export default class Client extends OpenApi {
    * Inserts domain name entries into a domain name list in batches.
    * 
    * @remarks
-   * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+   * Appends domain name entries to a specified domain name list (`ListId`) in batches. Domain names must be second-level or higher-level domain names. Wildcard domain names such as `*.example.com` are supported, but overly broad formats such as `*.com` and `*.com.cn` are prohibited.
    * 
    * @param request - BatchCreateDomainItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -288,7 +292,7 @@ export default class Client extends OpenApi {
    * Inserts domain name entries into a domain name list in batches.
    * 
    * @remarks
-   * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+   * Appends domain name entries to a specified domain name list (`ListId`) in batches. Domain names must be second-level or higher-level domain names. Wildcard domain names such as `*.example.com` are supported, but overly broad formats such as `*.com` and `*.com.cn` are prohibited.
    * 
    * @param request - BatchCreateDomainItemsRequest
    * @returns BatchCreateDomainItemsResponse
@@ -299,10 +303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch deletes domain name entries from a domain name list.
+   * Deletes multiple domain name entries from a domain name list.
    * 
    * @remarks
-   * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+   * Deletes multiple domain name entries from a specified domain name list based on entry IDs (`ItemIds`, obtained from the `ItemId` returned by ListDomainItems).
    * 
    * @param request - BatchDeleteDomainItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -346,10 +350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch deletes domain name entries from a domain name list.
+   * Deletes multiple domain name entries from a domain name list.
    * 
    * @remarks
-   * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+   * Deletes multiple domain name entries from a specified domain name list based on entry IDs (`ItemIds`, obtained from the `ItemId` returned by ListDomainItems).
    * 
    * @param request - BatchDeleteDomainItemsRequest
    * @returns BatchDeleteDomainItemsResponse
@@ -360,12 +364,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes internal-facing applications in batches.
+   * Deletes multiple private access applications.
    * 
    * @remarks
-   * Applications that are referenced by office network recognition or policies cannot be deleted. References:
-   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
-   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+   * Deletion is not allowed when office area identification or policy references exist. References:
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists private access policies.
    * 
    * @param request - BatchDeletePrivateAccessApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -401,12 +405,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes internal-facing applications in batches.
+   * Deletes multiple private access applications.
    * 
    * @remarks
-   * Applications that are referenced by office network recognition or policies cannot be deleted. References:
-   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
-   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+   * Deletion is not allowed when office area identification or policy references exist. References:
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists private access policies.
    * 
    * @param request - BatchDeletePrivateAccessApplicationRequest
    * @returns BatchDeletePrivateAccessApplicationResponse
@@ -417,7 +421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes internal network access policies in batches.
+   * Deletes multiple internal network access policies.
    * 
    * @param request - BatchDeletePrivateAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -453,7 +457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes internal network access policies in batches.
+   * Deletes multiple internal network access policies.
    * 
    * @param request - BatchDeletePrivateAccessPolicyRequest
    * @returns BatchDeletePrivateAccessPolicyResponse
@@ -464,7 +468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates user labels.
+   * Associates user tags.
    * 
    * @param request - BindSaseUserTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -504,7 +508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates user labels.
+   * Associates user tags.
    * 
    * @param request - BindSaseUserTagRequest
    * @returns BindSaseUserTagResponse
@@ -515,7 +519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+   * Cancels multiple active instant virus scan tasks in batches. After cancellation, endpoints no longer pull or execute the tasks, and scans already running on the endpoints are not interrupted.
    * 
    * @param request - CancelVirusScanTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -551,7 +555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+   * Cancels multiple active instant virus scan tasks in batches. After cancellation, endpoints no longer pull or execute the tasks, and scans already running on the endpoints are not interrupted.
    * 
    * @param request - CancelVirusScanTasksRequest
    * @returns CancelVirusScanTasksResponse
@@ -562,7 +566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+   * Cancels multiple active on-demand vulnerability scanning nodes.
    * 
    * @param request - CancelVulScanTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -598,7 +602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+   * Cancels multiple active on-demand vulnerability scanning nodes.
    * 
    * @param request - CancelVulScanTasksRequest
    * @returns CancelVulScanTasksResponse
@@ -609,7 +613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an approval flow under the current Alibaba Cloud account.
+   * Creates an approval process under the current Alibaba Cloud account.
    * 
    * @param tmpReq - CreateApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -663,7 +667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an approval flow under the current Alibaba Cloud account.
+   * Creates an approval process under the current Alibaba Cloud account.
    * 
    * @param request - CreateApprovalProcessRequest
    * @returns CreateApprovalProcessResponse
@@ -674,7 +678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backend filing.
+   * Creates a backend report.
    * 
    * @param request - CreateBackendReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -730,7 +734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backend filing.
+   * Creates a backend report.
    * 
    * @param request - CreateBackendReportRequest
    * @returns CreateBackendReportResponse
@@ -861,7 +865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a device label.
+   * Creates a device tag.
    * 
    * @param tmpReq - CreateDeviceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -914,7 +918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a device label.
+   * Creates a device tag.
    * 
    * @param request - CreateDeviceGroupRequest
    * @returns CreateDeviceGroupResponse
@@ -928,7 +932,7 @@ export default class Client extends OpenApi {
    * Creates a domain name list.
    * 
    * @remarks
-   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
    * 
    * @param request - CreateDomainMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -966,7 +970,7 @@ export default class Client extends OpenApi {
    * Creates a domain name list.
    * 
    * @remarks
-   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
    * 
    * @param request - CreateDomainMetaRequest
    * @returns CreateDomainMetaResponse
@@ -1191,7 +1195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a traffic forwarding rule.
+   * Creates a forwarding rule.
    * 
    * @param request - CreateForwardStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1242,7 +1246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a traffic forwarding rule.
+   * Creates a forwarding rule.
    * 
    * @param request - CreateForwardStrategyRequest
    * @returns CreateForwardStrategyResponse
@@ -1299,7 +1303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a diagnostic task for internal network access.
+   * Creates an internal network access diagnostic task.
    * 
    * @param tmpReq - CreatePADiagnosisTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1372,7 +1376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a diagnostic task for internal network access.
+   * Creates an internal network access diagnostic task.
    * 
    * @param request - CreatePADiagnosisTaskRequest
    * @returns CreatePADiagnosisTaskResponse
@@ -1383,10 +1387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an internal-facing access application under the current Alibaba Cloud account.
+   * Creates a private access application within the current Alibaba Cloud account.
    * 
    * @remarks
-   * You can create up to 500 internal-facing access applications by default.
+   * By default, you can create up to 500 private access applications.
    * 
    * @param tmpReq - CreatePrivateAccessApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1396,6 +1400,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreatePrivateAccessApplicationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.healthCheckConfig)) {
+      request.healthCheckConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.healthCheckConfig, "HealthCheckConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.l7Config)) {
       request.l7ConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.l7Config, "L7Config", "json");
     }
@@ -1424,6 +1432,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.healthCheckConfigShrink)) {
+      body["HealthCheckConfig"] = request.healthCheckConfigShrink;
+    }
+
+    if (!$dara.isNull(request.healthCheckMode)) {
+      body["HealthCheckMode"] = request.healthCheckMode;
     }
 
     if (!$dara.isNull(request.l7ConfigShrink)) {
@@ -1484,10 +1500,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an internal-facing access application under the current Alibaba Cloud account.
+   * Creates a private access application within the current Alibaba Cloud account.
    * 
    * @remarks
-   * You can create up to 500 internal-facing access applications by default.
+   * By default, you can create up to 500 private access applications.
    * 
    * @param request - CreatePrivateAccessApplicationRequest
    * @returns CreatePrivateAccessApplicationResponse
@@ -1679,7 +1695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a software ban policy.
+   * Creates a prohibited software policy.
    * 
    * @param request - CreateProhibitedPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1795,7 +1811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a software ban policy.
+   * Creates a prohibited software policy.
    * 
    * @param request - CreateProhibitedPolicyRequest
    * @returns CreateProhibitedPolicyResponse
@@ -1806,7 +1822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom disabled software entry.
+   * Creates custom blocked software.
    * 
    * @param request - CreateProhibitedSoftwareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1862,7 +1878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom disabled software entry.
+   * Creates custom blocked software.
    * 
    * @param request - CreateProhibitedSoftwareRequest
    * @returns CreateProhibitedSoftwareResponse
@@ -1873,7 +1889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom disabled software tag.
+   * Creates a custom prohibited software tag.
    * 
    * @param request - CreateProhibitedTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1908,7 +1924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom disabled software tag.
+   * Creates a custom prohibited software tag.
    * 
    * @param request - CreateProhibitedTagRequest
    * @returns CreateProhibitedTagResponse
@@ -2066,8 +2082,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - After a task is created, its initial status is disabled.
-   * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
-   * - SupportOs supports only a single operating system value.
+   * - MatchMode determines how target parameters are specified. If MatchMode is set to UserGroupNormal, you must specify only UserGroupIds. If MatchMode is set to DeviceGroupNormal, you must specify only DeviceGroupIds. If MatchMode is set to DevTagNormal, you must specify only DevTags. Requests with parameters that do not match the specified MatchMode are rejected.
+   * - SupportOs supports only a single operating system.
    * 
    * @param request - CreateSoftwarelibDistributeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2175,8 +2191,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - After a task is created, its initial status is disabled.
-   * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
-   * - SupportOs supports only a single operating system value.
+   * - MatchMode determines how target parameters are specified. If MatchMode is set to UserGroupNormal, you must specify only UserGroupIds. If MatchMode is set to DeviceGroupNormal, you must specify only DeviceGroupIds. If MatchMode is set to DevTagNormal, you must specify only DevTags. Requests with parameters that do not match the specified MatchMode are rejected.
+   * - SupportOs supports only a single operating system.
    * 
    * @param request - CreateSoftwarelibDistributeTaskRequest
    * @returns CreateSoftwarelibDistributeTaskResponse
@@ -2332,7 +2348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+   * Creates a scheduled virus scan policy that automatically delivers scan tasks to user endpoints within the effective scope based on the configured schedule.
    * 
    * @param request - CreateVirusScanScheduledStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2440,7 +2456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+   * Creates a scheduled virus scan policy that automatically delivers scan tasks to user endpoints within the effective scope based on the configured schedule.
    * 
    * @param request - CreateVirusScanScheduledStrategyRequest
    * @returns CreateVirusScanScheduledStrategyResponse
@@ -2855,10 +2871,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a digital watermarking embedding task.
+   * Creates a digital watermarking embedding node.
    * 
    * @remarks
-   * You can create a maximum of 500 user groups by default.
+   * By default, you can create up to 500 user groups.
    * 
    * @param tmpReq - CreateWmEmbedTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2971,10 +2987,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a digital watermarking embedding task.
+   * Creates a digital watermarking embedding node.
    * 
    * @remarks
-   * You can create a maximum of 500 user groups by default.
+   * By default, you can create up to 500 user groups.
    * 
    * @param request - CreateWmEmbedTaskRequest
    * @returns CreateWmEmbedTaskResponse
@@ -2985,7 +3001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a digital watermarking extraction task.
+   * Creates a digital watermarking fetch node.
    * 
    * @param tmpReq - CreateWmExtractTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3064,7 +3080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a digital watermarking extraction task.
+   * Creates a digital watermarking fetch node.
    * 
    * @param request - CreateWmExtractTaskRequest
    * @returns CreateWmExtractTaskResponse
@@ -4342,6 +4358,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+   * 
+   * @param request - DescribeApplicationHealthCheckReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationHealthCheckReportsResponse
+   */
+  async describeApplicationHealthCheckReportsWithOptions(request: $_model.DescribeApplicationHealthCheckReportsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationHealthCheckReportsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationHealthCheckReports",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationHealthCheckReportsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationHealthCheckReportsResponse({}));
+  }
+
+  /**
+   * Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+   * 
+   * @param request - DescribeApplicationHealthCheckReportsRequest
+   * @returns DescribeApplicationHealthCheckReportsResponse
+   */
+  async describeApplicationHealthCheckReports(request: $_model.DescribeApplicationHealthCheckReportsRequest): Promise<$_model.DescribeApplicationHealthCheckReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationHealthCheckReportsWithOptions(request, runtime);
+  }
+
+  /**
    * Detaches private network access applications from a Connector in your Alibaba Cloud account.
    * 
    * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
@@ -4816,7 +4887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+   * Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBootAndAntiUninstallPolicyResponse
@@ -4838,7 +4909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+   * Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
    * @returns GetBootAndAntiUninstallPolicyResponse
    */
   async getBootAndAntiUninstallPolicy(): Promise<$_model.GetBootAndAntiUninstallPolicyResponse> {
@@ -4961,7 +5032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified device label.
+   * Queries the details of a specified device group.
    * 
    * @param request - GetDeviceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4992,7 +5063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified device label.
+   * Queries the details of a specified device group.
    * 
    * @param request - GetDeviceGroupRequest
    * @returns GetDeviceGroupResponse
@@ -5094,7 +5165,7 @@ export default class Client extends OpenApi {
    * Queries the details of a forwarding rule.
    * 
    * @remarks
-   * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
    * 
    * @param request - GetForwardStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5124,7 +5195,7 @@ export default class Client extends OpenApi {
    * Queries the details of a forwarding rule.
    * 
    * @remarks
-   * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
    * 
    * @param request - GetForwardStrategyRequest
    * @returns GetForwardStrategyResponse
@@ -5135,7 +5206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
+   * Queries the details of a specified identity source configuration for the current Alibaba Cloud account.
    * 
    * @param request - GetIdpConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5162,7 +5233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
+   * Queries the details of a specified identity source configuration for the current Alibaba Cloud account.
    * 
    * @param request - GetIdpConfigRequest
    * @returns GetIdpConfigResponse
@@ -5214,7 +5285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a private access diagnostic task.
+   * Queries the details of an internal network access diagnostic task.
    * 
    * @param request - GetPADiagnosisTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5241,7 +5312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a private access diagnostic task.
+   * Queries the details of an internal network access diagnostic task.
    * 
    * @param request - GetPADiagnosisTaskRequest
    * @returns GetPADiagnosisTaskResponse
@@ -5252,7 +5323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+   * Queries the details of a private access application within the current Alibaba Cloud account.
    * 
    * @param request - GetPrivateAccessApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5279,7 +5350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+   * Queries the details of a private access application within the current Alibaba Cloud account.
    * 
    * @param request - GetPrivateAccessApplicationRequest
    * @returns GetPrivateAccessApplicationResponse
@@ -5328,7 +5399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified software prohibition policy.
+   * Queries the details of a specified prohibited software policy.
    * 
    * @param request - GetProhibitedPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5355,7 +5426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified software prohibition policy.
+   * Queries the details of a specified prohibited software policy.
    * 
    * @param request - GetProhibitedPolicyRequest
    * @returns GetProhibitedPolicyResponse
@@ -5366,7 +5437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified prohibited software.
+   * Queries the details of the specified prohibited software.
    * 
    * @param tmpReq - GetProhibitedSoftwareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5399,7 +5470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified prohibited software.
+   * Queries the details of the specified prohibited software.
    * 
    * @param request - GetProhibitedSoftwareRequest
    * @returns GetProhibitedSoftwareResponse
@@ -5410,7 +5481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a device registration policy within the current Alibaba Cloud account.
+   * Queries the details of a device registration policy for the current Alibaba Cloud account.
    * 
    * @param request - GetRegistrationPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5437,7 +5508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a device registration policy within the current Alibaba Cloud account.
+   * Queries the details of a device registration policy for the current Alibaba Cloud account.
    * 
    * @param request - GetRegistrationPolicyRequest
    * @returns GetRegistrationPolicyResponse
@@ -5490,7 +5561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a user endpoint device under the current Alibaba Cloud account.
+   * Queries the details of user terminal devices in the current Alibaba Cloud account.
    * 
    * @param request - GetUserDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5517,7 +5588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a user endpoint device under the current Alibaba Cloud account.
+   * Queries the details of user terminal devices in the current Alibaba Cloud account.
    * 
    * @param request - GetUserDeviceRequest
    * @returns GetUserDeviceResponse
@@ -5620,7 +5691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+   * Queries the global antivirus configuration for the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have a custom configuration record, the system default configurations are returned.
    * 
    * @param request - GetVirusScanGlobalConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5644,7 +5715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+   * Queries the global antivirus configuration for the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have a custom configuration record, the system default configurations are returned.
    * 
    * @param request - GetVirusScanGlobalConfigRequest
    * @returns GetVirusScanGlobalConfigResponse
@@ -5693,7 +5764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+   * Queries the global vulnerability scanning configuration for the current Alibaba Cloud account.
    * 
    * @param request - GetVulScanGlobalConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5717,7 +5788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+   * Queries the global vulnerability scanning configuration for the current Alibaba Cloud account.
    * 
    * @param request - GetVulScanGlobalConfigRequest
    * @returns GetVulScanGlobalConfigResponse
@@ -5728,7 +5799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+   * Queries the complete configuration of a specified scheduled vulnerability scanning policy.
    * 
    * @param request - GetVulScanScheduledStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5755,7 +5826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+   * Queries the complete configuration of a specified scheduled vulnerability scanning policy.
    * 
    * @param request - GetVulScanScheduledStrategyRequest
    * @returns GetVulScanScheduledStrategyResponse
@@ -5926,7 +5997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Immediately invalidates an approval.
+   * Immediately invalidates a report.
    * 
    * @param request - InvalidateApprovalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5957,7 +6028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Immediately invalidates an approval.
+   * Immediately invalidates a report.
    * 
    * @param request - InvalidateApprovalRequest
    * @returns InvalidateApprovalResponse
@@ -6044,7 +6115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of approval processes under the current Alibaba Cloud account.
+   * Queries the approval processes under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6071,7 +6142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of approval processes under the current Alibaba Cloud account.
+   * Queries the approval processes under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalProcessesRequest
    * @returns ListApprovalProcessesResponse
@@ -6272,7 +6343,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query connectors in batches.
+   * Queries the details of connectors under the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * Filters connectors by name, connection status, instance status, and connector ID, and returns a paginated list of matched connectors along with the total count.
    * 
    * @param request - ListConnectorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6299,7 +6373,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query connectors in batches.
+   * Queries the details of connectors under the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * Filters connectors by name, connection status, instance status, and connector ID, and returns a paginated list of matched connectors along with the total count.
    * 
    * @param request - ListConnectorsRequest
    * @returns ListConnectorsResponse
@@ -6310,7 +6387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+   * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
    * 
    * @param request - ListDeviceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6353,7 +6430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+   * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
    * 
    * @param request - ListDeviceGroupsRequest
    * @returns ListDeviceGroupsResponse
@@ -6364,7 +6441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+   * Queries the user terminal devices affected by a specified vulnerability and their remediation statuses by using paging in a paged query.
    * 
    * @param request - ListDevicesForVulnerabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6391,7 +6468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+   * Queries the user terminal devices affected by a specified vulnerability and their remediation statuses by using paging in a paged query.
    * 
    * @param request - ListDevicesForVulnerabilityRequest
    * @returns ListDevicesForVulnerabilityResponse
@@ -6402,7 +6479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists DLP outbound file transfer logs.
+   * Lists Data Loss Prevention (DLP) outbound transfer logs.
    * 
    * @param request - ListDlpOutboundLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6465,7 +6542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists DLP outbound file transfer logs.
+   * Lists Data Loss Prevention (DLP) outbound transfer logs.
    * 
    * @param request - ListDlpOutboundLogsRequest
    * @returns ListDlpOutboundLogsResponse
@@ -6476,10 +6553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Internet access logs of endpoints by using paging.
+   * Performs a paged query on the Internet access logs of endpoints by using paging.
    * 
    * @remarks
-   * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+   * Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
    * 
    * @param request - ListDomainAccessLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6506,10 +6583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Internet access logs of endpoints by using paging.
+   * Performs a paged query on the Internet access logs of endpoints by using paging.
    * 
    * @remarks
-   * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+   * Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
    * 
    * @param request - ListDomainAccessLogsRequest
    * @returns ListDomainAccessLogsResponse
@@ -6520,10 +6597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries domain name entries in a domain name list by paging.
+   * Queries domain name entries in a domain name list by using paging.
    * 
    * @remarks
-   * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+   * Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
    * 
    * @param request - ListDomainItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6570,10 +6647,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries domain name entries in a domain name list by paging.
+   * Queries domain name entries in a domain name list by using paging.
    * 
    * @remarks
-   * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+   * Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
    * 
    * @param request - ListDomainItemsRequest
    * @returns ListDomainItemsResponse
@@ -6907,7 +6984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries forwarding rules in batches.
+   * Lists forwarding rules.
    * 
    * @param request - ListForwardStrategiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6934,7 +7011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries forwarding rules in batches.
+   * Lists forwarding rules.
    * 
    * @param request - ListForwardStrategiesRequest
    * @returns ListForwardStrategiesResponse
@@ -7129,10 +7206,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+   * Performs a paging query on the bandwidth configurations of VPC and Connector network instances connected to the current tenant.
    * 
    * @remarks
-   * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+   * Queries the bandwidth configurations of available network instances within the current account. You can filter the results by network type (NetType) and instance IDs (InstanceIds), and paginate the results by using CurrentPage and PageSize.
    * 
    * @param request - ListNetBandwidthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7175,10 +7252,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+   * Performs a paging query on the bandwidth configurations of VPC and Connector network instances connected to the current tenant.
    * 
    * @remarks
-   * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+   * Queries the bandwidth configurations of available network instances within the current account. You can filter the results by network type (NetType) and instance IDs (InstanceIds), and paginate the results by using CurrentPage and PageSize.
    * 
    * @param request - ListNetBandwidthRequest
    * @returns ListNetBandwidthResponse
@@ -7193,10 +7270,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
-   * - If OperationStatus is not specified, only successful operation records are returned.
-   * - Results are sorted by operation time in descending order.
+   * - If OperationStatus is not specified, only records of successful operations are returned.
+   * - The returned results are sorted in descending order of operation time.
    * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
-   * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+   * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\). Otherwise, an InvalidParameter error is returned.
    * 
    * @param request - ListOperationAuditLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7263,10 +7340,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
-   * - If OperationStatus is not specified, only successful operation records are returned.
-   * - Results are sorted by operation time in descending order.
+   * - If OperationStatus is not specified, only records of successful operations are returned.
+   * - The returned results are sorted in descending order of operation time.
    * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
-   * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+   * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\). Otherwise, an InvalidParameter error is returned.
    * 
    * @param request - ListOperationAuditLogsRequest
    * @returns ListOperationAuditLogsResponse
@@ -7467,7 +7544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+   * Queries the information about all private access applications under the current Alibaba Cloud account.
    * 
    * @param request - ListPrivateAccessApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7494,6 +7571,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.healthCheckStatus)) {
+      query["HealthCheckStatus"] = request.healthCheckStatus;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -7534,7 +7615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+   * Queries the information about all private access applications under the current Alibaba Cloud account.
    * 
    * @param request - ListPrivateAccessApplicationsRequest
    * @returns ListPrivateAccessApplicationsResponse
@@ -7583,7 +7664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all private access policies under the current Alibaba Cloud account.
+   * Queries the details of all private access policies within the current Alibaba Cloud account.
    * 
    * @param request - ListPrivateAccessPolicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7610,7 +7691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all private access policies under the current Alibaba Cloud account.
+   * Queries the details of all private access policies within the current Alibaba Cloud account.
    * 
    * @param request - ListPrivateAccessPolicesRequest
    * @returns ListPrivateAccessPolicesResponse
@@ -8126,9 +8207,9 @@ export default class Client extends OpenApi {
    * Queries software in the software library in batches.
    * 
    * @remarks
-   * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+   * - Pagination is implemented by using CurrentPage and PageSize. NextToken and MaxResults do not take effect.
    * - SoftwareName supports fuzzy match.
-   * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+   * - The Versions field (software version list) in the response is not returned. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
    * 
    * @param request - ListSoftwarelibSoftwareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8190,9 +8271,9 @@ export default class Client extends OpenApi {
    * Queries software in the software library in batches.
    * 
    * @remarks
-   * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+   * - Pagination is implemented by using CurrentPage and PageSize. NextToken and MaxResults do not take effect.
    * - SoftwareName supports fuzzy match.
-   * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+   * - The Versions field (software version list) in the response is not returned. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
    * 
    * @param request - ListSoftwarelibSoftwareRequest
    * @returns ListSoftwarelibSoftwareResponse
@@ -8279,7 +8360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+   * Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
    * 
    * @param request - ListUninstallApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8306,7 +8387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+   * Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
    * 
    * @param request - ListUninstallApplicationsRequest
    * @returns ListUninstallApplicationsResponse
@@ -8355,7 +8436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of user endpoint devices under the current Alibaba Cloud account.
+   * Queries the list of user terminal devices under the current Alibaba Cloud account.
    * 
    * @param request - ListUserDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8402,6 +8483,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.deviceTypes)) {
       query["DeviceTypes"] = request.deviceTypes;
+    }
+
+    if (!$dara.isNull(request.diskEncryptStatuses)) {
+      query["DiskEncryptStatuses"] = request.diskEncryptStatuses;
     }
 
     if (!$dara.isNull(request.dlpStatuses)) {
@@ -8482,7 +8567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of user endpoint devices under the current Alibaba Cloud account.
+   * Queries the list of user terminal devices under the current Alibaba Cloud account.
    * 
    * @param request - ListUserDevicesRequest
    * @returns ListUserDevicesResponse
@@ -8721,7 +8806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询病毒扫描额外名单
+   * Queries the virus scan blacklists and whitelists for a specified operating system, and returns them grouped by match dimension and list type. The blacklists and whitelists are global lists at the Alibaba Cloud account and operating system dimensions, and take effect for all instant scans, scheduled scans, and real-time protection under the account.
    * 
    * @param request - ListVirusScanAdditionalListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8748,7 +8833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询病毒扫描额外名单
+   * Queries the virus scan blacklists and whitelists for a specified operating system, and returns them grouped by match dimension and list type. The blacklists and whitelists are global lists at the Alibaba Cloud account and operating system dimensions, and take effect for all instant scans, scheduled scans, and real-time protection under the account.
    * 
    * @param request - ListVirusScanAdditionalListsRequest
    * @returns ListVirusScanAdditionalListsResponse
@@ -9462,7 +9547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds user labels.
+   * Disassociates user tags.
    * 
    * @param request - UnbindSaseUserTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9502,7 +9587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds user labels.
+   * Disassociates user tags.
    * 
    * @param request - UnbindSaseUserTagRequest
    * @returns UnbindSaseUserTagResponse
@@ -9594,6 +9679,9 @@ export default class Client extends OpenApi {
   /**
    * Updates an approval process under the current Alibaba Cloud account.
    * 
+   * @remarks
+   * Updates the configuration of a specified approval process under the current Alibaba Cloud account. You can modify the name, description, approval nodes, associated approval templates, approval type, and integration configurations with external approval platforms such as DingTalk and Lark. The approval process ID is specified by ProcessId, and other fields are optional. Fields that are not passed retain their original values.
+   * 
    * @param tmpReq - UpdateApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateApprovalProcessResponse
@@ -9674,6 +9762,9 @@ export default class Client extends OpenApi {
   /**
    * Updates an approval process under the current Alibaba Cloud account.
    * 
+   * @remarks
+   * Updates the configuration of a specified approval process under the current Alibaba Cloud account. You can modify the name, description, approval nodes, associated approval templates, approval type, and integration configurations with external approval platforms such as DingTalk and Lark. The approval process ID is specified by ProcessId, and other fields are optional. Fields that are not passed retain their original values.
+   * 
    * @param request - UpdateApprovalProcessRequest
    * @returns UpdateApprovalProcessResponse
    */
@@ -9683,7 +9774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the instance status of an approval under the current Alibaba Cloud account.
+   * Updates the status of an approval instance under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9718,7 +9809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the instance status of an approval under the current Alibaba Cloud account.
+   * Updates the status of an approval instance under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalStatusRequest
    * @returns UpdateApprovalStatusResponse
@@ -9956,7 +10047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Connector instance under the current Alibaba Cloud account.
+   * Modifies a connector instance within the current Alibaba Cloud account.
    * 
    * @param request - UpdateConnectorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10003,7 +10094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Connector instance under the current Alibaba Cloud account.
+   * Modifies a connector instance within the current Alibaba Cloud account.
    * 
    * @param request - UpdateConnectorRequest
    * @returns UpdateConnectorResponse
@@ -10483,6 +10574,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdatePrivateAccessApplicationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.healthCheckConfig)) {
+      request.healthCheckConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.healthCheckConfig, "HealthCheckConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.l7Config)) {
       request.l7ConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.l7Config, "L7Config", "json");
     }
@@ -10511,6 +10606,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.healthCheckConfigShrink)) {
+      body["HealthCheckConfig"] = request.healthCheckConfigShrink;
+    }
+
+    if (!$dara.isNull(request.healthCheckMode)) {
+      body["HealthCheckMode"] = request.healthCheckMode;
     }
 
     if (!$dara.isNull(request.l7ConfigShrink)) {
@@ -10590,7 +10693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Layer 7 access switch for an internal-facing application.
+   * Updates the Layer 7 access switch for an internal access application.
    * 
    * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10628,6 +10731,10 @@ export default class Client extends OpenApi {
       body["TimeoutSec"] = request.timeoutSec;
     }
 
+    if (!$dara.isNull(request.urlAccessPaths)) {
+      bodyFlat["UrlAccessPaths"] = request.urlAccessPaths;
+    }
+
     if (!$dara.isNull(request.userMarkStatus)) {
       body["UserMarkStatus"] = request.userMarkStatus;
     }
@@ -10658,7 +10765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Layer 7 access switch for an internal-facing application.
+   * Updates the Layer 7 access switch for an internal access application.
    * 
    * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
    * @returns UpdatePrivateAccessApplicationL7SwitchResponse
@@ -10669,7 +10776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an internal network access policy for your Alibaba Cloud account.
+   * Modifies a private access policy under the current Alibaba Cloud account.
    * 
    * @param request - UpdatePrivateAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10789,7 +10896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an internal network access policy for your Alibaba Cloud account.
+   * Modifies a private access policy under the current Alibaba Cloud account.
    * 
    * @param request - UpdatePrivateAccessPolicyRequest
    * @returns UpdatePrivateAccessPolicyResponse
@@ -10931,7 +11038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom prohibited software entry.
+   * Updates custom prohibited software.
    * 
    * @param request - UpdateProhibitedSoftwareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10991,7 +11098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom prohibited software entry.
+   * Updates custom prohibited software.
    * 
    * @param request - UpdateProhibitedSoftwareRequest
    * @returns UpdateProhibitedSoftwareResponse
@@ -11277,7 +11384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+   * Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
    * 
    * @param request - UpdateUninstallApplicationsStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11317,7 +11424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+   * Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
    * 
    * @param request - UpdateUninstallApplicationsStatusRequest
    * @returns UpdateUninstallApplicationsStatusResponse
@@ -11535,7 +11642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+   * Quarantines or marks a virus file on a specified user terminal device as trusted. The DevTag, FilePath, and FileMd5 parameters are used together to locate a virus file record. If the record does not exist, the call fails. Quarantine is an asynchronous operation. The server creates a processing task, which is then pulled and executed by the user terminal device. You can process the same virus file record only once within 1 minute.
    * 
    * @param request - UpdateVirusFileStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11582,7 +11689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+   * Quarantines or marks a virus file on a specified user terminal device as trusted. The DevTag, FilePath, and FileMd5 parameters are used together to locate a virus file record. If the record does not exist, the call fails. Quarantine is an asynchronous operation. The server creates a processing task, which is then pulled and executed by the user terminal device. You can process the same virus file record only once within 1 minute.
    * 
    * @param request - UpdateVirusFileStatusRequest
    * @returns UpdateVirusFileStatusResponse
@@ -11652,7 +11759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+   * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter fully overwrites the existing exception user list of the policy with the provided list.
    * 
    * @param request - UpdateVirusScanScheduledStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11764,7 +11871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+   * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter fully overwrites the existing exception user list of the policy with the provided list.
    * 
    * @param request - UpdateVirusScanScheduledStrategyRequest
    * @returns UpdateVirusScanScheduledStrategyResponse
@@ -11827,7 +11934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+   * Modifies the configuration of a specified scheduled vulnerability scan policy and returns the updated full configuration.
    * 
    * @param request - UpdateVulScanScheduledStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11907,7 +12014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+   * Modifies the configuration of a specified scheduled vulnerability scan policy and returns the updated full configuration.
    * 
    * @param request - UpdateVulScanScheduledStrategyRequest
    * @returns UpdateVulScanScheduledStrategyResponse

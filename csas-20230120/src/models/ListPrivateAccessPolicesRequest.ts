@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateAccessPolicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the private access application. The application ID cannot be used together with the private access tag ID for filtering. Sources of the value:
-   *  - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Queries private access applications by batch.
-   *  - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
+   * The ID of the private access application. This parameter cannot be used together with the private access tag ID for filtering. You can obtain the value from the following sources:
+   *  - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): List private access applications.
+   *  - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Create a private access application.
    * 
    * @example
    * pa-application-e12860ef6c48****
@@ -18,12 +18,12 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
    * The name of the private access application.
    * 
    * @example
-   * 办公
+   * Office
    */
   applicationName?: string;
   /**
    * @remarks
-   * The page number of the current page that is returned during paginated queries. Valid values: 1 to 10000.
+   * The page number of the current page returned during paging in a paged query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the private access policy. The name must be 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase English letters. It can contain digits, periods (.), underscores (_), and hyphens (-).
+   * Policy Name of the private access policy. Policy Name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * private_access_policy_name
@@ -41,7 +41,7 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries per page that is set during paginated queries. Valid values: 1 to 1000.
+   * The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 1000.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   policyAction?: string;
   /**
    * @remarks
-   * The collection of private access policy IDs. You can specify up to 100 private access policy IDs.
+   * The IDs of the private access policies. You can specify up to 100 private access policy IDs.
    */
   policyIds?: string[];
   /**
@@ -76,9 +76,9 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the private access tag. The tag ID cannot be used together with the application ID for filtering. Sources of the value:
-   *  - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): Queries private access tags by batch.
-   *  - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Creates a private access tag.
+   * The ID of the private access tag. This parameter cannot be used together with the application ID for filtering. You can obtain the value from the following sources:
+   *  - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): List private access tags.
+   *  - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Create a private access tag.
    * 
    * @example
    * tag-c0cb77857a99****
@@ -89,14 +89,14 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
    * The name of the tag.
    * 
    * @example
-   * 云产品
+   * Cloud products
    */
   tagName?: string;
   /**
    * @remarks
-   * The ID of the user group. Sources of the value:
-   * - [ListUserGroups](~~ListUserGroups~~): Queries user groups by batch.
-   * - [CreateUserGroup](~~CreateUserGroup~~): Creates a user group.
+   * The ID of the user group. You can obtain the value from the following sources:
+   * - [ListUserGroups](~~ListUserGroups~~): List user groups.
+   * - [CreateUserGroup](~~CreateUserGroup~~): Create a user group.
    * 
    * @example
    * usergroup-6f1ef2fc56b6****

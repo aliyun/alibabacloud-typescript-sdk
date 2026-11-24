@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of terminal device IDs. Duplicate values are not allowed. Each ID must not exceed 1000 characters in length. This parameter is required when MatchMode is set to DevTagNormal. This parameter is not allowed when MatchMode is set to other values. Otherwise, the request is rejected.
+   * The IDs of the terminal devices. Duplicate IDs are not allowed. A single ID can be up to 1,000 characters in length. This parameter is required when MatchMode is set to DevTagNormal. If MatchMode is set to other values, this parameter must not be specified. Otherwise, the request is rejected.
    */
   devTags?: string[];
   /**
    * @remarks
-   * The collection of device group IDs. Duplicate values are not allowed. This parameter is required when MatchMode is set to DeviceGroupNormal. This parameter is not allowed when MatchMode is set to other values. Otherwise, the request is rejected. You can call [ListDeviceGroups](~~ListDeviceGroups~~) to obtain the values.
+   * The IDs of the device groups. Duplicate IDs are not allowed. This parameter is required when MatchMode is set to DeviceGroupNormal. If MatchMode is set to other values, this parameter must not be specified. Otherwise, the request is rejected. You can obtain the values by calling the [ListDeviceGroups](~~ListDeviceGroups~~) operation.
    */
   deviceGroupIds?: string[];
   /**
    * @remarks
    * The execution mode. Valid values:
-   * - **Once**: immediate execution.
-   * - **Schedule**: scheduled execution.
+   * - **Once**: Immediate execution.
+   * - **Schedule**: Scheduled execution.
    * 
    * @example
    * Once
@@ -25,7 +25,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   executeMode?: string;
   /**
    * @remarks
-   * The scheduling execution parameters in JSON format.
+   * The scheduled execution parameters. The value is a JSON-formatted string.
    * 
    * @example
    * {
@@ -42,10 +42,10 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   executeParameters?: string;
   /**
    * @remarks
-   * The task execution cycle in JSON format. The validType field specifies the cycle type. Valid values:
-   * - **Once**: one-time execution.
-   * - **Interval**: execution at intervals.
-   * - **Weekly**: weekly execution.
+   * The execution cycle of the task. The value is a JSON-formatted string. The validType field specifies the cycle type. Valid values:
+   * - **Once**: Single execution.
+   * - **Interval**: Interval-based execution.
+   * - **Weekly**: Weekly execution.
    * 
    * @example
    * {"validType":"Once"}
@@ -54,8 +54,8 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The expiration type. Valid values:
-   * - **Expire**: expires at the time specified by GmtExpired.
-   * - **Never**: never expires.
+   * - **Expire**: The task expires at the time specified by GmtExpired.
+   * - **Never**: The task never expires.
    * 
    * @example
    * Expire
@@ -63,7 +63,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   expireMode?: string;
   /**
    * @remarks
-   * The task expiration time as a millisecond-level UNIX timestamp. This parameter takes effect only when ExpireMode is set to Expire.
+   * The expiration time of the task. The value is a UNIX timestamp in milliseconds. This parameter takes effect only when ExpireMode is set to Expire.
    * 
    * @example
    * 1786945543000
@@ -71,13 +71,13 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   gmtExpired?: string;
   /**
    * @remarks
-   * The policy matching target type. Valid values:
-   * - **UserGroupAll**: all users.
-   * - **UserGroupNormal**: specified user groups.
-   * - **DevTagNormal**: specified devices.
-   * - **DeviceGroupNormal**: specified device groups.
-   * - **DevTagAll**: all devices.
-   * - **None**: not configured.
+   * The target type for policy matching. Valid values:
+   * - **UserGroupAll**: All users.
+   * - **UserGroupNormal**: Specified user groups.
+   * - **DevTagNormal**: Specified devices.
+   * - **DeviceGroupNormal**: Specified device groups.
+   * - **DevTagAll**: All devices.
+   * - **None**: Not configured.
    * 
    * @example
    * UserGroupAll
@@ -85,7 +85,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   matchMode?: string;
   /**
    * @remarks
-   * The task name. The name must be 1 to 64 characters in length.
+   * The name of the task. The name must be 1 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of retries after a task failure.
+   * The number of retries after the task fails.
    * 
    * @example
    * 5
@@ -103,7 +103,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   retryTimes?: string;
   /**
    * @remarks
-   * The administrator account name used to run the task on Windows. The name must not exceed 128 characters in length.
+   * The name of the administrator account used to execute the task in Windows. The name can be up to 128 characters in length.
    * 
    * @example
    * admin
@@ -111,7 +111,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   runAsAccount?: string;
   /**
    * @remarks
-   * The software ID in the software library. You can call [ListSoftwarelibSoftware](~~ListSoftwarelibSoftware~~) to obtain the value.
+   * The ID of the software in the software library. You can obtain the value by calling the [ListSoftwarelibSoftware](~~ListSoftwarelibSoftware~~) operation.
    * 
    * @example
    * softwarelib-software-9f9de7b5a16f****
@@ -119,7 +119,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   softwareId?: string;
   /**
    * @remarks
-   * The software name. The name must not exceed 128 characters in length.
+   * The name of the software. The name can be up to 128 characters in length.
    * 
    * @example
    * test software
@@ -129,8 +129,8 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
    * @remarks
    * The operating system to which the task applies. Only a single value is supported. Valid values:
    * - **Windows**: Windows.
-   * - **Mac(Apple)**: macOS with Apple silicon.
-   * - **Mac(Intel)**: macOS with Intel processors.
+   * - **Mac(Apple)**: macOS on Apple silicon.
+   * - **Mac(Intel)**: macOS on Intel processors.
    * 
    * @example
    * Mac(Apple)
@@ -138,9 +138,9 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   supportOs?: string;
   /**
    * @remarks
-   * The task type. Valid values:
-   * - **server**: a task delivered from the console.
-   * - **client**: a task initiated from the client.
+   * The type of the task. Valid values:
+   * - **server**: Tasks delivered from the console.
+   * - **client**: Tasks initiated by the client.
    * 
    * @example
    * server
@@ -148,7 +148,7 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The task execution timeout period. Unit: seconds. For example, a value of 3600 indicates 1 hour.
+   * The timeout period for task execution. Unit: seconds. For example, a value of 3600 indicates 1 hour.
    * 
    * @example
    * 3600
@@ -156,12 +156,12 @@ export class CreateSoftwarelibDistributeTaskRequest extends $dara.Model {
   timeout?: string;
   /**
    * @remarks
-   * The collection of user group IDs. Duplicate values are not allowed. This parameter is required and must contain at least one value when MatchMode is set to UserGroupNormal. This parameter is not allowed when MatchMode is set to other values. Otherwise, the request is rejected. You can call [ListUserGroups](~~ListUserGroups~~) to obtain the values.
+   * The IDs of the user groups. Duplicate IDs are not allowed. This parameter is required and must contain at least one ID when MatchMode is set to UserGroupNormal. If MatchMode is set to other values, this parameter must not be specified. Otherwise, the request is rejected. You can obtain the values by calling the [ListUserGroups](~~ListUserGroups~~) operation.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the software version to distribute. You can call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~) to obtain the value.
+   * The ID of the software version to be distributed. When you create a software version, you can obtain the value from the VersionId response parameter of the [CreateSoftwarelibVersion](~~CreateSoftwarelibVersion~~) operation. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
    * 
    * @example
    * softwarelib-version-30925615d2e4****

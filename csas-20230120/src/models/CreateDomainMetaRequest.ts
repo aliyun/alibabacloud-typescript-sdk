@@ -13,7 +13,7 @@ export class CreateDomainMetaRequest extends $dara.Model {
   listType?: string;
   /**
    * @remarks
-   * The list name. Maximum length: 32 characters.
+   * The name of the list. The name can be up to 32 characters in length.
    * 
    * @example
    * office_domain

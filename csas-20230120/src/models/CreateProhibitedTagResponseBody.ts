@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProhibitedTagResponseBodyTag extends $dara.Model {
   /**
    * @remarks
-   * The time when the disabled software tag was created, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+   * The time when the prohibited software tag was created. The time is in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
    * 
    * @example
    * 2026-08-19 10:24:31
@@ -13,7 +13,7 @@ export class CreateProhibitedTagResponseBodyTag extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the disabled software tag.
+   * The description of the prohibited software tag.
    * 
    * @example
    * test template create get delete
@@ -21,7 +21,7 @@ export class CreateProhibitedTagResponseBodyTag extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the disabled software tag.
+   * The name of the prohibited software tag.
    * 
    * @example
    * autotest_37bf6a18
@@ -29,7 +29,7 @@ export class CreateProhibitedTagResponseBodyTag extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the disabled software tag.
+   * The ID of the prohibited software tag.
    * 
    * @example
    * tag-4a4046838f77****
@@ -73,7 +73,7 @@ export class CreateProhibitedTagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The disabled software tag.
+   * The prohibited software tag.
    */
   tag?: CreateProhibitedTagResponseBodyTag;
   static names(): { [key: string]: string } {

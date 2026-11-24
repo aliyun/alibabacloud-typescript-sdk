@@ -15,8 +15,8 @@ export class CreatePADiagnosisTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The diagnosis type. Valid values:
    * 
-   * - **FullLink**: full-link diagnosis.
-   * - **Application**: application diagnosis.
+   * - **FullLink**: End-to-end diagnosis.
+   * - **Application**: Application diagnosis.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class CreatePADiagnosisTaskShrinkRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The POP point ID.
+   * The ID of the PoP.
    * 
    * @example
    * pop-3e244b62357dcafc
@@ -44,9 +44,9 @@ export class CreatePADiagnosisTaskShrinkRequest extends $dara.Model {
   popId?: string;
   /**
    * @remarks
-   * The POP point selection mode. Valid values:
-   * - **AutoSelect**: automatic selection.
-   * - **ManualSelect**: manual selection.
+   * The PoP selection mode. Valid values:
+   * - **AutoSelect**: Automatic selection.
+   * - **ManualSelect**: Manual selection.
    * 
    * This parameter is required.
    * 
@@ -66,9 +66,9 @@ export class CreatePADiagnosisTaskShrinkRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The protocol used by the internal network access application. Valid values:
+   * The application protocol for internal network access. Valid values:
    * - **TCP**
-   * - **UDP**.
+   * - **UDP**
    * 
    * This parameter is required.
    * 
@@ -78,15 +78,15 @@ export class CreatePADiagnosisTaskShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The extra configurations for UDP diagnosis. If this parameter is not specified, any response received is considered a success.
+   * The additional configurations for UDP diagnosis. If this parameter is not configured, receiving any response content is considered a success.
    */
   udpExtraConfigsShrink?: string;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
-   * 用户组ID。
+   * User group ID
    */
   userGroupId?: string;
   /**

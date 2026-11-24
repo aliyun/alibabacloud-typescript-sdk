@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
   /**
    * @remarks
-   * The post-operation snapshot. This value is recorded as-is by the audit framework without localization. This field is empty for historical logs that are not integrated with the audit framework.
+   * The snapshot after the operation. It is recorded as-is by the audit framework and is not localized. This field is empty for historical logs that are not connected to the audit framework.
    * 
    * @example
    * {"RequestId":"01A03244-5BAD-5FAA-93D6-E4F4A1A2****"}
@@ -13,7 +13,7 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
   afterAction?: string;
   /**
    * @remarks
-   * The pre-operation snapshot. This value is recorded as-is by the audit framework without localization. This field is empty for historical logs that are not integrated with the audit framework.
+   * The snapshot before the operation. It is recorded as-is by the audit framework and is not localized. This field is empty for historical logs that are not connected to the audit framework.
    * 
    * @example
    * "pa-application-ea73352b4b75****"
@@ -21,7 +21,7 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
   beforeAction?: string;
   /**
    * @remarks
-   * The error code when the operation failed. This field is empty when the operation succeeded.
+   * The error code returned when the operation fails. This field is empty when the operation is successful.
    * 
    * @example
    * ResourceNotFound
@@ -29,7 +29,7 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message when the operation failed. This field is empty when the operation succeeded.
+   * The error message returned when the operation fails. This field is empty when the operation is successful.
    * 
    * @example
    * the specified resource is not found
@@ -37,9 +37,9 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The event source type. Valid values:
-   * - **console**: console call.
-   * - **sdk**: SDK call.
+   * The source type of the event. Valid values:
+   * - **console**: The event is triggered by a console call.
+   * - **sdk**: The event is triggered by an SDK call.
    * 
    * @example
    * console
@@ -47,10 +47,10 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The operation function module. The return value is localized based on the request language.
+   * The operation feature module. The return value is localized based on the request language.
    * 
    * @example
-   * Office Data Protection
+   * Office data protection
    */
   operationFunc?: string;
   /**
@@ -58,7 +58,7 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
    * The operation page. The return value is localized based on the request language.
    * 
    * @example
-   * Peripheral Management
+   * Peripheral management
    */
   operationPage?: string;
   /**
@@ -87,7 +87,7 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
   operatorId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
@@ -137,7 +137,7 @@ export class ListOperationAuditLogsResponseBodyLogs extends $dara.Model {
 export class ListOperationAuditLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of administrator operation audit logs, sorted by operation time in descending order.
+   * The list of administrator operation audit logs. The logs are sorted in descending order of operation time.
    */
   logs?: ListOperationAuditLogsResponseBodyLogs[];
   /**
@@ -150,7 +150,7 @@ export class ListOperationAuditLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of logs that match the query conditions.
+   * The total number of logs that meet the query conditions.
    * 
    * @example
    * 4

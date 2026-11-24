@@ -45,7 +45,7 @@ export class CreateConnectorResponseBodyConnectorUpgradeTime extends $dara.Model
 export class CreateConnectorResponseBodyConnector extends $dara.Model {
   /**
    * @remarks
-   * ConnectorID。
+   * The connector ID.
    * 
    * @example
    * connector-94db94e06b98****
@@ -53,7 +53,7 @@ export class CreateConnectorResponseBodyConnector extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * The connector creation time.
+   * The time when the connector was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-05-16 17:18:46
@@ -61,7 +61,7 @@ export class CreateConnectorResponseBodyConnector extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The connector name.
+   * The name of the connector.
    * 
    * @example
    * connector_name
@@ -77,7 +77,7 @@ export class CreateConnectorResponseBodyConnector extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The connector connection status. Valid values:
+   * The connection status of the connector. Valid values:
    * - **Online**: Online.
    * - **Offline**: Offline.
    * 
@@ -87,7 +87,7 @@ export class CreateConnectorResponseBodyConnector extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The connector instance status. Valid values:
+   * The instance status of the connector. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Shutdown.
    * 
@@ -97,7 +97,7 @@ export class CreateConnectorResponseBodyConnector extends $dara.Model {
   switchStatus?: string;
   /**
    * @remarks
-   * The connector upgrade time.
+   * The upgrade time of the connector.
    */
   upgradeTime?: CreateConnectorResponseBodyConnectorUpgradeTime;
   static names(): { [key: string]: string } {
@@ -139,7 +139,7 @@ export class CreateConnectorResponseBodyConnector extends $dara.Model {
 export class CreateConnectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Connector。
+   * The connector.
    */
   connector?: CreateConnectorResponseBodyConnector;
   /**

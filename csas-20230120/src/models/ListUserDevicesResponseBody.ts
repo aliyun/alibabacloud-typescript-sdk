@@ -46,8 +46,8 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The client status. Valid values:
-   * - **Online**: online.
-   * - **Offline**: offline.
+   * - **Online**: Online.
+   * - **Offline**: Offline.
    * 
    * @example
    * Online
@@ -63,7 +63,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The auto-logon status of the client.
+   * The auto-login status of the client.
    * 
    * @example
    * Enabled
@@ -77,10 +77,17 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * Apple M1
    */
   CPU?: string;
+  /**
+   * @remarks
+   * The city to which the public IP address belongs.
+   * 
+   * @example
+   * Hangzhou City
+   */
   city?: string;
   /**
    * @remarks
-   * The city name in English.
+   * The city in English.
    * 
    * @example
    * Beijing City
@@ -88,16 +95,23 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   cityEn?: string;
   /**
    * @remarks
-   * The city name in Chinese.
+   * The city in Chinese.
    * 
    * @example
    * 北京市
    */
   cityZh?: string;
+  /**
+   * @remarks
+   * The continent to which the public IP address belongs.
+   * 
+   * @example
+   * Asia
+   */
   continent?: string;
   /**
    * @remarks
-   * The continent name in English.
+   * The continent in English.
    * 
    * @example
    * Asia
@@ -105,16 +119,23 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   continentEn?: string;
   /**
    * @remarks
-   * The continent name in Chinese.
+   * The continent in Chinese.
    * 
    * @example
    * 亚洲
    */
   continentZh?: string;
+  /**
+   * @remarks
+   * The country to which the public IP address belongs.
+   * 
+   * @example
+   * China
+   */
   country?: string;
   /**
    * @remarks
-   * The country name in English.
+   * The country in English.
    * 
    * @example
    * China
@@ -122,7 +143,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   countryEn?: string;
   /**
    * @remarks
-   * The country name in Chinese.
+   * The country in Chinese.
    * 
    * @example
    * 中国
@@ -130,7 +151,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   countryZh?: string;
   /**
    * @remarks
-   * The registration time of the endpoint device.
+   * The registration time of the endpoint device. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-07-17 18:46:55
@@ -141,14 +162,14 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * The department to which the user belongs.
    * 
    * @example
-   * 测试部
+   * Test Department
    */
   department?: string;
   /**
    * @remarks
-   * The ownership of the endpoint device. Valid values:
-   * - **Personal**: personal device.
-   * - **Company**: company device.
+   * The ownership of the terminal device. Valid values:
+   * - **Personal**: Personal device.
+   * - **Company**: Corporate device.
    * 
    * @example
    * Company
@@ -165,12 +186,12 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The status of the endpoint device. Valid values:
-   * - **Online**: online.
-   * - **Offline**: offline.
-   * - **LongTermOffline**: long-term offline.
-   * - **Locked**: locked.
-   * - **Lost**: reported as lost.
-   * - **Unbound**: unbound.
+   * - **Online**: Online.
+   * - **Offline**: Offline.
+   * - **LongTermOffline**: Long-term offline.
+   * - **Locked**: Locked.
+   * - **Lost**: Reported as lost.
+   * - **Unbound**: Unbound.
    * 
    * @example
    * Online
@@ -178,7 +199,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   deviceStatus?: string;
   /**
    * @remarks
-   * The endpoint device ID.
+   * The ID of the endpoint device.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -186,13 +207,13 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   deviceTag?: string;
   /**
    * @remarks
-   * The operating system type of the endpoint device. Valid values:
+   * The terminal device operating system type. Valid values:
    * - **Windows**: Windows.
    * - **macOS**: macOS.
    * - **Linux**: Linux.
    * - **Android**: Android.
    * - **iOS**: iOS.
-   * - **Windows_Wuying**: WUYING Workspace.
+   * - **Windows_Wuying**: Wuying cloud desktop.
    * 
    * @example
    * Windows
@@ -216,11 +237,27 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   disk?: string;
   /**
    * @remarks
+   * The disk encryption status of the user endpoint device. Valid values: Unsupported (encryption is not supported), Unencrypted (not encrypted), Encrypting (encrypting), Encrypted (encrypted), and EncryptFailed (encryption failed). If the status is not reported, null, or unknown, Unencrypted is returned.
+   * 
+   * @example
+   * Unsupported
+   */
+  diskEncryptStatus?: string;
+  /**
+   * @remarks
+   * The reason why disk encryption failed or is not supported on the user endpoint device. This reason is returned only when DiskEncryptStatus is Unsupported or EncryptFailed. For other statuses, an empty string is returned. Maximum length: 512 characters.
+   * 
+   * @example
+   * The current operating system version does not support BitLocker.
+   */
+  diskEncryptStatusReason?: string;
+  /**
+   * @remarks
    * The office data protection status. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
-   * - **Unprovisioned**: not configured.
-   * - **Unauthorized**: unauthorized.
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * - **Unprovisioned**: Unprovisioned.
+   * - **Unauthorized**: Unauthorized.
    * 
    * @example
    * Enabled
@@ -229,8 +266,8 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The anti-intrusion status. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -252,9 +289,9 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The Internet access status. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
-   * - **Unprovisioned**: not configured.
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * - **Unprovisioned**: Unprovisioned.
    * 
    * @example
    * Enabled
@@ -262,7 +299,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   iaStatus?: string;
   /**
    * @remarks
-   * The internal IP address of the endpoint device.
+   * The internal IP address of the terminal device.
    * 
    * @example
    * 192.168.XX.XX
@@ -270,7 +307,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   innerIP?: string;
   /**
    * @remarks
-   * Indicates whether the device is joined to an Active Directory (AD) domain.
+   * Indicates whether the device is joined to an AD domain.
    * 
    * @example
    * true
@@ -278,7 +315,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   joinAdDomain?: boolean;
   /**
    * @remarks
-   * The MAC address of the endpoint device.
+   * The MAC address of the terminal device.
    * 
    * @example
    * 00:16:XX:XX:7c:46
@@ -286,7 +323,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   mac?: string;
   /**
    * @remarks
-   * The collection of matched device group IDs.
+   * The IDs of the matched device groups.
    */
   matchDeviceGroupIds?: string[];
   /**
@@ -300,9 +337,9 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The network access control status. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
-   * - **Unprovisioned**: not configured.
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * - **Unprovisioned**: Unprovisioned.
    * 
    * @example
    * Enabled
@@ -310,24 +347,31 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   nacStatus?: string;
   /**
    * @remarks
-   * The list of network interfaces of the endpoint device.
+   * The list of network interfaces.
    */
   netInterfaceInfo?: ListUserDevicesResponseBodyDevicesNetInterfaceInfo[];
   /**
    * @remarks
-   * The private access status. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
-   * - **Unprovisioned**: not configured.
+   * The internal network access status. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * - **Unprovisioned**: Unprovisioned.
    * 
    * @example
    * Enabled
    */
   paStatus?: string;
+  /**
+   * @remarks
+   * The province to which the public IP address belongs.
+   * 
+   * @example
+   * Zhejiang
+   */
   province?: string;
   /**
    * @remarks
-   * The province name in English.
+   * The province in English.
    * 
    * @example
    * Beijing
@@ -335,7 +379,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   provinceEn?: string;
   /**
    * @remarks
-   * The province name in Chinese.
+   * The province in Chinese.
    * 
    * @example
    * 北京市
@@ -361,7 +405,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   sharingStatus?: boolean;
   /**
    * @remarks
-   * The motherboard serial number.
+   * The serial number of the baseboard.
    * 
    * @example
    * PJGGU00WBD****
@@ -369,7 +413,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   snBaseBoard?: string;
   /**
    * @remarks
-   * The BIOS system serial number.
+   * The serial number of the BIOS.
    * 
    * @example
    * 5CG003****
@@ -377,7 +421,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   snBios?: string;
   /**
    * @remarks
-   * The hard disk serial number.
+   * The serial number of the disk drive.
    * 
    * @example
    * WD-WXR1A99A****
@@ -385,7 +429,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   snDiskDrive?: string;
   /**
    * @remarks
-   * The processor serial number.
+   * The serial number of the processor.
    * 
    * @example
    * BFEBFBFF0008****
@@ -401,7 +445,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   snSystem?: string;
   /**
    * @remarks
-   * The logon IP address of the endpoint device.
+   * The logon IP address of the terminal device.
    * 
    * @example
    * 11.49.XX.XX
@@ -409,7 +453,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The last online time of the endpoint device.
+   * The last online time of the terminal device, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-08-24 19:04:42
@@ -420,7 +464,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * The username.
    * 
    * @example
-   * 王先生
+   * Mr. Wang
    */
   username?: string;
   /**
@@ -428,7 +472,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * The name of the office area.
    * 
    * @example
-   * 测试办公区
+   * Test office area
    */
   workshop?: string;
   static names(): { [key: string]: string } {
@@ -455,6 +499,8 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       deviceType: 'DeviceType',
       deviceVersion: 'DeviceVersion',
       disk: 'Disk',
+      diskEncryptStatus: 'DiskEncryptStatus',
+      diskEncryptStatusReason: 'DiskEncryptStatusReason',
       dlpStatus: 'DlpStatus',
       edrStatus: 'EdrStatus',
       fullDepartment: 'FullDepartment',
@@ -509,6 +555,8 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       deviceType: 'string',
       deviceVersion: 'string',
       disk: 'string',
+      diskEncryptStatus: 'string',
+      diskEncryptStatusReason: 'string',
       dlpStatus: 'string',
       edrStatus: 'string',
       fullDepartment: { 'type': 'array', 'itemType': 'string' },
@@ -565,7 +613,7 @@ export class ListUserDevicesResponseBody extends $dara.Model {
   devices?: ListUserDevicesResponseBodyDevices[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
@@ -573,7 +621,7 @@ export class ListUserDevicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of endpoint devices.
+   * The total number of terminal devices.
    * 
    * @example
    * 1

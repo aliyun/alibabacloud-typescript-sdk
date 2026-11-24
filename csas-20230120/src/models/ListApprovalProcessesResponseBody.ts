@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of agent uninstallation policy IDs.
+   * The IDs of the endpoint uninstallation policies.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -45,12 +45,12 @@ export class ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies exte
 export class ListApprovalProcessesResponseBodyProcessesDeviceRegistrationPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of device registration policy IDs.
+   * The IDs of the device registration policies.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -85,12 +85,12 @@ export class ListApprovalProcessesResponseBodyProcessesDeviceRegistrationPolicie
 export class ListApprovalProcessesResponseBodyProcessesDlpSendPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of file outgoing policy IDs.
+   * The IDs of the file sending policies.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -125,12 +125,12 @@ export class ListApprovalProcessesResponseBodyProcessesDlpSendPolicies extends $
 export class ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of domain name blacklist policy IDs.
+   * The IDs of the domain name blacklist policies.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -165,12 +165,12 @@ export class ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies e
 export class ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of domain name whitelist policy IDs.
+   * The IDs of the domain name whitelist policies.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -203,7 +203,18 @@ export class ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies e
 }
 
 export class ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the endpoint hardening policies.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -234,12 +245,12 @@ export class ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies
 export class ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of peripheral control policy IDs.
+   * The IDs of the peripheral control policies.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -272,7 +283,18 @@ export class ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies e
 }
 
 export class ListApprovalProcessesResponseBodyProcessesPrivateAccessBlockPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the internal network access control applications.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -303,7 +325,7 @@ export class ListApprovalProcessesResponseBodyProcessesPrivateAccessBlockPolicie
 export class ListApprovalProcessesResponseBodyProcessesProcessNodes extends $dara.Model {
   /**
    * @remarks
-   * 审批人ID。
+   * The ID of the approver.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -311,7 +333,7 @@ export class ListApprovalProcessesResponseBodyProcessesProcessNodes extends $dar
   saseUserId?: string;
   /**
    * @remarks
-   * 审批人用户名。
+   * The username of the approver.
    * 
    * @example
    * 王先生
@@ -343,12 +365,12 @@ export class ListApprovalProcessesResponseBodyProcessesProcessNodes extends $dar
 export class ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of software blocking policy IDs.
+   * The IDs of the software block policies.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -381,7 +403,18 @@ export class ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies ext
 }
 
 export class ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the software hardening policies.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -412,13 +445,20 @@ export class ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies
 export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
   /**
    * @remarks
-   * The list of policies associated with agent uninstallation.
+   * The policies associated with endpoint uninstallation.
    */
   appUninstallPolicies?: ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies;
+  /**
+   * @remarks
+   * The type of the approval process. Valid values: 0 (built-in approval), 1 (DingTalk approval), 2 (WeCom approval), and 3 (Lark approval).
+   * 
+   * @example
+   * 0
+   */
   approvalType?: number;
   /**
    * @remarks
-   * The time when the approval process was created.
+   * The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-02-27 14:04:27
@@ -429,39 +469,47 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
    * The description of the approval process.
    * 
    * @example
-   * 这是一个审批流程
+   * Approval process for file sending scenarios
    */
   description?: string;
   /**
    * @remarks
-   * The list of policies associated with device registration.
+   * The policies associated with device registration.
    */
   deviceRegistrationPolicies?: ListApprovalProcessesResponseBodyProcessesDeviceRegistrationPolicies;
   /**
    * @remarks
-   * The list of policies associated with file outgoing.
+   * The policies associated with file sending.
    */
   dlpSendPolicies?: ListApprovalProcessesResponseBodyProcessesDlpSendPolicies;
   /**
    * @remarks
-   * The list of policies associated with the domain name blacklist.
+   * The policies associated with the domain name blacklist.
    */
   domainBlacklistPolicies?: ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies;
   /**
    * @remarks
-   * The list of policies associated with the domain name whitelist.
+   * The policies associated with the domain name whitelist.
    */
   domainWhitelistPolicies?: ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies;
+  /**
+   * @remarks
+   * The policies associated with endpoint hardening. If the approval process is not configured with an approval template of this type, SchemaId and PolicyIds are empty.
+   */
   endpointHardeningPolicies?: ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies;
   /**
    * @remarks
-   * The list of policies associated with peripheral control.
+   * The policies associated with peripheral control.
    */
   peripheralBlockPolicies?: ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies;
+  /**
+   * @remarks
+   * The policies associated with internal network access control. If the approval process is not configured with an approval template of this type, SchemaId and PolicyIds are empty.
+   */
   privateAccessBlockPolicies?: ListApprovalProcessesResponseBodyProcessesPrivateAccessBlockPolicies;
   /**
    * @remarks
-   * The approval process ID.
+   * The ID of the approval process.
    * 
    * @example
    * approval-process-35ee09077ee9****
@@ -472,19 +520,23 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
    * The name of the approval process.
    * 
    * @example
-   * 测试
+   * File sending approval
    */
   processName?: string;
   /**
    * @remarks
-   * The list of approval nodes.
+   * The approval nodes.
    */
   processNodes?: ListApprovalProcessesResponseBodyProcessesProcessNodes[][];
   /**
    * @remarks
-   * The list of policies associated with software blocking.
+   * The policies associated with the software block.
    */
   softwareBlockPolicies?: ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies;
+  /**
+   * @remarks
+   * The policies associated with software hardening. If the approval process is not configured with an approval template of this type, SchemaId and PolicyIds are empty.
+   */
   softwareHardeningPolicies?: ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
     return {
@@ -573,12 +625,12 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
 export class ListApprovalProcessesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of approval processes.
+   * The approval processes.
    */
   processes?: ListApprovalProcessesResponseBodyProcesses[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7E39C33B-F565-55C6-ACC2-953FCE7DA7D6

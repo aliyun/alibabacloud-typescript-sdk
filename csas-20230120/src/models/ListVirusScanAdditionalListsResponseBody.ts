@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVirusScanAdditionalListsResponseBodyAdditionalListsListsListDetail extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the list entry. The time is in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
+   * 
    * @example
    * 2026-08-21 10:24:31
    */
   createTime?: string;
   /**
+   * @remarks
+   * The content of the list entry. The meaning is determined by the AdditionalType to which it belongs.
+   * 
    * @example
    * .tmp
    */
   detail?: string;
   /**
+   * @remarks
+   * The ID of the list entry.
+   * 
    * @example
    * additional-list-4d7b1e9a6c38****
    */
@@ -44,8 +53,17 @@ export class ListVirusScanAdditionalListsResponseBodyAdditionalListsListsListDet
 }
 
 export class ListVirusScanAdditionalListsResponseBodyAdditionalListsLists extends $dara.Model {
+  /**
+   * @remarks
+   * The list of list entries.
+   */
   listDetail?: ListVirusScanAdditionalListsResponseBodyAdditionalListsListsListDetail[];
   /**
+   * @remarks
+   * The list type. Valid values:
+   * - **Blacklist**: Blacklist. Matched files are directly identified as virus files.
+   * - **Whitelist**: Whitelist. Matched files are excluded from virus detection.
+   * 
    * @example
    * Whitelist
    */
@@ -78,10 +96,22 @@ export class ListVirusScanAdditionalListsResponseBodyAdditionalListsLists extend
 
 export class ListVirusScanAdditionalListsResponseBodyAdditionalLists extends $dara.Model {
   /**
+   * @remarks
+   * The match dimension of the list entry. Valid values:
+   * - **FileSuffix**: Matches by file name extension.
+   * - **FileName**: Matches by file name.
+   * - **FolderName**: Matches by folder name.
+   * - **FilePath**: Matches by file path.
+   * - **FileMd5**: Matches by file MD5 value.
+   * 
    * @example
    * FileSuffix
    */
   additionalType?: string;
+  /**
+   * @remarks
+   * The lists grouped by list type under the match dimension.
+   */
   lists?: ListVirusScanAdditionalListsResponseBodyAdditionalListsLists[];
   static names(): { [key: string]: string } {
     return {
@@ -110,8 +140,15 @@ export class ListVirusScanAdditionalListsResponseBodyAdditionalLists extends $da
 }
 
 export class ListVirusScanAdditionalListsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of blacklists and whitelists grouped by match dimension. If a match dimension does not contain any list entries, the dimension is not included in the list.
+   */
   additionalLists?: ListVirusScanAdditionalListsResponseBodyAdditionalLists[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 3D7EC0AF-DB2A-5D9C-90EC-F090A6BAAEA7
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWmEmbedTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID, which is used to query the task execution result.
+   * The ID of the task. You can use the task ID to query the task execution result later.
    * 
    * @example
    * job:5GfrJYsoaffmCE7Z5bZtjUefzxfd****
@@ -40,7 +40,7 @@ export class CreateWmEmbedTaskResponseBody extends $dara.Model {
   data?: CreateWmEmbedTaskResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6

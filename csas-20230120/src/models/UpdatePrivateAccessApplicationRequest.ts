@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { AddressGroup } from "./AddressGroup";
+import { HealthCheckConfig } from "./HealthCheckConfig";
 import { PAL7Config } from "./Pal7config";
 import { PAApplicationUnauthorizedAccessConfig } from "./PaapplicationUnauthorizedAccessConfig";
 
@@ -48,17 +49,17 @@ export class UpdatePrivateAccessApplicationRequestPortRanges extends $dara.Model
 export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The application address groups. This parameter can be specified when ConfigMode is set to Precise. This parameter cannot be specified when ConfigMode is an empty string.
+   * The application address groups. You can specify this parameter when ConfigMode is set to Precise. You cannot specify this parameter when ConfigMode is an empty string.
    */
   addressGroups?: AddressGroup[];
   /**
    * @remarks
-   * The addresses of the private access application. You can specify up to 1000 addresses.
+   * The addresses of the private access application. You can specify up to 1,000 addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * The ID of the private access application. You can obtain the value from:
+   * The ID of the private access application. You can obtain the value from the following operations:
    * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
    * - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
    * 
@@ -71,13 +72,16 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The configuration mode. Valid values:
-   * * Empty string: default mode.
-   * * Precise: precise mode.
+   * * Empty string: Default mode.
+   * * Precise: Precise mode.
+   * 
+   * @example
+   * Precise
    */
   configMode?: string;
   /**
    * @remarks
-   * The description of the private access application. The description must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+   * The description of the private access application. The description must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
    * This is a private access application
@@ -88,12 +92,28 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The browser access mode parameter: the Layer 7 application configuration.
+   * The health check configuration. This parameter takes effect only when HealthCheckMode is set to Continuous. You cannot specify this parameter when HealthCheckMode is set to OnAccess.
+   */
+  healthCheckConfig?: HealthCheckConfig;
+  /**
+   * @remarks
+   * The health check mode. Valid values:
+   * * OnAccess: Checks health upon access without active probing.
+   * * Continuous: Performs continuous health checks and periodically probes based on the configuration in HealthCheckConfig.
+   * If this parameter is not specified, the default value is OnAccess. When the application addresses include wildcard domain names or CIDR blocks, or when the number of application addresses exceeds 10, only OnAccess is supported.
+   * 
+   * @example
+   * OnAccess
+   */
+  healthCheckMode?: string;
+  /**
+   * @remarks
+   * The Layer 7 application configuration in browser access mode.
    */
   l7Config?: PAL7Config;
   /**
    * @remarks
-   * The browser access mode parameter: the prefix of the mapped proxy domain name. The prefix must be 3 to 20 characters in length and can contain lowercase letters, digits, and hyphens (-).
+   * The prefix of the mapped proxy domain name in browser access mode. The prefix must be 3 to 20 characters in length, and can contain lowercase letters, digits, and hyphens (-).
    * 
    * @example
    * app1-xxx
@@ -101,7 +121,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   l7ProxyDomainAutomaticPrefix?: string;
   /**
    * @remarks
-   * The browser access mode parameter: the custom proxy domain name.
+   * The custom proxy domain name in browser access mode.
    * 
    * @example
    * app1.example.com
@@ -109,7 +129,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   l7ProxyDomainCustom?: string;
   /**
    * @remarks
-   * The browser access mode parameter: the private proxy domain name.
+   * The private proxy domain name in browser access mode.
    * 
    * @example
    * app1.example.com
@@ -120,8 +140,8 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The modification type of the private access application. Valid values:
-   * - **Cover** (default): overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
-   * - **Append**: appends the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
+   * - **Cover** (default): Overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
+   * - **Append**: Appends the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
    * 
    * @example
    * Cover
@@ -129,18 +149,21 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   modifyType?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
+   * 
+   * @example
+   * private_access_application_name
    */
   name?: string;
   /**
    * @remarks
-   * The port ranges of the private access application. You can specify up to 65535 port ranges. Multiple port ranges cannot overlap.
+   * The port ranges of the private access application. You can specify up to 65,535 port ranges. Multiple port ranges cannot be duplicate or overlap.
    */
   portRanges?: UpdatePrivateAccessApplicationRequestPortRanges[];
   /**
    * @remarks
    * The protocol of the private access application. Valid values:
-   * - **All**: all protocols.
+   * - **All**: All protocols.
    * - **TCP**
    * - **UDP**
    * 
@@ -151,8 +174,8 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the private access application. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -160,7 +183,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The IDs of private access tags. A private access application can be associated with up to 6 custom private access tags.
+   * The IDs of the private access tags. You can associate up to six custom private access tags with a private access application.
    * 
    * **if can be null:**
    * true
@@ -178,6 +201,8 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       configMode: 'ConfigMode',
       description: 'Description',
+      healthCheckConfig: 'HealthCheckConfig',
+      healthCheckMode: 'HealthCheckMode',
       l7Config: 'L7Config',
       l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
       l7ProxyDomainCustom: 'L7ProxyDomainCustom',
@@ -199,6 +224,8 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
       applicationId: 'string',
       configMode: 'string',
       description: 'string',
+      healthCheckConfig: HealthCheckConfig,
+      healthCheckMode: 'string',
       l7Config: PAL7Config,
       l7ProxyDomainAutomaticPrefix: 'string',
       l7ProxyDomainCustom: 'string',
@@ -219,6 +246,9 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
     }
     if(Array.isArray(this.addresses)) {
       $dara.Model.validateArray(this.addresses);
+    }
+    if(this.healthCheckConfig && typeof (this.healthCheckConfig as any).validate === 'function') {
+      (this.healthCheckConfig as any).validate();
     }
     if(this.l7Config && typeof (this.l7Config as any).validate === 'function') {
       (this.l7Config as any).validate();

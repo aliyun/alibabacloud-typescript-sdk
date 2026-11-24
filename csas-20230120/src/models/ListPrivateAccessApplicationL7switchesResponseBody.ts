@@ -42,6 +42,38 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesPortRan
   }
 }
 
+export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesUrlAccessPaths extends $dara.Model {
+  allowMethods?: string[];
+  urls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allowMethods: 'AllowMethods',
+      urls: 'Urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowMethods: { 'type': 'array', 'itemType': 'string' },
+      urls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowMethods)) {
+      $dara.Model.validateArray(this.allowMethods);
+    }
+    if(Array.isArray(this.urls)) {
+      $dara.Model.validateArray(this.urls);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extends $dara.Model {
   /**
    * @remarks
@@ -53,7 +85,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
   applicationId?: string;
   /**
    * @remarks
-   * The device tag mark switch. Valid values:
+   * The device tag marking switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -63,7 +95,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
   devTagMarkStatus?: string;
   /**
    * @remarks
-   * The download audit switch for sensitive applications. Valid values:
+   * The sensitive application download audit switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -73,12 +105,12 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
   downloadAuditStatus?: string;
   /**
    * @remarks
-   * The port ranges.
+   * The end port.
    */
   portRanges?: ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesPortRanges[];
   /**
    * @remarks
-   * The source IP mark switch. Valid values:
+   * The source IP marking switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -104,9 +136,10 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
    * 60
    */
   timeoutSec?: number;
+  urlAccessPaths?: ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesUrlAccessPaths[];
   /**
    * @remarks
-   * The user mark switch. Valid values:
+   * The user marking switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -133,6 +166,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
       srcIpMarkStatus: 'SrcIpMarkStatus',
       status: 'Status',
       timeoutSec: 'TimeoutSec',
+      urlAccessPaths: 'UrlAccessPaths',
       userMarkStatus: 'UserMarkStatus',
       zeroTrustStatus: 'ZeroTrustStatus',
     };
@@ -147,6 +181,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
       srcIpMarkStatus: 'string',
       status: 'string',
       timeoutSec: 'number',
+      urlAccessPaths: { 'type': 'array', 'itemType': ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesUrlAccessPaths },
       userMarkStatus: 'string',
       zeroTrustStatus: 'string',
     };
@@ -155,6 +190,9 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
   validate() {
     if(Array.isArray(this.portRanges)) {
       $dara.Model.validateArray(this.portRanges);
+    }
+    if(Array.isArray(this.urlAccessPaths)) {
+      $dara.Model.validateArray(this.urlAccessPaths);
     }
     super.validate();
   }
@@ -172,7 +210,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBody extends $dara.Mo
   l7Switches?: ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ED459CAD-8D3F-51B8-AEA5-CAABC0325022

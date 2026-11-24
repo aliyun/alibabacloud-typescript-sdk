@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   /**
    * @remarks
-   * The software classification ID. You can call [ListSoftwarelibClassify](~~ListSoftwarelibClassify~~) to obtain the value.
+   * The ID of the software category. For more information about how to configure software categories, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
    * 
    * @example
    * softwarelib-classify-61b7ccc63cae****
@@ -13,7 +13,7 @@ export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   classifyId?: string;
   /**
    * @remarks
-   * The page number of the current page in a paging query. Valid values: 1 to 10000.
+   * The page number of the current page for a paged query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page. This parameter is not supported by this operation. Use CurrentPage and PageSize for pagination.
+   * The maximum number of entries to return on each page. This parameter is not supported by the current API operation. Use CurrentPage and PageSize for pagination.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. This parameter is not supported by this operation. Use CurrentPage and PageSize for pagination.
+   * The query token. This parameter is not supported by the current API operation. Use CurrentPage and PageSize for pagination.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh27/Jy4SXvlU9WgqeV7az+t
@@ -39,7 +39,7 @@ export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The operating system to which the software package applies. Valid values:
+   * The operating system applicable to the software package. Valid values:
    * - **Windows**: Windows.
    * - **Mac(Apple)**: macOS with Apple silicon.
    * - **Mac(Intel)**: macOS with Intel processors.
@@ -50,7 +50,7 @@ export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   os?: string;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Valid values: 1 to 500.
+   * The number of entries to return on each page for a paged query. Valid values: 1 to 500.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The software name. Fuzzy match is supported.
+   * The name of the software. Fuzzy match is supported.
    * 
    * @example
    * Thunder
@@ -68,9 +68,9 @@ export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   softwareName?: string;
   /**
    * @remarks
-   * The software source. Valid values:
-   * - **custom**: custom software.
-   * - **builtin**: built-in software library.
+   * The source of the software. Valid values:
+   * - **custom**: Custom software.
+   * - **builtin**: Built-in software library.
    * 
    * @example
    * builtin

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.Model {
   /**
    * @remarks
-   * The time when the software version was created.
+   * The time when the software version was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-08-05 18:03:58
@@ -13,7 +13,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * The number of times the software has been downloaded from the client.
+   * The number of times the software is downloaded from the client.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   downloadTimes?: number;
   /**
    * @remarks
-   * The MD5 value of the software package.
+   * The MD5 hash value of the software package.
    * 
    * @example
    * 0b5824cdd509d3ed560e2d20d29a1bcb
@@ -37,7 +37,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   modifyTime?: string;
   /**
    * @remarks
-   * The operating system to which the software package applies. Valid values:
+   * The operating system applicable to the software package. Valid values:
    * - **Windows**: Windows.
    * - **Mac(Apple)**: macOS with Apple silicon.
    * - **Mac(Intel)**: macOS with Intel processors.
@@ -48,9 +48,9 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   os?: string;
   /**
    * @remarks
-   * The software publisher type. Valid values:
-   * - **local**: locally uploaded.
-   * - **thirdparty**: third-party link.
+   * The type of the software publisher. Valid values:
+   * - **local**: Local upload.
+   * - **thirdparty**: Third-party link.
    * 
    * @example
    * local
@@ -58,7 +58,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   publisherType?: string;
   /**
    * @remarks
-   * The ID of the software to which this version belongs.
+   * The ID of the software to which the version belongs.
    * 
    * @example
    * softwarelib-software-1da844a39729****
@@ -90,9 +90,9 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   softwareUrl?: string;
   /**
    * @remarks
-   * The version publish status. Valid values:
-   * - **published**: published.
-   * - **unpublished**: not published.
+   * The release status of the version. Valid values:
+   * - **published**: Published.
+   * - **unpublished**: Unpublished.
    * 
    * @example
    * published
@@ -108,7 +108,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   version?: string;
   /**
    * @remarks
-   * The software version ID.
+   * The ID of the software version.
    * 
    * @example
    * softwarelib-version-21ae186e2ac9****
@@ -162,7 +162,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
 export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The associated built-in software ID.
+   * The ID of the associated built-in software.
    * 
    * @example
    * softwarelib-software-1da844a39729****
@@ -170,7 +170,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   builtinSoftwareId?: string;
   /**
    * @remarks
-   * The software BundleId used for verification.
+   * The software bundle ID used for verification.
    * 
    * @example
    * test software
@@ -186,7 +186,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   checkSoftwareName?: string;
   /**
    * @remarks
-   * The software classification ID.
+   * The ID of the software category.
    * 
    * @example
    * softwarelib-classify-61b7ccc63cae****
@@ -194,7 +194,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   classifyId?: string;
   /**
    * @remarks
-   * The time when the software was created, in seconds-level UNIX timestamp.
+   * The time when the software was created. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1781748302
@@ -202,7 +202,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The software description.
+   * The description of the software.
    * 
    * @example
    * This is a demo software.
@@ -220,7 +220,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   deviceGroupIds?: string[];
   /**
    * @remarks
-   * The number of times the software has been manually downloaded from the client.
+   * The number of times the software is manually downloaded from the client.
    * 
    * @example
    * 1
@@ -244,7 +244,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * The latest software version number for Mac (Apple).
+   * The maximum software version number for macOS with Apple silicon.
    * 
    * @example
    * 1.0.0
@@ -252,7 +252,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   macAppleVersion?: string;
   /**
    * @remarks
-   * The latest software version number for Mac (Intel).
+   * The maximum software version number for macOS with Intel processors.
    * 
    * @example
    * 1.0.0
@@ -260,13 +260,13 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   macIntelVersion?: string;
   /**
    * @remarks
-   * The policy matching target type. Valid values:
-   * - **UserGroupAll**: all users.
-   * - **UserGroupNormal**: specified user groups.
-   * - **DevTagNormal**: specified devices.
-   * - **DeviceGroupNormal**: specified device groups.
-   * - **DevTagAll**: all devices.
-   * - **None**: not configured.
+   * The target type for policy matching. Valid values:
+   * - **UserGroupAll**: All users.
+   * - **UserGroupNormal**: Specified user groups.
+   * - **DevTagNormal**: Specified devices.
+   * - **DeviceGroupNormal**: Specified device groups.
+   * - **DevTagAll**: All devices.
+   * - **None**: Not configured.
    * 
    * @example
    * UserGroupAll
@@ -282,7 +282,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   officialDownloadUrl?: string;
   /**
    * @remarks
-   * The execution account (only supported on Windows).
+   * The execution account. Only Windows is supported.
    * 
    * @example
    * admin
@@ -290,7 +290,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   runAsAccount?: string;
   /**
    * @remarks
-   * The software ID.
+   * The ID of the software.
    * 
    * @example
    * softwarelib-software-1da844a39729****
@@ -298,7 +298,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   softwareId?: string;
   /**
    * @remarks
-   * The software name.
+   * The name of the software.
    * 
    * @example
    * Thunder
@@ -306,7 +306,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   softwareName?: string;
   /**
    * @remarks
-   * Indicates whether the built-in library source has been deleted.
+   * Indicates whether the source in the built-in library is deleted.
    * 
    * @example
    * false
@@ -314,9 +314,9 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   sourceRemoved?: boolean;
   /**
    * @remarks
-   * The software source. Valid values:
-   * - **custom**: custom software.
-   * - **builtin**: built-in software library.
+   * The source of the software. Valid values:
+   * - **custom**: Custom software.
+   * - **builtin**: Built-in software library.
    * 
    * @example
    * custom
@@ -329,12 +329,12 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   userGroupIds?: string[];
   /**
    * @remarks
-   * The software version list. This field is not returned by this operation. Call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~) to query software versions.
+   * The list of software versions. This field is not returned by the current API operation. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
    */
   versions?: ListSoftwarelibSoftwareResponseBodyDataListVersions[];
   /**
    * @remarks
-   * The latest software version number for Windows.
+   * The maximum software version number for Windows.
    * 
    * @example
    * 1.0.0
@@ -420,12 +420,12 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
 export class ListSoftwarelibSoftwareResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The software list.
+   * The list of software packages.
    */
   dataList?: ListSoftwarelibSoftwareResponseBodyDataList[];
   /**
    * @remarks
-   * The maximum number of entries per page. This parameter is not returned by this operation.
+   * The maximum number of entries returned on each page. This parameter is not returned by the current API operation.
    * 
    * @example
    * 100
@@ -433,7 +433,7 @@ export class ListSoftwarelibSoftwareResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. This parameter is not returned by this operation.
+   * The query token. This parameter is not returned by the current API operation.
    * 
    * @example
    * FFM+3L1WZbKngBeLWcDmQrzLuGDDwAw7JA5q2AjvTSJm9WyhQ0MwJoOWpky9ZhgcWfIgtGpZ+4NQX97+EIwsqUNQ==
@@ -441,7 +441,7 @@ export class ListSoftwarelibSoftwareResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6
@@ -449,7 +449,7 @@ export class ListSoftwarelibSoftwareResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of software entries that match the query conditions.
+   * The total number of software packages that meet the query conditions.
    * 
    * @example
    * 2

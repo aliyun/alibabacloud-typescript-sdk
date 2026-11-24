@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDlpOutboundLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The current page number, starting from 1.
+   * The current page number. Pages start from 1.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListDlpOutboundLogsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the query. UNIX timestamp in seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ListDlpOutboundLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The policy action. Single-value exact match.
+   * The policy action. Exact match for a single value is supported.
    * 
    * @example
    * block_and_hint
@@ -51,7 +51,7 @@ export class ListDlpOutboundLogsRequest extends $dara.Model {
   policyAction?: string;
   /**
    * @remarks
-   * The original file name. Fuzzy match.
+   * The original file name. Fuzzy match is supported.
    * 
    * @example
    * TestFile
@@ -59,7 +59,7 @@ export class ListDlpOutboundLogsRequest extends $dara.Model {
   srcFileName?: string;
   /**
    * @remarks
-   * The start time of the query. UNIX timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ListDlpOutboundLogsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The secondary channel ID in the format of `PrimaryChannelID.SubChannelID`. Separate multiple values with commas.
+   * The secondary channel ID. Format: primary channel ID.secondary channel ID. Multiple values are separated by commas.
    * 
    * @example
    * 3.1,3.2
@@ -77,7 +77,7 @@ export class ListDlpOutboundLogsRequest extends $dara.Model {
   subChannelType?: string;
   /**
    * @remarks
-   * The username. Exact match.
+   * The username. Exact match is supported.
    * 
    * @example
    * zhangsan

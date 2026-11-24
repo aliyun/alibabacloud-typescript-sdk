@@ -6,10 +6,10 @@ export class UnbindSaseUserTagResponseBody extends $dara.Model {
   /**
    * @remarks
    * The API status code or POP error code. Valid values:
-   * - **2xx**: Success.
-   * - **3xx**: Redirection.
-   * - **4xx**: Request error.
-   * - **5xx**: Server error.
+   * - **2xx**: success
+   * - **3xx**: redirection
+   * - **4xx**: request error
+   * - **5xx**: server error
    * 
    * @example
    * 200
@@ -17,7 +17,7 @@ export class UnbindSaseUserTagResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F4A9C844-1B0A-59E8-966F-4945DFF3C88D

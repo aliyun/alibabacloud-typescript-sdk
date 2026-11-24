@@ -35,7 +35,7 @@ export class CreateBackendReportResponseBodyItemsTarget extends $dara.Model {
 export class CreateBackendReportResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The approval instance ID generated after a successful creation. This parameter is not returned if the creation fails.
+   * The ID of the approval instance generated after the combination is successfully created. This parameter is not returned if the creation fails.
    * 
    * @example
    * approval-6b5188a28634****
@@ -43,7 +43,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   approvalId?: string;
   /**
    * @remarks
-   * The error code returned when the current combination fails to be created. This parameter is not returned if the creation succeeds.
+   * The error code returned when the current combination fails to be created. This parameter is not returned if the creation is successful.
    * 
    * @example
    * TargetNotFound
@@ -51,7 +51,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The filing effective status. Enabled is returned when the creation succeeds, which indicates that the filing is valid.
+   * The effective status of the report. If the creation is successful, Enabled is returned, which indicates that the report is valid.
    * 
    * @example
    * Enabled
@@ -59,7 +59,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   effectStatus?: string;
   /**
    * @remarks
-   * The error message returned when the current combination fails to be created. This parameter is not returned if the creation succeeds.
+   * The error message returned when the current combination fails to be created. This parameter is not returned if the creation is successful.
    * 
    * @example
    * target user is not found
@@ -67,7 +67,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The filing object corresponding to the current combination. The fields vary based on the PolicyType value.
+   * The report object corresponding to the current combination. The fields vary based on the policy type.
    * 
    * @example
    * [{"ApplicationId":"pa-application-92b60359213a****"}]
@@ -75,7 +75,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   reportObject?: any;
   /**
    * @remarks
-   * The filing type. BackendReport is always returned when the creation succeeds, which indicates a backend filing.
+   * The report type. If the creation is successful, BackendReport is returned, which indicates a backend report.
    * 
    * @example
    * BackendReport
@@ -83,7 +83,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The approval status. Approved is returned when the creation succeeds, which indicates that the filing is approved.
+   * The approval status. If the creation is successful, Approved is returned, which indicates that the request is approved.
    * 
    * @example
    * Approved
@@ -91,7 +91,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the current combination is created.
+   * Indicates whether the current combination is successfully created.
    * 
    * @example
    * true
@@ -99,7 +99,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The filing user corresponding to the current combination.
+   * The target user corresponding to the current combination.
    */
   target?: CreateBackendReportResponseBodyItemsTarget;
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class CreateBackendReportResponseBodyItems extends $dara.Model {
 export class CreateBackendReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of user-object combinations that failed to be created.
+   * The number of failed combinations.
    * 
    * @example
    * 0
@@ -153,12 +153,12 @@ export class CreateBackendReportResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The processing results for each user-object combination. If some combinations fail, the operation still returns results for all combinations.
+   * The processing results of each combination of user and report object. If some combinations fail, the operation still returns the results of all combinations.
    */
   items?: CreateBackendReportResponseBodyItems[];
   /**
    * @remarks
-   * The number of deduplicated filing objects.
+   * The number of deduplicated report objects.
    * 
    * @example
    * 1
@@ -174,7 +174,7 @@ export class CreateBackendReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of user-object combinations that are created.
+   * The number of successfully created combinations.
    * 
    * @example
    * 1
@@ -182,7 +182,7 @@ export class CreateBackendReportResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The number of deduplicated filing users.
+   * The number of deduplicated target users.
    * 
    * @example
    * 1
@@ -190,7 +190,7 @@ export class CreateBackendReportResponseBody extends $dara.Model {
   targetCount?: number;
   /**
    * @remarks
-   * The total number of expanded user-object combinations.
+   * The total number of combinations of users and report objects after expansion.
    * 
    * @example
    * 1

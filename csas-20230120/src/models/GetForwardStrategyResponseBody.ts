@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetForwardStrategyResponseBodyForwardStrategy extends $dara.Model {
   /**
    * @remarks
-   * The policy description.
+   * The description of the policy.
    * 
    * @example
    * solemn_index
@@ -22,7 +22,7 @@ export class GetForwardStrategyResponseBodyForwardStrategy extends $dara.Model {
   /**
    * @remarks
    * The destination type. Valid values:
-   * - **Connector**: connector.
+   * - **Connector**: Connector.
    * 
    * @example
    * Connector
@@ -30,7 +30,7 @@ export class GetForwardStrategyResponseBodyForwardStrategy extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The forwarding rule ID.
+   * The ID of the forwarding rule.
    * 
    * @example
    * fs-b87a2f8e863bf02c
@@ -46,7 +46,7 @@ export class GetForwardStrategyResponseBodyForwardStrategy extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The policy priority. The value 1 indicates the highest priority, and the value 100 indicates the lowest priority.
+   * The policy priority. A value of 1 indicates the highest priority, and a value of 100 indicates the lowest priority.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class GetForwardStrategyResponseBodyForwardStrategy extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The policy status. Valid values:
+   * The status of the policy. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 

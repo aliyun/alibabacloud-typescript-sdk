@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindSaseUserTagRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of user IDs.
+   * The IDs of the users.
    */
   saseUserIds?: string[];
   /**
    * @remarks
-   * The collection of user label IDs.
+   * The IDs of the user tags.
    */
   tagIds?: string[];
   static names(): { [key: string]: string } {

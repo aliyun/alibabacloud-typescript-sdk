@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDomainAccessLogsResponseBodyAccessLogs extends $dara.Model {
   /**
    * @remarks
-   * The action taken upon a rule hit.
+   * The matched action.
    * 
    * @example
    * WhiteList
@@ -29,7 +29,7 @@ export class ListDomainAccessLogsResponseBodyAccessLogs extends $dara.Model {
   destAddress?: string;
   /**
    * @remarks
-   * The event time.
+   * The time when the event occurred, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-08-10 14:03:22
@@ -135,7 +135,7 @@ export class ListDomainAccessLogsResponseBodyAccessLogs extends $dara.Model {
 export class ListDomainAccessLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of access log records.
+   * The list of access records.
    */
   accessLogs?: ListDomainAccessLogsResponseBodyAccessLogs[];
   /**
@@ -148,7 +148,7 @@ export class ListDomainAccessLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query conditions.
+   * The total number of records that meet the specified conditions.
    * 
    * @example
    * 122

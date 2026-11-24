@@ -45,7 +45,7 @@ export class UpdateConnectorResponseBodyConnectorUpgradeTime extends $dara.Model
 export class UpdateConnectorResponseBodyConnector extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Global Accelerator. Valid values:
+   * Specifies whether to enable global acceleration. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -55,7 +55,7 @@ export class UpdateConnectorResponseBodyConnector extends $dara.Model {
   accelerateStatus?: string;
   /**
    * @remarks
-   * ConnectorID。
+   * The connector ID.
    * 
    * @example
    * connector-94db94e06b98****
@@ -63,7 +63,7 @@ export class UpdateConnectorResponseBodyConnector extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * The creation time of the Connector.
+   * The time when the connector was created, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-05-16 17:18:46
@@ -71,7 +71,7 @@ export class UpdateConnectorResponseBodyConnector extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The Connector name.
+   * The name of the connector.
    * 
    * @example
    * connector_name
@@ -87,7 +87,7 @@ export class UpdateConnectorResponseBodyConnector extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The connection status of the Connector. Valid values:
+   * The connection status of the connector. Valid values:
    * - **Online**: Online.
    * - **Offline**: Offline.
    * 
@@ -97,7 +97,7 @@ export class UpdateConnectorResponseBodyConnector extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The instance status of the Connector. Valid values:
+   * The instance status of the connector. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Shutdown.
    * 
@@ -107,7 +107,7 @@ export class UpdateConnectorResponseBodyConnector extends $dara.Model {
   switchStatus?: string;
   /**
    * @remarks
-   * The upgrade time of the Connector.
+   * The upgrade time of the connector.
    */
   upgradeTime?: UpdateConnectorResponseBodyConnectorUpgradeTime;
   /**
@@ -161,12 +161,12 @@ export class UpdateConnectorResponseBodyConnector extends $dara.Model {
 export class UpdateConnectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Connector。
+   * The connector.
    */
   connector?: UpdateConnectorResponseBodyConnector;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6

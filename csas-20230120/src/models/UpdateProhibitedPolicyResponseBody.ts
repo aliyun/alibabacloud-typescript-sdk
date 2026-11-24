@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the prohibited software is a system built-in entry. Valid values:
-   * - **true**: A system built-in prohibited software entry shared across all Alibaba Cloud accounts. It cannot be modified or deleted.
-   * - **false**: A custom prohibited software entry under the current Alibaba Cloud account.
+   * Specifies whether the prohibited software is built-in. Valid values:
+   * - **true**: The software is built-in, shared by all Alibaba Cloud accounts, and cannot be modified or deleted.
+   * - **false**: The software is custom prohibited software under the current Alibaba Cloud account.
    * 
    * @example
    * false
@@ -47,9 +47,9 @@ export class UpdateProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.M
 export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether endpoint users are allowed to submit a filing request for this policy. Valid values:
-   * - **true**: Filing is allowed. A filing entry is provided in the pop-up notification on the endpoint.
-   * - **false**: Filing is not allowed.
+   * Specifies whether to allow endpoint users to submit exemption requests for the policy. Valid values:
+   * - **true**: Exemption requests are allowed. The endpoint pop-up window provides an entry for submitting requests.
+   * - **false**: Exemption requests are not allowed.
    * 
    * @example
    * true
@@ -57,7 +57,7 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   allowReport?: boolean;
   /**
    * @remarks
-   * The time when the software prohibition policy was created, in the yyyy-MM-dd HH:mm:ss format. The time is in the UTC+8 time zone.
+   * The time when the software prohibition policy was created. The time is in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
    * 
    * @example
    * 2026-08-19 10:24:31
@@ -74,8 +74,8 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the policy is enabled. Valid values:
-   * - **true**: Enabled. The policy is delivered to endpoints and takes effect.
-   * - **false**: Disabled. The policy configuration is retained but not delivered to endpoints.
+   * - **true**: The policy is enabled and delivered to endpoints to take effect.
+   * - **false**: The policy is disabled. The configuration is retained but not delivered to endpoints.
    * 
    * @example
    * true
@@ -84,8 +84,8 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to forcibly terminate running software processes. Valid values:
-   * - **true**: The endpoint immediately terminates the running processes of the software when the policy is triggered.
-   * - **false**: Running processes are not terminated. Only subsequent launches are blocked.
+   * - **true**: The endpoint immediately terminates the running processes of the software when the policy is matched.
+   * - **false**: Running processes are not terminated. Only subsequent startups are blocked.
    * 
    * @example
    * false
@@ -93,15 +93,15 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   forceKill?: boolean;
   /**
    * @remarks
-   * The Chinese text of the primary button in the pop-up notification on the endpoint.
+   * The Chinese text of the primary button in the endpoint pop-up window.
    * 
    * @example
-   * Submit Filing
+   * Submit request
    */
   mainButtonTextCh?: string;
   /**
    * @remarks
-   * The English text of the primary button in the pop-up notification on the endpoint.
+   * The English text of the primary button in the endpoint pop-up window.
    * 
    * @example
    * Report
@@ -109,9 +109,9 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   mainButtonTextEn?: string;
   /**
    * @remarks
-   * The scope in which the policy takes effect. Valid values:
-   * - **UserGroupAll**: Takes effect for all users under the current Alibaba Cloud account. No user group needs to be specified.
-   * - **UserGroupNormal**: Takes effect only for users in the user groups specified by UserGroupIds.
+   * The effective scope. Valid values:
+   * - **UserGroupAll**: applies to all users under the current Alibaba Cloud account. You do not need to specify user groups.
+   * - **UserGroupNormal**: applies only to users in the user groups specified by UserGroupIds.
    * 
    * @example
    * UserGroupNormal
@@ -119,15 +119,15 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   matchMode?: string;
   /**
    * @remarks
-   * The Chinese text of the secondary button in the pop-up notification on the endpoint.
+   * The Chinese text of the secondary button in the endpoint pop-up window.
    * 
    * @example
-   * Got It
+   * Got it
    */
   minorButtonTextCh?: string;
   /**
    * @remarks
-   * The English text of the secondary button in the pop-up notification on the endpoint.
+   * The English text of the secondary button in the endpoint pop-up window.
    * 
    * @example
    * I know
@@ -135,7 +135,7 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   minorButtonTextEn?: string;
   /**
    * @remarks
-   * The name of the software prohibition policy.
+   * The policy name of the software prohibition policy.
    * 
    * @example
    * autotest_c51af82d
@@ -144,8 +144,8 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
    * The object type. Valid values:
-   * - **App**: Controls by prohibited software. The controlled objects are specified by SoftwareIds.
-   * - **Tag**: Controls by prohibited software tag. The controlled objects are specified by TagIds. All prohibited software under the specified tags is controlled.
+   * - **App**: manages prohibited software. The managed objects are specified by SoftwareIds.
+   * - **Tag**: manages prohibited software tags. The managed objects are specified by TagIds. All prohibited software under the tags are managed.
    * 
    * @example
    * App
@@ -162,9 +162,9 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
    * The action to take. Valid values:
-   * - **Ban**: Blocks the software from running and displays a pop-up notification on the endpoint to alert the user.
-   * - **BanSilent**: Blocks the software from running without notifying the user (silent blocking).
-   * - **Warn**: Displays a pop-up notification on the endpoint to alert the user without blocking the software from running.
+   * - **Ban**: blocks the software from running and displays a pop-up window on the endpoint to notify the user.
+   * - **BanSilent**: blocks the software from running without notifying the user.
+   * - **Warn**: displays a pop-up window on the endpoint to notify the user without blocking the software from running.
    * 
    * @example
    * Ban
@@ -180,7 +180,7 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The Chinese prompt content displayed in the pop-up notification on the endpoint.
+   * The Chinese prompt content in the endpoint pop-up window.
    * 
    * @example
    * test
@@ -188,7 +188,7 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   promptCh?: string;
   /**
    * @remarks
-   * The English prompt content displayed in the pop-up notification on the endpoint.
+   * The English prompt content in the endpoint pop-up window.
    * 
    * @example
    * After analysis and monitoring, the software has been disabled as a security risk.
@@ -196,25 +196,25 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   promptEn?: string;
   /**
    * @remarks
-   * The collection of prohibited software directly controlled by this policy.
+   * The collection of prohibited software directly managed by the policy.
    */
   softwareIds?: UpdateProhibitedPolicyResponseBodyPolicySoftwareIds[];
   /**
    * @remarks
-   * The collection of prohibited software tag IDs controlled by this policy.
+   * The collection of prohibited software tag IDs managed by the policy.
    */
   tagIds?: string[];
   /**
    * @remarks
-   * The Chinese title of the pop-up notification on the endpoint.
+   * The Chinese title of the endpoint pop-up window.
    * 
    * @example
-   * Software Prohibition Reminder
+   * Software prohibition reminder
    */
   titleCh?: string;
   /**
    * @remarks
-   * The English title of the pop-up notification on the endpoint.
+   * The English title of the endpoint pop-up window.
    * 
    * @example
    * Software Blocked
@@ -222,7 +222,7 @@ export class UpdateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   titleEn?: string;
   /**
    * @remarks
-   * The collection of user group IDs for which the policy takes effect.
+   * The collection of user group IDs to which the policy applies.
    */
   userGroupIds?: string[];
   /**

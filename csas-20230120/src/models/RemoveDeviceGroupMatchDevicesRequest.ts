@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveDeviceGroupMatchDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of terminal device IDs to be removed. At least one ID must be specified, and duplicate values are not allowed.
+   * The IDs of the terminal devices to remove. Specify at least one ID. Duplicate IDs are not allowed.
    * 
    * This parameter is required.
    */
   devTags?: string[];
   /**
    * @remarks
-   * The device label ID.
+   * The ID of the device label.
    * 
    * This parameter is required.
    * 

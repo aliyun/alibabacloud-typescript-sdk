@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConnectorRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Global Accelerator. Valid values:
+   * Specifies whether to enable global acceleration. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -15,7 +15,7 @@ export class UpdateConnectorRequest extends $dara.Model {
   accelerateStatus?: string;
   /**
    * @remarks
-   * The Connector ID. You can obtain the value by calling [ListConnectors](~~ListConnectors~~).
+   * The ID of the connector. You can call the [ListConnectors](~~ListConnectors~~) operation to query connectors and obtain the value.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateConnectorRequest extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * The Connector name. The name must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name of the connector. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * connector_name
@@ -33,7 +33,7 @@ export class UpdateConnectorRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The instance status of the Connector. Valid values:
+   * The instance status of the connector. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Shutdown.
    * 

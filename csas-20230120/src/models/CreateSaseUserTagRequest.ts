@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSaseUserTagRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the employee tag.
+   * The description of the user tag.
    * 
    * @example
    * These are the company\\"s employees

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of terminal uninstall policy IDs.
+   * The list of application uninstallation policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -50,7 +50,7 @@ export class CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies 
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -85,12 +85,12 @@ export class CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies 
 export class CreateApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of file outbound policy IDs.
+   * The list of outbound file transfer policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -130,7 +130,7 @@ export class CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies ext
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -170,7 +170,7 @@ export class CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies ext
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -203,7 +203,18 @@ export class CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies ext
 }
 
 export class CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of endpoint hardening policy IDs.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -239,7 +250,7 @@ export class CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies ext
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -272,7 +283,18 @@ export class CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies ext
 }
 
 export class CreateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of internal network access application IDs.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -303,7 +325,7 @@ export class CreateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies 
 export class CreateApprovalProcessResponseBodyProcessProcessNodes extends $dara.Model {
   /**
    * @remarks
-   * The approver ID.
+   * The ID of the approver.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -311,10 +333,10 @@ export class CreateApprovalProcessResponseBodyProcessProcessNodes extends $dara.
   saseUserId?: string;
   /**
    * @remarks
-   * The approver username.
+   * The username of the approver.
    * 
    * @example
-   * Mr. Wang
+   * 王先生
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -348,7 +370,7 @@ export class CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies exten
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -381,7 +403,18 @@ export class CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies exten
 }
 
 export class CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of software hardening policy IDs.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -412,12 +445,12 @@ export class CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies e
 export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
   /**
    * @remarks
-   * The list of policies associated with terminal uninstall.
+   * The list of policies associated with application uninstallation.
    */
   appUninstallPolicies?: CreateApprovalProcessResponseBodyProcessAppUninstallPolicies;
   /**
    * @remarks
-   * The time when the approval flow was created.
+   * The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-10-25 10:44:09
@@ -425,10 +458,10 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the approval flow.
+   * The description of the approval process.
    * 
    * @example
-   * This is an approval flow
+   * Process for approving employees\\" temporary access to internal network applications
    */
   description?: string;
   /**
@@ -438,7 +471,7 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
   deviceRegistrationPolicies?: CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
   /**
    * @remarks
-   * The list of policies associated with file outbound.
+   * The list of policies associated with outbound file transfer.
    */
   dlpSendPolicies?: CreateApprovalProcessResponseBodyProcessDlpSendPolicies;
   /**
@@ -451,16 +484,24 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
    * The list of policies associated with the domain name whitelist.
    */
   domainWhitelistPolicies?: CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with endpoint hardening.
+   */
   endpointHardeningPolicies?: CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
   /**
    * @remarks
    * The list of policies associated with peripheral control.
    */
   peripheralBlockPolicies?: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with internal network access control.
+   */
   privateAccessBlockPolicies?: CreateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies;
   /**
    * @remarks
-   * The approval flow ID.
+   * The ID of the approval process.
    * 
    * @example
    * approval-process-dc61e92ba5c5****
@@ -468,10 +509,10 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The approval flow name.
+   * The name of the approval process.
    * 
    * @example
-   * Test
+   * Internal network access approval process
    */
   processName?: string;
   /**
@@ -484,6 +525,10 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
    * The list of policies associated with software blocking.
    */
   softwareBlockPolicies?: CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with software hardening.
+   */
   softwareHardeningPolicies?: CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
     return {
@@ -570,12 +615,12 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
 export class CreateApprovalProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The approval flow.
+   * The approval process.
    */
   process?: CreateApprovalProcessResponseBodyProcess;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2CABFEBB-0CE7-575E-833A-266F75D46713

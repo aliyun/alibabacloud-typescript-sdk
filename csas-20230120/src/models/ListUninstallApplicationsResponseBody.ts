@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUninstallApplicationsResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The uninstall application ID.
+   * The ID of the uninstallation application.
    * 
    * @example
    * uninstall-app-6646831ac314****
@@ -13,7 +13,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   applicationId?: string;
   /**
    * @remarks
-   * The time when the uninstall application was created.
+   * The time when the uninstallation application was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-07-17 18:46:55
@@ -24,7 +24,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
    * The department to which the user belongs.
    * 
    * @example
-   * Testing Department
+   * Test Department
    */
   department?: string;
   /**
@@ -96,7 +96,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   reason?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -104,8 +104,8 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   saseUserId?: string;
   /**
    * @remarks
-   * The uninstall application status. Valid values:
-   * - **Pending**: Pending processing.
+   * The status of the uninstallation application. Valid values:
+   * - **Pending**: Pending.
    * - **Approved**: Approved.
    * - **Rejected**: Rejected.
    * 
@@ -174,7 +174,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
 export class ListUninstallApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of uninstall applications.
+   * The list of uninstallation applications.
    */
   applications?: ListUninstallApplicationsResponseBodyApplications[];
   /**
@@ -187,7 +187,7 @@ export class ListUninstallApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of uninstall applications.
+   * The total number of uninstallation applications.
    * 
    * @example
    * 1

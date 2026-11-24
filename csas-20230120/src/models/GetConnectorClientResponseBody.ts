@@ -14,8 +14,8 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   /**
    * @remarks
    * The connection status of the ConnectorClient. Valid values:
-   * - **Connected**: Connected.
-   * - **Disconnected**: Disconnected.
+   * - **Connected**: The client is connected.
+   * - **Disconnected**: The client is disconnected.
    * 
    * @example
    * Connected
@@ -23,7 +23,7 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * ConnectorID。
+   * The connector ID.
    * 
    * @example
    * connector-94db94e06b98****
@@ -31,7 +31,7 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * The connector client version.
+   * The version of the connector client.
    * 
    * @example
    * 1.0.0
@@ -39,7 +39,7 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   connectorVersion?: string;
   /**
    * @remarks
-   * The creation time of the ConnectorClient.
+   * The time when the ConnectorClient was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-05-16 17:18:46
@@ -47,7 +47,7 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The unique device identifier of the ConnectorClient.
+   * The unique identifier of the ConnectorClient device.
    * 
    * @example
    * E86266A0-2859-58EF-8F5B-EDE226FF6EB2
@@ -80,9 +80,9 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   /**
    * @remarks
    * The O&M status. Valid values:
-   * - **Running**: O&M in progress.
+   * - **Running**: O&M is in progress.
    * - **Failed**: O&M failed.
-   * - (Empty string): Not in O&M status.
+   * - (Empty string): Not in an O&M state.
    * 
    * @example
    * Running
@@ -98,7 +98,7 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   privateIp?: string;
   /**
    * @remarks
-   * The program runtime. Unit: seconds.
+   * The runtime of the program. Unit: seconds.
    * 
    * @example
    * 100
@@ -119,7 +119,7 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   releaseNotes?: string[];
   /**
    * @remarks
-   * The enabled status of the ConnectorClient, which can be used to force the client offline. Valid values:
+   * The enabling status of the ConnectorClient. You can use this parameter to force the client offline. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -129,8 +129,8 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The new version status of the connector. Valid values:
-   * - **Latest**: The current version is the latest.
+   * The upgrade status of the connector. Valid values:
+   * - **Latest**: The connector is of the latest version.
    * - **NewVersionAvailable**: A newer version is available for upgrade.
    * 
    * @example
@@ -204,12 +204,12 @@ export class GetConnectorClientResponseBodyConnectorClient extends $dara.Model {
 export class GetConnectorClientResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ConnectorClient。
+   * The ConnectorClient.
    */
   connectorClient?: GetConnectorClientResponseBodyConnectorClient;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049

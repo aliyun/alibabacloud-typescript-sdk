@@ -45,7 +45,7 @@ export class GetConnectorResponseBodyConnectorUpgradeTime extends $dara.Model {
 export class GetConnectorResponseBodyConnector extends $dara.Model {
   /**
    * @remarks
-   * ConnectorID。
+   * The connector ID.
    * 
    * @example
    * connector-94db94e06b98****
@@ -53,7 +53,7 @@ export class GetConnectorResponseBodyConnector extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * The connector creation time.
+   * The time when the connector was created, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-05-16 17:18:46
@@ -61,7 +61,7 @@ export class GetConnectorResponseBodyConnector extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The connector name.
+   * The name of the connector.
    * 
    * @example
    * connector_name
@@ -77,7 +77,7 @@ export class GetConnectorResponseBodyConnector extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The connector connection status. Valid values:
+   * The connection status of the connector. Valid values:
    * - **Online**: Online.
    * - **Offline**: Offline.
    * 
@@ -87,9 +87,9 @@ export class GetConnectorResponseBodyConnector extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The connector instance status. Valid values:
-   * - **Enabled**: Enabled.
-   * - **Disabled**: Disabled.
+   * The instance status of the connector. Valid values:
+   * - **Enabled**: enabled
+   * - **Disabled**: shutdown
    * 
    * @example
    * Enabled
@@ -97,12 +97,12 @@ export class GetConnectorResponseBodyConnector extends $dara.Model {
   switchStatus?: string;
   /**
    * @remarks
-   * The connector upgrade time.
+   * The upgrade time of the connector.
    */
   upgradeTime?: GetConnectorResponseBodyConnectorUpgradeTime;
   /**
    * @remarks
-   * The virtual IP address range.
+   * The virtual IP address CIDR block.
    * 
    * @example
    * 10.0.0.0/24
@@ -149,7 +149,7 @@ export class GetConnectorResponseBodyConnector extends $dara.Model {
 export class GetConnectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Connector。
+   * The connector.
    */
   connector?: GetConnectorResponseBodyConnector;
   /**

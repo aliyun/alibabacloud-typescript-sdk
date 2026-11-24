@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetForwardStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The forwarding rule ID.
+   * The ID of the forwarding rule.
    * 
    * This parameter is required.
    * 

@@ -20,7 +20,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   documentControlShrink?: string;
   /**
    * @remarks
-   * The URL for downloading the file to be embedded. The URL must be active for public network access.
+   * The active URL for downloading the file to be embedded. The URL must support public network access.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * The name of the file to be embedded. The backend validates the file type based on the file name extension.
+   * The file name of the file to be embedded. The backend determines and verifies the file type based on the file name extension.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   imageEmbedJpegQuality?: number;
   /**
    * @remarks
-   * The image watermark parameter. A larger value indicates higher robustness but lower visual quality. Default value: 2. Valid values: 0 to 4.
+   * The image watermark parameter that specifies the embedding level. A larger value indicates higher robustness but lower visual quality. Default value: 2. Valid values: 0 to 4.
    * 
    * @example
    * 2
@@ -61,12 +61,14 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   imageEmbedLevel?: number;
   /**
    * @remarks
-   * Specifies whether to enable invisible watermark embedding. Default value: true.
+   * Specifies whether to enable invisible watermark embedding. Default value: true. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    */
   invisibleEnable?: boolean;
   /**
    * @remarks
-   * The short video watermark parameter that specifies the video bitrate. By default, the video bitrate is automatically obtained. You can use this parameter to forcibly specify the bitrate used during extraction. Typically, you do not need to set this parameter.
+   * The short video watermark parameter that specifies the video bitrate. By default, the system automatically obtains the video bitrate. You can use this parameter to force the bitrate used during extraction. Typically, you do not need to set this parameter.
    * 
    * @example
    * 3000k
@@ -79,12 +81,10 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   videoControlShrink?: string;
   /**
    * @remarks
-   * Video watermark parameter. Specifies whether to use the long video watermark SDK. Valid values:
+   * The video watermark parameter that specifies whether to use the long video watermark SDK. Default value: false. Valid values:
    * 
-   * - **true**: The long video watermark SDK is used.
-   * - **false**: The long video watermark SDK is not used.
-   * 
-   * Default value: false.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -92,7 +92,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   videoIsLong?: boolean;
   /**
    * @remarks
-   * The watermark information in Base64-encoded string format. If this parameter is set, WmInfoUint cannot be set.
+   * The watermark information in Base64-encoded string format. If you set this parameter, you cannot set WmInfoUint.
    * 
    * @example
    * aGVsbG8gc2F*****
@@ -100,7 +100,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   wmInfoBytesB64?: string;
   /**
    * @remarks
-   * The bit width of the watermark information capacity. Default value: 32. This parameter must be consistent between embedding and extraction. For example, if the 40-bit SDK is used for embedding, set this parameter to 40 during extraction as well.
+   * The capacity bit width of the watermark information. Default value: 32. This parameter must be consistent during embedding and extraction. For example, if a 40-bit SDK is used for embedding, you must also set this value to 40 for extraction.
    * 
    * @example
    * 32
@@ -108,7 +108,15 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   wmInfoSize?: number;
   /**
    * @remarks
-   * The watermark information in decimal number format. If this parameter is set, WmInfoBytesB64 cannot be set.
+   * The watermark information in decimal numeric format. If you set this parameter, you cannot set WmInfoBytesB64.
+   * 
+   * The valid value range depends on the WmInfoSize parameter:
+   * 
+   * - When WmInfoSize is 32, the valid values are 1 to 4294967295.
+   * 
+   * - When WmInfoSize is 40, the valid values are 1 to 1099511627775.
+   * 
+   * - When WmInfoSize is 64, the valid values are 1 to 18446744073709551615.
    * 
    * @example
    * 123***
@@ -117,10 +125,10 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The watermark type. Valid values:
-   * - **PureDocument**: document watermark.
-   * - **PureImage**: image watermark.
-   * - **PureAudio**: audio watermark.
-   * - **PureVideo**: video watermark.
+   * - **PureDocument**: Document watermark.
+   * - **PureImage**: Image watermark.
+   * - **PureAudio**: Audio watermark.
+   * - **PureVideo**: Video watermark.
    * - **AigcDocument**: AIGC document watermark.
    * - **AigcImage**: AIGC image watermark.
    * - **AigcAudio**: AIGC audio watermark.

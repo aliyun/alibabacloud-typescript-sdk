@@ -13,7 +13,7 @@ export class CreateSaseUserTagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user tag ID.
+   * The ID of the user tag.
    * 
    * @example
    * su-tag-1ae52f66039fa0d4****

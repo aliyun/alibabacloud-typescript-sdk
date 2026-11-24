@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends $dara.Model {
   /**
    * @remarks
-   * The application bundle identifier (Bundle ID). This parameter is required only for macOS processes.
+   * The bundle ID of the application. This parameter is required only for macOS processes.
    * 
    * @example
    * com.xunlei.Thunder
@@ -13,7 +13,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends $da
   bundleId?: string;
   /**
    * @remarks
-   * The command-line arguments for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -29,7 +29,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends $da
   directory?: string;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * thuner.exe
@@ -65,7 +65,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends $da
 export class GetProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends $dara.Model {
   /**
    * @remarks
-   * The application bundle identifier (Bundle ID). This parameter is required only for macOS processes.
+   * The bundle ID of the application. This parameter is required only for macOS processes.
    * 
    * @example
    * com.xunlei.Thunder
@@ -73,7 +73,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends $da
   bundleId?: string;
   /**
    * @remarks
-   * The command-line arguments for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -89,7 +89,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends $da
   directory?: string;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * thuner.exe
@@ -125,7 +125,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends $da
 export class GetProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends $dara.Model {
   /**
    * @remarks
-   * The application bundle identifier (Bundle ID). This parameter is required only for macOS processes.
+   * The bundle ID of the application. This parameter is required only for macOS processes.
    * 
    * @example
    * com.xunlei.Thunder
@@ -133,7 +133,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends $
   bundleId?: string;
   /**
    * @remarks
-   * The command-line arguments for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -149,7 +149,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends $
   directory?: string;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * thuner.exe
@@ -185,7 +185,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends $
 export class GetProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the prohibited software, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+   * The time when the prohibited software was created. The time is in the yyyy-MM-dd HH:mm:ss format and follows the UTC+8 time zone.
    * 
    * @example
    * 2025-09-05 10:20:46
@@ -201,9 +201,9 @@ export class GetProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the prohibited software is a system built-in prohibited software. Valid values:
-   * - **true**: A system built-in prohibited software that is shared across all Alibaba Cloud accounts and cannot be modified or deleted.
-   * - **false**: A custom prohibited software under the current Alibaba Cloud account.
+   * Specifies whether the prohibited software is a built-in prohibited software. Valid values:
+   * - **true**: The software is a built-in prohibited software. It is shared by all Alibaba Cloud accounts and cannot be modified or deleted.
+   * - **false**: The software is a custom prohibited software within the current Alibaba Cloud account.
    * 
    * @example
    * true
@@ -211,12 +211,12 @@ export class GetProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The list of process configurations for the Linux operating system.
+   * The list of process configurations in the Linux operating system.
    */
   linuxProcesses?: GetProhibitedSoftwareResponseBodySoftwareLinuxProcesses[];
   /**
    * @remarks
-   * The list of process configurations for the macOS operating system.
+   * The list of process configurations in the macOS operating system.
    */
   macOSProcesses?: GetProhibitedSoftwareResponseBodySoftwareMacOSProcesses[];
   /**
@@ -234,7 +234,7 @@ export class GetProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   policyIds?: string[];
   /**
    * @remarks
-   * The prohibited software ID.
+   * The ID of the prohibited software.
    * 
    * @example
    * swb-3e6a1f9c4b28****
@@ -242,12 +242,12 @@ export class GetProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   softwareId?: string;
   /**
    * @remarks
-   * The IDs of the prohibited software tags associated with the prohibited software.
+   * The IDs of the prohibited software tags that are associated with the prohibited software.
    */
   tagIds?: string[];
   /**
    * @remarks
-   * The list of process configurations for the Windows operating system.
+   * The list of process configurations in the Windows operating system.
    */
   windowsProcesses?: GetProhibitedSoftwareResponseBodySoftwareWindowsProcesses[];
   static names(): { [key: string]: string } {
@@ -315,7 +315,7 @@ export class GetProhibitedSoftwareResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The prohibited software details.
+   * The details of the prohibited software.
    */
   software?: GetProhibitedSoftwareResponseBodySoftware;
   static names(): { [key: string]: string } {

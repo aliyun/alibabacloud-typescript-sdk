@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConnectorRequest extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth value (Mbit/s).
+   * The bandwidth value (Mbps).
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateConnectorRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The connector name. The name must be 1 to 128 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), and hyphens (-).
+   * The name of the connector. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase English letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateConnectorRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The connector instance status. Valid values:
+   * The instance status of the connector. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Shutdown.
    * 

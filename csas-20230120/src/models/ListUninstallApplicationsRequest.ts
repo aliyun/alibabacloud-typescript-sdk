@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListUninstallApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of uninstall application IDs.
+   * The IDs of the uninstallation applications.
    */
   applicationIds?: string[];
   /**
    * @remarks
-   * The page number of the current page in a paging query. Valid values: 1 to 10000.
+   * The page number of the current page for paging. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -20,15 +20,15 @@ export class ListUninstallApplicationsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The department to which the user belongs. The value is 1 to 128 characters in length, supports Chinese and uppercase and lowercase letters, and can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
+   * The department to which the user belongs. The value must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
    * 
    * @example
-   * Testing Department
+   * Test Department
    */
   department?: string;
   /**
    * @remarks
-   * The name of the terminal device. The value is 1 to 128 characters in length, supports Chinese and uppercase and lowercase letters, and can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. Entering only an underscore (_) additionally queries all terminal devices whose names contain 4-byte UTF-8 characters.
+   * The name of the terminal device. The value must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system also queries all terminal devices whose names contain 4-byte UTF-8 characters.
    * 
    * @example
    * win10-64bit
@@ -44,7 +44,7 @@ export class ListUninstallApplicationsRequest extends $dara.Model {
   mac?: string;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Valid values: 1 to 500.
+   * The number of entries per page for paging. Valid values: 1 to 500.
    * 
    * This parameter is required.
    * 
@@ -54,12 +54,12 @@ export class ListUninstallApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The collection of uninstall application statuses.
+   * The statuses of the uninstallation applications.
    */
   statuses?: string[];
   /**
    * @remarks
-   * The username. The value is 1 to 128 characters in length, supports Chinese and uppercase and lowercase letters, and can contain digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
+   * The username. The value must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
    * 
    * @example
    * Mr. Wang

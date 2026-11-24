@@ -6,7 +6,7 @@ import { Rule } from "./Rule";
 export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   /**
    * @remarks
-   * The device label description.
+   * The description of the device group.
    * 
    * @example
    * Test device group description
@@ -14,7 +14,7 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The device label ID.
+   * The ID of the device group.
    * 
    * @example
    * device-group-5191cf830a5e****
@@ -22,7 +22,7 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   deviceGroupId?: string;
   /**
    * @remarks
-   * The dynamic device group rule operator.
+   * The operator for the dynamic device group rule.
    * 
    * @example
    * AND
@@ -32,14 +32,14 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   dynamicOperator?: string;
   /**
    * @remarks
-   * The matching rule of the dynamic device label.
+   * The matching rule for the dynamic device group.
    */
   dynamicRule?: Rule;
   /**
    * @remarks
-   * The device label type. Valid values:
-   * - **static**: Static device label. Members consist of manually added terminal devices.
-   * - **dynamic**: Dynamic device label.
+   * The type of the device group. Valid values:
+   * - **static**: A static device group. Members are terminal devices that are manually added.
+   * - **dynamic**: A dynamic device group.
    * 
    * @example
    * static
@@ -47,9 +47,9 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * Indicates whether the device label is a system built-in device label. Valid values:
-   * - **true**: System built-in device label.
-   * - **false**: User-defined device label.
+   * Indicates whether the device group is a built-in system device group. Valid values:
+   * - **true**: The device group is a built-in system device group.
+   * - **false**: The device group is a custom device group.
    * 
    * @example
    * true
@@ -57,12 +57,12 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   isDefault?: string;
   /**
    * @remarks
-   * The collection of terminal device IDs associated with the device label.
+   * The IDs of the devices associated with the device group.
    */
   matchDevTags?: string[];
   /**
    * @remarks
-   * The device label name.
+   * The name of the device group.
    * 
    * @example
    * autotest_a1b2bfd0
@@ -112,7 +112,7 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
 export class GetDeviceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The device label details.
+   * The device group details.
    */
   deviceGroup?: GetDeviceGroupResponseBodyDeviceGroup;
   /**

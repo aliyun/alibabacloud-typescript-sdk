@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorsRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of up to 100 ConnectorIDs.
+   * The IDs of the connectors. You can enter up to 100 connector IDs.
    */
   connectorIds?: string[];
   /**
    * @remarks
-   * The number of the page to return. Valid values: 1 to 10,000.
+   * The page number of the current page for paging in a paged query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ListConnectorsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the connector. The name must be 1 to 128 characters long and can contain letters, Chinese characters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name of the connector. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * connector_name
@@ -28,7 +28,7 @@ export class ListConnectorsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 1,000.
+   * The Settings for the number of entries per page for paging in a paged query. Valid values: 1 to 1000.
    * 
    * This parameter is required.
    * 
@@ -39,10 +39,8 @@ export class ListConnectorsRequest extends $dara.Model {
   /**
    * @remarks
    * The connection status of the connector. Valid values:
-   * 
-   * - **Online**
-   * 
-   * - **Offline**
+   * - **Online**: online.
+   * - **Offline**: offline.
    * 
    * @example
    * Online
@@ -50,11 +48,9 @@ export class ListConnectorsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The state of the connector instance. Valid values:
-   * 
-   * - **Enabled**
-   * 
-   * - **Disabled**
+   * The instance status of the connector. Valid values:
+   * - **Enabled**: enabled.
+   * - **Disabled**: shutdown.
    * 
    * @example
    * Enabled

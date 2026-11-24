@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListForwardStrategiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in paging query. Valid values: 1 to 10000.
+   * The page number of the current page in a paged query. Valid values: 1 to 10000.
    * 
    * @example
    * 1
@@ -13,13 +13,13 @@ export class ListForwardStrategiesRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The list of access destination instance IDs.
+   * The IDs of the access destination instances.
    */
   destinationIds?: string[];
   /**
    * @remarks
-   * The type of the access destination. Valid values:
-   * - **Connector**: connector.
+   * The destination type. Valid values:
+   * - **Connector**: Connector.
    * 
    * @example
    * Connector
@@ -27,7 +27,7 @@ export class ListForwardStrategiesRequest extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The list of forwarding rule IDs.
+   * The IDs of the forwarding rules.
    */
   forwardIds?: string[];
   /**
@@ -40,7 +40,7 @@ export class ListForwardStrategiesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries per page in paging query. Valid values: 1 to 1000.
+   * The number of entries per page in a paged query. Valid values: 1 to 1000.
    * 
    * @example
    * 10

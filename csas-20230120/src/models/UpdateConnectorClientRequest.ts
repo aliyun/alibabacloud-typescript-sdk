@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConnectorClientRequest extends $dara.Model {
   /**
    * @remarks
-   * The connector ID. You can call [ListConnectors](~~ListConnectors~~) to query connector IDs.
+   * The connector ID. You can obtain the value by calling the [ListConnectors](~~ListConnectors~~) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateConnectorClientRequest extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * The unique identifier of the ConnectorClient device. You can call [ListConnectors](~~ListConnectors~~) to query connector information.
+   * The unique identifier of the ConnectorClient device. You can obtain the value by calling the [ListConnectors](~~ListConnectors~~) operation.
    * 
    * This parameter is required.
    * 
@@ -26,8 +26,8 @@ export class UpdateConnectorClientRequest extends $dara.Model {
   /**
    * @remarks
    * The connection status of the ConnectorClient. Valid values:
-   * - **Enabled**: connected.
-   * - **Disabled**: disconnected.
+   * - **Enabled**: Connected.
+   * - **Disabled**: Disconnected.
    * 
    * @example
    * Enabled

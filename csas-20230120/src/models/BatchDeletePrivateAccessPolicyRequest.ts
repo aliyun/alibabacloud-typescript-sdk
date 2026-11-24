@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeletePrivateAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of internal network access policies. You can specify up to 100 internal network access policy IDs.
+   * The IDs of the internal network access policies. You can specify up to 100 internal network access policy IDs.
    */
   policyIds?: string[];
   static names(): { [key: string]: string } {

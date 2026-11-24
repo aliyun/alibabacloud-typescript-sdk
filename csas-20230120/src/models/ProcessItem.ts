@@ -3,9 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ProcessItem extends $dara.Model {
+  /**
+   * @remarks
+   * The bundle ID of the application to which the process belongs. The example value com.apple.Terminal is the bundle ID of the macOS Terminal application.
+   * 
+   * @example
+   * com.apple.Terminal
+   */
   bundleId?: string;
+  /**
+   * @remarks
+   * The operating system type of the user endpoint device to which the process belongs. Valid values:
+   * - windows: Windows.
+   * - macOS: macOS.
+   * - linux: Linux.
+   * 
+   * @example
+   * macOS
+   */
   devType?: string;
+  /**
+   * @remarks
+   * The process directory path.
+   * 
+   * @example
+   * /System/Applications/Utilities/Terminal.app/Contents/MacOS
+   */
   directory?: string;
+  /**
+   * @remarks
+   * The process name.
+   * 
+   * @example
+   * Terminal
+   */
   process?: string;
   static names(): { [key: string]: string } {
     return {

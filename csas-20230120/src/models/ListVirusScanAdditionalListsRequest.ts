@@ -3,9 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVirusScanAdditionalListsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filters by match dimension. Duplicate values are not allowed. If this parameter is not specified, all match dimensions are returned.
+   */
   additionalTypes?: string[];
   /**
    * @remarks
+   * The operating system type for which the list takes effect. Valid values:
+   * - **windows**: Windows.
+   * - **macOS**: macOS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +21,24 @@ export class ListVirusScanAdditionalListsRequest extends $dara.Model {
    */
   devType?: string;
   /**
+   * @remarks
+   * The content of the list entry. Exact match is used. This parameter is used to locate a specific list by content. Fuzzy match is not supported.
+   * 
    * @example
    * .tmp
    */
   listDetail?: string;
+  /**
+   * @remarks
+   * Filters by list entry ID. Duplicate values are not allowed. If this parameter is not specified, no filtering by list entry ID is performed.
+   */
   listIds?: string[];
   /**
+   * @remarks
+   * Filters by list type. If this parameter is not specified, both blacklists and whitelists are returned. Valid values:
+   * - **Blacklist**: Blacklist. Matched files are directly identified as virus files.
+   * - **Whitelist**: Whitelist. Matched files are excluded from virus detection.
+   * 
    * @example
    * Whitelist
    */

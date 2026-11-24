@@ -14,8 +14,8 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
   /**
    * @remarks
    * The connection status of the ConnectorClient. Valid values:
-   * - **Connected**: connected.
-   * - **Disconnected**: disconnected.
+   * - **Connected**: Connected.
+   * - **Disconnected**: Disconnected.
    * 
    * @example
    * Connected
@@ -23,7 +23,7 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
   connectionStatus?: string;
   /**
    * @remarks
-   * ConnectorID。
+   * The connector ID.
    * 
    * @example
    * connector-94db94e06b98****
@@ -31,7 +31,7 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
   connectorId?: string;
   /**
    * @remarks
-   * The time when the connector was created.
+   * The time when the connector was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-05-16 17:18:46
@@ -74,7 +74,7 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
    * The O&M status. Valid values:
    * - **Running**: O&M in progress.
    * - **Failed**: O&M failed.
-   * - (empty string): not in O&M status.
+   * - **(Empty string)**: Not in an O&M state.
    * 
    * @example
    * Running
@@ -90,7 +90,7 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
   privateIp?: string;
   /**
    * @remarks
-   * The program runtime. Unit: seconds.
+   * The runtime of the program. Unit: seconds.
    * 
    * @example
    * 100
@@ -111,9 +111,9 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
   releaseNotes?: string[];
   /**
    * @remarks
-   * The enabled status of the ConnectorClient, which can be used to force the client offline. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
+   * The enabled status of the ConnectorClient, which controls whether the client is forced offline. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -121,10 +121,10 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The version status of the connector. Valid values:
+   * The upgrade status of the connector. Valid values:
    * 
-   * - **Latest**: the current version is the latest version.
-   * - **NewVersionAvailable**: a newer version is available for upgrade.
+   * - **Latest**: The connector is updated to the latest version.
+   * - **NewVersionAvailable**: A new version is available for upgrade.
    * 
    * @example
    * Latest
@@ -140,7 +140,7 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
   version?: string;
   /**
    * @remarks
-   * The version to roll back to.
+   * The version to be rolled back.
    * 
    * @example
    * 1.0.0
@@ -205,12 +205,12 @@ export class UpdateConnectorClientResponseBodyConnectorClient extends $dara.Mode
 export class UpdateConnectorClientResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ConnectorClient。
+   * The ConnectorClient.
    */
   connectorClient?: UpdateConnectorClientResponseBodyConnectorClient;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049

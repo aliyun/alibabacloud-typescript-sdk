@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelVirusScanTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3D7EC0AF-DB2A-5D9C-90EC-F090A6BAAEA7

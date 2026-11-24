@@ -42,10 +42,42 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchPortRange
   }
 }
 
+export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchUrlAccessPaths extends $dara.Model {
+  allowMethods?: string[];
+  urls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allowMethods: 'AllowMethods',
+      urls: 'Urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowMethods: { 'type': 'array', 'itemType': 'string' },
+      urls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowMethods)) {
+      $dara.Model.validateArray(this.allowMethods);
+    }
+    if(Array.isArray(this.urls)) {
+      $dara.Model.validateArray(this.urls);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends $dara.Model {
   /**
    * @remarks
-   * The ID of the internal-facing application.
+   * The ID of the internal access application.
    * 
    * @example
    * pa-application-e12860ef6c48****
@@ -53,7 +85,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   applicationId?: string;
   /**
    * @remarks
-   * The device tag mark switch. Valid values:
+   * The device tag marking switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -63,7 +95,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   devTagMarkStatus?: string;
   /**
    * @remarks
-   * The sensitive application download audit switch. Valid values:
+   * The download audit switch for sensitive applications. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -73,12 +105,12 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   downloadAuditStatus?: string;
   /**
    * @remarks
-   * The collection of port ranges that are effective for Layer 7 access. This is the intersection of the ports specified in this request and the port ranges already configured for the internal-facing application. An empty collection is returned when Status is set to **Disabled**.
+   * The effective port ranges for Layer 7 access, which are the intersection of the ports specified in this request and the configured port ranges of the internal access application. If Status is set to **Disabled**, an empty set is returned.
    */
   portRanges?: UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchPortRanges[];
   /**
    * @remarks
-   * The source IP mark switch. Valid values:
+   * The source IP marking switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -88,7 +120,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   srcIpMarkStatus?: string;
   /**
    * @remarks
-   * The master switch for Layer 7 access of the internal-facing application. Valid values:
+   * The master switch for the Layer 7 access switch of the internal access application. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -104,9 +136,10 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
    * 60
    */
   timeoutSec?: number;
+  urlAccessPaths?: UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchUrlAccessPaths[];
   /**
    * @remarks
-   * The user mark switch. Valid values:
+   * The user marking switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -116,7 +149,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   userMarkStatus?: string;
   /**
    * @remarks
-   * The host bypass prevention switch. Valid values:
+   * The Host bypass prevention switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -133,6 +166,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
       srcIpMarkStatus: 'SrcIpMarkStatus',
       status: 'Status',
       timeoutSec: 'TimeoutSec',
+      urlAccessPaths: 'UrlAccessPaths',
       userMarkStatus: 'UserMarkStatus',
       zeroTrustStatus: 'ZeroTrustStatus',
     };
@@ -147,6 +181,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
       srcIpMarkStatus: 'string',
       status: 'string',
       timeoutSec: 'number',
+      urlAccessPaths: { 'type': 'array', 'itemType': UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchUrlAccessPaths },
       userMarkStatus: 'string',
       zeroTrustStatus: 'string',
     };
@@ -155,6 +190,9 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   validate() {
     if(Array.isArray(this.portRanges)) {
       $dara.Model.validateArray(this.portRanges);
+    }
+    if(Array.isArray(this.urlAccessPaths)) {
+      $dara.Model.validateArray(this.urlAccessPaths);
     }
     super.validate();
   }
@@ -167,12 +205,12 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
 export class UpdatePrivateAccessApplicationL7SwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Layer 7 access switch configuration of the internal-facing application after this update.
+   * The Layer 7 access switch configurations of the internal access application after the update.
    */
   l7Switch?: UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6

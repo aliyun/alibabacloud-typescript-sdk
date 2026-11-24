@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * The uninstall application ID.
+   * The uninstallation application ID.
    * 
    * @example
    * uninstall-app-6646831ac314****
@@ -13,7 +13,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   applicationId?: string;
   /**
    * @remarks
-   * The time when the uninstall application was created.
+   * The time when the uninstallation application was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-07-17 18:46:55
@@ -24,12 +24,12 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
    * The department to which the user belongs.
    * 
    * @example
-   * Testing Department
+   * Test Department
    */
   department?: string;
   /**
    * @remarks
-   * The ID of the endpoint device.
+   * The ID of the terminal device.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -37,7 +37,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   devTag?: string;
   /**
    * @remarks
-   * The operating system type of the endpoint device. Valid values:
+   * The operating system type of the terminal device. Valid values:
    * - **Windows**: Windows.
    * - **macOS**: macOS.
    * - **Linux**: Linux.
@@ -51,7 +51,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   devType?: string;
   /**
    * @remarks
-   * The name of the endpoint device.
+   * The name of the terminal device.
    * 
    * @example
    * win10-64bit
@@ -59,15 +59,15 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   hostname?: string;
   /**
    * @remarks
-   * The name of the identity provider.
+   * The name of the user identity source.
    * 
    * @example
-   * Test Identity Provider
+   * Test Identity Source
    */
   idpName?: string;
   /**
    * @remarks
-   * Indicates whether the uninstallation has been performed.
+   * Specifies whether the uninstallation has been executed.
    * 
    * @example
    * false
@@ -75,7 +75,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   isUninstall?: boolean;
   /**
    * @remarks
-   * The MAC address of the endpoint device.
+   * The MAC address of the terminal device.
    * 
    * @example
    * 00:16:XX:XX:7c:46
@@ -99,7 +99,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   saseUserId?: string;
   /**
    * @remarks
-   * The status of the uninstall application. Valid values:
+   * The status of the uninstallation application. Valid values:
    * - **Pending**: Pending.
    * - **Approved**: Approved.
    * - **Rejected**: Rejected.
@@ -164,12 +164,12 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
 export class UpdateUninstallApplicationsStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of uninstall applications.
+   * The list of uninstallation applications.
    */
   applications?: UpdateUninstallApplicationsStatusResponseBodyApplications[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9B769522-D50C-5978-8981-52BE800D6099

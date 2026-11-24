@@ -21,8 +21,8 @@ export class ListForwardStrategiesResponseBodyForwardStrategies extends $dara.Mo
   destinationId?: string;
   /**
    * @remarks
-   * The type of the access destination. Valid values:
-   * - **Connector**: connector.
+   * The destination type. Valid values:
+   * - **Connector**: Connector.
    * 
    * @example
    * Connector
@@ -41,7 +41,7 @@ export class ListForwardStrategiesResponseBodyForwardStrategies extends $dara.Mo
    * The name of the forwarding rule.
    * 
    * @example
-   * 白名单加速
+   * Whitelist acceleration
    */
   name?: string;
   /**
@@ -54,7 +54,7 @@ export class ListForwardStrategiesResponseBodyForwardStrategies extends $dara.Mo
   priority?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The status of the forwarding rule. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -98,7 +98,7 @@ export class ListForwardStrategiesResponseBodyForwardStrategies extends $dara.Mo
 export class ListForwardStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of forwarding rules.
+   * The forwarding rules.
    */
   forwardStrategies?: ListForwardStrategiesResponseBodyForwardStrategies[];
   /**
@@ -111,7 +111,7 @@ export class ListForwardStrategiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of policies.
+   * The total number of forwarding rules.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectorRequest extends $dara.Model {
   /**
    * @remarks
-   * ConnectorID。
+   * The connector ID.
    * 
    * This parameter is required.
    * 

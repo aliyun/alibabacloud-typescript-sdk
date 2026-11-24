@@ -29,7 +29,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoDns
   city?: string;
   /**
    * @remarks
-   * The ISP.
+   * The Internet service provider (ISP).
    * 
    * @example
    * telecom
@@ -65,15 +65,15 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoDns
 export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoDnsHops extends $dara.Model {
   /**
    * @remarks
-   * The private access application address. The address can be 1 to 128 characters long and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
+   * The application address for internal network access. The value must be 1 to 128 characters in length and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
    * 
    * @example
-   * *******************************************
+   * 198.51.100.1
    */
   address?: string;
   /**
    * @remarks
-   * The TTL.
+   * The time to live (TTL).
    * 
    * @example
    * 10
@@ -178,7 +178,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoDns
   result?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -298,12 +298,12 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoLin
    * The address.
    * 
    * @example
-   * **********************
+   * 192.0.2.1
    */
   address?: string;
   /**
    * @remarks
-   * The geographic location.
+   * The geographical location.
    */
   geoData?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoLinksHopsGeoData;
   /**
@@ -316,7 +316,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoLin
   latency?: string;
   /**
    * @remarks
-   * The Time to Live (TTL).
+   * The time to live (TTL).
    * 
    * @example
    * 10
@@ -384,7 +384,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoLin
   latency?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -451,7 +451,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
   country?: string;
   /**
    * @remarks
-   * The Internet Service Provider (ISP).
+   * The ISP.
    * 
    * @example
    * ChinaTelecom_L2
@@ -495,7 +495,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
 export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNodes extends $dara.Model {
   /**
    * @remarks
-   * The private access application address. The address can be 1 to 128 characters long and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
+   * The address used to access the application over the internal network. The address must be 1 to 128 characters in length and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
    * 
    * @example
    * 172.27.228.132
@@ -503,7 +503,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
   address?: string;
   /**
    * @remarks
-   * The ID of the cloud network instance.
+   * The instance ID of the cloud network.
    * 
    * @example
    * vpc-xxxxxx
@@ -519,12 +519,12 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
   error?: string;
   /**
    * @remarks
-   * The geographic location information.
+   * The geographical location information.
    */
   geoData?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNodesGeoData;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * 1237
@@ -532,15 +532,15 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
   id?: number;
   /**
    * @remarks
-   * The node name.
+   * The name of the node.
    * 
    * @example
-   * 全局加速
+   * Global acceleration
    */
   name?: string;
   /**
    * @remarks
-   * The English name of the node.
+   * The name of the node in English.
    * 
    * @example
    * Japan Private POP
@@ -556,7 +556,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
   nodeType?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * pop-xxxxxx
@@ -564,7 +564,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
   resourceId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -615,7 +615,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoNod
 export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfo extends $dara.Model {
   /**
    * @remarks
-   * The Domain Name System (DNS) information.
+   * The DNS information.
    */
   dns?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfoDns;
   /**
@@ -675,7 +675,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultNetworkLinkInfo ex
 export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAttributeInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the device.
+   * The ID of the terminal device.
    * 
    * @example
    * E9EE1CE7-4AA0-521D-B8E1-E13E47F05E94
@@ -683,19 +683,13 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAt
   devTag?: string;
   /**
    * @remarks
-   * The operating system of the device. Valid values:
-   * 
-   * - **Windows**: Windows
-   * 
-   * - **macOS**: macOS
-   * 
-   * - **Linux**: Linux
-   * 
-   * - **Android**: Android
-   * 
-   * - **iOS**: iOS
-   * 
-   * - **Windows_Wuying**: Cloud Desktop
+   * The operating system type of the terminal device. Valid values:
+   * - **Windows**: Windows.
+   * - **macOS**: macOS.
+   * - **Linux**: Linux.
+   * - **Android**: Android.
+   * - **iOS**: iOS.
+   * - **Windows_Wuying**: WUYING Workspace.
    * 
    * @example
    * macos
@@ -703,7 +697,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAt
   deviceType?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    */
   file?: string[];
   /**
@@ -716,7 +710,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAt
   firewall?: string;
   /**
    * @remarks
-   * The name of the device. The name can be 1 to 128 characters long and can include letters, numbers, and the following special characters: . , ; - _ / @ and spaces. To query for all devices with names containing 4-byte UTF-8 characters, enter only an underscore (_).
+   * The name of the terminal device. The name must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system additionally queries all terminal devices whose names contain 4-byte UTF-8 characters.
    * 
    * @example
    * DESKTOP-CVTB5KT.CXISHD01.CATHAY_INS.CHN
@@ -724,7 +718,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAt
   hostname?: string;
   /**
    * @remarks
-   * The private IP address of the device.
+   * The internal IP address of the terminal device.
    * 
    * @example
    * 10.5.208.122
@@ -740,7 +734,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAt
   internetIp?: string;
   /**
    * @remarks
-   * The MAC address of the device.
+   * The MAC address of the terminal device.
    * 
    * @example
    * `curl Rj0F9uvI.popscan.xaliyun.com`
@@ -761,7 +755,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAt
   process?: string[];
   /**
    * @remarks
-   * The SSID.
+   * The service set identifier (SSID) of the wireless network.
    * 
    * @example
    * abcd
@@ -825,7 +819,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoRouteStr
   routeType?: string;
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the policy.
    * 
    * @example
    * av-rtd-091c2d6e3f24aae4
@@ -880,7 +874,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoUserGrou
   group?: string[];
   /**
    * @remarks
-   * The matched user group.
+   * The matched user groups.
    * 
    * @example
    * IT
@@ -937,13 +931,10 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoUserGrou
 export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoZeroTrustPolicyInfo extends $dara.Model {
   /**
    * @remarks
-   * The policy action:
-   * 
-   * - **Allow**: allow
-   * 
-   * - **Block**: block
-   * 
-   * - **Observe**: monitor mode
+   * The policy action. Valid values:
+   * - **Allow**: allows the traffic.
+   * - **Block**: blocks the traffic.
+   * - **Observe**: monitor mode.
    * 
    * @example
    * block
@@ -959,7 +950,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoZeroTrus
   appName?: string;
   /**
    * @remarks
-   * The block information.
+   * The blocking information.
    * 
    * @example
    * access denied
@@ -967,10 +958,10 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoZeroTrus
   blockInfo?: string;
   /**
    * @remarks
-   * The name of the zero-trust policy.
+   * The name of the zero trust policy.
    * 
    * @example
-   * 保密测试
+   * Confidentiality test
    */
   policyName?: string;
   static names(): { [key: string]: string } {
@@ -1016,7 +1007,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfo extends
   processTime?: number;
   /**
    * @remarks
-   * The name of the routing policy.
+   * The routing policy name.
    */
   routeStrategyInfo?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoRouteStrategyInfo;
   /**
@@ -1026,7 +1017,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfo extends
   userGroupInfo?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoUserGroupInfo;
   /**
    * @remarks
-   * The zero-trust policy information.
+   * The zero trust policy information.
    */
   zeroTrustPolicyInfo?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoZeroTrustPolicyInfo;
   static names(): { [key: string]: string } {
@@ -1081,7 +1072,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResult extends $dara.Mod
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request stream.
+   * The ID of the request flow.
    * 
    * @example
    * flow-d918b12f9b974f6489fc
@@ -1099,7 +1090,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResult extends $dara.Mod
   policyInfo?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfo;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -1151,7 +1142,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskUdpExtraConfigs extends 
   expectedResponse?: string;
   /**
    * @remarks
-   * The content of the UDP request.
+   * The UDP request content.
    * 
    * @example
    * hello
@@ -1223,7 +1214,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskUserGroup extends $dara.
 export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The task creation time.
    * 
    * @example
    * 2023-08-17 09:49:03
@@ -1231,7 +1222,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the device.
+   * The ID of the terminal device.
    * 
    * @example
    * 76C08B0F-CEFD-8F01-C1D3-0D5B493B5EAF
@@ -1247,11 +1238,9 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   diagnoseId?: string;
   /**
    * @remarks
-   * The diagnostic type. Valid values:
-   * 
-   * - **FullLink**: full-link diagnostics
-   * 
-   * - **Application**: application diagnostics
+   * The diagnosis type. Valid values:
+   * - **FullLink**: end-to-end diagnosis.
+   * - **Application**: application diagnosis.
    * 
    * @example
    * FullLink
@@ -1267,7 +1256,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The ID of the POP.
+   * The ID of the PoP.
    * 
    * @example
    * pop-2504cd067e094750
@@ -1275,11 +1264,9 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   popId?: string;
   /**
    * @remarks
-   * The point of presence (POP) selection mode:
-   * 
-   * - **AutoSelect**: automatic selection
-   * 
-   * - **ManualSelect**: manual selection
+   * The PoP selection mode. Valid values:
+   * - **AutoSelect**: automatic selection.
+   * - **ManualSelect**: manual selection.
    * 
    * @example
    * AutoSelect
@@ -1295,10 +1282,8 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The private access application protocol. Valid values:
-   * 
+   * The protocol used to access the application over the internal network. Valid values:
    * - **TCP**
-   * 
    * - **UDP**
    * 
    * @example
@@ -1307,17 +1292,14 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The diagnostic result.
+   * The diagnosis result.
    */
   result?: GetPADiagnosisTaskResponseBodyDiagnosisTaskResult;
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
+   * The running status of the task. Valid values:
    * - **Running**: The task is running.
-   * 
-   * - **Finished**: The task is complete.
-   * 
+   * - **Finished**: The task is completed.
    * - **Failed**: The task failed.
    * 
    * @example
@@ -1326,7 +1308,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Additional UDP configurations.
+   * The additional UDP configurations.
    */
   udpExtraConfigs?: GetPADiagnosisTaskResponseBodyDiagnosisTaskUdpExtraConfigs;
   /**

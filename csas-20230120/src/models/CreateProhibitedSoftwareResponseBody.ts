@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes.
+   * The bundle ID. This field is applicable only to macOS processes.
    * 
    * @example
    * com.aliyun.security.sase
@@ -13,7 +13,7 @@ export class CreateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends 
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -65,7 +65,7 @@ export class CreateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends 
 export class CreateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes.
+   * The bundle ID. This field is applicable only to macOS processes.
    * 
    * @example
    * com.aliyun.security.sase
@@ -73,7 +73,7 @@ export class CreateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends 
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -125,7 +125,7 @@ export class CreateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends 
 export class CreateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes.
+   * The bundle ID. This field is applicable only to macOS processes.
    * 
    * @example
    * com.aliyun.security.sase
@@ -133,7 +133,7 @@ export class CreateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extend
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process.
+   * The command-line arguments used to start the process.
    * 
    * @example
    * --start-minimized
@@ -185,7 +185,7 @@ export class CreateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extend
 export class CreateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the disabled software, in the yyyy-MM-dd HH:mm:ss format. The time is in the UTC+8 time zone.
+   * The time when the blocked software was created. The time is displayed in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
    * 
    * @example
    * 2025-09-05 10:20:46
@@ -193,7 +193,7 @@ export class CreateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the disabled software.
+   * The description of the blocked software.
    * 
    * @example
    * Endpoint group targeting github
@@ -211,7 +211,7 @@ export class CreateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   macOSProcesses?: CreateProhibitedSoftwareResponseBodySoftwareMacOSProcesses[];
   /**
    * @remarks
-   * The software name.
+   * The name of the software.
    * 
    * @example
    * shell
@@ -219,7 +219,7 @@ export class CreateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the disabled software.
+   * The ID of the blocked software.
    * 
    * @example
    * swb-83995ff2ae38****
@@ -227,7 +227,7 @@ export class CreateProhibitedSoftwareResponseBodySoftware extends $dara.Model {
   softwareId?: string;
   /**
    * @remarks
-   * The IDs of disabled software tags associated with this disabled software.
+   * The IDs of the blocked software tags associated with the blocked software.
    */
   tagIds?: string[];
   /**
@@ -293,7 +293,7 @@ export class CreateProhibitedSoftwareResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the disabled software.
+   * The details of the blocked software.
    */
   software?: CreateProhibitedSoftwareResponseBodySoftware;
   static names(): { [key: string]: string } {

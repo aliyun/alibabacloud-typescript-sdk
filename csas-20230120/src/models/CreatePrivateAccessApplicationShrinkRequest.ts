@@ -50,17 +50,17 @@ export class CreatePrivateAccessApplicationShrinkRequestPortRanges extends $dara
 export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The application address groups. Required when ConfigMode is set to Precise. Not allowed when ConfigMode is an empty string.
+   * The application address groups. This parameter is required when ConfigMode is set to Precise, and cannot be specified when ConfigMode is an empty string.
    */
   addressGroups?: AddressGroup[];
   /**
    * @remarks
-   * The collection of internal-facing access application addresses. You can specify up to 1000 addresses.
+   * The collection of private access application addresses. You can enter up to 1,000 private access application addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * The browser access status of the internal-facing access application. After this feature is enabled, you can access internal applications in a clientless manner. Default value: **Disabled**. Valid values:
+   * The browser access status of the private access application. After you enable this feature, you can access private access applications in clientless mode. Default value: **Disabled**. Valid values:
    * - **Enabled**: enabled.
    * - **Disabled**: disabled.
    * 
@@ -73,24 +73,43 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
    * The configuration mode. Valid values:
    * * Empty string: default mode.
    * * Precise: precise mode.
+   * 
+   * @example
+   * Precise
    */
   configMode?: string;
   /**
    * @remarks
-   * The description of the internal-facing access application. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+   * The description of the private access application. The description must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
-   * This is an internal-facing access application
+   * This is a private access application
    */
   description?: string;
   /**
    * @remarks
-   * The browser access mode parameter: the application configuration.
+   * The health check configuration. This parameter is required when HealthCheckMode is set to Continuous, and cannot be specified when HealthCheckMode is set to OnAccess.
+   */
+  healthCheckConfigShrink?: string;
+  /**
+   * @remarks
+   * The health check mode. Valid values:
+   * * OnAccess: checks upon access without proactive probing.
+   * * Continuous: performs continuous checks and proactive probing based on the configurations in HealthCheckConfig.
+   * If this parameter is not specified, the default value is OnAccess. When the application addresses include wildcard domain names or CIDR blocks, or when the number of application addresses exceeds 10, only OnAccess is supported.
+   * 
+   * @example
+   * OnAccess
+   */
+  healthCheckMode?: string;
+  /**
+   * @remarks
+   * The application configuration in browser access mode.
    */
   l7ConfigShrink?: string;
   /**
    * @remarks
-   * The browser access mode parameter: the prefix of the mapped proxy domain name. The prefix must be 3 to 20 characters in length and can contain lowercase letters, digits, and hyphens (-).
+   * The prefix of the mapped proxy domain name in browser access mode. The prefix must be 3 to 20 characters in length, and can contain lowercase letters, digits, and hyphens (-).
    * 
    * @example
    * app-sample
@@ -98,7 +117,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   l7ProxyDomainAutomaticPrefix?: string;
   /**
    * @remarks
-   * The browser access mode parameter: the custom proxy domain name. The value must be a valid domain name.
+   * The custom proxy domain name in browser access mode. The value must be a valid domain name.
    * 
    * @example
    * app1.example.com
@@ -106,7 +125,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   l7ProxyDomainCustom?: string;
   /**
    * @remarks
-   * The name of the internal-facing access application. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+   * The name of the private access application. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -116,12 +135,12 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The collection of port ranges for the internal-facing access application. You can specify up to 65535 port ranges. Port ranges cannot overlap or be duplicated.
+   * The collection of port ranges for the private access application. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicate or overlap.
    */
   portRanges?: CreatePrivateAccessApplicationShrinkRequestPortRanges[];
   /**
    * @remarks
-   * The protocol of the internal-facing access application. Valid values:
+   * The protocol of the private access application. Valid values:
    * - **All**: all protocols.
    * - **TCP**
    * - **UDP**
@@ -134,7 +153,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The status of the internal-facing access application. Valid values:
+   * The status of the private access application. Valid values:
    * - **Enabled**: enabled.
    * - **Disabled**: disabled.
    * 
@@ -146,9 +165,13 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The collection of internal-facing access tag IDs. You can associate up to 6 custom-type internal-facing access tags with each application.
+   * The collection of private access tag IDs. You can associate up to six custom private access tags with a single private access application.
    */
   tagIds?: string[];
+  /**
+   * @remarks
+   * The configuration for unauthorized application access requests.
+   */
   unauthorizedAccessConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,6 +180,8 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
       browserAccessStatus: 'BrowserAccessStatus',
       configMode: 'ConfigMode',
       description: 'Description',
+      healthCheckConfigShrink: 'HealthCheckConfig',
+      healthCheckMode: 'HealthCheckMode',
       l7ConfigShrink: 'L7Config',
       l7ProxyDomainAutomaticPrefix: 'L7ProxyDomainAutomaticPrefix',
       l7ProxyDomainCustom: 'L7ProxyDomainCustom',
@@ -176,6 +201,8 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
       browserAccessStatus: 'string',
       configMode: 'string',
       description: 'string',
+      healthCheckConfigShrink: 'string',
+      healthCheckMode: 'string',
       l7ConfigShrink: 'string',
       l7ProxyDomainAutomaticPrefix: 'string',
       l7ProxyDomainCustom: 'string',

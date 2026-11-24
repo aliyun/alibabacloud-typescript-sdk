@@ -45,7 +45,7 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTaskUdpExtraConfigs exten
 export class CreatePADiagnosisTaskResponseBodyDiagnosisTaskUserGroup extends $dara.Model {
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * ug-xxxxxxxx
@@ -53,7 +53,7 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTaskUserGroup extends $da
   userGroupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
    * IT
@@ -93,7 +93,7 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
   devTag?: string;
   /**
    * @remarks
-   * The diagnostic task ID.
+   * The ID of the diagnostic task.
    * 
    * @example
    * diag-3e0d36d6c15a0502
@@ -103,8 +103,8 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
    * @remarks
    * The diagnosis type. Valid values:
    * 
-   * - FullLink: full-link diagnosis.
-   * - Application: application diagnosis.
+   * - FullLink: End-to-end diagnosis.
+   * - Application: Application diagnosis.
    * 
    * @example
    * FullLink
@@ -120,7 +120,7 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
   host?: string;
   /**
    * @remarks
-   * The POP point ID. This parameter is required when manual selection is used.
+   * The ID of the PoP. This parameter is required when manual selection is used.
    * 
    * @example
    * pop-8ded63ce9d3d317e
@@ -128,9 +128,9 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
   popId?: string;
   /**
    * @remarks
-   * The POP point selection mode. Valid values:
-   * - **AutoSelect**: automatic selection.
-   * - **ManualSelect**: manual selection.
+   * The PoP selection mode. Valid values:
+   * - **AutoSelect**: Automatic selection.
+   * - **ManualSelect**: Manual selection.
    * 
    * @example
    * AutoSelect
@@ -146,9 +146,9 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
   port?: string;
   /**
    * @remarks
-   * The protocol used by the internal network access application. Valid values:
+   * The application protocol for internal network access. Valid values:
    * - **TCP**
-   * - **UDP**.
+   * - **UDP**
    * 
    * @example
    * TCP
@@ -156,9 +156,9 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
   protocol?: string;
   /**
    * @remarks
-   * The task running status. Valid values:
+   * The running status of the task. Valid values:
    * - **Running**: The task is running.
-   * - **Finished**: The task is complete.
+   * - **Finished**: The task is completed.
    * - **Failed**: The task failed.
    * 
    * @example
@@ -167,7 +167,7 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The extra information for UDP diagnosis.
+   * The additional information for UDP diagnosis.
    */
   udpExtraConfigs?: CreatePADiagnosisTaskResponseBodyDiagnosisTaskUdpExtraConfigs;
   /**

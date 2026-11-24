@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $dara.Model {
   /**
    * @remarks
-   * The total device registration limit. This parameter is valid when the device registration limit type is **LimitAll**.
+   * The total limit on the number of device registrations. This field is valid only when the type of device registration limit is **LimitAll**.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $dar
   all?: number;
   /**
    * @remarks
-   * The number of mobile logins allowed by the device registration limit. This parameter is valid when the device registration limit type is **LimitDiff**.
+   * The limit on the number of mobile logons for device registration. This field is valid only when the type of device registration limit is **LimitDiff**.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $dar
   mobile?: number;
   /**
    * @remarks
-   * The number of PC logins allowed by the device registration limit. This parameter is valid when the device registration limit type is **LimitDiff**.
+   * The limit on the number of PC logons for device registration. This field is valid only when the type of device registration limit is **LimitDiff**.
    * 
    * @example
    * 2
@@ -55,9 +55,9 @@ export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $dar
 export class GetRegistrationPolicyResponseBodyLimitDetail extends $dara.Model {
   /**
    * @remarks
-   * The ownership of the device. Valid values:
-   * - **Company**: company-owned device.
-   * - **Personal**: personal device.
+   * The device ownership. Valid values:
+   * - **Company**: Corporate device.
+   * - **Personal**: Personal device.
    * 
    * @example
    * Personal
@@ -65,15 +65,15 @@ export class GetRegistrationPolicyResponseBodyLimitDetail extends $dara.Model {
   deviceBelong?: string;
   /**
    * @remarks
-   * The device registration limit count.
+   * The limit on the number of device registrations.
    */
   limitCount?: GetRegistrationPolicyResponseBodyLimitDetailLimitCount;
   /**
    * @remarks
-   * The type of the device registration limit. Valid values:
-   * - **Unlimited**: no limit.
-   * - **LimitAll**: limit by total count.
-   * - **LimitDiff**: limit by terminal category.
+   * The type of device registration limit. Valid values:
+   * - **Unlimited**: Unlimited.
+   * - **LimitAll**: Limited by total count.
+   * - **LimitDiff**: Limited by endpoint category.
    * 
    * @example
    * LimitDiff
@@ -110,7 +110,7 @@ export class GetRegistrationPolicyResponseBodyLimitDetail extends $dara.Model {
 export class GetRegistrationPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the device registration policy was created.
+   * The time when the device registration policy was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-05-16 17:18:46
@@ -121,19 +121,19 @@ export class GetRegistrationPolicyResponseBody extends $dara.Model {
    * The description of the device registration policy.
    * 
    * @example
-   * 这是一条设备注册策略。
+   * This is a device registration policy
    */
   description?: string;
   /**
    * @remarks
-   * The list of limit details of the device registration policy.
+   * The list of limit details for the device registration policy.
    */
   limitDetail?: GetRegistrationPolicyResponseBodyLimitDetail[];
   /**
    * @remarks
-   * The match mode of the policy. Valid values:
-   * - **UserGroupAll**: associated with all users.
-   * - **UserGroupNormal**: associated with specific user groups.
+   * The target type for policy matching. Valid values:
+   * - **UserGroupAll**: All users.
+   * - **UserGroupNormal**: Specific user groups.
    * 
    * @example
    * UserGroupAll
@@ -141,7 +141,7 @@ export class GetRegistrationPolicyResponseBody extends $dara.Model {
   matchMode?: string;
   /**
    * @remarks
-   * The name of the device registration policy.
+   * The policy name of the device registration policy.
    * 
    * @example
    * registration_policy_name
@@ -157,7 +157,7 @@ export class GetRegistrationPolicyResponseBody extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The priority of the device registration policy. The value 0 indicates the highest priority, and the value 99 indicates the lowest priority.
+   * The policy priority of the device registration policy. A value of 0 indicates the highest priority, and a value of 99 indicates the lowest priority.
    * 
    * @example
    * 99
@@ -165,7 +165,7 @@ export class GetRegistrationPolicyResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 47363C2B-1AAA-5954-8847-0E50FCC54117
@@ -174,8 +174,8 @@ export class GetRegistrationPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the device registration policy. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -183,12 +183,12 @@ export class GetRegistrationPolicyResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The IDs of the user groups associated with the device registration policy. This parameter is valid when the match mode of the policy is **UserGroupNormal**.
+   * The IDs of the user groups associated with the device registration policy. This field has a value only when the target type for policy matching is **UserGroupNormal**.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The list of whitelisted users in the device registration policy.
+   * The list of whitelisted users for the device registration policy.
    */
   whitelist?: string[];
   static names(): { [key: string]: string } {

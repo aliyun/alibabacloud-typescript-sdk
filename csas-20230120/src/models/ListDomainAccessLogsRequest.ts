@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDomainAccessLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The action taken upon a rule hit. Exact match is used. Valid values:
-   * 
-   * - Audit: Audit.
-   * - Observe: Observe only.
-   * - WhiteList: Allowed by whitelist.
-   * - Block: Blocked.
-   * - Redirect: Redirected to a prompt page.
+   * The matched action for exact match.
    * 
    * @example
    * Block
@@ -27,7 +21,7 @@ export class ListDomainAccessLogsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The department. Exact match is used.
+   * The department for exact match.
    * 
    * @example
    * IT department
@@ -35,7 +29,7 @@ export class ListDomainAccessLogsRequest extends $dara.Model {
   department?: string;
   /**
    * @remarks
-   * The end time of the query. This value is a UNIX timestamp in seconds.
+   * The end time of the query, which is a UNIX timestamp in seconds.
    * 
    * @example
    * 1754956800
@@ -43,7 +37,7 @@ export class ListDomainAccessLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of entries per page in paging. Valid values: 1 to 1000.
+   * The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 1000.
    * 
    * @example
    * 10
@@ -51,7 +45,7 @@ export class ListDomainAccessLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The policy type used to filter results.
+   * The policy type used for filtering.
    * 
    * @example
    * la_domain_white
@@ -59,7 +53,7 @@ export class ListDomainAccessLogsRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The destination domain name accessed. Exact match is used.
+   * The destination domain name for exact match.
    * 
    * @example
    * www.example.com
@@ -67,7 +61,7 @@ export class ListDomainAccessLogsRequest extends $dara.Model {
   remoteHost?: string;
   /**
    * @remarks
-   * The start time of the query. This value is a UNIX timestamp in seconds.
+   * The start time of the query, which is a UNIX timestamp in seconds.
    * 
    * @example
    * 1754870400
@@ -75,7 +69,7 @@ export class ListDomainAccessLogsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The username. Exact match is used.
+   * The username for exact match.
    * 
    * @example
    * zhangsan

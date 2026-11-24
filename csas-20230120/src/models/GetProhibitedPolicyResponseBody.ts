@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the prohibited software is a system built-in entry. Valid values:
-   * - **true**: A system built-in prohibited software entry shared by all Alibaba Cloud accounts. Modification and deletion are not supported.
-   * - **false**: A custom prohibited software entry under the current Alibaba Cloud account.
+   * Indicates whether the prohibited software is a built-in prohibited software. Valid values:
+   * - **true**: The software is a built-in prohibited software that is shared by all Alibaba Cloud accounts and cannot be modified or deleted.
+   * - **false**: The software is a custom prohibited software under the current Alibaba Cloud account.
    * 
    * @example
    * false
@@ -15,7 +15,7 @@ export class GetProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.Mode
   isDefault?: boolean;
   /**
    * @remarks
-   * The prohibited software ID.
+   * The ID of the prohibited software.
    * 
    * @example
    * swb-050216aafaae****
@@ -47,9 +47,9 @@ export class GetProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.Mode
 export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether end users are allowed to submit a filing request for this policy. Valid values:
-   * - **true**: Filing is allowed. The terminal pop-up window provides a filing entry.
-   * - **false**: Filing is not allowed.
+   * Indicates whether terminal users are allowed to submit applications for this policy. Valid values:
+   * - **true**: Applications are allowed. The terminal pop-up window provides an entry for submitting applications.
+   * - **false**: Applications are not allowed.
    * 
    * @example
    * false
@@ -57,7 +57,7 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   allowReport?: boolean;
   /**
    * @remarks
-   * The creation time of the software prohibition policy, in the yyyy-MM-dd HH:mm:ss format using the UTC+8 time zone.
+   * The time when the prohibited software policy was created. The time is displayed in the yyyy-MM-dd HH:mm:ss format and uses the UTC+8 time zone.
    * 
    * @example
    * 2021-07-29 11:26:02
@@ -65,7 +65,7 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the software prohibition policy.
+   * The description of the prohibited software policy.
    * 
    * @example
    * completed
@@ -74,8 +74,8 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the policy is enabled. Valid values:
-   * - **true**: Enabled. The policy is delivered to terminals and takes effect.
-   * - **false**: Disabled. The policy configuration is retained but not delivered to terminals.
+   * - **true**: The policy is enabled, delivered to terminals, and takes effect.
+   * - **false**: The policy is disabled. The configuration is retained but not delivered to terminals.
    * 
    * @example
    * true
@@ -84,8 +84,8 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
    * Indicates whether to forcibly terminate running software processes. Valid values:
-   * - **true**: The terminal immediately terminates the running processes of the software when the policy is triggered.
-   * - **false**: Running processes are not terminated. Only subsequent launches are blocked.
+   * - **true**: The terminal immediately terminates the running processes of the software when the policy is matched.
+   * - **false**: The terminal does not terminate running processes but only prevents subsequent startups.
    * 
    * @example
    * false
@@ -109,9 +109,9 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   mainButtonTextEn?: string;
   /**
    * @remarks
-   * The policy matching target type. Valid values:
-   * - **UserGroupAll**: Associates with all users.
-   * - **UserGroupNormal**: Associates with specific user groups.
+   * The target matching mode of the policy. Valid values:
+   * - **UserGroupAll**: Applies to all users.
+   * - **UserGroupNormal**: Applies to specific user groups.
    * 
    * @example
    * UserGroupNormal
@@ -135,7 +135,7 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   minorButtonTextEn?: string;
   /**
    * @remarks
-   * The name of the software prohibition policy.
+   * The name of the prohibited software policy.
    * 
    * @example
    * PolicyC
@@ -143,9 +143,9 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The object type of the controlled target. Valid values:
-   * - **App**: Controls by prohibited software. The controlled objects are specified by SoftwareIds.
-   * - **Tag**: Controls by prohibited software labels. The controlled objects are specified by TagIds. All prohibited software under the labels is controlled.
+   * The managed object type. Valid values:
+   * - **App**: Managed by prohibited software. The managed objects are specified by SoftwareIds.
+   * - **Tag**: Managed by prohibited software tag. The managed objects are specified by TagIds, and all prohibited software under the tag is managed.
    * 
    * @example
    * App
@@ -153,7 +153,7 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The software prohibition policy ID.
+   * The ID of the prohibited software policy.
    * 
    * @example
    * pid-36ee4a5869f3****
@@ -161,10 +161,10 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The action type. Valid values:
-   * - **Ban**: Blocks the software from running and displays a pop-up notification to the end user.
-   * - **BanSilent**: Blocks the software from running without notifying the end user (silent blocking).
-   * - **Warn**: Displays a pop-up notification to the end user without blocking the software from running.
+   * The enforcement action. Valid values:
+   * - **Ban**: Blocks the software from running and displays a pop-up window to notify the terminal user.
+   * - **BanSilent**: Blocks the software from running silently without notifying the terminal user.
+   * - **Warn**: Displays a pop-up window to notify the terminal user without blocking the software from running.
    * 
    * @example
    * Ban
@@ -180,15 +180,15 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The Chinese prompt content displayed in the terminal pop-up window.
+   * The Chinese prompt content in the terminal pop-up window.
    * 
    * @example
-   * This software has been blocked by the enterprise security policy. To use it, submit an approval request
+   * 该软件已被企业安全策略禁止运行，如需使用请提交报备申请
    */
   promptCh?: string;
   /**
    * @remarks
-   * The English prompt content displayed in the terminal pop-up window.
+   * The English prompt content in the terminal pop-up window.
    * 
    * @example
    * This software is blocked by your enterprise security policy.
@@ -196,7 +196,7 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   promptEn?: string;
   /**
    * @remarks
-   * The approval process ID bound to this policy. An empty string is returned if no approval process is bound. In this case, filing requests submitted by end users are approved by the IT administrator as a fallback. Approval processes are bound by using [AttachPolicy2ApprovalProcess](~~AttachPolicy2ApprovalProcess~~) and unbound by using [DetachPolicy2ApprovalProcess](~~DetachPolicy2ApprovalProcess~~). You can obtain this value from the following operation:
+   * The ID of the approval process bound to the policy. If no approval process is bound, an empty string is returned, and applications submitted by terminal users are approved by the IT administrator. You can bind an approval process by calling [AttachPolicy2ApprovalProcess](~~AttachPolicy2ApprovalProcess~~) and unbind it by calling [DetachPolicy2ApprovalProcess](~~DetachPolicy2ApprovalProcess~~). You can obtain the value from the following operations:
    * - [ListApprovalProcesses](~~ListApprovalProcesses~~): Lists approval processes.
    * 
    * @example
@@ -205,12 +205,12 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   reportProcessId?: string;
   /**
    * @remarks
-   * The collection of prohibited software directly controlled by this policy.
+   * The list of prohibited software directly managed by the policy.
    */
   softwareIds?: GetProhibitedPolicyResponseBodyPolicySoftwareIds[];
   /**
    * @remarks
-   * The collection of prohibited software label IDs controlled by this policy.
+   * The list of prohibited software tag IDs managed by the policy.
    */
   tagIds?: string[];
   /**
@@ -231,7 +231,7 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   titleEn?: string;
   /**
    * @remarks
-   * The collection of user group IDs to which this policy applies.
+   * The list of user group IDs to which the policy applies.
    */
   userGroupIds?: string[];
   /**
@@ -321,7 +321,7 @@ export class GetProhibitedPolicyResponseBodyPolicy extends $dara.Model {
 export class GetProhibitedPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the software prohibition policy.
+   * The details of the prohibited software policy.
    */
   policy?: GetProhibitedPolicyResponseBodyPolicy;
   /**

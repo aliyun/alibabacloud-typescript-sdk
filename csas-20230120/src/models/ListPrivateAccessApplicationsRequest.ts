@@ -6,8 +6,8 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   /**
    * @remarks
    * The access mode. Valid values:
-   * - **app**: application access. Filters applications that support application access.
-   * - **browser**: browser access. Filters applications that support browser access.
+   * - **app**: Application access. Filters applications that support application access.
+   * - **browser**: Browser access. Filters applications that support browser access.
    * 
    * @example
    * app
@@ -15,7 +15,7 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   accessModes?: string;
   /**
    * @remarks
-   * The address of the internal-facing access application. The address is 1 to 128 characters in length and supports IPv4 addresses, CIDR blocks, domain names, and wildcard domain names.
+   * The address of the private access application. The address must be 1 to 128 characters in length, and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
    * 
    * @example
    * 192.168.0.0/16
@@ -23,12 +23,12 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The IDs of internal-facing access applications. You can specify up to 100 application IDs.
+   * The IDs of the private access applications. You can enter up to 100 private access application IDs.
    */
   applicationIds?: string[];
   /**
    * @remarks
-   * The connector ID. You can obtain the ID from the [ListConnectors](~~ListConnectors~~) operation.
+   * The ID of the connector. You can obtain the value from the following operation: [ListConnectors](~~ListConnectors~~): List connectors.
    * 
    * @example
    * connector-94db94e06b98****
@@ -36,7 +36,7 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * The page number of the current page displayed in a paged query. Valid values: 1 to 10000.
+   * The page number of the current page in a paged query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -46,7 +46,19 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the internal-facing access application. The name is 1 to 128 characters in length, supports Chinese and uppercase and lowercase letters, and can contain digits, periods (.), underscores (_), and hyphens (-).
+   * Filters by health check status. Valid values:
+   * * normal: The success rate of the last check is greater than or equal to 95%.
+   * * partialError: The success rate of the last check is greater than 0 and less than 95%.
+   * * error: The success rate of the last check is 0.
+   * * uncompleted: No check results are available.
+   * 
+   * @example
+   * normal
+   */
+  healthCheckStatus?: string;
+  /**
+   * @remarks
+   * The name of the private access application. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * private_access_application_name
@@ -64,9 +76,9 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the internal-facing access policy. You can obtain the ID from the following operations:
-   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries internal-facing access policies in batches.
-   * - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal-facing access policy.
+   * The ID of the private access policy. You can obtain the value from the following operations:
+   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): List private access policies.
+   * - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create a private access policy.
    * 
    * @example
    * pa-policy-54a7838a48bf****
@@ -74,9 +86,9 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The status of the internal-facing access application. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
+   * The status of the private access application. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -84,9 +96,9 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the internal-facing access tag. You can obtain the ID from the following operations:
-   * - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): queries internal-facing access tags in batches.
-   * - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): creates an internal-facing access tag.
+   * The ID of the private access tag. You can obtain the value from the following operations:
+   * - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): List private access tags.
+   * - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Create a private access tag.
    * 
    * @example
    * tag-d3f64e8bdd4a****
@@ -99,6 +111,7 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
       applicationIds: 'ApplicationIds',
       connectorId: 'ConnectorId',
       currentPage: 'CurrentPage',
+      healthCheckStatus: 'HealthCheckStatus',
       name: 'Name',
       pageSize: 'PageSize',
       policyId: 'PolicyId',
@@ -114,6 +127,7 @@ export class ListPrivateAccessApplicationsRequest extends $dara.Model {
       applicationIds: { 'type': 'array', 'itemType': 'string' },
       connectorId: 'string',
       currentPage: 'number',
+      healthCheckStatus: 'string',
       name: 'string',
       pageSize: 'number',
       policyId: 'string',

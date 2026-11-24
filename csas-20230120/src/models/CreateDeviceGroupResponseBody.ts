@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeviceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The device label ID.
+   * The ID of the device tag.
    * 
    * @example
    * device-group-5191cf830a5e****

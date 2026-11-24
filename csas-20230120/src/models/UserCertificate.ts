@@ -4,44 +4,76 @@ import * as $dara from '@darabonba/typescript';
 
 export class UserCertificate extends $dara.Model {
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * cert-aabbccdd
    */
   certId?: string;
   /**
+   * @remarks
+   * The certificate content in PEM format.
+   * 
    * @example
-   * 用于测试
+   * -----BEGIN CERTIFICATE-----
+   * MIID...****
+   * -----END CERTIFICATE-----
    */
   certificate?: string;
   /**
+   * @remarks
+   * The certificate description.
+   * 
    * @example
-   * xxxx
+   * Internal network application access certificate
    */
   description?: string;
+  /**
+   * @remarks
+   * The domain names for which the certificate is valid.
+   */
   dnsNames?: string[];
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 1734492686
    */
   expTimeUnix?: number;
   /**
+   * @remarks
+   * The creation timestamp.
+   * 
    * @example
    * 1734523812
    */
   gmtCreateUnix?: number;
   /**
+   * @remarks
+   * The update timestamp.
+   * 
    * @example
    * 1734523812
    */
   gmtModifiedUnix?: number;
   /**
+   * @remarks
+   * The certificate name.
+   * 
    * @example
-   * 证书1
+   * Certificate 1
    */
   name?: string;
   /**
+   * @remarks
+   * The PEM private key.
+   * 
    * @example
-   * xxxx
+   * -----BEGIN PRIVATE KEY-----
+   * MIIE...****
+   * -----END PRIVATE KEY-----
    */
   privateKey?: string;
   static names(): { [key: string]: string } {

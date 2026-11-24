@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProhibitedSoftwareShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The prohibited software ID.
+   * The ID of the prohibited software.
    */
   softwareIdShrink?: string;
   static names(): { [key: string]: string } {

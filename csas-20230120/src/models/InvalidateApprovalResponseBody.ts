@@ -13,7 +13,7 @@ export class InvalidateApprovalResponseBody extends $dara.Model {
   approvalId?: string;
   /**
    * @remarks
-   * The effective status of the approval. When the invalidation succeeds, the value is fixed as Expired, which indicates that the approval has been invalidated.
+   * The effective status of the report. If the invalidation succeeds, Expired is returned to indicate that the report is invalidated.
    * 
    * @example
    * Expired
@@ -21,9 +21,9 @@ export class InvalidateApprovalResponseBody extends $dara.Model {
   effectStatus?: string;
   /**
    * @remarks
-   * The approval type. Valid values:
-   * * ApprovalReport: approval.
-   * * BackendReport: backend approval.
+   * The report type. Valid values:
+   * * ApprovalReport: approval report.
+   * * BackendReport: backend report.
    * 
    * @example
    * BackendReport

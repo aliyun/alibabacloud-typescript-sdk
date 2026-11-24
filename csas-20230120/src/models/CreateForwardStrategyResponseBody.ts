@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateForwardStrategyResponseBodyForwardStrategy extends $dara.Model {
   /**
    * @remarks
-   * The description of the traffic forwarding rule.
+   * The description of the forwarding rule.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class CreateForwardStrategyResponseBodyForwardStrategy extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The target instance ID.
+   * The instance ID of the target instance.
    * 
    * @example
    * connector-af9b4ee6fd15d82d
@@ -30,7 +30,7 @@ export class CreateForwardStrategyResponseBodyForwardStrategy extends $dara.Mode
   destinationType?: string;
   /**
    * @remarks
-   * The ID of the traffic forwarding rule.
+   * The ID of the forwarding rule.
    * 
    * @example
    * fs-345d6ab82b5a43a3
@@ -54,9 +54,9 @@ export class CreateForwardStrategyResponseBodyForwardStrategy extends $dara.Mode
   priority?: number;
   /**
    * @remarks
-   * The status of the internal-facing access application. Valid values:
-   * - **Enabled**: enabled.
-   * - **Disabled**: disabled.
+   * The status of the internal network access application. Valid values:
+   * - **Enabled**: The application is enabled.
+   * - **Disabled**: The application is disabled.
    * 
    * @example
    * Enabled
@@ -98,7 +98,7 @@ export class CreateForwardStrategyResponseBodyForwardStrategy extends $dara.Mode
 export class CreateForwardStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The traffic forwarding rule.
+   * The forwarding rule.
    */
   forwardStrategy?: CreateForwardStrategyResponseBodyForwardStrategy;
   /**

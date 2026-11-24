@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class AddDeviceGroupMatchDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of terminal device IDs to add. At least one ID must be specified, and duplicate values are not allowed.
+   * The IDs of the terminal devices to add. You must specify at least one ID, and the IDs must be unique.
    * 
    * This parameter is required.
    */
   devTags?: string[];
   /**
    * @remarks
-   * The device label ID.
+   * The ID of the device tag.
    * 
    * This parameter is required.
    * 

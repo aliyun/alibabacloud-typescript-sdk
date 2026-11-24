@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetPrivateAccessApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the internal-facing access application. You can obtain the value from:
-   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications.
-   * - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates an internal-facing access application.
+   * The ID of the private access application. You can obtain the value from the following operations:
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): List private access applications.
+   * - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Create a private access application.
    * 
    * This parameter is required.
    * 

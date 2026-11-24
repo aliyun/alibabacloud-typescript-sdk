@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProhibitedTagResponseBodyTag extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the prohibited software tag, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+   * The time when the prohibited software tag was created. The time is in the yyyy-MM-dd HH:mm:ss format and is in the UTC+8 time zone.
    * 
    * @example
    * 2025-09-05 10:20:46

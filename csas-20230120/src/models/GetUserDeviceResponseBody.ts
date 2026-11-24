@@ -85,7 +85,7 @@ export class GetUserDeviceResponseBodyDeviceNetInterfaceInfo extends $dara.Model
 export class GetUserDeviceResponseBodyDeviceProcesses extends $dara.Model {
   /**
    * @remarks
-   * The CPU usage percentage of the process.
+   * The percentage of CPU usage by the process.
    * 
    * @example
    * 0.05
@@ -93,7 +93,7 @@ export class GetUserDeviceResponseBodyDeviceProcesses extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The process running description.
+   * The description of the running process.
    * 
    * @example
    * C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe
@@ -101,7 +101,7 @@ export class GetUserDeviceResponseBodyDeviceProcesses extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The memory usage of the process, in MB.
+   * The memory usage of the process. Unit: MB.
    * 
    * @example
    * 233
@@ -109,7 +109,7 @@ export class GetUserDeviceResponseBodyDeviceProcesses extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The process name.
+   * The name of the process.
    * 
    * @example
    * chrome.exe
@@ -146,6 +146,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @remarks
    * The client status. Valid values:
+   * - **Online**: online
+   * - **Offline**: offline
    * 
    * @example
    * Online
@@ -161,7 +163,10 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The auto-logon status of the device. Valid values:
+   * The passwordless login status of the device. Valid values:
+   * - **Enabled**: enabled
+   * - **Disabled**: disabled
+   * - **Unprovisioned**: unprovisioned
    * 
    * @example
    * Enabled
@@ -169,7 +174,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   autoLoginStatus?: string;
   /**
    * @remarks
-   * The battery health percentage.
+   * The battery health.
    * 
    * @example
    * 100
@@ -177,7 +182,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   batteryHealthPercentage?: number;
   /**
    * @remarks
-   * The battery remaining charge percentage.
+   * The remaining battery percentage.
    * 
    * @example
    * 90
@@ -185,7 +190,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   batteryRemainingPercentage?: number;
   /**
    * @remarks
-   * The CPU model of the terminal device.
+   * The CPU model of the endpoint device.
    * 
    * @example
    * Apple M1
@@ -201,7 +206,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   city?: string;
   /**
    * @remarks
-   * The city name in English.
+   * The city in English.
    * 
    * @example
    * Beijing City
@@ -209,7 +214,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   cityEn?: string;
   /**
    * @remarks
-   * The city name in Chinese.
+   * The city in Chinese.
    * 
    * @example
    * 北京市
@@ -225,7 +230,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   continent?: string;
   /**
    * @remarks
-   * The continent name in English.
+   * The continent in English.
    * 
    * @example
    * Asia
@@ -233,7 +238,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   continentEn?: string;
   /**
    * @remarks
-   * The continent name in Chinese.
+   * The continent in Chinese.
    * 
    * @example
    * 亚洲
@@ -249,7 +254,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   country?: string;
   /**
    * @remarks
-   * The country name in English.
+   * The country in English.
    * 
    * @example
    * China
@@ -257,7 +262,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   countryEn?: string;
   /**
    * @remarks
-   * The country name in Chinese.
+   * The country in Chinese.
    * 
    * @example
    * 中国
@@ -265,7 +270,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   countryZh?: string;
   /**
    * @remarks
-   * The registration time of the terminal device.
+   * The registration time of the endpoint device. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-05-16 17:18:46
@@ -276,12 +281,14 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    * The department to which the user belongs.
    * 
    * @example
-   * QA Department
+   * Test Department
    */
   department?: string;
   /**
    * @remarks
-   * The ownership of the terminal device. Valid values:
+   * The ownership of the endpoint device. Valid values:
+   * - **Personal**: personal device
+   * - **Company**: company device
    * 
    * @example
    * Company
@@ -289,7 +296,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   deviceBelong?: string;
   /**
    * @remarks
-   * The model of the terminal device.
+   * The model of the endpoint device.
    * 
    * @example
    * MacBookPro17,1
@@ -297,7 +304,13 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   deviceModel?: string;
   /**
    * @remarks
-   * The status of the terminal device. Valid values:
+   * The status of the endpoint device. Valid values:
+   * - **Online**: online
+   * - **Offline**: offline
+   * - **LongTermOffline**: long-term offline
+   * - **Locked**: locked
+   * - **Lost**: lost
+   * - **Unbound**: unbound
    * 
    * @example
    * Online
@@ -305,7 +318,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   deviceStatus?: string;
   /**
    * @remarks
-   * The ID of the terminal device.
+   * The ID of the endpoint device.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -313,7 +326,13 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   deviceTag?: string;
   /**
    * @remarks
-   * The operating system type of the terminal device. Valid values:
+   * The operating system type of the endpoint device. Valid values:
+   * - **Windows**: Windows
+   * - **macOS**: macOS
+   * - **Linux**: Linux
+   * - **Android**: Android
+   * - **iOS**: iOS
+   * - **Windows_Wuying**: WUYING Workspace
    * 
    * @example
    * Windows
@@ -321,7 +340,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   deviceType?: string;
   /**
    * @remarks
-   * The operating system version of the terminal device.
+   * The operating system version of the endpoint device.
    * 
    * @example
    * 3.5.1
@@ -329,7 +348,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   deviceVersion?: string;
   /**
    * @remarks
-   * The disk model of the terminal device.
+   * The disk model of the endpoint device.
    * 
    * @example
    * APPLE SSD AP0512Q Media
@@ -337,7 +356,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   disk?: string;
   /**
    * @remarks
-   * The available disk space, in GB.
+   * The available disk space. Unit: GB.
    * 
    * @example
    * 200
@@ -345,7 +364,23 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   diskAvailable?: number;
   /**
    * @remarks
-   * The used disk space, in GB.
+   * The disk encryption status of the user endpoint device. Valid values: Unsupported (encryption not supported), Unencrypted (not encrypted), Encrypting (encrypting), Encrypted (encrypted), and EncryptFailed (encryption failed). If the status is not reported, is null, or is unknown, Unencrypted is returned.
+   * 
+   * @example
+   * Unsupported
+   */
+  diskEncryptStatus?: string;
+  /**
+   * @remarks
+   * The reason why disk encryption failed or is not supported on the user endpoint device. This reason is returned only when DiskEncryptStatus is Unsupported or EncryptFailed. For other statuses, an empty string is returned. Maximum length: 512 characters.
+   * 
+   * @example
+   * The current operating system version does not support BitLocker
+   */
+  diskEncryptStatusReason?: string;
+  /**
+   * @remarks
+   * The used disk space. Unit: GB.
    * 
    * @example
    * 103
@@ -354,6 +389,10 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @remarks
    * The office data protection status. Valid values:
+   * - **Enabled**: enabled
+   * - **Disabled**: disabled
+   * - **Unprovisioned**: unprovisioned
+   * - **Unauthorized**: unauthorized
    * 
    * @example
    * Unauthorized
@@ -362,6 +401,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @remarks
    * The anti-intrusion status. Valid values:
+   * - **Enabled**: enabled
+   * - **Disabled**: disabled
    * 
    * @example
    * Disabled
@@ -369,12 +410,12 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   edrStatus?: string;
   /**
    * @remarks
-   * The historical users of the terminal device.
+   * The collection of historical users of the endpoint device.
    */
   historyUsers?: GetUserDeviceResponseBodyDeviceHistoryUsers[];
   /**
    * @remarks
-   * The name of the terminal device.
+   * The name of the endpoint device.
    * 
    * @example
    * win10-64bit
@@ -383,6 +424,9 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @remarks
    * The Internet access status. Valid values:
+   * - **Enabled**: enabled
+   * - **Disabled**: disabled
+   * - **Unprovisioned**: unprovisioned
    * 
    * @example
    * Disabled
@@ -390,7 +434,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   iaStatus?: string;
   /**
    * @remarks
-   * The internal IP address of the terminal device.
+   * The internal IP address of the endpoint device.
    * 
    * @example
    * 172.16.XX.XX
@@ -398,7 +442,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   innerIP?: string;
   /**
    * @remarks
-   * Indicates whether the terminal has joined an AD domain.
+   * Indicates whether the endpoint has joined an Active Directory (AD) domain.
    * 
    * @example
    * true
@@ -406,7 +450,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   joinAdDomain?: boolean;
   /**
    * @remarks
-   * The MAC address of the terminal device.
+   * The MAC address of the endpoint device.
    * 
    * @example
    * 48:9e:XX:XX:02:80
@@ -414,7 +458,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   mac?: string;
   /**
    * @remarks
-   * The IDs of matched device groups.
+   * The collection of matched device group IDs.
    */
   matchDeviceGroupIds?: string[];
   /**
@@ -428,6 +472,9 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @remarks
    * The network access control status. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * - **Unprovisioned**: Unprovisioned.
    * 
    * @example
    * Unprovisioned
@@ -440,7 +487,10 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   netInterfaceInfo?: GetUserDeviceResponseBodyDeviceNetInterfaceInfo[];
   /**
    * @remarks
-   * The private access status. Valid values:
+   * The internal network access status. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * - **Unprovisioned**: Unprovisioned.
    * 
    * @example
    * Enabled
@@ -448,7 +498,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   paStatus?: string;
   /**
    * @remarks
-   * The list of processes running on the terminal.
+   * The list of running processes on the terminal device.
    */
   processes?: GetUserDeviceResponseBodyDeviceProcesses[];
   /**
@@ -461,7 +511,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   province?: string;
   /**
    * @remarks
-   * The province name in English.
+   * The province in English.
    * 
    * @example
    * Beijing
@@ -469,7 +519,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   provinceEn?: string;
   /**
    * @remarks
-   * The province name in Chinese.
+   * The province in Chinese.
    * 
    * @example
    * 北京市
@@ -486,6 +536,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   /**
    * @remarks
    * Indicates whether sharing is enabled for the device. Valid values:
+   * - **true**: Sharing is enabled.
+   * - **false**: Sharing is disabled.
    * 
    * @example
    * true
@@ -493,7 +545,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   sharingStatus?: boolean;
   /**
    * @remarks
-   * The motherboard serial number.
+   * The serial number of the baseboard.
    * 
    * @example
    * PJGGU00WBD****
@@ -501,7 +553,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   snBaseBoard?: string;
   /**
    * @remarks
-   * The serial number (SN) of the BIOS system.
+   * The serial number of the BIOS.
    * 
    * @example
    * 5CG003****
@@ -509,7 +561,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   snBios?: string;
   /**
    * @remarks
-   * The hard disk serial number.
+   * The serial number of the disk drive.
    * 
    * @example
    * WD-WXR1A99A****
@@ -517,7 +569,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   snDiskDrive?: string;
   /**
    * @remarks
-   * The serial number (SN) of the processor.
+   * The serial number of the processor.
    * 
    * @example
    * BFEBFBFF0008****
@@ -525,7 +577,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   snProcessor?: string;
   /**
    * @remarks
-   * The system serial number.
+   * The serial number of the system.
    * 
    * @example
    * KVN9C9****
@@ -549,7 +601,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   terminalInfoCollectTime?: number;
   /**
    * @remarks
-   * The last online time of the terminal device.
+   * The last online time of the terminal device. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 19:04:42
@@ -568,7 +620,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    * The name of the office area.
    * 
    * @example
-   * Test Office Area
+   * Test office area
    */
   workshop?: string;
   static names(): { [key: string]: string } {
@@ -598,6 +650,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       deviceVersion: 'DeviceVersion',
       disk: 'Disk',
       diskAvailable: 'DiskAvailable',
+      diskEncryptStatus: 'DiskEncryptStatus',
+      diskEncryptStatusReason: 'DiskEncryptStatusReason',
       diskUsed: 'DiskUsed',
       dlpStatus: 'DlpStatus',
       edrStatus: 'EdrStatus',
@@ -658,6 +712,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       deviceVersion: 'string',
       disk: 'string',
       diskAvailable: 'number',
+      diskEncryptStatus: 'string',
+      diskEncryptStatusReason: 'string',
       diskUsed: 'number',
       dlpStatus: 'string',
       edrStatus: 'string',
@@ -715,7 +771,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
 export class GetUserDeviceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The terminal device.
+   * The endpoint device.
    */
   device?: GetUserDeviceResponseBodyDevice;
   /**

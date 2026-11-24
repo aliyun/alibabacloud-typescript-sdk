@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProhibitedPolicyRequestSoftwareIds extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the prohibited software is a system built-in entry. Valid values:
-   * - **true**: A system built-in prohibited software entry shared across all Alibaba Cloud accounts. It cannot be modified or deleted.
-   * - **false**: A custom prohibited software entry under the current Alibaba Cloud account.
+   * Specifies whether the prohibited software is built-in. Valid values:
+   * - **true**: The software is built-in, shared by all Alibaba Cloud accounts, and cannot be modified or deleted.
+   * - **false**: The software is custom prohibited software under the current Alibaba Cloud account.
    * 
    * @example
    * true
@@ -16,8 +16,8 @@ export class UpdateProhibitedPolicyRequestSoftwareIds extends $dara.Model {
   /**
    * @remarks
    * The ID of the prohibited software. You can obtain the value from the following operations:
-   * - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): Lists prohibited software.
-   * - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): Creates custom prohibited software.
+   * - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): queries prohibited software in batches.
+   * - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): creates custom prohibited software.
    * 
    * @example
    * swb-23d749361c41****
@@ -49,9 +49,9 @@ export class UpdateProhibitedPolicyRequestSoftwareIds extends $dara.Model {
 export class UpdateProhibitedPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether endpoint users are allowed to submit a filing request for this policy. Valid values:
-   * - **true**: Filing is allowed. A filing entry is provided in the pop-up notification on the endpoint.
-   * - **false**: Filing is not allowed.
+   * Specifies whether to allow endpoint users to submit exemption requests for the policy. Valid values:
+   * - **true**: Exemption requests are allowed. The endpoint pop-up window provides an entry for submitting requests.
+   * - **false**: Exemption requests are not allowed.
    * 
    * @example
    * false
@@ -59,7 +59,7 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   allowReport?: string;
   /**
    * @remarks
-   * The description of the software prohibition policy. The description can contain Chinese characters, uppercase and lowercase letters, digits, spaces, periods (.), underscores (_), and hyphens (-). The description can be up to 128 characters in length and can be left empty.
+   * The description of the software prohibition policy. The description can contain Chinese characters, uppercase and lowercase letters, digits, spaces, periods (.), underscores (_), and hyphens (-). It can be up to 128 characters in length and can be empty.
    * 
    * @example
    * No description
@@ -68,8 +68,8 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the policy is enabled. Valid values:
-   * - **true**: Enabled. The policy is delivered to endpoints and takes effect.
-   * - **false**: Disabled. The policy configuration is retained but not delivered to endpoints.
+   * - **true**: The policy is enabled and delivered to endpoints to take effect.
+   * - **false**: The policy is disabled. The configuration is retained but not delivered to endpoints.
    * 
    * @example
    * true
@@ -78,8 +78,8 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to forcibly terminate running software processes. Valid values:
-   * - **true**: The endpoint immediately terminates the running processes of the software when the policy is triggered.
-   * - **false**: Running processes are not terminated. Only subsequent launches are blocked.
+   * - **true**: The endpoint immediately terminates the running processes of the software when the policy is matched.
+   * - **false**: Running processes are not terminated. Only subsequent startups are blocked.
    * 
    * @example
    * false
@@ -87,15 +87,15 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   forceKill?: boolean;
   /**
    * @remarks
-   * The Chinese text of the primary button in the pop-up notification on the endpoint.
+   * The Chinese text of the primary button in the endpoint pop-up window.
    * 
    * @example
-   * Submit Filing
+   * Submit request
    */
   mainButtonTextCh?: string;
   /**
    * @remarks
-   * The English text of the primary button in the pop-up notification on the endpoint.
+   * The English text of the primary button in the endpoint pop-up window.
    * 
    * @example
    * Report
@@ -103,9 +103,9 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   mainButtonTextEn?: string;
   /**
    * @remarks
-   * The scope in which the policy takes effect. Valid values:
-   * - **UserGroupAll**: Takes effect for all users under the current Alibaba Cloud account. No user group needs to be specified.
-   * - **UserGroupNormal**: Takes effect only for users in the user groups specified by UserGroupIds.
+   * The effective scope. Valid values:
+   * - **UserGroupAll**: applies to all users under the current Alibaba Cloud account. You do not need to specify user groups.
+   * - **UserGroupNormal**: applies only to users in the user groups specified by UserGroupIds.
    * 
    * @example
    * UserGroupNormal
@@ -113,15 +113,15 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   matchMode?: string;
   /**
    * @remarks
-   * The Chinese text of the secondary button in the pop-up notification on the endpoint.
+   * The Chinese text of the secondary button in the endpoint pop-up window.
    * 
    * @example
-   * Got It
+   * Got it
    */
   minorButtonTextCh?: string;
   /**
    * @remarks
-   * The English text of the secondary button in the pop-up notification on the endpoint.
+   * The English text of the secondary button in the endpoint pop-up window.
    * 
    * @example
    * I know
@@ -129,17 +129,17 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   minorButtonTextEn?: string;
   /**
    * @remarks
-   * Policy Name of the software prohibition policy. Policy Name must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-). Spaces are not supported.
+   * Policy Name of the software prohibition policy. Policy Name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-). Spaces are not supported.
    * 
    * @example
-   * ProhibitionPolicy
+   * Prohibition policy
    */
   name?: string;
   /**
    * @remarks
    * The object type. Valid values:
-   * - **App**: Controls by prohibited software. The controlled objects are specified by SoftwareIds.
-   * - **Tag**: Controls by prohibited software tag. The controlled objects are specified by TagIds. All prohibited software under the specified tags is controlled.
+   * - **App**: manages prohibited software. The managed objects are specified by SoftwareIds.
+   * - **Tag**: manages prohibited software tags. The managed objects are specified by TagIds. All prohibited software under the tags are managed.
    * 
    * @example
    * App
@@ -158,9 +158,9 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The action to take. If this parameter is not specified, the original value is retained. Valid values:
-   * - **Ban**: Blocks the software from running and displays a pop-up notification on the endpoint to alert the user.
-   * - **BanSilent**: Blocks the software from running without notifying the user (silent blocking).
-   * - **Warn**: Displays a pop-up notification on the endpoint to alert the user without blocking the software from running.
+   * - **Ban**: blocks the software from running and displays a pop-up window on the endpoint to notify the user.
+   * - **BanSilent**: blocks the software from running without notifying the user.
+   * - **Warn**: displays a pop-up window on the endpoint to notify the user without blocking the software from running.
    * 
    * @example
    * Ban
@@ -176,7 +176,7 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The Chinese prompt content displayed in the pop-up notification on the endpoint.
+   * The Chinese prompt content in the endpoint pop-up window.
    * 
    * @example
    * test
@@ -184,7 +184,7 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   promptCh?: string;
   /**
    * @remarks
-   * The English prompt content displayed in the pop-up notification on the endpoint.
+   * The English prompt content in the endpoint pop-up window.
    * 
    * @example
    * test
@@ -192,25 +192,25 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   promptEn?: string;
   /**
    * @remarks
-   * The collection of prohibited software directly controlled by this policy.
+   * The collection of prohibited software directly managed by the policy.
    */
   softwareIds?: UpdateProhibitedPolicyRequestSoftwareIds[];
   /**
    * @remarks
-   * The collection of prohibited software tag IDs controlled by this policy.
+   * The collection of prohibited software tag IDs managed by the policy.
    */
   tagIds?: string[];
   /**
    * @remarks
-   * The Chinese title of the pop-up notification on the endpoint.
+   * The Chinese title of the endpoint pop-up window.
    * 
    * @example
-   * Software Prohibition Reminder
+   * Software prohibition reminder
    */
   titleCh?: string;
   /**
    * @remarks
-   * The English title of the pop-up notification on the endpoint.
+   * The English title of the endpoint pop-up window.
    * 
    * @example
    * Software Blocked
@@ -218,12 +218,12 @@ export class UpdateProhibitedPolicyRequest extends $dara.Model {
   titleEn?: string;
   /**
    * @remarks
-   * The collection of user group IDs for which the policy takes effect. Duplicate values are not allowed.
+   * The collection of user group IDs to which the policy applies. Duplicates are not allowed.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The list of exempted usernames. Duplicate values are not allowed.
+   * The list of exempted usernames. Duplicates are not allowed.
    */
   whitelist?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSoftwarelibDistributeTaskResponseBodyTask extends $dara.Model {
   /**
    * @remarks
-   * The task creation time as a second-level UNIX timestamp.
+   * The time when the task was created. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782268092
@@ -13,7 +13,7 @@ export class CreateSoftwarelibDistributeTaskResponseBodyTask extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * test_task
@@ -21,7 +21,7 @@ export class CreateSoftwarelibDistributeTaskResponseBodyTask extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The software name.
+   * The name of the software.
    * 
    * @example
    * test software
@@ -29,11 +29,11 @@ export class CreateSoftwarelibDistributeTaskResponseBodyTask extends $dara.Model
   softwareName?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * - **enabled**: enabled.
-   * - **disabled**: disabled.
+   * The status of the task. Valid values:
+   * - **enabled**: Enabled.
+   * - **disabled**: Disabled.
    * 
-   * The initial status of a task after creation is disabled.
+   * After a task is created, its initial status is disabled.
    * 
    * @example
    * disabled
@@ -43,8 +43,8 @@ export class CreateSoftwarelibDistributeTaskResponseBodyTask extends $dara.Model
    * @remarks
    * The operating system to which the task applies. Valid values:
    * - **Windows**: Windows.
-   * - **Mac(Apple)**: macOS with Apple silicon.
-   * - **Mac(Intel)**: macOS with Intel processors.
+   * - **Mac(Apple)**: macOS on Apple silicon.
+   * - **Mac(Intel)**: macOS on Intel processors.
    * 
    * @example
    * Windows
@@ -52,7 +52,7 @@ export class CreateSoftwarelibDistributeTaskResponseBodyTask extends $dara.Model
   supportOs?: string;
   /**
    * @remarks
-   * The task ID, which is used to query the task execution result.
+   * The ID of the task. You can use the ID to query the task execution result.
    * 
    * @example
    * softwarelib-distribute-task-911dd7898bc2****
@@ -92,7 +92,7 @@ export class CreateSoftwarelibDistributeTaskResponseBodyTask extends $dara.Model
 export class CreateSoftwarelibDistributeTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * B608C6AE-623D-55C4-9454-601B88AE937E

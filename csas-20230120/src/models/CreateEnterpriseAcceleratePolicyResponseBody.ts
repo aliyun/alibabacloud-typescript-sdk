@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEnterpriseAcceleratePolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the enterprise acceleration policy.
+   * 
+   * @example
+   * eap-0123456789abcdef
+   */
   eapId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2CABFEBB-0CE7-575E-833A-266F75D46713

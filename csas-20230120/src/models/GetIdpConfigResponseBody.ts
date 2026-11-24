@@ -5,31 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdpConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AccessKey ID for the IDaaS identity provider.
+   * The AccessKey ID of the IDaaS identity source.
    * 
    * @example
-   * *******
+   * ExampleAccessKeyId****
    */
   accessKey?: string;
   /**
    * @remarks
-   * AccessKey for the IDaaS identity provider.
+   * The AccessKey secret of the IDaaS identity source.
    * 
    * @example
-   * *******
+   * ExampleAccessKeySecret****
    */
   accessKeySecret?: string;
   /**
    * @remarks
-   * Description of the identity provider configuration.
+   * The description of the identity source configuration.
    * 
    * @example
-   * 示例身份源
+   * Sample identity source
    */
   description?: string;
   /**
    * @remarks
-   * URL to query the organizational structure from a custom identity provider.
+   * The URL used to query the organizational structure of a self-managed identity source.
    * 
    * @example
    * https://172.10.XX.XX:4321/getGroup?name=%s&pass=%s
@@ -37,7 +37,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   getGroupUrl?: string;
   /**
    * @remarks
-   * ID of the identity provider configuration.
+   * The ID of the identity source configuration.
    * 
    * @example
    * idp-cfg68956d86e********
@@ -45,7 +45,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Metadata of the identity provider (IdP).
+   * The metadata of the identity provider (IdP).
    * 
    * @example
    * <?xml version="1.0" encoding="utf-8"?>***
@@ -53,7 +53,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   idpMetadata?: string;
   /**
    * @remarks
-   * Type of multi-factor authentication (MFA) configuration.
+   * The configuration type of secondary authentication.
    * 
    * @example
    * totp
@@ -61,7 +61,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   mfaConfigType?: string;
   /**
    * @remarks
-   * Login type for mobile clients.
+   * The logon type for mobile devices.
    * 
    * @example
    * password
@@ -69,7 +69,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   mobileLoginType?: string;
   /**
    * @remarks
-   * Type of MFA configuration for mobile clients.
+   * The configuration type of secondary authentication for mobile devices.
    * 
    * @example
    * totp
@@ -77,7 +77,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   mobileMfaConfigType?: string;
   /**
    * @remarks
-   * List of IDs for multiple identity providers.
+   * The IDs of multiple identity source configurations.
    * 
    * @example
    * 1482,1355
@@ -85,15 +85,15 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   multiIdpInfo?: string;
   /**
    * @remarks
-   * Name of the identity provider configuration.
+   * The name of the identity source configuration.
    * 
    * @example
-   * 示例身份源
+   * Sample identity source
    */
   name?: string;
   /**
    * @remarks
-   * Login type for PC clients.
+   * The logon type for PCs.
    * 
    * @example
    * password
@@ -101,10 +101,8 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   pcLoginType?: string;
   /**
    * @remarks
-   * Status of the identity provider configuration. Valid values:
-   * 
+   * The enabling status of the identity source configuration. Valid values:
    * - **Enabled**: Enabled.
-   * 
    * - **Disabled**: Disabled.
    * 
    * @example
@@ -113,7 +111,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Type of the identity provider configuration.
+   * The type of the identity source configuration.
    * 
    * @example
    * CSAS
@@ -121,7 +119,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Time when the configuration was last updated.
+   * The update time.
    * 
    * @example
    * 2024-02-26T02:02:42Z
@@ -129,7 +127,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * AES key used to encrypt requests to a custom MFA service.
+   * The encryption key used for requests to a self-managed secondary authentication service.
    * 
    * @example
    * QVhaU0RDR0JIWV****
@@ -137,7 +135,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   verifyAesKey?: string;
   /**
    * @remarks
-   * Token used to verify signatures in requests to a custom MFA service.
+   * The token used to verify the request signature of a self-managed secondary authentication service.
    * 
    * @example
    * 7JAr3fYtn****
@@ -145,7 +143,7 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
   verifyToken?: string;
   /**
    * @remarks
-   * URL used to verify one-time passwords with a custom MFA service.
+   * The verification URL of a self-managed secondary authentication service.
    * 
    * @example
    * http://172.10.XX.XX:1234/otp_verify
@@ -209,12 +207,12 @@ export class GetIdpConfigResponseBodyData extends $dara.Model {
 export class GetIdpConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Identity provider configuration.
+   * The identity source configuration.
    */
   data?: GetIdpConfigResponseBodyData;
   /**
    * @remarks
-   * ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-******

@@ -13,7 +13,7 @@ export class GetVirusScanGlobalConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The maximum size of a single virus file that can be uploaded, in KB. A value of 0 indicates no size limit.
+   * The maximum allowed upload size for a single virus file, in KB. A value of 0 indicates that the size is not limited.
    * 
    * @example
    * 10240
@@ -21,7 +21,7 @@ export class GetVirusScanGlobalConfigResponseBody extends $dara.Model {
   uploadFileMaxSize?: number;
   /**
    * @remarks
-   * The maximum upload rate for virus files, in KB/s. A value of 0 indicates no rate limit.
+   * The maximum upload speed for virus files, in KB/s. A value of 0 indicates that the speed is not limited.
    * 
    * @example
    * 1024
@@ -29,14 +29,14 @@ export class GetVirusScanGlobalConfigResponseBody extends $dara.Model {
   uploadFileMaxSpeed?: number;
   /**
    * @remarks
-   * The collection of file types that are prohibited from being uploaded. Files that match these types are not uploaded even if the upload feature is enabled. An empty list is returned if no file types are configured.
+   * The set of file types that are prohibited from upload. Matched files are not uploaded even if the upload feature is enabled. An empty list is returned if this parameter is not configured.
    */
   uploadFileSuffixBlacklist?: string[];
   /**
    * @remarks
-   * Indicates whether user terminal devices are allowed to upload detected virus files to the cloud for further analysis. Valid values:
-   * - **true**: Upload is allowed.
-   * - **false**: Upload is not allowed.
+   * Specifies whether user terminal devices are allowed to upload detected virus files to the cloud for further analysis. Valid values:
+   * - **true**: Allowed.
+   * - **false**: Not allowed.
    * 
    * @example
    * true

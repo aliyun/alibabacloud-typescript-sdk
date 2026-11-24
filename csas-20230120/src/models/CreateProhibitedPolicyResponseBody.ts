@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the banned software is a system built-in banned software. Valid values:
+   * Specifies whether the prohibited software is built-in. Valid values:
+   * - **true**: The software is built-in, shared by all Alibaba Cloud accounts, and cannot be modified or deleted.
+   * - **false**: The software is custom prohibited software under the current Alibaba Cloud account.
    * 
    * @example
    * true
@@ -13,9 +15,9 @@ export class CreateProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.M
   isDefault?: boolean;
   /**
    * @remarks
-   * The ID of the prohibited software. You can obtain the value from the following operations:
-   * - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): Lists prohibited software.
-   * - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): Creates custom prohibited software.
+   * The ID of the prohibited software. You can obtain the value from the following sources:
+   * - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): queries prohibited software in batches.
+   * - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): creates custom prohibited software.
    * 
    * @example
    * swb-9a0bfde19662****
@@ -47,9 +49,9 @@ export class CreateProhibitedPolicyResponseBodyPolicySoftwareIds extends $dara.M
 export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether end users are allowed to submit a report request for this policy. Valid values:
-   * - **true**: Reporting is allowed. The pop-up window on the endpoint provides a reporting entry.
-   * - **false**: Reporting is not allowed.
+   * Specifies whether to allow terminal users to submit an exception request for the policy. Valid values:
+   * - **true**: Exception requests are allowed. The terminal pop-up window provides an entry for the request.
+   * - **false**: Exception requests are not allowed.
    * 
    * @example
    * false
@@ -57,7 +59,7 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   allowReport?: boolean;
   /**
    * @remarks
-   * The time when the software prohibition policy was created, in the yyyy-MM-dd HH:mm:ss format. The time is displayed in UTC+8.
+   * The time when the software blocking policy was created. The time is in the yyyy-MM-dd HH:mm:ss format and displayed in the UTC+8 time zone.
    * 
    * @example
    * 2021-07-29 11:26:02
@@ -65,7 +67,7 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the software prohibition policy.
+   * The description of the software blocking policy.
    * 
    * @example
    * OK
@@ -73,10 +75,9 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the policy is enabled. Valid values:
-   * 
-   * - **true**: Enabled. The policy is delivered to the endpoint and takes effect.
-   * - **false**: Disabled. The policy retains its configuration but is not delivered to the endpoint.
+   * Specifies whether the policy is enabled. Valid values:
+   * - **true**: The policy is enabled, delivered to terminals, and takes effect.
+   * - **false**: The policy is disabled. The configuration is retained but not delivered to terminals.
    * 
    * @example
    * false
@@ -84,9 +85,9 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to forcibly terminate running software processes. Valid values:
-   * - **true**: The terminal immediately terminates the running process of the software when the policy is hit.
-   * - **false**: Running processes are not terminated. Only subsequent launches are blocked.
+   * Specifies whether to forcibly terminate running processes of the software. Valid values:
+   * - **true**: The terminal immediately terminates the running processes of the software when the policy is matched.
+   * - **false**: The terminal does not terminate running processes but only prevents subsequent startups.
    * 
    * @example
    * false
@@ -94,15 +95,15 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   forceKill?: boolean;
   /**
    * @remarks
-   * The Chinese text of the primary button in the pop-up window on the endpoint.
+   * The Chinese text of the primary button in the terminal pop-up window.
    * 
    * @example
-   * Submit Filing
+   * Apply for exemption
    */
   mainButtonTextCh?: string;
   /**
    * @remarks
-   * The English text of the primary button in the pop-up window on the endpoint.
+   * The English text of the primary button in the terminal pop-up window.
    * 
    * @example
    * Report
@@ -110,8 +111,7 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   mainButtonTextEn?: string;
   /**
    * @remarks
-   * The scope of the policy. Valid values:
-   * 
+   * The effective scope. Valid values:
    * - **UserGroupAll**: The policy takes effect for all users under the current Alibaba Cloud account. You do not need to specify user groups.
    * - **UserGroupNormal**: The policy takes effect only for users in the user groups specified by UserGroupIds.
    * 
@@ -121,15 +121,15 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   matchMode?: string;
   /**
    * @remarks
-   * The Chinese text of the secondary button in the pop-up window on the endpoint.
+   * The Chinese text of the secondary button in the terminal pop-up window.
    * 
    * @example
-   * Got It
+   * Got it
    */
   minorButtonTextCh?: string;
   /**
    * @remarks
-   * The English text of the secondary button in the pop-up window on the endpoint.
+   * The English text of the secondary button in the terminal pop-up window.
    * 
    * @example
    * I know
@@ -145,7 +145,9 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The object type of the controlled target. Valid values:
+   * The object type of the managed object. Valid values:
+   * - **App**: Manages disable software. The managed objects are specified by SoftwareIds.
+   * - **Tag**: Manages disable software by label. The managed objects are specified by TagIds, and all disable software under the labels is managed.
    * 
    * @example
    * App
@@ -153,7 +155,7 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The ID of the software prohibition policy.
+   * The ID of the software blocking policy.
    * 
    * @example
    * pid-dcbfd33cb004****
@@ -162,6 +164,9 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
    * The action to take. Valid values:
+   * - **Ban**: blocks the software from running and displays a pop-up window on the terminal to notify the user.
+   * - **BanSilent**: blocks the software from running without notifying the user.
+   * - **Warn**: displays a pop-up window on the terminal to notify the user without blocking the software from running.
    * 
    * @example
    * Ban
@@ -177,7 +182,7 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The Chinese prompt content displayed in the pop-up window on the endpoint.
+   * The Chinese prompt content in the terminal pop-up window.
    * 
    * @example
    * test
@@ -185,7 +190,7 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   promptCh?: string;
   /**
    * @remarks
-   * The English prompt content displayed in the pop-up window on the endpoint.
+   * The English prompt content in the terminal pop-up window.
    * 
    * @example
    * L0 auto test prompt
@@ -193,25 +198,25 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
   promptEn?: string;
   /**
    * @remarks
-   * The collection of banned software directly controlled by this policy.
+   * The collection of prohibited software directly managed by the policy.
    */
   softwareIds?: CreateProhibitedPolicyResponseBodyPolicySoftwareIds[];
   /**
    * @remarks
-   * The collection of banned software tag IDs controlled by this policy.
+   * The collection of prohibited software tag IDs managed by the policy.
    */
   tagIds?: string[];
   /**
    * @remarks
-   * The Chinese title of the pop-up window on the endpoint.
+   * The Chinese title of the terminal pop-up window.
    * 
    * @example
-   * Software Ban Reminder
+   * Prohibited software reminder
    */
   titleCh?: string;
   /**
    * @remarks
-   * The English title of the pop-up window on the endpoint.
+   * The English title of the terminal pop-up window.
    * 
    * @example
    * Software Blocked
@@ -307,7 +312,7 @@ export class CreateProhibitedPolicyResponseBodyPolicy extends $dara.Model {
 export class CreateProhibitedPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the software prohibition policy.
+   * The details of the software blocking policy.
    */
   policy?: CreateProhibitedPolicyResponseBodyPolicy;
   /**

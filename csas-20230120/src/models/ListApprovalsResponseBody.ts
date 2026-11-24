@@ -46,10 +46,10 @@ export class ListApprovalsResponseBodyApprovalsApprovalProgresses extends $dara.
   /**
    * @remarks
    * The action performed on the approval progress node. Valid values:
-   * - **Approve**: Approved.
-   * - **Reject**: Rejected.
-   * - **Revoke**: Revoked.
-   * - **Comment**: Commented.
+   * - **Approve**: Approve.
+   * - **Reject**: Reject.
+   * - **Revoke**: Revoke.
+   * - **Comment**: Comment.
    * 
    * @example
    * Approve
@@ -57,7 +57,7 @@ export class ListApprovalsResponseBodyApprovalsApprovalProgresses extends $dara.
   action?: string;
   /**
    * @remarks
-   * The comment on the approval progress node.
+   * The comment added to the approval progress node.
    * 
    * @example
    * Approved
@@ -79,7 +79,7 @@ export class ListApprovalsResponseBodyApprovalsApprovalProgresses extends $dara.
   /**
    * @remarks
    * The status of the approval progress node. Valid values:
-   * - **Pending**: Pending approval.
+   * - **Pending**: Pending.
    * - **Approved**: Approved.
    * - **Rejected**: Rejected.
    * - **Revoked**: Revoked.
@@ -90,7 +90,7 @@ export class ListApprovalsResponseBodyApprovalsApprovalProgresses extends $dara.
   status?: string;
   /**
    * @remarks
-   * The time when the approval progress node was executed. The value is a UNIX timestamp in seconds.
+   * The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1736752000
@@ -141,7 +141,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   approvalDetail?: string;
   /**
    * @remarks
-   * The instance ID of the approval.
+   * The approval instance ID.
    * 
    * @example
    * approval-872b5e911b35****
@@ -149,13 +149,13 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   approvalId?: string;
   /**
    * @remarks
-   * The list of approval progress nodes.
+   * The list of progress nodes for the approval instance.
    */
   approvalProgresses?: ListApprovalsResponseBodyApprovalsApprovalProgresses[];
   /**
    * @remarks
    * The approval type. Valid values:
-   * * 0: built-in approval.
+   * * 0: Built-in approval.
    * * 1: DingTalk approval.
    * * 2: WeCom approval.
    * * 3: Lark approval.
@@ -166,7 +166,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   approvalType?: number;
   /**
    * @remarks
-   * The time when the approval instance was created.
+   * The time when the approval instance was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-11-15 22:11:55
@@ -174,7 +174,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The department of the approval instance creator.
+   * The department of the user who created the approval instance.
    * 
    * @example
    * CN=cn***,OU=h***
@@ -182,7 +182,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   creatorDepartment?: string;
   /**
    * @remarks
-   * The terminal device ID of the approval instance creator.
+   * The ID of the endpoint device on which the approval instance was created.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -190,7 +190,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   creatorDevTag?: string;
   /**
    * @remarks
-   * The ID of the approval instance creator.
+   * The ID of the user who created the approval instance.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -198,7 +198,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   creatorUserId?: string;
   /**
    * @remarks
-   * The username of the approval instance creator.
+   * The username of the user who created the approval instance.
    * 
    * @example
    * Wang***
@@ -206,9 +206,9 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   creatorUsername?: string;
   /**
    * @remarks
-   * The filing effective status. An empty string is returned when the approval status is not Approved. Valid values:
-   * * Enabled: effective.
-   * * Expired: expired or reached the expiration date.
+   * The validity status of the report. If the approval status is not Approved, an empty string is returned. Valid values:
+   * * Enabled: Valid.
+   * * Expired: Invalid or expired.
    * 
    * @example
    * Enabled
@@ -216,7 +216,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   effectStatus?: string;
   /**
    * @remarks
-   * The filing deadline. The value is a UNIX timestamp in seconds. The value 0 is returned when ValidityType is set to Permanent.
+   * The expiration time of the report. The value is a UNIX timestamp in seconds. If ValidityType is set to Permanent, 0 is returned.
    * 
    * @example
    * 1757952000
@@ -224,17 +224,17 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   endTimestamp?: number;
   /**
    * @remarks
-   * The policy type associated with the approval instance. Valid values:
-   * - **DomainBlacklist**: Domain name blacklist.
-   * - **DomainWhitelist**: Domain name whitelist.
+   * The type of the policy associated with the approval instance. Valid values:
+   * - **DomainBlacklist**: Domain blacklist.
+   * - **DomainWhitelist**: Domain whitelist.
    * - **SoftwareBlock**: Software blocking.
    * - **DeviceRegistration**: Excess registration.
    * - **AppUninstall**: Endpoint uninstallation.
-   * - **DlpSend**: File outbound transfer.
+   * - **DlpSend**: Outbound file transfer.
    * - **PeripheralBlock**: Peripheral control.
    * - **EndpointHardening**: Endpoint hardening.
    * - **oftwareHardening**: Software hardening.
-   * - **AiAgentBlock**: AI Agent control.
+   * - **AiAgentBlock**: AI agent control.
    * - **PrivateAccessBlock**: Internal network access.
    * 
    * @example
@@ -262,14 +262,14 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    * The reason for creating the approval instance.
    * 
    * @example
-   * Temporary access for the project
+   * Temporary access for a project
    */
   reason?: string;
   /**
    * @remarks
-   * The filing type. Valid values:
-   * * ApprovalReport: approval filing.
-   * * BackendReport: backend filing.
+   * The report type. Valid values:
+   * * ApprovalReport: Approval report.
+   * * BackendReport: Backend report.
    * 
    * @example
    * BackendReport
@@ -277,7 +277,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The content of the template associated with the approval instance.
+   * The content of the schema associated with the approval instance.
    * 
    * @example
    * {"form": {"labelCol": 6,"wrapperCol": 12}}
@@ -285,7 +285,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   schemaContent?: string;
   /**
    * @remarks
-   * The ID of the template associated with the approval instance.
+   * The ID of the schema associated with the approval instance.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -293,7 +293,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   schemaId?: string;
   /**
    * @remarks
-   * The name of the template associated with the approval instance.
+   * The name of the schema associated with the approval instance.
    * 
    * @example
    * Template***
@@ -301,10 +301,10 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The instance status of the approval. Valid values:
-   * - **Pending**: Pending approval.
+   * The approval instance status. Valid values:
+   * - **Pending**: Pending.
    * - **Approved**: Approved.
-   * - **Rejected**: Denied.
+   * - **Rejected**: Deny.
    * - **Revoked**: Revoked.
    * - **Expired**: Expired.
    * - **Deleted**: Deleted.
@@ -315,7 +315,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The validity duration type. Valid values: FixedTime, Permanent.
+   * The validity duration type. Valid values: FixedTime and Permanent.
    * 
    * @example
    * Permanent

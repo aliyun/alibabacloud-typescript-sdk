@@ -10,7 +10,7 @@ export class GetVulScanScheduledStrategyResponseBodyCustomMatchGroup extends $da
   group?: string[];
   /**
    * @remarks
-   * The identity provider ID.
+   * The ID of the identity source.
    * 
    * @example
    * idp-7c3f9a2e5b18****
@@ -45,7 +45,7 @@ export class GetVulScanScheduledStrategyResponseBodyCustomMatchGroup extends $da
 export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the policy was created, in seconds-level UNIX timestamp.
+   * The time when the policy was created. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1786291200
@@ -53,12 +53,12 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The effective scope specified by organizational structure. An empty list is returned if the scope is not configured by organizational structure.
+   * The effective scope specified by organizational structure. If no organizational structure is configured, an empty list is returned.
    */
   customMatchGroup?: GetVulScanScheduledStrategyResponseBodyCustomMatchGroup[];
   /**
    * @remarks
-   * The time when the policy last triggered a scan, in seconds-level UNIX timestamp. The value 0 is returned if the policy has never been triggered.
+   * The time when the policy last triggered a scan. The value is a UNIX timestamp accurate to seconds. If the policy has never been triggered, 0 is returned.
    * 
    * @example
    * 1786291200
@@ -66,9 +66,9 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   lastTriggerTime?: number;
   /**
    * @remarks
-   * The matching mode of the effective scope. Valid values:
-   * - **UserGroupAll**: The policy takes effect on all users under the current Alibaba Cloud account.
-   * - **UserGroupNormal**: The policy takes effect only on users in specified user groups.
+   * The matching mode for the effective scope. Valid values:
+   * - **UserGroupAll**: Applies to all users under the current Alibaba Cloud account.
+   * - **UserGroupNormal**: Applies only to users in the specified user groups.
    * 
    * @example
    * UserGroupNormal
@@ -76,7 +76,7 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   matchMode?: string;
   /**
    * @remarks
-   * The collection of user group IDs that the policy takes effect on. An empty list is returned when MatchMode is set to UserGroupAll.
+   * The collection of effective user group IDs. If MatchMode is set to UserGroupAll, an empty list is returned.
    */
   matchTargetIds?: string[];
   /**
@@ -89,7 +89,7 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3D7EC0AF-DB2A-5D9C-90EC-F090A6BAAEA7
@@ -97,7 +97,7 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start hour during which the scan can be triggered. The value is a whole hour number. Valid values: 0 to 23, inclusive. This field is not a timestamp.
+   * The start hour when a scan is allowed to be triggered. The value must be an integer on the hour. Valid values: 0 to 23. The specified hour is included. This field is not a timestamp.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   scanBeginTime?: number;
   /**
    * @remarks
-   * The end hour during which the scan can be triggered. The value is a whole hour number. Valid values: 1 to 24, exclusive of the specified hour, and must be greater than ScanBeginTime. This field is not a timestamp.
+   * The end hour when a scan is allowed to be triggered. The value must be an integer on the hour. Valid values: 1 to 24. The specified hour is excluded and must be greater than the value of ScanBeginTime. This field is not a timestamp.
    * 
    * @example
    * 6
@@ -114,8 +114,8 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The unit of the trigger cycle. Valid values:
-   * - **day**: by day.
-   * - **week**: by week.
+   * - **day**: Day.
+   * - **week**: Week.
    * 
    * @example
    * week
@@ -123,7 +123,7 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   scanFrequency?: string;
   /**
    * @remarks
-   * The interval number of the trigger cycle, which together with ScanFrequency determines the trigger cycle. Valid values: 1 to 30. For example, if ScanFrequency is set to week and ScanInterval is set to 1, the scan is triggered once a week.
+   * The interval of the trigger cycle. This parameter and ScanFrequency determine the trigger cycle. Valid values: 1 to 30. For example, if ScanFrequency is set to week and ScanInterval is set to 1, a scan is performed once a week.
    * 
    * @example
    * 1
@@ -141,15 +141,15 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The policy description.
+   * The description of the policy.
    * 
    * @example
-   * Execute vulnerability scanning on R&D department endpoints every Sunday at midnight
+   * Execute vulnerability scanning for R&D department endpoints every Sunday morning
    */
   strategyDescription?: string;
   /**
    * @remarks
-   * The vulnerability scheduled scan policy ID.
+   * The ID of the scheduled vulnerability scanning policy.
    * 
    * @example
    * vul-scan-scheduled-strategy-8a3f6c2e91b7****
@@ -160,12 +160,12 @@ export class GetVulScanScheduledStrategyResponseBody extends $dara.Model {
    * The policy name.
    * 
    * @example
-   * Weekly vulnerability scanning for R&D Department
+   * Weekly vulnerability scanning for the R&D department
    */
   strategyName?: string;
   /**
    * @remarks
-   * The list of exempted users. Users in this list are excluded from the scan of this policy. An empty list is returned if no exemption is configured.
+   * The whitelist of users. Scans based on this policy are not performed on the users in the whitelist. If no whitelist is configured, an empty list is returned.
    */
   whitelist?: string[];
   static names(): { [key: string]: string } {

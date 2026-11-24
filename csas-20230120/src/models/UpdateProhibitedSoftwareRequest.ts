@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProhibitedSoftwareRequestLinuxProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of this parameter and Process. The value can be up to 1024 characters in length.
+   * The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The bundle ID can be up to 1,024 characters in length.
    * 
    * @example
    * com.aliyun.security.sase
@@ -13,7 +13,7 @@ export class UpdateProhibitedSoftwareRequestLinuxProcesses extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. The value can be up to 1024 characters in length.
+   * The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain this content are matched. If you leave this parameter empty, the command line is not verified. The arguments can be up to 1,024 characters in length.
    * 
    * @example
    * --start-minimized
@@ -21,7 +21,7 @@ export class UpdateProhibitedSoftwareRequestLinuxProcesses extends $dara.Model {
   cmdline?: string;
   /**
    * @remarks
-   * The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. The value can be up to 1024 characters in length.
+   * The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
    * 
    * @example
    * C:\\\\autotest
@@ -29,7 +29,7 @@ export class UpdateProhibitedSoftwareRequestLinuxProcesses extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The process name. The value can be up to 1024 characters in length.
+   * The name of the process. The name can be up to 1,024 characters in length.
    * 
    * @example
    * Everything.exe
@@ -65,7 +65,7 @@ export class UpdateProhibitedSoftwareRequestLinuxProcesses extends $dara.Model {
 export class UpdateProhibitedSoftwareRequestMacOSProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of this parameter and Process. The value can be up to 1024 characters in length.
+   * The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The bundle ID can be up to 1,024 characters in length.
    * 
    * @example
    * com.autotest.update
@@ -73,7 +73,7 @@ export class UpdateProhibitedSoftwareRequestMacOSProcesses extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. The value can be up to 1024 characters in length.
+   * The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain this content are matched. If you leave this parameter empty, the command line is not verified. The arguments can be up to 1,024 characters in length.
    * 
    * @example
    * --start-minimized
@@ -81,7 +81,7 @@ export class UpdateProhibitedSoftwareRequestMacOSProcesses extends $dara.Model {
   cmdline?: string;
   /**
    * @remarks
-   * The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. The value can be up to 1024 characters in length.
+   * The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
    * 
    * @example
    * C:\\\\autotest
@@ -89,7 +89,7 @@ export class UpdateProhibitedSoftwareRequestMacOSProcesses extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The process name. The value can be up to 1024 characters in length.
+   * The name of the process. The name can be up to 1,024 characters in length.
    * 
    * @example
    * Everything.exe
@@ -125,7 +125,7 @@ export class UpdateProhibitedSoftwareRequestMacOSProcesses extends $dara.Model {
 export class UpdateProhibitedSoftwareRequestWindowsProcesses extends $dara.Model {
   /**
    * @remarks
-   * The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of this parameter and Process. The value can be up to 1024 characters in length.
+   * The bundle ID of the application. This parameter is required only for macOS processes. You must specify at least one of the BundleId and Process parameters. The bundle ID can be up to 1,024 characters in length.
    * 
    * @example
    * cn.apifox.app
@@ -133,7 +133,7 @@ export class UpdateProhibitedSoftwareRequestWindowsProcesses extends $dara.Model
   bundleId?: string;
   /**
    * @remarks
-   * The command line parameters for starting the process. If specified, only processes whose command line contains this content are matched. If left empty, the command line is not checked. The value can be up to 1024 characters in length.
+   * The command-line arguments used to start the process. If you specify this parameter, only processes whose command lines contain this content are matched. If you leave this parameter empty, the command line is not verified. The arguments can be up to 1,024 characters in length.
    * 
    * @example
    * --start-minimized
@@ -141,7 +141,7 @@ export class UpdateProhibitedSoftwareRequestWindowsProcesses extends $dara.Model
   cmdline?: string;
   /**
    * @remarks
-   * The directory where the process is located. If specified, only processes with the same name in this directory are matched. If left empty, processes in any directory are matched. The value can be up to 1024 characters in length.
+   * The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
    * 
    * @example
    * C:\\\\autotest
@@ -149,7 +149,7 @@ export class UpdateProhibitedSoftwareRequestWindowsProcesses extends $dara.Model
   directory?: string;
   /**
    * @remarks
-   * The process name. The value can be up to 1024 characters in length.
+   * The name of the process. The name can be up to 1,024 characters in length.
    * 
    * @example
    * Everything.exe
@@ -211,9 +211,9 @@ export class UpdateProhibitedSoftwareRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the custom prohibited software to update. Only custom prohibited software under the current Alibaba Cloud account can be updated. Built-in prohibited software cannot be updated. You can obtain the value from the following operations:
-   * - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): queries prohibited software entries in batches.
-   * - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): creates a custom prohibited software entry.
+   * The ID of the custom prohibited software to update. You can update only custom prohibited software within the current Alibaba Cloud account. Built-in prohibited software cannot be updated. You can obtain the value from the following operations:
+   * - [ListProhibitedSoftware](~~ListProhibitedSoftware~~): List prohibited software.
+   * - [CreateProhibitedSoftware](~~CreateProhibitedSoftware~~): Create custom prohibited software.
    * 
    * This parameter is required.
    * 
@@ -223,7 +223,7 @@ export class UpdateProhibitedSoftwareRequest extends $dara.Model {
   softwareId?: string;
   /**
    * @remarks
-   * The IDs of the custom prohibited software tags to associate. Duplicate values are not allowed.
+   * The IDs of the custom prohibited software tags to associate. Duplicate IDs are not allowed.
    */
   tagIds?: string[];
   /**

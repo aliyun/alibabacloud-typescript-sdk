@@ -5,18 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of client statuses.
+   * The client statuses.
    */
   appStatuses?: string[];
   /**
    * @remarks
-   * The collection of client versions.
+   * The client versions.
    */
   appVersions?: string[];
+  /**
+   * @remarks
+   * Filters the results by the automatic logon status of the user terminal devices.
+   */
   autoLoginStatuses?: string[];
   /**
    * @remarks
-   * The page number of the current page in a paging query. Valid values: 1 to 10000.
+   * The page number of the current page for paging in a paged query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -26,17 +30,17 @@ export class ListUserDevicesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The department to which the user belongs. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
+   * The department to which the user belongs. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
    * 
    * @example
-   * 测试部
+   * Test Department
    */
   department?: string;
   /**
    * @remarks
-   * The ownership of the endpoint device. Valid values:
-   * - **Personal**: personal device.
-   * - **Company**: company device.
+   * The ownership of the terminal device. Valid values:
+   * - **Personal**: Personal device.
+   * - **Company**: Corporate device.
    * 
    * @example
    * Company
@@ -52,27 +56,32 @@ export class ListUserDevicesRequest extends $dara.Model {
   deviceGroupId?: string;
   /**
    * @remarks
-   * The collection of endpoint device statuses.
+   * The terminal device statuses.
    */
   deviceStatuses?: string[];
   /**
    * @remarks
-   * The collection of endpoint device IDs.
+   * The terminal device IDs.
    */
   deviceTags?: string[];
   /**
    * @remarks
-   * The collection of endpoint device operating system types.
+   * The terminal device operating system types.
    */
   deviceTypes?: string[];
   /**
    * @remarks
-   * The collection of office data protection statuses.
+   * Filters the results by the disk encryption status of the user terminal devices. You can select multiple statuses, which are evaluated with an OR logical operator. If you select Unencrypted, the result includes user terminal devices that have not reported their disk encryption status.
+   */
+  diskEncryptStatuses?: string[];
+  /**
+   * @remarks
+   * The office data protection statuses.
    */
   dlpStatuses?: string[];
   /**
    * @remarks
-   * The name of the endpoint device. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), endpoint devices whose names contain 4-byte UTF-8 characters are also queried.
+   * The name of the terminal device. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system also queries all terminal devices whose names contain 4-byte UTF-8 characters.
    * 
    * @example
    * win10-64bit
@@ -80,12 +89,12 @@ export class ListUserDevicesRequest extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The collection of Internet access statuses.
+   * The Internet access statuses.
    */
   iaStatuses?: string[];
   /**
    * @remarks
-   * The internal IP address of the endpoint device.
+   * The internal IP address of the terminal device.
    * 
    * @example
    * 192.168.XX.XX
@@ -93,7 +102,7 @@ export class ListUserDevicesRequest extends $dara.Model {
   innerIp?: string;
   /**
    * @remarks
-   * The MAC address of the endpoint device.
+   * The MAC address of the terminal device.
    * 
    * @example
    * 00:16:XX:XX:7c:46
@@ -101,17 +110,17 @@ export class ListUserDevicesRequest extends $dara.Model {
   mac?: string;
   /**
    * @remarks
-   * The collection of network access control statuses.
+   * The network access control statuses.
    */
   nacStatuses?: string[];
   /**
    * @remarks
-   * The collection of private access statuses.
+   * The internal network access statuses.
    */
   paStatuses?: string[];
   /**
    * @remarks
-   * The number of entries per page in a paging query. Settings: 1 to 500.
+   * The number of entries per page in a paged query. Valid values: 1 to 500.
    * 
    * This parameter is required.
    * 
@@ -121,9 +130,9 @@ export class ListUserDevicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The user ID. You can obtain this value from the following operations:
-   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user endpoint device.
-   * - [ListUserDevices](~~ListUserDevices~~): Lists user endpoint devices.
+   * The user ID. You can obtain the value from the following operations:
+   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user terminal device.
+   * - [ListUserDevices](~~ListUserDevices~~): Lists user terminal devices.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -157,11 +166,11 @@ export class ListUserDevicesRequest extends $dara.Model {
   snSystem?: string;
   /**
    * @remarks
-   * The sort parameter. Valid values:
-   * - **Username**: sorted by Username in ascending order.
-   * - **AppVersion**: sorted by AppVersion in descending order.
-   * - **UpdateTime**: sorted by UpdateTime in descending order.
-   * - **CreateTime**: sorted by CreateTime in descending order.
+   * The sorting parameter. Valid values:
+   * - **Username**: Sorts by Username in ascending order.
+   * - **AppVersion**: Sorts by AppVersion in descending order.
+   * - **UpdateTime**: Sorts by UpdateTime in descending order.
+   * - **CreateTime**: Sorts by CreateTime in descending order.
    * 
    * @example
    * UpdateTime
@@ -169,10 +178,10 @@ export class ListUserDevicesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The username. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
+   * The username. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
    * 
    * @example
-   * 王先生
+   * Mr. Wang
    */
   username?: string;
   /**
@@ -180,7 +189,7 @@ export class ListUserDevicesRequest extends $dara.Model {
    * The name of the office area.
    * 
    * @example
-   * 测试办公区
+   * Test office area
    */
   workshop?: string;
   static names(): { [key: string]: string } {
@@ -195,6 +204,7 @@ export class ListUserDevicesRequest extends $dara.Model {
       deviceStatuses: 'DeviceStatuses',
       deviceTags: 'DeviceTags',
       deviceTypes: 'DeviceTypes',
+      diskEncryptStatuses: 'DiskEncryptStatuses',
       dlpStatuses: 'DlpStatuses',
       hostname: 'Hostname',
       iaStatuses: 'IaStatuses',
@@ -225,6 +235,7 @@ export class ListUserDevicesRequest extends $dara.Model {
       deviceStatuses: { 'type': 'array', 'itemType': 'string' },
       deviceTags: { 'type': 'array', 'itemType': 'string' },
       deviceTypes: { 'type': 'array', 'itemType': 'string' },
+      diskEncryptStatuses: { 'type': 'array', 'itemType': 'string' },
       dlpStatuses: { 'type': 'array', 'itemType': 'string' },
       hostname: 'string',
       iaStatuses: { 'type': 'array', 'itemType': 'string' },
@@ -261,6 +272,9 @@ export class ListUserDevicesRequest extends $dara.Model {
     }
     if(Array.isArray(this.deviceTypes)) {
       $dara.Model.validateArray(this.deviceTypes);
+    }
+    if(Array.isArray(this.diskEncryptStatuses)) {
+      $dara.Model.validateArray(this.diskEncryptStatuses);
     }
     if(Array.isArray(this.dlpStatuses)) {
       $dara.Model.validateArray(this.dlpStatuses);

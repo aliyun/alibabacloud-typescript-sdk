@@ -5,19 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
    * 
    * @example
-   * Name
+   * Registration reason
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The system field identifier, such as approvalReason.
    * 
    * @example
-   * Name
+   * approvalReason
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -48,12 +55,15 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap e
 export class GetApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap[];
   /**
@@ -105,13 +115,26 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPolicies extends $
 export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Registered domain name
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The identifier of the system field, such as report_domain.
+   * 
+   * @example
+   * report_domain
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -142,12 +165,15 @@ export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFiel
 export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap[];
   /**
@@ -199,13 +225,26 @@ export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies ext
 export class GetApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * File name
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The system field identifier, such as fileName.
+   * 
+   * @example
+   * fileName
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -236,17 +275,20 @@ export class GetApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap extend
 export class GetApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap[];
   /**
    * @remarks
-   * The list of file outgoing policy IDs.
+   * The list of outbound file transfer policy IDs.
    */
   policyIds?: string[];
   /**
@@ -293,13 +335,26 @@ export class GetApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.
 export class GetApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Reported access website
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The identifier of the system field, such as reportDomain.
+   * 
+   * @example
+   * reportDomain
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -330,17 +385,20 @@ export class GetApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMa
 export class GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap[];
   /**
    * @remarks
-   * The list of domain blacklist policy IDs.
+   * The list of domain name blacklist policy IDs.
    */
   policyIds?: string[];
   /**
@@ -387,13 +445,26 @@ export class GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies extend
 export class GetApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Reported access website
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The identifier of the system field, such as reportDomain.
+   * 
+   * @example
+   * reportDomain
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -424,17 +495,20 @@ export class GetApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMa
 export class GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap[];
   /**
    * @remarks
-   * The list of domain whitelist policy IDs.
+   * The list of domain name whitelist policy IDs.
    */
   policyIds?: string[];
   /**
@@ -481,13 +555,26 @@ export class GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies extend
 export class GetApprovalProcessResponseBodyProcessEndpointHardeningPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Process name
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The system field identifier, such as processName.
+   * 
+   * @example
+   * processName
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -518,22 +605,28 @@ export class GetApprovalProcessResponseBodyProcessEndpointHardeningPoliciesField
 export class GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessEndpointHardeningPoliciesFieldMap[];
   /**
    * @remarks
-   * The policy ID.
+   * The list of endpoint hardening policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The template ID.
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
    */
   schemaId?: string;
   static names(): { [key: string]: string } {
@@ -572,13 +665,26 @@ export class GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies exte
 export class GetApprovalProcessResponseBodyProcessPeripheralBlockPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Operating system
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The system field identifier, such as devType.
+   * 
+   * @example
+   * devType
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -609,12 +715,15 @@ export class GetApprovalProcessResponseBodyProcessPeripheralBlockPoliciesFieldMa
 export class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessPeripheralBlockPoliciesFieldMap[];
   /**
@@ -666,13 +775,26 @@ export class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies extend
 export class GetApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Application ID
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The system field identifier, such as applicationId.
+   * 
+   * @example
+   * applicationId
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -703,22 +825,28 @@ export class GetApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFiel
 export class GetApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFieldMap[];
   /**
    * @remarks
-   * The policy ID.
+   * The list of internal network access control policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The template ID.
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
    */
   schemaId?: string;
   static names(): { [key: string]: string } {
@@ -757,7 +885,7 @@ export class GetApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies ext
 export class GetApprovalProcessResponseBodyProcessProcessNodes extends $dara.Model {
   /**
    * @remarks
-   * The approver ID.
+   * The ID of the approver.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -768,7 +896,7 @@ export class GetApprovalProcessResponseBodyProcessProcessNodes extends $dara.Mod
    * The username of the approver.
    * 
    * @example
-   * John
+   * 张三
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -797,13 +925,26 @@ export class GetApprovalProcessResponseBodyProcessProcessNodes extends $dara.Mod
 export class GetApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Reported software
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The identifier of the system field, such as softwareName.
+   * 
+   * @example
+   * softwareName
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -834,12 +975,15 @@ export class GetApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap 
 export class GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap[];
   /**
@@ -891,13 +1035,26 @@ export class GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends 
 export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesFieldMap extends $dara.Model {
   /**
    * @remarks
-   * The display field.
+   * The name of the control in the external approval form.
+   * 
+   * @example
+   * Process name
    */
   displayField?: string;
+  /**
+   * @remarks
+   * The identifier of the control in the external approval form. DingTalk approval returns the control label. WeCom and Lark approvals return the value in the "Control type%%%Control ID" format.
+   * 
+   * @example
+   * Textarea%%%widget-1a2b****
+   */
   displayFieldValue?: string;
   /**
    * @remarks
-   * The system field.
+   * The system field identifier, such as processName.
+   * 
+   * @example
+   * processName
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -928,22 +1085,28 @@ export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesField
 export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external process ID.
+   * The ID of the external approval process. If the approval type is 1 (DingTalk approval), this parameter corresponds to the DingTalk process code. If the approval type is 2 (WeCom approval), this parameter corresponds to the template ID. If the approval type is 3 (Lark approval), this parameter corresponds to the approval definition code. If the approval type is 0 (built-in approval), this parameter is empty.
+   * 
+   * @example
+   * PROC-1a2b3c4d5e6f****
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping table.
+   * The list of mappings between system fields and external approval form controls.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesFieldMap[];
   /**
    * @remarks
-   * The policy ID.
+   * The list of software hardening policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The template ID.
+   * The ID of the approval template.
+   * 
+   * @example
+   * approval-schema-090134f1ebff****
    */
   schemaId?: string;
   static names(): { [key: string]: string } {
@@ -982,17 +1145,24 @@ export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies exte
 export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   /**
    * @remarks
-   * The list of policies associated with endpoint uninstallation.
+   * The list of associated endpoint uninstall policies.
    */
   appUninstallPolicies?: GetApprovalProcessResponseBodyProcessAppUninstallPolicies;
   /**
    * @remarks
-   * The approval type.
+   * The approval type. Valid values:
+   * - 0: Built-in approval.
+   * - 1: DingTalk approval.
+   * - 2: WeCom approval.
+   * - 3: Lark approval.
+   * 
+   * @example
+   * 1
    */
   approvalType?: number;
   /**
    * @remarks
-   * The creation time of the approval process.
+   * The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2022-10-25 10:44:09
@@ -1003,7 +1173,7 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
    * The description of the approval process.
    * 
    * @example
-   * This is an approval process
+   * Approval flow for office network public domain name whitelist reporting.
    */
   description?: string;
   /**
@@ -1013,42 +1183,48 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   deviceRegistrationPolicies?: GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
   /**
    * @remarks
-   * The list of associated policies for file outgoing.
+   * The list of associated outbound file transfer policies.
    */
   dlpSendPolicies?: GetApprovalProcessResponseBodyProcessDlpSendPolicies;
   /**
    * @remarks
-   * The list of policies associated with the domain blacklist.
+   * The list of policies associated with the domain name blacklist.
    */
   domainBlacklistPolicies?: GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
   /**
    * @remarks
-   * The list of policies associated with the domain whitelist.
+   * The list of policies associated with the domain name whitelist.
    */
   domainWhitelistPolicies?: GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
   /**
    * @remarks
-   * The endpoint protection policy.
+   * The list of associated endpoint hardening policies.
    */
   endpointHardeningPolicies?: GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
   /**
    * @remarks
-   * The label.
+   * The event callback URL. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter returns the complete event callback URL of the external platform. For other approval types, this parameter is empty.
+   * 
+   * @example
+   * https://callback.example.com/sase/api/v1/approval/dingtalk/callback/approval-event-1a2b****
    */
   eventLabel?: string;
   /**
    * @remarks
-   * The external configuration.
+   * The external approval configuration. When the approval type is 1 (DingTalk approval) or 3 (Lark approval), this parameter includes the integration configuration for the external approval platform, including appKey, appSecret, eventVerifyToken, and eventAesKey. For other approval types, this parameter is empty.
+   * 
+   * @example
+   * {"appKey":"dingabc1234****","appSecret":"a1b2c3d4****","eventVerifyToken":"e5f6a7b8****","eventAesKey":"c9d0e1f2****"}
    */
   externalConfig?: string;
   /**
    * @remarks
-   * The list of associated policies for peripheral control.
+   * The list of associated peripheral control policies.
    */
   peripheralBlockPolicies?: GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
   /**
    * @remarks
-   * The software hardening policy.
+   * The list of policies associated with internal network access control.
    */
   privateAccessBlockPolicies?: GetApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies;
   /**
@@ -1064,7 +1240,7 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
    * The name of the approval process.
    * 
    * @example
-   * Test
+   * Office network public domain name whitelist approval
    */
   processName?: string;
   /**
@@ -1079,7 +1255,7 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   softwareBlockPolicies?: GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
   /**
    * @remarks
-   * The software hardening policy.
+   * The list of associated software hardening policies.
    */
   softwareHardeningPolicies?: GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
@@ -1178,7 +1354,7 @@ export class GetApprovalProcessResponseBody extends $dara.Model {
   process?: GetApprovalProcessResponseBodyProcess;
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * C81E0B4B-AAEB-5FDD-B27E-3F5AF7EBD7EF

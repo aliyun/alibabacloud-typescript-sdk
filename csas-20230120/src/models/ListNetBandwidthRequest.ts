@@ -23,7 +23,7 @@ export class ListNetBandwidthRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The network type. If this parameter is left empty, both VPC and Connector instances are queried.
+   * The network type. If this parameter is left empty, both VPC and Connector network instances are queried.
    * 
    * @example
    * VPC
