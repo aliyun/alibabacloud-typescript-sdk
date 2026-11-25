@@ -594,7 +594,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   chargeType?: string;
   /**
    * @remarks
-   * The expiration time of the delivery group. The time is in ISO 8601 format, including milliseconds and time zone offset. Format: yyyy-MM-dd\\"T\\"HH:mm:ss.SSSXXX.
+   * The expiration time of the delivery group. The time is in ISO 8601 format, including milliseconds and time zone offset. Format: yyyy-MM-dd\"T\"HH:mm:ss.SSSXXX.
    * 
    * @example
    * 2026-09-24T16:00:00.000+00:00

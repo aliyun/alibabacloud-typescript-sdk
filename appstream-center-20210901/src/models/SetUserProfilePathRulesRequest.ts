@@ -34,7 +34,7 @@ export class SetUserProfilePathRulesRequest extends $dara.Model {
    * The JSON array string that contains the complete list of rules. Each item uses `blackPath` to specify the excluded path and `whitePaths` to specify the relative paths that still require roaming within the excluded directory. The path type `file` indicates a file, and `folder` indicates a directory.
    * 
    * @example
-   * [{"blackPath":{"path":"AppData\\\\Local","type":"folder"},"whitePaths":[{"path":".\\\\Microsoft\\\\Office","type":"folder"}]}]
+   * [{"blackPath":{"path":"AppData\\Local","type":"folder"},"whitePaths":[{"path":".\\Microsoft\\Office","type":"folder"}]}]
    */
   userProfilePathRules?: string;
   /**

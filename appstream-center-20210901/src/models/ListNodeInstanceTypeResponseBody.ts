@@ -2,6 +2,151 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModelsWuyingServerModelMetaInfo extends $dara.Model {
+  /**
+   * @example
+   * vLLM
+   */
+  defaultInferenceEngine?: string;
+  /**
+   * @example
+   * 支持文本生成
+   */
+  description?: string;
+  /**
+   * @example
+   * 0.5
+   */
+  firstTokenLatencySeconds?: number;
+  /**
+   * @example
+   * m-example-image
+   */
+  imageId?: string;
+  /**
+   * @example
+   * ["text"]
+   */
+  inputModalities?: string[];
+  /**
+   * @example
+   * 500
+   */
+  machineInputTokensPerSecond?: number;
+  /**
+   * @example
+   * 70
+   */
+  machineOutputTokensPerSecond?: number;
+  /**
+   * @example
+   * 32768
+   */
+  maxModelLen?: number;
+  /**
+   * @example
+   * 65536
+   */
+  maxModelLenMax?: number;
+  /**
+   * @example
+   * 1024
+   */
+  maxModelLenMin?: number;
+  /**
+   * @example
+   * 16
+   */
+  maxNumSeqsMax?: number;
+  /**
+   * @example
+   * 1
+   */
+  maxNumSeqsMin?: number;
+  /**
+   * @example
+   * demo-model
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 示例模型
+   */
+  modelName?: string;
+  /**
+   * @example
+   * ["text"]
+   */
+  outputModalities?: string[];
+  /**
+   * @example
+   * true
+   */
+  recommended?: boolean;
+  /**
+   * @example
+   * 8
+   */
+  recommendedMaxNumSeqs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defaultInferenceEngine: 'DefaultInferenceEngine',
+      description: 'Description',
+      firstTokenLatencySeconds: 'FirstTokenLatencySeconds',
+      imageId: 'ImageId',
+      inputModalities: 'InputModalities',
+      machineInputTokensPerSecond: 'MachineInputTokensPerSecond',
+      machineOutputTokensPerSecond: 'MachineOutputTokensPerSecond',
+      maxModelLen: 'MaxModelLen',
+      maxModelLenMax: 'MaxModelLenMax',
+      maxModelLenMin: 'MaxModelLenMin',
+      maxNumSeqsMax: 'MaxNumSeqsMax',
+      maxNumSeqsMin: 'MaxNumSeqsMin',
+      modelId: 'ModelId',
+      modelName: 'ModelName',
+      outputModalities: 'OutputModalities',
+      recommended: 'Recommended',
+      recommendedMaxNumSeqs: 'RecommendedMaxNumSeqs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultInferenceEngine: 'string',
+      description: 'string',
+      firstTokenLatencySeconds: 'number',
+      imageId: 'string',
+      inputModalities: { 'type': 'array', 'itemType': 'string' },
+      machineInputTokensPerSecond: 'number',
+      machineOutputTokensPerSecond: 'number',
+      maxModelLen: 'number',
+      maxModelLenMax: 'number',
+      maxModelLenMin: 'number',
+      maxNumSeqsMax: 'number',
+      maxNumSeqsMin: 'number',
+      modelId: 'string',
+      modelName: 'string',
+      outputModalities: { 'type': 'array', 'itemType': 'string' },
+      recommended: 'boolean',
+      recommendedMaxNumSeqs: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputModalities)) {
+      $dara.Model.validateArray(this.inputModalities);
+    }
+    if(Array.isArray(this.outputModalities)) {
+      $dara.Model.validateArray(this.outputModalities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +156,11 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
    * 4
    */
   cpu?: string;
+  /**
+   * @example
+   * 49152
+   */
+  ecsGpuMemory?: number;
   /**
    * @remarks
    * The number of GPUs.
@@ -27,6 +177,11 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
    * 8192
    */
   gpuMemory?: number;
+  /**
+   * @example
+   * RTX 5880
+   */
+  gpuSpec?: string;
   /**
    * @remarks
    * The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected at the same time, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
@@ -84,33 +239,50 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
    * WUYING-General-purpose_4vCPU8GB
    */
   nodeTypeName?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  wuyingServerModelMetaInfo?: ListNodeInstanceTypeResponseBodyNodeInstanceTypeModelsWuyingServerModelMetaInfo;
   static names(): { [key: string]: string } {
     return {
       cpu: 'Cpu',
+      ecsGpuMemory: 'EcsGpuMemory',
       gpu: 'Gpu',
       gpuMemory: 'GpuMemory',
+      gpuSpec: 'GpuSpec',
       maxCapacity: 'MaxCapacity',
       memory: 'Memory',
       nodeInstanceType: 'NodeInstanceType',
       nodeInstanceTypeFamily: 'NodeInstanceTypeFamily',
       nodeTypeName: 'NodeTypeName',
+      requestId: 'RequestId',
+      wuyingServerModelMetaInfo: 'WuyingServerModelMetaInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cpu: 'string',
+      ecsGpuMemory: 'number',
       gpu: 'string',
       gpuMemory: 'number',
+      gpuSpec: 'string',
       maxCapacity: 'number',
       memory: 'number',
       nodeInstanceType: 'string',
       nodeInstanceTypeFamily: 'string',
       nodeTypeName: 'string',
+      requestId: 'string',
+      wuyingServerModelMetaInfo: ListNodeInstanceTypeResponseBodyNodeInstanceTypeModelsWuyingServerModelMetaInfo,
     };
   }
 
   validate() {
+    if(this.wuyingServerModelMetaInfo && typeof (this.wuyingServerModelMetaInfo as any).validate === 'function') {
+      (this.wuyingServerModelMetaInfo as any).validate();
+    }
     super.validate();
   }
 

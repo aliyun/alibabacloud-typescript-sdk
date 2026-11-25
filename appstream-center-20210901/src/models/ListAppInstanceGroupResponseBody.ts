@@ -637,7 +637,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   chargeType?: string;
   /**
    * @remarks
-   * The expiration time of the app instance group. The time is displayed in the ISO 8601 date and time format, including milliseconds and time zone offset. Format template: yyyy-MM-dd\\"T\\"HH:mm:ss.SSSXXX.
+   * The expiration time of the app instance group. The time is displayed in the ISO 8601 date and time format, including milliseconds and time zone offset. Format template: yyyy-MM-dd\"T\"HH:mm:ss.SSSXXX.
    * 
    * @example
    * 2022-04-27T16:00:00.000+00:00
@@ -772,7 +772,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   scalingUsageThreshold?: string;
   /**
    * @remarks
-   * The session disconnection retention period, in minutes. After an end user\\"s session is disconnected, the session is retained for the specified period before being logged off. To retain the session indefinitely, set this parameter to `-1`. Valid values: -1 and 3 to 300. Default value: `15`.
+   * The session disconnection retention period, in minutes. After an end user\"s session is disconnected, the session is retained for the specified period before being logged off. To retain the session indefinitely, set this parameter to `-1`. Valid values: -1 and 3 to 300. Default value: `15`.
    * 
    * @example
    * 15

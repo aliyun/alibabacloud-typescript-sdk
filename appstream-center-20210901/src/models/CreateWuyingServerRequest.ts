@@ -69,6 +69,119 @@ export class CreateWuyingServerRequestDataDisk extends $dara.Model {
   }
 }
 
+export class CreateWuyingServerRequestModelConfigServerRunConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 最大上下文，单位 Token。省略时使用所选规格的默认值。
+   * 
+   * @example
+   * 16384
+   */
+  maxModelLen?: number;
+  /**
+   * @remarks
+   * 最大并发序列数。省略时使用所选规格的推荐值。
+   * 
+   * @example
+   * 4
+   */
+  maxNumSeqs?: number;
+  /**
+   * @remarks
+   * 设置方式。Basic 为基本设置，CustomStartupCommand 为自定义启动命令。省略或传 null 时取 Basic。
+   * 
+   * @example
+   * Basic
+   */
+  settingMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxModelLen: 'MaxModelLen',
+      maxNumSeqs: 'MaxNumSeqs',
+      settingMode: 'SettingMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxModelLen: 'number',
+      maxNumSeqs: 'number',
+      settingMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWuyingServerRequestModelConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 模型接入方式。Normal 为普通接入，Lan 为局域网接入，省略时取 Normal。
+   * 
+   * @example
+   * Lan
+   */
+  modelAccessMethod?: string;
+  /**
+   * @remarks
+   * 模型目录中的真实模型 ID。
+   * 
+   * @example
+   * demo-model
+   */
+  modelId?: string;
+  /**
+   * @remarks
+   * 租户自定义模型 ID，省略时使用真实模型 ID。
+   * 
+   * @example
+   * demo-model
+   */
+  servedModelName?: string;
+  /**
+   * @remarks
+   * 模型运行配置。可传空对象以使用全部默认值。
+   * 
+   * @example
+   * {"SettingMode":"Basic","MaxModelLen":16384,"MaxNumSeqs":4}
+   */
+  serverRunConfig?: CreateWuyingServerRequestModelConfigServerRunConfig;
+  static names(): { [key: string]: string } {
+    return {
+      modelAccessMethod: 'ModelAccessMethod',
+      modelId: 'ModelId',
+      servedModelName: 'ServedModelName',
+      serverRunConfig: 'ServerRunConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelAccessMethod: 'string',
+      modelId: 'string',
+      servedModelName: 'string',
+      serverRunConfig: CreateWuyingServerRequestModelConfigServerRunConfig,
+    };
+  }
+
+  validate() {
+    if(this.serverRunConfig && typeof (this.serverRunConfig as any).validate === 'function') {
+      (this.serverRunConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWuyingServerRequest extends $dara.Model {
   /**
    * @remarks
@@ -216,6 +329,14 @@ export class CreateWuyingServerRequest extends $dara.Model {
   maxPrice?: number;
   /**
    * @remarks
+   * 模型和运行配置。创建 WuyingModelServer 产品时必填。
+   * 
+   * @example
+   * {"ModelId":"demo-model","ModelAccessMethod":"Lan","ServerRunConfig":{"SettingMode":"Basic","MaxModelLen":16384,"MaxNumSeqs":4}}
+   */
+  modelConfig?: CreateWuyingServerRequestModelConfig;
+  /**
+   * @remarks
    * The type of the network policy (invitational preview).
    * 
    * @example
@@ -242,7 +363,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Spaces, Chinese characters, backslashes, and double quotation marks are not supported. The supported special characters are:
    * 
    * ~~~text
-   * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+   * ()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/
    * ~~~
    * 
    * The password of a Windows workstation cannot start with a forward slash /.
@@ -283,6 +404,14 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * Month
    */
   periodUnit?: string;
+  /**
+   * @remarks
+   * 工作站产品类型。创建无影 AI 模型工作站时传 WuyingModelServer。省略时默认使用 WuyingServer。
+   * 
+   * @example
+   * WuyingModelServer
+   */
+  productType?: string;
   /**
    * @remarks
    * The ID of the discount.
@@ -424,11 +553,13 @@ export class CreateWuyingServerRequest extends $dara.Model {
       idempotenceToken: 'IdempotenceToken',
       imageId: 'ImageId',
       maxPrice: 'MaxPrice',
+      modelConfig: 'ModelConfig',
       networkStrategyType: 'NetworkStrategyType',
       officeSiteId: 'OfficeSiteId',
       password: 'Password',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      productType: 'ProductType',
       promotionId: 'PromotionId',
       savingPlanId: 'SavingPlanId',
       serverInstanceType: 'ServerInstanceType',
@@ -458,11 +589,13 @@ export class CreateWuyingServerRequest extends $dara.Model {
       idempotenceToken: 'string',
       imageId: 'string',
       maxPrice: 'number',
+      modelConfig: CreateWuyingServerRequestModelConfig,
       networkStrategyType: 'string',
       officeSiteId: 'string',
       password: 'string',
       period: 'number',
       periodUnit: 'string',
+      productType: 'string',
       promotionId: 'string',
       savingPlanId: 'string',
       serverInstanceType: 'string',
@@ -480,6 +613,9 @@ export class CreateWuyingServerRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.dataDisk)) {
       $dara.Model.validateArray(this.dataDisk);
+    }
+    if(this.modelConfig && typeof (this.modelConfig as any).validate === 'function') {
+      (this.modelConfig as any).validate();
     }
     if(Array.isArray(this.vSwitchIds)) {
       $dara.Model.validateArray(this.vSwitchIds);

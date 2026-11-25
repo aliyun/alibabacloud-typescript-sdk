@@ -232,6 +232,102 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
   }
 }
 
+export class ListWuyingServerResponseBodyWuyingServerListServerModelInfo extends $dara.Model {
+  /**
+   * @example
+   * vLLM
+   */
+  inferenceEngine?: string;
+  /**
+   * @example
+   * ["text"]
+   */
+  inputModalities?: string[];
+  /**
+   * @example
+   * 16384
+   */
+  maxModelLen?: number;
+  /**
+   * @example
+   * 4
+   */
+  maxNumSeqs?: number;
+  /**
+   * @example
+   * Lan
+   */
+  modelAccessMethod?: string;
+  /**
+   * @example
+   * demo-model
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 示例模型
+   */
+  modelName?: string;
+  /**
+   * @example
+   * Running
+   */
+  modelServiceInferenceStatus?: string;
+  /**
+   * @example
+   * ["text"]
+   */
+  outputModalities?: string[];
+  /**
+   * @example
+   * demo-model
+   */
+  servedModelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inferenceEngine: 'InferenceEngine',
+      inputModalities: 'InputModalities',
+      maxModelLen: 'MaxModelLen',
+      maxNumSeqs: 'MaxNumSeqs',
+      modelAccessMethod: 'ModelAccessMethod',
+      modelId: 'ModelId',
+      modelName: 'ModelName',
+      modelServiceInferenceStatus: 'ModelServiceInferenceStatus',
+      outputModalities: 'OutputModalities',
+      servedModelName: 'ServedModelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inferenceEngine: 'string',
+      inputModalities: { 'type': 'array', 'itemType': 'string' },
+      maxModelLen: 'number',
+      maxNumSeqs: 'number',
+      modelAccessMethod: 'string',
+      modelId: 'string',
+      modelName: 'string',
+      modelServiceInferenceStatus: 'string',
+      outputModalities: { 'type': 'array', 'itemType': 'string' },
+      servedModelName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputModalities)) {
+      $dara.Model.validateArray(this.inputModalities);
+    }
+    if(Array.isArray(this.outputModalities)) {
+      $dara.Model.validateArray(this.outputModalities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWuyingServerResponseBodyWuyingServerListSessions extends $dara.Model {
   /**
    * @remarks
@@ -455,6 +551,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * The instance type information.
    */
   serverInstanceTypeInfo?: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo;
+  serverModelInfo?: ListWuyingServerResponseBodyWuyingServerListServerModelInfo;
   /**
    * @remarks
    * The list of sessions.
@@ -609,6 +706,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       resourceSessionStatus: 'ResourceSessionStatus',
       securityGroupIds: 'SecurityGroupIds',
       serverInstanceTypeInfo: 'ServerInstanceTypeInfo',
+      serverModelInfo: 'ServerModelInfo',
       sessions: 'Sessions',
       status: 'Status',
       subPayType: 'SubPayType',
@@ -656,6 +754,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       resourceSessionStatus: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       serverInstanceTypeInfo: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo,
+      serverModelInfo: ListWuyingServerResponseBodyWuyingServerListServerModelInfo,
       sessions: { 'type': 'array', 'itemType': ListWuyingServerResponseBodyWuyingServerListSessions },
       status: 'string',
       subPayType: 'string',
@@ -694,6 +793,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
     }
     if(this.serverInstanceTypeInfo && typeof (this.serverInstanceTypeInfo as any).validate === 'function') {
       (this.serverInstanceTypeInfo as any).validate();
+    }
+    if(this.serverModelInfo && typeof (this.serverModelInfo as any).validate === 'function') {
+      (this.serverModelInfo as any).validate();
     }
     if(Array.isArray(this.sessions)) {
       $dara.Model.validateArray(this.sessions);

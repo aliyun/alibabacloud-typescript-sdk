@@ -12,6 +12,11 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
    */
   bizRegionId?: string;
   /**
+   * @example
+   * 1
+   */
+  bizType?: number;
+  /**
    * @remarks
    * The billing type.
    * 
@@ -44,6 +49,11 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
    */
   gpuMemory?: number;
   /**
+   * @example
+   * RTX 5880
+   */
+  gpuSpec?: string;
+  /**
    * @remarks
    * The current specification of the instance for specification change.
    * 
@@ -67,6 +77,11 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
    * 10240
    */
   memory?: number;
+  /**
+   * @example
+   * demo-model
+   */
+  modelId?: string;
   /**
    * @remarks
    * The resource specification type to query. If this parameter is not specified, all specification types are returned.
@@ -148,13 +163,16 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizRegionId: 'BizRegionId',
+      bizType: 'BizType',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       gpu: 'Gpu',
       gpuMemory: 'GpuMemory',
+      gpuSpec: 'GpuSpec',
       instanceTypeForModify: 'InstanceTypeForModify',
       language: 'Language',
       memory: 'Memory',
+      modelId: 'ModelId',
       nodeInstanceType: 'NodeInstanceType',
       nodeInstanceTypeFamily: 'NodeInstanceTypeFamily',
       orderBy: 'OrderBy',
@@ -170,13 +188,16 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizRegionId: 'string',
+      bizType: 'number',
       chargeType: 'string',
       cpu: 'number',
       gpu: 'number',
       gpuMemory: 'number',
+      gpuSpec: 'string',
       instanceTypeForModify: 'string',
       language: 'string',
       memory: 'number',
+      modelId: 'string',
       nodeInstanceType: 'string',
       nodeInstanceTypeFamily: 'string',
       orderBy: 'string',

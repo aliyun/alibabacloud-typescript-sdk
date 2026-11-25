@@ -8,7 +8,7 @@ export class DescribeUserProfilePathRulesResponseBodyDataRulesBlackPath extends 
    * The excluded path relative to the user profile directory.
    * 
    * @example
-   * AppData\\Local
+   * AppData\Local
    */
   path?: string;
   /**
@@ -50,7 +50,7 @@ export class DescribeUserProfilePathRulesResponseBodyDataRulesWhitePaths extends
    * The exception path relative to BlackPath.Path.
    * 
    * @example
-   * .\\Microsoft\\Office
+   * .\Microsoft\Office
    */
   path?: string;
   /**

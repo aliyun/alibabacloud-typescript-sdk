@@ -136,7 +136,7 @@ export class DescribeEventsRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The start time of the query. **Required**. Specify the time in the ISO 8601 standard: `yyyy-MM-dd\\"T\\"HH:mm:ss`. You can include three digits for milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this exact time, and the start time must be earlier than or equal to the `EndTime`. The service retains and retrieves only events that occurred within 30 days before the call time.
+   * The start time of the query. **Required**. Specify the time in the ISO 8601 standard: `yyyy-MM-dd\"T\"HH:mm:ss`. You can include three digits for milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this exact time, and the start time must be earlier than or equal to the `EndTime`. The service retains and retrieves only events that occurred within 30 days before the call time.
    * 
    * This parameter is required.
    * 

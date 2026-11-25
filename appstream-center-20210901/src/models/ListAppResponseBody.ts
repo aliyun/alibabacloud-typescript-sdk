@@ -81,7 +81,7 @@ export class ListAppResponseBodyData extends $dara.Model {
    * The path of the executable file saved when the application is created or modified. This field is returned only if the path is configured for the application. An example is the installation path of a Windows business application.
    * 
    * @example
-   * C:\\Program Files\\BusinessApp\\BusinessApp.exe
+   * C:\Program Files\BusinessApp\BusinessApp.exe
    */
   executeFileAddress?: string;
   /**

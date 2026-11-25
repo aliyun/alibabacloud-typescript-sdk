@@ -76,6 +76,11 @@ export class ListWuyingServerRequest extends $dara.Model {
    */
   imageId?: string;
   /**
+   * @example
+   * 示例
+   */
+  modelName?: string;
+  /**
    * @remarks
    * The internal IP address.
    * 
@@ -182,6 +187,7 @@ export class ListWuyingServerRequest extends $dara.Model {
       expiredTimeEnd: 'ExpiredTimeEnd',
       expiredTimeStart: 'ExpiredTimeStart',
       imageId: 'ImageId',
+      modelName: 'ModelName',
       networkInterfaceIp: 'NetworkInterfaceIp',
       officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
@@ -208,6 +214,7 @@ export class ListWuyingServerRequest extends $dara.Model {
       expiredTimeEnd: 'string',
       expiredTimeStart: 'string',
       imageId: 'string',
+      modelName: 'string',
       networkInterfaceIp: 'string',
       officeSiteId: 'string',
       pageNumber: 'number',

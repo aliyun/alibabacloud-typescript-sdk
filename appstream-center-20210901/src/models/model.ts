@@ -49,6 +49,9 @@ export { CreateImageByInstanceResponseBodyData } from './CreateImageByInstanceRe
 export { CreateModelProviderTemplateResponseBodyData } from './CreateModelProviderTemplateResponseBody';
 export { CreateModelTemplateResponseBodyData } from './CreateModelTemplateResponseBody';
 export { CreateWuyingServerRequestDataDisk } from './CreateWuyingServerRequest';
+export { CreateWuyingServerRequestModelConfigServerRunConfig } from './CreateWuyingServerRequest';
+export { CreateWuyingServerRequestModelConfig } from './CreateWuyingServerRequest';
+export { CreateWuyingServerShrinkRequestDataDisk } from './CreateWuyingServerShrinkRequest';
 export { CreateWuyingServerResponseBodyData } from './CreateWuyingServerResponseBody';
 export { DeleteAppInstancesResponseBodyDeleteAppInstanceModels } from './DeleteAppInstancesResponseBody';
 export { DeliverToUserSlsRequestDeliveryScopes } from './DeliverToUserSlsRequest';
@@ -64,6 +67,8 @@ export { DescribeUserProfilePathRulesResponseBodyDataRulesWhitePaths } from './D
 export { DescribeUserProfilePathRulesResponseBodyDataRules } from './DescribeUserProfilePathRulesResponseBody';
 export { DescribeUserProfilePathRulesResponseBodyData } from './DescribeUserProfilePathRulesResponseBody';
 export { DescribeWuyingServerResponseBodyDataPrivateIpSets } from './DescribeWuyingServerResponseBody';
+export { DescribeWuyingServerResponseBodyDataServerInstanceTypeInfo } from './DescribeWuyingServerResponseBody';
+export { DescribeWuyingServerResponseBodyDataServerModelInfo } from './DescribeWuyingServerResponseBody';
 export { DescribeWuyingServerResponseBodyData } from './DescribeWuyingServerResponseBody';
 export { DescribeWuyingServerEipInfoResponseBodyEipInfoModel } from './DescribeWuyingServerEipInfoResponseBody';
 export { GetAgentRuntimeStatisticResponseBodyData } from './GetAgentRuntimeStatisticResponseBody';
@@ -209,6 +214,7 @@ export { ListModelProviderLlmCodesResponseBodyData } from './ListModelProviderLl
 export { ListModelProviderTemplatesResponseBodyData } from './ListModelProviderTemplatesResponseBody';
 export { ListModelTemplateResourceGroupResponseBodyData } from './ListModelTemplateResourceGroupResponseBody';
 export { ListModelTemplatesResponseBodyData } from './ListModelTemplatesResponseBody';
+export { ListNodeInstanceTypeResponseBodyNodeInstanceTypeModelsWuyingServerModelMetaInfo } from './ListNodeInstanceTypeResponseBody';
 export { ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels } from './ListNodeInstanceTypeResponseBody';
 export { ListNodesResponseBodyNodeModels } from './ListNodesResponseBody';
 export { ListOtaTaskResponseBodyTaskList } from './ListOtaTaskResponseBody';
@@ -228,6 +234,7 @@ export { ListWuyingServerResponseBodyWuyingServerListDataDisk } from './ListWuyi
 export { ListWuyingServerResponseBodyWuyingServerListInstanceInfoList } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListPrivateIpSets } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo } from './ListWuyingServerResponseBody';
+export { ListWuyingServerResponseBodyWuyingServerListServerModelInfo } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListSessions } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerList } from './ListWuyingServerResponseBody';
 export { ListWuyingServerWorkloadTemplateResponseBodyWorkloadTemplates } from './ListWuyingServerWorkloadTemplateResponseBody';
@@ -355,6 +362,7 @@ export { CreateModelTemplateRequest } from './CreateModelTemplateRequest';
 export { CreateModelTemplateResponseBody } from './CreateModelTemplateResponseBody';
 export { CreateModelTemplateResponse } from './CreateModelTemplateResponse';
 export { CreateWuyingServerRequest } from './CreateWuyingServerRequest';
+export { CreateWuyingServerShrinkRequest } from './CreateWuyingServerShrinkRequest';
 export { CreateWuyingServerResponseBody } from './CreateWuyingServerResponseBody';
 export { CreateWuyingServerResponse } from './CreateWuyingServerResponse';
 export { DeleteAdaptorRequest } from './DeleteAdaptorRequest';

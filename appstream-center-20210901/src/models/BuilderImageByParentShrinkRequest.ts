@@ -222,7 +222,7 @@ export class BuilderImageByParentShrinkRequest extends $dara.Model {
    * The property key for the driver list is DRIVER_LIST, and the value is a JSON string of an array of driver IDs. We recommend that you specify drivers by using DriverIdList. **If both DriverIdList and PropertyMap.DRIVER_LIST are specified, DriverIdList takes precedence.** Specify other extended properties only when you have confirmed their purposes and values.
    * 
    * @example
-   * {"DRIVER_LIST":"[\\"6d4af751-f522-40d7-ab6c-4a0ae587****\\",\\"b5bdf6c0-41de-4878-8963-e8324106****\\"]"}
+   * {"DRIVER_LIST":"[\"6d4af751-f522-40d7-ab6c-4a0ae587****\",\"b5bdf6c0-41de-4878-8963-e8324106****\"]"}
    */
   propertyMapShrink?: string;
   /**

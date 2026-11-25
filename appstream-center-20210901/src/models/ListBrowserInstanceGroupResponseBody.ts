@@ -715,7 +715,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   expiredTime?: string;
   /**
    * @remarks
-   * The creation time of the browser instance group. The time follows the RFC 3339 standard in the `yyyy-MM-dd\\"T\\"HH:mm:ss.SSSXXX` format, which includes milliseconds and time zone offsets. The actual response uses the UTC offset `+00:00`.
+   * The creation time of the browser instance group. The time follows the RFC 3339 standard in the `yyyy-MM-dd\"T\"HH:mm:ss.SSSXXX` format, which includes milliseconds and time zone offsets. The actual response uses the UTC offset `+00:00`.
    * 
    * @example
    * 2026-09-21T07:00:39.000+00:00

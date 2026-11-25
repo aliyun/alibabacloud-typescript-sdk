@@ -42,6 +42,164 @@ export class DescribeWuyingServerResponseBodyDataPrivateIpSets extends $dara.Mod
   }
 }
 
+export class DescribeWuyingServerResponseBodyDataServerInstanceTypeInfo extends $dara.Model {
+  /**
+   * @example
+   * 4
+   */
+  cpu?: string;
+  /**
+   * @example
+   * 1.00
+   */
+  gpu?: string;
+  /**
+   * @example
+   * 16384
+   */
+  gpuMemory?: number;
+  /**
+   * @example
+   * NVIDIA T4
+   */
+  gpuSpec?: string;
+  /**
+   * @example
+   * 8192
+   */
+  memory?: number;
+  /**
+   * @example
+   * appstreaming.general.4c8g
+   */
+  serverInstanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      gpuMemory: 'GpuMemory',
+      gpuSpec: 'GpuSpec',
+      memory: 'Memory',
+      serverInstanceType: 'ServerInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'string',
+      gpu: 'string',
+      gpuMemory: 'number',
+      gpuSpec: 'string',
+      memory: 'number',
+      serverInstanceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWuyingServerResponseBodyDataServerModelInfo extends $dara.Model {
+  /**
+   * @example
+   * vLLM
+   */
+  inferenceEngine?: string;
+  /**
+   * @example
+   * ["text"]
+   */
+  inputModalities?: string[];
+  /**
+   * @example
+   * 16384
+   */
+  maxModelLen?: number;
+  /**
+   * @example
+   * 4
+   */
+  maxNumSeqs?: number;
+  /**
+   * @example
+   * Lan
+   */
+  modelAccessMethod?: string;
+  /**
+   * @example
+   * demo-model
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 示例模型
+   */
+  modelName?: string;
+  /**
+   * @example
+   * Running
+   */
+  modelServiceInferenceStatus?: string;
+  /**
+   * @example
+   * ["text"]
+   */
+  outputModalities?: string[];
+  /**
+   * @example
+   * demo-model
+   */
+  servedModelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inferenceEngine: 'InferenceEngine',
+      inputModalities: 'InputModalities',
+      maxModelLen: 'MaxModelLen',
+      maxNumSeqs: 'MaxNumSeqs',
+      modelAccessMethod: 'ModelAccessMethod',
+      modelId: 'ModelId',
+      modelName: 'ModelName',
+      modelServiceInferenceStatus: 'ModelServiceInferenceStatus',
+      outputModalities: 'OutputModalities',
+      servedModelName: 'ServedModelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inferenceEngine: 'string',
+      inputModalities: { 'type': 'array', 'itemType': 'string' },
+      maxModelLen: 'number',
+      maxNumSeqs: 'number',
+      modelAccessMethod: 'string',
+      modelId: 'string',
+      modelName: 'string',
+      modelServiceInferenceStatus: 'string',
+      outputModalities: { 'type': 'array', 'itemType': 'string' },
+      servedModelName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputModalities)) {
+      $dara.Model.validateArray(this.inputModalities);
+    }
+    if(Array.isArray(this.outputModalities)) {
+      $dara.Model.validateArray(this.outputModalities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -152,6 +310,8 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
    * The set of private IP addresses, including the primary and secondary IP addresses.
    */
   privateIpSets?: DescribeWuyingServerResponseBodyDataPrivateIpSets[];
+  serverInstanceTypeInfo?: DescribeWuyingServerResponseBodyDataServerInstanceTypeInfo;
+  serverModelInfo?: DescribeWuyingServerResponseBodyDataServerModelInfo;
   /**
    * @remarks
    * The status of the development host.
@@ -216,6 +376,8 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
       officeSiteType: 'OfficeSiteType',
       osType: 'OsType',
       privateIpSets: 'PrivateIpSets',
+      serverInstanceTypeInfo: 'ServerInstanceTypeInfo',
+      serverModelInfo: 'ServerModelInfo',
       status: 'Status',
       supportASP: 'SupportASP',
       systemDiskCategory: 'SystemDiskCategory',
@@ -241,6 +403,8 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
       officeSiteType: 'string',
       osType: 'string',
       privateIpSets: { 'type': 'array', 'itemType': DescribeWuyingServerResponseBodyDataPrivateIpSets },
+      serverInstanceTypeInfo: DescribeWuyingServerResponseBodyDataServerInstanceTypeInfo,
+      serverModelInfo: DescribeWuyingServerResponseBodyDataServerModelInfo,
       status: 'string',
       supportASP: 'boolean',
       systemDiskCategory: 'string',
@@ -253,6 +417,12 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.privateIpSets)) {
       $dara.Model.validateArray(this.privateIpSets);
+    }
+    if(this.serverInstanceTypeInfo && typeof (this.serverInstanceTypeInfo as any).validate === 'function') {
+      (this.serverInstanceTypeInfo as any).validate();
+    }
+    if(this.serverModelInfo && typeof (this.serverModelInfo as any).validate === 'function') {
+      (this.serverModelInfo as any).validate();
     }
     super.validate();
   }

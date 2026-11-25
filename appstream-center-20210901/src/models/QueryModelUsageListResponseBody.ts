@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryModelUsageListResponseBodyDataCreditMultiplier extends $dara.Model {
   /**
    * @remarks
-   * The upper limit of the credit multiplier, in multiples. If it is empty, it indicates that the multiplier starts from Min without a specified upper limit.
+   * The upper limit of the credit multiplier, in multiples. If it is empty, it indicates that the multiplier starts from Min and no maximum multiplier is specified.
    * 
    * @example
    * 3
@@ -45,7 +45,7 @@ export class QueryModelUsageListResponseBodyDataCreditMultiplier extends $dara.M
 export class QueryModelUsageListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The average time to first token (TTFT), which is the total duration of valid TTFT samples divided by the number of samples, in milliseconds, rounded to the nearest integer. This parameter is empty when no valid samples are available. It does not represent the total time taken for a complete response.
+   * The average time to first token (TTFT) latency, which is the total duration of valid TTFT samples divided by the number of samples, in milliseconds, rounded to the nearest integer. This field is empty when no valid samples are available. It does not represent the total time taken for a complete response.
    * 
    * @example
    * 620
@@ -53,7 +53,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   avgTtftMs?: number;
   /**
    * @remarks
-   * The proportion of cached input usage to the total input usage, represented as a decimal between 0 and 1. For example, 0.86 indicates 86%. It is not the proportion of requests that hit the cache. This parameter is empty when the basic usage is incomplete or the total input usage is 0. The return value is rounded to a maximum of 8 decimal places.
+   * The proportion of cached input usage to the total input usage, expressed as a decimal between 0 and 1. For example, 0.86 indicates 86%. It is not the proportion of requests that hit the cache. This field is empty when the base usage is incomplete or the total input usage is 0. The return value is rounded to a maximum of 8 decimal places.
    * 
    * @example
    * 0.86
@@ -69,7 +69,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   callCount?: number;
   /**
    * @remarks
-   * The maximum context length of the model, in tokens. This parameter is empty when no model information is available.
+   * The maximum context length of the model, in tokens. This field is empty when no model information is available.
    * 
    * @example
    * 1000000
@@ -79,10 +79,10 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
    * @remarks
    * The display range of the credit consumption multiplier, in multiples. It is used to display price hints and is not used to recalculate the PointsConsumption returned by this API operation.
    * 
-   * - If Min and Max are equal, it indicates a fixed multiplier.
-   * - If Max is greater than Min, it indicates a multiplier range.
-   * - If Max is empty, it indicates a starting multiplier of Min.
-   * - If the entire object is empty, it indicates that the model does not participate in credit billing or no multiplier information is available. An empty value for this field alone cannot determine whether actual charges apply.
+   * - If Min and Max are equal: fixed multiplier.
+   * - If Max is greater than Min: multiplier range.
+   * - If Max is empty: starts from the Min multiplier.
+   * - If the entire object is empty: the model does not participate in credit billing, or no multiplier information is available. An empty value for this field alone cannot determine whether actual charges apply.
    * 
    * @example
    * {"Min":1,"Max":3}
@@ -90,15 +90,15 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   creditMultiplier?: QueryModelUsageListResponseBodyDataCreditMultiplier;
   /**
    * @remarks
-   * The description of the model. The display language is affected by Language. This parameter is empty when no description is available.
+   * The description of the model. The display language is affected by Language. This field is empty when no description is available.
    * 
    * @example
-   * Tongyi Qianwen large language model
+   * Qwen large language model
    */
   description?: string;
   /**
    * @remarks
-   * The proportion of explicit cache creation credits to the total credits. This parameter is empty when it cannot be calculated.
+   * The proportion of explicit cache creation credits to the total credits. This field is empty when it cannot be calculated.
    * 
    * @example
    * 0.115
@@ -106,7 +106,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   explicitCacheCreationPointsRate?: number;
   /**
    * @remarks
-   * The proportion of explicit cache hit credits to the total credits. This parameter is empty when it cannot be calculated.
+   * The proportion of explicit cache hit credits to the total credits. This field is empty when it cannot be calculated.
    * 
    * @example
    * 0.043
@@ -114,7 +114,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   explicitCacheHitPointsRate?: number;
   /**
    * @remarks
-   * The number of failed calls within the query range, including failed calls due to throttling.
+   * The number of failed calls within the query range, including failed calls that are throttled.
    * 
    * @example
    * 180
@@ -130,7 +130,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   featureList?: string[];
   /**
    * @remarks
-   * The URL of the model brand icon. This parameter is empty when no brand icon is available. The example URL only illustrates the URL format and is not a fixed download address.
+   * The URL of the model brand icon. This field is empty when no brand icon is available. The example URL only illustrates the URL format and is not a fixed download address.
    * 
    * @example
    * https://example.com/qwen.png
@@ -138,7 +138,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   iconUrl?: string;
   /**
    * @remarks
-   * The proportion of implicit cache hit credits to the total credits. This parameter is empty when it cannot be calculated.
+   * The proportion of implicit cache hit credits to the total credits. This field is empty when it cannot be calculated.
    * 
    * @example
    * 0.171
@@ -146,9 +146,9 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   implicitCacheHitPointsRate?: number;
   /**
    * @remarks
-   * The proportion of input credits to the total consumed credits, represented as a decimal between 0 and 1. For example, 0.739 indicates 73.9%. This parameter is provided only when the input and output credit details are complete, the values are valid, and the total credits are greater than 0. Otherwise, it is empty.
+   * The proportion of input credits to the total consumed credits, expressed as a decimal between 0 and 1. For example, 0.739 indicates 73.9%. This field is provided only when the input and output credit details are complete, the values are valid, and the total credits are greater than 0. Otherwise, it is empty.
    * 
-   * The proportion is rounded to a maximum of 8 decimal places. The sum of input and output credits may be less than the total credits. Additionally, a minor rounding error may occur when adding this value to OutputPointsRate. Do not calculate other credits or verify bills based solely on the sum of proportions.
+   * The proportion is rounded to a maximum of 8 decimal places. The sum of input and output credits may be less than the total credits. Additionally, adding this value to OutputPointsRate may result in minor rounding errors. Do not calculate other credits or verify bills based solely on the sum of the proportions.
    * 
    * @example
    * 0.739
@@ -156,7 +156,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   inputPointsRate?: number;
   /**
    * @remarks
-   * The new model indicator. This indicator is not provided in the current version. Ignore this field and do not use it to determine whether a model is newly released.
+   * The new model tag. The current version does not provide this tag. Ignore this field and do not use it to determine whether a model is newly released.
    * 
    * @example
    * null
@@ -172,7 +172,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   llmCode?: string;
   /**
    * @remarks
-   * The maximum output length for a single generation of the model, in tokens. This parameter is empty when no model information is available.
+   * The maximum output length for a single generation of the model, in tokens. This field is empty when no model information is available.
    * 
    * @example
    * 65536
@@ -180,7 +180,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   maxOutput?: number;
   /**
    * @remarks
-   * The display name of the model brand. The display language is affected by Language. This parameter is empty when no brand information is available.
+   * The display name of the model brand. The display language is affected by Language. This field is empty when no brand information is available.
    * 
    * @example
    * Qwen
@@ -188,7 +188,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   modelBrandName?: string;
   /**
    * @remarks
-   * The display name of the model. The display language is affected by Language. LlmCode is returned when no name is available. The name is subject to change, so the model code should be used when associating data.
+   * The display name of the model. The display language is affected by Language. If no name is available, LlmCode is returned. The name may change, so the model code should be used when associating data.
    * 
    * @example
    * Qwen3 Max
@@ -196,7 +196,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The proportion of normal input credits to the total credits. This parameter is empty when it cannot be calculated.
+   * The proportion of normal input credits to the total credits. This field is empty when it cannot be calculated.
    * 
    * @example
    * 0.329
@@ -204,7 +204,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   normalInputPointsRate?: number;
   /**
    * @remarks
-   * The proportion of output credits to the total consumed credits, represented as a decimal between 0 and 1. For example, 0.261 indicates 26.1%. This parameter is provided only when the input and output credit details are complete, the values are valid, and the total credits are greater than 0. Otherwise, it is empty. The proportion is rounded to a maximum of 8 decimal places, and a minor rounding error may occur when adding this value to InputPointsRate.
+   * The proportion of output credits to the total consumed credits, expressed as a decimal between 0 and 1. For example, 0.261 indicates 26.1%. This field is provided only when the input and output credit details are complete, the values are valid, and the total credits are greater than 0. Otherwise, it is empty. The proportion is rounded to a maximum of 8 decimal places, and adding this value to InputPointsRate may result in minor rounding errors.
    * 
    * @example
    * 0.261
@@ -220,7 +220,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   pointsConsumption?: number;
   /**
    * @remarks
-   * The number of successful calls divided by the total number of calls, represented as a decimal between 0 and 1, not a percentage. This parameter is empty when the number of calls is 0. Multiply this value by 100 to display it as a percentage. The return value is rounded to a maximum of 8 decimal places.
+   * The number of successful calls divided by the total number of calls, expressed as a decimal between 0 and 1, not a percentage. This field is empty when the number of calls is 0. Multiply this value by 100 to display it as a percentage. The return value is rounded to a maximum of 8 decimal places.
    * 
    * @example
    * 0.98557692
@@ -228,7 +228,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   successRate?: number;
   /**
    * @remarks
-   * The proportion of tool calling credits to the total credits. This parameter is empty when it cannot be calculated.
+   * The proportion of tool calling credits to the total credits. This field is empty when it cannot be calculated.
    * 
    * @example
    * 0
@@ -236,7 +236,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
   toolCallPointsRate?: number;
   /**
    * @remarks
-   * The 95th percentile of the TTFT, in milliseconds. This parameter is provided only when corresponding data exists in a fixed statistical window. **It is empty when custom start and end dates are passed, even if the start and end dates are the same.** The value 700 in the field table is an example for a fixed statistical window and does not apply to custom date ranges.
+   * The 95th percentile value of the time to first token (TTFT) latency, in milliseconds. This field is provided only when corresponding data exists within a fixed statistical window. **It is empty when custom start and end dates are passed, even if the start and end dates are the same.** The value 700 in the field table is an example under a fixed statistical window and does not apply to custom date ranges.
    * 
    * @example
    * 700
@@ -318,7 +318,7 @@ export class QueryModelUsageListResponseBodyData extends $dara.Model {
 export class QueryModelUsageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The model usage details on the current page. An empty list is returned if no models match the criteria or the page number exceeds the result range. An empty list is also returned for 24h or 1d queries without specified start and end dates when no statistical results are available. For other windows or custom date ranges, no valid list data is provided when no statistical results are available. The absence of statistical results does not necessarily indicate that no actual calls were made.
+   * The model usage details on the current page. If no models match or the page number exceeds the result range, an empty list is returned. For 24h or 1d queries without specified start and end dates, an empty list is also returned when no statistical results are available. For other windows or custom date ranges, no valid list data is provided when no statistical results are available. The absence of statistical results does not directly indicate that no actual calls were made.
    * 
    * @example
    * [{"LlmCode":"qwen3-max-2026-01-23","ModelName":"Qwen3 Max","CallCount":12480,"FailureCount":180,"PointsConsumption":100,"InputPointsRate":0.739,"OutputPointsRate":0.261,"SuccessRate":0.98557692,"AvgTtftMs":620,"CacheHitRate":0.86}]
@@ -326,7 +326,7 @@ export class QueryModelUsageListResponseBody extends $dara.Model {
   data?: QueryModelUsageListResponseBodyData[];
   /**
    * @remarks
-   * The page number of this query, starting from 1.
+   * The page number for this query, starting from 1.
    * 
    * @example
    * 1
@@ -334,7 +334,7 @@ export class QueryModelUsageListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page used for this query. The actual number of returned entries may be less than this value.
+   * The page size used for this query. The actual number of returned entries may be less than this value.
    * 
    * @example
    * 1
@@ -342,7 +342,7 @@ export class QueryModelUsageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of this request, used to locate and troubleshoot request issues.
+   * The unique identifier for this request, used to locate and troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -350,7 +350,7 @@ export class QueryModelUsageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of models used for pagination. When statistical results are available, this parameter returns the number of models that meet the model type and keyword conditions. This may include models with 0 calls within the selected date range, so it is not necessarily equal to ActiveModelCount.
+   * The total number of models used for pagination. When statistical results are available, this field returns the number of models that meet the model type and keyword conditions. This may include models with 0 calls within the selected date range, so it is not necessarily equal to ActiveModelCount.
    * 
    * **When no statistical results are available within the query range, this value returns 0. You cannot determine that the business has no models or no actual calls based solely on TotalCount=0.**
    * 

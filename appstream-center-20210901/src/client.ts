@@ -1703,12 +1703,18 @@ export default class Client extends OpenApi {
    * To associate the workstation with a virtual node pool, you must prepare an existing VirtualNodePoolId under the current account. This operation only associates existing node pools and does not create virtual node pools.
    * [ListWuyingServer](~~ListWuyingServer~~)
    * 
-   * @param request - CreateWuyingServerRequest
+   * @param tmpReq - CreateWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWuyingServerResponse
    */
-  async createWuyingServerWithOptions(request: $_model.CreateWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWuyingServerResponse> {
-    request.validate();
+  async createWuyingServerWithOptions(tmpReq: $_model.CreateWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWuyingServerResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWuyingServerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.modelConfig)) {
+      request.modelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelConfig, "ModelConfig", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.amount)) {
       body["Amount"] = request.amount;
@@ -1763,6 +1769,10 @@ export default class Client extends OpenApi {
       body["MaxPrice"] = request.maxPrice;
     }
 
+    if (!$dara.isNull(request.modelConfigShrink)) {
+      body["ModelConfig"] = request.modelConfigShrink;
+    }
+
     if (!$dara.isNull(request.networkStrategyType)) {
       body["NetworkStrategyType"] = request.networkStrategyType;
     }
@@ -1781,6 +1791,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.periodUnit)) {
       body["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
     }
 
     if (!$dara.isNull(request.promotionId)) {
@@ -6936,6 +6950,10 @@ export default class Client extends OpenApi {
       query["BizRegionId"] = request.bizRegionId;
     }
 
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
     if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
@@ -6952,6 +6970,10 @@ export default class Client extends OpenApi {
       query["GpuMemory"] = request.gpuMemory;
     }
 
+    if (!$dara.isNull(request.gpuSpec)) {
+      query["GpuSpec"] = request.gpuSpec;
+    }
+
     if (!$dara.isNull(request.instanceTypeForModify)) {
       query["InstanceTypeForModify"] = request.instanceTypeForModify;
     }
@@ -6962,6 +6984,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.memory)) {
       query["Memory"] = request.memory;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["ModelId"] = request.modelId;
     }
 
     if (!$dara.isNull(request.nodeInstanceType)) {
@@ -7850,6 +7876,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
     }
 
     if (!$dara.isNull(request.networkInterfaceIp)) {
@@ -9348,15 +9378,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Prerequisites
-   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business for the current account. The returned results depend on the generated statistical data and do not represent that every call has been counted in real time.
+   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business for the current account. The returned results depend on the generated statistical data and do not indicate that every call is counted in real time.
    * ## Time and missing data
    * Time boundaries are uniformly based on Asia/Shanghai (UTC+8). For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
    * If no statistical results are available for `24h` or `1d` queries without specified dates, the summary API returns zero values and the list API returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
    * ## Combined calls
-   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain summary metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When reconciling the summary and details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must be consistent. `Keyword` takes effect only for the details API. Details filtered by keywords cannot be directly compared with unfiltered summary results.
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain summary metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing summary and detail data, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must be consistent. `Keyword` applies only to the detail API. Details filtered by keywords cannot be directly compared with unfiltered summary results.
    * ## Request example combinations
-   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (including both the start and end dates), in the Asia/Shanghai (UTC+8) time zone. To query the usage for the last 7 days, change the value to `StatDateType=1w` and omit both date parameters.
-   * The number of calls, points, and model information in the examples are used to illustrate the meaning of the fields. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API response.
+   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change the value to `StatDateType=1w` and omit both date parameters.
+   * The number of calls, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API response.
    * 
    * @param request - QueryModelUsageInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9407,15 +9437,15 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Prerequisites
-   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business for the current account. The returned results depend on the generated statistical data and do not represent that every call has been counted in real time.
+   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business for the current account. The returned results depend on the generated statistical data and do not indicate that every call is counted in real time.
    * ## Time and missing data
    * Time boundaries are uniformly based on Asia/Shanghai (UTC+8). For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
    * If no statistical results are available for `24h` or `1d` queries without specified dates, the summary API returns zero values and the list API returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
    * ## Combined calls
-   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain summary metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When reconciling the summary and details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must be consistent. `Keyword` takes effect only for the details API. Details filtered by keywords cannot be directly compared with unfiltered summary results.
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain summary metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing summary and detail data, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must be consistent. `Keyword` applies only to the detail API. Details filtered by keywords cannot be directly compared with unfiltered summary results.
    * ## Request example combinations
-   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (including both the start and end dates), in the Asia/Shanghai (UTC+8) time zone. To query the usage for the last 7 days, change the value to `StatDateType=1w` and omit both date parameters.
-   * The number of calls, points, and model information in the examples are used to illustrate the meaning of the fields. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API response.
+   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change the value to `StatDateType=1w` and omit both date parameters.
+   * The number of calls, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API response.
    * 
    * @param request - QueryModelUsageInfoRequest
    * @returns QueryModelUsageInfoResponse
@@ -9426,24 +9456,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the invoke count, consumed points, success rate, and time to first token (TTFT) latency of each model, supporting paging by business type, statistical window, and model type.
+   * Queries the invoke count, consumed points, success rate, and time to first token latency for each model by using paging, filtered by business type, statistical window, and model type.
    * 
    * @remarks
    * ## Prerequisites
-   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business under the current account. The returned results depend on the generated statistical data and do not indicate that every call has been counted in real time.
+   * The calling identity must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business under the current account. The returned results depend on the generated statistical data and do not represent that every call has been counted in real time.
    * ## Time and missing data
-   * Time boundaries uniformly use the Asia/Shanghai (UTC+8) time zone. For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
-   * If no statistical results are available for `24h` or `1d` queries without specified dates, the aggregation API operation returns zero values and the list API operation returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
+   * Time boundaries are uniformly based on Asia/Shanghai (UTC+8). To use a custom range, set StatDateType to 1d and specify both StartDate and EndDate. The range includes both the start and end dates, with a maximum span of 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
+   * When no date is specified for 24h or 1d queries and no statistical results are available, the aggregation API returns zero values and the list API returns an empty list. **This does not mean that no actual calls were made.** For other windows or custom date ranges where no statistical results are available, metrics or lists may be empty. Do not treat empty values as zeros.
    * ## Combined calls
-   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain aggregated metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing aggregated metrics with details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must remain consistent. `Keyword` takes effect only for the detail API operation. Details filtered by keyword cannot be directly compared with unfiltered aggregated results.
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain aggregated metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing aggregated and detailed data, BizType, StatDateType, StartDate, EndDate, and ModelType must remain consistent. Keyword applies only to the detail API. Details filtered by keyword cannot be directly compared with unfiltered aggregated results.
    * ## Pagination and metrics
-   * Start with `PageNumber=1` and increment the page number as needed, keeping other filter conditions and sorting methods consistent. The model list may include models that have historical usage but zero calls in the current query range. All ratio fields are returned as decimals between 0 and 1. An empty metric indicates that it is incalculable or the data is unavailable, which is not equivalent to zero.
-   * When new statistical data is continuously generated, the count and sorting of different pagination requests may change. When comparing totals with details, ensure that the query conditions are consistent and consider the data update time difference between the two requests.
+   * Start with PageNumber=1 and increment the page number as needed, keeping other filter conditions and sorting methods consistent. The model list may include models that have historical usage but zero calls within the current query range. All ratio fields are returned as decimals between 0 and 1. An empty metric indicates that it is incalculable or the data is unavailable, which is not equivalent to zero.
+   * When new statistical data is continuously generated, the count and sorting of different pagination requests may change. When comparing totals and details, ensure that the query conditions are consistent and consider the data update time difference between the two requests.
    * ## Request example combinations
-   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change it to `StatDateType=1w` and omit both date parameters.
-   * The call counts, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API operation response. Custom date queries do not provide `TtftP95Ms`. The example details show only some fields. Unshown fields do not indicate that they always return empty values.
+   * In the parameter table, StatDateType=1d, StartDate=2026-08-01, and EndDate=2026-08-07 indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change to StatDateType=1w and omit both date parameters.
+   * The call counts, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. Actual usage and available model information are subject to the API response. Custom date queries do not provide TtftP95Ms. The example details show only some fields. Unshown fields do not necessarily return empty values.
    * ## Missing statistical records for a single model
-   * If a model in the model list has no active statistical records within the selected statistical range, `CallCount`, `FailureCount`, and `PointsConsumption` return 0. The input and output point ratios, success rate, cache hit rate, and time to first token (TTFT) latency are empty. In this case, you cannot determine that the model was not actually invoked based solely on the zero values.
+   * If a model already in the model list has no active statistical records within the selected statistical range, CallCount, FailureCount, and PointsConsumption return 0. The input and output point ratios, success rate, cache hit rate, and time to first token latency are empty. In this case, you cannot determine that the model has no actual invoke operations based solely on the zero values.
    * 
    * @param request - QueryModelUsageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9510,24 +9540,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the invoke count, consumed points, success rate, and time to first token (TTFT) latency of each model, supporting paging by business type, statistical window, and model type.
+   * Queries the invoke count, consumed points, success rate, and time to first token latency for each model by using paging, filtered by business type, statistical window, and model type.
    * 
    * @remarks
    * ## Prerequisites
-   * The caller must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business under the current account. The returned results depend on the generated statistical data and do not indicate that every call has been counted in real time.
+   * The calling identity must have the RAM permissions for the corresponding API operation. The query scope is limited to the model usage of the specified business under the current account. The returned results depend on the generated statistical data and do not represent that every call has been counted in real time.
    * ## Time and missing data
-   * Time boundaries uniformly use the Asia/Shanghai (UTC+8) time zone. For a custom range, set `StatDateType` to `1d` and specify both `StartDate` and `EndDate`. The range includes both the start and end dates, and the maximum span is 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
-   * If no statistical results are available for `24h` or `1d` queries without specified dates, the aggregation API operation returns zero values and the list API operation returns an empty list. **This does not mean that no actual calls were made.** If no statistical results are available for other windows or custom date ranges, metrics or lists may be empty. Do not treat empty values as zeros.
+   * Time boundaries are uniformly based on Asia/Shanghai (UTC+8). To use a custom range, set StatDateType to 1d and specify both StartDate and EndDate. The range includes both the start and end dates, with a maximum span of 90 days. If statistical data is unavailable for some dates, only the existing data within the range is aggregated.
+   * When no date is specified for 24h or 1d queries and no statistical results are available, the aggregation API returns zero values and the list API returns an empty list. **This does not mean that no actual calls were made.** For other windows or custom date ranges where no statistical results are available, metrics or lists may be empty. Do not treat empty values as zeros.
    * ## Combined calls
-   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain aggregated metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing aggregated metrics with details, `BizType`, `StatDateType`, `StartDate`, `EndDate`, and `ModelType` must remain consistent. `Keyword` takes effect only for the detail API operation. Details filtered by keyword cannot be directly compared with unfiltered aggregated results.
+   * You can call [QueryModelUsageInfo](~~QueryModelUsageInfo~~) to obtain aggregated metrics and [QueryModelUsageList](~~QueryModelUsageList~~) to obtain model details. Both API operations can be called independently. When comparing aggregated and detailed data, BizType, StatDateType, StartDate, EndDate, and ModelType must remain consistent. Keyword applies only to the detail API. Details filtered by keyword cannot be directly compared with unfiltered aggregated results.
    * ## Pagination and metrics
-   * Start with `PageNumber=1` and increment the page number as needed, keeping other filter conditions and sorting methods consistent. The model list may include models that have historical usage but zero calls in the current query range. All ratio fields are returned as decimals between 0 and 1. An empty metric indicates that it is incalculable or the data is unavailable, which is not equivalent to zero.
-   * When new statistical data is continuously generated, the count and sorting of different pagination requests may change. When comparing totals with details, ensure that the query conditions are consistent and consider the data update time difference between the two requests.
+   * Start with PageNumber=1 and increment the page number as needed, keeping other filter conditions and sorting methods consistent. The model list may include models that have historical usage but zero calls within the current query range. All ratio fields are returned as decimals between 0 and 1. An empty metric indicates that it is incalculable or the data is unavailable, which is not equivalent to zero.
+   * When new statistical data is continuously generated, the count and sorting of different pagination requests may change. When comparing totals and details, ensure that the query conditions are consistent and consider the data update time difference between the two requests.
    * ## Request example combinations
-   * In the parameter table, `StatDateType=1d`, `StartDate=2026-08-01`, and `EndDate=2026-08-07` indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change it to `StatDateType=1w` and omit both date parameters.
-   * The call counts, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. The actual usage and available model information are subject to the API operation response. Custom date queries do not provide `TtftP95Ms`. The example details show only some fields. Unshown fields do not indicate that they always return empty values.
+   * In the parameter table, StatDateType=1d, StartDate=2026-08-01, and EndDate=2026-08-07 indicate querying the cumulative usage from August 1 to August 7, 2026 (inclusive), in the Asia/Shanghai (UTC+8) time zone. To query the last 7 days, change to StatDateType=1w and omit both date parameters.
+   * The call counts, points, and model information in the examples are used to illustrate field meanings. They do not represent the actual usage of the current account and do not constitute a commitment to model specifications or pricing. Actual usage and available model information are subject to the API response. Custom date queries do not provide TtftP95Ms. The example details show only some fields. Unshown fields do not necessarily return empty values.
    * ## Missing statistical records for a single model
-   * If a model in the model list has no active statistical records within the selected statistical range, `CallCount`, `FailureCount`, and `PointsConsumption` return 0. The input and output point ratios, success rate, cache hit rate, and time to first token (TTFT) latency are empty. In this case, you cannot determine that the model was not actually invoked based solely on the zero values.
+   * If a model already in the model list has no active statistical records within the selected statistical range, CallCount, FailureCount, and PointsConsumption return 0. The input and output point ratios, success rate, cache hit rate, and time to first token latency are empty. In this case, you cannot determine that the model has no actual invoke operations based solely on the zero values.
    * 
    * @param request - QueryModelUsageListRequest
    * @returns QueryModelUsageListResponse

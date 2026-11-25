@@ -106,7 +106,7 @@ export class ListModelProviderEndpointsResponseBodyData extends $dara.Model {
   providerName?: string;
   /**
    * @remarks
-   * The URL of the provider\\"s official website, which directs users to obtain an API key.
+   * The URL of the provider\"s official website, which directs users to obtain an API key.
    * 
    * @example
    * https://test

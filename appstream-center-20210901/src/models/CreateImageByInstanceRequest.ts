@@ -45,7 +45,7 @@ export class CreateImageByInstanceRequestTagList extends $dara.Model {
 export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is applicable only to cloud desktop instances. Specifies whether to clear personal user data. If you set this parameter to true, the created image clears the data in all directories under C:\\Users except the Administrator and Public directories.
+   * This parameter is applicable only to cloud desktop instances. Specifies whether to clear personal user data. If you set this parameter to true, the created image clears the data in all directories under C:\Users except the Administrator and Public directories.
    * 
    * @example
    * false
