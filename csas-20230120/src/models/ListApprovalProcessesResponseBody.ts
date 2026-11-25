@@ -336,7 +336,7 @@ export class ListApprovalProcessesResponseBodyProcessesProcessNodes extends $dar
    * The username of the approver.
    * 
    * @example
-   * 王先生
+   * Mr. Wang
    */
   username?: string;
   static names(): { [key: string]: string } {

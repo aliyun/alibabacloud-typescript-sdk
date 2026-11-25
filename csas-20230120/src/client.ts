@@ -38,6 +38,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量添加设备归属标识
+   * 
+   * @param request - AddDeviceBelongIdentifiersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDeviceBelongIdentifiersResponse
+   */
+  async addDeviceBelongIdentifiersWithOptions(request: $_model.AddDeviceBelongIdentifiersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDeviceBelongIdentifiersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.identifiers)) {
+      bodyFlat["Identifiers"] = request.identifiers;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddDeviceBelongIdentifiers",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddDeviceBelongIdentifiersResponse>(await this.callApi(params, req, runtime), new $_model.AddDeviceBelongIdentifiersResponse({}));
+  }
+
+  /**
+   * 批量添加设备归属标识
+   * 
+   * @param request - AddDeviceBelongIdentifiersRequest
+   * @returns AddDeviceBelongIdentifiersResponse
+   */
+  async addDeviceBelongIdentifiers(request: $_model.AddDeviceBelongIdentifiersRequest): Promise<$_model.AddDeviceBelongIdentifiersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addDeviceBelongIdentifiersWithOptions(request, runtime);
+  }
+
+  /**
    * Adds associated terminal devices to a static device tag in batches.
    * 
    * @param request - AddDeviceGroupMatchDevicesRequest
@@ -6387,6 +6434,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询设备归属标识
+   * 
+   * @param request - ListDeviceBelongIdentifiersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeviceBelongIdentifiersResponse
+   */
+  async listDeviceBelongIdentifiersWithOptions(request: $_model.ListDeviceBelongIdentifiersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeviceBelongIdentifiersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.identifierIds)) {
+      bodyFlat["IdentifierIds"] = request.identifierIds;
+    }
+
+    if (!$dara.isNull(request.identifierType)) {
+      body["IdentifierType"] = request.identifierType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDeviceBelongIdentifiers",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDeviceBelongIdentifiersResponse>(await this.callApi(params, req, runtime), new $_model.ListDeviceBelongIdentifiersResponse({}));
+  }
+
+  /**
+   * 查询设备归属标识
+   * 
+   * @param request - ListDeviceBelongIdentifiersRequest
+   * @returns ListDeviceBelongIdentifiersResponse
+   */
+  async listDeviceBelongIdentifiers(request: $_model.ListDeviceBelongIdentifiersRequest): Promise<$_model.ListDeviceBelongIdentifiersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDeviceBelongIdentifiersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
    * 
    * @param request - ListDeviceGroupsRequest
@@ -9349,6 +9463,53 @@ export default class Client extends OpenApi {
   async modifyForwardStrategyBindingItems(request: $_model.ModifyForwardStrategyBindingItemsRequest): Promise<$_model.ModifyForwardStrategyBindingItemsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyForwardStrategyBindingItemsWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量移除设备归属标识
+   * 
+   * @param request - RemoveDeviceBelongIdentifiersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveDeviceBelongIdentifiersResponse
+   */
+  async removeDeviceBelongIdentifiersWithOptions(request: $_model.RemoveDeviceBelongIdentifiersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveDeviceBelongIdentifiersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.identifierIds)) {
+      bodyFlat["IdentifierIds"] = request.identifierIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveDeviceBelongIdentifiers",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveDeviceBelongIdentifiersResponse>(await this.callApi(params, req, runtime), new $_model.RemoveDeviceBelongIdentifiersResponse({}));
+  }
+
+  /**
+   * 批量移除设备归属标识
+   * 
+   * @param request - RemoveDeviceBelongIdentifiersRequest
+   * @returns RemoveDeviceBelongIdentifiersResponse
+   */
+  async removeDeviceBelongIdentifiers(request: $_model.RemoveDeviceBelongIdentifiersRequest): Promise<$_model.RemoveDeviceBelongIdentifiersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeDeviceBelongIdentifiersWithOptions(request, runtime);
   }
 
   /**
