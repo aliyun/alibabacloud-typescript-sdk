@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,31 +12,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "hitsdb";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-wulanchabu': "hitsdb.cn-wulanchabu.aliyuncs.com",
-      'cn-beijing': "hitsdb.cn-beijing.aliyuncs.com",
-      'cn-qingdao': "hitsdb.cn-qingdao.aliyuncs.com",
-      'cn-shanghai': "hitsdb.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "hitsdb.cn-hongkong.aliyuncs.com",
-      'cn-zhangjiakou': "hitsdb.cn-zhangjiakou.aliyuncs.com",
-      'cn-shenzhen': "hitsdb.cn-shenzhen.aliyuncs.com",
-      'ap-northeast-1': "hitsdb.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "hitsdb.cn-chengdu.aliyuncs.com",
-      'ap-southeast-1': "hitsdb.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "hitsdb.ap-southeast-3.aliyuncs.com",
-      'cn-huhehaote': "hitsdb.cn-huhehaote.aliyuncs.com",
-      'ap-southeast-5': "hitsdb.ap-southeast-5.aliyuncs.com",
-      'cn-hangzhou': "hitsdb.cn-hangzhou.aliyuncs.com",
-      'us-east-1': "hitsdb.us-east-1.aliyuncs.com",
-      'eu-west-1': "hitsdb.eu-west-1.aliyuncs.com",
-      'us-west-1': "hitsdb.us-west-1.aliyuncs.com",
-      'eu-central-1': "hitsdb.eu-central-1.aliyuncs.com",
-      'cn-hangzhou-finance': "hitsdb.cn-hangzhou-finance.aliyuncs.com",
-      'cn-shenzhen-finance-1': "hitsdb.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "hitsdb.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-north-2-gov-1': "hitsdb.cn-north-2-gov-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("hitsdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -54,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a resource to a different resource group.
+   * Transfers a resource to another resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a resource to a different resource group.
+   * Transfers a resource to another resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -662,12 +642,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Lindorm instance.
+   * Creates a Lindorm instance.
    * 
    * @remarks
-   * To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
-   * >Notice: 
-   * If you do not specify any data engine parameters when you create an instance, the API call fails.
+   * When you create an instance, you must select at least one data engine.
+   * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+   * >Notice: If you do not specify data engine parameters when creating an instance, the API invoke will fail.
    * 
    * @param request - CreateLindormInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -878,12 +858,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Lindorm instance.
+   * Creates a Lindorm instance.
    * 
    * @remarks
-   * To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
-   * >Notice: 
-   * If you do not specify any data engine parameters when you create an instance, the API call fails.
+   * When you create an instance, you must select at least one data engine.
+   * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+   * >Notice: If you do not specify data engine parameters when creating an instance, the API invoke will fail.
    * 
    * @param request - CreateLindormInstanceRequest
    * @returns CreateLindormInstanceResponse
@@ -897,9 +877,8 @@ export default class Client extends OpenApi {
    * Creates a Lindorm V2 instance.
    * 
    * @remarks
-   * You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-   * >Notice: 
-   * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
+   * You must select at least one data engine when you create an instance. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+   * >Notice: If you do not specify the data engine parameter when you create an instance, the API call fails.
    * 
    * @param request - CreateLindormV2InstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1049,9 +1028,8 @@ export default class Client extends OpenApi {
    * Creates a Lindorm V2 instance.
    * 
    * @remarks
-   * You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-   * >Notice: 
-   * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
+   * You must select at least one data engine when you create an instance. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+   * >Notice: If you do not specify the data engine parameter when you create an instance, the API call fails.
    * 
    * @param request - CreateLindormV2InstanceRequest
    * @returns CreateLindormV2InstanceResponse
@@ -1388,7 +1366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all regions where Lindorm is available.
+   * Retrieves all regions supported by Lindorm.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1439,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all regions where Lindorm is available.
+   * Retrieves all regions supported by Lindorm.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -1846,7 +1824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the access whitelist for a Lindorm instance.
+   * Retrieves the access whitelist of a Lindorm instance.
    * 
    * @param request - GetInstanceIpWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1897,7 +1875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the access whitelist for a Lindorm instance.
+   * Retrieves the access whitelist of a Lindorm instance.
    * 
    * @param request - GetInstanceIpWhiteListRequest
    * @returns GetInstanceIpWhiteListResponse
@@ -1966,7 +1944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a summary of Lindorm instances in your account.
+   * Retrieves an overview of the Lindorm instance count for the current account.
    * 
    * @param request - GetInstanceSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2017,7 +1995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a summary of Lindorm instances in your account.
+   * Retrieves an overview of the Lindorm instance count for the current account.
    * 
    * @param request - GetInstanceSummaryRequest
    * @returns GetInstanceSummaryResponse
@@ -2304,10 +2282,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage details for each storage medium in a specified Lindorm instance.
+   * Retrieves the storage details of each storage medium for a specific Lindorm instance.
    * 
    * @remarks
-   * For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
+   * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
    * 
    * @param request - GetLindormFsUsedDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2362,10 +2340,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage details for each storage medium in a specified Lindorm instance.
+   * Retrieves the storage details of each storage medium for a specific Lindorm instance.
    * 
    * @remarks
-   * For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
+   * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
    * 
    * @param request - GetLindormFsUsedDetailRequest
    * @returns GetLindormFsUsedDetailResponse
@@ -2376,7 +2354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
+   * Retrieves the details of a Lindorm instance, including the instance type, billing method, and associated virtual private cloud (VPC).
    * 
    * @param request - GetLindormInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2427,7 +2405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
+   * Retrieves the details of a Lindorm instance, including the instance type, billing method, and associated virtual private cloud (VPC).
    * 
    * @param request - GetLindormInstanceRequest
    * @returns GetLindormInstanceResponse
@@ -2438,7 +2416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the engine types that a Lindorm instance supports.
+   * Retrieves the engine types supported by a Lindorm instance.
    * 
    * @param request - GetLindormInstanceEngineListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2493,7 +2471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the engine types that a Lindorm instance supports.
+   * Retrieves the engine types supported by a Lindorm instance.
    * 
    * @param request - GetLindormInstanceEngineListRequest
    * @returns GetLindormInstanceEngineListResponse
@@ -2504,7 +2482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Lindorm instances.
+   * Retrieves a list of Lindorm instances.
    * 
    * @param request - GetLindormInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2583,7 +2561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Lindorm instances.
+   * Retrieves a list of Lindorm instances.
    * 
    * @param request - GetLindormInstanceListRequest
    * @returns GetLindormInstanceListResponse
@@ -2656,10 +2634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an instance that uses the new architecture.
+   * Queries the details of a Lindorm V2 instance.
    * 
    * @remarks
-   * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
+   * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
    * 
    * @param request - GetLindormV2InstanceDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2710,10 +2688,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an instance that uses the new architecture.
+   * Queries the details of a Lindorm V2 instance.
    * 
    * @remarks
-   * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
+   * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the list values returned by LStorageUsageList for storage usage details.
    * 
    * @param request - GetLindormV2InstanceDetailsRequest
    * @returns GetLindormV2InstanceDetailsResponse
@@ -2910,7 +2888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+   * Queries the storage details of each storage medium for a specific new-architecture Lindorm instance.
    * 
    * @param request - GetLindormV2StorageUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2961,7 +2939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+   * Queries the storage details of each storage medium for a specific new-architecture Lindorm instance.
    * 
    * @param request - GetLindormV2StorageUsageRequest
    * @returns GetLindormV2StorageUsageResponse
@@ -3031,6 +3009,60 @@ export default class Client extends OpenApi {
   async getLindormV2StreamEngineInfo(request: $_model.GetLindormV2StreamEngineInfoRequest): Promise<$_model.GetLindormV2StreamEngineInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getLindormV2StreamEngineInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 终止HBase查询
+   * 
+   * @param request - KillQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns KillQueryResponse
+   */
+  async killQueryWithOptions(request: $_model.KillQueryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.KillQueryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      query["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "KillQuery",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.KillQueryResponse>(await this.callApi(params, req, runtime), new $_model.KillQueryResponse({}));
+  }
+
+  /**
+   * 终止HBase查询
+   * 
+   * @param request - KillQueryRequest
+   * @returns KillQueryResponse
+   */
+  async killQuery(request: $_model.KillQueryRequest): Promise<$_model.KillQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.killQueryWithOptions(request, runtime);
   }
 
   /**
@@ -3346,6 +3378,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询HBase Quotas
+   * 
+   * @param request - ListHBaseQuotasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHBaseQuotasResponse
+   */
+  async listHBaseQuotasWithOptions(request: $_model.ListHBaseQuotasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHBaseQuotasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHBaseQuotas",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHBaseQuotasResponse>(await this.callApi(params, req, runtime), new $_model.ListHBaseQuotasResponse({}));
+  }
+
+  /**
+   * 查询HBase Quotas
+   * 
+   * @param request - ListHBaseQuotasRequest
+   * @returns ListHBaseQuotasResponse
+   */
+  async listHBaseQuotas(request: $_model.ListHBaseQuotasRequest): Promise<$_model.ListHBaseQuotasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHBaseQuotasWithOptions(request, runtime);
+  }
+
+  /**
    * 获取计算引擎资源组列表
    * 
    * @param request - ListLdpsComputeGroupsRequest
@@ -3412,7 +3494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Lindorm instance-to-tag bindings.
+   * Retrieves the associations between Lindorm instances and tags.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3479,7 +3561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Lindorm instance-to-tag bindings.
+   * Retrieves the associations between Lindorm instances and tags.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3821,9 +3903,9 @@ export default class Client extends OpenApi {
    * Changes the billing method of a Lindorm instance.
    * 
    * @remarks
-   * Switches the billing method of an instance between subscription and pay-as-you-go.
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
-   * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
+   * Adjusts the billing method of an instance. You can switch between the subscription and pay-as-you-go billing methods.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm. Published only on the China site.
+   * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl). Published only on the International site.
    * 
    * @param request - ModifyInstancePayTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3889,9 +3971,9 @@ export default class Client extends OpenApi {
    * Changes the billing method of a Lindorm instance.
    * 
    * @remarks
-   * Switches the billing method of an instance between subscription and pay-as-you-go.
-   * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
-   * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
+   * Adjusts the billing method of an instance. You can switch between the subscription and pay-as-you-go billing methods.
+   * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm. Published only on the China site.
+   * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl). Published only on the International site.
    * 
    * @param request - ModifyInstancePayTypeRequest
    * @returns ModifyInstancePayTypeResponse
@@ -4400,7 +4482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a Lindorm instance.
+   * Releases an instance.
    * 
    * @param request - ReleaseLindormV2InstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4455,7 +4537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a Lindorm instance.
+   * Releases an instance.
    * 
    * @param request - ReleaseLindormV2InstanceRequest
    * @returns ReleaseLindormV2InstanceResponse
@@ -4469,8 +4551,7 @@ export default class Client extends OpenApi {
    * Renews a subscription Lindorm instance.
    * 
    * @remarks
-   * You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
-   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+   * Renews a subscription instance. The renewal period can be measured in months or years. The renewal duration ranges from 1 to 9 months or 1 to 3 years. Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
    * 
    * @param request - RenewLindormInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4536,8 +4617,7 @@ export default class Client extends OpenApi {
    * Renews a subscription Lindorm instance.
    * 
    * @remarks
-   * You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
-   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+   * Renews a subscription instance. The renewal period can be measured in months or years. The renewal duration ranges from 1 to 9 months or 1 to 3 years. Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
    * 
    * @param request - RenewLindormInstanceRequest
    * @returns RenewLindormInstanceResponse
@@ -4684,13 +4764,137 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the Lindorm protocol that is compatible with MySQL.
+   * 设置HBase Quotas
+   * 
+   * @param request - SetHBaseQuotasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetHBaseQuotasResponse
+   */
+  async setHBaseQuotasWithOptions(request: $_model.SetHBaseQuotasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetHBaseQuotasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dimension)) {
+      query["Dimension"] = request.dimension;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.timeUnit)) {
+      query["TimeUnit"] = request.timeUnit;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.unit)) {
+      query["Unit"] = request.unit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetHBaseQuotas",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetHBaseQuotasResponse>(await this.callApi(params, req, runtime), new $_model.SetHBaseQuotasResponse({}));
+  }
+
+  /**
+   * 设置HBase Quotas
+   * 
+   * @param request - SetHBaseQuotasRequest
+   * @returns SetHBaseQuotasResponse
+   */
+  async setHBaseQuotas(request: $_model.SetHBaseQuotasRequest): Promise<$_model.SetHBaseQuotasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setHBaseQuotasWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询HBase处理列表
+   * 
+   * @param request - ShowProcessListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ShowProcessListResponse
+   */
+  async showProcessListWithOptions(request: $_model.ShowProcessListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ShowProcessListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ShowProcessList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ShowProcessListResponse>(await this.callApi(params, req, runtime), new $_model.ShowProcessListResponse({}));
+  }
+
+  /**
+   * 查询HBase处理列表
+   * 
+   * @param request - ShowProcessListRequest
+   * @returns ShowProcessListResponse
+   */
+  async showProcessList(request: $_model.ShowProcessListRequest): Promise<$_model.ShowProcessListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.showProcessListWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables or disables the Lindorm MySQL-compatible protocol.
    * 
    * @remarks
-   * Before you call this operation, make sure that the following requirements are met:
-   * - The version of LindormTable for the instance is 2.6.0 or later.
-   * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
-   * You can enable the MySQL protocol only if the two preceding conditions are met.
+   * Before you begin:
+   * - The LindormTable database engine version number must be 2.6.0 or later.
+   * - The LindormTable DPI engine must support LindormSQL V3. You can check this by verifying that the EnableLsqlVersionV3 field in the response of the GetLindormInstance operation is set to true. Instances purchased after October 24, 2023 support EnableLsqlVersionV3=true by default. For existing instances, contact technical support for evaluation before enabling this feature.
+   * Both conditions must be met before you can enable the MySQL-compatible protocol. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/2056440.html) operation to view instance details.
    * 
    * @param request - SwitchLSQLV3MySQLServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4745,13 +4949,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the Lindorm protocol that is compatible with MySQL.
+   * Enables or disables the Lindorm MySQL-compatible protocol.
    * 
    * @remarks
-   * Before you call this operation, make sure that the following requirements are met:
-   * - The version of LindormTable for the instance is 2.6.0 or later.
-   * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
-   * You can enable the MySQL protocol only if the two preceding conditions are met.
+   * Before you begin:
+   * - The LindormTable database engine version number must be 2.6.0 or later.
+   * - The LindormTable DPI engine must support LindormSQL V3. You can check this by verifying that the EnableLsqlVersionV3 field in the response of the GetLindormInstance operation is set to true. Instances purchased after October 24, 2023 support EnableLsqlVersionV3=true by default. For existing instances, contact technical support for evaluation before enabling this feature.
+   * Both conditions must be met before you can enable the MySQL-compatible protocol. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/2056440.html) operation to view instance details.
    * 
    * @param request - SwitchLSQLV3MySQLServiceRequest
    * @returns SwitchLSQLV3MySQLServiceResponse
@@ -4836,7 +5040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches tags from Lindorm instances.
+   * Removes tags from Lindorm instances.
    * 
    * @remarks
    * If a tag is not attached to any Lindorm instance, the tag is deleted.
@@ -4902,7 +5106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches tags from Lindorm instances.
+   * Removes tags from Lindorm instances.
    * 
    * @remarks
    * If a tag is not attached to any Lindorm instance, the tag is deleted.
@@ -5122,12 +5326,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or deletion protection settings of an instance.
+   * Updates the instance name or deletion protection.
    * 
    * @remarks
-   * You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-   * >Notice: 
-   * If you do not specify data engine parameters when you create an instance, the API call fails.
+   * When you create an instance, select at least one data engine.
+   * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+   * >Notice: If you do not specify data engine parameters when creating an instance, the API call fails.
    * 
    * @param request - UpdateLindormInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5194,12 +5398,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name or deletion protection settings of an instance.
+   * Updates the instance name or deletion protection.
    * 
    * @remarks
-   * You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
-   * >Notice: 
-   * If you do not specify data engine parameters when you create an instance, the API call fails.
+   * When you create an instance, select at least one data engine.
+   * For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable engine nodes) and **LindormSpec** (LindormTable engine node specifications) parameters. For more information about data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+   * >Notice: If you do not specify data engine parameters when creating an instance, the API call fails.
    * 
    * @param request - UpdateLindormInstanceAttributeRequest
    * @returns UpdateLindormInstanceAttributeResponse
@@ -5210,7 +5414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Lindorm instance.
+   * Updates a Lindorm V2 instance.
    * 
    * @param request - UpdateLindormV2InstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5285,7 +5489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Lindorm instance.
+   * Updates a Lindorm V2 instance.
    * 
    * @param request - UpdateLindormV2InstanceRequest
    * @returns UpdateLindormV2InstanceResponse
@@ -5366,7 +5570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelists for a LindormV2 instance.
+   * Configures the access whitelist for a LindormV2 instance.
    * 
    * @param request - UpdateLindormV2WhiteIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5425,7 +5629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelists for a LindormV2 instance.
+   * Configures the access whitelist for a LindormV2 instance.
    * 
    * @param request - UpdateLindormV2WhiteIpListRequest
    * @returns UpdateLindormV2WhiteIpListResponse
@@ -5436,10 +5640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
+   * Enables cold storage for a Lindorm instance, changes node specifications or node counts, or changes the storage capacity.
    * 
    * @remarks
-   * For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
+   * For information about data engines and storage specifications of Lindorm instances, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
    * 
    * @param request - UpgradeLindormInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5574,10 +5778,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
+   * Enables cold storage for a Lindorm instance, changes node specifications or node counts, or changes the storage capacity.
    * 
    * @remarks
-   * For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
+   * For information about data engines and storage specifications of Lindorm instances, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
    * 
    * @param request - UpgradeLindormInstanceRequest
    * @returns UpgradeLindormInstanceResponse

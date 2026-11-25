@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchLSQLV3MySQLServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the operation. Valid values:
+   * The operation type.
    * 
-   * - 1: Enable
+   * Valid values:
    * 
-   * - 0: Disable
+   * - 1: Enable.
+   * 
+   * - 0: Disable.
    * 
    * This parameter is required.
    * 
@@ -19,7 +21,7 @@ export class SwitchLSQLV3MySQLServiceRequest extends $dara.Model {
   actionType?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

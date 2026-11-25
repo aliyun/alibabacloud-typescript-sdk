@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceSummaryResponseBodyRegionalSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of instances in `{RegionId}` that are about to expire.
+   * The number of instances that are about to expire in {RegionId}.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetInstanceSummaryResponseBodyRegionalSummary extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of running instances in `{RegionId}`.
+   * The number of running instances in {RegionId}.
    * 
    * @example
    * 5
@@ -29,7 +29,7 @@ export class GetInstanceSummaryResponseBodyRegionalSummary extends $dara.Model {
   runningCount?: number;
   /**
    * @remarks
-   * The total number of instances in `{RegionId}` that are running or about to expire.
+   * The total number of running instances and instances that are about to expire in {RegionId}.
    * 
    * @example
    * 6
@@ -73,7 +73,7 @@ export class GetInstanceSummaryResponseBody extends $dara.Model {
   lockingCount?: number;
   /**
    * @remarks
-   * An array of region summaries.
+   * The collection of region information.
    */
   regionalSummary?: GetInstanceSummaryResponseBodyRegionalSummary[];
   /**
@@ -94,7 +94,7 @@ export class GetInstanceSummaryResponseBody extends $dara.Model {
   runningCount?: number;
   /**
    * @remarks
-   * The total number of instances that are running or about to expire.
+   * The total number of running instances and instances that are about to expire.
    * 
    * @example
    * 10

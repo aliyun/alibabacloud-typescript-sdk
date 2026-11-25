@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLindormV2InstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denied error.
+   * The details of the permission check failure.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}

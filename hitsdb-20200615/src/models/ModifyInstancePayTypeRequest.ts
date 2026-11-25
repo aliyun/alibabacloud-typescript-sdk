@@ -7,9 +7,9 @@ export class ModifyInstancePayTypeRequest extends $dara.Model {
    * @remarks
    * The subscription duration. This parameter is required when you change the billing method to subscription.
    * 
-   * - If \\`PricingCycle\\` is \\`Month\\`, the valid values are 1 to 9.
+   * - If PricingCycle is set to Month, valid values are [1, 9].
    * 
-   * - If \\`PricingCycle\\` is \\`Year\\`, the valid values are 1 to 3.
+   * - If PricingCycle is set to Year, valid values are [1, 3].
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class ModifyInstancePayTypeRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,8 @@ export class ModifyInstancePayTypeRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **PREPAY**: subscription.
-   * 
-   * - **POSTPAY**: pay-as-you-go.
+   * - **PREPAY**: subscription
+   * - **POSTPAY**: pay-as-you-go
    * 
    * This parameter is required.
    * 
@@ -43,11 +42,11 @@ export class ModifyInstancePayTypeRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. This parameter is required when you change the billing method to subscription.
+   * The unit of the subscription duration. This parameter is required when you change the billing method to subscription. Valid values:
    * 
-   * - Month: The unit is month.
+   * - Month: month
    * 
-   * - Year: The unit is year.
+   * - Year: year
    * 
    * @example
    * Month

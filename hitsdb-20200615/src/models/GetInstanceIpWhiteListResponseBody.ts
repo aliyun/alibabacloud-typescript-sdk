@@ -13,7 +13,7 @@ export class GetInstanceIpWhiteListResponseBodyGroupList extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The list of IP addresses in the whitelist.
    * 
    * @example
    * 192.168.1.0/24
@@ -45,7 +45,7 @@ export class GetInstanceIpWhiteListResponseBodyGroupList extends $dara.Model {
 export class GetInstanceIpWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about why the access was denied.
+   * The details of the access denial.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
@@ -53,7 +53,7 @@ export class GetInstanceIpWhiteListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * A list of whitelist groups.
+   * The list of whitelist groups.
    */
   groupList?: GetInstanceIpWhiteListResponseBodyGroupList[];
   /**
@@ -66,12 +66,12 @@ export class GetInstanceIpWhiteListResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of IP addresses in the whitelist.
+   * The list of IP addresses in the whitelist.
    */
   ipList?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1D1F6F4D-9203-53E7-84E9-5376B4657E63

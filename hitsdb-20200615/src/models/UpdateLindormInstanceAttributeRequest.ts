@@ -8,17 +8,23 @@ export class UpdateLindormInstanceAttributeRequest extends $dara.Model {
    * Specifies whether to enable deletion protection. Valid values:
    * 
    * - **true**: Enabled.
-   * 
    * - **false**: Disabled.
    * 
    * @example
    * true
    */
   deletionProtection?: boolean;
+  /**
+   * @remarks
+   * The risk disposition type for a single zone.
+   * 
+   * @example
+   * PLAN_MIGRATION
+   */
   dispositionType?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * lindorm-test
@@ -26,7 +32,7 @@ export class UpdateLindormInstanceAttributeRequest extends $dara.Model {
   instanceAlias?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -37,6 +43,9 @@ export class UpdateLindormInstanceAttributeRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The planned completion date for risk disposition, in the yyyy-MM-dd format.
+   * 
    * @example
    * 2026-10-01
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceIpWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why the access is denied.
+   * The details of the access denial.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}

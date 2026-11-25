@@ -13,7 +13,7 @@ export class ReleaseLindormV2InstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0A7153E4-8354-497E-87E5-5D0EBEF5AEB1

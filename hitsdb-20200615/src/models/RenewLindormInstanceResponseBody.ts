@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewLindormInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
@@ -13,7 +13,7 @@ export class RenewLindormInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID. This field may not be returned in a partially successful response.
    * 
    * @example
    * ld-bp1z3506imz2f****
@@ -21,7 +21,7 @@ export class RenewLindormInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the order. You can find the order ID in the Order Management section of Expenses and Costs.
+   * The ID of the order. You can obtain the order ID in the Orders section of the Expenses and Costs console.
    * 
    * @example
    * 213465921640411

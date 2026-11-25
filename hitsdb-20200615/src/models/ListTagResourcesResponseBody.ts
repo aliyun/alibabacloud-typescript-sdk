@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. The value is fixed to **ALIYUN::HITSDB::INSTANCE**.
+   * The resource type. The value is fixed as **ALIYUN::HITSDB::INSTANCE**.
    * 
    * @example
    * ALIYUN::HITSDB::INSTANCE
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * 2.2.8
@@ -67,7 +67,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * @remarks
    * The token that is used to start the next query.
    * 
-   * > If not all results are returned in a query, the response includes this parameter. You can use the value of this parameter to start the next query.
+   * > This parameter is returned if a query does not return all results. You can pass the value of this parameter in a subsequent query to continue the query.
    * 
    * @example
    * 212db86****

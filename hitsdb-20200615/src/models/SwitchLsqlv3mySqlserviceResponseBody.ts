@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchLSQLV3MySQLServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
@@ -13,7 +13,7 @@ export class SwitchLSQLV3MySQLServiceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1556DCB0-043A-4444-8BD9-CF4A68E7EE64

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLindormV2WhiteIpListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about a failed permission check.
+   * The details of the failed permission check.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}

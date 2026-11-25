@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
-   * 
-   * > Each tag is a key-value pair. This parameter specifies the key.
+   * The tag key.
+   * > You can specify multiple tag keys. For example, the Key in the first pair specifies the first tag key, and the Key in the second pair specifies the second tag key.
    * 
    * @example
    * test
@@ -15,9 +14,8 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
-   * 
-   * > Each tag is a key-value pair. This parameter specifies the value.
+   * The tag value.
+   * > You can specify multiple tag values. For example, the Value in the first pair specifies the first tag value, and the Value in the second pair specifies the second tag value.
    * 
    * @example
    * 2.2.8
@@ -49,9 +47,9 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The token that is used to start the next query to return more results.
    * 
-   * > Do not specify this parameter for your first request. If the response returns a **NextToken**, more results are available. To retrieve the next page, include the returned **NextToken** value in your next request.
+   * > You do not need to specify this parameter for the first query. If a query does not return all results, you can pass the **NextToken** value returned in the previous query to continue the query.
    * 
    * @example
    * 212db86****
@@ -61,7 +59,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the instance is located. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to get a list of available regions.
+   * The ID of the region where the instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -71,7 +69,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A list of resource IDs.
+   * The list of resource IDs.
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
@@ -89,7 +87,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

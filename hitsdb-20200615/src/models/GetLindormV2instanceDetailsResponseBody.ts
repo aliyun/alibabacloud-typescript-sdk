@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormV2InstanceDetailsResponseBodyEngineListConnectAddressList extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The connection address.
    * 
    * @example
    * ld-mxj9asg***-proxy-lindorm-vpc.lindorm.aliyuncs.com:33060
@@ -21,11 +21,10 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListConnectAddressList
   port?: string;
   /**
    * @remarks
-   * The endpoint type.
+   * The connection address type. Valid values:
    * 
-   * - INTRANET: VPC private endpoint.
-   * 
-   * - INTERNET: Public endpoint.
+   * - INTRANET: VPC private network address.
+   * - INTERNET: public address.
    * 
    * @example
    * INTRANET
@@ -67,7 +66,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
   category?: string;
   /**
    * @remarks
-   * The number of vCPUs for the node.
+   * The number of vCPU cores on the node.
    * 
    * @example
    * 32
@@ -75,7 +74,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
   cpuCoreCount?: number;
   /**
    * @remarks
-   * Indicates whether a local disk is attached to the node.
+   * Indicates whether a local cloud disk is attached to the node.
    * 
    * @example
    * false
@@ -83,7 +82,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
   enableAttachLocalDisk?: boolean;
   /**
    * @remarks
-   * The capacity of the local disk in GB.
+   * The local cloud disk capacity, in GB.
    * 
    * @example
    * 100
@@ -91,11 +90,10 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
   localDiskCapacity?: number;
   /**
    * @remarks
-   * The type of the local cloud disk.
+   * The local cloud disk type. Valid values:
    * 
-   * - cloud_essd: performance cloud disk
-   * 
-   * - cloud_efficiency: standard cloud disk
+   * - cloud_essd: performance cloud disk.
+   * - cloud_efficiency: standard cloud disk.
    * 
    * @example
    * cloud_essd
@@ -103,7 +101,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
   localDiskCategory?: string;
   /**
    * @remarks
-   * The memory size of the node in GiB.
+   * The memory size of the node.
    * 
    * @example
    * 64
@@ -113,75 +111,46 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
    * @remarks
    * The node specifications.
    * 
-   * If you select Performance cloud storage or Standard cloud storage, this parameter can be set to one of the following values:
+   * If you select performance cloud storage or standard cloud storage, valid values are:
    * 
-   * - lindorm.c.2xlarge: 8 vCPUs, 16 GB memory.
+   * - lindorm.c.2xlarge: 8 vCores and 16 GB memory.
+   * - lindorm.g.2xlarge: 8 vCores and 32 GB memory.
+   * - lindorm.c.4xlarge: 16 vCores and 32 GB memory.
+   * - lindorm.g.4xlarge: 16 vCores and 64 GB memory.
+   * - lindorm.c.8xlarge: 32 vCores and 64 GB memory.
+   * - lindorm.g.8xlarge: 32 vCores and 128 GB memory.
+   * - lindorm.r.2xlarge: 8 vCores and 64 GB memory.
+   * - lindorm.r.4xlarge: 16 vCores and 128 GB memory.
+   * - lindorm.r.8xlarge: 32 vCores and 256 GB memory.
    * 
-   * - lindorm.g.2xlarge: 8 vCPUs, 32 GB memory.
+   * If you select local SSD storage, valid values are:
    * 
-   * - lindorm.c.4xlarge: 16 vCPUs, 32 GB memory.
+   * - lindorm.i4.xlarge: 4 vCores and 32 GB memory (I4).
+   * - lindorm.i4.2xlarge: 8 vCores and 64 GB memory (I4).
+   * - lindorm.i4.4xlarge: 16 vCores and 128 GB memory (I4).
+   * - lindorm.i4.8xlarge: 32 vCores and 256 GB memory (I4).
+   * - lindorm.i3.xlarge: 4 vCores and 32 GB memory (I3).
+   * - lindorm.i3.2xlarge: 8 vCores and 64 GB memory (I3).
+   * - lindorm.i3.4xlarge: 16 vCores and 128 GB memory (I3).
+   * - lindorm.i3.8xlarge: 32 vCores and 256 GB memory (I3).
+   * - lindorm.i2.xlarge: 4 vCores and 32 GB memory (I2).
+   * - lindorm.i2.2xlarge: 8 vCores and 64 GB memory (I2).
+   * - lindorm.i2.4xlarge: 16 vCores and 128 GB memory (I2).
+   * - lindorm.i2.8xlarge: 32 vCores and 256 GB memory (I2).
    * 
-   * - lindorm.g.4xlarge: 16 vCPUs, 64 GB memory.
+   * If you select big data instance type, valid values are:
    * 
-   * - lindorm.c.8xlarge: 32 vCPUs, 64 GB memory.
-   * 
-   * - lindorm.g.8xlarge: 32 vCPUs, 128 GB memory.
-   * 
-   * - lindorm.r.2xlarge: 8 vCPUs, 64 GB memory.
-   * 
-   * - lindorm.r.4xlarge: 16 vCPUs, 128 GB memory.
-   * 
-   * - lindorm.r.8xlarge: 32 vCPUs, 256 GB memory.
-   * 
-   * If you select Local SSD, this parameter can be set to one of the following values:
-   * 
-   * - lindorm.i4.xlarge: 4 vCPUs, 32 GB memory (I4).
-   * 
-   * - lindorm.i4.2xlarge: 8 vCPUs, 64 GB memory (I4).
-   * 
-   * - lindorm.i4.4xlarge: 16 vCPUs, 128 GB memory (I4).
-   * 
-   * - lindorm.i4.8xlarge: 32 vCPUs, 256 GB memory (I4).
-   * 
-   * - lindorm.i3.xlarge: 4 vCPUs, 32 GB memory (I3).
-   * 
-   * - lindorm.i3.2xlarge: 8 vCPUs, 64 GB memory (I3).
-   * 
-   * - lindorm.i3.4xlarge: 16 vCPUs, 128 GB memory (I3).
-   * 
-   * - lindorm.i3.8xlarge: 32 vCPUs, 256 GB memory (I3).
-   * 
-   * - lindorm.i2.xlarge: 4 vCPUs, 32 GB memory (I2).
-   * 
-   * - lindorm.i2.2xlarge: 8 vCPUs, 64 GB memory (I2).
-   * 
-   * - lindorm.i2.4xlarge: 16 vCPUs, 128 GB memory (I2).
-   * 
-   * - lindorm.i2.8xlarge: 32 vCPUs, 256 GB memory (I2).
-   * 
-   * If you select Big Data, this parameter can be set to one of the following values:
-   * 
-   * - lindorm.sd3c.3xlarge: 14 vCPUs, 56 GB memory (D3C PRO).
-   * 
-   * - lindorm.sd3c.7xlarge: 28 vCPUs, 112 GB memory (D3C PRO).
-   * 
-   * - lindorm.sd3c.14xlarge: 56 vCPUs, 224 GB memory (D3C PRO).
-   * 
-   * - lindorm.d2c.6xlarge: 24 vCPUs, 88 GB memory (D2C).
-   * 
-   * - lindorm.d2c.12xlarge: 48 vCPUs, 176 GB memory (D2C).
-   * 
-   * - lindorm.d2c.24xlarge: 96 vCPUs, 352 GB memory (D2C).
-   * 
-   * - lindorm.d2s.5xlarge: 20 vCPUs, 88 GB memory (D2S).
-   * 
-   * - lindorm.d2s.10xlarge: 40 vCPUs, 176 GB memory (D2S).
-   * 
-   * - lindorm.d1.2xlarge: 8 vCPUs, 32 GB memory (D1NE).
-   * 
-   * - lindorm.d1.4xlarge: 16 vCPUs, 64 GB memory (D1NE).
-   * 
-   * - lindorm.d1.6xlarge: 24 vCPUs, 96 GB memory (D1NE).
+   * - lindorm.sd3c.3xlarge: 14 vCores and 56 GB memory (D3C PRO).
+   * - lindorm.sd3c.7xlarge: 28 vCores and 112 GB memory (D3C PRO).
+   * - lindorm.sd3c.14xlarge: 56 vCores and 224 GB memory (D3C PRO).
+   * - lindorm.d2c.6xlarge: 24 vCores and 88 GB memory (D2C).
+   * - lindorm.d2c.12xlarge: 48 vCores and 176 GB memory (D2C).
+   * - lindorm.d2c.24xlarge: 96 vCores and 352 GB memory (D2C).
+   * - lindorm.d2s.5xlarge: 20 vCores and 88 GB memory (D2S).
+   * - lindorm.d2s.10xlarge: 40 vCores and 176 GB memory (D2S).
+   * - lindorm.d1.2xlarge: 8 vCores and 32 GB memory (D1NE).
+   * - lindorm.d1.4xlarge: 16 vCores and 64 GB memory (D1NE).
+   * - lindorm.d1.6xlarge: 24 vCores and 96 GB memory (D1NE).
    * 
    * @example
    * lindorm.g.2xlarge
@@ -197,7 +166,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
   quantity?: number;
   /**
    * @remarks
-   * The name of the node group. **Required**. This must be the same as the name used during creation.
+   * The node group name. **Required.** Must match the name specified at creation time.
    * 
    * @example
    * job_debug
@@ -205,7 +174,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
   resourceGroupName?: string;
   /**
    * @remarks
-   * The unique ID that corresponds to the delivery group ID.
+   * The ID that uniquely corresponds to the delivery group ID.
    * 
    * @example
    * ecs.c6.large
@@ -263,7 +232,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup extends 
 export class GetLindormV2InstanceDetailsResponseBodyEngineList extends $dara.Model {
   /**
    * @remarks
-   * A list of engine endpoints.
+   * The list of engine connection addresses.
    */
   connectAddressList?: GetLindormV2InstanceDetailsResponseBodyEngineListConnectAddressList[];
   /**
@@ -271,16 +240,11 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineList extends $dara.Mod
    * The engine type. Valid values:
    * 
    * - **TABLE**: LindormTable.
-   * 
    * - **TSDB**: LindormTSDB.
-   * 
-   * - **LSEARCH**: Search engine.
-   * 
-   * - **LTS**: LTS engine.
-   * 
-   * - **LVECTOR**: Vector engine.
-   * 
-   * - **LCOLUMN**: Column store.
+   * - **LSEARCH**: search index engine.
+   * - **LTS**: LTS timing engine.
+   * - **LVECTOR**: vector engine.
+   * - **LCOLUMN**: column store engine.
    * 
    * @example
    * TABLE
@@ -288,11 +252,9 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineList extends $dara.Mod
   engine?: string;
   /**
    * @remarks
-   * Indicates whether the engine is the latest version. Valid values:
-   * 
-   * - **true**: The engine is the latest version.
-   * 
-   * - **false**: The engine is not the latest version.
+   * Indicates whether the engine is running the latest version. Valid values:
+   * - **true**: the latest version.
+   * - **false**: not the latest version.
    * 
    * @example
    * false
@@ -308,7 +270,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineList extends $dara.Mod
   latestVersion?: string;
   /**
    * @remarks
-   * A list of engine node groups.
+   * The list of engine node groups.
    */
   nodeGroup?: GetLindormV2InstanceDetailsResponseBodyEngineListNodeGroup[];
   /**
@@ -359,7 +321,7 @@ export class GetLindormV2InstanceDetailsResponseBodyEngineList extends $dara.Mod
 export class GetLindormV2InstanceDetailsResponseBodyStorageUsage extends $dara.Model {
   /**
    * @remarks
-   * The instance storage usage.
+   * The instance storage usage level.
    */
   capacityByDiskCategory?: { [key: string]: any }[];
   /**
@@ -402,7 +364,7 @@ export class GetLindormV2InstanceDetailsResponseBodyStorageUsage extends $dara.M
 export class GetLindormV2InstanceDetailsResponseBodyWhiteIpList extends $dara.Model {
   /**
    * @remarks
-   * The group name. The name can contain only letters, digits, and underscores (_).
+   * The group name. Only letters, digits, and underscores are allowed.
    * 
    * @example
    * swhy
@@ -450,7 +412,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * For a multi-zone instance, this is the ID of the virtual switch in the arbiter zone. The vSwitch must be in the zone specified by ArbiterZoneId.
+   * The vSwitch ID of the arbitration zone for a multi-zone instance. The vSwitch must be in the zone specified by ArbiterZoneId.
    * 
    * @example
    * vsw-uf6664pqjawb87k36****
@@ -458,7 +420,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   arbiterVSwitchId?: string;
   /**
    * @remarks
-   * For a multi-zone instance, this is the ID of the arbiter zone.
+   * The zone ID of the arbitration zone for a multi-zone instance.
    * 
    * @example
    * cn-shanghai-g
@@ -466,13 +428,12 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   arbiterZoneId?: string;
   /**
    * @remarks
-   * Indicates whether auto-renewal is enabled. Valid values:
+   * Indicates whether to enable auto-renewal. Valid values:
    * 
    * - **true**: enabled.
-   * 
    * - **false**: disabled.
    * 
-   * > This parameter is returned only for subscription instances.
+   * > This parameter is returned only when the billing method of the instance is subscription.
    * 
    * @example
    * true
@@ -480,7 +441,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The cloud storage capacity in GB.
+   * The cloud storage capacity, in GB.
    * 
    * @example
    * 480
@@ -488,7 +449,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   cloudStorageSize?: number;
   /**
    * @remarks
-   * The capacity of the storage-optimized cloud storage.
+   * The storage-optimized cloud storage capacity.
    * 
    * @example
    * 800
@@ -496,7 +457,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   coldStorage?: number;
   /**
    * @remarks
-   * The number of milliseconds between the instance creation time and 00:00:00 on January 1, 1970.
+   * The number of milliseconds between the instance creation time and 1970-01-01 00:00:00.
    * 
    * @example
    * 1627290664000
@@ -507,7 +468,6 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
    * Indicates whether deletion protection is enabled. Valid values:
    * 
    * - **true**: enabled.
-   * 
    * - **false**: disabled.
    * 
    * @example
@@ -516,11 +476,10 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   deletionProtection?: string;
   /**
    * @remarks
-   * The storage class. Valid values:
+   * The storage type. Valid values:
    * 
-   * - **StandardStorage**: Standard cloud storage.
-   * 
-   * - **PerformanceStorage**: Performance cloud storage.
+   * - **StandardStorage**: standard cloud storage.
+   * - **PerformanceStorage**: performance cloud storage.
    * 
    * @example
    * PerformanceStorage
@@ -544,11 +503,10 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   diskUsage?: string;
   /**
    * @remarks
-   * Indicates whether the compute engine is enabled for the instance. Valid values:
+   * Indicates whether the compute engine is activated for the instance. Valid values:
    * 
-   * - **true**: enabled.
-   * 
-   * - **false**: disabled.
+   * - **true**: activated.
+   * - **false**: not activated.
    * 
    * @example
    * true
@@ -556,7 +514,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   enableCompute?: boolean;
   /**
    * @remarks
-   * Indicates whether the file engine is enabled.
+   * Indicates whether the file engine is activated.
    * 
    * @example
    * false
@@ -564,7 +522,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   enableFs?: string;
   /**
    * @remarks
-   * Indicates whether transparent data encryption (TDE) is enabled for storage.
+   * Indicates whether storage TDE encryption is enabled.
    * 
    * @example
    * false
@@ -577,7 +535,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   engineList?: GetLindormV2InstanceDetailsResponseBodyEngineList[];
   /**
    * @remarks
-   * The number of milliseconds between the instance expiration time and 00:00:00 on January 1, 1970.
+   * The number of milliseconds between the instance expires time and 1970-01-01 00:00:00.
    * 
    * @example
    * 1629993600000
@@ -585,7 +543,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   expiredMilliseconds?: number;
   /**
    * @remarks
-   * The default initial password.
+   * The initial default password.
    * 
    * @example
    * *****
@@ -601,7 +559,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   instanceAlias?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * ld-bp1mq0tdzbx1m****
@@ -611,47 +569,27 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   * - **CREATING**: The instance is being created.
-   * 
-   * - **ACTIVATION**: The instance is running.
-   * 
-   * - **COLD_EXPANDING**: The storage-optimized cloud storage is being scaled out.
-   * 
-   * - **MINOR_VERSION_TRANSING**: The minor version is being upgraded.
-   * 
-   * - **RESIZING**: The nodes are being scaled out.
-   * 
-   * - **SHRINKING**: The nodes are being scaled in.
-   * 
-   * - **CLASS_CHANGING**: The instance specifications are being upgraded or downgraded.
-   * 
-   * - **SSL_SWITCHING**: The SSL certificate is being changed.
-   * 
-   * - **CDC_OPENING**: The data subscription feature is being enabled.
-   * 
-   * - **TRANSFER**: Data is being migrated.
-   * 
-   * - **DATABASE_TRANSFER**: Data is being migrated to the database.
-   * 
-   * - **GUARD_CREATING**: A disaster recovery instance is being created.
-   * 
-   * - **BACKUP_RECOVERING**: Data is being restored from a backup.
-   * 
-   * - **DATABASE_IMPORTING**: Data is being imported.
-   * 
-   * - **NET_MODIFYING**: The network is being modified.
-   * 
-   * - **NET_SWITCHING**: The network is being switched between the private network and the public network.
-   * 
-   * - **NET_CREATING**: A network connection is being created.
-   * 
-   * - **NET_DELETING**: A network connection is being deleted.
-   * 
-   * - **DELETING**: The instance is being deleted.
-   * 
-   * - **RESTARTING**: The instance is being restarted.
-   * 
-   * - **LOCKED**: The instance has expired and is locked.
+   * - **CREATING**: the instance is being created.
+   * - **ACTIVATION**: the instance is running.
+   * - **COLD_EXPANDING**: the storage-optimized cloud storage is undergoing storage expansion.
+   * - **MINOR_VERSION_TRANSING**: a minor version upgrade is in progress.
+   * - **RESIZING**: nodes are being scaled out.
+   * - **SHRINKING**: nodes are being scaled in.
+   * - **CLASS_CHANGING**: instance specifications are being upgraded or the quota is being decreased.
+   * - **SSL_SWITCHING**: an SSL change is in progress.
+   * - **CDC_OPENING**: the Lindorm Tunnel Service feature is being activated.
+   * - **TRANSFER**: data migration is in progress.
+   * - **DATABASE_TRANSFER**: data is being migrated to a database.
+   * - **GUARD_CREATING**: a disaster recovery instance is being created.
+   * - **BACKUP_RECOVERING**: backup recovery is in progress.
+   * - **DATABASE_IMPORTING**: data import is in progress.
+   * - **NET_MODIFYING**: a network change is in progress.
+   * - **NET_SWITCHING**: the network is switching between the private network and the public network.
+   * - **NET_CREATING**: a network connection is being created.
+   * - **NET_DELETING**: a network connection is being deleted.
+   * - **DELETING**: the instance is being deleted.
+   * - **RESTARTING**: the instance is restarting.
+   * - **LOCKED**: the instance has expired and is locked.
    * 
    * @example
    * ACTIVATION
@@ -659,9 +597,9 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The instance type. Valid value:
+   * The instance form factor. Valid values:
    * 
-   * - basic: Production.
+   * - basic: production type.
    * 
    * @example
    * basic
@@ -669,7 +607,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The end time of the maintenance window.
+   * The end time of the maintenance window, in HH:mmZ format (UTC).
    * 
    * @example
    * 20:00Z
@@ -677,7 +615,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window.
+   * The start time of the maintenance window, in HH:mmZ format (UTC).
    * 
    * @example
    * 00:00Z
@@ -696,7 +634,6 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
    * The billing method of the instance. Valid values:
    * 
    * - **PREPAY**: subscription.
-   * 
    * - **POSTPAY**: pay-as-you-go.
    * 
    * @example
@@ -705,7 +642,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * For a multi-zone instance, this is the ID of the virtual switch in the primary zone. The vSwitch must be in the zone specified by PrimaryZoneId.
+   * The vSwitch ID of the primary zone for a multi-zone instance. The vSwitch must be in the zone specified by PrimaryZoneId.
    * 
    * @example
    * vsw-uf6fdqa7c0pipnqzq****
@@ -713,7 +650,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   primaryVSwitchId?: string;
   /**
    * @remarks
-   * For a multi-zone instance, this is the ID of the primary zone.
+   * The zone ID of the primary zone for a multi-zone instance.
    * 
    * @example
    * cn-shanghai-e
@@ -748,10 +685,8 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
    * The instance type. Valid values:
    * 
    * - **lindorm_v2**: Lindorm V2 single-zone instance.
-   * 
-   * - **lindorm_v2_multizone**: Lindorm V2 Multi-zone Deployment (Basic) instance.
-   * 
-   * - **lindorm_v2_multizone_ha**: Lindorm V2 multi-zone High-availability Edition instance.
+   * - **lindorm_v2_multizone**: Lindorm V2 multi-zone Basic Edition instance.
+   * - **lindorm_v2_multizone_ha**: Lindorm V2 multi-zone High Availability Edition instance.
    * 
    * @example
    * lindorm_v2
@@ -759,7 +694,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * For a multi-zone instance, this is the ID of the virtual switch in the secondary zone. The vSwitch must be in the zone specified by StandbyZoneId.
+   * The vSwitch ID of the secondary zone for a multi-zone instance. The vSwitch must be in the zone specified by StandbyZoneId.
    * 
    * @example
    * vsw-2zec0kcn08cgdtr6****
@@ -767,7 +702,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   standbyVSwitchId?: string;
   /**
    * @remarks
-   * For a multi-zone instance, this is the ID of the secondary zone.
+   * The zone ID of the secondary zone for a multi-zone instance.
    * 
    * @example
    * cn-shanghai-f
@@ -775,12 +710,12 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   standbyZoneId?: string;
   /**
    * @remarks
-   * The instance storage usage.
+   * The instance storage usage level.
    */
   storageUsage?: GetLindormV2InstanceDetailsResponseBodyStorageUsage;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the instance resides.
+   * The ID of the virtual private cloud (VPC) to which the instance belongs.
    * 
    * @example
    * vpc-bp1xxxxxxxxxxxxxxxxxx
@@ -788,7 +723,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the virtual switch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1xxxxxxxxxxxxxxxxxx
@@ -801,7 +736,7 @@ export class GetLindormV2InstanceDetailsResponseBody extends $dara.Model {
   whiteIpList?: GetLindormV2InstanceDetailsResponseBodyWhiteIpList[];
   /**
    * @remarks
-   * The deployment details of the engine in the zone.
+   * The details of engine deployment by zone.
    * 
    * @example
    * ZoneEngineInfoMap
