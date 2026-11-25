@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "aliding";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aliding", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -589,6 +593,70 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.AddRecordPermissionHeaders({ });
     return await this.addRecordPermissionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 添加机器人到场景群
+   * 
+   * @param request - AddRobotToScenegroupRequest
+   * @param tmpHeader - AddRobotToScenegroupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRobotToScenegroupResponse
+   */
+  async addRobotToScenegroupWithOptions(request: $_model.AddRobotToScenegroupRequest, tmpHeader: $_model.AddRobotToScenegroupHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.AddRobotToScenegroupResponse> {
+    request.validate();
+    let headers = new $_model.AddRobotToScenegroupShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!$dara.isNull(request.robotCode)) {
+      body["RobotCode"] = request.robotCode;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddRobotToScenegroup",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/addRobotToScenegroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddRobotToScenegroupResponse>(await this.callApi(params, req, runtime), new $_model.AddRobotToScenegroupResponse({}));
+  }
+
+  /**
+   * 添加机器人到场景群
+   * 
+   * @param request - AddRobotToScenegroupRequest
+   * @returns AddRobotToScenegroupResponse
+   */
+  async addRobotToScenegroup(request: $_model.AddRobotToScenegroupRequest): Promise<$_model.AddRobotToScenegroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.AddRobotToScenegroupHeaders({ });
+    return await this.addRobotToScenegroupWithOptions(request, headers, runtime);
   }
 
   /**
