@@ -6,8 +6,8 @@ export class SetAutoProtectNewAssetsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic traffic redirection. Valid values:
-   * 
-   * **true****false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -17,25 +17,18 @@ export class SetAutoProtectNewAssetsRequest extends $dara.Model {
   autoProtect?: boolean;
   /**
    * @remarks
-   * The language. Valid values are zh (Chinese) and **en** (English). The default value is **zh**.
+   * The language type. Valid values:
+   * - **zh**: Chinese. Default value.
+   * - **en**: English.
    * 
    * @example
    * zh
    */
   lang?: string;
-  /**
-   * @remarks
-   * The source IP address of the visitor.
-   * 
-   * @example
-   * 60.182.79.XXX
-   */
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       autoProtect: 'AutoProtect',
       lang: 'Lang',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -43,7 +36,6 @@ export class SetAutoProtectNewAssetsRequest extends $dara.Model {
     return {
       autoProtect: 'boolean',
       lang: 'string',
-      sourceIp: 'string',
     };
   }
 

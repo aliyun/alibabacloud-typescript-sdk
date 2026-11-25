@@ -29,7 +29,7 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
   isSubscribed?: boolean;
   /**
    * @remarks
-   * The list of labels.
+   * The label list.
    */
   labelList?: string[];
   /**
@@ -93,7 +93,7 @@ export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The list of traffic data.
+   * The traffic data list.
    */
   dataList?: DescribeInternetTrafficTopResponseBodyDataList[];
   /**
@@ -106,7 +106,7 @@ export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******

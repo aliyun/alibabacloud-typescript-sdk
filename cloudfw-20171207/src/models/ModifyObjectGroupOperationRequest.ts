@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyObjectGroupOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * The comment for the operation.
+   * The remark for the operation.
    * 
    * @example
-   * Comment for batch whitelisting
+   * Remark for batch whitelisting
    */
   comment?: string;
   /**
    * @remarks
    * The traffic direction controlled by the access control policy. Valid values:
-   * - **in**: inbound
-   * - **out**: outbound
+   * - **in**: Inbound traffic.
+   * - **out**: Outbound traffic.
    * 
    * This parameter is required.
    * 
@@ -42,11 +42,11 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   objectList?: string[];
   /**
    * @remarks
-   * The operation to whitelist, remove from the whitelist, follow, or unfollow an object. Valid values:
-   * - **subscribe**: follow
-   * - **unsubscribe**: unfollow
-   * - **ignore**: add to the whitelist
-   * - **cancelIgnore**: remove from the whitelist
+   * Specifies the operation to perform on the object, such as adding to the whitelist, removing from the whitelist, following, or unfollowing. Valid values:
+   * - **subscribe**: Follow.
+   * - **unsubscribe**: Unfollow.
+   * - **ignore**: Add to the whitelist.
+   * - **cancelIgnore**: Remove from the whitelist.
    * 
    * This parameter is required.
    * 
@@ -56,11 +56,11 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   objectOperation?: string;
   /**
    * @remarks
-   * The type of the object to whitelist or follow for outbound connections. Valid values:
-   * - **assetsIp**: asset IP address
-   * - **destinationIp**: destination IP address
-   * - **destinationPort**: destination port
-   * - **destinationDomain**: destination domain name
+   * The type of the object to add to the outbound connections whitelist or follow. Valid values:
+   * - **assetsIp**: Asset IP address.
+   * - **destinationIp**: Destination IP address.
+   * - **destinationPort**: Destination port.
+   * - **destinationDomain**: Destination domain name.
    * 
    * This parameter is required.
    * 

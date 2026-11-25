@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The inbound network throughput. Unit: bps.
+   * The network throughput in the inbound direction. Unit: bps.
    * 
    * @example
    * 187
@@ -13,7 +13,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   inBps?: number;
   /**
    * @remarks
-   * The inbound traffic. Unit: bytes.
+   * The total network traffic in the inbound direction. Unit: bytes.
    * 
    * @example
    * 235
@@ -21,7 +21,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   inBytes?: number;
   /**
    * @remarks
-   * The inbound packet rate. Unit: pps.
+   * The packet rate in the inbound direction. Unit: pps.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   newConn?: number;
   /**
    * @remarks
-   * The outbound network throughput. Unit: bps.
+   * The network throughput in the outbound direction. Unit: bps.
    * 
    * @example
    * 45
@@ -45,7 +45,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   outBps?: number;
   /**
    * @remarks
-   * The outbound traffic. Unit: bytes.
+   * The total network traffic in the outbound direction. Unit: bytes.
    * 
    * @example
    * 1123
@@ -53,7 +53,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   outBytes?: number;
   /**
    * @remarks
-   * The outbound packet rate. Unit: pps.
+   * The packet rate in the outbound direction. Unit: pps.
    * 
    * @example
    * 2
@@ -69,9 +69,9 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   sessionCount?: number;
   /**
    * @remarks
-   * The time when the traffic was recorded. This value is a UNIX timestamp in seconds.
+   * The time when the traffic occurred. The value is a UNIX timestamp in seconds.
    * 
-   * If data for this time point has not been processed, the values of other fields are -1.
+   * If the data for this time point is not fully processed, the values of other fields are -1.
    * 
    * @example
    * 1659405600
@@ -79,7 +79,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
   time?: number;
   /**
    * @remarks
-   * The total inbound and outbound network throughput. Unit: bps.
+   * The total network throughput in both outbound and inbound directions. Unit: bps.
    * 
    * @example
    * 232
@@ -127,7 +127,7 @@ export class DescribeInternetTrafficTrendResponseBodyDataList extends $dara.Mode
 export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The average inbound network throughput. Unit: bps.
+   * The average network throughput in the inbound direction. Unit: bps.
    * 
    * @example
    * 6114152
@@ -135,7 +135,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   avgInBps?: number;
   /**
    * @remarks
-   * The average outbound network throughput. Unit: bps.
+   * The average network throughput in the outbound direction. Unit: bps.
    * 
    * @example
    * 70148993
@@ -151,7 +151,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   avgSession?: number;
   /**
    * @remarks
-   * The average total network throughput for inbound and outbound traffic. Unit: bps.
+   * The average network throughput in both outbound and inbound directions. Unit: bps.
    * 
    * @example
    * 2306
@@ -159,12 +159,12 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   avgTotalBps?: number;
   /**
    * @remarks
-   * A list of traffic statistics.
+   * The list of traffic statistics information.
    */
   dataList?: DescribeInternetTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The UNIX timestamp when the peak bandwidth was reached. Unit: seconds.
+   * The timestamp when the peak bandwidth occurred. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1672736400
@@ -172,7 +172,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxBandwidthTime?: number;
   /**
    * @remarks
-   * The peak daily excess traffic.
+   * The maximum daily excess traffic.
    * 
    * @example
    * 873
@@ -180,7 +180,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxDayExceedBytes?: number;
   /**
    * @remarks
-   * The peak inbound network throughput. Unit: bps.
+   * The peak network throughput in the inbound direction. Unit: bps.
    * 
    * @example
    * 10275643
@@ -188,7 +188,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxInBps?: number;
   /**
    * @remarks
-   * The peak outbound network throughput. Unit: bps.
+   * The peak network throughput in the outbound direction. Unit: bps.
    * 
    * @example
    * 395188
@@ -204,7 +204,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   maxSession?: number;
   /**
    * @remarks
-   * The peak total network throughput for inbound and outbound traffic. Unit: bps.
+   * The peak network throughput in both outbound and inbound directions. Unit: bps.
    * 
    * @example
    * 89783147
@@ -220,7 +220,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total inbound and outbound traffic. Unit: bytes.
+   * The total network traffic in both outbound and inbound directions. Unit: bytes.
    * 
    * @example
    * 963227674958
@@ -236,7 +236,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   totalExceedBytes?: number;
   /**
    * @remarks
-   * The total inbound traffic. Unit: bytes.
+   * The total network traffic in the inbound direction. Unit: bytes.
    * 
    * @example
    * 41536824243873
@@ -244,7 +244,7 @@ export class DescribeInternetTrafficTrendResponseBody extends $dara.Model {
   totalInBytes?: number;
   /**
    * @remarks
-   * The total outbound traffic. Unit: bytes.
+   * The total network traffic in the outbound direction. Unit: bytes.
    * 
    * @example
    * 2660894567178

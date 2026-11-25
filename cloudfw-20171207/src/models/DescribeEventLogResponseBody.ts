@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The application type supported by the access control policy. We recommend that you use ApplicationNameList. Valid values:
+   * The application type supported by the access control policy. Use ApplicationNameList instead. Valid values:
    * - **FTP**
    * - **HTTP**
    * - **HTTPS**
@@ -20,7 +20,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
    * - **SSH**
    * - **SSL**
    * - **VNC**
-   * - **ANY**: All application types.
+   * - **ANY** (all application types)
    * 
    * @example
    * ANY
@@ -38,8 +38,8 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
    * @remarks
    * The attack type of the intrusion prevention event. Valid values:
    * - **1**: Abnormal connection.
-   * - **2**: execute commands.
-   * - **3**: brute-force attacks.
+   * - **2**: Command execution.
+   * - **3**: Brute-force attack.
    * - **4**: Scan.
    * - **5**: Other.
    * - **6**: Information leak.
@@ -47,7 +47,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
    * - **8**: Overflow attack.
    * - **9**: Web attack.
    * - **10**: Trojan backdoor.
-   * - **11**: Virus and worm.
+   * - **11**: Virus or worm.
    * - **12**: Mining behavior.
    * - **13**: Reverse shell.
    * 
@@ -67,7 +67,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The destination IP address. This indicates that the intrusion prevention event involves this destination IP address.
+   * The queried destination IP address. This indicates that the intrusion prevention event involves this destination IP address.
    * 
    * @example
    * 2.2.2.2
@@ -107,7 +107,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The UID of the Cloud Firewall member accounts.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 14151892****7022
@@ -142,8 +142,8 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The source of the detection rule for the intrusion prevention event. Valid values:
-   * - **1**: Basic protection.
-   * - **2**: Virtual Patches.
+   * - **1**: Basic defense.
+   * - **2**: Virtual patches.
    * - **4**: Threat intelligence.
    * 
    * @example
@@ -152,7 +152,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   ruleSource?: number;
   /**
    * @remarks
-   * The Server Name Indication (SNI) used when the TLS connection is established.
+   * The SNI used when the TLS connection is established.
    * 
    * @example
    * www.example.com
@@ -160,7 +160,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   sni?: string;
   /**
    * @remarks
-   * The source IP address. This indicates that the intrusion prevention event involves this source IP address.
+   * The queried source IP address. This indicates that the intrusion prevention event involves this source IP address.
    * 
    * @example
    * 192.0.XX.XX
@@ -192,7 +192,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   sslErrorIndex?: string;
   /**
    * @remarks
-   * The reason for the TLS handshake failure, such as BAD_PACKET_LENGTH.
+   * The cause of the TLS handshake failure, such as BAD_PACKET_LENGTH.
    * 
    * @example
    * BAD_PACKET_LENGTH
@@ -200,7 +200,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
   sslErrorMsg?: string;
   /**
    * @remarks
-   * The TLS handshake result. For example, success indicates a successful handshake.
+   * The TLS handshake result. For example, success indicates that the handshake is successful.
    * 
    * @example
    * success
@@ -227,7 +227,7 @@ export class DescribeEventLogResponseBodyDataList extends $dara.Model {
    * The URL path.
    * 
    * @example
-   * http://example.com/task3%DF\\"
+   * http://example.com/task3%DF\"
    */
   url?: string;
   /**

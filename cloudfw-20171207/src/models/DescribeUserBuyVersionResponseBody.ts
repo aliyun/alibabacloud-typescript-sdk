@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ACK cluster connector quota.
+   * The quota for ACK cluster connectors.
    * 
    * @example
    * 5
    */
   ackClusterConnectorQuota?: number;
+  /**
+   * @remarks
+   * Specifies whether Agentic 2.0 is enabled.
+   * 
+   * @example
+   * 1
+   */
+  agentic?: number;
   /**
    * @remarks
    * The AliUid of the Cloud Firewall account.
@@ -21,7 +29,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The default bandwidth of the edition.
+   * The default bandwidth for the edition.
    * 
    * @example
    * 1000
@@ -30,9 +38,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The expiration time of the Cloud Firewall instance.
-   * > The value is a millisecond-level UNIX timestamp.
+   * > The value is a UNIX timestamp in milliseconds.
    * 
-   * > This field is meaningless when you use the pay-as-you-go edition.
+   * > This field is not applicable to the pay-as-you-go edition.
    * 
    * @example
    * 1726934400000
@@ -48,7 +56,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   extensionBandwidth?: number;
   /**
    * @remarks
-   * The general-purpose instance quota.
+   * The quota for general-purpose instances.
    * 
    * @example
    * 10
@@ -58,7 +66,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * @remarks
    * The ID of the purchased Cloud Firewall instance.
    * 
-   * > This field is meaningless when you use the trial version.
+   * > This field is not applicable to the trial edition.
    * 
    * @example
    * vipcloudfw-cn-xxxxx
@@ -66,7 +74,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The provisioning status of the Cloud Firewall instance. Valid values:
+   * The production status of the Cloud Firewall instance. Valid values:
    * 
    * - **normal**: The instance is running normally.
    * 
@@ -92,9 +100,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   internetBandwidth?: number;
   /**
    * @remarks
-   * The purchased quota for the Internet border protection.
+   * The purchased quota for the Internet Border protection.
    * 
-   * > This field takes effect only for subscription users.
+   * > This field is applicable only to subscription users.
    * 
    * @example
    * 63
@@ -113,7 +121,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The purchased log storage capacity.
-   * > This field takes effect only for subscription users.
+   * > This field is applicable only to subscription users.
    * 
    * @example
    * 3000
@@ -129,11 +137,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   majorVersion?: number;
   /**
    * @remarks
-   * Indicates whether burstable elastic billing is enabled. Valid values:
+   * Specifies whether burstable elastic billing is enabled. Valid values:
    * - **1000000**: Enabled.
    * - **0**: Disabled.
    * 
-   * > This field takes effect only for subscription users.
+   * > This field is applicable only to subscription users.
    * 
    * @example
    * 0
@@ -141,7 +149,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   maxOverflow?: number;
   /**
    * @remarks
-   * The purchased traffic processing capacity of NAT firewalls.
+   * The purchased traffic processing capacity of the NAT firewall.
    * 
    * @example
    * 3000
@@ -149,7 +157,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   natBandwidth?: number;
   /**
    * @remarks
-   * The private DNS connector quota.
+   * The quota for private DNS connectors.
    * 
    * @example
    * 5
@@ -157,7 +165,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   privateDnsConnectorQuota?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F71B03EE-xxxxx-91D79CC6AA1A
@@ -165,7 +173,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The enabling status of sensitive data leak detection. In the Resource field, true indicates enabled and false indicates disabled. In the API response, 1 indicates enabled and 0 indicates disabled.
+   * The enabling status of sensitive data leak detection. In the Resource parameter, true indicates enabled and false indicates disabled. In the API response, 1 indicates enabled and 0 indicates disabled.
    * 
    * @example
    * 1
@@ -174,7 +182,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The activation time of the Cloud Firewall instance.
-   * > The value is a millisecond-level UNIX timestamp.
+   * > The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1692504764000
@@ -182,7 +190,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The temporary upgrade bandwidth.
+   * The temporary bandwidth upgrade.
    * 
    * @example
    * 1000
@@ -208,11 +216,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   userStatus?: boolean;
   /**
    * @remarks
-   * The version of the Cloud Firewall instance. Valid values:
+   * The edition of the Cloud Firewall instance. Valid values:
    * - **2**: Premium Edition
    * - **3**: Enterprise Edition
    * - **4**: Ultimate Edition
-   * - **10**: Pay-as-you-go Edition
+   * - **10**: Pay-as-you-go edition
    * 
    * @example
    * 2
@@ -220,7 +228,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The purchased traffic processing capacity of VPC firewalls.
+   * The purchased traffic processing capacity of the VPC firewall.
    * 
    * @example
    * 3000
@@ -230,7 +238,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * @remarks
    * The purchased quota for VPC firewalls.
    * 
-   * > This field takes effect only for subscription users.
+   * > This field is applicable only to subscription users.
    * 
    * @example
    * 21
@@ -239,6 +247,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ackClusterConnectorQuota: 'AckClusterConnectorQuota',
+      agentic: 'Agentic',
       aliUid: 'AliUid',
       defaultBandwidth: 'DefaultBandwidth',
       expire: 'Expire',
@@ -269,6 +278,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ackClusterConnectorQuota: 'number',
+      agentic: 'number',
       aliUid: 'number',
       defaultBandwidth: 'number',
       expire: 'number',

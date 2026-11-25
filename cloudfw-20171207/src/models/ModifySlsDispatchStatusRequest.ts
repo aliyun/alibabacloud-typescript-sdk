@@ -23,7 +23,7 @@ export class ModifySlsDispatchStatusRequest extends $dara.Model {
   dispatchValue?: string;
   /**
    * @remarks
-   * Specifies whether to deliver logs. A value of \\`true\\` enables delivery, and \\`false\\` disables it.
+   * Specifies whether to deliver logs. A value of \`true\` enables delivery, and \`false\` disables it.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class ModifySlsDispatchStatusRequest extends $dara.Model {
   newRegionId?: string;
   /**
    * @remarks
-   * The site to modify. If the log version is 1, leave this parameter empty or set it to \\`global\\`. If the log version is 2, set this parameter to \\`cn\\` or \\`intl\\`.
+   * The site to modify. If the log version is 1, leave this parameter empty or set it to \`global\`. If the log version is 2, set this parameter to \`cn\` or \`intl\`.
    * 
    * @example
    * cn

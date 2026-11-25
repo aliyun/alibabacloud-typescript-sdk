@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfiguredDomainNamesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class DescribeConfiguredDomainNamesRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The language of the request and response.
+   * The language of the request and response messages.
    * 
    * @example
    * zh
@@ -57,7 +57,7 @@ export class DescribeConfiguredDomainNamesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The source code.
+   * The tracing code.
    * 
    * This parameter is required.
    * 

@@ -29,7 +29,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   assetsType?: string;
   /**
    * @remarks
-   * The page number for a paged query.
+   * The page number for the paged query.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end time of the public IP address exposure. Specify the value as a UNIX timestamp in seconds.
+   * The end time of the public IP address exposure. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1663640336
@@ -47,9 +47,8 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
-   * 
-   * - **zh** (default): Chinese
+   * The language in which messages are received. Valid values:
+   * - **zh** (default): Chinese.
    * - **en**: English.
    * 
    * @example
@@ -58,7 +57,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries to return per page.
    * 
    * This parameter is required.
    * 
@@ -92,11 +91,11 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The risk level. If this parameter is not specified, all risk levels are returned. Valid values:
-   * - **3**: high risk
-   * - **2**: medium risk
-   * - **1**: low risk
-   * - **0**: no risk.
+   * The risk level. If you do not specify this parameter, all risk levels are queried. Valid values:
+   * - **3**: High risk.
+   * - **2**: Medium risk.
+   * - **1**: Low risk.
+   * - **0**: No risk.
    * 
    * @example
    * 2
@@ -104,7 +103,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The application name to query.
+   * The name of the application to query.
    * 
    * @example
    * SSH
@@ -112,7 +111,7 @@ export class DescribeInternetOpenIpRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The start time of the public IP address exposure. Specify the value as a UNIX timestamp in seconds.
+   * The start time of the public IP address exposure. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1681957629

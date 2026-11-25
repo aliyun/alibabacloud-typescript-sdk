@@ -6,10 +6,9 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The action that Cloud Firewall performs on traffic in the access control policy. Valid values:
-   * 
-   * - **accept**: allows the traffic
-   * - **drop**: denies the traffic
-   * - **log**: monitors the traffic
+   * - **accept**: Allows the traffic.
+   * - **drop**: Denies the traffic.
+   * - **log**: Monitors the traffic.
    * 
    * This parameter is required.
    * 
@@ -37,16 +36,11 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The destination port in the access control policy. Valid values:
-   * 
    * - If the protocol is ICMP, leave this parameter empty.
-   *    
-   * > Access control based on destination ports is not supported when the protocol is ICMP.
-   * 
-   * - If the protocol is TCP, UDP, or ANY and the destination Protocol Type (DestPortType) is group, leave this parameter empty.
-   * 
-   * > If you set DestPortType to group, you do not need to specify a destination port. All ports managed by this policy are included in the destination port address book.
-   * 
-   * - If the protocol is TCP, UDP, or ANY and the destination Protocol Type (DestPortType) is port, set this parameter to the destination port number.
+   * > When the protocol is ICMP, access control based on the destination port is not supported.
+   * - If the protocol is TCP, UDP, or ANY, and the destination Protocol Type (DestPortType) is group, leave this parameter empty.
+   * > When the destination Protocol Type is set to group (destination port address book), you do not need to specify a destination port number. All ports managed by this access control policy are included in the destination port address book.
+   * - If the protocol is TCP, UDP, or ANY, and the destination Protocol Type (DestPortType) is port, set this parameter to the destination port number.
    * 
    * @example
    * 80
@@ -55,8 +49,7 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the destination port address book in the access control policy.
-   * 
-   * > If you set DestPortType to group, you must specify the name of the destination port address book.
+   * > If DestPortType is set to group, you must specify the name of the destination port address book.
    * 
    * @example
    * my_port_group
@@ -65,9 +58,8 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the destination port in the access control policy. Valid values:
-   * 
-   * - **port**: a port
-   * - **group**: a port address book
+   * - **port**: port.
+   * - **group**: port address book.
    * 
    * @example
    * port
@@ -76,22 +68,10 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The destination address in the access control policy. Valid values:
-   * 
-   * - If DestinationType is set to net, set Destination to the destination CIDR block.
-   *   
-   *   Example: 1.2.XX.XX/24
-   * 
-   * - If DestinationType is set to group, set Destination to the name of the destination address book.
-   * 
-   *   Example: db_group
-   * 
-   * - If DestinationType is set to domain, set Destination to the destination domain name.
-   * 
-   *   Example: *.aliyuncs.com
-   * 
-   * - If DestinationType is set to location, set Destination to the destination region.
-   * 
-   *   Example: ["BJ11", "ZB"\\]
+   * - If DestinationType is set to net, Destination is the destination CIDR block. Example: 1.2.XX.XX/24.
+   * - If DestinationType is set to group, Destination is the name of the destination address book. Example: db_group.
+   * - If DestinationType is set to domain, Destination is the destination domain name. Example: *.aliyuncs.com.
+   * - If DestinationType is set to location, Destination is the destination region. Example: ["BJ11", "ZB"\].
    * 
    * This parameter is required.
    * 
@@ -102,10 +82,9 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the destination address in the access control policy. Valid values:
-   * 
-   * - **net**: a destination CIDR block
-   * - **group**: a destination address book
-   * - **domain**: a destination domain name
+   * - **net**: destination CIDR block.
+   * - **group**: destination address book.
+   * - **domain**: destination domain name.
    * 
    * This parameter is required.
    * 
@@ -116,8 +95,7 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The traffic direction of the access control policy. Valid values:
-   * 
-   * - **out**: outbound traffic
+   * - **out**: outbound traffic.
    * 
    * This parameter is required.
    * 
@@ -127,13 +105,11 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The domain name parse method of the access control policy. Valid values:
-   * 
-   * - **0**: FQDN-based parse
-   * - **1**: DNS-based dynamic parse
-   * - **2**: FQDN-based and DNS-based dynamic parse
-   * 
-   * > If the domain name identification mode includes FQDN, you can only configure the TCP protocol. The supported applications are HTTP, HTTPS, SMTP, SMTPS, SSL, IMAPS, and POPS.
+   * The domain name parse pattern of the access control policy. Valid values:
+   * - **0**: FQDN-based resolution.
+   * - **1**: DNS-based dynamic resolution.
+   * - **2**: FQDN- and DNS-based dynamic resolution.
+   * > If the domain name identification mode includes FQDN, only the TCP protocol is allowed. The application can be HTTP, HTTPS, SMTP, SMTPS, SSL, IMAPS, or POPS.
    * 
    * @example
    * 0
@@ -141,8 +117,8 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   domainResolveType?: number;
   /**
    * @remarks
-   * The end time for the Policy Validity Period of the access control policy. The value is in the format of a UNIX timestamp in seconds. The time must be on the hour or half hour, and must be at least 30 minutes later than the start time.
-   * > If RepeatType is set to Permanent, leave EndTime empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must have a value, and you must specify the Settings for the end time.
+   * The end time of the Policy Validity Period of the access control policy. The value is in the UNIX timestamp format in seconds. The time must be on the hour or half-hour, and must be at least 30 minutes later than the start time.
+   * > If RepeatType is set to Permanent, EndTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must be specified, and you must configure the Settings for the end time.
    * 
    * @example
    * 1694764800
@@ -151,8 +127,7 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The IP address version. Valid values:
-   * 
-   * - **4**: IPv4 (default)
+   * - **4**: IPv4 (default).
    * 
    * @example
    * 4
@@ -161,9 +136,8 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response message. Valid values:
-   * 
-   * - **zh**: Chinese (default)
-   * - **en**: English
+   * - **zh**: Chinese (default).
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -192,13 +166,11 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol type of the traffic in the access control policy. Valid values:
-   * 
-   * - ANY: all protocols
+   * - ANY: all protocols.
    * - TCP
    * - UDP
    * - ICMP
-   * 
-   * > If the destination address is a threat intelligence address book or a cloud service address book of the domain name type, you can only configure the TCP protocol. The supported applications are HTTP, HTTPS, SMTP, SMTPS, and SSL.
+   * > If the destination address is a threat intelligence address book or a cloud service address book of the domain name type, only the TCP protocol is allowed. The application can be HTTP, HTTPS, SMTP, SMTPS, or SSL.
    * 
    * This parameter is required.
    * 
@@ -209,9 +181,8 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the access control policy. By default, the policy is enabled after it is created. Valid values:
-   * 
-   * - **true**: enables the access control policy
-   * - **false**: does not enable the access control policy
+   * - **true**: Enables the access control policy.
+   * - **false**: Does not enable the access control policy.
    * 
    * @example
    * true
@@ -220,22 +191,18 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The set of recurrence days for the Policy Validity Period of the access control policy.
-   * 
-   * - If RepeatType is set to `Permanent`, `None`, or `Daily`, leave RepeatDays empty.
-   *   Example: []
-   * - If RepeatType is set to Weekly, RepeatDays cannot be empty.
-   *   Example: [0, 6]
-   * > When the RepeatType Settings are Weekly, the values in RepeatDays cannot be duplicate.
-   * - If RepeatType is set to `Monthly`, RepeatDays cannot be empty.
-   *   Example: [1, 31]
-   * > When the RepeatType Settings are Monthly, the values in RepeatDays cannot be duplicate.
+   * - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty set. Example: [].
+   * - If RepeatType is set to Weekly, RepeatDays cannot be empty. Example: [0, 6].
+   * > When RepeatType is set to Weekly, the values in RepeatDays cannot be duplicated.
+   * - If RepeatType is set to `Monthly`, RepeatDays cannot be empty. Example: [1, 31].
+   * > When RepeatType is set to Monthly, the values in RepeatDays cannot be duplicated.
    */
   repeatDays?: number[];
   /**
    * @remarks
-   * The recurrence end time for the Policy Validity Period of the access control policy. Example: 23:30. The time must be on the hour or half hour, and must be at least 30 minutes later than the recurrence start time.
-   * > If RepeatType is set to Permanent or None, leave RepeatEndTime empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must have a value, and you must specify the Settings for the recurrence end time.
-   * > The time format is HH:mm (24-hour clock), such as 08:00 and 23:30.
+   * The recurrence end time of the Policy Validity Period of the access control policy. Example: 23:30. The time must be on the hour or half-hour, and must be at least 30 minutes later than the recurrence start time.
+   * > If RepeatType is set to Permanent or None, RepeatEndTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must be specified, and you must configure the Settings for the recurrence end time.
+   * > The time format is HH:mm (24-hour clock). Example: 08:00 or 23:30.
    * 
    * @example
    * 23:30
@@ -243,9 +210,9 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   repeatEndTime?: string;
   /**
    * @remarks
-   * The recurrence start time for the Policy Validity Period of the access control policy. Example: 08:00. The time must be on the hour or half hour, and must be at least 30 minutes earlier than the recurrence end time.
-   * > If RepeatType is set to Permanent or None, leave RepeatStartTime empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must have a value, and you must specify the Settings for the recurrence start time.
-   * > The time format is HH:mm (24-hour clock), such as 08:00 and 23:30.
+   * The recurrence start time of the Policy Validity Period of the access control policy. Example: 08:00. The time must be on the hour or half-hour, and must be at least 30 minutes earlier than the recurrence end time.
+   * > If RepeatType is set to Permanent or None, RepeatStartTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must be specified, and you must configure the Settings for the recurrence start time.
+   * > The time format is HH:mm (24-hour clock). Example: 08:00 or 23:30.
    * 
    * @example
    * 08:00
@@ -253,13 +220,12 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   repeatStartTime?: string;
   /**
    * @remarks
-   * The recurrence type of the Policy Validity Period for the access control policy. Valid values:
-   * 
-   * - **Permanent**: always (default)
-   * - **None**: a specific single time
-   * - **Daily**: every day
-   * - **Weekly**: every week
-   * - **Monthly**: every month
+   * The recurrence type of the Policy Validity Period of the access control policy. Valid values:
+   * - **Permanent**: always (default).
+   * - **None**: specified single time.
+   * - **Daily**: every day.
+   * - **Weekly**: every week.
+   * - **Monthly**: every month.
    * 
    * @example
    * Permanent
@@ -268,14 +234,8 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The source address in the access control policy. Valid values:
-   * 
-   * - If **SourceType** is set to `net`, set Source to the source CIDR block.
-   * 
-   *   Example: 10.2.4.0/24
-   * 
-   * - If **SourceType** is set to `group`, set Source to the name of the source address book.
-   * 
-   *   Example: db_group
+   * - If **SourceType** is set to `net`, Source is the source CIDR block. Example: 10.2.4.0/24.
+   * - If **SourceType** is set to `group`, Source is the name of the source address book. Example: db_group.
    * 
    * This parameter is required.
    * 
@@ -286,9 +246,8 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the source address in the access control policy. Valid values:
-   * 
-   * - **net**: a source CIDR block
-   * - **group**: a source address book
+   * - **net**: source CIDR block.
+   * - **group**: source address book.
    * 
    * This parameter is required.
    * 
@@ -298,8 +257,8 @@ export class CreateNatFirewallControlPolicyRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time for the Policy Validity Period of the access control policy. The value is in the format of a UNIX timestamp in seconds. The time must be on the hour or half hour, and must be at least 30 minutes earlier than the end time.
-   * > If RepeatType is set to Permanent, leave StartTime empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must have a value, and you must specify the Settings for the start time.
+   * The start time of the Policy Validity Period of the access control policy. The value is in the UNIX timestamp format in seconds. The time must be on the hour or half-hour, and must be at least 30 minutes earlier than the end time.
+   * > If RepeatType is set to Permanent, StartTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must be specified, and you must configure the Settings for the start time.
    * 
    * @example
    * 1694761200

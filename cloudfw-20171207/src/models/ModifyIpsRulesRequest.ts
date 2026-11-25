@@ -46,7 +46,7 @@ export class ModifyIpsRulesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [\\"4664138c-4f81-4650-9c8d-2230ea0d****\\"]
+   * [\"4664138c-4f81-4650-9c8d-2230ea0d****\"]
    */
   rules?: string;
   /**

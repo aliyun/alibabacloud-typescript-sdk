@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The description of the Cloud Firewall member accounts.
+   * The description of Cloud Firewall member accounts.
    * 
    * @example
    * renewal
@@ -29,7 +29,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   memberDesc?: string;
   /**
    * @remarks
-   * The name of the Cloud Firewall member accounts.
+   * The name of Cloud Firewall member accounts.
    * 
    * @example
    * cloudfirewall_2
@@ -37,7 +37,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   memberDisplayName?: string;
   /**
    * @remarks
-   * The UID of the member accounts.
+   * The UID of member accounts.
    * 
    * @example
    * 258039427902****

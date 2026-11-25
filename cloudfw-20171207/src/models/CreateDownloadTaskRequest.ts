@@ -19,7 +19,7 @@ export class CreateDownloadTaskRequest extends $dara.Model {
    * The query conditions for the download task. This parameter is required. If you do not specify this parameter, the API returns error code -340408 (download task TaskData invalid).
    * 
    * @example
-   * {\\"SearchItem\\":\\"\\",\\"UserType\\":\\"buy\\",\\"IpVersion\\":\\"4\\"}
+   * {\"SearchItem\":\"\",\"UserType\":\"buy\",\"IpVersion\":\"4\"}
    */
   taskData?: string;
   /**

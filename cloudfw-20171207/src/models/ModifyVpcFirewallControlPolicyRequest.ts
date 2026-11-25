@@ -283,11 +283,11 @@ export class ModifyVpcFirewallControlPolicyRequest extends $dara.Model {
    * 
    * - When the virtual private cloud (VPC) firewalls protect a CEN instance, set this parameter to the instance ID of the CEN instance.
    * 
-   *   Example: cen-ervw0g12b5jbw*\\*\\*\\*
+   *   Example: cen-ervw0g12b5jbw*\*\*\*
    * 
    * - When the virtual private cloud (VPC) firewalls protect an Express Connect circuit, set this parameter to the instance ID of the virtual private cloud (VPC) firewalls.
    *   
-   *   Example: vfw-a42bbb7b887148c9*\\*\\*\\*
+   *   Example: vfw-a42bbb7b887148c9*\*\*\*
    * 
    * This parameter is required.
    * 

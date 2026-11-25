@@ -41,7 +41,7 @@ export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
   sourceCode?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The IP address of the access source.
    * 
    * @example
    * 120.136.21.XXX

@@ -17,12 +17,12 @@ export class CreateAclCheckRequest extends $dara.Model {
    * @remarks
    * The list of ACL check names.
    * 
-   * **Note**: This parameter is required in actual calls. Provide at least one check name. If no check name is provided, the API returns ErrorParameters (-200103).
+   * **Note**: This parameter is required in actual calls. Provide at least one check name. If this parameter is not provided, the API returns ErrorParameters (-200103).
    */
   checkNames?: string[];
   /**
    * @remarks
-   * The language type of the request and response messages.
+   * The language of the request and response messages.
    * 
    * @example
    * zh

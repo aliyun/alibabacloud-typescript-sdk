@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfiguredDomainNamesResponseBodyDomainNames extends $dara.Model {
   /**
    * @remarks
-   * The comment.
+   * The remarks.
    * 
    * @example
    * Office network domain name
@@ -21,7 +21,7 @@ export class DescribeConfiguredDomainNamesResponseBodyDomainNames extends $dara.
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether the domain name is malicious. Valid values: 0 (not malicious), 1 (malicious).
+   * Indicates whether the domain name is malicious. Valid values: 0 (not malicious), 1 (malicious).
    * 
    * @example
    * false

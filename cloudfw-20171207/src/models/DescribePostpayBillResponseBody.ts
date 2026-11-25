@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   /**
    * @remarks
-   * The end time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
+   * The end time. The time is a UNIX timestamp in seconds and represents an exact hour or day.
    * 
    * @example
    * 1733710015
@@ -29,7 +29,15 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   internetTraffic?: number;
   /**
    * @remarks
-   * Indicates whether the fee is reduced. A value of 0 indicates that the fee is not reduced. A value greater than 0 indicates that the fee is reduced. If the fee is reduced, no bill is generated.
+   * Specifies whether the bill for the specified date is calculated based on the Agentic billing method. A value of true indicates the Agentic billing method. A value of false indicates the standard billing method.
+   * 
+   * @example
+   * false
+   */
+  isAgenticBilling?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the fee is reduced or waived. A value of 0 indicates that the fee is not reduced or waived. A value greater than 0 indicates that the fee is reduced or waived, and no bill is generated.
    * > This parameter is valid only when you query hourly data.
    * 
    * @example
@@ -38,7 +46,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   isDerated?: number;
   /**
    * @remarks
-   * The usage duration of Simple Log Service. Unit: TB×h.
+   * The usage duration of Simple Log Service. Unit: TB × hours.
    * 
    * @example
    * 24
@@ -70,7 +78,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   sdl?: number;
   /**
    * @remarks
-   * The sensitive data detection traffic. Unit: GB.
+   * The sensitive data leak detection traffic. Unit: GB.
    * 
    * @example
    * 1
@@ -78,7 +86,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   sdlTraffic?: number;
   /**
    * @remarks
-   * The start time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
+   * The start time. The time is a UNIX timestamp in seconds and represents an exact hour or day.
    * 
    * @example
    * 1710206070000
@@ -113,6 +121,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
       endTime: 'EndTime',
       internetInstanceCnt: 'InternetInstanceCnt',
       internetTraffic: 'InternetTraffic',
+      isAgenticBilling: 'IsAgenticBilling',
       isDerated: 'IsDerated',
       logStorage: 'LogStorage',
       natInstanceCnt: 'NatInstanceCnt',
@@ -131,6 +140,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
       endTime: 'number',
       internetInstanceCnt: 'number',
       internetTraffic: 'number',
+      isAgenticBilling: 'boolean',
       isDerated: 'number',
       logStorage: 'number',
       natInstanceCnt: 'number',
@@ -172,7 +182,7 @@ export class DescribePostpayBillResponseBody extends $dara.Model {
   aggregateNatTraffic?: number;
   /**
    * @remarks
-   * The aggregated sensitive data detection traffic. Unit: GB.
+   * The aggregated sensitive data leak detection traffic. Unit: GB.
    * 
    * @example
    * 10
@@ -196,7 +206,7 @@ export class DescribePostpayBillResponseBody extends $dara.Model {
   aggregateVpcTraffic?: number;
   /**
    * @remarks
-   * The list of bills.
+   * The bill list.
    */
   billList?: DescribePostpayBillResponseBodyBillList[];
   /**

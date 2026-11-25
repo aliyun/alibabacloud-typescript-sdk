@@ -29,7 +29,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   dropRatio?: string;
   /**
    * @remarks
-   * The value range of the object: **[0,10000\\]**.
+   * The value range of the object: **[0,10000]**.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   dropRing?: number;
   /**
    * @remarks
-   * The rate of network traffic. Unit: kbit/s.
+   * The rate of network traffic. Unit: kbps.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   ringDataTime?: string;
   /**
    * @remarks
-   * The dynamic packet drop time. The value is a UNIX timestamp in seconds, which indicates the number of seconds that have elapsed since January 1, 1970 (UTC).
+   * The dynamic packet drop time. The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970 (UTC).
    * 
    * @example
    * 1724982259
@@ -140,7 +140,7 @@ export class DescribeInternetDropTrafficTrendResponseBody extends $dara.Model {
   dataList?: DescribeInternetDropTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The maximum number of dropped sessions in the corresponding period (peak value).
+   * The maximum number of dropped sessions in the specified period, which represents the peak value.
    * 
    * @example
    * 8090
@@ -148,7 +148,9 @@ export class DescribeInternetDropTrafficTrendResponseBody extends $dara.Model {
   dropSessionMax?: number;
   /**
    * @remarks
-   * The traffic multiplication mode. Valid values: - **0**: priority mode. - **1**: load balancing mode.
+   * The traffic multiplication mode. Valid values:
+   * - **0**: priority mode.
+   * - **1**: load balancing mode.
    * 
    * @example
    * 12.34

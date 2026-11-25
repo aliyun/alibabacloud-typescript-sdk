@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyControlPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request is a dry run. A value of true indicates that only a dry run was performed and no actual modification was made.
+   * Indicates whether the dry run is successful. A value of true indicates that only the dry run is performed and no actual modifications are made.
    */
   dryRun?: boolean;
   /**

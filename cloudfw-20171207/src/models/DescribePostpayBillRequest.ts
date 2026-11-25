@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayBillRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The Settings for the current page number in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the bill query. The time is a UNIX timestamp accurate to seconds and must be later than the start time.
+   * The end time of the bill query. The time is a UNIX timestamp in seconds and must be later than the start time.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,10 @@ export class DescribePostpayBillRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The aggregation interval of the bill data. Unit: seconds. This parameter is required. If you do not specify this parameter, the ERR_PARAMS_INVALID error is returned. Valid values:
-   * - 3600: Hourly aggregation.
-   * - 86400: Daily aggregation.
+   * The aggregation interval of the bill data. Unit: seconds. This parameter is required. If this parameter is not specified, ERR_PARAMS_INVALID is returned. Valid values:
+   * 
+   * - 3600: hourly aggregation.
+   * - 86400: daily aggregation.
    * 
    * @example
    * 3600
@@ -33,10 +34,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The language. Valid values:
-   * - en: English.
-   * - zh: Chinese.
-   * Default value: zh.
+   * The language. Default value: zh. Valid values: en.
    * 
    * @example
    * zh
@@ -44,7 +42,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paging query. Default value: 10.
+   * The maximum number of entries to return on each page in a paged query. Default value: 10.
    * 
    * @example
    * 10
@@ -52,7 +50,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the bill query. The time is a UNIX timestamp accurate to seconds.
+   * The start time of the bill query. The time is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

@@ -69,7 +69,15 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   internetTrafficBandwidth?: number;
   /**
    * @remarks
-   * The monthly free quota for sensitive data detection. Unit: GB.
+   * Specifies whether Agentic billing is used on the date to which the bill belongs. A value of true indicates that Agentic billing is used. A value of false indicates that standard billing is used.
+   * 
+   * @example
+   * false
+   */
+  isAgenticBilling?: boolean;
+  /**
+   * @remarks
+   * The monthly free quota for sensitive data detection traffic. Unit: GB.
    * 
    * @example
    * 10
@@ -85,7 +93,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   natTrafficBandwidth?: number;
   /**
    * @remarks
-   * The timestamp when the total bandwidth (Internet, VPC, and NAT) reaches the maximum value on the day.
+   * The timestamp when the total bandwidth (Internet + VPC + NAT) reaches the maximum value on the day.
    * 
    * @example
    * 1761588300
@@ -125,6 +133,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
       endTime: 'EndTime',
       extensionBandwidth: 'ExtensionBandwidth',
       internetTrafficBandwidth: 'InternetTrafficBandwidth',
+      isAgenticBilling: 'IsAgenticBilling',
       monthlyRemainingFreeTraffic: 'MonthlyRemainingFreeTraffic',
       natTrafficBandwidth: 'NatTrafficBandwidth',
       overflowTime: 'OverflowTime',
@@ -144,6 +153,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
       endTime: 'number',
       extensionBandwidth: 'number',
       internetTrafficBandwidth: 'number',
+      isAgenticBilling: 'boolean',
       monthlyRemainingFreeTraffic: 'number',
       natTrafficBandwidth: 'number',
       overflowTime: 'number',

@@ -23,7 +23,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The end time. Use a UNIX timestamp in seconds.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   limit?: string;
   /**
    * @remarks
-   * The rule defense result.
+   * The rule protection result.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   showCountryName?: string;
   /**
    * @remarks
-   * The sort order.
+   * The sorting method.
    * 
    * @example
    * in_bytes
@@ -99,7 +99,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time. Use a UNIX timestamp in seconds.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

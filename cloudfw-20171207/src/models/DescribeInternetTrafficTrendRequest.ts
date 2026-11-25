@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction of the Internet traffic. Valid values:
+   * The traffic direction of the Internet. Valid values:
    * 
-   * - **in**: inbound
-   * 
-   * - **out**: outbound
+   * - **in**: inbound traffic access control.
+   * - **out**: outbound traffic access control.
    * 
    * @example
    * in
@@ -17,7 +16,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp in seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -27,11 +26,9 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the request and response. Valid values:
-   * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * The language type of the request and response messages. Valid values:
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -39,7 +36,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source tracking code.
+   * The tracing code.
    * 
    * This parameter is required.
    * 
@@ -75,7 +72,7 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   srcPublicIP?: string;
   /**
    * @remarks
-   * The start of the time range to query. This value is a UNIX timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -85,11 +82,11 @@ export class DescribeInternetTrafficTrendRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The type of traffic to query. Valid values:
-   * 
-   * - **max** (default): peak traffic
-   * 
-   * - **avg**: average traffic
+   * The collected traffic type. Valid values:
+   *           
+   * - **max** (default): peak traffic.
+   *   
+   * - **avg**: average traffic.
    * 
    * @example
    * max

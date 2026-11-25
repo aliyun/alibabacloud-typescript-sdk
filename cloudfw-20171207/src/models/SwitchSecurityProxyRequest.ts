@@ -35,7 +35,7 @@ export class SwitchSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The ID of the route table to which the route entry belongs. The route table must exist in the user\\"s VPC. This parameter and DestinationCidr are used together to locate a route. If the route does not exist, the task fails and a message indicating that the route entry does not exist is returned.
+   * The ID of the route table to which the route entry belongs. The route table must exist in the user\"s VPC. This parameter and DestinationCidr are used together to locate a route. If the route does not exist, the task fails and a message indicating that the route entry does not exist is returned.
    * 
    * This parameter is required.
    * 

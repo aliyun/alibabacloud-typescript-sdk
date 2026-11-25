@@ -33,7 +33,7 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * - If **DestinationType** is set to net, **Destination** is the destination CIDR block. Example: 1.2.3.4/24.
    * - If **DestinationType** is set to group, **Destination** is the name of the destination address book. Example: db_group.
    * - If **DestinationType** is set to domain, **Destination** is the destination domain name. Example: *.aliyuncs.com.
-   * - If **DestinationType** is set to location, **Destination** is the destination area (for specific area positional encoding, see the following section). Example: ["BJ11", "ZB"].
+   * - If **DestinationType** is set to location, **Destination** is the destination area (for specific area positional encoding, see the following sections). Example: ["BJ11", "ZB"].
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * @remarks
    * The traffic direction of the DNS firewall access control policy.
    * 
-   * > This parameter is not verified by the backend. When you create or modify a DNS firewall policy, the direction is always stored as **out** (outbound). If you pass **in**, no error is reported, but it does not take effect. DNS firewalls only support outbound policies.
+   * > This parameter is not verified by the backend. When you create or modify a DNS firewall policy, the direction is always saved as **out** (outbound) in the database. If you pass **in**, no error is reported, but it does not take effect. DNS firewalls only support outbound policies.
    * 
    * @example
    * out
@@ -87,7 +87,7 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The policy priority of the new DNS firewall policy. Valid values: 1 to 20000. A smaller value indicates a higher policy priority.
+   * The priority of the new DNS firewall policy. Valid values: 1 to 20000. A smaller value indicates a higher policy priority.
    * 
    * This parameter is required.
    * 
@@ -100,7 +100,7 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * Specifies whether to enable the access control policy. By default, the policy is enabled after it is created. Valid values:
    * 
    * - **true**: enables the access control policy.
-   * - **false**: disables the access control policy.
+   * - **false**: does not enable the access control policy.
    * 
    * This parameter is required.
    * 
@@ -122,14 +122,6 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * 192.168.0.223/32
    */
   source?: string;
-  /**
-   * @remarks
-   * The source IP address of the requester.
-   * 
-   * @example
-   * 140.205.118.97
-   */
-  sourceIp?: string;
   /**
    * @remarks
    * The type of the source address in the access control policy. Valid values:
@@ -156,7 +148,6 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
       priority: 'Priority',
       release: 'Release',
       source: 'Source',
-      sourceIp: 'SourceIp',
       sourceType: 'SourceType',
     };
   }
@@ -173,7 +164,6 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
       priority: 'string',
       release: 'string',
       source: 'string',
-      sourceIp: 'string',
       sourceType: 'string',
     };
   }

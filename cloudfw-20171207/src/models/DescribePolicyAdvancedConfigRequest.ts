@@ -16,7 +16,7 @@ export class DescribePolicyAdvancedConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX

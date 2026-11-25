@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrepayBillTotalRequest extends $dara.Model {
   /**
    * @remarks
-   * The bill type. This parameter is required. If it is not specified, an error is returned. Valid values:
+   * The bill type. This parameter is required. If you do not specify this parameter, an error is returned. Valid values:
    * - elastic_traffic: elastic traffic.
    * - sdl: sensitive data leak detection traffic.
    * 
@@ -35,8 +35,8 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   /**
    * @remarks
    * The language. Valid values:
-   * - zh
-   * - en
+   * - zh: Chinese.
+   * - en: English.
    * Default value: zh.
    * 
    * @example

@@ -37,7 +37,7 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region ID. This parameter is required. If this parameter is not specified, the MissingParameter.RegionNo (-200155, The required parameter \\"RegionNo\\" is not provided.) error is returned.
+   * The region ID. This parameter is required. If this parameter is not specified, the MissingParameter.RegionNo (-200155, The required parameter \"RegionNo\" is not provided.) error is returned.
    * 
    * @example
    * cn-beijing

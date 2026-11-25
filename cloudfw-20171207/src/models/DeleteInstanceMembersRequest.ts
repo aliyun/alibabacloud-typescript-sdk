@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The UIDs of the member accounts.
+   * The list of UIDs of the Cloud Firewall member accounts.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1234123412341234
+   * [1234123412341234]
    */
   memberUids?: number[];
   static names(): { [key: string]: string } {

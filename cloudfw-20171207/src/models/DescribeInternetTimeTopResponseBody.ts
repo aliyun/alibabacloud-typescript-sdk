@@ -13,7 +13,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * The inbound bandwidth. Unit: bit/s.
+   * The inbound traffic bandwidth rate. Unit: bps.
    * 
    * @example
    * 187
@@ -61,7 +61,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   newConn?: number;
   /**
    * @remarks
-   * The outbound bandwidth. Unit: bit/s.
+   * The outbound traffic. Unit: bps.
    * 
    * @example
    * 45
@@ -125,7 +125,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   sessionCount?: number;
   /**
    * @remarks
-   * The total bandwidth. Unit: bit/s.
+   * The total bandwidth. Unit: bps.
    * 
    * @example
    * 232
@@ -205,7 +205,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
 export class DescribeInternetTimeTopResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of returned entries.
+   * The number of results.
    * 
    * @example
    * 19
@@ -213,7 +213,7 @@ export class DescribeInternetTimeTopResponseBody extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The list of returned data.
+   * The returned data list.
    */
   dataList?: DescribeInternetTimeTopResponseBodyDataList[];
   /**
@@ -226,7 +226,7 @@ export class DescribeInternetTimeTopResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The traffic time. The value is a UNIX timestamp in seconds.
+   * The time of the traffic. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1734399660

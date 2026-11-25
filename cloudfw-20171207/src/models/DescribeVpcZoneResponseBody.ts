@@ -21,7 +21,7 @@ export class DescribeVpcZoneResponseBodyZoneList extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The type of the zone. The default value is \\`AvailabilityZone\\`, which indicates a standard cloud zone.
+   * The type of the zone. The default value is \`AvailabilityZone\`, which indicates a standard cloud zone.
    * 
    * @example
    * AvailabilityZone
