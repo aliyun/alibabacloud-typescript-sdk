@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContextDatabaseCreditUsageSummaryByMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query range, exclusive. It must be later than StartTime. Use the ISO 8601 time format, such as 2026-10-08T00:00:00Z (UTC).
+   * The end time of the query interval, exclusive. It must be later than `StartTime`. Use the ISO 8601 time format, such as `2026-10-08T00:00:00Z` (UTC).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberRequest extends $dara.M
   endTime?: string;
   /**
    * @remarks
-   * The billable item used to filter records. Valid values: KnowledgeBaseRead (knowledge base read), MemoryRead (memory base read), MemoryWrite (memory base write), KnowledgeBaseWriteToken (knowledge base write token), and ContextGrowth (context evolution). If omitted, all billable items that consume credits are included. Storage items or unlisted values return InvalidParameter.
+   * The billing item used to filter records. Supported values include KnowledgeBaseRead (knowledge base read), MemoryRead (memory read), MemoryWrite (memory write), KnowledgeBaseWriteToken (knowledge base write token), and ContextGrowth (context growth). If omitted, all billing items that consume credits are included. Specifying storage items or unlisted values returns an `InvalidParameter` error.
    * 
    * @example
    * MemoryWrite
@@ -47,7 +47,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberRequest extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query range, inclusive. Use the ISO 8601 time format, such as 2026-10-01T00:00:00Z (UTC).
+   * The start time of the query interval, inclusive. Use the ISO 8601 time format, such as `2026-10-01T00:00:00Z` (UTC).
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberRequest extends $dara.M
   startTime?: string;
   /**
    * @remarks
-   * The ID of the workspace to be analyzed. This parameter is required. The workspace must belong to the caller\\"s account. Locked workspaces can still be queried. Member IDs are unique only within their respective workspaces, and cross-workspace ranking is not supported.
+   * The ID of the workspace to be analyzed. This parameter is required. The workspace must belong to the caller\"s account. Locked workspaces can still be queried. Member IDs are unique only within their respective workspaces, and cross-workspace ranking is not supported.
    * 
    * This parameter is required.
    * 

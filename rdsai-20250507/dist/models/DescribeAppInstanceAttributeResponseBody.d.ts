@@ -186,7 +186,7 @@ export declare class DescribeAppInstanceAttributeResponseBody extends $dara.Mode
      * The minor versions of each component in the RDS AI application instance.
      *
      * @example
-     * {\\"studio\\":\\"20260602r1\\",\\"storage\\":\\"v1.48.9\\",\\"auth\\":\\"v2.188.1\\",\\"kong\\":\\"3.9.0\\",\\"rest\\":\\"v12.2.12\\",\\"meta\\":\\"v0.89.3\\",\\"realtime-dev\\":\\"v2.34.47\\",\\"postgres\\":\\"rds_postgres_1700_20260830\\"}
+     * {\"studio\":\"20260602r1\",\"storage\":\"v1.48.9\",\"auth\":\"v2.188.1\",\"kong\":\"3.9.0\",\"rest\":\"v12.2.12\",\"meta\":\"v0.89.3\",\"realtime-dev\":\"v2.34.47\",\"postgres\":\"rds_postgres_1700_20260830\"}
      */
     minorVersionDetail?: string;
     /**
@@ -194,7 +194,7 @@ export declare class DescribeAppInstanceAttributeResponseBody extends $dara.Mode
      * The release notes for the minor version of the RDS AI application instance.
      *
      * @example
-     * {\\"20260915\\":\\"realtime：1xxx；auth：2xxx；storage：3xxx\\",\\"20260917\\":\\"studio：4xxx；auth：5xxx\\"}
+     * {\"20260915\":\"realtime：1xxx；auth：2xxx；storage：3xxx\",\"20260917\":\"studio：4xxx；auth：5xxx\"}
      */
     minorVersionReleaseNotes?: string;
     /**

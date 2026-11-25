@@ -13,7 +13,7 @@ export class GetContextDatabaseUsageResponseBodyItems extends $dara.Model {
   item?: string;
   /**
    * @remarks
-   * The usage of the item within the query range. The unit is specified by Unit. Invocations, tokens, and context evolution are accumulated over the range. Storage is calculated by averaging the usage snapshots of each workspace within the range and rounding to the nearest whole byte. For the account dimension, the average values of all workspaces are summed.
+   * The usage of the item within the query range. The unit is specified by `Unit`. The number of calls, tokens, and context evolutions are accumulated over the range. Storage is calculated by averaging the occupancy snapshots of each workspace within the range and rounding to the nearest integer byte. For the account dimension, the average values of all workspaces are summed.
    * 
    * @example
    * 15
@@ -21,7 +21,11 @@ export class GetContextDatabaseUsageResponseBodyItems extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * The metering unit. A value of Count indicates the number of invocations. A value of Token indicates the number of tokens. A value of MicroCredit indicates one millionth of a credit. A value of Byte indicates bytes.
+   * The metering unit. Valid values:
+   * - `Count`: The number of calls.
+   * - `Token`: The number of tokens.
+   * - `MicroCredit`: One millionth of a credit.
+   * - `Byte`: Bytes.
    * 
    * @example
    * Count
@@ -55,7 +59,9 @@ export class GetContextDatabaseUsageResponseBodyItems extends $dara.Model {
 export class GetContextDatabaseUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query dimension. A value of Workspace indicates a single workspace. A value of Account indicates all workspaces under the caller account.
+   * The query dimension. Valid values:
+   * - `Workspace`: A single workspace.
+   * - `Account`: All workspaces under the caller account.
    * 
    * @example
    * Workspace
@@ -71,12 +77,12 @@ export class GetContextDatabaseUsageResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The usage list. Returns all 7 metering items in a fixed order. If an item has no data within the query range, its usage is 0.
+   * The usage list. It returns all seven metering items in a fixed order. If an item has no data within the query range, its usage is 0.
    */
   items?: GetContextDatabaseUsageResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the API request, which is used to troubleshoot invocation issues.
+   * The ID of the API request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000001
@@ -92,7 +98,7 @@ export class GetContextDatabaseUsageResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the queried workspace. This parameter has a value only when Dimension is Workspace. It is empty for the account dimension.
+   * The ID of the queried workspace. This field has a value only when `Dimension` is set to `Workspace`. It is empty for the account dimension.
    * 
    * @example
    * ws-x9z4ctzed9gfu2w

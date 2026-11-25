@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContextDatabaseUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query range, exclusive. It must be later than StartTime. Use the ISO 8601 time format, such as 2026-08-01T00:00:00Z (UTC).
+   * The end time of the query range, exclusive. It must be later than `StartTime`. Use the ISO 8601 time format, such as `2026-08-01T00:00:00Z` (UTC).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetContextDatabaseUsageRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The start time of the query range, inclusive. Use the ISO 8601 time format, such as 2026-07-01T00:00:00Z (UTC).
+   * The start time of the query range, inclusive. Use the ISO 8601 time format, such as `2026-07-01T00:00:00Z` (UTC).
    * 
    * This parameter is required.
    * 

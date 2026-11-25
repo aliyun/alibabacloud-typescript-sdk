@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContextDatabaseCreditUsageSummaryByMemberResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The total credit consumption of priced records for the member. Returned as a decimal string with up to 6 decimal places. 1 credit equals 1 CNY. The value is null if there are no priced records.
+   * The total credit consumption of priced records for this member. Returned as a decimal string with up to 6 decimal places, where 1 credit = 1 CNY. The value is `null` if there are no priced records.
    * 
    * @example
    * 0.2513
@@ -21,7 +21,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBodyItems exten
   memberId?: string;
   /**
    * @remarks
-   * The total metered quantity of records that match the filter criteria for the member, including unpriced records. To view the usage of a specific billable item, specify Item in the request.
+   * The total metered quantity of records that match the filter criteria for this member, including unpriced records. To view the usage of a specific billing item, specify `Item` in the request.
    * 
    * @example
    * 12
@@ -29,7 +29,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBodyItems exten
   quantity?: number;
   /**
    * @remarks
-   * The number of metering records that match the filter criteria for the member, including unpriced records.
+   * The number of metering records that match the filter criteria for this member, including unpriced records.
    * 
    * @example
    * 3
@@ -65,7 +65,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBodyItems exten
 export class GetContextDatabaseCreditUsageSummaryByMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query range passed in the request, exclusive.
+   * The end time of the query interval passed in the request, exclusive.
    * 
    * @example
    * 2026-10-08T00:00:00Z
@@ -73,12 +73,12 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBody extends $d
   endTime?: string;
   /**
    * @remarks
-   * The member summaries on the current page, sorted in descending order of total credit consumption. Each record covers the entire query range.
+   * The member summaries on the current page, sorted by total credit consumption in descending order. Each record covers the entire query interval.
    */
   items?: GetContextDatabaseCreditUsageSummaryByMemberResponseBodyItems[];
   /**
    * @remarks
-   * The actual page number used for the query.
+   * The actual page number used in this query.
    * 
    * @example
    * 1
@@ -86,7 +86,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBody extends $d
   page?: number;
   /**
    * @remarks
-   * The actual number of items per page used for the query.
+   * The actual number of items per page used in this query.
    * 
    * @example
    * 50
@@ -94,7 +94,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBody extends $d
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the OpenAPI request, used to troubleshoot call issues.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000001
@@ -102,7 +102,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBody extends $d
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query range passed in the request, inclusive.
+   * The start time of the query interval passed in the request, inclusive.
    * 
    * @example
    * 2026-10-01T00:00:00Z
@@ -118,7 +118,7 @@ export class GetContextDatabaseCreditUsageSummaryByMemberResponseBody extends $d
   total?: number;
   /**
    * @remarks
-   * The ID of the workspace queried.
+   * The ID of the workspace queried in this request.
    * 
    * @example
    * ws-x9z4ctzed9gfu2w

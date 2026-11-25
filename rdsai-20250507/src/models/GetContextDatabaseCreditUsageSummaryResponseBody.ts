@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContextDatabaseCreditUsageSummaryResponseBodyBuckets extends $dara.Model {
   /**
    * @remarks
-   * The start time of the bucket, in ISO 8601 UTC time format ending with Z.
+   * The start time of the bucket, in ISO 8601 UTC time format ending with `Z`.
    * 
    * @example
    * 2026-10-01T00:00:00Z
@@ -13,7 +13,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBodyBuckets extends $da
   bucketStart?: string;
   /**
    * @remarks
-   * The total credit consumption of priced records in the bucket. The value is returned as a decimal string with up to 6 decimal places. 1 credit = 1 CNY. If all records are unpriced, the string 0 is returned.
+   * The total credit consumption of priced records in the bucket. Returned as a decimal string with up to 6 decimal places, where 1 credit equals 1 CNY. Returns the string `0` when all records are unpriced.
    * 
    * @example
    * 0.2513
@@ -21,7 +21,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBodyBuckets extends $da
   credits?: string;
   /**
    * @remarks
-   * The billing item corresponding to the bucket. Valid values: KnowledgeBaseRead (knowledge base read), MemoryRead (memory read), MemoryWrite (memory write), KnowledgeBaseWriteToken (knowledge base write token), and ContextGrowth (context evolution).
+   * The billing item corresponding to the bucket. Valid values: KnowledgeBaseRead (knowledge base read), MemoryRead (memory read), MemoryWrite (memory write), KnowledgeBaseWriteToken (knowledge base write token), and ContextGrowth (context growth).
    * 
    * @example
    * ContextGrowth
@@ -45,7 +45,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBodyBuckets extends $da
   recordCount?: number;
   /**
    * @remarks
-   * The context evolution sub-item. Recognized values include KnowledgeOrganization (knowledge organization), MemoryPromotion (memory promotion), KnowledgeReview (knowledge review), KnowledgeEvolution (knowledge evolution), and MemoryEvolution (memory evolution). For other billing items, missing sub-items, or unrecognized sub-items, null is returned.
+   * The context evolution sub-item. Recognized values include KnowledgeOrganization (knowledge organization), MemoryPromotion (memory promotion), KnowledgeReview (knowledge review), KnowledgeEvolution (knowledge evolution), and MemoryEvolution (memory evolution). Returns null for other billing items, missing sub-items, or unrecognized sub-items.
    * 
    * @example
    * MemoryEvolution
@@ -95,7 +95,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBodyBuckets extends $da
 export class GetContextDatabaseCreditUsageSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The bucketing results, sorted by BucketStart, Item, and SubItem in sequence. Unpriced records are included in Quantity and RecordCount, but not in Credits.
+   * The bucketing results, sorted sequentially by BucketStart, Item, and SubItem. Unpriced records are included in Quantity and RecordCount, but not in Credits.
    */
   buckets?: GetContextDatabaseCreditUsageSummaryResponseBodyBuckets[];
   /**
@@ -108,7 +108,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBody extends $dara.Mode
   dimension?: string;
   /**
    * @remarks
-   * The end time of the query range passed in the request, exclusive.
+   * The end time of the query interval passed in the request, exclusive.
    * 
    * @example
    * 2026-10-15T00:00:00Z
@@ -116,7 +116,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBody extends $dara.Mode
   endTime?: string;
   /**
    * @remarks
-   * The actual bucketing granularity used. Valid values: Hour (hourly) and Day (daily). If the request parameter is omitted, the automatically selected granularity is returned.
+   * The actual bucketing granularity used. Valid values: Hour (hourly) and Day (daily). When the request parameter is omitted, the automatically selected granularity is returned.
    * 
    * @example
    * Day
@@ -124,7 +124,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBody extends $dara.Mode
   interval?: string;
   /**
    * @remarks
-   * The ID of the OpenAPI request, which is used to troubleshoot call issues.
+   * The ID of the API request, which is used to troubleshoot call issues.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000001
@@ -132,7 +132,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query range passed in the request, inclusive.
+   * The start time of the query interval passed in the request, inclusive.
    * 
    * @example
    * 2026-09-15T00:00:00Z
@@ -140,7 +140,7 @@ export class GetContextDatabaseCreditUsageSummaryResponseBody extends $dara.Mode
   startTime?: string;
   /**
    * @remarks
-   * The total credit consumption of priced records that meet the filter conditions within the query range. The value is returned as a decimal string with up to 6 decimal places. 1 credit = 1 CNY. If there are no priced records, the string 0 is returned. Unpriced records are not included in the total amount. Do not treat this value as the final bill amount.
+   * The total credit consumption of priced records that meet the filter conditions within the query interval. Returned as a decimal string with up to 6 decimal places, where 1 credit equals 1 CNY. Returns the string `0` when there are no priced records. Unpriced records are not included in the total. Do not treat this value as the final bill amount.
    * 
    * @example
    * 0.2513

@@ -117,7 +117,7 @@ export class ListContextDatabaseSyncSourcesResponseBodyData extends $dara.Model 
    * The list of data selection scopes.
    * 
    * @example
-   * [{"Id":"src-as1llqmkol****", "ConnectionId":"conn-as1llqmkol****", "Name":"R&D team document scope", "SourceConfig":"{\\"folderIds\\":[\\"https://alidocs.dingtalk.com/i/p/p2N9kLmQxYz****\\"],\\"pageSize\\":50,\\"maxDepth\\":5}"}]
+   * [{"Id":"src-as1llqmkol****", "ConnectionId":"conn-as1llqmkol****", "Name":"R&D team document scope", "SourceConfig":"{\"folderIds\":[\"https://alidocs.dingtalk.com/i/p/p2N9kLmQxYz****\"],\"pageSize\":50,\"maxDepth\":5}"}]
    */
   sources?: ListContextDatabaseSyncSourcesResponseBodyDataSources[];
   /**
