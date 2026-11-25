@@ -80,7 +80,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
    * The custom query SQL clause in partial dataset mode. This parameter can be used when `selectedItemIds` is empty.
    * 
    * @example
-   * status=\\"OK\\"
+   * status=\"OK\"
    */
   querySql?: string;
   /**

@@ -68,6 +68,16 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
    */
   properties?: { [key: string]: any };
   /**
+   * @example
+   * true
+   */
+  selectable?: boolean;
+  /**
+   * @example
+   * PUBLISHED
+   */
+  status?: string;
+  /**
    * @remarks
    * The evaluator type.
    * 
@@ -93,6 +103,8 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
       metricName: 'metricName',
       name: 'name',
       properties: 'properties',
+      selectable: 'selectable',
+      status: 'status',
       type: 'type',
       updatedAt: 'updatedAt',
     };
@@ -108,6 +120,8 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
       metricName: 'string',
       name: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      selectable: 'boolean',
+      status: 'string',
       type: 'string',
       updatedAt: 'number',
     };

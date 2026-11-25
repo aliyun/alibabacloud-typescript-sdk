@@ -24,7 +24,7 @@ export class DataFilter extends $dara.Model {
    * The data query filter conditions that take effect together with the evaluator-level filters.query. For trace scenarios, you can specify filter expressions such as service name, environment, and tags.
    * 
    * @example
-   * serviceName=\\"checkout-service\\"
+   * serviceName=\"checkout-service\"
    */
   query?: string;
   /**

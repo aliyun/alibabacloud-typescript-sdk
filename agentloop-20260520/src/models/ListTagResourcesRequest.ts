@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value. If this parameter is omitted, the system matches resources that have the specified key. An empty string exactly matches an empty value. Null values are not allowed.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. An empty value indicates that no additional pages exist.
+   * The pagination token. If no next page exists, this value is empty.
    * 
    * @example
    * eyJuZXh0IjoiNDAifQ==
@@ -71,7 +71,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag filter conditions. Multiple conditions are combined with the AND operator. At least one of resourceId and tag must be specified.
+   * The tag filter conditions. Multiple conditions are combined by using the AND operator. At least one of resourceId and tag must be specified.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

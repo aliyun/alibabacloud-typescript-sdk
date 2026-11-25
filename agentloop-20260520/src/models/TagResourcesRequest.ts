@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Format requirements:
+   * The tag key. Format requirements are as follows:
    * 
    * - The length must be 1 to 128 characters.
-   * - The key cannot contain "http://" or "https://".
-   * - The key cannot start with "acs:" or "aliyun".
+   * - It cannot contain "http://" or "https://".
+   * - It cannot start with "acs:" or "aliyun".
    * 
    * @example
    * key1
@@ -17,10 +17,10 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Format requirements:
+   * The tag value. Format requirements are as follows:
    * 
    * - The length must be 1 to 128 characters.
-   * - The value cannot contain "http://" or "https://".
+   * - It cannot contain "http://" or "https://".
    * 
    * @example
    * value1
@@ -72,7 +72,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags. Up to 20 tag key-value pairs are supported at a time.
+   * The list of tags. You can specify up to 20 tag key-value pairs at a time.
    * 
    * @example
    * [{

@@ -92,6 +92,11 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
    */
   enable?: boolean;
   /**
+   * @example
+   * v2
+   */
+  evaluatorVersion?: string;
+  /**
    * @remarks
    * The list of skill files. If specified, the content of the skill files is updated.
    * 
@@ -113,6 +118,7 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
       description: 'description',
       displayName: 'displayName',
       enable: 'enable',
+      evaluatorVersion: 'evaluatorVersion',
       files: 'files',
       clientToken: 'clientToken',
     };
@@ -124,6 +130,7 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
       description: 'string',
       displayName: 'string',
       enable: 'boolean',
+      evaluatorVersion: 'string',
       files: { 'type': 'array', 'itemType': UpdateEvaluatorSkillRequestFiles },
       clientToken: 'string',
     };

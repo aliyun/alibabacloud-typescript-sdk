@@ -221,7 +221,7 @@ export class PreviewPipelineResponseBody extends $dara.Model {
    * The collection of sample rows. This array of maps includes only the first N rows (up to 5 rows by default) and does not reflect the complete write plan.
    * 
    * @example
-   * [{\\"type\\": \\"saturation\\", \\"value\\": 0}, {\\"type\\": \\"load\\", \\"value\\": 0}, {\\"type\\": \\"latency\\", \\"value\\": 1}, {\\"type\\": \\"error\\", \\"value\\": 0}]
+   * [{\"type\": \"saturation\", \"value\": 0}, {\"type\": \"load\", \"value\": 0}, {\"type\": \"latency\", \"value\": 1}, {\"type\": \"error\", \"value\": 0}]
    */
   data?: { [key: string]: string }[];
   /**

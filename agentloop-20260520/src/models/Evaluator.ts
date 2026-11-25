@@ -25,7 +25,7 @@ export class Evaluator extends $dara.Model {
    * The evaluator-level data filter conditions. These take effect together with the task-level dataFilter.query.
    * 
    * @example
-   * {"query":"serviceName=\\"checkout-service\\""}
+   * {"query":"serviceName=\"checkout-service\""}
    */
   filters?: { [key: string]: any };
   /**

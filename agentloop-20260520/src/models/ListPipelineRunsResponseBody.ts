@@ -32,7 +32,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Failed to evaluate filter expression in node \\"node-1\\": column \\"score\\" does not exist.
+   * Failed to evaluate filter expression in node \"node-1\": column \"score\" does not exist.
    */
   errorMessage?: string;
   /**

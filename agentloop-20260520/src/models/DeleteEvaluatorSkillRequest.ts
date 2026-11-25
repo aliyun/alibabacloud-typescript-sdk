@@ -13,15 +13,22 @@ export class DeleteEvaluatorSkillRequest extends $dara.Model {
    * prod-agentspace
    */
   agentSpace?: string;
+  /**
+   * @example
+   * v2
+   */
+  evaluatorVersion?: string;
   static names(): { [key: string]: string } {
     return {
       agentSpace: 'agentSpace',
+      evaluatorVersion: 'evaluatorVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       agentSpace: 'string',
+      evaluatorVersion: 'string',
     };
   }
 

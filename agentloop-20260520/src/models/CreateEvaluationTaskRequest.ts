@@ -26,7 +26,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
    * The evaluation data filter conditions. Supports a JSON object or JSON string. Common fields include `query`, `provided`, `maxRecords`, and `samplingRate`.
    * 
    * @example
-   * {"query":"serviceName=\\"checkout-service\\"","maxRecords":10,"samplingRate":100}
+   * {"query":"serviceName=\"checkout-service\"","maxRecords":10,"samplingRate":100}
    */
   dataFilter?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all custom tags. Valid values: true, false, and an empty string. If this parameter is not specified or is set to an empty string, the value is treated as false. The value true takes effect only when the tagKey parameter is not specified or is an empty array.
+   * Specifies whether to disassociate all user-defined tags. Valid values: true, false, and an empty string. If this parameter is not specified or is set to an empty string, it is treated as false. The value true indicates that all tags are disassociated only when the tagKey parameter is not specified or is an empty array.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class UntagResourcesShrinkRequest extends $dara.Model {
   resourceIdShrink?: string;
   /**
    * @remarks
-   * The resource type. Set the value to agentspace.
+   * The resource type. The value is fixed to agentspace.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UntagResourcesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys to remove. You can specify up to 20 tag keys. The tag keys must be unique. If this parameter is not empty, it takes precedence over the all parameter.
+   * The list of tag keys to disassociate. You can specify up to 20 tag keys, and they must be unique. If this parameter is not empty, it takes precedence over the all parameter.
    * 
    * @example
    * ["key1", "key2", "key3"]

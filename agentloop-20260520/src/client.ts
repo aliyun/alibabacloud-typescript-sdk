@@ -561,6 +561,14 @@ export default class Client extends OpenApi {
       body["properties"] = request.properties;
     }
 
+    if (!$dara.isNull(request.skills)) {
+      body["skills"] = request.skills;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
     if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
     }
@@ -634,6 +642,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enable)) {
       body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.evaluatorVersion)) {
+      body["evaluatorVersion"] = request.evaluatorVersion;
     }
 
     if (!$dara.isNull(request.files)) {
@@ -849,6 +861,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createExperimentRunWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
+   * Performs a synchronous multimodal evaluation on a single image or audio/video file and directly returns the score.
+   * 
+   * @param request - CreateMultiModalTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMultiModalTaskResponse
+   */
+  async createMultiModalTaskWithOptions(request: $_model.CreateMultiModalTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMultiModalTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentSpace)) {
+      body["agentSpace"] = request.agentSpace;
+    }
+
+    if (!$dara.isNull(request.args)) {
+      body["args"] = request.args;
+    }
+
+    if (!$dara.isNull(request.arn)) {
+      body["arn"] = request.arn;
+    }
+
+    if (!$dara.isNull(request.evaluatorRef)) {
+      body["evaluatorRef"] = request.evaluatorRef;
+    }
+
+    if (!$dara.isNull(request.ossRegion)) {
+      body["ossRegion"] = request.ossRegion;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["taskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMultiModalTask",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/media-processings`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMultiModalTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMultiModalTaskResponse({}));
+  }
+
+  /**
+   * Performs a synchronous multimodal evaluation on a single image or audio/video file and directly returns the score.
+   * 
+   * @param request - CreateMultiModalTaskRequest
+   * @returns CreateMultiModalTaskResponse
+   */
+  async createMultiModalTask(request: $_model.CreateMultiModalTaskRequest): Promise<$_model.CreateMultiModalTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMultiModalTaskWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1391,6 +1472,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentSpace)) {
       query["agentSpace"] = request.agentSpace;
+    }
+
+    if (!$dara.isNull(request.evaluatorVersion)) {
+      query["evaluatorVersion"] = request.evaluatorVersion;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2033,6 +2118,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentSpace)) {
       query["agentSpace"] = request.agentSpace;
+    }
+
+    if (!$dara.isNull(request.evaluatorVersion)) {
+      query["evaluatorVersion"] = request.evaluatorVersion;
     }
 
     if (!$dara.isNull(request.version)) {
@@ -2812,6 +2901,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentSpace)) {
       query["agentSpace"] = request.agentSpace;
+    }
+
+    if (!$dara.isNull(request.evaluatorVersion)) {
+      query["evaluatorVersion"] = request.evaluatorVersion;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -3774,7 +3867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags.
+   * Disassociates tags.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -3829,7 +3922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags.
+   * Disassociates tags.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -4173,6 +4266,10 @@ export default class Client extends OpenApi {
       body["config"] = request.config;
     }
 
+    if (!$dara.isNull(request.createVersion)) {
+      body["createVersion"] = request.createVersion;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
@@ -4183,6 +4280,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.properties)) {
       body["properties"] = request.properties;
+    }
+
+    if (!$dara.isNull(request.skills)) {
+      body["skills"] = request.skills;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
     }
 
     if (!$dara.isNull(request.version)) {
@@ -4256,6 +4361,10 @@ export default class Client extends OpenApi {
       body["enable"] = request.enable;
     }
 
+    if (!$dara.isNull(request.evaluatorVersion)) {
+      body["evaluatorVersion"] = request.evaluatorVersion;
+    }
+
     if (!$dara.isNull(request.files)) {
       body["files"] = request.files;
     }
@@ -4289,6 +4398,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
+   * Updates the status of an evaluator version.
+   * 
+   * @remarks
+   * Publishes a saved evaluator draft, takes a published version offline, or brings an offline version back online.
+   * 
+   * @param request - UpdateEvaluatorVersionStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEvaluatorVersionStatusResponse
+   */
+  async updateEvaluatorVersionStatusWithOptions(agentSpace: string, name: string, request: $_model.UpdateEvaluatorVersionStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEvaluatorVersionStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expectedStatus)) {
+      body["expectedStatus"] = request.expectedStatus;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    if (!$dara.isNull(request.versionDescription)) {
+      body["versionDescription"] = request.versionDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEvaluatorVersionStatus",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/evaluators/${$dara.URL.percentEncode(agentSpace)}/${$dara.URL.percentEncode(name)}/version-status`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateEvaluatorVersionStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEvaluatorVersionStatusResponse({}));
+  }
+
+  /**
+   * Updates the status of an evaluator version.
+   * 
+   * @remarks
+   * Publishes a saved evaluator draft, takes a published version offline, or brings an offline version back online.
+   * 
+   * @param request - UpdateEvaluatorVersionStatusRequest
+   * @returns UpdateEvaluatorVersionStatusResponse
+   */
+  async updateEvaluatorVersionStatus(agentSpace: string, name: string, request: $_model.UpdateEvaluatorVersionStatusRequest): Promise<$_model.UpdateEvaluatorVersionStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateEvaluatorVersionStatusWithOptions(agentSpace, name, request, headers, runtime);
   }
 
   /**

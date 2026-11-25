@@ -433,7 +433,7 @@ export class CreatePipelineRequestSinkConditionRoutes extends $dara.Model {
    * The route expression in Search Processing Language (SPL). Only where, project, and extend are supported.
    * 
    * @example
-   * * | where intent = \\"refund\\"
+   * * | where intent = \"refund\"
    */
   expression?: string;
   /**
@@ -631,7 +631,7 @@ export class CreatePipelineRequestSourceDataset extends $dara.Model {
    * The data filter condition for the dataset.
    * 
    * @example
-   * status = \\"pending\\"
+   * status = \"pending\"
    */
   filter?: string;
   static names(): { [key: string]: string } {
@@ -829,7 +829,7 @@ export class CreatePipelineRequestSource extends $dara.Model {
    * The Dataset datasource config under the current AgentSpace.
    * 
    * @example
-   * {"dataset":"my-dataset","filter":"status = \\"pending\\""}
+   * {"dataset":"my-dataset","filter":"status = \"pending\""}
    */
   dataset?: CreatePipelineRequestSourceDataset;
   /**

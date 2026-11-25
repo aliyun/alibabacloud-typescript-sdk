@@ -58,7 +58,7 @@ export class ModelParametersResponseFormat extends $dara.Model {
    * The JSON Schema constraint, which is required when the type is json_schema.
    * 
    * @example
-   * {"name":"answer","strict":true,"schema":"{\\"type\\":\\"object\\",\\"properties\\":{\\"answer\\":{\\"type\\":\\"string\\"}},\\"required\\":[\\"answer\\"]}"}
+   * {"name":"answer","strict":true,"schema":"{\"type\":\"object\",\"properties\":{\"answer\":{\"type\":\"string\"}},\"required\":[\"answer\"]}"}
    */
   jsonSchema?: ModelParametersResponseFormatJsonSchema;
   /**
@@ -173,7 +173,7 @@ export class ModelParameters extends $dara.Model {
    * The response content format, which defaults to text if not specified.
    * 
    * @example
-   * {"type":"json_schema","jsonSchema":{"name":"answer","strict":true,"schema":"{\\"type\\":\\"object\\",\\"properties\\":{\\"answer\\":{\\"type\\":\\"string\\"}},\\"required\\":[\\"answer\\"]}"}}
+   * {"type":"json_schema","jsonSchema":{"name":"answer","strict":true,"schema":"{\"type\":\"object\",\"properties\":{\"answer\":{\"type\":\"string\"}},\"required\":[\"answer\"]}"}}
    */
   responseFormat?: ModelParametersResponseFormat;
   /**

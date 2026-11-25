@@ -2,6 +2,102 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateEvaluatorRequestSkillsFiles extends $dara.Model {
+  /**
+   * @example
+   * ---
+   * name: fact-check
+   * description: 核对回答中的事实依据
+   * ---
+   * 逐项核对回答中的事实，并列出依据。
+   */
+  content?: string;
+  /**
+   * @example
+   * SKILL.md
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEvaluatorRequestSkills extends $dara.Model {
+  /**
+   * @example
+   * 核对回答中的事实依据
+   */
+  description?: string;
+  /**
+   * @example
+   * 事实核查
+   */
+  displayName?: string;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * [{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: 核对回答中的事实依据\n---\n逐项核对回答中的事实，并列出依据。"}]
+   */
+  files?: CreateEvaluatorRequestSkillsFiles[];
+  /**
+   * @example
+   * fact-check
+   */
+  skillName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      displayName: 'displayName',
+      enable: 'enable',
+      files: 'files',
+      skillName: 'skillName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      displayName: 'string',
+      enable: 'boolean',
+      files: { 'type': 'array', 'itemType': CreateEvaluatorRequestSkillsFiles },
+      skillName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.files)) {
+      $dara.Model.validateArray(this.files);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEvaluatorRequest extends $dara.Model {
   /**
    * @remarks
@@ -64,6 +160,16 @@ export class CreateEvaluatorRequest extends $dara.Model {
    */
   properties?: { [key: string]: any };
   /**
+   * @example
+   * [{"skillName":"fact-check","files":[{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: 核对回答中的事实依据\n---\n逐项核对回答中的事实，并列出依据。"}]}]
+   */
+  skills?: CreateEvaluatorRequestSkills[];
+  /**
+   * @example
+   * DRAFT
+   */
+  status?: string;
+  /**
    * @remarks
    * The evaluator type. Valid values:
    * - LLM: an inner join large language model evaluation evaluator.
@@ -111,6 +217,8 @@ export class CreateEvaluatorRequest extends $dara.Model {
       metricName: 'metricName',
       name: 'name',
       properties: 'properties',
+      skills: 'skills',
+      status: 'status',
       type: 'type',
       version: 'version',
       versionDescription: 'versionDescription',
@@ -127,6 +235,8 @@ export class CreateEvaluatorRequest extends $dara.Model {
       metricName: 'string',
       name: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      skills: { 'type': 'array', 'itemType': CreateEvaluatorRequestSkills },
+      status: 'string',
       type: 'string',
       version: 'string',
       versionDescription: 'string',
@@ -143,6 +253,9 @@ export class CreateEvaluatorRequest extends $dara.Model {
     }
     if(this.properties) {
       $dara.Model.validateMap(this.properties);
+    }
+    if(Array.isArray(this.skills)) {
+      $dara.Model.validateArray(this.skills);
     }
     super.validate();
   }

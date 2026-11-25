@@ -14,6 +14,11 @@ export class GetEvaluatorSkillRequest extends $dara.Model {
    */
   agentSpace?: string;
   /**
+   * @example
+   * v2
+   */
+  evaluatorVersion?: string;
+  /**
    * @remarks
    * The skill version.
    * 
@@ -24,6 +29,7 @@ export class GetEvaluatorSkillRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentSpace: 'agentSpace',
+      evaluatorVersion: 'evaluatorVersion',
       version: 'version',
     };
   }
@@ -31,6 +37,7 @@ export class GetEvaluatorSkillRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentSpace: 'string',
+      evaluatorVersion: 'string',
       version: 'string',
     };
   }

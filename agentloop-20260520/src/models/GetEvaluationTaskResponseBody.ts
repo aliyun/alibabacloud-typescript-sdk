@@ -42,7 +42,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
    * The filter conditions for evaluation data. The backend returns this value as a JSON string.
    * 
    * @example
-   * {"query":"serviceName=\\"checkout-service\\"","maxRecords":10,"samplingRate":100}
+   * {"query":"serviceName=\"checkout-service\"","maxRecords":10,"samplingRate":100}
    */
   dataFilter?: string;
   /**

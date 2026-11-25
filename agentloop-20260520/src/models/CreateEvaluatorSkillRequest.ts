@@ -92,6 +92,11 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
    */
   enable?: boolean;
   /**
+   * @example
+   * v2
+   */
+  evaluatorVersion?: string;
+  /**
    * @remarks
    * The list of skill files.
    * 
@@ -125,6 +130,7 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
       description: 'description',
       displayName: 'displayName',
       enable: 'enable',
+      evaluatorVersion: 'evaluatorVersion',
       files: 'files',
       skillName: 'skillName',
       clientToken: 'clientToken',
@@ -137,6 +143,7 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
       description: 'string',
       displayName: 'string',
       enable: 'boolean',
+      evaluatorVersion: 'string',
       files: { 'type': 'array', 'itemType': CreateEvaluatorSkillRequestFiles },
       skillName: 'string',
       clientToken: 'string',

@@ -102,7 +102,7 @@ export class PreviewPipelineRequestSourceDataset extends $dara.Model {
    * The data filter condition for the dataset.
    * 
    * @example
-   * status = \\"pending\\"
+   * status = \"pending\"
    */
   filter?: string;
   static names(): { [key: string]: string } {
@@ -300,7 +300,7 @@ export class PreviewPipelineRequestSource extends $dara.Model {
    * The dataset datasource config in the current AgentSpace.
    * 
    * @example
-   * {"dataset":"my-dataset","filter":"status = \\"pending\\""}
+   * {"dataset":"my-dataset","filter":"status = \"pending\""}
    */
   dataset?: PreviewPipelineRequestSourceDataset;
   /**

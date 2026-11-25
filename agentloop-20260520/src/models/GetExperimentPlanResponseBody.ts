@@ -90,7 +90,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
    * The custom query SQL clause in partial dataset mode.
    * 
    * @example
-   * status=\\"OK\\"
+   * status=\"OK\"
    */
   querySql?: string;
   /**

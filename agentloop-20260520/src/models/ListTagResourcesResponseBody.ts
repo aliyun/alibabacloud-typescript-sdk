@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value. If this parameter is omitted, the system matches resources that have the specified key. An empty string exactly matches an empty value. Null values are not allowed.
    * 
    * @example
    * value1
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. An empty value indicates that no additional pages exist.
+   * The pagination token. If no next page exists, this value is empty.
    * 
    * @example
    * eyJsYXN0SWQiOjEyMH0=

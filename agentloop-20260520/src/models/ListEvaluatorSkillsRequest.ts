@@ -14,6 +14,11 @@ export class ListEvaluatorSkillsRequest extends $dara.Model {
    */
   agentSpace?: string;
   /**
+   * @example
+   * v2
+   */
+  evaluatorVersion?: string;
+  /**
    * @remarks
    * The number of entries per page.
    * 
@@ -32,6 +37,7 @@ export class ListEvaluatorSkillsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentSpace: 'agentSpace',
+      evaluatorVersion: 'evaluatorVersion',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
     };
@@ -40,6 +46,7 @@ export class ListEvaluatorSkillsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentSpace: 'string',
+      evaluatorVersion: 'string',
       maxResults: 'number',
       nextToken: 'string',
     };

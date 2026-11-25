@@ -698,7 +698,7 @@ export class GetContextStoreResponseBodyConfigSourceDatasetFilter extends $dara.
    * The subset of the pipeline where clause, which is pushed down to SQL.
    * 
    * @example
-   * appId = \\"crm-service\\"
+   * appId = \"crm-service\"
    */
   where?: string;
   static names(): { [key: string]: string } {

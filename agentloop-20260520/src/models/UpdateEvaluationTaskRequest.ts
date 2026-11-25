@@ -18,7 +18,7 @@ export class UpdateEvaluationTaskRequest extends $dara.Model {
    * The filter conditions for evaluation data. JSON objects and JSON strings are supported.
    * 
    * @example
-   * {"query":"serviceName=\\"checkout-service\\" AND status=\\"OK\\"","maxRecords":10,"samplingRate":50}
+   * {"query":"serviceName=\"checkout-service\" AND status=\"OK\"","maxRecords":10,"samplingRate":50}
    */
   dataFilter?: string;
   /**

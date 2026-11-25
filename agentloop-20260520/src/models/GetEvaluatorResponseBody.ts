@@ -2,6 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetEvaluatorResponseBodyEvaluatorSkills extends $dara.Model {
+  /**
+   * @example
+   * 1770386951147366810
+   */
+  currentVersion?: string;
+  /**
+   * @example
+   * 核对回答中的事实依据
+   */
+  description?: string;
+  /**
+   * @example
+   * 事实核查
+   */
+  displayName?: string;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * fact-check
+   */
+  skillName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentVersion: 'currentVersion',
+      description: 'description',
+      displayName: 'displayName',
+      enable: 'enable',
+      skillName: 'skillName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentVersion: 'string',
+      description: 'string',
+      displayName: 'string',
+      enable: 'boolean',
+      skillName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEvaluatorResponseBodyEvaluatorVersions extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +66,21 @@ export class GetEvaluatorResponseBodyEvaluatorVersions extends $dara.Model {
    * 1782816000
    */
   createdAt?: number;
+  /**
+   * @example
+   * true
+   */
+  selectable?: boolean;
+  /**
+   * @example
+   * PUBLISHED
+   */
+  status?: string;
+  /**
+   * @example
+   * 1795478400
+   */
+  updatedAt?: number;
   /**
    * @remarks
    * The version number.
@@ -30,6 +100,9 @@ export class GetEvaluatorResponseBodyEvaluatorVersions extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
+      selectable: 'selectable',
+      status: 'status',
+      updatedAt: 'updatedAt',
       version: 'version',
       versionDescription: 'versionDescription',
     };
@@ -38,6 +111,9 @@ export class GetEvaluatorResponseBodyEvaluatorVersions extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createdAt: 'number',
+      selectable: 'boolean',
+      status: 'string',
+      updatedAt: 'number',
       version: 'string',
       versionDescription: 'string',
     };
@@ -142,6 +218,21 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
    */
   properties?: { [key: string]: any };
   /**
+   * @example
+   * true
+   */
+  selectable?: boolean;
+  /**
+   * @example
+   * [{"skillName":"fact-check","displayName":"事实核查","description":"核对回答中的事实依据","enable":true,"currentVersion":"1770386951147366810"}]
+   */
+  skills?: GetEvaluatorResponseBodyEvaluatorSkills[];
+  /**
+   * @example
+   * PUBLISHED
+   */
+  status?: string;
+  /**
    * @remarks
    * The evaluator type.
    * 
@@ -178,6 +269,9 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
       metricName: 'metricName',
       name: 'name',
       properties: 'properties',
+      selectable: 'selectable',
+      skills: 'skills',
+      status: 'status',
       type: 'type',
       updatedAt: 'updatedAt',
       versions: 'versions',
@@ -197,6 +291,9 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
       metricName: 'string',
       name: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      selectable: 'boolean',
+      skills: { 'type': 'array', 'itemType': GetEvaluatorResponseBodyEvaluatorSkills },
+      status: 'string',
       type: 'string',
       updatedAt: 'number',
       versions: { 'type': 'array', 'itemType': GetEvaluatorResponseBodyEvaluatorVersions },
@@ -212,6 +309,9 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
     }
     if(this.properties) {
       $dara.Model.validateMap(this.properties);
+    }
+    if(Array.isArray(this.skills)) {
+      $dara.Model.validateArray(this.skills);
     }
     if(Array.isArray(this.versions)) {
       $dara.Model.validateArray(this.versions);

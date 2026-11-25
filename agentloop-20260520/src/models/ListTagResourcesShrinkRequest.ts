@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. An empty value indicates that no additional pages exist.
+   * The pagination token. If no next page exists, this value is empty.
    * 
    * @example
    * eyJuZXh0IjoiNDAifQ==
@@ -31,7 +31,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag filter conditions. Multiple conditions are combined with the AND operator. At least one of resourceId and tag must be specified.
+   * The tag filter conditions. Multiple conditions are combined by using the AND operator. At least one of resourceId and tag must be specified.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {
