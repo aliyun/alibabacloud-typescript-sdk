@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveChannelDraftResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class SaveChannelDraftResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class SaveChannelDraftResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * spring-cloud-b
@@ -37,8 +37,8 @@ export class SaveChannelDraftResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** return parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** that you specified is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * abc
@@ -46,7 +46,7 @@ export class SaveChannelDraftResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -75,7 +75,7 @@ export class SaveChannelDraftResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * System exception

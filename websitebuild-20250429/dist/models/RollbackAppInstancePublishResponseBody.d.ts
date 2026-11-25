@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class RollbackAppInstancePublishResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The release order ID.
+     * The deployment order ID.
      *
      * @example
      * 123
@@ -22,7 +22,7 @@ export declare class RollbackAppInstancePublishResponseBodyModule extends $dara.
 export declare class RollbackAppInstancePublishResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for access denial.
+     * The detailed reasons for access denial.
      *
      * @example
      * {}
@@ -30,7 +30,7 @@ export declare class RollbackAppInstancePublishResponseBody extends $dara.Model 
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retries are allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -54,8 +54,7 @@ export declare class RollbackAppInstancePublishResponseBody extends $dara.Model 
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR

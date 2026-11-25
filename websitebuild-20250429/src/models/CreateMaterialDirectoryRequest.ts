@@ -15,7 +15,7 @@ export class CreateMaterialDirectoryRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The folder name.
+   * The name of the folder.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateMaterialDirectoryRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parent folder ID.
+   * The ID of the parent folder.
    * 
    * This parameter is required.
    * 

@@ -21,7 +21,7 @@ export declare class EditPluginConfigRequest extends $dara.Model {
      * The plug-in description.
      *
      * @example
-     * 根据关键字查询相关的Github Repositories
+     * Query relevant GitHub repositories based on keywords
      */
     pluginDesc?: string;
     /**

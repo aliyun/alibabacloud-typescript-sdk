@@ -8,7 +8,7 @@ export class ListAIStaffChatEventsResponseBodyModuleEvents extends $dara.Model {
    * The error message.
    * 
    * @example
-   * {\\"Recorded\\": False}
+   * {\"Recorded\": False}
    */
   data?: string;
   /**

@@ -30,7 +30,7 @@ export declare class QueryMaterialFileSummaryInfoShrinkRequest extends $dara.Mod
     name?: string;
     /**
      * @remarks
-     * The field used for sorting.
+     * The sort field.
      *
      * @example
      * CreationTime
@@ -38,7 +38,7 @@ export declare class QueryMaterialFileSummaryInfoShrinkRequest extends $dara.Mod
     orderColumn?: string;
     /**
      * @remarks
-     * The sort order. Valid values: ASC, DESC.
+     * The sort order. Valid values: ASC and DESC.
      *
      * @example
      * BUY

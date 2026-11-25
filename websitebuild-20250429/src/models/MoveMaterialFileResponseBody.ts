@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveMaterialFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission check failure.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -23,7 +23,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+   * The name of the application. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -52,7 +52,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes section in this topic.
    * 
    * @example
    * 0
@@ -68,7 +68,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the move operation was successful.
+   * Indicates whether the move operation is successful.
    * 
    * @example
    * true
@@ -84,7 +84,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -100,7 +100,7 @@ export class MoveMaterialFileResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

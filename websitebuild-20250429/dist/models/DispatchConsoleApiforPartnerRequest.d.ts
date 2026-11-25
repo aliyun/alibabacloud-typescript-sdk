@@ -31,7 +31,7 @@ export declare class DispatchConsoleAPIForPartnerRequest extends $dara.Model {
      * The error parameters.
      *
      * @example
-     * [\\"\\"]
+     * [\"\"]
      */
     params?: string;
     /**

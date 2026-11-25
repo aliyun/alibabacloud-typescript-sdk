@@ -10,7 +10,7 @@ export declare class AppMaterialDirectory extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The list of subfolders.
+     * The list of child folders.
      */
     children?: AppMaterialDirectory[];
     /**
@@ -26,12 +26,12 @@ export declare class AppMaterialDirectory extends $dara.Model {
      * The name.
      *
      * @example
-     * 图片管理
+     * Image Management
      */
     name?: string;
     /**
      * @remarks
-     * The sort number.
+     * The sort order.
      *
      * @example
      * 1

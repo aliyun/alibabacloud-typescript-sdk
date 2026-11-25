@@ -5,12 +5,12 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
      * aliyun_pk
      *
      * @example
-     * ***
+     * 2468****135790
      */
     aliyunPk?: string;
     /**
      * @remarks
-     * The bot ID.
+     * The ID of the bot.
      *
      * @example
      * Zero2
@@ -18,7 +18,7 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
     botId?: string;
     /**
      * @remarks
-     * The number of chat records.
+     * The chat records.
      *
      * @example
      * 1
@@ -26,7 +26,7 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
     chatNum?: number;
     /**
      * @remarks
-     * The conversation ID.
+     * The ID of the conversation.
      *
      * @example
      * 799EAC1246C855CAC75B77955E43D841
@@ -44,7 +44,7 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
     gmtCreateTime?: string;
     /**
      * @remarks
-     * The update time in ISO 8601 format. The time zone is UTC (Z).
+     * The update time in ISO 8601 format, in the UTC (Z) time zone.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
      *
@@ -57,7 +57,7 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
      * The extended information in JSON string format.
      *
      * @example
-     * {\\"MD5\\":\\"296f6c01e7fea2697ffe1cf41082b774\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
+     * {\"MD5\":\"296f6c01e7fea2697ffe1cf41082b774\",\"driver\":\"vhd\",\"flag\":\"12845825\",\"imds_support\":\"v1\",\"io_optimized\":true,\"nvme_supported\":true,\"uefi_preferred\":false}
      */
     metaData?: string;
     /**
@@ -70,7 +70,7 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
     sectionId?: string;
     /**
      * @remarks
-     * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+     * The ID of the site.
      *
      * @example
      * 1068725896006128
@@ -86,7 +86,7 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
     title?: string;
     /**
      * @remarks
-     * The user ID.
+     * The ID of the user.
      *
      * @example
      * 123456
@@ -106,7 +106,7 @@ export declare class ListAppConversationsResponseBodyModuleData extends $dara.Mo
 export declare class ListAppConversationsResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The request results.
+     * The results of the request.
      */
     data?: ListAppConversationsResponseBodyModuleData[];
     /**
@@ -127,7 +127,7 @@ export declare class ListAppConversationsResponseBodyModule extends $dara.Model 
     pageSize?: number;
     /**
      * @remarks
-     * The resource count that meets the conditional filters.
+     * The conditional resource count that meets the filter.
      *
      * @example
      * 30
@@ -147,7 +147,7 @@ export declare class ListAppConversationsResponseBodyModule extends $dara.Model 
 export declare class ListAppConversationsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reasons for access denial.
+     * The detailed reason for the access denial.
      *
      * @example
      * {}
@@ -187,7 +187,7 @@ export declare class ListAppConversationsResponseBody extends $dara.Model {
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error arguments.
+     * The error parameters.
      */
     errorArgs?: any[];
     /**
@@ -205,7 +205,7 @@ export declare class ListAppConversationsResponseBody extends $dara.Model {
     module?: ListAppConversationsResponseBodyModule;
     /**
      * @remarks
-     * The token that is used to start the next query. If no next query is available, this parameter is empty.
+     * The token used to start the next query. If there is no next query, this parameter is empty.
      *
      * @example
      * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM

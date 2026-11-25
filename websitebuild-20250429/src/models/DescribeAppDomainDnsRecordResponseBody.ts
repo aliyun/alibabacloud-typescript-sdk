@@ -55,7 +55,7 @@ export class DescribeAppDomainDnsRecordResponseBodyModule extends $dara.Model {
 export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details. This field is returned only when RAM authentication fails.
+   * The details of the access denied error. This field is returned only when RAM authentication fails.
    * 
    * @example
    * {}
@@ -63,7 +63,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -71,7 +71,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. Queries the application with this name.
+   * The name of the application to query.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -105,7 +105,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
   module?: DescribeAppDomainDnsRecordResponseBodyModule;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -124,7 +124,7 @@ export class DescribeAppDomainDnsRecordResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

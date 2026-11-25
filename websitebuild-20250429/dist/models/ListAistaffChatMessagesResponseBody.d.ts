@@ -74,7 +74,10 @@ export declare class ListAIStaffChatMessagesResponseBodyModuleMessages extends $
     messageId?: string;
     /**
      * @remarks
-     * The business extension metadata. The value must be a JSON string in map format.
+     * The business extension metadata in map format. The value must be a JSON string.
+     *
+     * @example
+     * {"appId":"WS20260510153620000001","inputTokens":1120,"outputTokens":32}
      */
     metaData?: {
         [key: string]: any;
@@ -82,17 +85,11 @@ export declare class ListAIStaffChatMessagesResponseBodyModuleMessages extends $
     /**
      * @remarks
      * The role of the conversation participant. Valid values:
-     *
      * - user: User.
-     *
      * - assistant: Assistant.
-     *
      * - system: System.
-     *
      * - function: Function.
-     *
      * - plugin: Plug-in.
-     *
      * - tool: Tool.
      *
      * @example
@@ -157,7 +154,7 @@ export declare class ListAIStaffChatMessagesResponseBodyModule extends $dara.Mod
 export declare class ListAIStaffChatMessagesResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The access denial details.
+     * The access denied details.
      *
      * @example
      * {}
@@ -165,7 +162,7 @@ export declare class ListAIStaffChatMessagesResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether a retry is allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -173,7 +170,7 @@ export declare class ListAIStaffChatMessagesResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the app.
+     * The app name.
      *
      * @example
      * or
@@ -223,10 +220,10 @@ export declare class ListAIStaffChatMessagesResponseBody extends $dara.Model {
     rootErrorCode?: string;
     /**
      * @remarks
-     * The error message.
+     * The exception message.
      *
      * @example
-     * System error
+     * System exception
      */
     rootErrorMsg?: string;
     /**

@@ -30,7 +30,7 @@ export declare class CreateAppPluginResponseBodyModule extends $dara.Model {
 export declare class CreateAppPluginResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reasons for the access denial.
+     * The detailed reasons for access denial.
      *
      * @example
      * {}
@@ -38,7 +38,7 @@ export declare class CreateAppPluginResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether a retry is allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -62,8 +62,8 @@ export declare class CreateAppPluginResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+     * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR

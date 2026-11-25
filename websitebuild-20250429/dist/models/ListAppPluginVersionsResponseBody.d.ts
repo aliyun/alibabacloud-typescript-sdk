@@ -5,7 +5,7 @@ export declare class ListAppPluginVersionsResponseBodyModuleData extends $dara.M
      * The version changelog.
      *
      * @example
-     * x x x
+     * Fixed the plug-in configuration reading issue
      */
     changelog?: string;
     /**
@@ -13,7 +13,7 @@ export declare class ListAppPluginVersionsResponseBodyModuleData extends $dara.M
      * The commit ID.
      *
      * @example
-     * xxx
+     * 0123456789abcdef0123456789abcdef01234567
      */
     commitSha?: string;
     /**
@@ -50,7 +50,7 @@ export declare class ListAppPluginVersionsResponseBodyModuleData extends $dara.M
     status?: string;
     /**
      * @remarks
-     * The application instance version.
+     * The version of the application instance.
      *
      * @example
      * V2.0
@@ -73,7 +73,7 @@ export declare class ListAppPluginVersionsResponseBodyModuleNext extends $dara.M
      * The version changelog.
      *
      * @example
-     * xxx
+     * Fixed the plug-in configuration reading issue
      */
     changelog?: string;
     /**
@@ -81,7 +81,7 @@ export declare class ListAppPluginVersionsResponseBodyModuleNext extends $dara.M
      * The commit ID.
      *
      * @example
-     * xxx
+     * 0123456789abcdef0123456789abcdef01234567
      */
     commitSha?: string;
     /**
@@ -118,7 +118,7 @@ export declare class ListAppPluginVersionsResponseBodyModuleNext extends $dara.M
     status?: string;
     /**
      * @remarks
-     * The application instance version.
+     * The version of the application instance.
      *
      * @example
      * V2.0
@@ -216,7 +216,7 @@ export declare class ListAppPluginVersionsResponseBodyModule extends $dara.Model
 export declare class ListAppPluginVersionsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The detailed reasons for access denial.
      *
      * @example
      * {}
@@ -224,7 +224,7 @@ export declare class ListAppPluginVersionsResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retries are allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -248,7 +248,7 @@ export declare class ListAppPluginVersionsResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic message. This parameter is not used and can be ignored.
+     * The dynamic message. This parameter is currently unused and can be ignored.
      *
      * @example
      * abc

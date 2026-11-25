@@ -5,12 +5,12 @@ export declare class UploadAppPluginVersionRequest extends $dara.Model {
      * The changelog.
      *
      * @example
-     * x x x
+     * Fixed an issue with reading plug-in configurations
      */
     changelog?: string;
     /**
      * @remarks
-     * The description. This parameter is optional. If this parameter is not empty, the description field in the primary table is updated accordingly.
+     * The description. This parameter is optional. If this parameter is not empty, the description in the main table is synchronously updated.
      *
      * @example
      * success
@@ -18,7 +18,7 @@ export declare class UploadAppPluginVersionRequest extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The downloadable URL of the ZIP file. This parameter and OssKey are mutually exclusive.
+     * The downloadable ZIP link. This parameter is mutually exclusive with OssKey.
      *
      * @example
      * https://sfile.chatglm.cn/chatglm4/file/a8/a87340a5ba.pdf
@@ -26,15 +26,15 @@ export declare class UploadAppPluginVersionRequest extends $dara.Model {
     downloadUrl?: string;
     /**
      * @remarks
-     * The extended JSON string. This parameter is optional and must be in the same format as the extend parameter synchronized from the sandbox. If this parameter is not empty, the extend field in the primary table is updated accordingly.
+     * The extended JSON. This parameter is optional and uses the same format as the extend synchronized to the sandbox. If this parameter is not empty, the extend in the main table is synchronously updated.
      *
      * @example
-     * {"deliveryNodeName":"Delivery Quality Inspection","deliveryNodeStatus":"Finish","deliveryOperatorRole":"Provider"}
+     * {"deliveryNodeName":"Delivery quality inspection","deliveryNodeStatus":"Finish","deliveryOperatorRole":"Provider"}
      */
     extend?: string;
     /**
      * @remarks
-     * The Object Storage Service (OSS) key after the file is directly uploaded from the frontend. This parameter and DownloadUrl are mutually exclusive.
+     * The Object Storage Service (OSS) key after frontend direct upload. This parameter is mutually exclusive with DownloadUrl.
      *
      * @example
      * backend/detection/objects/r-0008ujvfksltf5j45n81/task-000hckiuwyau0gwn17vq.jpg
@@ -42,7 +42,7 @@ export declare class UploadAppPluginVersionRequest extends $dara.Model {
     ossKey?: string;
     /**
      * @remarks
-     * The ID of the gateway plugin.
+     * The ID of the gateway plug-in.
      *
      * @example
      * aliplayer-react
@@ -50,7 +50,7 @@ export declare class UploadAppPluginVersionRequest extends $dara.Model {
     pluginId?: string;
     /**
      * @remarks
-     * The new version number. The version number must follow the Semantic Versioning (SemVer) specification and be greater than the current version.
+     * The new version number in SemVer format. The value must be greater than the current version.
      *
      * @example
      * v2

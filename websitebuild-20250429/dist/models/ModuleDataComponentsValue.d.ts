@@ -3,7 +3,7 @@ import { ModuleDataComponentsValuePropertiesValue } from "./ModuleDataComponents
 export declare class ModuleDataComponentsValueInstancePropertyValues extends $dara.Model {
     /**
      * @remarks
-     * Property code (internal system identifier)
+     * The property code (internal system identifier).
      *
      * @example
      * placeholder
@@ -11,7 +11,7 @@ export declare class ModuleDataComponentsValueInstancePropertyValues extends $da
     code?: string;
     /**
      * @remarks
-     * Property value code (internal system value)
+     * The property value code (internal system value).
      *
      * @example
      * placeholder
@@ -19,7 +19,7 @@ export declare class ModuleDataComponentsValueInstancePropertyValues extends $da
     value?: string;
     /**
      * @remarks
-     * Property display name (user-visible name)
+     * The display name of the property (user-visible name).
      *
      * @example
      * placeholder
@@ -39,7 +39,7 @@ export declare class ModuleDataComponentsValueInstancePropertyValues extends $da
 export declare class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
     /**
      * @remarks
-     * Property code (internal system identifier)
+     * The property code (internal system identifier).
      *
      * @example
      * placeholder
@@ -47,7 +47,7 @@ export declare class ModuleDataComponentsValueInstanceProperty extends $dara.Mod
     code?: string;
     /**
      * @remarks
-     * Property display name (user-visible name)
+     * The display name of the property (user-visible name).
      *
      * @example
      * placeholder
@@ -55,7 +55,7 @@ export declare class ModuleDataComponentsValueInstanceProperty extends $dara.Mod
     name?: string;
     /**
      * @remarks
-     * Property value code (internal system value)
+     * The property value code (internal system value).
      *
      * @example
      * placeholder
@@ -63,7 +63,7 @@ export declare class ModuleDataComponentsValueInstanceProperty extends $dara.Mod
     value?: string;
     /**
      * @remarks
-     * Module property value list
+     * The list of module property values.
      */
     values?: ModuleDataComponentsValueInstancePropertyValues[];
     static names(): {
@@ -80,7 +80,7 @@ export declare class ModuleDataComponentsValueInstanceProperty extends $dara.Mod
 export declare class ModuleDataComponentsValue extends $dara.Model {
     /**
      * @remarks
-     * Component unique code (internal system identifier)
+     * The unique component code (internal system identifier).
      *
      * @example
      * placeholder
@@ -88,7 +88,7 @@ export declare class ModuleDataComponentsValue extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * Component display name (user-visible name)
+     * The display name of the component (user-visible name).
      *
      * @example
      * placeholder
@@ -96,22 +96,22 @@ export declare class ModuleDataComponentsValue extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * Component instance property configuration
+     * The instance property configuration of the component.
      */
     instanceProperty?: ModuleDataComponentsValueInstanceProperty[];
     /**
      * @remarks
-     * Component instance property configuration
+     * The instance property configuration of the component.
      *
      * @example
-     * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}
+     * {"deploy_area":{"Code":"deploy_area","Name":"Deployment region","Value":"HongKong","Values":[{"Value":"HongKong","Name":"China (Hong Kong)"}]}}
      */
     properties?: {
         [key: string]: ModuleDataComponentsValuePropertiesValue;
     };
     /**
      * @remarks
-     * Module property status
+     * The module property status.
      *
      * @example
      * 1

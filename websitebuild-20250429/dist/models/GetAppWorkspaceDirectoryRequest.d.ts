@@ -10,7 +10,7 @@ export declare class GetAppWorkspaceDirectoryRequest extends $dara.Model {
     conversationId?: string;
     /**
      * @remarks
-     * The directory depth. If this parameter is set to null or 0, all levels are returned.
+     * The directory depth. If you set this parameter to null or 0, all levels are returned.
      *
      * @example
      * 1

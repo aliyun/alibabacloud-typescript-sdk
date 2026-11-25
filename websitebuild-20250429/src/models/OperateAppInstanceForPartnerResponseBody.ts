@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateAppInstanceForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, an error code is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class OperateAppInstanceForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -13,7 +13,7 @@ export class UpdateAppFileRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The session ID.
+   * The conversation ID.
    * 
    * @example
    * 593fe1a2-d0b4-4fde-a2b0-78ad6a438d41

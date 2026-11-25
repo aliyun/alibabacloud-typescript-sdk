@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppNotificationSceneResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The ID of the newly created scenario.
+   * The ID of the created scenario.
    * 
    * @example
    * 16257
@@ -35,7 +35,7 @@ export class CreateAppNotificationSceneResponseBodyModule extends $dara.Model {
 export class CreateAppNotificationSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class CreateAppNotificationSceneResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -75,7 +75,7 @@ export class CreateAppNotificationSceneResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -101,7 +101,7 @@ export class CreateAppNotificationSceneResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * System exception
@@ -109,7 +109,7 @@ export class CreateAppNotificationSceneResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Specifies whether the request is processed synchronously.
    * 
    * @example
    * True

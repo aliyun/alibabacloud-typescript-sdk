@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyMaterialDirectoryResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The detailed cause of the access denied error.
      *
      * @example
      * {}
@@ -18,7 +18,7 @@ export declare class ModifyMaterialDirectoryResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the application.
+     * The application name.
      *
      * @example
      * or
@@ -47,7 +47,7 @@ export declare class ModifyMaterialDirectoryResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * The error code. If the request succeeds, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
+     * The error code. If the request is successful, ErrorCode is not returned. If the request fails, ErrorCode is returned. For more information, see the error codes in this topic.
      *
      * @example
      * 0
@@ -79,7 +79,7 @@ export declare class ModifyMaterialDirectoryResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The root error code.
+     * The error code.
      *
      * @example
      * SYSTEM.ERROR
@@ -95,7 +95,7 @@ export declare class ModifyMaterialDirectoryResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true
@@ -103,7 +103,7 @@ export declare class ModifyMaterialDirectoryResponseBody extends $dara.Model {
     success?: boolean;
     /**
      * @remarks
-     * Indicates whether the request is processed synchronously.
+     * Indicates whether synchronous processing is used.
      *
      * @example
      * True

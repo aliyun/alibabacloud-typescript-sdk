@@ -13,7 +13,7 @@ export class DeleteAppPluginResponseBodyModule extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DeleteAppPluginResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -61,7 +61,7 @@ export class DeleteAppPluginResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -119,7 +119,7 @@ export class DeleteAppPluginResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the processing is synchronous.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

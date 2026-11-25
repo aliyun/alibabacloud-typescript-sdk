@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -29,7 +29,7 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This field is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -37,8 +37,8 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * abc
@@ -46,12 +46,12 @@ export class UpdateAppFileResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The invalid parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the move operation is successful.
+   * Indicates whether the move was successful.
    * 
    * @example
    * true
@@ -78,12 +78,12 @@ export class UpdateAppFileResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Specifies whether to process the request synchronously.
    * 
    * @example
    * True

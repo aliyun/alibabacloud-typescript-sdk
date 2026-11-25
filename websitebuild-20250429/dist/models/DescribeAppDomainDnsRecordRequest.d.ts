@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeAppDomainDnsRecordRequest extends $dara.Model {
     /**
      * @remarks
-     * Business ID.
+     * The business ID.
      *
      * @example
      * WD20250821114240000001
@@ -10,7 +10,7 @@ export declare class DescribeAppDomainDnsRecordRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * Domain name.
+     * The domain name.
      *
      * @example
      * rayihealth.cn
@@ -18,7 +18,7 @@ export declare class DescribeAppDomainDnsRecordRequest extends $dara.Model {
     domainName?: string;
     /**
      * @remarks
-     * The purpose of querying DNS configuration.
+     * The purpose of querying the DNS configuration.
      *
      * @example
      * restore

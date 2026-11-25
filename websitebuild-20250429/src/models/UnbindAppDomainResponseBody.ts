@@ -35,7 +35,7 @@ export class UnbindAppDomainResponseBodyModule extends $dara.Model {
 export class UnbindAppDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -93,7 +93,7 @@ export class UnbindAppDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR

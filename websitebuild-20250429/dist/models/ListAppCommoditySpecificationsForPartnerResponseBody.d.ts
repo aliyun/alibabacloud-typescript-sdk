@@ -25,7 +25,7 @@ export declare class ListAppCommoditySpecificationsForPartnerResponseBodyModule 
 export declare class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason why access is denied.
+     * The detailed reason for the access denial.
      *
      * @example
      * {}
@@ -33,7 +33,7 @@ export declare class ListAppCommoditySpecificationsForPartnerResponseBody extend
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retry is allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -41,7 +41,7 @@ export declare class ListAppCommoditySpecificationsForPartnerResponseBody extend
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name.
+     * The name of the application.
      *
      * @example
      * spring-cloud-b
@@ -57,8 +57,8 @@ export declare class ListAppCommoditySpecificationsForPartnerResponseBody extend
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -71,7 +71,7 @@ export declare class ListAppCommoditySpecificationsForPartnerResponseBody extend
     errorArgs?: any[];
     /**
      * @remarks
-     * The returned object.
+     * The response object.
      */
     module?: ListAppCommoditySpecificationsForPartnerResponseBodyModule;
     /**
@@ -92,15 +92,15 @@ export declare class ListAppCommoditySpecificationsForPartnerResponseBody extend
     rootErrorCode?: string;
     /**
      * @remarks
-     * The root error message.
+     * The exception message.
      *
      * @example
-     * 系统异常
+     * System exception
      */
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the request is synchronously processed.
+     * Specifies whether to perform synchronous processing.
      *
      * @example
      * True

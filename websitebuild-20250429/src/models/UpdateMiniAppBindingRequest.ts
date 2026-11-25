@@ -24,7 +24,7 @@ export class UpdateMiniAppBindingRequest extends $dara.Model {
    * The configuration key.
    * 
    * @example
-   * xxxx
+   * SERVER_DOMAIN
    */
   settingKey?: string;
   /**
@@ -32,7 +32,7 @@ export class UpdateMiniAppBindingRequest extends $dara.Model {
    * The configuration value.
    * 
    * @example
-   * xxxx
+   * {"requestDomains":[{"domain":"https://api.example.com"}],"wsRequestDomains":[],"uploadDomains":[],"downloadDomains":[],"udpDomains":[],"tcpDomains":[]}
    */
   settingValue?: string;
   static names(): { [key: string]: string } {

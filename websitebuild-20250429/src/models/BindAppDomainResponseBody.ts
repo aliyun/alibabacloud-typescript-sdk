@@ -65,7 +65,7 @@ export class BindAppDomainResponseBodyModuleDnsConflictRecords extends $dara.Mod
 export class BindAppDomainResponseBodyModuleDnsConflict extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic overwrite is supported. A value of true indicates the current Alibaba Cloud account, and a value of false indicates other accounts.
+   * Indicates whether automatic overwrite is supported. A value of true indicates that the domain name belongs to the current Alibaba Cloud account, and a value of false indicates that it belongs to another account.
    */
   canAutoResolve?: boolean;
   /**
@@ -75,10 +75,10 @@ export class BindAppDomainResponseBodyModuleDnsConflict extends $dara.Model {
   hasConflict?: boolean;
   /**
    * @remarks
-   * The user-facing prompt message. Different guidance text is generated based on the scenario.
+   * The user-facing prompt message, which generates different guidance text based on the scenario.
    * 
    * @example
-   * A conflicting DNS record (A 192.0.2.1) exists for the domain name www.example.com. Delete the conflicting record from your DNS provider and try again
+   * The domain name www.example.com has a conflicting DNS record (A 192.0.2.1). Delete the conflicting record from your DNS service provider and try again
    */
   message?: string;
   /**
@@ -119,12 +119,12 @@ export class BindAppDomainResponseBodyModuleDnsConflict extends $dara.Model {
 export class BindAppDomainResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The DNS conflict information. This parameter is returned when a conflict is detected during synchronous verification.
+   * The DNS conflict information, which is returned when a conflict is detected during synchronous verification.
    */
   dnsConflict?: BindAppDomainResponseBodyModuleDnsConflict;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -159,7 +159,7 @@ export class BindAppDomainResponseBodyModule extends $dara.Model {
 export class BindAppDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -167,7 +167,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -191,8 +191,8 @@ export class BindAppDomainResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the **%s** in the **ErrMessage** error message of the response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -200,7 +200,7 @@ export class BindAppDomainResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -211,12 +211,12 @@ export class BindAppDomainResponseBody extends $dara.Model {
    * 
    * - ExperimentTool: experiment tool table
    * 
-   * - DataDiagnosis: data diagnostics
+   * - DataDiagnosis: data diagnosis
    */
   module?: BindAppDomainResponseBodyModule;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The unique identifier of the request.
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6

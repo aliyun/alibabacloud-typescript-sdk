@@ -21,7 +21,7 @@ export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $da
   encryptedAccessKeySecret?: string;
   /**
    * @remarks
-   * The encrypted STS token.
+   * The encrypted Security Token Service (STS) token.
    * 
    * @example
    * 7t2Rzt37ND7-xxx
@@ -29,7 +29,7 @@ export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $da
   encryptedSecurityToken?: string;
   /**
    * @remarks
-   * The estimated expiration time of the credential.
+   * The expected expiration time of the credentials.
    * 
    * @example
    * 2025-04-29T14:00:00Z
@@ -65,12 +65,12 @@ export class GetUserTmpIdentityForPartnerResponseBodyDataCredentials extends $da
 export class GetUserTmpIdentityForPartnerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The security token.
+   * The security credentials.
    */
   credentials?: GetUserTmpIdentityForPartnerResponseBodyDataCredentials;
   /**
    * @remarks
-   * Indicates whether the customer authorization has been obtained.
+   * Indicates whether customer authorization has been obtained.
    */
   hasCustomRoleAuth?: boolean;
   static names(): { [key: string]: string } {
@@ -107,7 +107,7 @@ export class GetUserTmpIdentityForPartnerResponseBody extends $dara.Model {
   data?: GetUserTmpIdentityForPartnerResponseBodyData;
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -131,7 +131,7 @@ export class GetUserTmpIdentityForPartnerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

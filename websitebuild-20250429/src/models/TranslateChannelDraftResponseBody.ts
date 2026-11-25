@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class TranslateChannelDraftResponseBodyModuleCoverImages extends $dara.Model {
   /**
    * @remarks
-   * The file ID in the material center.
+   * The ID of the file in the material center.
    * 
    * @example
-   * xx
+   * material-file-demo-001
    */
   materialFileId?: string;
   /**
@@ -21,10 +21,10 @@ export class TranslateChannelDraftResponseBodyModuleCoverImages extends $dara.Mo
   ossUrl?: string;
   /**
    * @remarks
-   * The sort order number.
+   * The sort order.
    * 
    * @example
-   * Desc
+   * 1
    */
   sortOrder?: number;
   static names(): { [key: string]: string } {
@@ -58,28 +58,28 @@ export class TranslateChannelDraftResponseBodyModule extends $dara.Model {
    * The AI adaptation status. Valid values: NONE, ADAPTING, DONE, and FAILED.
    * 
    * @example
-   * xx
+   * DONE
    */
   adaptStatus?: string;
   /**
    * @remarks
-   * The channel-adapted content body.
+   * The adapted content for the channel.
    * 
    * @example
-   * xx
+   * Introduces the main features and usage of the website
    */
   adaptedContent?: string;
   /**
    * @remarks
-   * The channel-adapted title.
+   * The adapted title for the channel.
    * 
    * @example
-   * xx
+   * Website features and user guide
    */
   adaptedTitle?: string;
   /**
    * @remarks
-   * The channel enumeration value.
+   * The channel enumeration.
    * 
    * @example
    * WECHAT
@@ -87,10 +87,10 @@ export class TranslateChannelDraftResponseBodyModule extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The publishing account snapshot.
+   * The snapshot of the publishing account.
    * 
    * @example
-   * xx
+   * social-account-demo-001
    */
   channelAccount?: string;
   /**
@@ -98,7 +98,7 @@ export class TranslateChannelDraftResponseBodyModule extends $dara.Model {
    * The display name of the publishing account.
    * 
    * @example
-   * xx
+   * Sample publishing account
    */
   channelAccountName?: string;
   /**
@@ -111,7 +111,7 @@ export class TranslateChannelDraftResponseBodyModule extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The channel type. Valid values: DOMESTIC, OVERSEA, and INTERNAL.
+   * The type of the channel. Valid values: DOMESTIC, OVERSEA, and INTERNAL.
    * 
    * @example
    * wechat
@@ -119,7 +119,7 @@ export class TranslateChannelDraftResponseBodyModule extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The list of channel cover images.
+   * The list of cover images for the channel.
    */
   coverImages?: TranslateChannelDraftResponseBodyModuleCoverImages[];
   /**
@@ -156,18 +156,18 @@ export class TranslateChannelDraftResponseBodyModule extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
-   * The channel-specific publishing configuration in JSON format.
+   * The JSON string of channel-specific publishing fields.
    * 
    * @example
-   * xx
+   * {}
    */
   publishConfig?: string;
   /**
    * @remarks
-   * The publishing time, in millisecond timestamp format.
+   * The publishing time. The value is a millisecond timestamp.
    * 
    * @example
-   * xx
+   * 1767225600000
    */
   publishedAt?: number;
   /**
@@ -235,7 +235,7 @@ export class TranslateChannelDraftResponseBodyModule extends $dara.Model {
 export class TranslateChannelDraftResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -243,7 +243,7 @@ export class TranslateChannelDraftResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -251,7 +251,7 @@ export class TranslateChannelDraftResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name used to query the application.
+   * The name of the application to query.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -259,7 +259,7 @@ export class TranslateChannelDraftResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This field is currently unused and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -267,8 +267,8 @@ export class TranslateChannelDraftResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message that is used to replace the `%s` variable in the **ErrMessage** return parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * abc
@@ -276,12 +276,12 @@ export class TranslateChannelDraftResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The invalid parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the deletion was successful.
+   * Indicates whether the deletion is successful.
    */
   module?: TranslateChannelDraftResponseBodyModule;
   /**

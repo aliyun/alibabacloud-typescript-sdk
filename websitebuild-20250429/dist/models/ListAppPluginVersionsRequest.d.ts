@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListAppPluginVersionsRequest extends $dara.Model {
     /**
      * @remarks
-     * The page number. Valid values: integers greater than 0. Default value: 1.
+     * The current page number. Valid values: integers greater than 0. Default value: 1.
      *
      * @example
      * 1

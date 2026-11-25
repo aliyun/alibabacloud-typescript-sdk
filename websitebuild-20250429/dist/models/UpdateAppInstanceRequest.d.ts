@@ -2,9 +2,9 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateAppInstanceRequestTags extends $dara.Model {
     /**
      * @remarks
-     * The tag key of the instance. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
+     * The tag key of the instance. Valid values of N: **1** to **20**. The value cannot be an empty string.
      *
-     * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+     * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
      *
      * @example
      * Group
@@ -12,9 +12,9 @@ export declare class UpdateAppInstanceRequestTags extends $dara.Model {
     tagKey?: string;
     /**
      * @remarks
-     * The tag value of the instance. Valid values of N: **1** to **20**. The tag value can be an empty string.
+     * The tag value of the instance. Valid values of N: **1** to **20**. The value can be an empty string.
      *
-     * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag value cannot contain `http://` or `https://`.
+     * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
      *
      * @example
      * 15
@@ -50,7 +50,7 @@ export declare class UpdateAppInstanceRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
+     * The client token that is used to ensure the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The client token supports only ASCII characters and can be up to 64 characters in length.
      *
      * @example
      * 123
@@ -77,12 +77,12 @@ export declare class UpdateAppInstanceRequest extends $dara.Model {
      * The extended information.
      *
      * @example
-     * {\\"user_device_id\\":\\"6bef45cb0c76de284d24de074c088b73\\"}\\n
+     * {\"user_device_id\":\"6bef45cb0c76de284d24de074c088b73\"}\n
      */
     extend?: string;
     /**
      * @remarks
-     * The application icon URL.
+     * The application icon.
      *
      * @example
      * https://app-center-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/1864953777494693/1753841032702_WX20250729-171155%402x.png
@@ -93,7 +93,7 @@ export declare class UpdateAppInstanceRequest extends $dara.Model {
      * The application name.
      *
      * @example
-     * 大角鹿
+     * Dajiaolu
      */
     name?: string;
     /**
@@ -106,7 +106,7 @@ export declare class UpdateAppInstanceRequest extends $dara.Model {
     paymentType?: string;
     /**
      * @remarks
-     * The ID of the resource group to which the instance belongs.
+     * The ID of the enterprise resource group to which the instance belongs.
      *
      * @example
      * rg-aek3cqkrqibqkby
@@ -127,7 +127,7 @@ export declare class UpdateAppInstanceRequest extends $dara.Model {
     tags?: UpdateAppInstanceRequestTags[];
     /**
      * @remarks
-     * The application thumbnail URL.
+     * The application thumbnail.
      *
      * @example
      * http://www.aliyun.com

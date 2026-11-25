@@ -21,7 +21,7 @@ export class RollbackAppInstancePublishRequest extends $dara.Model {
   deployChannel?: string;
   /**
    * @remarks
-   * The release number.
+   * The deployment number.
    * 
    * @example
    * 123

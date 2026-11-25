@@ -1,5 +1,10 @@
 import * as $dara from '@darabonba/typescript';
 export declare class UpdateMiniAppBindingResponseBodyData extends $dara.Model {
+    privacyDraftId?: string;
+    privacyRevision?: string;
+    readbackStatus?: string;
+    revision?: number;
+    status?: string;
     /**
      * @remarks
      * Indicates whether the request is successful.

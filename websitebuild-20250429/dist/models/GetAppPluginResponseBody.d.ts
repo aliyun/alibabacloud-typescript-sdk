@@ -13,7 +13,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
      * The configuration form in React JSON Schema format.
      *
      * @example
-     * ***
+     * {"type":"object","properties":{"label":{"type":"string","title":"Display name"}}}
      */
     configItems?: string;
     /**
@@ -26,7 +26,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
     createdBy?: string;
     /**
      * @remarks
-     * The application description.
+     * The description of the application.
      *
      * @example
      * /bak->serverless.handler(2020091300200279)
@@ -34,24 +34,18 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The image display mode. Valid values:
-     *
-     * - **0** (None): The image is not displayed.
-     * - **1** (Always): The image is always displayed.
+     * Specifies whether the plug-in is displayed. Valid values: 0 (no) and 1 (yes).
      *
      * @example
-     * always
+     * 1
      */
     display?: number;
     /**
      * @remarks
-     * Indicates whether scheduled delivery of resource snapshots is enabled. Valid values:
-     *
-     * - true: Enabled.
-     * - false: Disabled.
+     * Specifies whether the plug-in is enabled. Valid values: 0 (no) and 1 (yes).
      *
      * @example
-     * True
+     * 1
      */
     enabled?: number;
     /**
@@ -59,7 +53,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
      * The extended information.
      *
      * @example
-     * {"deliveryNodeName":"Bind domain name and publish","deliveryNodeStatus":"Finish","deliveryOperatorRole":"Provider"}
+     * {\"deliveryNodeName\":\"Bind domain name and publish\",\"deliveryNodeStatus\":\"Finish\",\"deliveryOperatorRole\":\"Provider\"}
      */
     extend?: string;
     /**
@@ -80,7 +74,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
     gmtCreate?: string;
     /**
      * @remarks
-     * The modification time.
+     * The update time.
      *
      * @example
      * 2025-08-28T02:25:41Z
@@ -104,7 +98,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
     hotCount?: number;
     /**
      * @remarks
-     * The plugin description.
+     * The description of the plug-in.
      *
      * @example
      * @lALPM2AwTOg9IUHNAUDNAUA
@@ -112,7 +106,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
     icon?: string;
     /**
      * @remarks
-     * The ID of the associated API gateway plugin.
+     * The ID of the associated API gateway plug-in.
      *
      * @example
      * 1bae9ceaceea432d91c7069fab0dfc02
@@ -120,7 +114,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
     pluginId?: string;
     /**
      * @remarks
-     * The name of the plugin. The name must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
+     * The name of the plug-in. The name must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
      *
      * @example
      * tf_testaccapigatewayplugin29311
@@ -128,10 +122,10 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
     pluginName?: string;
     /**
      * @remarks
-     * The URL of the image repository.
+     * The clone URL of the plug-in code repository.
      *
      * @example
-     * xxx
+     * https://codeup.aliyun.com/example/demo-plugin.git
      */
     repositoryUrl?: string;
     /**
@@ -155,7 +149,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
      * The category tags.
      *
      * @example
-     * [{\\"Key\\": \\"kubernetes.io/cluster-id\\", \\"Value\\": \\"cc67198b13db948c9848599654da5586e\\"}, {\\"Key\\": \\"created-by\\", \\"Value\\": \\"alibabacloud-imagecache-controller\\"}]
+     * [{\"Key\": \"kubernetes.io/cluster-id\", \"Value\": \"cc67198b13db948c9848599654da5586e\"}, {\"Key\": \"created-by\", \"Value\": \"alibabacloud-imagecache-controller\"}]
      */
     tags?: string;
     /**
@@ -188,7 +182,7 @@ export declare class GetAppPluginResponseBodyModule extends $dara.Model {
 export declare class GetAppPluginResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The detailed reason why the access is denied.
      *
      * @example
      * {}
@@ -196,7 +190,7 @@ export declare class GetAppPluginResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retries are allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -220,8 +214,8 @@ export declare class GetAppPluginResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+     * The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR

@@ -10,7 +10,7 @@ export declare class RollbackAppPluginVersionResponseBodyModule extends $dara.Mo
     status?: string;
     /**
      * @remarks
-     * Indicates whether the operation is successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true
@@ -46,7 +46,7 @@ export declare class RollbackAppPluginVersionResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the application.
+     * The application name.
      *
      * @example
      * watermark
@@ -62,8 +62,7 @@ export declare class RollbackAppPluginVersionResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -71,7 +70,7 @@ export declare class RollbackAppPluginVersionResponseBody extends $dara.Model {
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error parameters.
+     * The invalid parameters.
      */
     errorArgs?: any[];
     /**
@@ -89,7 +88,7 @@ export declare class RollbackAppPluginVersionResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The root error code.
+     * The error code.
      *
      * @example
      * SYSTEM.ERROR

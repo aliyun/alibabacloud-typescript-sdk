@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ReportChannelPublishResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the publishing account. A null value does not overwrite the original value. Maximum length: 256 characters.
+   * The display name of the publishing account. An empty value does not overwrite the original value. Maximum length: 256 characters.
    * 
    * @example
-   * xx
+   * Sample publishing account
    */
   channelAccountName?: string;
   /**
@@ -23,7 +23,7 @@ export class ReportChannelPublishResultRequest extends $dara.Model {
   draftId?: string;
   /**
    * @remarks
-   * The ID returned by the platform. Set this parameter when the publishing is successful.
+   * The ID returned by the platform. Specify this parameter when the publishing is successful.
    * 
    * @example
    * 5467410713875420090
@@ -39,15 +39,15 @@ export class ReportChannelPublishResultRequest extends $dara.Model {
   externalUrl?: string;
   /**
    * @remarks
-   * The failure reason. Set this parameter when the publishing fails.
+   * The reason for the failure. Specify this parameter when the publishing fails.
    * 
    * @example
-   * xxx
+   * Publishing failed. Try again later
    */
   failReason?: string;
   /**
    * @remarks
-   * Specifies whether the publishing is successful (true/false).
+   * Specifies whether the publishing is successful.
    * 
    * This parameter is required.
    * 

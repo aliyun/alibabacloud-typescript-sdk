@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateAIStaffChatResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason why access was denied.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -10,7 +10,7 @@ export declare class CreateAIStaffChatResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retry is allowed.
+     * Indicates whether a retry is allowed.
      *
      * @example
      * False
@@ -42,7 +42,7 @@ export declare class CreateAIStaffChatResponseBody extends $dara.Model {
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error parameters returned.
+     * The returned error parameters.
      */
     errorArgs?: any[];
     /**
@@ -74,12 +74,12 @@ export declare class CreateAIStaffChatResponseBody extends $dara.Model {
      * The exception message.
      *
      * @example
-     * 系统异常
+     * System exception
      */
     rootErrorMsg?: string;
     /**
      * @remarks
-     * A reserved parameter.
+     * The reserved parameter.
      *
      * @example
      * True

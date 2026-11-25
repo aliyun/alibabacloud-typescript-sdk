@@ -66,7 +66,7 @@ export declare class ListRbacRoleHierarchyResponseBodyModule extends $dara.Model
     currentPageNum?: number;
     /**
      * @remarks
-     * The request result.
+     * The request results.
      */
     data?: ListRbacRoleHierarchyResponseBodyModuleData[];
     /**
@@ -100,7 +100,7 @@ export declare class ListRbacRoleHierarchyResponseBodyModule extends $dara.Model
     prePage?: boolean;
     /**
      * @remarks
-     * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+     * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
      *
      * @example
      * False
@@ -136,7 +136,7 @@ export declare class ListRbacRoleHierarchyResponseBodyModule extends $dara.Model
 export declare class ListRbacRoleHierarchyResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The details of the access denial.
+     * The access denial details.
      *
      * @example
      * {}
@@ -144,7 +144,7 @@ export declare class ListRbacRoleHierarchyResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retries are allowed. Valid values:
+     * Specifies whether retries are allowed. Valid values:
      * - false: Retries are not allowed.
      * - true: Retries are allowed.
      *
@@ -170,7 +170,7 @@ export declare class ListRbacRoleHierarchyResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+     * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
      * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
      *
      * @example
@@ -184,7 +184,7 @@ export declare class ListRbacRoleHierarchyResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * The number of entries to return per query.
+     * The maximum number of entries to return in each query.
      *
      * Valid values: 10 to 100. Default value: 20.
      *

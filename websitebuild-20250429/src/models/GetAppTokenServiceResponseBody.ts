@@ -8,7 +8,7 @@ export class GetAppTokenServiceResponseBodyModule extends $dara.Model {
    * The extended information.
    * 
    * @example
-   * {\\"deliveryNodeName\\":\\"绑定域名及发布\\",\\"deliveryNodeStatus\\":\\"Finish\\",\\"deliveryOperatorRole\\":\\"Provider\\"}
+   * {\"deliveryNodeName\":\"Bind domain name and publish\",\"deliveryNodeStatus\":\"Finish\",\"deliveryOperatorRole\":\"Provider\"}
    */
   extend?: string;
   /**
@@ -45,7 +45,7 @@ export class GetAppTokenServiceResponseBodyModule extends $dara.Model {
 export class GetAppTokenServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail.
+   * The access denial information.
    * 
    * @example
    * {}
@@ -53,9 +53,9 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -79,7 +79,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is currently unused and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -87,7 +87,7 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -113,10 +113,10 @@ export class GetAppTokenServiceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

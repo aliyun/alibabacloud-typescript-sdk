@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModuleVersionsValueComponentsValuePropertiesValueValues extends $dara.Model {
   /**
    * @remarks
-   * 属性编码（系统内部标识）
+   * The code of the property, which is an internal system identifier.
    * 
    * @example
    * code
@@ -13,7 +13,7 @@ export class ModuleVersionsValueComponentsValuePropertiesValueValues extends $da
   code?: string;
   /**
    * @remarks
-   * 属性值编码（系统内部值）
+   * The code of the property value, which is an internal system value.
    * 
    * @example
    * value
@@ -21,7 +21,7 @@ export class ModuleVersionsValueComponentsValuePropertiesValueValues extends $da
   value?: string;
   /**
    * @remarks
-   * 属性显示名称（用户可见名称）
+   * The display name of the property, which is visible to users.
    * 
    * @example
    * name
@@ -55,7 +55,7 @@ export class ModuleVersionsValueComponentsValuePropertiesValueValues extends $da
 export class ModuleVersionsValueComponentsValuePropertiesValue extends $dara.Model {
   /**
    * @remarks
-   * 属性编码（系统内部标识）
+   * The code of the property, which is an internal system identifier.
    * 
    * @example
    * code
@@ -63,7 +63,7 @@ export class ModuleVersionsValueComponentsValuePropertiesValue extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * 属性显示名称（用户可见名称）
+   * The display name of the property, which is visible to users.
    * 
    * @example
    * name
@@ -71,7 +71,7 @@ export class ModuleVersionsValueComponentsValuePropertiesValue extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * 属性值编码（系统内部值）
+   * The code of the property value, which is an internal system value.
    * 
    * @example
    * value
@@ -79,7 +79,7 @@ export class ModuleVersionsValueComponentsValuePropertiesValue extends $dara.Mod
   value?: string;
   /**
    * @remarks
-   * 模块属性值列表
+   * The list of module property values.
    */
   values?: ModuleVersionsValueComponentsValuePropertiesValueValues[];
   static names(): { [key: string]: string } {

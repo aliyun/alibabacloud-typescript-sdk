@@ -3,6 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model {
+  artifactDigest?: string;
+  auditId?: string;
+  bindingId?: string;
   /**
    * @remarks
    * Specifies whether quick rollback is supported.
@@ -11,6 +14,8 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
    * true
    */
   canQuickRevert?: string;
+  candidateId?: string;
+  candidateStatus?: string;
   /**
    * @remarks
    * The commit hash of the code.
@@ -114,6 +119,13 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
    * true
    */
   percent?: number;
+  platformAppid?: string;
+  pluginDeclarationHash?: string;
+  pluginState?: string;
+  privacyDraftId?: string;
+  privacyRevision?: string;
+  publishDiagnostics?: string;
+  publishEnv?: string;
   /**
    * @remarks
    * The release number.
@@ -132,7 +144,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
   publishOrderId?: number;
   /**
    * @remarks
-   * The release time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
+   * The release time in the UTC format yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\".
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -140,6 +152,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
    * 2026
    */
   publishTime?: string;
+  readbackStatus?: string;
   /**
    * @remarks
    * The list of release step codes.
@@ -158,9 +171,20 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
    * wx0123456789abcdef
    */
   subchannel?: string;
+  submitIntentStatus?: string;
+  updatedAt?: number;
+  uploadAttemptId?: string;
+  uploadLeaseState?: string;
+  uploadSequence?: number;
+  uploadTicketState?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactDigest: 'ArtifactDigest',
+      auditId: 'AuditId',
+      bindingId: 'BindingId',
       canQuickRevert: 'CanQuickRevert',
+      candidateId: 'CandidateId',
+      candidateStatus: 'CandidateStatus',
       commitHash: 'CommitHash',
       currentStep: 'CurrentStep',
       currentStepCode: 'CurrentStepCode',
@@ -174,18 +198,37 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
       orderType: 'OrderType',
       orderTypeCode: 'OrderTypeCode',
       percent: 'Percent',
+      platformAppid: 'PlatformAppid',
+      pluginDeclarationHash: 'PluginDeclarationHash',
+      pluginState: 'PluginState',
+      privacyDraftId: 'PrivacyDraftId',
+      privacyRevision: 'PrivacyRevision',
+      publishDiagnostics: 'PublishDiagnostics',
+      publishEnv: 'PublishEnv',
       publishNumber: 'PublishNumber',
       publishOrderId: 'PublishOrderId',
       publishTime: 'PublishTime',
+      readbackStatus: 'ReadbackStatus',
       stepCodes: 'StepCodes',
       steps: 'Steps',
       subchannel: 'Subchannel',
+      submitIntentStatus: 'SubmitIntentStatus',
+      updatedAt: 'UpdatedAt',
+      uploadAttemptId: 'UploadAttemptId',
+      uploadLeaseState: 'UploadLeaseState',
+      uploadSequence: 'UploadSequence',
+      uploadTicketState: 'UploadTicketState',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      artifactDigest: 'string',
+      auditId: 'string',
+      bindingId: 'string',
       canQuickRevert: 'string',
+      candidateId: 'string',
+      candidateStatus: 'string',
       commitHash: 'string',
       currentStep: 'string',
       currentStepCode: 'string',
@@ -199,12 +242,26 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
       orderType: 'string',
       orderTypeCode: 'string',
       percent: 'number',
+      platformAppid: 'string',
+      pluginDeclarationHash: 'string',
+      pluginState: 'string',
+      privacyDraftId: 'string',
+      privacyRevision: 'string',
+      publishDiagnostics: 'string',
+      publishEnv: 'string',
       publishNumber: 'string',
       publishOrderId: 'number',
       publishTime: 'string',
+      readbackStatus: 'string',
       stepCodes: { 'type': 'array', 'itemType': 'string' },
       steps: { 'type': 'array', 'itemType': 'string' },
       subchannel: 'string',
+      submitIntentStatus: 'string',
+      updatedAt: 'number',
+      uploadAttemptId: 'string',
+      uploadLeaseState: 'string',
+      uploadSequence: 'number',
+      uploadTicketState: 'string',
     };
   }
 

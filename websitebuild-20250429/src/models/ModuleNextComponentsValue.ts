@@ -6,7 +6,7 @@ import { ModuleNextComponentsValuePropertiesValue } from "./ModuleNextComponents
 export class ModuleNextComponentsValueInstancePropertyValues extends $dara.Model {
   /**
    * @remarks
-   * Property code (internal system identifier)
+   * The property code (internal system identifier).
    * 
    * @example
    * placeholder
@@ -14,7 +14,7 @@ export class ModuleNextComponentsValueInstancePropertyValues extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * Property value code (internal system value)
+   * The property value code (internal system value).
    * 
    * @example
    * placeholder
@@ -22,7 +22,7 @@ export class ModuleNextComponentsValueInstancePropertyValues extends $dara.Model
   value?: string;
   /**
    * @remarks
-   * Property display name (user-visible name)
+   * The display name of the property (user-visible name).
    * 
    * @example
    * placeholder
@@ -56,7 +56,7 @@ export class ModuleNextComponentsValueInstancePropertyValues extends $dara.Model
 export class ModuleNextComponentsValueInstanceProperty extends $dara.Model {
   /**
    * @remarks
-   * Property code (internal system identifier)
+   * The property code (internal system identifier).
    * 
    * @example
    * placeholder
@@ -64,7 +64,7 @@ export class ModuleNextComponentsValueInstanceProperty extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Property display name (user-visible name)
+   * The display name of the property (user-visible name).
    * 
    * @example
    * placeholder
@@ -72,7 +72,7 @@ export class ModuleNextComponentsValueInstanceProperty extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Property value code (internal system value)
+   * The property value code (internal system value).
    * 
    * @example
    * placeholder
@@ -80,7 +80,7 @@ export class ModuleNextComponentsValueInstanceProperty extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * Module property value list
+   * The list of module property values.
    */
   values?: ModuleNextComponentsValueInstancePropertyValues[];
   static names(): { [key: string]: string } {
@@ -116,7 +116,7 @@ export class ModuleNextComponentsValueInstanceProperty extends $dara.Model {
 export class ModuleNextComponentsValue extends $dara.Model {
   /**
    * @remarks
-   * Component unique code (internal system identifier)
+   * The unique component code (internal system identifier).
    * 
    * @example
    * placeholder
@@ -124,7 +124,7 @@ export class ModuleNextComponentsValue extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Component display name (user-visible name)
+   * The display name of the component (user-visible name).
    * 
    * @example
    * placeholder
@@ -132,20 +132,20 @@ export class ModuleNextComponentsValue extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Component instance property configuration
+   * The instance property configuration of the component.
    */
   instanceProperty?: ModuleNextComponentsValueInstanceProperty[];
   /**
    * @remarks
-   * Component instance property configuration
+   * The instance property configuration of the component.
    * 
    * @example
-   * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}
+   * {"deploy_area":{"Code":"deploy_area","Name":"Deployment region","Value":"HongKong","Values":[{"Value":"HongKong","Name":"China (Hong Kong)"}]}}
    */
   properties?: { [key: string]: ModuleNextComponentsValuePropertiesValue };
   /**
    * @remarks
-   * Module property status
+   * The module property status.
    * 
    * @example
    * 1

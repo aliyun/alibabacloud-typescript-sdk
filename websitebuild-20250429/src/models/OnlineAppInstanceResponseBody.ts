@@ -13,7 +13,7 @@ export class OnlineAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class OnlineAppInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
    * 
    * @example
    * stg.mlp_finance_cap_refund_hi
@@ -29,7 +29,7 @@ export class OnlineAppInstanceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic error code. This parameter is about to be deprecated.
+   * The dynamic error code. This parameter will be deprecated soon.
    * 
    * @example
    * ERROR-oo1
@@ -40,7 +40,7 @@ export class OnlineAppInstanceResponseBody extends $dara.Model {
    * The placeholder in the dynamic error message.
    * 
    * @example
-   * xxxxx
+   * BizId
    */
   dynamicMessage?: string;
   /**
@@ -53,7 +53,7 @@ export class OnlineAppInstanceResponseBody extends $dara.Model {
    * The application module.
    * 
    * @example
-   * {\\"StorageSize\\": \\"3.29 MB\\", \\"FileNum\\": 30}
+   * {}
    */
   module?: { [key: string]: any };
   /**
@@ -82,7 +82,7 @@ export class OnlineAppInstanceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Indicates whether the operation is processed synchronously.
    * 
    * @example
    * True

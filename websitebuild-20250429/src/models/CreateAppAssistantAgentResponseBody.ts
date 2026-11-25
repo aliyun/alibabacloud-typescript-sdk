@@ -88,7 +88,7 @@ export class CreateAppAssistantAgentResponseBodyModuleEmbedConfig extends $dara.
 export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The agent ID returned by the platform.
+   * The ID of the agent returned by the platform.
    * 
    * @example
    * duanwei@qianrutest
@@ -99,7 +99,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
    * The name of the agent.
    * 
    * @example
-   * 测试业务空间
+   * Test workspace
    */
   agentName?: string;
   /**
@@ -138,7 +138,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-08-28T02:25:41Z
@@ -146,7 +146,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The application ID of the agent on the platform.
+   * The app ID of the agent platform.
    * 
    * @example
    * WA12313131313
@@ -170,7 +170,7 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 1231313131
@@ -239,7 +239,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Specifies whether retry is allowed.
    * 
    * @example
    * False
@@ -247,7 +247,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * dewuApp
@@ -263,8 +263,8 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -272,7 +272,7 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -298,15 +298,15 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

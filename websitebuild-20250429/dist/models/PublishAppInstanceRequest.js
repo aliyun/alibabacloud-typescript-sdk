@@ -29,21 +29,41 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class PublishAppInstanceRequest extends $dara.Model {
     static names() {
         return {
+            artifactDigest: 'ArtifactDigest',
             bizId: 'BizId',
+            candidateId: 'CandidateId',
             deployChannel: 'DeployChannel',
             description: 'Description',
+            ext: 'Ext',
+            idempotencyKey: 'IdempotencyKey',
             logicalNumber: 'LogicalNumber',
+            platformAppid: 'PlatformAppid',
+            pluginDeclarationHash: 'PluginDeclarationHash',
+            privacyDraftId: 'PrivacyDraftId',
+            privacyRevision: 'PrivacyRevision',
             publishNumber: 'PublishNumber',
+            publishOrderId: 'PublishOrderId',
+            uploadSequence: 'UploadSequence',
             weappAction: 'WeappAction',
         };
     }
     static types() {
         return {
+            artifactDigest: 'string',
             bizId: 'string',
+            candidateId: 'string',
             deployChannel: 'string',
             description: 'string',
+            ext: 'string',
+            idempotencyKey: 'string',
             logicalNumber: 'number',
+            platformAppid: 'string',
+            pluginDeclarationHash: 'string',
+            privacyDraftId: 'string',
+            privacyRevision: 'string',
             publishNumber: 'string',
+            publishOrderId: 'number',
+            uploadSequence: 'number',
             weappAction: 'string',
         };
     }

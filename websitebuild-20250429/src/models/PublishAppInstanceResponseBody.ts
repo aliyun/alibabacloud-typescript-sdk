@@ -3,6 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublishAppInstanceResponseBodyModule extends $dara.Model {
+  artifactDigest?: string;
+  auditId?: string;
+  candidateId?: string;
+  candidateStatus?: string;
+  commitHash?: string;
+  platformAppid?: string;
+  pluginDeclarationHash?: string;
+  pluginState?: string;
+  privacyDraftId?: string;
+  privacyRevision?: string;
+  publishEnv?: string;
+  publishNumber?: string;
   /**
    * @remarks
    * The publish order ID.
@@ -11,15 +23,51 @@ export class PublishAppInstanceResponseBodyModule extends $dara.Model {
    * 231
    */
   publishOrderId?: number;
+  readbackStatus?: string;
+  submitIntentStatus?: string;
+  updatedAt?: number;
+  uploadSequence?: number;
   static names(): { [key: string]: string } {
     return {
+      artifactDigest: 'ArtifactDigest',
+      auditId: 'AuditId',
+      candidateId: 'CandidateId',
+      candidateStatus: 'CandidateStatus',
+      commitHash: 'CommitHash',
+      platformAppid: 'PlatformAppid',
+      pluginDeclarationHash: 'PluginDeclarationHash',
+      pluginState: 'PluginState',
+      privacyDraftId: 'PrivacyDraftId',
+      privacyRevision: 'PrivacyRevision',
+      publishEnv: 'PublishEnv',
+      publishNumber: 'PublishNumber',
       publishOrderId: 'PublishOrderId',
+      readbackStatus: 'ReadbackStatus',
+      submitIntentStatus: 'SubmitIntentStatus',
+      updatedAt: 'UpdatedAt',
+      uploadSequence: 'UploadSequence',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      artifactDigest: 'string',
+      auditId: 'string',
+      candidateId: 'string',
+      candidateStatus: 'string',
+      commitHash: 'string',
+      platformAppid: 'string',
+      pluginDeclarationHash: 'string',
+      pluginState: 'string',
+      privacyDraftId: 'string',
+      privacyRevision: 'string',
+      publishEnv: 'string',
+      publishNumber: 'string',
       publishOrderId: 'number',
+      readbackStatus: 'string',
+      submitIntentStatus: 'string',
+      updatedAt: 'number',
+      uploadSequence: 'number',
     };
   }
 

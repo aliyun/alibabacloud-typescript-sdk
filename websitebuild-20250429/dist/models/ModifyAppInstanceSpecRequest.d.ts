@@ -37,7 +37,7 @@ export declare class ModifyAppInstanceSpecRequest extends $dara.Model {
      * The extended information.
      *
      * @example
-     * {\\"deliveryNodeName\\":\\"Website acceptance\\",\\"deliveryNodeStatus\\":\\"Reject\\",\\"deliveryOperatorRole\\":\\"Customer\\"}
+     * {\"deliveryNodeName\":\"Website acceptance\",\"deliveryNodeStatus\":\"Reject\",\"deliveryOperatorRole\":\"Customer\"}
      */
     extend?: string;
     /**

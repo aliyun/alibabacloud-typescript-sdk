@@ -5,7 +5,7 @@ export declare class CreateAppAssistantAgentRequest extends $dara.Model {
      * The name of the agent.
      *
      * @example
-     * 测试业务空间
+     * Test workspace
      */
     agentName?: string;
     /**

@@ -3,7 +3,7 @@ import { AppMaterialFile } from "./AppMaterialFile";
 export declare class UploadMaterialFileResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for access denial.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -19,7 +19,7 @@ export declare class UploadMaterialFileResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name.
+     * The name of the application.
      *
      * @example
      * or
@@ -48,7 +48,7 @@ export declare class UploadMaterialFileResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
+     * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
      *
      * @example
      * 0
@@ -67,7 +67,7 @@ export declare class UploadMaterialFileResponseBody extends $dara.Model {
      * The response data.
      *
      * @example
-     * {\\"Success\\": True}
+     * {\"Success\": True}
      */
     module?: AppMaterialFile;
     /**
@@ -80,7 +80,7 @@ export declare class UploadMaterialFileResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The root error code.
+     * The error code.
      *
      * @example
      * SYSTEM.ERROR
@@ -88,7 +88,7 @@ export declare class UploadMaterialFileResponseBody extends $dara.Model {
     rootErrorCode?: string;
     /**
      * @remarks
-     * The root exception message.
+     * The exception message.
      *
      * @example
      * System exception
@@ -104,7 +104,7 @@ export declare class UploadMaterialFileResponseBody extends $dara.Model {
     success?: boolean;
     /**
      * @remarks
-     * Indicates whether the operation is processed synchronously.
+     * Indicates whether the processing is synchronous.
      *
      * @example
      * True

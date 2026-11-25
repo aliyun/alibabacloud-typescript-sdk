@@ -8,7 +8,7 @@ export class SubmitMaterialTaskRequest extends $dara.Model {
    * The business group ID.
    * 
    * @example
-   * xxx
+   * GROUP_1
    */
   bizGroupId?: string;
   /**

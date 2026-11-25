@@ -8,7 +8,7 @@ export class CreateDistributionResponseBodyModuleDraftsCoverImages extends $dara
    * The file ID in the material center.
    * 
    * @example
-   * xx
+   * material-file-demo-001
    */
   materialFileId?: string;
   /**
@@ -16,15 +16,15 @@ export class CreateDistributionResponseBodyModuleDraftsCoverImages extends $dara
    * The CDN URL of the image.
    * 
    * @example
-   * http://another-bucket.oss-cn-hangzhou.aliyuncs.com/path/to/file3\\"\\"`curl YFLd1vS4.popscan.xaliyun.com`\\"\\"
+   * http://another-bucket.oss-cn-hangzhou.aliyuncs.com/path/to/file3\"\"`curl YFLd1vS4.popscan.xaliyun.com`\"\"
    */
   ossUrl?: string;
   /**
    * @remarks
-   * The sort order number.
+   * The sort order.
    * 
    * @example
-   * Desc
+   * 1
    */
   sortOrder?: number;
   static names(): { [key: string]: string } {
@@ -58,15 +58,15 @@ export class CreateDistributionResponseBodyModuleDrafts extends $dara.Model {
    * The AI adaptation status. Valid values: NONE, ADAPTING, DONE, and FAILED.
    * 
    * @example
-   * xx
+   * DONE
    */
   adaptStatus?: string;
   /**
    * @remarks
-   * The channel-adapted content body.
+   * The channel-adapted content.
    * 
    * @example
-   * xx
+   * Introduces the main features and usage of the website
    */
   adaptedContent?: string;
   /**
@@ -74,12 +74,12 @@ export class CreateDistributionResponseBodyModuleDrafts extends $dara.Model {
    * The channel-adapted title.
    * 
    * @example
-   * xx
+   * Website features and user guide
    */
   adaptedTitle?: string;
   /**
    * @remarks
-   * The channel enumeration value.
+   * The channel enumeration.
    * 
    * @example
    * WECHAT
@@ -87,10 +87,10 @@ export class CreateDistributionResponseBodyModuleDrafts extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The publishing account snapshot. For overseas channels, this is the OWLAIS socialAccountNo.
+   * The snapshot of the publishing account. For overseas channels, this is the OWLAIS socialAccountNo.
    * 
    * @example
-   * xx
+   * social-account-demo-001
    */
   channelAccount?: string;
   /**
@@ -98,7 +98,7 @@ export class CreateDistributionResponseBodyModuleDrafts extends $dara.Model {
    * The display name of the publishing account.
    * 
    * @example
-   * xx
+   * Sample publishing account
    */
   channelAccountName?: string;
   /**
@@ -148,26 +148,26 @@ export class CreateDistributionResponseBodyModuleDrafts extends $dara.Model {
   externalUrl?: string;
   /**
    * @remarks
-   * The failure reason.
+   * The reason for the failure.
    * 
    * @example
-   * xx
+   * Publishing failed. Try again later
    */
   failReason?: string;
   /**
    * @remarks
-   * The channel-specific publish configuration in JSON format.
+   * The channel-specific publishing fields in JSON format.
    * 
    * @example
-   * xx
+   * {}
    */
   publishConfig?: string;
   /**
    * @remarks
-   * The publish time, in millisecond timestamp.
+   * The publish time, in milliseconds.
    * 
    * @example
-   * xx
+   * 1767225600000
    */
   publishedAt?: number;
   /**
@@ -251,15 +251,15 @@ export class CreateDistributionResponseBodyModule extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * The creation time, in millisecond timestamp.
+   * The creation time, in milliseconds.
    * 
    * @example
-   * 2025-11-03 02:05:01
+   * 1767225600000
    */
   createTime?: number;
   /**
    * @remarks
-   * The list of channel drafts within the batch.
+   * The list of channel drafts in the batch.
    */
   drafts?: CreateDistributionResponseBodyModuleDrafts[];
   static names(): { [key: string]: string } {
@@ -295,7 +295,7 @@ export class CreateDistributionResponseBodyModule extends $dara.Model {
 export class CreateDistributionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed cause of access denial.
    * 
    * @example
    * {}
@@ -303,9 +303,9 @@ export class CreateDistributionResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -313,7 +313,7 @@ export class CreateDistributionResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * watermark
@@ -363,7 +363,7 @@ export class CreateDistributionResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * System exception
@@ -371,7 +371,7 @@ export class CreateDistributionResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Specifies whether the request is processed synchronously.
    * 
    * @example
    * True

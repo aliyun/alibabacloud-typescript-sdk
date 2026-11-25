@@ -45,7 +45,7 @@ export class InstallAppPluginResponseBodyModule extends $dara.Model {
 export class InstallAppPluginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reasons for the access denial.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class InstallAppPluginResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -77,7 +77,7 @@ export class InstallAppPluginResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace `%s` in the error message returned in the **ErrMessage** response parameter.
+   * The dynamic error message, which is used to replace the `%s` in the error message returned in the **ErrMessage** response parameter.
    * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example

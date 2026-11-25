@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveMaterialDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class MoveMaterialDirectoryResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application.
+   * The name of the application. You can use this name to query the application.
    * 
    * @example
    * dewuApp
@@ -50,7 +50,7 @@ export class MoveMaterialDirectoryResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -66,7 +66,7 @@ export class MoveMaterialDirectoryResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the move operation succeeded.
+   * Indicates whether the move operation is successful.
    * 
    * @example
    * true
@@ -98,7 +98,7 @@ export class MoveMaterialDirectoryResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

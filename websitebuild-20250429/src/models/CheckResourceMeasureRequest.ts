@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourceMeasureRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the owner, such as the website ID or Alibaba Cloud user ID.
+   * The owner ID, which can be a website ID or an Alibaba Cloud user ID.
    * 
    * @example
    * 123456
@@ -29,7 +29,7 @@ export class CheckResourceMeasureRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The desired total for APP_WORKSPACE. Valid values: 0 to 100000. If this parameter is specified, it takes precedence over ResourceValue and is not added to the existing usage. For new calls, you only need to specify ResourceValue. This parameter is not used for APP or USER.
+   * The optional compatible total for APP_WORKSPACE, with a range of 0 to 100000. When provided, it takes precedence over ResourceValue and does not repeatedly add the used amount. New calls only require ResourceValue. This field is not used for APP or USER.
    * 
    * @example
    * 21
@@ -45,7 +45,7 @@ export class CheckResourceMeasureRequest extends $dara.Model {
   espBizId?: string;
   /**
    * @remarks
-   * The order component parameters. If this parameter is empty, EspBizId and BizType cannot be empty.
+   * The order component information. If this parameter is empty, EspBizId and BizType must not be empty.
    * 
    * @example
    * {"siteversion":"test"}
@@ -61,7 +61,7 @@ export class CheckResourceMeasureRequest extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * The resource value. This parameter is empty by default and is required only for feature resources. Valid values: 0: Not supported. 1: Supported.
+   * The resource value. This parameter is empty by default and is required only for feature resources. A value of 0 indicates not supported, and 1 indicates supported.
    * 
    * @example
    * 1

@@ -13,9 +13,7 @@ export class ListAppPluginsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The maximum number of results to return per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -23,7 +21,7 @@ export class ListAppPluginsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. This parameter is empty if no more results are available.
+   * The token used to start the next query. If no next query is available, this parameter is empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -31,7 +29,7 @@ export class ListAppPluginsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The status of the dataset acceleration instance. Valid values:
+   * The status of the Dataset Accelerator instance. Valid values:
    * - Created: Initialized.
    * - Running: Running.
    * - Stopped: Stopped.

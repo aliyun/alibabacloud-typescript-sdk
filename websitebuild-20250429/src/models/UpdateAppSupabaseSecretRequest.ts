@@ -16,7 +16,7 @@ export class UpdateAppSupabaseSecretRequest extends $dara.Model {
    * The secret key.
    * 
    * @example
-   * ***
+   * EXAMPLE_API_KEY
    */
   secretKey?: string;
   /**

@@ -29,7 +29,7 @@ export class ListAIStaffChatMessagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The creation time of the last entry on the previous page. Do not specify this parameter when you query the first page.
+   * The gmtCreate value of the last entry on the previous page. Do not specify this parameter for the first page.
    * 
    * @example
    * null

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CheckUserResourceMeasureRequest extends $dara.Model {
     /**
      * @remarks
-     * The belong ID, such as the website ID or Alibaba Cloud user ID.
+     * The owner ID, which can be a website ID or an Alibaba Cloud user ID.
      *
      * @example
      * 123456
@@ -10,7 +10,7 @@ export declare class CheckUserResourceMeasureRequest extends $dara.Model {
     belongId?: string;
     /**
      * @remarks
-     * The belong ID type, such as siteId or uid.
+     * The owner ID type, such as siteId or uid.
      *
      * @example
      * USER
@@ -26,7 +26,7 @@ export declare class CheckUserResourceMeasureRequest extends $dara.Model {
     bizType?: string;
     /**
      * @remarks
-     * The optional compatible total for APP_WORKSPACE. Valid values: 0 to 100000. If provided, it takes precedence over ResourceValue and does not repeatedly add the used quota. For new calls, only ResourceValue is required. This field is not used for APP/USER.
+     * The desired total for APP_WORKSPACE. This is an optional compatible total with a range of 0 to 100,000. If provided, it takes precedence over ResourceValue and does not repeatedly add the used quota. For new calls, only ResourceValue is required. This field is not used for APP or USER.
      *
      * @example
      * 21
@@ -42,7 +42,7 @@ export declare class CheckUserResourceMeasureRequest extends $dara.Model {
     espBizId?: string;
     /**
      * @remarks
-     * The order component information. If this field is empty, EspBizId and BizType cannot be empty.
+     * The order component information in JSON format. If this parameter is left empty, EspBizId and BizType cannot be empty.
      *
      * @example
      * {"siteversion":"test"}
@@ -58,7 +58,9 @@ export declare class CheckUserResourceMeasureRequest extends $dara.Model {
     resourceCode?: string;
     /**
      * @remarks
-     * The resource value. Default is empty. Required only for feature resources. A value of 0 indicates not supported, and 1 indicates supported.
+     * The resource value. This parameter is left empty by default and is required only for feature resources. Valid values:
+     * - 0: Not supported.
+     * - 1: Supported.
      *
      * @example
      * 1

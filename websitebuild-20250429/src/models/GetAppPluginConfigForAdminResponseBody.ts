@@ -21,7 +21,7 @@ export class GetAppPluginConfigForAdminResponseBodyModule extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-08-28T02:25:41Z
@@ -115,7 +115,7 @@ export class GetAppPluginConfigForAdminResponseBodyModule extends $dara.Model {
 export class GetAppPluginConfigForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation status or POP error code.
+   * The API operation status or POP error code.
    * 
    * @example
    * OK

@@ -12,10 +12,10 @@ export declare class RewriteChannelTitleRequest extends $dara.Model {
     draftId?: string;
     /**
      * @remarks
-     * The user personalization requirement in free text. This parameter is optional.
+     * The custom requirement specified by the user. This parameter is optional and accepts free text.
      *
      * @example
-     * xxx
+     * Highlight the main features and keep the title concise and clear
      */
     userRequirement?: string;
     static names(): {

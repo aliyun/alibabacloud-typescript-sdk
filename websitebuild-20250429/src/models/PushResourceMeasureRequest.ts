@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PushResourceMeasureRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource usage amount.
+   * The resource usage.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   belongId?: string;
   /**
    * @remarks
-   * The type of the owner ID (siteId or uid).
+   * The type of the owner ID, such as siteId or uid.
    * 
    * @example
    * USER
@@ -29,7 +29,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   belongIdType?: string;
   /**
    * @remarks
-   * The business ID associated with this push, such as a session ID, task ID, or file ID.
+   * The business ID associated with this push, such as the session ID, task ID, or file ID.
    * 
    * @example
    * WS20250801154628000001
@@ -37,18 +37,18 @@ export class PushResourceMeasureRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The metering data used to flexibly push multiple data points such as the number of model calls and token usage. The value must be a JSON string.
+   * The metering data. The value must be a JSON string and is used to flexibly push multiple metrics such as model call counts and token usage.
    * 
    * @example
-   * {\\"MD5\\":\\"8ba46100bd898461f0f589704f2fad25\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"769\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":false,\\"uefi_preferred\\":false}
+   * {\"MD5\":\"8ba46100bd898461f0f589704f2fad25\",\"driver\":\"vhd\",\"flag\":\"769\",\"imds_support\":\"v1\",\"io_optimized\":true,\"nvme_supported\":false,\"uefi_preferred\":false}
    */
   measureData?: string;
   /**
    * @remarks
-   * The business extension metadata in Map format. The value must be a JSON string.
+   * The business extension metadata. The value must be a JSON string in map format.
    * 
    * @example
-   * {\\"MD5\\":\\"8ba46100bd898461f0f589704f2fad25\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"769\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":false,\\"uefi_preferred\\":false}
+   * {\"MD5\":\"8ba46100bd898461f0f589704f2fad25\",\"driver\":\"vhd\",\"flag\":\"769\",\"imds_support\":\"v1\",\"io_optimized\":true,\"nvme_supported\":false,\"uefi_preferred\":false}
    */
   metaData?: string;
   /**
@@ -61,7 +61,7 @@ export class PushResourceMeasureRequest extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * The usage time in the yyyy-MM-dd HH:mm:ss format.
+   * The usage time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * yyyy-MM-dd HH:mm:ss

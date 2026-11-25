@@ -30,7 +30,7 @@ export declare class QueryMaterialFileSummaryInfoResponseBodyModule extends $dar
 export declare class QueryMaterialFileSummaryInfoResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reasons for access denial.
+     * The detailed reason why access is denied.
      *
      * @example
      * {}

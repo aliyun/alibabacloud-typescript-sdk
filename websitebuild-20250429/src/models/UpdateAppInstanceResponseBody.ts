@@ -13,10 +13,10 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The application icon URL.
+   * The application icon.
    * 
    * @example
-   * https://yzm.zshud.com:34901/cloud-phone/养生_1763631730804.png
+   * https://yzm.zshud.com:34901/cloud-phone/Wellness_1763631730804.png
    */
   iconUrl?: string;
   /**
@@ -29,7 +29,7 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The application thumbnail URL.
+   * The application thumbnail.
    * 
    * @example
    * placeHolder
@@ -65,7 +65,7 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
 export class UpdateAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -97,7 +97,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is currently not in use and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -105,7 +105,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -134,7 +134,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

@@ -17,10 +17,10 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData ex
   code?: string;
   /**
    * @remarks
-   * The default values.
+   * The component mapping for the product specifications, where the key is the component code.
    * 
    * @example
-   * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}}}
+   * {"deploy_area":{"Code":"deploy_area","Name":"Deployment region","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"Deployment region","Value":"HongKong","Values":[{"Value":"HongKong","Name":"China (Hong Kong)"}]}}}}
    */
   components?: { [key: string]: ModuleDataComponentsValue };
   /**
@@ -28,12 +28,12 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData ex
    * The file name.
    * 
    * @example
-   * 文件名
+   * File name
    */
   name?: string;
   /**
    * @remarks
-   * The duration.
+   * The property mapping for the product specifications, where the key is the property code.
    * 
    * @example
    * {"version":{"Code":"version","Values":[{"Value":"V2.0"}]}}
@@ -83,10 +83,10 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext ex
   code?: string;
   /**
    * @remarks
-   * The default values.
+   * The component mapping for the product specifications, where the key is the component code.
    * 
    * @example
-   * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}}}
+   * {"deploy_area":{"Code":"deploy_area","Name":"Deployment region","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"Deployment region","Value":"HongKong","Values":[{"Value":"HongKong","Name":"China (Hong Kong)"}]}}}}
    */
   components?: { [key: string]: ModuleNextComponentsValue };
   /**
@@ -99,7 +99,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext ex
   name?: string;
   /**
    * @remarks
-   * The frame rate.
+   * The property mapping for the product specifications, where the key is the property code.
    * 
    * @example
    * {"version":{"Code":"version","Values":[{"Value":"V2.0"}]}}
@@ -149,7 +149,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   currentPageNum?: number;
   /**
    * @remarks
-   * The request result.
+   * The request results.
    */
   data?: ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData[];
   /**
@@ -159,7 +159,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   next?: ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext;
   /**
    * @remarks
-   * Indicates whether there is a next page.
+   * Indicates whether a next page exists.
    * 
    * @example
    * False
@@ -167,7 +167,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   nextPage?: boolean;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -175,7 +175,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether there is a previous page.
+   * Indicates whether a previous page exists.
    * 
    * @example
    * False
@@ -183,12 +183,12 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to pagination limits, the server processes a maximum of the most recent 1000 records per query. If the results exceed 1000, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
    */
   resultLimit?: boolean;
   /**
    * @remarks
-   * The total number of items.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -248,7 +248,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule extend
 export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -256,7 +256,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -264,7 +264,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   allowRetry?: boolean;
   /**
    * @remarks
-   * The app name.
+   * The application name.
    * 
    * @example
    * or
@@ -280,8 +280,8 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** error message of the response parameters.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message used to replace `%s` in the error message returned in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -294,9 +294,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of results per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -309,7 +307,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
   module?: ListAppCommoditySpecificationsV2ForPartnerResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty when there is no next query.
+   * The token used to start the next query. This value is empty if there are no more results.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -336,7 +334,7 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBody extends $dar
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

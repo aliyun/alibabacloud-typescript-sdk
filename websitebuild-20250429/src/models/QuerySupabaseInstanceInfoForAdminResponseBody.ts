@@ -45,7 +45,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   dbPublicUrl?: string;
   /**
    * @remarks
-   * The database type. Valid values: rds and polardb.
+   * The database type, such as RDS or PolarDB.
    * 
    * @example
    * ORACLE
@@ -56,7 +56,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
    * The extra information.
    * 
    * @example
-   * {\\"appId\\":\\"APP_NTJAK8P11SNZDJ3M6BWC\\"}
+   * {\"appId\":\"APP_NTJAK8P11SNZDJ3M6BWC\"}
    */
   extra?: string;
   /**
@@ -80,12 +80,12 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
    * The deletion flag.
    * 
    * @example
-   * false
+   * 0
    */
   isDeleted?: number;
   /**
    * @remarks
-   * The access password for the RDS database.
+   * The access password for the ApsaraDB RDS database.
    * 
    * @example
    * 111
@@ -93,7 +93,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   rdsDatabasePassword?: string;
   /**
    * @remarks
-   * The read-only business schema name parsed by the Builder trusted binding. This name cannot be used as input for tenant switching.
+   * The read-only business schema name parsed by Builder trusted binding. This name cannot be used as input for switching tenants.
    * 
    * @example
    * tenant_00000000-0000-4000-8000-000000000001_schema
@@ -109,15 +109,15 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   serviceKey?: string;
   /**
    * @remarks
-   * The status. Valid values: 0 (Paused) and 1 (Running).
+   * The status. Valid values: 0 (paused) and 1 (running).
    * 
    * @example
-   * RUNNING
+   * 1
    */
   status?: number;
   /**
    * @remarks
-   * The Supabase Dashboard password.
+   * The password for the Supabase Dashboard.
    * 
    * @example
    * 1111
@@ -125,7 +125,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseDashboardPassword?: string;
   /**
    * @remarks
-   * The Supabase Dashboard username.
+   * The username for the Supabase Dashboard.
    * 
    * @example
    * 1111
@@ -157,7 +157,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseKongUrl?: string;
   /**
    * @remarks
-   * The private network endpoint of the Supabase instance.
+   * The private endpoint of the Supabase instance.
    * 
    * @example
    * 1111
@@ -165,7 +165,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabasePrivateIp?: string;
   /**
    * @remarks
-   * The public network connection endpoint of the Supabase instance.
+   * The public endpoint of the Supabase instance.
    * 
    * @example
    * 111
@@ -173,7 +173,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabasePublicIp?: string;
   /**
    * @remarks
-   * The public URL of the Supabase instance.
+   * The public URL of Supabase.
    * 
    * @example
    * 111
@@ -275,7 +275,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
 export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -307,8 +307,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -316,7 +315,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The returned error parameters.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
@@ -350,7 +349,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * The reserved parameter.
+   * The backup parameter.
    * 
    * @example
    * True

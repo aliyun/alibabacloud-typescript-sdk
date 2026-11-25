@@ -16,7 +16,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
    * The configuration form in React JSON Schema format.
    * 
    * @example
-   * ***
+   * {"type":"object","properties":{"label":{"type":"string","title":"Display name"}}}
    */
   configItems?: string;
   /**
@@ -29,25 +29,22 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * Specifies whether to display the image. Valid values:
-   * 
-   * - **0** (None): Not displayed.
-   * - **1** (Always): Always displayed.
+   * Specifies whether the plugin is displayed. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
-   * always
+   * 1
    */
   display?: number;
   /**
    * @remarks
-   * Specifies whether to enable scheduled delivery of resource snapshots.
-   * 
-   * Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
+   * Specifies whether the plugin is enabled. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
-   * True
+   * 1
    */
   enabled?: number;
   /**
@@ -70,7 +67,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time in ISO 8601 format in the UTC time zone.
+   * The modification time in ISO 8601 format in the UTC time zone.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -104,10 +101,12 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether the item is deleted. Valid values: 0 (no) and 1 (yes).
+   * Specifies whether the plugin is deleted. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
-   * false
+   * 0
    */
   isDeleted?: number;
   /**
@@ -115,7 +114,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
    * The name of the plugin.
    * 
    * @example
-   * Filename
+   * File name
    */
   name?: string;
   /**
@@ -131,7 +130,7 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
    * The category tags.
    * 
    * @example
-   * [{\\"Key\\": \\"kubernetes.io/cluster-id\\", \\"Value\\": \\"cc67198b13db948c9848599654da5586e\\"}, {\\"Key\\": \\"created-by\\", \\"Value\\": \\"alibabacloud-imagecache-controller\\"}]
+   * [{\"Key\": \"kubernetes.io/cluster-id\", \"Value\": \"cc67198b13db948c9848599654da5586e\"}, {\"Key\": \"created-by\", \"Value\": \"alibabacloud-imagecache-controller\"}]
    */
   tags?: string;
   static names(): { [key: string]: string } {
@@ -194,7 +193,7 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -232,9 +231,7 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of results to return per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -247,7 +244,7 @@ export class ListAppPluginsResponseBody extends $dara.Model {
   module?: ListAppPluginsResponseBodyModule[];
   /**
    * @remarks
-   * The token used to start the next query. This parameter is empty if no more results are available.
+   * The token used to start the next query. If no next query is available, this parameter is empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM

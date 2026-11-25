@@ -35,7 +35,7 @@ export class RenewAppInstanceResponseBodyModule extends $dara.Model {
 export class RenewAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class RenewAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Specifies whether a retry is allowed.
    * 
    * @example
    * False
@@ -67,7 +67,7 @@ export class RenewAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message that is used to replace the `%s` variable in the **ErrMessage** response parameter.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
    * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
@@ -76,7 +76,7 @@ export class RenewAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -105,12 +105,12 @@ export class RenewAppInstanceResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

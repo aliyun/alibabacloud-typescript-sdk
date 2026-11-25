@@ -16,6 +16,9 @@ export declare class TreeNode extends $dara.Model {
     /**
      * @remarks
      * The completion time.
+     *
+     * @example
+     * 1767323045000
      */
     finishTime?: number;
     /**

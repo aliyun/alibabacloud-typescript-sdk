@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The chatbot ID.
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -37,7 +37,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can obtain this ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 865181640657408
@@ -45,10 +45,10 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * The current viewpoint, equivalent to the news title.
+   * The current viewpoint, which is equivalent to the news title.
    * 
    * @example
-   * Feel Like Makin\\" Love
+   * Feel Like Makin\" Love
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
 export class CreateAIStaffConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -93,7 +93,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether a retry is allowed.
    * 
    * @example
    * False
@@ -101,7 +101,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * spring-cloud-b
@@ -125,7 +125,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -154,7 +154,7 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

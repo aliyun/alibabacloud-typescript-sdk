@@ -13,7 +13,7 @@ export class UpdateRbacRoleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether retries are allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -37,8 +37,8 @@ export class UpdateRbacRoleResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified request parameter **DtsJobId** is invalid.
    * 
    * @example
    * abc
@@ -46,7 +46,7 @@ export class UpdateRbacRoleResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error arguments.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -83,7 +83,7 @@ export class UpdateRbacRoleResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Specifies whether the processing is synchronous.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

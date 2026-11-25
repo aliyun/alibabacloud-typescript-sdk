@@ -21,7 +21,7 @@ export class PushResourceMeasureResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * spring-cloud-b
@@ -45,7 +45,7 @@ export class PushResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -74,10 +74,10 @@ export class PushResourceMeasureResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System error
    */
   rootErrorMsg?: string;
   /**

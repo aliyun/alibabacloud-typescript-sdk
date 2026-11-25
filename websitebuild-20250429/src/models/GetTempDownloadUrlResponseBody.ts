@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTempDownloadUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -37,8 +37,8 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -67,7 +67,7 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR

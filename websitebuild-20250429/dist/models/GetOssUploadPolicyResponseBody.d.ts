@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetOssUploadPolicyResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The upload directory path.
+     * The path of the upload directory.
      *
      * @example
      * pano_src/100070-2679478/images/
@@ -10,7 +10,7 @@ export declare class GetOssUploadPolicyResponseBodyModule extends $dara.Model {
     dir?: string;
     /**
      * @remarks
-     * The OSS bucket host address.
+     * The host address of the OSS bucket.
      *
      * @example
      * *.com
@@ -26,7 +26,7 @@ export declare class GetOssUploadPolicyResponseBodyModule extends $dara.Model {
     policy?: string;
     /**
      * @remarks
-     * The Security Token Service (STS) token. This value is null in non-STS scenarios.
+     * The Security Token Service (STS) token. This parameter is null in non-STS scenarios.
      *
      * @example
      * ***
@@ -96,7 +96,7 @@ export declare class GetOssUploadPolicyResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The app name.
+     * The application name.
      *
      * @example
      * ish-intelligence-store-platform-admin-web

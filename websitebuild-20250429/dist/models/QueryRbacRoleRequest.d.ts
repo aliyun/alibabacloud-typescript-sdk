@@ -10,13 +10,13 @@ export declare class QueryRbacRoleRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The storage management role ID, including predefined and custom roles:
+     * The storage management role ID, including preset and custom roles:
      *
-     * - 25: Storage management administrator (predefined role)
-     * - 26: Developer (predefined role)
-     * - 27: Analyst (predefined role)
-     * - 30: Viewer (predefined role)
-     * - Custom role: the role ID of the custom role.
+     * - 25: Storage management administrator (preset role)
+     * - 26: Developer (preset role)
+     * - 27: Analyst (preset role)
+     * - 30: Viewer (preset role)
+     * - Custom role: the role ID of the custom role
      *
      * @example
      * 75b2f16f-35a5-4e90-949f-295ea14a4dc8

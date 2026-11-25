@@ -30,10 +30,10 @@ export class QueryRbacUserRolesResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
    * The preset workspace role ID. This will overwrite existing roles. Valid values:
-   * - 25: storage management administrator
-   * - 26: workspace developer
-   * - 27: storage analysis analyst
-   * - 30: workspace viewer
+   * - 25: Storage management administrator.
+   * - 26: Workspace developer.
+   * - 27: Storage analysis analyst.
+   * - 30: Workspace viewer.
    * 
    * @example
    * 111111112
@@ -157,7 +157,7 @@ export class QueryRbacUserRolesResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request result.
+   * The request results.
    */
   data?: QueryRbacUserRolesResponseBodyModuleData[];
   /**
@@ -267,7 +267,7 @@ export class QueryRbacUserRolesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -291,7 +291,7 @@ export class QueryRbacUserRolesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not used. Ignore this parameter.
+   * The dynamic message. This parameter is not in use and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR

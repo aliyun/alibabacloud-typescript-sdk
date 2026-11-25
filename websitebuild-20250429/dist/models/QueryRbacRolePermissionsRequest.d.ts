@@ -10,7 +10,7 @@ export declare class QueryRbacRolePermissionsRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The field used for sorting.
+     * The sort field.
      *
      * @example
      * gmtCreated
@@ -18,7 +18,7 @@ export declare class QueryRbacRolePermissionsRequest extends $dara.Model {
     orderColumn?: string;
     /**
      * @remarks
-     * The sort order. Valid values: ASC and DESC.
+     * The sort order. Valid values: ASC, DESC.
      *
      * @example
      * BUY
@@ -47,7 +47,7 @@ export declare class QueryRbacRolePermissionsRequest extends $dara.Model {
      * - Organization administrator (preset role): 111111111
      * - Permission management administrator (preset role): 111111112
      * - Regular user (preset role): 111111113
-     * - Custom role: the role ID of the custom role
+     * - Custom role: the role ID corresponding to the custom role.
      *
      * @example
      * 75b2f16f-35a5-4e90-949f-295ea14a4dc8

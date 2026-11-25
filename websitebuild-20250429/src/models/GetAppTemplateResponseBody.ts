@@ -140,7 +140,7 @@ export class GetAppTemplateResponseBodyModule extends $dara.Model {
    * > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned in the `image_url` field of the metadata map, along with an expiration time.
    * 
    * @example
-   * {\\"operations\\":[{\\"operator\\":\\"replace\\",\\"oldMetaName\\":\\"character2_add\\",\\"newMetaType\\":\\"varchar(2)\\"}]}
+   * {\"operations\":[{\"operator\":\"replace\",\"oldMetaName\":\"character2_add\",\"newMetaType\":\"varchar(2)\"}]}
    */
   metadata?: string;
   /**

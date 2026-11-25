@@ -107,7 +107,7 @@ export declare class ListRbacPermissionsResponseBodyModule extends $dara.Model {
     data?: ListRbacPermissionsResponseBodyModuleData[];
     /**
      * @remarks
-     * The ID of the next feature.
+     * The next feature ID.
      */
     next?: ListRbacPermissionsResponseBodyModuleNext;
     /**
@@ -136,7 +136,7 @@ export declare class ListRbacPermissionsResponseBodyModule extends $dara.Model {
     prePage?: boolean;
     /**
      * @remarks
-     * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+     * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
      *
      * @example
      * False
@@ -172,7 +172,7 @@ export declare class ListRbacPermissionsResponseBodyModule extends $dara.Model {
 export declare class ListRbacPermissionsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason why access is denied.
+     * The detailed reason for access denial.
      *
      * @example
      * {}
@@ -180,7 +180,7 @@ export declare class ListRbacPermissionsResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether retries are allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -188,7 +188,7 @@ export declare class ListRbacPermissionsResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the app.
+     * The application name.
      *
      * @example
      * spring-cloud-b
@@ -217,7 +217,7 @@ export declare class ListRbacPermissionsResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * The number of entries to return in each query.
+     * The number of results returned per query.
      *
      * Valid values: 10 to 100. Default value: 20.
      *
@@ -232,7 +232,7 @@ export declare class ListRbacPermissionsResponseBody extends $dara.Model {
     module?: ListRbacPermissionsResponseBodyModule;
     /**
      * @remarks
-     * The token that is used to start the next query. This parameter is empty if no next query exists.
+     * The token used to start the next query. This parameter is empty if no next query exists.
      *
      * @example
      * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM

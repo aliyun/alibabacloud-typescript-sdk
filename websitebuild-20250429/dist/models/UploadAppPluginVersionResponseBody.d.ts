@@ -5,12 +5,12 @@ export declare class UploadAppPluginVersionResponseBodyModule extends $dara.Mode
      * The commit ID.
      *
      * @example
-     * xxx
+     * 0123456789abcdef0123456789abcdef01234567
      */
     commitSha?: string;
     /**
      * @remarks
-     * The ID of the bound API gateway plugin.
+     * The ID of the bound API gateway plug-in.
      *
      * @example
      * 1bae9ceaceea432d91c7069fab0dfc02
@@ -46,7 +46,7 @@ export declare class UploadAppPluginVersionResponseBodyModule extends $dara.Mode
 export declare class UploadAppPluginVersionResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reasons for access denial.
+     * The detailed reason why access is denied.
      *
      * @example
      * {}
@@ -54,9 +54,9 @@ export declare class UploadAppPluginVersionResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether a retry is allowed. Valid values:
-     * - false: A retry is not allowed.
-     * - true: A retry is allowed.
+     * Indicates whether retries are allowed. Valid values:
+     * - false: Retries are not allowed.
+     * - true: Retries are allowed.
      *
      * @example
      * False
@@ -83,7 +83,7 @@ export declare class UploadAppPluginVersionResponseBody extends $dara.Model {
      * The dynamic message. This parameter is not used and can be ignored.
      *
      * @example
-     * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/gl3d6l3817id8p1/gl3d6l3817id8p1.diff.zip?Expires=1750392068&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=Bcj3eohy8nmlSQ7AAGdq7JZoLjM%3D
+     * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/gl3d6l3817id8p1/gl3d6l3817id8p1.diff.zip?Expires=1750392068&OSSAccessKeyId=LTAI5tKUEr****M4ev9SELNb&Signature=Bcj3eohy8nmlS****Gdq7JZoLjM%3D
      */
     dynamicMessage?: string;
     /**
@@ -122,7 +122,7 @@ export declare class UploadAppPluginVersionResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Specifies whether synchronous processing is used.
+     * Indicates whether the request is processed synchronously.
      *
      * @example
      * True

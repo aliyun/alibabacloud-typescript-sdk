@@ -126,7 +126,7 @@ export declare class ListAppTemplatesResponseBodyModuleData extends $dara.Model 
      * The repair action.
      *
      * @example
-     * {\\"memFrom\\": \\"text\\", \\"uid\\": \\"text\\", \\"labels\\": \\"jsonb\\", \\"content\\": \\"text\\", \\"fromId\\": \\"text\\", \\"uuid\\": \\"text\\"}
+     * {\"memFrom\": \"text\", \"uid\": \"text\", \"labels\": \"jsonb\", \"content\": \"text\", \"fromId\": \"text\", \"uuid\": \"text\"}
      */
     metadata?: string;
     /**
@@ -347,7 +347,7 @@ export declare class ListAppTemplatesResponseBodyModuleNext extends $dara.Model 
      * The fix details.
      *
      * @example
-     * {\\"knowledge_point\\":\\"text\\",\\"trunk_id\\":\\"text\\",\\"doc_name\\":\\"text\\",\\"knowledge_point_id\\":\\"text\\",\\"doc_id\\":\\"text\\",\\"trunk_content\\":\\"text\\"}
+     * {\"knowledge_point\":\"text\",\"trunk_id\":\"text\",\"doc_name\":\"text\",\"knowledge_point_id\":\"text\",\"doc_id\":\"text\",\"trunk_content\":\"text\"}
      */
     metadata?: string;
     /**

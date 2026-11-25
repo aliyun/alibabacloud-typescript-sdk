@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class QueryInspirationBalanceResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The remaining quota (totalQuota - totalUsed).
+     * The remaining quota, which is calculated by subtracting totalUsed from totalQuota.
      *
      * @example
      * 8
@@ -18,7 +18,7 @@ export declare class QueryInspirationBalanceResponseBodyModule extends $dara.Mod
     remainingStr?: string;
     /**
      * @remarks
-     * The total quota (the sum of initQuota of all valid accounts).
+     * The total quota, which is the sum of the initQuota values of all valid accounts.
      *
      * @example
      * 10
@@ -34,7 +34,7 @@ export declare class QueryInspirationBalanceResponseBodyModule extends $dara.Mod
     totalQuotaStr?: string;
     /**
      * @remarks
-     * The consumed quota (the sum of used of all valid accounts).
+     * The used quota, which is the sum of the used values of all valid accounts.
      *
      * @example
      * 1
@@ -42,7 +42,7 @@ export declare class QueryInspirationBalanceResponseBodyModule extends $dara.Mod
     totalUsed?: number;
     /**
      * @remarks
-     * The string format of the consumed quota.
+     * The string format of the used quota.
      *
      * @example
      * 1
@@ -62,7 +62,7 @@ export declare class QueryInspirationBalanceResponseBodyModule extends $dara.Mod
 export declare class QueryInspirationBalanceResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The detailed reason why access is denied.
      *
      * @example
      * {}
@@ -70,7 +70,7 @@ export declare class QueryInspirationBalanceResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether retries are allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -78,7 +78,7 @@ export declare class QueryInspirationBalanceResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the application.
+     * The name of the application to query.
      *
      * @example
      * dewuApp
@@ -94,8 +94,8 @@ export declare class QueryInspirationBalanceResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -103,7 +103,7 @@ export declare class QueryInspirationBalanceResponseBody extends $dara.Model {
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error parameters.
+     * The invalid parameters.
      */
     errorArgs?: any[];
     /**
@@ -137,7 +137,7 @@ export declare class QueryInspirationBalanceResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Specifies whether the processing is synchronous.
+     * Indicates whether synchronous processing is performed.
      *
      * @example
      * True

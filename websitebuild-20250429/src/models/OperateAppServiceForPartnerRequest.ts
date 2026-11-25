@@ -16,7 +16,7 @@ export class OperateAppServiceForPartnerRequest extends $dara.Model {
    * Other extended information in JSON format for future parameter expansion.
    * 
    * @example
-   * {\\"user_device_id\\":\\"6bef45cb0c76de284d24de074c088b73\\"}\\n
+   * {\"user_device_id\":\"6bef45cb0c76de284d24de074c088b73\"}\n
    */
   extend?: string;
   /**

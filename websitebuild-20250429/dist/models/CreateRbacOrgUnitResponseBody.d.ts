@@ -10,7 +10,7 @@ export declare class CreateRbacOrgUnitResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether retries are allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -26,7 +26,7 @@ export declare class CreateRbacOrgUnitResponseBody extends $dara.Model {
     appName?: string;
     /**
      * @remarks
-     * The dynamic code. This field is not used and can be ignored.
+     * The dynamic code. This field is currently unused and can be ignored.
      *
      * @example
      * ERROR-oo1
@@ -79,7 +79,7 @@ export declare class CreateRbacOrgUnitResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Specifies whether synchronous processing is used.
+     * Indicates whether the processing is synchronous.
      *
      * @example
      * True

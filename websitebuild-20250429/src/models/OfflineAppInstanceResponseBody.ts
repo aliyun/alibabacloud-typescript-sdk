@@ -53,7 +53,7 @@ export class OfflineAppInstanceResponseBody extends $dara.Model {
    * Indicates whether the move succeeded.
    * 
    * @example
-   * {\\"TotalPageNum\\": 1, \\"ResultLimit\\": False, \\"CurrentPageNum\\": 0, \\"PageSize\\": 0, \\"TotalItemNum\\": 0}
+   * {\"TotalPageNum\": 1, \"ResultLimit\": False, \"CurrentPageNum\": 0, \"PageSize\": 0, \"TotalItemNum\": 0}
    */
   module?: { [key: string]: any };
   /**

@@ -15,7 +15,7 @@ export declare class GetIcpFilingInfoForPartnerResponseBodyData extends $dara.Mo
     recorded?: boolean;
     /**
      * @remarks
-     * The website ICP filing number associated with the domain name.
+     * The website ICP filing number corresponding to the domain name.
      *
      * @example
      * 湘ICP备14011526号-3A

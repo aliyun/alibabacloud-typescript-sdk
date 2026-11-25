@@ -24,7 +24,7 @@ export class CreateLogoTaskRequest extends $dara.Model {
    * The task parameters.
    * 
    * @example
-   * {\\"ehpcutilParam\\":\\"sched job_submit --commandline \\\\\\"/ehpcdata/data/usersTest/huangqiaoyi-1725933699384/huangqiaoyi-1725933699384.slurm\\\\\\" --runasuser TestGfjnSimworks\\"}
+   * {\"ehpcutilParam\":\"sched job_submit --commandline \\\"/ehpcdata/data/usersTest/huangqiaoyi-1725933699384/huangqiaoyi-1725933699384.slurm\\\" --runasuser TestGfjnSimworks\"}
    */
   parameters?: string;
   /**

@@ -29,11 +29,21 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class UpdateMiniAppBindingResponseBodyData extends $dara.Model {
     static names() {
         return {
+            privacyDraftId: 'PrivacyDraftId',
+            privacyRevision: 'PrivacyRevision',
+            readbackStatus: 'ReadbackStatus',
+            revision: 'Revision',
+            status: 'Status',
             success: 'Success',
         };
     }
     static types() {
         return {
+            privacyDraftId: 'string',
+            privacyRevision: 'string',
+            readbackStatus: 'string',
+            revision: 'number',
+            status: 'string',
             success: 'boolean',
         };
     }

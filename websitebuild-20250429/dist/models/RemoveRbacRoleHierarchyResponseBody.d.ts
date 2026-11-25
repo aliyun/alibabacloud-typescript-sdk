@@ -10,7 +10,7 @@ export declare class RemoveRbacRoleHierarchyResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether a retry is allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -79,7 +79,7 @@ export declare class RemoveRbacRoleHierarchyResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the processing is synchronous.
+     * Indicates whether synchronous processing is used.
      *
      * @example
      * True

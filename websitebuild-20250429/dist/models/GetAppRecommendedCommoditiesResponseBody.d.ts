@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $dara.Model {
     /**
      * @remarks
-     * The click action type. Valid values: CONSULT, BUY, and AUTO.
+     * The click action type. Valid values: CONSULT (add WeCom), BUY (purchase), and AUTO (automatic issuance).
      *
      * @example
      * CONSULT
@@ -10,7 +10,7 @@ export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities e
     actionType?: string;
     /**
      * @remarks
-     * The commodity code. This parameter applies to both resource plans and marketing commodities.
+     * The commodity code. This parameter is applicable to both resource plans and marketing products.
      *
      * @example
      * rds
@@ -21,19 +21,22 @@ export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities e
      * The display description of the recommendation.
      *
      * @example
-     * Add a WeCom consultant to receive inspiration points for free
+     * Add a WeCom advisor to get inspiration points for free
      */
     description?: string;
     /**
      * @remarks
      * The extended fields, such as unsupportedReason.
+     *
+     * @example
+     * {"unsupportedReason":"The current instance does not support this product."}
      */
     extend?: {
         [key: string]: string;
     };
     /**
      * @remarks
-     * The order type. Valid values: BUY and UPGRADE.
+     * The order type. Valid values: BUY (purchase) and UPGRADE (upgrade).
      *
      * @example
      * DESC
@@ -49,7 +52,7 @@ export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities e
     priority?: number;
     /**
      * @remarks
-     * The ID of the marketing commodity. This parameter is returned only for new purchases.
+     * The ID of the marketing product. This parameter is returned only for new purchases.
      *
      * @example
      * 12345
@@ -57,7 +60,7 @@ export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities e
     promotionCommodityId?: string;
     /**
      * @remarks
-     * The recommendation type. Valid values: COMMODITY and ACTIVITY.
+     * The recommendation type. Valid values: COMMODITY (product recommendation) and ACTIVITY (promotional activity recommendation).
      *
      * @example
      * COMMODITY
@@ -73,7 +76,7 @@ export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities e
     redirectUrl?: string;
     /**
      * @remarks
-     * The status of the commodity.
+     * The status of the product.
      *
      * @example
      * Normal
@@ -84,7 +87,7 @@ export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities e
      * The display title of the recommendation.
      *
      * @example
-     * Add a consultant as a friend to receive an extra 1,000 inspiration points
+     * Add an advisor as a friend to receive an extra 1,000 inspiration points
      */
     title?: string;
     static names(): {
@@ -101,7 +104,7 @@ export declare class GetAppRecommendedCommoditiesResponseBodyModuleCommodities e
 export declare class GetAppRecommendedCommoditiesResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The list of marketing commodities.
+     * The list of marketing products.
      */
     commodities?: GetAppRecommendedCommoditiesResponseBodyModuleCommodities[];
     static names(): {
@@ -150,7 +153,7 @@ export declare class GetAppRecommendedCommoditiesResponseBody extends $dara.Mode
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -164,12 +167,9 @@ export declare class GetAppRecommendedCommoditiesResponseBody extends $dara.Mode
     /**
      * @remarks
      * The data table module. Valid values:
-     *
-     * - ABTest: Experiment data table.
-     *
-     * - ExperimentTool: Experiment tool table.
-     *
-     * - DataDiagnosis: Data diagnosis.
+     * - ABTest: experiment data table.
+     * - ExperimentTool: experiment tool table.
+     * - DataDiagnosis: data diagnosis.
      */
     module?: GetAppRecommendedCommoditiesResponseBodyModule;
     /**
@@ -198,7 +198,7 @@ export declare class GetAppRecommendedCommoditiesResponseBody extends $dara.Mode
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the request is processed synchronously.
+     * Specifies whether synchronous processing is used.
      *
      * @example
      * True

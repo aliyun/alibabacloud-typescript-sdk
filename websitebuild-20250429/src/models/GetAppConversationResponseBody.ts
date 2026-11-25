@@ -47,7 +47,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time. The time is in the ISO 8601 format and the UTC time zone (Z).
+   * The update time. The value is in ISO 8601 format and the time zone is UTC (Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -60,7 +60,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
    * The extended information in JSON string format.
    * 
    * @example
-   * {\\"appId\\":\\"WS20260507200853000001\\",\\"inputTokens\\":1411,\\"outputTokens\\":51}
+   * {\"appId\":\"WS20260507200853000001\",\"inputTokens\":1411,\"outputTokens\":51}
    */
   metaData?: string;
   /**
@@ -73,7 +73,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID.
    * 
    * @example
    * 865181640657408
@@ -84,7 +84,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
    * The current viewpoint, which is equivalent to the news title.
    * 
    * @example
-   * Feel Like Makin\\" Love
+   * Feel Like Makin\" Love
    */
   title?: string;
   /**
@@ -171,7 +171,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
    * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetAppPluginConfigRequest extends $dara.Model {
     /**
      * @remarks
-     * The business ID of the customer.
+     * The customer business ID.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class GetAppPluginConfigRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The ID of the gateway plugin.
+     * The gateway plugin ID.
      *
      * This parameter is required.
      *

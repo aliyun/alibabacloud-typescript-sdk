@@ -13,9 +13,7 @@ export class ListAppDomainRedirectRecordsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The maximum number of results to return per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 1
@@ -23,7 +21,7 @@ export class ListAppDomainRedirectRecordsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. This parameter is empty if no next query is available.
+   * The token used to start the next query. If no more results are available, this parameter is empty.
    * 
    * @example
    * yPkgBbQln0gmUnIZSGizGw==

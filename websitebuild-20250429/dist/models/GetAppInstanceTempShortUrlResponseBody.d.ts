@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The expiration time in UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
+     * The expiration time in UTC format yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\".
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
      *

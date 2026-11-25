@@ -10,7 +10,7 @@ export declare class CreateRbacPermissionResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether a retry is allowed.
+     * Indicates whether retry is allowed.
      *
      * @example
      * False
@@ -18,7 +18,7 @@ export declare class CreateRbacPermissionResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name.
+     * The app name.
      *
      * @example
      * spring-cloud-b

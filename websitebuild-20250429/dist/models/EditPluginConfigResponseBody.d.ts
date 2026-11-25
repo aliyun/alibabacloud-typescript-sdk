@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class EditPluginConfigResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason why access was denied.
+     * The detailed reasons for the access denial.
      *
      * @example
      * {}
@@ -10,7 +10,7 @@ export declare class EditPluginConfigResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retry is allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -18,7 +18,7 @@ export declare class EditPluginConfigResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name. The name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
+     * The application name. It must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
      *
      * @example
      * spring-cloud-b
@@ -26,7 +26,7 @@ export declare class EditPluginConfigResponseBody extends $dara.Model {
     appName?: string;
     /**
      * @remarks
-     * The dynamic code. This parameter is not in use. Ignore this parameter.
+     * The dynamic error code. This field is currently unused and can be ignored.
      *
      * @example
      * ERROR-oo1
@@ -74,12 +74,12 @@ export declare class EditPluginConfigResponseBody extends $dara.Model {
      * The exception message.
      *
      * @example
-     * 系统异常
+     * System exception
      */
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the request is synchronously processed.
+     * Indicates whether the request is processed synchronously.
      *
      * @example
      * True

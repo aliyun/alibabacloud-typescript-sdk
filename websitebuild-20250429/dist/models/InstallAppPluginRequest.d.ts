@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class InstallAppPluginRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the gateway plugin.
+     * The ID of the gateway plug-in.
      *
      * @example
      * 1bae9ceaceea432d91c7069fab0dfc02
@@ -10,7 +10,7 @@ export declare class InstallAppPluginRequest extends $dara.Model {
     pluginId?: string;
     /**
      * @remarks
-     * The locked version. If left empty, the latest version is used.
+     * The locked version. If this parameter is left empty, the latest version is used.
      *
      * @example
      * 1.0.7

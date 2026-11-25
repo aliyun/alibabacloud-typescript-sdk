@@ -3,7 +3,7 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 export declare class GetAppInstanceForAdminResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The details of the permission check failure.
+     * The details of the access denial.
      *
      * @example
      * {}

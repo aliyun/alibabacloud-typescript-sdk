@@ -13,12 +13,13 @@ export class GetAppPublishStatusRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The deployment ticket ID.
+   * The deployment order ID.
    * 
    * @example
    * 4998717
    */
   deployOrderId?: number;
+  publishOrderId?: number;
   /**
    * @remarks
    * The website domain name.
@@ -31,6 +32,7 @@ export class GetAppPublishStatusRequest extends $dara.Model {
     return {
       bizId: 'BizId',
       deployOrderId: 'DeployOrderId',
+      publishOrderId: 'PublishOrderId',
       websiteDomain: 'WebsiteDomain',
     };
   }
@@ -39,6 +41,7 @@ export class GetAppPublishStatusRequest extends $dara.Model {
     return {
       bizId: 'string',
       deployOrderId: 'number',
+      publishOrderId: 'number',
       websiteDomain: 'string',
     };
   }

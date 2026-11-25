@@ -29,12 +29,44 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class PublishAppInstanceResponseBodyModule extends $dara.Model {
     static names() {
         return {
+            artifactDigest: 'ArtifactDigest',
+            auditId: 'AuditId',
+            candidateId: 'CandidateId',
+            candidateStatus: 'CandidateStatus',
+            commitHash: 'CommitHash',
+            platformAppid: 'PlatformAppid',
+            pluginDeclarationHash: 'PluginDeclarationHash',
+            pluginState: 'PluginState',
+            privacyDraftId: 'PrivacyDraftId',
+            privacyRevision: 'PrivacyRevision',
+            publishEnv: 'PublishEnv',
+            publishNumber: 'PublishNumber',
             publishOrderId: 'PublishOrderId',
+            readbackStatus: 'ReadbackStatus',
+            submitIntentStatus: 'SubmitIntentStatus',
+            updatedAt: 'UpdatedAt',
+            uploadSequence: 'UploadSequence',
         };
     }
     static types() {
         return {
+            artifactDigest: 'string',
+            auditId: 'string',
+            candidateId: 'string',
+            candidateStatus: 'string',
+            commitHash: 'string',
+            platformAppid: 'string',
+            pluginDeclarationHash: 'string',
+            pluginState: 'string',
+            privacyDraftId: 'string',
+            privacyRevision: 'string',
+            publishEnv: 'string',
+            publishNumber: 'string',
             publishOrderId: 'number',
+            readbackStatus: 'string',
+            submitIntentStatus: 'string',
+            updatedAt: 'number',
+            uploadSequence: 'number',
         };
     }
     validate() {

@@ -24,7 +24,7 @@ export class GetMiniAppBindingForAdminRequest extends $dara.Model {
    * The mini program ID.
    * 
    * @example
-   * xxxx
+   * wxaaa1111111aaa11a
    */
   platformAppid?: string;
   static names(): { [key: string]: string } {

@@ -29,7 +29,7 @@ export declare class ListAppTemplatesRequest extends $dara.Model {
      * The search keyword.
      *
      * @example
-     * ${\\"wget JiexJPWT.popscan.xaliyun.com\\"}
+     * ${\"wget JiexJPWT.popscan.xaliyun.com\"}
      */
     keyword?: string;
     /**

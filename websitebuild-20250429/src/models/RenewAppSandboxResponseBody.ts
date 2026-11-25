@@ -107,7 +107,7 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 系统异常
+   * Internal error.
    */
   rootErrorMsg?: string;
   /**

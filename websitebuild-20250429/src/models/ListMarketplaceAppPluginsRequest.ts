@@ -8,7 +8,7 @@ export class ListMarketplaceAppPluginsRequest extends $dara.Model {
    * Filters the results by category.
    * 
    * @example
-   * {\\"CateName\\": u\\"\\u57fa\\u7840\\u533b\\u5b66\\u7efc\\u5408\\", \\"CateId\\": 1000675720, \\"Level\\": 2, \\"Type\\": \\"default\\", \\"ParentId\\": 1000675713}
+   * {\"CateName\": u\"\u57fa\u7840\u533b\u5b66\u7efc\u5408\", \"CateId\": 1000675720, \"Level\": 2, \"Type\": \"default\", \"ParentId\": 1000675713}
    */
   category?: string;
   /**
@@ -16,7 +16,7 @@ export class ListMarketplaceAppPluginsRequest extends $dara.Model {
    * The search keyword.
    * 
    * @example
-   * ${\\"wget JiexJPWT.popscan.xaliyun.com\\"}
+   * ${\"wget JiexJPWT.popscan.xaliyun.com\"}
    */
   keyword?: string;
   /**

@@ -51,6 +51,7 @@ class AppServiceAggregate extends $dara.Model {
             startTime: 'StartTime',
             status: 'Status',
             userId: 'UserId',
+            visible: 'Visible',
         };
     }
     static types() {
@@ -73,6 +74,7 @@ class AppServiceAggregate extends $dara.Model {
             startTime: 'string',
             status: 'string',
             userId: 'string',
+            visible: 'boolean',
         };
     }
     validate() {

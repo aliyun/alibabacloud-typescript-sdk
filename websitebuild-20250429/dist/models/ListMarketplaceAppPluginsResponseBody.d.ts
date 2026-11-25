@@ -125,7 +125,7 @@ export declare class ListMarketplaceAppPluginsResponseBodyModuleNext extends $da
      * - cloud_essd: ESSD.
      *
      * @example
-     * {\\"Status\\": 0, \\"Name\\": u\\"\\u81ea\\u52a8\\u521b\\u5efacom.alibaba.cloudrobot.apitest.resource.AbstractResource1773800213419\\", \\"BizCode\\": \\"\\", \\"CategoryId\\": 30000941833, \\"ParentCategoryId\\": 30000941832}
+     * {\"Status\": 0, \"Name\": u\"\u81ea\u52a8\u521b\u5efacom.alibaba.cloudrobot.apitest.resource.AbstractResource1773800213419\", \"BizCode\": \"\", \"CategoryId\": 30000941833, \"ParentCategoryId\": 30000941832}
      */
     category?: string;
     /**

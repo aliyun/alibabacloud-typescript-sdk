@@ -13,7 +13,7 @@ export declare class UpdateAppPluginRequest extends $dara.Model {
      * The configuration form in React JSON Schema format.
      *
      * @example
-     * ***
+     * {"type":"object","properties":{"label":{"type":"string","title":"Display name"}}}
      */
     configItems?: string;
     /**
@@ -26,7 +26,7 @@ export declare class UpdateAppPluginRequest extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The additional extension information in JSON format for subsequent parameter extensions.
+     * The additional extension information in JSON format to facilitate subsequent parameter extensions.
      *
      * @example
      * {}
@@ -42,7 +42,7 @@ export declare class UpdateAppPluginRequest extends $dara.Model {
     hooks?: string;
     /**
      * @remarks
-     * The description of the plugin.
+     * The description of the plug-in.
      *
      * @example
      * https://img.alicdn.com/imgextra/i4/O1CN01ANcLnQ1bCX7tZPVMJ_!!6000000003429-2-tps-100-100.png
@@ -50,7 +50,7 @@ export declare class UpdateAppPluginRequest extends $dara.Model {
     icon?: string;
     /**
      * @remarks
-     * The ID of the gateway plugin.
+     * The ID of the gateway plug-in.
      *
      * @example
      * 1bae9ceaceea432d91c7069fab0dfc02
@@ -58,7 +58,7 @@ export declare class UpdateAppPluginRequest extends $dara.Model {
     pluginId?: string;
     /**
      * @remarks
-     * The name of the plugin.
+     * The name of the plug-in.
      *
      * @example
      * alisecguard
@@ -66,7 +66,7 @@ export declare class UpdateAppPluginRequest extends $dara.Model {
     pluginName?: string;
     /**
      * @remarks
-     * The plugin version.
+     * The plug-in version.
      *
      * @example
      * v2

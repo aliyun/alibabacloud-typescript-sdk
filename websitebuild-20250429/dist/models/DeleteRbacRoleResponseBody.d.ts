@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteRbacRoleResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The detailed reasons for access denial.
      *
      * @example
      * {}
@@ -10,9 +10,9 @@ export declare class DeleteRbacRoleResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether retries are allowed. Valid values:
-     * - false: Retries are not allowed.
-     * - true: Retries are allowed.
+     * Specifies whether a retry is allowed. Valid values:
+     * - false: A retry is not allowed.
+     * - true: A retry is allowed.
      *
      * @example
      * False
@@ -20,7 +20,7 @@ export declare class DeleteRbacRoleResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+     * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
      *
      * @example
      * spring-cloud-b
@@ -36,8 +36,8 @@ export declare class DeleteRbacRoleResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the request parameter **DtsJobId** is invalid.
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR

@@ -10,7 +10,7 @@ export declare class ListRbacPermissionsRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The number of entries to return in each query.
+     * The number of results returned per query.
      *
      * Valid values: 10 to 100. Default value: 20.
      *
@@ -20,7 +20,7 @@ export declare class ListRbacPermissionsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The token that is used to start the next query. This parameter is empty if no next query exists.
+     * The token used to start the next query. This parameter is empty if no next query exists.
      *
      * @example
      * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM

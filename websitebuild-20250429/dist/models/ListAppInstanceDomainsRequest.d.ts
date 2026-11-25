@@ -10,7 +10,7 @@ export declare class ListAppInstanceDomainsRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The domain name keyword for fuzzy match. This parameter is optional.
+     * The domain name keyword used for fuzzy match.
      *
      * @example
      * example.com
@@ -18,7 +18,7 @@ export declare class ListAppInstanceDomainsRequest extends $dara.Model {
     domainKeyword?: string;
     /**
      * @remarks
-     * The domain name management type. Valid values: CUSTOM and PLATFORM_PREFIX. If this parameter is not specified, the default value is CUSTOM.
+     * The domain name management type. Valid values: CUSTOM and PLATFORM_PREFIX. Default value: CUSTOM.
      *
      * @example
      * CUSTOM
@@ -26,9 +26,7 @@ export declare class ListAppInstanceDomainsRequest extends $dara.Model {
     domainType?: string;
     /**
      * @remarks
-     * The number of entries to return for a single query.
-     *
-     * Valid values: 10 to 100. Default value: 20.
+     * The maximum number of entries to return in a single query. Valid values: 10 to 100. Default value: 20.
      *
      * @example
      * 50
@@ -36,7 +34,7 @@ export declare class ListAppInstanceDomainsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The token used to start the next query. If no next query is available, this value is empty.
+     * The token used to start the next query. If no next query exists, this value is empty.
      *
      * @example
      * 0l45bkwM022Dt+rOvPi/oQ==
@@ -76,7 +74,7 @@ export declare class ListAppInstanceDomainsRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The query mode for the domain name status. Valid values: BASIC and REALTIME. BASIC returns only the persisted status. REALTIME refreshes the status from external services. If this parameter is not specified, the default value is REALTIME.
+     * The domain name status query mode. Valid values: BASIC and REALTIME. BASIC returns only the persisted status. REALTIME refreshes the status from external services. Default value: REALTIME.
      *
      * @example
      * REALTIME

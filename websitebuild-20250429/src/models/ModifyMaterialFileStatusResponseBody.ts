@@ -21,7 +21,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the app.
+   * The app name.
    * 
    * @example
    * or
@@ -29,7 +29,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not used and can be ignored.
+   * The dynamic code. This field is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -50,7 +50,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the update was successful.
+   * Indicates whether the modification was successful.
    * 
    * @example
    * true
@@ -82,7 +82,7 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Specifies whether the processing is synchronous.
    * 
    * @example
    * True

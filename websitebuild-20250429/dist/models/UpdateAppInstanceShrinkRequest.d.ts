@@ -18,7 +18,7 @@ export declare class UpdateAppInstanceShrinkRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
+     * The client token that is used to ensure the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The client token supports only ASCII characters and can be up to 64 characters in length.
      *
      * @example
      * 123
@@ -45,12 +45,12 @@ export declare class UpdateAppInstanceShrinkRequest extends $dara.Model {
      * The extended information.
      *
      * @example
-     * {\\"user_device_id\\":\\"6bef45cb0c76de284d24de074c088b73\\"}\\n
+     * {\"user_device_id\":\"6bef45cb0c76de284d24de074c088b73\"}\n
      */
     extend?: string;
     /**
      * @remarks
-     * The application icon URL.
+     * The application icon.
      *
      * @example
      * https://app-center-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/1864953777494693/1753841032702_WX20250729-171155%402x.png
@@ -61,7 +61,7 @@ export declare class UpdateAppInstanceShrinkRequest extends $dara.Model {
      * The application name.
      *
      * @example
-     * 大角鹿
+     * Dajiaolu
      */
     name?: string;
     /**
@@ -74,7 +74,7 @@ export declare class UpdateAppInstanceShrinkRequest extends $dara.Model {
     paymentType?: string;
     /**
      * @remarks
-     * The ID of the resource group to which the instance belongs.
+     * The ID of the enterprise resource group to which the instance belongs.
      *
      * @example
      * rg-aek3cqkrqibqkby
@@ -95,7 +95,7 @@ export declare class UpdateAppInstanceShrinkRequest extends $dara.Model {
     tagsShrink?: string;
     /**
      * @remarks
-     * The application thumbnail URL.
+     * The application thumbnail.
      *
      * @example
      * http://www.aliyun.com

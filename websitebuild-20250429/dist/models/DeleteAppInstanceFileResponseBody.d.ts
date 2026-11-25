@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteAppInstanceFileResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The details of the permission verification failure.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -10,7 +10,7 @@ export declare class DeleteAppInstanceFileResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether a retry is allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -18,7 +18,7 @@ export declare class DeleteAppInstanceFileResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name can be up to 36 characters in length.
+     * The application name. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
      *
      * @example
      * or
@@ -34,8 +34,8 @@ export declare class DeleteAppInstanceFileResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -43,7 +43,7 @@ export declare class DeleteAppInstanceFileResponseBody extends $dara.Model {
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error parameters returned.
+     * The returned error parameters.
      */
     errorArgs?: any[];
     /**
@@ -75,12 +75,12 @@ export declare class DeleteAppInstanceFileResponseBody extends $dara.Model {
      * The exception message.
      *
      * @example
-     * 系统异常
+     * System exception
      */
     rootErrorMsg?: string;
     /**
      * @remarks
-     * A reserved parameter.
+     * The reserved parameter.
      *
      * @example
      * True

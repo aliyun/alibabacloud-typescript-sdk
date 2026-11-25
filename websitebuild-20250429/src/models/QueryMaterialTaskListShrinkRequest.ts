@@ -8,14 +8,12 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
    * The ID of the business group.
    * 
    * @example
-   * xx
+   * GROUP_1
    */
   bizGroupId?: string;
   /**
    * @remarks
-   * The number of entries per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of entries to return for a single request. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -23,7 +21,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. If no next query is available, this parameter is left empty.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -31,7 +29,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field used for sorting.
+   * The field by which to sort the results.
    * 
    * @example
    * gmtCreated
@@ -39,7 +37,7 @@ export class QueryMaterialTaskListShrinkRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort order.
    * 
    * @example
    * DESC

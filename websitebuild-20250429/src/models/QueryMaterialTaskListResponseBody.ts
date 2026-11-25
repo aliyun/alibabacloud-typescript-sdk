@@ -14,7 +14,7 @@ export class QueryMaterialTaskListResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request result.
+   * The query results.
    */
   data?: AppMaterialTask[];
   /**
@@ -27,7 +27,7 @@ export class QueryMaterialTaskListResponseBodyModule extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -43,7 +43,7 @@ export class QueryMaterialTaskListResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
    * 
    * @example
    * False
@@ -106,7 +106,7 @@ export class QueryMaterialTaskListResponseBodyModule extends $dara.Model {
 export class QueryMaterialTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -114,9 +114,9 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed. Valid values:
-   * - false: No retry is allowed.
-   * - true: A retry is allowed.
+   * Indicates whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -124,7 +124,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * or
@@ -140,7 +140,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. Currently not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -148,12 +148,12 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -169,9 +169,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The number of entries per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of entries to return for a single request. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -184,7 +182,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   module?: QueryMaterialTaskListResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. If no next query is available, this parameter is left empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -200,7 +198,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -208,7 +206,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
    * System exception
@@ -216,7 +214,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -224,7 +222,7 @@ export class QueryMaterialTaskListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether synchronous processing is used.
    * 
    * @example
    * True

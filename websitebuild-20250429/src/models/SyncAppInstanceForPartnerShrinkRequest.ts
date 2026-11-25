@@ -34,7 +34,7 @@ export class SyncAppInstanceForPartnerShrinkRequest extends $dara.Model {
   sourceBizId?: string;
   /**
    * @remarks
-   * The source. Set this parameter to MARKET_CLOUD_DREAM.
+   * The source type. Valid value: MARKET_CLOUD_DREAM.
    * 
    * @example
    * MARKET_CLOUD_DREAM

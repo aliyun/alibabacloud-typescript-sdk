@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The time when the access token expires.
+   * The expiration time of the access token.
    * 
    * @example
    * 1768619049924
@@ -13,7 +13,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   accessTokenExpiresAt?: string;
   /**
    * @remarks
-   * The time when the access token was issued.
+   * The issuance time of the access token.
    * 
    * @example
    * 1768619049924
@@ -21,7 +21,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   accessTokenIssuedAt?: string;
   /**
    * @remarks
-   * The access token value.
+   * The value of the access token.
    * 
    * @example
    * be9750d595b6cd7c93a80b46
@@ -40,7 +40,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
    * The extended attributes.
    * 
    * @example
-   * {\\"resourceGroupId\\":\\"\\",\\"page\\":1,\\"size\\":10,\\"selected\\":\\"[\\\\\\"kvstore\\\\\\"]\\"}
+   * {\"resourceGroupId\":\"\",\"page\":1,\"size\":10,\"selected\":\"[\\\"kvstore\\\"]\"}
    */
   attributes?: string;
   /**
@@ -69,7 +69,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   parentPk?: string;
   /**
    * @remarks
-   * The time when the refresh token expires.
+   * The expiration time of the refresh token.
    * 
    * @example
    * 1768619049924
@@ -77,7 +77,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   refreshTokenExpiresAt?: string;
   /**
    * @remarks
-   * The time when the refresh token was issued.
+   * The issuance time of the refresh token.
    * 
    * @example
    * 1768619049924
@@ -85,7 +85,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   refreshTokenIssuedAt?: string;
   /**
    * @remarks
-   * The refresh token value.
+   * The value of the refresh token.
    * 
    * @example
    * be9750d595b6cd7c93a80b46
@@ -145,7 +145,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
 export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reasons for access denial.
+   * The detailed reasons for the access denial.
    * 
    * @example
    * {}
@@ -161,7 +161,7 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * spring-cloud-b
@@ -177,7 +177,8 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERRROR

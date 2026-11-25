@@ -22,7 +22,7 @@ export declare class UploadMaterialFileRequest extends $dara.Model {
     directoryId?: string;
     /**
      * @remarks
-     * The file path.
+     * The path of the file.
      *
      * @example
      * http://docmind-api-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/4a7f_209934244261306272_14fd429b731245a79f291c64acf3ac77
@@ -30,7 +30,7 @@ export declare class UploadMaterialFileRequest extends $dara.Model {
     fileUrl?: string;
     /**
      * @remarks
-     * The file name.
+     * The name of the file.
      *
      * @example
      * Test file

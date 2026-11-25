@@ -40,7 +40,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
    * The extended information in JSON string format.
    * 
    * @example
-   * {\\"MD5\\":\\"296f6c01e7fea2697ffe1cf41082b774\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
+   * {\"MD5\":\"296f6c01e7fea2697ffe1cf41082b774\",\"driver\":\"vhd\",\"flag\":\"12845825\",\"imds_support\":\"v1\",\"io_optimized\":true,\"nvme_supported\":true,\"uefi_preferred\":false}
    */
   metaData?: string;
   /**
@@ -130,7 +130,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.
    * The extended information in JSON string format.
    * 
    * @example
-   * {\\"MD5\\":\\"1042e65a2b7cdd3059b6a873ee1a3260\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
+   * {\"MD5\":\"1042e65a2b7cdd3059b6a873ee1a3260\",\"driver\":\"vhd\",\"flag\":\"12845825\",\"imds_support\":\"v1\",\"io_optimized\":true,\"nvme_supported\":true,\"uefi_preferred\":false}
    */
   metaData?: string;
   /**

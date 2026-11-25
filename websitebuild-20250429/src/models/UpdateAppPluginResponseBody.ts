@@ -13,7 +13,7 @@ export class UpdateAppPluginResponseBodyModule extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Specifies whether the operation is successful.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class UpdateAppPluginResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -61,7 +61,7 @@ export class UpdateAppPluginResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application. It must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
+   * The application name must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
    * 
    * @example
    * dewuApp
@@ -69,7 +69,7 @@ export class UpdateAppPluginResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not used and can be ignored.
+   * The dynamic code. This parameter is currently unused and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -90,7 +90,7 @@ export class UpdateAppPluginResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the move was successful.
+   * Specifies whether the move operation is successful.
    */
   module?: UpdateAppPluginResponseBodyModule;
   /**
@@ -119,7 +119,7 @@ export class UpdateAppPluginResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Specifies whether the processing is synchronous.
    * 
    * @example
    * True

@@ -31,6 +31,7 @@ class GetAppPublishStatusRequest extends $dara.Model {
         return {
             bizId: 'BizId',
             deployOrderId: 'DeployOrderId',
+            publishOrderId: 'PublishOrderId',
             websiteDomain: 'WebsiteDomain',
         };
     }
@@ -38,6 +39,7 @@ class GetAppPublishStatusRequest extends $dara.Model {
         return {
             bizId: 'string',
             deployOrderId: 'number',
+            publishOrderId: 'number',
             websiteDomain: 'string',
         };
     }

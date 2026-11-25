@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListMyAppPluginsRequest extends $dara.Model {
   /**
    * @remarks
-   * The category used to filter results.
+   * Filters the results by category.
    * 
    * @example
-   * {\\"Status\\": 0, \\"Name\\": \\"JGHDDLT\\", \\"BizCode\\": \\"\\", \\"CategoryId\\": 30000952447, \\"ParentCategoryId\\": 30000952446}
+   * {\"Status\": 0, \"Name\": \"JGHDDLT\", \"BizCode\": \"\", \"CategoryId\": 30000952447, \"ParentCategoryId\": 30000952446}
    */
   category?: string;
   /**
    * @remarks
-   * The search keyword. The keyword matches the name or description.
+   * The search keyword, which matches the name or description.
    * 
    * @example
-   * ${\\"wget JiexJPWT.popscan.xaliyun.com\\"}
+   * ${\"wget JiexJPWT.popscan.xaliyun.com\"}
    */
   keyword?: string;
   /**
@@ -37,7 +37,7 @@ export class ListMyAppPluginsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status used to filter results.
+   * Filters the results by status.
    * 
    * @example
    * NORMAL

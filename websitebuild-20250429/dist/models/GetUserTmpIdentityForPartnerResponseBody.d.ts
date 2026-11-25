@@ -18,7 +18,7 @@ export declare class GetUserTmpIdentityForPartnerResponseBodyDataCredentials ext
     encryptedAccessKeySecret?: string;
     /**
      * @remarks
-     * The encrypted STS token.
+     * The encrypted Security Token Service (STS) token.
      *
      * @example
      * 7t2Rzt37ND7-xxx
@@ -26,7 +26,7 @@ export declare class GetUserTmpIdentityForPartnerResponseBodyDataCredentials ext
     encryptedSecurityToken?: string;
     /**
      * @remarks
-     * The estimated expiration time of the credential.
+     * The expected expiration time of the credentials.
      *
      * @example
      * 2025-04-29T14:00:00Z
@@ -46,12 +46,12 @@ export declare class GetUserTmpIdentityForPartnerResponseBodyDataCredentials ext
 export declare class GetUserTmpIdentityForPartnerResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The security token.
+     * The security credentials.
      */
     credentials?: GetUserTmpIdentityForPartnerResponseBodyDataCredentials;
     /**
      * @remarks
-     * Indicates whether the customer authorization has been obtained.
+     * Indicates whether customer authorization has been obtained.
      */
     hasCustomRoleAuth?: boolean;
     static names(): {
@@ -73,7 +73,7 @@ export declare class GetUserTmpIdentityForPartnerResponseBody extends $dara.Mode
     data?: GetUserTmpIdentityForPartnerResponseBodyData;
     /**
      * @remarks
-     * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+     * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
      *
      * @example
      * 0
@@ -97,7 +97,7 @@ export declare class GetUserTmpIdentityForPartnerResponseBody extends $dara.Mode
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublishAppInstanceRequest extends $dara.Model {
+  artifactDigest?: string;
   /**
    * @remarks
    * The business ID.
@@ -11,6 +12,7 @@ export class PublishAppInstanceRequest extends $dara.Model {
    * WD20250821161210000001
    */
   bizId?: string;
+  candidateId?: string;
   /**
    * @remarks
    * The deployment channel.
@@ -27,6 +29,8 @@ export class PublishAppInstanceRequest extends $dara.Model {
    * CREATE_BY_NLB.nlb-jcvs5sm9l8um84zbfa
    */
   description?: string;
+  ext?: string;
+  idempotencyKey?: string;
   /**
    * @remarks
    * The logical version number.
@@ -35,6 +39,10 @@ export class PublishAppInstanceRequest extends $dara.Model {
    * 111
    */
   logicalNumber?: number;
+  platformAppid?: string;
+  pluginDeclarationHash?: string;
+  privacyDraftId?: string;
+  privacyRevision?: string;
   /**
    * @remarks
    * The publish number.
@@ -43,6 +51,8 @@ export class PublishAppInstanceRequest extends $dara.Model {
    * 123
    */
   publishNumber?: string;
+  publishOrderId?: number;
+  uploadSequence?: number;
   /**
    * @remarks
    * The action.
@@ -53,22 +63,42 @@ export class PublishAppInstanceRequest extends $dara.Model {
   weappAction?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactDigest: 'ArtifactDigest',
       bizId: 'BizId',
+      candidateId: 'CandidateId',
       deployChannel: 'DeployChannel',
       description: 'Description',
+      ext: 'Ext',
+      idempotencyKey: 'IdempotencyKey',
       logicalNumber: 'LogicalNumber',
+      platformAppid: 'PlatformAppid',
+      pluginDeclarationHash: 'PluginDeclarationHash',
+      privacyDraftId: 'PrivacyDraftId',
+      privacyRevision: 'PrivacyRevision',
       publishNumber: 'PublishNumber',
+      publishOrderId: 'PublishOrderId',
+      uploadSequence: 'UploadSequence',
       weappAction: 'WeappAction',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      artifactDigest: 'string',
       bizId: 'string',
+      candidateId: 'string',
       deployChannel: 'string',
       description: 'string',
+      ext: 'string',
+      idempotencyKey: 'string',
       logicalNumber: 'number',
+      platformAppid: 'string',
+      pluginDeclarationHash: 'string',
+      privacyDraftId: 'string',
+      privacyRevision: 'string',
       publishNumber: 'string',
+      publishOrderId: 'number',
+      uploadSequence: 'number',
       weappAction: 'string',
     };
   }

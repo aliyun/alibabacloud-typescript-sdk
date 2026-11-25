@@ -1,5 +1,8 @@
 import * as $dara from '@darabonba/typescript';
 export declare class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model {
+    artifactDigest?: string;
+    auditId?: string;
+    bindingId?: string;
     /**
      * @remarks
      * Specifies whether quick rollback is supported.
@@ -8,6 +11,8 @@ export declare class ListAppPublishHistoryResponseBodyModuleHistory extends $dar
      * true
      */
     canQuickRevert?: string;
+    candidateId?: string;
+    candidateStatus?: string;
     /**
      * @remarks
      * The commit hash of the code.
@@ -111,6 +116,13 @@ export declare class ListAppPublishHistoryResponseBodyModuleHistory extends $dar
      * true
      */
     percent?: number;
+    platformAppid?: string;
+    pluginDeclarationHash?: string;
+    pluginState?: string;
+    privacyDraftId?: string;
+    privacyRevision?: string;
+    publishDiagnostics?: string;
+    publishEnv?: string;
     /**
      * @remarks
      * The release number.
@@ -129,7 +141,7 @@ export declare class ListAppPublishHistoryResponseBodyModuleHistory extends $dar
     publishOrderId?: number;
     /**
      * @remarks
-     * The release time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
+     * The release time in the UTC format yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\".
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
      *
@@ -137,6 +149,7 @@ export declare class ListAppPublishHistoryResponseBodyModuleHistory extends $dar
      * 2026
      */
     publishTime?: string;
+    readbackStatus?: string;
     /**
      * @remarks
      * The list of release step codes.
@@ -155,6 +168,12 @@ export declare class ListAppPublishHistoryResponseBodyModuleHistory extends $dar
      * wx0123456789abcdef
      */
     subchannel?: string;
+    submitIntentStatus?: string;
+    updatedAt?: number;
+    uploadAttemptId?: string;
+    uploadLeaseState?: string;
+    uploadSequence?: number;
+    uploadTicketState?: string;
     static names(): {
         [key: string]: string;
     };

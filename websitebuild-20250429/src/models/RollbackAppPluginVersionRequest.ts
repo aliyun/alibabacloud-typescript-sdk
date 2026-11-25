@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackAppPluginVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway plugin.
+   * The ID of the gateway plug-in.
    * 
    * @example
    * 1bae9ceaceea432d91c7069fab0dfc02
@@ -13,7 +13,7 @@ export class RollbackAppPluginVersionRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The target version.
+   * The target version number.
    * 
    * @example
    * v2

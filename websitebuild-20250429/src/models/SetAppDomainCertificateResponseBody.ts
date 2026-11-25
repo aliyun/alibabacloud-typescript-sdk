@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAppDomainCertificateResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -35,7 +35,7 @@ export class SetAppDomainCertificateResponseBodyModule extends $dara.Model {
 export class SetAppDomainCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether to allow retries. Valid values:
+   * Specifies whether retries are allowed. Valid values:
    * - false: Retries are not allowed.
    * - true: Retries are allowed.
    * 
@@ -72,12 +72,12 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
    * The dynamic message.
    * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/uoa11auyf2565k6/uoa11auyf2565k6.sql.zip?Expires=1730520371&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=WIutxAQYbbwxX0aeKmdObduLnDg%3D
+   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/uoa11auyf2565k6/uoa11auyf2565k6.sql.zip?Expires=1730520371&OSSAccessKeyId=LTAI5tKUEr****M4ev9SELNb&Signature=WIutxAQYbbwxX****mdObduLnDg%3D
    */
   dynamicMessage?: string;
   /**
    * @remarks
-   * The returned error parameters.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
@@ -111,7 +111,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Specifies whether the request is processed synchronously.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

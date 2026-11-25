@@ -53,10 +53,10 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The extra information.
+   * The additional information.
    * 
    * @example
-   * {\\"appId\\":\\"APP_NTJAK8P11SNZDJ3M6BWC\\"}
+   * {\"appId\":\"APP_NTJAK8P11SNZDJ3M6BWC\"}
    */
   extra?: string;
   /**
@@ -77,10 +77,10 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   instanceCreateStatus?: string;
   /**
    * @remarks
-   * The deletion flag.
+   * Indicates whether the instance is deleted.
    * 
    * @example
-   * false
+   * 0
    */
   isDeleted?: number;
   /**
@@ -93,7 +93,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   rdsDatabasePassword?: string;
   /**
    * @remarks
-   * The read-only business schema name parsed by the Builder trusted binding. This name cannot be used as input for tenant switching.
+   * The read-only business schema name parsed by the Builder trusted binding. This parameter cannot be used as the input for switching tenants.
    * 
    * @example
    * tenant_00000000-0000-4000-8000-000000000001_schema
@@ -109,10 +109,10 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   serviceKey?: string;
   /**
    * @remarks
-   * The status. Valid values: 0 (Paused) and 1 (Running).
+   * The instance status. Valid values: 0: Paused. 1: Running.
    * 
    * @example
-   * NORMAL
+   * 1
    */
   status?: number;
   /**
@@ -173,7 +173,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabasePublicIp?: string;
   /**
    * @remarks
-   * The public URL of Supabase.
+   * The public URL of the Supabase instance.
    * 
    * @example
    * 111
@@ -189,7 +189,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The read-only tenant mode: schema indicates the legacy Builder pool, and db or agenticdb indicates the new platform. The history record can be empty.
+   * The read-only tenant mode. A value of schema indicates the legacy Builder pool, and a value of db or agenticdb indicates the new platform. Historical records can be empty.
    * 
    * @example
    * schema
@@ -275,7 +275,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
 export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission check failure.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -291,7 +291,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * or

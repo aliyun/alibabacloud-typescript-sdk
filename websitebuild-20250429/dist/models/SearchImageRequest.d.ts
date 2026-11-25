@@ -19,9 +19,9 @@ export declare class SearchImageRequest extends $dara.Model {
     /**
      * @remarks
      * The image category. Valid values:
-     * - normal: illustrations or article images.
-     * - banner: background images or carousel images.
-     * - goods: product or service images.
+     * - normal: Illustrations and article images.
+     * - banner: Background images and carousel images.
+     * - goods: Product or service images.
      *
      * @example
      * WindowsWithMssqlStdLicense
@@ -30,12 +30,12 @@ export declare class SearchImageRequest extends $dara.Model {
     /**
      * @remarks
      * The aspect ratio of the image. Valid values:
-     * "16:9"
-     * "4:3"
-     * "2:1"
-     * "1:1"
-     * "3:4"
-     * "9:16".
+     * - "16:9"
+     * - "4:3"
+     * - "2:1"
+     * - "1:1"
+     * - "3:4"
+     * - "9:16"
      *
      * @example
      * 16:9
@@ -51,7 +51,7 @@ export declare class SearchImageRequest extends $dara.Model {
     maxHeight?: number;
     /**
      * @remarks
-     * The number of entries per page for paging queries. Maximum value: 100. Default value: 20.
+     * The number of entries per page for a paged query. Maximum value: 100. Default value: 20.
      *
      * @example
      * 500
@@ -83,7 +83,7 @@ export declare class SearchImageRequest extends $dara.Model {
     minWidth?: number;
     /**
      * @remarks
-     * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request. If NextToken is specified, the PageSize and PageNumber request parameters do not take effect, and the TotalCount value in the response is invalid.
+     * The query token. Set the value to the NextToken value returned from the previous call to this operation. You do not need to set this parameter for the first call. If NextToken is set, the PageSize and PageNumber request parameters become invalid, and the TotalCount value in the response is invalid.
      *
      * @example
      * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -99,7 +99,7 @@ export declare class SearchImageRequest extends $dara.Model {
     ossKey?: string;
     /**
      * @remarks
-     * The number of returned results. Default value: 10.
+     * The number of results to return. Default value: 10.
      *
      * @example
      * 10
@@ -107,7 +107,7 @@ export declare class SearchImageRequest extends $dara.Model {
     size?: number;
     /**
      * @remarks
-     * The start position of the returned results. Valid values: 0 to 499. Default value: 0.
+     * The starting position of the returned results. Valid values: 0 to 499. Default value: 0.
      *
      * @example
      * 0
@@ -120,12 +120,10 @@ export declare class SearchImageRequest extends $dara.Model {
     tags?: string[];
     /**
      * @remarks
-     * The description text used to search for images.
-     *
-     * >Maximum length: 512 characters.
+     * The descriptive text used to search for images. A maximum of 512 characters are supported.
      *
      * @example
-     * 卫浴五金产品，表面采用拉丝不锈钢材质，整体色调为现代银灰色，呈现简约且富有质感的风格。产品包括淋浴花洒、水龙头及毛巾架等配件，均具备防锈、耐腐蚀性能，适用于潮湿环境。各部件连接处设计精密，配有隐藏式螺丝结构，提升整体美观度。水龙头和花洒喷头支持多模式出水，把手操作顺滑，符合人体工学设计。所有五金件通过国家节水认证，支持冷热水接入，安装方式为壁挂式。
+     * Bathroom hardware products, featuring a brushed stainless steel surface with an overall modern silver-gray tone, presenting a minimalist and textured style. The products include accessories such as showerheads, faucets, and towel racks, all of which are rust-proof and corrosion-resistant, making them suitable for humid environments. The joints between components are precisely designed with hidden screw structures to enhance overall aesthetics. The faucets and showerheads support multiple water flow modes, and the handles operate smoothly, conforming to ergonomic design. All hardware fittings have passed the national water-saving certification, support both cold and hot water connections, and are wall-mounted
      */
     text?: string;
     static names(): {

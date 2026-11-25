@@ -10,6 +10,9 @@ export declare class QuerySupabaseAuthConfigsForAdminResponseBodyModule extends 
      * - http_acl_policy: Accurate Access Control.
      * - bot_manager: Bot traffic management.
      * - ip_reputation: IP reputation library.
+     *
+     * @example
+     * {"SMS_ALIYUN_SIGN_NAME":"示例签名"}
      */
     configs?: {
         [key: string]: any;

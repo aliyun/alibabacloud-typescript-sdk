@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The application type. Valid values: 
-   * - PC_WebSite: web application. 
-   * - Mini_Program: mini program. 
-   * If this parameter is not specified or left empty, applications are not filtered by type. For compatibility, historical missing, NULL, or empty types are treated as PC_WebSite.
+   * The application type. Valid values:
+   * - PC_WebSite: web application.
+   * - Mini_Program: mini program.
+   * If this parameter is not specified or is left empty, no filtering by type is performed. Historical missing, NULL, or empty types are compatible with PC_WebSite.
    * 
    * @example
    * PC_WebSite
@@ -27,6 +27,14 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
    * The list of business IDs for the application instances.
    */
   bizIdsShrink?: string;
+  /**
+   * @remarks
+   * Used only in the CONTENT_CREATION pattern: exact match for the fully attached domain name, mutually exclusive with Query. It does not include the protocol, port, or path.
+   * 
+   * @example
+   * www.example.com
+   */
+  domain?: string;
   /**
    * @remarks
    * The expiration start time.
@@ -53,7 +61,9 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The maximum number of results returned per query. Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results per query.
+   * 
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -61,7 +71,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. This parameter is empty if no next query exists.
+   * The token for the next query. It is empty when there is no next query.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -104,13 +114,12 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
    * The query parameter.
    * 
    * @example
-   * {\\"RequestId\\":\\"\\"}
+   * {\"RequestId\":\"\"}
    */
   query?: string;
   /**
    * @remarks
-   * The query mode. Valid values: 
-   * - CONTENT_CREATION: specifies a lightweight query for the content creation site selector. It queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
+   * The query mode. CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregate information such as Profile, services, or AI Staff.
    * 
    * @example
    * CONTENT_CREATION
@@ -118,7 +127,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   queryMode?: string;
   /**
    * @remarks
-   * The status range.
+   * The status scope.
    */
   statusListShrink?: string;
   static names(): { [key: string]: string } {
@@ -126,6 +135,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
       applicationType: 'ApplicationType',
       bizId: 'BizId',
       bizIdsShrink: 'BizIds',
+      domain: 'Domain',
       endTimeBegin: 'EndTimeBegin',
       endTimeEnd: 'EndTimeEnd',
       extend: 'Extend',
@@ -146,6 +156,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
       applicationType: 'string',
       bizId: 'string',
       bizIdsShrink: 'string',
+      domain: 'string',
       endTimeBegin: 'string',
       endTimeEnd: 'string',
       extend: 'string',

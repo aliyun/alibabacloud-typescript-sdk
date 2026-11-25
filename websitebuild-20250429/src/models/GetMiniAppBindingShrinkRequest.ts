@@ -24,7 +24,7 @@ export class GetMiniAppBindingShrinkRequest extends $dara.Model {
    * The list of extended information keys.
    * 
    * @example
-   * SERVER_DOMAIN
+   * ["SERVER_DOMAIN"]
    */
   settingKeysShrink?: string;
   static names(): { [key: string]: string } {

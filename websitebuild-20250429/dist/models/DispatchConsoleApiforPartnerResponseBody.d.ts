@@ -5,7 +5,7 @@ export declare class DispatchConsoleAPIForPartnerResponseBodyModule extends $dar
      * The request result.
      *
      * @example
-     * {\\"HasCustomRoleAuth\\": False}
+     * {\"HasCustomRoleAuth\": False}
      */
     data?: string;
     static names(): {

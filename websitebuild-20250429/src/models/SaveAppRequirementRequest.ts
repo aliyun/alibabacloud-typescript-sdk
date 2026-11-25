@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAppRequirementRequest extends $dara.Model {
   /**
    * @remarks
-   * Conversation ID
+   * The conversation ID.
    * 
    * @example
    * 5b7105a2-2999-430b-ba23-ba09149d5434
@@ -13,7 +13,7 @@ export class SaveAppRequirementRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Requirement document content
+   * The content of the requirement document.
    * 
    * @example
    * prd

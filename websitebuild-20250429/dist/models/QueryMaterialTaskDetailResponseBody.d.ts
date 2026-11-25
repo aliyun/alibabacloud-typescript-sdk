@@ -69,7 +69,7 @@ export declare class QueryMaterialTaskDetailResponseBody extends $dara.Model {
      * The response data.
      *
      * @example
-     * {\\"Success\\": True}
+     * {\"Success\": True}
      */
     module?: AppMaterialTask;
     /**

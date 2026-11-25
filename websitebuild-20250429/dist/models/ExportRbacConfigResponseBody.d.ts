@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ExportRbacConfigResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -48,7 +48,7 @@ export declare class ExportRbacConfigResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * The returned object.
+     * The response object.
      *
      * @example
      * true

@@ -2,10 +2,10 @@ import * as $dara from '@darabonba/typescript';
 export declare class SearchImageResponseBodyImageResponseImageList extends $dara.Model {
     /**
      * @remarks
-     * The descriptive tones identified from the image.
+     * The descriptive tones recognized from the image.
      *
      * @example
-     * 冷色调 蓝色
+     * Cool tone, blue
      */
     descriptiveTones?: string;
     /**
@@ -19,9 +19,9 @@ export declare class SearchImageResponseBodyImageResponseImageList extends $dara
     /**
      * @remarks
      * The image category. Valid values:
-     * - normal: illustrations or article images.
-     * - banner: background images or carousel images.
-     * - goods: product or service images.
+     * - normal: Illustrations and article images.
+     * - banner: Background images and carousel images.
+     * - goods: Product or service images.
      *
      * @example
      * normal
@@ -64,7 +64,7 @@ export declare class SearchImageResponseBodyImageResponseImageList extends $dara
      * The image tags.
      *
      * @example
-     * 日出、奔跑
+     * Sunrise, running
      */
     tagsFromImage?: string;
     /**
@@ -102,9 +102,7 @@ export declare class SearchImageResponseBodyImageResponse extends $dara.Model {
     imageList?: SearchImageResponseBodyImageResponseImageList[];
     /**
      * @remarks
-     * The number of entries returned per query.
-     *
-     * Valid values: 10 to 100. Default value: 20.
+     * The number of results returned per query. Valid values: 10 to 100. Default value: 20.
      *
      * @example
      * 3
@@ -112,7 +110,7 @@ export declare class SearchImageResponseBodyImageResponse extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The token for the next query. This value is empty if there are no more results.
+     * The token for the next query. This parameter is empty if no next query exists.
      *
      * @example
      * 2c6b65b6f9d625d4e2514a628bde8eb2e0b5e8707e68181f
@@ -132,7 +130,7 @@ export declare class SearchImageResponseBodyImageResponse extends $dara.Model {
 export declare class SearchImageResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
+     * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error code list in this topic.
      *
      * @example
      * 0
@@ -161,7 +159,7 @@ export declare class SearchImageResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true

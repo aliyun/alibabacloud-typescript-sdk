@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAppRequirementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Whether retry is allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name, used to query the application with this name
+   * The name of the application to query.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -29,7 +29,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the `%s` in the **ErrMessage** error message.
+   * The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter.
    * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
@@ -46,12 +46,12 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    * 
    * @example
    * true
@@ -67,7 +67,7 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -75,15 +75,15 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Exception message
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

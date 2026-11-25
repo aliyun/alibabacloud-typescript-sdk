@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * Access token time-to-live (TTL)
+     * The time when the access token expires.
      *
      * @example
      * 2025-12-18T22:30:00+08:00
@@ -10,7 +10,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     accessTokenExpiresAt?: string;
     /**
      * @remarks
-     * Access token issue Time
+     * The time when the access token was issued.
      *
      * @example
      * 2025-12-18T22:30:00+08:00
@@ -18,7 +18,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     accessTokenIssuedAt?: string;
     /**
      * @remarks
-     * Access token value
+     * The value of the access token.
      *
      * @example
      * 2108341e17661121129745384e79f9
@@ -34,7 +34,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     aliyunPk?: string;
     /**
      * @remarks
-     * Extension property
+     * The extended attributes.
      *
      * @example
      * {}
@@ -42,7 +42,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     attributes?: string;
     /**
      * @remarks
-     * Authorization code Type
+     * The authorization grant type.
      *
      * @example
      * authorization_code
@@ -58,7 +58,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     bid?: string;
     /**
      * @remarks
-     * Parent Alibaba Cloud PK
+     * The parent Alibaba Cloud account ID.
      *
      * @example
      * 12343131221311
@@ -66,7 +66,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     parentPk?: string;
     /**
      * @remarks
-     * Time-to-live (TTL) of the refresh token
+     * The time when the refresh token expires.
      *
      * @example
      * 1768619049924
@@ -74,7 +74,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     refreshTokenExpiresAt?: string;
     /**
      * @remarks
-     * Refresh token issue Time
+     * The time when the refresh token was issued.
      *
      * @example
      * 1768619049924
@@ -82,7 +82,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     refreshTokenIssuedAt?: string;
     /**
      * @remarks
-     * Refresh token value
+     * The value of the refresh token.
      *
      * @example
      * be9750d595b6cd7c93a80b46
@@ -90,7 +90,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
     refreshTokenValue?: string;
     /**
      * @remarks
-     * Externally Unique
+     * The external UUID.
      *
      * @example
      * hdm_33be9750d595b6cd7c93a80b46734b22
@@ -110,7 +110,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBodyModule ext
 export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $dara.Model {
     /**
      * @remarks
-     * Detailed reason for access denial.
+     * The detailed cause of the access denied error.
      *
      * @example
      * {}
@@ -118,7 +118,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retry is allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -126,7 +126,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $
     allowRetry?: boolean;
     /**
      * @remarks
-     * App Name.
+     * The application name.
      *
      * @example
      * or
@@ -134,7 +134,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $
     appName?: string;
     /**
      * @remarks
-     * Dynamic error code.
+     * The dynamic error code.
      *
      * @example
      * ERROR-oo1
@@ -142,8 +142,8 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $
     dynamicCode?: string;
     /**
      * @remarks
-     * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -151,12 +151,12 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $
     dynamicMessage?: string;
     /**
      * @remarks
-     * Returned error parameters
+     * The error arguments.
      */
     errorArgs?: any[];
     /**
      * @remarks
-     * Returned object.
+     * The response object.
      */
     module?: IntrospectAppInstanceTicketForPreviewResponseBodyModule;
     /**
@@ -169,7 +169,7 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $
     requestId?: string;
     /**
      * @remarks
-     * Error code
+     * The error code.
      *
      * @example
      * SYSTEM.ERROR
@@ -177,15 +177,15 @@ export declare class IntrospectAppInstanceTicketForPreviewResponseBody extends $
     rootErrorCode?: string;
     /**
      * @remarks
-     * Abnormal message
+     * The exception message.
      *
      * @example
-     * 系统异常
+     * System exception
      */
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Reserved parameter.
+     * The reserved parameter.
      *
      * @example
      * True

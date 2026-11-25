@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ExportMaterialFileResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The file download URL.
+     * The download URL of the file.
      *
      * @example
      * https://xxx.xxx.cn/original-data/pdf/mndj_report/cd649b2cc2102c0df57bfa1ae62931d6.zip
@@ -22,7 +22,7 @@ export declare class ExportMaterialFileResponseBodyModule extends $dara.Model {
 export declare class ExportMaterialFileResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The details of the permission check failure.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -38,7 +38,7 @@ export declare class ExportMaterialFileResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
+     * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
      *
      * @example
      * spring-cloud-b

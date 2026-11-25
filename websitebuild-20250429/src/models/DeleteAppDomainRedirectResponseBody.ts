@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppDomainRedirectResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True
@@ -35,7 +35,7 @@ export class DeleteAppDomainRedirectResponseBodyModule extends $dara.Model {
 export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name used for the query.
+   * The name of the application used to query the application.
    * 
    * @example
    * watermark
@@ -75,7 +75,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -101,7 +101,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * System exception
@@ -109,7 +109,7 @@ export class DeleteAppDomainRedirectResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed synchronously.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

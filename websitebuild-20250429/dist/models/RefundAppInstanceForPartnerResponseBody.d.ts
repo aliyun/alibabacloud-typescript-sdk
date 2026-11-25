@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class RefundAppInstanceForPartnerResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The order ID.
+     * The ID of the order.
      *
      * @example
      * 250822465990301
@@ -22,7 +22,7 @@ export declare class RefundAppInstanceForPartnerResponseBodyModule extends $dara
 export declare class RefundAppInstanceForPartnerResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason why access was denied.
+     * The detailed reason why access is denied.
      *
      * @example
      * {}
@@ -30,7 +30,7 @@ export declare class RefundAppInstanceForPartnerResponseBody extends $dara.Model
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retry is allowed.
+     * Specifies whether retries are allowed.
      *
      * @example
      * False
@@ -38,7 +38,7 @@ export declare class RefundAppInstanceForPartnerResponseBody extends $dara.Model
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name. The application with this name is queried.
+     * The name of the application to query.
      *
      * @example
      * or
@@ -54,8 +54,7 @@ export declare class RefundAppInstanceForPartnerResponseBody extends $dara.Model
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace the `%s` placeholder in the ErrMessage response parameter.
-     * > If ErrMessage returns **The Value of Input Parameter %s is not valid** and DynamicMessage returns **DtsJobId**, the request parameter DtsJobId is invalid.
+     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
      *
      * @example
      * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
@@ -63,7 +62,7 @@ export declare class RefundAppInstanceForPartnerResponseBody extends $dara.Model
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error parameters returned.
+     * The returned error parameters.
      */
     errorArgs?: any[];
     /**
@@ -92,12 +91,12 @@ export declare class RefundAppInstanceForPartnerResponseBody extends $dara.Model
      * The exception message.
      *
      * @example
-     * 系统异常
+     * System exception
      */
     rootErrorMsg?: string;
     /**
      * @remarks
-     * A reserved parameter.
+     * The reserved parameter.
      *
      * @example
      * True

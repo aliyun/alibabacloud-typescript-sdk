@@ -13,9 +13,9 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether a retry is allowed. Valid values:
-   * - false: A retry is not allowed.
-   * - true: A retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -23,7 +23,7 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. It can contain digits, letters, and hyphens (-). It must start with a letter, must not end with a hyphen (-), and must not exceed 36 characters in length.
+   * The application name. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
    * 
    * @example
    * or
@@ -52,7 +52,7 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the move is successful.
+   * Indicates whether the move was successful.
    * 
    * @example
    * true
@@ -84,7 +84,7 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * The backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

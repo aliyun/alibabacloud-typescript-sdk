@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetAppPluginRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the gateway plugin.
+     * The ID of the gateway plug-in.
      *
      * @example
      * 1bae9ceaceea432d91c7069fab0dfc02

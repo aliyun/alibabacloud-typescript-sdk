@@ -13,9 +13,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The number of entries per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The number of results returned per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -23,7 +21,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results are available.
+   * The token used to start the next query. This parameter is empty if there are no more results.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -31,7 +29,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page (10-100).
+   * The number of entries per page. Valid values: 10 to 100.
    * 
    * @example
    * 10
@@ -47,7 +45,7 @@ export class ListAppConversationMessagesRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * The creation time of the last entry on the previous page (ISO 8601 format).
+   * The creation time of the last entry on the previous page in ISO 8601 format.
    * 
    * @example
    * null

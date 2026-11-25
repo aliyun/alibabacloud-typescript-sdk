@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMaterialTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application. This name is used to query the application.
    * 
    * @example
    * dewuApp
@@ -29,7 +29,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This parameter is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -50,7 +50,7 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the deletion was successful.
+   * Specifies whether the deletion was successful.
    * 
    * @example
    * true
@@ -74,10 +74,10 @@ export class DeleteMaterialTaskResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

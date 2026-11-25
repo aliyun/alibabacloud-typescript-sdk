@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateAppCodeResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The access denial details.
+     * The access denied details.
      *
      * @example
      * {}
@@ -10,7 +10,7 @@ export declare class UpdateAppCodeResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retry is allowed.
+     * Indicates whether a retry is allowed.
      *
      * @example
      * False
@@ -18,7 +18,7 @@ export declare class UpdateAppCodeResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The application name. The application with this name is queried.
+     * The name of the application. You can query the application by this name.
      *
      * @example
      * ish-intelligence-store-platform-admin-web
@@ -26,7 +26,7 @@ export declare class UpdateAppCodeResponseBody extends $dara.Model {
     appName?: string;
     /**
      * @remarks
-     * The dynamic code. This parameter is not in use. Ignore this parameter.
+     * The dynamic code. This parameter is currently unused and can be ignored.
      *
      * @example
      * ERROR-oo1
@@ -34,7 +34,7 @@ export declare class UpdateAppCodeResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message. This message is used to replace the %s variable in the ErrMessage response parameter.
+     * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
      *
      * @example
      * SYSTEM_ERROR
@@ -42,7 +42,7 @@ export declare class UpdateAppCodeResponseBody extends $dara.Model {
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error parameters returned.
+     * The returned error parameters.
      */
     errorArgs?: any[];
     /**
@@ -71,10 +71,10 @@ export declare class UpdateAppCodeResponseBody extends $dara.Model {
     rootErrorCode?: string;
     /**
      * @remarks
-     * The root error message.
+     * The exception message.
      *
      * @example
-     * 系统异常
+     * System exception
      */
     rootErrorMsg?: string;
     /**

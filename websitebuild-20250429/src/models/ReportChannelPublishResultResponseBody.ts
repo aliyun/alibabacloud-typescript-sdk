@@ -8,7 +8,7 @@ export class ReportChannelPublishResultResponseBodyModule extends $dara.Model {
    * The article status.
    * 
    * @example
-   * xxx
+   * PUBLISHED
    */
   articleStatus?: string;
   /**
@@ -21,7 +21,7 @@ export class ReportChannelPublishResultResponseBodyModule extends $dara.Model {
   draftId?: string;
   /**
    * @remarks
-   * The draft status. Valid values: SUCCESS and FAILED.
+   * The draft status. Valid values: SUCCESS, FAILED.
    * 
    * @example
    * NORMAL
@@ -55,7 +55,7 @@ export class ReportChannelPublishResultResponseBodyModule extends $dara.Model {
 export class ReportChannelPublishResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -63,7 +63,7 @@ export class ReportChannelPublishResultResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -71,7 +71,7 @@ export class ReportChannelPublishResultResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -87,7 +87,7 @@ export class ReportChannelPublishResultResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
+   * The dynamic error message, which is used to replace %s in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -95,7 +95,7 @@ export class ReportChannelPublishResultResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -129,7 +129,7 @@ export class ReportChannelPublishResultResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Specifies whether the request is processed synchronously.
    * 
    * @example
    * True

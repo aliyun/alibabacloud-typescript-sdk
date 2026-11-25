@@ -34,7 +34,7 @@ export declare class AppMaterialFile extends $dara.Model {
     deletedTime?: string;
     /**
      * @remarks
-     * The folder ID.
+     * The directory ID.
      *
      * @example
      * ddddwww
@@ -69,7 +69,7 @@ export declare class AppMaterialFile extends $dara.Model {
      * The file name.
      *
      * @example
-     * 文件名
+     * File name
      */
     name?: string;
     /**
@@ -82,7 +82,7 @@ export declare class AppMaterialFile extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The storage size.
+     * The storage space size.
      *
      * @example
      * 23M
@@ -90,7 +90,7 @@ export declare class AppMaterialFile extends $dara.Model {
     storageSize?: string;
     /**
      * @remarks
-     * The file name extension.
+     * The file extension.
      *
      * @example
      * png

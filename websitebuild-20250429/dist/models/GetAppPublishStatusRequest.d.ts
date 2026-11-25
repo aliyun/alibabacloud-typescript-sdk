@@ -10,12 +10,13 @@ export declare class GetAppPublishStatusRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The deployment ticket ID.
+     * The deployment order ID.
      *
      * @example
      * 4998717
      */
     deployOrderId?: number;
+    publishOrderId?: number;
     /**
      * @remarks
      * The website domain name.

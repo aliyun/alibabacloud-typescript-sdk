@@ -85,7 +85,7 @@ export class SyncAppInstanceForPartnerRequestAppInstanceProfile extends $dara.Mo
 export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   /**
    * @remarks
-   * The application type. Set this parameter to WEBSITE.
+   * The application type. Valid value: WEBSITE.
    * 
    * @example
    * WEBSITE
@@ -133,7 +133,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   gmtDelete?: string;
   /**
    * @remarks
-   * The timestamp when the vulnerability was published. Unit: milliseconds.
+   * The timestamp when the vulnerability was published, in milliseconds.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -160,7 +160,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
    * The website configuration information.
    * 
    * @example
-   * Website configuration information
+   * {"DeployArea":"ChineseMainland"}
    */
   profile?: SyncAppInstanceForPartnerRequestAppInstanceProfile;
   /**
@@ -173,7 +173,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   siteHost?: string;
   /**
    * @remarks
-   * The website SiteID.
+   * The site ID of the website.
    * 
    * @example
    * 31104757
@@ -181,7 +181,7 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried. Specify the time in the ISO 8601 standard in the UTC (Z) time zone.
+   * The start time of the query. If you do not specify the start and end times, all historical deployment records of the instance are queried. Specify the time in the ISO 8601 standard in the UTC time zone.
    * 
    * @example
    * 2025-07-15T16:00:00Z
@@ -190,7 +190,6 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
   /**
    * @remarks
    * The running status of the instance. Valid values:
-   * 
    * - NotRun: Not running.
    * - Running: Running.
    * - WaitTime: Waiting for the trigger time.
@@ -198,10 +197,10 @@ export class SyncAppInstanceForPartnerRequestAppInstance extends $dara.Model {
    * - WaitResource: Waiting for resources.
    * - Failure: Execution failed.
    * - Success: Execution succeeded.
-   * - Checking: Submitted for data quality check.
+   * - Checking: Dispatched for data quality check.
    * 
    * @example
-   * {\\"Phase\\": \\"Running\\", \\"SlotNum\\": 1, \\"UsedCapacity\\": \\"500.0Gi\\"}
+   * {\"Phase\": \"Running\", \"SlotNum\": 1, \"UsedCapacity\": \"500.0Gi\"}
    */
   status?: string;
   /**
@@ -306,7 +305,7 @@ export class SyncAppInstanceForPartnerRequest extends $dara.Model {
   sourceBizId?: string;
   /**
    * @remarks
-   * The source. Set this parameter to MARKET_CLOUD_DREAM.
+   * The source type. Valid value: MARKET_CLOUD_DREAM.
    * 
    * @example
    * MARKET_CLOUD_DREAM

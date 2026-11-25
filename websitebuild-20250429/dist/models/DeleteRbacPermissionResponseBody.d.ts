@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteRbacPermissionResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The details of the permission check failure.
+     * The details of the permission verification failure.
      *
      * @example
      * {}
@@ -10,7 +10,7 @@ export declare class DeleteRbacPermissionResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether a retry is allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -35,7 +35,7 @@ export declare class DeleteRbacPermissionResponseBody extends $dara.Model {
     /**
      * @remarks
      * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR

@@ -13,7 +13,7 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The list of mobile butler delivery platform types in a JSON string array. Valid values: wechat, dingtalk, wecom, and feishu.
+   * The list of mobile butler delivery platform types in a JSON string array. Supported values include wechat, dingtalk, wecom, and feishu.
    * 
    * @example
    * ["feishu"]
@@ -21,7 +21,8 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   butlerChannelTypesJson?: string;
   /**
    * @remarks
-   * The list of mobile butler notification fields in a JSON string array. This parameter is required when the butler channel is selected. A maximum of 10 fields are supported. The butler fields in JSON format.
+   * The list of mobile butler notification fields. The value is a JSON string array. This parameter is required when the butler channel is selected. A maximum of 10 fields are supported.
+   * Butler field JSON.
    * 
    * @example
    * ["id","phone","name","city","message","is_deleted","updated_at","created_at","status","budget"]
@@ -37,7 +38,7 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   channelsJson?: string;
   /**
    * @remarks
-   * The description of the scenario.
+   * The scenario description.
    * 
    * @example
    * cn_graph_prod
@@ -53,7 +54,7 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   emailFieldsJson?: string;
   /**
    * @remarks
-   * The email sending limit in a JSON string, including the minInterval and dailyLimit fields.
+   * The email sending limits. The value is a JSON string that contains the minInterval and dailyLimit fields.
    * 
    * @example
    * {}
@@ -69,7 +70,7 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   emailRecipientIdsJson?: string;
   /**
    * @remarks
-   * The name of the scenario.
+   * The scenario name.
    * 
    * @example
    * Device Capability Manual
@@ -93,7 +94,7 @@ export class CreateAppNotificationSceneRequest extends $dara.Model {
   smsFieldsJson?: string;
   /**
    * @remarks
-   * The SMS sending limit in a JSON string, including the minInterval and dailyLimit fields.
+   * The SMS sending limits. The value is a JSON string that contains the minInterval and dailyLimit fields.
    * 
    * @example
    * {}

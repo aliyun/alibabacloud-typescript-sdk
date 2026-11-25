@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class QueryRbacRolePermissionsResponseBodyModuleData extends $dara.Model {
     /**
      * @remarks
-     * The system-defined parameter. Set the value to **DeleteIntegration**.
+     * The system-defined parameter. Valid value: **DeleteIntegration**.
      *
      * @example
      * js
@@ -46,7 +46,7 @@ export declare class QueryRbacRolePermissionsResponseBodyModuleData extends $dar
 export declare class QueryRbacRolePermissionsResponseBodyModuleNext extends $dara.Model {
     /**
      * @remarks
-     * The system-defined parameter. Set the value to **GetCreateCustomerInfomation**.
+     * The system-defined parameter. Valid value: **GetCreateCustomerInfomation**.
      *
      * @example
      * accept
@@ -72,7 +72,7 @@ export declare class QueryRbacRolePermissionsResponseBodyModuleNext extends $dar
      * @remarks
      * The statistical method for the Warn level.
      *
-     * The value of `Statistics` varies with the cloud service. For more information, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+     * The valid values of `Statistics` vary by cloud service. For more information, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
      *
      * @example
      * mwaf-apisec0629.wafqax.top-waf
@@ -100,12 +100,12 @@ export declare class QueryRbacRolePermissionsResponseBodyModule extends $dara.Mo
     currentPageNum?: number;
     /**
      * @remarks
-     * The request result.
+     * The request results.
      */
     data?: QueryRbacRolePermissionsResponseBodyModuleData[];
     /**
      * @remarks
-     * The ID of the next feature.
+     * The next feature ID.
      */
     next?: QueryRbacRolePermissionsResponseBodyModuleNext;
     /**
@@ -118,7 +118,7 @@ export declare class QueryRbacRolePermissionsResponseBodyModule extends $dara.Mo
     nextPage?: boolean;
     /**
      * @remarks
-     * The page size.
+     * The number of entries per page.
      *
      * @example
      * 10
@@ -134,7 +134,7 @@ export declare class QueryRbacRolePermissionsResponseBodyModule extends $dara.Mo
     prePage?: boolean;
     /**
      * @remarks
-     * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+     * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
      *
      * @example
      * False
@@ -178,7 +178,7 @@ export declare class QueryRbacRolePermissionsResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether retries are allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -186,7 +186,7 @@ export declare class QueryRbacRolePermissionsResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the application.
+     * The name of the application to query.
      *
      * @example
      * spring-cloud-b
@@ -202,7 +202,7 @@ export declare class QueryRbacRolePermissionsResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic message. This parameter is not used. Ignore it.
+     * The dynamic message. This parameter is not used and can be ignored.
      *
      * @example
      * SYSTEM_ERROR
@@ -215,7 +215,7 @@ export declare class QueryRbacRolePermissionsResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * Indicates whether the move is successful.
+     * Indicates whether the move operation is successful.
      */
     module?: QueryRbacRolePermissionsResponseBodyModule;
     /**
@@ -244,7 +244,7 @@ export declare class QueryRbacRolePermissionsResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Specifies whether synchronous processing is used.
+     * Indicates whether the processing is synchronous.
      *
      * @example
      * True

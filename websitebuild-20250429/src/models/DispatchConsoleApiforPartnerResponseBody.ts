@@ -8,7 +8,7 @@ export class DispatchConsoleAPIForPartnerResponseBodyModule extends $dara.Model 
    * The request result.
    * 
    * @example
-   * {\\"HasCustomRoleAuth\\": False}
+   * {\"HasCustomRoleAuth\": False}
    */
   data?: string;
   static names(): { [key: string]: string } {

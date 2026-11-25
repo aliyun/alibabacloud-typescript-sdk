@@ -18,7 +18,7 @@ export declare class GetAppPluginConfigResponseBodyModule extends $dara.Model {
     gmtCreate?: string;
     /**
      * @remarks
-     * The modification time.
+     * The update time.
      *
      * @example
      * 2025-08-28T02:25:41Z
@@ -34,7 +34,7 @@ export declare class GetAppPluginConfigResponseBodyModule extends $dara.Model {
     id?: number;
     /**
      * @remarks
-     * The specific component configuration in JSON string format. Refer to the toJsonString method of the subclasses related to com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig. Developers should inherit this component configuration class and implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin console.
+     * The specific component configuration in JSON string format. Refer to the toJsonString method of the subclasses of the com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig utility class. Developers must inherit this component configuration class to implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin page.
      *
      * @example
      * {}
@@ -42,7 +42,7 @@ export declare class GetAppPluginConfigResponseBodyModule extends $dara.Model {
     pluginConfig?: string;
     /**
      * @remarks
-     * The description of the plugin.
+     * The description.
      *
      * @example
      * a simple test plugin
@@ -50,7 +50,7 @@ export declare class GetAppPluginConfigResponseBodyModule extends $dara.Model {
     pluginDesc?: string;
     /**
      * @remarks
-     * The ID of the bound API gateway plugin.
+     * The ID of the associated API gateway plugin.
      *
      * @example
      * 1bae9ceaceea432d91c7069fab0dfc02
@@ -58,7 +58,7 @@ export declare class GetAppPluginConfigResponseBodyModule extends $dara.Model {
     pluginId?: string;
     /**
      * @remarks
-     * The plugin name. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
+     * The plugin name. It must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
      *
      * @example
      * tf_testaccapigatewayplugin29311
@@ -115,7 +115,7 @@ export declare class GetAppPluginConfigResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true

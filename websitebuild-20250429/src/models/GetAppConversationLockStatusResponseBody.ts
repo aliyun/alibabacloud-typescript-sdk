@@ -13,7 +13,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -29,7 +29,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use and can be ignored.
+   * The dynamic code. This field is currently unused and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -38,7 +38,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** error message.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -83,7 +83,7 @@ export class GetAppConversationLockStatusResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Specifies whether the request is processed synchronously.
    * 
    * @example
    * True

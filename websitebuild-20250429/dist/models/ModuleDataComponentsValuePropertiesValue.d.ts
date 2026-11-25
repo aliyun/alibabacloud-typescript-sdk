@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModuleDataComponentsValuePropertiesValueValues extends $dara.Model {
     /**
      * @remarks
-     * Property code (internal system identifier)
+     * The property code (internal system identifier).
      *
      * @example
      * placeholder
@@ -10,7 +10,7 @@ export declare class ModuleDataComponentsValuePropertiesValueValues extends $dar
     code?: string;
     /**
      * @remarks
-     * Property value code (internal system value)
+     * The property value code (internal system value).
      *
      * @example
      * placeholder
@@ -18,7 +18,7 @@ export declare class ModuleDataComponentsValuePropertiesValueValues extends $dar
     value?: string;
     /**
      * @remarks
-     * Property display name (user-visible name)
+     * The display name of the property (user-visible name).
      *
      * @example
      * placeholder
@@ -38,7 +38,7 @@ export declare class ModuleDataComponentsValuePropertiesValueValues extends $dar
 export declare class ModuleDataComponentsValuePropertiesValue extends $dara.Model {
     /**
      * @remarks
-     * Property code (internal system identifier)
+     * The property code (internal system identifier).
      *
      * @example
      * placeholder
@@ -46,7 +46,7 @@ export declare class ModuleDataComponentsValuePropertiesValue extends $dara.Mode
     code?: string;
     /**
      * @remarks
-     * Property display name (user-visible name)
+     * The display name of the property (user-visible name).
      *
      * @example
      * placeholder
@@ -54,7 +54,7 @@ export declare class ModuleDataComponentsValuePropertiesValue extends $dara.Mode
     name?: string;
     /**
      * @remarks
-     * Property value code (internal system value)
+     * The property value code (internal system value).
      *
      * @example
      * placeholder
@@ -62,7 +62,7 @@ export declare class ModuleDataComponentsValuePropertiesValue extends $dara.Mode
     value?: string;
     /**
      * @remarks
-     * Module property value list
+     * The list of module property values.
      */
     values?: ModuleDataComponentsValuePropertiesValueValues[];
     static names(): {

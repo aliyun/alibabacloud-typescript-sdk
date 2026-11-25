@@ -29,7 +29,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   blockedModels?: string;
   /**
    * @remarks
-   * Grants specific permissions to processes in the container. Only NET_ADMIN and NET_RAW are supported.
+   * Grants specific permissions to processes in the container. Currently, only NET_ADMIN and NET_RAW are supported.
    * 
    * > NET_RAW is not supported by default. Submit a ticket to apply for this permission.
    * 
@@ -39,7 +39,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   capability?: string;
   /**
    * @remarks
-   * The maximum number of requests per day.
+   * The daily request limit.
    * 
    * @example
    * -1
@@ -47,7 +47,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   dailyLimit?: number;
   /**
    * @remarks
-   * The maximum number of tokens per day.
+   * The daily token limit.
    * 
    * @example
    * -1
@@ -55,7 +55,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   dailyTokenLimit?: number;
   /**
    * @remarks
-   * Indicates whether scheduled delivery of resource snapshots is enabled.
+   * Specifies whether to enable scheduled delivery of resource snapshots.
    * 
    * Valid values:
    * - true: Enabled.
@@ -70,7 +70,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
    * The extended configuration in JSON format.
    * 
    * @example
-   * {\\"deliveryNodeName\\":\\"绑定域名及发布\\",\\"deliveryNodeStatus\\":\\"Finish\\",\\"deliveryOperatorRole\\":\\"Provider\\"}
+   * {"deliveryNodeName":"Bind domain name and publish","deliveryNodeStatus":"Finish","deliveryOperatorRole":"Provider"}
    */
   extend?: string;
   /**
@@ -107,7 +107,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP whitelist. Separate multiple IP addresses with commas (,).
+   * The IP whitelist. Separate multiple IP addresses with commas.
    * 
    * @example
    * 121.41.11.161,10.200.255.60
@@ -115,7 +115,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   ipWhitelist?: string;
   /**
    * @remarks
-   * The maximum number of requests per minute.
+   * The number of requests per minute.
    * 
    * @example
    * -1
@@ -126,7 +126,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
    * trial,draft,live,refunded,expired,released
    * 
    * @example
-   * 1
+   * NORMAL
    */
   status?: number;
   /**
@@ -134,7 +134,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
    * The reason for suspension.
    * 
    * @example
-   * 服务已暂停。
+   * xxx
    */
   suspendReason?: string;
   static names(): { [key: string]: string } {
@@ -191,7 +191,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
 export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -199,7 +199,7 @@ export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed. Valid values:
+   * Specifies whether to allow retries. Valid values:
    * - false: Retries are not allowed.
    * - true: Retries are allowed.
    * 
@@ -209,7 +209,7 @@ export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * or
@@ -217,7 +217,7 @@ export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This field is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -225,8 +225,8 @@ export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message. This parameter is used to replace the `%s` variable in the **ErrMessage** parameter.
-   * > For example, if the **ErrMessage** parameter returns **The Value of Input Parameter %s is not valid** and the **DynamicMessage** parameter returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -234,7 +234,7 @@ export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -260,15 +260,15 @@ export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

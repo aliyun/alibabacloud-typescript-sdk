@@ -25,7 +25,7 @@ export class AppServiceAggregate extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * The end time in ISO 8601 format in the UTC time zone (Z).
+   * The end time. The value is in ISO 8601 format and the time zone is UTC (Z).
    * 
    * @example
    * 2025-07-18T02:23:00Z
@@ -57,7 +57,7 @@ export class AppServiceAggregate extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The operation address of the application.
+   * The application operation address.
    */
   group?: AppServiceGroup;
   /**
@@ -83,12 +83,12 @@ export class AppServiceAggregate extends $dara.Model {
   nodeList?: TreeNode[];
   /**
    * @remarks
-   * The address used to uniquely identify an operation.
+   * The unique identifier for an operation.
    */
   operationAddress?: AppOperationAddress;
   /**
    * @remarks
-   * The configuration information of the application service.
+   * The application service configuration information.
    */
   profile?: AppServiceProfile;
   /**
@@ -117,7 +117,7 @@ export class AppServiceAggregate extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The start time as a UNIX timestamp in milliseconds.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754447102000
@@ -139,6 +139,14 @@ export class AppServiceAggregate extends $dara.Model {
    * 123241414
    */
   userId?: string;
+  /**
+   * @remarks
+   * Specifies whether the item is visible.
+   * 
+   * @example
+   * true
+   */
+  visible?: boolean;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
@@ -159,6 +167,7 @@ export class AppServiceAggregate extends $dara.Model {
       startTime: 'StartTime',
       status: 'Status',
       userId: 'UserId',
+      visible: 'Visible',
     };
   }
 
@@ -182,6 +191,7 @@ export class AppServiceAggregate extends $dara.Model {
       startTime: 'string',
       status: 'string',
       userId: 'string',
+      visible: 'boolean',
     };
   }
 

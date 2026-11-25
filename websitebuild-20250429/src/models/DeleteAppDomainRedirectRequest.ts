@@ -21,7 +21,7 @@ export class DeleteAppDomainRedirectRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the domain name redirect record.
+   * The ID of the domain redirect record.
    * 
    * @example
    * 803858889404426240

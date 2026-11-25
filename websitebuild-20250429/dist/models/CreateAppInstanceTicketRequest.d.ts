@@ -18,7 +18,10 @@ export declare class CreateAppInstanceTicketRequest extends $dara.Model {
     clientId?: string;
     /**
      * @remarks
-     * The user role that the ticket will assume.
+     * The user role assumed by the ticket.
+     *
+     * @example
+     * admin
      */
     role?: string;
     static names(): {

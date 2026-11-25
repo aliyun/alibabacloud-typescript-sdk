@@ -6,7 +6,7 @@ import { AppMaterialFile } from "./AppMaterialFile";
 export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission check failure.
+   * The details of the failed permission check.
    * 
    * @example
    * {}
@@ -51,7 +51,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, this parameter is not returned. If the request fails, this parameter is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0
@@ -70,7 +70,7 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
    * The response data.
    * 
    * @example
-   * {\\"TotalPageNum\\": 1, \\"ResultLimit\\": False, \\"CurrentPageNum\\": 0, \\"PageSize\\": 0, \\"TotalItemNum\\": 0}
+   * {\"TotalPageNum\": 1, \"ResultLimit\": False, \"CurrentPageNum\": 0, \"PageSize\": 0, \"TotalItemNum\": 0}
    */
   module?: AppMaterialFile;
   /**

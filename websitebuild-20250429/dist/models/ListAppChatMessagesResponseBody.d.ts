@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The bot ID.
+     * The chatbot ID.
      *
      * @example
      * Zero2
@@ -10,7 +10,7 @@ export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
     botId?: string;
     /**
      * @remarks
-     * The unique ID of the utterance.
+     * The unique ID of the sentence.
      *
      * @example
      * chat-xrz3etcl2bsygwlx8g
@@ -29,7 +29,7 @@ export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
      * The ID of the called data API.
      *
      * @example
-     * {\\"code\\": \\"200\\", \\"success\\": True, \\"content\\": True, \\"requestId\\": \\"028993DE-097E-5F4E-AC48-64A2D5ED5F30\\", \\"businessError\\": False, \\"message\\": \\"success\\", \\"httpStatusCode\\": 200}
+     * {\"code\": \"200\", \"success\": True, \"content\": True, \"requestId\": \"028993DE-097E-5F4E-AC48-64A2D5ED5F30\", \"businessError\": False, \"message\": \"success\", \"httpStatusCode\": 200}
      */
     content?: string;
     /**
@@ -60,7 +60,7 @@ export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
     gmtCreateTime?: string;
     /**
      * @remarks
-     * The modification time. The time is in ISO 8601 format and the UTC time zone (Z).
+     * The update time in ISO 8601 format in the UTC time zone.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
      *
@@ -81,12 +81,12 @@ export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
      * The business extension metadata. The value must be a JSON string in map format.
      *
      * @example
-     * {\\"appId\\":\\"WS20260506101154000001\\",\\"inputTokens\\":1148,\\"outputTokens\\":60}
+     * {\"appId\":\"WS20260506101154000001\",\"inputTokens\":1148,\"outputTokens\":60}
      */
     metaData?: string;
     /**
      * @remarks
-     * **[Deprecated]** The region sequence number.
+     * **[Deprecated]** The region sequence number. This parameter is deprecated.
      *
      * @example
      * 1
@@ -96,16 +96,16 @@ export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
      * @remarks
      * The role of the conversation participant. Valid values:
      *
-     * - user: User
+     * - user: user
      *
-     * - assistant: Assistant
+     * - assistant: assistant
      *
-     * - system: System
-     * - function: Function
+     * - system: system
+     * - function: function
      *
-     * - plugin: Plug-in
+     * - plugin: plug-in
      *
-     * - tool: Tool
+     * - tool: tool
      *
      * @example
      * LoC
@@ -121,7 +121,7 @@ export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
     sectionId?: string;
     /**
      * @remarks
-     * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+     * The site ID.
      *
      * @example
      * 865181640657408
@@ -149,7 +149,7 @@ export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
 export declare class ListAppChatMessagesResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The access denied details.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -181,11 +181,11 @@ export declare class ListAppChatMessagesResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
      *
      * @example
-     * xxx
+     * DtsJobId
      */
     dynamicMessage?: string;
     /**
@@ -195,7 +195,7 @@ export declare class ListAppChatMessagesResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * The maximum number of results per query. Valid values: 10 to 100. Default value: 20.
+     * The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
      *
      * @example
      * 10
@@ -208,7 +208,7 @@ export declare class ListAppChatMessagesResponseBody extends $dara.Model {
     module?: ListAppChatMessagesResponseBodyModule[];
     /**
      * @remarks
-     * The token used to start the next query. This parameter is empty if there is no next query.
+     * The token used to start the next query. This parameter is empty if no subsequent query is available.
      *
      * @example
      * 0l45bkwM022Dt+rOvPi/oQ==

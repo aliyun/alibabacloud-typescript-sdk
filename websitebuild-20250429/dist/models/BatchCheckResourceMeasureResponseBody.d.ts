@@ -8,7 +8,7 @@ export declare class BatchCheckResourceMeasureResponseBodyModule extends $dara.M
     allPassed?: boolean;
     /**
      * @remarks
-     * The check results for each resource, where the key is the resourceCode.
+     * The check results for each resource. The key is the resourceCode.
      *
      * @example
      * {"InspirationTokens":{"Passed":true,"ResourceCode":"InspirationTokens"}}
@@ -30,7 +30,7 @@ export declare class BatchCheckResourceMeasureResponseBodyModule extends $dara.M
 export declare class BatchCheckResourceMeasureResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reasons for access denial.
+     * The detailed reason for access denial.
      *
      * @example
      * {}
@@ -38,7 +38,7 @@ export declare class BatchCheckResourceMeasureResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether retries are allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -46,7 +46,7 @@ export declare class BatchCheckResourceMeasureResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the app.
+     * The application name.
      *
      * @example
      * watermark
@@ -88,7 +88,7 @@ export declare class BatchCheckResourceMeasureResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The root error code.
+     * The error code.
      *
      * @example
      * SYSTEM.ERROR
@@ -104,7 +104,7 @@ export declare class BatchCheckResourceMeasureResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Specifies whether synchronous processing is used.
+     * Specifies whether the request is processed synchronously.
      *
      * @example
      * True

@@ -21,7 +21,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Mo
   sourceDomain?: string;
   /**
    * @remarks
-   * The target domain name.
+   * The destination domain name.
    * 
    * @example
    * aliyuncs.com
@@ -71,7 +71,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Mo
   sourceDomain?: string;
   /**
    * @remarks
-   * The target domain name.
+   * The destination domain name.
    * 
    * @example
    * aliyuncs.com
@@ -128,7 +128,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
   nextPage?: boolean;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -141,7 +141,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -206,7 +206,7 @@ export class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model 
 export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reasons for the access denial.
+   * The detailed cause of the access denied error.
    * 
    * @example
    * {}
@@ -238,7 +238,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use and can be ignored.
+   * The dynamic message. This field is currently unused and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -251,9 +251,7 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of results to return per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results to return per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -261,12 +259,12 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response object.
+   * The returned object.
    */
   module?: ListAppDomainRedirectRecordsResponseBodyModule;
   /**
    * @remarks
-   * The token used to start the next query. This parameter is empty if no next query is available.
+   * The token used to start the next query. If no more results are available, this parameter is empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -290,10 +288,10 @@ export class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * System error
+   * System exception
    */
   rootErrorMsg?: string;
   /**

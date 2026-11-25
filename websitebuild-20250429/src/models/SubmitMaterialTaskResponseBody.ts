@@ -8,7 +8,7 @@ export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
    * The business group ID.
    * 
    * @example
-   * xxx
+   * GROUP_1
    */
   bizGroupId?: string;
   /**
@@ -45,7 +45,7 @@ export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
 export class SubmitMaterialTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -53,9 +53,9 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Indicates whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -63,7 +63,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * dewuApp
@@ -87,12 +87,12 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. The ErrorCode field is not returned if the request is successful. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error code list in this topic.
    * 
    * @example
    * 0
@@ -121,7 +121,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -129,7 +129,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
    * System exception
@@ -137,7 +137,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -145,7 +145,7 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Indicates whether the task is processed synchronously.
    * 
    * @example
    * True

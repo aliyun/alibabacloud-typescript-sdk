@@ -48,7 +48,7 @@ export declare class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $
 export declare class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The detailed reasons for the access denial.
      *
      * @example
      * {}
@@ -80,8 +80,8 @@ export declare class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.M
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+     * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -89,7 +89,7 @@ export declare class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.M
     dynamicMessage?: string;
     /**
      * @remarks
-     * The error parameters.
+     * The invalid parameters.
      */
     errorArgs?: any[];
     /**

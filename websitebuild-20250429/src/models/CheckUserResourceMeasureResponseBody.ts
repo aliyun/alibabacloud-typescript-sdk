@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Returned only for APP_WORKSPACE: the target total for this check, which is the used quota in the saved configuration plus ResourceValue. If the compatible DesiredTotal is provided, this total is used directly. The used quota for questions is the sum of common and word-of-mouth questions in the saved configuration. The used quota for competitors is the number of competitors. This field is empty for APP and USER checks.
+   * The target total for the current check. This parameter is returned only for APP_WORKSPACE. It is the sum of the used quota in the saved configuration and ResourceValue. If the compatible DesiredTotal is provided, this total is used directly. The used quota for questions is the sum of common and word-of-mouth questions in the saved configuration, and the used quota for competitors is the number of competitors. This parameter is empty for APP or USER checks.
    * 
    * @example
    * 21
@@ -13,7 +13,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   desiredTotal?: number;
   /**
    * @remarks
-   * The error code when the check fails. This field is null when the check passes.
+   * The error code returned when the check fails. This parameter is null when the check is passed.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message when the check fails. This field is null when the check passes.
+   * The error message returned when the check fails. This parameter is null when the check is passed.
    * 
    * @example
    * stream push failed
@@ -29,7 +29,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Returned only for APP_WORKSPACE quantity dry runs: the maximum number of questions or competitors allowed by the current commodity edition, not the remaining quota. This field is empty for APP and USER checks or when the edition benefits cannot be determined.
+   * The maximum number of questions or competitors allowed by the current commodity version. This parameter is returned only for APP_WORKSPACE quantity dry runs and does not represent the remaining quota. This parameter is empty for APP or USER checks, or when the version benefits cannot be determined.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * Indicates whether a purchasable higher edition exists that can accommodate the DesiredTotal. This field is true only when the current edition capacity is insufficient and a higher edition meets the requirements. Otherwise, it is false. This field may be empty for APP and USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
+   * Indicates whether a purchasable higher version exists that can accommodate the DesiredTotal. This parameter is true only when the current version capacity is insufficient and a higher version meets the requirements. Otherwise, it is false. This parameter may be empty for APP or USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class CheckUserResourceMeasureResponseBodyModule extends $dara.Model {
 export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -113,7 +113,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application.
+   * The application name, which is used to query the application.
    * 
    * @example
    * spring-cloud-b
@@ -138,7 +138,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The returned error arguments.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -156,7 +156,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -164,7 +164,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The root error message.
+   * The exception message.
    * 
    * @example
    * System exception
@@ -172,7 +172,7 @@ export class CheckUserResourceMeasureResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * The backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

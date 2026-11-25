@@ -18,7 +18,7 @@ export declare class SetAppDomainCertificateRequest extends $dara.Model {
     certificateName?: string;
     /**
      * @remarks
-     * The certificate type. Valid values: default free certificate and customer-owned certificate.
+     * The certificate type. Valid values: default free certificate, customer-owned certificate.
      *
      * @example
      * Server

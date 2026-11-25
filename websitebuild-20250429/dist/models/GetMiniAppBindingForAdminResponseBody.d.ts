@@ -21,7 +21,7 @@ export declare class GetMiniAppBindingForAdminResponseBodyData extends $dara.Mod
      * The mini program ID.
      *
      * @example
-     * xxxx
+     * wx1111a1a111a1a111
      */
     platformAppid?: string;
     static names(): {

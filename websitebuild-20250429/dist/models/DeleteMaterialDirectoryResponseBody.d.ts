@@ -18,7 +18,7 @@ export declare class DeleteMaterialDirectoryResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the application.
+     * The application name.
      *
      * @example
      * or
@@ -63,7 +63,7 @@ export declare class DeleteMaterialDirectoryResponseBody extends $dara.Model {
     errorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the deletion was successful.
+     * Indicates whether the deletion is successful.
      *
      * @example
      * true
@@ -79,7 +79,7 @@ export declare class DeleteMaterialDirectoryResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The root error code.
+     * The error code.
      *
      * @example
      * SYSTEM.ERROR
@@ -103,7 +103,7 @@ export declare class DeleteMaterialDirectoryResponseBody extends $dara.Model {
     success?: boolean;
     /**
      * @remarks
-     * Indicates whether the operation is processed synchronously.
+     * Indicates whether the request is processed synchronously.
      *
      * @example
      * True

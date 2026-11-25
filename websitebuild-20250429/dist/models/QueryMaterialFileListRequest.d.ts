@@ -30,9 +30,7 @@ export declare class QueryMaterialFileListRequest extends $dara.Model {
     maxFileSize?: number;
     /**
      * @remarks
-     * The maximum number of entries to return for a single request.
-     *
-     * Valid values: 10 to 100. Default value: 20.
+     * The maximum number of entries to return for a single request. Valid values: 10 to 100. Default value: 20.
      *
      * @example
      * 10
@@ -56,7 +54,7 @@ export declare class QueryMaterialFileListRequest extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The token that is used to start the next query. If no next query is available, this parameter is left empty.
+     * The token that is used to start the next query. If no next query exists, this parameter is empty.
      *
      * @example
      * 0l45bkwM022Dt+rOvPi/oQ==
@@ -72,7 +70,7 @@ export declare class QueryMaterialFileListRequest extends $dara.Model {
     orderColumn?: string;
     /**
      * @remarks
-     * The sort order. Valid values: ASC and DESC.
+     * The sort order. Valid values: ASC, DESC.
      *
      * @example
      * BUY
@@ -101,7 +99,7 @@ export declare class QueryMaterialFileListRequest extends $dara.Model {
     statusList?: string[];
     /**
      * @remarks
-     * The list of file extensions.
+     * The list of file name extensions.
      */
     suffixList?: string[];
     /**

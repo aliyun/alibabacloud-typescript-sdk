@@ -53,7 +53,7 @@ export declare class SwitchAppConversationResponseBodyModule extends $dara.Model
      * The extended information in JSON string format.
      *
      * @example
-     * {\\"appId\\":\\"WS20260504134737000001\\",\\"inputTokens\\":1395,\\"outputTokens\\":38}
+     * {\"appId\":\"WS20260504134737000001\",\"inputTokens\":1395,\"outputTokens\":38}
      */
     metaData?: string;
     /**
@@ -77,7 +77,7 @@ export declare class SwitchAppConversationResponseBodyModule extends $dara.Model
      * The current viewpoint, equivalent to the news title.
      *
      * @example
-     * Feel Like Makin\\" Love
+     * Feel Like Makin\" Love
      */
     title?: string;
     /**

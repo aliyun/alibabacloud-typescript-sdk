@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySupabaseConfigsForAdminResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The scope. Valid values: subUser and owner.
+   * The mapping between Supabase configuration items and configuration values.
    * 
    * @example
-   * {"SMS_ALIYUN_SIGN_NAME":"示例签名"}
+   * {"SMS_ALIYUN_SIGN_NAME":"Sample signature"}
    */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -38,7 +38,7 @@ export class QuerySupabaseConfigsForAdminResponseBodyModule extends $dara.Model 
 export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -56,7 +56,7 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * spring-cloud-b

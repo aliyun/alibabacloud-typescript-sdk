@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SaveChannelDraftRequestCoverImages extends $dara.Model {
   /**
    * @remarks
-   * The image URL.
+   * The URL of the image.
    * 
    * This parameter is required.
    * 
    * @example
-   * http://campus-retail-prod.oss-cn-hangzhou.aliyuncs.com/d1c5efed9b3a419bb54b75056d54dae6.jpg?Expires=4928263770&OSSAccessKeyId=LTAI5tLYirCpzCVXoArh1VYt&Signature=******************************
+   * http://campus-retail-prod.oss-cn-hangzhou.aliyuncs.com/d1c5efed9b3a419bb54b75056d54dae6.jpg?Expires=4928263770&OSSAccessKeyId=LTAI5tLYir****VXoArh1VYt&Signature=******************************
    */
   imageUrl?: string;
   /**
    * @remarks
-   * The material center file ID (optional).
+   * The ID of the file in the material center. This parameter is optional.
    * 
    * @example
    * xxx
@@ -28,7 +28,7 @@ export class SaveChannelDraftRequestCoverImages extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Ascending
+   * 1
    */
   sortOrder?: number;
   static names(): { [key: string]: string } {
@@ -59,36 +59,36 @@ export class SaveChannelDraftRequestCoverImages extends $dara.Model {
 export class SaveChannelDraftRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel content (outside China only).
+   * The content of the channel (outside China only).
    * 
    * @example
-   * x
+   * Introduces the main features and usage of the website
    */
   adaptedContent?: string;
   /**
    * @remarks
-   * The channel title.
+   * The title of the channel.
    * 
    * @example
-   * xxx
+   * Website features and user guide
    */
   adaptedTitle?: string;
   /**
    * @remarks
-   * The display name of the publishing account. A null value does not overwrite the original value. Maximum length: 256 characters.
+   * The display name of the publishing account. If this parameter is left empty, the original value is not overwritten. Maximum length: 256 characters.
    * 
    * @example
-   * xx
+   * Sample publishing account
    */
   channelAccountName?: string;
   /**
    * @remarks
-   * The collection of channel cover images (full overwrite).
+   * The collection of cover images for the channel. This parameter overwrites all existing cover images.
    */
   coverImages?: SaveChannelDraftRequestCoverImages[];
   /**
    * @remarks
-   * The channel draft ID.
+   * The ID of the channel draft.
    * 
    * This parameter is required.
    * 
@@ -98,7 +98,7 @@ export class SaveChannelDraftRequest extends $dara.Model {
   draftId?: string;
   /**
    * @remarks
-   * The article column name for Wanxiaozhi 1.0. This parameter is required only when the website has not enabled an article column.
+   * The name of the article column in Wanxiaozhi 1.0. This parameter is required only when the article column is not enabled for the website.
    * 
    * @example
    * Article

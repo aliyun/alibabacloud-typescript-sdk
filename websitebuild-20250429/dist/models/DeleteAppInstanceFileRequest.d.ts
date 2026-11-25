@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteAppInstanceFileRequest extends $dara.Model {
     /**
      * @remarks
-     * The session ID.
+     * The conversation ID.
      *
      * @example
      * 81bc5a34-1d8d-4ef7-a208-7401c51b054b

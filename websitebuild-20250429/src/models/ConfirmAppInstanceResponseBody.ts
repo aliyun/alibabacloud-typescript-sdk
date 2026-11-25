@@ -29,7 +29,7 @@ export class ConfirmAppInstanceResponseBodyModule extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The second-level domain name of the website.
+   * The second-level domain name of the site.
    * 
    * @example
    * abcd.scd.wanwang.xin
@@ -65,7 +65,7 @@ export class ConfirmAppInstanceResponseBodyModule extends $dara.Model {
 export class ConfirmAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class ConfirmAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class ConfirmAppInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * spring-cloud-b
@@ -105,7 +105,7 @@ export class ConfirmAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -131,10 +131,10 @@ export class ConfirmAppInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

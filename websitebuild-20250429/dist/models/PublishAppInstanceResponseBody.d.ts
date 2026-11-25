@@ -1,5 +1,17 @@
 import * as $dara from '@darabonba/typescript';
 export declare class PublishAppInstanceResponseBodyModule extends $dara.Model {
+    artifactDigest?: string;
+    auditId?: string;
+    candidateId?: string;
+    candidateStatus?: string;
+    commitHash?: string;
+    platformAppid?: string;
+    pluginDeclarationHash?: string;
+    pluginState?: string;
+    privacyDraftId?: string;
+    privacyRevision?: string;
+    publishEnv?: string;
+    publishNumber?: string;
     /**
      * @remarks
      * The publish order ID.
@@ -8,6 +20,10 @@ export declare class PublishAppInstanceResponseBodyModule extends $dara.Model {
      * 231
      */
     publishOrderId?: number;
+    readbackStatus?: string;
+    submitIntentStatus?: string;
+    updatedAt?: number;
+    uploadSequence?: number;
     static names(): {
         [key: string]: string;
     };

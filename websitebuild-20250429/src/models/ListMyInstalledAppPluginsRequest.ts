@@ -8,7 +8,7 @@ export class ListMyInstalledAppPluginsRequest extends $dara.Model {
    * Filters results by category.
    * 
    * @example
-   * {\\"Status\\": 0, \\"Name\\": \\"UELBNUP\\", \\"BizCode\\": \\"\\", \\"CategoryId\\": 30000655368, \\"ParentCategoryId\\": 30000655367}
+   * {\"Status\": 0, \"Name\": \"UELBNUP\", \"BizCode\": \"\", \"CategoryId\": 30000655368, \"ParentCategoryId\": 30000655367}
    */
   category?: string;
   /**
@@ -16,7 +16,7 @@ export class ListMyInstalledAppPluginsRequest extends $dara.Model {
    * The search keyword. Matches against name or description.
    * 
    * @example
-   * ${\\"wget JiexJPWT.popscan.xaliyun.com\\"}
+   * ${\"wget JiexJPWT.popscan.xaliyun.com\"}
    */
   keyword?: string;
   /**

@@ -46,7 +46,7 @@ export declare class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether a retry is allowed.
+     * Indicates whether retries are allowed.
      *
      * @example
      * False
@@ -70,8 +70,8 @@ export declare class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
      *
      * @example
      * abc
@@ -113,7 +113,7 @@ export declare class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
     rootErrorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the processing is synchronous.
+     * Indicates whether the operation is processed synchronously.
      *
      * @example
      * True

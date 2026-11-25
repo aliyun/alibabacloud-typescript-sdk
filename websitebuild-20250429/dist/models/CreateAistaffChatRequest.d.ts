@@ -5,7 +5,7 @@ export declare class CreateAIStaffChatRequestMessages extends $dara.Model {
      * The message content.
      *
      * @example
-     * {\\"CodeRevision\\": \\"1750040991876284109\\"}
+     * {\"CodeRevision\": \"1750040991876284109\"}
      */
     content?: string;
     /**
@@ -18,7 +18,7 @@ export declare class CreateAIStaffChatRequestMessages extends $dara.Model {
     contentType?: string;
     /**
      * @remarks
-     * The business extension metadata in Map format. The value must be a JSON string.
+     * The business extension metadata in map format. The value must be a JSON string.
      *
      * @example
      * {}
@@ -64,7 +64,7 @@ export declare class CreateAIStaffChatRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The chat ID. Pass in this parameter to resume a conversation after an interruption.
+     * The chat ID. Pass this parameter when resuming from an interruption.
      *
      * @example
      * 3b465fe1-6f06-4899-af9f-d43d9338df25
@@ -85,7 +85,7 @@ export declare class CreateAIStaffChatRequest extends $dara.Model {
     messages?: CreateAIStaffChatRequestMessages[];
     /**
      * @remarks
-     * The additional information for the conversation.
+     * The additional conversation information.
      *
      * @example
      * {}

@@ -3,6 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
+  artifactDigest?: string;
+  auditId?: string;
+  bindingId?: string;
   /**
    * @remarks
    * Indicates whether quick rollback is supported.
@@ -11,9 +14,12 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
    * true
    */
   canQuickRevert?: string;
+  candidateId?: string;
+  candidateStatus?: string;
+  commitHash?: string;
   /**
    * @remarks
-   * The current step of the task.
+   * The current step number of the task.
    * 
    * @example
    * PRE_CHECK
@@ -67,8 +73,10 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
+   * 
    * - `true`: The call is successful.
-   * - `false`: The call failed.
+   * 
+   * - `false`: The call fails.
    * 
    * @example
    * True
@@ -76,7 +84,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The additional description.
+   * The additional information.
    * 
    * @example
    * common notify successfully.
@@ -84,7 +92,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The sorting type, such as ASC or DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -106,6 +114,13 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
    * 20
    */
   percent?: number;
+  platformAppid?: string;
+  pluginDeclarationHash?: string;
+  pluginState?: string;
+  privacyDraftId?: string;
+  privacyRevision?: string;
+  publishDiagnostics?: string;
+  publishEnv?: string;
   /**
    * @remarks
    * The publish number.
@@ -124,7 +139,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   publishOrderId?: number;
   /**
    * @remarks
-   * The scheduled publish time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
+   * The scheduled publish time in UTC format yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\".
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -132,9 +147,10 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
    * 123123
    */
   publishTime?: string;
+  readbackStatus?: string;
   /**
    * @remarks
-   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID.
    * 
    * @example
    * 865181640657408
@@ -158,9 +174,21 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
    * wx0123456789abcdef
    */
   subchannel?: string;
+  submitIntentStatus?: string;
+  updatedAt?: number;
+  uploadAttemptId?: string;
+  uploadLeaseState?: string;
+  uploadSequence?: number;
+  uploadTicketState?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactDigest: 'ArtifactDigest',
+      auditId: 'AuditId',
+      bindingId: 'BindingId',
       canQuickRevert: 'CanQuickRevert',
+      candidateId: 'CandidateId',
+      candidateStatus: 'CandidateStatus',
+      commitHash: 'CommitHash',
       currentStep: 'CurrentStep',
       currentStepCode: 'CurrentStepCode',
       deployChannel: 'DeployChannel',
@@ -173,19 +201,39 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
       orderType: 'OrderType',
       orderTypeCode: 'OrderTypeCode',
       percent: 'Percent',
+      platformAppid: 'PlatformAppid',
+      pluginDeclarationHash: 'PluginDeclarationHash',
+      pluginState: 'PluginState',
+      privacyDraftId: 'PrivacyDraftId',
+      privacyRevision: 'PrivacyRevision',
+      publishDiagnostics: 'PublishDiagnostics',
+      publishEnv: 'PublishEnv',
       publishNumber: 'PublishNumber',
       publishOrderId: 'PublishOrderId',
       publishTime: 'PublishTime',
+      readbackStatus: 'ReadbackStatus',
       siteId: 'SiteId',
       stepCodes: 'StepCodes',
       steps: 'Steps',
       subchannel: 'Subchannel',
+      submitIntentStatus: 'SubmitIntentStatus',
+      updatedAt: 'UpdatedAt',
+      uploadAttemptId: 'UploadAttemptId',
+      uploadLeaseState: 'UploadLeaseState',
+      uploadSequence: 'UploadSequence',
+      uploadTicketState: 'UploadTicketState',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      artifactDigest: 'string',
+      auditId: 'string',
+      bindingId: 'string',
       canQuickRevert: 'string',
+      candidateId: 'string',
+      candidateStatus: 'string',
+      commitHash: 'string',
       currentStep: 'string',
       currentStepCode: 'string',
       deployChannel: 'string',
@@ -198,13 +246,27 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
       orderType: 'string',
       orderTypeCode: 'string',
       percent: 'number',
+      platformAppid: 'string',
+      pluginDeclarationHash: 'string',
+      pluginState: 'string',
+      privacyDraftId: 'string',
+      privacyRevision: 'string',
+      publishDiagnostics: 'string',
+      publishEnv: 'string',
       publishNumber: 'string',
       publishOrderId: 'number',
       publishTime: 'string',
+      readbackStatus: 'string',
       siteId: 'string',
       stepCodes: { 'type': 'array', 'itemType': 'string' },
       steps: { 'type': 'array', 'itemType': 'string' },
       subchannel: 'string',
+      submitIntentStatus: 'string',
+      updatedAt: 'number',
+      uploadAttemptId: 'string',
+      uploadLeaseState: 'string',
+      uploadSequence: 'number',
+      uploadTicketState: 'string',
     };
   }
 
@@ -226,7 +288,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
 export class GetAppPublishStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The details of the access denial.
    * 
    * @example
    * {}

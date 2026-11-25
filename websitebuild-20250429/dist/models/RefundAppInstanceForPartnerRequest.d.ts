@@ -10,7 +10,7 @@ export declare class RefundAppInstanceForPartnerRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The idempotence token.
+     * The idempotency token.
      *
      * @example
      * c6f7e8b9-a0b1-4c2d-9e0f-1a2b3c4d5e6f
@@ -21,7 +21,7 @@ export declare class RefundAppInstanceForPartnerRequest extends $dara.Model {
      * The reason for the refund.
      *
      * @example
-     * 渠道商退款
+     * Channel partner refund
      */
     refundReason?: string;
     /**

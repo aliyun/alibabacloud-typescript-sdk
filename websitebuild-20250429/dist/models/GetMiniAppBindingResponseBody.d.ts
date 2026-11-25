@@ -51,6 +51,9 @@ export declare class GetMiniAppBindingResponseBodyData extends $dara.Model {
     /**
      * @remarks
      * The extended information.
+     *
+     * @example
+     * {"SERVER_DOMAIN":"{\"requestDomains\":[{\"domain\":\"https://api.example.com\",\"source\":\"managed\"}],\"wsRequestDomains\":[],\"uploadDomains\":[],\"downloadDomains\":[],\"udpDomains\":[],\"tcpDomains\":[]}"}
      */
     settingValues?: {
         [key: string]: string;

@@ -21,7 +21,7 @@ export declare class UploadAppSiteValidationFileRequest extends $dara.Model {
      * The file name.
      *
      * @example
-     * {\\"URI\\": \\"oss://imm-test-co-cn-chengdu/zqh/input/Image/indexImage/nn1.jpg\\", \\"LatLong\\":\\"+39.998800,+116.480900\\"}
+     * {\"URI\": \"oss://imm-test-co-cn-chengdu/zqh/input/Image/indexImage/nn1.jpg\", \"LatLong\":\"+39.998800,+116.480900\"}
      */
     file?: string;
     /**

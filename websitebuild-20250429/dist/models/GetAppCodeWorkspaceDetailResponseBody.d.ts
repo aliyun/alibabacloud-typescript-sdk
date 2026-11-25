@@ -10,7 +10,7 @@ export declare class GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots extend
     changeLog?: string;
     /**
      * @remarks
-     * The creation time in UTC. The time is in the ISO 8601 format.
+     * The creation time in UTC. The time follows the ISO 8601 standard.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
      *
@@ -56,10 +56,10 @@ export declare class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.M
     commitHash?: string;
     /**
      * @remarks
-     * true
+     * Indicates whether the workspace contains uncommitted changes.
      *
      * @example
-     * 1
+     * true
      */
     isDirty?: boolean;
     /**
@@ -72,7 +72,7 @@ export declare class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.M
     maxLogicalNumber?: number;
     /**
      * @remarks
-     * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+     * The site ID.
      *
      * @example
      * 865181640657408
@@ -97,7 +97,7 @@ export declare class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.M
 export declare class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reasons for the access denial.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -105,7 +105,7 @@ export declare class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Specifies whether retries are allowed. Valid values:
+     * Indicates whether retries are allowed. Valid values:
      * - false: Retries are not allowed.
      * - true: Retries are allowed.
      *
@@ -132,7 +132,7 @@ export declare class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
     /**
      * @remarks
      * The dynamic error message, which is used to replace the `%s` in the error message of the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
      *
      * @example
      * abc

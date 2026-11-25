@@ -21,7 +21,7 @@ export class RefreshAppInstanceTicketResponseBodyModule extends $dara.Model {
   accessTokenIssuedAt?: string;
   /**
    * @remarks
-   * The access token value.
+   * The value of the access token.
    * 
    * @example
    * 2108341e17661121129745384e79f9
@@ -37,7 +37,7 @@ export class RefreshAppInstanceTicketResponseBodyModule extends $dara.Model {
   aliyunPk?: string;
   /**
    * @remarks
-   * The extended properties.
+   * The extended attributes.
    * 
    * @example
    * {}
@@ -85,7 +85,7 @@ export class RefreshAppInstanceTicketResponseBodyModule extends $dara.Model {
   refreshTokenIssuedAt?: string;
   /**
    * @remarks
-   * The refresh token value.
+   * The value of the refresh token.
    * 
    * @example
    * 2108341e17661121129745384e79f9
@@ -93,7 +93,7 @@ export class RefreshAppInstanceTicketResponseBodyModule extends $dara.Model {
   refreshTokenValue?: string;
   /**
    * @remarks
-   * The external unique identifier.
+   * The externally unique identifier.
    * 
    * @example
    * 357504C7F21FCAE502756332ECE8B533
@@ -145,7 +145,7 @@ export class RefreshAppInstanceTicketResponseBodyModule extends $dara.Model {
 export class RefreshAppInstanceTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -153,7 +153,7 @@ export class RefreshAppInstanceTicketResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -178,7 +178,7 @@ export class RefreshAppInstanceTicketResponseBody extends $dara.Model {
   /**
    * @remarks
    * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -186,7 +186,7 @@ export class RefreshAppInstanceTicketResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -215,7 +215,7 @@ export class RefreshAppInstanceTicketResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

@@ -8,7 +8,7 @@ export class RewriteChannelTitleResponseBodyModuleCoverImages extends $dara.Mode
    * The file ID in the material center.
    * 
    * @example
-   * xx
+   * material-file-demo-001
    */
   materialFileId?: string;
   /**
@@ -21,10 +21,10 @@ export class RewriteChannelTitleResponseBodyModuleCoverImages extends $dara.Mode
   ossUrl?: string;
   /**
    * @remarks
-   * The sort order number.
+   * The sort order.
    * 
    * @example
-   * Ascending
+   * 1
    */
   sortOrder?: number;
   static names(): { [key: string]: string } {
@@ -58,28 +58,28 @@ export class RewriteChannelTitleResponseBodyModule extends $dara.Model {
    * The AI adaptation status. Valid values: NONE, ADAPTING, DONE, and FAILED.
    * 
    * @example
-   * xxx
+   * DONE
    */
   adaptStatus?: string;
   /**
    * @remarks
-   * The channel-adapted content.
+   * The adapted content for the channel.
    * 
    * @example
-   * xxx
+   * Introduces the main features and usage of the website
    */
   adaptedContent?: string;
   /**
    * @remarks
-   * The channel-adapted title.
+   * The adapted title for the channel.
    * 
    * @example
-   * xxx
+   * Website features and user guide
    */
   adaptedTitle?: string;
   /**
    * @remarks
-   * The channel enumeration value.
+   * The channel enumeration.
    * 
    * @example
    * WECHAT
@@ -87,10 +87,10 @@ export class RewriteChannelTitleResponseBodyModule extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The publishing account snapshot.
+   * The snapshot of the publishing account.
    * 
    * @example
-   * xxx
+   * social-account-demo-001
    */
   channelAccount?: string;
   /**
@@ -98,7 +98,7 @@ export class RewriteChannelTitleResponseBodyModule extends $dara.Model {
    * The display name of the publishing account.
    * 
    * @example
-   * xx
+   * Sample publishing account
    */
   channelAccountName?: string;
   /**
@@ -119,7 +119,7 @@ export class RewriteChannelTitleResponseBodyModule extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The list of channel cover images.
+   * The list of cover images for the channel.
    */
   coverImages?: RewriteChannelTitleResponseBodyModuleCoverImages[];
   /**
@@ -148,7 +148,7 @@ export class RewriteChannelTitleResponseBodyModule extends $dara.Model {
   externalUrl?: string;
   /**
    * @remarks
-   * The failure reason.
+   * The reason for the failure.
    * 
    * @example
    * Invalid parameter
@@ -156,18 +156,18 @@ export class RewriteChannelTitleResponseBodyModule extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
-   * The channel-specific publishing configuration in JSON format.
+   * The JSON string of channel-specific publishing fields.
    * 
    * @example
-   * xx
+   * {}
    */
   publishConfig?: string;
   /**
    * @remarks
-   * The publishing time, in millisecond timestamp.
+   * The publishing time. The value is a millisecond timestamp.
    * 
    * @example
-   * xx
+   * 1767225600000
    */
   publishedAt?: number;
   /**
@@ -235,7 +235,7 @@ export class RewriteChannelTitleResponseBodyModule extends $dara.Model {
 export class RewriteChannelTitleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -243,7 +243,7 @@ export class RewriteChannelTitleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -251,7 +251,7 @@ export class RewriteChannelTitleResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -267,8 +267,8 @@ export class RewriteChannelTitleResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * abc
@@ -276,12 +276,12 @@ export class RewriteChannelTitleResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the move operation was successful.
    */
   module?: RewriteChannelTitleResponseBodyModule;
   /**
@@ -302,7 +302,7 @@ export class RewriteChannelTitleResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * System exception

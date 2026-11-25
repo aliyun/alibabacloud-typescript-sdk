@@ -45,7 +45,7 @@ export class GetAppFileContentResponseBodyModule extends $dara.Model {
 export class GetAppFileContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission check failure.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class GetAppFileContentResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -77,8 +77,8 @@ export class GetAppFileContentResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR

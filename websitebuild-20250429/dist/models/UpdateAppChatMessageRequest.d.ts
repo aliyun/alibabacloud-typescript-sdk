@@ -13,7 +13,7 @@ export declare class UpdateAppChatMessageRequest extends $dara.Model {
      * The message content.
      *
      * @example
-     * FormatVersion: OOS-2019-06-01nTasks:n  - Name: runCommandn    Action: \\"ACS::ECS::RunCommand\\"n    Properties:n      commandContent: \\" echo Hksqj@@883289
+     * FormatVersion: OOS-2019-06-01nTasks:n  - Name: runCommandn    Action: \"ACS::ECS::RunCommand\"n    Properties:n      commandContent: \" echo Hksqj@@883289
      */
     content?: string;
     /**

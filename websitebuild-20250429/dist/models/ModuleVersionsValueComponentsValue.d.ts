@@ -3,7 +3,7 @@ import { ModuleVersionsValueComponentsValuePropertiesValue } from "./ModuleVersi
 export declare class ModuleVersionsValueComponentsValueInstancePropertyValues extends $dara.Model {
     /**
      * @remarks
-     * 属性编码（系统内部标识）
+     * The code of the property, which is an internal system identifier.
      *
      * @example
      * code
@@ -11,7 +11,7 @@ export declare class ModuleVersionsValueComponentsValueInstancePropertyValues ex
     code?: string;
     /**
      * @remarks
-     * 属性值编码（系统内部值）
+     * The code of the property value, which is an internal system value.
      *
      * @example
      * value
@@ -19,7 +19,7 @@ export declare class ModuleVersionsValueComponentsValueInstancePropertyValues ex
     value?: string;
     /**
      * @remarks
-     * 属性显示名称（用户可见名称）
+     * The display name of the property, which is visible to users.
      *
      * @example
      * name
@@ -39,7 +39,7 @@ export declare class ModuleVersionsValueComponentsValueInstancePropertyValues ex
 export declare class ModuleVersionsValueComponentsValueInstanceProperty extends $dara.Model {
     /**
      * @remarks
-     * 属性编码（系统内部标识）
+     * The code of the property, which is an internal system identifier.
      *
      * @example
      * code
@@ -47,7 +47,7 @@ export declare class ModuleVersionsValueComponentsValueInstanceProperty extends 
     code?: string;
     /**
      * @remarks
-     * 属性显示名称（用户可见名称）
+     * The display name of the property, which is visible to users.
      *
      * @example
      * name
@@ -55,7 +55,7 @@ export declare class ModuleVersionsValueComponentsValueInstanceProperty extends 
     name?: string;
     /**
      * @remarks
-     * 属性值编码（系统内部值）
+     * The code of the property value, which is an internal system value.
      *
      * @example
      * value
@@ -63,7 +63,7 @@ export declare class ModuleVersionsValueComponentsValueInstanceProperty extends 
     value?: string;
     /**
      * @remarks
-     * 模块属性值列表
+     * The list of module property values.
      */
     values?: ModuleVersionsValueComponentsValueInstancePropertyValues[];
     static names(): {
@@ -80,7 +80,7 @@ export declare class ModuleVersionsValueComponentsValueInstanceProperty extends 
 export declare class ModuleVersionsValueComponentsValue extends $dara.Model {
     /**
      * @remarks
-     * 组件唯一编码（系统内部标识）
+     * The unique code of the component, which is an internal system identifier.
      *
      * @example
      * ComponentCode
@@ -88,7 +88,7 @@ export declare class ModuleVersionsValueComponentsValue extends $dara.Model {
     componentCode?: string;
     /**
      * @remarks
-     * 组件显示名称（用户可见名称）
+     * The display name of the component, which is visible to users.
      *
      * @example
      * ComponentName
@@ -96,12 +96,12 @@ export declare class ModuleVersionsValueComponentsValue extends $dara.Model {
     componentName?: string;
     /**
      * @remarks
-     * 组件实例属性配置
+     * The instance property configuration of the component.
      */
     instanceProperty?: ModuleVersionsValueComponentsValueInstanceProperty[];
     /**
      * @remarks
-     * 组件实例属性配置
+     * The instance property configuration of the component.
      *
      * @example
      * {}
@@ -111,7 +111,7 @@ export declare class ModuleVersionsValueComponentsValue extends $dara.Model {
     };
     /**
      * @remarks
-     * 模块属性状态
+     * The status of the module property.
      *
      * @example
      * 1

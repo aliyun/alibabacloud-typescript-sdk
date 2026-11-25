@@ -8,7 +8,7 @@ export class OperateAppInstanceForPartnerRequest extends $dara.Model {
    * The extended information.
    * 
    * @example
-   * {\\"deliveryNodeName\\":\\"交付质检\\",\\"deliveryNodeStatus\\":\\"Finish\\",\\"deliveryOperatorRole\\":\\"Provider\\"}
+   * {"deliveryNodeName":"Delivery inspection","deliveryNodeStatus":"Finish","deliveryOperatorRole":"Provider"}
    */
   extend?: string;
   /**

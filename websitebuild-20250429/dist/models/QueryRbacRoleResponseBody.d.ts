@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class QueryRbacRoleResponseBodyModule extends $dara.Model {
     /**
      * @remarks
-     * The time when the task was created, in ISO 8601 format, such as 2024-01-01T00:00:00Z.
+     * The task creation time in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
      *
      * @example
      * 2026-02-06T10:20:09Z
@@ -18,7 +18,7 @@ export declare class QueryRbacRoleResponseBodyModule extends $dara.Model {
     id?: string;
     /**
      * @remarks
-     * Indicates whether it is the default. Valid values:
+     * The default status. Valid values:
      * - 0: No.
      * - 1: Yes.
      *
@@ -63,7 +63,7 @@ export declare class QueryRbacRoleResponseBodyModule extends $dara.Model {
 export declare class QueryRbacRoleResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed reason for the access denial.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -81,7 +81,7 @@ export declare class QueryRbacRoleResponseBody extends $dara.Model {
     allowRetry?: boolean;
     /**
      * @remarks
-     * The name of the application.
+     * The name of the application to query.
      *
      * @example
      * spring-cloud-b

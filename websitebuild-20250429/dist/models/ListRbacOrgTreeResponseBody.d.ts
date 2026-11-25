@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
     /**
      * @remarks
-     * The creation time. The time is in the ISO 8601 format and the UTC time zone.
+     * The creation time. The time follows the ISO 8601 standard and is in the UTC time zone (Z).
      *
      * @example
      * 2026-05-08T02:28:26Z
@@ -10,10 +10,10 @@ export declare class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The directory level.
+     * The folder level.
      *
      * @example
-     * FirstChildDepth
+     * 1
      */
     depth?: number;
     /**
@@ -51,7 +51,7 @@ export declare class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
 export declare class ListRbacOrgTreeResponseBodyModuleNext extends $dara.Model {
     /**
      * @remarks
-     * The creation date. The date is in the ISO 8601 format and the UTC time zone.
+     * The creation date. The date follows the ISO 8601 standard and is in the UTC time zone (Z).
      *
      * @example
      * 2025-12-15T02:29:22Z
@@ -59,7 +59,7 @@ export declare class ListRbacOrgTreeResponseBodyModuleNext extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The category level. The root category level is 1.
+     * The category level. The root category is 1.
      *
      * @example
      * 2
@@ -83,7 +83,7 @@ export declare class ListRbacOrgTreeResponseBodyModuleNext extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The request path of the API.
+     * The URI of the request.
      *
      * @example
      * /h6sRMdP&LTdQz/44ImvD/JtjSeUza/wVcp1i/dsxnl0FlL0/bvL/d+0~V6Fi5+R/P8ebktwGxe/l&AqBD_/Y+TstdpTo06U_Q/4i4:EDPGo/7.fIVgd.//AOJtXP5/X
@@ -181,7 +181,7 @@ export declare class ListRbacOrgTreeResponseBodyModule extends $dara.Model {
 export declare class ListRbacOrgTreeResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The detailed cause of the access denial.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -189,7 +189,7 @@ export declare class ListRbacOrgTreeResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retries are allowed.
+     * Indicates whether retry is allowed.
      *
      * @example
      * False
@@ -213,8 +213,8 @@ export declare class ListRbacOrgTreeResponseBody extends $dara.Model {
     dynamicCode?: string;
     /**
      * @remarks
-     * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
-     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+     * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** error message.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified request parameter **DtsJobId** is invalid.
      *
      * @example
      * SYSTEM_ERROR
@@ -227,9 +227,7 @@ export declare class ListRbacOrgTreeResponseBody extends $dara.Model {
     errorArgs?: any[];
     /**
      * @remarks
-     * The number of results returned per query.
-     *
-     * Valid values: 10 to 100. Default value: 20.
+     * The number of entries to return for each query. Valid values: 10 to 100. Default value: 20.
      *
      * @example
      * 10
@@ -242,7 +240,7 @@ export declare class ListRbacOrgTreeResponseBody extends $dara.Model {
     module?: ListRbacOrgTreeResponseBodyModule;
     /**
      * @remarks
-     * The token used to start the next query. This parameter is empty if no subsequent query is available.
+     * The token used to start the next query. If no next query is available, this parameter is empty.
      *
      * @example
      * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM

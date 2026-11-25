@@ -303,7 +303,7 @@ export class ListMyAppPluginsResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * The result limit. In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow down the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -371,7 +371,7 @@ export class ListMyAppPluginsResponseBodyModule extends $dara.Model {
 export class ListMyAppPluginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -379,7 +379,7 @@ export class ListMyAppPluginsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether retries are allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -387,7 +387,7 @@ export class ListMyAppPluginsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). It can be up to 36 characters in length.
+   * The application name. It must start with a letter and can contain digits, letters, underscores (_), and hyphens (-). The name can be up to 36 characters in length.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -403,8 +403,8 @@ export class ListMyAppPluginsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR

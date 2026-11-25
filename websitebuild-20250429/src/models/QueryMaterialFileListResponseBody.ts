@@ -14,7 +14,7 @@ export class QueryMaterialFileListResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request result.
+   * The query results.
    */
   data?: AppMaterialFile[];
   /**
@@ -37,7 +37,7 @@ export class QueryMaterialFileListResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow down the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -97,7 +97,7 @@ export class QueryMaterialFileListResponseBodyModule extends $dara.Model {
 export class QueryMaterialFileListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -105,9 +105,9 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether a retry is allowed. Valid values:
-   * - false: A retry is not allowed.
-   * - true: A retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -115,7 +115,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and can be up to 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
    * 
    * @example
    * or
@@ -123,7 +123,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is currently unused and can be ignored.
+   * The dynamic code. This parameter is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -144,7 +144,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. If the request is successful, this parameter is not returned. If the request fails, this parameter is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, the ErrorCode parameter is not returned. If the request fails, the ErrorCode parameter is returned. For more information, see the error codes section in this topic.
    * 
    * @example
    * 0
@@ -160,9 +160,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The maximum number of entries to return for a single request.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of entries to return for a single request. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -175,7 +173,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   module?: QueryMaterialFileListResponseBodyModule;
   /**
    * @remarks
-   * The token that is used to start the next query. If no next query is available, this parameter is left empty.
+   * The token that is used to start the next query. If no next query exists, this parameter is empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -191,7 +189,7 @@ export class QueryMaterialFileListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR

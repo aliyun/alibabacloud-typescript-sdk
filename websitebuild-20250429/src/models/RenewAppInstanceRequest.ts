@@ -13,7 +13,7 @@ export class RenewAppInstanceRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure request idempotence. You can generate the value from your client and make sure that it is unique across different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * fdfjafdfadfenjeora
@@ -32,12 +32,12 @@ export class RenewAppInstanceRequest extends $dara.Model {
    * The extended information.
    * 
    * @example
-   * {\\"deliveryNodeName\\":\\"交付质检\\",\\"deliveryNodeStatus\\":\\"Finish\\",\\"deliveryOperatorRole\\":\\"Provider\\"}
+   * {\"deliveryNodeName\":\"Delivery quality inspection\",\"deliveryNodeStatus\":\"Finish\",\"deliveryOperatorRole\":\"Provider\"}
    */
   extend?: string;
   /**
    * @remarks
-   * The payment type.
+   * The payment method.
    * 
    * @example
    * PayAsYouGo
@@ -45,11 +45,7 @@ export class RenewAppInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Required. The unit of the subscription period. Valid values:
-   * - Year: year
-   * - Month: month
-   * - Day: day
-   * - Hour: hour.
+   * Required. The unit of the subscription period. Valid values: Year, Month, Day, and Hour.
    * 
    * @example
    * Month

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModuleVersionsValueComponentsValuePropertiesValueValues extends $dara.Model {
     /**
      * @remarks
-     * 属性编码（系统内部标识）
+     * The code of the property, which is an internal system identifier.
      *
      * @example
      * code
@@ -10,7 +10,7 @@ export declare class ModuleVersionsValueComponentsValuePropertiesValueValues ext
     code?: string;
     /**
      * @remarks
-     * 属性值编码（系统内部值）
+     * The code of the property value, which is an internal system value.
      *
      * @example
      * value
@@ -18,7 +18,7 @@ export declare class ModuleVersionsValueComponentsValuePropertiesValueValues ext
     value?: string;
     /**
      * @remarks
-     * 属性显示名称（用户可见名称）
+     * The display name of the property, which is visible to users.
      *
      * @example
      * name
@@ -38,7 +38,7 @@ export declare class ModuleVersionsValueComponentsValuePropertiesValueValues ext
 export declare class ModuleVersionsValueComponentsValuePropertiesValue extends $dara.Model {
     /**
      * @remarks
-     * 属性编码（系统内部标识）
+     * The code of the property, which is an internal system identifier.
      *
      * @example
      * code
@@ -46,7 +46,7 @@ export declare class ModuleVersionsValueComponentsValuePropertiesValue extends $
     code?: string;
     /**
      * @remarks
-     * 属性显示名称（用户可见名称）
+     * The display name of the property, which is visible to users.
      *
      * @example
      * name
@@ -54,7 +54,7 @@ export declare class ModuleVersionsValueComponentsValuePropertiesValue extends $
     name?: string;
     /**
      * @remarks
-     * 属性值编码（系统内部值）
+     * The code of the property value, which is an internal system value.
      *
      * @example
      * value
@@ -62,7 +62,7 @@ export declare class ModuleVersionsValueComponentsValuePropertiesValue extends $
     value?: string;
     /**
      * @remarks
-     * 模块属性值列表
+     * The list of module property values.
      */
     values?: ModuleVersionsValueComponentsValuePropertiesValueValues[];
     static names(): {

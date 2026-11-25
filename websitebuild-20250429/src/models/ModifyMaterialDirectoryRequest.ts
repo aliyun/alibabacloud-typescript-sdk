@@ -15,7 +15,7 @@ export class ModifyMaterialDirectoryRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyMaterialDirectoryRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The updated name of the folder.
+   * The updated folder name.
    * 
    * This parameter is required.
    * 

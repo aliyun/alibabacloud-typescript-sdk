@@ -32,7 +32,7 @@ export class CreateAppChatRequest extends $dara.Model {
    * The list of conversation messages in JSON array format.
    * 
    * @example
-   * [\\r\\n  {\\r\\n    \\"role\\": \\"user\\",\\r\\n    \\"content\\": \\"Prove that there are only five platonic solids, namely the tetrahedron, octahedron, icosahedron, cube, and dodecahedron.\\"\\r\\n  }\\r\\n]
+   * [\r\n  {\r\n    \"role\": \"user\",\r\n    \"content\": \"Prove that there are only five platonic solids, namely the tetrahedron, octahedron, icosahedron, cube, and dodecahedron.\"\r\n  }\r\n]
    */
   messages?: string;
   /**

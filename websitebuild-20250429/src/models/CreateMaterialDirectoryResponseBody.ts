@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaterialDirectoryResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The folder ID.
+   * The ID of the folder.
    * 
    * @example
    * 68157a0a-769a-4364-bbdc-a0e2cf3d5ad
@@ -35,7 +35,7 @@ export class CreateMaterialDirectoryResponseBodyModule extends $dara.Model {
 export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name, used to query applications with this name.
+   * The name of the application to query.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -80,7 +80,7 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * The error code. Value description: If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * The error code. If the request is successful, this parameter is not returned. If the request fails, this parameter is returned. For more information, see the error code list in this topic.
    * 
    * @example
    * 0

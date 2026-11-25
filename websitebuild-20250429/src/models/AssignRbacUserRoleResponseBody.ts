@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssignRbacUserRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -39,7 +39,7 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace %s in the ErrMessage response parameter.
+   * The dynamic error message used to replace %s in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM.ERROR
@@ -52,7 +52,7 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the deletion is successful.
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * true
@@ -84,7 +84,7 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * The backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

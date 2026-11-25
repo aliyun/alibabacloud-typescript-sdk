@@ -21,7 +21,7 @@ export declare class GetMiniAppBindingRequest extends $dara.Model {
      * The list of extended information keys.
      *
      * @example
-     * SERVER_DOMAIN
+     * ["SERVER_DOMAIN"]
      */
     settingKeys?: string[];
     static names(): {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The desired total returned only for APP_WORKSPACE. This is the target total for the current check, which is the sum of the existing usage in the saved configuration and ResourceValue. If the compatible DesiredTotal is provided, this total is used directly. The existing usage of issues is the sum of common and word-of-mouth issues in the saved configuration, and the existing usage of competitors is the number of competitors. This parameter is empty for APP and USER checks.
+   * Returned only for APP_WORKSPACE. This parameter indicates the target total for this check, which is the used amount in the saved configuration plus ResourceValue. If the compatible DesiredTotal is provided, this total is used directly. The used amount of issues is the sum of common and word-of-mouth issues in the saved configuration, and the used amount of competitors is the number of competitors. This parameter is empty for APP or USER checks.
    * 
    * @example
    * 21
@@ -13,7 +13,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   desiredTotal?: number;
   /**
    * @remarks
-   * The error code returned when the check fails. This parameter is null when the check passes.
+   * The error code returned when the check fails. This parameter is null when the check is passed.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the check fails. This parameter is null when the check passes.
+   * The error message returned when the check fails. This parameter is null when the check is passed.
    * 
    * @example
    * stream push failed
@@ -29,7 +29,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The limit returned only for APP_WORKSPACE quantity pre-checks. This is the maximum number of issues or competitors allowed by the current commodity edition, not the remaining quota. This parameter is empty for APP and USER checks or when the edition benefits cannot be determined.
+   * Returned only for APP_WORKSPACE quantity dry runs. This parameter indicates the maximum number of issues or competitors allowed by the current product edition, not the remaining quota. This parameter is empty for APP or USER checks, or when the edition benefits cannot be determined.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
   resourceCode?: string;
   /**
    * @remarks
-   * Indicates whether a purchasable higher edition that can accommodate the DesiredTotal exists. This parameter is true only when the capacity of the current edition is insufficient and a higher edition meets the requirements. Otherwise, this parameter is false. This parameter may be empty for APP and USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
+   * Indicates whether a purchasable higher edition exists that can accommodate the DesiredTotal. This parameter is true only when the capacity of the current edition is insufficient and a higher edition meets the requirements. Otherwise, it is false. This parameter may be empty for APP or USER checks. This field does not indicate that an upgrade has been performed or an upgrade order has been created.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class CheckResourceMeasureResponseBodyModule extends $dara.Model {
 export class CheckResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -103,7 +103,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether retries are allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -128,7 +128,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   /**
    * @remarks
    * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -136,7 +136,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -154,7 +154,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root error code.
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -170,7 +170,7 @@ export class CheckResourceMeasureResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * The backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

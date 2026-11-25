@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyMaterialFileResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The details of the permission check failure.
+     * The details of the access denial.
      *
      * @example
      * {}
@@ -10,7 +10,7 @@ export declare class ModifyMaterialFileResponseBody extends $dara.Model {
     accessDeniedDetail?: string;
     /**
      * @remarks
-     * Indicates whether retries are allowed.
+     * Indicates whether a retry is allowed.
      *
      * @example
      * False
@@ -63,7 +63,7 @@ export declare class ModifyMaterialFileResponseBody extends $dara.Model {
     errorMsg?: string;
     /**
      * @remarks
-     * Indicates whether the update was successful.
+     * Indicates whether the modification was successful.
      *
      * @example
      * true

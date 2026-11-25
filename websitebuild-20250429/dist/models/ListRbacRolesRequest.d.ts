@@ -10,7 +10,9 @@ export declare class ListRbacRolesRequest extends $dara.Model {
     bizId?: string;
     /**
      * @remarks
-     * The maximum number of results per query. Valid values: 10 to 100. Default value: 20.
+     * The maximum number of results returned per query.
+     *
+     * Valid values: 10 to 100. Default value: 20.
      *
      * @example
      * 10
@@ -18,7 +20,7 @@ export declare class ListRbacRolesRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The token used to start the next query. If there is no next query, this parameter is empty.
+     * The token used to start the next query. This parameter is empty if no subsequent query is available.
      *
      * @example
      * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=

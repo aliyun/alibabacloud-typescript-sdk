@@ -10,7 +10,7 @@ export declare class BatchCheckResourceMeasureRequest extends $dara.Model {
     belongId?: string;
     /**
      * @remarks
-     * The type of the ownership ID, such as siteId or uid.
+     * The ownership ID type, such as siteId or uid.
      *
      * @example
      * USER
@@ -34,7 +34,7 @@ export declare class BatchCheckResourceMeasureRequest extends $dara.Model {
     espBizId?: string;
     /**
      * @remarks
-     * The order component information. This parameter is automatically populated if left empty.
+     * The order component information. This parameter is automatically completed when it is empty.
      *
      * @example
      * {"siteversion":"test"}

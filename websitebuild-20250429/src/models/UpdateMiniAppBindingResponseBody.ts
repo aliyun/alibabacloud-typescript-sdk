@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMiniAppBindingResponseBodyData extends $dara.Model {
+  privacyDraftId?: string;
+  privacyRevision?: string;
+  readbackStatus?: string;
+  revision?: number;
+  status?: string;
   /**
    * @remarks
    * Indicates whether the request is successful.
@@ -13,12 +18,22 @@ export class UpdateMiniAppBindingResponseBodyData extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      privacyDraftId: 'PrivacyDraftId',
+      privacyRevision: 'PrivacyRevision',
+      readbackStatus: 'ReadbackStatus',
+      revision: 'Revision',
+      status: 'Status',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      privacyDraftId: 'string',
+      privacyRevision: 'string',
+      readbackStatus: 'string',
+      revision: 'number',
+      status: 'string',
       success: 'boolean',
     };
   }

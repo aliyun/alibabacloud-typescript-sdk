@@ -21,7 +21,7 @@ export class ListAppAssistantAgentsResponseBodyModuleCredential extends $dara.Mo
   apiSecret?: string;
   /**
    * @remarks
-   * The extension field.
+   * The extension fields.
    * 
    * @example
    * {}
@@ -32,7 +32,7 @@ export class ListAppAssistantAgentsResponseBodyModuleCredential extends $dara.Mo
    * The password.
    * 
    * @example
-   * Demo****2026
+   * ***
    */
   password?: string;
   /**
@@ -78,7 +78,7 @@ export class ListAppAssistantAgentsResponseBodyModuleCredential extends $dara.Mo
 export class ListAppAssistantAgentsResponseBodyModuleEmbedConfig extends $dara.Model {
   /**
    * @remarks
-   * The extension field.
+   * The extension fields.
    * 
    * @example
    * {}
@@ -129,7 +129,7 @@ export class ListAppAssistantAgentsResponseBodyModule extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * 演示
+   * Demo
    */
   agentName?: string;
   /**
@@ -142,7 +142,7 @@ export class ListAppAssistantAgentsResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The authentication credential.
+   * The authentication credentials.
    */
   credential?: ListAppAssistantAgentsResponseBodyModuleCredential;
   /**
@@ -152,7 +152,7 @@ export class ListAppAssistantAgentsResponseBodyModule extends $dara.Model {
   embedConfig?: ListAppAssistantAgentsResponseBodyModuleEmbedConfig;
   /**
    * @remarks
-   * The extension parameters.
+   * The extra parameters.
    * 
    * @example
    * {}
@@ -176,7 +176,7 @@ export class ListAppAssistantAgentsResponseBodyModule extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The platform application ID of the agent.
+   * The application ID of the agent platform.
    * 
    * @example
    * WA12313123131
@@ -261,7 +261,7 @@ export class ListAppAssistantAgentsResponseBodyModule extends $dara.Model {
 export class ListAppAssistantAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * {}
@@ -269,7 +269,7 @@ export class ListAppAssistantAgentsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -293,8 +293,8 @@ export class ListAppAssistantAgentsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response element.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -302,7 +302,7 @@ export class ListAppAssistantAgentsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -331,12 +331,12 @@ export class ListAppAssistantAgentsResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

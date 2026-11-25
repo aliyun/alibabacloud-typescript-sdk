@@ -43,7 +43,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Specifies whether retries are allowed. Valid values:
+   * Indicates whether retries are allowed. Valid values:
    * - false: Retries are not allowed.
    * - true: Retries are allowed.
    * 
@@ -53,7 +53,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -61,7 +61,7 @@ export class DeleteAppDomainCertificateResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is currently unused and can be ignored.
+   * The dynamic code. This field is currently unused and can be ignored.
    * 
    * @example
    * ERROR-oo1
