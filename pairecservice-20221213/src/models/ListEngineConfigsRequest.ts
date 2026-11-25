@@ -6,11 +6,8 @@ export class ListEngineConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The runtime environment. Valid values:
-   * 
    * - Daily: Daily environment.
-   * 
-   * - Pre: Pre-release environment.
-   * 
+   * - Pre: Staging environment.
    * - Prod: Production environment.
    * 
    * @example
@@ -19,7 +16,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. You can obtain the instance ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to query instance IDs.
    * 
    * This parameter is required.
    * 
@@ -29,7 +26,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The engine configuration name.
+   * The name of the engine configuration.
    * 
    * @example
    * engine_config_v1
@@ -53,7 +50,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scene ID.
+   * The scenario.
    * 
    * @example
    * 1
@@ -62,10 +59,8 @@ export class ListEngineConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The status filter. Valid values:
-   * 
    * - Released: Released.
-   * 
-   * - Unreleased: Not released.
+   * - Unreleased: Unreleased.
    * 
    * @example
    * Released
@@ -73,9 +68,8 @@ export class ListEngineConfigsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version filter. Valid values:
-   * 
-   * latest: the most recently updated version.
+   * The version filter. Valid value:
+   * - latest: The most recently updated version.
    * 
    * @example
    * latest

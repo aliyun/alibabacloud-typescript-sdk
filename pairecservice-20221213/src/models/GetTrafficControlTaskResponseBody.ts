@@ -10,7 +10,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts ex
   setPoints?: number[];
   /**
    * @remarks
-   * The list of control target set values.
+   * The list of set values for the control target.
    */
   setValues?: number[];
   /**
@@ -55,7 +55,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts ex
 export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-04-25
@@ -71,7 +71,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   event?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is ISO 8601, with Z representing the UTC time zone.
    * 
    * @example
    * 2024-03-25T06:04:28.441Z
@@ -79,7 +79,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The update time. The format is ISO 8601, with Z representing the UTC time zone.
    * 
    * @example
    * 2024-03-25T06:04:28.441Z
@@ -87,7 +87,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The item conditions in array format.
+   * The item condition, set in array format.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -95,7 +95,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item conditions in expression format.
+   * The item condition, set in expression format.
    * 
    * @example
    * status=1
@@ -111,7 +111,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   itemConditionType?: string;
   /**
    * @remarks
-   * The name of the control target.
+   * The control target.
    * 
    * @example
    * target-1
@@ -119,7 +119,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   name?: string;
   /**
    * @remarks
-   * Indicates whether this is a new product regulation.
+   * Specifies whether the control applies to new products.
    * 
    * @example
    * false
@@ -127,7 +127,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   newProductRegulation?: boolean;
   /**
    * @remarks
-   * The recall Policy Name.
+   * The recall policy name.
    * 
    * @example
    * recall-1
@@ -135,12 +135,12 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
   recallName?: string;
   /**
    * @remarks
-   * The split configuration of the control target.
+   * The split parts of the control target.
    */
   splitParts?: GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts;
   /**
    * @remarks
-   * The start time.
+   * The start time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-03-25
@@ -255,7 +255,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
 export class GetTrafficControlTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The behavior table ID.
+   * The ID of the behavior table.
    * 
    * @example
    * 1
@@ -305,7 +305,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   effectiveSceneNames?: string[];
   /**
    * @remarks
-   * The end time.
+   * The end time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-04-25
@@ -313,7 +313,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether the task has ever been published.
+   * Specifies whether it has ever been published.
    * 
    * @example
    * true
@@ -327,6 +327,22 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
    * Permanent
    */
   executionTime?: string;
+  /**
+   * @remarks
+   * The information about whether Flink jobs have expired in each environment.
+   * 
+   * @example
+   * {""}
+   */
+  flinkJobOutdated?: string;
+  /**
+   * @remarks
+   * The information about Flink jobs.
+   * 
+   * @example
+   * {""}
+   */
+  flinkJobs?: string;
   /**
    * @remarks
    * The Flink resource ID.
@@ -345,7 +361,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   flinkResourceName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is ISO 8601, with Z representing the UTC time zone.
    * 
    * @example
    * 2024-01-11T02:27:38.208Z
@@ -353,7 +369,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The update time. The format is ISO 8601, with Z representing the UTC time zone.
    * 
    * @example
    * 2024-01-11T02:27:38.208Z
@@ -361,7 +377,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The item conditions in array format.
+   * The item condition, set in array format.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -369,7 +385,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   itemConditionArray?: string;
   /**
    * @remarks
-   * The item conditions in expression format.
+   * The item condition, set in expression format.
    * 
    * @example
    * status=1
@@ -385,7 +401,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   itemConditionType?: string;
   /**
    * @remarks
-   * The item table ID.
+   * The ID of the item table.
    * 
    * @example
    * 3
@@ -409,7 +425,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   preExperimentIds?: string;
   /**
    * @remarks
-   * The staging environment status.
+   * The status in the staging environment.
    * 
    * @example
    * Running
@@ -425,7 +441,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   prodExperimentIds?: string;
   /**
    * @remarks
-   * The production environment status.
+   * The status in the production environment.
    * 
    * @example
    * Running
@@ -470,7 +486,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   serviceIds?: number[];
   /**
    * @remarks
-   * The start time.
+   * The start time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-03-25
@@ -478,7 +494,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The behavior statistics conditions in array format.
+   * The array-format condition for behavior statistics.
    * 
    * @example
    * [{"field":"click","option":"<=","value":"30"}]
@@ -486,7 +502,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   statisBehaviorConditionArray?: string;
   /**
    * @remarks
-   * The behavior statistics conditions in expression format.
+   * The expression-format condition for behavior statistics.
    * 
    * @example
    * click=30
@@ -494,7 +510,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   statisBehaviorConditionExpress?: string;
   /**
    * @remarks
-   * The behavior statistics condition type.
+   * The condition type for behavior statistics.
    * 
    * @example
    * Array
@@ -515,7 +531,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   trafficControlTaskId?: string;
   /**
    * @remarks
-   * The target user group conditions in array format.
+   * The array-format condition of the target user group.
    * 
    * @example
    * [{"field":"gender","option":"=","value":"male"}]
@@ -523,7 +539,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   userConditionArray?: string;
   /**
    * @remarks
-   * The target user group conditions in expression format.
+   * The expression-format condition of the target user group.
    * 
    * @example
    * age<=30&&(3<=level<=6)&&gender=male
@@ -531,7 +547,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   userConditionExpress?: string;
   /**
    * @remarks
-   * The condition type for the target user group.
+   * The condition type of the target user group.
    * 
    * @example
    * Array
@@ -539,7 +555,7 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
   userConditionType?: string;
   /**
    * @remarks
-   * The user table ID.
+   * The ID of the user table.
    * 
    * @example
    * 2
@@ -557,6 +573,8 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
       endTime: 'EndTime',
       everPublished: 'EverPublished',
       executionTime: 'ExecutionTime',
+      flinkJobOutdated: 'FlinkJobOutdated',
+      flinkJobs: 'FlinkJobs',
       flinkResourceId: 'FlinkResourceId',
       flinkResourceName: 'FlinkResourceName',
       gmtCreateTime: 'GmtCreateTime',
@@ -600,6 +618,8 @@ export class GetTrafficControlTaskResponseBody extends $dara.Model {
       endTime: 'string',
       everPublished: 'boolean',
       executionTime: 'string',
+      flinkJobOutdated: 'string',
+      flinkJobs: 'string',
       flinkResourceId: 'string',
       flinkResourceName: 'string',
       gmtCreateTime: 'string',

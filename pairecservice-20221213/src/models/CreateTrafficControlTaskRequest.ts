@@ -24,7 +24,7 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $dara.
    * The conditions for items in array format.
    * 
    * @example
-   * [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
+   * [{\"field\":\"status\",\"option\":\"=\",\"value\":\"1\"}]
    */
   itemConditionArray?: string;
   /**
@@ -249,7 +249,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
    * The conditions for items in array format.
    * 
    * @example
-   * [{\\"field\\":\\"status\\",\\"option\\":\\"=\\",\\"value\\":\\"1\\"}]
+   * [{\"field\":\"status\",\"option\":\"=\",\"value\":\"1\"}]
    */
   itemConditionArray?: string;
   /**
@@ -338,7 +338,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
    * The conditions for statistical behaviors in array format.
    * 
    * @example
-   * [{\\"field\\":\\"click\\",\\"option\\":\\"<=\\",\\"value\\":\\"30\\"}]
+   * [{\"field\":\"click\",\"option\":\"<=\",\"value\":\"30\"}]
    */
   statisBehaviorConditionArray?: string;
   /**
@@ -369,7 +369,7 @@ export class CreateTrafficControlTaskRequest extends $dara.Model {
    * The conditions for the target users in array format.
    * 
    * @example
-   * [{\\"field\\":\\"gender\\",\\"option\\":\\"=\\",\\"value\\":\\"male\\"}]
+   * [{\"field\":\"gender\",\"option\":\"=\",\"value\":\"male\"}]
    */
   userConditionArray?: string;
   /**

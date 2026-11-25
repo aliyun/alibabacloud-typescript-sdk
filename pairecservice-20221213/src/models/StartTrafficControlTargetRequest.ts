@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class StartTrafficControlTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The environment.
+   * 
+   * @example
+   * Prod
+   */
+  environment?: string;
+  /**
+   * @remarks
+   * The instance ID.
    * 
    * @example
    * pairec-1324***
@@ -13,12 +21,14 @@ export class StartTrafficControlTargetRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      environment: 'Environment',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      environment: 'string',
       instanceId: 'string',
     };
   }

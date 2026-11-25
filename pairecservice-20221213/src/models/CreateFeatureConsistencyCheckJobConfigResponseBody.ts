@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The feature consistency check job configuration ID.
+   * The ID of the feature consistency check job configuration.
    * 
    * @example
    * 4

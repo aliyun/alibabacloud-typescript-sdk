@@ -13,7 +13,7 @@ export class UpdateParamRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The parameter\\"s value.
+   * The parameter\"s value.
    * 
    * @example
    * house

@@ -198,7 +198,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
    * The equivalent null value count.
    * 
    * @example
-   * \\\\N
+   * \\N
    */
   defaultNullCount?: string;
   /**
@@ -206,7 +206,7 @@ export class ListDataDiagnosisReportsResponseBodyReportsOfBaseStatistics extends
    * The equivalent null value rate.
    * 
    * @example
-   * \\\\N
+   * \\N
    */
   defaultNullRate?: string;
   /**

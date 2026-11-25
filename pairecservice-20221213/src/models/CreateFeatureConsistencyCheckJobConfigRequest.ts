@@ -15,7 +15,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   compareFeature?: boolean;
   /**
    * @remarks
-   * The dataset ID.
+   * The ID of the dataset.
    * 
    * @example
    * s-xxx
@@ -23,7 +23,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The dataset mount path.
+   * The mount path of the dataset.
    * 
    * @example
    * mnt/xxx
@@ -31,7 +31,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   datasetMountPath?: string;
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * test
@@ -39,7 +39,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The dataset type.
+   * The type of the OSS dataset.
    * 
    * @example
    * OSS
@@ -47,7 +47,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   datasetType?: string;
   /**
    * @remarks
-   * The dataset URI.
+   * The URI of the dataset.
    * 
    * @example
    * oss-xxx
@@ -55,7 +55,9 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   datasetUri?: string;
   /**
    * @remarks
-   * The default route.
+   * The default gateway. Valid values:
+   * - Eth0: public gateway.
+   * - Eth1: dedicated gateway.
    * 
    * @example
    * Eth0
@@ -63,7 +65,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   defaultRoute?: string;
   /**
    * @remarks
-   * The name of the PAI-EAS service. To obtain this name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+   * The name of the PAI-EAS service. For more information about how to obtain the service name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
    * 
    * This parameter is required.
    * 
@@ -73,7 +75,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   easServiceName?: string;
   /**
    * @remarks
-   * The path of the OSS bucket where the EasyRec package is stored.
+   * The OSS bucket path of the EasyRec package.
    * 
    * @example
    * oss://*******
@@ -89,7 +91,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   easyRecVersion?: string;
   /**
    * @remarks
-   * The features to exclude from the display. Use a comma (,) to separate multiple features.
+   * The feature display filter. Separate multiple features with commas (,).
    * 
    * @example
    * feature1,feature2
@@ -97,7 +99,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featureDisplayExclude?: string;
   /**
    * @remarks
-   * The ID of the data source where the feature data is saved.
+   * The ID of the data backflow data source.
    * 
    * This parameter is required.
    * 
@@ -107,7 +109,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featureLandingResourceId?: string;
   /**
    * @remarks
-   * The feature priority. Use a comma (,) to separate multiple features.
+   * The feature priority. Separate multiple features with commas (,).
    * 
    * @example
    * feature1,feature2,feature3
@@ -115,7 +117,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featurePriority?: string;
   /**
    * @remarks
-   * The primary key for the item side in the feature store.
+   * The primary key on the item side in Feature Store.
    * 
    * @example
    * item
@@ -131,7 +133,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featureStoreModelId?: string;
   /**
    * @remarks
-   * The feature store project ID.
+   * The ID of the Feature Store project.
    * 
    * @example
    * prj-01
@@ -139,7 +141,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featureStoreProjectId?: string;
   /**
    * @remarks
-   * The feature store project name.
+   * The name of the Feature Store project.
    * 
    * @example
    * project-1
@@ -147,7 +149,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featureStoreProjectName?: string;
   /**
    * @remarks
-   * The name of the feature view that contains the item features within sequence features.
+   * The name of the feature view to which the item features in the sequence features belong.
    * 
    * @example
    * item-1
@@ -155,7 +157,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featureStoreSeqFeatureView?: string;
   /**
    * @remarks
-   * The primary key for the user side in the feature store.
+   * The primary key on the user side in Feature Store.
    * 
    * @example
    * user
@@ -163,7 +165,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   featureStoreUserId?: string;
   /**
    * @remarks
-   * The `fg_jar` version.
+   * The fg_jar version.
    * 
    * @example
    * 1.0.0
@@ -171,7 +173,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   fgJarVersion?: string;
   /**
    * @remarks
-   * The name of the `fg_json` file.
+   * The name of the fg_json file.
    * 
    * This parameter is required.
    * 
@@ -191,7 +193,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   generateZip?: boolean;
   /**
    * @remarks
-   * The instance ID. To obtain this ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The ID of the instance. For more information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * This parameter is required.
    * 
@@ -201,7 +203,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the `item_id` field.
+   * The name of the item_id field.
    * 
    * @example
    * item_id
@@ -225,11 +227,9 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   itemTablePartitionField?: string;
   /**
    * @remarks
-   * The format of the partition field in the item table. Valid values:
-   * 
-   * - `yyyymmdd`
-   * 
-   * - `yyyy-mm-dd`
+   * The format of the partition field for the item table. Valid values:
+   * - yyyymmdd
+   * - yyyy-mm-dd
    * 
    * @example
    * yyyymmdd
@@ -237,7 +237,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   itemTablePartitionFieldFormat?: string;
   /**
    * @remarks
-   * The schema of the MaxCompute project.
+   * maxcompute schema
    * 
    * @example
    * default
@@ -255,7 +255,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The OSS data source ID.
+   * The ID of the OSS data source.
    * 
    * @example
    * reso-********
@@ -263,7 +263,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   ossResourceId?: string;
   /**
    * @remarks
-   * The number of prediction workers.
+   * The number of workers used to execute the prediction script.
    * 
    * @example
    * 1
@@ -271,7 +271,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   predictWorkerCount?: number;
   /**
    * @remarks
-   * The number of CPU cores for each prediction worker.
+   * The CPU allocated to the worker for executing the prediction script.
    * 
    * @example
    * 4
@@ -279,7 +279,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   predictWorkerCpu?: number;
   /**
    * @remarks
-   * The memory size for each prediction worker, in megabytes (MB).
+   * The memory allocated to the worker for executing the prediction script.
    * 
    * @example
    * 32000
@@ -295,7 +295,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   resourceConfig?: string;
   /**
    * @remarks
-   * The sample rate. The value must be between 0 and 1, inclusive.
+   * The sampling ratio (0-1).
    * 
    * This parameter is required.
    * 
@@ -305,7 +305,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   sampleRate?: number;
   /**
    * @remarks
-   * The scene ID.
+   * The ID of the scene.
    * 
    * This parameter is required.
    * 
@@ -315,7 +315,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * thax-xxx
@@ -323,7 +323,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * This parameter is required.
    * 
@@ -333,7 +333,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vswitch-xxx
@@ -341,11 +341,9 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   switchId?: string;
   /**
    * @remarks
-   * Specifies whether to use a feature store. Valid values:
-   * 
-   * - `true`: Use a feature store. The `FeatureStoreProjectId`, `FeatureStoreProjectName`, `FeatureStoreModelId`, `FeatureStoreUserId`, and `FeatureStoreItemId` parameters are required.
-   * 
-   * - `false`: Do not use a feature store. The `UserTable`, `UserIdField`, `UserTablePartitionField`, `UserTablePartitionFieldFormat`, `ItemTable`, `ItemIdField`, `ItemTablePartitionField`, and `ItemTablePartitionFieldFormat` parameters are required.
+   * Specifies whether to use Feature Store. Valid values:
+   * - true: uses Feature Store. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are required.
+   * - false: does not use Feature Store. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are required.
    * 
    * This parameter is required.
    * 
@@ -355,7 +353,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   useFeatureStore?: boolean;
   /**
    * @remarks
-   * The name of the `user_id` field.
+   * The name of the user_id field.
    * 
    * @example
    * user_id
@@ -379,11 +377,9 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   userTablePartitionField?: string;
   /**
    * @remarks
-   * The format of the partition field in the user table. Valid values:
-   * 
-   * - `yyyymmdd`
-   * 
-   * - `yyyy-mm-dd`
+   * The format of the partition field for the user table. Valid values:
+   * - yyyymmdd
+   * - yyyy-mm-dd
    * 
    * @example
    * yyyymmdd
@@ -399,7 +395,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The workflow name.
+   * The name of the workflow.
    * 
    * @example
    * work_flow_1
@@ -407,7 +403,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   workflowName?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the PAI workspace.
    * 
    * @example
    * test

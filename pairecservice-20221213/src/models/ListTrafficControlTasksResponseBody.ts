@@ -45,7 +45,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
 export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets extends $dara.Model {
   /**
    * @remarks
-   * The end time. The time is in the YYYY-MM-DD format.
+   * The end time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-04-25
@@ -53,7 +53,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   endTime?: string;
   /**
    * @remarks
-   * The event for the traffic control target.
+   * The event of the control target.
    * 
    * @example
    * click
@@ -61,7 +61,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   event?: string;
   /**
    * @remarks
-   * The creation time. The time is in the ISO 8601 format and includes the time zone offset.
+   * The creation time. The format is ISO 8601 and includes the time zone offset.
    * 
    * @example
    * 2025-06-03T15:08:10.58+08:00
@@ -69,7 +69,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time. The time is in the ISO 8601 format and includes the time zone offset.
+   * The update time. The format is ISO 8601 and includes the time zone offset.
    * 
    * @example
    * 2025-11-21T16:26:58.57+08:00
@@ -77,7 +77,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The array-formatted conditions for items.
+   * The item conditions in array format.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -85,7 +85,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   itemConditionArray?: string;
   /**
    * @remarks
-   * The expression-formatted conditions for items.
+   * The item conditions in expression format.
    * 
    * @example
    * status=1
@@ -93,7 +93,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   itemConditionExpress?: string;
   /**
    * @remarks
-   * The condition type for items.
+   * The condition type of the item.
    * 
    * @example
    * Array
@@ -101,7 +101,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   itemConditionType?: string;
   /**
    * @remarks
-   * The traffic control target.
+   * The control target.
    * 
    * @example
    * target-1
@@ -109,7 +109,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   name?: string;
   /**
    * @remarks
-   * Specifies whether the recall applies to new items.
+   * Indicates whether it is a new item recall.
    * 
    * @example
    * false
@@ -130,7 +130,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   splitParts?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts;
   /**
    * @remarks
-   * The start time. The time is in the YYYY-MM-DD format.
+   * The start time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-03-25
@@ -154,7 +154,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   status?: string;
   /**
    * @remarks
-   * The tolerance range of the traffic control target.
+   * The tolerance range of the control target.
    * 
    * @example
    * 10
@@ -178,7 +178,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
   trafficControlTaskId?: string;
   /**
    * @remarks
-   * The target value for traffic control.
+   * The value of the control target.
    * 
    * @example
    * 30
@@ -300,7 +300,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   effectiveSceneNames?: number[];
   /**
    * @remarks
-   * The end time. The time is in the YYYY-MM-DD format.
+   * The end time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-04-25
@@ -308,7 +308,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether the task has been published.
+   * Indicates whether it has been published.
    * 
    * @example
    * false
@@ -316,14 +316,32 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   everPublished?: boolean;
   /**
    * @remarks
-   * The execution time. Valid values:
+   * The execution time.
+   * 
    * - Permanent: Executes permanently.
-   * - TimeRange: Executes within a specified time range. If you select this value, you must specify the StartTime and EndTime parameters.
+   * 
+   * - TimeRange: Specifies a time range. If you select this value, you must specify StartTime and EndTime.
    * 
    * @example
    * Permanent
    */
   executionTime?: string;
+  /**
+   * @remarks
+   * The expiration information of the Flink job in each environment.
+   * 
+   * @example
+   * {""}
+   */
+  flinkJobOutdated?: string;
+  /**
+   * @remarks
+   * The Flink job information.
+   * 
+   * @example
+   * {""}
+   */
+  flinkJobs?: string;
   /**
    * @remarks
    * The Flink resource ID.
@@ -334,7 +352,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   flinkResourceId?: string;
   /**
    * @remarks
-   * The Flink resource name.
+   * The name of the Flink resource.
    * 
    * @example
    * flink_test
@@ -342,7 +360,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   flinkResourceName?: string;
   /**
    * @remarks
-   * The creation time. The time is in the ISO 8601 format and uses Z to indicate the UTC time zone.
+   * The creation time. The format is ISO 8601, where Z indicates the UTC time zone.
    * 
    * @example
    * 2024-03-25T06:04:28.441Z
@@ -350,7 +368,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The update time. The time is in the ISO 8601 format and uses Z to indicate the UTC time zone.
+   * The update time. The format is ISO 8601, where Z indicates the UTC time zone.
    * 
    * @example
    * 2024-03-25T06:04:28.441Z
@@ -358,7 +376,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The array-formatted conditions for items.
+   * The item conditions in array format.
    * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
@@ -366,7 +384,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   itemConditionArray?: string;
   /**
    * @remarks
-   * The expression-formatted conditions for items.
+   * The item conditions in expression format.
    * 
    * @example
    * status=1
@@ -374,7 +392,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   itemConditionExpress?: string;
   /**
    * @remarks
-   * The condition type for items.
+   * The condition type of the item.
    * 
    * @example
    * Array
@@ -398,7 +416,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   name?: string;
   /**
    * @remarks
-   * The list of pre-release experiment IDs.
+   * The list of staging experiment IDs.
    * 
    * @example
    * 1,2
@@ -406,7 +424,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   preExperimentIds?: string;
   /**
    * @remarks
-   * The status in the pre-release environment.
+   * The status in the staging environment.
    * 
    * @example
    * Runnning
@@ -430,7 +448,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   productStatus?: string;
   /**
    * @remarks
-   * The scene ID. You can obtain this ID by calling the ListScenes operation.
+   * The scene ID. You can call the ListScenes operation to obtain the scene ID.
    * 
    * @example
    * 4
@@ -438,7 +456,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   sceneId?: string;
   /**
    * @remarks
-   * The scene name.
+   * The name of the scene.
    * 
    * @example
    * home_feed
@@ -464,7 +482,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   serviceIds?: string[];
   /**
    * @remarks
-   * The start time. The time is in the YYYY-MM-DD format.
+   * The start time. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-03-25
@@ -472,7 +490,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   startTime?: string;
   /**
    * @remarks
-   * The expression-formatted conditions for behavior statistics.
+   * The expression format for behavior statistics.
    * 
    * @example
    * event=click
@@ -480,7 +498,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   statisBahaviorConditionExpress?: string;
   /**
    * @remarks
-   * The array-formatted conditions for behavior statistics.
+   * The array-format conditions for behavior statistics.
    * 
    * @example
    * [{"field":"click","option":"<=","value":"30"}]
@@ -517,7 +535,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   trafficControlTaskId?: string;
   /**
    * @remarks
-   * The array-formatted conditions for the target user group.
+   * The array-format conditions for the intervened user group.
    * 
    * @example
    * [{"field":"gender","option":"=","value":"male"}]
@@ -525,7 +543,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   userConditionArray?: string;
   /**
    * @remarks
-   * The expression-formatted conditions for the target user group.
+   * The expression-format conditions for the intervened user group.
    * 
    * @example
    * age<=30&&(3<=level<=6)&&gender=male
@@ -533,7 +551,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   userConditionExpress?: string;
   /**
    * @remarks
-   * The condition type for the target user group.
+   * The condition type of the intervened user group.
    * 
    * @example
    * Array
@@ -560,6 +578,8 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       endTime: 'EndTime',
       everPublished: 'EverPublished',
       executionTime: 'ExecutionTime',
+      flinkJobOutdated: 'FlinkJobOutdated',
+      flinkJobs: 'FlinkJobs',
       flinkResourceId: 'FlinkResourceId',
       flinkResourceName: 'FlinkResourceName',
       gmtCreateTime: 'GmtCreateTime',
@@ -605,6 +625,8 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       endTime: 'string',
       everPublished: 'boolean',
       executionTime: 'string',
+      flinkJobOutdated: 'string',
+      flinkJobs: 'string',
       flinkResourceId: 'string',
       flinkResourceName: 'string',
       gmtCreateTime: 'string',

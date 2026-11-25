@@ -11,15 +11,25 @@ export class ListInstanceResourceTablesRequest extends $dara.Model {
    * jackal
    */
   maxcomputeSchema?: string;
+  /**
+   * @remarks
+   * The table type.
+   * 
+   * @example
+   * ManagedTable
+   */
+  tableType?: string;
   static names(): { [key: string]: string } {
     return {
       maxcomputeSchema: 'MaxcomputeSchema',
+      tableType: 'TableType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       maxcomputeSchema: 'string',
+      tableType: 'string',
     };
   }
 

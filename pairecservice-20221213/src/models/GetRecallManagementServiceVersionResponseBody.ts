@@ -98,7 +98,7 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
    * The feature expression.
    * 
    * @example
-   * city = \\"hangzhou\\"
+   * city = \"hangzhou\"
    */
   expression?: string;
   /**

@@ -43,7 +43,7 @@ export class ListInstanceResourceTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of tables.
+   * The list of data tables.
    */
   tables?: ListInstanceResourceTablesResponseBodyTables[];
   /**

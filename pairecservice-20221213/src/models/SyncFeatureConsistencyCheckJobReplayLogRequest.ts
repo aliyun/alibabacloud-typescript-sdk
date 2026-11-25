@@ -10,12 +10,12 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $dara.Model 
    * This parameter is required.
    * 
    * @example
-   * [{\\"Value\\":{\\"FloatFeature\\":0.1}}]
+   * [{\"Value\":{\"FloatFeature\":0.1}}]
    */
   contextFeatures?: string;
   /**
    * @remarks
-   * The feature consistency check job configuration ID. To obtain this ID, see [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html).
+   * The ID of the feature consistency check job configuration. For information about how to obtain the configuration ID, see [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $dara.Model 
   generatedFeatures?: string;
   /**
    * @remarks
-   * The instance ID. To obtain this ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The ID of the instance. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The item ID from the log.
+   * The item ID in the log.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $dara.Model 
   logItemId?: string;
   /**
    * @remarks
-   * The request ID from the log.
+   * The request ID in the log.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $dara.Model 
   logRequestId?: string;
   /**
    * @remarks
-   * The request time from the log, provided as a UNIX epoch timestamp.
+   * The request time in the log (UNIX epoch timestamp).
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $dara.Model 
   logRequestTime?: number;
   /**
    * @remarks
-   * The user ID from the log.
+   * The user ID in the log.
    * 
    * This parameter is required.
    * 
@@ -90,12 +90,12 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $dara.Model 
    * This parameter is required.
    * 
    * @example
-   * author__kv_city_expr_cnt_15d：北京市 | tem__min_age_15d:28
+   * author__kv_city_expr_cnt_15d:Beijing | tem__min_age_15d:28
    */
   rawFeatures?: string;
   /**
    * @remarks
-   * The scene name.
+   * The name of the scene.
    * 
    * This parameter is required.
    * 

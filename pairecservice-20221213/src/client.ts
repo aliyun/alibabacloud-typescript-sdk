@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "PaiRecService";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("pairecservice", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -415,11 +419,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a specified recall management service is working properly.
+   * Checks whether the specified recall management service is working properly.
    * 
    * @remarks
    * ## Request description
-   * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+   * This operation allows you to check the status or performance of a specific recall management service by providing the recall management service ID and related parameters. Ensure that the `InstanceId` field is correct to point to the right instance. To test a specific version of the service, provide `RecallManagementServiceVersionId`. Additionally, you can further customize the request by using parameters such as `Recalls`, `ContextParams`, `ExposureList`, and `RetainFields` to more accurately simulate real-world scenarios.
    * 
    * @param request - CheckRecallManagementServiceRequest
    * @param headers - map
@@ -476,11 +480,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a specified recall management service is working properly.
+   * Checks whether the specified recall management service is working properly.
    * 
    * @remarks
    * ## Request description
-   * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+   * This operation allows you to check the status or performance of a specific recall management service by providing the recall management service ID and related parameters. Ensure that the `InstanceId` field is correct to point to the right instance. To test a specific version of the service, provide `RecallManagementServiceVersionId`. Additionally, you can further customize the request by using parameters such as `Recalls`, `ContextParams`, `ExposureList`, and `RetainFields` to more accurately simulate real-world scenarios.
    * 
    * @param request - CheckRecallManagementServiceRequest
    * @returns CheckRecallManagementServiceResponse
@@ -1682,7 +1686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configure a feature consistency check task.
+   * Creates a feature consistency check job configuration.
    * 
    * @param request - CreateFeatureConsistencyCheckJobConfigRequest
    * @param headers - map
@@ -1899,7 +1903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configure a feature consistency check task.
+   * Creates a feature consistency check job configuration.
    * 
    * @param request - CreateFeatureConsistencyCheckJobConfigRequest
    * @returns CreateFeatureConsistencyCheckJobConfigResponse
@@ -6019,11 +6023,11 @@ export default class Client extends OpenApi {
    * Queries the details of a traffic control task with a specified ID.
    * 
    * @remarks
-   * ## Description
+   * ## Request description
    * - This operation retrieves the details of a specific traffic control task, including but not limited to the task name, description, and status.
-   * - TrafficControlTaskId and InstanceId are required parameters that specify the task ID and instance ID to query.
-   * - Optional parameters such as Environment, Version, and ControlTargetFilter help refine the request to retrieve more specific task data or version information.
-   * - Check the returned data structure, especially the TrafficControlTargets section, which contains multiple control targets and their related properties.
+   * - `TrafficControlTaskId` and `InstanceId` are required parameters used to specify the task ID and instance ID to query, respectively.
+   * - Optional parameters such as `Environment`, `Version`, and `ControlTargetFilter` can help further refine the request to retrieve more specific task data or version information.
+   * - Check the returned data structure, especially the `TrafficControlTargets` section, which contains multiple control targets and their related attributes.
    * 
    * @param request - GetTrafficControlTaskRequest
    * @param headers - map
@@ -6075,11 +6079,11 @@ export default class Client extends OpenApi {
    * Queries the details of a traffic control task with a specified ID.
    * 
    * @remarks
-   * ## Description
+   * ## Request description
    * - This operation retrieves the details of a specific traffic control task, including but not limited to the task name, description, and status.
-   * - TrafficControlTaskId and InstanceId are required parameters that specify the task ID and instance ID to query.
-   * - Optional parameters such as Environment, Version, and ControlTargetFilter help refine the request to retrieve more specific task data or version information.
-   * - Check the returned data structure, especially the TrafficControlTargets section, which contains multiple control targets and their related properties.
+   * - `TrafficControlTaskId` and `InstanceId` are required parameters used to specify the task ID and instance ID to query, respectively.
+   * - Optional parameters such as `Environment`, `Version`, and `ControlTargetFilter` can help further refine the request to retrieve more specific task data or version information.
+   * - Check the returned data structure, especially the `TrafficControlTargets` section, which contains multiple control targets and their related attributes.
    * 
    * @param request - GetTrafficControlTaskRequest
    * @returns GetTrafficControlTaskResponse
@@ -6686,7 +6690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of engine configurations.
+   * Retrieves the engine configurations.
    * 
    * @param request - ListEngineConfigsRequest
    * @param headers - map
@@ -6747,7 +6751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of engine configurations.
+   * Retrieves the engine configurations.
    * 
    * @param request - ListEngineConfigsRequest
    * @returns ListEngineConfigsResponse
@@ -7172,11 +7176,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all tables in a specified instance and data source.
+   * Queries all data tables under a specified instance and data source.
    * 
    * @remarks
    * ## Request description
-   * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of all tables in the data source. You can use the optional `MaxcomputeSchema` parameter to specify a MaxCompute schema to further filter the results.
+   * By providing the instance ID (InstanceId) and the data source ID (ResourceId), you can retrieve a list of all data tables under the data source. The optional `MaxcomputeSchema` parameter allows you to specify the MaxCompute schema to further filter the results.
    * 
    * @param request - ListInstanceResourceTablesRequest
    * @param headers - map
@@ -7188,6 +7192,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.maxcomputeSchema)) {
       query["MaxcomputeSchema"] = request.maxcomputeSchema;
+    }
+
+    if (!$dara.isNull(request.tableType)) {
+      query["TableType"] = request.tableType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7209,11 +7217,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all tables in a specified instance and data source.
+   * Queries all data tables under a specified instance and data source.
    * 
    * @remarks
    * ## Request description
-   * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of all tables in the data source. You can use the optional `MaxcomputeSchema` parameter to specify a MaxCompute schema to further filter the results.
+   * By providing the instance ID (InstanceId) and the data source ID (ResourceId), you can retrieve a list of all data tables under the data source. The optional `MaxcomputeSchema` parameter allows you to specify the MaxCompute schema to further filter the results.
    * 
    * @param request - ListInstanceResourceTablesRequest
    * @returns ListInstanceResourceTablesResponse
@@ -8329,14 +8337,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries traffic control tasks that meet specified conditions.
+   * Queries the traffic control tasks that meet the specified conditions.
    * 
    * @remarks
    * ## Request description
-   * - This operation retrieves a list of traffic control nodes that meet specific conditional requirements.
-   * - You can filter the returned nodes and apply sorting by specifying different query parameters.
-   * - Paged query is supported. You can also choose to return all data at once without paging.
-   * - Note: InstanceId is required, and other parameters are options. Specify other parameters as needed to obtain more precise results.
+   * - This operation retrieves a list of traffic control nodes that meet specific conditional criteria.
+   * - You can use different query parameters for filtering and sorting the returned list of nodes.
+   * - Paged query is supported. You can also retrieve all data at once without paging.
+   * - Note: `InstanceId` is required. All other parameters are options. Specify them as needed to obtain more accurate results.
    * 
    * @param request - ListTrafficControlTasksRequest
    * @param headers - map
@@ -8417,14 +8425,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries traffic control tasks that meet specified conditions.
+   * Queries the traffic control tasks that meet the specified conditions.
    * 
    * @remarks
    * ## Request description
-   * - This operation retrieves a list of traffic control nodes that meet specific conditional requirements.
-   * - You can filter the returned nodes and apply sorting by specifying different query parameters.
-   * - Paged query is supported. You can also choose to return all data at once without paging.
-   * - Note: InstanceId is required, and other parameters are options. Specify other parameters as needed to obtain more precise results.
+   * - This operation retrieves a list of traffic control nodes that meet specific conditional criteria.
+   * - You can use different query parameters for filtering and sorting the returned list of nodes.
+   * - Paged query is supported. You can also retrieve all data at once without paging.
+   * - Note: `InstanceId` is required. All other parameters are options. Specify them as needed to obtain more accurate results.
    * 
    * @param request - ListTrafficControlTasksRequest
    * @returns ListTrafficControlTasksResponse
@@ -9823,11 +9831,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a traffic control task for a specific traffic control target.
+   * Starts a traffic shaping task with the specified ID.
    * 
    * @remarks
-   * ## Request
-   * Call this operation to start a traffic control task by providing the `TrafficControlTargetId` and `InstanceId`.
+   * ## Request description
+   * You can call this operation to start a specific traffic shaping task by specifying the `TrafficControlTargetId` and `InstanceId` parameters. Ensure that you correctly specify the values of these two parameters in the request to prevent operation failures.
    * 
    * @param request - StartTrafficControlTargetRequest
    * @param headers - map
@@ -9837,6 +9845,10 @@ export default class Client extends OpenApi {
   async startTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: $_model.StartTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartTrafficControlTargetResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -9860,11 +9872,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a traffic control task for a specific traffic control target.
+   * Starts a traffic shaping task with the specified ID.
    * 
    * @remarks
-   * ## Request
-   * Call this operation to start a traffic control task by providing the `TrafficControlTargetId` and `InstanceId`.
+   * ## Request description
+   * You can call this operation to start a specific traffic shaping task by specifying the `TrafficControlTargetId` and `InstanceId` parameters. Ensure that you correctly specify the values of these two parameters in the request to prevent operation failures.
    * 
    * @param request - StartTrafficControlTargetRequest
    * @returns StartTrafficControlTargetResponse
@@ -10041,11 +10053,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a specific traffic control target.
+   * Stops a specified traffic control target.
    * 
    * @remarks
-   * ## Request
-   * This operation stops a traffic control task using the provided `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid stopping the wrong target or instance.
+   * ## Request description
+   * Call this operation to stop an ongoing traffic control task by specifying the `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid operating on the wrong target or instance.
    * 
    * @param request - StopTrafficControlTargetRequest
    * @param headers - map
@@ -10055,6 +10067,10 @@ export default class Client extends OpenApi {
   async stopTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: $_model.StopTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopTrafficControlTargetResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -10078,11 +10094,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a specific traffic control target.
+   * Stops a specified traffic control target.
    * 
    * @remarks
-   * ## Request
-   * This operation stops a traffic control task using the provided `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid stopping the wrong target or instance.
+   * ## Request description
+   * Call this operation to stop an ongoing traffic control task by specifying the `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid operating on the wrong target or instance.
    * 
    * @param request - StopTrafficControlTargetRequest
    * @returns StopTrafficControlTargetResponse
@@ -10161,7 +10177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Syncs the replay log for a feature consistency check job.
+   * Synchronizes the replay logs of a feature consistency check job.
    * 
    * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
    * @param headers - map
@@ -10230,7 +10246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Syncs the replay log for a feature consistency check job.
+   * Synchronizes the replay logs of a feature consistency check job.
    * 
    * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
    * @returns SyncFeatureConsistencyCheckJobReplayLogResponse

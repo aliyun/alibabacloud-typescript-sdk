@@ -15,11 +15,11 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
    * @remarks
    * The filter for traffic control targets. Valid values:
    * 
-   * - All: all targets.
+   * - All: all targets
    * 
-   * - Valid: valid targets (in the enabling status within the start and end time period).
+   * - Valid: valid targets that have the enabling status within the start and end time period
    * 
-   * - None: no targets.
+   * - None: no targets
    * 
    * @example
    * All
@@ -29,11 +29,11 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
    * @remarks
    * The runtime environment. Valid values:
    * 
-   * - Daily: daily environment.
+   * - Daily: daily environment
    * 
-   * - Pre: pre-release environment.
+   * - Pre: staging environment
    * 
-   * - Prod: production environment.
+   * - Prod: production environment
    * 
    * @example
    * Pre
@@ -41,7 +41,7 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. You can obtain the ID by calling the [ListInstances](https://icms.alibaba-inc.com/content/learn/pai?l=1&m=16768&n=4300782) operation.
+   * The instance ID. You can obtain the instance ID by calling the [ListInstances](https://icms.alibaba-inc.com/content/learn/pai?l=1&m=16768&n=4300782) operation.
    * 
    * @example
    * pairec-cn-********
@@ -57,10 +57,10 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * - ASC: ascending order.
-   * - DESC: descending order.
+   * - ASC: ascending order
+   * - DESC: descending order
    * 
    * @example
    * ASC
@@ -84,7 +84,7 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the scene. You can obtain the ID by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
+   * The scene ID. You can obtain the scene ID from the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
    * 
    * @example
    * 1
@@ -92,9 +92,9 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * The sorting criterion. Valid values:
-   * - GmtCreateTime: creation time.
-   * - GmtModifiedTime: update time.
+   * The sort criterion. Valid values:
+   * - GmtCreateTime: sort by creation time
+   * - GmtModifiedTime: sort by update time
    * 
    * @example
    * GmtCreateTime
@@ -104,13 +104,13 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - NotRunning: not running.
+   * - NotRunning: not running
    * 
-   * - Ready: pending.
+   * - Ready: pending
    * 
-   * - Running: running.
+   * - Running: running
    * 
-   * - Finished: finished.
+   * - Finished: finished
    * 
    * @example
    * Running
@@ -128,7 +128,7 @@ export class ListTrafficControlTasksRequest extends $dara.Model {
    * @remarks
    * The version. Valid values:
    * 
-   * - Latest: latest version. Default value.
+   * - Latest: latest version. This is the default value.
    * 
    * - Released: released version.
    * 

@@ -123,7 +123,7 @@ export class ShoppingAssistantResponseBodyResult extends $dara.Model {
    * The response content.
    * 
    * @example
-   * Here are some light-colored long-sleeve shirts for you:\\\\n
+   * Here are some light-colored long-sleeve shirts for you:\\n
    */
   content?: string;
   /**
@@ -193,7 +193,7 @@ export class ShoppingAssistantResponseBody extends $dara.Model {
    * The response content.
    * 
    * @example
-   * Here are some light-colored long-sleeve shirts for you:\\n
+   * Here are some light-colored long-sleeve shirts for you:\n
    */
   content?: string;
   /**

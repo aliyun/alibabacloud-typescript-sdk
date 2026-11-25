@@ -51,7 +51,7 @@ export class ListABMetricGroupsRequest extends $dara.Model {
   realtime?: boolean;
   /**
    * @remarks
-   * The scene ID. You can call the [ListScenes](\\(~~2402581~~\\)) operation to obtain this ID.
+   * The scene ID. You can call the [ListScenes](\(~~2402581~~\)) operation to obtain this ID.
    * 
    * @example
    * 1

@@ -13,10 +13,7 @@ export class GetTrafficControlTaskRequest extends $dara.Model {
   controlTargetFilter?: string;
   /**
    * @remarks
-   * The environment to which the parameter belongs. Valid values:
-   * - Daily: daily environment
-   * - Pre: staging environment
-   * - Prod: production environment.
+   * The environment to which the parameter belongs. Valid values: Daily: daily environment. Pre: staging environment. Prod: production environment.
    * 
    * @example
    * Daily

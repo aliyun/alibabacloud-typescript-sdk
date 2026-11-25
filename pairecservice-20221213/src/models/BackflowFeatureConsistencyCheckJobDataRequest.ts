@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the feature consistency check job configuration. For more information about how to obtain the configuration ID, see [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html).
+   * The ID of the feature consistency check job configuration. To obtain the configuration ID, see [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   featureConsistencyCheckJobConfigId?: string;
   /**
    * @remarks
-   * The instance ID. For more information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The ID of the instance. To obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [\\"{\\\\\\"itemid\\\\\\":{\\\\\\"value\\\\\\":1010,\\\\\\"type\\\\\\":\\\\\\"string\\\\\\"}}\\"]
+   * [\"{\\\"itemid\\\":{\\\"value\\\":1010,\\\"type\\\":\\\"string\\\"}}\"]
    */
   itemFeatures?: string;
   /**
@@ -75,7 +75,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   logUserId?: string;
   /**
    * @remarks
-   * The scene name.
+   * The name of the scene.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [\\"{\\\\\\"dbmtl_probs_is_valid_play\\\\\\":0.00032182207107543945,\\\\\\"dbmtl_y_play_time\\\\\\":0.0043269748210906982}\\"]
+   * [\"{\\\"dbmtl_probs_is_valid_play\\\":0.00032182207107543945,\\\"dbmtl_y_play_time\\\":0.0043269748210906982}\"]
    */
   scores?: string;
   /**
@@ -108,7 +108,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {\\"userid\\":{\\"value\\":1010,\\"type\\":\\"string\\"},\\"click_5_seq\\":{\\"value\\":\\"9001;9002;9003;9004;9005\\",\\"type\\":\\"string\\"}}
+   * {\"userid\":{\"value\":1010,\"type\":\"string\"},\"click_5_seq\":{\"value\":\"9001;9002;9003;9004;9005\",\"type\":\"string\"}}
    */
   userFeatures?: string;
   static names(): { [key: string]: string } {

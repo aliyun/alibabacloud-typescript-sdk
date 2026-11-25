@@ -21,7 +21,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The engine configuration ID.
+   * The ID of the engine configuration.
    * 
    * @example
    * 2
@@ -30,11 +30,8 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   /**
    * @remarks
    * The runtime environment. Valid values:
-   * 
    * - Daily: Daily environment.
-   * 
-   * - Pre: Pre-release environment.
-   * 
+   * - Pre: Staging environment.
    * - Prod: Production environment.
    * 
    * @example
@@ -67,7 +64,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   gmtReleasedTime?: string;
   /**
    * @remarks
-   * The engine configuration name.
+   * The name of the engine configuration.
    * 
    * @example
    * engine_config_v1
@@ -75,7 +72,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The scene ID.
+   * The scenario.
    * 
    * @example
    * 1
@@ -84,10 +81,8 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * 
    * - Released: Released.
-   * 
-   * - UnReleased: Not released.
+   * - UnReleased: Unreleased.
    * 
    * @example
    * Released
@@ -95,7 +90,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The engine configuration type.
+   * The type of the engine configuration.
    * 
    * @example
    * Normal
@@ -155,7 +150,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
 export class ListEngineConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of engine configurations.
+   * The engine configurations.
    */
   engineConfigs?: ListEngineConfigsResponseBodyEngineConfigs[];
   /**
@@ -168,7 +163,7 @@ export class ListEngineConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 10
