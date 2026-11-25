@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The node type.
+   * The type of the node.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   characterType?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * testdb
@@ -33,7 +33,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The node IDs. You can specify multiple node IDs separated by commas (`,`). This parameter is required when you query storage nodes.
+   * The IDs of the nodes. You can specify multiple node IDs and separate them with commas (`,`). This parameter is required when you query storage nodes.
    * 
    * @example
    * pxc-i-mezcj4ejdz
@@ -41,7 +41,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBNodeIds?: string;
   /**
    * @remarks
-   * The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
+   * The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of entries to return on each page. Default value: 100.
    * 
    * Limit: A maximum of 100 entries can be returned at a time.
    * 
@@ -79,12 +79,12 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
+   * The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2024-10-09T02:26
+   * 2024-10-09T02:26Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

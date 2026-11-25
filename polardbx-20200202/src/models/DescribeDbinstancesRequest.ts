@@ -89,7 +89,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The list of tags.
    * 
    * @example
-   * [{\\"TagKey\\":\\"test\\",\\"TagValue\\":\\"test-value\\"}]
+   * [{\"TagKey\":\"test\",\"TagValue\":\"test-value\"}]
    */
   tags?: string;
   static names(): { [key: string]: string } {

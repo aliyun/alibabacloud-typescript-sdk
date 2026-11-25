@@ -24,7 +24,7 @@ export class DescribeDBInstanceConfigResponseBodyData extends $dara.Model {
    * - masterReadWeight: the read weight of the primary node. A value of 100 indicates that 100% of traffic is routed to the primary node. Valid values: 0 to 100.
    * 
    * @example
-   * {\\"attendHtapList\\":[\\"pxc-hzruyzes08****\\"],\\"autoAttendHtap\\":\\"true\\",\\"delayExecutionStrategy\\":1,\\"enableConsistentReplicaRead\\":true,\\"enableHtap\\":\\"true\\",\\"masterReadWeight\\":100,\\"storageDelayThreshold\\":3}
+   * {\"attendHtapList\":[\"pxc-hzruyzes08****\"],\"autoAttendHtap\":\"true\",\"delayExecutionStrategy\":1,\"enableConsistentReplicaRead\":true,\"enableHtap\":\"true\",\"masterReadWeight\":100,\"storageDelayThreshold\":3}
    */
   configValue?: string;
   /**

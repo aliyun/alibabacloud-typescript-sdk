@@ -98,7 +98,7 @@ export class ResetOpenSearchPasswordResponseBodyData extends $dara.Model {
    * The additional information returned by the API operation. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
-   * [Environment: huanghe]\\nhuanghe 503_UC_OUTBOUND alert exceeds the threshold!\\n\\nFor details, see: https://grafana-cn-lbj34sreu03.grafana.aliyuncs.com/d/_rOiq2lNk/asm-status-code-monitor?var-datasource=DataSource-HUANGHE\\n
+   * [Environment: huanghe]\nhuanghe 503_UC_OUTBOUND alert exceeds the threshold!\n\nFor details, see: https://grafana-cn-lbj34sreu03.grafana.aliyuncs.com/d/_rOiq2lNk/asm-status-code-monitor?var-datasource=DataSource-HUANGHE\n
    */
   message?: string;
   /**

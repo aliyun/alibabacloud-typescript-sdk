@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The start time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The start time of the task. The format is yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
    * 
    * @example
    * 2021-10-20T19:40:00Z
@@ -21,7 +21,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end time of the task. The format is yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The end time of the task. The format is yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
    * 
    * @example
    * 2021-10-20T20:00:00Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomEndpointListResponseBodyDataEndpoints extends $dara.Model {
   /**
    * @remarks
-   * [\\"pxc-i-vb1sqa7llp\\",\\"pxc-i-bemprx50ad\\"]
+   * [\"pxc-i-vb1sqa7llp\",\"pxc-i-bemprx50ad\"]
    */
   cnNames?: string[];
   /**

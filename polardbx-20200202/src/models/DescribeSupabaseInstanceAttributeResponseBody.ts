@@ -13,7 +13,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The name of the authentication principal.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -37,7 +37,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail ext
   authPrincipalType?: string;
   /**
    * @remarks
-   * The diagnostic message.
+   * The encoded diagnostic message.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The no permission type.
+   * The type of missing permissions.
    * 
    * @example
    * ImplicitDeny
@@ -155,7 +155,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyDataConnAddrs extends 
 export class DescribeSupabaseInstanceAttributeResponseBodyDataNodes extends $dara.Model {
   /**
    * @remarks
-   * The specification code.
+   * The class code.
    * 
    * @example
    * polarx.supabase.x2.small
@@ -215,7 +215,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyDataNodes extends $dar
 export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoints.
+   * The connection endpoints.
    */
   connAddrs?: DescribeSupabaseInstanceAttributeResponseBodyDataConnAddrs[];
   /**
@@ -252,6 +252,14 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   expired?: boolean;
   /**
    * @remarks
+   * The latest minor engine version.
+   * 
+   * @example
+   * polardb-2.6.0_xcluster8.4.21-20260716_pxbaas-20260915
+   */
+  latestMinorVersion?: string;
+  /**
+   * @remarks
    * The lock mode.
    * 
    * @example
@@ -260,7 +268,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   lockMode?: string;
   /**
    * @remarks
-   * The minor version.
+   * The minor engine version.
    * 
    * @example
    * polardb-2.6.0_xcluster8.4.21-20260716_pxbaas-20260915
@@ -313,7 +321,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The Supabase specification code.
+   * The Supabase class code.
    * 
    * @example
    * polarx.supabase.x4.xlarge
@@ -353,6 +361,22 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
   vpcId?: string;
   /**
    * @remarks
+   * The complete HTTP access URL for WebApps. This parameter is not returned if WebApps is not enabled.
+   * 
+   * @example
+   * http://example.com:8000/apps/
+   */
+  webAppsHttpUrl?: string;
+  /**
+   * @remarks
+   * The complete HTTPS access URL for WebApps. This parameter is not returned if WebApps is not enabled.
+   * 
+   * @example
+   * https://example.com:8443/apps/
+   */
+  webAppsUrl?: string;
+  /**
+   * @remarks
    * The zone ID.
    * 
    * @example
@@ -366,6 +390,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
       DBInstanceName: 'DBInstanceName',
       engineVersion: 'EngineVersion',
       expired: 'Expired',
+      latestMinorVersion: 'LatestMinorVersion',
       lockMode: 'LockMode',
       minorVersion: 'MinorVersion',
       nodeClass: 'NodeClass',
@@ -379,6 +404,8 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
       topologyType: 'TopologyType',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
+      webAppsHttpUrl: 'WebAppsHttpUrl',
+      webAppsUrl: 'WebAppsUrl',
       zoneId: 'ZoneId',
     };
   }
@@ -390,6 +417,7 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
       DBInstanceName: 'string',
       engineVersion: 'string',
       expired: 'boolean',
+      latestMinorVersion: 'string',
       lockMode: 'string',
       minorVersion: 'string',
       nodeClass: 'string',
@@ -403,6 +431,8 @@ export class DescribeSupabaseInstanceAttributeResponseBodyData extends $dara.Mod
       topologyType: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
+      webAppsHttpUrl: 'string',
+      webAppsUrl: 'string',
       zoneId: 'string',
     };
   }

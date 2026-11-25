@@ -8,7 +8,7 @@ export class CreateStructureImportTaskRequest extends $dara.Model {
    * The configuration information.
    * 
    * @example
-   * [{\\"schemaName\\":\\"transfer_test\\",\\"tableList\\":[]}]
+   * [{\"schemaName\":\"transfer_test\",\"tableList\":[]}]
    */
   config?: string;
   /**

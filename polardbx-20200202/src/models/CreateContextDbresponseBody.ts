@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextDBResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The description as above.
+   * The description is as stated above.
    * 
    * @example
    * polardbx:CreateContextDB
@@ -95,7 +95,7 @@ export class CreateContextDBResponseBodyAccessDeniedDetail extends $dara.Model {
 export class CreateContextDBResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The administrator key of the context service.
+   * The administrator key for the context service.
    * 
    * @example
    * ctx-admin-***
@@ -119,7 +119,7 @@ export class CreateContextDBResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the context service dashboard replica set.
+   * The name of the dashboard replica set for the context service.
    * 
    * @example
    * pxt-*********-d
@@ -135,7 +135,7 @@ export class CreateContextDBResponseBodyData extends $dara.Model {
   openSearchInstanceName?: string;
   /**
    * @remarks
-   * The name of the context service replica set.
+   * The name of the service replica set for the context service.
    * 
    * @example
    * pxt-*********-s

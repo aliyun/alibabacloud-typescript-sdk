@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The compute node name. This field is available only for CN.
+   * The name of the compute node. This field is available only for compute nodes (CN).
    * 
    * @example
    * pxc-i-xxxx
@@ -13,7 +13,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   CNname?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * dcdev
@@ -21,7 +21,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The extension field. This field is available only for CN.
+   * The extended field. This field is available only for compute nodes (CN).
    * 
    * @example
    * tddl:5.4.19-20240927
@@ -29,7 +29,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   extension?: string;
   /**
    * @remarks
-   * Indicates whether the execution failed. This field is available only for CN.
+   * Indicates whether the execution failed. This field is available only for compute nodes (CN).
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   fail?: string;
   /**
    * @remarks
-   * The number of rows fetched. This field is available only for CN.
+   * The number of fetched rows. This field is available only for compute nodes (CN).
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   frows?: string;
   /**
    * @remarks
-   * The client name and address that connects to the database.
+   * The name and address of the client that connects to the database.
    * 
    * @example
    * ****[****] @ [1XX.XX.XX.XX]
@@ -53,7 +53,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The instance name. This field is available only for DN.
+   * The name of the instance. This field is available only for storage nodes (DN).
    * 
    * @example
    * pxc-xdb-s-xxxx
@@ -61,7 +61,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * Indicates whether the Prepare mode is used. This field is available only for CN.
+   * Indicates whether the Prepare mode is used. This field is available only for compute nodes (CN).
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   isBind?: string;
   /**
    * @remarks
-   * The lock duration. Unit: milliseconds (ms). This field is available only for DN.
+   * The lock duration. Unit: milliseconds. This field is available only for storage nodes (DN).
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   lockTimeMS?: string;
   /**
    * @remarks
-   * The parameters in Prepare mode. This field is available only for CN.
+   * The parameters in the Prepare mode. This field is available only for compute nodes (CN).
    * 
    * @example
    * ["1"]
@@ -85,7 +85,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The number of rows scanned. This field is available only for DN.
+   * The number of scanned rows. This field is available only for storage nodes (DN).
    * 
    * @example
    * 10
@@ -93,10 +93,10 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   parseRowCounts?: string;
   /**
    * @remarks
-   * The timestamp. Format: YYYY-MM-ddTHH:mm.ss.SSSZ (UTC).
+   * The timestamp. Specify the time in the YYYY-MM-ddTHH:mm.ss.SSSZ format. The time must be in UTC.
    * 
-   * - In CN slow logs, this field indicates the execution start time.
-   * - In DN slow logs, this field indicates the execution end time.
+   * - In the slow query logs of compute nodes (CN), this field indicates the start time of the execution.
+   * - In the slow query logs of storage nodes (DN), this field indicates the completion time of the execution.
    * 
    * @example
    * 2024-11-22T02:22:22.444Z
@@ -104,7 +104,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   queryStartTime?: string;
   /**
    * @remarks
-   * The execution duration of the SQL statement. Unit: seconds (s).
+   * The execution duration of the SQL statement. Unit: seconds.
    * 
    * @example
    * 3.000
@@ -112,7 +112,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   queryTime?: string;
   /**
    * @remarks
-   * The execution duration of the SQL statement. Unit: milliseconds (ms).
+   * The execution duration of the SQL statement. Unit: milliseconds.
    * 
    * @example
    * 3000.000
@@ -120,7 +120,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   queryTimeMS?: string;
   /**
    * @remarks
-   * The number of rows returned. This field is available only for DN.
+   * The number of returned rows. This field is available only for storage nodes (DN).
    * 
    * @example
    * 20
@@ -128,7 +128,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   returnRowCounts?: string;
   /**
    * @remarks
-   * The number of rows affected or returned. This field is available only for CN.
+   * The number of affected or returned rows. This field is available only for compute nodes (CN).
    * 
    * @example
    * 1
@@ -136,7 +136,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   rows?: string;
   /**
    * @remarks
-   * The number of physical SQL statements. This field is available only for CN.
+   * The number of physical SQL statements. This field is available only for compute nodes (CN).
    * 
    * @example
    * 1
@@ -144,7 +144,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   SCNT?: string;
   /**
    * @remarks
-   * The unique identity of the SQL statement in slow query log statistics.
+   * The unique identifier of the SQL statement in the slow query log statistics.
    * 
    * @example
    * c8df07e5d45cd68da8b4771c2016e20b
@@ -160,7 +160,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   SQLText?: string;
   /**
    * @remarks
-   * The SQL type. This field is available only for CN.
+   * The type of the SQL statement. This field is available only for compute nodes (CN).
    * 
    * @example
    * select
@@ -168,7 +168,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The kernel template ID. This field is available only for CN.
+   * The kernel template ID. This field is available only for compute nodes (CN).
    * 
    * @example
    * af33ffee
@@ -176,7 +176,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * Indicates whether the SQL statement is too long. This field is available only for CN.
+   * Indicates whether the SQL statement is too long. This field is available only for compute nodes (CN).
    * 
    * @example
    * 0
@@ -184,7 +184,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   tooLong?: string;
   /**
    * @remarks
-   * The trace ID. This field is available only for CN.
+   * The trace ID. This field is available only for compute nodes (CN).
    * 
    * @example
    * 17a5c5c840006000
@@ -192,7 +192,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   traceId?: string;
   /**
    * @remarks
-   * The transaction policy. This field is available only for CN.
+   * The transaction policy. This field is available only for compute nodes (CN).
    * 
    * @example
    * XA
@@ -200,7 +200,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   transactionPolicy?: string;
   /**
    * @remarks
-   * The transaction ID. This field is available only for CN.
+   * The transaction ID. This field is available only for compute nodes (CN).
    * 
    * @example
    * 17a5c5c840006000
@@ -208,7 +208,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   trxId?: string;
   /**
    * @remarks
-   * The workload type. This field is available only for CN.
+   * The workload type. This field is available only for compute nodes (CN).
    * 
    * @example
    * TP
@@ -296,12 +296,12 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The list of slow log details.
+   * The details of the slow query logs.
    */
   items?: DescribeSlowLogRecordsResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the current query.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -309,7 +309,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30

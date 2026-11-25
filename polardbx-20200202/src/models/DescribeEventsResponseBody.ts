@@ -24,7 +24,7 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
    * The additional information.
    * 
    * @example
-   * {\\"Domain\\": \\"rds-cn-hangzhou.aliyuncs.com\\"}
+   * {\"Domain\": \"rds-cn-hangzhou.aliyuncs.com\"}
    */
   eventPayload?: string;
   /**

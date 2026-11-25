@@ -9,7 +9,7 @@ export class ModifyEngineMigrationRequest extends $dara.Model {
    * >This parameter takes effect only when SwapConnectionString is set to true.
    * 
    * @example
-   * {\\"pc-bp1m9tt23o5kh834y.rwlb.rds.aliyuncs.com\\":\\"rm-bp1ycl5o6ojs957o0.mysql.rds.aliyuncs.com\\"}
+   * {\"pc-bp1m9tt23o5kh834y.rwlb.rds.aliyuncs.com\":\"rm-bp1ycl5o6ojs957o0.mysql.rds.aliyuncs.com\"}
    */
   connectionStrings?: string;
   /**

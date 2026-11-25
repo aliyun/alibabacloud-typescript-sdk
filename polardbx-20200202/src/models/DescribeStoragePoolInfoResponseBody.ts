@@ -32,7 +32,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
    * The reserved field.
    * 
    * @example
-   * {\\"appId\\":\\"APP_ETLUP1E5FMI5ND5IFO8W\\"}
+   * {\"appId\":\"APP_ETLUP1E5FMI5ND5IFO8W\"}
    */
   extra?: string;
   /**

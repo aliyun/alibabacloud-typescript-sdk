@@ -8007,7 +8007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
+   * Queries the details of slow SQL statements on the compute nodes and storage nodes of a PolarDB-X instance.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8070,7 +8070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
+   * Queries the details of slow SQL statements on the compute nodes and storage nodes of a PolarDB-X instance.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @returns DescribeSlowLogRecordsResponse

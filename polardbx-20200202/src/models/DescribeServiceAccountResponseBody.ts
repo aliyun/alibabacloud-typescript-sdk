@@ -179,7 +179,7 @@ export class DescribeServiceAccountResponseBody extends $dara.Model {
   data?: DescribeServiceAccountResponseBodyData;
   /**
    * @remarks
-   * The message returned. If the request is successful, \\"success\\" is returned. If the request fails, the corresponding error code is returned.
+   * The message returned. If the request is successful, \"success\" is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * success
