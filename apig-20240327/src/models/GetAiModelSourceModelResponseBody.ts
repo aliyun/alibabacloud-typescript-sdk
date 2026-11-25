@@ -45,7 +45,7 @@ export class GetAiModelSourceModelResponseBodyDataAvailablePaths extends $dara.M
 export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   /**
    * @remarks
-   * The number of credits per million input tokens that hit the cache. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
+   * The number of credits per million cached input tokens. This is a non-negative number. A value of 0 indicates free of charge.
    * 
    * @example
    * 0.1
@@ -53,7 +53,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
+   * The number of credits per million input tokens. This is a non-negative number. A value of 0 indicates free of charge.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
+   * The number of credits per million output tokens. This is a non-negative number. A value of 0 indicates free of charge.
    * 
    * @example
    * 2
@@ -179,13 +179,18 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
    */
   availablePaths?: GetAiModelSourceModelResponseBodyDataAvailablePaths[];
   /**
+   * @example
+   * qwen-prod/qwen-plus
+   */
+  callName?: string;
+  /**
    * @remarks
    * The credit pricing configuration of the model.
    */
   credit?: GetAiModelSourceModelResponseBodyDataCredit;
   /**
    * @remarks
-   * The set of capabilities declared by the model. The key is the capability name, and the value indicates whether the capability is supported.
+   * The set of capabilities declared for the model. The key is the capability name and the value indicates whether the capability is supported.
    * 
    * @example
    * {"nativeStreaming":true}
@@ -201,12 +206,12 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The token limits and input and output modality information of the model.
+   * The token limits and the input and output modality information of the model.
    */
   meta?: GetAiModelSourceModelResponseBodyDataMeta;
   /**
    * @remarks
-   * The model identifier. Use the source model card ID for standard models and the vm- identifier for logical model entries.
+   * The model identifier. For standard models, use the source model card ID. For logical model entries, use the vm- prefix.
    * 
    * @example
    * msc-d00000000000000000000
@@ -262,7 +267,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   pricingStatus?: string;
   /**
    * @remarks
-   * The ID of the AI service bound to the model source.
+   * The ID of the actual AI service that is bound to the model source.
    * 
    * @example
    * svc-d00000000000000000000
@@ -270,7 +275,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The source of the model asset. A value of user indicates a user-defined model, and a value of builtin indicates a system built-in model.
+   * The source of the model asset. A value of user indicates a user-defined model, and builtin indicates a system built-in model.
    * 
    * @example
    * user
@@ -278,7 +283,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time of the last business update. The time is in RFC 3339 format and in the UTC time zone.
+   * The time of the last business update, in RFC 3339 format and the UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -286,7 +291,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object. This version is used for conditional validation during updates or deletions.
+   * The current version of the object, which is used for conditional validation during updates or deletions.
    * 
    * @example
    * 1
@@ -295,6 +300,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       availablePaths: 'availablePaths',
+      callName: 'callName',
       credit: 'credit',
       features: 'features',
       gatewayId: 'gatewayId',
@@ -316,6 +322,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       availablePaths: { 'type': 'array', 'itemType': GetAiModelSourceModelResponseBodyDataAvailablePaths },
+      callName: 'string',
       credit: GetAiModelSourceModelResponseBodyDataCredit,
       features: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gatewayId: 'string',
@@ -358,7 +365,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
 export class GetAiModelSourceModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. The value is Ok for successful requests and a specific business error code for failed requests.
+   * The response status code. Returns Ok for success and a specific business error code for failure.
    * 
    * @example
    * Ok
@@ -366,12 +373,12 @@ export class GetAiModelSourceModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by the model source operation.
+   * The business result returned by operations on models in a source.
    */
   data?: GetAiModelSourceModelResponseBodyData;
   /**
    * @remarks
-   * The response message that indicates the result of the request.
+   * The response message that describes the result of the request.
    * 
    * @example
    * success

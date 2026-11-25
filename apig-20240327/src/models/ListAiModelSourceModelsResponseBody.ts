@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAiModelSourceModelsResponseBodyDataItemsAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The invocation path of the model.
+   * The call path of the model.
    * 
    * @example
    * /v1/chat/completions
@@ -13,7 +13,7 @@ export class ListAiModelSourceModelsResponseBodyDataItemsAvailablePaths extends 
   path?: string;
   /**
    * @remarks
-   * The protocol type used by the invocation path.
+   * The protocol type used by the call path.
    * 
    * @example
    * OpenAI/v1
@@ -69,7 +69,7 @@ export class ListAiModelSourceModelsResponseBodyDataItemsCredit extends $dara.Mo
   outputCost?: number;
   /**
    * @remarks
-   * The pricing method. Currently, only fixed is supported, which indicates fixed credit pricing.
+   * The pricing method. Valid values: fixed (fixed credit pricing).
    * 
    * @example
    * fixed
@@ -175,9 +175,17 @@ export class ListAiModelSourceModelsResponseBodyDataItemsMeta extends $dara.Mode
 export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The protocols and invocation paths supported by the model.
+   * The protocols and call paths supported by the model.
    */
   availablePaths?: ListAiModelSourceModelsResponseBodyDataItemsAvailablePaths[];
+  /**
+   * @remarks
+   * The full name used to call the model, in the format of Valid call name prefix of the model source/Model name. If the model source uses the default prefix, the prefix is the provider identifier.
+   * 
+   * @example
+   * qwen-prod/qwen-plus
+   */
+  callName?: string;
   /**
    * @remarks
    * The credit pricing configuration of the model.
@@ -206,7 +214,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   meta?: ListAiModelSourceModelsResponseBodyDataItemsMeta;
   /**
    * @remarks
-   * The model identifier. Standard models use the source model card ID, and logical model entries use the vm- prefix.
+   * The model identifier. Standard models use the source model card ID, and logical model entries use the vm- identifier.
    * 
    * @example
    * msc-d00000000000000000000
@@ -254,7 +262,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   modelSourceVersion?: number;
   /**
    * @remarks
-   * The synchronization status of the model pricing configuration. Pending indicates that the current version is not synchronized, and Ready indicates that it is synchronized.
+   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized, and a value of Ready indicates that the current version is synchronized.
    * 
    * @example
    * Ready
@@ -270,7 +278,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The source of the model asset. A value of user indicates a user model, and builtin indicates a system built-in model.
+   * The source of the model asset. Valid values: user (user models) and builtin (system built-in models).
    * 
    * @example
    * user
@@ -278,7 +286,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time of the last business update, in RFC 3339 format and UTC time zone.
+   * The time of the last business update. The time is in RFC 3339 format and in the UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -286,7 +294,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object, which is used for conditional validation during updates or deletions.
+   * The current version of the object, which is used for conditional checks during updates or deletions.
    * 
    * @example
    * 1
@@ -295,6 +303,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       availablePaths: 'availablePaths',
+      callName: 'callName',
       credit: 'credit',
       features: 'features',
       gatewayId: 'gatewayId',
@@ -316,6 +325,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       availablePaths: { 'type': 'array', 'itemType': ListAiModelSourceModelsResponseBodyDataItemsAvailablePaths },
+      callName: 'string',
       credit: ListAiModelSourceModelsResponseBodyDataItemsCredit,
       features: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gatewayId: 'string',
@@ -363,7 +373,7 @@ export class ListAiModelSourceModelsResponseBodyData extends $dara.Model {
   items?: ListAiModelSourceModelsResponseBodyDataItems[];
   /**
    * @remarks
-   * The maximum number of records returned per page.
+   * The maximum number of records to return per page.
    * 
    * @example
    * 20
@@ -418,7 +428,7 @@ export class ListAiModelSourceModelsResponseBodyData extends $dara.Model {
 export class ListAiModelSourceModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned for successful requests, and a specific business error code is returned for failed requests.
+   * The response status code. The value is Ok for successful requests, or a specific business error code for failed requests.
    * 
    * @example
    * Ok
@@ -426,12 +436,12 @@ export class ListAiModelSourceModelsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by the model source operation.
+   * The business result returned for the model source operation.
    */
   data?: ListAiModelSourceModelsResponseBodyData;
   /**
    * @remarks
-   * The response message, which describes the request processing result.
+   * The response message that describes the request processing result.
    * 
    * @example
    * success
@@ -439,7 +449,7 @@ export class ListAiModelSourceModelsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is generated by the system to trace the call.
+   * The request ID generated by the system to trace the call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

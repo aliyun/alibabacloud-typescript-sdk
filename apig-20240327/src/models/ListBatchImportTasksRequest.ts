@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchImportTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the creation time range. Specify the time in RFC 3339 format.
+   * The end time of the creation time range in RFC 3339 format.
    * 
    * @example
    * 2026-05-26T11:00:00Z
@@ -29,7 +29,7 @@ export class ListBatchImportTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The start mark for the paging query.
+   * The starting token for the paging query.
    * 
    * @example
    * token-xxx
@@ -45,7 +45,7 @@ export class ListBatchImportTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class ListBatchImportTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the creation time range. Specify the time in RFC 3339 format.
+   * The start time of the creation time range in RFC 3339 format.
    * 
    * @example
    * 2026-05-26T10:00:00Z

@@ -216,7 +216,7 @@ export class ResetGatewayQuotaRuleResponseBody extends $dara.Model {
    * The response data content.
    * 
    * @example
-   * {\\"key\\": \\"value\\"}
+   * {\"key\": \"value\"}
    */
   data?: ResetGatewayQuotaRuleResponseBodyData;
   /**

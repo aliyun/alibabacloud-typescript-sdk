@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerModelCardGrantsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters results by model card ID.
+   * Filters by model card ID for reverse lookup.
    * 
    * @example
    * msc-d00000000000000000000
@@ -29,7 +29,7 @@ export class ListConsumerModelCardGrantsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters results by principal ID. This parameter must be specified together with principalType.
+   * Filters by principal ID. This parameter must be paired with principalType.
    * 
    * @example
    * cs-d00000000000000000000
@@ -37,7 +37,7 @@ export class ListConsumerModelCardGrantsRequest extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * Filters results by principal type. Valid values: Consumer and ConsumerGroup. This parameter must be specified together with principalId.
+   * Filters by principal type. Valid values: Consumer and ConsumerGroup. This parameter must be paired with principalId.
    * 
    * @example
    * Consumer

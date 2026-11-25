@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchExportTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The end time of the creation time range. Format: yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
    * 
    * @example
    * 2026-05-26T11:00:00Z
@@ -53,7 +53,7 @@ export class ListBatchExportTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The start time of the creation time range. Format: yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
    * 
    * @example
    * 2026-05-26T10:00:00Z

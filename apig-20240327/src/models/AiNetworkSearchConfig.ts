@@ -112,7 +112,7 @@ export class AiNetworkSearchConfig extends $dara.Model {
    * The format template for reference content. Must contain at least one %s placeholder.
    * 
    * @example
-   * Reference source:\\n%s
+   * Reference source:\n%s
    */
   referenceFormat?: string;
   /**

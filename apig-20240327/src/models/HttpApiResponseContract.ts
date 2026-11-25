@@ -40,7 +40,7 @@ export class HttpApiResponseContractItems extends $dara.Model {
    *     "properties": {
    *         "result": {
    *             "type": "string",
-   *             "description": "Operation result. \\"ok\\" indicates success."
+   *             "description": "Operation result. \"ok\" indicates success."
    *         }
    *     }
    * }

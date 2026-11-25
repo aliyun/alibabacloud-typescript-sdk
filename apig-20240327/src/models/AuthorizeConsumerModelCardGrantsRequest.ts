@@ -10,7 +10,7 @@ export class AuthorizeConsumerModelCardGrantsRequest extends $dara.Model {
   modelCardIds?: string[];
   /**
    * @remarks
-   * The actual model group IDs of the current instance. The modelCardIds parameter can be empty only when group licenses are granted. Group licenses allow zero intersection with the current API, but principal relationships with both target types empty cannot be saved.
+   * The actual model group IDs of the current instance. modelCardIds can be empty only when group licenses are granted. Group licenses allow zero intersection with the current API, but principal relationships with both target types empty cannot be saved.
    */
   modelGroupIds?: string[];
   /**

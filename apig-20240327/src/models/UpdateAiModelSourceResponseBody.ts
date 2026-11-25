@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
   /**
+   * @example
+   * qwen-prod
+   */
+  callNamePrefix?: string;
+  /**
    * @remarks
    * The display name of the model source or model provider.
    * 
@@ -69,6 +74,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
   version?: number;
   static names(): { [key: string]: string } {
     return {
+      callNamePrefix: 'callNamePrefix',
       displayName: 'displayName',
       gatewayId: 'gatewayId',
       modelCount: 'modelCount',
@@ -82,6 +88,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callNamePrefix: 'string',
       displayName: 'string',
       gatewayId: 'string',
       modelCount: 'number',

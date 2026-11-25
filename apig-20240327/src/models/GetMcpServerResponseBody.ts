@@ -225,7 +225,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigs extends $dara.Mode
    * The match rule of the canary route.
    * 
    * @example
-   * {\\"change_order_revision\\":\\"3.686.0_fc-sz-futian.1662568293908382_faas-eerouter\\"}
+   * {\"change_order_revision\":\"3.686.0_fc-sz-futian.1662568293908382_faas-eerouter\"}
    */
   match?: HttpRouteMatch;
   /**
@@ -418,7 +418,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
    * The match rule of the route.
    * 
    * @example
-   * {\\"product_code\\":\\"apigw\\"}
+   * {\"product_code\":\"apigw\"}
    */
   match?: HttpRouteMatch;
   /**

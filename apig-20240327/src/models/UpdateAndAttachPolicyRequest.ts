@@ -36,7 +36,7 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {\\"enable\\":false}
+   * {\"enable\":false}
    */
   config?: string;
   /**

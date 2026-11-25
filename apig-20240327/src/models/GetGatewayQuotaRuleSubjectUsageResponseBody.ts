@@ -188,7 +188,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails extends $dar
    * The list of usage details.
    * 
    * @example
-   * [{"model":"qwen-plus",\\"usedAmount\\":210}]
+   * [{"model":"qwen-plus",\"usedAmount\":210}]
    */
   items?: GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems[];
   /**

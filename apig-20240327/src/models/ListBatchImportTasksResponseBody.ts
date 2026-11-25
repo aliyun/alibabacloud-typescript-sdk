@@ -21,7 +21,7 @@ export class ListBatchImportTasksResponseBodyDataItems extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The gateway instance ID associated with the task.
+   * The ID of the gateway instance associated with the task.
    * 
    * @example
    * gw-xxx
@@ -61,7 +61,7 @@ export class ListBatchImportTasksResponseBodyDataItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of tasks.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -105,7 +105,7 @@ export class ListBatchImportTasksResponseBodyDataItems extends $dara.Model {
 export class ListBatchImportTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of tasks. Tasks are returned in descending order of creation time, with the latest tasks first.
+   * The list of tasks. The tasks are returned in descending order of creation time, with the latest tasks first.
    */
   items?: ListBatchImportTasksResponseBodyDataItems[];
   /**
@@ -118,7 +118,7 @@ export class ListBatchImportTasksResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -126,7 +126,7 @@ export class ListBatchImportTasksResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of tasks.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -178,7 +178,7 @@ export class ListBatchImportTasksResponseBody extends $dara.Model {
   data?: ListBatchImportTasksResponseBodyData;
   /**
    * @remarks
-   * The maximum number of records returned in the current request.
+   * The maximum number of records returned in the current response.
    * 
    * @example
    * 100
@@ -194,7 +194,7 @@ export class ListBatchImportTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next query. This parameter is empty if no more results are available.
+   * The starting token for the next query. This parameter is empty when no more results are available.
    * 
    * @example
    * token-xxx

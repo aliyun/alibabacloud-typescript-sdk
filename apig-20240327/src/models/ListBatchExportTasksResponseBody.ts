@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchExportTasksResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the task. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The creation time of the task. Format: yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
    * 
    * @example
    * 2026-05-26T10:00:00Z

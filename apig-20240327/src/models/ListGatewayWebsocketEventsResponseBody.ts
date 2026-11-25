@@ -13,7 +13,7 @@ export class ListGatewayWebsocketEventsResponseBodyData extends $dara.Model {
   basis?: string;
   /**
    * @remarks
-   * Indicates whether there is a next page.
+   * Indicates whether more pages are available.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class ListGatewayWebsocketEventsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next pagination token.
    * 
    * @example
    * opaque-token-from-previous-page
@@ -86,7 +86,7 @@ export class ListGatewayWebsocketEventsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The query results.
+   * The query result.
    * 
    * @example
    * {}
@@ -102,7 +102,7 @@ export class ListGatewayWebsocketEventsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D0A6A1A0-8793-4C10-AB1A-2C03E770A912

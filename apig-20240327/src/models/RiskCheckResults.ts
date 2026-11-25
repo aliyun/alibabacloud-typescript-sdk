@@ -76,7 +76,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
    * The detailed data related to the risk. The data structure varies based on the risk type.
    * 
    * @example
-   * {"30010010001":"[\\"\\",\\"\\"]"}
+   * {"30010010001":"[\"\",\"\"]"}
    */
   data?: { [key: string]: string };
   /**

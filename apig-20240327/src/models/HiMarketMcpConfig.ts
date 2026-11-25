@@ -97,7 +97,7 @@ export class HiMarketMcpConfig extends $dara.Model {
    * The MCP tool definitions.
    * 
    * @example
-   * [{\\"name\\":\\"search\\",\\"description\\":\\"Search tool\\"}]
+   * [{\"name\":\"search\",\"description\":\"Search tool\"}]
    */
   tools?: string;
   static names(): { [key: string]: string } {

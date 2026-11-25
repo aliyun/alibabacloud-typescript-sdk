@@ -15,7 +15,7 @@ export class ListAiModelSourceModelsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The query keyword used to match resources by name or identifier.
+   * The search keyword used to match resources by name or identifier.
    * 
    * @example
    * beta
@@ -41,7 +41,7 @@ export class ListAiModelSourceModelsRequest extends $dara.Model {
   modelSourceId?: string;
   /**
    * @remarks
-   * The pagination token returned from the previous page. Omit this parameter for the first page. For the last page, this parameter is empty or omitted.
+   * The pagination token returned from the previous page. Omit this parameter for the first page. The token is empty or omitted for the last page.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==

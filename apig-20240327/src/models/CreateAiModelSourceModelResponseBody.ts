@@ -45,7 +45,7 @@ export class CreateAiModelSourceModelResponseBodyDataAvailablePaths extends $dar
 export class CreateAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   /**
    * @remarks
-   * The number of credits per million cached input tokens. The value must be a non-negative number. A value of 0 indicates free.
+   * The number of credits per million input tokens that hit the cache. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
    * 
    * @example
    * 0.1
@@ -53,7 +53,7 @@ export class CreateAiModelSourceModelResponseBodyDataCredit extends $dara.Model 
   cacheCost?: number;
   /**
    * @remarks
-   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates free.
+   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class CreateAiModelSourceModelResponseBodyDataCredit extends $dara.Model 
   inputCost?: number;
   /**
    * @remarks
-   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates free.
+   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
    * 
    * @example
    * 2
@@ -179,6 +179,11 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
    */
   availablePaths?: CreateAiModelSourceModelResponseBodyDataAvailablePaths[];
   /**
+   * @example
+   * qwen-prod/qwen-plus
+   */
+  callName?: string;
+  /**
    * @remarks
    * The credit pricing configuration of the model.
    */
@@ -230,7 +235,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelProvider?: string;
   /**
    * @remarks
-   * The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
+   * The ID of the model source. Use the modelSourceId returned by the CreateAiModelSource operation.
    * 
    * @example
    * ms-d00000000000000000000
@@ -246,7 +251,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceName?: string;
   /**
    * @remarks
-   * The current version of the associated model source.
+   * The current version of the model source to which the model belongs.
    * 
    * @example
    * 1
@@ -254,7 +259,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceVersion?: number;
   /**
    * @remarks
-   * The synchronization status of the model pricing configuration. Valid values: Pending (the current version is not yet synchronized) and Ready (synchronized).
+   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version has not been synchronized. A value of Ready indicates that the current version has been synchronized.
    * 
    * @example
    * Ready
@@ -270,7 +275,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The source of the model asset. Valid values: user (user model) and builtin (system built-in model).
+   * The source of the model asset. A value of user indicates a user model, and a value of builtin indicates a system built-in model.
    * 
    * @example
    * user
@@ -286,7 +291,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object. It is used for conditional validation during updates or deletions.
+   * The current version of the object. It is used for conditional validation during update or deletion.
    * 
    * @example
    * 1
@@ -295,6 +300,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       availablePaths: 'availablePaths',
+      callName: 'callName',
       credit: 'credit',
       features: 'features',
       gatewayId: 'gatewayId',
@@ -316,6 +322,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       availablePaths: { 'type': 'array', 'itemType': CreateAiModelSourceModelResponseBodyDataAvailablePaths },
+      callName: 'string',
       credit: CreateAiModelSourceModelResponseBodyDataCredit,
       features: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gatewayId: 'string',
@@ -358,7 +365,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
 export class CreateAiModelSourceModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok indicates success. A specific business error code is returned upon failure.
+   * The response status code. A value of Ok indicates success. If the request fails, a specific business error code is returned.
    * 
    * @example
    * Ok
@@ -366,7 +373,7 @@ export class CreateAiModelSourceModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by the in-source model operation.
+   * The business result returned by the operation on the AI model in the model source.
    */
   data?: CreateAiModelSourceModelResponseBodyData;
   /**
@@ -379,7 +386,7 @@ export class CreateAiModelSourceModelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID generated by the system to trace the call.
+   * The ID of the request. It is generated by the system and used to trace the call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

@@ -346,7 +346,7 @@ export class AiServiceConfigVertexServiceConfig extends $dara.Model {
    * The authentication key for Vertex AI.
    * 
    * @example
-   * {\\"type\\":\\"service_account\\",\\"project_id\\":\\"my-project\\",\\"private_key\\":\\"-----BEGIN PRIVATE KEY-----...\\",\\"client_email\\":\\"xxx@xxx.iam.gserviceaccount.com\\",\\"token_uri\\":\\"https://oauth2.googleapis.com/token\\"}
+   * {\"type\":\"service_account\",\"project_id\":\"my-project\",\"private_key\":\"-----BEGIN PRIVATE KEY-----...\",\"client_email\":\"xxx@xxx.iam.gserviceaccount.com\",\"token_uri\":\"https://oauth2.googleapis.com/token\"}
    */
   vertexAuthKey?: string;
   /**

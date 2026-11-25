@@ -49,7 +49,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
    * The match condition configuration for API publishing.
    * 
    * @example
-   * {\\"change_order_revision\\":\\"3.657.33_fc-hz-yunqi.1662568293908382_faas-eerouter\\"}
+   * {\"change_order_revision\":\"3.657.33_fc-hz-yunqi.1662568293908382_faas-eerouter\"}
    */
   match?: HttpApiBackendMatchConditions;
   /**

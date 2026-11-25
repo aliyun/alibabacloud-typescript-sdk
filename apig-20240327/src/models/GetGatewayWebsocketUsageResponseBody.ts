@@ -13,7 +13,7 @@ export class GetGatewayWebsocketUsageResponseBodyData extends $dara.Model {
   basis?: string;
   /**
    * @remarks
-   * Indicates whether a next page is available.
+   * Indicates whether there is a next page.
    * 
    * @example
    * false

@@ -13,7 +13,7 @@ export class ListGatewayWebsocketEventsRequest extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp in seconds since the UTC epoch. Example: 1793919600.
+   * The end time. The value is a UNIX timestamp in seconds (since the UTC epoch), such as 1793919600.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ListGatewayWebsocketEventsRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The pagination token.
    * 
    * @example
    * opaque-token-from-previous-page
@@ -63,7 +63,7 @@ export class ListGatewayWebsocketEventsRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp in seconds since the UTC epoch. Example: 1793916000.
+   * The start time. The value is a UNIX timestamp in seconds (since the UTC epoch), such as 1793916000.
    * 
    * This parameter is required.
    * 

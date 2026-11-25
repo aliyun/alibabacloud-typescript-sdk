@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeployHttpApiRoutesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to publish routes asynchronously. Default value: true. If set to true, the acceptance results of the routes are returned. If set to false, the system waits for the batch processing to complete and returns the final results and statistics for each route.
+   * Specifies whether to publish routes asynchronously. Default value: true. An asynchronous publish returns the acceptance result of each route. If you set this parameter to false, the system waits for the batch processing to complete and returns the final result and statistics for each route.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class BatchDeployHttpApiRoutesRequest extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * Specifies whether to publish all routes visible to the current user under the API. Default value: false. If you set this parameter to true, all visible routes are published and the routeIds parameter is ignored.
+   * Specifies whether to publish all routes visible to the current user under the API. Default value: false. If you set this parameter to true, all visible routes are targeted and routeIds is ignored.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class BatchDeployHttpApiRoutesRequest extends $dara.Model {
   deployAll?: boolean;
   /**
    * @remarks
-   * The list of route IDs to publish. If deployAll is omitted or set to false, at least one route ID must be provided. If any route does not exist or belongs to another API, the entire batch request is rejected.
+   * The list of route IDs to publish. If deployAll is omitted or set to false, you must provide at least one route ID. If any route does not exist or belongs to another API, the entire batch request is rejected.
    * 
    * @example
    * ["hr-example001","hr-example002"]

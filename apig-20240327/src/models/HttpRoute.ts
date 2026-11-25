@@ -347,7 +347,7 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
    * The MCP server metadata configuration.
    * 
    * @example
-   * {\\"config\\":{}}
+   * {\"config\":{}}
    */
   mcpServerConfig?: string;
   static names(): { [key: string]: string } {

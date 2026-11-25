@@ -133,7 +133,10 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The panic threshold. When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally, and requests are sent only to healthy nodes, not to ejected nodes. When the proportion of healthy nodes is less than or equal to the panic threshold, health checks are effectively disabled, and requests are sent to all nodes, including ejected ones.
+   * The panic threshold.
+   * 
+   * When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally. Requests are sent only to healthy nodes and not to ejected nodes.
+   * When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled. Requests are sent to all nodes, including ejected nodes.
    * 
    * @example
    * 1
@@ -141,7 +144,7 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   failurePercentageMinimumHosts?: number;
   /**
    * @remarks
-   * The failure rate threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for the node.
+   * The failure percentage threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for the node.
    * 
    * @example
    * 80
@@ -252,6 +255,14 @@ export class UpdateServiceRequest extends $dara.Model {
   aiServiceConfig?: AiServiceConfig;
   /**
    * @remarks
+   * Removes a custom upstream API key from the current configuration. The index starts from 1. You must specify expectedConfigRevision, maintain the order of the remaining keys, and retain at least one key.
+   * 
+   * @example
+   * 2
+   */
+  apiKeyIndexToRemove?: number;
+  /**
+   * @remarks
    * The list of KMS reference names to append. This parameter is only available in Reference mode. KMS content is not read.
    * 
    * @example
@@ -273,7 +284,7 @@ export class UpdateServiceRequest extends $dara.Model {
   dnsServers?: string[];
   /**
    * @remarks
-   * The expected configuration revision for conditional updates of the AI service. If this parameter is not provided, backward compatibility with legacy calls is maintained. If the version changes, the Conflict.ServiceConfigurationChanged error is returned.
+   * The expected configuration revision for conditional updates of the AI service. If this parameter is not specified, the call is compatible with legacy versions. If the version changes, Conflict.ServiceConfigurationChanged is returned.
    * 
    * @example
    * 7e4f52a9b0c34d16a268e913f5c2087b
@@ -323,6 +334,7 @@ export class UpdateServiceRequest extends $dara.Model {
       addresses: 'addresses',
       agentServiceConfig: 'agentServiceConfig',
       aiServiceConfig: 'aiServiceConfig',
+      apiKeyIndexToRemove: 'apiKeyIndexToRemove',
       apiKeyReferencesToAdd: 'apiKeyReferencesToAdd',
       apiKeysToAdd: 'apiKeysToAdd',
       dnsServers: 'dnsServers',
@@ -341,6 +353,7 @@ export class UpdateServiceRequest extends $dara.Model {
       addresses: { 'type': 'array', 'itemType': 'string' },
       agentServiceConfig: AgentServiceConfig,
       aiServiceConfig: AiServiceConfig,
+      apiKeyIndexToRemove: 'number',
       apiKeyReferencesToAdd: { 'type': 'array', 'itemType': 'string' },
       apiKeysToAdd: { 'type': 'array', 'itemType': 'string' },
       dnsServers: { 'type': 'array', 'itemType': 'string' },

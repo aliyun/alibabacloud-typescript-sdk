@@ -13,7 +13,7 @@ export class GetModelTokenRateLimitResponseBodyDataConsumers extends $dara.Model
   consumerId?: string;
   /**
    * @remarks
-   * The maximum number of tokens per minute (TPM) for this consumer using this model.
+   * The maximum number of tokens per minute (TPM) allowed for this consumer to use this model.
    * 
    * @example
    * 300
@@ -45,7 +45,7 @@ export class GetModelTokenRateLimitResponseBodyDataConsumers extends $dara.Model
 export class GetModelTokenRateLimitResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The most recent configuration revision successfully delivered to the control plane.
+   * The version of the configuration that was last successfully delivered to the control plane.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class GetModelTokenRateLimitResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The rule ID for the global model quota, which can be matched with the rule hits in the gateway throttling logs. This parameter is returned only when the global quota is configured.
+   * The rule ID for the global model quota, which can be matched with the rule hits in the gateway throttling logs. This field is returned only when a global quota is configured.
    * 
    * @example
    * model-tpm/gw-example01/msc-example01/global
@@ -93,7 +93,7 @@ export class GetModelTokenRateLimitResponseBodyData extends $dara.Model {
   globalTpm?: number;
   /**
    * @remarks
-   * The actual model card ID (prefixed with msc-) or the logical model ID (prefixed with vm-).
+   * The physical model card ID that starts with msc- or the logical model ID that starts with vm-.
    * 
    * @example
    * msc-example01
@@ -101,7 +101,7 @@ export class GetModelTokenRateLimitResponseBodyData extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * The saved revision of the model throttling configuration. Pass this value as expectedRevision in subsequent modification requests.
+   * The saved version of the model throttling configuration. Pass this value as expectedRevision in subsequent modification requests.
    * 
    * @example
    * 1
@@ -167,7 +167,7 @@ export class GetModelTokenRateLimitResponseBody extends $dara.Model {
   data?: GetModelTokenRateLimitResponseBodyData;
   /**
    * @remarks
-   * The cause of the error. This parameter is omitted if the request is successful.
+   * The cause of the error. This field can be omitted if the request is successful.
    * 
    * @example
    * The specified gateway does not exist.

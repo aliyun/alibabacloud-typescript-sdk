@@ -179,6 +179,11 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
    */
   availablePaths?: UpdateAiModelSourceModelResponseBodyDataAvailablePaths[];
   /**
+   * @example
+   * qwen-prod/qwen-plus
+   */
+  callName?: string;
+  /**
    * @remarks
    * The credit pricing configuration of the model.
    */
@@ -295,6 +300,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       availablePaths: 'availablePaths',
+      callName: 'callName',
       credit: 'credit',
       features: 'features',
       gatewayId: 'gatewayId',
@@ -316,6 +322,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       availablePaths: { 'type': 'array', 'itemType': UpdateAiModelSourceModelResponseBodyDataAvailablePaths },
+      callName: 'string',
       credit: UpdateAiModelSourceModelResponseBodyDataCredit,
       features: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gatewayId: 'string',

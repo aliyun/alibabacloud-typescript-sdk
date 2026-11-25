@@ -175,7 +175,7 @@ export class GetBatchExportTaskResponseBodyDataResult extends $dara.Model {
 export class GetBatchExportTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task creation time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The task creation time. Format: yyyy-MM-dd\"T\"HH:mm:ss\"Z\".
    * 
    * @example
    * 2026-05-15T10:00:00Z
