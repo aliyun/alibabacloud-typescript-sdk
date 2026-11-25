@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the city.
+   * The city ID.
    * 
    * @example
    * 510100
@@ -13,7 +13,7 @@ export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $d
   cityId?: string;
   /**
    * @remarks
-   * The name of the city.
+   * The city name.
    * 
    * @example
    * Chengdu
@@ -21,7 +21,7 @@ export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $d
   cityName?: string;
   /**
    * @remarks
-   * The ID of the country.
+   * The country ID.
    * 
    * @example
    * CN
@@ -29,7 +29,7 @@ export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $d
   countryId?: string;
   /**
    * @remarks
-   * The name of the country.
+   * The country name.
    * 
    * @example
    * China
@@ -81,7 +81,7 @@ export class DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList ext
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * LD-shenzhen-zy****
@@ -125,7 +125,7 @@ export class DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList ext
 export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the ECS instance.
+   * The ECS instance ID.
    * 
    * @example
    * i-wz92jf4scg2zb74p****
@@ -141,7 +141,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The instance ID of the VPC-connected instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-uf6e9a9zyokj2ywuo****
@@ -149,7 +149,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.
   networkInstanceId?: string;
   /**
    * @remarks
-   * The name of the VPC-connected instance.
+   * The VPC-connected instance name.
    * 
    * @example
    * VPC-SH-TX****
@@ -195,7 +195,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.
 export class DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the ECS instance.
+   * The ECS instance ID.
    * 
    * @example
    * i-wz92jf4scg2zb74p****
@@ -211,7 +211,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo extends $dara.
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The instance ID of the VPC-connected instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-uf6e9a9zyokj2ywuo****
@@ -219,7 +219,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo extends $dara.
   networkInstanceId?: string;
   /**
    * @remarks
-   * The name of the VPC-connected instance.
+   * The VPC-connected instance name.
    * 
    * @example
    * VPC-SH-TX****
@@ -274,19 +274,19 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The attack type of the intrusion prevention event. Valid values:
-   * - **1**: abnormal connection
-   * - **2**: execute commands
-   * - **3**: brute-force attacks
-   * - **4**: scan
-   * - **5**: other
-   * - **6**: information leak
-   * - **7**: DoS attack
-   * - **8**: overflow attack
-   * - **9**: web attack
-   * - **10**: trojan backdoor
-   * - **11**: virus worm
-   * - **12**: mining behavior
-   * - **13**: reverse shell
+   * - **1**: Abnormal connection.
+   * - **2**: Command execute.
+   * - **3**: Brute-force attacks.
+   * - **4**: Scan.
+   * - **5**: Other.
+   * - **6**: Information leak.
+   * - **7**: DoS attack.
+   * - **8**: Overflow attack.
+   * - **9**: Web attack.
+   * - **10**: Trojan backdoor.
+   * - **11**: Virus and worm.
+   * - **12**: Mining behavior.
+   * - **13**: Reverse shell.
    * 
    * @example
    * 1
@@ -303,8 +303,8 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The traffic direction of the intrusion prevention event. Valid values:
-   * - **in**: inbound
-   * - **out**: outbound
+   * - **in**: Inbound.
+   * - **out**: Outbound.
    * 
    * @example
    * in
@@ -344,12 +344,28 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The time when the intrusion event first occurred. The value is a UNIX timestamp in seconds.
+   * The time when the intrusion event first occurred. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1534408189
    */
   firstEventTime?: number;
+  /**
+   * @remarks
+   * The specific threat intelligence value matched by the event, such as an IP address, domain name, or URL. This parameter is returned only for events from the threat intelligence source and is empty for other sources.
+   * 
+   * @example
+   * www.example.com
+   */
+  hitContent?: string;
+  /**
+   * @remarks
+   * The type of threat intelligence matched by the event. Valid values: ip, domain, and url. This parameter is returned only for events from the threat intelligence source and is empty for other sources.
+   * 
+   * @example
+   * domain
+   */
+  hitType?: string;
   /**
    * @remarks
    * The IP geolocation information. This struct contains the **CityId**, **CityName**, **CountryId**, and **CountryName** parameters.  
@@ -358,7 +374,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   IPLocationInfo?: DescribeRiskEventGroupResponseBodyDataListIPLocationInfo;
   /**
    * @remarks
-   * The time when the intrusion prevention event last occurred. The value is a UNIX timestamp in seconds.
+   * The time when the intrusion prevention event last occurred. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1534408267
@@ -366,19 +382,19 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   lastEventTime?: number;
   /**
    * @remarks
-   * The private IP information of the intrusion prevention event. This information is returned as an array of **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.  
+   * The private IP address information of the intrusion prevention event. This information is returned as an array of **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.  
    * **RegionNo** indicates the region ID to which the IP address belongs. **ResourceInstanceId** indicates the instance ID to which the IP address belongs. **ResourceInstanceName** indicates the name of the instance to which the IP address belongs. **ResourcePrivateIP** indicates the IP address.
    */
   resourcePrivateIPList?: DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList[];
   /**
    * @remarks
    * The public IP address type of the intrusion prevention event. Valid values:
-   * - **EIP**: elastic IP address (EIP)
-   * - **EcsPublicIP**: public IP addresses of Elastic Compute Service (ECS) instances
-   * - **EcsEIP**: EIP of an ECS instance
-   * - **NatPublicIP**: public IP address of a NAT gateway
-   * - **NatEIP**: EIP of a NAT gateway
-   * - **SlbPublicIp**: public IP address of an SLB instance
+   * - **EIP**: Elastic IP address.
+   * - **EcsPublicIP**: Public IP addresses of Elastic Compute Service (ECS) instances.
+   * - **EcsEIP**: EIP of an ECS instance.
+   * - **NatPublicIP**: Public IP address of a NAT gateway.
+   * - **NatEIP**: EIP of a NAT gateway.
+   * - **SlbPublicIp**: Public IP address of an SLB instance.
    * 
    * @example
    * EcsPublicIP
@@ -395,8 +411,8 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The defense status. Valid values:
-   * - **1**: alert
-   * - **2**: block
+   * - **1**: Alert.
+   * - **2**: Block.
    * 
    * @example
    * 2
@@ -405,9 +421,9 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The source of the detection rule for the intrusion prevention event. Valid values:
-   * - **1**: basic protection
-   * - **2**: virtual patches
-   * - **4**: threat intelligence
+   * - **1**: Basic protection.
+   * - **2**: Virtual patches.
+   * - **4**: Threat intelligence.
    * 
    * @example
    * 1
@@ -423,7 +439,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The source IP address label, which serves as an identity to indicate whether the IP address is one of the back-to-origin IP addresses of cloud services.
+   * The source IP address label, which provides the identity of whether the IP address is one of the back-to-origin IP addresses of a cloud service.
    * 
    * @example
    * WAF Back-to-origin Address
@@ -443,7 +459,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   srcPrivateIPList?: string[];
   /**
    * @remarks
-   * The intelligence labels for critical event protection.
+   * The intelligence tags label for critical event protection.
    * 
    * @example
    * test-tag
@@ -452,21 +468,21 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The destination VPC information of the intrusion prevention event. This structure contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.  
-   * **EcsInstanceId** indicates the instance ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the instance ID of the VPC-connected instance. **NetworkInstanceName** indicates the name of the VPC-connected instance. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
+   * **EcsInstanceId** indicates the ECS instance ID in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the VPC-connected instance ID. **NetworkInstanceName** indicates the VPC-connected instance name. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
    */
   vpcDstInfo?: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo;
   /**
    * @remarks
    * The source VPC information of the intrusion prevention event. This structure contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.  
-   * **EcsInstanceId** indicates the instance ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the instance ID of the VPC-connected instance. **NetworkInstanceName** indicates the name of the VPC-connected instance. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
+   * **EcsInstanceId** indicates the ECS instance ID in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the VPC-connected instance ID. **NetworkInstanceName** indicates the VPC-connected instance name. **RegionNo** indicates the region ID to which the VPC-connected instance belongs.
    */
   vpcSrcInfo?: DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo;
   /**
    * @remarks
    * The security level of the intrusion prevention event. Valid values:
-   * - **1**: low
-   * - **2**: medium
-   * - **3**: high
+   * - **1**: Low.
+   * - **2**: Medium.
+   * - **3**: High.
    * 
    * @example
    * 1
@@ -483,6 +499,8 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
       eventId: 'EventId',
       eventName: 'EventName',
       firstEventTime: 'FirstEventTime',
+      hitContent: 'HitContent',
+      hitType: 'HitType',
       IPLocationInfo: 'IPLocationInfo',
       lastEventTime: 'LastEventTime',
       resourcePrivateIPList: 'ResourcePrivateIPList',
@@ -512,6 +530,8 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
       eventId: 'string',
       eventName: 'string',
       firstEventTime: 'number',
+      hitContent: 'string',
+      hitType: 'string',
       IPLocationInfo: DescribeRiskEventGroupResponseBodyDataListIPLocationInfo,
       lastEventTime: 'number',
       resourcePrivateIPList: { 'type': 'array', 'itemType': DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList },

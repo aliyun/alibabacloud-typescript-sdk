@@ -4585,8 +4585,8 @@ export default class Client extends OpenApi {
    * Queries the details of an ACL check.
    * 
    * @remarks
-   * ## QPS limits
-   * The QPS limit for a single user is 10 queries per second. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
+   * ## Rate limit
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeAclCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4616,8 +4616,8 @@ export default class Client extends OpenApi {
    * Queries the details of an ACL check.
    * 
    * @remarks
-   * ## QPS limits
-   * The QPS limit for a single user is 10 queries per second. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
+   * ## Rate limit
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeAclCheckRequest
    * @returns DescribeAclCheckResponse
@@ -11165,12 +11165,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed data of intrusion prevention events.
+   * Queries the detailed data of intrusion prevention events.
    * 
    * @remarks
-   * This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if IP geolocation information is not required.
-   * ## QPS limits
-   * The QPS limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
+   * This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if you do not need to return IP geolocation information.
+   * ## QPS limit
+   * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API at a reasonable frequency.
    * 
    * @param request - DescribeRiskEventGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11297,12 +11297,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed data of intrusion prevention events.
+   * Queries the detailed data of intrusion prevention events.
    * 
    * @remarks
-   * This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if IP geolocation information is not required.
-   * ## QPS limits
-   * The QPS limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
+   * This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if you do not need to return IP geolocation information.
+   * ## QPS limit
+   * The QPS limit for a single user is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API at a reasonable frequency.
    * 
    * @param request - DescribeRiskEventGroupRequest
    * @returns DescribeRiskEventGroupResponse
@@ -12734,7 +12734,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a VPC firewall for a transit router.
    * 
    * @remarks
-   * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall has not been created, you must first prepare an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
+   * Queries the details of a virtual private cloud (VPC) firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall is not created, you must first create an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
    * 
    * @param request - DescribeTrFirewallsV2DetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12772,7 +12772,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a VPC firewall for a transit router.
    * 
    * @remarks
-   * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall has not been created, you must first prepare an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
+   * Queries the details of a virtual private cloud (VPC) firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall is not created, you must first create an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
    * 
    * @param request - DescribeTrFirewallsV2DetailRequest
    * @returns DescribeTrFirewallsV2DetailResponse

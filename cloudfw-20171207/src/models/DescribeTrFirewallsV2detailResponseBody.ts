@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrFirewallsV2DetailResponseBodyTrAttachmentZones extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the vSwitch for the transit router connection.
+   * The CIDR block of the vSwitch for the transit router attachment.
    * 
    * @example
    * 10.0.2.0/24
@@ -13,7 +13,7 @@ export class DescribeTrFirewallsV2DetailResponseBodyTrAttachmentZones extends $d
   vSwitchCidr?: string;
   /**
    * @remarks
-   * The zone ID of the vSwitch for the transit router connection.
+   * The zone ID of the vSwitch for the transit router attachment.
    * 
    * @example
    * cn-hangzhou-h
@@ -53,7 +53,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the zone used for the firewall connection.
+   * The ID of the zone used for the firewall attachment.
    * 
    * @example
    * cn-hangzhou-h
@@ -69,7 +69,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallDescription?: string;
   /**
    * @remarks
-   * The ID of the firewall elastic network interface (ENI).
+   * The ID of the elastic network interface (ENI) of the firewall.
    * 
    * @example
    * eni-uf621u00nafypeex****
@@ -77,7 +77,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallEniId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the firewall ENI belongs.
+   * The ID of the VPC where the ENI of the firewall resides.
    * 
    * @example
    * vpc-2zeppcci782zeh2bk****
@@ -85,7 +85,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallEniVpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the firewall ENI belongs.
+   * The ID of the vSwitch where the ENI of the firewall resides.
    * 
    * @example
    * vsw-uf6ptq1kl1c1d9pw9****
@@ -109,7 +109,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallName?: string;
   /**
    * @remarks
-   * The deployment mode of the VPC firewall service for the transit router. Valid values: **PrimaryStandby** (primary/secondary mode) and **MultiPrimary** (active-active mode).
+   * The deployment mode of the transit router firewall service. Valid values: **PrimaryStandby** (primary/secondary mode) and **MultiPrimary** (active-active mode).
    * 
    * @example
    * PrimaryStandby
@@ -117,7 +117,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallServiceMode?: string;
   /**
    * @remarks
-   * The list of zone IDs used by the VPC firewall service for the transit router.
+   * The list of zone IDs used by the transit router firewall service.
    */
   firewallServiceZones?: string[];
   /**
@@ -136,7 +136,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallStatus?: string;
   /**
    * @remarks
-   * The CIDR block of the subnet that stores the firewall ENI in the firewall VPC in automatic mode.
+   * The subnet CIDR block that stores the firewall ENI in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.1.0/24
@@ -146,9 +146,9 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * @remarks
    * The status of the VPC firewall. Valid values:
    * 
-   * - **opened**: The VPC firewall is enabled.
+   * - **opened**: enabled
    * 
-   * - **closed**: The VPC firewall is disabled.
+   * - **closed**: disabled
    * 
    * - **notconfigured**: The VPC firewall is not configured.
    * 
@@ -169,7 +169,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The CIDR block of the firewall VPC in automatic mode.
+   * The VPC CIDR block of the firewall in automatic mode.
    * 
    * @example
    * 10.0.0.0/16
@@ -195,9 +195,9 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * @remarks
    * The routing mode. Valid values:
    * 
-   * - **managed**: Automatic mode.
+   * - **managed**: automatic mode
    * 
-   * - **manual**: Manual mode.
+   * - **manual**: manual mode
    * 
    * @example
    * managed
@@ -205,7 +205,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   routeMode?: string;
   /**
    * @remarks
-   * The attachment ID used to connect to the transit router in the firewall VPC in automatic mode.
+   * The ID of the transit router attachment in the firewall VPC in automatic mode.
    * 
    * @example
    * tr-attach-r1llaxxeha71jsm36v
@@ -213,7 +213,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   trAttachmentId?: string;
   /**
    * @remarks
-   * The primary CIDR block of the subnet used to connect to the transit router in the firewall VPC in automatic mode.
+   * The primary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.2.0/24
@@ -233,7 +233,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   trAttachmentMasterZone?: string;
   /**
    * @remarks
-   * The secondary CIDR block of the subnet used to connect to the transit router in the firewall VPC in automatic mode.
+   * The secondary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.3.0/24
@@ -253,7 +253,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   trAttachmentSlaveZone?: string;
   /**
    * @remarks
-   * The list of zones and vSwitch CIDR block information for the transit router connection.
+   * The list of zones and vSwitch CIDR blocks for the transit router attachment.
    */
   trAttachmentZones?: DescribeTrFirewallsV2DetailResponseBodyTrAttachmentZones[];
   /**

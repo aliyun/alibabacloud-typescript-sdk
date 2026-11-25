@@ -33,6 +33,21 @@ export class DescribeAclCheckRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The processing status. Valid values:
+   * 
+   * - Pending: Unprocessed.
+   * - Success: Processed successfully.
+   * - Processing: Processing.
+   * - Ignored: Ignored.
+   * - Failed: Processing failed.
+   * - PendingOrFailed: Unprocessed or processing failed.
+   * 
+   * @example
+   * Pending
+   */
+  processStatus?: string;
+  /**
+   * @remarks
    * The task ID.
    * 
    * This parameter is required.
@@ -46,6 +61,7 @@ export class DescribeAclCheckRequest extends $dara.Model {
       lang: 'Lang',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      processStatus: 'ProcessStatus',
       taskId: 'TaskId',
     };
   }
@@ -55,6 +71,7 @@ export class DescribeAclCheckRequest extends $dara.Model {
       lang: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      processStatus: 'string',
       taskId: 'string',
     };
   }

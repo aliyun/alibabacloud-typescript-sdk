@@ -20,7 +20,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
    * @remarks
    * The attack type of the intrusion prevention events. Valid values:
    * - **1**: abnormal connection.
-   * - **2**: command execute.
+   * - **2**: commands to execute.
    * - **3**: brute-force attacks.
    * - **4**: scan.
    * - **5**: other.
@@ -28,12 +28,12 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
    * - **7**: DoS attack.
    * - **8**: buffer overflow attack.
    * - **9**: web attack.
-   * - **10**: trojan or backdoor.
+   * - **10**: trojan backdoor.
    * - **11**: virus or worm.
    * - **12**: mining behavior.
    * - **13**: reverse shell.
    * 
-   * > If you do not provide Settings for this parameter, events of all attack types are queried.
+   * > If you do not configure the Settings for this parameter, events of all attack types are queried.
    * 
    * @example
    * 1
@@ -53,9 +53,8 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   buyVersion?: number;
   /**
    * @remarks
-   * Settings for the paging page number to return in a paged query.
-   * 
-   * Default value: **1**.
+   * The paging Settings that specify which page of data to return in a paged query.
+   * Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -63,9 +62,8 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The risk event type.
-   * 
-   * Valid value: **session**, which indicates intrusion prevention events.
+   * The risk event type. Valid values:  
+   * - **session**: intrusion prevention events. This is the only valid value.
    * 
    * This parameter is required.
    * 
@@ -75,7 +73,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The direction of the traffic in the intrusion prevention events. Valid values:
+   * The traffic direction of the intrusion prevention events. Valid values:
    * - **in**: inbound.
    * - **out**: outbound.
    * 
@@ -87,7 +85,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The destination IP address to query. If you specify this parameter, intrusion prevention events that involve the specified destination IP address are queried.
+   * The destination IP address that you want to query. If you specify this parameter, intrusion prevention events that involve this destination IP address are queried.
    * 
    * @example
    * 192.0.XX.XX
@@ -96,7 +94,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the destination VPC-connected instance.
-   * > Settings for this parameter are required only when FirewallType is set to VpcFirewall.
+   * > You only need to configure the Settings for this parameter when FirewallType is set to VpcFirewall.
    * 
    * @example
    * vpc-uf6e9a9zyokj2ywuo****
@@ -104,7 +102,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   dstNetworkInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. The value is a UNIX timestamp in seconds. The end time must not be earlier than the start time. Both NAT and VPC queries include the end time.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -122,7 +120,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The type of the Cloud Firewall. Valid values:
+   * The type of the cloud firewall. Valid values:
    * - **VpcFirewall**: virtual private cloud (VPC) firewalls.
    * - **InternetFirewall** (default): the Internet Border firewall.
    * 
@@ -151,8 +149,8 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to query the geolocation information of IP addresses. Valid values:
-   * - **true**: does not query the IP geolocation information.
-   * - **false** (default): queries the IP geolocation information.
+   * - **true**: does not query the geolocation information of IP addresses.
+   * - **false** (default): queries the geolocation information of IP addresses.
    * 
    * @example
    * false
@@ -172,9 +170,9 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * Settings for the paging size in a paged query.
+   * The paging Settings for the number of entries to return on each page in a paged query.
    * 
-   * Default value: **6**. Maximum value: **10**.
+   * Default value: **6**, which indicates that 6 entries are returned on each page. Maximum value: **10**.
    * 
    * @example
    * 6
@@ -207,11 +205,11 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   ruleSource?: string;
   /**
    * @remarks
-   * The field by which to sort the results. Valid values:
+   * The field based on which the results are sorted. Valid values:
    * 
-   * - **VulLevel** (default): sorts the results by risk level.
+   * - **VulLevel** (default): sorts the results based on the risk level.
    * 
-   * - **LastTime**: sorts the results by the most recent occurrence time.
+   * - **LastTime**: sorts the results based on the time when the event last occurred.
    * 
    * @example
    * LastTime
@@ -219,7 +217,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The source IP address to query. If you specify this parameter, intrusion prevention events that involve the specified source IP address are queried.
+   * The source IP address that you want to query. If you specify this parameter, intrusion prevention events that involve this source IP address are queried.
    * 
    * @example
    * 192.0.XX.XX
@@ -228,7 +226,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the source VPC-connected instance.
-   * > Settings for this parameter are required only when FirewallType is set to VpcFirewall.
+   * > You only need to configure the Settings for this parameter when FirewallType is set to VpcFirewall.
    * 
    * @example
    * vpc-uf6e9a9zyokj2ywuo****
@@ -247,9 +245,9 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The security level of the intrusion prevention events. Valid values:
-   * - **1**: low-risk.
-   * - **2**: medium-risk.
-   * - **3**: high-risk.
+   * - **1**: low risk.
+   * - **2**: medium risk.
+   * - **3**: high risk.
    * 
    * > If you do not specify this parameter, events at all security levels are queried.
    * 

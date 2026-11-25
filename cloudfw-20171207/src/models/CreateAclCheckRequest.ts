@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAclCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the ACL check.
+   * The ACL check type.
    * 
    * This parameter is required.
    * 

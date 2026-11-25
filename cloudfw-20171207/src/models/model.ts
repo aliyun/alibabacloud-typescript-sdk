@@ -30,6 +30,9 @@ export { DescribeAclBackupListResponseBodyBackups } from './DescribeAclBackupLis
 export { DescribeAclCheckResponseBodyCheckRecordAclsAclAddresses } from './DescribeAclCheckResponseBody';
 export { DescribeAclCheckResponseBodyCheckRecordAclsAclTagList } from './DescribeAclCheckResponseBody';
 export { DescribeAclCheckResponseBodyCheckRecordAclsAcl } from './DescribeAclCheckResponseBody';
+export { DescribeAclCheckResponseBodyCheckRecordAclsRecommendOptionsRecommendContentAddresses } from './DescribeAclCheckResponseBody';
+export { DescribeAclCheckResponseBodyCheckRecordAclsRecommendOptionsRecommendContent } from './DescribeAclCheckResponseBody';
+export { DescribeAclCheckResponseBodyCheckRecordAclsRecommendOptions } from './DescribeAclCheckResponseBody';
 export { DescribeAclCheckResponseBodyCheckRecordAcls } from './DescribeAclCheckResponseBody';
 export { DescribeAclCheckResponseBodyCheckRecord } from './DescribeAclCheckResponseBody';
 export { DescribeAclCheckQuotaResponseBodyQuota } from './DescribeAclCheckQuotaResponseBody';
