@@ -6,7 +6,7 @@ import { Quota } from "./Quota";
 export class UpdateQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. 200 indicates success.
    * 
    * @example
    * 200
@@ -14,7 +14,7 @@ export class UpdateQuotaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. A value of success indicates a successful request.
+   * The response message. success indicates a successful request.
    * 
    * @example
    * success

@@ -8,7 +8,7 @@ export class IPConfig extends $dara.Model {
    * The description of the IP rule. The length cannot exceed 128 characters.
    * 
    * @example
-   * 办公网出口地址
+   * The egress address of the office network.
    */
   description?: string;
   /**

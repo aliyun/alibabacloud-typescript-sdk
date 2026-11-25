@@ -13,7 +13,7 @@ export class ListQuotaRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Do not specify this parameter for the first query. To query the next page, specify the nextToken value returned in the previous response.
+   * The pagination token. Leave this parameter empty for the first request. To query the next page, specify the nextToken value returned in the previous response.
    * 
    * @example
    * Trigger_fasdatalake_deductionfee

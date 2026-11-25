@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuotaUsage extends $dara.Model {
   /**
    * @remarks
-   * The consumed CPU quota in vCPUs, not the CPU utilization.
+   * The consumed CPU quota in vCPUs, which is not the CPU utilization.
    * 
    * @example
    * 1
@@ -13,15 +13,15 @@ export class QuotaUsage extends $dara.Model {
   cpuCores?: number;
   /**
    * @remarks
-   * The number of unreleased snapshot-based sandbox creation concurrency authorizations.
+   * The number of unreleased concurrency authorizations for snapshot-based sandbox creation.
    * 
    * @example
    * 1
    */
-  createSessionWithSnapshotConcurrency?: number;
+  createSandboxWithSnapshotConcurrency?: number;
   /**
    * @remarks
-   * The number of unreleased snapshot creation concurrency authorizations.
+   * The number of unreleased concurrency authorizations for snapshot creation.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class QuotaUsage extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The consumed memory quota in GB, not the actual memory used by processes.
+   * The consumed memory quota in GB, which is not the actual memory used by processes.
    * 
    * @example
    * 1.5
@@ -45,7 +45,7 @@ export class QuotaUsage extends $dara.Model {
   memoryGB?: number;
   /**
    * @remarks
-   * The number of unreleased sandbox hibernation concurrency authorizations.
+   * The number of unreleased concurrency authorizations for sandbox hibernation.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class QuotaUsage extends $dara.Model {
   pauseConcurrency?: number;
   /**
    * @remarks
-   * The number of unreleased sandbox resume concurrency authorizations.
+   * The number of unreleased concurrency authorizations for resuming sandboxes.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class QuotaUsage extends $dara.Model {
   resumeConcurrency?: number;
   /**
    * @remarks
-   * The number of cores consumed from the team\\"s exclusive CPU creation quota that have not yet been naturally replenished. This is not the cumulative creation volume in the last minute. This field is omitted when there is no valid exclusive bucket snapshot, and actual zeros and decimal values are preserved.
+   * The number of cores consumed from the exclusive CPU creation quota of the team that have not yet been naturally replenished. This is not the cumulative creation volume over the last minute. This field is omitted when no valid exclusive bucket snapshot is available. Actual zeros and decimals are retained.
    * 
    * @example
    * 19.875
@@ -70,7 +70,7 @@ export class QuotaUsage extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cpuCores: 'cpuCores',
-      createSessionWithSnapshotConcurrency: 'createSessionWithSnapshotConcurrency',
+      createSandboxWithSnapshotConcurrency: 'createSandboxWithSnapshotConcurrency',
       createSnapshotConcurrency: 'createSnapshotConcurrency',
       instanceCount: 'instanceCount',
       memoryGB: 'memoryGB',
@@ -83,7 +83,7 @@ export class QuotaUsage extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cpuCores: 'number',
-      createSessionWithSnapshotConcurrency: 'number',
+      createSandboxWithSnapshotConcurrency: 'number',
       createSnapshotConcurrency: 'number',
       instanceCount: 'number',
       memoryGB: 'number',

@@ -6,7 +6,7 @@ import { Quota } from "./Quota";
 export class ListQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value is 200 if the request succeeds.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -14,7 +14,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The value of the maxResults parameter specified in the request. If a positive integer is specified for maxResults in the request, this value is returned. Otherwise, this field is not returned.
+   * The value of the maxResults parameter specified in the request if a positive integer is specified. Otherwise, this field is not returned.
    * 
    * @example
    * 10
@@ -22,7 +22,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. The value is success if the request succeeds.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -30,7 +30,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token used to query the next page.
+   * The pagination token for the next page, which is used for subsequent queries.
    * 
    * @example
    * qxGrXje86XMrYQ51aJMy

@@ -79,6 +79,7 @@ export { InnerCreateSandboxInput } from './InnerCreateSandboxInput';
 export { InnerCreateSandboxVolumeMounts } from './InnerCreateSandboxVolumeMounts';
 export { InnerSandboxRuntimeConfig } from './InnerSandboxRuntimeConfig';
 export { InnerSandboxVolumeMount } from './InnerSandboxVolumeMount';
+export { InnerUpdateSandboxNetworkInput } from './InnerUpdateSandboxNetworkInput';
 export { JuiceFSVolumeConfig } from './JuiceFsvolumeConfig';
 export { LogConfiguration } from './LogConfiguration';
 export { MetricData } from './MetricData';
