@@ -111,7 +111,7 @@ export class PrepaidTextTranslateResponseBody extends $dara.Model {
   data?: PrepaidTextTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. Success is returned for successful calls. If an exception occurs, a specific error message is returned, such as \\"The parameter contains sensitive information. Try another input.\\"
+   * The error message. Success is returned for successful calls. If an exception occurs, a specific error message is returned, such as \"The parameter contains sensitive information. Try another input.\"
    * 
    * @example
    * Success

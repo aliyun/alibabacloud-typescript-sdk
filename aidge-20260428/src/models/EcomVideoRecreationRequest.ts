@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EcomVideoRecreationRequestInputProductInfo extends $dara.Model {
   /**
    * @remarks
-   * The product category. Example: Women\\"s clothing/Sun-protective clothing.
+   * The product category. Example: Women\"s clothing/Sun-protective clothing.
    * 
    * @example
-   * Women\\"s clothing/sun protection clothing
+   * Women\"s clothing/sun protection clothing
    */
   category?: string;
   /**

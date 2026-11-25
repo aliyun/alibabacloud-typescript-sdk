@@ -48,7 +48,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
    * The matching reason.
    * 
    * @example
-   * The core of the product is a cat collar with AirTag tracking functionality, which belongs to the \\"Location and Activity Trackers\\" category. The leaf node semantics precisely match its tracking function and cat-specific attributes
+   * The core of the product is a cat collar with AirTag tracking functionality, which belongs to the \"Location and Activity Trackers\" category. The leaf node semantics precisely match its tracking function and cat-specific attributes
    */
   reason?: string;
   /**

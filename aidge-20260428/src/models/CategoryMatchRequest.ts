@@ -66,7 +66,7 @@ export class CategoryMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Women\\"s spring new arrival clothing
+   * Women\"s spring new arrival clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

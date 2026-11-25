@@ -73,7 +73,7 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Women\\"s spring new clothing
+   * Women\"s spring new clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

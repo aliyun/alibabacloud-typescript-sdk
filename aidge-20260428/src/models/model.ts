@@ -22,6 +22,7 @@ export { EcomVideoRecreationRequestInputProductInfo } from './EcomVideoRecreatio
 export { EcomVideoRecreationRequestInput } from './EcomVideoRecreationRequest';
 export { EcomVideoRecreationRequestOutput } from './EcomVideoRecreationRequest';
 export { EcomVideoRecreationResponseBodyData } from './EcomVideoRecreationResponseBody';
+export { GeneralImageGenerationResponseBodyData } from './GeneralImageGenerationResponseBody';
 export { GeneralRephotographyDetectionResponseBodyDataResult } from './GeneralRephotographyDetectionResponseBody';
 export { GeneralRephotographyDetectionResponseBodyData } from './GeneralRephotographyDetectionResponseBody';
 export { GenerateProductContentResponseBodyData } from './GenerateProductContentResponseBody';
@@ -169,6 +170,10 @@ export { EcomVideoRecreationRequest } from './EcomVideoRecreationRequest';
 export { EcomVideoRecreationShrinkRequest } from './EcomVideoRecreationShrinkRequest';
 export { EcomVideoRecreationResponseBody } from './EcomVideoRecreationResponseBody';
 export { EcomVideoRecreationResponse } from './EcomVideoRecreationResponse';
+export { GeneralImageGenerationRequest } from './GeneralImageGenerationRequest';
+export { GeneralImageGenerationShrinkRequest } from './GeneralImageGenerationShrinkRequest';
+export { GeneralImageGenerationResponseBody } from './GeneralImageGenerationResponseBody';
+export { GeneralImageGenerationResponse } from './GeneralImageGenerationResponse';
 export { GeneralRephotographyDetectionRequest } from './GeneralRephotographyDetectionRequest';
 export { GeneralRephotographyDetectionResponseBody } from './GeneralRephotographyDetectionResponseBody';
 export { GeneralRephotographyDetectionResponse } from './GeneralRephotographyDetectionResponse';

@@ -48,7 +48,7 @@ export class ImageRecognitionAsyncResponseBody extends $dara.Model {
   data?: ImageRecognitionAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message, such as \\"The parameter contains sensitive information. Try another input.\\"
+   * The error message, such as \"The parameter contains sensitive information. Try another input.\"
    * 
    * @example
    * OK
