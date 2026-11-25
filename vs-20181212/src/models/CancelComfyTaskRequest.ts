@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelComfyTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Comfy task.
+   * The Comfy task ID.
    * 
    * This parameter is required.
    * 

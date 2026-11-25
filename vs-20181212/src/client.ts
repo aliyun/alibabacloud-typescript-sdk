@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "vs";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("vs", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,14 +34,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more instances to a specified cluster.
+   * Binds one or more workload instances to a specified cluster.
    * 
    * @remarks
-   * ## Usage notes
-   * - **HiveId** is a required parameter that specifies the ID of the target cluster.
-   * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
-   * - Adding an instance that already exists in the target cluster returns an error message.
-   * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+   * ## Request description
+   * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+   * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+   * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+   * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
    * 
    * @param tmpReq - AddHiveEdgeWorkersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78,14 +82,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more instances to a specified cluster.
+   * Binds one or more workload instances to a specified cluster.
    * 
    * @remarks
-   * ## Usage notes
-   * - **HiveId** is a required parameter that specifies the ID of the target cluster.
-   * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
-   * - Adding an instance that already exists in the target cluster returns an error message.
-   * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+   * ## Request description
+   * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+   * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+   * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+   * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
    * 
    * @param request - AddHiveEdgeWorkersRequest
    * @returns AddHiveEdgeWorkersResponse
@@ -512,9 +516,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
-   * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
-   * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+   * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+   * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+   * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
    * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
    * 
    * @param tmpReq - BatchCaptureRenderingInstanceScreenshotRequest
@@ -560,9 +564,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
-   * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
-   * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+   * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+   * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+   * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
    * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
    * 
    * @param request - BatchCaptureRenderingInstanceScreenshotRequest
@@ -1687,7 +1691,7 @@ export default class Client extends OpenApi {
    * Starts a Comfy task.
    * 
    * @remarks
-   * > Enable the on-demand screenshot feature in the associated screenshot template.
+   * > Enable the on-demand screenshot feature in the associated screenshot template in advance.
    * 
    * @param request - CreateComfyTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1729,7 +1733,7 @@ export default class Client extends OpenApi {
    * Starts a Comfy task.
    * 
    * @remarks
-   * > Enable the on-demand screenshot feature in the associated screenshot template.
+   * > Enable the on-demand screenshot feature in the associated screenshot template in advance.
    * 
    * @param request - CreateComfyTaskRequest
    * @returns CreateComfyTaskResponse
@@ -1791,7 +1795,7 @@ export default class Client extends OpenApi {
    * Uploads a Comfy workflow.
    * 
    * @remarks
-   * > You must first enable the on-demand snapshot feature in the associated snapshot template.
+   * > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
    * 
    * @param request - CreateComfyWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1833,7 +1837,7 @@ export default class Client extends OpenApi {
    * Uploads a Comfy workflow.
    * 
    * @remarks
-   * > You must first enable the on-demand snapshot feature in the associated snapshot template.
+   * > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
    * 
    * @param request - CreateComfyWorkflowRequest
    * @returns CreateComfyWorkflowResponse
@@ -1844,7 +1848,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a new device.
+   * Adds a new device.
+   * 
+   * @remarks
+   * > 
+   * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+   * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
    * 
    * @param request - CreateDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1963,7 +1972,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a new device.
+   * Adds a new device.
+   * 
+   * @remarks
+   * > 
+   * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+   * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
    * 
    * @param request - CreateDeviceRequest
    * @returns CreateDeviceResponse
@@ -2191,7 +2205,7 @@ export default class Client extends OpenApi {
    * Creates a cluster.
    * 
    * @remarks
-   * ## Description
+   * ## Request description
    * - This operation creates an empty cluster to manage workloads.
    * 
    * @param request - CreateHiveRequest
@@ -2230,7 +2244,7 @@ export default class Client extends OpenApi {
    * Creates a cluster.
    * 
    * @remarks
-   * ## Description
+   * ## Request description
    * - This operation creates an empty cluster to manage workloads.
    * 
    * @param request - CreateHiveRequest
@@ -2378,7 +2392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a cloud rendering resource instance.
+   * Creates a cloud application service instance.
    * 
    * @param tmpReq - CreateRenderingInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2455,7 +2469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a cloud rendering resource instance.
+   * Creates a cloud application service instance.
    * 
    * @param request - CreateRenderingInstanceRequest
    * @returns CreateRenderingInstanceResponse
@@ -3766,10 +3780,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URL for user-generated results.
+   * Retrieves the download link for user-generated results.
    * 
    * @remarks
-   * > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+   * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
    * 
    * @param request - DescribeComfyProductionDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3800,10 +3814,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URL for user-generated results.
+   * Retrieves the download link for user-generated results.
    * 
    * @remarks
-   * > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+   * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
    * 
    * @param request - DescribeComfyProductionDownloadUrlRequest
    * @returns DescribeComfyProductionDownloadUrlResponse
@@ -3870,7 +3884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+   * Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
    * 
    * @param request - DescribeComfyTaskWaitingQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3901,7 +3915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+   * Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
    * 
    * @param request - DescribeComfyTaskWaitingQueueRequest
    * @returns DescribeComfyTaskWaitingQueueResponse
@@ -3915,7 +3929,7 @@ export default class Client extends OpenApi {
    * Queries the list of Comfy tasks.
    * 
    * @remarks
-   * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+   * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
    * 
    * @param request - DescribeComfyTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3969,7 +3983,7 @@ export default class Client extends OpenApi {
    * Queries the list of Comfy tasks.
    * 
    * @remarks
-   * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+   * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
    * 
    * @param request - DescribeComfyTasksRequest
    * @returns DescribeComfyTasksResponse
@@ -7188,7 +7202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the verification content.
+   * Queries the check content.
    * 
    * @param request - DescribeVsVerifyContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7223,7 +7237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the verification content.
+   * Queries the check content.
    * 
    * @param request - DescribeVsVerifyContentRequest
    * @returns DescribeVsVerifyContentResponse
@@ -7286,7 +7300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Forbids pushing a specific stream. You can schedule a time to resume the stream.
+   * Disables the push of a specific stream and allows you to schedule a time to resume the stream.
    * 
    * @param request - ForbidVsStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7345,7 +7359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Forbids pushing a specific stream. You can schedule a time to resume the stream.
+   * Disables the push of a specific stream and allows you to schedule a time to resume the stream.
    * 
    * @param request - ForbidVsStreamRequest
    * @returns ForbidVsStreamResponse
@@ -7610,14 +7624,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+   * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
    * 
-   * @param request - ListCloudAppInstallationsRequest
+   * @param tmpReq - ListCloudAppInstallationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudAppInstallationsResponse
    */
-  async listCloudAppInstallationsWithOptions(request: $_model.ListCloudAppInstallationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAppInstallationsResponse> {
-    request.validate();
+  async listCloudAppInstallationsWithOptions(tmpReq: $_model.ListCloudAppInstallationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAppInstallationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListCloudAppInstallationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.renderingInstanceIds)) {
+      request.renderingInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renderingInstanceIds, "RenderingInstanceIds", "json");
+    }
+
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -7637,7 +7657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+   * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
    * 
    * @param request - ListCloudAppInstallationsRequest
    * @returns ListCloudAppInstallationsResponse
@@ -7648,10 +7668,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the patch list of a cloud application.
+   * Queries the list of patches for a cloud application.
    * 
    * @remarks
-   * >Specify at least one of the template ID and the templatetype.
+   * > Specify at least one of the template ID and templatetype.
    * 
    * @param request - ListCloudAppPatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7706,10 +7726,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the patch list of a cloud application.
+   * Queries the list of patches for a cloud application.
    * 
    * @remarks
-   * >Specify at least one of the template ID and the templatetype.
+   * > Specify at least one of the template ID and templatetype.
    * 
    * @param request - ListCloudAppPatchesRequest
    * @returns ListCloudAppPatchesResponse
@@ -7720,7 +7740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cloud applications and supports paging and paged query.
+   * Queries a list of cloud applications and supports paging in a paged query.
    * 
    * @param request - ListCloudAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7747,7 +7767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of cloud applications and supports paging and paged query.
+   * Queries a list of cloud applications and supports paging in a paged query.
    * 
    * @param request - ListCloudAppsRequest
    * @returns ListCloudAppsResponse
@@ -7864,7 +7884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+   * Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
    * 
    * @param request - ListFilePushStatusesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7891,7 +7911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+   * Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
    * 
    * @param request - ListFilePushStatusesRequest
    * @returns ListFilePushStatusesResponse
@@ -7902,7 +7922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+   * Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
    * 
    * @param request - ListFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7929,7 +7949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+   * Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
    * 
    * @param request - ListFilesRequest
    * @returns ListFilesResponse
@@ -10145,7 +10165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes pushing for a stream.
+   * Resumes the push of a specific stream.
    * 
    * @param request - ResumeVsStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10196,7 +10216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes pushing for a stream.
+   * Resumes the push of a specific stream.
    * 
    * @param request - ResumeVsStreamRequest
    * @returns ResumeVsStreamResponse
@@ -12048,6 +12068,62 @@ export default class Client extends OpenApi {
   async upgradeRenderingInstanceImage(request: $_model.UpgradeRenderingInstanceImageRequest): Promise<$_model.UpgradeRenderingInstanceImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeRenderingInstanceImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 升级云应用服务主机镜像
+   * 
+   * @param tmpReq - UpgradeRenderingServerImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeRenderingServerImageResponse
+   */
+  async upgradeRenderingServerImageWithOptions(tmpReq: $_model.UpgradeRenderingServerImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeRenderingServerImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpgradeRenderingServerImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.renderingInstanceIds)) {
+      request.renderingInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renderingInstanceIds, "RenderingInstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.precheck)) {
+      query["Precheck"] = request.precheck;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceIdsShrink)) {
+      query["RenderingInstanceIds"] = request.renderingInstanceIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeRenderingServerImage",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeRenderingServerImageResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeRenderingServerImageResponse({}));
+  }
+
+  /**
+   * 升级云应用服务主机镜像
+   * 
+   * @param request - UpgradeRenderingServerImageRequest
+   * @returns UpgradeRenderingServerImageResponse
+   */
+  async upgradeRenderingServerImage(request: $_model.UpgradeRenderingServerImageRequest): Promise<$_model.UpgradeRenderingServerImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeRenderingServerImageWithOptions(request, runtime);
   }
 
   /**

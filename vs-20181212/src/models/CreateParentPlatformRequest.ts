@@ -44,7 +44,7 @@ export class CreateParentPlatformRequest extends $dara.Model {
    * The description of the parent platform.
    * 
    * @example
-   * 级联平台测试
+   * Cascade platform test
    */
   description?: string;
   /**
@@ -74,7 +74,7 @@ export class CreateParentPlatformRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 级联平台测试
+   * Cascade platform test
    */
   name?: string;
   ownerId?: number;

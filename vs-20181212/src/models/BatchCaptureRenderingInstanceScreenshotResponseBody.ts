@@ -35,7 +35,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyDatatestResult e
 export class BatchCaptureRenderingInstanceScreenshotResponseBodyDatatest extends $dara.Model {
   /**
    * @remarks
-   * The pre-check result.
+   * The precheck result.
    */
   result?: BatchCaptureRenderingInstanceScreenshotResponseBodyDatatestResult;
   static names(): { [key: string]: string } {
@@ -73,7 +73,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyFailedItems exte
   errCode?: string;
   /**
    * @remarks
-   * The reason for the failure.
+   * The error message for the failure.
    * 
    * @example
    * Not Applied
@@ -115,7 +115,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyFailedItems exte
 export class BatchCaptureRenderingInstanceScreenshotResponseBodySuccessItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the screenshot was created. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The time when the screenshot was created. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2026-05-19T14:46:37+08:00
@@ -165,7 +165,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodySuccessItems ext
 export class BatchCaptureRenderingInstanceScreenshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data pre-check result.
+   * The data precheck result.
    */
   datatest?: BatchCaptureRenderingInstanceScreenshotResponseBodyDatatest;
   /**

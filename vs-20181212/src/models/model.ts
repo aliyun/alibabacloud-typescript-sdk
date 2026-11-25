@@ -164,6 +164,8 @@ export { UpdateRenderingInstanceSettingsRequestSettings } from './UpdateRenderin
 export { UpdateRenderingProjectRequestSessionAttribs } from './UpdateRenderingProjectRequest';
 export { UpgradeRenderingInstanceImageResponseBodyFailedItems } from './UpgradeRenderingInstanceImageResponseBody';
 export { UpgradeRenderingInstanceImageResponseBodySuccessItems } from './UpgradeRenderingInstanceImageResponseBody';
+export { UpgradeRenderingServerImageResponseBodyFailedInstances } from './UpgradeRenderingServerImageResponseBody';
+export { UpgradeRenderingServerImageResponseBodySuccessInstances } from './UpgradeRenderingServerImageResponseBody';
 export { AddHiveEdgeWorkersRequest } from './AddHiveEdgeWorkersRequest';
 export { AddHiveEdgeWorkersShrinkRequest } from './AddHiveEdgeWorkersShrinkRequest';
 export { AddHiveEdgeWorkersResponseBody } from './AddHiveEdgeWorkersResponseBody';
@@ -576,6 +578,7 @@ export { InstallCloudAppShrinkRequest } from './InstallCloudAppShrinkRequest';
 export { InstallCloudAppResponseBody } from './InstallCloudAppResponseBody';
 export { InstallCloudAppResponse } from './InstallCloudAppResponse';
 export { ListCloudAppInstallationsRequest } from './ListCloudAppInstallationsRequest';
+export { ListCloudAppInstallationsShrinkRequest } from './ListCloudAppInstallationsShrinkRequest';
 export { ListCloudAppInstallationsResponseBody } from './ListCloudAppInstallationsResponseBody';
 export { ListCloudAppInstallationsResponse } from './ListCloudAppInstallationsResponse';
 export { ListCloudAppPatchesRequest } from './ListCloudAppPatchesRequest';
@@ -813,6 +816,10 @@ export { UpgradeRenderingInstanceImageRequest } from './UpgradeRenderingInstance
 export { UpgradeRenderingInstanceImageShrinkRequest } from './UpgradeRenderingInstanceImageShrinkRequest';
 export { UpgradeRenderingInstanceImageResponseBody } from './UpgradeRenderingInstanceImageResponseBody';
 export { UpgradeRenderingInstanceImageResponse } from './UpgradeRenderingInstanceImageResponse';
+export { UpgradeRenderingServerImageRequest } from './UpgradeRenderingServerImageRequest';
+export { UpgradeRenderingServerImageShrinkRequest } from './UpgradeRenderingServerImageShrinkRequest';
+export { UpgradeRenderingServerImageResponseBody } from './UpgradeRenderingServerImageResponseBody';
+export { UpgradeRenderingServerImageResponse } from './UpgradeRenderingServerImageResponse';
 export { UploadCloudAppRequest } from './UploadCloudAppRequest';
 export { UploadCloudAppShrinkRequest } from './UploadCloudAppShrinkRequest';
 export { UploadCloudAppResponseBody } from './UploadCloudAppResponseBody';

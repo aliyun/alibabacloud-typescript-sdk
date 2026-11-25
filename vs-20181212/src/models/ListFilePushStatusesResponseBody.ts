@@ -21,7 +21,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The start time of the push. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The start time of the push. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-26T16:32:20+08:00
@@ -29,7 +29,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   pushTime?: string;
   /**
    * @remarks
-   * The instance ID of the cloud application service.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -40,8 +40,8 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
    * The push status of the file. Valid values:
    * - Created
    * - Doing
-   * - Success: final state.
-   * - Failed: final state.
+   * - Success: terminal state
+   * - Failed: terminal state
    * 
    * @example
    * Success
@@ -57,7 +57,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The latest update time of the status. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The latest update time of the status. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-26T17:02:10+08:00
@@ -107,7 +107,7 @@ export class ListFilePushStatusesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries per page during paging in a paged query.
+   * The Settings for the number of entries returned per page during paging in a paged query.
    * 
    * @example
    * 10
@@ -120,7 +120,7 @@ export class ListFilePushStatusesResponseBody extends $dara.Model {
   pushStatuses?: ListFilePushStatusesResponseBodyPushStatuses[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

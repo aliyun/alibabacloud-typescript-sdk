@@ -29,7 +29,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   appVersion?: string;
   /**
    * @remarks
-   * The installation time. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The installation time. The time is displayed in the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:48:34+08:00
@@ -45,7 +45,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   patchId?: string;
   /**
    * @remarks
-   * The cloud application service instance ID.
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -53,7 +53,9 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   renderingInstanceId?: string;
   /**
    * @remarks
-   * The installation status of the cloud application. Valid values: install-init and installing (intermediate states), and installed and install-failed (final states).
+   * The installation status of the cloud application. Valid values:
+   * - Intermediate states: install-init and installing.
+   * - Final states: installed and install-failed.
    * 
    * @example
    * installed
@@ -69,7 +71,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   statusDescription?: string;
   /**
    * @remarks
-   * The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The latest update time of the status. The time is displayed in the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:50:04+08:00
@@ -120,7 +122,7 @@ export class ListCloudAppInstallationsResponseBody extends $dara.Model {
   installationInfos?: ListCloudAppInstallationsResponseBodyInstallationInfos[];
   /**
    * @remarks
-   * The page number of the returned list.
+   * The page number of the list to query.
    * 
    * @example
    * 1
@@ -128,7 +130,7 @@ export class ListCloudAppInstallationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page for a paged query.
+   * The Settings for the number of entries per page during paging in a paged query.
    * 
    * @example
    * 10

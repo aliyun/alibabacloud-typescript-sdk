@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRenderingInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the cloud application service.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -13,7 +13,7 @@ export class CreateRenderingInstanceResponseBody extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * The instance ID list of the cloud application service.
+   * The cloud application service instance ID list.
    */
   renderingInstanceIds?: string[];
   /**

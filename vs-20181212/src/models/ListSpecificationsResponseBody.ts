@@ -8,7 +8,7 @@ export class ListSpecificationsResponseBodyItems extends $dara.Model {
    * The specification family.
    * 
    * @example
-   * G49\\G59
+   * G49\G59
    */
   class?: string;
   /**

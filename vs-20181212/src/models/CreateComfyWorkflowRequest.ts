@@ -8,7 +8,7 @@ export class CreateComfyWorkflowRequest extends $dara.Model {
    * The description of the workflow.
    * 
    * @example
-   * This is a workflow for image-to-video
+   * This is an image-to-video workflow
    */
   description?: string;
   /**
@@ -18,7 +18,7 @@ export class CreateComfyWorkflowRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample workflow for image-to-video
+   * Sample image-to-video workflow
    */
   name?: string;
   /**

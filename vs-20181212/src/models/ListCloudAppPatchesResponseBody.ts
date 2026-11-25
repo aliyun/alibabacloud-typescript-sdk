@@ -40,10 +40,10 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
    * The upload status of the application. Valid values:
    * - Created
    * - Doing
-   * - Success: desired state
-   * - Failed: desired state
+   * - Success: final state
+   * - Failed: final state
    * - Deleting
-   * - DeleteFailed: desired state
+   * - DeleteFailed: final state
    * 
    * @example
    * Doing
@@ -59,7 +59,7 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The latest time when the status was updated. The time is in the YYYY-MM-DDTHH:mm:ss format.
+   * The time when the status was last updated. The time is in the YYYY-MM-DDTHH:mm:ss format.
    * 
    * @example
    * 2024-09-23T02:12:28
@@ -67,7 +67,7 @@ export class ListCloudAppPatchesResponseBodyPatches extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the application was uploaded. The time is in the ISO 8601 standard and includes the time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The time when the patch was uploaded. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2025-07-24T14:45:36+08:00
@@ -119,7 +119,7 @@ export class ListCloudAppPatchesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Settings for the number of entries per page when paging in a paged query.
+   * The paging Settings for the number of entries returned on each page in a paged query.
    * 
    * @example
    * 20
@@ -127,7 +127,7 @@ export class ListCloudAppPatchesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The patch list of the cloud application.
+   * The list of patches for the cloud application.
    */
   patches?: ListCloudAppPatchesResponseBodyPatches[];
   /**

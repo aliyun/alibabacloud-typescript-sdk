@@ -37,7 +37,7 @@ export class ListFilesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
+   * The Settings for the number of entries to return on each page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10

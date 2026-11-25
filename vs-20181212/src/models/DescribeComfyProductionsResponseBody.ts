@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model {
   /**
    * @remarks
-   * The ComfyTask ID.
+   * The ID of the ComfyTask.
    * 
    * @example
    * 6c8234f4-d1e1-4cea-b08b-7926fbdea144
@@ -13,7 +13,7 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
   comfyTaskId?: string;
   /**
    * @remarks
-   * The creation time. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
+   * The creation time. The time follows the ISO 8601 standard and includes the time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2026-02-06T20:20:26+08:00
@@ -29,7 +29,7 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
   fileName?: string;
   /**
    * @remarks
-   * The production ID.
+   * The ID of the production.
    * 
    * @example
    * 3e5bda20-5cd4-4d55-8d23-88d624a18caa
@@ -37,7 +37,7 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
   productionId?: string;
   /**
    * @remarks
-   * The production status.
+   * The status of the production.
    * 
    * @example
    * NORMAL

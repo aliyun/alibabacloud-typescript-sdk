@@ -59,7 +59,7 @@ export class DescribeComfyTaskWaitingQueueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task waiting queue information.
+   * The waiting queue information.
    */
   taskWaitingQueue?: DescribeComfyTaskWaitingQueueResponseBodyTaskWaitingQueue;
   static names(): { [key: string]: string } {

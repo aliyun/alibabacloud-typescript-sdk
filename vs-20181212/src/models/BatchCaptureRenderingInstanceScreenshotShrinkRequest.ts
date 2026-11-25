@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCaptureRenderingInstanceScreenshotShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The image quality. Valid values: 1 to 100.
+   * The quality of the image. Valid values: 1 to 100.
    * 
    * @example
    * 60
@@ -13,7 +13,7 @@ export class BatchCaptureRenderingInstanceScreenshotShrinkRequest extends $dara.
   quality?: number;
   /**
    * @remarks
-   * The list of instance IDs. A maximum of 100 instance IDs can be specified.
+   * The list of instance IDs. You can specify up to 100 IDs.
    * 
    * This parameter is required.
    */

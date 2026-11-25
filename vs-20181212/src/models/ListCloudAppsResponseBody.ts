@@ -80,8 +80,8 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
    * The upload status of the application. Valid values:
    * - Created
    * - Doing
-   * - Success: This is a final state.
-   * - Failed: This is a final state.
+   * - Success: final state
+   * - Failed: final state
    * 
    * @example
    * Success
@@ -97,7 +97,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The time when the status was last updated. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:48:34+08:00
@@ -105,7 +105,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the application was uploaded. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The time when the application was uploaded. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:28:14+08:00
@@ -172,7 +172,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries returned on each page during paging for a paged query.
+   * Settings for the number of entries returned per page during paging for a paged query.
    * 
    * @example
    * 10
@@ -188,7 +188,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of cloud applications that match the query conditions.
+   * The total number of matched cloud applications.
    * 
    * @example
    * 100

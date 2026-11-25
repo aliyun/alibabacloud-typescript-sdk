@@ -15,7 +15,7 @@ export class ListCloudAppPatchesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the time range filter. The time must be in UTC and follow the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2017-12-10T21:00:00Z
@@ -23,7 +23,7 @@ export class ListCloudAppPatchesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number of the list to query. Pages start from 1. Default value: 1.
+   * The page number of the list to query. The starting value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListCloudAppPatchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+   * The paging Settings for the number of entries per page in a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class ListCloudAppPatchesRequest extends $dara.Model {
   patchName?: string;
   /**
    * @remarks
-   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the time range filter. The time must be in UTC and follow the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2015-11-29T00:00:00Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVsVerifyContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The verification content.
+   * The check content.
    * 
    * @example
    * verify_dffeb6610035dcb77b413a59c3*****

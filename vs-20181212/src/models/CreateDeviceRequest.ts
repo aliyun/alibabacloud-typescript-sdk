@@ -5,17 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeviceRequest extends $dara.Model {
   /**
    * @remarks
-   * GB-compliant alarm method to subscribe to. Valid values:
+   * The subscribed national standard alarm methods. Valid values:
+   * - 0: All.
+   * - 5: Video alarm.
+   * - 7: Other alarms.
    * 
-   * - 0 (all)
-   * 
-   * - 5 (video alarm)
-   * 
-   * - 7 (other alarms)
-   * 
-   * > * An empty value means no subscription.
-   * >
-   * > * You can specify multiple values, separated by commas (,).
+   * > - An empty value indicates no subscription.
+   * > - Multiple values are supported and must be separated by commas (,).
    * 
    * @example
    * 0
@@ -24,7 +20,10 @@ export class CreateDeviceRequest extends $dara.Model {
   autoDirectory?: boolean;
   /**
    * @remarks
-   * Whether to enable location subscription for the device. Default value: false.
+   * Specifies whether to enable device location subscription. Valid values:
+   * - true: Yes.
+   * - false: No.
+   * Default value: false.
    * 
    * @example
    * false
@@ -32,7 +31,10 @@ export class CreateDeviceRequest extends $dara.Model {
   autoPos?: boolean;
   /**
    * @remarks
-   * Whether to automatically start the stream. Default value: false.
+   * Specifies whether to automatically start the stream. Valid values:
+   * - true: Yes.
+   * - false: No.
+   * Default value: false.
    * 
    * @example
    * false
@@ -40,15 +42,15 @@ export class CreateDeviceRequest extends $dara.Model {
   autoStart?: boolean;
   /**
    * @remarks
-   * Device description.
+   * The description of the device.
    * 
    * @example
-   * xxx路口摄像头
+   * xxx intersection camera
    */
   description?: string;
   /**
    * @remarks
-   * ID of the folder that contains the device.
+   * The ID of the folder to which the device belongs.
    * 
    * @example
    * 399*****488-cn-qingdao
@@ -56,7 +58,7 @@ export class CreateDeviceRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * Device serial number.
+   * The serial number of the device.
    * 
    * @example
    * 7D0*****4C0
@@ -64,9 +66,8 @@ export class CreateDeviceRequest extends $dara.Model {
   dsn?: string;
   /**
    * @remarks
-   * GB-compliant device ID.
-   * 
-   * > This parameter applies only to GB-compliant protocols.
+   * The national standard ID of the device.
+   * > This parameter is applicable only to the national standard protocol.
    * 
    * @example
    * 31000000****00000002
@@ -74,7 +75,7 @@ export class CreateDeviceRequest extends $dara.Model {
   gbId?: string;
   /**
    * @remarks
-   * ID of the space that contains the device.
+   * The ID of the workspace to which the device belongs.
    * 
    * This parameter is required.
    * 
@@ -84,7 +85,7 @@ export class CreateDeviceRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Device IP address.
+   * The IP address of the device.
    * 
    * @example
    * 10.10.10.10
@@ -92,7 +93,7 @@ export class CreateDeviceRequest extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The dimension of the device.
+   * The latitude of the device.
    * 
    * @example
    * 119.20
@@ -100,7 +101,7 @@ export class CreateDeviceRequest extends $dara.Model {
   latitude?: string;
   /**
    * @remarks
-   * Device longitude.
+   * The longitude of the device.
    * 
    * @example
    * 45.00
@@ -108,16 +109,16 @@ export class CreateDeviceRequest extends $dara.Model {
   longitude?: string;
   /**
    * @remarks
-   * Device name.
+   * The name of the device.
    * 
    * @example
-   * xxx路口摄像头
+   * xxx intersection camera
    */
   name?: string;
   ownerId?: number;
   /**
    * @remarks
-   * Additional device parameters, formatted as a JSON string.
+   * The other parameters of the device, in the format of a JSON serialized string.
    * 
    * @example
    * {}
@@ -125,7 +126,7 @@ export class CreateDeviceRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * ID of the parent device. For example, the ID of the platform that hosts the camera.
+   * The ID of the parent device, such as the ID of the platform to which a camera belongs.
    * 
    * @example
    * 399*****774-cn-qingdao
@@ -133,7 +134,7 @@ export class CreateDeviceRequest extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * Device password.
+   * The password of the device.
    * 
    * @example
    * admin
@@ -141,7 +142,7 @@ export class CreateDeviceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Device port.
+   * The port of the device.
    * 
    * @example
    * 8080
@@ -149,7 +150,7 @@ export class CreateDeviceRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Location subscription interval, in seconds.
+   * The location subscription interval, in seconds.
    * 
    * @example
    * 300
@@ -157,13 +158,10 @@ export class CreateDeviceRequest extends $dara.Model {
   posInterval?: number;
   /**
    * @remarks
-   * Device type. Valid values:
-   * 
-   * - ipc (camera)
-   * 
-   * - platform (platform)
-   * 
-   * - ied (intelligent device)
+   * The type of the device. Valid values:
+   * - ipc: IP camera.
+   * - platform: Platform.
+   * - ied: Intelligent device.
    * 
    * This parameter is required.
    * 
@@ -173,7 +171,7 @@ export class CreateDeviceRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Stream URL on the device.
+   * The URL of the stream on the device.
    * 
    * @example
    * rtmp://xxx/xxx
@@ -181,7 +179,7 @@ export class CreateDeviceRequest extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * Device username.
+   * The username of the device.
    * 
    * @example
    * admin
@@ -189,10 +187,10 @@ export class CreateDeviceRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * Device vendor.
+   * The vendor of the device.
    * 
    * @example
-   * 公司A
+   * Company A
    */
   vendor?: string;
   static names(): { [key: string]: string } {

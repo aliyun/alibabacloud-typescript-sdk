@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilePushStatusesRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time for the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-06-23T02:13:00Z
@@ -13,7 +13,7 @@ export class ListFilePushStatusesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the file, which uniquely identifies the file.
+   * The file ID, which uniquely identifies a file.
    * 
    * @example
    * f-1671accd4dafdag3er256cvgewt13f7141db2f7
@@ -37,7 +37,7 @@ export class ListFilePushStatusesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
+   * The Settings for the number of entries to return on each page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListFilePushStatusesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The instance ID of the cloud application service, which is used to query the files installed on the specified instance.
+   * The cloud application service instance ID, which is used to query the files installed on the specified instance.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -53,7 +53,7 @@ export class ListFilePushStatusesRequest extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * The start time for the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-06-17T12:16:00Z

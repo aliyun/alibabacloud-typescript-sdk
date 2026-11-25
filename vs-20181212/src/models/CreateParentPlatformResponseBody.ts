@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateParentPlatformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 上级平台ID。
+   * The parent platform ID.
    * 
    * @example
    * 359*****374-cn-qingdao
@@ -13,7 +13,7 @@ export class CreateParentPlatformResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

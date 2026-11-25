@@ -13,10 +13,18 @@ export class ResumeVsStreamRequest extends $dara.Model {
    * xxxxApp
    */
   appName?: string;
+  /**
+   * @remarks
+   * Controls the stream behavior. Valid values:
+   * - **resume**: Resumes the stream.
+   * 
+   * @example
+   * resume
+   */
   controlStreamAction?: string;
   /**
    * @remarks
-   * Your accelerated domain name.
+   * The accelerated domain name.
    * 
    * This parameter is required.
    * 
@@ -27,8 +35,7 @@ export class ResumeVsStreamRequest extends $dara.Model {
   /**
    * @remarks
    * The stream type.
-   * 
-   * > Only publisher is supported.
+   * > Currently, only publisher is supported.
    * 
    * This parameter is required.
    * 

@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddHiveEdgeWorkersResponseBodyFailedInstances extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The workload ID.
    * 
    * @example
    * ew-1226d588c69449209ee963161c067b04
@@ -18,7 +18,7 @@ export class AddHiveEdgeWorkersResponseBodyFailedInstances extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Error 1062 (23000): Duplicate entry \\"hive-4fbf3928d40e43948b98acdb4fb5aaed-ew-1226d588c69449209ee9631\\" for key \\"PRIMARY\\"
+   * Error 1062 (23000): Duplicate entry \"hive-4fbf3928d40e43948b98acdb4fb5aaed-ew-1226d588c69449209ee9631\" for key \"PRIMARY\"
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class AddHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * A message indicating the result of the operation.
+   * The message.
    * 
    * @example
    * SUCCESS
@@ -87,7 +87,7 @@ export class AddHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model 
 export class AddHiveEdgeWorkersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that failed to be added.
+   * The number of failed instances.
    * 
    * @example
    * 0
@@ -95,12 +95,12 @@ export class AddHiveEdgeWorkersResponseBody extends $dara.Model {
   failedInstanceCount?: number;
   /**
    * @remarks
-   * A list of instances that failed to be added.
+   * The list of failed instances.
    */
   failedInstances?: AddHiveEdgeWorkersResponseBodyFailedInstances[];
   /**
    * @remarks
-   * The request ID.
+   * **The request ID.**
    * 
    * @example
    * xxxx-xxx-xxx
@@ -108,7 +108,7 @@ export class AddHiveEdgeWorkersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of instances that were successfully added.
+   * The number of successful instances.
    * 
    * @example
    * 5
@@ -116,7 +116,7 @@ export class AddHiveEdgeWorkersResponseBody extends $dara.Model {
   successInstanceCount?: number;
   /**
    * @remarks
-   * A list of successfully added instances.
+   * The list of successful instances.
    */
   successInstances?: AddHiveEdgeWorkersResponseBodySuccessInstances[];
   static names(): { [key: string]: string } {

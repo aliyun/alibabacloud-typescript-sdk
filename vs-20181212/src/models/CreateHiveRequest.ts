@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHiveRequest extends $dara.Model {
   /**
    * @remarks
-   * A description of the cluster.
+   * The description.
    * 
    * @example
-   * G49单卡集群
+   * G49 single-GPU cluster
    */
   description?: string;
   /**

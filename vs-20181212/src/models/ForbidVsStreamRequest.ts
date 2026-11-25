@@ -13,6 +13,14 @@ export class ForbidVsStreamRequest extends $dara.Model {
    * xxxApp
    */
   appName?: string;
+  /**
+   * @remarks
+   * The stream control action. Valid values:
+   * - **forbid**: Disables the stream.
+   * 
+   * @example
+   * forbid
+   */
   controlStreamAction?: string;
   /**
    * @remarks
@@ -26,7 +34,7 @@ export class ForbidVsStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Only "publisher" is supported.
+   * The live stream type. Valid values: publisher.
    * 
    * This parameter is required.
    * 
@@ -36,7 +44,7 @@ export class ForbidVsStreamRequest extends $dara.Model {
   liveStreamType?: string;
   /**
    * @remarks
-   * Specifies whether to only interrupt the stream without adding it to the blacklist. A value of \\`yes\\` indicates that the stream is only interrupted.
+   * Specifies whether to only interrupt the stream without adding it to the blacklist. Valid values: yes: Interrupts the stream without adding it to the blacklist.
    * 
    * @example
    * yes
@@ -45,7 +53,7 @@ export class ForbidVsStreamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The time to resume the stream. The time is in UTC format.
+   * The time to resume the stream in UTC format.
    * 
    * @example
    * 2015-12-01T17:37:00Z

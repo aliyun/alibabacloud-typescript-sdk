@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the cloud application service.
+   * The cloud application service instance ID.
    * 
    * This parameter is required.
    * 

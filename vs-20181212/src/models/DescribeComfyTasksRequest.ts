@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The Hive ID, used as a filter to query tasks executed under the specified Hive.
+   * The Hive ID used as a filter to query tasks executed under the specified Hive.
    * 
    * @example
    * hive-26cd567b35c04a0a90f0xxxxx
@@ -21,7 +21,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to display on each page.
+   * The number of entries per page.
    * 
    * @example
    * 20

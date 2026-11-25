@@ -48,7 +48,7 @@ export class DescribeVsStreamsPublishListRequest extends $dara.Model {
    * - publish_time_asc (sort by publish time in ascending order) (default)
    * 
    * @example
-   * publish_time_asc
+   * stream_name_desc
    */
   orderBy?: string;
   ownerId?: number;

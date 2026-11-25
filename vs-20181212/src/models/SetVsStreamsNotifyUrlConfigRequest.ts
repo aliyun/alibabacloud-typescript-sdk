@@ -43,7 +43,7 @@ export class SetVsStreamsNotifyUrlConfigRequest extends $dara.Model {
    * @remarks
    * The URL to which live stream information is pushed.
    * 
-   * > This URL must start with http\\:// or https\\://.
+   * > This URL must start with http\:// or https\://.
    * 
    * This parameter is required.
    * 

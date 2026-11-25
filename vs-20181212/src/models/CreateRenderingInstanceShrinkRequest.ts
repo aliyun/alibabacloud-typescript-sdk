@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * > Keep the default value unless you have special requirements. If you have special requirements, contact technical support to confirm and then specify the relevant parameters.
+   * > Unless you have special requirements, keep the default value. If you have special requirements, contact technical support to confirm and then specify this parameter.
    * 
    * The attribute information.
    */
@@ -15,8 +15,8 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
    * > This parameter takes effect only when `InstanceChargeType` is set to `PrePaid` (subscription).
    * 
    * Specifies whether to enable auto-renewal. Valid values:
-   * * **true**: enables auto-renewal.
-   * * **false**: disables auto-renewal.
+   * * **true**: Enabled.
+   * * **false**: Disabled.
    * 
    * @example
    * true
@@ -32,7 +32,6 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
    * > This parameter takes effect only when `InstanceChargeType` is set to `PostPaid` (pay-as-you-go).
    * 
    * The billing cycle. Valid values:
-   * 
    * - Hour: hour.
    * 
    * @example
@@ -42,7 +41,6 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
    * - PrePaid (default): subscription.
    * - PostPaid: pay-as-you-go.
    * 
@@ -52,9 +50,9 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * > Only one billing method is supported. If a billing method already exists, the new value is invalid by default, and the existing billing method prevails. Note that this parameter is required when you purchase the instance for the first time.
+   * > Only one Billable methods is supported. If a Billable methods already exists, the new value is invalid by default, and the existing one prevails. Note that this parameter is required when you purchase the instance for the first time.
    * 
-   * The network billing type. Valid values:
+   * The network billing method. Valid values:
    * - 95BandwidthByMonth: monthly 95th percentile bandwidth.
    * 
    * @example
@@ -73,8 +71,7 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * > This parameter takes effect only when `InstanceChargeType` is set to `PrePaid` (subscription).
    * 
-   * The subscription duration. Valid values (Note: If you select 12, the duration is calculated as one year. For other values, the unit is months):
-   * 
+   * The subscription duration. Valid values (Note: If you select 12, it is calculated as one year. Other values are calculated in months.):
    * - 1 (default)
    * - 2
    * - 3
@@ -93,7 +90,6 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The specification of the cloud application service instance.
-   * 
    * - If the specification belongs to the crs.cp.* series, the billing method can be subscription or pay-as-you-go.
    * - If the specification belongs to the crs.vm.* series, the billing method can be subscription or pay-as-you-go.
    * - For other series, only the subscription billing method is supported.
@@ -106,7 +102,7 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
   renderingSpec?: string;
   /**
    * @remarks
-   * The cloud storage capacity used by the cloud application service instance. Note: This is not local storage.
+   * The cloud storage capacity used by the cloud application service instance. Note: This does not include local storage.
    * 
    * @example
    * 20

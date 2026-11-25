@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddHiveEdgeWorkersRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * **The cluster ID.**
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class AddHiveEdgeWorkersRequest extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
-   * A list of instance IDs.
+   * **The list of workload IDs.**
    * 
    * This parameter is required.
    * 
    * @example
-   * [\\"acp-c4b9pbj4fzkagfexv\\", \\"acp-c4b9pbj4fzkagfexw\\"]
+   * [\"acp-c4b9pbj4fzkagfexv\", \"acp-c4b9pbj4fzkagfexw\"]
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {

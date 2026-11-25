@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComfyTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the resource pool.
+   * The ID of the resource pool.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateComfyTaskRequest extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
-   * The workflow parameters to be replaced.
+   * The workflow parameters to be replaced by the user.
    * 
    * This parameter is required.
    * 

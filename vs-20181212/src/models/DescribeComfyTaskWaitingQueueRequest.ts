@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyTaskWaitingQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the specified Hive.
+   * The ID of the Hive.
    * 
    * @example
    * hive-26cd567b35c04a0a90f0xxxxx

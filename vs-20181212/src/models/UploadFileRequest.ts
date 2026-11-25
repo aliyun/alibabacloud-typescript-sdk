@@ -24,7 +24,7 @@ export class UploadFileRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * mytest
+   * mytest01
    */
   fileName?: string;
   /**

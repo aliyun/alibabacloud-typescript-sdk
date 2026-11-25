@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeviceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Device ID.
+   * The ID of the device.
    * 
    * @example
    * 348*****380-cn-qingdao
@@ -13,7 +13,7 @@ export class CreateDeviceResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

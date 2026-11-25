@@ -13,7 +13,7 @@ export class DeleteComfyUserDataResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The description.
+   * The message.
    * 
    * @example
    * success

@@ -45,7 +45,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. Valid values: 1 to 100. Default value: 10.
+   * The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -53,7 +53,8 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the patch package. This parameter is supported only in Windows scenarios. If you enter origin, only the original version is filtered.
+   * The ID of the patch package. This parameter is only supported in Windows scenarios. Valid values:
+   * - origin: Only the original version is filtered.
    * 
    * @example
    * patch-7bdf679812484df08a956b73e0b3bdf6
@@ -69,12 +70,20 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The cloud application service instance ID, which is used to query the cloud applications installed on the specified instance.
+   * The instance ID of the cloud application service. This parameter is used to query the cloud applications installed on the specified instance.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
    */
   renderingInstanceId?: string;
+  /**
+   * @remarks
+   * The list of cloud application service instance IDs.
+   * 
+   * @example
+   * [\"render-eb01436f39ac459a96ac566c418ca926\"]
+   */
+  renderingInstanceIds?: string[];
   /**
    * @remarks
    * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
@@ -94,6 +103,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
       patchId: 'PatchId',
       projectId: 'ProjectId',
       renderingInstanceId: 'RenderingInstanceId',
+      renderingInstanceIds: 'RenderingInstanceIds',
       startTime: 'StartTime',
     };
   }
@@ -109,11 +119,15 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
       patchId: 'string',
       projectId: 'string',
       renderingInstanceId: 'string',
+      renderingInstanceIds: { 'type': 'array', 'itemType': 'string' },
       startTime: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.renderingInstanceIds)) {
+      $dara.Model.validateArray(this.renderingInstanceIds);
+    }
     super.validate();
   }
 

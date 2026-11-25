@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time, represented as a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780387493000
@@ -13,7 +13,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The end time of the task, represented as a UNIX timestamp in milliseconds.
+   * The end time of the task. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780387494000
@@ -29,12 +29,12 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
-   * The task error message.
+   * The error message of the task.
    */
   taskErrorMessage?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 6c8234f4-d1e1-4cea-b08b-7926fbdea144
@@ -42,7 +42,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task state.
+   * The state of the task.
    * 
    * @example
    * RUNNING
@@ -50,15 +50,15 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   taskState?: string;
   /**
    * @remarks
-   * The task state message.
+   * The state message of the task.
    * 
    * @example
-   * 任务执行成功
+   * Task executed successfully
    */
   taskStateMessage?: string;
   /**
    * @remarks
-   * The last modified time, represented as a UNIX timestamp in milliseconds.
+   * The last modified time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780387494000
@@ -137,7 +137,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page size.
-   * > Only for recording queries.
+   * > Only applicable to recording queries.
    * 
    * @example
    * 20

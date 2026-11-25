@@ -16,7 +16,7 @@ export class MoveHiveEdgeWorkersResponseBodyFailedInstances extends $dara.Model 
    * The error message.
    * 
    * @example
-   * Error 1062 (23000): Duplicate entry \\"hive-4fbf3928d40e43948b98acdb4fb5aaed-ew-1226d588c69449209ee9631\\" for key \\"PRIMARY\\"
+   * Error 1062 (23000): Duplicate entry \"hive-4fbf3928d40e43948b98acdb4fb5aaed-ew-1226d588c69449209ee9631\" for key \"PRIMARY\"
    */
   message?: string;
   static names(): { [key: string]: string } {

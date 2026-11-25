@@ -21,7 +21,7 @@ export class DescribeComfyProductionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the specified ComfyTask.
+   * The ID of the ComfyTask.
    * 
    * This parameter is required.
    * 

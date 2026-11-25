@@ -32,8 +32,8 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
    * The upload status of the file. Valid values:
    * - Created
    * - Doing
-   * - Success: final state
-   * - Failed: final state
+   * - Success: final state.
+   * - Failed: final state.
    * 
    * @example
    * Success
@@ -49,7 +49,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The target path for pushing the file to the cloud application service instance.
+   * The destination path for pushing the file to the cloud application service instance.
    * 
    * @example
    * /data/tmp/test/xxx.tar
@@ -57,7 +57,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   targetPath?: string;
   /**
    * @remarks
-   * The time when the status was last updated. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-28T14:15:08+08:00
@@ -65,7 +65,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the upload started. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
+   * The time when the upload started. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-28T14:10:12+08:00
@@ -109,7 +109,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
 export class ListFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of file information.
+   * The list of files.
    */
   files?: ListFilesResponseBodyFiles[];
   /**
@@ -122,7 +122,7 @@ export class ListFilesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries per page during paging in a paged query.
+   * The Settings for the number of entries returned per page during paging in a paged query.
    * 
    * @example
    * 10
@@ -138,7 +138,7 @@ export class ListFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matched file records.
+   * The total number of matched files.
    * 
    * @example
    * 200
