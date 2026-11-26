@@ -97,6 +97,7 @@ export { SubmitProjectTaskRequestFramesLayers } from './SubmitProjectTaskRequest
 export { SubmitProjectTaskRequestFramesSubtitle } from './SubmitProjectTaskRequest';
 export { SubmitProjectTaskRequestFramesVideoScript } from './SubmitProjectTaskRequest';
 export { SubmitProjectTaskRequestFrames } from './SubmitProjectTaskRequest';
+export { AICoachScriptHotWordItem } from './AicoachScriptHotWordItem';
 export { AddDocumentInfo } from './AddDocumentInfo';
 export { AddDocumentResult } from './AddDocumentResult';
 export { AnchorResponse } from './AnchorResponse';
