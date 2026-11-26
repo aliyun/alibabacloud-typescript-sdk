@@ -21,7 +21,7 @@ export class ListVirusFileStatusesResponseBodyFileStatuses extends $dara.Model {
   department?: string;
   /**
    * @remarks
-   * The unique identifier of the user\\"s endpoint device that detected this virus file.
+   * The unique identifier of the user\"s endpoint device that detected this virus file.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -55,10 +55,10 @@ export class ListVirusFileStatusesResponseBodyFileStatuses extends $dara.Model {
   fileMd5?: string;
   /**
    * @remarks
-   * The absolute path of the virus file on the user\\"s endpoint device.
+   * The absolute path of the virus file on the user\"s endpoint device.
    * 
    * @example
-   * C:\\Users\\Public\\Downloads\\setup.exe
+   * C:\Users\Public\Downloads\setup.exe
    */
   filePath?: string;
   /**
@@ -81,7 +81,7 @@ export class ListVirusFileStatusesResponseBodyFileStatuses extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The hostname of the user\\"s endpoint device.
+   * The hostname of the user\"s endpoint device.
    * 
    * @example
    * DESKTOP-8A3F
@@ -103,7 +103,7 @@ export class ListVirusFileStatusesResponseBodyFileStatuses extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The effective period of the disposition, in the format yyyy-MM-dd HH:mm:ss (UTC+8). The later of the actual disposition time on the user\\"s endpoint device and the time when the administrator initiated the disposition is used. A hyphen (-) is returned when no disposition has been performed.
+   * The effective period of the disposition, in the format yyyy-MM-dd HH:mm:ss (UTC+8). The later of the actual disposition time on the user\"s endpoint device and the time when the administrator initiated the disposition is used. A hyphen (-) is returned when no disposition has been performed.
    * 
    * @example
    * 2026-08-21 09:31:45
@@ -138,7 +138,7 @@ export class ListVirusFileStatusesResponseBodyFileStatuses extends $dara.Model {
   scanTaskId?: string;
   /**
    * @remarks
-   * The execution result description of the disposition or scan, reported by the user\\"s endpoint device. If a disposition record exists, the execution result of the disposition task is returned. Otherwise, the execution result of the scan task is returned.
+   * The execution result description of the disposition or scan, reported by the user\"s endpoint device. If a disposition record exists, the execution result of the disposition task is returned. Otherwise, the execution result of the scan task is returned.
    * 
    * @example
    * quarantine success

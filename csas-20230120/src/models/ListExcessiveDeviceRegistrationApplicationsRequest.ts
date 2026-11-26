@@ -20,7 +20,7 @@ export class ListExcessiveDeviceRegistrationApplicationsRequest extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The user\\"s department. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
+   * The user\"s department. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
    * 
    * @example
    * 测试部
@@ -30,7 +30,7 @@ export class ListExcessiveDeviceRegistrationApplicationsRequest extends $dara.Mo
    * @remarks
    * The device ID. You can get the device ID from the `DeviceTag` parameter returned by the following operations:
    * 
-   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\\"s device.
+   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\"s device.
    * 
    * - [ListUserDevices](~~ListUserDevices~~): Queries a list of devices for a user.
    * 
@@ -68,7 +68,7 @@ export class ListExcessiveDeviceRegistrationApplicationsRequest extends $dara.Mo
    * @remarks
    * The user ID. You can get the user ID from the `SaseUserId` parameter returned by the following operations:
    * 
-   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\\"s device.
+   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user\"s device.
    * 
    * - [ListUserDevices](~~ListUserDevices~~): Queries a list of devices for a user.
    * 
@@ -83,7 +83,7 @@ export class ListExcessiveDeviceRegistrationApplicationsRequest extends $dara.Mo
   statuses?: string[];
   /**
    * @remarks
-   * The username. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+   * The username. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\*), at signs (@), and spaces.
    * 
    * @example
    * 王先生

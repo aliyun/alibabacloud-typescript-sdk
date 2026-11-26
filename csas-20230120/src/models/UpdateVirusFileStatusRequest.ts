@@ -33,7 +33,7 @@ export class UpdateVirusFileStatusRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * C:\\Users\\Public\\Downloads\\setup.exe
+   * C:\Users\Public\Downloads\setup.exe
    */
   filePath?: string;
   /**

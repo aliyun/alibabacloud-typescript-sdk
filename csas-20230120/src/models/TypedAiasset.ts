@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TypedAIAssetIdentityIdentifiersPeProductIdentity extends $dara.Model {
   /**
    * @remarks
-   * The CompanyName field in a Windows PE version resource. This is not a certified vendor identity.
+   * The CompanyName field of the Windows PE version resource. This is not a certified vendor identity.
    * 
    * @example
    * Example Corp
@@ -13,7 +13,7 @@ export class TypedAIAssetIdentityIdentifiersPeProductIdentity extends $dara.Mode
   companyName?: string;
   /**
    * @remarks
-   * The ProductName field in a Windows PE version resource.
+   * The ProductName field of the Windows PE version resource.
    * 
    * @example
    * Example Agent
@@ -45,7 +45,7 @@ export class TypedAIAssetIdentityIdentifiersPeProductIdentity extends $dara.Mode
 export class TypedAIAssetIdentityIdentifiersWindowsAppxIdentity extends $dara.Model {
   /**
    * @remarks
-   * The original package name of the Identity.Name in a Windows AppX/MSIX manifest.
+   * The original package name of the Windows AppX/MSIX manifest Identity.Name.
    * 
    * @example
    * Example.Agent
@@ -53,7 +53,7 @@ export class TypedAIAssetIdentityIdentifiersWindowsAppxIdentity extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The publisher string of the Identity.Publisher in a Windows AppX/MSIX manifest. This is not equivalent to the signature verification result.
+   * The publisher string of the Windows AppX/MSIX manifest Identity.Publisher. This is not equivalent to the signature verification result.
    * 
    * @example
    * CN=Example Corp, O=Example Corp, C=US
@@ -85,7 +85,7 @@ export class TypedAIAssetIdentityIdentifiersWindowsAppxIdentity extends $dara.Mo
 export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   /**
    * @remarks
-   * The array of application names declared in desktop application manifests.
+   * The array of application names declared in the desktop application manifest.
    * 
    * @example
    * ["Example Agent"]
@@ -93,7 +93,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   desktopManifestName?: string[];
   /**
    * @remarks
-   * The array of plugin IDs declared in JetBrains plugin manifests.
+   * The array of plugin IDs declared in the JetBrains plugin manifest.
    * 
    * @example
    * ["com.example.agent.plugin"]
@@ -101,7 +101,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   jetbrainsPluginId?: string[];
   /**
    * @remarks
-   * The array of macOS application bundle identifiers. These describe collected product identity clues and do not indicate that signatures are verified.
+   * The array of macOS application bundle identifiers. This describes the collected product identity clues and does not indicate that the signature has been verified.
    * 
    * @example
    * ["com.example.agent"]
@@ -117,7 +117,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   npmPackage?: string[];
   /**
    * @remarks
-   * The array of product name and company name combinations in Windows PE version resources. These are not file hashes or verified signature identities.
+   * The array of product name and company name combinations in Windows PE version resources. This is not a file hash or a verified signature identity.
    * 
    * @example
    * [{"product_name":"Example Agent","company_name":"Example Corp"}]
@@ -125,7 +125,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   peProductIdentity?: TypedAIAssetIdentityIdentifiersPeProductIdentity[];
   /**
    * @remarks
-   * The array of Python package distribution names. These are used for product identity identification and are not a list of import module names.
+   * The array of Python package distribution names. This is used for product identity recognition and is not a list of imported module names.
    * 
    * @example
    * ["example-agent-sdk"]
@@ -133,7 +133,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   pypiPackage?: string[];
   /**
    * @remarks
-   * The array of VS Code extension identifiers. Each is typically the publisher name and extension name connected by a dot.
+   * The array of VS Code extension identifiers, typically the publisher name and extension name connected by a dot.
    * 
    * @example
    * ["example.agent-assistant"]
@@ -141,7 +141,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   vscodeExtensionId?: string[];
   /**
    * @remarks
-   * The array of Windows AppX/MSIX manifest identities. Each item provides both the package name and publisher. This does not indicate that the publisher signature is verified.
+   * The array of Windows AppX/MSIX manifest identities, where each item provides both the package name and publisher. This does not indicate that the publisher signature is verified.
    * 
    * @example
    * [{"name":"Example.Agent","publisher":"CN=Example Corp, O=Example Corp, C=US"}]
@@ -149,7 +149,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
   windowsAppxIdentity?: TypedAIAssetIdentityIdentifiersWindowsAppxIdentity[];
   /**
    * @remarks
-   * The array of Windows application package family names. Each includes the package name and publisher identifier suffix and is not the application installation path.
+   * The array of Windows app package family names, which includes the package name and publisher ID suffix. This is not the application installation path.
    * 
    * @example
    * ["Example.Agent_123456789abcd"]
@@ -222,7 +222,7 @@ export class TypedAIAssetIdentityIdentifiers extends $dara.Model {
 export class TypedAIAssetRecognitionEvidenceAgentDeclaration extends $dara.Model {
   /**
    * @remarks
-   * The collected declaration text related to the recognition basis. This is currently used mainly for agent_declaration, and other recognition evidence may not return content. This should not be interpreted as an actual execution log.
+   * The collected declaration text related to the identification evidence, currently used mainly for agent_declaration. Other identification evidence may not return content. This should not be interpreted as an actual execution log.
    * 
    * @example
    * An AI agent that plans tasks and uses configured tools.
@@ -230,7 +230,7 @@ export class TypedAIAssetRecognitionEvidenceAgentDeclaration extends $dara.Model
   content?: string;
   /**
    * @remarks
-   * The local file or configuration path where the recognition evidence is located. This is used to display and locate static clues, and is not a server-side downloadable URL.
+   * The local file or configuration location where the identification evidence is found. This is used to display and locate static clues, and is not a server-downloadable address.
    * 
    * @example
    * /opt/example-agent/package.json
@@ -262,7 +262,7 @@ export class TypedAIAssetRecognitionEvidenceAgentDeclaration extends $dara.Model
 export class TypedAIAssetRecognitionEvidenceAutonomousExecution extends $dara.Model {
   /**
    * @remarks
-   * The collected declaration text related to the recognition basis. This is currently used mainly for agent_declaration, and other recognition evidence may not return content. This should not be interpreted as an actual execution log.
+   * The collected declaration text related to the identification evidence, currently used mainly for agent_declaration. Other identification evidence may not return content. This should not be interpreted as an actual execution log.
    * 
    * @example
    * An AI agent that plans tasks and uses configured tools.
@@ -270,7 +270,7 @@ export class TypedAIAssetRecognitionEvidenceAutonomousExecution extends $dara.Mo
   content?: string;
   /**
    * @remarks
-   * The local file or configuration path where the recognition evidence is located. This is used to display and locate static clues, and is not a server-side downloadable URL.
+   * The local file or configuration location where the identification evidence is found. This is used to display and locate static clues, and is not a server-downloadable address.
    * 
    * @example
    * /opt/example-agent/package.json
@@ -302,7 +302,7 @@ export class TypedAIAssetRecognitionEvidenceAutonomousExecution extends $dara.Mo
 export class TypedAIAssetRecognitionEvidenceModelCall extends $dara.Model {
   /**
    * @remarks
-   * The collected declaration text related to the recognition basis. This is currently used mainly for agent_declaration, and other recognition evidence may not return content. This should not be interpreted as an actual execution log.
+   * The collected declaration text related to the identification evidence, currently used mainly for agent_declaration. Other identification evidence may not return content. This should not be interpreted as an actual execution log.
    * 
    * @example
    * An AI agent that plans tasks and uses configured tools.
@@ -310,7 +310,7 @@ export class TypedAIAssetRecognitionEvidenceModelCall extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The local file or configuration path where the recognition evidence is located. This is used to display and locate static clues, and is not a server-side downloadable URL.
+   * The local file or configuration location where the identification evidence is found. This is used to display and locate static clues, and is not a server-downloadable address.
    * 
    * @example
    * /opt/example-agent/package.json
@@ -342,7 +342,7 @@ export class TypedAIAssetRecognitionEvidenceModelCall extends $dara.Model {
 export class TypedAIAssetRecognitionEvidenceStateManagement extends $dara.Model {
   /**
    * @remarks
-   * The collected declaration text related to the recognition basis. This is currently used mainly for agent_declaration, and other recognition evidence may not return content. This should not be interpreted as an actual execution log.
+   * The collected declaration text related to the identification evidence, currently used mainly for agent_declaration. Other identification evidence may not return content. This should not be interpreted as an actual execution log.
    * 
    * @example
    * An AI agent that plans tasks and uses configured tools.
@@ -350,7 +350,7 @@ export class TypedAIAssetRecognitionEvidenceStateManagement extends $dara.Model 
   content?: string;
   /**
    * @remarks
-   * The local file or configuration path where the recognition evidence is located. This is used to display and locate static clues, and is not a server-side downloadable URL.
+   * The local file or configuration location where the identification evidence is found. This is used to display and locate static clues, and is not a server-downloadable address.
    * 
    * @example
    * /opt/example-agent/package.json
@@ -382,7 +382,7 @@ export class TypedAIAssetRecognitionEvidenceStateManagement extends $dara.Model 
 export class TypedAIAssetRecognitionEvidenceToolCall extends $dara.Model {
   /**
    * @remarks
-   * The collected declaration text related to the recognition basis. This is currently used mainly for agent_declaration, and other recognition evidence may not return content. This should not be interpreted as an actual execution log.
+   * The collected declaration text related to the identification evidence, currently used mainly for agent_declaration. Other identification evidence may not return content. This should not be interpreted as an actual execution log.
    * 
    * @example
    * An AI agent that plans tasks and uses configured tools.
@@ -390,7 +390,7 @@ export class TypedAIAssetRecognitionEvidenceToolCall extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The local file or configuration path where the recognition evidence is located. This is used to display and locate static clues, and is not a server-side downloadable URL.
+   * The local file or configuration location where the identification evidence is found. This is used to display and locate static clues, and is not a server-downloadable address.
    * 
    * @example
    * /opt/example-agent/package.json
@@ -454,7 +454,7 @@ export class TypedAIAssetRecognitionEvidence extends $dara.Model {
   stateManagement?: TypedAIAssetRecognitionEvidenceStateManagement[];
   /**
    * @remarks
-   * The array of static evidence related to tool declarations or code to invoke tools. This does not indicate that the tools were actually executed.
+   * The array of static evidence related to tool declarations or code to invoke tools. This does not indicate that the tool was actually executed.
    * 
    * @example
    * [{"source_path":"/opt/example-agent/tools.py"}]
@@ -507,7 +507,7 @@ export class TypedAIAssetRecognitionEvidence extends $dara.Model {
 export class TypedAIAssetRiskInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of high-risk items in the currently saved detection results. This is interpreted as an actual count only when detection results are available.
+   * The number of high-risk items in the current saved detection results. This is interpreted as an actual count only when detection results are available.
    * 
    * @example
    * 1
@@ -515,7 +515,7 @@ export class TypedAIAssetRiskInfo extends $dara.Model {
   highRiskCnt?: number;
   /**
    * @remarks
-   * The number of low-risk items in the currently saved detection results. A value of zero indicates no low-risk items in the results but does not indicate overall security.
+   * The number of low-risk items in the current saved detection results. A value of zero indicates no low-risk items in the results, but does not indicate overall security.
    * 
    * @example
    * 0
@@ -523,7 +523,7 @@ export class TypedAIAssetRiskInfo extends $dara.Model {
   lowRiskCnt?: number;
   /**
    * @remarks
-   * The number of medium-risk items in the currently saved detection results. A value of zero indicates no medium-risk items in the results but does not indicate the absence of other risks.
+   * The number of medium-risk items in the current saved detection results. A value of zero indicates no medium-risk items in the results, but does not indicate the absence of other risks.
    * 
    * @example
    * 0
@@ -557,7 +557,7 @@ export class TypedAIAssetRiskInfo extends $dara.Model {
 export class TypedAIAsset extends $dara.Model {
   /**
    * @remarks
-   * The access method for the MCP. Valid values: local_process for local processes, remote_service for remote services, and unknown for undetermined methods.
+   * The MCP access type. Valid values: local_process for local processes, remote_service for remote services, and unknown for undetermined.
    * 
    * @example
    * local_process
@@ -565,7 +565,7 @@ export class TypedAIAsset extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The database primary key of the agent instance associated with the leaf asset, returned as a decimal numeric string. The value can be 0 when no agent is associated, and it can also be 0 in the details of the agent itself. This field is not returned in aggregated lists.
+   * The database primary key of the agent instance associated with the leaf asset, returned as a decimal string. This value can be 0 when not associated, and can also be 0 in the agent\"s own details. This field is not returned in aggregation lists.
    * 
    * @example
    * 1234567890123456789
@@ -573,7 +573,7 @@ export class TypedAIAsset extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The configuration path where the LLM, MCP, or tool declaration is located. This is not a skill package identifier. It is returned in instance details but not in aggregated lists.
+   * The configuration path where the LLM, MCP, or tool declaration is located. This is not a skill package identifier. This field may be returned in instance details but is not returned in aggregated lists.
    * 
    * @example
    * /home/example/.config/example-agent/config.json
@@ -581,15 +581,15 @@ export class TypedAIAsset extends $dara.Model {
   configPath?: string;
   /**
    * @remarks
-   * The description text collected for an MCP, tool, or skill. This is not returned if missing. Aggregated lists only return descriptions that are consistent within the group.
+   * The description text collected for the MCP, tool, or skill. This field is not returned if missing, and aggregated lists only return descriptions that are consistent within the group.
    * 
    * @example
-   * 读取并整理指定目录中的文档。
+   * Read and organize documents in the specified directory
    */
   description?: string;
   /**
    * @remarks
-   * The configured service endpoint for an LLM model service or remote MCP. Local stdio MCPs may not have this field. Its presence does not indicate a successful connection or actual invocation.
+   * The configured service endpoint for the LLM model service or remote MCP. This field may be absent for local stdio MCP and does not indicate a successful connection or actual invocation.
    * 
    * @example
    * https://api.example.com/v1
@@ -597,7 +597,7 @@ export class TypedAIAsset extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The classification of the LLM service endpoint. Valid values: official for official services, third_party for third-party services, and unknown for undetermined services. This classification does not represent a security detection conclusion.
+   * The classification of the LLM service endpoint. Valid values: official for official services, third_party for third-party services, and unknown for undetermined. This classification does not represent a security detection conclusion.
    * 
    * @example
    * official
@@ -605,7 +605,7 @@ export class TypedAIAsset extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The time when the asset instance was first observed. The value is a database datetime string that may include six decimal places for seconds, without a unified time zone indicator. This field is not returned in aggregated lists.
+   * The time when the asset instance was first observed. The value is a database datetime string that may include six decimal places for seconds. The returned value does not include a unified time zone indicator. This field is not returned in aggregated lists.
    * 
    * @example
    * 2026-10-16 10:30:00.000000
@@ -613,7 +613,7 @@ export class TypedAIAsset extends $dara.Model {
   firstSeen?: string;
   /**
    * @remarks
-   * The installation form of the agent, such as desktop_app, ide_extension, cli, or sdk. This is not the endpoint operating system such as Windows or macOS. The specific value is subject to the instance recognition result.
+   * The installation form of the agent, such as desktop_app, ide_extension, cli, or sdk. This does not refer to endpoint operating systems like Windows or macOS. The specific value depends on the instance identification result.
    * 
    * @example
    * cli
@@ -621,7 +621,7 @@ export class TypedAIAsset extends $dara.Model {
   form?: string;
   /**
    * @remarks
-   * The database primary key of the table where the asset instance is located, returned as a decimal numeric string to prevent precision loss of large integers. This is not the asset aggregation key AssetKey, and this instance field is not returned in aggregated lists.
+   * The database primary key of the table where the asset instance is located, returned as a decimal string to prevent precision loss for large integers. This is not the asset aggregation key AssetKey, and this instance field is not returned in aggregation lists.
    * 
    * @example
    * 1234567890123456789
@@ -629,7 +629,7 @@ export class TypedAIAsset extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The collected product identity clues and their categorization by identifier type. These are used for auxiliary identification and do not indicate that signatures, publishers, or file contents have been authenticated through security authentication.
+   * The collected product identity clues, grouped by identifier type. These are used to assist identification and do not authenticate signatures, publishers, or file contents for security.
    * 
    * @example
    * {"macos_bundle_id":["com.example.agent"],"npm_package":["@example/agent-cli"]}
@@ -637,7 +637,7 @@ export class TypedAIAsset extends $dara.Model {
   identityIdentifiers?: TypedAIAssetIdentityIdentifiers;
   /**
    * @remarks
-   * The installation path of the agent instance. This field is used only for instance details and is not returned in aggregated lists. It is not applicable to other asset types.
+   * The installation path of the agent instance. This field is used only for instance details, is not returned in aggregation lists, and is not applicable to other asset types.
    * 
    * @example
    * /opt/example-agent
@@ -645,7 +645,7 @@ export class TypedAIAsset extends $dara.Model {
   installPath?: string;
   /**
    * @remarks
-   * The instance identity installed or declared within the endpoint, calculated by the script based on the asset type, ownership, and location. The identity scope must still include the tenant and endpoint, and it cannot be used as a globally unique ID across endpoints. This field is not returned in aggregation lists.
+   * The instance identity installed or declared within the endpoint, calculated by the script based on asset type, ownership, and location. The identity scope must still include the tenant and endpoint, and it cannot serve as a globally unique ID across endpoints. This field is not returned in aggregation lists.
    * 
    * @example
    * sha256:70e28ce51d55863f2ac5bb81efcee54026ff9fdde9b52346c659f4e24017e7f6
@@ -653,7 +653,7 @@ export class TypedAIAsset extends $dara.Model {
   instanceLocalId?: string;
   /**
    * @remarks
-   * The time of the last successful detection for the current skill content. This field is empty or not returned if no saved successful detection record exists. The value is a database datetime string without a unified time zone indicator. This field is not returned in aggregated lists.
+   * The latest successful inspection time of the current skill content. This field is empty or not returned when there are no saved successful inspection records. The value is a database datetime string without a unified time zone indicator. This field is not returned in aggregated lists.
    * 
    * @example
    * 2026-10-16 10:30:00.000000
@@ -661,7 +661,7 @@ export class TypedAIAsset extends $dara.Model {
   lastCheckTime?: string;
   /**
    * @remarks
-   * The database ID of the latest detection task associated with the current skill content, returned as a decimal numeric string. The value can be 0 if no task is associated. The presence of a task ID does not indicate that the detection is complete. This field is not returned in aggregated lists.
+   * The database ID of the latest inspection task associated with the current skill content, returned as a decimal numeric string. This can be 0 if no task is associated. The presence of a task ID does not indicate that the inspection is complete. This field is not returned in aggregated lists.
    * 
    * @example
    * 1234567890123456791
@@ -669,7 +669,7 @@ export class TypedAIAsset extends $dara.Model {
   lastDetectTaskId?: string;
   /**
    * @remarks
-   * The time when the asset instance was last actually observed. The value is a database datetime string that may include six decimal places for seconds. This is not the page query time. This field is not returned in aggregated lists.
+   * The time when the asset instance was most recently observed. The value is a database datetime string that may include six decimal places for seconds. This is not the page query time. This field is not returned in aggregated lists.
    * 
    * @example
    * 2026-10-16 11:30:00.000000
@@ -677,7 +677,7 @@ export class TypedAIAsset extends $dara.Model {
   lastSeen?: string;
   /**
    * @remarks
-   * The array of static recognition basis tags matched by the agent, which can include model_call, tool_call, autonomous_execution, state_management, and agent_declaration. This does not indicate that the agent was actually executed or passed security certification.
+   * The array of static identification evidence tags matched by the agent, which may include model_call, tool_call, autonomous_execution, state_management, and agent_declaration. This does not indicate actual execution or security certification.
    * 
    * @example
    * ["model_call","tool_call"]
@@ -685,7 +685,7 @@ export class TypedAIAsset extends $dara.Model {
   matchedRules?: string[];
   /**
    * @remarks
-   * The database primary key of the MCP instance associated with the tool, returned as a decimal numeric string. The value can be 0 when no MCP is associated, and this field is not applicable to other asset types. This field is not returned in aggregated lists.
+   * The database primary key of the MCP instance associated with the tool, returned as a decimal string. This value can be 0 when not associated with an MCP, and is not applicable to other asset types. This field is not returned in aggregation lists.
    * 
    * @example
    * 1234567890123456790
@@ -693,7 +693,7 @@ export class TypedAIAsset extends $dara.Model {
   mcpId?: string;
   /**
    * @remarks
-   * The product code of the agent. The specific value is subject to the product catalog in the recognition rules. This field is not returned when it is not applicable, unidentified, or inconsistent across aggregated attributes.
+   * The agent product code. Refer to the identification rule product catalog for specific values. This field is not returned when not applicable, unidentified, or when aggregation properties are inconsistent.
    * 
    * @example
    * example_agent
@@ -701,7 +701,7 @@ export class TypedAIAsset extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The provider identifier matched based on the service endpoint and provider directory. This may not be returned if no match is found and is not the product code of the associated agent.
+   * The provider identifier matched by the service endpoint and provider directory. This may not be returned if no match is found and is not the product code of the associated agent.
    * 
    * @example
    * example_provider
@@ -709,7 +709,7 @@ export class TypedAIAsset extends $dara.Model {
   providerId?: string;
   /**
    * @remarks
-   * The provider display name of the tool. This is generated from the associated MCP, agent, or declaration source and is not a proof of security or trust.
+   * The provider display name of the tool, which is generated from the associated MCP, agent, or declaration source. This is not a proof of security or trust.
    * 
    * @example
    * Example MCP
@@ -717,15 +717,15 @@ export class TypedAIAsset extends $dara.Model {
   providerName?: string;
   /**
    * @remarks
-   * The Chinese display name of the service provider. The directory name is prioritized. The name parsed from the service endpoint may be used if no match is found. The presence of this field does not indicate that the service provider is identified.
+   * The Chinese display name of the service provider. The directory name is preferred, but a name parsed from the service endpoint may be used if no match is found. The presence of this field does not indicate that the service provider is identified.
    * 
    * @example
-   * 示例模型服务商
+   * Sample model service provider
    */
   providerNameCn?: string;
   /**
    * @remarks
-   * The English display name of the service provider. The directory name is prioritized. The name parsed from the service endpoint may be used if no match is found. The presence of this field does not indicate that the service provider is identified.
+   * The English display name of the service provider. The directory name is preferred, but a name parsed from the service endpoint may be used if no match is found. The presence of this field does not indicate that the service provider is identified.
    * 
    * @example
    * Example Model Provider
@@ -741,7 +741,7 @@ export class TypedAIAsset extends $dara.Model {
   providerType?: string;
   /**
    * @remarks
-   * The static recognition basis of the agent, which lists the source paths and evidence text grouped by recognition tags. This is not a runtime audit record, and instance-level evidence is not returned in aggregated lists.
+   * The static identification evidence for the agent, listing source locations and evidence text grouped by identification tags. This is not a runtime audit record, and instance-level evidence is not returned in aggregation lists.
    * 
    * @example
    * {"model_call":[{"source_path":"/opt/example-agent/model.py"}]}
@@ -749,7 +749,7 @@ export class TypedAIAsset extends $dara.Model {
   recognitionEvidence?: TypedAIAssetRecognitionEvidence;
   /**
    * @remarks
-   * The product recognition status of the agent. identified indicates recognized, unidentified indicates pending recognition, and conflict indicates a recognition conflict. This status does not indicate whether the asset is secure.
+   * The product recognition status of the agent: identified means recognized, unidentified means pending recognition, and conflict means recognition conflict. This does not indicate whether the asset is secure.
    * 
    * @example
    * identified
@@ -757,7 +757,7 @@ export class TypedAIAsset extends $dara.Model {
   recognitionStatus?: string;
   /**
    * @remarks
-   * The counts of high, medium, and low-risk items saved for the current skill content. This may be empty or not returned when no detection results are available. A missing value cannot be interpreted as a zero risk count or an indication of security.
+   * The saved counts of high, medium, and low risk items for the current skill content. This field may be empty or not returned when there are no detection results. The absence of this field cannot be interpreted as a zero risk count or a secure status.
    * 
    * @example
    * {"highRiskCnt":1,"mediumRiskCnt":0,"lowRiskCnt":0}
@@ -765,7 +765,7 @@ export class TypedAIAsset extends $dara.Model {
   riskInfo?: TypedAIAssetRiskInfo;
   /**
    * @remarks
-   * The final risk level saved for the current skill content. This is not returned when no detection conclusion is available. The value high is provided only as a format example and does not serve as a new enumeration constraint.
+   * The saved final risk level of the current skill content. This field is not returned when there is no detection conclusion. The value high is provided only as a format example and does not serve as a new enumeration constraint.
    * 
    * @example
    * high
@@ -773,7 +773,7 @@ export class TypedAIAsset extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The scan batch identifier of the most recent scan where the instance was actually observed. This is not a database primary key or asset content hash. This field is not returned in aggregated lists.
+   * The scan batch identifier when this instance was last actually observed. This is not a database primary key or asset content hash. This field is not returned in aggregation lists.
    * 
    * @example
    * scan-0123456789abcdef0123456789abcdef
@@ -789,7 +789,7 @@ export class TypedAIAsset extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The SHA-256 hash of the complete skill package bytes. The format is a 64-character lowercase hexadecimal string without the sha256: prefix. The current script uses the skill-canonical-zip-v1 specification for compression. This is not equivalent to the installation instance ID and does not indicate that the package has been inspected or is secure.
+   * The SHA-256 hash of the complete skill package bytes, formatted as a 64-character lowercase hexadecimal string without the sha256: prefix. The current script uses the skill-canonical-zip-v1 specification for compression. This is not equivalent to the installation instance ID and does not indicate that the package has been inspected or is secure.
    * 
    * @example
    * 60d3292dd23fe7d2760d6a228123d1e4eb3d91bdb511089015e854d68ea9e460
@@ -797,7 +797,7 @@ export class TypedAIAsset extends $dara.Model {
   standardSha256?: string;
   /**
    * @remarks
-   * The transport protocol declared in the MCP configuration. The collected value is retained as-is, such as stdio, sse, or streamable_http. This cannot be used to determine whether the service is running or has been invoked.
+   * The transport protocol declared in the MCP configuration. The collected value is preserved as-is, such as stdio, sse, or streamable_http. This cannot be used to determine whether the service is running or has been invoked.
    * 
    * @example
    * stdio
@@ -805,7 +805,7 @@ export class TypedAIAsset extends $dara.Model {
   transport?: string;
   /**
    * @remarks
-   * The vendor code for the collected and stored skill. The current default value is 1000. This cannot be used to infer a specific vendor or security status.
+   * The vendor code for skill collection and storage. The current default value is 1000. This cannot be used to infer a specific vendor or security status.
    * 
    * @example
    * 1000
@@ -813,7 +813,7 @@ export class TypedAIAsset extends $dara.Model {
   vendor?: number;
   /**
    * @remarks
-   * The collected installation version of the agent. This field is not returned when the version is not collected. In aggregated lists, this field is returned only when the versions of all instances in the group are identical and not empty.
+   * The collected installation version of the agent. This field is not returned if not collected. In aggregation lists, it is only returned when all instances in the group have the same non-empty version.
    * 
    * @example
    * 1.2.3

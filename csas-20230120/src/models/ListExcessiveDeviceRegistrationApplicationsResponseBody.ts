@@ -21,7 +21,7 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
   createTime?: string;
   /**
    * @remarks
-   * The user\\"s department.
+   * The user\"s department.
    * 
    * @example
    * 测试部

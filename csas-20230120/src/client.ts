@@ -38,7 +38,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加设备归属标识
+   * Adds MAC addresses, system serial numbers, and BIOS serial numbers to the device ownership list of the current tenant in batches. Returns the record IDs in the input order of the added items after the transaction commit. Existing identities and duplicates within the batch are skipped. Returns an empty list if no records are added in the batch. The added IDs can be used to query or remove the records.
    * 
    * @param request - AddDeviceBelongIdentifiersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74,7 +74,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加设备归属标识
+   * Adds MAC addresses, system serial numbers, and BIOS serial numbers to the device ownership list of the current tenant in batches. Returns the record IDs in the input order of the added items after the transaction commit. Existing identities and duplicates within the batch are skipped. Returns an empty list if no records are added in the batch. The added IDs can be used to query or remove the records.
    * 
    * @param request - AddDeviceBelongIdentifiersRequest
    * @returns AddDeviceBelongIdentifiersResponse
@@ -6434,7 +6434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询设备归属标识
+   * Performs a paging query on the device ownership identifiers of the current tenant. You can filter the results by identifier type, record ID, or the intersection of both. The IDs returned by the batch add operation can be used to query newly added records. The returned record IDs can be used for batch removal.
    * 
    * @param request - ListDeviceBelongIdentifiersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6454,6 +6454,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.identifierType)) {
       body["IdentifierType"] = request.identifierType;
+    }
+
+    if (!$dara.isNull(request.identifierValues)) {
+      bodyFlat["IdentifierValues"] = request.identifierValues;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -6490,7 +6494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询设备归属标识
+   * Performs a paging query on the device ownership identifiers of the current tenant. You can filter the results by identifier type, record ID, or the intersection of both. The IDs returned by the batch add operation can be used to query newly added records. The returned record IDs can be used for batch removal.
    * 
    * @param request - ListDeviceBelongIdentifiersRequest
    * @returns ListDeviceBelongIdentifiersResponse
@@ -6501,7 +6505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
+   * Queries the list of device groups under the current Alibaba Cloud account by using paging for the paged query.
    * 
    * @param request - ListDeviceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6544,7 +6548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
+   * Queries the list of device groups under the current Alibaba Cloud account by using paging for the paged query.
    * 
    * @param request - ListDeviceGroupsRequest
    * @returns ListDeviceGroupsResponse
@@ -7620,7 +7624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Layer 7 switches of internal-facing applications in batches.
+   * Queries the Layer 7 switches for internal access applications.
    * 
    * @param request - ListPrivateAccessApplicationL7SwitchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7647,7 +7651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Layer 7 switches of internal-facing applications in batches.
+   * Queries the Layer 7 switches for internal access applications.
    * 
    * @param request - ListPrivateAccessApplicationL7SwitchesRequest
    * @returns ListPrivateAccessApplicationL7SwitchesResponse
@@ -9466,7 +9470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量移除设备归属标识
+   * Removes device ownership identifiers for the current tenant in batches by record ID. You can obtain the IDs from the responses of the query and batch add operations. If any ID does not exist or does not belong to the current tenant, the entire batch fails and an InvalidParameter error is returned. After the identifiers are removed, device ownership is still determined by other matching items and explicit ownership configurations.
    * 
    * @param request - RemoveDeviceBelongIdentifiersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9502,7 +9506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量移除设备归属标识
+   * Removes device ownership identifiers for the current tenant in batches by record ID. You can obtain the IDs from the responses of the query and batch add operations. If any ID does not exist or does not belong to the current tenant, the entire batch fails and an InvalidParameter error is returned. After the identifiers are removed, device ownership is still determined by other matching items and explicit ownership configurations.
    * 
    * @param request - RemoveDeviceBelongIdentifiersRequest
    * @returns RemoveDeviceBelongIdentifiersResponse
@@ -10316,7 +10320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a device label.
+   * Updates a device tag.
    * 
    * @param tmpReq - UpdateDeviceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10369,7 +10373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a device label.
+   * Updates a device tag.
    * 
    * @param request - UpdateDeviceGroupRequest
    * @returns UpdateDeviceGroupResponse
@@ -10854,7 +10858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Layer 7 access switch for an internal access application.
+   * Updates the Layer 7 switch for an internal access application.
    * 
    * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10926,7 +10930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Layer 7 access switch for an internal access application.
+   * Updates the Layer 7 switch for an internal access application.
    * 
    * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
    * @returns UpdatePrivateAccessApplicationL7SwitchResponse

@@ -43,7 +43,15 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchPortRange
 }
 
 export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchUrlAccessPaths extends $dara.Model {
+  /**
+   * @remarks
+   * The list of HTTP request methods allowed for the paths in this group. An empty value indicates that request methods are not restricted.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The list of URL paths allowed for access in this group. You must specify at least 1 path and up to 20 paths. The paths match the path part in the request, excluding the protocol, domain name, and query parameters.
+   */
   urls?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -105,7 +113,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   downloadAuditStatus?: string;
   /**
    * @remarks
-   * The effective port ranges for Layer 7 access, which are the intersection of the ports specified in this request and the configured port ranges of the internal access application. If Status is set to **Disabled**, an empty set is returned.
+   * The effective port ranges for Layer 7 access, which are the intersection of the ports specified in this request and the port ranges already configured for the internal access application. An empty set is returned when Status is set to **Disabled**.
    */
   portRanges?: UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchPortRanges[];
   /**
@@ -130,12 +138,16 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   status?: string;
   /**
    * @remarks
-   * The request timeout period, in seconds.
+   * The request timeout period in seconds.
    * 
    * @example
    * 60
    */
   timeoutSec?: number;
+  /**
+   * @remarks
+   * The URL access whitelist rules for the application. This parameter takes effect only when Status is set to Enabled. An empty value indicates that URLs and request methods are not restricted. A request passes the URL check only when the request path and the method meet any group of rules at the same time. Otherwise, the request is blocked. Passing the URL check does not allow requests that are already blocked by an access policy.
+   */
   urlAccessPaths?: UpdatePrivateAccessApplicationL7SwitchResponseBodyL7SwitchUrlAccessPaths[];
   /**
    * @remarks
@@ -149,7 +161,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
   userMarkStatus?: string;
   /**
    * @remarks
-   * The Host bypass prevention switch. Valid values:
+   * The host bypass prevention switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -205,7 +217,7 @@ export class UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch extends 
 export class UpdatePrivateAccessApplicationL7SwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Layer 7 access switch configurations of the internal access application after the update.
+   * The Layer 7 access switch configuration of the internal access application after this update.
    */
   l7Switch?: UpdatePrivateAccessApplicationL7SwitchResponseBodyL7Switch;
   /**

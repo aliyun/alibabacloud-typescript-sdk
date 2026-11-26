@@ -258,7 +258,7 @@ export class ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStat
 export class ListDynamicDisposalProcessesResponseBodyDisposalProcesses extends $dara.Model {
   /**
    * @remarks
-   * User\\"s department.
+   * User\"s department.
    * 
    * @example
    * IT

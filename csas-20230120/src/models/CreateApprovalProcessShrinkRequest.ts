@@ -8,7 +8,7 @@ export class CreateApprovalProcessShrinkRequest extends $dara.Model {
    * The description of the approval process. The description must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
-   * Process for approving employees\\" temporary access to internal network applications
+   * Process for approving employees\" temporary access to internal network applications
    */
   description?: string;
   /**

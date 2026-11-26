@@ -461,7 +461,7 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
    * The description of the approval process.
    * 
    * @example
-   * Process for approving employees\\" temporary access to internal network applications
+   * Process for approving employees\" temporary access to internal network applications
    */
   description?: string;
   /**

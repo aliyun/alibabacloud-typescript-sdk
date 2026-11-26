@@ -24,7 +24,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends $da
    * The directory where the process is located.
    * 
    * @example
-   * C:\\Program Files\\Thunder Network\\Thunder
+   * C:\Program Files\Thunder Network\Thunder
    */
   directory?: string;
   /**
@@ -84,7 +84,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends $da
    * The directory where the process is located.
    * 
    * @example
-   * C:\\Program Files\\Thunder Network\\Thunder
+   * C:\Program Files\Thunder Network\Thunder
    */
   directory?: string;
   /**
@@ -144,7 +144,7 @@ export class GetProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends $
    * The directory where the process is located.
    * 
    * @example
-   * C:\\Program Files\\Thunder Network\\Thunder
+   * C:\Program Files\Thunder Network\Thunder
    */
   directory?: string;
   /**

@@ -38,7 +38,7 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   /**
    * @remarks
    * The type of the device group. Valid values:
-   * - **static**: A static device group. Members are terminal devices that are manually added.
+   * - **static**: A static device group. Its members are terminal devices that are manually added.
    * - **dynamic**: A dynamic device group.
    * 
    * @example
@@ -57,7 +57,7 @@ export class GetDeviceGroupResponseBodyDeviceGroup extends $dara.Model {
   isDefault?: string;
   /**
    * @remarks
-   * The IDs of the devices associated with the device group.
+   * The IDs of the terminal devices associated with the device group.
    */
   matchDevTags?: string[];
   /**

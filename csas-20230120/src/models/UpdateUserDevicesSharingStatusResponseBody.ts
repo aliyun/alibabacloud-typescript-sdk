@@ -81,7 +81,7 @@ export class UpdateUserDevicesSharingStatusResponseBodyDevices extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * User\\"s department.
+   * User\"s department.
    * 
    * @example
    * 测试部

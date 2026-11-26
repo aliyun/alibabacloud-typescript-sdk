@@ -43,7 +43,15 @@ export class UpdatePrivateAccessApplicationL7SwitchRequestPortRanges extends $da
 }
 
 export class UpdatePrivateAccessApplicationL7SwitchRequestUrlAccessPaths extends $dara.Model {
+  /**
+   * @remarks
+   * The list of HTTP request methods allowed for the paths in this group. You can specify up to 7 methods. If this parameter is not specified or an empty array is specified, the request methods are not restricted.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The list of URL paths allowed for access in this group. You must specify at least 1 path and up to 20 paths. The paths match the path part in the request, excluding the protocol, domain name, and query parameters.
+   */
   urls?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -105,7 +113,7 @@ export class UpdatePrivateAccessApplicationL7SwitchRequest extends $dara.Model {
   downloadAuditStatus?: string;
   /**
    * @remarks
-   * The port ranges for the internal access application. Multiple port ranges cannot overlap or be duplicated. You can specify up to 50 port ranges. This parameter takes effect and is verified only when Status is set to **Enabled**. If this parameter is not specified or an empty set is specified, the default ports 80, 443, 8080, and 465 are used. The effective ports are the intersection of the ports specified in this request and the configured port ranges of the internal access application.
+   * The port ranges for the internal access application. Multiple port ranges cannot be duplicate or overlap. You can specify up to 50 port ranges. This parameter takes effect and is verified only when Status is set to **Enabled**. If this parameter is not specified or an empty set is specified, the default ports 80, 443, 8080, and 465 are used. The effective ports are the intersection of the ports specified in this request and the port ranges already configured for the internal access application.
    */
   portRanges?: UpdatePrivateAccessApplicationL7SwitchRequestPortRanges[];
   /**
@@ -124,7 +132,7 @@ export class UpdatePrivateAccessApplicationL7SwitchRequest extends $dara.Model {
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
-   * When the value is set to **Disabled**, PortRanges is neither verified nor saved.
+   * When the value is **Disabled**, PortRanges is neither verified nor saved.
    * 
    * @example
    * Enabled
@@ -132,12 +140,16 @@ export class UpdatePrivateAccessApplicationL7SwitchRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The request timeout period, in seconds. Valid values: 1 to 3600. Default value: 60. If this parameter is not specified or an invalid value is specified, the default value 60 is used.
+   * The request timeout period in seconds. Valid values: 1 to 3600. Default value: 60. If this parameter is not specified or an invalid value is specified, the default value 60 is used.
    * 
    * @example
    * 60
    */
   timeoutSec?: number;
+  /**
+   * @remarks
+   * The URL access whitelist rules for the application. You can specify up to 20 rule groups. The size cannot exceed 2,048 bytes after JSON serialization. This parameter takes effect only when Status is set to Enabled. A request passes the URL check only when its path and method meet any group of rules at the same time; otherwise, the request is blocked. Requests that are already blocked by access policies are not allowed even if they pass the URL check. If this parameter is not specified or an empty array is specified, the original rules are cleared. The rules are also cleared when Status is set to Disabled.
+   */
   urlAccessPaths?: UpdatePrivateAccessApplicationL7SwitchRequestUrlAccessPaths[];
   /**
    * @remarks
@@ -151,7 +163,7 @@ export class UpdatePrivateAccessApplicationL7SwitchRequest extends $dara.Model {
   userMarkStatus?: string;
   /**
    * @remarks
-   * The Host bypass prevention switch. Required. Valid values:
+   * The host bypass prevention switch. Required. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 

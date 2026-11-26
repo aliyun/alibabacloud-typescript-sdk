@@ -13,7 +13,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesPortRan
   begin?: number;
   /**
    * @remarks
-   * The end port. The value must be greater than or equal to the start port.
+   * The end port. Must be greater than or equal to the start port.
    * 
    * @example
    * 24
@@ -43,7 +43,15 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesPortRan
 }
 
 export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesUrlAccessPaths extends $dara.Model {
+  /**
+   * @remarks
+   * The list of HTTP request methods allowed for the paths in this group. An empty value indicates that request methods are not restricted.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The list of URL paths allowed for access in this group. The list must contain at least 1 path and up to 20 paths. This parameter matches the path part in the request, excluding the protocol, domain name, and query parameters.
+   */
   urls?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -77,7 +85,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesUrlAcce
 export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extends $dara.Model {
   /**
    * @remarks
-   * The ID of the internal-facing application.
+   * The ID of the internal access application.
    * 
    * @example
    * pa-application-bbbc550d7c6e4db6
@@ -112,7 +120,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
    * @remarks
    * The source IP marking switch. Valid values:
    * - **Enabled**: Enabled.
-   * - **Disabled**: Disabled.
+   * - **Disabled**: Disabled.**
    * 
    * @example
    * Disabled
@@ -120,7 +128,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
   srcIpMarkStatus?: string;
   /**
    * @remarks
-   * The status of the internal-facing access policy. Valid values:
+   * The status of the internal access policy. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 
@@ -136,6 +144,10 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
    * 60
    */
   timeoutSec?: number;
+  /**
+   * @remarks
+   * The URL access whitelist rules for the application. These rules take effect only when Status is set to Enabled. An empty value indicates that URLs and request methods are not restricted. A request passes the URL check only when the request path and method meet any group of rules at the same time. Otherwise, the request is blocked. Passing the URL check does not allow requests that are already blocked by an access policy.
+   */
   urlAccessPaths?: ListPrivateAccessApplicationL7SwitchesResponseBodyL7SwitchesUrlAccessPaths[];
   /**
    * @remarks
@@ -149,7 +161,7 @@ export class ListPrivateAccessApplicationL7SwitchesResponseBodyL7Switches extend
   userMarkStatus?: string;
   /**
    * @remarks
-   * The host bypass prevention switch. Valid values:
+   * The host anti-bypass switch. Valid values:
    * - **Enabled**: Enabled.
    * - **Disabled**: Disabled.
    * 

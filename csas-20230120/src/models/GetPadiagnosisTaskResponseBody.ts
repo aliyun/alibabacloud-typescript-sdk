@@ -705,7 +705,7 @@ export class GetPADiagnosisTaskResponseBodyDiagnosisTaskResultPolicyInfoDeviceAt
    * The firewall.
    * 
    * @example
-   * [{\\"Platform\\":\\"windows\\",\\"Status\\":\\"disabled\\"},{\\"Platform\\":\\"macos\\",\\"Status\\":\\"disabled\\"},{\\"Platform\\":\\"linux\\",\\"Status\\":\\"disabled\\"}]
+   * [{\"Platform\":\"windows\",\"Status\":\"disabled\"},{\"Platform\":\"macos\",\"Status\":\"disabled\"},{\"Platform\":\"linux\",\"Status\":\"disabled\"}]
    */
   firewall?: string;
   /**

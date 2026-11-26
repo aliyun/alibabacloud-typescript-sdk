@@ -24,7 +24,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareLinuxProcesses extends 
    * The directory where the process is located.
    * 
    * @example
-   * C:\\\\autotest
+   * C:\\autotest
    */
   directory?: string;
   /**
@@ -84,7 +84,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareMacOSProcesses extends 
    * The directory where the process is located.
    * 
    * @example
-   * C:\\\\autotest
+   * C:\\autotest
    */
   directory?: string;
   /**
@@ -144,7 +144,7 @@ export class UpdateProhibitedSoftwareResponseBodySoftwareWindowsProcesses extend
    * The directory where the process is located.
    * 
    * @example
-   * C:\\\\autotest
+   * C:\\autotest
    */
   directory?: string;
   /**

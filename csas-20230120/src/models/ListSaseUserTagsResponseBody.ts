@@ -24,7 +24,7 @@ export class ListSaseUserTagsResponseBodyDataList extends $dara.Model {
    * The description of the user label.
    * 
    * @example
-   * These are the company\\"s employees
+   * These are the company\"s employees
    */
   description?: string;
   /**

@@ -24,7 +24,7 @@ export class UpdateProhibitedSoftwareRequestLinuxProcesses extends $dara.Model {
    * The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
    * 
    * @example
-   * C:\\\\autotest
+   * C:\\autotest
    */
   directory?: string;
   /**
@@ -84,7 +84,7 @@ export class UpdateProhibitedSoftwareRequestMacOSProcesses extends $dara.Model {
    * The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
    * 
    * @example
-   * C:\\\\autotest
+   * C:\\autotest
    */
   directory?: string;
   /**
@@ -144,7 +144,7 @@ export class UpdateProhibitedSoftwareRequestWindowsProcesses extends $dara.Model
    * The directory where the process is located. If you specify this parameter, only processes with the same name in this directory are matched. If you leave this parameter empty, processes in any directory are matched. The directory can be up to 1,024 characters in length.
    * 
    * @example
-   * C:\\\\autotest
+   * C:\\autotest
    */
   directory?: string;
   /**

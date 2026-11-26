@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecutePeriodEffectDay extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the policy takes effect on Friday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+   * Specifies whether the policy takes effect on Friday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ExecutePeriodEffectDay extends $dara.Model {
   friday?: boolean;
   /**
    * @remarks
-   * Specifies whether the policy takes effect on Monday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+   * Specifies whether the policy takes effect on Monday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ExecutePeriodEffectDay extends $dara.Model {
   monday?: boolean;
   /**
    * @remarks
-   * Specifies whether the policy takes effect on Saturday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+   * Specifies whether the policy takes effect on Saturday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class ExecutePeriodEffectDay extends $dara.Model {
   saturday?: boolean;
   /**
    * @remarks
-   * Specifies whether the policy takes effect on Sunday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+   * Specifies whether the policy takes effect on Sunday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class ExecutePeriodEffectDay extends $dara.Model {
   sunday?: boolean;
   /**
    * @remarks
-   * Specifies whether the policy takes effect on Thursday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+   * Specifies whether the policy takes effect on Thursday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ExecutePeriodEffectDay extends $dara.Model {
   thursday?: boolean;
   /**
    * @remarks
-   * Specifies whether the policy takes effect on Tuesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+   * Specifies whether the policy takes effect on Tuesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class ExecutePeriodEffectDay extends $dara.Model {
   tuesday?: boolean;
   /**
    * @remarks
-   * Specifies whether the policy takes effect on Wednesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect, and a value of false indicates that the policy does not take effect.
+   * Specifies whether the policy takes effect on Wednesday when ValidType is set to Weekly. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class ExecutePeriodEffectDay extends $dara.Model {
 export class ExecutePeriodEffectTime extends $dara.Model {
   /**
    * @remarks
-   * The end time of the daily effective time range. It uses the 24-hour HH:mm format and is interpreted based on the current system time zone of the server. It must not be earlier than Start.
+   * The end time of the daily effective time range. It uses the 24-hour HH:mm format and is interpreted based on the current system time zone of the server. The value cannot be earlier than Start.
    * 
    * @example
    * 23:59
@@ -135,7 +135,7 @@ export class ExecutePeriodEffectTime extends $dara.Model {
 export class ExecutePeriodScheduleEffect extends $dara.Model {
   /**
    * @remarks
-   * The frequency unit for periodic execution. It is used together with Interval to specify the execution cycle. For example, a value of day indicates daily execution.
+   * The frequency unit for periodic execution. This parameter is used together with Interval to specify the execution cycle. For example, a value of day indicates daily execution.
    * 
    * @example
    * day
@@ -175,7 +175,7 @@ export class ExecutePeriodScheduleEffect extends $dara.Model {
 export class ExecutePeriod extends $dara.Model {
   /**
    * @remarks
-   * The effective days of the week configuration. Used when ValidType is set to Weekly.
+   * The effective days of the week configuration. This parameter is used when ValidType is set to Weekly.
    * 
    * @example
    * {"Monday":true,"Tuesday":true,"Wednesday":true,"Thursday":true,"Friday":true,"Saturday":false,"Sunday":false}
@@ -202,7 +202,7 @@ export class ExecutePeriod extends $dara.Model {
    * The execution cycle mode. Valid values:
    * - **Once**: Single execution mode. Used in combination with ExecuteMode=Once.
    * - **Interval**: Periodic execution at a specified frequency. Used in combination with ExecuteMode=Schedule.
-   * - **Weekly**: Weekly execution on selected days. Used in combination with ExecuteMode=Schedule and EffectDay.
+   * - **Weekly**: Execution on selected days of the week. Used in combination with ExecuteMode=Schedule and EffectDay.
    * 
    * @example
    * Interval

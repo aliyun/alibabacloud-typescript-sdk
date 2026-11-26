@@ -144,7 +144,7 @@ export class ListProhibitedSoftwareResponseBodySoftwareWindowsProcesses extends 
    * The directory where the process is located.
    * 
    * @example
-   * C:\\Program Files\\Thunder Network
+   * C:\Program Files\Thunder Network
    */
   directory?: string;
   /**

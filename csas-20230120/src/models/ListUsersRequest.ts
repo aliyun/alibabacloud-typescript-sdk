@@ -15,7 +15,7 @@ export class ListUsersRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The user\\"s department. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), slashes (/), at signs (@), and spaces.
+   * The user\"s department. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), slashes (/), at signs (@), and spaces.
    * 
    * @example
    * 测试部
@@ -23,7 +23,7 @@ export class ListUsersRequest extends $dara.Model {
   department?: string;
   /**
    * @remarks
-   * The username for a fuzzy match. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+   * The username for a fuzzy match. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\*), at signs (@), and spaces.
    * 
    * @example
    * 王先生
@@ -41,7 +41,7 @@ export class ListUsersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The username for an exact match. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+   * The username for an exact match. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\*), at signs (@), and spaces.
    * 
    * @example
    * 王先生@alibaba.com

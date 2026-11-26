@@ -43,13 +43,13 @@ export class ListUserGroupsForPrivateAccessPolicyResponseBodyPolicesUserGroupsAt
    * @remarks
    * Value of the user group property.
    * 
-   * - If the user group type is **username**, this indicates the username\\"s value. The length is 1 to 128 characters. It supports Chinese characters and uppercase and lowercase English letters. It can contain numbers, periods (.), underscores (_), and hyphens (-).
+   * - If the user group type is **username**, this indicates the username\"s value. The length is 1 to 128 characters. It supports Chinese characters and uppercase and lowercase English letters. It can contain numbers, periods (.), underscores (_), and hyphens (-).
    * 
-   * - If the user group type is **department**, this indicates the department\\"s value, such as OU=Department 1,OU=SASE DingTalk.
+   * - If the user group type is **department**, this indicates the department\"s value, such as OU=Department 1,OU=SASE DingTalk.
    * 
-   * - If the user group type is **email**, this indicates the mailbox\\"s value, such as username\\@example.com.
+   * - If the user group type is **email**, this indicates the mailbox\"s value, such as username\@example.com.
    * 
-   * - If the user group type is **telephone**, this indicates the telephone\\"s value, such as 13900001234.
+   * - If the user group type is **telephone**, this indicates the telephone\"s value, such as 13900001234.
    * 
    * @example
    * OU=部门1,OU=SASE钉钉

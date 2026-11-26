@@ -96,7 +96,7 @@ export class GetUserDeviceResponseBodyDeviceProcesses extends $dara.Model {
    * The description of the running process.
    * 
    * @example
-   * C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe
+   * C:\Program Files\Google\Chrome\Application\chrome.exe
    */
   description?: string;
   /**

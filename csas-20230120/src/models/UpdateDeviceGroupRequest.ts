@@ -6,7 +6,7 @@ import { Rule } from "./Rule";
 export class UpdateDeviceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the device label. Set this parameter to an empty string to clear the description. The description can contain letters, digits, Chinese characters, spaces, periods (.), underscores (_), and hyphens (-).
+   * The description of the device tag. If you pass an empty string, the description is cleared. The description can contain Chinese characters, uppercase and lowercase letters, digits, spaces, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * Test device group description
@@ -14,7 +14,7 @@ export class UpdateDeviceGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the device label.
+   * The ID of the device tag.
    * 
    * @example
    * device-group-5191cf830a5e****
@@ -32,12 +32,12 @@ export class UpdateDeviceGroupRequest extends $dara.Model {
   dynamicOperator?: string;
   /**
    * @remarks
-   * The matching rule of the dynamic device label.
+   * The matching rule for the dynamic device tag.
    */
   dynamicRule?: Rule;
   /**
    * @remarks
-   * The name of the device label. The name must be 1 to 128 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), and hyphens (-). Spaces are not supported.
+   * The name of the device tag. The name must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-). Spaces are not supported.
    * 
    * @example
    * example

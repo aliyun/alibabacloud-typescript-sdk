@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateAccessApplicationL7SwitchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the internal-facing applications. You can specify up to 100 internal-facing application IDs.
+   * The IDs of the internal access applications. You can specify up to 100 application IDs.
    */
   applicationIds?: string[];
   static names(): { [key: string]: string } {

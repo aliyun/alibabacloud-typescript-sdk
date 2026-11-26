@@ -280,7 +280,7 @@ export class ListDlpOutboundLogsResponseBodyLogs extends $dara.Model {
    * The local path of the file on the endpoint.
    * 
    * @example
-   * C:\\Users\\a\\Desktop\\x.xlsx
+   * C:\Users\a\Desktop\x.xlsx
    */
   devFilePath?: string;
   /**

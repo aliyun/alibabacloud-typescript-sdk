@@ -8,7 +8,7 @@ export class CreateSaseUserTagRequest extends $dara.Model {
    * The description of the user tag.
    * 
    * @example
-   * These are the company\\"s employees
+   * These are the company\"s employees
    */
   description?: string;
   /**

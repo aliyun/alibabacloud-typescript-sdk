@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The user\\"s department.
+   * The user\"s department.
    * 
    * @example
    * 测试部
@@ -13,7 +13,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   department?: string;
   /**
    * @remarks
-   * The user\\"s email address.
+   * The user\"s email address.
    * 
    * @example
    * a***@example.net
@@ -34,7 +34,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   idpName?: string;
   /**
    * @remarks
-   * The user\\"s phone number.
+   * The user\"s phone number.
    * 
    * @example
    * 1381111****
