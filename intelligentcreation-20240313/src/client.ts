@@ -34,6 +34,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增剧本热词
+   * 
+   * @param request - AddScriptHotWordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddScriptHotWordResponse
+   */
+  async addScriptHotWordWithOptions(request: $_model.AddScriptHotWordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddScriptHotWordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hotWord)) {
+      body["hotWord"] = request.hotWord;
+    }
+
+    if (!$dara.isNull(request.scriptRecordId)) {
+      body["scriptRecordId"] = request.scriptRecordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddScriptHotWord",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/addScriptHotWord`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddScriptHotWordResponse>(await this.callApi(params, req, runtime), new $_model.AddScriptHotWordResponse({}));
+  }
+
+  /**
+   * 新增剧本热词
+   * 
+   * @param request - AddScriptHotWordRequest
+   * @returns AddScriptHotWordResponse
+   */
+  async addScriptHotWord(request: $_model.AddScriptHotWordRequest): Promise<$_model.AddScriptHotWordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addScriptHotWordWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 添加文案反馈
    * 
    * @param request - AddTextFeedbackRequest
@@ -1689,6 +1742,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIndividuationTextWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除剧本热词
+   * 
+   * @param request - DeleteScriptHotWordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScriptHotWordResponse
+   */
+  async deleteScriptHotWordWithOptions(request: $_model.DeleteScriptHotWordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScriptHotWordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hotWordId)) {
+      query["hotWordId"] = request.hotWordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteScriptHotWord",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/deleteScriptHotWord`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteScriptHotWordResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScriptHotWordResponse({}));
+  }
+
+  /**
+   * 删除剧本热词
+   * 
+   * @param request - DeleteScriptHotWordRequest
+   * @returns DeleteScriptHotWordResponse
+   */
+  async deleteScriptHotWord(request: $_model.DeleteScriptHotWordRequest): Promise<$_model.DeleteScriptHotWordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteScriptHotWordWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3465,6 +3563,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检索剧本热词列表
+   * 
+   * @param request - QueryScriptHotWordListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryScriptHotWordListResponse
+   */
+  async queryScriptHotWordListWithOptions(request: $_model.QueryScriptHotWordListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryScriptHotWordListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hotWord)) {
+      query["hotWord"] = request.hotWord;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scriptRecordId)) {
+      query["scriptRecordId"] = request.scriptRecordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryScriptHotWordList",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/listScriptHotWord`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryScriptHotWordListResponse>(await this.callApi(params, req, runtime), new $_model.QueryScriptHotWordListResponse({}));
+  }
+
+  /**
+   * 检索剧本热词列表
+   * 
+   * @param request - QueryScriptHotWordListRequest
+   * @returns QueryScriptHotWordListResponse
+   */
+  async queryScriptHotWordList(request: $_model.QueryScriptHotWordListRequest): Promise<$_model.QueryScriptHotWordListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryScriptHotWordListWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询会话信息
    * 
    * @param tmpReq - QuerySessionInfoRequest
@@ -4523,6 +4678,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAgentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新剧本热词
+   * 
+   * @param request - UpdateScriptHotWordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScriptHotWordResponse
+   */
+  async updateScriptHotWordWithOptions(request: $_model.UpdateScriptHotWordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScriptHotWordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hotWord)) {
+      body["hotWord"] = request.hotWord;
+    }
+
+    if (!$dara.isNull(request.hotWordId)) {
+      body["hotWordId"] = request.hotWordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateScriptHotWord",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/updateScriptHotWord`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateScriptHotWordResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScriptHotWordResponse({}));
+  }
+
+  /**
+   * 更新剧本热词
+   * 
+   * @param request - UpdateScriptHotWordRequest
+   * @returns UpdateScriptHotWordResponse
+   */
+  async updateScriptHotWord(request: $_model.UpdateScriptHotWordRequest): Promise<$_model.UpdateScriptHotWordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateScriptHotWordWithOptions(request, headers, runtime);
   }
 
 }
