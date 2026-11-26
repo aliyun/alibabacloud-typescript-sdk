@@ -16,9 +16,6 @@ export default class Client extends OpenApi {
     let gatewayClient = new GatewayClient();
     this._spi = gatewayClient;
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-beijing': "internetbankopen.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("internetbankopen", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
