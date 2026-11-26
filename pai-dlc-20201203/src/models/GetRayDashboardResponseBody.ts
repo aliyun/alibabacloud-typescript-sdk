@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRayDashboardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the dashboard has integrated CloudMonitor to display Ray metrics.
+   * Indicates whether the dashboard is integrated with CloudMonitor to display Ray metrics.
    * 
    * @example
    * true

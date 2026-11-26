@@ -6,11 +6,17 @@ export class EventInfo extends $dara.Model {
   /**
    * @remarks
    * The text content of the event.
+   * 
+   * @example
+   * Training pod started.
    */
   content?: string;
   /**
    * @remarks
    * The ID of the event, which is used to obtain the related context.
+   * 
+   * @example
+   * event-example-001
    */
   id?: string;
   /**
@@ -32,6 +38,9 @@ export class EventInfo extends $dara.Model {
   /**
    * @remarks
    * The timestamp of the event in UTC.
+   * 
+   * @example
+   * 2026-11-01T00:00:00Z
    */
   time?: string;
   static names(): { [key: string]: string } {

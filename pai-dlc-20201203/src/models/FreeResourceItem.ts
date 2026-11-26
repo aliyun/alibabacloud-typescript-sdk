@@ -14,11 +14,17 @@ export class FreeResourceItem extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
+   * 
+   * @example
+   * cluster-example-001
    */
   clusterID?: string;
   /**
    * @remarks
    * The cluster name.
+   * 
+   * @example
+   * example-training-cluster
    */
   clusterName?: string;
   /**

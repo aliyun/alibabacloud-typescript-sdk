@@ -21,8 +21,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The hardware specifications of the public resource group. For the detailed list of specifications, see [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html).
-   * >Notice: Prices vary depending on the specifications.
+   * The hardware specifications of the public resource group. For a detailed list of specifications, access [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html).>Notice: Prices vary by specification.
    * 
    * @example
    * ecs.g6.large
@@ -30,7 +29,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   ecsSpec?: string;
   /**
    * @remarks
-   * The creation time (UTC).
+   * The creation time in UTC.
    * 
    * @example
    * 2021-01-12T14:35:01Z
@@ -38,7 +37,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The end time (UTC).
+   * The completion time in UTC.
    * 
    * @example
    * 2021-01-12T15:36:08Z
@@ -46,7 +45,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   gmtFinishTime?: string;
   /**
    * @remarks
-   * The modification time (UTC).
+   * The modification time in UTC.
    * 
    * @example
    * 2021-01-12T14:36:00Z
@@ -54,7 +53,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The maximum runtime duration.
+   * The maximum runtime in minutes.
    * 
    * @example
    * 1000
@@ -62,7 +61,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   maxRuntimeMinutes?: number;
   /**
    * @remarks
-   * The ID of the RayHistoryServer.
+   * The ID of the Ray history server.
    * 
    * @example
    * rhsxxx
@@ -70,7 +69,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   rayHistoryServerId?: string;
   /**
    * @remarks
-   * Ray Dashboard URL。
+   * The Ray Dashboard URL.
    * 
    * @example
    * https://rhsxxx-dashboard.dsw-gateway-cn-wulanchabu.data.aliyun.com/
@@ -94,7 +93,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   reasonMessage?: string;
   /**
    * @remarks
-   * The ID of the resource group in which the job runs.
+   * The ID of the resource group where the job runs.
    * 
    * @example
    * quotaxxx
@@ -102,7 +101,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource in which the job runs.
+   * The name of the resource where the job runs.
    * 
    * @example
    * my-resource-name
@@ -118,7 +117,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage path of Ray logs.
+   * The storage path for Ray logs.
    * 
    * @example
    * oss://bucket-test-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/tmp
@@ -126,7 +125,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   storagePath?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * 10**************14
@@ -134,7 +133,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The user ID used to filter results.
+   * The ID of the user to which the job belongs.
    * 
    * @example
    * 123456789
@@ -142,7 +141,7 @@ export class GetRayHistoryServerResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The username used to filter results.
+   * The username of the user to which the job belongs.
    * 
    * @example
    * myusername

@@ -21,7 +21,7 @@ export class ListSignalsResponseBodySignals extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The message of the returned result.
+   * The prompt message of the returned result.
    * 
    * @example
    * signal delivered to 1 pods
@@ -157,7 +157,7 @@ export class ListSignalsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of signal records for the job. Each element has the same structure as the response of GetSignal.
+   * The list of signal records for the job. The structure of each element is the same as the response of GetSignal.
    */
   signals?: ListSignalsResponseBodySignals[];
   /**

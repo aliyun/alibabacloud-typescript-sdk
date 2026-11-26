@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * If this parameter is not specified, the default version is returned. If a specific number is specified, the corresponding version is returned. If all is specified, all versions are returned.
+   * The version number. If you leave this parameter empty, the default version is returned. If you specify a number, the specified version is returned. If you specify all, all versions are returned.
    * 
    * @example
    * all

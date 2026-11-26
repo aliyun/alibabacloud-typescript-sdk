@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLProgressFatal extends $dara.Model {
   /**
    * @remarks
-   * The agent_collect_time of the anchor line, represented as a nanosecond string that exceeds the JavaScript safe integer limit.
+   * Raw log collection time in the form of a nanosecond timestamp string, used to help locate raw log context. Pass this value as is when calling raw log context API to avoid precision loss caused by numeric conversion. This value does not guarantee an exact match with the original log.
    * 
    * @example
    * 1787474487713456789

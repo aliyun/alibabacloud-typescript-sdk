@@ -8,7 +8,7 @@ export class GetJobTemplateResponseBodyVersions extends $dara.Model {
    * The field constraint rules. The key is a JSONPath expression, and the value is the constraint type.
    * 
    * @example
-   * {\\"JobSpecs[0].Image\\":\\"locked\\",\\"UserCommand\\":\\"locked\\",\\"JobType\\":\\"locked\\"}
+   * {\"JobSpecs[0].Image\":\"locked\",\"UserCommand\":\"locked\",\"JobType\":\"locked\"}
    */
   constraints?: { [key: string]: any };
   /**
@@ -16,7 +16,7 @@ export class GetJobTemplateResponseBodyVersions extends $dara.Model {
    * The template configuration content of this version in JSON format.
    * 
    * @example
-   * {\\"WorkspaceId\\":\\"15****05\\",\\"JobType\\":\\"PyTorchJob\\",\\"UserCommand\\":\\"echo hello\\",\\"JobSpecs\\":[{\\"Type\\":\\"Worker\\",\\"PodCount\\":1,\\"Image\\":\\"dsw-registry-vpc.cn-hangzhou.cr.aliyuncs.com/pai/pytorch:2.8.0-gpu-py313-cu129-ubuntu22.04-3995b779-1764361782\\",\\"EcsSpec\\":\\"ecs.gn7i-c8g1.2xlarge\\"}],\\"ResourceType\\":\\"ECS\\",\\"_ResourcePaymentType\\":\\"PostPaid\\",\\"CredentialConfig\\":{\\"EnableCredentialInject\\":false},\\"Accessibility\\":\\"PRIVATE\\",\\"Settings\\":{\\"JobReservedMinutes\\":0,\\"Tags\\":{}}}
+   * {\"WorkspaceId\":\"15****05\",\"JobType\":\"PyTorchJob\",\"UserCommand\":\"echo hello\",\"JobSpecs\":[{\"Type\":\"Worker\",\"PodCount\":1,\"Image\":\"dsw-registry-vpc.cn-hangzhou.cr.aliyuncs.com/pai/pytorch:2.8.0-gpu-py313-cu129-ubuntu22.04-3995b779-1764361782\",\"EcsSpec\":\"ecs.gn7i-c8g1.2xlarge\"}],\"ResourceType\":\"ECS\",\"_ResourcePaymentType\":\"PostPaid\",\"CredentialConfig\":{\"EnableCredentialInject\":false},\"Accessibility\":\"PRIVATE\",\"Settings\":{\"JobReservedMinutes\":0,\"Tags\":{}}}
    */
   content?: any;
   /**
@@ -116,7 +116,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The most recent time when a task was successfully created by using this template. This parameter is not returned if the template has not been used.
+   * The last time a task was successfully created by using this template. This field is not returned if the template has not been used.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -126,7 +126,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   lastUsedTime?: string;
   /**
    * @remarks
-   * The custom key-value pair metadata defined by the user.
+   * The user-defined key-value pair metadata.
    * 
    * @example
    * {}
@@ -142,7 +142,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   modifiedBy?: string;
   /**
    * @remarks
-   * The ID of the request. This ID is used for diagnostics and troubleshooting.
+   * The ID of the request, which is used for troubleshooting and diagnostics.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -174,7 +174,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The total number of versions. If a single version is queried, the value 1 is returned. If all versions are queried, the actual total number is returned.
+   * The total number of versions. If you query a single version, 1 is returned. If you query all versions, the actual total number is returned.
    * 
    * @example
    * 100
@@ -190,7 +190,7 @@ export class GetJobTemplateResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The list of template version details. If a single version is queried, one element is returned. If all versions are queried, all elements are returned.
+   * The list of template version details. If you query a single version, one element is returned. If you query all versions, all elements are returned.
    */
   versions?: GetJobTemplateResponseBodyVersions[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLFlowStep extends $dara.Model {
   /**
    * @remarks
-   * The P50 latency in seconds from when trajectories of the step enter the buffer to when batching occurs.
+   * The P50 duration in seconds from when trajectories of the step enter the buffer to when they are batched.
    * 
    * @example
    * 0.8
@@ -13,7 +13,7 @@ export class RLFlowStep extends $dara.Model {
   bufferWaitP50?: number;
   /**
    * @remarks
-   * The gap duration in seconds, calculated as train started − rollout finished. This represents batching or transfer wait time.
+   * The gap duration in seconds, calculated as train started minus rollout finished, representing batching or transfer wait time.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class RLFlowStep extends $dara.Model {
   gapSec?: number;
   /**
    * @remarks
-   * The training idle time in seconds, calculated as the current step training start − the previous step training end. If no marker is present, the value falls back to the current step forward computation start − the previous step optimizer end. A value greater than 0 indicates that the trainer is waiting for data.
+   * The idle time in seconds between the training phases of adjacent steps. This value only reflects the time interval and cannot be used alone to determine data waiting or other specific causes.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class RLFlowStep extends $dara.Model {
   NSamples?: number;
   /**
    * @remarks
-   * The number of trajectories executed in the step.
+   * The number of trajectories belonging to the current execution of the step.
    * 
    * @example
    * 96
@@ -45,7 +45,7 @@ export class RLFlowStep extends $dara.Model {
   NTrajs?: number;
   /**
    * @remarks
-   * The latest time when trajectories of the step enter the buffer, in milliseconds.
+   * The latest time a trajectory of the step enters the buffer in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -53,7 +53,7 @@ export class RLFlowStep extends $dara.Model {
   prodEndMs?: number;
   /**
    * @remarks
-   * The earliest time when trajectories of the step enter the buffer, in milliseconds.
+   * The earliest time a trajectory of the step enters the buffer in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -61,7 +61,7 @@ export class RLFlowStep extends $dara.Model {
   prodStartMs?: number;
   /**
    * @remarks
-   * The P50 latency in seconds from when trajectories of the step start execution to when they enter the buffer.
+   * The P50 duration in seconds from when trajectories of the step start execution to when they enter the buffer.
    * 
    * @example
    * 0.8
@@ -69,7 +69,7 @@ export class RLFlowStep extends $dara.Model {
   rolloutP50?: number;
   /**
    * @remarks
-   * The rollout duration in seconds, calculated as rollout finished − rollout started. This value is null if no marker is present.
+   * The rollout duration in seconds, calculated as rollout finished minus rollout started. This value is empty when no markers are available.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class RLFlowStep extends $dara.Model {
   rolloutSec?: number;
   /**
    * @remarks
-   * The global step ordinal number.
+   * The global step number.
    * 
    * @example
    * 3
@@ -85,7 +85,7 @@ export class RLFlowStep extends $dara.Model {
   step?: number;
   /**
    * @remarks
-   * The forward computation start time, in milliseconds.
+   * The start time of the forward computation in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -93,7 +93,7 @@ export class RLFlowStep extends $dara.Model {
   TFwdStartMs?: number;
   /**
    * @remarks
-   * The optimizer end time, in milliseconds.
+   * The end time of the optimizer in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -101,7 +101,7 @@ export class RLFlowStep extends $dara.Model {
   TOptEndMs?: number;
   /**
    * @remarks
-   * The node operation log "Step N rollout finished" time, in milliseconds.
+   * The time of the "Step N rollout finished" entry in the node logs in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -109,7 +109,7 @@ export class RLFlowStep extends $dara.Model {
   TRolloutEndMs?: number;
   /**
    * @remarks
-   * The node operation log "Step N rollout started" time, in milliseconds (taken from agent_collect_time).
+   * The observed rollout start time for the current step as a millisecond timestamp.
    * 
    * @example
    * 1787474487713
@@ -117,7 +117,7 @@ export class RLFlowStep extends $dara.Model {
   TRolloutStartMs?: number;
   /**
    * @remarks
-   * The node operation log "Step N train finished" time, in milliseconds.
+   * The time of the "Step N train finished" entry in the node logs in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -125,7 +125,7 @@ export class RLFlowStep extends $dara.Model {
   TTrainEndMs?: number;
   /**
    * @remarks
-   * The node operation log "Step N train started" time, in milliseconds.
+   * The time of the "Step N train started" entry in the node logs in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -133,7 +133,7 @@ export class RLFlowStep extends $dara.Model {
   TTrainStartMs?: number;
   /**
    * @remarks
-   * The TRAIN_UPDATE (parameter update) time, in milliseconds.
+   * The time of the TRAIN_UPDATE (parameter update) event in milliseconds.
    * 
    * @example
    * 1787474487713
@@ -141,7 +141,7 @@ export class RLFlowStep extends $dara.Model {
   TUpdateMs?: number;
   /**
    * @remarks
-   * The training duration in seconds. This value is preferentially calculated as train finished − train started. If no marker is present, the value falls back to the duration from batching to training completion. This value is null if global_step is duplicated because of a job restart.
+   * The duration of the training phase for the step in seconds. This value is not provided when the training start and end times are unavailable.
    * 
    * @example
    * 0

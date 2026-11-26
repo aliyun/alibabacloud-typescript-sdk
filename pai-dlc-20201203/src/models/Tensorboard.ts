@@ -7,7 +7,7 @@ import { TensorboardSpec } from "./TensorboardSpec";
 export class Tensorboard extends $dara.Model {
   /**
    * @remarks
-   * The visibility.
+   * The accessibility.
    * 
    * @example
    * PRIVATE
@@ -15,7 +15,7 @@ export class Tensorboard extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The CPU resources.
+   * The CPU resource.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class Tensorboard extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The maximum running duration in minutes.
+   * The maximum runtime in minutes.
    * 
    * @example
    * 240
@@ -111,7 +111,7 @@ export class Tensorboard extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The priority of the Tensorboard job.
+   * The priority of the TensorBoard job.
    * 
    * @example
    * 1
@@ -119,7 +119,7 @@ export class Tensorboard extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The ID of the resource group used by Tensorboard.
+   * The ID of the resource group used by TensorBoard.
    * 
    * @example
    * quota12***
@@ -127,7 +127,7 @@ export class Tensorboard extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The name of the resource quota used by Tensorboard.
+   * The name of the resource quota used by TensorBoard.
    * 
    * @example
    * dlc-quota
@@ -183,12 +183,12 @@ export class Tensorboard extends $dara.Model {
   summaryRelativePath?: string;
   /**
    * @remarks
-   * The datasets mounted to the Tensorboard job.
+   * The datasets mounted to the TensorBoard job.
    */
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   /**
    * @remarks
-   * The Tensorboard ID.
+   * The TensorBoard ID.
    * 
    * @example
    * tensorboard-xxx
@@ -196,12 +196,12 @@ export class Tensorboard extends $dara.Model {
   tensorboardId?: string;
   /**
    * @remarks
-   * The pay-as-you-go configuration for the Tensorboard job.
+   * The pay-as-you-go configuration for the TensorBoard job.
    */
   tensorboardSpec?: TensorboardSpec;
   /**
    * @remarks
-   * The Tensorboard URL.
+   * The TensorBoard URL.
    * 
    * @example
    * http://xxxxxx

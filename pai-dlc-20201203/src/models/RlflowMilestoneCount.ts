@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLFlowMilestoneCount extends $dara.Model {
   /**
    * @remarks
-   * The number of in-transit trajectories that remain at this milestone.
+   * The number of in-transit trajectories at this milestone.
    * 
    * @example
    * 96
@@ -13,10 +13,10 @@ export class RLFlowMilestoneCount extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The milestone. Valid values are the same as those of Stuck[].Milestone.
+   * The milestone. The valid values are the same as those of Stuck[].Milestone.
    * 
    * @example
-   * 生成中
+   * Generating
    */
   milestone?: string;
   static names(): { [key: string]: string } {

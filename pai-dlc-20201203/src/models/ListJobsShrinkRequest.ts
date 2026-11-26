@@ -6,8 +6,8 @@ export class ListJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The visibility of the job. Valid values:
-   * - PUBLIC: visible to all users in the workspace.
-   * - PRIVATE: visible only to you and administrators in the workspace. This is the default value.
+   * - PUBLIC: The job is visible to all users in the workspace.
+   * - PRIVATE: The job is visible only to you and administrators in the workspace. This is the default value.
    * 
    * @example
    * PRIVATE
@@ -39,7 +39,9 @@ export class ListJobsShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The job name. Supports fuzzy match. The match is case-insensitive and does not support wildcards. For example, if you enter test, it can match test-job1, job-test, job-test2, or job-Test, but it cannot match job-t1. Default value: empty, which indicates any job name.
+   * The job name. Fuzzy search is supported. The search is case-insensitive and does not support wildcards.
+   * For example, if you enter test, it can match test-job1, job-test, job-test2, or job-Test, but cannot match job-t1.
+   * If this parameter is left empty, all job names are matched.
    * 
    * @example
    * tf-mnist-test
@@ -55,7 +57,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   displayNameSearchMode?: string;
   /**
    * @remarks
-   * Specifies whether to filter jobs that are configured to run on specified nodes.
+   * Specifies whether to filter jobs that are configured to run on specific nodes.
    * 
    * @example
    * true
@@ -63,7 +65,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   enableAssignNode?: string;
   /**
    * @remarks
-   * The end time of the query interval. The creation time of the job is used for filtering. Default value: the current time.
+   * The end time of the query interval. Jobs are filtered based on their creation time. The default value is the current time.
    * 
    * @example
    * 2025-04-16T07:26:41Z
@@ -71,7 +73,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to retrieve the job list across workspaces. This parameter must be used together with the ShowOwn=true parameter to query the jobs recently submitted by the current user.
+   * Specifies whether to retrieve the job list across workspaces. This parameter must be used together with the `ShowOwn=true` parameter to query the jobs recently submitted by the current user.
    * 
    * @example
    * false
@@ -79,7 +81,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   fromAllWorkspaces?: boolean;
   /**
    * @remarks
-   * Retrieves data from the full-text index in the image (images) field. Chinese and English tokenization is supported.
+   * Retrieves data by using the full-text index in the image (images) field. Chinese and English tokenization is supported.
    * 
    * @example
    * pytorch
@@ -87,7 +89,8 @@ export class ListJobsShrinkRequest extends $dara.Model {
   imageSearch?: string;
   /**
    * @remarks
-   * The job ID. Fuzzy match is not supported. The match is case-insensitive and does not support wildcards. Default value: empty, which indicates any job ID.
+   * The job ID. Fuzzy search is not supported. The search is case-insensitive and does not support wildcards.
+   * If this parameter is left empty, all job IDs are matched.
    * 
    * @example
    * dlc********
@@ -103,7 +106,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   jobIds?: string;
   /**
    * @remarks
-   * The job type. Default value: empty, which indicates all types. Valid values:
+   * The job type. If this parameter is left empty, all job types are queried. Valid values:
    * - TFJob
    * - PyTorchJob
    * - XGBoostJob
@@ -116,7 +119,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The field name used for numeric range filtering. This parameter must be used together with NumericRangeMin and NumericRangeMax.
+   * The field name for numeric range filtering. This parameter must be used together with NumericRangeMin and NumericRangeMax.
    * 
    * @example
    * RequestGPU
@@ -150,11 +153,11 @@ export class ListJobsShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The off-peak resource information. Valid values:
+   * The oversold resource information. Valid values:
    * - ForbiddenQuotaOverSold
    * - ForceQuotaOverSold
-   * - AcceptQuotaOverSold-true: true indicates that the job actually used off-peak resources.
-   * - AcceptQuotaOverSold-false: false indicates that the job actually used guaranteed resources.
+   * - AcceptQuotaOverSold-true: The value true indicates that the job actually used oversold resources.
+   * - AcceptQuotaOverSold-false: The value false indicates that the job actually used guaranteed resources.
    * 
    * @example
    * ForbiddenQuotaOverSold
@@ -162,7 +165,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   oversoldInfo?: string;
   /**
    * @remarks
-   * The page number for paging in a paged query. The starting value is 1. Default value: 1.
+   * The page number for the paged query. Specify the page number to return for paging. The starting value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -170,7 +173,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of jobs to return per page.
+   * The number of jobs to return on each page.
    * 
    * @example
    * 50
@@ -189,7 +192,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The pipeline ID. Only jobs created by this pipeline are returned.
+   * The ID of the pipeline used to filter jobs.
    * 
    * @example
    * flow-*******
@@ -197,7 +200,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Retrieves data from the full-text index in the failed node reason field. Chinese and English tokenization is supported.
+   * Retrieves data by using the full-text index in the node failed reason (reason) field. Chinese and English tokenization is supported.
    * 
    * @example
    * OOM
@@ -214,11 +217,14 @@ export class ListJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of resource IDs used to filter jobs.
+   * 
+   * @example
+   * r1,r2
    */
   resourceIds?: string;
   /**
    * @remarks
-   * The name of the resource quota used to filter the job list. Fuzzy match is supported, but wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
+   * The name of the resource quota used to filter the job list. Fuzzy match is supported, but wildcards are not supported. If this parameter is left empty, jobs are not filtered by resource quota.
    * 
    * @example
    * quota***
@@ -234,7 +240,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The field used for sorting. Valid values:
+   * The field by which to sort the results. Valid values:
    * - DisplayName
    * - JobType
    * - Status
@@ -247,7 +253,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time of the query interval. The creation time of the job is used for filtering. Default value: the current time minus 7 days. If neither StartTime nor EndTime is configured, the jobs created in the last 7 days are queried by default.
+   * The start time of the query interval. Jobs are filtered based on their creation time. The default value is the current time minus 7 days. If neither StartTime nor EndTime is specified, the jobs created in the last 7 days are queried by default.
    * 
    * @example
    * 2025-04-16T07:25:34Z
@@ -258,7 +264,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
    * The running status of the job. Valid values:
    * - Creating
    * - Queuing
-   * - Bidding (currently only available for Lingjun spot jobs)
+   * - Bidding (currently applicable only to Lingjun spot jobs)
    * - EnvPreparing
    * - SanityChecking
    * - Running
@@ -277,6 +283,9 @@ export class ListJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The tags used for filtering.
+   * 
+   * @example
+   * {"app":"recommandation"}
    */
   tagsShrink?: string;
   /**
@@ -289,7 +298,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The time field used for StartTime and EndTime filtering. Default value: creation time.
+   * The time field used for StartTime and EndTime filtering. If this parameter is left empty, the creation time is used by default.
    * 
    * @example
    * GmtFinishTime
@@ -297,7 +306,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   timeRangeField?: string;
   /**
    * @remarks
-   * Retrieves data from the full-text index in the user command (user_command) field. Chinese and English tokenization is supported.
+   * Retrieves data by using the full-text index in the user command (user_command) field. Chinese and English tokenization is supported.
    * 
    * @example
    * python train.py
@@ -313,7 +322,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   userIdForFilter?: string;
   /**
    * @remarks
-   * The username of the job submitter used to filter the job list. Fuzzy match is supported, but wildcards are not supported. Default value: empty, which indicates no filtering by username.
+   * The username of the job submitter used to filter the job list. Fuzzy search is supported, but wildcards are not supported. If this parameter is left empty, jobs are not filtered by username.
    * 
    * @example
    * test***

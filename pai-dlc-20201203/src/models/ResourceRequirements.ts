@@ -6,11 +6,17 @@ export class ResourceRequirements extends $dara.Model {
   /**
    * @remarks
    * The resource limits.
+   * 
+   * @example
+   * {"cpu":"1","memory":"1000Mi"}
    */
   limits?: { [key: string]: string };
   /**
    * @remarks
    * The resource requests.
+   * 
+   * @example
+   * {"cpu":"1","memory":"1000Mi"}
    */
   requests?: { [key: string]: string };
   static names(): { [key: string]: string } {

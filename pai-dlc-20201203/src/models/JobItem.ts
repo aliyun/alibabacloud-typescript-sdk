@@ -255,6 +255,9 @@ export class JobItem extends $dara.Model {
   /**
    * @remarks
    * The environment variables injected during job execution.
+   * 
+   * @example
+   * {"ENABLE_DEBUG_MODE":"true"}
    */
   envs?: { [key: string]: string };
   /**
@@ -535,6 +538,9 @@ export class JobItem extends $dara.Model {
   /**
    * @remarks
    * The system environment variable configuration.
+   * 
+   * @example
+   * {"ENABLE_DEBUG_MODE":"true"}
    */
   systemEnvs?: { [key: string]: string };
   /**

@@ -29,7 +29,7 @@ export class GetSignalResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The status description, which contains a summary for each pod, such as the number of successful deliveries and the names of failed or pending pods.
+   * The **status description**, which includes a summary for each Pod (such as the number of successful deliveries and the names of failed or pending Pods).
    * 
    * @example
    * signal delivered to 1 pods
@@ -37,12 +37,12 @@ export class GetSignalResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The list of pod names.
+   * The list of Pod names.
    */
   podNames?: string[];
   /**
    * @remarks
-   * The status reason code, such as `Completed`, `SignalFailed`, or `StoppedByJobEnded`.
+   * The **status reason code**, such as `Completed`, `SignalFailed`, or `StoppedByJobEnded`.
    * 
    * @example
    * Completed

@@ -19,34 +19,34 @@ export class GetWebTerminalResponseBody extends $dara.Model {
    *     `wss://xxxxx`,
    *   );
    *   ws.onopen = function open() {
-   *     console.warn(\\"connected\\");
-   *     term.write(\\"\\");
+   *     console.warn(\"connected\");
+   *     term.write(\"\");
    *   };
    * 
    *   ws.onclose = function close() {
-   *     console.warn(\\"disconnected\\");
-   *     term.write(\\"Connection closed\\");
+   *     console.warn(\"disconnected\");
+   *     term.write(\"Connection closed\");
    *   };
    * 
    *   // Receive a response from the backend
    *   ws.onmessage = function incoming(event) {
    *     const msg = JSON.parse(event.data);
    *     console.warn(msg);
-   *     if (msg.operation === \\"stdout\\") {
+   *     if (msg.operation === \"stdout\") {
    *       term.write(msg.data);
    *     } else {
-   *       console.warn(\\"invalid msg operation: \\" + msg);
+   *       console.warn(\"invalid msg operation: \" + msg);
    *     }
    *   };
    * 
    *   // Console input
    *   term.onData(data => {
-   *     const msg = { operation: \\"stdin\\", data: data };
+   *     const msg = { operation: \"stdin\", data: data };
    *     ws.send(JSON.stringify(msg));
    *   });
    * 
    *   term.onResize(size => {
-   *     const msg = { operation: \\"resize\\", cols: size.cols, rows: size.rows };
+   *     const msg = { operation: \"resize\", cols: size.cols, rows: size.rows };
    *     ws.send(JSON.stringify(msg));
    *   });
    * 

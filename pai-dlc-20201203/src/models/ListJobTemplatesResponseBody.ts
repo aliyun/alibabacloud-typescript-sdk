@@ -21,7 +21,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -31,7 +31,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -41,7 +41,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The most recent time when a task was successfully created by using this template.
+   * The most recent time a task was successfully created by using this template.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -59,7 +59,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the user who last modified the template.
+   * The last modifier ID.
    * 
    * @example
    * 20**************26
@@ -91,7 +91,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the user who created the template.
+   * The creator ID.
    * 
    * @example
    * 20**************26
@@ -154,7 +154,7 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
 export class ListJobTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of templates.
+   * The template list.
    */
   jobTemplates?: ListJobTemplatesResponseBodyJobTemplates[];
   /**
@@ -167,7 +167,7 @@ export class ListJobTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 50

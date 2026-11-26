@@ -29,7 +29,7 @@ export class ListSignalsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The field used for sorting.
+   * The sort field.
    * 
    * @example
    * GmtCreateTime

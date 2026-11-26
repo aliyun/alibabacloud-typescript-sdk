@@ -5,7 +5,15 @@ import { QuotaDetail } from "./QuotaDetail";
 
 
 export class Quota extends $dara.Model {
+  /**
+   * @example
+   * cluster-example-001
+   */
   clusterId?: string;
+  /**
+   * @example
+   * example-training-cluster
+   */
   clusterName?: string;
   quotaConfig?: QuotaConfig;
   /**

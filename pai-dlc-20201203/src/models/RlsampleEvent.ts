@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLSampleEvent extends $dara.Model {
   /**
    * @remarks
-   * The details. For Megatron rows, the value is rank=..,global_step=..,ppo_epoch=..
+   * The supplementary information for the event. The specific content depends on the event type.
    * 
    * @example
    * uid_generated
@@ -13,7 +13,7 @@ export class RLSampleEvent extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The event source component. For Megatron rows, the value is "{phase} {status}".
+   * The source component or execution stage of the event.
    * 
    * @example
    * DataLoader
@@ -21,7 +21,7 @@ export class RLSampleEvent extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The training step to which the event belongs (raw string). For Megatron rows, this is empty because the step is included in Detail.
+   * The decimal string of the training step. An empty string is used when the corresponding information is not collected.
    * 
    * @example
    * 12
@@ -29,7 +29,7 @@ export class RLSampleEvent extends $dara.Model {
   globalStep?: string;
   /**
    * @remarks
-   * The stage. For Megatron rows, this is normalized to TRAIN.
+   * The training or sampling stage to which the event belongs.
    * 
    * @example
    * DATA_PREPROCESS
@@ -45,10 +45,10 @@ export class RLSampleEvent extends $dara.Model {
   timestampMs?: number;
   /**
    * @remarks
-   * The event target component. For Megatron rows, the value is the function name.
+   * The destination component or execution action of the event.
    * 
    * @example
-   * PPOTrainerV1
+   * Trainer
    */
   to?: string;
   static names(): { [key: string]: string } {

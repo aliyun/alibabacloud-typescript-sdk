@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * The tag key of the resource. It can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * key
@@ -55,7 +55,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. A maximum of 50 items can be specified.
+   * The resource IDs. Up to 50 items are supported.
    * 
    * This parameter is required.
    */
@@ -73,7 +73,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags to be created and attached. A maximum of 20 items can be specified.
+   * The tags to add. Up to 20 items are supported.
    */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {

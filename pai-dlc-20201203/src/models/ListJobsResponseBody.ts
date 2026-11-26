@@ -11,7 +11,7 @@ export class ListJobsResponseBody extends $dara.Model {
   jobs?: JobItem[];
   /**
    * @remarks
-   * The request ID, which is used for diagnostics and troubleshooting.
+   * The request ID, which is used for troubleshooting and diagnostics.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

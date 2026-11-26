@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetJobTemplateDefaultVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The version number to set as the default.
+   * The target version number.
    * 
    * This parameter is required.
    * 

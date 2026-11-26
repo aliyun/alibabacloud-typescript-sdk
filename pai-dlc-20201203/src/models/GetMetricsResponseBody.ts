@@ -16,7 +16,7 @@ export class GetMetricsResponseBody extends $dara.Model {
    * The monitoring metrics data.
    * 
    * @example
-   * [{\\"Content\\": \\"\\", \\"OperationName\\": \\"purchase\\", \\"Success\\": 1, \\"Id\\": \\"217\\", \\"LogDatetime\\": 1687679582923}]
+   * [{\"Content\": \"\", \"OperationName\": \"purchase\", \"Success\": 1, \"Id\": \"217\", \"LogDatetime\": 1687679582923}]
    */
   dataPoints?: string;
   /**
@@ -37,7 +37,7 @@ export class GetMetricsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The statistical period of the monitoring data. Valid values: 15, 60, 900, and 3600. Unit: seconds. If you do not set the statistical period, monitoring data is queried based on the reporting period that was specified when the monitoring metric was registered. The statistical period varies for each monitoring metric (MetricName) of each cloud service. For more information, see cloud service monitoring items.
+   * The statistical period of the monitoring data. Valid values: 15, 60, 900, and 3600. Unit: seconds. If the statistical period is not specified, the monitoring data is queried based on the reporting period applied for when the monitoring metric was registered. The statistical period varies with the monitoring metric (MetricName) of each cloud service. For more information, see Cloud service monitoring metrics.
    * 
    * @example
    * 5
@@ -53,9 +53,7 @@ export class GetMetricsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * - true: The operation was successful.
-   * - false: The operation failed.
+   * Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
    * 
    * @example
    * True

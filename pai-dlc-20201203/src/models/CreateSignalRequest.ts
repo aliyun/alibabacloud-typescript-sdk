@@ -14,7 +14,7 @@ export class CreateSignalRequest extends $dara.Model {
   signal?: string;
   /**
    * @remarks
-   * The signal delivery scope.
+   * The target scope for sending the signal.
    */
   target?: SignalTarget;
   static names(): { [key: string]: string } {

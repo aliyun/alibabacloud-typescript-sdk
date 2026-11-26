@@ -138,7 +138,7 @@ export class GetJobResponseBodyDataSources extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The data source path.
+   * The URI of the data source.
    * 
    * @example
    * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
@@ -213,6 +213,9 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * i-a
    */
   nodeName?: string;
   /**
@@ -238,7 +241,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   podUid?: string;
   /**
    * @remarks
-   * The resource type of the pod.
+   * The resource usage type of the pod.
    * 
    * @example
    * Normal
@@ -377,6 +380,9 @@ export class GetJobResponseBodyPods extends $dara.Model {
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * i-a
    */
   nodeName?: string;
   /**
@@ -402,7 +408,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   podUid?: string;
   /**
    * @remarks
-   * The resource type of the pod.
+   * The resource usage type of the pod.
    * 
    * @example
    * Normal
@@ -517,6 +523,9 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   /**
    * @remarks
    * The detailed error message.
+   * 
+   * @example
+   * The training process exited with a non-zero status.
    */
   detailErrorMsg?: string;
   /**
@@ -527,6 +536,9 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Training process exited unexpectedly.
    */
   errorMsg?: string;
   /**
@@ -537,11 +549,17 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   /**
    * @remarks
    * The node.
+   * 
+   * @example
+   * i-a
    */
   node?: string;
   /**
    * @remarks
    * The instance.
+   * 
+   * @example
+   * dlc-example-master-0
    */
   pod?: string;
   /**
@@ -602,17 +620,23 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   jobRestartCount?: number;
   /**
    * @remarks
-   * The occurrence phase.
+   * The phase where the event occurred.
    */
   occurPhase?: string;
   /**
    * @remarks
-   * The occurrence time.
+   * The time when the event occurred.
+   * 
+   * @example
+   * 2026-11-01T00:00:00Z
    */
   occurTime?: string;
   /**
    * @remarks
    * The reason.
+   * 
+   * @example
+   * Training process exited unexpectedly.
    */
   reason?: string;
   /**
@@ -626,6 +650,9 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   /**
    * @remarks
    * The reason for the restart failure.
+   * 
+   * @example
+   * Timed out waiting for the replacement pod.
    */
   restartFailReason?: string;
   /**
@@ -641,6 +668,9 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   /**
    * @remarks
    * TriggerID
+   * 
+   * @example
+   * trigger-example-001
    */
   triggerID?: string;
   static names(): { [key: string]: string } {
@@ -688,10 +718,10 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
 export class GetJobResponseBodyUserVpc extends $dara.Model {
   /**
    * @remarks
-   * The default routing. This parameter is valid only for general computing resources. Valid values:
+   * The default route. This parameter is valid only for general compute resources. Valid values:
    * 
    * eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
-   * eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
+   * eth1: uses the user elastic network interface (ENI) to access external networks through the private gateway.
    * 
    * @example
    * eth0
@@ -762,8 +792,8 @@ export class GetJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The visibility of the job. Valid values:
-   * - PUBLIC: Visible to all users in the workspace.
-   * - PRIVATE: Visible only to you and administrators in the workspace. Default value: PRIVATE.
+   * - PUBLIC: Visible to all users in this workspace.
+   * - PRIVATE: Visible only to you and administrators in this workspace. This is the default value.
    * 
    * @example
    * PRIVATE
@@ -807,7 +837,7 @@ export class GetJobResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The job name.
+   * The display name of the job.
    * 
    * @example
    * tf-mnist-test
@@ -823,7 +853,7 @@ export class GetJobResponseBody extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The elastic parameters for the job.
+   * The parameters for the elastic job.
    */
   elasticSpec?: JobElasticSpec;
   /**
@@ -837,6 +867,9 @@ export class GetJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The environment variable configurations.
+   * 
+   * @example
+   * {"ENABLE_DEBUG_MODE":"true"}
    */
   envs?: { [key: string]: string };
   /**
@@ -857,7 +890,7 @@ export class GetJobResponseBody extends $dara.Model {
   gmtFailedTime?: string;
   /**
    * @remarks
-   * The job end time in UTC.
+   * The end time of the job in UTC.
    * 
    * @example
    * 2021-01-12T15:36:08Z
@@ -905,7 +938,7 @@ export class GetJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The job replica status.
+   * The job replica statuses.
    */
   jobReplicaStatuses?: JobReplicaStatus[];
   /**
@@ -923,7 +956,7 @@ export class GetJobResponseBody extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * All pods that run the job.
+   * All pods running in the job.
    */
   pods?: GetJobResponseBodyPods[];
   /**
@@ -936,7 +969,7 @@ export class GetJobResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The reason code, which classifies the sub-status under the current status.
+   * The status detail code, which categorizes the sub-status under the current status.
    * 
    * @example
    * JobStoppedByUser
@@ -944,7 +977,7 @@ export class GetJobResponseBody extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The detailed description of the status.
+   * The detailed description of the job status.
    * 
    * @example
    * Job is stopped by user.
@@ -1008,12 +1041,12 @@ export class GetJobResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The job restart record.
+   * The job restart records.
    */
   restartRecord?: GetJobResponseBodyRestartRecord[];
   /**
    * @remarks
-   * The number of retries used and the maximum number of retries for the job.
+   * The number of retries used and the maximum number of retries allowed for the job.
    * 
    * @example
    * 0/10
@@ -1022,6 +1055,9 @@ export class GetJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The system environment variables grouped by job role.
+   * 
+   * @example
+   * {"Worker":{"OMP_NUM_THREADS":"4"}}
    */
   roleSystemEnvs?: { [key: string]: {[key: string]: any} };
   /**

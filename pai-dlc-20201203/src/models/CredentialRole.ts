@@ -7,6 +7,9 @@ export class CredentialRole extends $dara.Model {
   /**
    * @remarks
    * The account on whose behalf the role is assumed.
+   * 
+   * @example
+   * 123456
    */
   assumeRoleFor?: string;
   /**
@@ -17,6 +20,9 @@ export class CredentialRole extends $dara.Model {
   /**
    * @remarks
    * The access policy attached during role assumption.
+   * 
+   * @example
+   * {"Version":"1","Statement":[{"Effect":"Allow","Action":["oss:GetObject"],"Resource":["acs:oss:*:*:example-bucket/data/*"]}]}
    */
   policy?: string;
   /**

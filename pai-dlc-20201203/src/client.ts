@@ -301,11 +301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a RayHistoryServer.
+   * Creates a Ray History Server.
    * 
    * @remarks
-   * Make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before using this operation.
-   * >Notice: The total length of the CreateJob operation parameters (including system-generated parameters) cannot exceed 65536 bytes.
+   * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation. >Notice: The total length of the parameters in the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - CreateRayHistoryServerRequest
    * @param headers - map
@@ -362,11 +361,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a RayHistoryServer.
+   * Creates a Ray History Server.
    * 
    * @remarks
-   * Make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before using this operation.
-   * >Notice: The total length of the CreateJob operation parameters (including system-generated parameters) cannot exceed 65536 bytes.
+   * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation. >Notice: The total length of the parameters in the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - CreateRayHistoryServerRequest
    * @returns CreateRayHistoryServerResponse
@@ -381,10 +379,10 @@ export default class Client extends OpenApi {
    * Sends a signal to the pods of a specified job and retrieves the signal ID.
    * 
    * @remarks
-   * ## Operation description
+   * ## Request description
    * - This API operation sends a specific signal to one or more pods of a specified job.
-   * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
-   * - You can query the signal status by calling the `GetSignal` or `ListSignals` operation.
+   * - After the signal is sent, the API operation immediately returns a `SignalId`. The actual signal delivery is handled by background workers.
+   * - You can query the status of the signal by calling the `GetSignal` or `ListSignals` API operation.
    * 
    * @param request - CreateSignalRequest
    * @param headers - map
@@ -424,10 +422,10 @@ export default class Client extends OpenApi {
    * Sends a signal to the pods of a specified job and retrieves the signal ID.
    * 
    * @remarks
-   * ## Operation description
+   * ## Request description
    * - This API operation sends a specific signal to one or more pods of a specified job.
-   * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
-   * - You can query the signal status by calling the `GetSignal` or `ListSignals` operation.
+   * - After the signal is sent, the API operation immediately returns a `SignalId`. The actual signal delivery is handled by background workers.
+   * - You can query the status of the signal by calling the `GetSignal` or `ListSignals` API operation.
    * 
    * @param request - CreateSignalRequest
    * @returns CreateSignalResponse
@@ -439,7 +437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TensorBoard instance by using a node or specifying a datasource config.
+   * Creates a TensorBoard by using a node or a specified datasource config.
    * 
    * @param request - CreateTensorboardRequest
    * @param headers - map
@@ -548,7 +546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TensorBoard instance by using a node or specifying a datasource config.
+   * Creates a TensorBoard by using a node or a specified datasource config.
    * 
    * @param request - CreateTensorboardRequest
    * @returns CreateTensorboardResponse
@@ -595,7 +593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an unused task template. If the template is already in use by a node, it cannot be deleted.
+   * Deletes unused task templates. A template cannot be deleted if it is already used by a task.
    * 
    * @param request - DeleteJobTemplateRequest
    * @param headers - map
@@ -622,7 +620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an unused task template. If the template is already in use by a node, it cannot be deleted.
+   * Deletes unused task templates. A template cannot be deleted if it is already used by a task.
    * 
    * @param request - DeleteJobTemplateRequest
    * @returns DeleteJobTemplateResponse
@@ -637,7 +635,8 @@ export default class Client extends OpenApi {
    * Deletes a Ray History Server.
    * 
    * @remarks
-   * Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the parameters in the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - DeleteRayHistoryServerRequest
    * @param headers - map
@@ -667,7 +666,8 @@ export default class Client extends OpenApi {
    * Deletes a Ray History Server.
    * 
    * @remarks
-   * Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the parameters in the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - DeleteRayHistoryServerRequest
    * @returns DeleteRayHistoryServerResponse
@@ -679,7 +679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stopped Tensorboard.
+   * Deletes a stopped TensorBoard.
    * 
    * @param request - DeleteTensorboardRequest
    * @param headers - map
@@ -712,7 +712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stopped Tensorboard.
+   * Deletes a stopped TensorBoard.
    * 
    * @param request - DeleteTensorboardRequest
    * @returns DeleteTensorboardResponse
@@ -724,10 +724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the dashboard URL of a DLC job, if available.
+   * Retrieves the dashboard URL of a DLC job if it exists.
    * 
    * @remarks
-   * Before using this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Before you call this API operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
    * 
    * @param request - GetDashboardRequest
    * @param headers - map
@@ -764,10 +764,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the dashboard URL of a DLC job, if available.
+   * Retrieves the dashboard URL of a DLC job if it exists.
    * 
    * @remarks
-   * Before using this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Before you call this API operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
    * 
    * @param request - GetDashboardRequest
    * @returns GetDashboardResponse
@@ -1041,12 +1041,12 @@ export default class Client extends OpenApi {
    * Retrieves metrics data.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation queries monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace (Namespace).
-   * - Custom query time ranges are supported. By default, data from the last hour is returned.
-   * - You can select different time intervals (Period) to retrieve data points at a finer or coarser granularity.
-   * - To retrieve large amounts of data with paging, use the `NextToken` parameter for paging operations.
-   * - `MetricName` is required and specifies the name of the monitoring metric to query.
+   * ## Request description
+   * - This operation queries the monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace.
+   * - Supports a custom query time range. The default is the data from the last hour.
+   * - You can select different time intervals (Period) to obtain data points with finer or coarser granularity.
+   * - If you need to retrieve a large amount of data through paging, you can use the `NextToken` parameter for paging.
+   * - `MetricName` is required and specifies the name of the specific monitoring metrics to query.
    * - For advanced features or specific types of monitoring metrics, refer to the relevant documentation for more information.
    * 
    * @param request - GetMetricsRequest
@@ -1119,12 +1119,12 @@ export default class Client extends OpenApi {
    * Retrieves metrics data.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation queries monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace (Namespace).
-   * - Custom query time ranges are supported. By default, data from the last hour is returned.
-   * - You can select different time intervals (Period) to retrieve data points at a finer or coarser granularity.
-   * - To retrieve large amounts of data with paging, use the `NextToken` parameter for paging operations.
-   * - `MetricName` is required and specifies the name of the monitoring metric to query.
+   * ## Request description
+   * - This operation queries the monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace.
+   * - Supports a custom query time range. The default is the data from the last hour.
+   * - You can select different time intervals (Period) to obtain data points with finer or coarser granularity.
+   * - If you need to retrieve a large amount of data through paging, you can use the `NextToken` parameter for paging.
+   * - `MetricName` is required and specifies the name of the specific monitoring metrics to query.
    * - For advanced features or specific types of monitoring metrics, refer to the relevant documentation for more information.
    * 
    * @param request - GetMetricsRequest
@@ -1259,10 +1259,242 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询 DLC 作业 RL 轨迹流转分析
+   * 
+   * @remarks
+   * 获取DLC作业RL轨迹流转分析
+   * 
+   * @param request - GetRLFlowAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRLFlowAnalysisResponse
+   */
+  async getRLFlowAnalysisWithOptions(JobId: string, request: $_model.GetRLFlowAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRLFlowAnalysisResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRLFlowAnalysis",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/rltrace/flowanalysis`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRLFlowAnalysisResponse>(await this.callApi(params, req, runtime), new $_model.GetRLFlowAnalysisResponse({}));
+  }
+
+  /**
+   * 查询 DLC 作业 RL 轨迹流转分析
+   * 
+   * @remarks
+   * 获取DLC作业RL轨迹流转分析
+   * 
+   * @param request - GetRLFlowAnalysisRequest
+   * @returns GetRLFlowAnalysisResponse
+   */
+  async getRLFlowAnalysis(JobId: string, request: $_model.GetRLFlowAnalysisRequest): Promise<$_model.GetRLFlowAnalysisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRLFlowAnalysisWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * 查询 DLC 作业 RL 日志上下文
+   * 
+   * @remarks
+   * 获取DLC作业某条异常日志的上下文
+   * 
+   * @param request - GetRLLogContextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRLLogContextResponse
+   */
+  async getRLLogContextWithOptions(JobId: string, request: $_model.GetRLLogContextRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRLLogContextResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.anchorMessage)) {
+      query["AnchorMessage"] = request.anchorMessage;
+    }
+
+    if (!$dara.isNull(request.anchorTime)) {
+      query["AnchorTime"] = request.anchorTime;
+    }
+
+    if (!$dara.isNull(request.collectTime)) {
+      query["CollectTime"] = request.collectTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRLLogContext",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/rltrace/logcontext`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRLLogContextResponse>(await this.callApi(params, req, runtime), new $_model.GetRLLogContextResponse({}));
+  }
+
+  /**
+   * 查询 DLC 作业 RL 日志上下文
+   * 
+   * @remarks
+   * 获取DLC作业某条异常日志的上下文
+   * 
+   * @param request - GetRLLogContextRequest
+   * @returns GetRLLogContextResponse
+   */
+  async getRLLogContext(JobId: string, request: $_model.GetRLLogContextRequest): Promise<$_model.GetRLLogContextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRLLogContextWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * Queries a single reinforcement learning (RL) trajectory and sample-level events for the same sample based on JobId, PromptUid, and SampleIndex, and returns an event stream sorted by event time and collection time.
+   * 
+   * @remarks
+   * Queries a single reinforcement learning (RL) trajectory and sample-level events for the same sample based on JobId, PromptUid, and SampleIndex, and returns an event stream sorted by event time and collection time.
+   * 
+   * @param request - GetRLSampleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRLSampleResponse
+   */
+  async getRLSampleWithOptions(JobId: string, request: $_model.GetRLSampleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRLSampleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.promptUid)) {
+      query["PromptUid"] = request.promptUid;
+    }
+
+    if (!$dara.isNull(request.sampleIndex)) {
+      query["SampleIndex"] = request.sampleIndex;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRLSample",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/rltrace/sample`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRLSampleResponse>(await this.callApi(params, req, runtime), new $_model.GetRLSampleResponse({}));
+  }
+
+  /**
+   * Queries a single reinforcement learning (RL) trajectory and sample-level events for the same sample based on JobId, PromptUid, and SampleIndex, and returns an event stream sorted by event time and collection time.
+   * 
+   * @remarks
+   * Queries a single reinforcement learning (RL) trajectory and sample-level events for the same sample based on JobId, PromptUid, and SampleIndex, and returns an event stream sorted by event time and collection time.
+   * 
+   * @param request - GetRLSampleRequest
+   * @returns GetRLSampleResponse
+   */
+  async getRLSample(JobId: string, request: $_model.GetRLSampleRequest): Promise<$_model.GetRLSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRLSampleWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the RL training progress of a DLC job.
+   * 
+   * @remarks
+   * Retrieves the RL training progress of a DLC job.
+   * 
+   * @param request - GetRLTrainingProgressRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRLTrainingProgressResponse
+   */
+  async getRLTrainingProgressWithOptions(JobId: string, request: $_model.GetRLTrainingProgressRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRLTrainingProgressResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRLTrainingProgress",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/rltrace/progress`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRLTrainingProgressResponse>(await this.callApi(params, req, runtime), new $_model.GetRLTrainingProgressResponse({}));
+  }
+
+  /**
+   * Retrieves the RL training progress of a DLC job.
+   * 
+   * @remarks
+   * Retrieves the RL training progress of a DLC job.
+   * 
+   * @param request - GetRLTrainingProgressRequest
+   * @returns GetRLTrainingProgressResponse
+   */
+  async getRLTrainingProgress(JobId: string, request: $_model.GetRLTrainingProgressRequest): Promise<$_model.GetRLTrainingProgressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRLTrainingProgressWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the Ray Dashboard URL.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
    * 
    * @param request - GetRayDashboardRequest
    * @param headers - map
@@ -1302,7 +1534,7 @@ export default class Client extends OpenApi {
    * Retrieves the Ray Dashboard URL.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
    * 
    * @param request - GetRayDashboardRequest
    * @returns GetRayDashboardResponse
@@ -1314,11 +1546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a RayHistoryServer.
+   * Queries a Ray history server.
    * 
    * @remarks
-   * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and have read the [pricing](https://help.aliyun.com/document_detail/171758.html).
-   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - GetRayHistoryServerRequest
    * @param headers - map
@@ -1345,11 +1576,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a RayHistoryServer.
+   * Queries a Ray history server.
    * 
    * @remarks
-   * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and have read the [pricing](https://help.aliyun.com/document_detail/171758.html).
-   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - GetRayHistoryServerRequest
    * @returns GetRayHistoryServerResponse
@@ -1361,11 +1591,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific signal in a specified job.
+   * Queries the details of a specific signal under a specified job.
    * 
    * @remarks
-   * ## Operation description
-   * You can call this operation to retrieve the details of a signal that corresponds to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing result.
+   * ## Request description
+   * This API allows you to retrieve the details of a signal corresponding to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the returned results no longer include the raw result structure for each Pod. Instead, the overall signal processing status is expressed through the `Status`, `Reason`, and `Message` fields.
    * 
    * @param request - GetSignalRequest
    * @param headers - map
@@ -1398,11 +1628,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific signal in a specified job.
+   * Queries the details of a specific signal under a specified job.
    * 
    * @remarks
-   * ## Operation description
-   * You can call this operation to retrieve the details of a signal that corresponds to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing result.
+   * ## Request description
+   * This API allows you to retrieve the details of a signal corresponding to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the returned results no longer include the raw result structure for each Pod. Instead, the overall signal processing status is expressed through the `Status`, `Reason`, and `Message` fields.
    * 
    * @param request - GetSignalRequest
    * @returns GetSignalResponse
@@ -1414,7 +1644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Tensorboard.
+   * Retrieves the details of a TensorBoard.
    * 
    * @param request - GetTensorboardRequest
    * @param headers - map
@@ -1455,7 +1685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Tensorboard.
+   * Retrieves the details of a TensorBoard.
    * 
    * @param request - GetTensorboardRequest
    * @returns GetTensorboardResponse
@@ -1736,7 +1966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
+   * Lists task templates in a workspace with support for pagination and sorting, and allows filtering by creator, template ID, or template name.
    * 
    * @param request - ListJobTemplatesRequest
    * @param headers - map
@@ -1801,7 +2031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
+   * Lists task templates in a workspace with support for pagination and sorting, and allows filtering by creator, template ID, or template name.
    * 
    * @param request - ListJobTemplatesRequest
    * @returns ListJobTemplatesResponse
@@ -1813,7 +2043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
+   * Queries a list of jobs with support for pagination, sorting, and conditional filtering.
    * 
    * @param tmpReq - ListJobsRequest
    * @param headers - map
@@ -1996,7 +2226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
+   * Queries a list of jobs with support for pagination, sorting, and conditional filtering.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -2008,11 +2238,140 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询 DLC 作业的 RL 样本轨迹
+   * 
+   * @remarks
+   * 分页获取DLC作业的RL轨迹样本列表
+   * 
+   * @param request - ListRLSamplesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRLSamplesResponse
+   */
+  async listRLSamplesWithOptions(JobId: string, request: $_model.ListRLSamplesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRLSamplesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRLSamples",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/rltrace/samples`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRLSamplesResponse>(await this.callApi(params, req, runtime), new $_model.ListRLSamplesResponse({}));
+  }
+
+  /**
+   * 分页查询 DLC 作业的 RL 样本轨迹
+   * 
+   * @remarks
+   * 分页获取DLC作业的RL轨迹样本列表
+   * 
+   * @param request - ListRLSamplesRequest
+   * @returns ListRLSamplesResponse
+   */
+  async listRLSamples(JobId: string, request: $_model.ListRLSamplesRequest): Promise<$_model.ListRLSamplesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRLSamplesWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * 分页查询 DLC 样本的 RL 轨迹
+   * 
+   * @remarks
+   * 分页获取DLC作业某个uid下的RL轨迹列表
+   * 
+   * @param request - ListRLTrajectoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRLTrajectoriesResponse
+   */
+  async listRLTrajectoriesWithOptions(JobId: string, request: $_model.ListRLTrajectoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRLTrajectoriesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.promptUid)) {
+      query["PromptUid"] = request.promptUid;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRLTrajectories",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/rltrace/trajectories`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRLTrajectoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListRLTrajectoriesResponse({}));
+  }
+
+  /**
+   * 分页查询 DLC 样本的 RL 轨迹
+   * 
+   * @remarks
+   * 分页获取DLC作业某个uid下的RL轨迹列表
+   * 
+   * @param request - ListRLTrajectoriesRequest
+   * @returns ListRLTrajectoriesResponse
+   */
+  async listRLTrajectories(JobId: string, request: $_model.ListRLTrajectoriesRequest): Promise<$_model.ListRLTrajectoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRLTrajectoriesWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
    * Lists RayHistoryServer resources.
    * 
    * @remarks
-   * Before using this operation, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-   * >Notice: The total length of parameters for the CreateJob operation (including system-generated parameters) cannot exceed 65536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - ListRayHistoryServersRequest
    * @param headers - map
@@ -2112,8 +2471,7 @@ export default class Client extends OpenApi {
    * Lists RayHistoryServer resources.
    * 
    * @remarks
-   * Before using this operation, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-   * >Notice: The total length of parameters for the CreateJob operation (including system-generated parameters) cannot exceed 65536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - ListRayHistoryServersRequest
    * @returns ListRayHistoryServersResponse
@@ -2128,8 +2486,8 @@ export default class Client extends OpenApi {
    * Queries all signal records of a specified job.
    * 
    * @remarks
-   * ## Operation description
-   * You can call this operation to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can use query parameters to further filter or sort the results.
+   * ## Request description
+   * You can use this API to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can further filter or sort the results by using query parameters.
    * 
    * @param request - ListSignalsRequest
    * @param headers - map
@@ -2185,8 +2543,8 @@ export default class Client extends OpenApi {
    * Queries all signal records of a specified job.
    * 
    * @remarks
-   * ## Operation description
-   * You can call this operation to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can use query parameters to further filter or sort the results.
+   * ## Request description
+   * You can use this API to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can further filter or sort the results by using query parameters.
    * 
    * @param request - ListSignalsRequest
    * @returns ListSignalsResponse
@@ -2319,7 +2677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the default version of a job template.
+   * Sets the default version of a template.
    * 
    * @param request - SetJobTemplateDefaultVersionRequest
    * @param headers - map
@@ -2352,7 +2710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the default version of a job template.
+   * Sets the default version of a template.
    * 
    * @param request - SetJobTemplateDefaultVersionRequest
    * @returns SetJobTemplateDefaultVersionResponse
@@ -2367,8 +2725,8 @@ export default class Client extends OpenApi {
    * Starts a Ray History Server.
    * 
    * @remarks
-   * Before using this operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+   * >Notice: The total length of the request parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - StartRayHistoryServerRequest
    * @param headers - map
@@ -2398,8 +2756,8 @@ export default class Client extends OpenApi {
    * Starts a Ray History Server.
    * 
    * @remarks
-   * Before using this operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-   * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+   * >Notice: The total length of the request parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - StartRayHistoryServerRequest
    * @returns StartRayHistoryServerResponse
@@ -2491,10 +2849,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Ray History Server.
+   * Stops the Ray History Server.
    * 
    * @remarks
-   * Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the parameters in the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - StopRayHistoryServerRequest
    * @param headers - map
@@ -2521,10 +2880,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Ray History Server.
+   * Stops the Ray History Server.
    * 
    * @remarks
-   * Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of the parameters in the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
    * 
    * @param request - StopRayHistoryServerRequest
    * @returns StopRayHistoryServerResponse
@@ -2584,7 +2944,7 @@ export default class Client extends OpenApi {
    * Creates and attaches tags to specified resources.
    * 
    * @remarks
-   * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+   * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resources. If the limit is exceeded, an error message is returned.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -2632,7 +2992,7 @@ export default class Client extends OpenApi {
    * Creates and attaches tags to specified resources.
    * 
    * @remarks
-   * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+   * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resources. If the limit is exceeded, an error message is returned.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -2644,7 +3004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds tags from a specified list of resources.
+   * Removes tags from the specified resources.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -2699,7 +3059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds tags from a specified list of resources.
+   * Removes tags from the specified resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -2772,7 +3132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job template.
+   * Updates a task template.
    * 
    * @param request - UpdateJobTemplateRequest
    * @param headers - map
@@ -2829,7 +3189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job template.
+   * Updates a task template.
    * 
    * @param request - UpdateJobTemplateRequest
    * @returns UpdateJobTemplateResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRayHistoryServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the node.
+   * The display name of the job.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The end time of the query range. The node creation time is used for filtering.
+   * The end time of the query interval. The creation time of the job is used for filtering.
    * 
    * @example
    * 2020-11-09T16:00:00Z
@@ -29,7 +29,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   idPrefix?: string;
   /**
    * @remarks
-   * Filters results by the time after which the resource was last modified.
+   * The modification time used for filtering.
    * 
    * @example
    * 2020-11-09T16:00:00Z
@@ -47,7 +47,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number for a paging query. Paging starts from page 1.
+   * The page number for a paging query. Pages start from 1.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of RayHistoryServers to return per page in a paging query.
+   * The number of RayHistoryServer resources to return on each page in a paging query.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The payment method. Valid values:
+   * The billing method. Valid values:
    * - PrePaid
    * - PostPaid
    * 
@@ -73,7 +73,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The resource group ID. To query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * The resource group ID. For more information about how to query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * quotaxxx
@@ -81,7 +81,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * Specifies whether to return only the RayHistoryServers created by the current user.
+   * Specifies whether to return only the RayHistoryServer resources created by the current logon user.
    * 
    * @example
    * true
@@ -89,7 +89,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The field by which to sort the results. Valid values:
+   * The field by which to sort the returned results. Valid values:
    * - DisplayName
    * - GmtCreateTime
    * - UserId
@@ -113,10 +113,10 @@ export class ListRayHistoryServersRequest extends $dara.Model {
    * @remarks
    * The status of the RayHistoryServer. Valid values:
    * - Creating: The RayHistoryServer is being created.
-   * - Queuing: The RayHistoryServer is queuing.
+   * - Queuing: The RayHistoryServer is in the queue.
    * - Running: The RayHistoryServer is running.
    * - Stopped: The RayHistoryServer is stopped.
-   * - Failed: The RayHistoryServer has failed.
+   * - Failed: The RayHistoryServer failed.
    * 
    * @example
    * running
@@ -132,7 +132,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   storagePath?: string;
   /**
    * @remarks
-   * Filters results by user ID.
+   * The user ID used for filtering.
    * 
    * @example
    * 123456789
@@ -140,7 +140,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   userIdForFilter?: string;
   /**
    * @remarks
-   * Filters results by username.
+   * The username used for filtering.
    * 
    * @example
    * myusername
@@ -148,7 +148,7 @@ export class ListRayHistoryServersRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The workspace ID. <props="china">To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 268

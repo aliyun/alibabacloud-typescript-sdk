@@ -13,7 +13,7 @@ export class RLProgressStep extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * The estimated remaining seconds, calculated as (Total - Current) × PaceSec.
+   * The estimated time remaining, in seconds. This value is not provided when it cannot be estimated. A value of 0 may be returned when the training is confirmed to be complete, even if PaceSec is not provided.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class RLProgressStep extends $dara.Model {
   etaSec?: number;
   /**
    * @remarks
-   * The per-step duration, calculated as the differential between contiguous step marks, in seconds.
+   * The average time per step over the recent step progress, in seconds. This value is not provided when there is insufficient information.
    * 
    * @example
    * 14
@@ -29,7 +29,7 @@ export class RLProgressStep extends $dara.Model {
   paceSec?: number;
   /**
    * @remarks
-   * The progress percentage, which is the ratio of Current to Total.
+   * The training progress percentage. A value of 100% may be returned for confirmed completed progress, where Current may be less than Total. Do not determine whether the training is complete based solely on the current step number.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class RLProgressStep extends $dara.Model {
   pct?: number;
   /**
    * @remarks
-   * The latest step mark time, in UNIX seconds.
+   * The timestamp of the latest step (in UNIX seconds).
    * 
    * @example
    * 1787474487
@@ -45,7 +45,7 @@ export class RLProgressStep extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * The total number of steps, obtained from the configuration dump.
+   * The total number of steps (retrieved from the configuration dump).
    * 
    * @example
    * 3

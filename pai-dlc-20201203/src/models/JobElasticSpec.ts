@@ -6,6 +6,9 @@ export class JobElasticSpec extends $dara.Model {
   /**
    * @remarks
    * The AIMaster Docker image.
+   * 
+   * @example
+   * registry/aimaster:v1
    */
   AIMasterDockerImage?: string;
   /**

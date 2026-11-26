@@ -6,8 +6,8 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   /**
    * @remarks
    * The visibility of the job. Valid values:
-   * - PUBLIC: Visible to all users in the workspace.
-   * - PRIVATE (default): Visible only to you and administrators in the workspace.
+   * - PUBLIC: The job is visible to all users in the workspace.
+   * - PRIVATE: The job is visible only to you and administrators in the workspace. This is the default value.
    * 
    * @example
    * PUBLIC
@@ -15,7 +15,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   accessibility?: string;
   /**
    * @remarks
-   * The display name of the node.
+   * The display name of the job.
    * 
    * @example
    * AEB-RECHARGE-TASK-14478-1778466397-main-4-
@@ -23,7 +23,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   displayName?: string;
   /**
    * @remarks
-   * The hardware specifications of the public resource group. To access a detailed list of specifications, see [PAI-DLC billing overview](https://help.aliyun.com/document_detail/171758.html).>Notice: Prices vary by specification.
+   * The hardware specifications of the public resource group. To access the detailed list of specifications, see [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html).>Notice: Prices vary by specification.
    * 
    * @example
    * ecs.g6.xlarge
@@ -31,7 +31,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   ecsSpec?: string;
   /**
    * @remarks
-   * The time when the job was created, in UTC.
+   * The time when the job was created. The time is in UTC.
    * 
    * @example
    * 2025-12-30T02:43:52Z
@@ -39,7 +39,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the job finished, in UTC.
+   * The end time. The time is in UTC.
    * 
    * @example
    * 2026-01-27T09:17:11Z
@@ -47,7 +47,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   gmtFinishTime?: string;
   /**
    * @remarks
-   * The time when the job was last modified, in UTC.
+   * The time when the job was last modified. The time is in UTC.
    * 
    * @example
    * 2026-05-19T04:05:46Z
@@ -55,7 +55,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The maximum runtime in minutes.
+   * The maximum runtime duration.
    * 
    * @example
    * 1000
@@ -63,7 +63,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   maxRuntimeMinutes?: number;
   /**
    * @remarks
-   * The ID of the created Ray History Server.
+   * The ID of the created RayHistoryServer.
    * 
    * @example
    * rhsxxx
@@ -71,7 +71,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   rayHistoryServerId?: string;
   /**
    * @remarks
-   * Ray Dashboard URL。
+   * The Ray Dashboard URL.
    * 
    * @example
    * https://rhsxxx-dashboard.dsw-gateway-cn-wulanchabu.data.aliyun.com/
@@ -95,7 +95,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   reasonMessage?: string;
   /**
    * @remarks
-   * The resource group ID. To query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * The resource group ID. For more information about how to query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * quotazoqd53w0q75
@@ -111,12 +111,12 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   resourceName?: string;
   /**
    * @remarks
-   * The status of the Tensorboard. Valid values:
-   * - Creating: The Tensorboard is being created.
-   * - Running: The Tensorboard is running.
-   * - Stopped: The Tensorboard is stopped.
-   * - Succeeded: The Tensorboard has succeeded.
-   * - Failed: The Tensorboard has failed.
+   * The status of the TensorBoard. Valid values:
+   * - Creating: The TensorBoard is being created.
+   * - Running: The TensorBoard is running.
+   * - Stopped: The TensorBoard is stopped.
+   * - Succeeded: The TensorBoard succeeded.
+   * - Failed: The TensorBoard failed.
    * 
    * @example
    * Created
@@ -156,7 +156,7 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
   username?: string;
   /**
    * @remarks
-   * The workspace ID. <props="china">To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 153466
@@ -222,12 +222,12 @@ export class ListRayHistoryServersResponseBodyRayHistoryServers extends $dara.Mo
 export class ListRayHistoryServersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of RayHistoryServers.
+   * The list of RayHistoryServer resources.
    */
   rayHistoryServers?: ListRayHistoryServersResponseBodyRayHistoryServers[];
   /**
    * @remarks
-   * The request ID of this call, used for diagnostics and troubleshooting.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
@@ -235,7 +235,7 @@ export class ListRayHistoryServersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of nodes that match the filter conditions.
+   * The total number of jobs that meet the filter conditions.
    * 
    * @example
    * 1

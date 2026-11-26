@@ -6,7 +6,7 @@ import { RLProgressBufferDetail } from "./RlprogressBufferDetail";
 export class RLProgressBuffer extends $dara.Model {
   /**
    * @remarks
-   * The total number of consumed samples in incomplete buffers.
+   * The total number of consumed samples in unfinished buffers.
    * 
    * @example
    * 0
@@ -22,7 +22,7 @@ export class RLProgressBuffer extends $dara.Model {
   detail?: RLProgressBufferDetail[];
   /**
    * @remarks
-   * The estimated number of remaining seconds to fill the buffer.
+   * The estimated number of seconds remaining to fill the buffer.
    * 
    * @example
    * 0
@@ -38,7 +38,7 @@ export class RLProgressBuffer extends $dara.Model {
   fillRatePerMin?: number;
   /**
    * @remarks
-   * The total number of finished samples in incomplete buffers.
+   * The total number of finished samples in unfinished buffers.
    * 
    * @example
    * 500
@@ -46,7 +46,7 @@ export class RLProgressBuffer extends $dara.Model {
   finished?: number;
   /**
    * @remarks
-   * The readiness percentage, which is the ratio of Ready to Target.
+   * The completion percentage of the finished count relative to the target count, up to 100%. This value is provided when the target count is greater than 0. This value is not equivalent to the proportion of currently available samples indicated by the ready count.
    * 
    * @example
    * 100
@@ -54,7 +54,7 @@ export class RLProgressBuffer extends $dara.Model {
   pct?: number;
   /**
    * @remarks
-   * The total number of ready samples in incomplete buffers.
+   * The total number of ready samples in unfinished buffers.
    * 
    * @example
    * 500
@@ -62,7 +62,7 @@ export class RLProgressBuffer extends $dara.Model {
   ready?: number;
   /**
    * @remarks
-   * The total number of target samples in incomplete buffers.
+   * The total number of target samples in unfinished buffers.
    * 
    * @example
    * 512
@@ -78,7 +78,7 @@ export class RLProgressBuffer extends $dara.Model {
   trainBatchSize?: number;
   /**
    * @remarks
-   * Indicates whether Consumed is greater than 0, which means the batch has been fetched and the trainer is updating.
+   * Indicates whether the consumed count is greater than 0, which means that batches have been fetched and the trainer is updating.
    * 
    * @example
    * true

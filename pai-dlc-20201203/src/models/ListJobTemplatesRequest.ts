@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the list by a fuzzy match of the template description.
+   * Filters the list by fuzzy match on the template description.
    * 
    * @example
    * PyTorch training template
@@ -29,7 +29,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * @example
    * GmtCreateTime
@@ -45,7 +45,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Filters the list by an exact match of the template ID.
+   * Filters the list by exact template ID.
    * 
    * @example
    * tpl1****6jcq2q
@@ -53,7 +53,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * Filters the list by a fuzzy match of the template name.
+   * Filters the list by fuzzy match on the template name.
    * 
    * @example
    * job-template-example-1778047****

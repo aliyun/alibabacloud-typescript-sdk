@@ -100,8 +100,8 @@ export class CreateTensorboardRequest extends $dara.Model {
   /**
    * @remarks
    * The resource quota ID. This parameter is required when you create a TensorBoard job by using resources from a resource quota. <props="china">For more information about how to obtain the resource quota ID, see [ListQuotas](https://help.aliyun.com/document_detail/2628071.html).
-   * <props="china">Available only on the China site.
-   * Currently, only whitelisted users can use resource quota resources to create TensorBoard jobs. To use this feature, contact us.
+   * <props="china">Released only on the China site.
+   * Currently, only whitelisted users can create TensorBoard jobs by using resources from a resource quota. To use this feature, contact us.
    * 
    * @example
    * quota12345
@@ -125,7 +125,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The summary directory.
+   * The Summary directory.
    * 
    * @example
    * /root/data/
@@ -133,7 +133,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   summaryPath?: string;
   /**
    * @remarks
-   * The relative path of the summary directory.
+   * The relative path of the Summary directory.
    * 
    * @example
    * /summary/
@@ -146,7 +146,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   /**
    * @remarks
-   * The pay-as-you-go configuration information of TensorBoard, which is used to create a TensorBoard job that uses pay-as-you-go resources.
+   * The pay-as-you-go configuration information of the TensorBoard instance, which is used to create a TensorBoard job that uses pay-as-you-go resources.
    */
   tensorboardSpec?: TensorboardSpec;
   /**

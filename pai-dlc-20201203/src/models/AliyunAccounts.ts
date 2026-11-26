@@ -6,11 +6,17 @@ export class AliyunAccounts extends $dara.Model {
   /**
    * @remarks
    * The UID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 1234567890123456
    */
   aliyunUid?: string;
   /**
    * @remarks
    * The employee ID of the internal user.
+   * 
+   * @example
+   * 123456
    */
   employeeId?: string;
   /**

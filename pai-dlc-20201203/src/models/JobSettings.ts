@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { UserVpc } from "./UserVpc";
 import { DataJuicerConfig } from "./DataJuicerConfig";
 import { ModelConfig } from "./ModelConfig";
 
@@ -8,16 +9,25 @@ export class JobSettings extends $dara.Model {
   /**
    * @remarks
    * The additional advanced parameter settings.
+   * 
+   * @example
+   * {"vm.max_map_count":"262144"}
    */
   advancedSettings?: { [key: string]: any };
   /**
    * @remarks
-   * Specifies whether to mount all RDMA NICs.
+   * Specifies whether to mount all RDMA network interface controllers (NICs).
+   * 
+   * @example
+   * false
    */
   allocateAllRDMADevices?: boolean;
   /**
    * @remarks
    * Specifies whether to allow the job to be scheduled to nodes that are marked as unschedulable or included in the workspace blacklist. If enabled, node status checks are skipped and corresponding bypass configurations are applied.
+   * 
+   * @example
+   * false
    */
   allowUnschedulableNodes?: boolean;
   /**
@@ -38,12 +48,31 @@ export class JobSettings extends $dara.Model {
   caller?: string;
   /**
    * @remarks
+   * The cross-account VPC configuration. Currently, only one VPC is allowed.
+   * 
+   * @example
+   * [
+   *   {
+   *     "VpcId": "vpc-xxx",
+   *     "SwitchId": "vsw-xxx",
+   *     "SecurityGroupId": "sg-xxx",
+   *     "RoleChain": "[{\"roleType\":\"service\",\"roleArn\":\"acs:ram::BailianResourceAccountUID:role/bailiantodlcrole\",\"assumeRoleFor\":\"BailianResourceAccountUID\"},{\"roleType\":\"user\",\"roleArn\":\"acs:ram::BailianServiceAccountUID:role/roletoassumecustomerrole\"},{\"roleType\":\"service\",\"roleArn\":\"acs:ram::EndUserUID:role/user-role\",\"assumeRoleFor\":\"EndUserUID\"}]",
+   *     "ExtendedCIDRs": [
+   *       "192.168.0.0/24",
+   *       "192.168.1.0/24"
+   *     ]
+   *   }
+   * ]
+   */
+  crossAccountVpcs?: UserVpc[];
+  /**
+   * @remarks
    * The DataJuicer job configuration.
    */
   dataJuicerConfig?: DataJuicerConfig;
   /**
    * @remarks
-   * Specifies whether to skip the inventory check. Valid values:
+   * Specifies whether to skip the ECS inventory check. Valid values:
    * - true
    * - false
    * 
@@ -78,6 +107,9 @@ export class JobSettings extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the DSW development mode for the job. If enabled, a sidecar container is injected into the pod.
+   * 
+   * @example
+   * false
    */
   enableDSWDev?: boolean;
   /**
@@ -92,7 +124,7 @@ export class JobSettings extends $dara.Model {
   enableErrorMonitoringInAIMaster?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow job nodes to communicate with each other over SSH. The image must have SSHD built-in. This parameter takes effect only for PyTorch jobs that use self-managed computing resources. Valid values:
+   * Specifies whether to allow job nodes to communicate with each other over SSH. The image must have SSHD built in. This parameter takes effect only for PyTorch jobs that use self-managed computing resources. Valid values:
    * - true
    * - false
    * 
@@ -102,7 +134,7 @@ export class JobSettings extends $dara.Model {
   enableIntraJobSSH?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow OSS append operations. Valid values:
+   * Specifies whether to allow OSS append writes. Valid values:
    * - true
    * - false
    * 
@@ -132,7 +164,7 @@ export class JobSettings extends $dara.Model {
   enableSanityCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow the job to use tidal resources. Valid values:
+   * Specifies whether to allow the job to use tide resources. Valid values:
    * - true
    * - false
    * 
@@ -171,7 +203,7 @@ export class JobSettings extends $dara.Model {
   modelConfig?: ModelConfig;
   /**
    * @remarks
-   * The oversold resource usage mode for the job, which can be not accepted, accepted, or only accepted.
+   * The oversold resource usage mode for the job, such as not accepted, accepted, or only accepted.
    * 
    * @example
    * AcceptQuotaOverSold
@@ -195,7 +227,7 @@ export class JobSettings extends $dara.Model {
   sanityCheckArgs?: string;
   /**
    * @remarks
-   * The shell used to execute job commands, such as /bin/sh or /bin/bash.
+   * The shell used to execute job commands. Valid values: /bin/sh and /bin/bash.
    * 
    * @example
    * /bin/bash
@@ -204,6 +236,9 @@ export class JobSettings extends $dara.Model {
   /**
    * @remarks
    * The custom tags.
+   * 
+   * @example
+   * {"app":"training"}
    */
   tags?: { [key: string]: string };
   /**
@@ -221,6 +256,7 @@ export class JobSettings extends $dara.Model {
       allowUnschedulableNodes: 'AllowUnschedulableNodes',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
+      crossAccountVpcs: 'CrossAccountVpcs',
       dataJuicerConfig: 'DataJuicerConfig',
       disableEcsStockCheck: 'DisableEcsStockCheck',
       driver: 'Driver',
@@ -253,6 +289,7 @@ export class JobSettings extends $dara.Model {
       allowUnschedulableNodes: 'boolean',
       businessUserId: 'string',
       caller: 'string',
+      crossAccountVpcs: { 'type': 'array', 'itemType': UserVpc },
       dataJuicerConfig: DataJuicerConfig,
       disableEcsStockCheck: 'boolean',
       driver: 'string',
@@ -281,6 +318,9 @@ export class JobSettings extends $dara.Model {
   validate() {
     if(this.advancedSettings) {
       $dara.Model.validateMap(this.advancedSettings);
+    }
+    if(Array.isArray(this.crossAccountVpcs)) {
+      $dara.Model.validateArray(this.crossAccountVpcs);
     }
     if(this.dataJuicerConfig && typeof (this.dataJuicerConfig as any).validate === 'function') {
       (this.dataJuicerConfig as any).validate();

@@ -8,7 +8,7 @@ export class DebuggerConfig extends $dara.Model {
    * The configuration item details in JSON format.
    * 
    * @example
-   * {\\"description\\":\\"This is a new pytorchjob template\\"}
+   * {\"description\":\"This is a new pytorchjob template\"}
    */
   content?: string;
   /**

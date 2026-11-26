@@ -6,6 +6,9 @@ export class AssumeUserInfo extends $dara.Model {
   /**
    * @remarks
    * The AccessKey ID used for role assumption.
+   * 
+   * @example
+   * LTAI5tExample****KeyId1234
    */
   accessKeyId?: string;
   /**
@@ -19,6 +22,9 @@ export class AssumeUserInfo extends $dara.Model {
   /**
    * @remarks
    * The security token used for role assumption.
+   * 
+   * @example
+   * CAISexample****SecurityToken
    */
   securityToken?: string;
   /**

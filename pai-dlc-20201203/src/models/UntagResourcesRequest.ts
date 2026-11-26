@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to unbind all tags from the instance. Valid values:
+   * Specifies whether to remove all tags from the instance. Valid values:
    * 
-   * - true: Unbinds all tags from the instance.
+   * - true: Removes all tags from the instance.
    * 
-   * - false: Does not unbind all tags from the instance.
+   * - false: Does not remove all tags from the instance.
    * 
    * Default value: false.
    * 
@@ -19,7 +19,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: string;
   /**
    * @remarks
-   * The resource ID. You can specify up to 50 resource IDs.
+   * The IDs of the resources. You can specify up to 50 IDs.
    * 
    * This parameter is required.
    */
@@ -36,7 +36,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys. You can specify up to 20 tag keys.
+   * The tag keys. You can specify up to 20 tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

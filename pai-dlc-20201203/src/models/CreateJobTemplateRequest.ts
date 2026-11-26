@@ -8,17 +8,17 @@ export class CreateJobTemplateRequest extends $dara.Model {
    * The field constraint rules. The key is a JSONPath expression, and the value is the constraint type: locked (locked and cannot be overridden), overridable (can be overridden), or required (required).
    * 
    * @example
-   * {\\"JobSpecs[0].Image\\":\\"locked\\",\\"UserCommand\\":\\"locked\\",\\"JobType\\":\\"locked\\"}
+   * {"JobSpecs[0].Image":"locked","UserCommand":"locked","JobType":"locked"}
    */
   constraints?: { [key: string]: any };
   /**
    * @remarks
-   * The configuration content of the task template, which contains job configuration parameters. Pass the value in JSON string format.
+   * The configuration content of the task template, including job configuration parameters, passed as a JSON string.
    * 
    * This parameter is required.
    * 
    * @example
-   * {\\"WorkspaceId\\":\\"15****05\\",\\"JobType\\":\\"PyTorchJob\\",\\"UserCommand\\":\\"echo hello\\",\\"JobSpecs\\":[{\\"Type\\":\\"Worker\\",\\"PodCount\\":1,\\"Image\\":\\"dsw-registry-vpc.cn-hangzhou.cr.aliyuncs.com/pai/pytorch:2.8.0-gpu-py313-cu129-ubuntu22.04-3995b779-1764361782\\",\\"EcsSpec\\":\\"ecs.gn7i-c8g1.2xlarge\\"}],\\"ResourceType\\":\\"ECS\\",\\"_ResourcePaymentType\\":\\"PostPaid\\",\\"CredentialConfig\\":{\\"EnableCredentialInject\\":false},\\"Accessibility\\":\\"PRIVATE\\",\\"Settings\\":{\\"JobReservedMinutes\\":0,\\"Tags\\":{}}}
+   * {\"WorkspaceId\":\"15****05\",\"JobType\":\"PyTorchJob\",\"UserCommand\":\"echo hello\",\"JobSpecs\":[{\"Type\":\"Worker\",\"PodCount\":1,\"Image\":\"dsw-registry-vpc.cn-hangzhou.cr.aliyuncs.com/pai/pytorch:2.8.0-gpu-py313-cu129-ubuntu22.04-3995b779-1764361782\",\"EcsSpec\":\"ecs.gn7i-c8g1.2xlarge\"}],\"ResourceType\":\"ECS\",\"_ResourcePaymentType\":\"PostPaid\",\"CredentialConfig\":{\"EnableCredentialInject\":false},\"Accessibility\":\"PRIVATE\",\"Settings\":{\"JobReservedMinutes\":0,\"Tags\":{}}}
    */
   content?: string;
   /**

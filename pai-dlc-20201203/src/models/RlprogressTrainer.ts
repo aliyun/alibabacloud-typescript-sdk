@@ -15,7 +15,7 @@ export class RLProgressTrainer extends $dara.Model {
   micro?: RLProgressMicro;
   /**
    * @remarks
-   * The current mini-batch ordinal number.
+   * The current mini-batch index.
    * 
    * @example
    * 1

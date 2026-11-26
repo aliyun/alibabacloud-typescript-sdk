@@ -22,6 +22,9 @@ export class SanityCheckResultItem extends $dara.Model {
   /**
    * @remarks
    * The check result details.
+   * 
+   * @example
+   * GPU health check passed.
    */
   message?: string;
   /**

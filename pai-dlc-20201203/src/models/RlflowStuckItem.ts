@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RLFlowStuckItem extends $dara.Model {
   /**
    * @remarks
-   * The number of idle seconds since NowMs. This value is the descending sort key of the Stuck list.
+   * The number of idle seconds since NowMs (the descending sort key for the stuck list).
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class RLFlowStuckItem extends $dara.Model {
   idleSec?: number;
   /**
    * @remarks
-   * The UNIX timestamp of the last event, in milliseconds.
+   * The millisecond timestamp of the last event.
    * 
    * @example
    * 1787293215480
@@ -21,22 +21,15 @@ export class RLFlowStuckItem extends $dara.Model {
   lastTsMs?: number;
   /**
    * @remarks
-   * The current milestone where the entry is staying. Valid values:
-   * - 已生成未下发: Generated but not delivered.
-   * - 已下发未启动: Delivered but not started.
-   * - 已启动待生成: Started and pending generation.
-   * - 生成中: Generating.
-   * - Rollout完成待打分: Rollout completed and pending scoring.
-   * - 已打分待采样: Scored and pending sampling.
-   * - 已采样待训练: Sampled and pending training.
+   * The current milestone: generated but not dispatched, dispatched but not started, started but pending generation, generating, rollout completed pending scoring, scored pending sampling, or sampled pending training.
    * 
    * @example
-   * 生成中
+   * Generating
    */
   milestone?: string;
   /**
    * @remarks
-   * The number of completed generation rounds.
+   * The number of completed generation turns.
    * 
    * @example
    * 3
@@ -44,7 +37,7 @@ export class RLFlowStuckItem extends $dara.Model {
   NTurns?: number;
   /**
    * @remarks
-   * The UID of the sample.
+   * The sample UID.
    * 
    * @example
    * 321fa56f-e1e5-4eb3-8047-db7a230c9a75
@@ -52,7 +45,7 @@ export class RLFlowStuckItem extends $dara.Model {
   promptUid?: string;
   /**
    * @remarks
-   * The ordinal number of the trajectory.
+   * The trajectory index.
    * 
    * @example
    * 2

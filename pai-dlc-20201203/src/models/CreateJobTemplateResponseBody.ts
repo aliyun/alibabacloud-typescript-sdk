@@ -41,7 +41,7 @@ export class CreateJobTemplateResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The most recent time when a node was successfully created by using this template. This parameter is not returned if you create a template that has not been used.
+   * The time when the template was last used.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -51,7 +51,7 @@ export class CreateJobTemplateResponseBody extends $dara.Model {
   lastUsedTime?: string;
   /**
    * @remarks
-   * The custom key-value pair metadata defined by the user.
+   * The user-defined key-value pair metadata.
    * 
    * @example
    * {}
@@ -99,7 +99,7 @@ export class CreateJobTemplateResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The version number of the currently returned version.
+   * The version number returned in the current response.
    * 
    * @example
    * 1

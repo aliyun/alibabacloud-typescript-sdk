@@ -8,7 +8,7 @@ export class GetMetricsRequest extends $dara.Model {
    * (Required) The request parameters.
    * 
    * @example
-   * [{\\"jobId\\":\\"dlcdpfpc96mh63mg\\",\\"pod\\":\\"dlcdpfpc96mh63mg-worker-748\\",\\"regionId\\":\\"cn-wulanchabu\\",\\"userId\\":\\"1458867964644701\\"}]
+   * [{\"jobId\":\"dlcdpfpc96mh63mg\",\"pod\":\"dlcdpfpc96mh63mg-worker-748\",\"regionId\":\"cn-wulanchabu\",\"userId\":\"1458867964644701\"}]
    */
   dimensions?: string;
   /**
@@ -29,7 +29,7 @@ export class GetMetricsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The number of entries per query. This parameter is used for paged query with paging. Default value: 1000.
+   * The size of each query, used for paging queries. Default value: 1000.
    * 
    * @example
    * 5000
@@ -37,7 +37,7 @@ export class GetMetricsRequest extends $dara.Model {
   length?: string;
   /**
    * @remarks
-   * The metric name. Not populated. Not in use.
+   * The metric name. This parameter is unpopulated and not in use.
    * 
    * @example
    * JOB_MEMORY_FREE
@@ -45,7 +45,7 @@ export class GetMetricsRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The data namespace of the cloud service. For information about the data namespaces of cloud services, see cloud service monitoring items.
+   * The data namespace of the cloud service. For more information about the data namespaces of cloud services, see Cloud service monitoring metrics.
    * 
    * @example
    * acs_pai_dlc
@@ -53,7 +53,7 @@ export class GetMetricsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The pagination token. If you do not set this parameter, data on the first page is returned. If a value is returned for this parameter, more pages are available. You can set NextToken to the returned value to retrieve the next page. Repeat this process until a null value is returned, which indicates that all data has been retrieved.
+   * The pagination cursor. If this parameter is not specified, the first page of data is returned. If this parameter is returned in the response, it indicates that more data is available. You can use the returned NextToken value as the parameter in the next request to retrieve the next page of data until the returned value is null, which indicates that all data has been retrieved.
    * 
    * @example
    * 2c6b65b6f9d625d4716568ca19b2064be0b5e8707e68181f
@@ -69,7 +69,7 @@ export class GetMetricsRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The start time (UTC) of the time range for querying monitoring data. Default value: one hour before the current time.
+   * The start time of the time range for querying monitoring data in UTC. Default value: 1 hour ago.
    * 
    * @example
    * 2020-11-08T16:00:00Z

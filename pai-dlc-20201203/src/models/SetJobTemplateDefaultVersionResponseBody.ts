@@ -13,7 +13,7 @@ export class SetJobTemplateDefaultVersionResponseBody extends $dara.Model {
   defaultVersion?: number;
   /**
    * @remarks
-   * The time the template was last modified.
+   * The modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
