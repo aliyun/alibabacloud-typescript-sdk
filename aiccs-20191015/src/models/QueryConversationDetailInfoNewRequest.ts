@@ -13,7 +13,7 @@ export class QueryConversationDetailInfoNewRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The task detail ID. View the task detail ID in the upper-left corner of the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console, or retrieve it by calling the [QueryAiCallDetailPage](https://help.aliyun.com/document_detail/2926853.html) operation.
+   * The task detail ID. You can view the task detail ID in the upper-left corner of the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page, or call the [QueryAiCallDetailPage](https://help.aliyun.com/document_detail/2926853.html) operation to obtain the task detail ID.
    * 
    * @example
    * 9662*************
@@ -21,7 +21,7 @@ export class QueryConversationDetailInfoNewRequest extends $dara.Model {
   detailId?: string;
   /**
    * @remarks
-   * The external business serial number reserved for external input. You can use a unique ID for business association.
+   * The custom business transaction ID passed from external systems. You can use a unique ID to associate business data.
    * 
    * @example
    * 123******
@@ -32,7 +32,7 @@ export class QueryConversationDetailInfoNewRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The task ID. View the task ID in the **Call Task Management** console or retrieve it by calling the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation.
+   * The task ID. You can view the task ID on the **Call Task Management** page or call the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation to obtain the task ID.
    * 
    * This parameter is required.
    * 

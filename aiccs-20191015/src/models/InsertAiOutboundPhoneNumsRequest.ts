@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class InsertAiOutboundPhoneNumsRequestDetails extends $dara.Model {
   /**
    * @remarks
-   * Custom business information.
+   * The custom business information.
    * 
    * @example
-   * xxxx
+   * ioi-qerhne-hoz-114c
    */
   bizData?: string;
   /**
    * @remarks
-   * The callee number for outbound calls.
+   * The outbound called number.
    * 
    * @example
    * 150****0000
@@ -45,9 +45,9 @@ export class InsertAiOutboundPhoneNumsRequestDetails extends $dara.Model {
 export class InsertAiOutboundPhoneNumsRequest extends $dara.Model {
   /**
    * @remarks
-   * The batch version number of the job.  
+   * The task batch number.
    * 
-   * > If this parameter is not specified, numbers are imported into the default batch.
+   * > If you do not specify this parameter, the numbers are imported to the default batch.
    * 
    * @example
    * 2
@@ -55,16 +55,16 @@ export class InsertAiOutboundPhoneNumsRequest extends $dara.Model {
   batchVersion?: number;
   /**
    * @remarks
-   * Number details.  
-   * > A maximum of 30 entries are allowed.
+   * The number details.
+   * > A maximum of 30 entries are supported.
    * 
    * This parameter is required.
    */
   details?: InsertAiOutboundPhoneNumsRequestDetails[];
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID.
+   * You can obtain the instance ID in the <b>Instances</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -74,9 +74,9 @@ export class InsertAiOutboundPhoneNumsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The job ID.  
+   * The task ID.
    * 
-   * You can invoke the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API and check the **Data** field in the response, or invoke the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API and check the **TaskId** field in the response.
+   * You can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) operation and view the **Data** response parameter, or call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) operation and view the **TaskId** response parameter.
    * 
    * This parameter is required.
    * 

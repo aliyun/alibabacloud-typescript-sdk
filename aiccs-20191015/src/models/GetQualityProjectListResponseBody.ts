@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityProjectListResponseBodyDataQualityProjectList extends $dara.Model {
   /**
    * @remarks
-   * Quality inspection job frequency.
+   * The frequency of the quality check task.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $da
   checkFreqType?: number;
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 2021-04-07 18:07:18
@@ -21,17 +21,17 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $da
   createTime?: string;
   /**
    * @remarks
-   * Quality inspection sampling scope.
+   * The sampling scope of the quality check.
    */
   depList?: number[];
   /**
    * @remarks
-   * Quality inspection sampling scope.
+   * The sampling scope of the quality check.
    */
   groupList?: number[];
   /**
    * @remarks
-   * Quality inspection job ID.
+   * The ID of the quality check task.
    * 
    * @example
    * 15977801
@@ -39,7 +39,7 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $da
   id?: number;
   /**
    * @remarks
-   * Updated At.
+   * The update time.
    * 
    * @example
    * 2021-04-07 18:07:19
@@ -47,20 +47,20 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $da
   modifyTime?: string;
   /**
    * @remarks
-   * Quality inspection job name.
+   * The name of the quality check task.
    * 
    * @example
-   * 自动化质检任务
+   * Automated quality check task
    */
   projectName?: string;
   /**
    * @remarks
-   * Quality inspection rule IDs.
+   * The IDs of the quality check rules.
    */
   qualityRuleIds?: number[];
   /**
    * @remarks
-   * Quality inspection type. Fixed value is **1** (Consultation).
+   * The quality check type. Fixed value: **1** (Consulting).
    * 
    * @example
    * 1
@@ -68,12 +68,12 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $da
   qualityType?: number;
   /**
    * @remarks
-   * Scope of quality inspection sampling.
+   * The sampling scope of the quality check.
    */
   servicerList?: number[];
   /**
    * @remarks
-   * Status of the quality inspection job.
+   * The status of the quality check task.
    * 
    * @example
    * 0
@@ -81,7 +81,7 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $da
   status?: number;
   /**
    * @remarks
-   * Quality inspection job version number.
+   * The version number of the quality check task.
    * 
    * @example
    * 1
@@ -145,7 +145,7 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $da
 export class GetQualityProjectListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -153,7 +153,7 @@ export class GetQualityProjectListResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -161,12 +161,12 @@ export class GetQualityProjectListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of quality inspection jobs.
+   * The list of quality check tasks.
    */
   qualityProjectList?: GetQualityProjectListResponseBodyDataQualityProjectList[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 35
@@ -205,7 +205,7 @@ export class GetQualityProjectListResponseBodyData extends $dara.Model {
 export class GetQualityProjectListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -213,20 +213,20 @@ export class GetQualityProjectListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Quality inspection job information.
+   * The quality check task information.
    */
   data?: GetQualityProjectListResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -234,7 +234,7 @@ export class GetQualityProjectListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

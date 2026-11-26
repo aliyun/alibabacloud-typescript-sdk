@@ -13,7 +13,7 @@ export class AddLargeModelRequest extends $dara.Model {
   authCode?: string;
   /**
    * @remarks
-   * The base model.
+   * The foundation model.
    */
   baseModel?: string[];
   /**
@@ -45,7 +45,7 @@ export class AddLargeModelRequest extends $dara.Model {
   temperature?: number;
   /**
    * @remarks
-   * The `top-k` value.
+   * topK
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class AddLargeModelRequest extends $dara.Model {
   topK?: number;
   /**
    * @remarks
-   * The `top-p` value.
+   * topP
    * 
    * @example
    * 0.1

@@ -10,25 +10,25 @@ export class LlmFullDuplexCallOperateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   callId?: string;
   /**
    * @remarks
-   * The action command: play / flush / hangup / sendDtmf.
+   * The action command. Valid values: play, flush, hangup, and sendDtmf.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   command?: string;
   /**
    * @remarks
-   * The extension parameter, a JSON character string. The metric description for each command:
+   * The extension parameters in JSON character string format. Metric description for each command:
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   param?: string;
   static names(): { [key: string]: string } {

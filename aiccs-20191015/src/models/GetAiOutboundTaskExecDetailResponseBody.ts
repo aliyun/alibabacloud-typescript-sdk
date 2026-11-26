@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Job batch.
+   * The task batch.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model
   batchVersion?: number;
   /**
    * @remarks
-   * Custom business information
+   * The custom business information.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model
   callCount?: number;
   /**
    * @remarks
-   * The activity ID associated with this outbound call.
+   * The ID of the campaign associated with the outbound call.
    * 
    * @example
    * 123456
@@ -37,7 +37,7 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model
   caseId?: number;
   /**
    * @remarks
-   * Number import time. UNIX timestamp format, unit: milliseconds.
+   * The number import time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1632289999000
@@ -45,15 +45,15 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model
   createTime?: number;
   /**
    * @remarks
-   * Result of the last outbound call.
+   * The result of the last outbound call.
    * 
    * @example
-   * 未接通
+   * Not connected
    */
   lastCallResult?: string;
   /**
    * @remarks
-   * Outbound phone number.
+   * The outbound call number.
    * 
    * @example
    * 150****0000
@@ -61,13 +61,13 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model
   phoneNum?: string;
   /**
    * @remarks
-   * Execution status. Valid values:
+   * The execution status. Valid values:
    * 
-   * - **1**: Pending call.
+   * - **1**: Pending.
    * - **2**: Calling.
    * - **3**: Completed.
-   * - **4**: Stopped.
-   * - **5**: Pending retry.
+   * - **4**: Terminated.
+   * - **5**: Pending recall.
    * 
    * @example
    * 1
@@ -75,10 +75,10 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model
   status?: number;
   /**
    * @remarks
-   * Execution status description.
+   * The execution status description.
    * 
    * @example
-   * 待呼叫
+   * 1
    */
   statusDesc?: number;
   static names(): { [key: string]: string } {
@@ -121,7 +121,7 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model
 export class GetAiOutboundTaskExecDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -137,12 +137,12 @@ export class GetAiOutboundTaskExecDetailResponseBodyData extends $dara.Model {
   hasNextPage?: boolean;
   /**
    * @remarks
-   * List of outbound call executions.
+   * The execution list of outbound call numbers.
    */
   list?: GetAiOutboundTaskExecDetailResponseBodyDataList[];
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -150,7 +150,7 @@ export class GetAiOutboundTaskExecDetailResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of jobs.
+   * The total number of tasks.
    * 
    * @example
    * 199
@@ -199,12 +199,12 @@ export class GetAiOutboundTaskExecDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of task executions.
+   * The task execution list.
    */
   data?: GetAiOutboundTaskExecDetailResponseBodyData;
   /**
    * @remarks
-   * Status code description.
+   * The status message.
    * 
    * @example
    * OK
@@ -212,7 +212,7 @@ export class GetAiOutboundTaskExecDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
@@ -220,8 +220,8 @@ export class GetAiOutboundTaskExecDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API was invoked successfully.
-   * - **true**: Succeeded.
+   * Indicates whether the API operation was called successfully. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

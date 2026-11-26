@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiCallTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reasons for access denial.
    * 
    * @example
    * None
@@ -23,7 +23,7 @@ export class UpdateAiCallTaskResponseBody extends $dara.Model {
    * @remarks
    * The update result. Valid values:
    * 
-   * - **true**: The update is successful.
+   * - **true**: The update succeeded.
    * 
    * - **false**: The update failed.
    * 
@@ -50,8 +50,8 @@ export class UpdateAiCallTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the API call is successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The call succeeded.
+   * - **false**: The call failed.
    * 
    * @example
    * false

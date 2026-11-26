@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Agent ID.
+   * The agent ID.
    * 
    * @example
    * 2235****
@@ -13,7 +13,7 @@ export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
   agentId?: number;
   /**
    * @remarks
-   * Agent status. Valid values: **1~6**.
+   * The agent status. Valid values: **1** to **6**.
    * 
    * @example
    * 1
@@ -21,12 +21,13 @@ export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
   agentStatus?: number;
   /**
    * @remarks
-   * Agent status code. Valid values:  
-   * - **AgentCheckout**: Agent logged off.  
-   * - **AgentReady**: Agent idle.  
-   * - **AgentBreak**: Agent on break.  
-   * - **AgentAcw**: Post-processing after a call.  
-   * - **AgentBusyForCall**: In a call.
+   * The agent status code. Valid values:
+   * 
+   * - **AgentCheckout**: off duty
+   * - **AgentReady**: idle
+   * - **AgentBreak**: on break
+   * - **AgentAcw**: in after-call work
+   * - **AgentBusyForCall**: on a call
    * 
    * @example
    * AgentCheckout
@@ -34,9 +35,9 @@ export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
   agentStatusCode?: string;
   /**
    * @remarks
-   * Indicates whether the agent is assigned. Valid values:  
-   * **false**: Not assigned (no call).  
-   * **true**: Assigned (in a call).
+   * Indicates whether the agent is assigned. Valid values:
+   * - **false**: not assigned (no active calls)
+   * - **true**: assigned (active calls)
    * 
    * @example
    * false
@@ -44,12 +45,13 @@ export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
   assigned?: boolean;
   /**
    * @remarks
-   * Break type. Valid values:  
-   * - **1**: Short break.  
-   * - **2**: Meal break.  
-   * - **3**: Meeting.  
-   * - **4**: Coaching.  
-   * - **5**: Training.
+   * The break type. Valid values: 
+   * 
+   * - **1**: break
+   * - **2**: meal
+   * - **3**: meeting
+   * - **4**: coaching
+   * - **5**: training
    * 
    * @example
    * 1
@@ -57,15 +59,15 @@ export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
   restType?: number;
   /**
    * @remarks
-   * Tenant ID to which the agent belongs, corresponding to the instance ID in the input parameter.
+   * The ID of the tenant to which the agent belongs. This ID corresponds to the instance ID in the request parameters.
    * 
    * @example
-   * ccc_xp_pre-cn-***
+   * 205282
    */
   tenantId?: number;
   /**
    * @remarks
-   * Heartbeat signature.
+   * The heartbeat signature.
    * 
    * @example
    * dnthF_oinHg7JMJDmKqex3Ux****
@@ -107,7 +109,7 @@ export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
 export class GetHotlineAgentDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * Success
@@ -115,12 +117,12 @@ export class GetHotlineAgentDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Agent service data.
+   * The agent service data.
    */
   data?: GetHotlineAgentDetailResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -128,7 +130,7 @@ export class GetHotlineAgentDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -136,7 +138,7 @@ export class GetHotlineAgentDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -144,9 +146,9 @@ export class GetHotlineAgentDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: successful
+   * - **false**: failed
    * 
    * @example
    * true

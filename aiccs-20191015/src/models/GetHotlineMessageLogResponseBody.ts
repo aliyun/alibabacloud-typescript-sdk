@@ -16,7 +16,7 @@ export class GetHotlineMessageLogResponseBodyData extends $dara.Model {
    * The session content.
    * 
    * @example
-   * 您好。
+   * Hello
    */
   content?: string;
   /**
@@ -37,9 +37,9 @@ export class GetHotlineMessageLogResponseBodyData extends $dara.Model {
   mid?: string;
   /**
    * @remarks
-   * The sender type. Valid values:  
-   * - **1**: Membership  
-   * - **2**: Agent
+   * The sender type. Valid values:
+   * - **1**: member
+   * - **2**: agent
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class GetHotlineMessageLogResponseBodyData extends $dara.Model {
 export class GetHotlineMessageLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of "Success" indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request succeeded.
    * 
    * @example
    * Success
@@ -95,15 +95,15 @@ export class GetHotlineMessageLogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Voice messages.
+   * The voice message information.
    */
   data?: GetHotlineMessageLogResponseBodyData[];
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
@@ -116,7 +116,9 @@ export class GetHotlineMessageLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call succeeded. Valid values:
+   * - **true**: The call succeeded.
+   * - **false**: The call failed.
    * 
    * @example
    * true

@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $dara.Model {
   /**
    * @remarks
-   * Custom business information.
+   * The custom business information.
    * 
    * @example
-   * xxxx
+   * cycuaqmw
    */
   bizData?: string;
   /**
    * @remarks
-   * Description of the failure reason.
+   * The description of the failure reason.
    * 
    * @example
-   * 号码格式异常
+   * Invalid number format
    */
   msg?: string;
   /**
    * @remarks
-   * The callee number for outbound calls.
+   * The outbound called number.
    * 
    * @example
    * 150****0000
@@ -55,12 +55,12 @@ export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $dara.Mod
 export class InsertAiOutboundPhoneNumsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Details of failed numbers.
+   * The details of the failed numbers.
    */
   failInfo?: InsertAiOutboundPhoneNumsResponseBodyDataFailInfo[];
   /**
    * @remarks
-   * Number of successfully imported entries.
+   * The number of successfully imported numbers.
    * 
    * @example
    * 7
@@ -68,7 +68,7 @@ export class InsertAiOutboundPhoneNumsResponseBodyData extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * Total number of imported entries.
+   * The total number of imported numbers.
    * 
    * @example
    * 10
@@ -113,12 +113,12 @@ export class InsertAiOutboundPhoneNumsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Import result.
+   * The import result.
    */
   data?: InsertAiOutboundPhoneNumsResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * OK
@@ -134,9 +134,9 @@ export class InsertAiOutboundPhoneNumsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.  
-   * - **true**: Succeeded.  
-   * - **false**: Failed.
+   * Indicates whether the operation was successful.
+   * - **true**: The operation was successful.
+   * - **false**: The operation failed.
    * 
    * @example
    * true

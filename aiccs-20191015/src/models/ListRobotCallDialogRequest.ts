@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRobotCallDialogRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the call. You can call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation and obtain the value from the **Data** field in the response.
+   * The unique ID of the call. You can call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation and view the **Data** response parameter to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRobotCallDialogRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * The creation time. Format: YYYY-MM-DD hh:mm:ss. The time must be specified precisely. You can call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation and obtain the value from the **date** parameter in the **Response Header**.
+   * The creation time. Format: YYYY-MM-DD hh:mm:ss. The time must be accurate to the second. You can call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation and view the **date** parameter in the **Response Header** to obtain the time.
    * 
    * This parameter is required.
    * 

@@ -32,7 +32,7 @@ export class GetCallDialogContentResponseBodyData extends $dara.Model {
    * The dialog content.
    * 
    * @example
-   * [{\\"content\\":\\"您好。\\",\\"role\\":\\"assistant\\"},{\\"content\\":\\"不用了。\\",\\"role\\":\\"user\\"},{\\"content\\":\\"呃，不用了，再见，谢谢。\\",\\"role\\":\\"user\\"}]
+   * [{\"content\":\"您好。\",\"role\":\"assistant\"},{\"content\":\"不用了。\",\"role\":\"user\"},{\"content\":\"呃，不用了，再见，谢谢。\",\"role\":\"user\"}]
    */
   dialogContent?: string;
   static names(): { [key: string]: string } {

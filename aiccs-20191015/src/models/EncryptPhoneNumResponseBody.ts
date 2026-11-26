@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EncryptPhoneNumResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A return value of 200 indicates that the Request Succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class EncryptPhoneNumResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ciphertext after encryption.
+   * The ciphertext.
    */
   data?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
@@ -34,7 +34,7 @@ export class EncryptPhoneNumResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API Call Succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

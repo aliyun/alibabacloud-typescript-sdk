@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartCallV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of Success indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request succeeded.
    * 
    * @example
    * Success
@@ -13,15 +13,15 @@ export class StartCallV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EE338D98-9BD3-4413-B165

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSkillGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
+   * The unique ID of the client request. This parameter is used to ensure the idempotence of the request. You can use a UUID to generate the ID.
    * 
    * @example
    * 46c1341e-2648-447a-****-70b6a298d94d
@@ -13,8 +13,7 @@ export class RemoveSkillGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID. You can obtain the ID from the <b>Instances</b> page in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -24,9 +23,7 @@ export class RemoveSkillGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Skill group ID.  
-   * 
-   * You can invoke the [QuerySkillGroups](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) API and check the **SkillGroupId** field in the response to obtain the skill group ID.
+   * The skill group ID. You can call the [QuerySkillGroups](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-queryskillgroups) operation and view the **SkillGroupId** response parameter to obtain the skill group ID.
    * 
    * This parameter is required.
    * 

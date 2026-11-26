@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddHotlineNumberRequestOutboundRangeList extends $dara.Model {
   /**
    * @remarks
-   * Effective department ID.
+   * The ID of the effective department.
    * 
    * @example
    * 123456
@@ -15,8 +15,8 @@ export class AddHotlineNumberRequestOutboundRangeList extends $dara.Model {
   departmentId?: number;
   /**
    * @remarks
-   * List of effective skill groups.  
-   * > If the skill group list is empty, the setting applies to the entire department. Otherwise, it applies only to the specified skill groups under the department.
+   * The list of effective skill groups.
+   * > If the skill group list is empty, the configuration applies to the entire department. Otherwise, it applies only to the specified skill groups under the department.
    */
   groupIdList?: number[];
   static names(): { [key: string]: string } {
@@ -48,17 +48,17 @@ export class AddHotlineNumberRequestOutboundRangeList extends $dara.Model {
 export class AddHotlineNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * Description of the number.
+   * The description of the hotline number.
    * 
    * This parameter is required.
    * 
    * @example
-   * 热线号码
+   * Hotline number
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the number is used for inbound calls.
+   * Specifies whether the hotline number is used for inbound calls.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   enableInbound?: boolean;
   /**
    * @remarks
-   * Whether inbound satisfaction evaluation is enabled.
+   * Specifies whether to enable the satisfaction survey for inbound calls.
    * 
    * This parameter is required.
    * 
@@ -78,7 +78,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   enableInboundEvaluation?: boolean;
   /**
    * @remarks
-   * Whether it is used for outbound calls.
+   * Specifies whether the hotline number is used for outbound calls.
    * 
    * This parameter is required.
    * 
@@ -88,7 +88,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   enableOutbound?: boolean;
   /**
    * @remarks
-   * Indicates whether outbound call satisfaction evaluation is enabled.
+   * Specifies whether to enable the satisfaction survey for outbound calls.
    * 
    * This parameter is required.
    * 
@@ -98,12 +98,12 @@ export class AddHotlineNumberRequest extends $dara.Model {
   enableOutboundEvaluation?: boolean;
   /**
    * @remarks
-   * Satisfaction Level. Valid values:  
+   * The satisfaction level. Valid values:
    * 
-   * - **2**: Two-level (Satisfied, Not satisfied)  
-   * - **3**: Three-level (Satisfied, Neutral, Not satisfied)  
-   * - **4**: Four-level (Very satisfied, Satisfied, Neutral, Not satisfied)  
-   * - **5**: Five-level (Very satisfied, Satisfied, Neutral, Not satisfied, Very poor)
+   * - **2**: Level 2 (Satisfied, Dissatisfied).
+   * - **3**: Level 3 (Satisfied, Neutral, Dissatisfied).
+   * - **4**: Level 4 (Very satisfied, Satisfied, Neutral, Dissatisfied).
+   * - **5**: Level 5 (Very satisfied, Satisfied, Neutral, Dissatisfied, Very dissatisfied).
    * 
    * @example
    * 2
@@ -111,7 +111,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   evaluationLevel?: number;
   /**
    * @remarks
-   * Hotline number.
+   * The hotline number.
    * 
    * This parameter is required.
    * 
@@ -121,7 +121,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   hotlineNumber?: string;
   /**
    * @remarks
-   * The IVR flow ID for inbound calls. You can obtain it on the SaaS Workbench > Channel Integration > IVR Flow Management page.
+   * The ID of the inbound IVR flow. You can obtain the ID from the Hotline > Channel Access > IVR Flow Management page in the SaaS workspace.
    * 
    * @example
    * 123456
@@ -129,7 +129,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   inboundFlowId?: number;
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it in the Intelligent Contact Center console.
+   * The Artificial Intelligence Cloud Call Service instance ID. You can obtain the ID from the Artificial Intelligence Cloud Call Service console.
    * 
    * This parameter is required.
    * 
@@ -139,7 +139,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Whether outbound calls apply to all departments under the instance.
+   * Specifies whether outbound calls apply to all departments under the instance.
    * 
    * This parameter is required.
    * 
@@ -149,7 +149,7 @@ export class AddHotlineNumberRequest extends $dara.Model {
   outboundAllDepart?: boolean;
   /**
    * @remarks
-   * Outbound call effective scope.
+   * The effective scope of outbound calls.
    */
   outboundRangeList?: AddHotlineNumberRequestOutboundRangeList[];
   static names(): { [key: string]: string } {

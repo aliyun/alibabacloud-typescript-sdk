@@ -15,7 +15,7 @@ export class QueryAiVoiceAgentDetailNewRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The branch ID. If this parameter is left empty, the currently active branch is automatically used.
+   * The branch ID. If left empty, the current active branch is automatically selected.
    * 
    * @example
    * 12
@@ -23,7 +23,7 @@ export class QueryAiVoiceAgentDetailNewRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The version ID. If this parameter is left empty, the latest published version of the corresponding branch is used. This parameter must be used together with BranchId.
+   * The version ID. If left empty, the latest published version of the corresponding branch is used. This parameter must be used together with BranchId.
    * 
    * @example
    * 21

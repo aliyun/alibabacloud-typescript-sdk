@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOuterAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -13,8 +13,8 @@ export class DeleteOuterAccountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values:
-   * - **true**: Succeeded
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example
@@ -23,15 +23,15 @@ export class DeleteOuterAccountResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -39,7 +39,7 @@ export class DeleteOuterAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

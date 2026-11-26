@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code. A value of OK indicates that the request succeeded.
+   * The status code of the request. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class AttachTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The quantity of successfully appended entries.
+   * The number of successfully appended records.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class AttachTaskResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * OK
@@ -37,8 +37,8 @@ export class AttachTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
-   * - **true**: Succeeded.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

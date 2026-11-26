@@ -5,26 +5,61 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateQualityProjectsRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of quality check rules.
+   * 
    * This parameter is required.
    */
   analysisIds?: number[];
+  /**
+   * @remarks
+   * The list of session channels.
+   */
   channelTouchType?: number[];
   /**
    * @remarks
+   * The check frequency type. Valid values:
+   * 
+   * - **1**: periodic quality check
+   * - **4**: ad-hoc quality check
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 4
    */
   checkFreqType?: number;
   /**
    * @remarks
+   * The list of instances.
+   * 
    * This parameter is required.
    */
   instanceList?: string[];
   /**
    * @remarks
+   * The name of the quality check task.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Automated quality check task
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The end time of the ad-hoc quality check session. The value is a timestamp in milliseconds.
+   * 
+   * @example
+   * 1619425576000
+   */
   timeRangeEnd?: string;
+  /**
+   * @remarks
+   * The start time of the ad-hoc quality check session. The value is a timestamp in milliseconds.
+   * 
+   * @example
+   * 1619424556000
+   */
   timeRangeStart?: string;
   static names(): { [key: string]: string } {
     return {

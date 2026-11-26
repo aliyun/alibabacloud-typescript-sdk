@@ -8,7 +8,7 @@ export class ListRobotCallDialogResponseBodyData extends $dara.Model {
    * The script content.
    * 
    * @example
-   * I am a customer service representative from XX. I noticed that you previously looked for a job with us. I am doing a follow-up. How is your work going?
+   * I am a customer service representative from XX. I noticed that you previously looked for a job with us, so I am making a follow-up call. How is your current job going?
    */
   content?: string;
   /**
@@ -16,7 +16,7 @@ export class ListRobotCallDialogResponseBodyData extends $dara.Model {
    * The node type.
    * 
    * @example
-   * Opening
+   * Opening statement
    */
   nodeType?: string;
   /**
@@ -29,7 +29,7 @@ export class ListRobotCallDialogResponseBodyData extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The intent label.
+   * The intent tag.
    * 
    * @example
    * Rejection
@@ -37,7 +37,7 @@ export class ListRobotCallDialogResponseBodyData extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1621483557000
@@ -75,7 +75,7 @@ export class ListRobotCallDialogResponseBodyData extends $dara.Model {
 export class ListRobotCallDialogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code. OK indicates that the request was successful.
+   * The status code of the request. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -105,8 +105,8 @@ export class ListRobotCallDialogResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The operation was successful.
+   * - **false**: The operation failed.
    * 
    * @example
    * true

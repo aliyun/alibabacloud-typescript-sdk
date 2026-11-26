@@ -16,30 +16,45 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * TestAgent.
+   * Test agent
    */
   agentName?: string;
   /**
+   * @remarks
+   * The application code.
+   * 
    * @example
-   * Sample value.
+   * Sample value
    */
   applicationCode?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
-   * Sample value.
+   * Sample value
    */
   applicationName?: string;
   /**
+   * @remarks
+   * The call expiration date.
+   * 
    * @example
-   * Sample value.
+   * Sample value
    */
   callExpireDate?: string;
   /**
+   * @remarks
+   * The call expiration duration in minutes.
+   * 
    * @example
    * 39
    */
   callExpireMinutes?: number;
   /**
+   * @remarks
+   * The call expiration type.
+   * 
    * @example
    * 72
    */
@@ -62,7 +77,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   completeRate?: string;
   /**
    * @remarks
-   * The task concurrency.
+   * The concurrency of the task.
    * 
    * @example
    * 10
@@ -70,7 +85,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   concurrentCount?: number;
   /**
    * @remarks
-   * The creation time. This value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -78,7 +93,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The number of calls made on the current day.
+   * The number of voice calls on the current day.
    * 
    * @example
    * 22
@@ -86,7 +101,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   dayCallCount?: number;
   /**
    * @remarks
-   * The daily connection rate. Daily connection rate = number of connections on the current day ÷ number of calls on the current day (DayCallCount).
+   * The connection rate on the current day. The daily connection rate is calculated by dividing the number of connected calls on the current day by the number of voice calls on the current day (DayCallCount).
    * 
    * @example
    * 74.14%
@@ -102,7 +117,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   dayImportCount?: number;
   /**
    * @remarks
-   * The total number of failed task executions.
+   * The total number of failures for the task.
    * 
    * @example
    * 61
@@ -110,7 +125,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The historical connection rate. Historical connection rate = historical number of connections ÷ total number of calls (TotalCallCount).
+   * The historical connection rate. The historical connection rate is calculated by dividing the historical number of connected calls by the total number of voice calls (TotalCallCount).
    * 
    * @example
    * 95.89%
@@ -118,7 +133,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   historyConnectRate?: string;
   /**
    * @remarks
-   * The actual start time of the task. This value is a UNIX timestamp in milliseconds.
+   * The actual start time of the task. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -126,15 +141,15 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   realStartTime?: number;
   /**
    * @remarks
-   * The reason for startup failure.
+   * The reason for the start failure.
    * 
    * @example
-   * Agent is offline.
+   * The agent is offline
    */
   startFailedReason?: string;
   /**
    * @remarks
-   * The scheduled start time of the task. This value is a UNIX timestamp in milliseconds.
+   * The scheduled start time of the task. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748932499000
@@ -150,7 +165,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The total number of successful task executions.
+   * The total number of successes for the task.
    * 
    * @example
    * 36
@@ -169,12 +184,12 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
    * The task name.
    * 
    * @example
-   * TestTask.
+   * Test task
    */
   taskName?: string;
   /**
    * @remarks
-   * The total number of calls made by the task.
+   * The total number of voice calls for the task.
    * 
    * @example
    * 58
@@ -182,7 +197,7 @@ export class QueryAiCallTaskPageResponseBodyDataList extends $dara.Model {
   totalCallCount?: number;
   /**
    * @remarks
-   * The total number of task items.
+   * The total count of the task.
    * 
    * @example
    * 71
@@ -341,10 +356,10 @@ export class QueryAiCallTaskPageResponseBody extends $dara.Model {
   data?: QueryAiCallTaskPageResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
-   * Invalid parameter.
+   * Invalid parameter
    */
   message?: string;
   /**
@@ -357,9 +372,9 @@ export class QueryAiCallTaskPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: successful.
-   * - **false**: failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

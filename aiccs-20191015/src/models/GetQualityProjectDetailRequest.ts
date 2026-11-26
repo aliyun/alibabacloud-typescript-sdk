@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityProjectDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the console of Artificial Intelligence Cloud Call Service.
+   * Instance ID of the AICCS instance. You can obtain instance ID from the Artificial Intelligence Cloud Call Service console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetQualityProjectDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The quality inspection job ID.
+   * The ID of the quality inspection task.
    * 
    * This parameter is required.
    * 

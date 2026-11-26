@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Concurrent outbound calls.
+   * The outbound call concurrency.
    * 
-   * > Parameter specific to auto dialing.
+   * > This parameter is specific to automatic outbound calls.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   concurrentRate?: number;
   /**
    * @remarks
-   * The deadline for job creation. UNIX timestamp format, in milliseconds.
+   * The end time for task creation. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1615083365000
@@ -23,10 +23,10 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Job description.
+   * The task description.
    * 
    * @example
-   * 房产销售
+   * Real estate sales
    */
   description?: string;
   /**
@@ -39,7 +39,7 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   finishCount?: number;
   /**
    * @remarks
-   * Job completion rate.
+   * The task completion rate.
    * 
    * @example
    * 0.7
@@ -47,7 +47,7 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   finishRate?: number;
   /**
    * @remarks
-   * Skill group ID (for predictive dialing) or IVR ID (for auto dialing).
+   * The skill group ID for predictive outbound calls or the IVR ID for automatic outbound calls.
    * 
    * @example
    * 2468****
@@ -55,30 +55,30 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   handlerId?: number;
   /**
    * @remarks
-   * Skill group name or IVR name.
+   * The skill group name or IVR name.
    * 
    * @example
-   * 热线技能组
+   * Hotline skill group
    */
   handlerName?: string;
   /**
    * @remarks
-   * Job name.
+   * The task name.
    * 
    * @example
-   * xxxx外呼任务
+   * xxxx outbound call task
    */
   name?: string;
   /**
    * @remarks
-   * Task Status. Valid values:
+   * The task status. Valid values:
    * 
-   * - **0**: Not started.
-   * - **1**: In progress.
-   * - **2**: System paused.
-   * - **3**: Manually paused.
-   * - **4**: Completed.
-   * - **5**: Stopped.
+   * - **0**: not started
+   * - **1**: in progress
+   * - **2**: paused by the system
+   * - **3**: paused manually
+   * - **4**: completed
+   * - **5**: terminated
    * 
    * @example
    * 0
@@ -86,15 +86,15 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Task status description.
+   * The task status description.
    * 
    * @example
-   * 未开始
+   * Not started
    */
   statusDesc?: string;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 1763****
@@ -102,7 +102,7 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * Total number of jobs.
+   * The total number of tasks.
    * 
    * @example
    * 100
@@ -154,7 +154,7 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
 export class GetAiOutboundTaskListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -162,10 +162,10 @@ export class GetAiOutboundTaskListResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Indicates whether there is a next page. Valid values:
+   * Indicates whether a next page exists. Valid values:
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * false
@@ -173,12 +173,12 @@ export class GetAiOutboundTaskListResponseBodyData extends $dara.Model {
   hasNextPage?: boolean;
   /**
    * @remarks
-   * Job information.
+   * The task information.
    */
   list?: GetAiOutboundTaskListResponseBodyDataList[];
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -186,7 +186,7 @@ export class GetAiOutboundTaskListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of data entries.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -227,7 +227,7 @@ export class GetAiOutboundTaskListResponseBodyData extends $dara.Model {
 export class GetAiOutboundTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * OK
@@ -235,12 +235,12 @@ export class GetAiOutboundTaskListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Job list.
+   * The task list.
    */
   data?: GetAiOutboundTaskListResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -248,7 +248,7 @@ export class GetAiOutboundTaskListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -256,9 +256,10 @@ export class GetAiOutboundTaskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the API call is successful. Valid values:
+   * 
+   * - **true**: successful
+   * - **false**: failed
    * 
    * @example
    * true

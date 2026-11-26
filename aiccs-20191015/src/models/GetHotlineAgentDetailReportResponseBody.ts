@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineAgentDetailReportResponseBodyDataColumns extends $dara.Model {
   /**
    * @remarks
-   * Metric.
+   * The metric.
    * 
    * @example
    * realName
@@ -13,10 +13,10 @@ export class GetHotlineAgentDetailReportResponseBodyDataColumns extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * Metric description.
+   * The metric description.
    * 
    * @example
-   * 客服姓名
+   * Agent name
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetHotlineAgentDetailReportResponseBodyDataColumns extends $dara.Mo
 export class GetHotlineAgentDetailReportResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Description of returned columns.
+   * The descriptions of the returned columns.
    */
   columns?: GetHotlineAgentDetailReportResponseBodyDataColumns[];
   /**
    * @remarks
-   * Current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class GetHotlineAgentDetailReportResponseBodyData extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -66,12 +66,12 @@ export class GetHotlineAgentDetailReportResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The returned data result.
+   * The returned data results.
    */
   rows?: { [key: string]: any }[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 7
@@ -115,7 +115,7 @@ export class GetHotlineAgentDetailReportResponseBodyData extends $dara.Model {
 export class GetHotlineAgentDetailReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of "Success" indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request is successful.
    * 
    * @example
    * Success
@@ -123,12 +123,12 @@ export class GetHotlineAgentDetailReportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Query result data.
+   * The query result data.
    */
   data?: GetHotlineAgentDetailReportResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -136,7 +136,7 @@ export class GetHotlineAgentDetailReportResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -144,7 +144,7 @@ export class GetHotlineAgentDetailReportResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -152,9 +152,9 @@ export class GetHotlineAgentDetailReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API was invoked successfully. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

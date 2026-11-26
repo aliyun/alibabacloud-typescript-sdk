@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityProjectListRequest extends $dara.Model {
   /**
    * @remarks
-   * Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * Instance ID of the AICCS instance. You can obtain instance ID from the Artificial Intelligence Cloud Call Service console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetQualityProjectListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The current page. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class GetQualityProjectListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size. Default value: **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class GetQualityProjectListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Quality inspection job ID (supports fuzzy search).
+   * The ID of the quality check task. Fuzzy search is supported.
    * 
    * @example
    * 15
@@ -39,18 +39,18 @@ export class GetQualityProjectListRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Quality inspection job name (supports fuzzy search).
+   * The name of the quality check task. Fuzzy search is supported.
    * 
    * @example
-   * 质检
+   * Quality check
    */
   projectName?: string;
   /**
    * @remarks
-   * Quality inspection job status. Valid values:  
+   * The status of the quality check task. Valid values:
    * 
-   * - **0**: Start  
-   * - **1**: Shutdown
+   * - **0**: Started.
+   * - **1**: Stopped.
    * 
    * @example
    * 0
@@ -58,10 +58,10 @@ export class GetQualityProjectListRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The check frequency type. Valid values:
+   * The type of the check frequency. Valid values:
    * 
-   * - **1**: Periodic quality inspection
-   * - **4**: Temporary quality inspection
+   * - **1**: Periodic quality check.
+   * - **4**: Temporary quality check.
    * 
    * @example
    * 1

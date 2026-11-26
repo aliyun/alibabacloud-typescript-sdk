@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number. The value must be greater than **0**. Default value: **1**.
+   * The page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,12 +13,12 @@ export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * List of department IDs.
+   * The list of department IDs.
    */
   depIdsShrink?: string;
   /**
    * @remarks
-   * End UNIX timestamp. Unit: milliseconds.
+   * The end timestamp. Unit: milliseconds.
    * 
    * @example
    * 1617761765000
@@ -26,10 +26,10 @@ export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $dara.Model
   endDate?: number;
   /**
    * @remarks
-   * Indicates whether to query by department grouping. Valid values:
+   * Specifies whether to query by department group. Valid values:
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -37,8 +37,7 @@ export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $dara.Model
   existDepartmentGrouping?: boolean;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID. You can obtain the ID in the **Instances** section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -48,7 +47,7 @@ export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * Page size. The value must be greater than **0**. Default value: **20**.
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
    * 
    * @example
    * 20
@@ -56,7 +55,7 @@ export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * Start date UNIX timestamp. Unit: milliseconds.
+   * The start timestamp. Unit: milliseconds.
    * 
    * @example
    * 1615083365000

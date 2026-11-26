@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiOutboundTaskBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
-   * 
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID.
+   * You can obtain the ID in the <b>Instances</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,9 @@ export class CreateAiOutboundTaskBatchRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
-   * You can invoke the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API and view the **Data** field in the response, or invoke the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API and view the **TaskId** field in the response.
+   * You can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) operation and view the **Data** response parameter, or call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) operation and view the **TaskId** response parameter.
    * 
    * This parameter is required.
    * 

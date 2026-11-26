@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartCallV2Request extends $dara.Model {
   /**
    * @remarks
-   * Agent account name (agent logon name).
+   * The name of the agent account, which is the logon name of the agent.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StartCallV2Request extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Callee number for hotline outbound calls.
+   * The called number for the hotline outbound call.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class StartCallV2Request extends $dara.Model {
   callee?: string;
   /**
    * @remarks
-   * Caller number for hotline outbound calls.
+   * The calling number for the hotline outbound call.
    * 
    * This parameter is required.
    * 
@@ -35,10 +35,10 @@ export class StartCallV2Request extends $dara.Model {
   caller?: string;
   /**
    * @remarks
-   * Call type. Valid values:
+   * The call type. Valid values:
    * 
-   * - **1**: Inbound
-   * - **2**: Outbound
+   * - **1**: Inbound call.
+   * - **2**: Outbound call.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class StartCallV2Request extends $dara.Model {
   callerType?: number;
   /**
    * @remarks
-   * Unique customer request ID. Used for idempotency validation. You can generate it using UUID.
+   * The unique ID of the client request. This parameter is used to ensure idempotence. You can use a UUID to generate the value.
    * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -56,7 +56,7 @@ export class StartCallV2Request extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * The AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
    * 
    * This parameter is required.
    * 

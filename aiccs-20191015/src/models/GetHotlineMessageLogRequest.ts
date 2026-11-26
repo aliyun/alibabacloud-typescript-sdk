@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineMessageLogRequest extends $dara.Model {
   /**
    * @remarks
-   * Session ID.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetHotlineMessageLogRequest extends $dara.Model {
   acid?: string;
   /**
    * @remarks
-   * Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * The AICCS instance ID. You can obtain the ID from the Artificial Intelligence Cloud Call Service console.
    * 
    * This parameter is required.
    * 

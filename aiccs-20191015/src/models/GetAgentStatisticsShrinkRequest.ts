@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * List of agent IDs.
+   * The list of agent IDs.
    */
   agentIdsShrink?: string;
   /**
    * @remarks
-   * Current page number. The value must be greater than **0**. Default value: **1**.
+   * The page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -18,12 +18,12 @@ export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of department IDs.
+   * The list of department IDs.
    */
   depIdsShrink?: string;
   /**
    * @remarks
-   * End Datetime Variable as a UNIX timestamp. Unit: milliseconds.
+   * The end timestamp. Unit: milliseconds.
    * 
    * @example
    * 1617761765000
@@ -31,7 +31,7 @@ export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * Whether to query by agent group. Valid values:
+   * Specifies whether to group query results by agent. Valid values:
    * 
    * - **true**: Yes.
    * - **false**: No.
@@ -42,10 +42,10 @@ export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   existAgentGrouping?: boolean;
   /**
    * @remarks
-   * Indicates whether to query by department grouping. Valid values:  
+   * Specifies whether to group query results by department. Valid values:
    * 
-   * - **true**: Yes  
-   * - **false**: No
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -53,8 +53,8 @@ export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   existDepartmentGrouping?: boolean;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID.
+   * You can obtain the ID from the **Instances** page in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page size. The value must be greater than **0**. Default value: **20**.
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
    * 
    * @example
    * 20
@@ -72,7 +72,7 @@ export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Start UNIX timestamp, in milliseconds.
+   * The start timestamp. Unit: milliseconds.
    * 
    * @example
    * 1615083365000
@@ -80,10 +80,10 @@ export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
-   * Time latitude type. Valid values:  
+   * The time dimension type. Valid values:
    * 
-   * - **minute**: minute  
-   * - **hour**: hour
+   * - **minute**: minutes
+   * - **hour**: hours
    * 
    * @example
    * minute

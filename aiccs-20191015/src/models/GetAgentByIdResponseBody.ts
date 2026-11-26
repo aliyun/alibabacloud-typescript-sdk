@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentByIdResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the agent.
+   * 
+   * @example
+   * 123456
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * The name of the user who created the agent.
+   * 
+   * @example
+   * Zhang San
+   */
   createUserName?: string;
+  /**
+   * @remarks
+   * The external key.
+   * 
+   * @example
+   * 43990666****
+   */
   foreignKey?: string;
+  /**
+   * @remarks
+   * The logon name of the agent.
+   * 
+   * @example
+   * 123@123.com
+   */
   foreignNick?: string;
+  /**
+   * @remarks
+   * The name of the agent.
+   * 
+   * @example
+   * Liu Ceshi
+   */
   realName?: string;
+  /**
+   * @remarks
+   * The service type. Default value: 3.
+   * 
+   * @example
+   * 3
+   */
   servicerType?: number;
+  /**
+   * @remarks
+   * The display name of the agent.
+   * 
+   * @example
+   * Liu Ceshi
+   */
   showName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,10 +93,42 @@ export class GetAgentByIdResponseBodyData extends $dara.Model {
 }
 
 export class GetAgentByIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code. A value of Success indicates that the request is successful.
+   * 
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @remarks
+   * The agent information.
+   */
   data?: GetAgentByIdResponseBodyData;
+  /**
+   * @remarks
+   * The description of the status code.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the API call is successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

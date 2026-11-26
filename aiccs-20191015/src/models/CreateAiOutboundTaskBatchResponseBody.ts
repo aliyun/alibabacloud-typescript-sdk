@@ -13,7 +13,7 @@ export class CreateAiOutboundTaskBatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The version ID of the newly created job batch.
+   * The ID of the created task batch version.
    * 
    * @example
    * 123456
@@ -37,9 +37,9 @@ export class CreateAiOutboundTaskBatchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

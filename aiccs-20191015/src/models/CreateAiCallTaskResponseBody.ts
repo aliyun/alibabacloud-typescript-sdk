@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiCallTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for the access denial.
+   * The detailed reasons for access denial.
    * 
    * @example
    * None
@@ -29,10 +29,10 @@ export class CreateAiCallTaskResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
-   * OK
+   * Success
    */
   message?: string;
   /**

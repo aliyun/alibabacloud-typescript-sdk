@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddHotlineNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of "Success" indicates that the request succeeded.
+   * The status code. A return value of Success indicates that the request succeeded.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class AddHotlineNumberResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK

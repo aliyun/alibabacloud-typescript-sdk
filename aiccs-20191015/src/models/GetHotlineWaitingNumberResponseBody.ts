@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineWaitingNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error encoding
+   * The error code.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class GetHotlineWaitingNumberResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Queue length of hotline members
+   * The number of hotline customers in the queue.
    * 
    * @example
    * 2
@@ -21,15 +21,15 @@ export class GetHotlineWaitingNumberResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Fault description
+   * The error description.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID, used to trail the cause of an error
+   * The request ID, which is used to trace the cause of the error.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -37,7 +37,7 @@ export class GetHotlineWaitingNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the API call succeeded
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

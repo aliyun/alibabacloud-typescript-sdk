@@ -16,7 +16,7 @@ export class StartMicroOutboundResponseBody extends $dara.Model {
    * Customer information.
    * 
    * @example
-   * {\\"caseId\\":2323****}
+   * {\"caseId\":2323****}
    */
   customerInfo?: string;
   /**

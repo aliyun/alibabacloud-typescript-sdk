@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request status code. A value of OK indicates that the request succeeded.
+   * The status code of the request. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -13,8 +13,8 @@ export class CancelTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values:
-   * - **true**: Succeeded.
+   * Indicates whether the operation is successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example
@@ -23,7 +23,7 @@ export class CancelTaskResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * OK
@@ -31,7 +31,7 @@ export class CancelTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
@@ -39,8 +39,8 @@ export class CancelTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API was invoked successfully. Valid values:
-   * - **true**: Succeeded.
+   * Indicates whether the API operation is called successfully. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

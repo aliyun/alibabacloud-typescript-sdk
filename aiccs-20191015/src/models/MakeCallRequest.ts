@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MakeCallRequest extends $dara.Model {
   /**
    * @remarks
-   * Called number.
+   * The called number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class MakeCallRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * Calling number.
+   * The calling number.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class MakeCallRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * Operation code.
+   * The operation code.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class MakeCallRequest extends $dara.Model {
   commandCode?: string;
   /**
    * @remarks
-   * Pass-through business information.
+   * The pass-through business information.
    * 
    * @example
    * {"bizId": 23323}
@@ -43,7 +43,7 @@ export class MakeCallRequest extends $dara.Model {
   extInfo?: string;
   /**
    * @remarks
-   * External account ID.
+   * The external account ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class MakeCallRequest extends $dara.Model {
   outerAccountId?: string;
   /**
    * @remarks
-   * External account type.
+   * The external account type.
    * 
    * This parameter is required.
    * 

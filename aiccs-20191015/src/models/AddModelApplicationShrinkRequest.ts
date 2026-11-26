@@ -20,12 +20,12 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * TestApplication
+   * Test application
    */
   applicationName?: string;
   /**
    * @remarks
-   * Specifies whether to enable call-connected event push. Disabled by default.
+   * Specifies whether to enable push notifications for call connected events. Default value: false.
    * 
    * @example
    * false
@@ -33,15 +33,15 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   callConnectedTriggerModel?: boolean;
   /**
    * @remarks
-   * The scenario name.
+   * The name of the scenario.
    * 
    * @example
-   * TestScenario
+   * Test scenario
    */
   dyvmsSceneName?: string;
   /**
    * @remarks
-   * The model code.
+   * The code of the model.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   modelCode?: string;
   /**
    * @remarks
-   * The model version.
+   * The version of the model.
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   modelVersion?: string;
   /**
    * @remarks
-   * Specifies whether the first mute event triggers the model.
+   * Specifies whether to trigger the model upon the first mute event.
    * 
    * @example
    * false
@@ -75,7 +75,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   muteDuration?: number;
   /**
    * @remarks
-   * The number of consecutive mute events before the system proactively hangs up the call.
+   * The number of consecutive mute events required to actively hang up the call.
    * 
    * @example
    * 5
@@ -92,7 +92,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   prompt?: string;
   /**
    * @remarks
-   * The qualification ID.
+   * The ID of the qualification.
    * 
    * @example
    * 85
@@ -100,15 +100,15 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   qualificationId?: number;
   /**
    * @remarks
-   * The qualification name.
+   * The name of the qualification.
    * 
    * @example
-   * TestQualification
+   * Test qualification
    */
   qualificationName?: string;
   /**
    * @remarks
-   * The URL of the recorded audio file for the opening statement. This parameter is required when the opening statement type is set to 1.
+   * The URL of the audio recording file for the opening remark. This parameter is required when the opening remark type is set to 1.
    * 
    * @example
    * https://xxxxxxxx.wav
@@ -126,7 +126,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The speech script content.
+   * The content of the speech script.
    * 
    * @example
    * Test speech script
@@ -134,7 +134,7 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   speechContent?: string;
   /**
    * @remarks
-   * The speech script ID.
+   * The ID of the speech script.
    * 
    * @example
    * 88
@@ -142,17 +142,17 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   speechId?: number;
   /**
    * @remarks
-   * The opening statement.
+   * The opening remark.
    * 
    * This parameter is required.
    * 
    * @example
-   * Hello, this is an opening statement
+   * Hello, this is an opening remark
    */
   startWord?: string;
   /**
    * @remarks
-   * The type of the opening statement.
+   * The type of the opening remark.
    * 
    * @example
    * 0
@@ -160,17 +160,17 @@ export class AddModelApplicationShrinkRequest extends $dara.Model {
   startWordType?: number;
   /**
    * @remarks
-   * The text-to-speech (TTS) configuration, including voice, volume, and speed.
+   * The text-to-speech (TTS) configuration, including the voice, volume, and speed.
    * 
    * This parameter is required.
    */
   ttsConfigShrink?: string;
   /**
    * @remarks
-   * The usage description.
+   * The usage.
    * 
    * @example
-   * TestUsage
+   * Test usage
    */
   usageDesc?: string;
   static names(): { [key: string]: string } {

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiCallTaskPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent name. The system performs a fuzzy match based on the agent name.
+   * The agent name. The system performs a fuzzy search based on the agent name.
    * 
    * @example
-   * TestAgent.
+   * Test agent
    */
   agentName?: string;
   /**
@@ -30,7 +30,7 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page in paging. Settings for the number of rows per page.
+   * The paging Settings for the number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -41,10 +41,8 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   /**
    * @remarks
    * The creation source. Valid values:
-   * 
-   * 0: created by agent.
-   * 
-   * 1: created by engine.
+   * - 0: Created by an agent.
+   * - 1: Created by the engine.
    * 
    * @example
    * 0
@@ -53,10 +51,10 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - INIT: init (not started).
-   * - FAILED: startup failed.
-   * - RUNNING: running.
-   * - STOPPED: stopped.
+   * - INIT: Initialized (not started).
+   * - FAILED: Failed to start.
+   * - RUNNING: Running.
+   * - STOPPED: Stopped.
    * 
    * @example
    * INIT
@@ -72,10 +70,10 @@ export class QueryAiCallTaskPageRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task name. The system performs a fuzzy match based on the task name.
+   * The task name. The system performs a fuzzy search based on the task name.
    * 
    * @example
-   * TestTask.
+   * Test task
    */
   taskName?: string;
   static names(): { [key: string]: string } {

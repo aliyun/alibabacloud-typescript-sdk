@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AiccsSmartCallOperateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request status code. A return value of OK indicates that the request succeeded.
+   * The request status code. A value of OK indicates that the request succeeded.
    * 
    * @example
    * OK
@@ -13,9 +13,9 @@ export class AiccsSmartCallOperateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Result of the command execution.  
-   * - **true**: The command executed successfully.  
-   * - **false**: The command failed to execute.
+   * The result of the command execution.
+   * - **true**: The command execution succeeded.
+   * - **false**: The command execution failed.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class AiccsSmartCallOperateResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * OK
@@ -31,7 +31,7 @@ export class AiccsSmartCallOperateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A90E4451-FED7-49D2-87C8-00700A8C4D0D

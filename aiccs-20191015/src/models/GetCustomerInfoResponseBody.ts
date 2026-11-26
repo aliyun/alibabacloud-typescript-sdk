@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomerInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Custom fields.
+   * The custom fields.
+   * 
+   * @example
+   * {"test":"test","test2":1}
    */
   customizeFields?: { [key: string]: any };
   /**
    * @remarks
-   * Nickname.
+   * The nickname.
    * 
    * @example
-   * 测试会员
+   * Test member
    */
   nick?: string;
   /**
    * @remarks
-   * External ID.
+   * The external ID.
    * 
    * @example
    * 6666666
@@ -26,7 +29,7 @@ export class GetCustomerInfoResponseBodyData extends $dara.Model {
   outerId?: string;
   /**
    * @remarks
-   * Profile picture.
+   * The profile picture.
    * 
    * @example
    * https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSW7XPFlJDwVunXP8pr84TvltwtLlNqTlOVSFeM3bCgn57mAB4JuZZmvMW0qicqW0PyzyUdZpxiaFQ
@@ -34,15 +37,15 @@ export class GetCustomerInfoResponseBodyData extends $dara.Model {
   photo?: string;
   /**
    * @remarks
-   * Real name.
+   * The real name.
    * 
    * @example
-   * 刘测试
+   * Liu Test
    */
   realName?: string;
   /**
    * @remarks
-   * Membership ID.
+   * The member ID.
    * 
    * @example
    * 823456789023
@@ -85,7 +88,7 @@ export class GetCustomerInfoResponseBodyData extends $dara.Model {
 export class GetCustomerInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -93,12 +96,12 @@ export class GetCustomerInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Membership information.
+   * The member information.
    */
   data?: GetCustomerInfoResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * successful
@@ -106,7 +109,7 @@ export class GetCustomerInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * DF6A3FB7-A5AA-43BE-A65B
@@ -114,7 +117,7 @@ export class GetCustomerInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

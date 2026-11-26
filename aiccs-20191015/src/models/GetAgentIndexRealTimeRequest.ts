@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentIndexRealTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number. The value must be greater than **0**. Default value: **1**.
+   * The page number. Valid values: integers greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,19 +13,17 @@ export class GetAgentIndexRealTimeRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of department IDs.
+   * The list of department IDs.
    */
   depIds?: number[];
   /**
    * @remarks
-   * List of skill group IDs.
+   * The list of skill group IDs.
    */
   groupIds?: number[];
   /**
    * @remarks
-   * AICCS instance ID.  
-   * 
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance. You can obtain the instance ID in the <b>Instances</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -35,7 +33,7 @@ export class GetAgentIndexRealTimeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page size. The value must be greater than **0**. Default value: **20**.
+   * The number of entries per page. Valid values: integers greater than **0**. Default value: **20**.
    * 
    * @example
    * 20

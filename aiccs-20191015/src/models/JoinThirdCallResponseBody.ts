@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class JoinThirdCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Fault encoding
+   * The error code.
    * 
    * @example
    * Success
@@ -13,15 +13,15 @@ export class JoinThirdCallResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Fault description
+   * The error description.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID, used to trail the cause of a fault
+   * The request ID used to trace the cause of the error.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -29,7 +29,7 @@ export class JoinThirdCallResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the API call succeeded
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

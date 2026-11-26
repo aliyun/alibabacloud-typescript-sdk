@@ -16,7 +16,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * TestAgent
+   * Test agent
    */
   agentName?: string;
   /**
@@ -32,7 +32,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    * The reason for review failure.
    * 
    * @example
-   * Provide additional process description
+   * Please provide the process description
    */
   auditReason?: string;
   /**
@@ -48,12 +48,12 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    * The business scenario name.
    * 
    * @example
-   * Personal customer lead conversion
+   * Individual customer lead conversion
    */
   businessTypeName?: string;
   /**
    * @remarks
-   * The creation time, in the format of YYYY-MM-DD HH:mm:ss.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-10-28 17:10:17
@@ -69,7 +69,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The most recent online time, in the format of YYYY-MM-DD HH:mm:ss.
+   * The last online time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-10-28 14:38:15
@@ -77,7 +77,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
   lastOnlineTime?: string;
   /**
    * @remarks
-   * The most recent modification time, in the format of YYYY-MM-DD HH:mm:ss.
+   * The last modification time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-10-28 17:10:17
@@ -92,13 +92,18 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
    */
   status?: number;
   /**
+   * @remarks
+   * Specifies whether the agent has an active prompt. Valid values:
+   * - true: Active.
+   * - false: Inactive.
+   * 
    * @example
    * false
    */
   withActivePrompt?: boolean;
   /**
    * @remarks
-   * Indicates whether the agent has been configured.
+   * Specifies whether the agent has been configured.
    * 
    * @example
    * false
@@ -152,7 +157,7 @@ export class PageQueryAgentListResponseBodyDataList extends $dara.Model {
 export class PageQueryAgentListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of agent data.
+   * The list of agents.
    */
   list?: PageQueryAgentListResponseBodyDataList[];
   /**
@@ -165,7 +170,7 @@ export class PageQueryAgentListResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -212,7 +217,7 @@ export class PageQueryAgentListResponseBodyData extends $dara.Model {
 export class PageQueryAgentListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * Access Denied
@@ -236,7 +241,7 @@ export class PageQueryAgentListResponseBody extends $dara.Model {
    * The status code description.
    * 
    * @example
-   * Succeeded
+   * Success
    */
   message?: string;
   /**
@@ -249,7 +254,7 @@ export class PageQueryAgentListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Specifies whether the API call is successful. Valid values:
    * - **true**: Successful.
    * - **false**: Failed.
    * 

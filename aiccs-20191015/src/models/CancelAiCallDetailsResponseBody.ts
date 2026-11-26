@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelAiCallDetailsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of calls that could not be canceled.
+   * The number of unsuccessful cancellations.
    * 
    * @example
    * 75
@@ -13,22 +13,19 @@ export class CancelAiCallDetailsResponseBodyData extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about the failed cancellations. This is a map where the key is the failed detail ID or phone number, and the value is the reason for the failure.
+   * The details of failed cancellations. This parameter is a map where the key is the ID or phone number of the failed detail record, and the value is the reason for the failure.
    * 
    * @example
    * {
-   *   "176********": "明细记录当前状态不可取消"
+   *   "176********": "The detail record cannot be canceled in its current state"
    * }
    */
   failedDetails?: { [key: string]: any };
   /**
    * @remarks
-   * The result code of the cancellation. Valid values:
-   * 
+   * The cancellation result. Valid values:
    * - ALL_FAILED: All cancellations failed.
-   * 
    * - ALL_SUCCEED: All cancellations succeeded.
-   * 
    * - PART_FAILED: Some cancellations failed.
    * 
    * @example
@@ -37,7 +34,7 @@ export class CancelAiCallDetailsResponseBodyData extends $dara.Model {
   resultCode?: string;
   /**
    * @remarks
-   * The number of calls that were successfully canceled.
+   * The number of successful cancellations.
    * 
    * @example
    * 81
@@ -45,7 +42,7 @@ export class CancelAiCallDetailsResponseBodyData extends $dara.Model {
   succeedCount?: number;
   /**
    * @remarks
-   * The total number of items.
+   * The total count.
    * 
    * @example
    * 50
@@ -86,7 +83,7 @@ export class CancelAiCallDetailsResponseBodyData extends $dara.Model {
 export class CancelAiCallDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why the access was denied.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -107,10 +104,10 @@ export class CancelAiCallDetailsResponseBody extends $dara.Model {
   data?: CancelAiCallDetailsResponseBodyData;
   /**
    * @remarks
-   * The message returned for the request.
+   * The description of the status code.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
@@ -123,11 +120,9 @@ export class CancelAiCallDetailsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the operation was called successfully. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * false

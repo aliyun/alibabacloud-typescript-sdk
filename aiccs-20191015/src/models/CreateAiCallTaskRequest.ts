@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiCallTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the agent that has been published.
+   * The code of the online agent.
    * 
    * @example
    * 1180**************
@@ -13,7 +13,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The application code. This parameter is used when the creation source is engine.
+   * The application code. This parameter is used when the creation source is engine creation.
    * 
    * @example
    * 025****C98
@@ -28,7 +28,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callDay?: string[];
   /**
    * @remarks
-   * The expiration date of outbound call details (specific deadline). Format: YYYY-MM-DD HH:mm:ss.
+   * The expiration date for outbound call details, which is the specific cutoff time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-07-30 20:00:20
@@ -36,7 +36,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callExpireDate?: string;
   /**
    * @remarks
-   * The expiration duration of outbound call details. Unit: minutes.
+   * The expiration duration for outbound call details. Unit: minutes.
    * 
    * @example
    * 10
@@ -44,11 +44,11 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callExpireMinutes?: number;
   /**
    * @remarks
-   * The outbound call validity type. Valid values:
+   * The validity period type for outbound calls. Valid values:
    * 
-   * 0: Permanently valid.
-   * 1: Valid for a specified duration after import.
-   * 2: Valid until a specified date.
+   * - 0: Permanently valid.
+   * - 1: Valid for a specified period after import.
+   * - 2: Valid until a specified time.
    * 
    * @example
    * 0
@@ -56,7 +56,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callExpireType?: number;
   /**
    * @remarks
-   * The retry interval. Unit: minutes. The maximum value is 720 minutes.
+   * The retry interval. Unit: minutes. The maximum value is 720.
    * 
    * @example
    * 32
@@ -64,7 +64,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   callRetryInterval?: number;
   /**
    * @remarks
-   * The list of retry reasons for failed calls.
+   * The list of reasons for retrying failed calls.
    */
   callRetryReason?: string[];
   /**
@@ -82,6 +82,10 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * This parameter is required.
    */
   callTime?: string[];
+  /**
+   * @remarks
+   * The list of callable time periods. Each element is represented as a JSON string that contains startTime and endTime.
+   */
   callableTime?: string[];
   /**
    * @remarks
@@ -103,9 +107,9 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable retry. Valid values:
    * 
-   * - true: Enabled.
+   * - true: Yes.
    * 
-   * - false (default): Disabled.
+   * - false (default): No.
    * 
    * @example
    * false
@@ -114,7 +118,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number type. This parameter is used when the creation source is engine. Valid values:
+   * The number type. This parameter is used when the creation source is engine creation. Valid values:
    * 
    * - 0: Alibaba Cloud number.
    * 
@@ -140,11 +144,11 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   source?: number;
   /**
    * @remarks
-   * The start type. Valid values:
+   * The start method. Valid values:
    * 
-   * - IMMEDIATE: Start immediately.
+   * - IMMEDIATE: Starts immediately.
    * 
-   * - SCHEDULE: Start at a scheduled time.
+   * - SCHEDULE: Starts at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -162,17 +166,17 @@ export class CreateAiCallTaskRequest extends $dara.Model {
   taskCps?: number;
   /**
    * @remarks
-   * The task name. The name must be unique within the same account.
+   * The name of the task. The name must be unique within the same account.
    * 
    * This parameter is required.
    * 
    * @example
-   * TestTask
+   * Test task
    */
   taskName?: string;
   /**
    * @remarks
-   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when StartType is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
+   * The preset start time of the task. The value is a timestamp in milliseconds. This parameter is valid and required only when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
    * 
    * @example
    * 12313123133

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Number description.
+   * The description of the hotline number.
    * 
    * This parameter is required.
    * 
    * @example
-   * 热线号码
+   * Hotline number
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the number is used for inbound calls.
+   * Specifies whether the hotline number is used for inbound calls.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   enableInbound?: boolean;
   /**
    * @remarks
-   * Whether inbound call satisfaction evaluation is enabled.
+   * Specifies whether to enable the satisfaction survey for inbound calls.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   enableInboundEvaluation?: boolean;
   /**
    * @remarks
-   * Whether used for outbound calls.
+   * Specifies whether the hotline number is used for outbound calls.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   enableOutbound?: boolean;
   /**
    * @remarks
-   * Indicates whether outbound satisfaction evaluation is enabled.
+   * Specifies whether to enable the satisfaction survey for outbound calls.
    * 
    * This parameter is required.
    * 
@@ -55,12 +55,12 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   enableOutboundEvaluation?: boolean;
   /**
    * @remarks
-   * Satisfaction level. Valid values:
+   * The satisfaction survey level. Valid values:
    * 
-   * - **2**: Two-level (Satisfied, Not Satisfied)
-   * - **3**: Three-level (Satisfied, Neutral, Not Satisfied)
-   * - **4**: Four-level (Very Satisfied, Satisfied, Neutral, Not Satisfied)
-   * - **5**: Five-level (Very Satisfied, Satisfied, Neutral, Not Satisfied, Very Poor)
+   * - **2**: level 2 (satisfied, dissatisfied)
+   * - **3**: level 3 (satisfied, neutral, dissatisfied)
+   * - **4**: level 4 (very satisfied, satisfied, neutral, dissatisfied)
+   * - **5**: level 5 (very satisfied, satisfied, neutral, dissatisfied, very poor)
    * 
    * @example
    * 2
@@ -68,7 +68,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   evaluationLevel?: number;
   /**
    * @remarks
-   * Hotline number.
+   * The hotline number.
    * 
    * This parameter is required.
    * 
@@ -78,7 +78,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   hotlineNumber?: string;
   /**
    * @remarks
-   * The IVR flow ID for inbound calls.
+   * The ID of the inbound Interactive Voice Response (IVR) flow.
    * 
    * @example
    * 123456
@@ -86,7 +86,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   inboundFlowId?: number;
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID. You can obtain it from the console.
+   * Instance ID of the Artificial Intelligence Cloud Call Service (AICCS) instance. You can obtain instance ID from the AICCS console.
    * 
    * This parameter is required.
    * 
@@ -96,7 +96,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether outbound calls apply to all departments.
+   * Specifies whether outbound calls apply to all departments.
    * 
    * This parameter is required.
    * 
@@ -106,7 +106,7 @@ export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   outboundAllDepart?: boolean;
   /**
    * @remarks
-   * Outbound call effective scope.
+   * The effective scope of outbound calls.
    */
   outboundRangeListShrink?: string;
   static names(): { [key: string]: string } {

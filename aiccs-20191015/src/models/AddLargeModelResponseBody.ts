@@ -13,7 +13,7 @@ export class AddLargeModelResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code. A value of `OK` indicates that the request was successful.
+   * The status code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class AddLargeModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of the operation.
+   * The data list.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class AddLargeModelResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The response message.
+   * The status code description.
    * 
    * @example
    * successful
@@ -45,11 +45,9 @@ export class AddLargeModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the API operation was called successfully. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * false

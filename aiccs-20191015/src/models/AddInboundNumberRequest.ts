@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddInboundNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the large model application.
+   * The code of the large language model application.
    * 
    * This parameter is required.
    * 
@@ -15,14 +15,16 @@ export class AddInboundNumberRequest extends $dara.Model {
   applicationCode?: string;
   /**
    * @remarks
-   * A list of inbound numbers.
+   * The list of inbound numbers.
    * 
    * This parameter is required.
    */
   inboundNumbers?: string[];
   /**
    * @remarks
-   * The line type. Valid values: `1` (cloud communication resource) and `2` (customer-owned line).
+   * The line type. Valid values:
+   * - 1: Cloud communication resource.
+   * - 2: Customer-provided line.
    * 
    * This parameter is required.
    * 
@@ -32,7 +34,7 @@ export class AddInboundNumberRequest extends $dara.Model {
   inboundType?: number;
   /**
    * @remarks
-   * The code for the custom line.
+   * The custom line code.
    * 
    * @example
    * JILIANG_*****_TEST_NET

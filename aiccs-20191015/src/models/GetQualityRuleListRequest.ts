@@ -5,10 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityRuleListRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID of the AICCS instance. You can obtain instance ID from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The current page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {

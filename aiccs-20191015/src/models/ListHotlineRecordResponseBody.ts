@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHotlineRecordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Session ID. This corresponds to the acid in WebSocket after an inbound call.
+   * The session ID. This is the acid value in the WebSocket after an inbound call.
    * 
    * @example
    * 100365558
@@ -13,7 +13,7 @@ export class ListHotlineRecordResponseBodyData extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * Connection ID.
+   * The connection ID.
    * 
    * @example
    * 100365548
@@ -21,7 +21,7 @@ export class ListHotlineRecordResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * Recording end UNIX timestamp. Unit: milliseconds.
+   * The timestamp when the recording ended. Unit: milliseconds.
    * 
    * @example
    * 16128694810
@@ -29,7 +29,7 @@ export class ListHotlineRecordResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Recording start UNIX timestamp. Unit: milliseconds.
+   * The timestamp when the recording started. Unit: milliseconds.
    * 
    * @example
    * 16128694110
@@ -37,7 +37,7 @@ export class ListHotlineRecordResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Recording file URL.
+   * The URL of the recording file.
    * 
    * @example
    * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com
@@ -75,7 +75,7 @@ export class ListHotlineRecordResponseBodyData extends $dara.Model {
 export class ListHotlineRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of Success indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request is successful.
    * 
    * @example
    * Success
@@ -83,20 +83,20 @@ export class ListHotlineRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Hotline session information.
+   * The hotline session information.
    */
   data?: ListHotlineRecordResponseBodyData[];
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -104,7 +104,9 @@ export class ListHotlineRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the API call succeeded.
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

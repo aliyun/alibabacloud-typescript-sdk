@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecordDataResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Session ID.
+   * The session ID.
    * 
    * @example
    * 1001067****
@@ -13,7 +13,7 @@ export class GetRecordDataResponseBodyData extends $dara.Model {
   acid?: string;
   /**
    * @remarks
-   * Recording file URL.
+   * The URL of the recording file.
    * 
    * @example
    * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
@@ -45,7 +45,7 @@ export class GetRecordDataResponseBodyData extends $dara.Model {
 export class GetRecordDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class GetRecordDataResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data list.
+   * The list of data.
    */
   data?: GetRecordDataResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class GetRecordDataResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -74,7 +74,7 @@ export class GetRecordDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -82,7 +82,7 @@ export class GetRecordDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

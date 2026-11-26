@@ -16,13 +16,13 @@ export class PageQueryAgentListRequest extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * TestAgent
+   * Test agent
    */
   agentName?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -30,7 +30,7 @@ export class PageQueryAgentListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

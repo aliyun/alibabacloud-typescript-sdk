@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeChatAgentStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * Success
@@ -13,9 +13,9 @@ export class ChangeChatAgentStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Current agent status. Valid values:
-   * - **0**: Offline
-   * - **3**: On break
+   * The current agent status. Valid values:
+   * - **0**: Offline.
+   * - **3**: Break.
    * 
    * @example
    * 0
@@ -23,7 +23,7 @@ export class ChangeChatAgentStatusResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -31,7 +31,7 @@ export class ChangeChatAgentStatusResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * success
@@ -39,7 +39,7 @@ export class ChangeChatAgentStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * DF6A3FB7-A5AA-43BE-A65B
@@ -47,7 +47,7 @@ export class ChangeChatAgentStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the API call succeeded.
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

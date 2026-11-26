@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAudioNoteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the notes agent. Specify the ID of a published recording notes agent.
+   * The ID of the audio note agent. You must specify the ID of an online audio note agent.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SubmitAudioNoteRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The custom task ID defined by the business side. This ID is used to associate external business records during callbacks or troubleshooting.
+   * The custom task ID defined by your business system, used to associate external business records for callbacks or troubleshooting.
    * 
    * @example
    * biz-001
@@ -23,7 +23,7 @@ export class SubmitAudioNoteRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The storage path of the recording file in OSS. Use the FilePath returned by the upload address retrieval operation.
+   * The storage path of the audio file in OSS. You must use the FilePath returned by the operation for obtaining the upload URL.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class SubmitAudioNoteRequest extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The ID of the LLM model used for notes inference. If this parameter is not specified, the default model configuration of the agent is used.
+   * The ID of the large language model (LLM) used for audio note inference. If you do not specify this parameter, the default model configuration of the agent is used.
    * 
    * @example
    * 88

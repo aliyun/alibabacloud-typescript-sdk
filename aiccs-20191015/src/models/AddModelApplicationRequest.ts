@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable background sound.
+   * Specifies whether to enable background music.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   backgroundEnabled?: boolean;
   /**
    * @remarks
-   * The background sound ID.
+   * The ID of the background music.
    * 
    * @example
    * 111
@@ -21,7 +21,7 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   backgroundSound?: number;
   /**
    * @remarks
-   * The background sound volume.
+   * The volume of the background music.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   backgroundVolume?: number;
   /**
    * @remarks
-   * The account ID.
+   * The ID of the account.
    * 
    * @example
    * 45
@@ -45,7 +45,7 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   mixingEnabled?: boolean;
   /**
    * @remarks
-   * The mixing template ID.
+   * The ID of the audio mixing template.
    * 
    * @example
    * 111
@@ -53,7 +53,7 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   mixingTemplate?: number;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * example
@@ -61,7 +61,7 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The speed for TTS variable playback. Valid values: -200 to 200. Default value: 0.
+   * The speed of the TTS playback. Valid values: -200 to 200. Default value: 0.
    * 
    * @example
    * 13
@@ -69,15 +69,15 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   ttsSpeed?: number;
   /**
    * @remarks
-   * The voice style.
+   * The style of the voice.
    * 
    * @example
-   * 龙小夏
+   * Long Xiaoxia
    */
   ttsStyle?: string;
   /**
    * @remarks
-   * The volume for TTS variable playback. Valid values: 0 to 100. Default value: 0.
+   * The volume of the TTS playback. Valid values: 0 to 100. Default value: 0.
    * 
    * @example
    * 55
@@ -85,7 +85,7 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   ttsVolume?: number;
   /**
    * @remarks
-   * The voice code.
+   * The code of the voice.
    * 
    * @example
    * ddddfd
@@ -93,11 +93,12 @@ export class AddModelApplicationRequestTtsConfig extends $dara.Model {
   voiceCode?: string;
   /**
    * @remarks
-   * The voice type. Valid values:
-   * 
-   * - SYSTEM: system voice.
-   * - COSYCLONE: cloned voice.
-   * - BL-CUSTOM: custom premium cloned voice.
+   * The type of the voice. Valid values:
+   * ```
+   * SYSTEM: system voice
+   * COSYCLONE: cloned voice
+   * BL-CUSTOM: custom premium cloned voice
+   * ```
    * 
    * @example
    * SYSTEM
@@ -164,12 +165,12 @@ export class AddModelApplicationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * TestApplication
+   * Test application
    */
   applicationName?: string;
   /**
    * @remarks
-   * Specifies whether to enable call-connected event push. Disabled by default.
+   * Specifies whether to enable push notifications for call connected events. Default value: false.
    * 
    * @example
    * false
@@ -177,15 +178,15 @@ export class AddModelApplicationRequest extends $dara.Model {
   callConnectedTriggerModel?: boolean;
   /**
    * @remarks
-   * The scenario name.
+   * The name of the scenario.
    * 
    * @example
-   * TestScenario
+   * Test scenario
    */
   dyvmsSceneName?: string;
   /**
    * @remarks
-   * The model code.
+   * The code of the model.
    * 
    * This parameter is required.
    * 
@@ -195,7 +196,7 @@ export class AddModelApplicationRequest extends $dara.Model {
   modelCode?: string;
   /**
    * @remarks
-   * The model version.
+   * The version of the model.
    * 
    * @example
    * 1
@@ -203,7 +204,7 @@ export class AddModelApplicationRequest extends $dara.Model {
   modelVersion?: string;
   /**
    * @remarks
-   * Specifies whether the first mute event triggers the model.
+   * Specifies whether to trigger the model upon the first mute event.
    * 
    * @example
    * false
@@ -219,7 +220,7 @@ export class AddModelApplicationRequest extends $dara.Model {
   muteDuration?: number;
   /**
    * @remarks
-   * The number of consecutive mute events before the system proactively hangs up the call.
+   * The number of consecutive mute events required to actively hang up the call.
    * 
    * @example
    * 5
@@ -236,7 +237,7 @@ export class AddModelApplicationRequest extends $dara.Model {
   prompt?: string;
   /**
    * @remarks
-   * The qualification ID.
+   * The ID of the qualification.
    * 
    * @example
    * 85
@@ -244,15 +245,15 @@ export class AddModelApplicationRequest extends $dara.Model {
   qualificationId?: number;
   /**
    * @remarks
-   * The qualification name.
+   * The name of the qualification.
    * 
    * @example
-   * TestQualification
+   * Test qualification
    */
   qualificationName?: string;
   /**
    * @remarks
-   * The URL of the recorded audio file for the opening statement. This parameter is required when the opening statement type is set to 1.
+   * The URL of the audio recording file for the opening remark. This parameter is required when the opening remark type is set to 1.
    * 
    * @example
    * https://xxxxxxxx.wav
@@ -270,7 +271,7 @@ export class AddModelApplicationRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The speech script content.
+   * The content of the speech script.
    * 
    * @example
    * Test speech script
@@ -278,7 +279,7 @@ export class AddModelApplicationRequest extends $dara.Model {
   speechContent?: string;
   /**
    * @remarks
-   * The speech script ID.
+   * The ID of the speech script.
    * 
    * @example
    * 88
@@ -286,17 +287,17 @@ export class AddModelApplicationRequest extends $dara.Model {
   speechId?: number;
   /**
    * @remarks
-   * The opening statement.
+   * The opening remark.
    * 
    * This parameter is required.
    * 
    * @example
-   * Hello, this is an opening statement
+   * Hello, this is an opening remark
    */
   startWord?: string;
   /**
    * @remarks
-   * The type of the opening statement.
+   * The type of the opening remark.
    * 
    * @example
    * 0
@@ -304,17 +305,17 @@ export class AddModelApplicationRequest extends $dara.Model {
   startWordType?: number;
   /**
    * @remarks
-   * The text-to-speech (TTS) configuration, including voice, volume, and speed.
+   * The text-to-speech (TTS) configuration, including the voice, volume, and speed.
    * 
    * This parameter is required.
    */
   ttsConfig?: AddModelApplicationRequestTtsConfig;
   /**
    * @remarks
-   * The usage description.
+   * The usage.
    * 
    * @example
-   * TestUsage
+   * Test usage
    */
   usageDesc?: string;
   static names(): { [key: string]: string } {

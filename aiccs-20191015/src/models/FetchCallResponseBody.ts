@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FetchCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Fault encoding
+   * The error code.
    * 
    * @example
    * Success
@@ -13,15 +13,15 @@ export class FetchCallResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Fault description
+   * The error message.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID, used to trail the cause of a fault
+   * The ID of the request. You can use the request ID to troubleshoot errors.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -29,7 +29,7 @@ export class FetchCallResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

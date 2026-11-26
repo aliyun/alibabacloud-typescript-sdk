@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAudioNoteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class SubmitAudioNoteResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class SubmitAudioNoteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The recording notes task ID returned after successful submission. This value corresponds to the CallId in the subsequent asynchronous notes result callback.
+   * The ID of the audio note task returned after a successful submission, which is the CallId in the subsequent asynchronous audio note result callback.
    * 
    * @example
    * 100000000000000001_100000000000000002
@@ -32,12 +32,12 @@ export class SubmitAudioNoteResponseBody extends $dara.Model {
    * The description of the status code.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 12345678-1234-1234-1234-123456789012
@@ -45,7 +45,7 @@ export class SubmitAudioNoteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful.
+   * Indicates whether the API operation was successful.
    * 
    * @example
    * true

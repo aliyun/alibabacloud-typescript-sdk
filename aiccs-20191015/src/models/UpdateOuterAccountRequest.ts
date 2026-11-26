@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOuterAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * Profile picture.
+   * The profile picture.
    * 
    * @example
    * http://****
@@ -13,15 +13,15 @@ export class UpdateOuterAccountRequest extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * Extension field. A JSON string.
+   * The extension field. A JSON string.
    * 
    * @example
-   * {"备注":"临时技能组"}
+   * {"Note":"Temporary skill group"}
    */
   ext?: string;
   /**
    * @remarks
-   * External account ID.
+   * The external account ID.
    * 
    * This parameter is required.
    * 
@@ -31,15 +31,15 @@ export class UpdateOuterAccountRequest extends $dara.Model {
   outerAccountId?: string;
   /**
    * @remarks
-   * External account name.
+   * The external account name.
    * 
    * @example
-   * 测试
+   * Test
    */
   outerAccountName?: string;
   /**
    * @remarks
-   * External account type.
+   * The external account type.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class UpdateOuterAccountRequest extends $dara.Model {
   outerAccountType?: string;
   /**
    * @remarks
-   * External department ID.
+   * The external department ID.
    * 
    * @example
    * 3
@@ -57,7 +57,7 @@ export class UpdateOuterAccountRequest extends $dara.Model {
   outerDepartmentId?: string;
   /**
    * @remarks
-   * External department type: invalid department type.
+   * The external department type: invalid department type.
    * 
    * @example
    * type_invalid
@@ -65,7 +65,7 @@ export class UpdateOuterAccountRequest extends $dara.Model {
   outerDepartmentType?: string;
   /**
    * @remarks
-   * List of external skill group IDs. Separate multiple IDs with commas (,).
+   * The list of external skill group IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["222","333","444"]
@@ -73,7 +73,7 @@ export class UpdateOuterAccountRequest extends $dara.Model {
   outerGroupIds?: string;
   /**
    * @remarks
-   * Skill group type.
+   * The skill group type.
    * 
    * @example
    * mybank
@@ -81,10 +81,10 @@ export class UpdateOuterAccountRequest extends $dara.Model {
   outerGroupType?: string;
   /**
    * @remarks
-   * Real name of the account.
+   * The real name of the account.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   realName?: string;
   static names(): { [key: string]: string } {

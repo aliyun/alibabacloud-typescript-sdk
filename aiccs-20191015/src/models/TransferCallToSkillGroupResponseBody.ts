@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransferCallToSkillGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error encoding.
+   * The error code.
    * 
    * @example
    * Success
@@ -13,15 +13,15 @@ export class TransferCallToSkillGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -29,9 +29,9 @@ export class TransferCallToSkillGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the API call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

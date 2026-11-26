@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiCallTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The callable days.
+   * The allowed call days.
    * 
    * This parameter is required.
    */
   callDay?: string[];
   /**
    * @remarks
-   * The expiration date of outbound call details (the specific deadline). Format: YYYY-MM-DD HH:mm:ss.
+   * The expiration date for outbound call details, which specifies the exact end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-07-30 20:00:20
@@ -20,7 +20,7 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   callExpireDate?: string;
   /**
    * @remarks
-   * The expiration duration of outbound call details. Unit: minutes.
+   * The expiration duration for outbound call details. Unit: minutes.
    * 
    * @example
    * 10
@@ -28,11 +28,13 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   callExpireMinutes?: number;
   /**
    * @remarks
-   * The outbound call validity type. Valid values:
+   * The validity period type for outbound calls. Valid values:
    * 
-   * 0: Permanently valid.
-   * 1: Valid for a specified period after import.
-   * 2: Valid until a specified date.
+   * 0: long-term validity
+   * 
+   * 1: valid for a specified period after import
+   * 
+   * 2: valid until a specified time
    * 
    * @example
    * 0
@@ -61,11 +63,15 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   callRetryTimes?: number;
   /**
    * @remarks
-   * The callable time periods.
+   * The allowed call time.
    * 
    * This parameter is required.
    */
   callTime?: string[];
+  /**
+   * @remarks
+   * The list of allowed call time periods. Each element is represented as a JSON string that contains startTime and endTime.
+   */
   callableTime?: string[];
   /**
    * @remarks
@@ -77,7 +83,7 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   lineEncoding?: string;
   /**
    * @remarks
-   * The customer-provided line number.
+   * The number of the customer-provided line.
    * 
    * @example
    * 152****3120
@@ -87,9 +93,9 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable retry. Valid values:
    * 
-   * - true: Enabled.
+   * - true: enabled.
    * 
-   * - false (default): Disabled.
+   * - false (default): disabled.
    * 
    * @example
    * true
@@ -98,11 +104,11 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number type. This parameter is used when the creation source is engine-based.
+   * The number type. This parameter is used when the creation source is engine creation. Valid values:
    * 
-   * 0: Alibaba Cloud number.
+   * 0: Alibaba Cloud number
    * 
-   * 1: Customer-provided line.
+   * 1: customer-provided line
    * 
    * @example
    * 0
@@ -114,21 +120,21 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
    * @remarks
    * The creation source. Valid values:
    * 
-   * 0: Created by agent.
+   * 0: created by an agent
    * 
-   * 1: Created by engine.
+   * 1: created by an engine
    * 
    * @example
-   * Cannot be modified. You do not need to specify this parameter
+   * Cannot be modified. Leave this parameter empty
    */
   source?: number;
   /**
    * @remarks
    * The start mode. Valid values:
    * 
-   * - IMMEDIATE: Starts immediately.
+   * - IMMEDIATE: immediate start.
    * 
-   * - SCHEDULE: Starts at a scheduled time.
+   * - SCHEDULE: scheduled start.
    * 
    * This parameter is required.
    * 
@@ -148,7 +154,7 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   taskCps?: number;
   /**
    * @remarks
-   * The ID of the task to update.
+   * The ID of the task to be updated.
    * 
    * This parameter is required.
    * 
@@ -158,7 +164,7 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task name. The name must be unique within the same account.
+   * The name of the task. The name must be unique within the same account.
    * 
    * This parameter is required.
    * 
@@ -168,7 +174,7 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when StartType is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
+   * The preset start time of the task. The value is a timestamp in milliseconds. This parameter is valid and required only when the StartType parameter is set to SCHEDULE. The task automatically starts at the specified time.
    * 
    * @example
    * 1748923429000

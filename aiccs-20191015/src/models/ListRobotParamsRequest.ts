@@ -8,7 +8,7 @@ export class ListRobotParamsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Robot ID, which is also the script ID. You can view it on the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface or obtain it by using the [ListAiccsRobot](https://help.aliyun.com/document_detail/2717998.html) API.
+   * The chatbot ID, which is the dialog flow ID. You can view the ID on the [Dialog Flow Management](https://aiccs.console.aliyun.com/patter/list) page or obtain it by calling the [ListAiccsRobot](https://help.aliyun.com/document_detail/2717998.html) operation.
    * 
    * This parameter is required.
    * 

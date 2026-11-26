@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryHotlineInQueueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class QueryHotlineInQueueResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Hotline agent data.
+   * The hotline agent data.
    * 
    * @example
    * {"n_online_now":10,"n_idle_now":3,"n_resttype_now":3,"n_acw_now":1}
@@ -21,15 +21,15 @@ export class QueryHotlineInQueueResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Status code description.
+   * The status code description.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -37,7 +37,7 @@ export class QueryHotlineInQueueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the API call succeeded.
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

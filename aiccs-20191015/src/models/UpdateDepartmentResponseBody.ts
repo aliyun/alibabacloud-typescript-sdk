@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDepartmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -13,9 +13,9 @@ export class UpdateDepartmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values:  
-   * - **true**: Succeeded  
-   * - **false**: Failed.
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class UpdateDepartmentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * successful
@@ -47,9 +47,9 @@ export class UpdateDepartmentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API was invoked successfully. Valid values:  
-   * - **true**: Succeeded.  
-   * - **false**: Failed.
+   * Indicates whether the operation was successful. Valid values:
+   * - **true**: The operation was successful.
+   * - **false**: The operation failed.
    * 
    * @example
    * true

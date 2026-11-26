@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LlmSmartCallRequest extends $dara.Model {
   /**
    * @remarks
-   * LLM application code. View it in the [Application Management](https://aiccs.console.aliyun.com/engine/llmApp) interface.
+   * The code of the large language model application. You can view the code on the [Large Language Model Application Management](https://aiccs.console.aliyun.com/engine/llmApp) page.
    * 
    * This parameter is required.
    * 
@@ -15,17 +15,26 @@ export class LlmSmartCallRequest extends $dara.Model {
   applicationCode?: string;
   /**
    * @remarks
-   * Business parameters. These parameters are passed to the customer model when invoking the customer model.
+   * The custom business parameters. When you call this API operation, you can pass custom parameters to the large language model gateway. When the large language model gateway requests the customer model, this parameter is passed to the customer model.
+   * 
+   * - [Model Studio workflow application: Parameter passing](https://www.alibabacloud.com/help/en/model-studio/invoke-workflow-application/#6e644d5a7b3ia). Example: `biz_params = {"city": "Hangzhou"}`
+   * 
+   * - [Model Studio agent application: Pass custom parameters](https://www.alibabacloud.com/help/en/model-studio/call-single-agent-application/#b774db7cdc0aa). Example:
+   * `
+   * biz_params = {
+   *   "user_prompt_params": "{\"city\":\"Beijing\"}"
+   * }
+   * `
    * 
    * @example
    * biz_params = {
-   *   "user_prompt_params": "{\\"city\\":\\"北京\\"}"
+   *   "user_prompt_params": "{\"city\":\"Beijing\"}"
    * }
    */
   bizParam?: { [key: string]: any };
   /**
    * @remarks
-   * Called number that receives the intelligent outbound call.
+   * The called number that receives the intelligent outbound call.
    * 
    * This parameter is required.
    * 
@@ -35,7 +44,10 @@ export class LlmSmartCallRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * Caller number. This parameter is required and supports only numbers from the Chinese mainland. View available numbers in the Voice Service [Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
+   * The caller number. This parameter is required and supports only numbers in the Chinese mainland. Go to the [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) page of Voice Service to view the number.
+   * 
+   * > 
+   * > - If you use a self-managed line, you must pass the number of the self-managed line.
    * 
    * @example
    * 132****2054
@@ -43,11 +55,9 @@ export class LlmSmartCallRequest extends $dara.Model {
   callerNumber?: string;
   /**
    * @remarks
-   * Customer-provided ingest endpoint encoding.
-   * 
+   * The code of the self-managed line.
    * > 
-   * > - If you use your own line, contact Alibaba Cloud support to enable this feature.
-   * > - The line encoding is provided by Alibaba Cloud support. Do not set this parameter if you do not have one.
+   * > - If you need to use a self-managed line, contact operations to enable this feature. After the self-managed line is approved, the line code is returned. If no line code is returned, do not specify this parameter.
    * 
    * @example
    * SELF_xxxxx_A_NET
@@ -55,9 +65,9 @@ export class LlmSmartCallRequest extends $dara.Model {
   customerLineCode?: string;
   /**
    * @remarks
-   * The extension number of the X number, up to 5 digits.
+   * The extension number of the X number. The extension number cannot exceed 5 digits.
    * 
-   * >Notice: Fill this field only in AXN extension mode. If no extension number exists, do not fill it.
+   * >Notice: This parameter is required only in AXN extension number mode. If no extension number exists, do not specify this parameter.
    * 
    * @example
    * 123
@@ -65,7 +75,7 @@ export class LlmSmartCallRequest extends $dara.Model {
   extension?: string;
   /**
    * @remarks
-   * An ID reserved for the caller. This ID will be returned to the caller through a receipt message. Length: 1–15 bytes.
+   * The ID reserved for the caller. This ID is returned to the caller in the receipt message. When the large language model gateway requests the customer model, this parameter is passed to the customer model. The length is 1 to 15 bytes.
    * 
    * @example
    * 222356****
@@ -73,20 +83,20 @@ export class LlmSmartCallRequest extends $dara.Model {
   outId?: string;
   /**
    * @remarks
-   * Prompt variable. Go to the [Application Management](https://aiccs.console.aliyun.com/engine/llmApp) interface and click Details to view the prompt variables you created.
+   * The prompt variables. Go to the [Large Language Model Application Management](https://aiccs.console.aliyun.com/engine/llmApp) page and click Details to view the prompt variables of the large language model application that you created.
    * 
    * @example
    * {
-   *   "style": "温柔"
+   *   "style": "gentle"
    * }
    */
   promptParam?: { [key: string]: any };
   /**
    * @remarks
-   * Maximum call duration. The call is automatically disconnected after timeout. Unit: seconds.
+   * The maximum call duration. The call is automatically disconnected after the timeout period. Unit: seconds.
    * >
-   * >- Maximum value: 3600 s.
-   * >- Minimum value: 600 s.
+   * >- Maximum value: 3600.
+   * >- Minimum value: 600.
    * 
    * @example
    * 1200
@@ -94,22 +104,22 @@ export class LlmSmartCallRequest extends $dara.Model {
   sessionTimeout?: number;
   /**
    * @remarks
-   * Start-word variables. Go to the [LLM Application Management](https://aiccs.console.aliyun.com/engine/llmApp) interface and click Details to view the start-word variables of your created LLM application.
+   * The opening remark variables. Go to the [Large Language Model Application Management](https://aiccs.console.aliyun.com/engine/llmApp) page and click Details to view the opening remark variables of the large language model application that you created.
    * 
    * @example
    * {
-   *   "name": "小明",
-   *   "address": "浙江省杭州市"
+   *   "name": "Xiaoming",
+   *   "address": "Hangzhou, Zhejiang"
    * }
    */
   startWordParam?: { [key: string]: any };
   /**
    * @remarks
-   * Voice speed during TTS playback.
+   * The speech rate for TTS playback.
    * 
    * > 
-   * > - Value range: -200 to 200. Default value is 0.
-   * > - If this parameter is not set, the voice speed configured in the LLM application is used by default.
+   * > - Valid values: -200 to 200. Default value: 0.
+   * > - If you do not specify this parameter, the speech rate configured for the large language model application is used by default.
    * 
    * @example
    * 50
@@ -117,10 +127,11 @@ export class LlmSmartCallRequest extends $dara.Model {
   ttsSpeed?: number;
   /**
    * @remarks
-   * The voice code used for TTS playback.
+   * The voice code for text-to-speech (TTS) playback.
+   * 
    * > 
-   * > - If no value is set, the voice code configured in the LLM application is used by default.
-   * > - You can use the [ListAvailableTts](https://help.aliyun.com/document_detail/2926668.html) API to view all available voice codes.
+   * > - If you do not specify this parameter, the voice code configured for the large language model application is used by default.
+   * > - You can call the [ListAvailableTts](https://help.aliyun.com/document_detail/2926668.html) API operation to query all voice codes.
    * 
    * @example
    * V65******
@@ -130,8 +141,8 @@ export class LlmSmartCallRequest extends $dara.Model {
    * @remarks
    * The volume for TTS playback.
    * > 
-   * > - Value range: 0–100. Default value is 0.
-   * > - If no value is set, the volume configured in the LLM application is used by default.
+   * > - Valid values: 0 to 100. Default value: 0.
+   * > - If you do not specify this parameter, the volume configured for the large language model application is used by default.
    * 
    * @example
    * 10

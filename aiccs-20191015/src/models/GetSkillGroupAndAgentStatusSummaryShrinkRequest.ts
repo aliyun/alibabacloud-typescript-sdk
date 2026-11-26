@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page. The value must be greater than **0**. Default value: **1**.
+   * The page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,12 +13,12 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * List of department IDs.
+   * The list of department IDs.
    */
   depIdsShrink?: string;
   /**
    * @remarks
-   * End Datetime Variable as a UNIX timestamp. Unit: milliseconds.
+   * The end timestamp. Unit: milliseconds.
    * 
    * @example
    * 1617761765000
@@ -26,9 +26,9 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model
   endDate?: number;
   /**
    * @remarks
-   * Specifies whether to query by department grouping. Default value: **false**. Valid values:  
+   * Specifies whether to group query results by department. Default value: **false**. Valid values:
    * 
-   * - **true**: Yes.  
+   * - **true**: Yes.
    * - **false**: No.
    * 
    * @example
@@ -37,7 +37,7 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model
   existDepartmentGrouping?: boolean;
   /**
    * @remarks
-   * Specifies whether to query by skill group grouping. Default value: **false**. Valid values:
+   * Specifies whether to group query results by skill group. Default value: **false**. Valid values:
    * - **true**: Yes.
    * - **false**: No.
    * 
@@ -47,13 +47,13 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model
   existSkillGroupGrouping?: boolean;
   /**
    * @remarks
-   * List of skill group IDs.
+   * The list of skill group IDs.
    */
   groupIdsShrink?: string;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it in the **Instance Management** section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID.
+   * You can obtain the ID in the **Instance Management** section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * Page size. The value must be greater than **0**. Default value: **20**.
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
    * 
    * @example
    * 20
@@ -71,7 +71,7 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * Start date UNIX timestamp. Unit: milliseconds.
+   * The start timestamp. Unit: milliseconds.
    * 
    * @example
    * 1615083365000

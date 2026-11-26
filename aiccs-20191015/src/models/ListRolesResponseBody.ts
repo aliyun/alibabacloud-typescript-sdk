@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRolesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListRolesResponseBodyData extends $dara.Model {
   buId?: number;
   /**
    * @remarks
-   * Role code.
+   * The role code.
    * 
    * @example
    * admin
@@ -21,7 +21,7 @@ export class ListRolesResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Creation Time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2020-01-03T20:25:33Z
@@ -29,7 +29,7 @@ export class ListRolesResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Role description.
+   * The description of the role.
    * 
    * @example
    * Admin
@@ -37,7 +37,7 @@ export class ListRolesResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * ID of the group to which the role belongs.
+   * The ID of the role group to which the role belongs.
    * 
    * @example
    * 0
@@ -45,15 +45,15 @@ export class ListRolesResponseBodyData extends $dara.Model {
   roleGroupId?: number;
   /**
    * @remarks
-   * Name of the role group to which the role belongs.
+   * The name of the role group to which the role belongs.
    * 
    * @example
-   * 角色组名称
+   * Role group name
    */
   roleGroupName?: string;
   /**
    * @remarks
-   * Role ID.
+   * The role ID.
    * 
    * @example
    * 1
@@ -61,10 +61,10 @@ export class ListRolesResponseBodyData extends $dara.Model {
   roleId?: number;
   /**
    * @remarks
-   * Role name.
+   * The name of the role.
    * 
    * @example
-   * 企业管理员
+   * Enterprise administrator
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -105,12 +105,12 @@ export class ListRolesResponseBodyData extends $dara.Model {
 export class ListRolesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Role information.
+   * The role information.
    */
   data?: ListRolesResponseBodyData[];
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The HTTP status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -118,15 +118,15 @@ export class ListRolesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Status code description.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -134,7 +134,7 @@ export class ListRolesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

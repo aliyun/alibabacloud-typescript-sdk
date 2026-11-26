@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HangupOperateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of \\"OK\\" indicates that the request was successful.
+   * The status code. A value of \"OK\" indicates that the request was successful.
    * 
    * @example
    * OK

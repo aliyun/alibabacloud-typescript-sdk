@@ -3,11 +3,54 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetQualityRuleListResponseBodyDataQualityRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The keywords.
+   */
   keyWords?: string[];
+  /**
+   * @remarks
+   * The keyword match type. Valid values:	
+   * 
+   * - **1**: Any keyword appears.
+   * - **2**: All keywords appear.
+   * - **3**: No keywords appear.
+   * 
+   * @example
+   * 1
+   */
   matchType?: number;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * Automatically created quality check rule
+   */
   name?: string;
+  /**
+   * @remarks
+   * The time when the rule was created.
+   * 
+   * @example
+   * Mon Mar 29 22:14:02 CST 2021
+   */
   ruleCreateTime?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * 5369
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The tag of the rule.
+   * 
+   * @example
+   * 638
+   */
   ruleTag?: number;
   static names(): { [key: string]: string } {
     return {
@@ -44,9 +87,34 @@ export class GetQualityRuleListResponseBodyDataQualityRuleList extends $dara.Mod
 }
 
 export class GetQualityRuleListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The current page number.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of rule details.
+   */
   qualityRuleList?: GetQualityRuleListResponseBodyDataQualityRuleList[];
+  /**
+   * @remarks
+   * The total number of records.
+   * 
+   * @example
+   * 84
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +147,42 @@ export class GetQualityRuleListResponseBodyData extends $dara.Model {
 }
 
 export class GetQualityRuleListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request is successful.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The quality check rule information.
+   */
   data?: GetQualityRuleListResponseBodyData;
+  /**
+   * @remarks
+   * The description of the status code.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the API call is successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

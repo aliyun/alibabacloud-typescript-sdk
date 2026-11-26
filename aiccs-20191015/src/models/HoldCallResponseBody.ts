@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HoldCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Fault encoding
+   * The error code.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class HoldCallResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Fault description
+   * The error message.
    * 
    * @example
    * xxxx
@@ -21,7 +21,7 @@ export class HoldCallResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used to trail the cause of a fault
+   * The request ID used to trace the error cause.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -29,7 +29,7 @@ export class HoldCallResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

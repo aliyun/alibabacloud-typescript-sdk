@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConfigNumListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A return value of "Success" indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request succeeded.
    * 
    * @example
    * Success
@@ -13,15 +13,15 @@ export class GetConfigNumListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number list.
+   * The list of phone numbers.
    */
   data?: string[];
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
@@ -34,7 +34,9 @@ export class GetConfigNumListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call succeeded. Valid values:
+   * - **true**: The call succeeded.
+   * - **false**: The call failed.
    * 
    * @example
    * true

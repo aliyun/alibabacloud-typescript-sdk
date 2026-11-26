@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $dara.Mo
   pageNum?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 2000
@@ -21,15 +21,15 @@ export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * The information is a JSON string of type List<Map>.
+   * The data rows formatted as a JSON string of the List<Map> type.
    * 
    * @example
-   * {"tenant_id":905,"n_resttype_now":0,"tenant_name":"非单元测试化BU","n_resttype1_now":0,"department_id":-1,"department_name":-1,"n_resttype98_now":0,"n_online_now":0,"date_id":20210329,"n_resttype3_now":0,"n_resttype5_now":0,"n_busy_now":0,"n_resttype2_now":0,"n_idle_now":0,"n_resttype4_now":0,"n_ack_now":0,"n_resttype99_now":0}
+   * {"tenant_id":905,"n_resttype_now":0,"tenant_name":"Non-unit Testing BU","n_resttype1_now":0,"department_id":-1,"department_name":-1,"n_resttype98_now":0,"n_online_now":0,"date_id":20210329,"n_resttype3_now":0,"n_resttype5_now":0,"n_busy_now":0,"n_resttype2_now":0,"n_idle_now":0,"n_resttype4_now":0,"n_ack_now":0,"n_resttype99_now":0}
    */
   rows?: string;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of records.
    * 
    * @example
    * 4
@@ -65,7 +65,7 @@ export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $dara.Mo
 export class GetDepartmentalLatitudeAgentStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -73,12 +73,12 @@ export class GetDepartmentalLatitudeAgentStatusResponseBody extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * Data list.
+   * The data list.
    */
   data?: GetDepartmentalLatitudeAgentStatusResponseBodyData;
   /**
    * @remarks
-   * Status code description.
+   * The error message.
    * 
    * @example
    * message
@@ -86,7 +86,7 @@ export class GetDepartmentalLatitudeAgentStatusResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -94,9 +94,9 @@ export class GetDepartmentalLatitudeAgentStatusResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the operation is successful. Valid values:
+   * - **true**: successful.
+   * - **false**: failed.
    * 
    * @example
    * true

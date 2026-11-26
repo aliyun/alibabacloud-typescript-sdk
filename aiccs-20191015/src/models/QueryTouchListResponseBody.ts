@@ -181,6 +181,9 @@ export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
   /**
    * @remarks
    * The large field.
+   * 
+   * @example
+   * {"test":"test","test2":1}
    */
   extAttrsString?: { [key: string]: any };
   /**

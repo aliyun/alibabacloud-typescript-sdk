@@ -18,7 +18,7 @@ export class GetHotlineAgentDetailReportRequest extends $dara.Model {
   depIds?: number[];
   /**
    * @remarks
-   * The UNIX timestamp of the end date. Unit: milliseconds.
+   * The end date timestamp. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -33,9 +33,8 @@ export class GetHotlineAgentDetailReportRequest extends $dara.Model {
   groupIds?: number[];
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
-   * 
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID.
+   * You can obtain the instance ID in the <b>Instances</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -53,7 +52,7 @@ export class GetHotlineAgentDetailReportRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The UNIX timestamp of the start date. Unit: milliseconds.
+   * The start date timestamp. Unit: milliseconds.
    * 
    * This parameter is required.
    * 

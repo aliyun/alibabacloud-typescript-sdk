@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMcuLvsIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetMcuLvsIpResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * IP information. The value is a JSON string of the List type.
+   * The IP address information. The value is a JSON string of the list type.
    * 
    * @example
    * { "xmculvs":[ 0:{ "port":00 "ip":"0.0.0.0" "name":"lvs1" } ]}
@@ -21,10 +21,10 @@ export class GetMcuLvsIpResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
@@ -37,7 +37,7 @@ export class GetMcuLvsIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddSkillGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the external department.
+   * The ID of the external department.
    * 
    * @example
    * 123456
@@ -13,7 +13,7 @@ export class AddSkillGroupRequest extends $dara.Model {
   outerDepartmentId?: string;
   /**
    * @remarks
-   * Type of the external department.
+   * The type of the external department.
    * 
    * @example
    * type_invalid
@@ -21,7 +21,7 @@ export class AddSkillGroupRequest extends $dara.Model {
   outerDepartmentType?: string;
   /**
    * @remarks
-   * ID of the external skill group.
+   * The ID of the external skill group.
    * 
    * This parameter is required.
    * 
@@ -31,17 +31,17 @@ export class AddSkillGroupRequest extends $dara.Model {
   outerGroupId?: string;
   /**
    * @remarks
-   * Name of the external skill group.
+   * The name of the external skill group.
    * 
    * This parameter is required.
    * 
    * @example
-   * 热线技能组
+   * Hotline skill group
    */
   outerGroupName?: string;
   /**
    * @remarks
-   * Type of the external skill group.
+   * The type of the external skill group.
    * 
    * This parameter is required.
    * 

@@ -8,7 +8,7 @@ export class TestLargeModelResponseBodyData extends $dara.Model {
    * The error message.
    * 
    * @example
-   * {\\"code\\":\\"InvalidApiKey\\",\\"message\\":\\"Invalid API-key provided.\\",\\"request_id\\":\\"dd14065e-3dd5-90a1-b8ee-d6c80891defe\\"}
+   * {\"code\":\"InvalidApiKey\",\"message\":\"Invalid API-key provided.\",\"request_id\":\"dd14065e-3dd5-90a1-b8ee-d6c80891defe\"}
    */
   errorMsg?: string;
   /**
@@ -24,7 +24,7 @@ export class TestLargeModelResponseBodyData extends $dara.Model {
    * The output result.
    * 
    * @example
-   * ⌈Hello! I am the AI assistant on the Alibaba Cloud website.\\n\\nYour input seems incomplete. What specific information about Alibaba Cloud would you like to know?\\n\\nFor example:\\n*   What are the core products of Alibaba Cloud (such as ECS, RDS, OSS, etc.)?\\n*   How do I purchase or renew a cloud server?\\n*   What security protection capabilities does Alibaba Cloud offer?\\n*   How do I get technical support or view documentation?\\n\\nFeel free to ask your specific questions, and I will answer them for you!⌋
+   * ⌈Hello! I am the AI assistant on the Alibaba Cloud website.\n\nYour input seems incomplete. What specific information about Alibaba Cloud would you like to know?\n\nFor example:\n*   What are the core products of Alibaba Cloud (such as ECS, RDS, OSS, etc.)?\n*   How do I purchase or renew a cloud server?\n*   What security protection capabilities does Alibaba Cloud offer?\n*   How do I get technical support or view documentation?\n\nFeel free to ask your specific questions, and I will answer them for you!⌋
    */
   output?: string;
   /**

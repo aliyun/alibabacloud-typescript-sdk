@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportOneTaskPhoneNumberShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The encryption method. Valid values:
+   * - 0: no encryption
+   * - 1: MD5
+   * - 2: SHA256
+   * - 3: SM3
+   * 
    * @example
    * 81
    */
@@ -13,12 +20,12 @@ export class ImportOneTaskPhoneNumberShrinkRequest extends $dara.Model {
    * The extension number.
    * 
    * @example
-   * 示例值示例值示例值
+   * SampleValueSampleValueSampleValue
    */
   extension?: string;
   /**
    * @remarks
-   * The external serial number. We recommend that you use a unique ID. The value cannot exceed 128 characters.
+   * The external serial number. Use a unique ID. The value cannot exceed 128 characters in length.
    * 
    * @example
    * 94ba739b-xxxx-ef91-335d-4be006c34899
@@ -49,13 +56,12 @@ export class ImportOneTaskPhoneNumberShrinkRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The variable list in Map format.
-   * > Variable format for engine-based voice call tasks:
-   * > - {"startWordParam.VariableKey1":"VariableValue1","promptParam.VariableKey2":"VariableValue2","bizParam.VariableKey3":"VariableValue3"}
+   * The list of variables in map format.
+   * > Variable format for engine call tasks
+   * > - {"startWordParam.variableKey1":"variableValue1","promptParam.variableKey2":"variableValue2","bizParam.variableKey3":"variableValue3"}
    * 
    * @example
-   * {"VariableKey1":"VariableValue1","VariableKey2":"VariableValue2"}
-   * For example values of engine-based voice call tasks, refer to the description on the left
+   * {"variableKey1":"variableValue1","variableKey2":"variableValue2"}
    */
   variablesShrink?: string;
   static names(): { [key: string]: string } {

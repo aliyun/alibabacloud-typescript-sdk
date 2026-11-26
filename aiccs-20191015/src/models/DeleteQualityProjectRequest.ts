@@ -5,9 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityProjectRequest extends $dara.Model {
   /**
    * @remarks
+   * The AICCS instance ID. You can obtain the ID from the Artificial Intelligence Cloud Call Service console.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The quality inspection task ID.
+   * 
+   * @example
+   * 15
+   */
   projectId?: number;
   static names(): { [key: string]: string } {
     return {

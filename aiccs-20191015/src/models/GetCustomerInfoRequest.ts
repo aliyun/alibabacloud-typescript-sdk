@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomerInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * AICCS instance ID. You can obtain it from the Artificial Intelligence Cloud Call Service console.
+   * The AICCS instance ID. You can obtain the ID from the Artificial Intelligence Cloud Call Service console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCustomerInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Membership ID.
+   * The member ID.
    * 
    * This parameter is required.
    * 

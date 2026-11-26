@@ -37,10 +37,10 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   branchVersionId?: number;
   /**
    * @remarks
-   * The expiration time of the outbound call detail. Format: YYYY-MM-DD HH:mm:ss.
+   * The expiration time of the outbound call detail. The value is a timestamp in milliseconds.
    * 
    * @example
-   * 2026-07-30 20:00:20
+   * 1785412820000
    */
   callExpireTime?: number;
   /**
@@ -69,7 +69,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * The calling time. This value is a UNIX timestamp. Unit: milliseconds.
+   * The call time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -85,12 +85,12 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   conversationDuration?: number;
   /**
    * @remarks
-   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The structure is as follows:
+   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. Details:
    * ```json
    * [
    *     {
    *         "content":"Chat content",
-   *         "role":"Role",//Valid values: user and assistant (bot).
+   *         "role":"Role",//Valid values: user (user), assistant (robot)
    *     }
    * ]
    * ```
@@ -98,52 +98,52 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    * @example
    * [
    *     {
-   *         "content": "111您好，年龄222，性别男，我这边是**汽车的官方顾问，我们新出了一款车型为**；**已经上市了，售价**万元起，**分钟破*台，您看要不了解一下？",
+   *         "content": "Hello 111, age 222, gender male. I am the official consultant for ** Motors. We have launched a new model, **. ** is now on the market with a starting price of ** 10,000 yuan. It sold * units in ** minutes. Would you like to learn more?",
    *         "role": "assistant"
    *     },
    *     {
-   *         "content": "<客户打断>哎，你是谁？",
-   *         "role": "user",
+   *         "content": "<Customer interruption> Hey, who are you?",
+   *         "role": "user"
    *     },
    *     {
-   *         "content": "<客户打断>你再说一遍。",
-   *         "role": "user",
+   *         "content": "<Customer interruption> Say that again.",
+   *         "role": "user"
    *     },
    *     {
-   *         "content": "哎，我没听清。",
-   *         "role": "user",
+   *         "content": "Hey, I didn\"t catch that.",
+   *         "role": "user"
    *     },
    *     {
-   *         "content": "你在说什么？",
-   *         "role": "user",
+   *         "content": "What are you saying?",
+   *         "role": "user"
    *     },
    *     {
-   *         "content": "您好，",
-   *         "role": "assistant",
+   *         "content": "Hello,",
+   *         "role": "assistant"
    *     },
    *     {
-   *         "content": "我是**汽车总部销售服务顾问。",
-   *         "role": "assistant",
+   *         "content": "I am a sales service consultant at ** Motors headquarters.",
+   *         "role": "assistant"
    *     },
    *     {
-   *         "content": "我们最近推出了一款新车**，想了解一下您是否对这款车型感兴趣？",
-   *         "role": "assistant",
+   *         "content": "We recently launched a new car, **. I would like to know if you are interested in this model.",
+   *         "role": "assistant"
    *     },
    *     {
-   *         "content": "<客户打断>哎，那我是谁？",
-   *         "role": "user",
+   *         "content": "<Customer interruption> Hey, then who am I?",
+   *         "role": "user"
    *     },
    *     {
-   *         "content": "你在说什么呢？",
-   *         "role": "user",
+   *         "content": "What are you talking about?",
+   *         "role": "user"
    *     },
    *     {
-   *         "content": "抱歉打扰了，111先生。",
-   *         "role": "assistant",
+   *         "content": "Sorry to bother you, Mr. 111.",
+   *         "role": "assistant"
    *     },
    *     {
-   *         "content": "祝您生活愉快！再见！",
-   *         "role": "assistant",
+   *         "content": "Have a great day! Goodbye!",
+   *         "role": "assistant"
    *     }
    * ]
    */
@@ -166,7 +166,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   detailId?: string;
   /**
    * @remarks
-   * The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
+   * The encryption method. Valid values: 0: No encryption. 1: MD5. 2: SHA256. 3: SM3.
    * 
    * @example
    * 1
@@ -182,7 +182,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   failedReason?: string;
   /**
    * @remarks
-   * The import time. This value is a UNIX timestamp. Unit: milliseconds.
+   * The import time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -190,7 +190,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   importedTime?: number;
   /**
    * @remarks
-   * The major intent.
+   * The primary intent.
    * 
    * @example
    * A
@@ -214,7 +214,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The external business serial number reserved for external input. You can use a unique ID for business association.
+   * The custom business transaction ID provided by the caller. You can use a unique ID to associate the business.
    * 
    * @example
    * outId
@@ -231,14 +231,14 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The task detail status. Valid values:
-   * - 0: Initialization.
+   * - 0: Initialized.
    * - 1: Waiting for call.
    * - 2: Waiting for retry.
    * - 3: Calling.
    * - 4: Call ended.
    * - 5: Call failed.
    * 
-   * Only 4 and 5 are desired states.
+   * Only 4 and 5 are final states.
    * 
    * @example
    * 4
@@ -338,7 +338,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
 export class QueryAiCallDetailPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of task detail data.
+   * The list of task details.
    */
   list?: QueryAiCallDetailPageResponseBodyDataList[];
   /**
@@ -398,7 +398,7 @@ export class QueryAiCallDetailPageResponseBodyData extends $dara.Model {
 export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * None
@@ -419,7 +419,7 @@ export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   data?: QueryAiCallDetailPageResponseBodyData;
   /**
    * @remarks
-   * The description of the status code.
+   * The status message.
    * 
    * @example
    * Success
@@ -435,7 +435,7 @@ export class QueryAiCallDetailPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the API call is successful. Valid values:
    * - **true**: Successful.
    * - **false**: Failed.
    * 

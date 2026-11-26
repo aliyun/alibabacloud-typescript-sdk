@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDialogRequest extends $dara.Model {
   /**
    * @remarks
-   * The called number. You can view the called number in the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** interface or retrieve it by invoking the [ListTaskDetail](https://help.aliyun.com/document_detail/2718009.html) API. The **Called** parameter in the API response is the called number.
+   * The called number. You can view the called number on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page or obtain it by calling the [ListTaskDetail](https://help.aliyun.com/document_detail/2718009.html) operation. The **Called** parameter returned by the operation is the called number.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class ListDialogRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The unique job ID of the robot outbound call task. You can view it in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface or obtain it by invoking the [CreateTask](https://help.aliyun.com/document_detail/223556.html) API.
+   * The unique task ID of the robot call task. You can view the ID on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or obtain it by calling the [CreateTask](https://help.aliyun.com/document_detail/223556.html) operation.
    * 
    * This parameter is required.
    * 

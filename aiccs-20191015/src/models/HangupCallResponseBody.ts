@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HangupCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of Success indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request succeeded.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class HangupCallResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Status code description.
+   * The description of the status code.
    * 
    * @example
    * xxxx
@@ -21,7 +21,7 @@ export class HangupCallResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -29,7 +29,7 @@ export class HangupCallResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API operation was called successfully.
    * 
    * @example
    * true

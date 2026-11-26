@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code. OK indicates that the request was successful.
+   * The request status code. If OK is returned, the request is successful.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * OK
@@ -45,9 +45,9 @@ export class ImportTaskNumberDatasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * Indicates whether the operation was called successfully. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

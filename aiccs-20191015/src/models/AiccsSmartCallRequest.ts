@@ -110,7 +110,7 @@ export class AiccsSmartCallRequest extends $dara.Model {
   calledShowNumber?: string;
   /**
    * @remarks
-   * The dynamic extension ID reserved for the caller. This ID is returned in the callback URL for the caller\\"s development identifier.
+   * The dynamic extension ID reserved for the caller. This ID is returned in the callback URL for the caller\"s development identifier.
    * 
    * @example
    * 2234****
@@ -262,7 +262,7 @@ export class AiccsSmartCallRequest extends $dara.Model {
    * The TTS parameter string in JSON format. This parameter must correspond to the TTS parameters in VoiceCode.
    * 
    * @example
-   * "{\\"name\\":\\"Hello\\"}"
+   * "{\"name\":\"Hello\"}"
    */
   voiceCodeParam?: string;
   /**

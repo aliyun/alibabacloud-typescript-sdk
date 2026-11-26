@@ -35,7 +35,7 @@ export class ImportOneTaskPhoneNumberResponseBodyData extends $dara.Model {
 export class ImportOneTaskPhoneNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * None
@@ -56,7 +56,7 @@ export class ImportOneTaskPhoneNumberResponseBody extends $dara.Model {
   data?: ImportOneTaskPhoneNumberResponseBodyData;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * Success
@@ -73,8 +73,8 @@ export class ImportOneTaskPhoneNumberResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the API call was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * false

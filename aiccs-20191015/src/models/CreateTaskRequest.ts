@@ -124,7 +124,7 @@ export class CreateTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试任务
+   * Test task
    */
   taskName?: string;
   /**

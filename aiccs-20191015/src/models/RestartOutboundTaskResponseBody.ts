@@ -3,10 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RestartOutboundTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request is successful.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
+   * 
+   * @example
+   * true
+   */
   data?: string;
+  /**
+   * @remarks
+   * The description of the status code.
+   * 
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the API call is successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

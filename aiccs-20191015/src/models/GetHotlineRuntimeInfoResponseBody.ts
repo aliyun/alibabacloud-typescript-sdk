@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineRuntimeInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A return value of "Success" indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request is successful.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class GetHotlineRuntimeInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Hotline runtime information.
+   * The hotline runtime information.
    * 
    * @example
-   * {"buId":905,"phoneToken":"roESVzzgD1ytmG0W6nMkWinI6fbpKovm14fBhA0NsYPyi/srX/G0SvNB2z96AYiqy1vxQHiaFOdZSxtsAubdgr2kjs2yas7COO5dukQpsOLq9iNI4U6sKlcvaBi8xsyUr/hyqCdTVZDcYCOq0lH6eeNIQK/f7/gWqIw****=","isNeedWorkShift":false,"servicerId":741018,"accConfigUrl":"pre-acc-cs-public.alibaba-inc.com","agentBasicCode":"AgentCheckout","startWorkToReady":true,"servicerDn":"2000000001904123","isMaster":"1","tenantId":2001,"depId":1139139,"accTenantId":2001,"phoneData":"{\\"timeStamp\\":164240****,\\"expireTime\\":164257****,\\"dn\\":\\"200000000190****\\",\\"source\\":\\"xspace\\",\\"serviceId\\":741018}","agentBasicDesc":"坐席签出状态"}
+   * {"buId":905,"phoneToken":"roESVzzgD1ytmG0W6nMkWinI6fbpKovm14fBhA0NsYPyi/srX/G0SvNB2z96AYiqy1vxQHiaFOdZSxtsAubdgr2kjs2yas7COO5dukQpsOLq9iNI4U6sKlcvaBi8xsyUr/hyqCdTVZDcYCOq0lH6eeNIQK/f7/gWqIw****=","isNeedWorkShift":false,"servicerId":741018,"accConfigUrl":"pre-acc-cs-public.alibaba-inc.com","agentBasicCode":"AgentCheckout","startWorkToReady":true,"servicerDn":"2000000001904123","isMaster":"1","tenantId":2001,"depId":1139139,"accTenantId":2001,"phoneData":"{\"timeStamp\":164240****,\"expireTime\":164257****,\"dn\":\"200000000190****\",\"source\":\"xspace\",\"serviceId\":741018}","agentBasicDesc":"Agent checkout status"}
    */
   data?: { [key: string]: any };
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class GetHotlineRuntimeInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

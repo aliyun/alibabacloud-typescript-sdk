@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The batch ID. On the **Call Task Management** page, click Details to view the batch ID.
+   * The batch ID. You can view the batch ID by clicking Details on the **Call Task Management** page.
    * 
    * @example
    * 1183**************
@@ -14,17 +14,17 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The call result. Valid values:
-   * - CALL_FORWARDING: Call forwarding.
-   * - INCOMING_CALL_BARRED: Incoming call barred.
+   * - CALL_FORWARDING: Call forwarded.
+   * - INCOMING_CALL_BARRED: Incoming calls barred.
    * - CALL_REJECTED: Call rejected.
    * - ANSWERED: Answered.
    * - USER_BUSY: User busy.
    * - POWERED_OFF: Powered off.
    * - NO_USER_RESPONSE: Out of service area.
-   * - OPERATOR_BLOCK: Blocked by carrier.
-   * - OTHERS: Other status.
-   * - SUSPEND: Service suspended.
-   * - CANCEL: Caller canceled.
+   * - OPERATOR_BLOCK: Blocked by operator.
+   * - OTHERS: Other statuses.
+   * - SUSPEND: Suspended.
+   * - CANCEL: Canceled by caller.
    * - INVALID_NUMBER: Invalid number.
    * - UNAVAILABLE: Temporarily unavailable.
    * - NETWORK_BUSY: Network busy.
@@ -44,12 +44,12 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * The list of task detail IDs. A maximum of 100 IDs can be specified.
+   * The list of task detail IDs. You can specify up to 100 IDs.
    */
   detailIdsShrink?: string;
   /**
    * @remarks
-   * The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
+   * The encryption method. Valid values: 0: No encryption. 1: MD5. 2: SHA256. 3: SM3.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   encryptionType?: number;
   /**
    * @remarks
-   * The end calling time. This value is a UNIX timestamp. Unit: ms.
+   * The end call time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -65,7 +65,7 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   endCallingTime?: number;
   /**
    * @remarks
-   * The end import time. This value is a UNIX timestamp. Unit: ms.
+   * The end import time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -73,7 +73,7 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   endImportedTime?: number;
   /**
    * @remarks
-   * The major intent. On the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page, click the agent details to view the major intent.
+   * The primary intent. You can view the primary intent by clicking Agent Details on the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page.
    * 
    * @example
    * A
@@ -97,7 +97,7 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   minConversationDuration?: number;
   /**
    * @remarks
-   * The ID reserved for the caller. This ID is returned to the caller in the receipt message.
+   * The custom ID provided by the caller. This ID is returned to the caller in the receipt message.
    * 
    * @example
    * 94ba739b-c01a-ef91-335d-4be006c34899
@@ -106,7 +106,7 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The current page number. The value must be greater than **0**. Default value: **1**.
+   * The page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -124,7 +124,7 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start calling time. This value is a UNIX timestamp. Unit: ms.
+   * The start call time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000
@@ -132,7 +132,7 @@ export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   startCallingTime?: number;
   /**
    * @remarks
-   * The start import time. This value is a UNIX timestamp. Unit: ms.
+   * The start import time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1748948749000

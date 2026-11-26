@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EditQualityProjectResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The quality inspection task ID.
+   * 
+   * @example
+   * 15
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * The version of the quality inspection task.
+   * 
+   * @example
+   * 2
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,10 +53,42 @@ export class EditQualityProjectResponseBodyData extends $dara.Model {
 }
 
 export class EditQualityProjectResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request is successful.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The quality inspection task information.
+   */
   data?: EditQualityProjectResponseBodyData[];
+  /**
+   * @remarks
+   * The status message.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the API call is successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

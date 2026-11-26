@@ -8,9 +8,9 @@ export class StartTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Indicates whether to start immediately. Valid values:
+   * Specifies whether to start the task immediately. Valid values:
    * - **true**: Yes.
-   * - **false**: No, which means the job will not be started.
+   * - **false**: No. The task is not started.
    * 
    * @example
    * true
@@ -18,7 +18,7 @@ export class StartTaskRequest extends $dara.Model {
   startNow?: boolean;
   /**
    * @remarks
-   * The unique job ID of the robot calling task. You can view it on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or obtain it by using the [CreateTask](https://help.aliyun.com/document_detail/223556.html) API.
+   * The unique ID of the chatbot outbound call task. You can view the ID on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or obtain it by calling the [CreateTask](https://help.aliyun.com/document_detail/223556.html) operation.
    * 
    * This parameter is required.
    * 

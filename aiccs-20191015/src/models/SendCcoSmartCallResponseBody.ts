@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendCcoSmartCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code. OK indicates a successful request.
+   * The request status code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK

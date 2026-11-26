@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRobotParamsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is required. Valid values:
+   * Specifies whether the parameter is required. Valid values:
    * 
    * - 0: Not required.
    * 
@@ -17,7 +17,7 @@ export class ListRobotParamsResponseBodyData extends $dara.Model {
   isEmpty?: number;
   /**
    * @remarks
-   * Parameter ID.
+   * The parameter ID.
    * 
    * @example
    * 1
@@ -25,10 +25,10 @@ export class ListRobotParamsResponseBodyData extends $dara.Model {
   paramCode?: string;
   /**
    * @remarks
-   * Parameter name.
+   * The parameter name.
    * 
    * @example
-   * 名称
+   * Name
    */
   paramName?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +59,7 @@ export class ListRobotParamsResponseBodyData extends $dara.Model {
 export class ListRobotParamsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -67,12 +67,12 @@ export class ListRobotParamsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Parameter information.
+   * The parameter information.
    */
   data?: ListRobotParamsResponseBodyData[];
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * successful
@@ -80,7 +80,7 @@ export class ListRobotParamsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * FF67D4D5-4E90-1DF5-BB8F-060BBFAD72DB
@@ -88,8 +88,8 @@ export class ListRobotParamsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API invocation succeeded. Valid values:
-   * - **true**: Succeeded.
+   * Indicates whether the operation is called successfully. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

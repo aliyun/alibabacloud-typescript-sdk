@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDialogResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Dialogue content.
+   * The script content.
    * 
    * @example
-   * 您好
+   * Hello
    */
   content?: string;
   /**
    * @remarks
-   * File Type.
+   * The node type.
    * 
    * @example
    * normal
@@ -21,11 +21,11 @@ export class ListDialogResponseBodyData extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * Speaking role. Valid values:
+   * The role of the speaker. Valid values:
    * 
-   * - robot: Bot.
+   * - robot: The speaker is a robot.
    * 
-   * - user: User.
+   * - user: The speaker is a user.
    * 
    * @example
    * robot
@@ -33,15 +33,15 @@ export class ListDialogResponseBodyData extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * Intent label.
+   * The intent tag.
    * 
    * @example
-   * 肯定
+   * Affirmative
    */
   tag?: string;
   /**
    * @remarks
-   * Start Time. UNIX timestamp format, in milliseconds.
+   * The start time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1619763900718
@@ -79,7 +79,7 @@ export class ListDialogResponseBodyData extends $dara.Model {
 export class ListDialogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request status code. A return value of OK indicates that the request succeeded.
+   * The request status code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -87,12 +87,12 @@ export class ListDialogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Call interaction content.
+   * The call interaction content.
    */
   data?: ListDialogResponseBodyData[];
   /**
    * @remarks
-   * Status code description.
+   * The status code description.
    * 
    * @example
    * OK
@@ -100,7 +100,7 @@ export class ListDialogResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
@@ -108,9 +108,9 @@ export class ListDialogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API invocation succeeded. Valid values:  
-   * - **true**: Succeeded.  
-   * - **false**: Failed.
+   * Indicates whether the operation was called successfully. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

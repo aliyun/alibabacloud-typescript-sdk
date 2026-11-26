@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Model {
   /**
    * @remarks
-   * Hotline End Time.
+   * The end time of the hotline call.
    * 
    * @example
    * 1614578410000
@@ -13,7 +13,7 @@ export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * OSS URL of the hotline call recording.
+   * The URL of the hotline call recording.
    * 
    * @example
    * http://xxx.xxxxx/xx.wav
@@ -21,7 +21,7 @@ export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Mod
   ossUrl?: string;
   /**
    * @remarks
-   * Servicer Account.
+   * The customer service representative account.
    * 
    * @example
    * 123@123.com
@@ -29,7 +29,7 @@ export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Mod
   servicerName?: string;
   /**
    * @remarks
-   * Start Time of the hotline call.
+   * The start time of the hotline call.
    * 
    * @example
    * 1614578400000
@@ -65,7 +65,7 @@ export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Mod
 export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -73,12 +73,12 @@ export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Query result data.
+   * The query result data.
    */
   data?: ListHotlineRecordDetailResponseBodyResultDataData[];
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 100
@@ -86,7 +86,7 @@ export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
   onePageSize?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 10
@@ -94,7 +94,7 @@ export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
   totalPage?: number;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 945
@@ -135,7 +135,7 @@ export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
 export class ListHotlineRecordDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -143,7 +143,7 @@ export class ListHotlineRecordDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -151,15 +151,15 @@ export class ListHotlineRecordDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The status message.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -167,12 +167,12 @@ export class ListHotlineRecordDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   resultData?: ListHotlineRecordDetailResponseBodyResultData;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

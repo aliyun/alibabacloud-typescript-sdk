@@ -17,7 +17,7 @@ export class LlmSmartCallFullDuplexRequest extends $dara.Model {
   /**
    * @remarks
    * **CalledNumber**  
-   * The phone number that receives the intelligent outbound call.
+   * The called number that receives the intelligent outbound call.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class LlmSmartCallFullDuplexRequest extends $dara.Model {
   /**
    * @remarks
    * **CallerNumber**  
-   * The calling number.
+   * The caller number.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class LlmSmartCallFullDuplexRequest extends $dara.Model {
   /**
    * @remarks
    * **OutId**  
-   * The external ID. The value must be 1 to 15 bytes in length.
+   * The external ID. The length is 1 to 15 bytes.
    * 
    * @example
    * out123
@@ -48,7 +48,7 @@ export class LlmSmartCallFullDuplexRequest extends $dara.Model {
   /**
    * @remarks
    * **SessionTimeout**  
-   * The maximum call duration. The call is automatically ended when the specified duration is exceeded. Unit: seconds. Maximum value: 3600.
+   * The maximum call duration. The call is automatically hung up after a timeout. Unit: seconds. The maximum call duration is 3,600 seconds.
    * 
    * @example
    * 120
@@ -57,15 +57,15 @@ export class LlmSmartCallFullDuplexRequest extends $dara.Model {
   /**
    * @remarks
    * **StartWordParam**  
-   * The opening greeting variable. Format: JSON. Specify the variable name and parameter, for example, `{"custom":"XXX"}`.
+   * The opening remark variables. Format: JSON. The format is opening remark variable name + parameter, such as `{"custom":"XXX"}`.
    * 
    * @example
-   * {\\"tailnumber\\":\\"7898\\",\\"platformOrder\\":\\"\\",\\"signatory\\":\\"客户\\"}
+   * {"tailnumber":"7898","platformOrder":"","signatory":"Customer"}
    */
   startWordParam?: { [key: string]: any };
   /**
    * @remarks
-   * The voice speed. Valid values: 0 to 100. If this parameter is not specified, the value configured in the application is used.
+   * The voice speed. Valid values: 0 to 100. If you do not specify this parameter, the value configured in the application is used.
    * 
    * @example
    * 70
@@ -73,7 +73,7 @@ export class LlmSmartCallFullDuplexRequest extends $dara.Model {
   ttsSpeed?: number;
   /**
    * @remarks
-   * The voice code from the personalized voice interface. If this parameter is not specified, the value configured in the application is used.
+   * The voice code for the personalized voice. If you do not specify this parameter, the value configured in the application is used.
    * 
    * @example
    * V745A7CED
@@ -81,7 +81,7 @@ export class LlmSmartCallFullDuplexRequest extends $dara.Model {
   ttsVoiceCode?: string;
   /**
    * @remarks
-   * The volume. Valid values: -200 to 200. If this parameter is not specified, the value configured in the application is used.
+   * The volume. Valid values: -200 to 200. If you do not specify this parameter, the value configured in the application is used.
    * 
    * @example
    * 100

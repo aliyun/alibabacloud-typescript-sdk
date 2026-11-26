@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetHotlineNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A return value of "Success" indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request is successful.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class ResetHotlineNumberResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class ResetHotlineNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -37,7 +37,7 @@ export class ResetHotlineNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

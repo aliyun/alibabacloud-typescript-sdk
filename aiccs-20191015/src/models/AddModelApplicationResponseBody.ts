@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddModelApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason for access denial.
+   * The detailed reasons for access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class AddModelApplicationResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code. A value of OK indicates that the request was successful.
+   * The status code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class AddModelApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8C93B345-F702-5449-BA7E-7D110D4BF798
@@ -45,7 +45,7 @@ export class AddModelApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the API operation is successfully called.
    * 
    * @example
    * true

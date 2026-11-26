@@ -2,6 +2,76 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryConversationDetailInfoNewResponseBodyDataFrozenSkills extends $dara.Model {
+  /**
+   * @remarks
+   * The load mode.
+   * 
+   * @example
+   * PRELOAD / ON_DEMAND
+   */
+  loadMode?: string;
+  /**
+   * @remarks
+   * The skill business ID.
+   * 
+   * @example
+   * 111111
+   */
+  skillId?: string;
+  /**
+   * @remarks
+   * The skill name.
+   * 
+   * @example
+   * Name
+   */
+  skillName?: string;
+  /**
+   * @remarks
+   * The frozen skill version.
+   * 
+   * @example
+   * V3-Test
+   */
+  skillVersion?: string;
+  /**
+   * @remarks
+   * The version policy.
+   * 
+   * @example
+   * PINNED / FOLLOW_CURRENT
+   */
+  versionPolicy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadMode: 'LoadMode',
+      skillId: 'SkillId',
+      skillName: 'SkillName',
+      skillVersion: 'SkillVersion',
+      versionPolicy: 'VersionPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadMode: 'string',
+      skillId: 'string',
+      skillName: 'string',
+      skillVersion: 'string',
+      versionPolicy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryConversationDetailInfoNewResponseBodyDataOutputTags extends $dara.Model {
   /**
    * @remarks
@@ -16,7 +86,7 @@ export class QueryConversationDetailInfoNewResponseBodyDataOutputTags extends $d
    * The tag description.
    * 
    * @example
-   * Evaluate the customer\\"s interest in the vehicle model and purchase likelihood
+   * Evaluate the customer\"s interest in the vehicle model and purchase likelihood
    */
   outputTagDescription?: string;
   /**
@@ -32,7 +102,7 @@ export class QueryConversationDetailInfoNewResponseBodyDataOutputTags extends $d
    * The tag value.
    * 
    * @example
-   * ["High (very positive, high conversion probability)"]
+   * ["High (very positive, high probability of conversion)"]
    */
   outputTagValue?: string;
   static names(): { [key: string]: string } {
@@ -89,7 +159,7 @@ export class QueryConversationDetailInfoNewResponseBodyDataVariables extends $da
   name?: string;
   /**
    * @remarks
-   * Indicates whether the variable is required.
+   * Specifies whether the variable is required.
    * 
    * @example
    * false
@@ -170,21 +240,21 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   /**
    * @remarks
    * The call result. Valid values:
-   * - CALL_FORWARDING: Call forwarding.
-   * - INCOMING_CALL_BARRED: Incoming call barred.
-   * - CALL_REJECTED: Call rejected.
-   * - ANSWERED: Answered by the user.
-   * - USER_BUSY: Callee busy.
-   * - POWERED_OFF: Powered off.
-   * - NO_USER_RESPONSE: Out of service area.
-   * - OPERATOR_BLOCK: Blocked by the carrier.
-   * - OTHERS: Other status.
-   * - SUSPEND: Service suspended.
-   * - CANCEL: Canceled by the caller.
-   * - INVALID_NUMBER: Invalid number.
-   * - UNAVAILABLE: Temporarily unavailable.
-   * - NETWORK_BUSY: Network busy.
-   * - NO_ANSWER: No answer.
+   * - CALL_FORWARDING: call forwarding
+   * - INCOMING_CALL_BARRED: incoming call barred
+   * - CALL_REJECTED: call rejected
+   * - ANSWERED: answered
+   * - USER_BUSY: callee busy
+   * - POWERED_OFF: powered off
+   * - NO_USER_RESPONSE: out of service area
+   * - OPERATOR_BLOCK: blocked by carrier
+   * - OTHERS: other statuses
+   * - SUSPEND: suspended
+   * - CANCEL: canceled by caller
+   * - INVALID_NUMBER: invalid number
+   * - UNAVAILABLE: temporarily unavailable
+   * - NETWORK_BUSY: network busy
+   * - NO_ANSWER: no answer
    * 
    * @example
    * ANSWERED
@@ -192,7 +262,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   callResult?: string;
   /**
    * @remarks
-   * The callee number.
+   * The called number.
    * 
    * @example
    * 130********
@@ -200,7 +270,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   calledPhone?: string;
   /**
    * @remarks
-   * The caller number.
+   * The calling number.
    * 
    * @example
    * 0571*******
@@ -208,12 +278,12 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   callerPhone?: string;
   /**
    * @remarks
-   * The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
+   * The chat record information. The structure is a JSON array. The chat records are sorted in chronological order. Details:
    * ```json
    * [
    *     {
    *         "content":"Chat content",
-   *         "role":"Role",//Valid values: user, assistant (robot)
+   *         "role":"Role",//Valid values: user (user), assistant (chatbot)
    *     }
    * ]
    * ```
@@ -221,7 +291,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    * @example
    * [
    *   {
-   *     "content": "111Hello, age 222, gender male, I am the official consultant of ** Auto. We have a new model called **; ** is now available, starting at ** RMB. It sold * units in ** minutes. Would you like to learn more?",
+   *     "content": "Hello 111, age 222, male. I am the official consultant for ** Motors. We have launched a new model, **; it is now on the market with a starting price of ** ten thousand yuan, and * units were sold in ** minutes. Would you like to know more?",
    *     "role": "assistant"
    *   },
    *   {
@@ -259,6 +329,13 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    */
   duration?: number;
   /**
+   * @remarks
+   * The encryption method. Valid values:
+   * - 0: no encryption
+   * - 1: MD5
+   * - 2: SHA256
+   * - 3: SM3
+   * 
    * @example
    * 28
    */
@@ -268,15 +345,20 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
    * The failure reason.
    * 
    * @example
-   * Actively canceled
+   * Manually canceled
    */
   failedReason?: string;
   /**
    * @remarks
-   * The hangup direction. Valid values:
+   * The list of frozen skill snapshots at the start of the call.
+   */
+  frozenSkills?: QueryConversationDetailInfoNewResponseBodyDataFrozenSkills[];
+  /**
+   * @remarks
+   * The hang-up direction. Valid values:
    * 
-   * - **0**: User.
-   * - **1**: Robot.
+   * - **0**: user
+   * - **1**: chatbot
    * 
    * @example
    * 0
@@ -284,7 +366,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   hangupDirection?: string;
   /**
    * @remarks
-   * The import time. This value is a UNIX timestamp in milliseconds.
+   * The import time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 43
@@ -292,7 +374,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   importedTime?: number;
   /**
    * @remarks
-   * The major intent.
+   * The primary intent.
    * 
    * @example
    * A
@@ -300,7 +382,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   majorIntent?: string;
   /**
    * @remarks
-   * The variable information used at runtime, stored in key-value format in this field.
+   * The variable information used at runtime. The information is stored in this field as key-value pairs.
    * 
    * @example
    * {
@@ -316,7 +398,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   options?: string;
   /**
    * @remarks
-   * The external business serial number. You can use a unique ID for business association.
+   * The business transaction ID passed from external systems. You can use a unique ID to associate business data.
    * 
    * @example
    * 123***
@@ -329,7 +411,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   outputTags?: QueryConversationDetailInfoNewResponseBodyDataOutputTags[];
   /**
    * @remarks
-   * The time when the call was answered. This value is a UNIX timestamp in milliseconds.
+   * The time when the call was answered. The value is a timestamp in milliseconds.
    * 
    * @example
    * 12349732441
@@ -337,7 +419,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   pickUpTime?: number;
   /**
    * @remarks
-   * The download URL of the recording file. This field is available only after a recording file is generated.
+   * The download URL of the recording file. This field is returned only after the recording file is generated.
    * 
    * @example
    * recording.oss.file
@@ -345,7 +427,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   recordingFileDownloadUrl?: string;
   /**
    * @remarks
-   * The time when the call ended. This value is a UNIX timestamp in milliseconds.
+   * The time when the call ended. The value is a timestamp in milliseconds.
    * 
    * @example
    * 7
@@ -353,7 +435,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   releaseTime?: number;
   /**
    * @remarks
-   * The time when the call started. This value is a UNIX timestamp in milliseconds.
+   * The time when the call started. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1286987391
@@ -377,10 +459,10 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   statusCode?: string;
   /**
    * @remarks
-   * The call status information returned by the carrier.
+   * The call status message returned by the carrier.
    * 
    * @example
-   * Call ended (dual call)
+   * Call ended (two-way call)
    */
   statusMsg?: string;
   /**
@@ -410,6 +492,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
       duration: 'Duration',
       encryptionType: 'EncryptionType',
       failedReason: 'FailedReason',
+      frozenSkills: 'FrozenSkills',
       hangupDirection: 'HangupDirection',
       importedTime: 'ImportedTime',
       majorIntent: 'MajorIntent',
@@ -442,6 +525,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
       duration: 'number',
       encryptionType: 'number',
       failedReason: 'string',
+      frozenSkills: { 'type': 'array', 'itemType': QueryConversationDetailInfoNewResponseBodyDataFrozenSkills },
       hangupDirection: 'string',
       importedTime: 'number',
       majorIntent: 'string',
@@ -461,6 +545,9 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
   }
 
   validate() {
+    if(Array.isArray(this.frozenSkills)) {
+      $dara.Model.validateArray(this.frozenSkills);
+    }
     if(Array.isArray(this.outputTags)) {
       $dara.Model.validateArray(this.outputTags);
     }
@@ -478,7 +565,7 @@ export class QueryConversationDetailInfoNewResponseBodyData extends $dara.Model 
 export class QueryConversationDetailInfoNewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reasons for access denial.
    * 
    * @example
    * None
@@ -494,7 +581,7 @@ export class QueryConversationDetailInfoNewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: QueryConversationDetailInfoNewResponseBodyData;
   /**
@@ -515,9 +602,9 @@ export class QueryConversationDetailInfoNewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * Specifies whether the operation was called successfully. Valid values:
+   * - **true**: success
+   * - **false**: failure
    * 
    * @example
    * false

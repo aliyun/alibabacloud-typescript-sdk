@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LlmFullDuplexCallOperateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only when RAM authentication fails.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    * 
    * @example
    * None
@@ -13,17 +13,17 @@ export class LlmFullDuplexCallOperateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code. A value of Success indicates that the request was successful.
+   * The status code. Success indicates that the request is successful.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   code?: string;
   /**
    * @remarks
-   * The result of the command execution. Valid values:
-   * - **true**: The command was executed.
-   * - **false**: The command failed to be executed.
+   * The command execution result.
+   * - **true**: The command is executed successfully.
+   * - **false**: The command execution fails.
    * 
    * @example
    * false
@@ -31,10 +31,10 @@ export class LlmFullDuplexCallOperateResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   message?: string;
   /**
@@ -42,14 +42,14 @@ export class LlmFullDuplexCallOperateResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the API operation is called successfully. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * false

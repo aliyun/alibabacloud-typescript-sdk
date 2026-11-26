@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of "Success" indicates that the request succeeded.
+   * The status code. A value of Success indicates that the request is successful.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class UpdateSkillGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class UpdateSkillGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -29,9 +29,9 @@ export class UpdateSkillGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:  
-   * - **true**: Succeeded.  
-   * - **false**: Failed.
+   * Indicates whether the operation was called successfully. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

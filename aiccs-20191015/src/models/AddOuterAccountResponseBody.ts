@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddOuterAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class AddOuterAccountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Created Account ID.
+   * The ID of the created account.
    * 
    * @example
    * 123456
@@ -21,15 +21,15 @@ export class AddOuterAccountResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -37,7 +37,7 @@ export class AddOuterAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Customer ID.
+   * The customer ID.
    * 
    * @example
    * 8999****
@@ -13,7 +13,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   actionId?: number;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * @example
    * 2367****
@@ -21,7 +21,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   buId?: number;
   /**
    * @remarks
-   * Callout ID.
+   * The call ID.
    * 
    * @example
    * 1122****
@@ -29,15 +29,15 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   calloutId?: number;
   /**
    * @remarks
-   * Call name.
+   * The call name.
    * 
    * @example
-   * 王XX
+   * Wang XX
    */
   calloutName?: string;
   /**
    * @remarks
-   * Ticket ID.
+   * The ticket ID.
    * 
    * @example
    * 1138902****
@@ -45,7 +45,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   caseId?: number;
   /**
    * @remarks
-   * Channel ID.
+   * The channel ID.
    * 
    * @example
    * 2377****
@@ -53,10 +53,10 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * Channel Type. Valid values:
+   * The channel type. Valid values:
    * 
-   * - **1**: Hotline.
-   * - **2**: Online.
+   * - **1**: hotline.
+   * - **2**: online.
    * 
    * @example
    * 2
@@ -64,7 +64,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   channelType?: number;
   /**
    * @remarks
-   * Department ID.
+   * The department ID.
    * 
    * @example
    * 1223****
@@ -80,7 +80,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   isTransfer?: string;
   /**
    * @remarks
-   * Membership ID.
+   * The member ID.
    * 
    * @example
    * 7856876****
@@ -88,7 +88,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   memberId?: number;
   /**
    * @remarks
-   * Membership List.
+   * The list of members.
    * 
    * @example
    * 8900****
@@ -96,15 +96,15 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   memberList?: string;
   /**
    * @remarks
-   * Membership name.
+   * The name of the member.
    * 
    * @example
-   * 匿名会员
+   * Anonymous Member
    */
   memberName?: string;
   /**
    * @remarks
-   * Agent ID.
+   * The agent ID.
    * 
    * @example
    * 1332****
@@ -112,15 +112,15 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   servicerId?: number;
   /**
    * @remarks
-   * Agent name.
+   * The name of the customer service representative.
    * 
    * @example
-   * XX测试
+   * XX Test
    */
   servicerName?: string;
   /**
    * @remarks
-   * Sub-touch ID.
+   * The sub-touch ID.
    * 
    * @example
    * 3423****
@@ -128,7 +128,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   subTouchId?: number;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * 12345****
@@ -136,7 +136,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * Touch ID.
+   * The touch ID.
    * 
    * @example
    * 2235****
@@ -198,7 +198,7 @@ export class GetHotlineCallActionResponseBodyData extends $dara.Model {
 export class GetHotlineCallActionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * Success
@@ -206,12 +206,12 @@ export class GetHotlineCallActionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetHotlineCallActionResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * OK
@@ -219,7 +219,7 @@ export class GetHotlineCallActionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EE339D98-9BD3-4413-B165
@@ -227,9 +227,9 @@ export class GetHotlineCallActionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:
-   * - **true**: Succeeded.
-   * - **false**: Failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: The API call is successful.
+   * - **false**: The API call fails.
    * 
    * @example
    * true

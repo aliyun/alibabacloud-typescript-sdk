@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentIndexRealTimeResponseBodyDataColumns extends $dara.Model {
   /**
    * @remarks
-   * Metric.
+   * The metric.
    * 
    * @example
-   * 客服ID
+   * Agent ID
    */
   key?: string;
   /**
    * @remarks
-   * Metric description.
+   * The metric description.
    * 
    * @example
    * servicerId
@@ -45,12 +45,12 @@ export class GetAgentIndexRealTimeResponseBodyDataColumns extends $dara.Model {
 export class GetAgentIndexRealTimeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Description of returned columns.
+   * The descriptions of the returned columns.
    */
   columns?: GetAgentIndexRealTimeResponseBodyDataColumns[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class GetAgentIndexRealTimeResponseBodyData extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -66,12 +66,12 @@ export class GetAgentIndexRealTimeResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned data results.
+   * The returned data results.
    */
   rows?: { [key: string]: any }[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 4
@@ -115,7 +115,7 @@ export class GetAgentIndexRealTimeResponseBodyData extends $dara.Model {
 export class GetAgentIndexRealTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -123,12 +123,12 @@ export class GetAgentIndexRealTimeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data list.
+   * The data list.
    */
   data?: GetAgentIndexRealTimeResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
    * successful
@@ -136,7 +136,7 @@ export class GetAgentIndexRealTimeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -144,8 +144,8 @@ export class GetAgentIndexRealTimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded. Valid values:  
-   * - **true**: Succeeded.  
+   * Indicates whether the operation is successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class JoinThirdCallRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent account name (agent logon name)
+   * The name of the agent account, which is the logon name of the agent.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class JoinThirdCallRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * acid from WebSocket after an inbound call
+   * The acid in the WebSocket after an inbound call.
    * 
    * @example
    * 7719786
@@ -23,7 +23,7 @@ export class JoinThirdCallRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * Unique customer request ID used for idempotency validation; can be generated using UUID
+   * The unique client request ID used for idempotency checks. You can generate it by using a UUID.
    * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -31,7 +31,7 @@ export class JoinThirdCallRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * connId from WebSocket after an inbound call
+   * The connId in the WebSocket after an inbound call.
    * 
    * @example
    * 7719788
@@ -39,7 +39,7 @@ export class JoinThirdCallRequest extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * holdConnId from WebSocket after an inbound call (only provided during two-step transfer)
+   * The holdConnId in the WebSocket after an inbound call. This parameter is required only for two-step transfers.
    * 
    * @example
    * 0
@@ -47,7 +47,7 @@ export class JoinThirdCallRequest extends $dara.Model {
   holdConnectionId?: string;
   /**
    * @remarks
-   * AICCS instance ID, visible in the Artificial Intelligence Cloud Call Service console
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance. You can view the instance ID in the AICCS console.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class JoinThirdCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * jobId from WebSocket after an inbound call
+   * The jobId in the WebSocket after an inbound call.
    * 
    * @example
    * 7719787

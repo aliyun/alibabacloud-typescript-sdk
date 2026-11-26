@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Inspection frequency type. Valid values:
+   * The check frequency type. Valid values:
    * 
-   * - **1**: Periodic quality inspection
-   * - **4**: Ad hoc quality inspection
+   * - **1**: Periodic quality inspection.
+   * - **4**: Ad-hoc quality inspection.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
   checkFreqType?: number;
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * @example
    * 2021-04-07 18:07:18
@@ -24,17 +24,17 @@ export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Quality inspection sampling scope.
+   * The quality inspection sampling scope.
    */
   depList?: number[];
   /**
    * @remarks
-   * Quality inspection sampling scope.
+   * The quality inspection sampling scope.
    */
   groupList?: number[];
   /**
    * @remarks
-   * Quality inspection job ID.
+   * The ID of the quality inspection task.
    * 
    * @example
    * 15977801
@@ -42,7 +42,7 @@ export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Updated At.
+   * The update time.
    * 
    * @example
    * 2021-04-07 18:07:19
@@ -50,20 +50,20 @@ export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Quality inspection job name
+   * The name of the quality inspection task.
    * 
    * @example
-   * 自动化质检任务
+   * Automated quality inspection task
    */
   projectName?: string;
   /**
    * @remarks
-   * Quality inspection rule IDs.
+   * The IDs of the quality inspection rules.
    */
   qualityRuleIds?: number[];
   /**
    * @remarks
-   * Quality inspection type. Fixed value: **1** (Consultation).
+   * The quality inspection type. The value is fixed to **1** (consulting).
    * 
    * @example
    * 1
@@ -71,15 +71,15 @@ export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
   qualityType?: number;
   /**
    * @remarks
-   * Quality inspection sampling scope.
+   * The quality inspection sampling scope.
    */
   servicerList?: number[];
   /**
    * @remarks
-   * Quality inspection job status. Valid values:  
+   * The status of the quality inspection task. Valid values:
    * 
-   * - **0**: Start  
-   * - **1**: Shutdown
+   * - **0**: Started.
+   * - **1**: Stopped.
    * 
    * @example
    * 0
@@ -87,7 +87,7 @@ export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Quality inspection job version number.
+   * The version number of the quality inspection task.
    * 
    * @example
    * 1
@@ -151,7 +151,7 @@ export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
 export class GetQualityProjectDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -159,20 +159,20 @@ export class GetQualityProjectDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Quality inspection job information.
+   * The quality inspection task information.
    */
   data?: GetQualityProjectDetailResponseBodyData;
   /**
    * @remarks
-   * Status code description.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -180,7 +180,7 @@ export class GetQualityProjectDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

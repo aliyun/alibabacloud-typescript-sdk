@@ -8,7 +8,7 @@ export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $
    * The content of the sent message.
    * 
    * @example
-   * 你好
+   * Hello
    */
   content?: string;
   /**
@@ -21,7 +21,7 @@ export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $
   createTime?: number;
   /**
    * @remarks
-   * Message type.
+   * The message type.
    * 
    * @example
    * MSG
@@ -37,9 +37,9 @@ export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $
   senderName?: string;
   /**
    * @remarks
-   * The type of sender. Valid values:
-   * - **1**: Membership
-   * - **2**: Customer service
+   * The type of the sender. Valid values:
+   * - **1**: customer.
+   * - **2**: customer service representative.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $
 export class ListChatRecordDetailResponseBodyResultDataData extends $dara.Model {
   /**
    * @remarks
-   * Online End Time.
+   * The end time of the online session.
    * 
    * @example
    * 1614578410000
@@ -85,12 +85,12 @@ export class ListChatRecordDetailResponseBodyResultDataData extends $dara.Model 
   endTime?: number;
   /**
    * @remarks
-   * A list of detailed online session information.
+   * The list of online session details.
    */
   messageList?: ListChatRecordDetailResponseBodyResultDataDataMessageList[];
   /**
    * @remarks
-   * Servicer Account
+   * The account of the customer service representative.
    * 
    * @example
    * 123@123.com
@@ -137,7 +137,7 @@ export class ListChatRecordDetailResponseBodyResultDataData extends $dara.Model 
 export class ListChatRecordDetailResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -145,12 +145,12 @@ export class ListChatRecordDetailResponseBodyResultData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Query result data.
+   * The query result.
    */
   data?: ListChatRecordDetailResponseBodyResultDataData[];
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -158,7 +158,7 @@ export class ListChatRecordDetailResponseBodyResultData extends $dara.Model {
   onePageSize?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 10
@@ -166,7 +166,7 @@ export class ListChatRecordDetailResponseBodyResultData extends $dara.Model {
   totalPage?: number;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -207,7 +207,7 @@ export class ListChatRecordDetailResponseBodyResultData extends $dara.Model {
 export class ListChatRecordDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -215,7 +215,7 @@ export class ListChatRecordDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -223,15 +223,15 @@ export class ListChatRecordDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -239,12 +239,12 @@ export class ListChatRecordDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   resultData?: ListChatRecordDetailResponseBodyResultData;
   /**
    * @remarks
-   * Indicates whether the API call succeeded.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true

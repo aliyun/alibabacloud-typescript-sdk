@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent account name, which is the phone number or mailbox entered during account registration. It is unique within the instance.  
-   * > Update is not supported.
+   * The account name of the agent, which is the mobile phone number or email address specified during account registration. The account name must be unique within the instance.
+   * > This parameter cannot be updated.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class UpdateAgentRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Unique ID for the customer request. Used for idempotency validation. You can generate it using UUID.
+   * The unique ID of the client request. This parameter is used for idempotence verification. You can use a UUID to generate the value.
    * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -24,18 +24,18 @@ export class UpdateAgentRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Agent\\"s display name.
+   * The display name of the agent.
    * 
    * This parameter is required.
    * 
    * @example
-   * XX测试
+   * XX Test
    */
   displayName?: string;
   /**
    * @remarks
-   * AICCS instance ID.  
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The ID of the Artificial Intelligence Cloud Call Service instance.
+   * You can obtain the instance ID from <b>Instance Management</b> in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -45,12 +45,12 @@ export class UpdateAgentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Skill groups to which the agent belongs.
+   * The skill group to which the agent belongs.
    */
   skillGroupId?: number[];
   /**
    * @remarks
-   * List of skill groups to which the agent belongs.
+   * The list of skill groups to which the agent belongs.
    */
   skillGroupIdList?: number[];
   static names(): { [key: string]: string } {

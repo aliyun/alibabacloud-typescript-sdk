@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentStatisticsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetAgentStatisticsResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 2000
@@ -21,7 +21,7 @@ export class GetAgentStatisticsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Information is a JSON string of type List<Map>.
+   * The data rows, which is a JSON string of the List<Map> type.
    * 
    * @example
    * {"n_resttype_1":15,"t_outcall_speak":829747,"average_incoming_time":"8451.29","n_resttype_3":0,"minute_id":"-1","n_conference_speak":0,"n_resttype_2":0,"n_resttype_5":0,"n_resttype_4":0,"n_resttype_7":0,"n_resttype_6":0,"n_resttype_9":0,"n_resttype_8":0,"n_outcall_dial":25,"total_break_time":"58555","n_internal_speak":0,"n_send_step_transfer":7,"n_consulted_internal_speak":0}
@@ -29,7 +29,7 @@ export class GetAgentStatisticsResponseBodyData extends $dara.Model {
   rows?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 4
@@ -65,7 +65,7 @@ export class GetAgentStatisticsResponseBodyData extends $dara.Model {
 export class GetAgentStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates that the request succeeded.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -73,12 +73,12 @@ export class GetAgentStatisticsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data list.
+   * The data list.
    */
   data?: GetAgentStatisticsResponseBodyData;
   /**
    * @remarks
-   * Description of the status code.
+   * The status code description.
    * 
    * @example
    * successful
@@ -86,7 +86,7 @@ export class GetAgentStatisticsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -94,8 +94,8 @@ export class GetAgentStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API was invoked successfully. Valid values:  
-   * - **true**: Succeeded.  
+   * Indicates whether the operation is successful. Valid values:
+   * - **true**: Successful.
    * - **false**: Failed.
    * 
    * @example

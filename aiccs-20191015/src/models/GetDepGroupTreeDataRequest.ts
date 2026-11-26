@@ -6,7 +6,8 @@ export class GetDepGroupTreeDataRequest extends $dara.Model {
   /**
    * @remarks
    * The agent ID.
-   * You can invoke the [GetAgent](https://help.aliyun.com/zh/aiccs/developer-reference/api-aiccs-2019-10-15-getagent) API and view the **AgentId** parameter in the response to obtain the agent ID.
+   * 
+   * You can call the [GetAgent](https://www.alibabacloud.com/help/en/aiccs/developer-reference/api-aiccs-2019-10-15-getagent) operation and view the **AgentId** response parameter to obtain the agent ID.
    * 
    * This parameter is required.
    * 
@@ -16,8 +17,8 @@ export class GetDepGroupTreeDataRequest extends $dara.Model {
   agentId?: number;
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID.
+   * You can obtain the ID in the <b>Instance Management</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 

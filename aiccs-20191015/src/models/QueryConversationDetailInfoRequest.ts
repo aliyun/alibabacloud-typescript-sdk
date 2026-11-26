@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryConversationDetailInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The task batch ID. This is the batch ID returned when callee data is imported. View the task batch ID on the **Call Task Management** > **Details** > **Execution Records** page, or use the batch ID returned when importing callee data by calling the [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operation.
+   * The task batch ID. This is the batch ID returned when you import called numbers. You can view the task batch ID on the **Call task management** > **Details** > **Execution records** page or obtain the batch ID returned when you call the [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operation to import called numbers.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryConversationDetailInfoRequest extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * The task detail ID. View the task detail ID in the upper-left corner of the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page, or retrieve it by calling the [QueryAiCallDetailPage](https://help.aliyun.com/document_detail/2926853.html) operation.
+   * The task detail ID. You can view the task detail ID in the upper-left corner of the **Call task management** > **Details** > **Execution records** > **Completed** > **Call details** page or call the [QueryAiCallDetailPage](https://help.aliyun.com/document_detail/2926853.html) operation to obtain the task detail ID.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class QueryConversationDetailInfoRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The task ID. View the task ID on the **Call Task Management** page or retrieve it by calling the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation.
+   * The task ID. You can view the task ID on the **Call task management** page or call the [QueryAiCallTaskPage](https://help.aliyun.com/document_detail/2926799.html) operation to obtain the task ID.
    * 
    * This parameter is required.
    * 

@@ -35,7 +35,7 @@ export class LlmSmartCallEncryptResponseBodyData extends $dara.Model {
 export class LlmSmartCallEncryptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denied error.
+   * The detailed reasons for access denial.
    * 
    * @example
    * None
@@ -43,7 +43,7 @@ export class LlmSmartCallEncryptResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code. A value of \\"ok\\" indicates that the request succeeded.
+   * The status code of the request. A value of OK indicates that the request is successful.
    * 
    * @example
    * ok
@@ -51,15 +51,15 @@ export class LlmSmartCallEncryptResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: LlmSmartCallEncryptResponseBodyData;
   /**
    * @remarks
-   * A description of the status code.
+   * The description of the status code.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
@@ -72,11 +72,9 @@ export class LlmSmartCallEncryptResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
-   * 
-   * - **true**: The API call was successful.
-   * 
-   * - **false**: The API call failed.
+   * Indicates whether the API operation was called successfully. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

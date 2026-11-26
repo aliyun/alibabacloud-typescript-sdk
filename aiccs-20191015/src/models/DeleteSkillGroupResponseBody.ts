@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSkillGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Fault encoding
+   * The error code.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class DeleteSkillGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data
+   * The data.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class DeleteSkillGroupResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Fault description
+   * The error message.
    * 
    * @example
-   * xxxx
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * Request ID, used to trail the cause of an error
+   * The request ID used to trace the cause of the error.
    * 
    * @example
    * EE338D98-9BD3-4413-B165
@@ -37,7 +37,7 @@ export class DeleteSkillGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call succeeded
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

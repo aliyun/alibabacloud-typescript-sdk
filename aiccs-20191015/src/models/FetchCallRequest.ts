@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FetchCallRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent account name (agent logon name)
+   * The name of the agent account, which is the logon name of the agent.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class FetchCallRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The acid from WebSocket after an inbound call
+   * The acid in the WebSocket after an inbound call.
    * 
    * @example
    * 7719786
@@ -23,7 +23,7 @@ export class FetchCallRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * Unique ID of the customer request, used for idempotency validation; can be generated using UUID
+   * The unique ID of the client request. This parameter is used to ensure idempotence. You can generate the ID by using a UUID.
    * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -31,7 +31,7 @@ export class FetchCallRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The connId from WebSocket after an inbound call
+   * The connection ID in the WebSocket after an inbound call.
    * 
    * @example
    * 7719788
@@ -39,7 +39,7 @@ export class FetchCallRequest extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The holdConnId from WebSocket after an inbound call (only provided during two-step transfer)
+   * The hold connection ID in the WebSocket after an inbound call. This parameter is required only for a two-step transfer.
    * 
    * @example
    * 0
@@ -47,7 +47,7 @@ export class FetchCallRequest extends $dara.Model {
   holdConnectionId?: string;
   /**
    * @remarks
-   * AICCS instance ID, visible in the Artificial Intelligence Cloud Call Service console
+   * The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance. You can view the instance ID in the AICCS console.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class FetchCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The jobId from WebSocket after an inbound call
+   * The job ID in the WebSocket after an inbound call.
    * 
    * @example
    * 7719787

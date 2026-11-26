@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HoldCallRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent account name (agent logon name)
+   * The agent account name, which is the agent logon name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class HoldCallRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * acid in WebSocket after an inbound call
+   * The ACID in the WebSocket connection after an inbound call.
    * 
    * @example
    * 7719786
@@ -23,7 +23,7 @@ export class HoldCallRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * Unique ID of the customer request, used for idempotency validation; can be generated using UUID
+   * The unique client request ID used for idempotency checks. You can use a UUID to generate this ID.
    * 
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -31,7 +31,7 @@ export class HoldCallRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * connId in WebSocket after an inbound call
+   * The connection ID in the WebSocket connection after an inbound call.
    * 
    * @example
    * 7719788
@@ -39,7 +39,7 @@ export class HoldCallRequest extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * Artificial Intelligence Cloud Call Service (AICCS) instance ID, visible in the Artificial Intelligence Cloud Call Service console
+   * The AICCS instance ID. You can view it in the Artificial Intelligence Cloud Call Service console.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class HoldCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * jobId in WebSocket after an inbound call
+   * The job ID in the WebSocket connection after an inbound call.
    * 
    * @example
    * 7719787

@@ -45,7 +45,7 @@ export class UpdateLargeModelRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Controls the randomness of the model\\"s output. A higher value increases randomness, and a lower value makes the output more deterministic.
+   * Controls the randomness of the model\"s output. A higher value increases randomness, and a lower value makes the output more deterministic.
    * 
    * @example
    * 0.1

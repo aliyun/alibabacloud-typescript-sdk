@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The job batch version.
+   * The task batch.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   batchVersion?: number;
   /**
    * @remarks
-   * Activity ID associated with this outbound call.
+   * The ID of the campaign associated with the outbound call.
    * 
    * @example
    * 123456
@@ -21,13 +21,13 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   caseId?: number;
   /**
    * @remarks
-   * Job execution status for a single phone number. Valid values:
+   * The execution status of a single number. Valid values:
    * 
-   * - **1**: Pending call.
+   * - **1**: Pending.
    * - **2**: Calling.
    * - **3**: Completed.
-   * - **4**: Stopped.
-   * - **5**: Pending retry.
+   * - **4**: Terminated.
+   * - **5**: Pending recall.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   caseStatus?: number;
   /**
    * @remarks
-   * End time of phone number import. Format: UNIX timestamp in milliseconds.
+   * The end time for number import. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1632290119000
@@ -43,7 +43,7 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   createTimeEnd?: number;
   /**
    * @remarks
-   * Start time of phone number import. Format: UNIX timestamp in milliseconds.
+   * The start time for number import. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1632289999000
@@ -51,7 +51,7 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   createTimeStart?: number;
   /**
    * @remarks
-   * Page size. The value must be greater than **0**. Default Value: **20**.
+   * The number of entries per page. The value must be greater than **0**. Default value: **20**.
    * 
    * This parameter is required.
    * 
@@ -61,9 +61,7 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The Artificial Intelligence Cloud Call Service (AICCS) instance ID.
-   * 
-   * You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+   * The AICCS instance ID. You can obtain the ID in the <b>Instance Management</b> section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
    * 
    * This parameter is required.
    * 
@@ -83,7 +81,7 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The outbound phone number.
+   * The outbound call number.
    * 
    * @example
    * 150****000
@@ -91,9 +89,9 @@ export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   phoneNum?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
-   * You can invoke the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) API and check the **Data** field in the response, or invoke the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) API and check the **TaskId** field in the response.
+   * You can call the [CreateAiOutboundTask](https://help.aliyun.com/document_detail/312260.html) operation and view the **Data** response parameter, or call the [GetAiOutboundTaskList](https://help.aliyun.com/document_detail/2718026.html) operation and view the **TaskId** response parameter.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LlmSmartCallEncryptRequest extends $dara.Model {
   /**
    * @remarks
-   * The application code for the large language model.
+   * The code of the large language model application.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class LlmSmartCallEncryptRequest extends $dara.Model {
   encryptCalledNumber?: string;
   /**
    * @remarks
-   * A user-defined ID for the outbound call.
+   * The custom outId specified by the customer.
    * 
    * @example
    * dsa*******sad
@@ -44,20 +44,20 @@ export class LlmSmartCallEncryptRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Parameters for the large language model\\"s prompt.
+   * The prompt parameters for the large language model application.
    * 
    * @example
-   * {"prompt":"推荐一部电影"}
+   * {"prompt":"Recommend a movie"}
    */
   promptParam?: { [key: string]: any };
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Parameters for the large language model\\"s opening statement.
+   * The greeting parameters for the large language model application.
    * 
    * @example
-   * {"name":"小明","address":"浙江省杭州市"}
+   * {"name":"Xiao Ming","address":"Hangzhou, Zhejiang"}
    */
   startWordParam?: { [key: string]: any };
   static names(): { [key: string]: string } {

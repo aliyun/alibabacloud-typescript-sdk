@@ -140,6 +140,7 @@ export { QueryAiVoiceAgentDetailNewResponseBodyData } from './QueryAiVoiceAgentD
 export { QueryConversationDetailInfoResponseBodyDataOutputTags } from './QueryConversationDetailInfoResponseBody';
 export { QueryConversationDetailInfoResponseBodyDataVariables } from './QueryConversationDetailInfoResponseBody';
 export { QueryConversationDetailInfoResponseBodyData } from './QueryConversationDetailInfoResponseBody';
+export { QueryConversationDetailInfoNewResponseBodyDataFrozenSkills } from './QueryConversationDetailInfoNewResponseBody';
 export { QueryConversationDetailInfoNewResponseBodyDataOutputTags } from './QueryConversationDetailInfoNewResponseBody';
 export { QueryConversationDetailInfoNewResponseBodyDataVariables } from './QueryConversationDetailInfoNewResponseBody';
 export { QueryConversationDetailInfoNewResponseBodyData } from './QueryConversationDetailInfoNewResponseBody';
