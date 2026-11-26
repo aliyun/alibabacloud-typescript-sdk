@@ -55,7 +55,7 @@ export class GetEvaluatorSkillResponseBodySkillFiles extends $dara.Model {
 export class GetEvaluatorSkillResponseBodySkillVersions extends $dara.Model {
   /**
    * @remarks
-   * The version creation time, in seconds-level UNIX timestamp.
+   * The creation time of the version. UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -74,7 +74,7 @@ export class GetEvaluatorSkillResponseBodySkillVersions extends $dara.Model {
    * The version description.
    * 
    * @example
-   * Initial release version
+   * Initial release
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class GetEvaluatorSkillResponseBodySkillVersions extends $dara.Model {
 export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in seconds-level UNIX timestamp.
+   * The creation time. UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -132,12 +132,12 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
    * The display name.
    * 
    * @example
-   * Trace Context Loader
+   * Read trace context
    */
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the skill is enabled.
+   * Specifies whether the skill is enabled.
    * 
    * @example
    * true
@@ -161,7 +161,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * The skill name.
+   * The name of the skill.
    * 
    * @example
    * trace_context_loader
@@ -169,7 +169,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The update time, in seconds-level UNIX timestamp.
+   * The update time. UNIX timestamp in seconds.
    * 
    * @example
    * 1782816600
@@ -180,7 +180,7 @@ export class GetEvaluatorSkillResponseBodySkill extends $dara.Model {
    * The list of skill versions.
    * 
    * @example
-   * [{"version":"1782816000000","versionDescription":"Initial release version"}]
+   * [{"version":"1782816000000","versionDescription":"Initial release"}]
    */
   versions?: GetEvaluatorSkillResponseBodySkillVersions[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEvaluatorVersionStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The expected current status. Valid values: DRAFT, PUBLISHED, and OFFLINE. If the specified value does not match the actual status, the API operation returns a 409 error.
+   * The expected current status. Valid values: DRAFT, PUBLISHED, and OFFLINE. If the specified value does not match the actual status, the API returns a 409 error.
    * 
    * @example
    * DRAFT
@@ -13,7 +13,9 @@ export class UpdateEvaluatorVersionStatusRequest extends $dara.Model {
   expectedStatus?: string;
   /**
    * @remarks
-   * The target status. PUBLISHED indicates publishing a draft for the first time or bringing an offline version back online. OFFLINE indicates taking a published version offline.
+   * The target status. Valid values:
+   * - PUBLISHED: Publishes a draft for the first time or brings an offline version back online.
+   * - OFFLINE: Takes a published version offline.
    * 
    * This parameter is required.
    * 
@@ -33,7 +35,7 @@ export class UpdateEvaluatorVersionStatusRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The version description that you can provide when publishing a draft for the first time. The maximum length is 256 characters.
+   * The version description provided when a draft is published for the first time. The maximum length is 256 characters.
    * 
    * @example
    * Added scoring rules for answer accuracy

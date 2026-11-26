@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
-   * The creation time. Declared as int64 in CloudSpec. The backend currently returns the StarOps `createTime` string field.
+   * The creation time. CloudSpec declares this field as int64, but the current backend returns the StarOps `createTime` string field.
    * 
    * @example
    * 1782816000
@@ -16,7 +16,7 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
    * The skill description.
    * 
    * @example
-   * Reads trace context to assist evaluation
+   * Read trace context to assist evaluation
    */
   description?: string;
   /**
@@ -24,12 +24,12 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
    * The display name.
    * 
    * @example
-   * Trace Context Loader
+   * Read trace context
    */
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the skill is enabled.
+   * Specifies whether the skill is enabled.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The latest version. This field is declared in CloudSpec but is not currently populated in the backend response.
+   * The latest version. This field is declared in CloudSpec but is not populated in the current backend response.
    * 
    * @example
    * 1782816000000
@@ -53,7 +53,7 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The update time. Declared as int64 in CloudSpec. The backend currently returns the StarOps `updateTime` string field.
+   * The update time. CloudSpec declares this field as int64, but the current backend returns the StarOps `updateTime` string field.
    * 
    * @example
    * 1782816600
@@ -95,7 +95,7 @@ export class ListEvaluatorSkillsResponseBodySkills extends $dara.Model {
 export class ListEvaluatorSkillsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page used in this request.
+   * The maximum number of results per page used in this request.
    * 
    * @example
    * 20
@@ -122,7 +122,7 @@ export class ListEvaluatorSkillsResponseBody extends $dara.Model {
    * The list of skill summaries.
    * 
    * @example
-   * [{"skillName":"trace_context_loader","displayName":"Trace Context Loader","enable":true}]
+   * [{"skillName":"trace_context_loader","displayName":"Read trace context","enable":true}]
    */
   skills?: ListEvaluatorSkillsResponseBodySkills[];
   /**

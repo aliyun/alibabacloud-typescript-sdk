@@ -1078,6 +1078,10 @@ export default class Client extends OpenApi {
       body["pipeline"] = request.pipeline;
     }
 
+    if (!$dara.isNull(request.pipelineKind)) {
+      body["pipelineKind"] = request.pipelineKind;
+    }
+
     if (!$dara.isNull(request.pipelineName)) {
       body["pipelineName"] = request.pipelineName;
     }
@@ -2366,10 +2370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single run, including the data window, execute status, retry information, run statistics, and fault message.
+   * Queries the details of a single run, including the data window, execute status, retry information, run statistics, and the error message for the fault.
    * 
    * @remarks
-   * Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and fault message.
+   * Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and the error message for the fault.
    * 
    * @param request - GetPipelineRunRequest
    * @param headers - map
@@ -2396,10 +2400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single run, including the data window, execute status, retry information, run statistics, and fault message.
+   * Queries the details of a single run, including the data window, execute status, retry information, run statistics, and the error message for the fault.
    * 
    * @remarks
-   * Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and fault message.
+   * Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and the error message for the fault.
    * 
    * @param request - GetPipelineRunRequest
    * @returns GetPipelineRunResponse
@@ -2889,7 +2893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of skills for an evaluator.
+   * Queries the list of evaluator skills.
    * 
    * @param request - ListEvaluatorSkillsRequest
    * @param headers - map
@@ -2934,7 +2938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of skills for an evaluator.
+   * Queries the list of evaluator skills.
    * 
    * @param request - ListEvaluatorSkillsRequest
    * @returns ListEvaluatorSkillsResponse
@@ -3282,7 +3286,7 @@ export default class Client extends OpenApi {
    * Queries the run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
    * 
    * @remarks
-   * Calls the ListPipelineRuns operation to query the pipeline run history. You can filter the results by status, trigger type, and time range, and use cursor-based pagination.
+   * Calls ListPipelineRuns to query the pipeline run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
    * 
    * @param request - ListPipelineRunsRequest
    * @param headers - map
@@ -3338,7 +3342,7 @@ export default class Client extends OpenApi {
    * Queries the run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
    * 
    * @remarks
-   * Calls the ListPipelineRuns operation to query the pipeline run history. You can filter the results by status, trigger type, and time range, and use cursor-based pagination.
+   * Calls ListPipelineRuns to query the pipeline run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
    * 
    * @param request - ListPipelineRunsRequest
    * @returns ListPipelineRunsResponse
@@ -3350,7 +3354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
+   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and uses cursor-based pagination.
    * 
    * @param request - ListPipelinesRequest
    * @param headers - map
@@ -3366,6 +3370,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pipelineKind)) {
+      query["pipelineKind"] = request.pipelineKind;
     }
 
     if (!$dara.isNull(request.pipelineName)) {
@@ -3403,7 +3411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
+   * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and uses cursor-based pagination.
    * 
    * @param request - ListPipelinesRequest
    * @returns ListPipelinesResponse

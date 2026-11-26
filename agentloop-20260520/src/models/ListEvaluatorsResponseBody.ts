@@ -13,7 +13,7 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
   annotations?: string[];
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp in seconds.
+   * The creation time, as a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -24,7 +24,7 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
    * The evaluator description.
    * 
    * @example
-   * Determines whether the agent has completed the user task
+   * Determines whether the agent completes the user task
    */
   description?: string;
   /**
@@ -68,11 +68,17 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
    */
   properties?: { [key: string]: any };
   /**
+   * @remarks
+   * Specifies whether the evaluator has a default version available for selection in new evaluation tasks or experiment plans.
+   * 
    * @example
    * true
    */
   selectable?: boolean;
   /**
+   * @remarks
+   * The status of the latest evaluator version. DRAFT indicates a draft, PUBLISHED indicates published, and OFFLINE indicates offline.
+   * 
    * @example
    * PUBLISHED
    */
@@ -87,7 +93,7 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update time. The value is a UNIX timestamp in seconds.
+   * The update time, as a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816600
@@ -153,7 +159,7 @@ export class ListEvaluatorsResponseBody extends $dara.Model {
   evaluators?: ListEvaluatorsResponseBodyEvaluators[];
   /**
    * @remarks
-   * The number of entries per page used for this request.
+   * The number of entries per page used in this request.
    * 
    * @example
    * 20

@@ -4,15 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEvaluatorRequestSkillsFiles extends $dara.Model {
   /**
+   * @remarks
+   * The text content of the file.
+   * 
    * @example
    * ---
    * name: fact-check
-   * description: 核对回答中的事实依据
+   * description: Verify the factual basis in the response
    * ---
-   * 逐项核对回答中的事实，并列出依据。
+   * Verify the facts in the response item by item and list the evidence
    */
   content?: string;
   /**
+   * @remarks
+   * The path of the file relative to the root directory of the skill.
+   * 
    * @example
    * SKILL.md
    */
@@ -42,26 +48,41 @@ export class CreateEvaluatorRequestSkillsFiles extends $dara.Model {
 
 export class CreateEvaluatorRequestSkills extends $dara.Model {
   /**
+   * @remarks
+   * The description of the skill purpose.
+   * 
    * @example
-   * 核对回答中的事实依据
+   * Verify the factual basis in the response
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the skill.
+   * 
    * @example
-   * 事实核查
+   * Fact check
    */
   displayName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the skill. Default value: true.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The complete list of files for the skill. The list must include SKILL.md in the root directory.
+   * 
    * @example
-   * [{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: 核对回答中的事实依据\n---\n逐项核对回答中的事实，并列出依据。"}]
+   * [{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: Verify the factual basis in the response\n---\nVerify the facts in the response item by item and list the evidence."}]
    */
   files?: CreateEvaluatorRequestSkillsFiles[];
   /**
+   * @remarks
+   * The name of the skill. The name must be unique in the list of skills submitted in this request.
+   * 
    * @example
    * fact-check
    */
@@ -109,23 +130,23 @@ export class CreateEvaluatorRequest extends $dara.Model {
   annotations?: string[];
   /**
    * @remarks
-   * The evaluator configuration. LLM/AGENT types typically include prompt, variables, and outputSchema. CODE types typically include codeType, faasConfig, variables, and parameters.
+   * The evaluator configuration. For LLM or AGENT evaluators, the configuration typically includes prompt, variables, and outputSchema. For CODE evaluators, it typically includes codeType, faasConfig, variables, and parameters.
    * 
    * @example
-   * {"prompt":"Please evaluate task completion","variables":[{"name":"input"}]}
+   * {"prompt":"Please evaluate the task completion","variables":[{"name":"input"}]}
    */
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The description of the evaluator. Maximum length: 256 characters.
+   * The description of the evaluator. The description can be up to 256 characters in length.
    * 
    * @example
-   * Determines whether the Agent completed the user task
+   * Determines whether the agent completes the user task
    */
   description?: string;
   /**
    * @remarks
-   * The display name. Maximum length: 128 characters.
+   * The display name. The name can be up to 128 characters in length.
    * 
    * @example
    * Trace task completion
@@ -133,7 +154,7 @@ export class CreateEvaluatorRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The evaluation metric name.
+   * The name of the evaluation metric.
    * 
    * This parameter is required.
    * 
@@ -143,7 +164,7 @@ export class CreateEvaluatorRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The evaluator name. The name cannot start with a system-reserved prefix. Maximum length: 128 characters.
+   * The name of the evaluator. The name cannot start with a system-reserved prefix and can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -160,21 +181,24 @@ export class CreateEvaluatorRequest extends $dara.Model {
    */
   properties?: { [key: string]: any };
   /**
+   * @remarks
+   * The list of business skills for the initial version of a standard agent evaluator.
+   * 
    * @example
-   * [{"skillName":"fact-check","files":[{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: 核对回答中的事实依据\n---\n逐项核对回答中的事实，并列出依据。"}]}]
+   * [{"skillName":"fact-check","files":[{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: Verify the factual basis in the response\n---\nVerify the facts in the response item by item and list the evidence."}]}]
    */
   skills?: CreateEvaluatorRequestSkills[];
   /**
+   * @remarks
+   * The initial version status. Set this parameter to DRAFT to save the evaluator as a draft. If you omit this parameter, the initial version is directly published.
+   * 
    * @example
    * DRAFT
    */
   status?: string;
   /**
    * @remarks
-   * The evaluator type. Valid values:
-   * - LLM: an inner join large language model evaluation evaluator.
-   * - AGENT: a StarOps digital worker evaluator.
-   * - CODE: a code evaluator.
+   * The type of the evaluator. `LLM` indicates an inner join model evaluation tool for large language models, `AGENT` indicates a StarOps digital employee evaluator, and `CODE` indicates a code evaluator.
    * 
    * This parameter is required.
    * 
@@ -202,7 +226,7 @@ export class CreateEvaluatorRequest extends $dara.Model {
   versionDescription?: string;
   /**
    * @remarks
-   * The idempotency token. This is a unique string generated by the client to ensure idempotence of the create operation. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
+   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

@@ -15,7 +15,7 @@ export class ListEvaluatorsRequest extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 20. Maximum value: 100.
+   * The number of entries to return per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20

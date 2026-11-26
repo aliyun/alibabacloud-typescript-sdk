@@ -28,7 +28,7 @@ export class UpdateEvaluatorSkillRequestFiles extends $dara.Model {
    * The remark for the file.
    * 
    * @example
-   * Primary skill description
+   * Main skill description
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -80,18 +80,21 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
    * The display name of the skill.
    * 
    * @example
-   * Read Trace Context
+   * Read trace context
    */
   displayName?: string;
   /**
    * @remarks
-   * Specifies whether the skill is enabled.
+   * Specifies whether to enable the skill.
    * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The target evaluator version for updating the skill. If omitted, the latestVersion of the evaluator is used.
+   * 
    * @example
    * v2
    */
@@ -101,7 +104,7 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
    * The list of skill files. If specified, the content of the skill files is updated.
    * 
    * @example
-   * [{"name":"SKILL.md","content":"# Trace Context Loader","remark":"Primary skill description"}]
+   * [{"name":"SKILL.md","content":"# Trace Context Loader","remark":"Main skill description"}]
    */
   files?: UpdateEvaluatorSkillRequestFiles[];
   /**

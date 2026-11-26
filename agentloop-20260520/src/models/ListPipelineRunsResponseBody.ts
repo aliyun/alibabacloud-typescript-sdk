@@ -13,7 +13,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   agentSpaceName?: string;
   /**
    * @remarks
-   * The current attempt number.
+   * The current number of retries.
    * 
    * @example
    * 0
@@ -47,7 +47,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The start time of the data window. The value is a UNIX timestamp in seconds.
+   * The start time of the data window in UNIX seconds.
    * 
    * @example
    * 1735660800
@@ -55,7 +55,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The maximum number of attempts.
+   * The maximum number of retries.
    * 
    * @example
    * 3
@@ -73,7 +73,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   nextRetryTime?: string;
   /**
    * @remarks
-   * The name of the pipeline.
+   * The pipeline name.
    * 
    * @example
    * my-pipeline
@@ -89,7 +89,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The start time of the execution in ISO 8601 UTC format.
+   * The execution start time in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -99,7 +99,7 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The run statistics metrics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of consumed tokens).
+   * The run statistics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of consumed tokens).
    * 
    * @example
    * {"processedRows":1000,"elapsedMs":2500}
@@ -115,12 +115,28 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The end time of the data window. The value is a UNIX timestamp in seconds.
+   * The frozen task version number.
+   * 
+   * @example
+   * 1
+   */
+  taskVersion?: number;
+  /**
+   * @remarks
+   * The end time of the data window in UNIX seconds.
    * 
    * @example
    * 1735747200
    */
   toTime?: number;
+  /**
+   * @remarks
+   * The total number of input records.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
   /**
    * @remarks
    * The trigger time in ISO 8601 UTC format.
@@ -154,7 +170,9 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
       startTime: 'startTime',
       stats: 'stats',
       status: 'status',
+      taskVersion: 'taskVersion',
       toTime: 'toTime',
+      totalCount: 'totalCount',
       triggerTime: 'triggerTime',
       triggerType: 'triggerType',
     };
@@ -175,7 +193,9 @@ export class ListPipelineRunsResponseBodyRuns extends $dara.Model {
       startTime: 'string',
       stats: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       status: 'string',
+      taskVersion: 'number',
       toTime: 'number',
+      totalCount: 'number',
       triggerTime: 'string',
       triggerType: 'string',
     };
@@ -212,7 +232,7 @@ export class ListPipelineRunsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate the request when troubleshooting issues.
+   * The request ID, which is used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -225,7 +245,7 @@ export class ListPipelineRunsResponseBody extends $dara.Model {
   runs?: ListPipelineRunsResponseBodyRuns[];
   /**
    * @remarks
-   * The total number of pipeline runs that meet the filter conditions.
+   * The total number of pipeline runs that meet the filtering conditions.
    * 
    * @example
    * 100

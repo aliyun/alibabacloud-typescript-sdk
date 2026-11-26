@@ -25,7 +25,7 @@ export class CreateEvaluatorSkillRequestFiles extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The remark for the file.
+   * The remark of the file.
    * 
    * @example
    * Main skill description
@@ -59,7 +59,7 @@ export class CreateEvaluatorSkillRequestFiles extends $dara.Model {
 export class CreateEvaluatorSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * This parameter is required.
    * 
@@ -69,10 +69,10 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The skill description.
+   * The description of the skill.
    * 
    * @example
-   * Reads trace context to assist evaluation
+   * Read trace context to assist evaluation
    */
   description?: string;
   /**
@@ -80,7 +80,7 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
    * The display name of the skill.
    * 
    * @example
-   * Trace Context Loader
+   * Read Trace Context
    */
   displayName?: string;
   /**
@@ -92,6 +92,9 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The target evaluator version number for creating the skill. If omitted, the latestVersion of the evaluator is used.
+   * 
    * @example
    * v2
    */
@@ -108,7 +111,7 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
   files?: CreateEvaluatorSkillRequestFiles[];
   /**
    * @remarks
-   * The skill name.
+   * The name of the skill.
    * 
    * This parameter is required.
    * 
@@ -118,7 +121,7 @@ export class CreateEvaluatorSkillRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency comparison.
+   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

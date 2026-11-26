@@ -13,7 +13,7 @@ export class ListPipelinesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Pass the nextToken value from the previous response to retrieve the next page of results. Do not specify this parameter for the first request.
+   * The pagination token. Pass the nextToken value from the previous response to retrieve the next page. Do not specify this parameter for the first request.
    * 
    * @example
    * MTIzNDU2Nzg5MA==
@@ -21,7 +21,18 @@ export class ListPipelinesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name of the pipeline. Supports exact matching. If not specified, the results are not filtered by pipeline name.
+   * The type of the pipeline. Valid values:
+   * - PROCESSING: Data processing.
+   * - ORCHESTRATION: Orchestration task.
+   * Default value: PROCESSING.
+   * 
+   * @example
+   * ORCHESTRATION
+   */
+  pipelineKind?: string;
+  /**
+   * @remarks
+   * The name of the pipeline for exact match filtering. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * my-pipeline
@@ -29,7 +40,12 @@ export class ListPipelinesRequest extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The schedule status. Valid values: None (no schedule), Active (active), Paused (paused), and Terminated (terminated). If not specified, the results are not filtered by schedule status.
+   * The schedule status of the pipeline. Valid values:
+   * - None: No schedule.
+   * - Active: Active.
+   * - Paused: Paused.
+   * - Terminated: Terminated.
+   * If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * Active
@@ -37,7 +53,11 @@ export class ListPipelinesRequest extends $dara.Model {
   scheduleStatus?: string;
   /**
    * @remarks
-   * The schedule type. Valid values: RunOnce (single execution), Scheduled (periodic scheduling), and Continuous (continuous execution driven by trace source signals). If not specified, the results are not filtered by schedule type.
+   * The schedule type of the pipeline. Valid values:
+   * - RunOnce: Single execution.
+   * - Scheduled: Periodic scheduling.
+   * - Continuous: Continuous execution driven by trace source signals.
+   * If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * RunOnce
@@ -45,7 +65,7 @@ export class ListPipelinesRequest extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * The name of the output dataset. Supports exact matching and applies to standard sinks, conditional branch sinks, and default sinks. If not specified, the results are not filtered by sink name.
+   * The name of the output dataset for exact match filtering. This matches standard sinks, conditional branch sinks, and default sinks. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * my-dataset
@@ -55,6 +75,7 @@ export class ListPipelinesRequest extends $dara.Model {
     return {
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      pipelineKind: 'pipelineKind',
       pipelineName: 'pipelineName',
       scheduleStatus: 'scheduleStatus',
       scheduleType: 'scheduleType',
@@ -66,6 +87,7 @@ export class ListPipelinesRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      pipelineKind: 'string',
       pipelineName: 'string',
       scheduleStatus: 'string',
       scheduleType: 'string',

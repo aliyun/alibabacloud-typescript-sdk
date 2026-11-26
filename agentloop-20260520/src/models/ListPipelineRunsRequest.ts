@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelineRunsRequest extends $dara.Model {
   /**
    * @remarks
-   * The upper bound of the trigger time filter (triggered_at <= endTime). The value is a UNIX timestamp in seconds.
+   * The upper bound for filtering by trigger time (triggered_at <= endTime) in UNIX seconds.
    * 
    * @example
    * 1735660800
@@ -21,7 +21,7 @@ export class ListPipelineRunsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. To retrieve the next page of results, pass the nextToken value from the previous response. Do not specify this parameter for the first request.
+   * The pagination token. Pass the nextToken value from the previous response to retrieve the next page. Do not specify this parameter for the first request.
    * 
    * @example
    * MTIzNDU2Nzg5MA==
@@ -29,7 +29,7 @@ export class ListPipelineRunsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The lower bound of the trigger time filter (triggered_at >= startTime). The value is a UNIX timestamp in seconds.
+   * The lower bound for filtering by trigger time (triggered_at >= startTime) in UNIX seconds.
    * 
    * @example
    * 1735574400
@@ -37,7 +37,7 @@ export class ListPipelineRunsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Filters the results by run status. Valid values: Pending, Running, Succeeded, Failed, and Cancelled. If you do not specify this parameter, the results are not filtered by status.
+   * Filters runs by status. Valid values: Pending, Running, Succeeded, Failed, and Cancelled. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * Succeeded
@@ -45,7 +45,7 @@ export class ListPipelineRunsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Filters the results by trigger type. Valid values: Manual, Scheduled, and RunOnce. If you do not specify this parameter, the results are not filtered by trigger type.
+   * Filters by trigger type. Valid values: Manual, Scheduled, and RunOnce. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * Scheduled

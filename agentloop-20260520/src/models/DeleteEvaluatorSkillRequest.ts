@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEvaluatorSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class DeleteEvaluatorSkillRequest extends $dara.Model {
    */
   agentSpace?: string;
   /**
+   * @remarks
+   * The target evaluator version for deleting the skill. If omitted, the latestVersion of the evaluator is used.
+   * 
    * @example
    * v2
    */

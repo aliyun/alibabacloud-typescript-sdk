@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetEvaluatorResponseBodyEvaluatorSkills extends $dara.Model {
   /**
+   * @remarks
+   * The skill revision number used by this evaluator version.
+   * 
    * @example
    * 1770386951147366810
    */
   currentVersion?: string;
   /**
+   * @remarks
+   * The description of the skill purpose.
+   * 
    * @example
-   * 核对回答中的事实依据
+   * Verify the factual basis in the response
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the skill.
+   * 
    * @example
-   * 事实核查
+   * Fact-checking
    */
   displayName?: string;
   /**
+   * @remarks
+   * Indicates whether the skill is enabled in the queried evaluator version.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The skill name.
+   * 
    * @example
    * fact-check
    */
@@ -60,23 +75,32 @@ export class GetEvaluatorResponseBodyEvaluatorSkills extends $dara.Model {
 export class GetEvaluatorResponseBodyEvaluatorVersions extends $dara.Model {
   /**
    * @remarks
-   * The version creation time, in seconds-level UNIX timestamp.
+   * The time when the version was created. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
    */
   createdAt?: number;
   /**
+   * @remarks
+   * Indicates whether this version can be selected when creating an evaluation task or an experiment plan.
+   * 
    * @example
    * true
    */
   selectable?: boolean;
   /**
+   * @remarks
+   * The version status. DRAFT indicates a draft. PUBLISHED indicates that the version is published. OFFLINE indicates that the version is offline.
+   * 
    * @example
    * PUBLISHED
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the version was last updated. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1795478400
    */
@@ -139,7 +163,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The list of annotations.
+   * The list of annotation tags.
    * 
    * @example
    * ["__en"]
@@ -147,15 +171,15 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
   annotations?: string[];
   /**
    * @remarks
-   * The configuration of the current version.
+   * The current version configuration.
    * 
    * @example
-   * {"prompt":"Please evaluate the task completion"}
+   * {"prompt":"Evaluate the task completion"}
    */
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The creation time, in seconds-level UNIX timestamp.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -163,7 +187,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The version number returned in the current response.
+   * The current version number.
    * 
    * @example
    * 1.0.0
@@ -174,7 +198,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
    * The evaluator description.
    * 
    * @example
-   * Determines whether the Agent has completed the user task
+   * Determines whether the agent completed the user task
    */
   description?: string;
   /**
@@ -182,7 +206,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
    * The display name.
    * 
    * @example
-   * Trace task completion
+   * Workflow task completion
    */
   displayName?: string;
   /**
@@ -218,16 +242,25 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
    */
   properties?: { [key: string]: any };
   /**
+   * @remarks
+   * Indicates whether this version can be selected when creating an evaluation task or an experiment plan.
+   * 
    * @example
    * true
    */
   selectable?: boolean;
   /**
+   * @remarks
+   * The list of business skill summaries for the queried evaluator version.
+   * 
    * @example
-   * [{"skillName":"fact-check","displayName":"事实核查","description":"核对回答中的事实依据","enable":true,"currentVersion":"1770386951147366810"}]
+   * [{"skillName":"fact-check","displayName":"Fact-checking","description":"Verify the factual basis in the response","enable":true,"currentVersion":"1770386951147366810"}]
    */
   skills?: GetEvaluatorResponseBodyEvaluatorSkills[];
   /**
+   * @remarks
+   * The version status. DRAFT indicates a draft. PUBLISHED indicates that the version is published. OFFLINE indicates that the version is offline.
+   * 
    * @example
    * PUBLISHED
    */
@@ -242,7 +275,7 @@ export class GetEvaluatorResponseBodyEvaluator extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update time, in seconds-level UNIX timestamp.
+   * The update time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816600

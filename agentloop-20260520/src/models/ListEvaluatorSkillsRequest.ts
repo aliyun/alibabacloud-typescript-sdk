@@ -14,13 +14,16 @@ export class ListEvaluatorSkillsRequest extends $dara.Model {
    */
   agentSpace?: string;
   /**
+   * @remarks
+   * The custom evaluator version for which to query the list of skills. If omitted, the latestVersion of the evaluator is used.
+   * 
    * @example
    * v2
    */
   evaluatorVersion?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of results per page.
    * 
    * @example
    * 20

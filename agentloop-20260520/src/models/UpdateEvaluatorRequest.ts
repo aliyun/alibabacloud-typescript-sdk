@@ -4,15 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateEvaluatorRequestSkillsFiles extends $dara.Model {
   /**
+   * @remarks
+   * The text content of the file.
+   * 
    * @example
    * ---
    * name: fact-check
-   * description: 核对回答中的事实依据
+   * description: Verify factual basis in responses
    * ---
-   * 逐项核对回答中的事实，并列出依据。
+   * Verify the facts in the response item by item and list the basis
    */
   content?: string;
   /**
+   * @remarks
+   * The path of the file relative to the root directory of the skill.
+   * 
    * @example
    * SKILL.md
    */
@@ -42,26 +48,41 @@ export class UpdateEvaluatorRequestSkillsFiles extends $dara.Model {
 
 export class UpdateEvaluatorRequestSkills extends $dara.Model {
   /**
+   * @remarks
+   * The description of the skill purpose.
+   * 
    * @example
-   * 核对回答中的事实依据
+   * Verify factual basis in responses
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the skill.
+   * 
    * @example
-   * 事实核查
+   * Fact-checking
    */
   displayName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the skill. Default value: true.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The complete list of files for the skill, which must include SKILL.md in the root directory.
+   * 
    * @example
-   * [{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: 核对回答中的事实依据\n---\n逐项核对回答中的事实，并列出依据。"}]
+   * [{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: Verify factual basis in responses\n---\nVerify the facts in the response item by item and list the basis."}]
    */
   files?: UpdateEvaluatorRequestSkillsFiles[];
   /**
+   * @remarks
+   * The name of the skill, which must be unique in the list of skills submitted in this request.
+   * 
    * @example
    * fact-check
    */
@@ -109,20 +130,23 @@ export class UpdateEvaluatorRequest extends $dara.Model {
   annotations?: string[];
   /**
    * @remarks
-   * The configuration of the new version. This parameter is typically required when `version` is specified.
+   * The configuration for the new version. This parameter is typically required when version is specified.
    * 
    * @example
    * {"prompt":"Evaluate task completion more strictly"}
    */
   config?: { [key: string]: any };
   /**
+   * @remarks
+   * Specifies whether to create a new draft. Set to true to create a new draft, or false to update a specified existing draft. When this parameter is specified, the version status defaults to DRAFT.
+   * 
    * @example
    * true
    */
   createVersion?: boolean;
   /**
    * @remarks
-   * The evaluator description.
+   * The description of the evaluator.
    * 
    * @example
    * Determines whether the agent completes the user task
@@ -133,7 +157,7 @@ export class UpdateEvaluatorRequest extends $dara.Model {
    * The display name.
    * 
    * @example
-   * Task completion of the chain
+   * Pipeline task completion
    */
   displayName?: string;
   /**
@@ -145,11 +169,17 @@ export class UpdateEvaluatorRequest extends $dara.Model {
    */
   properties?: { [key: string]: any };
   /**
+   * @remarks
+   * The complete list of business skills saved for the standard agent evaluator in this request. Pass an empty array to clear the business skills for this version.
+   * 
    * @example
-   * [{"skillName":"fact-check","files":[{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: 核对回答中的事实依据\n---\n逐项核对回答中的事实，并列出依据。"}]}]
+   * [{"skillName":"fact-check","files":[{"name":"SKILL.md","content":"---\nname: fact-check\ndescription: Verify factual basis in responses\n---\nVerify the facts in the response item by item and list the basis."}]}]
    */
   skills?: UpdateEvaluatorRequestSkills[];
   /**
+   * @remarks
+   * The status of the evaluator version to be written. Only DRAFT is supported when explicitly specified. To publish a draft, call UpdateEvaluatorVersionStatus.
+   * 
    * @example
    * DRAFT
    */
@@ -172,7 +202,7 @@ export class UpdateEvaluatorRequest extends $dara.Model {
   versionDescription?: string;
   /**
    * @remarks
-   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency comparison.
+   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

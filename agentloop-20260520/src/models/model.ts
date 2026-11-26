@@ -99,6 +99,12 @@ export { GetPipelineResponseBodySourceLogstore } from './GetPipelineResponseBody
 export { GetPipelineResponseBodySourceTrajectoryEnrich } from './GetPipelineResponseBody';
 export { GetPipelineResponseBodySourceTrajectory } from './GetPipelineResponseBody';
 export { GetPipelineResponseBodySource } from './GetPipelineResponseBody';
+export { GetPipelineRunResponseBodyAsyncNodes } from './GetPipelineRunResponseBody';
+export { GetPipelineRunResponseBodyNodeExecutionsInputRef } from './GetPipelineRunResponseBody';
+export { GetPipelineRunResponseBodyNodeExecutionsOutputRef } from './GetPipelineRunResponseBody';
+export { GetPipelineRunResponseBodyNodeExecutions } from './GetPipelineRunResponseBody';
+export { GetPipelineRunResponseBodyPipelineSnapshotNodes } from './GetPipelineRunResponseBody';
+export { GetPipelineRunResponseBodyPipelineSnapshot } from './GetPipelineRunResponseBody';
 export { GetPipelineStatsResponseBodySummary } from './GetPipelineStatsResponseBody';
 export { GetPipelineStatsResponseBodyTimeSeries } from './GetPipelineStatsResponseBody';
 export { ListAgentSpacesRequestTag } from './ListAgentSpacesRequest';
@@ -120,6 +126,8 @@ export { ListPipelinesResponseBodyPipelinesExecutePolicyContinuous } from './Lis
 export { ListPipelinesResponseBodyPipelinesExecutePolicyRunOnce } from './ListPipelinesResponseBody';
 export { ListPipelinesResponseBodyPipelinesExecutePolicyScheduled } from './ListPipelinesResponseBody';
 export { ListPipelinesResponseBodyPipelinesExecutePolicy } from './ListPipelinesResponseBody';
+export { ListPipelinesResponseBodyPipelinesPipelineNodes } from './ListPipelinesResponseBody';
+export { ListPipelinesResponseBodyPipelinesPipeline } from './ListPipelinesResponseBody';
 export { ListPipelinesResponseBodyPipelinesSinkConditionDefaultSinkDataset } from './ListPipelinesResponseBody';
 export { ListPipelinesResponseBodyPipelinesSinkConditionDefaultSink } from './ListPipelinesResponseBody';
 export { ListPipelinesResponseBodyPipelinesSinkConditionRoutesSinkDataset } from './ListPipelinesResponseBody';

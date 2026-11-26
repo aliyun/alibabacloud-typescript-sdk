@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEvaluatorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The evaluator name.
+   * The name of the evaluator.
    * 
    * @example
    * trace_task_completion
@@ -21,7 +21,7 @@ export class CreateEvaluatorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The version number that is created.
+   * The created version number.
    * 
    * @example
    * 1.0.0

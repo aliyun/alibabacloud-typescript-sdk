@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEvaluatorSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class GetEvaluatorSkillRequest extends $dara.Model {
    */
   agentSpace?: string;
   /**
+   * @remarks
+   * The version number of the custom evaluator to which the queried skill belongs. If omitted, the latestVersion of the evaluator is used. The revision number of the skill itself is specified by version.
+   * 
    * @example
    * v2
    */
   evaluatorVersion?: string;
   /**
    * @remarks
-   * The skill version.
+   * The version of the skill.
    * 
    * @example
    * 1782816000000
