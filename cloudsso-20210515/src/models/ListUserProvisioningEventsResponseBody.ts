@@ -79,9 +79,9 @@ export class ListUserProvisioningEventsResponseBodyUserProvisioningEvents extend
    * @remarks
    * The identity ID of the RAM user provisioning. Valid values:
    * 
-   * - If you set the `PrincipalType` parameter to `Group`, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
+   * - If you set the `PrincipalType` parameter to `Group`, the value of this parameter is the ID of a CloudSSO user group (g-\*\*\*\*\*\*\*\*).
    * 
-   * - If you set the `PrincipalType` parameter to `User`, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
+   * - If you set the `PrincipalType` parameter to `User`, the value of this parameter is the ID of a CloudSSO user (u-\*\*\*\*\*\*\*\*).
    * 
    * @example
    * g-02ha881d*****
@@ -133,7 +133,7 @@ export class ListUserProvisioningEventsResponseBodyUserProvisioningEvents extend
    * @remarks
    * The ID of the object for which you create the RAM user provisioning.
    * 
-   * The value is fixed as the ID of the account in the resource directory.\\`\\`\\`\\`
+   * The value is fixed as the ID of the account in the resource directory.\`\`\`\`
    * 
    * @example
    * 153218*******
@@ -143,7 +143,7 @@ export class ListUserProvisioningEventsResponseBodyUserProvisioningEvents extend
    * @remarks
    * The name of the object for which you create the RAM user provisioning.
    * 
-   * If `RD-Account` is returned, the value of this parameter is the name of the account that is used to access the instance.\\`\\`
+   * If `RD-Account` is returned, the value of this parameter is the name of the account that is used to access the instance.\`\`
    * 
    * @example
    * exampleRdMember

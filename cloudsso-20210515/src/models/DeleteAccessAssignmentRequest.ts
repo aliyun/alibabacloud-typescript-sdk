@@ -13,10 +13,10 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
   accessConfigurationId?: string;
   /**
    * @remarks
-   * Specifies whether to remove the access configuration deployment when you remove the last authorization that uses the access configuration on an account in a resource directory. Valid values:
+   * Specifies whether to remove the deployment of the access configuration provisioning when you remove the last authorization that uses the access configuration on an account in a resource directory. Valid values:
    * 
-   * - DeprovisionForLastAccessAssignmentOnAccount: Removes the access configuration deployment.
-   * - None: Does not remove the access configuration deployment. This is the default value.
+   * - DeprovisionForLastAccessAssignmentOnAccount: removes the deployment of the access configuration provisioning.
+   * - None: does not remove the deployment of the access configuration provisioning. Default value.
    * 
    * @example
    * None
@@ -32,7 +32,7 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the authorization target.
+   * The ID of the Alibaba Cloud account to which the authorization target belongs.
    * 
    * @example
    * 114240524784****
@@ -40,10 +40,10 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
   originTargetId?: string;
   /**
    * @remarks
-   * The CloudSSO identity ID. The value varies based on the principal type:
+   * The CloudSSO identity ID. Details:
    * 
-   * - If `PrincipalType` is `User`, `PrincipalId` is the CloudSSO user ID.
-   * - If `PrincipalType` is `Group`, `PrincipalId` is the CloudSSO group ID.
+   * - If PrincipalType is set to User, PrincipalId is the CloudSSO user ID.
+   * - If PrincipalType is set to Group, PrincipalId is the CloudSSO group ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -53,8 +53,8 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
    * @remarks
    * The CloudSSO identity type. Valid values:
    * 
-   * - User: user
-   * - Group: group
+   * - User: user.
+   * - Group: group.
    * 
    * @example
    * User
@@ -62,7 +62,7 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The target ID of the task.
+   * The ID of the task target.
    * 
    * @example
    * 114240524784****
@@ -70,8 +70,8 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The target type of the task. Valid values:
-   * - RD-Account: The task target is an account in a resource directory.
+   * The type of the task target. Valid values:
+   * - RD-Account: an account in a resource directory.
    * 
    * @example
    * RD-Account

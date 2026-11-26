@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -13,7 +13,7 @@ export class UpdateUserRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The new description of the user.
+   * The description of the user.
    * 
    * @example
    * This is a user.
@@ -21,7 +21,7 @@ export class UpdateUserRequest extends $dara.Model {
   newDescription?: string;
   /**
    * @remarks
-   * The new display name of the user.
+   * The display name of the user.
    * 
    * @example
    * AliceLee
@@ -29,7 +29,7 @@ export class UpdateUserRequest extends $dara.Model {
   newDisplayName?: string;
   /**
    * @remarks
-   * The new email address of the user.
+   * The email address of the user.
    * 
    * @example
    * AliceLee@example.com
@@ -37,7 +37,7 @@ export class UpdateUserRequest extends $dara.Model {
   newEmail?: string;
   /**
    * @remarks
-   * The new first name of the user.
+   * The first name of the user.
    * 
    * @example
    * Alice
@@ -45,7 +45,7 @@ export class UpdateUserRequest extends $dara.Model {
   newFirstName?: string;
   /**
    * @remarks
-   * The new last name of the user.
+   * The last name of the user.
    * 
    * @example
    * Lee
@@ -53,7 +53,7 @@ export class UpdateUserRequest extends $dara.Model {
   newLastName?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****

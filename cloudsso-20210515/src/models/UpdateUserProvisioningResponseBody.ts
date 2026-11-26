@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-11-28T03:55:42Z
@@ -13,11 +13,10 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
+   * The deletion policy. This policy specifies how to handle synchronized Resource Access Management (RAM) users when the Resource Access Management (RAM) user synchronization is deleted. Valid values:
    * 
-   * - Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
-   * 
-   * - Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+   * - Delete: Delete the users. When the Resource Access Management (RAM) user synchronization is deleted, the system deletes the Resource Access Management (RAM) users that have been synchronized from CloudSSO to Resource Access Management (RAM).
+   * - Keep: Keep the users. When the Resource Access Management (RAM) user synchronization is deleted, the system retains the Resource Access Management (RAM) users that have been synchronized from CloudSSO to Resource Access Management (RAM).
    * 
    * @example
    * Delete
@@ -25,7 +24,7 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   deletionStrategy?: string;
   /**
    * @remarks
-   * The description for the RAM user provisioning.
+   * The description of the Resource Access Management (RAM) user synchronization.
    * 
    * @example
    * This is a user provisioning.
@@ -33,7 +32,7 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The directory ID.
    * 
    * @example
    * d-003qew84****
@@ -41,11 +40,10 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   directoryId?: string;
   /**
    * @remarks
-   * The conflict handling policy. The policy is used when a RAM user has the same username as the CloudSSO user who is synchronized to RAM. Valid values:
+   * The duplication strategy. This strategy specifies how to handle name conflicts when a CloudSSO user is synchronized to Resource Access Management (RAM) user with the same name already exists. Valid values:
    * 
-   * - KeepBoth: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system creates a RAM user whose username is the username of the CloudSSO user plus the suffix `_sso`.
-   * 
-   * - TakeOver: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system replaces the RAM user with the CloudSSO user.
+   * - KeepBoth: Keep both users. When a CloudSSO user is synchronized to Resource Access Management (RAM) user with the same name already exists, the system appends the `_sso` suffix to the CloudSSO username and attempts to create a RAM user with the new username.
+   * - TakeOver: Replace the existing user. When a CloudSSO user is synchronized to Resource Access Management (RAM) user with the same name already exists, the system directly replaces the existing RAM user with the synchronized CloudSSO user.
    * 
    * @example
    * KeepBoth
@@ -53,7 +51,7 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   duplicationStrategy?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource directory belongs.
+   * The ID of the Alibaba Cloud account to which the directory belongs.
    * 
    * @example
    * 164987310*****
@@ -61,11 +59,10 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   ownerPk?: string;
   /**
    * @remarks
-   * The identity ID of the RAM user provisioning. Valid values:
+   * The ID of the principal for the Resource Access Management (RAM) user synchronization. Valid values:
    * 
-   * - If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
-   * 
-   * - If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
+   * - If `PrincipalType` is set to `Group`, the value is the ID of the CloudSSO group (g-********).
+   * - If `PrincipalType` is set to `User`, the value is the ID of the CloudSSO user (u-********).
    * 
    * @example
    * g-02ha881d*****
@@ -73,11 +70,10 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   principalId?: string;
   /**
    * @remarks
-   * The identity name of the RAM user provisioning. Valid values:
+   * The name of the principal for the Resource Access Management (RAM) user synchronization. Valid values:
    * 
-   * - If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the name of a CloudSSO user group.
-   * 
-   * - If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the name of a CloudSSO user.
+   * - If `PrincipalType` is set to `Group`, the value is the name of the CloudSSO group.
+   * - If `PrincipalType` is set to `User`, the value is the CloudSSO username.
    * 
    * @example
    * testUserName
@@ -85,11 +81,9 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   principalName?: string;
   /**
    * @remarks
-   * The identity type of the RAM user provisioning. Valid values:
-   * 
-   * - User: indicates that the identity of the RAM user provisioning is a CloudSSO user.
-   * 
-   * - Group: indicates that the identity of the RAM user provisioning is a CloudSSO user group.
+   * The type of the principal for the Resource Access Management (RAM) user synchronization. Valid values:
+   * - User: The principal is a CloudSSO user.
+   * - Group: The principal is a CloudSSO group.
    * 
    * @example
    * User
@@ -97,11 +91,9 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   principalType?: string;
   /**
    * @remarks
-   * The status of the RAM user provisioning. Valid values:
-   * 
-   * - Enabled
-   * 
-   * - Disabled
+   * The status of the Resource Access Management (RAM) user synchronization. Valid values:
+   * - Enabled: The Resource Access Management (RAM) user synchronization is enabled.
+   * - Disabled: The Resource Access Management (RAM) user synchronization is disabled.
    * 
    * @example
    * Enabled
@@ -109,7 +101,7 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The ID of the object for which you create the RAM user provisioning. The value is fixed as the ID of the account in the resource directory.
+   * The ID of the target for the Resource Access Management (RAM) user synchronization. Currently, the value is the ID of the account in a resource directory.
    * 
    * @example
    * u-02ha881d*****
@@ -117,7 +109,7 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   targetId?: string;
   /**
    * @remarks
-   * The name of the object for which you create the RAM user provisioning. The value is fixed as the name of the resource directory.
+   * The name of the target for the Resource Access Management (RAM) user synchronization. Currently, the value is the name of the account in a resource directory.
    * 
    * @example
    * testMemberName
@@ -125,12 +117,12 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   targetName?: string;
   /**
    * @remarks
-   * The path of the resource directory in which you create the RAM user provisioning for the object.
+   * The resource directory path of the target for the Resource Access Management (RAM) user synchronization.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The object for which you create the RAM user provisioning. The value is fixed as `RD-Account`.
+   * The type of the target for the Resource Access Management (RAM) user synchronization. Currently, the value is `RD-Account`.
    * 
    * @example
    * RD-Account
@@ -138,7 +130,7 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   targetType?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-11-28T03:55:42Z
@@ -146,7 +138,7 @@ export class UpdateUserProvisioningResponseBodyUserProvisioning extends $dara.Mo
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the RAM user provisioning.
+   * The ID of the Resource Access Management (RAM) user synchronization.
    * 
    * @example
    * up-002axzhapcbz6e63****
@@ -214,7 +206,7 @@ export class UpdateUserProvisioningResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM user provisioning.
+   * The Resource Access Management (RAM) user synchronization information.
    */
   userProvisioning?: UpdateUserProvisioningResponseBodyUserProvisioning;
   static names(): { [key: string]: string } {

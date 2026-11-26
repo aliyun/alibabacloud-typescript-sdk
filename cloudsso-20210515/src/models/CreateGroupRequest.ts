@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the user group.
+   * The description of the group.
    * 
    * Length: The description can be up to 1024 characters in length.
    * 
@@ -23,7 +23,7 @@ export class CreateGroupRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The name of the user group.
+   * The name of the group.
    * 
    * Format: The name can contain letters, digits, and the special characters `_-.`.
    * 

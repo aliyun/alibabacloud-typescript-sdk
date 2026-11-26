@@ -45,7 +45,7 @@ export class CreateUserResponseBodyUserTags extends $dara.Model {
 export class CreateUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * The time when the user was created (UTC).
+   * The time when the user was created. The time is displayed in UTC.
    * 
    * @example
    * 2021-10-26T03:03:42Z
@@ -93,7 +93,7 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   lastName?: string;
   /**
    * @remarks
-   * The type of the user. Valid values:
+   * The provisioning type of the user. Valid values:
    * 
    * - Manual: Manually created.
    * - Synchronized: Synchronized from an external source.
@@ -116,11 +116,14 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
    * The list of tags.
+   * 
+   * @example
+   * [{"Key":"Project","Value":"Test"}]
    */
   tags?: CreateUserResponseBodyUserTags[];
   /**
    * @remarks
-   * The time when the user was last modified (UTC).
+   * The time when the user was updated. The time is displayed in UTC.
    * 
    * @example
    * 2021-10-26T03:03:42Z
@@ -200,6 +203,9 @@ export class CreateUserResponseBody extends $dara.Model {
   /**
    * @remarks
    * The user information.
+   * 
+   * @example
+   * {"UserId":"u-00bikzkuzbb58luh****","UserName":"AliceLee@example.onmicrosoft.com","Status":"Enabled"}
    */
   user?: CreateUserResponseBodyUser;
   static names(): { [key: string]: string } {

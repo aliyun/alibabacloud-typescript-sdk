@@ -7,7 +7,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * > - - The tag key cannot be an empty string.
+   * > - - The value cannot be an empty string.
    * 
    * @example
    * key
@@ -55,7 +55,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The pagination token that is used to retrieve the next page of results when the response is truncated.
+   * The token that is used to retrieve the next page of results when the response is truncated.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -65,20 +65,20 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The list of resource IDs. You can specify up to 50 resource IDs in a single call.
    * > 
-   * > - Supported resource types include users and access configurations:
-   * > - - If the resource type is user, specify the user ID.
-   * > - - If the resource type is access configuration, specify the access configuration ID.
+   * > - The resource type supports users and access configurations:
+   * > - - If the resource type is user, enter the user ID.
+   * > - - If the resource type is access configuration, enter the access configuration ID.
    * 
-   * <notice>If the DirectoryId parameter is not specified, you must add the "${DirectoryId}_" prefix to the resource ID.</notice>
+   * <notice>If the DirectoryId parameter is not specified, you must add the prefix "${DirectoryId}_" to the resource ID.</notice>
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Users and access configurations are supported. Valid values:
+   * The resource type. Users and access configurations are supported.
    * 
-   * - user: user
+   * - Set the value to user for users.
    * 
-   * - accessConfiguration: access configuration
+   * - Set the value to accessConfiguration for access configurations.
    * 
    * This parameter is required.
    * 

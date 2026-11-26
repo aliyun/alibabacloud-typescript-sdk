@@ -21,6 +21,10 @@ export class DeleteMFADeviceForUserRequest extends $dara.Model {
    * mfa-00ujhet8pycljj7j****
    */
   MFADeviceId?: string;
+  /**
+   * @example
+   * PlatformPasskey
+   */
   mfaType?: string;
   /**
    * @remarks

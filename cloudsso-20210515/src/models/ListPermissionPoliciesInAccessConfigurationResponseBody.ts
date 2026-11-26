@@ -18,7 +18,7 @@ export class ListPermissionPoliciesInAccessConfigurationResponseBodyPermissionPo
    * >  This parameter is returned only when the value of the PermissionPolicyType parameter is Inline.
    * 
    * @example
-   * {\\"Statement\\": [{\\"Action\\": \\"*\\",\\"Effect\\": \\"Allow\\",\\"Resource\\": \\"*\\"}],\\"Version\\": \\"1\\"}
+   * {\"Statement\": [{\"Action\": \"*\",\"Effect\": \"Allow\",\"Resource\": \"*\"}],\"Version\": \"1\"}
    */
   permissionPolicyDocument?: string;
   /**

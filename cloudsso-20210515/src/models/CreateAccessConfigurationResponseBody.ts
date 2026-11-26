@@ -79,7 +79,7 @@ export class CreateAccessConfigurationResponseBodyAccessConfiguration extends $d
    * @remarks
    * The initial access page.
    * 
-   * The page address that a CloudSSO user initially accesses when using the access configuration to access an account in a resource directory.
+   * The URL of the initial page that is accessed when a CloudSSO user accesses an account in a resource directory by using the access configuration.
    * 
    * @example
    * https://cloudsso.console.aliyun.com
@@ -89,7 +89,7 @@ export class CreateAccessConfigurationResponseBodyAccessConfiguration extends $d
    * @remarks
    * The session duration.
    * 
-   * The maximum duration of a session when a CloudSSO user uses the access configuration to access an account in a resource directory.
+   * The maximum duration of a session when a CloudSSO user accesses an account in a resource directory by using the access configuration.
    * 
    * Unit: seconds.
    * 
@@ -99,17 +99,17 @@ export class CreateAccessConfigurationResponseBodyAccessConfiguration extends $d
   sessionDuration?: number;
   /**
    * @remarks
-   * The status notification information.
+   * The status notifications.
    */
   statusNotifications?: string[];
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tags?: CreateAccessConfigurationResponseBodyAccessConfigurationTags[];
   /**
    * @remarks
-   * The time when the access configuration was last modified.
+   * The time when the access configuration was updated.
    * 
    * @example
    * 2021-11-02T08:44:23Z

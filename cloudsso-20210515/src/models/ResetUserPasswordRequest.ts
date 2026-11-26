@@ -13,10 +13,10 @@ export class ResetUserPasswordRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * Specifies whether to automatically generate a password. Valid values:
+   * Specifies whether to automatically generate a password. This parameter is valid only when the reset method is DirectPassword. Valid values:
    * 
-   * - True: The password is automatically generated.
-   * - False (default): The password is manually specified.
+   * - True: Automatically generates a password.
+   * - False (default): Manually sets a password.
    * 
    * @example
    * True
@@ -30,7 +30,7 @@ export class ResetUserPasswordRequest extends $dara.Model {
    * 
    * Length: 8 to 32 characters.
    * 
-   * > If GenerateRandomPassword is set to False, you must specify Password.
+   * > If `GenerateRandomPassword` is set to `False`, you must specify `Password`.
    * 
    * @example
    * uc)XK$?ictf72CKFDy9vtWaFmISl****
@@ -38,7 +38,7 @@ export class ResetUserPasswordRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether the user must reset the password upon the next logon. Valid values:
+   * Specifies whether the user must reset the password upon next logon. Valid values:
    * 
    * - True: The user must reset the password.
    * - False (default): The user does not need to reset the password.
@@ -48,6 +48,13 @@ export class ResetUserPasswordRequest extends $dara.Model {
    */
   requirePasswordResetForNextLogin?: boolean;
   /**
+   * @remarks
+   * The reset method. Valid values:
+   * 
+   * - DirectPassword (default): Sets the password directly.
+   * 
+   * - Email: Sends a password reset email.
+   * 
    * @example
    * DirectPassword
    */

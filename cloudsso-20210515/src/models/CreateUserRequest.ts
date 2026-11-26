@@ -47,7 +47,7 @@ export class CreateUserRequest extends $dara.Model {
    * @remarks
    * The description of the user.
    * 
-   * Maximum length: 1024 characters.
+   * Length: up to 1024 characters.
    * 
    * @example
    * This is a user.
@@ -65,7 +65,7 @@ export class CreateUserRequest extends $dara.Model {
    * @remarks
    * The display name of the user.
    * 
-   * Maximum length: 256 characters.
+   * Length: up to 256 characters.
    * 
    * @example
    * Alice
@@ -75,7 +75,7 @@ export class CreateUserRequest extends $dara.Model {
    * @remarks
    * The email address of the user. The email address must be unique within the directory.
    * 
-   * Maximum length: 128 characters.
+   * Length: up to 128 characters.
    * 
    * @example
    * Alice@example.com
@@ -85,7 +85,7 @@ export class CreateUserRequest extends $dara.Model {
    * @remarks
    * The first name of the user.
    * 
-   * Maximum length: 64 characters.
+   * Length: up to 64 characters.
    * 
    * @example
    * Alice
@@ -95,7 +95,7 @@ export class CreateUserRequest extends $dara.Model {
    * @remarks
    * The last name of the user.
    * 
-   * Maximum length: 64 characters.
+   * Length: up to 64 characters.
    * 
    * @example
    * Lee
@@ -115,15 +115,18 @@ export class CreateUserRequest extends $dara.Model {
   /**
    * @remarks
    * The list of tags.
+   * 
+   * @example
+   * [{"Key":"Project","Value":"Test"}]
    */
   tags?: CreateUserRequestTags[];
   /**
    * @remarks
-   * The username. The username must be unique within the directory and cannot be modified.
+   * The username. It must be unique within the directory and cannot be modified.
    * 
-   * Format: Can contain digits, letters, and the following special characters: `@_-.`
+   * Format: The username can contain digits, letters, and the special characters `@_-.`.
    * 
-   * Maximum length: 64 characters.
+   * Length: up to 64 characters.
    * 
    * @example
    * Alice

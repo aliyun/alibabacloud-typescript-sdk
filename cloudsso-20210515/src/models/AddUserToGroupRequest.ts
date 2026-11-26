@@ -13,7 +13,7 @@ export class AddUserToGroupRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The ID of the group.
+   * The ID of the user group.
    * 
    * @example
    * g-00jqzghi2n3o5hkh****

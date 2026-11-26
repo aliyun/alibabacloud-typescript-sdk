@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends $dara.Model {
   /**
    * @remarks
-   * The time when the SCIM credential was created. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The time when the SCIM server credential was created. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-09T08:12:52Z
@@ -13,7 +13,7 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   createTime?: string;
   /**
    * @remarks
-   * The ID of the SCIM credential.
+   * The ID of the SCIM server credential.
    * 
    * @example
    * scimcred-004whl0kvfwcypbi****
@@ -21,9 +21,9 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   credentialId?: string;
   /**
    * @remarks
-   * The SCIM credential secret.
+   * The SCIM server credential secret.
    * 
-   * > The SCIM credential secret is returned only when the credential is created and cannot be queried later. Keep it secure.
+   * > The SCIM server credential secret is returned only when the credential is created and cannot be queried later. Store it securely.
    * 
    * @example
    * 8aAJCtpbyPJ8saXeYDgyw****
@@ -31,7 +31,7 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   credentialSecret?: string;
   /**
    * @remarks
-   * The type of the SCIM credential.
+   * The type of the SCIM server credential.
    * 
    * @example
    * BearerToken
@@ -47,7 +47,7 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   directoryId?: string;
   /**
    * @remarks
-   * The time when the SCIM credential expires. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The time when the SCIM server credential expires. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-11-09T08:12:52Z
@@ -55,8 +55,8 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   expireTime?: string;
   /**
    * @remarks
-   * The status of the SCIM credential. Valid values:
-   * - Enabled: The SCIM credential is enabled.
+   * The status of the SCIM server credential. Valid values:
+   * - Enabled: The credential is enabled.
    * 
    * @example
    * Enabled
@@ -106,7 +106,7 @@ export class CreateSCIMServerCredentialResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SCIM credential information.
+   * The SCIM server credential information.
    */
   SCIMServerCredential?: CreateSCIMServerCredentialResponseBodySCIMServerCredential;
   static names(): { [key: string]: string } {

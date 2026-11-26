@@ -30,8 +30,9 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
   /**
    * @remarks
    * The CloudSSO identity ID. Details:
-   * - If PrincipalType is set to User, PrincipalId is the CloudSSO user ID.
-   * - If PrincipalType is set to Group, PrincipalId is the CloudSSO group ID.
+   * 
+   * - If `PrincipalType` is set to `User`, `PrincipalId` is the CloudSSO user ID.
+   * - If `PrincipalType` is set to `Group`, `PrincipalId` is the CloudSSO group ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -40,8 +41,9 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
   /**
    * @remarks
    * The CloudSSO identity type. Valid values:
-   * - User: user
-   * - Group: group
+   * 
+   * - User: A user.
+   * - Group: A group.
    * 
    * @example
    * User
@@ -57,7 +59,7 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The target type of the task. Valid value: RD-Account, which indicates that the task target is an account in a resource directory.
+   * The target type of the task. Valid values: RD-Account: The task target is an account in a resource directory.
    * 
    * @example
    * RD-Account

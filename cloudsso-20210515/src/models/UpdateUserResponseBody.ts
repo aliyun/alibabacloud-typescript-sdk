@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * The time when the user was created. The value is displayed in UTC.
+   * The time when the user was created (UTC).
    * 
    * @example
    * 2021-10-26T03:03:42Z
@@ -53,11 +53,10 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   lastName?: string;
   /**
    * @remarks
-   * The type of the user. Valid values:
+   * The provisioning type of the user. Valid values:
    * 
-   * - Manual: The user is manually created.
-   * 
-   * - Synchronized: The user is synchronized from an external identity provider (IdP).
+   * - Manual: Manually created.
+   * - Synchronized: Synchronized from an external source.
    * 
    * @example
    * Manual
@@ -67,9 +66,8 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The status of the user. Valid values:
    * 
-   * - Enabled: The logon of the user is enabled.
-   * 
-   * - Disabled: The logon of the user is disabled.
+   * - Enabled: Enabled.
+   * - Disabled: Disabled.
    * 
    * @example
    * Enabled
@@ -77,7 +75,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the information about the user was modified. The value is displayed in UTC.
+   * The time when the user was updated (UTC).
    * 
    * @example
    * 2021-10-26T07:32:32Z
@@ -85,7 +83,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -93,7 +91,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The username of the user.
+   * The username.
    * 
    * @example
    * Alice
@@ -151,7 +149,7 @@ export class UpdateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the user.
+   * The user information.
    */
   user?: UpdateUserResponseBodyUser;
   static names(): { [key: string]: string } {

@@ -48,8 +48,9 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   /**
    * @remarks
    * The CloudSSO identity type. Valid values:
-   * - User: user
-   * - Group: group
+   * 
+   * - User: A user.
+   * - Group: A group.
    * 
    * @example
    * User
@@ -58,8 +59,9 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
+   * 
    * - InProgress: The task is in progress.
-   * - Success: The task succeeded.
+   * - Success: The task is successful.
    * - Failed: The task failed.
    * 
    * @example
@@ -94,7 +96,7 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   targetPathName?: string;
   /**
    * @remarks
-   * The target type of the task. Valid value: RD-Account, which indicates that the task target is an account in a resource directory.
+   * The target type of the task. Valid values: RD-Account: The task target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -110,7 +112,7 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type. Valid value: CreateAccessAssignment, which indicates an authorization task for an account in a resource directory.
+   * The task type. Valid values: CreateAccessAssignment: The task is an authorization task for an account in a resource directory.
    * 
    * @example
    * CreateAccessAssignment

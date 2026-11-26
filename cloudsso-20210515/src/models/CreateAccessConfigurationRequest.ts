@@ -47,9 +47,9 @@ export class CreateAccessConfigurationRequest extends $dara.Model {
    * @remarks
    * The name of the access configuration.
    * 
-   * Format: contains letters, digits, or hyphens (-).
+   * Format: The name can contain letters, digits, and hyphens (-).
    * 
-   * Length: up to 32 characters.
+   * Length: The name can be up to 32 characters in length.
    * 
    * @example
    * ECS-Admin
@@ -59,7 +59,7 @@ export class CreateAccessConfigurationRequest extends $dara.Model {
    * @remarks
    * The description of the access configuration.
    * 
-   * Length: up to 1024 characters.
+   * Length: The description can be up to 1,024 characters in length.
    * 
    * @example
    * This is an access configuration.
@@ -77,9 +77,9 @@ export class CreateAccessConfigurationRequest extends $dara.Model {
    * @remarks
    * The initial access page.
    * 
-   * The page address that a CloudSSO user initially accesses when using the access configuration to access an account in a resource directory.
+   * The URL of the initial page that is accessed when a CloudSSO user accesses an account in a resource directory by using the access configuration.
    * 
-   * The page must be an Alibaba Cloud Management Console page. Default value: empty, which indicates that the user is redirected to the homepage of the Alibaba Cloud Management Console.
+   * The page must be an Alibaba Cloud Management Console page. By default, this parameter is empty, which indicates that the user is redirected to the homepage of the Alibaba Cloud Management Console.
    * 
    * @example
    * https://cloudsso.console.aliyun.com
@@ -89,7 +89,7 @@ export class CreateAccessConfigurationRequest extends $dara.Model {
    * @remarks
    * The session duration.
    * 
-   * The maximum duration of a session when a CloudSSO user uses the access configuration to access an account in a resource directory.
+   * The maximum duration of a session when a CloudSSO user accesses an account in a resource directory by using the access configuration.
    * 
    * Unit: seconds.
    * 
@@ -103,7 +103,7 @@ export class CreateAccessConfigurationRequest extends $dara.Model {
   sessionDuration?: number;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tags?: CreateAccessConfigurationRequestTags[];
   static names(): { [key: string]: string } {

@@ -21,7 +21,7 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   accessConfigurationName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the authorization target.
+   * The ID of the Alibaba Cloud account to which the authorization target belongs.
    * 
    * @example
    * 114240524784****
@@ -47,8 +47,8 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
    * @remarks
    * The CloudSSO identity type. Valid values:
    * 
-   * - User: user
-   * - Group: group
+   * - User: user.
+   * - Group: group.
    * 
    * @example
    * User
@@ -68,7 +68,7 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The target ID of the task.
+   * The ID of the task target.
    * 
    * @example
    * 114240524784****
@@ -94,8 +94,8 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   targetPathName?: string;
   /**
    * @remarks
-   * The target type of the task. Valid values:
-   * - RD-Account: The task target is an account in a resource directory.
+   * The type of the task target. Valid values:
+   * - RD-Account: an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -112,7 +112,7 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * - DeleteAccessAssignment: The task removes an authorization from an account in a resource directory.
+   * - DeleteAccessAssignment: the task of removing authorization from an account in a resource directory.
    * 
    * @example
    * DeleteAccessAssignment
