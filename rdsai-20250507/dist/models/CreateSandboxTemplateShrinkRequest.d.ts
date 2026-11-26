@@ -8,6 +8,7 @@ export declare class CreateSandboxTemplateShrinkRequest extends $dara.Model {
      * 1
      */
     defaultCpu?: string;
+    defaultDisk?: string;
     /**
      * @remarks
      * The memory size of sandboxes created by using this template. Unit: GiB. Valid values: 1 to 8.

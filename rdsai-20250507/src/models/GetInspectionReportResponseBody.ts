@@ -344,7 +344,15 @@ export class GetInspectionReportResponseBody extends $dara.Model {
    * 9d246af2-a0cd-4f69-857d-3785048f****
    */
   taskId?: string;
+  /**
+   * @example
+   * system-default-mysql-template
+   */
   templateId?: string;
+  /**
+   * @example
+   * MySQL 默认巡检模板
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {

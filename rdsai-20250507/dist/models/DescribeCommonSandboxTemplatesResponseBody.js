@@ -30,6 +30,7 @@ class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.Model {
     static names() {
         return {
             defaultCpu: 'DefaultCpu',
+            defaultDisk: 'DefaultDisk',
             defaultMemory: 'DefaultMemory',
             defaultReplicas: 'DefaultReplicas',
             description: 'Description',
@@ -39,6 +40,7 @@ class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.Model {
     static types() {
         return {
             defaultCpu: 'string',
+            defaultDisk: 'string',
             defaultMemory: 'string',
             defaultReplicas: 'number',
             description: 'string',

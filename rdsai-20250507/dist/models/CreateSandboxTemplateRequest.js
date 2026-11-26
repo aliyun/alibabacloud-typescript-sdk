@@ -30,6 +30,7 @@ class CreateSandboxTemplateRequest extends $dara.Model {
     static names() {
         return {
             defaultCpu: 'DefaultCpu',
+            defaultDisk: 'DefaultDisk',
             defaultMemory: 'DefaultMemory',
             description: 'Description',
             image: 'Image',
@@ -43,6 +44,7 @@ class CreateSandboxTemplateRequest extends $dara.Model {
     static types() {
         return {
             defaultCpu: 'string',
+            defaultDisk: 'string',
             defaultMemory: 'string',
             description: 'string',
             image: 'string',

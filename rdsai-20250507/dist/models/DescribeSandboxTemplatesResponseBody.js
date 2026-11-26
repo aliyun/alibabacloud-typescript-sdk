@@ -31,6 +31,7 @@ class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.Model {
         return {
             createdBy: 'CreatedBy',
             defaultCpu: 'DefaultCpu',
+            defaultDisk: 'DefaultDisk',
             defaultMemory: 'DefaultMemory',
             description: 'Description',
             enableVpcAccess: 'EnableVpcAccess',
@@ -45,6 +46,7 @@ class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.Model {
         return {
             createdBy: 'string',
             defaultCpu: 'string',
+            defaultDisk: 'string',
             defaultMemory: 'string',
             description: 'string',
             enableVpcAccess: 'string',

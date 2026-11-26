@@ -1016,12 +1016,12 @@ export default class Client extends OpenApi {
      */
     describeMonitorData(request: $_model.DescribeMonitorDataRequest): Promise<$_model.DescribeMonitorDataResponse>;
     /**
-     * Queries a list of sandbox templates used to create Supabase sandboxes.
+     * Queries the sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * RDS Supabase
-     * ### Related feature documentation
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -1030,12 +1030,12 @@ export default class Client extends OpenApi {
      */
     describeSandboxTemplatesWithOptions(request: $_model.DescribeSandboxTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSandboxTemplatesResponse>;
     /**
-     * Queries a list of sandbox templates used to create Supabase sandboxes.
+     * Queries the sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * RDS Supabase
-     * ### Related feature documentation
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -1905,7 +1905,7 @@ export default class Client extends OpenApi {
      */
     listCustomAgentTools(): Promise<$_model.ListCustomAgentToolsResponse>;
     /**
-     * 获取 RDS PG AI 网关指标
+     * Retrieves ApsaraDB RDS for PostgreSQL AI gateway metrics.
      *
      * @param request - ListLLMGatewayMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1913,7 +1913,7 @@ export default class Client extends OpenApi {
      */
     listLLMGatewayMetricsWithOptions(request: $_model.ListLLMGatewayMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLLMGatewayMetricsResponse>;
     /**
-     * 获取 RDS PG AI 网关指标
+     * Retrieves ApsaraDB RDS for PostgreSQL AI gateway metrics.
      *
      * @param request - ListLLMGatewayMetricsRequest
      * @returns ListLLMGatewayMetricsResponse
@@ -2185,9 +2185,9 @@ export default class Client extends OpenApi {
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifySandboxTemplateRequest
@@ -2199,9 +2199,9 @@ export default class Client extends OpenApi {
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifySandboxTemplateRequest

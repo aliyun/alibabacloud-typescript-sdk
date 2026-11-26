@@ -63,7 +63,17 @@ export declare class GetMessagesResponseBodyDataEvents extends $dara.Model {
      * contextdb.search
      */
     toolName?: string;
+    /**
+     * @example
+     * 用户询问实例 pgm-example12345678（PostgreSQL，cn-hangzhou）的存储扩容方法。先检索相关文档，再查询实例配置。
+     *
+     * 当前会话处于只读模式，仅提供操作说明，不执行变更。
+     */
     answer?: string;
+    /**
+     * @example
+     * thinking
+     */
     event?: string;
     static names(): {
         [key: string]: string;
@@ -77,8 +87,20 @@ export declare class GetMessagesResponseBodyDataEvents extends $dara.Model {
     });
 }
 export declare class GetMessagesResponseBodyDataMessageFiles extends $dara.Model {
+    /**
+     * @example
+     * ac6bff58-75b7-43b2-8149-7dcc1c57cf11
+     */
     id?: string;
+    /**
+     * @example
+     * https://example.com/3493759g.png?x-oss-date=20260102T030405Z&x-oss-expires=723&x-oss-signature-version=OSS4********A256&x-oss-credential=PC******zb&x-oss-signature=
+     */
     previewUrl?: string;
+    /**
+     * @example
+     * image
+     */
     type?: string;
     /**
      * @remarks
@@ -137,8 +159,20 @@ export declare class GetMessagesResponseBodyData extends $dara.Model {
      * like
      */
     feedback?: string;
+    /**
+     * @example
+     * 1767323076
+     */
     generationFinishedAt?: string;
+    /**
+     * @example
+     * 1767323045
+     */
     generationStartedAt?: string;
+    /**
+     * @example
+     * completed
+     */
     generationStatus?: string;
     /**
      * @remarks
@@ -148,6 +182,10 @@ export declare class GetMessagesResponseBodyData extends $dara.Model {
      * 84dc9f9b-424a-404d-9c36-35e9d000****
      */
     id?: string;
+    /**
+     * @example
+     * 5561345587003-4
+     */
     lastSentEntryId?: string;
     messageFiles?: GetMessagesResponseBodyDataMessageFiles[];
     /**

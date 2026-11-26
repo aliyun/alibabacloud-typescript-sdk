@@ -17,10 +17,10 @@ export declare class DescribeSandboxTemplatesRequest extends $dara.Model {
     instanceName?: string;
     /**
      * @remarks
-     * The backup parameter. You can ignore this parameter.
+     * A reserved parameter. Ignore this parameter.
      *
      * @example
-     * None
+     * 5
      */
     maxResults?: number;
     /**

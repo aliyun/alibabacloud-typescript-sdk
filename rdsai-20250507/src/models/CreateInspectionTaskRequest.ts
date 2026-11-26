@@ -40,9 +40,25 @@ export class CreateInspectionTaskRequest extends $dara.Model {
    * rm-2ze6mk259v322****,rm-2zef3b65430j0****
    */
   instanceIds?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   reportLanguage?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   reportRegionId?: string;
+  /**
+   * @example
+   * mysql
+   */
   reportType?: string;
   /**
    * @remarks
@@ -52,6 +68,10 @@ export class CreateInspectionTaskRequest extends $dara.Model {
    * 2025-12-28T16:00:00Z
    */
   startTime?: string;
+  /**
+   * @example
+   * system-default-mysql-template
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {

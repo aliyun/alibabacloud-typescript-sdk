@@ -27,6 +27,10 @@ export class GetStandAloneReportsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @example
+   * mysql
+   */
   reportType?: string;
   /**
    * @remarks

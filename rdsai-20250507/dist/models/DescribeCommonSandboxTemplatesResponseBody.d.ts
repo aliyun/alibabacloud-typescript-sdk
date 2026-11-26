@@ -9,6 +9,11 @@ export declare class DescribeCommonSandboxTemplatesResponseBodyTemplates extends
      */
     defaultCpu?: string;
     /**
+     * @example
+     * 30Gi
+     */
+    defaultDisk?: string;
+    /**
      * @remarks
      * The default memory size for a sandbox created by using this template. The unit ends with Gi.
      *

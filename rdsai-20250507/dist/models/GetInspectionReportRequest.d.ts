@@ -8,6 +8,10 @@ export declare class GetInspectionReportRequest extends $dara.Model {
      * rm-2zep6e5u6l2yu****
      */
     instanceId?: string;
+    /**
+     * @example
+     * mysql
+     */
     reportType?: string;
     /**
      * @remarks

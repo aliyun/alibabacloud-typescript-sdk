@@ -16,9 +16,25 @@ export declare class GetStandAloneReportsResponseBodyReports extends $dara.Model
      * 2026-01-23T08:20:31Z
      */
     endTime?: string;
+    /**
+     * @example
+     * instance_info,resource_usage
+     */
     inspectionItems?: string;
+    /**
+     * @example
+     * cn-beijing
+     */
     regionId?: string;
+    /**
+     * @example
+     * zh-CN
+     */
     reportLanguage?: string;
+    /**
+     * @example
+     * mysql
+     */
     reportType?: string;
     /**
      * @remarks
@@ -44,7 +60,15 @@ export declare class GetStandAloneReportsResponseBodyReports extends $dara.Model
      * 0f19210c-7bb8-4e38-a099-f94152df****
      */
     taskId?: string;
+    /**
+     * @example
+     * system-default-mysql-template
+     */
     templateId?: string;
+    /**
+     * @example
+     * MySQL 默认巡检模板
+     */
     templateName?: string;
     static names(): {
         [key: string]: string;

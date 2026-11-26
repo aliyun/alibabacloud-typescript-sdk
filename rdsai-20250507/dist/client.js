@@ -1176,6 +1176,9 @@ class Client extends openapi_core_1.default {
         if (!$dara.isNull(request.defaultCpu)) {
             query["DefaultCpu"] = request.defaultCpu;
         }
+        if (!$dara.isNull(request.defaultDisk)) {
+            query["DefaultDisk"] = request.defaultDisk;
+        }
         if (!$dara.isNull(request.defaultMemory)) {
             query["DefaultMemory"] = request.defaultMemory;
         }
@@ -2793,12 +2796,12 @@ class Client extends openapi_core_1.default {
         return await this.describeMonitorDataWithOptions(request, runtime);
     }
     /**
-     * Queries a list of sandbox templates used to create Supabase sandboxes.
+     * Queries the sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * RDS Supabase
-     * ### Related feature documentation
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -2849,12 +2852,12 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeSandboxTemplatesResponse({}));
     }
     /**
-     * Queries a list of sandbox templates used to create Supabase sandboxes.
+     * Queries the sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * RDS Supabase
-     * ### Related feature documentation
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -5052,7 +5055,7 @@ class Client extends openapi_core_1.default {
         return await this.listCustomAgentToolsWithOptions(runtime);
     }
     /**
-     * 获取 RDS PG AI 网关指标
+     * Retrieves ApsaraDB RDS for PostgreSQL AI gateway metrics.
      *
      * @param request - ListLLMGatewayMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5099,7 +5102,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListLLMGatewayMetricsResponse({}));
     }
     /**
-     * 获取 RDS PG AI 网关指标
+     * Retrieves ApsaraDB RDS for PostgreSQL AI gateway metrics.
      *
      * @param request - ListLLMGatewayMetricsRequest
      * @returns ListLLMGatewayMetricsResponse
@@ -5858,9 +5861,9 @@ class Client extends openapi_core_1.default {
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifySandboxTemplateRequest
@@ -5877,6 +5880,9 @@ class Client extends openapi_core_1.default {
         let query = {};
         if (!$dara.isNull(request.defaultCpu)) {
             query["DefaultCpu"] = request.defaultCpu;
+        }
+        if (!$dara.isNull(request.defaultDisk)) {
+            query["DefaultDisk"] = request.defaultDisk;
         }
         if (!$dara.isNull(request.defaultMemory)) {
             query["DefaultMemory"] = request.defaultMemory;
@@ -5919,9 +5925,9 @@ class Client extends openapi_core_1.default {
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifySandboxTemplateRequest

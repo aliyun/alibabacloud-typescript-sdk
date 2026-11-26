@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySandboxTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the AI application.
+   * The ID of the AI application instance.
    * 
    * @example
    * ra-supabase-8moov5lxba****

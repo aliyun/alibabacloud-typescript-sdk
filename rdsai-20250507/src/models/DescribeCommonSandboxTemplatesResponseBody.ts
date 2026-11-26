@@ -12,6 +12,11 @@ export class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.M
    */
   defaultCpu?: string;
   /**
+   * @example
+   * 30Gi
+   */
+  defaultDisk?: string;
+  /**
    * @remarks
    * The default memory size for a sandbox created by using this template. The unit ends with Gi.
    * 
@@ -46,6 +51,7 @@ export class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.M
   static names(): { [key: string]: string } {
     return {
       defaultCpu: 'DefaultCpu',
+      defaultDisk: 'DefaultDisk',
       defaultMemory: 'DefaultMemory',
       defaultReplicas: 'DefaultReplicas',
       description: 'Description',
@@ -56,6 +62,7 @@ export class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.M
   static types(): { [key: string]: any } {
     return {
       defaultCpu: 'string',
+      defaultDisk: 'string',
       defaultMemory: 'string',
       defaultReplicas: 'number',
       description: 'string',

@@ -16,6 +16,10 @@ export declare class GetScheduledReportsResponseBodyReports extends $dara.Model 
      * 2025-01-01T23:59:59Z
      */
     endTime?: string;
+    /**
+     * @example
+     * instance_info,resource_usage
+     */
     inspectionItems?: string;
     /**
      * @remarks
@@ -25,7 +29,15 @@ export declare class GetScheduledReportsResponseBodyReports extends $dara.Model 
      * cn-beijing
      */
     regionId?: string;
+    /**
+     * @example
+     * zh-CN
+     */
     reportLanguage?: string;
+    /**
+     * @example
+     * mysql
+     */
     reportType?: string;
     /**
      * @remarks

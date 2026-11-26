@@ -13,6 +13,14 @@ export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   defaultCpu?: string;
   /**
    * @remarks
+   * The default disk space for sandboxes created by using this template.
+   * 
+   * @example
+   * 30Gi
+   */
+  defaultDisk?: string;
+  /**
+   * @remarks
    * The memory size for sandboxes created by using this template. Unit: GiB. Valid values: 1 to 8.
    * 
    * @example
@@ -21,7 +29,7 @@ export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   defaultMemory?: string;
   /**
    * @remarks
-   * The container image used for the sandbox template. Format: `[registry/]<repo>[:tag][@sha256:digest]`.
+   * The container image used by the sandbox template. Format: `[registry/]<repo>[:tag][@sha256:digest]`.
    * 
    * @example
    * registry.example.com/example/sandbox:1.0
@@ -29,7 +37,7 @@ export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The instance ID of the AI application.
+   * The ID of the AI application instance.
    * 
    * This parameter is required.
    * 
@@ -55,7 +63,7 @@ export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The custom tags of the sandbox template. The key is the tag name, and the value is the tag value. You cannot use the system-reserved tag createdBy or the system-reserved tag hidden.
+   * The custom tags of the sandbox template. The key is the tag name, and the value is the tag value. You cannot use the system-reserved tags createdBy and hidden.
    */
   tagsShrink?: string;
   /**
@@ -71,6 +79,7 @@ export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       defaultCpu: 'DefaultCpu',
+      defaultDisk: 'DefaultDisk',
       defaultMemory: 'DefaultMemory',
       image: 'Image',
       instanceName: 'InstanceName',
@@ -84,6 +93,7 @@ export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       defaultCpu: 'string',
+      defaultDisk: 'string',
       defaultMemory: 'string',
       image: 'string',
       instanceName: 'string',

@@ -36,6 +36,10 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
    * Monday
    */
   frequency?: string;
+  /**
+   * @example
+   * instance_info,resource_usage
+   */
   inspectionItems?: string;
   /**
    * @remarks
@@ -53,8 +57,20 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
    * Inspection test
    */
   name?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   reportLanguage?: string;
+  /**
+   * @example
+   * mysql
+   */
   reportType?: string;
   /**
    * @remarks
@@ -72,7 +88,15 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
    * 18:00:00Z
    */
   taskStartTime?: string;
+  /**
+   * @example
+   * system-default-mysql-template
+   */
   templateId?: string;
+  /**
+   * @example
+   * MySQL 默认巡检模板
+   */
   templateName?: string;
   /**
    * @remarks

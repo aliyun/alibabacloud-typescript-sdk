@@ -11,6 +11,7 @@ export class CreateSandboxTemplateShrinkRequest extends $dara.Model {
    * 1
    */
   defaultCpu?: string;
+  defaultDisk?: string;
   /**
    * @remarks
    * The memory size of sandboxes created by using this template. Unit: GiB. Valid values: 1 to 8.
@@ -79,6 +80,7 @@ export class CreateSandboxTemplateShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       defaultCpu: 'DefaultCpu',
+      defaultDisk: 'DefaultDisk',
       defaultMemory: 'DefaultMemory',
       description: 'Description',
       image: 'Image',
@@ -93,6 +95,7 @@ export class CreateSandboxTemplateShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       defaultCpu: 'string',
+      defaultDisk: 'string',
       defaultMemory: 'string',
       description: 'string',
       image: 'string',

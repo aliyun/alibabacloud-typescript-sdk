@@ -1268,6 +1268,10 @@ export default class Client extends OpenApi {
       query["DefaultCpu"] = request.defaultCpu;
     }
 
+    if (!$dara.isNull(request.defaultDisk)) {
+      query["DefaultDisk"] = request.defaultDisk;
+    }
+
     if (!$dara.isNull(request.defaultMemory)) {
       query["DefaultMemory"] = request.defaultMemory;
     }
@@ -3061,12 +3065,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sandbox templates used to create Supabase sandboxes.
+   * Queries the sandbox templates used to create Supabase sandboxes.
    * 
    * @remarks
-   * ### Applicable engines
+   * ### Supported engines
    * RDS Supabase
-   * ### Related feature documentation
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeSandboxTemplatesRequest
@@ -3126,12 +3130,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sandbox templates used to create Supabase sandboxes.
+   * Queries the sandbox templates used to create Supabase sandboxes.
    * 
    * @remarks
-   * ### Applicable engines
+   * ### Supported engines
    * RDS Supabase
-   * ### Related feature documentation
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeSandboxTemplatesRequest
@@ -5559,7 +5563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 RDS PG AI 网关指标
+   * Retrieves ApsaraDB RDS for PostgreSQL AI gateway metrics.
    * 
    * @param request - ListLLMGatewayMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5614,7 +5618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 RDS PG AI 网关指标
+   * Retrieves ApsaraDB RDS for PostgreSQL AI gateway metrics.
    * 
    * @param request - ListLLMGatewayMetricsRequest
    * @returns ListLLMGatewayMetricsResponse
@@ -6472,9 +6476,9 @@ export default class Client extends OpenApi {
    * Modifies a sandbox template.
    * 
    * @remarks
-   * ### Supported engines
+   * ### Applicable engines
    * RDS Supabase
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param tmpReq - ModifySandboxTemplateRequest
@@ -6492,6 +6496,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.defaultCpu)) {
       query["DefaultCpu"] = request.defaultCpu;
+    }
+
+    if (!$dara.isNull(request.defaultDisk)) {
+      query["DefaultDisk"] = request.defaultDisk;
     }
 
     if (!$dara.isNull(request.defaultMemory)) {
@@ -6543,9 +6551,9 @@ export default class Client extends OpenApi {
    * Modifies a sandbox template.
    * 
    * @remarks
-   * ### Supported engines
+   * ### Applicable engines
    * RDS Supabase
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifySandboxTemplateRequest

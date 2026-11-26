@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.Model {
     /**
      * @remarks
-     * The source that created the sandbox template. Valid values: user (created by a user) and system (created by the system).
+     * The creation source of the sandbox template. Valid values: user (created by a user) and system (created by the system).
      *
      * @example
      * user
@@ -10,12 +10,20 @@ export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extend
     createdBy?: string;
     /**
      * @remarks
-     * The number of CPUs allocated to the sandbox created by using this template.
+     * The number of vCPUs allocated to the sandbox created by using this template.
      *
      * @example
      * 2
      */
     defaultCpu?: string;
+    /**
+     * @remarks
+     * The default disk space of the sandbox created by using this template.
+     *
+     * @example
+     * 30Gi
+     */
+    defaultDisk?: string;
     /**
      * @remarks
      * The memory size of the sandbox created by using this template.
@@ -34,7 +42,7 @@ export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extend
     description?: string;
     /**
      * @remarks
-     * Indicates whether the sandbox created by using this template can access resources in the VPC where Supabase resides.
+     * Specifies whether the sandbox created by using this template can access resources in the VPC where Supabase resides.
      *
      * @example
      * true
@@ -58,7 +66,7 @@ export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extend
     name?: string;
     /**
      * @remarks
-     * The number of replicas for the sandbox template.
+     * The number of replicas of the sandbox template.
      *
      * @example
      * 1
@@ -66,14 +74,14 @@ export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extend
     replicas?: number;
     /**
      * @remarks
-     * The custom tags of the sandbox template. A key represents a tag name, and a value represents a tag value.
+     * The custom tags of the sandbox template. The key is the tag name and the value is the tag value.
      */
     tags?: {
         [key: string]: string;
     };
     /**
      * @remarks
-     * The ID of the sandbox template. Specify this ID when creating a sandbox by using this template.
+     * The ID of the sandbox template. Specify this ID when you create a sandbox by using this template.
      *
      * @example
      * code-interpreter-asdxxxx
@@ -93,7 +101,7 @@ export declare class DescribeSandboxTemplatesResponseBodySandboxTemplates extend
 export declare class DescribeSandboxTemplatesResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The backup parameter. You can ignore this parameter.
+     * A reserved parameter. Ignore this parameter.
      *
      * @example
      * None
@@ -101,7 +109,7 @@ export declare class DescribeSandboxTemplatesResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The position from which the read operation starts. An empty value indicates that the read operation starts from the beginning.
+     * The position from which the current query starts. If this parameter is left empty, the query starts from the beginning.
      *
      * @example
      * AAAAAc3HCuYhJi/wvpk4xOr0VLYz/NvD85HpgBeRBCusEIeVQ0dHZH9jr+NP3X9Jx0iSoql55b9nd4PIDm252/a0f+U=

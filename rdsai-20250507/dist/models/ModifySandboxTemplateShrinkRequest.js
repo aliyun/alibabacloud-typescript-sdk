@@ -30,6 +30,7 @@ class ModifySandboxTemplateShrinkRequest extends $dara.Model {
     static names() {
         return {
             defaultCpu: 'DefaultCpu',
+            defaultDisk: 'DefaultDisk',
             defaultMemory: 'DefaultMemory',
             image: 'Image',
             instanceName: 'InstanceName',
@@ -42,6 +43,7 @@ class ModifySandboxTemplateShrinkRequest extends $dara.Model {
     static types() {
         return {
             defaultCpu: 'string',
+            defaultDisk: 'string',
             defaultMemory: 'string',
             image: 'string',
             instanceName: 'string',

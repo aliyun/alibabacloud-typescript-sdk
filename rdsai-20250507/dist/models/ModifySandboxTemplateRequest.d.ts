@@ -10,6 +10,14 @@ export declare class ModifySandboxTemplateRequest extends $dara.Model {
     defaultCpu?: string;
     /**
      * @remarks
+     * The default disk space for sandboxes created by using this template.
+     *
+     * @example
+     * 30Gi
+     */
+    defaultDisk?: string;
+    /**
+     * @remarks
      * The memory size for sandboxes created by using this template. Unit: GiB. Valid values: 1 to 8.
      *
      * @example
@@ -18,7 +26,7 @@ export declare class ModifySandboxTemplateRequest extends $dara.Model {
     defaultMemory?: string;
     /**
      * @remarks
-     * The container image used for the sandbox template. Format: `[registry/]<repo>[:tag][@sha256:digest]`.
+     * The container image used by the sandbox template. Format: `[registry/]<repo>[:tag][@sha256:digest]`.
      *
      * @example
      * registry.example.com/example/sandbox:1.0
@@ -26,7 +34,7 @@ export declare class ModifySandboxTemplateRequest extends $dara.Model {
     image?: string;
     /**
      * @remarks
-     * The instance ID of the AI application.
+     * The ID of the AI application instance.
      *
      * This parameter is required.
      *
@@ -52,7 +60,7 @@ export declare class ModifySandboxTemplateRequest extends $dara.Model {
     replicas?: number;
     /**
      * @remarks
-     * The custom tags of the sandbox template. The key is the tag name, and the value is the tag value. You cannot use the system-reserved tag createdBy or the system-reserved tag hidden.
+     * The custom tags of the sandbox template. The key is the tag name, and the value is the tag value. You cannot use the system-reserved tags createdBy and hidden.
      */
     tags?: {
         [key: string]: string;
