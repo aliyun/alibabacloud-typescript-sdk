@@ -7,12 +7,12 @@ export class MoveResourceGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which you want to transfer the cloud resource.
    * 
-   * >  You can use resource groups to manage resources within your Alibaba Cloud account by group. This helps you resolve issues such as resource grouping and permission management for your Alibaba Cloud account. For more information, see [What is resource management?](https://help.aliyun.com/document_detail/94475.html)
+   * > You can use resource groups to manage resources within your Alibaba Cloud account by group. This helps you resolve issues such as resource grouping and permission management for your Alibaba Cloud account. For more information, see [What is resource management?](https://help.aliyun.com/document_detail/94475.html)
    * 
    * This parameter is required.
    * 
    * @example
-   * rg-9gLOoK****
+   * rg-aekzbi7******
    */
   newResourceGroupId?: string;
   /**
@@ -29,15 +29,18 @@ export class MoveResourceGroupRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   **loadbalancer**: Application Load Balancer (ALB) instance
-   * *   **acl**: access control list (ACL)
-   * *   **securitypolicy**: security policy
-   * *   **servergroup**: server group
+   * - **loadbalancer**: Application Load Balancer (ALB) instance
+   * 
+   * - **acl**: access control list (ACL)
+   * 
+   * - **securitypolicy**: security policy
+   * 
+   * - **servergroup**: server group
    * 
    * This parameter is required.
    * 
    * @example
-   * ACL
+   * acl
    */
   resourceType?: string;
   static names(): { [key: string]: string } {

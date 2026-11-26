@@ -146,6 +146,8 @@ export { ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig } f
 export { ListLoadBalancersResponseBodyLoadBalancersLoadBalancerOperationLocks } from './ListLoadBalancersResponseBody';
 export { ListLoadBalancersResponseBodyLoadBalancersModificationProtectionConfig } from './ListLoadBalancersResponseBody';
 export { ListLoadBalancersResponseBodyLoadBalancersTags } from './ListLoadBalancersResponseBody';
+export { ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerAddresses } from './ListLoadBalancersResponseBody';
+export { ListLoadBalancersResponseBodyLoadBalancersZoneMappings } from './ListLoadBalancersResponseBody';
 export { ListLoadBalancersResponseBodyLoadBalancers } from './ListLoadBalancersResponseBody';
 export { ListRulesRequestTag } from './ListRulesRequest';
 export { ListRulesResponseBodyRulesRuleActionsCorsConfig } from './ListRulesResponseBody';

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAScriptsRequestAScriptsExtAttributes extends $dara.Model {
   /**
    * @remarks
-   * The key of the extended attribute.
+   * The attribute key of the AScript script.
    * 
-   * You can only set the key to **EsDebug**. This extended attribute adds a debug response header to record the execution of the AScript rule if the client request includes the _es_dbg parameter and its value matches the specified value of the extended attribute.
+   * Valid values: **EsDebug** only. When a request carries the _es_dbg parameter and its value matches the key configured here, the corresponding debug response headers are enabled to output rule execution records.
    * 
    * @example
    * EsDebug
@@ -15,7 +15,7 @@ export class CreateAScriptsRequestAScriptsExtAttributes extends $dara.Model {
   attributeKey?: string;
   /**
    * @remarks
-   * The value of the extended attribute, which can contain a maximum of 128 characters, including letters and digits.
+   * The attribute value. The value can contain uppercase and lowercase letters and digits, and must be 1 to 128 characters in length.
    * 
    * @example
    * test123
@@ -47,9 +47,9 @@ export class CreateAScriptsRequestAScriptsExtAttributes extends $dara.Model {
 export class CreateAScriptsRequestAScripts extends $dara.Model {
   /**
    * @remarks
-   * The name of the AScript rule.
+   * The name of the programmable script.
    * 
-   * The length must be between 2 and 128 characters. This name must start with a letter and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. It must start with a letter, Chinese character, or digit.
    * 
    * This parameter is required.
    * 
@@ -59,10 +59,11 @@ export class CreateAScriptsRequestAScripts extends $dara.Model {
   AScriptName?: string;
   /**
    * @remarks
-   * Enables the AScript rule. Valid values:
+   * Specifies whether to enable the programmable script. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: Enabled.
+   * 
+   * - **false** (default): Disabled.
    * 
    * @example
    * false
@@ -70,10 +71,11 @@ export class CreateAScriptsRequestAScripts extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Enables the extended attribute of the Ascript rule. Valid values:
+   * Specifies whether to enable the extended attributes of the programmable script. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true: Enabled.
+   * 
+   * - false (default): Disabled.
    * 
    * @example
    * true
@@ -81,16 +83,18 @@ export class CreateAScriptsRequestAScripts extends $dara.Model {
   extAttributeEnabled?: boolean;
   /**
    * @remarks
-   * The extended attribute of the AScript rule.
+   * The extended attributes.
    */
   extAttributes?: CreateAScriptsRequestAScriptsExtAttributes[];
   /**
    * @remarks
-   * The position where the Ascript rule is evaluated. Valid values are:
+   * The execution position of the programmable script. Valid values:
    * 
-   * *   RequestHead (default): before inbound rules are evaluated
-   * *   RequestFoot: after inbound rules are evaluated
-   * *   ResponseHead: before outbound rules are evaluated
+   * - RequestHead (default): before request-direction rules are executed.
+   * 
+   * - RequestFoot: after request-direction rules are executed.
+   * 
+   * - ResponseHead: before response-direction rules are executed.
    * 
    * @example
    * RequestFoot
@@ -98,12 +102,12 @@ export class CreateAScriptsRequestAScripts extends $dara.Model {
   position?: string;
   /**
    * @remarks
-   * The content of the AScript rule.
+   * The content of the programmable script.
    * 
    * This parameter is required.
    * 
    * @example
-   * if and(match_re($uri, \\"^/1.txt$\\"), $arg_type) {   rewrite(concat(\\"/1.\\", $arg_type), \\"break\\") }
+   * if and(match_re($uri, \"^/1.txt$\"), $arg_type) {   rewrite(concat(\"/1.\", $arg_type), \"break\") }
    */
   scriptContent?: string;
   static names(): { [key: string]: string } {
@@ -143,25 +147,24 @@ export class CreateAScriptsRequestAScripts extends $dara.Model {
 export class CreateAScriptsRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the AScript rules.
+   * The list of programmable script information.
    */
   AScripts?: CreateAScriptsRequestAScripts[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a unique value from your client for each request. ClientToken supports only ASCII characters.
    * 
    * @example
-   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   * 5A2CFF0E-5718-45B5-9D4D-70B******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run. Valid values:
+   * - **true**: Sends a dry run request. No programmable script is created. The system checks whether the required parameters are specified, the request format is valid, and business limits are met. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
+   * - **false** (default): Sends a regular request. If the check passes, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false

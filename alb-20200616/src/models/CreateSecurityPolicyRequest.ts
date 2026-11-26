@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityPolicyRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key. The key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class CreateSecurityPolicyRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag value. The value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * product
@@ -45,27 +45,26 @@ export class CreateSecurityPolicyRequestTag extends $dara.Model {
 export class CreateSecurityPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The supported cipher suites.
+   * The list of supported cipher suites.
    * 
    * This parameter is required.
    */
   ciphers?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotence of the request. You can generate the value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length.
    * 
-   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId of each API request may be different.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF0F******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform only a dry run. Valid values:
+   * - **true**: performs only a dry run and does not create resources. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -73,7 +72,7 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-atstuj3rtop****
@@ -81,9 +80,9 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the security policy.
+   * Policy Name of the security policy.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * Policy Name must be 2 to 128 characters in length. It must start with a letter, Chinese character, or digit, and can contain digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * This parameter is required.
    * 
@@ -93,7 +92,7 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
   securityPolicyName?: string;
   /**
    * @remarks
-   * The supported Transport Layer Security (TLS) protocol versions.
+   * The list of supported TLS protocol versions.
    * 
    * This parameter is required.
    */

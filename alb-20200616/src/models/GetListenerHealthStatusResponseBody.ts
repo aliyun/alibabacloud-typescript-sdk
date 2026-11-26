@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned from the server, for example, **302**.
+   * The actual response code returned by the backend server, such as **302**.
    * 
-   * > A value is returned only if `ReasonCode` is set to **RESPONSE_MISMATCH**.
+   * > This value is returned only when **ReasonCode** is **RESPONSE_MISMATCH**.
    * 
    * @example
    * 302
@@ -15,11 +15,11 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
   actualResponse?: string;
   /**
    * @remarks
-   * The HTTP status code returned after backend servers pass health checks.
+   * The expected response code from the backend server.
    * 
-   * Valid values: **HTTP_2xx**, **HTTP_3xx**, **HTTP_4xx**, and **HTTP_5xx**. Multiple status codes are separated by commas (,).
+   * Valid values: **HTTP_2xx**, **HTTP_3xx**, **HTTP_4xx**, and **HTTP_5xx**. Multiple response codes are separated by commas (,).
    * 
-   * > This value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
+   * > This value is returned only when **ReasonCode** is **RESPONSE_MISMATCH**.
    * 
    * @example
    * HTTP_2xx
@@ -27,16 +27,23 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
   expectedResponse?: string;
   /**
    * @remarks
-   * The reason why the value of **Status** is Unhealthy. Only HTTP and HTTPS listeners support this parameter.
+   * The detailed reason when **Status** is abnormal.
+   * Currently, only HTTP and HTTPS listeners and forwarding rules support viewing abnormal status reasons:
+   * - **CONNECT_TIMEOUT**: The Server Load Balancer (SLB) health check timed out when establishing a connection to the backend server.
    * 
-   * *   **CONNECT_TIMEOUT**: ALB failed to connect to the backend server within the specified period of time.
-   * *   **CONNECT_FAILED**: ALB failed to connect to the backend server.
-   * *   **RECV_RESPONSE_FAILED**: ALB failed to receive a response from the backend server.
-   * *   **RECV_RESPONSE_TIMEOUT**: ALB failed to receive a response from the backend server within the specified period of time.
-   * *   **SEND_REQUEST_FAILED**: ALB failed to send a request to the backend server.
-   * *   **SEND_REQUEST_TIMEOUT**: ALB failed to send a request to the backend server within the specified period of time.
-   * *   **RESPONSE_FORMAT_ERROR**: The format of the response from the backend server is invalid.
-   * *   **RESPONSE_MISMATCH**: The HTTP status code returned from the backend server is not the expected one.
+   * - **CONNECT_FAILED**: The SLB health check failed to establish a connection to the backend server.
+   * 
+   * - **RECV_RESPONSE_FAILED**: The SLB health check failed to receive a response from the backend server.
+   * 
+   * - **RECV_RESPONSE_TIMEOUT**: The SLB health check timed out when receiving a response from the backend server.
+   * 
+   * - **SEND_REQUEST_FAILED**: The SLB health check failed to send a request to the backend server.
+   * 
+   * - **SEND_REQUEST_TIMEOUT**: The SLB health check timed out when sending a request to the backend server.
+   * 
+   * - **RESPONSE_FORMAT_ERROR**: The SLB health check received a response in an incorrect format from the backend server.
+   * 
+   * - **RESPONSE_MISMATCH**: The response code received from the backend server during the SLB health check did not match the expected response code.
    * 
    * @example
    * RESPONSE_MISMATCH
@@ -70,7 +77,7 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
 export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers extends $dara.Model {
   /**
    * @remarks
-   * The backend port.
+   * The backend server port.
    * 
    * @example
    * 90
@@ -78,20 +85,20 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
   port?: number;
   /**
    * @remarks
-   * The cause for the unhealthy state of the backend servers.
+   * The reason for the abnormal state.
    */
   reason?: GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServersReason;
   /**
    * @remarks
-   * The ID of the backend server.
+   * The backend server ID.
    * 
    * @example
-   * rg-bp1bfa08ex*****
+   * i-uf62h8v******
    */
   serverId?: string;
   /**
    * @remarks
-   * The IP address of the backend server.
+   * The backend server IP address.
    * 
    * @example
    * 192.168.8.10
@@ -99,12 +106,15 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
   serverIp?: string;
   /**
    * @remarks
-   * The status of the health check. Valid values: Valid values:
+   * The health check status. Valid values:
    * 
-   * *   **Initial**: indicates that health checks are configured for the NLB instance, but no data was found.
-   * *   **Unhealthy**: indicates that the backend server consecutively fails health checks.
-   * *   **Unused**: indicates that the weight of the backend server is 0.
-   * *   **Unavailable**: indicates that health checks are disabled.
+   * - **Initial**: Initializing. The SLB instance has health check configured, but no data is available.
+   * 
+   * - **Unhealthy**: Unhealthy. The backend server has continuously reported an unhealthy state.
+   * 
+   * - **Unused**: Not in use. The weight of the backend server is 0, or cross-zone load balancing is disabled and the backend server is not in the same zone as the Application Load Balancer (ALB) instance.
+   * 
+   * - **Unavailable**: Not enabled. Health check is not enabled.
    * 
    * @example
    * Initial
@@ -145,10 +155,10 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
 export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos extends $dara.Model {
   /**
    * @remarks
-   * The action specified for the server group. Valid values:
+   * The server group usage type. Valid values:
    * 
-   * *   **ForwardGroup**: distributes requests to server groups.
-   * *   **TrafficMirror**: mirrors requests to server groups.
+   * - **ForwardGroup**: Forward to the server group.
+   * - **TrafficMirror**: Mirror traffic to the server group.
    * 
    * @example
    * TrafficMirror
@@ -156,7 +166,7 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
   actionType?: string;
   /**
    * @remarks
-   * Indicates whether health checks are enabled. If **on** is returned, it indicates that health checks are enabled.
+   * The health check status. Valid values: **on**: Health check is enabled.
    * 
    * @example
    * on
@@ -164,15 +174,23 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
   healthCheckEnabled?: string;
   /**
    * @remarks
-   * A list of unhealthy backend servers.
+   * The list of backend servers in abnormal state.
    */
   nonNormalServers?: GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers[];
   /**
    * @remarks
-   * The ID of the server group that is associated with the listener.
+   * The number of servers in the server group.
    * 
    * @example
-   * vsp-bp1qjwo61pqz3ahltv****
+   * 1
+   */
+  serverCount?: number;
+  /**
+   * @remarks
+   * The associated server group ID.
+   * 
+   * @example
+   * sgp-8ilqs4axp6******
    */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
@@ -180,6 +198,7 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
       actionType: 'ActionType',
       healthCheckEnabled: 'HealthCheckEnabled',
       nonNormalServers: 'NonNormalServers',
+      serverCount: 'ServerCount',
       serverGroupId: 'ServerGroupId',
     };
   }
@@ -189,6 +208,7 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
       actionType: 'string',
       healthCheckEnabled: 'string',
       nonNormalServers: { 'type': 'array', 'itemType': GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfosNonNormalServers },
+      serverCount: 'number',
       serverGroupId: 'string',
     };
   }
@@ -208,10 +228,10 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
 export class GetListenerHealthStatusResponseBodyListenerHealthStatus extends $dara.Model {
   /**
    * @remarks
-   * The listener ID.
+   * The listener ID of the instance.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-o4u54y73wq7b******
    */
   listenerId?: string;
   /**
@@ -232,7 +252,7 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatus extends $da
   listenerProtocol?: string;
   /**
    * @remarks
-   * The information about the server group.
+   * The server group information.
    */
   serverGroupInfos?: GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupInfos[];
   static names(): { [key: string]: string } {
@@ -268,9 +288,9 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatus extends $da
 export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned from the server, for example, **302**.
+   * The actual response code returned by the backend server, such as **302**.
    * 
-   * > A value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
+   * > This value is returned only when **ReasonCode** is **RESPONSE_MISMATCH**.
    * 
    * @example
    * 302
@@ -278,11 +298,11 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
   actualResponse?: string;
   /**
    * @remarks
-   * The HTTP status code returned after backend servers pass health checks.
+   * The expected response code from the backend server.
    * 
-   * Valid values: **HTTP_2xx**, **HTTP_3xx**, **HTTP_4xx**, and **HTTP_5xx**. Multiple status codes are separated by commas (,).
+   * Valid values: **HTTP_2xx**, **HTTP_3xx**, **HTTP_4xx**, and **HTTP_5xx**. Multiple response codes are separated by commas (,).
    * 
-   * > A value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
+   * > This value is returned only when **ReasonCode** is **RESPONSE_MISMATCH**.
    * 
    * @example
    * HTTP_2xx
@@ -290,16 +310,23 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
   expectedResponse?: string;
   /**
    * @remarks
-   * The reason why the value of **Status** is Unhealthy. Only forwarding rules for HTTP and HTTPS listeners support this parameter.
+   * The detailed reason when **Status** is abnormal.
+   * Currently, only HTTP and HTTPS listeners and forwarding rules support viewing abnormal status reasons:
+   * - **CONNECT_TIMEOUT**: The Server Load Balancer (SLB) health check timed out when establishing a connection to the backend server.
    * 
-   * *   **CONNECT_TIMEOUT**: ALB failed to connect to the backend server within the specified period of time.
-   * *   **CONNECT_FAILED**: ALB failed to connect to the backend server.
-   * *   **RECV_RESPONSE_FAILED**: ALB failed to receive a response from the backend server.
-   * *   **RECV_RESPONSE_TIMEOUT**: ALB failed to receive a response from the backend server within the specified period of time.
-   * *   **SEND_REQUEST_FAILED**: ALB failed to send a request to the backend server.
-   * *   **SEND_REQUEST_TIMEOUT**: ALB failed to send a request to the backend server within the specified period of time.
-   * *   **RESPONSE_FORMAT_ERROR**: The format of the response from the backend server is invalid.
-   * *   **RESPONSE_MISMATCH**: The HTTP status code returned from the backend server is not the expected one.
+   * - **CONNECT_FAILED**: The SLB health check failed to establish a connection to the backend server.
+   * 
+   * - **RECV_RESPONSE_FAILED**: The SLB health check failed to receive a response from the backend server.
+   * 
+   * - **RECV_RESPONSE_TIMEOUT**: The SLB health check timed out when receiving a response from the backend server.
+   * 
+   * - **SEND_REQUEST_FAILED**: The SLB health check failed to send a request to the backend server.
+   * 
+   * - **SEND_REQUEST_TIMEOUT**: The SLB health check timed out when sending a request to the backend server.
+   * 
+   * - **RESPONSE_FORMAT_ERROR**: The SLB health check received a response in an incorrect format from the backend server.
+   * 
+   * - **RESPONSE_MISMATCH**: The response code received from the backend server during the SLB health check did not match the expected response code.
    * 
    * @example
    * RESPONSE_MISMATCH
@@ -333,7 +360,7 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
 export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers extends $dara.Model {
   /**
    * @remarks
-   * The backend port.
+   * The backend server port.
    * 
    * @example
    * 90
@@ -341,20 +368,20 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
   port?: number;
   /**
    * @remarks
-   * The cause for the unhealthy state of the backend servers.
+   * The reason for the abnormal state.
    */
   reason?: GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServersReason;
   /**
    * @remarks
-   * The ID of the backend server.
+   * The backend server ID.
    * 
    * @example
-   * rg-bp1bfa08ex****
+   * i-uf62h8v******
    */
   serverId?: string;
   /**
    * @remarks
-   * The IP address of the server group.
+   * The backend server group IP address.
    * 
    * @example
    * 192.168.2.11
@@ -362,12 +389,15 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
   serverIp?: string;
   /**
    * @remarks
-   * The status of the health check. Valid values: Valid values:
+   * The health check status. Valid values:
    * 
-   * *   **Initial**: indicates that health checks are configured for the NLB instance, but no data was found.
-   * *   **Unhealthy**: indicates that the backend server consecutively fails health checks.
-   * *   **Unused**: indicates that the weight of the backend server is 0.
-   * *   **Unavailable**: indicates that health checks are disabled.
+   * - **Initial**: Initializing. The SLB instance has health check configured, but no data is available.
+   * 
+   * - **Unhealthy**: Unhealthy. The backend server has continuously reported an unhealthy state.
+   * 
+   * - **Unused**: Not in use. The weight of the backend server is 0, or cross-zone load balancing is disabled and the backend server is not in the same zone as the ALB instance.
+   * 
+   * - **Unavailable**: Not enabled. Health check is not enabled.
    * 
    * @example
    * Initial
@@ -408,7 +438,7 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
 export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos extends $dara.Model {
   /**
    * @remarks
-   * The action specified for the server group.
+   * The server group usage type.
    * 
    * @example
    * TrafficMirror
@@ -416,7 +446,7 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
   actionType?: string;
   /**
    * @remarks
-   * Indicates whether health checks are enabled. If **on** is returned, it indicates that health checks are enabled.
+   * The health check status. Valid values: **on**: Health check is enabled.
    * 
    * @example
    * on
@@ -424,15 +454,23 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
   healthCheckEnabled?: string;
   /**
    * @remarks
-   * A list of unhealthy backend servers.
+   * The list of backend servers in abnormal state.
    */
   nonNormalServers?: GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers[];
   /**
    * @remarks
-   * The ID of the server group that is associated with the listener.
+   * The number of servers in the server group.
    * 
    * @example
-   * vsp-bp1qjwo61pqz3ahlt****
+   * 1
+   */
+  serverCount?: number;
+  /**
+   * @remarks
+   * The associated server group ID.
+   * 
+   * @example
+   * sgp-8ilqs4axp6******
    */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
@@ -440,6 +478,7 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
       actionType: 'ActionType',
       healthCheckEnabled: 'HealthCheckEnabled',
       nonNormalServers: 'NonNormalServers',
+      serverCount: 'ServerCount',
       serverGroupId: 'ServerGroupId',
     };
   }
@@ -449,6 +488,7 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
       actionType: 'string',
       healthCheckEnabled: 'string',
       nonNormalServers: { 'type': 'array', 'itemType': GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfosNonNormalServers },
+      serverCount: 'number',
       serverGroupId: 'string',
     };
   }
@@ -468,7 +508,7 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos
 export class GetListenerHealthStatusResponseBodyRuleHealthStatus extends $dara.Model {
   /**
    * @remarks
-   * The ID of the forwarding rule.
+   * The forwarding rule ID.
    * 
    * @example
    * rule-hp34s2h0xx1ht4nwo****
@@ -476,7 +516,7 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatus extends $dara.M
   ruleId?: string;
   /**
    * @remarks
-   * The server groups.
+   * The list of server groups.
    */
   serverGroupInfos?: GetListenerHealthStatusResponseBodyRuleHealthStatusServerGroupInfos[];
   static names(): { [key: string]: string } {
@@ -508,15 +548,14 @@ export class GetListenerHealthStatusResponseBodyRuleHealthStatus extends $dara.M
 export class GetListenerHealthStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The health check status of the server groups associated with the listener.
+   * The health check status list of server groups associated with the listener.
    */
   listenerHealthStatus?: GetListenerHealthStatusResponseBodyListenerHealthStatus[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * Indicates whether a next query token exists. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -527,12 +566,12 @@ export class GetListenerHealthStatusResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   * CEF72CEB-54B6-4AE8-B225-F876F******
    */
   requestId?: string;
   /**
    * @remarks
-   * The health check status of the forwarding rules.
+   * The health status list of forwarding rules.
    */
   ruleHealthStatus?: GetListenerHealthStatusResponseBodyRuleHealthStatus[];
   static names(): { [key: string]: string } {

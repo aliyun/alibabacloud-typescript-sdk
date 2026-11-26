@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachCommonBandwidthPackageToLoadBalancerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID.
+   * The ID of the asynchronous task.
    * 
    * @example
    * 72dcd26b-f12d-4c27-b3af-18f6aed5****
@@ -16,7 +16,7 @@ export class AttachCommonBandwidthPackageToLoadBalancerResponseBody extends $dar
    * The request ID.
    * 
    * @example
-   * 2EF39708-974B-5E74-AFF5-3445263035A8
+   * 2EF39708-974B-5E74-AFF5-3445******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

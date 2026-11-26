@@ -5,27 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The supported cipher suites.
+   * The list of supported cipher suites.
    */
   ciphers?: string[];
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate the value from your client. Make sure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF0F******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform only a dry run. Valid values:
+   * - **true**: performs only a dry run and does not update the security policy attributes. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -33,19 +32,19 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The security policy ID.
+   * The ID of the security policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * spy-n0kn923****
+   * sp-n0kn923****
    */
   securityPolicyId?: string;
   /**
    * @remarks
-   * The name of the security policy.
+   * Policy Name of the security policy.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * Policy Name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. It must start with a letter, Chinese character, or digit.
    * 
    * @example
    * test-secrity
@@ -53,7 +52,7 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   securityPolicyName?: string;
   /**
    * @remarks
-   * The supported TLS protocol versions.
+   * The list of supported TLS protocol versions.
    */
   TLSVersions?: string[];
   static names(): { [key: string]: string } {

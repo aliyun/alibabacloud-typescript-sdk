@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartShiftLoadBalancerZonesRequestZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch in the zone. By default, each zone uses one vSwitch and one subnet.
+   * The ID of the vSwitch that corresponds to the zone. By default, each zone uses one vSwitch and one subnet.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StartShiftLoadBalancerZonesRequestZoneMappings extends $dara.Model 
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
+   * The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query zone IDs.
    * 
    * This parameter is required.
    * 
@@ -49,11 +49,9 @@ export class StartShiftLoadBalancerZonesRequestZoneMappings extends $dara.Model 
 export class StartShiftLoadBalancerZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-   * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -61,10 +59,11 @@ export class StartShiftLoadBalancerZonesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * - **true**: performs a dry run and does not remove the zone. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): sends a normal request. If the request passes the dry run, the `HTTP_2xx` status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -72,7 +71,7 @@ export class StartShiftLoadBalancerZonesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ALB instance ID.
+   * The instance ID of the application load balancing instance.
    * 
    * This parameter is required.
    * 
@@ -82,9 +81,9 @@ export class StartShiftLoadBalancerZonesRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The mappings between zones and vSwitches.
+   * The zone and vSwitch mappings.
    * 
-   * >  You can remove only one zone in each call.
+   * > You can remove only one zone in each call.
    * 
    * This parameter is required.
    */

@@ -8,7 +8,7 @@ export class DisableLoadBalancerAccessLogResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

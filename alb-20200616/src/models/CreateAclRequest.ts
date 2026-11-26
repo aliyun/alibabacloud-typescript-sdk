@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAclRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class CreateAclRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * product
@@ -45,7 +45,7 @@ export class CreateAclRequestTag extends $dara.Model {
 export class CreateAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the ACL. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name of the ACL. The name must start with a letter, Chinese character, or digit, and can contain digits, periods (.), underscores (_), hyphens (-), and spaces. The name must be 2 to 128 characters in length.
    * 
    * @example
    * test-acl
@@ -55,20 +55,19 @@ export class CreateAclRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+   * You can generate the parameter value on your client to ensure that the value is unique across different requests. The client token supports only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
-   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   * 5A2CFF0E-5718-45B5-9D4D-70B3*****
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to check the request without performing the operation. Valid values:
-   * 
-   * *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run on the request. Valid values:
+   * - **true**: The system performs a dry run on the request without creating the access control policy group. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, the system returns an error. If the request passes the dry run, the system returns the `DryRunOperation` error code.
+   * - **false** (default): The system sends a normal request. If the request passes the dry run, the system returns an HTTP 2xx status code and performs the operation.
    * 
    * @example
    * true
@@ -85,6 +84,9 @@ export class CreateAclRequest extends $dara.Model {
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * rg-12313
    */
   tag?: CreateAclRequestTag[];
   static names(): { [key: string]: string } {

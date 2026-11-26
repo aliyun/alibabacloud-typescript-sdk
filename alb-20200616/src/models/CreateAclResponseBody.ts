@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL.
+   * The ACL instance ID.
    * 
    * @example
-   * nacl-hp34s2h0xx1ht4nwo****
+   * acl-hp34s2h0xx1ht4nwo****
    */
   aclId?: string;
   /**
@@ -24,7 +24,7 @@ export class CreateAclResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   * CEF72CEB-54B6-4AE8-B225-F876******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous job.
+   * The ID of the asynchronous task.
    * 
    * @example
    * 72dcd26b-f12d-4c27-b3af-18f6aed5****
@@ -13,10 +13,10 @@ export class CreateServerGroupResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   * 365F4154-92F6-4AE4-92F8-7FF******
    */
   requestId?: string;
   /**
@@ -24,7 +24,7 @@ export class CreateServerGroupResponseBody extends $dara.Model {
    * The ID of the server group.
    * 
    * @example
-   * sg-atstuj3rtoptyui****
+   * sgp-8ilqs4axp6******
    */
   serverGroupId?: string;
   static names(): { [key: string]: string } {

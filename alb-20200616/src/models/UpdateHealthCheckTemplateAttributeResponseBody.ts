@@ -8,7 +8,7 @@ export class UpdateHealthCheckTemplateAttributeResponseBody extends $dara.Model 
    * The request ID.
    * 
    * @example
-   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   * 365F4154-92F6-4AE4-92F8-7FF3******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

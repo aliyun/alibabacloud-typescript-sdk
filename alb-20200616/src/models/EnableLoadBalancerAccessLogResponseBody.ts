@@ -8,7 +8,7 @@ export class EnableLoadBalancerAccessLogResponseBody extends $dara.Model {
    * The ID of the asynchronous job.
    * 
    * @example
-   * ff7713ca-5818-4120-85e3-0bf9fr******
+   * ff7713ca-5818-4120-85e3-0bf9******
    */
   jobId?: string;
   /**
@@ -16,7 +16,7 @@ export class EnableLoadBalancerAccessLogResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FD******
+   * 593B0448-D13E-4C56-AC0D-FDF0******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

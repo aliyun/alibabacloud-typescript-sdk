@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID.
+   * The ID of the asynchronous task.
    * 
    * @example
    * 72dcd26b-f12d-4c27-b3af-18f6aed5****
@@ -13,7 +13,7 @@ export class DeleteRulesResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7BED4F62-3E6E-5E4F-8C53-2D8CCE77F2ED

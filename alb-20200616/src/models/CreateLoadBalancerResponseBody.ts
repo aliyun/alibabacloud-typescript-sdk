@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoadBalancerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ALB instance ID.
+   * The instance ID of the Application Load Balancing (ALB) instance.
    * 
    * @example
-   * alb-o9ulmq5hgn68jk****
+   * alb-o9ulmq5hqn68jk****
    */
   loadBalancerId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

@@ -29,7 +29,7 @@ export class LoadBalancerLeaveSecurityGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * alb-iv9gj3lpak6fbj****
+   * alb-iv9gj3spak6fbj****
    */
   loadBalancerId?: string;
   /**

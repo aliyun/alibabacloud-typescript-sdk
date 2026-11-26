@@ -21,10 +21,10 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Indicates whether the remote IP address feature is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether remote IP is enabled. Valid values:
+   *  
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -32,7 +32,7 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
   remoteIpEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the server group.
+   * The server group ID.
    * 
    * @example
    * sgp-qy042e1jabmprh****
@@ -40,9 +40,9 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The ID of the backend server.
+   * The backend server ID.
    * 
-   * > If **ServerType** is set to **Fc**, **ServerId** is the ARN of a function.
+   * >If **ServerType** is set to **Fc**, **ServerId** specifies the ARN of the Function Compute function.
    * 
    * @example
    * i-bp1f9kdprbgy9uiu****
@@ -50,7 +50,7 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
   serverId?: string;
   /**
    * @remarks
-   * The IP address in inclusive ENI mode.
+   * The specified IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -58,7 +58,7 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
   serverIp?: string;
   /**
    * @remarks
-   * The type of the backend server.
+   * The server type of the backend server.
    * 
    * @example
    * Ecs
@@ -68,10 +68,10 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
    * @remarks
    * The status of the backend server. Valid values:
    * 
-   * *   **Adding**
-   * *   **Available**
-   * *   **Configuring**
-   * *   **Removing**
+   * - **Adding**: being added.
+   * - **Available**: available.
+   * - **Configuring**: being configured.
+   * - **Removing**: being removed.
    * 
    * @example
    * Available
@@ -79,7 +79,7 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The weight of the backend server. An ECS instance with a higher weight receives more requests.
+   * The weight of the backend server. A server with a higher weight receives more requests.
    * 
    * @example
    * 100
@@ -125,7 +125,7 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
 export class ListServerGroupServersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 50
@@ -133,10 +133,9 @@ export class ListServerGroupServersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If **NextToken** is not empty, the value of NextToken can be used in the next request to retrieve a new page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * caeba0bbb2be03f8****
@@ -147,17 +146,17 @@ export class ListServerGroupServersResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   * CEF72CEB-54B6-4AE8-B225-F876FF*****
    */
   requestId?: string;
   /**
    * @remarks
-   * A list of backend servers.
+   * The list of servers.
    */
   servers?: ListServerGroupServersResponseBodyServers[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records that match the specified filter conditions.
    * 
    * @example
    * 3

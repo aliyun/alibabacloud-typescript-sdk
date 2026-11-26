@@ -49,24 +49,25 @@ export class CreateLoadBalancerRequestLoadBalancerBillingConfig extends $dara.Mo
 export class CreateLoadBalancerRequestModificationProtectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The reason for enabling the configuration read-only mode.
+   * The reason for enabling modification protection.
    * 
-   * The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
+   * The value must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter or a Chinese character.
    * 
-   * >  This parameter takes effect only when **Status** is set to **ConsoleProtection**.
+   * >This parameter is valid only when **Status** is set to **ConsoleProtection**.
    * 
    * @example
-   * test
+   * Managed Instance
    */
   reason?: string;
   /**
    * @remarks
-   * Specifies whether to enable the configuration read-only mode. Valid values:
+   * The modification protection status of the Application Load Balancing (ALB) instance. Valid values:
    * 
-   * *   **NonProtection**: Disables the configuration read-only mode. In this case, the value of the **Reason** parameter that you specify does not take effect. If you specify **Reason**, the value of the parameter is cleared.
-   * *   **ConsoleProtection**: Enables the configuration read-only mode. In this case, the value of the **Reason** parameter that you specify takes effect.****
+   * - **NonProtection**: disables modification protection. If **Reason** is specified, it is forcibly cleared.
    * 
-   * >  If the parameter is set to **ConsoleProtection**, the configuration read-only mode is enabled. You cannot modify the configurations of the ALB instance in the ALB console. However, you can call API operations to modify the configurations of the ALB instance.
+   * - **ConsoleProtection**: enables modification protection in the console. If **Reason** is specified, it takes effect.
+   * 
+   * > When this parameter is set to **ConsoleProtection**, users cannot modify the instance configurations in the load balancing console, but can invoke API operations to modify the instance configurations.
    * 
    * @example
    * ConsoleProtection
@@ -97,6 +98,9 @@ export class CreateLoadBalancerRequestModificationProtectionConfig extends $dara
 
 export class CreateLoadBalancerRequestSecurityGroupIds extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the security group.
+   * 
    * @example
    * sg-gw82chzr7ru23iwbn9mu
    */
@@ -125,7 +129,7 @@ export class CreateLoadBalancerRequestSecurityGroupIds extends $dara.Model {
 export class CreateLoadBalancerRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag key. It can be up to 128 characters in length, and cannot start with aliyun or acs:, or contain http:// or https://.
    * 
    * @example
    * env
@@ -133,7 +137,7 @@ export class CreateLoadBalancerRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag key. It can be up to 128 characters in length, and cannot start with aliyun or acs:, or contain http:// or https://.
    * 
    * @example
    * product
@@ -165,7 +169,7 @@ export class CreateLoadBalancerRequestTag extends $dara.Model {
 export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP to be associated with the Internet-facing ALB instance.
+   * The instance ID of the elastic IP address (EIP) that is attached to the Internet-facing instance.
    * 
    * @example
    * eip-bp1aedxso6u80u0qf****
@@ -173,12 +177,13 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The type of EIP. Valid values:
+   * The type of the EIP. Valid values:
    * 
-   * *   **Common**: an EIP.
-   * *   **Anycast**: an Anycast EIP.
+   * - Common (default): EIP.
    * 
-   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * - Anycast: Anycast EIP.
+   * 
+   * > For more information about the regions where ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
    * 
    * @example
    * Common
@@ -186,7 +191,7 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   eipType?: string;
   /**
    * @remarks
-   * The private IPv4 address.
+   * The IPv4 private IP address.
    * 
    * @example
    * 192.168.10.1
@@ -194,7 +199,7 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   intranetAddress?: string;
   /**
    * @remarks
-   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones.
+   * The ID of the vSwitch in the zone. You can use only one vSwitch and one subnet in each zone. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
    * 
    * This parameter is required.
    * 
@@ -204,7 +209,8 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the cluster. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * The zone ID. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the information about the zones.
    * 
    * This parameter is required.
    * 
@@ -244,23 +250,24 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
 export class CreateLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The mode in which IP addresses are allocated to the ALB instance. Valid values:
+   * The IP address allocation mode. Valid values:
    * 
-   * *   **Fixed** (default): a fixed IP address is assigned to the ALB instance in each zone.
-   * *   **Dynamic**: IP addresses are dynamically allocated to the ALB instance in each zone.
+   * - **Fixed** (default): fixed IP mode. A fixed IP address is allocated to each zone.
    * 
-   * >  Starting from 00:00:00 on February 25, 2025 (UTC+8), when you call this operation to create an ALB instance, the instance is automatically the [upgraded version](https://help.aliyun.com/document_detail/2864070.html) regardless of the mode you specify. Upgraded ALB instances no longer differentiate between IP modes. Instead, they globally auto-scale IP addresses for providing load balancing services. The ALB instances you created before this date and time are not affected.
+   * - **Dynamic**: dynamic IP mode. IP addresses are dynamically allocated to each zone.
+   * 
+   * > Starting from <props="china">00:00:00 on February 25, 2025 (UTC+8)<props="intl">00:00:00 on February 25, 2025 (UTC+8), when you create an instance by calling this operation, an [upgraded ALB instance](https://help.aliyun.com/document_detail/2864070.html) is created regardless of the mode you specify. The IP address allocation mode is no longer distinguished, and the allocated IP addresses are automatically scalable. Existing ALB instances created before the upgrade are not affected.
    * 
    * @example
-   * Dynamic
+   * Fixed
    */
   addressAllocatedMode?: string;
   /**
    * @remarks
-   * The protocol version. Valid values:
+   * The IP version. Valid values:
    * 
-   * *   **IPv4:** IPv4.
-   * *   **DualStack:** dual stack.
+   * - **IPv4**: IPv4.
+   * - **DualStack**: dual-stack.
    * 
    * @example
    * IPv4
@@ -268,10 +275,11 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The type of the address of the ALB instance. Valid values:
+   * The network type of the Application Load Balancing (ALB) instance. Valid values:
    * 
-   * *   **Internet:** The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. In this case, the ALB instance can be accessed over the Internet.
-   * *   **Intranet:** The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+   * - **Internet**: The Application Load Balancing (ALB) instance uses a public IP address. The DNS domain name is parsed to the public IP address. Therefore, the instance can be accessed in the Internet environment.
+   * 
+   * - **Intranet**: The Application Load Balancing (ALB) instance uses only a private IP address. The DNS domain name is parsed to the private IP address. Therefore, the instance can be accessed only in the internal network environment of the VPC where the Application Load Balancing (ALB) instance is deployed.
    * 
    * This parameter is required.
    * 
@@ -283,9 +291,9 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters.
+   * You can generate a parameter value from your client to ensure that the value is unique among different requests. The ClientToken parameter supports only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system uses the value of **RequestId** as the value of **ClientToken**. The value of the **RequestId** parameter may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -293,10 +301,10 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection. Default value: false. Valid values:
+   * Specifies whether to enable deletion protection. Valid values:
    * 
-   * *   **true:** enables deletion protection.
-   * *   **false:** disables deletion protection.
+   * - **true**: enables deletion protection.
+   * - **false** (default): disables deletion protection.
    * 
    * @example
    * false
@@ -304,10 +312,11 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   deletionProtectionEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Default value: false. Valid values:
+   * Specifies whether to perform only a dry run on the request. Valid values:
    * 
-   * *   **true:** performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false:** performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without creating the Application Load Balancing (ALB) instance. The system checks whether required parameters are specified, the request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): performs a dry run and sends a normal request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -315,18 +324,20 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The billing method of the ALB instance.
+   * The billing configuration of the Application Load Balancing (ALB) instance.
    * 
    * This parameter is required.
    */
   loadBalancerBillingConfig?: CreateLoadBalancerRequestLoadBalancerBillingConfig;
   /**
    * @remarks
-   * The edition of the ALB instance. The features and billing rules vary based on the edition of the ALB instance. Valid values:
+   * The edition of the Application Load Balancing (ALB) instance. Different editions have different feature limits and billing policy. Valid values:
    * 
-   * *   **Basic:** basic.
-   * *   **Standard:** standard.
-   * *   **StandardWithWaf:** WAF-enabled.
+   * - **Basic**: Basic Edition.
+   * 
+   * - **Standard**: Standard Edition.
+   * 
+   * - **StandardWithWaf**: WAF-enhanced Edition.
    * 
    * This parameter is required.
    * 
@@ -336,9 +347,9 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   loadBalancerEdition?: string;
   /**
    * @remarks
-   * The name of the ALB instance.
+   * The name of the Application Load Balancing (ALB) instance.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. It must start with a letter or digit.
    * 
    * @example
    * alb1
@@ -346,7 +357,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   loadBalancerName?: string;
   /**
    * @remarks
-   * The configuration read-only mode settings.
+   * The modification protection configuration.
    */
   modificationProtectionConfig?: CreateLoadBalancerRequestModificationProtectionConfig;
   /**
@@ -357,6 +368,10 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    * rg-atstuj3rtop****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups.
+   */
   securityGroupIds?: CreateLoadBalancerRequestSecurityGroupIds[];
   /**
    * @remarks
@@ -365,7 +380,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   tag?: CreateLoadBalancerRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which you want to create the ALB instance.
+   * The ID of the virtual private cloud (VPC) where the Application Load Balancing (ALB) instance is deployed.
    * 
    * This parameter is required.
    * 
@@ -375,7 +390,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The mappings between zones an vSwitches. You can specify at most 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   * The list of zone and vSwitch mappings. You can specify up to 10 zones. If the current region supports two or more zones, you must specify at least two zones.
    * 
    * This parameter is required.
    */

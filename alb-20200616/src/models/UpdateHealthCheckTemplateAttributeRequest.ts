@@ -5,22 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You must generate a unique value on your client for each request. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the `RequestId` of the request as the `ClientToken`. The `RequestId` of each request is unique.
    * 
    * @example
-   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   * 5A2CFF0E-5718-45B5-9D4D-70B******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx** HTTP status code is returned and the operation is performed.
+   * - **true**: Performs a dry run to check the request. The system checks for required parameters, request syntax, and business constraints without performing the operation. If the request is invalid, an error is returned. If the request is valid, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): Sends a normal request. If the request is valid, a **2xx HTTP** status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -28,7 +29,7 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The HTTP status codes that indicate a healthy backend server.
+   * The list of status codes that indicate a healthy state.
    * 
    * @example
    * 5
@@ -36,7 +37,8 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckCodes?: string[];
   /**
    * @remarks
-   * The port that is used for health checks. Valid values: **0 to 65535**. Default value: **0**. This value indicates that the port of a backend server is used for health checks.
+   * The port used for health checks. Valid values: **0** to **65535**.
+   * The default value is **0**, which means the health check uses the backend server\"s port.
    * 
    * @example
    * 80
@@ -44,26 +46,27 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks. Valid values:
+   * The domain name used for health checks. Valid values:
    * 
-   * *   **$SERVER_IP** (default): the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP addresses of backend servers as domain names for health checks.
-   * *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * - **$SERVER_IP** (default): The private IP of a backend server. If you specify this value or leave the parameter empty, the load balancing service uses the private IP of the backend server for health checks.
    * 
-   * >  This parameter is available only if `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
+   * - **domain**: A domain name that is 1 to 80 characters long and can contain letters, digits, periods (.), and hyphens (-).
+   * 
+   * > This parameter takes effect only when the `HealthCheckProtocol` parameter is set to **HTTP** or **HTTPS**.
    * 
    * @example
-   * $_ip
+   * $SERVER_IP
    */
   healthCheckHost?: string;
   /**
    * @remarks
-   * The HTTP version that is used for health checks.
+   * The HTTP version used for health checks.
    * 
    * Valid values: **HTTP1.0** and **HTTP1.1**.
    * 
    * Default value: **HTTP1.1**.
    * 
-   * >  This parameter is available only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
+   * > This parameter takes effect only when the `HealthCheckProtocol` parameter is set to **HTTP** or **HTTPS**.
    * 
    * @example
    * HTTP1.0
@@ -71,7 +74,7 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckHttpVersion?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds. Valid values: **1 to 50**. Default value: **2**.
+   * The interval between health checks, in seconds. Valid values: **1** to **50**. Default value: **2**.
    * 
    * @example
    * 5
@@ -79,13 +82,15 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The HTTP method that is used for health checks. Valid values:
+   * The method used for health checks. Valid values:
    * 
-   * *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
-   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
-   * *   **POST**: gRPC health checks use the POST method by default.
+   * - **HEAD** (default): The default method for health checks on HTTP and HTTPS listeners.
    * 
-   * >  This parameter is available only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * - **GET**: If the response body is larger than 8 KB, it is truncated. This does not affect the health check result.
+   * 
+   * - **POST**: The default method for health checks on gRPC listeners.
+   * 
+   * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**, **HTTPS**, or **gRPC**.
    * 
    * @example
    * HEAD
@@ -93,13 +98,13 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckMethod?: string;
   /**
    * @remarks
-   * The URL that is used for health checks.
+   * The URL used for health checks.
    * 
-   * The URL must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), ampersands (&), and the following extended character sets: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`.
+   * The URL must be 1 to 80 characters long. It can contain letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), ampersands (&), and the following extended characters: `_;~!()*[]@$^:\",+`.
    * 
    * The URL must start with a forward slash (/).
    * 
-   * >  This parameter is available only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**, **HTTPS**, or **gRPC**.
    * 
    * @example
    * /test/index.html
@@ -107,12 +112,15 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckPath?: string;
   /**
    * @remarks
-   * The protocol that is used for health checks. Valid values:
+   * The protocol used for health checks. Valid values:
    * 
-   * *   **HTTP** (default): HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
-   * *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS supports encryption and provides higher security than HTTP.
-   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
-   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * - **HTTP** (default): Checks the health of a backend server by sending an HTTP HEAD or GET request.
+   * 
+   * - **HTTPS**: Checks the health of a backend server by sending an HTTPS HEAD or GET request. HTTPS is more secure than HTTP because it encrypts data.
+   * 
+   * - **TCP**: Checks if a backend server port is reachable by sending a TCP SYN packet.
+   * 
+   * - **gRPC**: Checks the health of a backend server by sending a POST or GET request.
    * 
    * @example
    * HTTP
@@ -120,19 +128,19 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckProtocol?: string;
   /**
    * @remarks
-   * The template ID.
+   * The health check template ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * hct-bp1qjwo61pqz3ahltv0mw
+   * hct-bp1qjwo61******
    */
   healthCheckTemplateId?: string;
   /**
    * @remarks
    * The name of the health check template.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters long, start with a letter, a Chinese character, or a digit, and can contain letters, Chinese characters, digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
    * HealthCheckTemplate1
@@ -140,9 +148,9 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckTemplateName?: string;
   /**
    * @remarks
-   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy.
+   * The timeout period, in seconds, for a health check response. A health check fails if a backend server does not respond within this period.
    * 
-   * Unit: seconds. Valid values: **1 to 300**. Default value: **5**.
+   * Valid values: **1** to **300**. Default value: **5**.
    * 
    * @example
    * 3
@@ -150,9 +158,9 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthCheckTimeout?: number;
   /**
    * @remarks
-   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+   * The number of consecutive successful health checks required to change a backend server\"s status from **unhealthy** to **healthy**.
    * 
-   * Valid values: **2 to 10**.
+   * Valid values: **2** to **10**.
    * 
    * Default value: **3**.
    * 
@@ -162,9 +170,9 @@ export class UpdateHealthCheckTemplateAttributeRequest extends $dara.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+   * The number of consecutive failed health checks required to change a backend server\"s status from **healthy** to **unhealthy**.
    * 
-   * Valid values: **2 to 10**.
+   * Valid values: **2** to **10**.
    * 
    * Default value: **3**.
    * 

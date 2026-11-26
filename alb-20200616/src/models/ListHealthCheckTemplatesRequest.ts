@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHealthCheckTemplatesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key. The key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListHealthCheckTemplatesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag value. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * product
@@ -45,17 +45,17 @@ export class ListHealthCheckTemplatesRequestTag extends $dara.Model {
 export class ListHealthCheckTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of health check templates.
+   * The list of health check template IDs.
    */
   healthCheckTemplateIds?: string[];
   /**
    * @remarks
-   * The health check templates.
+   * The list of health check template names.
    */
   healthCheckTemplateNames?: string[];
   /**
    * @remarks
-   * The number of entries to return in each call. Valid values: **1** to **100**. Default value: **20**
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 50
@@ -63,10 +63,9 @@ export class ListHealthCheckTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * The pagination token. Valid values:
+   * - If this is the first query or no next query is required, leave this parameter empty.
+   * - If a next query is required, set the value to the **NextToken** value returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -74,7 +73,7 @@ export class ListHealthCheckTemplatesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource group ID. You can filter the query results based on the specified ID.
+   * The resource group ID. The results are filtered based on the specified resource group ID.
    * 
    * @example
    * rg-atstuj3rtop****

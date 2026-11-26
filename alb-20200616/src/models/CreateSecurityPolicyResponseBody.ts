@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF0******
    */
   requestId?: string;
   /**
    * @remarks
-   * The security policy ID.
+   * The ID of the security policy.
    * 
    * @example
-   * scp-bp1bpn0kn9****
+   * sp-9cdjz6o8ha70******
    */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {

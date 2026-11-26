@@ -7,7 +7,7 @@ export class ListServerGroupServersRequestTag extends $dara.Model {
    * @remarks
    * The tag key. You can specify up to 10 tag keys.
    * 
-   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -17,7 +17,7 @@ export class ListServerGroupServersRequestTag extends $dara.Model {
    * @remarks
    * The tag value. You can specify up to 10 tag values.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -49,7 +49,7 @@ export class ListServerGroupServersRequestTag extends $dara.Model {
 export class ListServerGroupServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return. Valid values: **1** to **100**. If you do not specify a value, the default value **20** is used.
+   * The maximum number of records to return in this request. Valid values: **1** to **100**. If this parameter is not specified, the default value is **20**.
    * 
    * @example
    * 50
@@ -58,9 +58,8 @@ export class ListServerGroupServersRequest extends $dara.Model {
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - You do not need to specify this parameter for the first request or if no next query exists.
+   * - If a next query exists, set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXG****
@@ -71,17 +70,17 @@ export class ListServerGroupServersRequest extends $dara.Model {
    * The server group ID.
    * 
    * @example
-   * rg-atstuj3rtop****
+   * sgp-cb25e2i2vr******
    */
   serverGroupId?: string;
   /**
    * @remarks
-   * The IDs of the servers.
+   * The list of server IDs.
    */
   serverIds?: string[];
   /**
    * @remarks
-   * The tags that are added to the server group. You can specify up to 10 tags in each call.
+   * The tags that are bound to the server group. You can specify up to 10 tags in a single request.
    */
   tag?: ListServerGroupServersRequestTag[];
   static names(): { [key: string]: string } {

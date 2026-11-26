@@ -57,10 +57,13 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   **acl**: an access control list (ACL)
-   * *   **loadbalancer**: an Application Load Balancer (ALB) instance
-   * *   **securitypolicy**: a security policy
-   * *   **servergroup**: a server group
+   * - **acl**: an access control list (ACL)
+   * 
+   * - **loadbalancer**: an Application Load Balancer (ALB) instance
+   * 
+   * - **securitypolicy**: a security policy
+   * 
+   * - **servergroup**: a server group
    * 
    * This parameter is required.
    * 

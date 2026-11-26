@@ -5,24 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoadBalancerAttributeRequestModificationProtectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The reason for enabling the configuration read-only mode.
-   * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
-   * 
-   * This parameter takes effect only when **Status** is set to **ConsoleProtection**.
+   * The reason for enabling modification protection. The value must be 2 to 128 characters in length. It must start with a letter or Chinese character and can contain digits, periods (.), underscores (_), and hyphens (-). This parameter is valid only when **Status** is set to **ConsoleProtection**.
    * 
    * @example
-   * test
+   * Managed Instance
    */
   reason?: string;
   /**
    * @remarks
-   * Specifies whether to enable the configuration read-only mode. Valid values:
+   * The modification protection status of the application load balancing instance. Valid values:
    * 
-   * *   **NonProtection**: disables the configuration read-only mode. In this case, the value of the **Reason** parameter that you specify does not take effect. If you set the value of **Reason**, the value is cleared.
-   * *   **ConsoleProtection**: enables the configuration read-only mode. In this case, the value of the **Reason** parameter that you specify takes effect.****
+   * - **NonProtection**: disables modification protection. If **Reason** is specified, it is forcibly cleared.
    * 
-   * >  If the parameter is set to **ConsoleProtection**, the configuration read-only mode is enabled. You cannot modify the configurations of the ALB instance in the ALB console. However, you can call API operations to modify the configurations of the ALB instance.
+   * - **ConsoleProtection**: enables console modification protection. If **Reason** is specified, it takes effect.
+   * 
+   * > If this parameter is set to **ConsoleProtection**, modification protection is enabled. In this case, you cannot modify the instance configurations in the load balancing console, but you can invoke API operations to modify the instance configurations.
    * 
    * @example
    * ConsoleProtection
@@ -56,9 +53,9 @@ export class UpdateLoadBalancerAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate the parameter value on your client. Make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -66,10 +63,11 @@ export class UpdateLoadBalancerAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed. This is the default value.
+   * - **true**: sends a check request without modifying the property of the application load balancing instance. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): sends a normal request. If the request passes the check, an `HTTP_2xx` status code is returned and the operation is directly performed.
    * 
    * @example
    * true
@@ -77,7 +75,7 @@ export class UpdateLoadBalancerAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the ALB instance.
+   * The instance ID of the application load balancing instance.
    * 
    * This parameter is required.
    * 
@@ -87,15 +85,15 @@ export class UpdateLoadBalancerAttributeRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The name of the ALB instance. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name of the Application Load Balancer instance. The name must be 2 to 128 characters in length and start with a letter, Chinese character, or digit. It can contain digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
-   * lb-instance-test
+   * alb-instance-test
    */
   loadBalancerName?: string;
   /**
    * @remarks
-   * The configuration read-only mode settings.
+   * The modification protection configuration.
    */
   modificationProtectionConfig?: UpdateLoadBalancerAttributeRequestModificationProtectionConfig;
   static names(): { [key: string]: string } {

@@ -16,7 +16,7 @@ export class UpdateAScriptsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * ACA19FE1-C09E-53C7-8FDA-560F49D71891
+   * ACA19FE1-C09E-53C7-8FDA-560******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

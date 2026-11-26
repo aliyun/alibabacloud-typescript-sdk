@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCapacityReservationRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Application Load Balancer (ALB) instance.
+   * 
    * This parameter is required.
    * 
    * @example

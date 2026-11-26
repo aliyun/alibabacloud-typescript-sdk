@@ -32,7 +32,7 @@ export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelationsRelate
    * The Server Load Balancer (SLB) instance ID.
    * 
    * @example
-   * lb-bp1o94dp5i6ea****
+   * alb-umwzbz6******
    */
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
@@ -73,7 +73,7 @@ export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelations exten
    * The security policy ID.
    * 
    * @example
-   * scp-bp1bpn0kn9****
+   * sp-bp1bpn0kn9****
    */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {
@@ -108,7 +108,7 @@ export class ListSecurityPolicyRelationsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF******
    */
   requestId?: string;
   /**

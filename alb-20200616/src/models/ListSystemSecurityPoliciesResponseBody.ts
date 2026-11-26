@@ -13,7 +13,7 @@ export class ListSystemSecurityPoliciesResponseBodySecurityPolicies extends $dar
    * The ID of the security policy.
    * 
    * @example
-   * spy-n0kn923****
+   * tls_cipher_policy_1_0
    */
   securityPolicyId?: string;
   /**
@@ -58,7 +58,7 @@ export class ListSystemSecurityPoliciesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF0F******
    */
   requestId?: string;
   /**

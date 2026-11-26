@@ -7,7 +7,7 @@ export class CreateRulesResponseBodyRuleIds extends $dara.Model {
    * @remarks
    * The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
    * 
-   * > The priorities of the forwarding rules created for the same listener must be unique.
+   * > The priority of each rule within the same listener must be unique.
    * 
    * @example
    * 10
@@ -15,7 +15,7 @@ export class CreateRulesResponseBodyRuleIds extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The forwarding rule ID.
+   * The ID of the forwarding rule.
    * 
    * @example
    * rule-a3x3pg1yohq3lq****
@@ -63,9 +63,7 @@ export class CreateRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The priority of the forwarding rule. Valid values: **1 to 10000**. A lower value specifies a higher priority.
-   * 
-   * > The priorities of the forwarding rules created for the same listener is unique.
+   * The list of forwarding rules.
    */
   ruleIds?: CreateRulesResponseBodyRuleIds[];
   static names(): { [key: string]: string } {

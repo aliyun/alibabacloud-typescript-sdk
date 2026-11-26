@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateAclsWithListenerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The synchronous task ID.
+   * The ID of the asynchronous task.
    * 
    * @example
    * 72dcd26b-f12d-4c27-b3af-18f6aed5****
@@ -13,10 +13,10 @@ export class AssociateAclsWithListenerResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   * CEF72CEB-54B6-4AE8-B225-F87******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

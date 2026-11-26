@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfigServerGroupTuples extends $dara.Model {
   /**
    * @remarks
-   * The ID of the server group to which requests are forwarded.
+   * The ID of the destination server group.
    * 
    * @example
-   * rsp-cige6j****
+   * sgp-i5qt20******
    */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfigS
 export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfig extends $dara.Model {
   /**
    * @remarks
-   * The server groups to which requests are forwarded.
+   * The destination server groups for forwarding.
    */
   serverGroupTuples?: ListListenersResponseBodyListenersDefaultActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
@@ -65,12 +65,12 @@ export class ListListenersResponseBodyListenersDefaultActionsForwardGroupConfig 
 export class ListListenersResponseBodyListenersDefaultActions extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the forwarding rule action. This parameter takes effect only when the action is **ForwardGroup**.
+   * The configuration for the forwarding rule action. This parameter takes effect only when the action type is **ForwardGroup**.
    */
   forwardGroupConfig?: ListListenersResponseBodyListenersDefaultActionsForwardGroupConfig;
   /**
    * @remarks
-   * The action. **ForwardGroup**: forwards requests to multiple server groups.
+   * The action type. Valid value: **ForwardGroup**, which indicates forwarding requests to multiple server groups.
    * 
    * @example
    * ForwardGroup
@@ -105,12 +105,12 @@ export class ListListenersResponseBodyListenersDefaultActions extends $dara.Mode
 export class ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether xtrace is enabled. Valid values:
+   * Specifies whether to enable the Xtrace feature. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
-   * >  This parameter can be set to **true** only when the access log feature of ALB is enabled by setting **AccessLogEnabled** to true.
+   * > You can set this parameter to **true** only when the instance access log switch **AccessLogEnabled** is turned on.
    * 
    * @example
    * true
@@ -118,9 +118,9 @@ export class ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig e
   tracingEnabled?: boolean;
   /**
    * @remarks
-   * The sampling rate of xtrace. Valid values: **1 to 10000**.
+   * The Xtrace sampling rate. Valid values: **1** to **10000**.
    * 
-   * >  This parameter takes effect when **TracingEnabled** is set to **true**.
+   * > This value takes effect only when **TracingEnabled** is set to **true**.
    * 
    * @example
    * 100
@@ -128,9 +128,9 @@ export class ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig e
   tracingSample?: number;
   /**
    * @remarks
-   * The type of xtrace. The value is set to **Zipkin**.
+   * The Xtrace type. Valid value: **Zipkin**.
    * 
-   * >  This parameter takes effect when **TracingEnabled** is set to **true**.
+   * > This value takes effect only when **TracingEnabled** is set to **true**.
    * 
    * @example
    * Zipkin
@@ -164,10 +164,10 @@ export class ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig e
 export class ListListenersResponseBodyListenersLogConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether custom headers are carried in the access log. Valid values:
+   * Specifies whether to include custom headers in access logs. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -175,7 +175,7 @@ export class ListListenersResponseBodyListenersLogConfig extends $dara.Model {
   accessLogRecordCustomizedHeadersEnabled?: boolean;
   /**
    * @remarks
-   * The configurations of xtrace.
+   * The Xtrace configuration for access logs.
    */
   accessLogTracingConfig?: ListListenersResponseBodyListenersLogConfigAccessLogTracingConfig;
   static names(): { [key: string]: string } {
@@ -207,22 +207,22 @@ export class ListListenersResponseBodyListenersLogConfig extends $dara.Model {
 export class ListListenersResponseBodyListenersQuicConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the QUIC listener associated with the ALB instance. This parameter is required if the **QuicUpgradeEnabled** parameter is set to **true**. Only HTTPS listeners support this parameter.
+   * The ID of the QUIC listener to be associated. This parameter is required when **QuicUpgradeEnabled** is set to **true**. This parameter takes effect only for HTTPS listeners.
    * 
-   * >  The existing listener and QUIC listener must be to the same ALB instance, and the QUIC listener has not been associated with an ALB instance.
+   * > The original listener and the associated QUIC listener must belong to the same ALB instance, and the QUIC listener must not have been associated before.
    * 
    * @example
-   * lsr-bp1bpn908w4nbw****
+   * lsn-o4u54y73wq7b******
    */
   quicListenerId?: string;
   /**
    * @remarks
-   * Indicates whether QUIC upgrade is enabled. Valid values:
+   * Specifies whether to enable QUIC upgrade. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter takes effect only for HTTPS listeners.
    * 
    * @example
    * true
@@ -254,7 +254,7 @@ export class ListListenersResponseBodyListenersQuicConfig extends $dara.Model {
 export class ListListenersResponseBodyListenersTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag key. The key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * env
@@ -262,7 +262,7 @@ export class ListListenersResponseBodyListenersTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag value. The value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * product
@@ -294,11 +294,11 @@ export class ListListenersResponseBodyListenersTags extends $dara.Model {
 export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
+   * The custom header field name. This value takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * The value must be 1 to 40 characters in length and can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * test_client-verify-alias_123456
@@ -306,12 +306,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertClientVerifyAlias?: string;
   /**
    * @remarks
-   * Indicates whether the `X-Forwarded-Clientcert-clientverify` header is used to obtain the verification result of the client certificate. Valid values:
+   * Specifies whether to use the `X-Forwarded-Clientcert-clientverify` header field to obtain the verification result of the client certificate that accesses the load balancing instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * true
@@ -319,11 +319,11 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertClientVerifyEnabled?: boolean;
   /**
    * @remarks
-   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
+   * The custom header name. This value takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * The value must be 1 to 40 characters in length and can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * test_finger-print-alias_123456
@@ -331,12 +331,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertFingerprintAlias?: string;
   /**
    * @remarks
-   * Indicates whether the `X-Forwarded-Clientcert-fingerprint` header is used to retrieve the fingerprint of the client certificate. Valid values:
+   * Specifies whether to use the `X-Forwarded-Clientcert-fingerprint` header field to obtain the fingerprint of the client certificate that accesses the load balancing instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * true
@@ -344,11 +344,11 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertFingerprintEnabled?: boolean;
   /**
    * @remarks
-   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
+   * The custom header name. This value takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * The value must be 1 to 40 characters in length and can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * test_issue-dn-alias_123456
@@ -356,12 +356,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertIssuerDNAlias?: string;
   /**
    * @remarks
-   * Indicates whether the `X-Forwarded-Clientcert-issuerdn` header is used to retrieve information about the authority that issues the client certificate. Valid values:
+   * Specifies whether to use the `X-Forwarded-Clientcert-issuerdn` header field to obtain the issuer information of the client certificate that accesses the load balancing instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * true
@@ -369,11 +369,11 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertIssuerDNEnabled?: boolean;
   /**
    * @remarks
-   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
+   * The custom header name. This value takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
+   * The value must be 1 to 40 characters in length and can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * test_subject-dn-alias_123456
@@ -381,12 +381,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertSubjectDNAlias?: string;
   /**
    * @remarks
-   * Indicates whether the `X-Forwarded-Clientcert-subjectdn` header is used to retrieve information about the owner of the client certificate. Valid values:
+   * Specifies whether to use the `X-Forwarded-Clientcert-subjectdn` header field to obtain the subject information of the client certificate that accesses the load balancing instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * true
@@ -394,12 +394,13 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientCertSubjectDNEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the X-Forwarded-For header is used to preserver client IP addresses for the ALB instance. Valid values:
+   * Specifies whether to allow ALB to retrieve the actual client IP address from the X-Forwarded-For header field. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * - **false**: no.
+   * 
+   * > This parameter is supported by HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -407,9 +408,9 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientSourceIpsEnabled?: boolean;
   /**
    * @remarks
-   * The trusted proxy IP address.
+   * Specifies the trusted proxy IP addresses.
    * 
-   * ALB instances traverse the IP addresses in the `X-Forwarded-For` header from the rightmost IP address to the leftmost IP address. The first IP address that is not on the trusted IP address list is considered the client IP address. Requests from the client IP address are throttled.
+   * Application load balancing ALB traverses the `X-Forwarded-For` header field from back to front and selects the first IP address that is not in the trusted IP address list as the actual client IP address. This IP address is used for source IP address-based rate limiting.
    * 
    * @example
    * 10.1.1.0/24
@@ -417,12 +418,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientSourceIpsTrusted?: string;
   /**
    * @remarks
-   * Indicates whether the `X-Forwarded-Client-Port` header is used to retrieve the client port. Valid values:
+   * Specifies whether to use the `X-Forwarded-Client-Port` header to obtain the port of the client that accesses the load balancing instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * - **false**: No.
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * > HTTP and HTTPS listeners support this parameter.
    * 
    * @example
    * true
@@ -430,14 +431,13 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForClientSrcPortEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
+   * Specifies whether to use the `X-Forwarded-For` header to obtain the real IP address of the client. Valid values:
+   * - **true** (default): Yes.
+   * - **false**: No.
    * 
-   * *   **true** (default)
-   * *   **false**
-   * 
-   * > *   If this parameter is set to **true**, the default value of the **XForwardedForProcessingMode** parameter is **append**. You can change it to **remove**.
-   * > *   If this parameter is set to **false**, the `X-Forwarded-For` header in the request is not modified in any way before the request is sent to backend servers.
-   * > *   Both HTTP and HTTPS listeners support this parameter.
+   * > 1. If you set this parameter to **true**, the default value of **XForwardedForProcessingMode** is **append**, and you can change it to **remove**.
+   * > 2. If you set this parameter to **false**, the `X-Forwarded-For` header is retained without additional processing before the request is sent to the backend server.
+   * > 3. HTTP and HTTPS listeners support this parameter.
    * 
    * @example
    * true
@@ -445,12 +445,11 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the `X-Forwarded-Host` header to retrieve client domain names. Valid values:
+   * Specifies whether to use the `X-Forwarded-Host` header to obtain the domain name of the client that accesses the load balancing instance. Valid values:
+   * - **true**: Yes.
+   * - **false** (default): No.
    * 
-   * *   **true**
-   * *   **false** (default)
-   * 
-   * >  HTTP, HTTPS, and QUIC listeners all support this parameter.
+   * > HTTP, HTTPS, and QUIC listeners support this parameter.
    * 
    * @example
    * false
@@ -458,14 +457,13 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForHostEnabled?: boolean;
   /**
    * @remarks
-   * Specifies how the `X-Forwarded-For` header is processed. This parameter takes effect only when **XForwardedForEnabled** is set to **true**. Valid values:
+   * The processing mode for the `X-Forwarded-For` header. This parameter takes effect only when **XForwardedForEnabled** is set to **true**. Valid values:
+   * - **append** (default): Append.
+   * - **remove**: Remove.
    * 
-   * *   **append** (default)
-   * *   **remove**
-   * 
-   * > *   If this parameter is set to **append**, ALB appends the IP address of the last hop to the existing `X-Forwarded-For` header in the request before the request is sent to backend servers.
-   * > *   If this parameter is set to **remove**, ALB removes the `X-Forwarded-For` header in the request before the request is sent to backend servers, no matter whether the request carries the `X-Forwarded-For` header.
-   * > *   Both HTTP and HTTPS listeners support this parameter.
+   * > 1. If you set this parameter to **append**, the IP address of the last hop is added to the `X-Forwarded-For` header before the request is sent to the backend server.
+   * > 2. If you set this parameter to **remove**, the `X-Forwarded-For` header is deleted before the request is sent to the backend server, regardless of whether the request contains the `X-Forwarded-For` header.
+   * > 3. HTTP and HTTPS listeners support this parameter.
    * 
    * @example
    * append
@@ -473,12 +471,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForProcessingMode?: string;
   /**
    * @remarks
-   * Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listener protocol. Valid values:
+   * Specifies whether to use the `X-Forwarded-Proto` header to obtain the listener protocol of the load balancing instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * - **false**: No.
    * 
-   * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+   * > HTTP, HTTPS, and QUIC listeners support this parameter.
    * 
    * @example
    * true
@@ -486,12 +484,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForProtoEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the `SLB-ID` header to retrieve the ID of the ALB instance. Valid values:
+   * Specifies whether to use the `SLB-ID` header to obtain the load balancing instance ID. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * - **false**: No.
    * 
-   * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+   * > HTTP, HTTPS, and QUIC listeners support this parameter.
    * 
    * @example
    * true
@@ -499,12 +497,12 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
   XForwardedForSLBIdEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the `X-Forwarded-Port` header is used to retrieve the listener port of the ALB instance. Valid values:
+   * Specifies whether to use the `X-Forwarded-Port` header to obtain the listener port of the load balancing instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * - **false**: No.
    * 
-   * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+   * > HTTP, HTTPS, and QUIC listeners support this parameter.
    * 
    * @example
    * true
@@ -566,15 +564,15 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
 export class ListListenersResponseBodyListeners extends $dara.Model {
   /**
    * @remarks
-   * The default actions in the forwarding rules.
+   * The list of default rule actions.
    */
   defaultActions?: ListListenersResponseBodyListenersDefaultActions[];
   /**
    * @remarks
-   * Indicates whether GZIP compression is enabled to compress specific types of files. Valid values:
+   * Specifies whether to enable Gzip compression to compress specific file types. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -582,12 +580,12 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   gzipEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether HTTP/2 is enabled. Valid values:
+   * Specifies whether to enable the HTTP/2 feature. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * false
@@ -595,9 +593,9 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The timeout period of an idle connection. Unit: seconds. Valid values: **1 to 60**.
+   * Specifies the idle connection timeout period. Unit: seconds. Valid values: **1** to **60**.
    * 
-   * If no request is received within the specified timeout period, ALB closes the connection. ALB establishes the connection again when a new connection request is received.
+   * If no access request is accepted within the timeout period, load balancing temporarily breaks the current connection and establishes a new connection when the next request is accepted.
    * 
    * @example
    * 3
@@ -605,10 +603,10 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * The name of the listener.
+   * The custom listener name.
    * 
    * @example
-   * test
+   * HTTP_80
    */
   listenerDescription?: string;
   /**
@@ -616,12 +614,12 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
    * The listener ID.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-o4u34y73wq7b******
    */
   listenerId?: string;
   /**
    * @remarks
-   * The frontend port that is used by the ALB instance. Valid values: **1 to 65535**.
+   * The frontend port used by the application load balancing instance. Valid values: **1** to **65535**.
    * 
    * @example
    * 80
@@ -629,11 +627,11 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   listenerPort?: number;
   /**
    * @remarks
-   * The listener protocol of the instance. Valid values:
+   * The listener protocol. Valid values:
    * 
-   * *   **HTTP**
-   * *   **HTTPS**
-   * *   **QUIC**
+   * - **HTTP**: The Protocol Type is HTTP.
+   * - **HTTPS**: The Protocol Type is HTTPS.
+   * - **QUIC**: The Protocol Type is QUIC.
    * 
    * @example
    * HTTP
@@ -641,12 +639,15 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * The status of the listener. Valid values:
+   * The current status of the listener. Valid values:
    * 
-   * *   **Provisioning**: The listener is being created.
-   * *   **Running**: The listener is running.
-   * *   **Configuring**: The listener is being configured.
-   * *   **Stopped**: The listener is disabled.
+   * - **Provisioning**: The listener is being created.
+   * 
+   * - **Running**: The listener is running.
+   * 
+   * - **Configuring**: The listener is being configured.
+   * 
+   * - **Stopped**: The listener is stopped.
    * 
    * @example
    * Running
@@ -654,27 +655,27 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   listenerStatus?: string;
   /**
    * @remarks
-   * The ALB instance ID.
+   * The instance ID of the application load balancing.
    * 
    * @example
-   * lb-bp1b6c719dfa08ex*****
+   * alb-bd6oylbckp6k9x****
    */
   loadBalancerId?: string;
   /**
    * @remarks
-   * The logging configurations.
+   * The log configuration.
    */
   logConfig?: ListListenersResponseBodyListenersLogConfig;
   /**
    * @remarks
-   * The configurations of the QUIC listener associated with the ALB instance.
+   * The configuration for associating a QUIC listener.
    */
   quicConfig?: ListListenersResponseBodyListenersQuicConfig;
   /**
    * @remarks
-   * The timeout period of a request. Unit: seconds. Valid values: **1 to 180**.
+   * Specifies the request timeout period. Unit: seconds. Valid values: **1** to **180**.
    * 
-   * If no responses are received from the backend server within the specified timeout period, ALB returns an `HTTP 504` error code to the client.
+   * If a backend server does not send a response within the timeout period, load balancing stops waiting and returns an `HTTP 504` error code to the client.
    * 
    * @example
    * 34
@@ -684,7 +685,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
    * @remarks
    * The security policy.
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * > This parameter is supported only by HTTPS listeners.
    * 
    * @example
    * tls_cipher_policy_1_1
@@ -697,7 +698,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   tags?: ListListenersResponseBodyListenersTags[];
   /**
    * @remarks
-   * The configuration of the `XForward` header.
+   * The XForward header field configuration.
    */
   XForwardedForConfig?: ListListenersResponseBodyListenersXForwardedForConfig;
   static names(): { [key: string]: string } {
@@ -769,12 +770,12 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
 export class ListListenersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The listeners.
+   * The list of application load balancing listeners.
    */
   listeners?: ListListenersResponseBodyListeners[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of records returned for the request.
    * 
    * @example
    * 50
@@ -782,7 +783,7 @@ export class ListListenersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position where the query stopped. If this parameter is not returned, all data is queried.
+   * The token that indicates the position where the current call starts to read data. An empty value indicates that all data has been read.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -793,12 +794,12 @@ export class ListListenersResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   * 365F4154-92F6-4AE4-92F8-7FF3******
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records that meet the request conditions.
    * 
    * @example
    * 1000

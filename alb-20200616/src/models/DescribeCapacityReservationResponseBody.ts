@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCapacityReservationResponseBodyCapacityReservationState extends $dara.Model {
   /**
+   * @remarks
+   * The zone.
+   * 
    * @example
    * cn-hangzhou-k
    */
   availabilityZone?: string;
   /**
+   * @remarks
+   * The number of effective reserved LCUs per hour.
+   * 
    * @example
    * 50.0
    */
   effectiveCapacityUnits?: number;
   /**
+   * @remarks
+   * The cause for the failure. This parameter is returned when the reservation status is Failed.
+   * 
    * @example
    * INSUFFICIENT_CAPACITY
    */
   reason?: string;
   /**
+   * @remarks
+   * The status of the LCU reservation.
+   * 
    * @example
    * Provisioned
    */
@@ -52,6 +64,9 @@ export class DescribeCapacityReservationResponseBodyCapacityReservationState ext
 
 export class DescribeCapacityReservationResponseBodyMinimumLoadBalancerCapacity extends $dara.Model {
   /**
+   * @remarks
+   * The number of LCUs.
+   * 
    * @example
    * 100
    */
@@ -78,19 +93,36 @@ export class DescribeCapacityReservationResponseBodyMinimumLoadBalancerCapacity 
 }
 
 export class DescribeCapacityReservationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The LCU reservation state.
+   */
   capacityReservationState?: DescribeCapacityReservationResponseBodyCapacityReservationState[];
   /**
+   * @remarks
+   * The number of remaining attempts to decrease or cancel the LCU reservation.
+   * 
    * @example
    * 2
    */
   decreaseRequestsRemaining?: number;
   /**
+   * @remarks
+   * The time when the LCU reservation was last modified. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * 
    * @example
    * 2025-08-22 05:06:58
    */
   lastModifiedTime?: string;
+  /**
+   * @remarks
+   * The minimum LCUs to reserve for an ALB instance.
+   */
   minimumLoadBalancerCapacity?: DescribeCapacityReservationResponseBodyMinimumLoadBalancerCapacity;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 365F4154-92F6-4AE4-92F8-7FF3******
    */

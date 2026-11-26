@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic IP address (EIP). You can specify a maximum of 10 zones.
+   * The instance ID of the EIP. You can add up to 10 active zones.
    * 
-   * >  This parameter is required if you want to change the network type from internal-facing to Internet-facing.
+   * > This parameter is required when you invoke this operation to transform the network type from private network to public network.
    * 
    * @example
    * eip-bp1aedxso6u80u0qf****
@@ -17,10 +17,11 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $dar
    * @remarks
    * The type of the EIP. Valid values:
    * 
-   * *   Common (default): indicates an EIP
-   * *   Anycast: indicates an Anycast EIP
+   * - Common (default): a standard EIP.
    * 
-   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * - Anycast: an Anycast EIP.
+   * 
+   * > For the regions that support binding Anycast EIPs to ALB instances, see [Limits](https://help.aliyun.com/document_detail/460727.html).
    * 
    * @example
    * Common
@@ -28,7 +29,7 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $dar
   eipType?: string;
   /**
    * @remarks
-   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   * The vSwitch that corresponds to the zone. Each zone can use only one vSwitch and one subnet. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
    * 
    * @example
    * vsw-bp10ttov87felojcn****
@@ -36,9 +37,9 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $dar
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the ALB instance. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   * The zone ID of the load balancing instance. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
    * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the information about the zone.
+   * You can invoke [DescribeZones](https://help.aliyun.com/document_detail/189196.html) to query the active zone information that corresponds to a zone ID.
    * 
    * @example
    * cn-hangzhou-a
@@ -74,10 +75,11 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $dar
 export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The new network type. Valid values:
+   * The target network type. Valid values:
    * 
-   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
-   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the virtual private cloud (VPC) where the ALB instance is deployed.
+   * - **Internet**: The load balancing instance has a public IP address, and its DNS domain name is resolved to the public IP address. The load balancing instance can be accessed over the Internet.
+   * 
+   * - **Intranet**: The load balancing instance has only a private IP address, and its DNS domain name is resolved to the private IP address. The load balancing instance can be accessed only within the internal network environment of the VPC where it resides.
    * 
    * This parameter is required.
    * 
@@ -89,9 +91,9 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a unique value from your client for this parameter. ClientToken supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -99,10 +101,9 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run. Valid values:
+   * - **true**: Sends a dry run request. The network type of the instance is not changed. The system checks whether the required parameters are specified, the request format is valid, and the business limits are met. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
+   * - **false** (default): Sends a regular request. If the check passes, the system returns an HTTP 2xx status code and performs the operation.
    * 
    * @example
    * false
@@ -110,18 +111,22 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * The ALB instance ID.
+   * The instance ID of the load balancing instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * lb-bp1o94dp5i6ea****
+   * alb-bp1o94dp5i6ea****
    */
   loadBalancerId?: string;
+  /**
+   * @remarks
+   * The types of resources that are automatically created by ALB and need to be retained. Settings can currently be configured as eip, which indicates EIPs. Automatic creation and attach operations apply to these resource types.
+   */
   retainResourceType?: string[];
   /**
    * @remarks
-   * The zones and the vSwitches in the zones. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+   * The list of zone and vSwitch mappings. You can add up to 10 zones. If the current region supports two or more zones, you must add at least two zones.
    */
   zoneMappings?: UpdateLoadBalancerAddressTypeConfigRequestZoneMappings[];
   static names(): { [key: string]: string } {

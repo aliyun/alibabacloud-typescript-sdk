@@ -7,7 +7,7 @@ export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
    * @remarks
    * The port that is used by the backend server. Valid values: **1** to **65535**.
    * 
-   * >  This parameter is required when you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**.
+   * > This parameter is required when you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**.
    * 
    * @example
    * 80
@@ -17,11 +17,13 @@ export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
    * @remarks
    * The backend server ID.
    * 
-   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
-   * *   If the server group is of the **Ip** type, set this parameter to IP addresses.
-   * *   If the server group is of the **Fc** type, set ServerId to the Alibaba Cloud Resource Name (ARN) of a function.
+   * - If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
    * 
-   * >  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/2254862.html) operation to query information about the server group type so that you can set ServerId to a proper value.
+   * - If the server group is of the **Ip** type, set this parameter to IP addresses.
+   * 
+   * - If the server group is of the **Fc** type, set ServerId to the Alibaba Cloud Resource Name (ARN) of a function.
+   * 
+   * > You can call the [ListServerGroups](https://help.aliyun.com/document_detail/2254862.html) operation to query information about the server group type so that you can set ServerId to a proper value.
    * 
    * This parameter is required.
    * 
@@ -41,11 +43,15 @@ export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
    * @remarks
    * The type of the backend server. Valid values:
    * 
-   * *   **Ecs**: Elastic Compute Service (ECS) instance
-   * *   **Eni**: ENI
-   * *   **Eci**: elastic container instance
-   * *   **Ip**: IP address
-   * *   **Fc**: Function Compute instance
+   * - **Ecs**: Elastic Compute Service (ECS) instance
+   * 
+   * - **Eni**: ENI
+   * 
+   * - **Eci**: elastic container instance
+   * 
+   * - **Ip**: IP address
+   * 
+   * - **Fc**: Function Compute instance
    * 
    * This parameter is required.
    * 
@@ -97,8 +103,9 @@ export class RemoveServersFromServerGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false

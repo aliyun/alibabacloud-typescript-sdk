@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServerGroupServersAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous job.
+   * The asynchronous task ID.
    * 
    * @example
    * 72dcd26b-f12d-4c27-b3af-18f6aed5****
@@ -16,7 +16,7 @@ export class UpdateServerGroupServersAttributeResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   * 365F4154-92F6-4AE4-92F8-7FF3*****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

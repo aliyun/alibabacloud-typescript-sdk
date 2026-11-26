@@ -65,8 +65,9 @@ export class ListAclsRequest extends $dara.Model {
    * @remarks
    * The token that is used for the next query. Valid values:
    * 
-   * *   If this is your first query or no next query is to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+   * - If this is your first query or no next query is to be sent, ignore this parameter.
+   * 
+   * - If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

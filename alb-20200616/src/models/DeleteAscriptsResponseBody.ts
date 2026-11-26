@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAScriptsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID.
+   * The ID of the asynchronous task.
    * 
    * @example
    * 03cf3fe1-ab37-479b-92a6-b481d762****
@@ -13,10 +13,10 @@ export class DeleteAScriptsResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 1B7B7695-3596-50C8-B739-030C6C685E61
+   * 1B7B7695-3596-50C8-B739-030C******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

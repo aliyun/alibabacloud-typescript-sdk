@@ -10,7 +10,7 @@ export class GetListenerAttributeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-o4u54y73wq7b******
    */
   listenerId?: string;
   static names(): { [key: string]: string } {

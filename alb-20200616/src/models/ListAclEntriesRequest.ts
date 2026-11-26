@@ -10,7 +10,7 @@ export class ListAclEntriesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * nacl-hp34s2h0xx1ht4nwo****
+   * acl-hp34s2h0xx1ht4nwo****
    */
   aclId?: string;
   /**
@@ -25,8 +25,9 @@ export class ListAclEntriesRequest extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - You do not need to specify this parameter for the first request.
+   * 
+   * - You must specify the token that is obtained from the previous query as the value of **NextToken**.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

@@ -16,7 +16,7 @@ export class DetachCommonBandwidthPackageFromLoadBalancerResponseBody extends $d
    * The request ID.
    * 
    * @example
-   * 2EF39708-974B-5E74-AFF5-3445263035A8
+   * 2EF39708-974B-5E74-AFF5-344******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRulesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag key. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListRulesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag value. The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * @example
    * product
@@ -45,12 +45,13 @@ export class ListRulesRequestTag extends $dara.Model {
 export class ListRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction to which the forwarding rule is applied. Valid values:
+   * The direction of the forwarding rule. Valid values:
    * 
-   * *   **Request** (default): The forwarding rule is applied to the client requests received by ALB.
-   * *   **Response**: The forwarding rule is applied to the responses returned by backend servers.
+   * - **Request** (default): request type. Performs condition matching and corresponding processing on packets sent from the client to ALB.
    * 
-   * > You cannot set this parameter to Response if you use basic ALB instances.
+   * - **Response**: response type. Performs condition matching and corresponding processing on packets returned from backend server groups to ALB.
+   * 
+   * >ALB Basic Edition instances do not support the Response type.
    * 
    * @example
    * Request
@@ -58,21 +59,21 @@ export class ListRulesRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The listener IDs.
+   * The list of listener IDs. You can query up to 20 listeners at a time.
    */
   listenerIds?: string[];
   /**
    * @remarks
-   * The Application Load Balancer (ALB) instance IDs.
+   * The list of load balancing instance IDs. You can query up to 20 instances at a time.
    */
   loadBalancerIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of data records to read in this request.
    * 
    * Valid values: **1 to 100**.
    * 
-   * Default value: **20**. If you do not specify this parameter, the default value is used.
+   * Default value: **20**, which indicates that no value is specified.
    * 
    * > This parameter is optional.
    * 
@@ -82,7 +83,11 @@ export class ListRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The starting point of the current query. If you do not specify this parameter, the query starts from the beginning.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * - You do not need to specify this parameter for the first request or if no next query exists.
+   * 
+   * - If a next query exists, set the value to the **NextToken** value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -90,12 +95,12 @@ export class ListRulesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The forwarding rules.
+   * The list of forwarding rules. You can query up to 20 forwarding rules at a time.
    */
   ruleIds?: string[];
   /**
    * @remarks
-   * The tag.
+   * The tags.
    */
   tag?: ListRulesRequestTag[];
   static names(): { [key: string]: string } {

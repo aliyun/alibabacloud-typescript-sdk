@@ -172,7 +172,7 @@ export class GetLoadBalancerAttributeResponseBodyModificationProtectionConfig ex
    * This parameter takes effect only if **Status** is set to **ConsoleProtection**.
    * 
    * @example
-   * test
+   * Managed instance
    */
   reason?: string;
   /**

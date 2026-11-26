@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAclsResponseBodyAclsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http\:// or https\://.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListAclsResponseBodyAclsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http\:// or https\://.
    * 
    * @example
    * product
@@ -48,7 +48,7 @@ export class ListAclsResponseBodyAcls extends $dara.Model {
    * The ACL ID.
    * 
    * @example
-   * nacl-hp34s2h0xx1ht4nwo****
+   * acl-hp34s2h0xx1ht4nwo****
    */
   aclId?: string;
   /**
@@ -63,9 +63,11 @@ export class ListAclsResponseBodyAcls extends $dara.Model {
    * @remarks
    * The status of the ACL. Valid values:
    * 
-   * *   **Creating**: The network ACL is being created.
-   * *   **Available**: The network ACL is available.
-   * *   **Configuring**
+   * - **Creating**: The network ACL is being created.
+   * 
+   * - **Available**: The network ACL is available.
+   * 
+   * - **Configuring**
    * 
    * @example
    * Available
@@ -83,8 +85,9 @@ export class ListAclsResponseBodyAcls extends $dara.Model {
    * @remarks
    * Indicates whether configuration management is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -167,8 +170,9 @@ export class ListAclsResponseBody extends $dara.Model {
    * @remarks
    * The token that is used for the next query. Valid values:
    * 
-   * *   If **NextToken** is empty, it indicates that no next query is to be sent.
-   * *   If **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, it indicates that no next query is to be sent.
+   * 
+   * - If **NextToken** is returned, the value indicates the token that is used for the next query.
    * 
    * @example
    * FFmyTO70t****
@@ -179,7 +183,7 @@ export class ListAclsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF******
    */
   requestId?: string;
   /**

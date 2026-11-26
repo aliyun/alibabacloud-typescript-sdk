@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceServersInServerGroupRequestAddedServers extends $dara.Model {
   /**
    * @remarks
-   * The description of the backend server. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
+   * The description of the backend server. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ReplaceServersInServerGroupRequestAddedServers extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The port used by the backend server in the server group. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
+   * The port used by the backend server group. Valid values: **1** to **65535**. You can specify up to 200 servers in a single request.
    * 
    * @example
    * 80
@@ -21,20 +21,23 @@ export class ReplaceServersInServerGroupRequestAddedServers extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The ID of the backend server. You can specify at most 200 servers in each call.
+   * The backend server ID. You can specify up to 200 servers in a single request.
    * 
-   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
-   * *   If the server group is of the **Ip** type, set ServerId to IP addresses.
+   * - If the server group type is **Instance**, set this parameter to the ID of an **Ecs**, **Eni**, or **Eci** resource.
    * 
-   * >  You cannot perform this operation on a server group of the Function Compute type. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the type of server groups.
+   * - If the server group type is **Ip**, set this parameter to an IP address.
+   * 
+   * >Server groups of the Function Compute type do not support replacing backend servers. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the server group type.
    * 
    * @example
-   * i-bp1f9kdprbgy9uiu****
+   * ecs-123
    */
   serverId?: string;
   /**
    * @remarks
-   * The IP address of the elastic network interface (ENI) in exclusive mode.
+   * The IP address.
+   * 
+   * If **ServerType** is set to **Eni**, you can specify the primary private IP address or a secondary private IP address of the ENI.
    * 
    * @example
    * 192.168.1.1
@@ -42,21 +45,22 @@ export class ReplaceServersInServerGroupRequestAddedServers extends $dara.Model 
   serverIp?: string;
   /**
    * @remarks
-   * The type of backend server. You can specify at most 200 servers in each call. Valid values:
-   * 
-   * *   **Ecs**: Elastic Compute Service (ECS) instance
-   * *   **Eni**: ENI
-   * *   **Eci**: elastic container instance
+   * The backend server type. You can specify up to 200 servers in a single call. Valid values:
+   * - **Ecs**: ECS instance.
+   * - **Eni**: ENI network interface controller (NIC) instance.
+   * - **Eci**: ECI elastic container.
+   * - **Ip**: IP address.
+   * - **Fc**: Function Compute.
    * 
    * @example
-   * Ecs
+   * ecs
    */
   serverType?: string;
   /**
    * @remarks
-   * The weight of the backend server. You can specify at most 200 servers in each call.
+   * The weight of the backend server. You can specify up to 200 servers in a single request.
    * 
-   * Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server.
+   * Valid values: **0** to **100**. Default value: **100**. If the weight is set to **0**, no requests are forwarded to the backend server.
    * 
    * @example
    * 100
@@ -96,7 +100,7 @@ export class ReplaceServersInServerGroupRequestAddedServers extends $dara.Model 
 export class ReplaceServersInServerGroupRequestRemovedServers extends $dara.Model {
   /**
    * @remarks
-   * The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
+   * The port used by the backend server. Valid values: **1** to **65535**. You can specify up to 200 servers in a single request.
    * 
    * @example
    * 81
@@ -104,22 +108,25 @@ export class ReplaceServersInServerGroupRequestRemovedServers extends $dara.Mode
   port?: number;
   /**
    * @remarks
-   * The ID of the backend server. You can specify at most 200 servers in each call.
+   * The backend server ID. You can specify up to 200 servers in a single request.
    * 
-   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
-   * *   If the server group is of the **Ip** type, set ServerId to IP addresses.
+   * - If the server group type is **Instance**, set this parameter to the ID of an **Ecs**, **Eni**, or **Eci** resource.
    * 
-   * >  You cannot perform this operation on a server group of the Function Compute type. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the type of server groups.
+   * - If the server group type is **Ip**, set this parameter to an IP address.
+   * 
+   * >Server groups of the Function Compute type do not support replacing backend servers. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the server group type.
    * 
    * This parameter is required.
    * 
    * @example
-   * ecs-bp1ac9uozods2uc****
+   * i-bp1f9kdprbgy9uiu****
    */
   serverId?: string;
   /**
    * @remarks
-   * The IP address of the ENI in exclusive mode.
+   * The IP address.
+   * 
+   * If **ServerType** is set to **Eni**, you can specify the primary private IP address or a secondary private IP address of the ENI.
    * 
    * @example
    * 192.168.1.12
@@ -127,11 +134,12 @@ export class ReplaceServersInServerGroupRequestRemovedServers extends $dara.Mode
   serverIp?: string;
   /**
    * @remarks
-   * The type of backend server. You can specify at most 200 servers in each call. Valid values:
+   * The backend server type. You can specify up to 200 servers in a single call. Valid values:
    * 
-   * *   **Ecs**: ECS instance
-   * *   **Eni**: ENI
-   * *   **Eci**: elastic container instance
+   * - **Ecs**: ECS instance.
+   * - **Eni**: ENI network interface controller (NIC) instance.
+   * - **Eci**: ECI elastic container.
+   * - **Ip**: IP address.
    * 
    * @example
    * ecs
@@ -167,7 +175,7 @@ export class ReplaceServersInServerGroupRequestRemovedServers extends $dara.Mode
 export class ReplaceServersInServerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The backend servers. You can specify at most 200 servers in each call.
+   * The list of backend servers to add. You can specify up to 200 servers in a single request.
    * 
    * This parameter is required.
    */
@@ -176,9 +184,9 @@ export class ReplaceServersInServerGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
    * 
    * @example
    * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
@@ -186,10 +194,10 @@ export class ReplaceServersInServerGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx` HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without replacing backend servers in the server group. The system checks the required parameters, request syntax, and business limitations. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+   * - **false** (default): performs a dry run and sends the request. If the check succeeds, an `HTTP 2xx` status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -197,16 +205,16 @@ export class ReplaceServersInServerGroupRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The backend servers that you want to remove.
+   * The backend servers to remove.
    * 
    * This parameter is required.
    */
   removedServers?: ReplaceServersInServerGroupRequestRemovedServers[];
   /**
    * @remarks
-   * The ID of the server group.
+   * The server group ID.
    * 
-   * > You cannot perform this operation on a server group of the Function type.
+   * >Server groups of the Function Compute type do not support replacing backend servers.
    * 
    * This parameter is required.
    * 

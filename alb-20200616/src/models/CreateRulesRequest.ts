@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRulesRequestRulesRuleActionsCorsConfig extends $dara.Model {
   /**
    * @remarks
-   * Include credentials in CORS requests. Valid values:
+   * Specifies whether to allow credentials. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**: Yes.
+   * - **off**: No.
    * 
    * @example
    * on
@@ -16,32 +16,32 @@ export class CreateRulesRequestRulesRuleActionsCorsConfig extends $dara.Model {
   allowCredentials?: string;
   /**
    * @remarks
-   * The trusted header of CORS requests.
+   * The list of allowed headers for cross-origin requests.
    */
   allowHeaders?: string[];
   /**
    * @remarks
-   * The trusted HTTP methods of CORS requests.
+   * The allowed HTTP methods for cross-origin requests.
    */
   allowMethods?: string[];
   /**
    * @remarks
-   * The trusted origins of CORS requests.
+   * The allowed origins.
    */
   allowOrigin?: string[];
   /**
    * @remarks
-   * The headers that can be exposed.
+   * The list of exposed headers.
    */
   exposeHeaders?: string[];
   /**
    * @remarks
-   * The maximum cache time for preflight requests in the browser. Unit: seconds.
+   * The maximum cache duration of preflight requests in the browser. Unit: seconds.
    * 
    * Valid values: **-1** to **172800**.
    * 
    * @example
-   * 1000
+   * 600
    */
   maxAge?: number;
   static names(): { [key: string]: string } {
@@ -90,17 +90,15 @@ export class CreateRulesRequestRulesRuleActionsCorsConfig extends $dara.Model {
 export class CreateRulesRequestRulesRuleActionsFixedResponseConfig extends $dara.Model {
   /**
    * @remarks
-   * The content of the custom response. The content cannot exceed 1 KB in size, and can contain only ASCII characters.
+   * The fixed content to be returned. The maximum size is 1 KB. Only ASCII characters are supported.
    * 
    * @example
-   * dssacav
+   * test
    */
   content?: string;
   /**
    * @remarks
-   * The format of the custom response.
-   * 
-   * Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**
+   * The format of the fixed content to be returned. Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**.
    * 
    * @example
    * text/plain
@@ -108,10 +106,10 @@ export class CreateRulesRequestRulesRuleActionsFixedResponseConfig extends $dara
   contentType?: string;
   /**
    * @remarks
-   * The HTTP status code in responses. Valid values: **2xx**, **4xx**, and **5xx**. The value must be a numeric string. **x** can be any digit.
+   * The HTTP status code to be returned. Only numeric strings in the format of **2xx**, **4xx**, or **5xx** are supported, where **x** represents any digit.
    * 
    * @example
-   * HTTP_200
+   * 200
    */
   httpCode?: string;
   static names(): { [key: string]: string } {
@@ -142,10 +140,10 @@ export class CreateRulesRequestRulesRuleActionsFixedResponseConfig extends $dara
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $dara.Model {
   /**
    * @remarks
-   * Enables session persistence. Valid values:
+   * Specifies whether to enable session persistence. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables session persistence.
+   * - **false**: disables session persistence. This is the default value.
    * 
    * @example
    * false
@@ -153,10 +151,10 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStic
   enabled?: boolean;
   /**
    * @remarks
-   * The timeout period for sessions. Unit: seconds. Valid values: **1** to **86400**. Default value: **1000**.
+   * The timeout period. Unit: seconds. Valid values: **1** to **86400**. Default value: **1000**.
    * 
    * @example
-   * 2
+   * 30
    */
   timeout?: number;
   static names(): { [key: string]: string } {
@@ -188,15 +186,16 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTupl
    * The ID of the server group.
    * 
    * @example
-   * sgp-k86c1ov501id6p****
+   * sgp-ffm94ovy7lqw******
    */
   serverGroupId?: string;
   /**
    * @remarks
-   * The weight of the server group. A larger value indicates a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**
+   * The weight. A larger value indicates a higher weight, which means that more requests are forwarded to the server group. Valid values: **0** to **100**.
    * 
-   * *   If the number of destination server groups is 1, the default weight of the server group is **100**. You can specify another value.
-   * *   If the number of destination server groups is larger than 1, you must specify weights for the server groups.
+   * - If only one destination server group is specified and the weight is not specified, the default value is **100**.
+   * 
+   * - If more than one destination server group is specified, you must specify the weight for each server group.
    * 
    * @example
    * 100
@@ -228,12 +227,12 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTupl
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfig extends $dara.Model {
   /**
    * @remarks
-   * The configuration of session persistence.
+   * The session persistence across server groups.
    */
   serverGroupStickySession?: CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession;
   /**
    * @remarks
-   * The server groups to which requests are forwarded.
+   * The list of destination server groups to which requests are forwarded.
    */
   serverGroupTuples?: CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
@@ -268,9 +267,9 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfig extends $dara.
 export class CreateRulesRequestRulesRuleActionsInsertHeaderConfig extends $dara.Model {
   /**
    * @remarks
-   * The key of the header, which can contain a maximum of 40 characters. Supported characters include letters, digits, underscores (_), and hyphens (-). The header keys specified by **InsertHeaderConfig** must be unique.
+   * The name of the header to be inserted. The name must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). Header names in **InsertHeaderConfig** must be unique.
    * 
-   * >  You cannot specify the following header keys: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, `authority`, and `x-forwarded-host`. The header keys are case-insensitive.
+   * > You cannot set the header name to any of the following fields (case-insensitive): `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, `authority`, and `x-forwarded-host`.
    * 
    * @example
    * key
@@ -278,34 +277,33 @@ export class CreateRulesRequestRulesRuleActionsInsertHeaderConfig extends $dara.
   key?: string;
   /**
    * @remarks
-   * The value of the header.
+   * The value of the header to be inserted.
    * 
-   * *   If **ValueType** is set to **SystemDefined**, you can set this parameter to one of the following values:
-   * 
-   *     *   **ClientSrcPort**: the client port.
-   *     *   **ClientSrcIp**: the client IP address.
-   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
-   *     *   **SLBId**: the ID of the ALB instance.
-   *     *   **SLBPort**: the listener port of the ALB instance.
-   * 
-   * *   If **ValueType** is set to **UserDefined**, specify a custom header value. The header value can contain a maximum of 128 characters, and supports printable characters whose ASCII values are `greater than or equal to 32 and lower than 127` and asterisks (\\*) and question marks (?) as wildcard characters. Quotation marks (`"`) are not supported. The header value cannot start or end with a space or end with a backslash (`\\`).
-   * 
-   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value can contain a maximum of 128 characters. Supported characters include lowercase letters, digits, hyphens (-), and underscores (_).
+   * - If **ValueType** is set to **SystemDefined**, valid values are:
+   *     - **ClientSrcPort**: the client port.
+   *     - **ClientSrcIp**: the client IP address.
+   *     - **Protocol**: the protocol of the client request (HTTP or HTTPS).
+   *     - **SLBId**: the Application Load Balancing (ALB) instance ID.
+   *     - **SLBPort**: the listening port of the ALB instance.
+   * - If **ValueType** is set to **UserDefined**, you can customize the header value. The value must be 1 to 128 characters in length, and can contain asterisks (*), question marks (?), and printable characters with ASCII values from 32 to 127 (`ch >= 32 && ch < 127`). Double quotation marks (") are not supported. The value cannot start or end with a space, and cannot end with a backslash (\).
+   * - If **ValueType** is set to **ReferenceHeader**, you can reference a field in the request header. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
    * @example
-   * UserDefined
+   * value
    */
   value?: string;
   /**
    * @remarks
-   * The type of the header value. Valid values are:
+   * The content type of the header field. Valid values:
    * 
-   * *   **UserDefined**: a custom header value
-   * *   **ReferenceHeader**: a header value that references one of the request headers
-   * *   **SystemDefined**: a system-defined header value
+   * - **UserDefined**: a custom header value.
+   * 
+   * - **ReferenceHeader**: a referenced field from the request header.
+   * 
+   * - **SystemDefined**: a system-defined header value.
    * 
    * @example
-   * UserDefined
+   * SystemDefined
    */
   valueType?: string;
   static names(): { [key: string]: string } {
@@ -336,25 +334,22 @@ export class CreateRulesRequestRulesRuleActionsInsertHeaderConfig extends $dara.
 export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $dara.Model {
   /**
    * @remarks
-   * The hostname to which requests are redirected. Valid values are:
-   * 
-   * *   **${host}** (default): This value cannot be concatenated with any other characters.
-   * 
-   * *   A custom hostname, which must meet the following requirements:
-   * 
-   *     *   Contain 3 to 128 characters. Supported characters include lowercase letters, digits, and the following characters: - . \\* (as wildcard characters) = ~ _ + \\ ^ ! $ & | ( ) [ ] ?
-   *     *   Contain at least one period (.) but cannot start or end with a period (.).
-   *     *   The rightmost domain label can contain only letters and wildcard characters, and cannot contain digits or hyphens (-). The leftmost `domain label` can be an asterisk (\\*).
-   *     *   The other domain labels do not start or end with hyphens (-).
-   *     *   Support asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   * The host to which requests are redirected. Valid values:
+   * - **${host}**: the default value. If you use this value, you cannot concatenate it with other characters.
+   * - Other values: The character set and format requirements are as follows:
+   *     - The hostname must be 3 to 256 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (*), equal signs (=), tildes (~), underscores (_), plus signs (+), backslashes (\), carets (^), exclamation marks (!), dollar signs ($), ampersands (&), vertical bars (|), parentheses (()), square brackets ([]), and question marks (?).
+   *     - The hostname must contain at least one period (.), and the period cannot be at the beginning or end of the hostname.
+   *     - The rightmost domain label can contain only letters and wildcards, and cannot contain digits or hyphens (-). The leftmost `domainlabel` can be an asterisk (*).
+   *     - A hyphen (-) cannot be at the beginning or end of any other domain label.
+   *     - Asterisks (*) and question marks (?) can appear anywhere in a domain label.
    * 
    * @example
-   * www.example.com
+   * ${host}
    */
   host?: string;
   /**
    * @remarks
-   * The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+   * The HTTP status code for the redirect. Valid values: **301**, **302**, **303**, **307**, and **308**.
    * 
    * @example
    * 301
@@ -362,61 +357,50 @@ export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $dara.Mode
   httpCode?: string;
   /**
    * @remarks
-   * The path to which requests are redirected. Valid values are:
-   * 
-   * *   **${path}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
-   * 
-   * *   A custom path, which must meet the following requirements:
-   * 
-   *     *   Contain a maximum of 128 characters and is case-sensitive. Support asterisks (\\*) and question marks (?) as wildcard characters.
-   *     *   Start with a forward slash (/), and can contain letters, digits, and the following special characters: `$-_.+/&~@:\\"*?`. It cannot contain the following special characters: `“%#;!()[]^,”\\"`. Support asterisks (\\*) and question marks (?) as wildcard characters.
+   * The path to which requests are redirected. Valid values:
+   * - **${path}**: The default value. You can reference **${host}**, **${protocol}**, and **${port}**. Each variable can appear at most once. You can use these variables together or concatenate them with strings within the allowed character set.
+   * - Other values: The character set and format requirements are as follows:
+   *     - The path must be 1 to 256 characters in length and is case-sensitive. Asterisks (*) and question marks (?) are supported as wildcards.
+   *     - The path must start with a forward slash (/). It can contain letters, digits, and the following special characters: `$-_.+/&~@:\"*?`. The following characters are not supported: `"%#;!()[]^,"\"`. Asterisks (*) and question marks (?) are also supported.
    * 
    * @example
-   * /test
+   * /
    */
   path?: string;
   /**
    * @remarks
-   * The port to which requests are redirected. Valid values are:
-   * 
-   * *   **${port}** (default): This value cannot be concatenated with any other characters.
-   * *   A custom port number. Valid values: **1 to 63335**.
+   * The port to which requests are redirected. Valid values:
+   * - **${port}**: the default value. You cannot concatenate this value with other characters.
+   * - Other values: **1** to **63335**.
    * 
    * @example
-   * 10
+   * 443
    */
   port?: string;
   /**
    * @remarks
-   * The redirect protocol. Valid values are:
-   * 
-   * *   **${protocol}** (default): This value cannot be modified or concatenated with any other characters.
-   * *   **HTTP**
-   * *   **HTTPS**
-   * 
+   * The protocol to which requests are redirected. Valid values:
+   * - **${protocol}**: the default value. If you use this value, it must be used independently and cannot be modified or concatenated with other characters.
+   * - **HTTP**
+   * - **HTTPS**
    * > 
-   * 
-   * *   For HTTPS listeners, you can only redirect HTTPS to HTTPS.
-   * 
-   * *   For HTTP listeners, you can redirect HTTP to either HTTP or HTTPS.
+   * > - HTTPS listeners support redirection only to the HTTPS protocol.
+   * > - HTTP listeners support redirection to both HTTP and HTTPS protocols.
    * 
    * @example
-   * HTTP
+   * HTTPS
    */
   protocol?: string;
   /**
    * @remarks
-   * The query string to which requests are redirected.
-   * 
-   * *   **${query}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
-   * 
-   * *   A custom query string, which must meet the following requirements:
-   * 
-   *     *   Contain a maximum of 128 characters.
-   *     *   Contain printable characters, excluding space characters, the special characters `#[]{}\\|<>"`, and uppercase letters.
+   * The query string to which requests are redirected. Valid values:
+   * - **${query}**: the default value. You can reference **${host}**, **${protocol}**, and **${port}**. Each variable can appear at most once. You can use these variables together or concatenate them with strings within the allowed character set.
+   * - Other values: The character set and format requirements are as follows:
+   *     - The query string must be 1 to 128 characters in length.
+   *     - Visible characters are supported. Spaces and `#[]{}\|<>"` are not supported. Letters must be lowercase.
    * 
    * @example
-   * quert
+   * ${query}
    */
   query?: string;
   static names(): { [key: string]: string } {
@@ -453,13 +437,13 @@ export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $dara.Mode
 export class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig extends $dara.Model {
   /**
    * @remarks
-   * The key of the header to be removed. It can contain a maximum of 40 characters and supports letters, digits, underscores (_), and hyphens (-). The header keys specified in RemoveHeader must be unique.
+   * The name of the header to remove. The name must be 1 to 40 characters in length and can contain letters, digits, underscores (_), and hyphens (-). Header names cannot be duplicated in RemoveHeader.
    * 
-   * *   If Direction is set to Request, the following request headers cannot be removed: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, `authority`, and `x-forwarded-host`.
-   * *   If Direction is set to Response, the following response headers (case-insensitive) cannot be removed: `connection`, `upgrade`, `content-length`, and `transfer-encoding`.
+   * - Request direction (when Direction is set to Request): The header name cannot be set to any of the following fields (case-insensitive): `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, `authority`, or `x-forwarded-host`.
+   * - Response direction (when Direction is set to Response): The header name cannot be set to any of the following fields (case-insensitive): `connection`, `upgrade`, `content-length`, or `transfer-encoding`.
    * 
    * @example
-   * test
+   * key
    */
   key?: string;
   static names(): { [key: string]: string } {
@@ -486,49 +470,45 @@ export class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig extends $dara.
 export class CreateRulesRequestRulesRuleActionsRewriteConfig extends $dara.Model {
   /**
    * @remarks
-   * The hostname to which requests are rewritten. Valid values are:
+   * The destination host for the internal rewrite. Valid values:
+   * - **${host}**: the default value. You cannot concatenate this value with other characters.
    * 
-   * *   **${host}** (default): This value cannot be concatenated with any other characters.
+   * - Other values: The character set and format requirements are as follows:
    * 
-   * *   A custom hostname, which must meet the following requirements:
+   *     - The hostname must be 3 to 256 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (*), equal signs (=), tildes (~), underscores (_), plus signs (+), backslashes (\), carets (^), exclamation marks (!), dollar signs ($), ampersands (&), vertical bars (|), parentheses (()), square brackets ([]), and question marks (?).
    * 
-   *     *   Contain 3 to 128 characters. Supported characters include lowercase letters, digits, and the following characters: - . \\* (as wildcard characters) = ~ _ + \\ ^ ! $ & | ( ) [ ] ?
-   *     *   Contain at least one period (.) but cannot start or end with a period (.).
-   *     *   The rightmost domain label can contain only letters and wildcard characters, and cannot contain digits or hyphens (-). The leftmost `domain label` can be an asterisk (\\*).
-   *     *   The other domain labels do not start or end with hyphens (-). You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
+   *     - The hostname must contain at least one period (.), and the period cannot be at the beginning or end of the hostname.
+   * 
+   *     - The rightmost domain label can contain only letters and wildcards, and cannot contain digits or hyphens (-). The leftmost `domainlabel` can be an asterisk (*).
+   * 
+   *     - A hyphen (-) cannot be at the beginning or end of any other domain label. Asterisks (*) and question marks (?) can appear anywhere in a domain label.
    * 
    * @example
-   * www.example.com
+   * www.rewrite.alb
    */
   host?: string;
   /**
    * @remarks
-   * The path to which requests are rewritten. Valid values are:
-   * 
-   * *   **${path}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
-   * 
-   * *   A custom path, which must meet the following requirements:
-   * 
-   *     *   Contain a maximum of 128 characters and is case-sensitive. Support asterisks (\\*) and question marks (?) as wildcard characters.
-   *     *   Start with a forward slash (/), and can contain letters, digits, and the following special characters: `$-_.+/&~@:\\"*?`. It cannot contain the following special characters: `“%#;!()[]^,”\\"`. Support asterisks (\\*) and question marks (?) as wildcard characters.
+   * The path to which requests are redirected. Valid values:
+   * - **${path}**: The default value. You can reference **${host}**, **${protocol}**, and **${port}**. Each variable can appear at most once. You can use these variables together or concatenate them with strings within the allowed character set.
+   * - Other values: The character set and format requirements are as follows:
+   *     - The path must be 1 to 256 characters in length and is case-sensitive. Asterisks (*) and question marks (?) are supported as wildcards.
+   *     - The path must start with a forward slash (/). It can contain letters, digits, and the following special characters: `$-_.+/&~@:\"*?`. The following characters are not supported: `"%#;!()[]^,"\"`. Asterisks (*) and question marks (?) are also supported.
    * 
    * @example
-   * /tsdf
+   * /tea
    */
   path?: string;
   /**
    * @remarks
-   * The query string of the URL to which requests are rewritten.
-   * 
-   * *   **${query}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
-   * 
-   * *   A custom query string, which must meet the following requirements:
-   * 
-   *     *   Contain a maximum of 128 characters.
-   *     *   Contain printable characters, excluding space characters, the special characters `#[]{}\\|<>"`, and uppercase letters.
+   * The query string for the internal rewrite. Valid values:
+   * - **${query}**: the default value. You can reference **${host}**, **${protocol}**, and **${port}**. Each variable can appear at most once. You can use these variables together or concatenate them with strings within the allowed character set.
+   * - Other values: The character set and format requirements are as follows:
+   *     - The query string must be 1 to 128 characters in length.
+   *     - Visible characters are supported. Spaces and `#[]{}\|<>"` are not supported. Letters must be lowercase.
    * 
    * @example
-   * quedsa
+   * ${query}
    */
   query?: string;
   static names(): { [key: string]: string } {
@@ -559,20 +539,20 @@ export class CreateRulesRequestRulesRuleActionsRewriteConfig extends $dara.Model
 export class CreateRulesRequestRulesRuleActionsTrafficLimitConfig extends $dara.Model {
   /**
    * @remarks
-   * QPS per IP address. Valid values: **1 to 1000000**.
+   * The number of queries per second from a single IP address. Valid values: **1** to **1000000**.
    * 
-   * >  If both the **QPS** and **PerIpQps** parameters are specified, the value of the **QPS** parameter must be smaller than that of the PerIpQps parameter.
+   * > If the **QPS** parameter is also configured, the value of **PerIpQps** must be less than the value of **QPS**.
    * 
    * @example
-   * 80
+   * 100
    */
   perIpQps?: number;
   /**
    * @remarks
-   * Queries per second (QPS). Valid values: **1** to **1000000**.
+   * The number of queries per second (QPS). Valid values: **1** to **1000000**.
    * 
    * @example
-   * 100
+   * 5000
    */
   QPS?: number;
   static names(): { [key: string]: string } {
@@ -604,7 +584,7 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupCon
    * The ID of the server group.
    * 
    * @example
-   * srg-00mkgijak0w4qgz9****
+   * sgp-u9cmf16iu69******
    */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
@@ -661,14 +641,13 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupCon
 export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfig extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the server group to which traffic is mirrored.
+   * The configuration for mirroring traffic to a server group.
    */
   mirrorGroupConfig?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
   /**
    * @remarks
-   * The type of destination to which network traffic is mirrored. Valid value:
-   * 
-   * *   **ForwardGroupMirror**: a server group
+   * The target type for traffic mirroring. Valid values:
+   * - **ForwardGroupMirror**: mirrors traffic to a server group.
    * 
    * @example
    * ForwardGroupMirror
@@ -708,22 +687,22 @@ export class CreateRulesRequestRulesRuleActions extends $dara.Model {
   corsConfig?: CreateRulesRequestRulesRuleActionsCorsConfig;
   /**
    * @remarks
-   * The configuration of the action to return a fixed response.
+   * The configuration of the fixed response action.
    */
   fixedResponseConfig?: CreateRulesRequestRulesRuleActionsFixedResponseConfig;
   /**
    * @remarks
-   * The configuration of the action to forward requests to server groups.
+   * The configuration of the forward group action.
    */
   forwardGroupConfig?: CreateRulesRequestRulesRuleActionsForwardGroupConfig;
   /**
    * @remarks
-   * The configuration of the action to insert a header.
+   * The configuration of the insert header action.
    */
   insertHeaderConfig?: CreateRulesRequestRulesRuleActionsInsertHeaderConfig;
   /**
    * @remarks
-   * The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique.
+   * The execution order of the forwarding rule action. Valid values: **1** to **50000**. Actions are executed in ascending order of their values. The value cannot be empty and must be unique.
    * 
    * This parameter is required.
    * 
@@ -733,51 +712,56 @@ export class CreateRulesRequestRulesRuleActions extends $dara.Model {
   order?: number;
   /**
    * @remarks
-   * The configuration of the redirect action.
+   * The redirect configuration.
    * 
-   * >  Do not set all parameters in **RedirectConfig** to default values, excluding **httpCode**.
+   * > For the parameters in **RedirectConfig**, you cannot use the default values for all parameters except **HttpCode**.
    */
   redirectConfig?: CreateRulesRequestRulesRuleActionsRedirectConfig;
   /**
    * @remarks
-   * The configuration of the action to remove a header.
+   * The configuration for removing an HTTP header.
    */
   removeHeaderConfig?: CreateRulesRequestRulesRuleActionsRemoveHeaderConfig;
   /**
    * @remarks
-   * The configuration of the rewrite action.
+   * The rewrite configuration.
    * 
-   * >  If you specify a **Rewrite** action along with other types of actions in a forwarding rule, you must also specify a **ForwardGroup** action.
+   * > If multiple actions are configured for the same forwarding rule, the **RewriteConfig** action must be used together with the **ForwardGroup** action type.
    */
   rewriteConfig?: CreateRulesRequestRulesRuleActionsRewriteConfig;
   /**
    * @remarks
-   * The configuration of the action to throttle traffic.
+   * The traffic throttling configuration.
    */
   trafficLimitConfig?: CreateRulesRequestRulesRuleActionsTrafficLimitConfig;
   /**
    * @remarks
-   * The configuration of the action to mirror traffic.
+   * The traffic mirroring configuration.
    */
   trafficMirrorConfig?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfig;
   /**
    * @remarks
-   * The type of the action. Valid values are:
+   * The action type. Valid values:
    * 
-   * *   **ForwardGroup**: forwards requests to multiple vServer groups.
-   * *   **Redirect**: redirects requests.
-   * *   **FixedResponse**: returns a fixed response.
-   * *   **Rewrite**: rewrites requests.
-   * *   **InsertHeader**: inserts a header.
-   * *   **RemoveHeader**: deletes a header.
-   * *   **TrafficLimit**: throttles traffic.
-   * *   **trafficMirror**: mirrors network traffic.
-   * *   **Cors**: forwards requests based on CORS.
+   * - **ForwardGroup**: forwards requests to multiple virtual services.
    * 
-   * Actions in each forwarding rule must meet the following requirements:
+   * - **Redirect**: redirects requests.
    * 
-   * *   **Each forwarding rule must include one and only one of the following actions: **ForwardGroup**, **Redirect**, or **FixedResponse**, and this action must be performed last.**
-   * *   **Each forwarding rule may contain none, one, or more actions of other types.************** You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+   * - **FixedResponse**: returns a fixed response.
+   * 
+   * - **Rewrite**: rewrites requests.
+   * 
+   * - **InsertHeader**: inserts a header.
+   * 
+   * - **RemoveHeader**: deletes a header.
+   * 
+   * - **TrafficLimit**: limits traffic.
+   * 
+   * - **TrafficMirror**: mirrors traffic.
+   * 
+   * - **Cors**: configures cross-origin resource sharing (CORS).
+   * 
+   * > A forwarding rule must contain at least one **ForwardGroup**, **Redirect**, or **FixedResponse** action. If other action types are configured, the **ForwardGroup**, **Redirect**, or **FixedResponse** action must be executed last.
    * 
    * This parameter is required.
    * 
@@ -856,26 +840,30 @@ export class CreateRulesRequestRulesRuleActions extends $dara.Model {
 export class CreateRulesRequestRulesRuleConditionsCookieConfigValues extends $dara.Model {
   /**
    * @remarks
-   * The cookie key.
+   * The cookie condition key.
    * 
-   * *   Contain a maximum of 100 characters.
-   * *   Support asterisks (\\*) and question marks (?) as wildcard characters.
-   * *   Support printable characters, excluding uppercase letters, space characters, and the following special characters: `; # [ ] { } \\ | < > & "`.
+   * - The key must be 1 to 100 characters in length.
+   * 
+   * - The key can contain printable characters, asterisks (*), and question marks (?). Letters must be lowercase.
+   * 
+   * - The key cannot contain spaces or the following characters: `;#[]{}\|<>&"`.
    * 
    * @example
-   * test
+   * key
    */
   key?: string;
   /**
    * @remarks
-   * The cookie value.
+   * The cookie condition value.
    * 
-   * *   Contain a maximum of 100 characters.
-   * *   Support asterisks (\\*) and question marks (?) as wildcard characters.
-   * *   Support printable characters, excluding uppercase letters, space characters, and the following special characters: `; # [ ] { } \\ | < > & "`.
+   * - The value must be 1 to 100 characters in length.
+   * 
+   * - The value can contain printable characters, asterisks (*), and question marks (?). Letters must be lowercase.
+   * 
+   * - The value cannot contain spaces or the following characters: `;#[]{}\|<>&"`.
    * 
    * @example
-   * test
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -904,7 +892,7 @@ export class CreateRulesRequestRulesRuleConditionsCookieConfigValues extends $da
 export class CreateRulesRequestRulesRuleConditionsCookieConfig extends $dara.Model {
   /**
    * @remarks
-   * The key-value pairs in cookies.
+   * The list of cookie key-value pairs.
    */
   values?: CreateRulesRequestRulesRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
@@ -934,19 +922,21 @@ export class CreateRulesRequestRulesRuleConditionsCookieConfig extends $dara.Mod
 export class CreateRulesRequestRulesRuleConditionsHeaderConfig extends $dara.Model {
   /**
    * @remarks
-   * The key of the HTTP header.
+   * The HTTP header key.
    * 
-   * *   Contain a maximum of 40 characters.
-   * *   Support letters, digits, hyphens (-), and underscores (_).
-   * *   Do not support Cookie or Host.
+   * - The key must be 1 to 40 characters in length.
+   * 
+   * - The key can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * - The key cannot be Cookie or Host.
    * 
    * @example
-   * Port
+   * port
    */
   key?: string;
   /**
    * @remarks
-   * The values of the HTTP header.
+   * The list of HTTP header values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -978,7 +968,7 @@ export class CreateRulesRequestRulesRuleConditionsHeaderConfig extends $dara.Mod
 export class CreateRulesRequestRulesRuleConditionsHostConfig extends $dara.Model {
   /**
    * @remarks
-   * The hostnames.
+   * The list of hostnames.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -1008,7 +998,7 @@ export class CreateRulesRequestRulesRuleConditionsHostConfig extends $dara.Model
 export class CreateRulesRequestRulesRuleConditionsMethodConfig extends $dara.Model {
   /**
    * @remarks
-   * The HTTP request methods.
+   * The list of HTTP request methods.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -1038,7 +1028,7 @@ export class CreateRulesRequestRulesRuleConditionsMethodConfig extends $dara.Mod
 export class CreateRulesRequestRulesRuleConditionsPathConfig extends $dara.Model {
   /**
    * @remarks
-   * The paths to which requests are forwarded.
+   * The list of path conditions.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -1068,24 +1058,23 @@ export class CreateRulesRequestRulesRuleConditionsPathConfig extends $dara.Model
 export class CreateRulesRequestRulesRuleConditionsQueryStringConfigValues extends $dara.Model {
   /**
    * @remarks
-   * The key of the query string.
-   * 
-   * *   Contain a maximum of 100 characters.
-   * *   Support asterisks (\\*) and question marks (?) as wildcard characters. Support printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > & "`.
+   * The query string condition key.
+   * - The key must be 1 to 100 characters in length.
+   * - The key can contain printable characters, asterisks (*), and question marks (?). Letters must be lowercase. Spaces and the following characters are not supported: `#[]{}\|<>&"`.
    * 
    * @example
-   * test
+   * key
    */
   key?: string;
   /**
    * @remarks
-   * The value of the query string.
+   * The query string condition value.
    * 
-   * *   Contain a maximum of 128 characters.
-   * *   Support printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > & "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
+   * - The value must be 1 to 128 characters in length.
+   * - The value can contain lowercase letters, printable characters, asterisks (*), and question marks (?). Spaces and the following characters are not supported: `#[]{}\|<>&"`.
    * 
    * @example
-   * test
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -1114,7 +1103,7 @@ export class CreateRulesRequestRulesRuleConditionsQueryStringConfigValues extend
 export class CreateRulesRequestRulesRuleConditionsQueryStringConfig extends $dara.Model {
   /**
    * @remarks
-   * The key-value pairs in query strings.
+   * The list of query string condition key-value pairs.
    */
   values?: CreateRulesRequestRulesRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
@@ -1144,19 +1133,18 @@ export class CreateRulesRequestRulesRuleConditionsQueryStringConfig extends $dar
 export class CreateRulesRequestRulesRuleConditionsResponseHeaderConfig extends $dara.Model {
   /**
    * @remarks
-   * The key of the HTTP response header.
-   * 
-   * *   Contain a maximum of 40 characters.
-   * *   Support letters, digits, hyphens (-), and underscores (_).
-   * *   Do not support Cookie or Host.
+   * The response HTTP header key.
+   * - The key must be 1 to 40 characters in length.
+   * - The key can contain letters, digits, hyphens (-), and underscores (_).
+   * - The key cannot be Cookie or Host.
    * 
    * @example
-   * Port
+   * key
    */
   key?: string;
   /**
    * @remarks
-   * The values of the HTTP response header.
+   * The list of response HTTP header values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -1188,7 +1176,7 @@ export class CreateRulesRequestRulesRuleConditionsResponseHeaderConfig extends $
 export class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig extends $dara.Model {
   /**
    * @remarks
-   * The response status codes.
+   * The list of response status codes.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -1218,7 +1206,7 @@ export class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig exten
 export class CreateRulesRequestRulesRuleConditionsSourceIpConfig extends $dara.Model {
   /**
    * @remarks
-   * The condition that matches requests based on source IP addresses.
+   * The source IP addresses used to match service traffic.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -1248,67 +1236,75 @@ export class CreateRulesRequestRulesRuleConditionsSourceIpConfig extends $dara.M
 export class CreateRulesRequestRulesRuleConditions extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the cookie condition.
+   * The cookie condition configuration.
    */
   cookieConfig?: CreateRulesRequestRulesRuleConditionsCookieConfig;
   /**
    * @remarks
-   * The configuration of the HTTP header condition.
+   * The HTTP header condition configuration.
    */
   headerConfig?: CreateRulesRequestRulesRuleConditionsHeaderConfig;
   /**
    * @remarks
-   * The configuration of the hostname condition.
+   * The hostname condition configuration.
    */
   hostConfig?: CreateRulesRequestRulesRuleConditionsHostConfig;
   /**
    * @remarks
-   * The configuration of the HTTP request method condition.
+   * The HTTP request method condition configuration.
    */
   methodConfig?: CreateRulesRequestRulesRuleConditionsMethodConfig;
   /**
    * @remarks
-   * The configuration of the path condition.
+   * The path condition configuration.
    */
   pathConfig?: CreateRulesRequestRulesRuleConditionsPathConfig;
   /**
    * @remarks
-   * The configurations of the query string condition.
+   * The query string condition configuration.
    */
   queryStringConfig?: CreateRulesRequestRulesRuleConditionsQueryStringConfig;
   /**
    * @remarks
-   * The configuration of the HTTP response header condition.
+   * The response HTTP header configuration.
    */
   responseHeaderConfig?: CreateRulesRequestRulesRuleConditionsResponseHeaderConfig;
   /**
    * @remarks
-   * The configuration of the response status code condition.
+   * The response status code configuration.
    */
   responseStatusCodeConfig?: CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig;
   /**
    * @remarks
-   * The configuration of the condition that matches requests based on source IP addresses.
+   * The configuration for matching service traffic based on source IP addresses.
    */
   sourceIpConfig?: CreateRulesRequestRulesRuleConditionsSourceIpConfig;
   /**
    * @remarks
-   * The type of the condition. Valid values:
+   * The forwarding condition type. Valid values:
    * 
-   * *   Host: forwards requests based on hosts.
-   * *   Path: forwards requests based on paths.
-   * *   Header: forwards requests based on HTTP headers.
-   * *   QueryString: forwards requests based on query strings.
-   * *   Method: forwards requests based on HTTP request methods.
-   * *   Cookie: forwards requests based on cookies.
-   * *   SourceIp: forwards requests based on source IP addresses.
-   * *   ResponseHeader: forwards requests based on HTTP response headers.
-   * *   ResponseStatusCode: forwards requests based on response status codes.
+   * - Host: Hostname.
+   * 
+   * - Path: Path.
+   * 
+   * - Header: HTTP header fields.
+   * 
+   * - QueryString: Query character string.
+   * 
+   * - Method: Request method.
+   * 
+   * - Cookie: Cookie.
+   * 
+   * - SourceIp: Source IP address.
+   * 
+   * - ResponseHeader: Response HTTP header fields.
+   * 
+   * - ResponseStatusCode: Response status code.
    * 
    * This parameter is required.
    * 
    * @example
-   * Host
+   * SourceIp
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -1380,18 +1376,18 @@ export class CreateRulesRequestRulesRuleConditions extends $dara.Model {
 export class CreateRulesRequestRulesTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. It can contain a maximum of 128 characters, cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * The tag key. It can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
-   * env
+   * test_tag_key
    */
   key?: string;
   /**
    * @remarks
-   * The value of the tag. It can contain a maximum of 128 characters, cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * The tag value. It can be up to 128 characters in length, cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
-   * product
+   * test_tag_value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -1420,12 +1416,7 @@ export class CreateRulesRequestRulesTag extends $dara.Model {
 export class CreateRulesRequestRules extends $dara.Model {
   /**
    * @remarks
-   * The traffic direction to which the forwarding rule is applied.
-   * 
-   * Valid values:
-   * 
-   * *   Response
-   * *   Request
+   * The direction of the forwarding rule.
    * 
    * @example
    * Request
@@ -1438,19 +1429,19 @@ export class CreateRulesRequestRules extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10
+   * 1
    */
   priority?: number;
   /**
    * @remarks
-   * The actions of the forwarding rule.
+   * The list of forwarding rule actions.
    * 
    * This parameter is required.
    */
   ruleActions?: CreateRulesRequestRulesRuleActions[];
   /**
    * @remarks
-   * The conditions of the forwarding rule.
+   * The list of forwarding rule conditions.
    * 
    * This parameter is required.
    */
@@ -1462,12 +1453,12 @@ export class CreateRulesRequestRules extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * rule-443-64
    */
   ruleName?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: CreateRulesRequestRulesTag[];
   static names(): { [key: string]: string } {
@@ -1515,9 +1506,9 @@ export class CreateRulesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not set this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -1525,10 +1516,11 @@ export class CreateRulesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform only a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * - **true**: performs a dry run and does not create the forwarding rules. The system checks whether the required parameters are set, the request format is valid, and the service limits are met. If the request fails the dry run, the corresponding error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): sends a normal request. If the request passes the check, the system returns an HTTP 2xx status code and creates the forwarding rules.
    * 
    * @example
    * false
@@ -1536,17 +1528,17 @@ export class CreateRulesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the Application Load Balancer (ALB) instance.
+   * The ID of the listener for the Application Load Balancing instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-l16uo9y******
    */
   listenerId?: string;
   /**
    * @remarks
-   * The details about the forwarding rules.
+   * The list of forwarding rules.
    * 
    * This parameter is required.
    */

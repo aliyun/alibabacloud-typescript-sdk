@@ -7,8 +7,8 @@ export class CreateServerGroupRequestConnectionDrainConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable connection draining. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables connection draining.
+   * - **false**: disables connection draining (default).
    * 
    * @example
    * false
@@ -16,7 +16,7 @@ export class CreateServerGroupRequestConnectionDrainConfig extends $dara.Model {
   connectionDrainEnabled?: boolean;
   /**
    * @remarks
-   * The timeout period of connection draining.
+   * The connection draining timeout period.
    * 
    * Valid values: **0** to **900**.
    * 
@@ -52,16 +52,16 @@ export class CreateServerGroupRequestConnectionDrainConfig extends $dara.Model {
 export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that indicates healthy backend servers.
+   * The list of status codes that indicate a successful health check.
    */
   healthCheckCodes?: string[];
   /**
    * @remarks
-   * The backend port that is used for health checks.
+   * The port of the backend server used for health checks.
    * 
-   * Valid values: **0** to **65535**
+   * Valid values: **0** to **65535**.
    * 
-   * The default value is **0**, which specifies that the port of a backend server is used for health checks.
+   * Default value: **0**, which indicates that the port of the backend server is used for health checks.
    * 
    * @example
    * 80
@@ -69,12 +69,13 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * Specifies whether to enable the health check feature. Valid values:
+   * Specifies whether to enable health checks. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables health checks.
    * 
-   * >  If the **ServerGroupType** parameter is set to **Instance** or **Ip**, the health check feature is enabled by default. If the **ServerGroupType** parameter is set to **Fc**, the health check feature is disabled by default.
+   * - **false**: disables health checks.
+   * 
+   * > By default, health checks are enabled when **ServerGroupType** is set to **Instance** or **Ip**, and disabled when **ServerGroupType** is set to **Fc**.
    * 
    * This parameter is required.
    * 
@@ -84,19 +85,23 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckEnabled?: boolean;
   /**
    * @remarks
-   * The domain name that is used for health checks.
+   * The domain name used for health checks. Valid values:
    * 
-   * *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
+   * - **Internal IP address of the backend server** (default): uses the internal IP address of the backend server as the domain name for health checks.
    * 
-   * *   **Custom Domain Name**: Enter a domain name.
+   * - **Custom domain name**: specifies a domain name.
    * 
-   *     *   The domain name must be 1 to 80 characters in length.
-   *     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-   *     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
-   *     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
-   *     *   The domain name cannot start or end with a hyphen (-).
+   *   - The domain name must be 1 to 80 characters in length.
    * 
-   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
+   *   - It can contain lowercase letters, digits, hyphens (-), and periods (.).
+   * 
+   *   - It must contain at least one period (.), and the period (.) cannot be at the beginning or end.
+   * 
+   *   - The rightmost domain label can contain only letters, and cannot contain digits or hyphens (-).
+   * 
+   *   - The hyphen (-) cannot be at the beginning or end.
+   * 
+   * > This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
    * 
    * @example
    * www.example.com
@@ -104,9 +109,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckHost?: string;
   /**
    * @remarks
-   * The version of the HTTP protocol. Valid values: **HTTP1.0** and **HTTP1.1**. Default value: HTTP1.1.
+   * The HTTP version used for health checks. Valid values: **HTTP1.0** and **HTTP1.1** (default).
    * 
-   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * > This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
    * 
    * @example
    * HTTP1.1
@@ -114,9 +119,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckHttpVersion?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds
+   * The interval between two consecutive health checks. Unit: seconds.
    * 
-   * Valid values: **1** to **50**
+   * Valid values: **1** to **50**.
    * 
    * Default value: **2**.
    * 
@@ -126,13 +131,15 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The HTTP method that is used for health checks. Valid values:
+   * The HTTP method used for health checks. Valid values:
    * 
-   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
-   * *   **POST**: By default, gRPC health checks use the POST method.
-   * *   **HEAD** (default): By default, HTTP and HTTPS use the HEAD method.
+   * - **GET**: if the length of the response message exceeds 8 KB, it is truncated, but this does not affect the health check result.
    * 
-   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
+   * - **POST**: the default method for gRPC listener health checks.
+   * 
+   * - **HEAD** (default): the default method for HTTP and HTTPS listener health checks.
+   * 
+   * > This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
    * 
    * @example
    * HEAD
@@ -140,11 +147,11 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckMethod?: string;
   /**
    * @remarks
-   * The URL that is used for health checks.
+   * The path used for health checks.
    * 
-   * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * The path must be 1 to 80 characters in length, and can contain only letters, digits, and the following special characters: `-/.%?#&=` and extended characters `_;~!()*[]@$^:\",+`. The URL must start with a forward slash (/).
    * 
-   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * > This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
    * 
    * @example
    * /test/index.html
@@ -152,12 +159,15 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckPath?: string;
   /**
    * @remarks
-   * The protocol that is used for health checks. Valid values:
+   * The protocol used for health checks. Valid values:
    * 
-   * *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
-   * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security than HTTP because HTTPS supports data encryption.
-   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to probe the availability of backend servers.
-   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * - **HTTP**: sends HEAD or GET requests to perform impersonation of browser access and check whether the server application is healthy.
+   * 
+   * - **HTTPS**: sends HEAD or GET requests to perform impersonation of browser access and check whether the server application is healthy (data encryption, which makes it more secure than HTTP).
+   * 
+   * - **TCP**: sends SYN handshake messages to check whether the server port is alive.
+   * 
+   * - **gRPC**: sends POST or GET requests to check whether the server application is healthy.
    * 
    * @example
    * HTTP
@@ -165,11 +175,11 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckProtocol?: string;
   /**
    * @remarks
-   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds
+   * The timeout period for a health check response. If the backend server does not respond within the specified timeout period, the health check fails. Unit: seconds.
    * 
-   * Valid values: **1** to **300**
+   * Valid values: **1** to **300**.
    * 
-   * Default value: **5**
+   * Default value: **5**.
    * 
    * @example
    * 5
@@ -177,9 +187,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckTimeout?: number;
   /**
    * @remarks
-   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
+   * The number of consecutive successful health checks required to change the health check status of a backend server from **Failed** to **Successful**.
    * 
-   * Valid values: **2** to **10**
+   * Valid values: **2** to **10**.
    * 
    * Default value: **3**.
    * 
@@ -189,11 +199,11 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
+   * The number of consecutive failed health checks required to change the health check status of a backend server from **Successful** to **Failed**.
    * 
-   * Valid values: **2** to **10**
+   * Valid values: **2** to **10**.
    * 
-   * Default value: **3**
+   * Default value: **3**.
    * 
    * @example
    * 3
@@ -248,9 +258,11 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
 export class CreateServerGroupRequestSlowStartConfig extends $dara.Model {
   /**
    * @remarks
-   * The duration of a slow start.
-   * Valid values: 30 to 900.
-   * Default value: 30.
+   * The slow start duration.
+   * 
+   * Valid values: **30** to **900**.
+   * 
+   * Default value: **30**.
    * 
    * @example
    * 30
@@ -258,11 +270,10 @@ export class CreateServerGroupRequestSlowStartConfig extends $dara.Model {
   slowStartDuration?: number;
   /**
    * @remarks
-   * Specifies whether to enable slow starts. Valid values:
+   * Specifies whether to enable slow start. Valid values:
    * 
-   * - true
-   * 
-   * - false(default)
+   * - **true**: enables slow start.
+   * - **false**: disables slow start (default).
    * 
    * @example
    * false
@@ -294,25 +305,25 @@ export class CreateServerGroupRequestSlowStartConfig extends $dara.Model {
 export class CreateServerGroupRequestStickySessionConfig extends $dara.Model {
   /**
    * @remarks
-   * The cookie that you want to configure for the server.
+   * The cookie configured on the server.
    * 
-   * The cookie must be 1 to 200 characters in length, and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+   * The cookie must be 1 to 200 characters in length, and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or spaces, and cannot start with a dollar sign ($).
    * 
-   * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **server**.
+   * > This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **server**.
    * 
    * @example
-   * B490B5EBF6F3CD402E515D22BCDA****
+   * B490B6EBF6F3CD402E515D22BCDA****
    */
   cookie?: string;
   /**
    * @remarks
-   * The maximum amount of time to wait before the session cookie expires. Unit: seconds
+   * The timeout period of the cookie. Unit: seconds.
    * 
-   * Valid values: **1** to **86400**
+   * Valid values: **1** to **86400**.
    * 
-   * Default value: **1000**
+   * Default value: **1000**.
    * 
-   * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
+   * > This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
    * 
    * @example
    * 1000
@@ -322,10 +333,10 @@ export class CreateServerGroupRequestStickySessionConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable session persistence. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables session persistence.
+   * - **false**: disables session persistence.
    * 
-   * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * > This parameter takes effect only when **ServerGroupType** is set to **Instance** or **Ip**.
    * 
    * @example
    * false
@@ -333,12 +344,15 @@ export class CreateServerGroupRequestStickySessionConfig extends $dara.Model {
   stickySessionEnabled?: boolean;
   /**
    * @remarks
-   * The method that is used to handle cookies. Valid values:
+   * The method used to handle cookies. Valid values:
    * 
-   * *   **Insert** (default value): inserts a cookie. The first time a client accesses ALB, ALB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
-   * *   **Server**: rewrites a cookie. ALB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
+   * - **Insert** (default): inserts a cookie.
+   * When a client accesses the server for the first time, load balancing inserts a cookie (that is, inserts SERVERID into the HTTP or HTTPS response message). The next time the client accesses the server with this cookie, load balancing forwards the request to the previously recorded backend server.
    * 
-   * >  This parameter takes effect when the **StickySessionEnabled** parameter is set to **true**.
+   * - **Server**: rewrites a cookie.
+   * When load balancing detects a user-defined cookie, it rewrites the original cookie. The next time the client accesses the server with the new cookie, load balancing forwards the request to the previously recorded backend server.
+   * 
+   * > This parameter takes effect only when **StickySessionEnabled** is set to **true**.
    * 
    * @example
    * Insert
@@ -374,7 +388,7 @@ export class CreateServerGroupRequestStickySessionConfig extends $dara.Model {
 export class CreateServerGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key. The key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * env
@@ -382,7 +396,7 @@ export class CreateServerGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag value. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * product
@@ -414,7 +428,7 @@ export class CreateServerGroupRequestTag extends $dara.Model {
 export class CreateServerGroupRequestUchConfig extends $dara.Model {
   /**
    * @remarks
-   * The type of the parameter.
+   * The parameter type. Set the value to **QueryString**.
    * 
    * This parameter is required.
    * 
@@ -424,7 +438,7 @@ export class CreateServerGroupRequestUchConfig extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The parameter value for consistent hashing.
+   * The consistent hashing parameter value.
    * 
    * This parameter is required.
    * 
@@ -460,35 +474,37 @@ export class CreateServerGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
-   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   * 5A2CAF0E-5718-45B5-9D4D-70B******
    */
   clientToken?: string;
   /**
    * @remarks
-   * The configurations of connection draining.
+   * The graceful connection break configuration.
    * 
-   * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+   * After graceful connection break is enabled, load balancing allows existing connections to be transmitted normally within a specified period of time after a backend server is removed or a health check failed.
    * 
-   * 
-   * >*   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
-   * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+   * >
+   * > - Basic Edition instances do not support graceful connection break. Only Standard Edition and WAF-enhanced Edition instances support this feature.
+   * > - Server type and IP type server groups support graceful connection break. Function Compute type server groups do not support this feature.
    */
   connectionDrainConfig?: CreateServerGroupRequestConnectionDrainConfig;
   /**
    * @remarks
-   * Specifies whether to enable cross-zone load balancing. Valid values:
+   * Specifies whether to enable cross-zone load balancing for the server group. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true**: enables cross-zone load balancing (default).
    * 
-   * > *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
-   * > *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
-   * > *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
+   * - **false**: disables cross-zone load balancing.
+   * 
+   * > 
+   * > - Basic Edition instances do not support associating with server groups that have cross-zone load balancing disabled. Only Standard Edition and WAF-enhanced Edition instances support this feature.
+   * > - Server type and IP type server groups support disabling cross-zone load balancing. Function Compute type server groups do not support this feature.
+   * > - Session persistence cannot be enabled when cross-zone load balancing is disabled.
    * 
    * @example
    * true
@@ -496,10 +512,10 @@ export class CreateServerGroupRequest extends $dara.Model {
   crossZoneEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to only precheck the request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: prechecks the request without creating the server group. The system checks whether the required parameters are specified, the request format, and the service limits. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the DryRunOperation error code is returned.
+   * - **false** (default): sends the normal request. After the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -507,33 +523,47 @@ export class CreateServerGroupRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The configuration of the health check feature.
+   * The health check configuration.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * rg-123
    */
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
   /**
+   * @remarks
+   * The IP version affinity mode. Valid values:
+   * - NonAffinity: non-affinity mode. This is the default value.
+   * - Affinity: affinity mode.  
+   * 
+   * This parameter takes effect only when Ipv6Enabled is set to true.
+   * 
    * @example
    * Affinity
    */
   ipVersionAffinityMode?: string;
   /**
    * @remarks
-   * Specifies whether to enable Ipv6.
+   * Specifies whether the IP protocol version used by load balancing to forward traffic to the backend server group supports IPv6. Valid values:
+   * - **false** (default): IPv6 is not supported. The IPv4 type supports adding only IPv4 backend servers.
+   * - **true**: the dual-stack type is used. Both IPv4 and IPv6 backend servers can be added.
    * 
    * @example
-   * false
+   * true
    */
   ipv6Enabled?: boolean;
   /**
    * @remarks
    * The backend protocol. Valid values:
    * 
-   * *   **HTTP**: allows you to associate an HTTPS, HTTP, or QUIC listener with the server group. This is the default value.
-   * *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
-   * *   **gRPC**: allows you to associate an HTTPS or QUIC listener with the server group.
+   * - **HTTP** (default): supports associating with HTTPS, HTTP, and QUIC listeners.
    * 
-   * >  You do not need to specify a backend protocol if you set **ServerGroupType** to **Fc**.
+   * - **HTTPS**: supports associating with HTTP and HTTPS listeners.
+   * 
+   * - **gRPC**: associates with HTTPS listeners.
+   * 
+   * > You do not need to configure the backend protocol when **ServerGroupType** is set to **Fc**.
    * 
    * @example
    * HTTP
@@ -544,18 +574,21 @@ export class CreateServerGroupRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-atstuj3rtop****
+   * rg-atstuj3rsop****
    */
   resourceGroupId?: string;
   /**
    * @remarks
    * The scheduling algorithm. Valid values:
    * 
-   * *   **Wrr** (default): The weighted round-robin algorithm is used. Backend servers that have higher weights receive more requests than those that have lower weights.
-   * *   **Wlc**: The weighted least connections algorithm is used. Requests are distributed based on the weights and the number of connections to backend servers. If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
-   * *   **Sch**: The consistent hashing algorithm is used. Requests from the same source IP address are distributed to the same backend server.
+   * - **Wrr** (default): weighted round-robin. Backend servers with higher weights are more likely to be polled.
    * 
-   * > This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * - **Wlc**: weighted least connections. In addition to polling based on the weight of each backend server, this algorithm also considers the actual load (number of connections) of the backend servers. When the weights are the same, backend servers with fewer current connections are more likely to be polled.
+   * 
+   * - **Sch**: consistent hashing. Requests with the same hash factor calculation result are scheduled to the same backend server. If the **UchConfig** parameter is not configured, the default hash factor is the source IP address, and requests from the same source IP address are distributed to the same backend server. If the **UchConfig** parameter is configured, the hash factor is the URL parameter, and requests with the same URL parameter are distributed to the same backend server.
+   * 
+   * 
+   * > This parameter takes effect only when **ServerGroupType** is set to **Instance** or **Ip**.
    * 
    * @example
    * Wrr
@@ -563,21 +596,23 @@ export class CreateServerGroupRequest extends $dara.Model {
   scheduler?: string;
   /**
    * @remarks
-   * The name of the server group. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name of the server group. The name must be 2 to 128 characters in length, and must start with a letter, Chinese character, or digit. It can contain digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * This parameter is required.
    * 
    * @example
-   * sg-atstuj3rtoptyui****
+   * test
    */
   serverGroupName?: string;
   /**
    * @remarks
-   * The type of server group. Valid values:
+   * The type of the server group. Valid values:
    * 
-   * *   **Instance** (default): allows you to add servers by specifying **Ecs**, **Eni**, or **Eci**.
-   * *   **Ip**: allows you to add servers by specifying IP addresses.
-   * *   **Fc**: allows you to add servers by specifying functions of Function Compute.
+   * - **Instance** (default): server type. This type of server group supports adding **Ecs**, **Eni**, and **Eci** instances.
+   * 
+   * - **Ip**: IP address type. This type of server group supports adding backend servers by IP address.
+   * 
+   * - **Fc**: Function Compute type. This type of server group supports adding Function Compute backend servers.
    * 
    * @example
    * Instance
@@ -585,7 +620,7 @@ export class CreateServerGroupRequest extends $dara.Model {
   serverGroupType?: string;
   /**
    * @remarks
-   * This parameter is available only if the ALB Ingress controller is used. In this case, set this parameter to the name of the `Kubernetes Service` that is associated with the server group.
+   * The name of the `K8s Service` that corresponds to the server group. This parameter is applicable only to ALB Ingress scenarios.
    * 
    * @example
    * test
@@ -593,34 +628,39 @@ export class CreateServerGroupRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The configurations of slow starts.
-   * After slow starts are enabled, SLB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
+   * The slow start configuration.
    * 
-   * > - Basic SLB instances do not support slow starts. Standard and WAF-enabled SLB instances support slow starts. 
-   * >* Server groups of the server and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
-   * >* Slow start is supported only by the weighted round-robin scheduling algorithm.
+   * After slow start is enabled, newly added backend servers in the server group are warmed up within the specified time period, and the number of requests forwarded to the servers increases linearly.
+   * 
+   * > 
+   * > - Basic Edition instances do not support slow start. Only Standard Edition and WAF-enhanced Edition instances support this feature.
+   * > - Server type and IP backend server groups support slow start. Function Compute backend server groups do not support this feature.
+   * > - Slow start can be enabled only when the backend scheduling algorithm is weighted round-robin.
    */
   slowStartConfig?: CreateServerGroupRequestSlowStartConfig;
   /**
    * @remarks
-   * The configuration of session persistence.
+   * The session persistence configuration.
    * 
-   * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * > This parameter takes effect only when **ServerGroupType** is set to **Instance** or **Ip**.
    */
   stickySessionConfig?: CreateServerGroupRequestStickySessionConfig;
   /**
    * @remarks
-   * The tag.
+   * The tags.
    */
   tag?: CreateServerGroupRequestTag[];
   /**
    * @remarks
-   * The configuration of consistent hashing based on URLs.
+   * The URL consistent hashing parameter settings.
    */
   uchConfig?: CreateServerGroupRequestUchConfig;
   /**
    * @remarks
-   * Specifies whether to enable persistent TCP connections.
+   * Specifies whether to enable backend keep-alive. Valid values:
+   * 
+   * - **true**: enables backend keep-alive.
+   * - **false** (default): disables backend keep-alive.
    * 
    * @example
    * false
@@ -628,12 +668,12 @@ export class CreateServerGroupRequest extends $dara.Model {
   upstreamKeepaliveEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC). You can add only servers that are deployed in the specified VPC to the server group.
+   * The VPC-connected instance ID. Only servers in this VPC can be added to the server group.
    * 
-   * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * > This parameter takes effect only when **ServerGroupType** is set to **Instance** or **Ip**.
    * 
    * @example
-   * vpc-bp15zckdt37pq72zv****
+   * vpc-bp15zdkdt37pq72zv****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

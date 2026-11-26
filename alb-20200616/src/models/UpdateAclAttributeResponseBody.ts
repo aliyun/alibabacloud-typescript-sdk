@@ -8,7 +8,7 @@ export class UpdateAclAttributeResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   * CEF72CEB-54B6-4AE8-B225-F876F******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

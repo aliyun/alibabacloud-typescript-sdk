@@ -8,7 +8,7 @@ export class ListAclRelationsResponseBodyAclRelationsRelatedListeners extends $d
    * The listener ID.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-bpn0kn908w4nbw****
    */
   listenerId?: string;
   /**
@@ -32,16 +32,18 @@ export class ListAclRelationsResponseBodyAclRelationsRelatedListeners extends $d
    * The ID of the SLB instance.
    * 
    * @example
-   * lb-bp1b6c719dfa08ex****
+   * alb-bp1b6c719dfa08ex****
    */
   loadBalancerId?: string;
   /**
    * @remarks
    * The association status between the ACL and the listener.
    * 
-   * *   **Associating**
-   * *   **Associated**
-   * *   **Dissociating**
+   * - **Associating**
+   * 
+   * - **Associated**
+   * 
+   * - **Dissociating**
    * 
    * @example
    * Associated
@@ -82,7 +84,7 @@ export class ListAclRelationsResponseBodyAclRelations extends $dara.Model {
    * ACL ID
    * 
    * @example
-   * nacl-hp34s2h0xx1ht4nwo****
+   * acl-hp34s2h0xx1ht4nwo****
    */
   aclId?: string;
   /**
@@ -127,7 +129,7 @@ export class ListAclRelationsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF0******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

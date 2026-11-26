@@ -21,7 +21,7 @@ export class CreateRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The forwarding rule ID.
+   * The ID of the forwarding rule.
    * 
    * @example
    * rule-a3x3pg1yohq3lq****

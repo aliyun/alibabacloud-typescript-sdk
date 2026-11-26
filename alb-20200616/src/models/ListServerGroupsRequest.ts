@@ -7,7 +7,7 @@ export class ListServerGroupsRequestTag extends $dara.Model {
    * @remarks
    * The tag key. You can specify up to 10 tag keys.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -17,7 +17,7 @@ export class ListServerGroupsRequestTag extends $dara.Model {
    * @remarks
    * The tag value. You can specify up to 10 tag values.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -49,7 +49,7 @@ export class ListServerGroupsRequestTag extends $dara.Model {
 export class ListServerGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * The maximum number of entries to return for a single request. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -57,10 +57,9 @@ export class ListServerGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * The token used to retrieve the next page of results. Valid values:
+   * - For the first request or when no subsequent request is required, leave this parameter empty.
+   * - For a subsequent request, set this parameter to the **NextToken** value returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXG****
@@ -68,7 +67,7 @@ export class ListServerGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the server group belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-atstuj3rtop****
@@ -76,21 +75,25 @@ export class ListServerGroupsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The server group IDs.
+   * The list of server group IDs.
    */
   serverGroupIds?: string[];
   /**
    * @remarks
-   * The names of the server groups to be queried. You can specify at most 10 server group names.
+   * The list of server group names. You can specify up to 10 server group names.
    */
   serverGroupNames?: string[];
   /**
    * @remarks
    * The server group type. Valid values:
    * 
-   * *   **Instance**: instances, including ECS instances, ENIs, and elastic container instances.
-   * *   **Ip**: IP addresses.
-   * *   **Fc**: Function Compute
+   * - **Instance**: the server type, which includes ECS, ENI, and ECI instances.
+   * 
+   * - **Ip**: the IP address type.
+   * 
+   * - **Fc**: the Function Compute type.
+   * 
+   * - If you leave this parameter empty, all types are queried.
    * 
    * @example
    * Instance
@@ -98,7 +101,7 @@ export class ListServerGroupsRequest extends $dara.Model {
   serverGroupType?: string;
   /**
    * @remarks
-   * The tags that are added to the server group. You can specify up to 10 tags in each call.
+   * The list of tags that are added to the server group. You can specify up to 10 tags in a single request.
    * 
    * @example
    * Instance
@@ -106,7 +109,7 @@ export class ListServerGroupsRequest extends $dara.Model {
   tag?: ListServerGroupsRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-bp15zckdt37pq72zv****

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListLoadBalancersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * KeyTest
@@ -15,9 +15,9 @@ export class ListLoadBalancersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the instance. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * alueTest
@@ -51,8 +51,8 @@ export class ListLoadBalancersRequest extends $dara.Model {
    * @remarks
    * The IP version. Valid values:
    * 
-   * *   **IPv4**
-   * *   **DualStack**
+   * - **IPv4**: IPv4.
+   * - **DualStack**: dual-stack.
    * 
    * @example
    * IPv4
@@ -60,10 +60,11 @@ export class ListLoadBalancersRequest extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The network type. Valid values:
+   * The address type of the instance. Valid values:
    * 
-   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
-   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC where the ALB instance is deployed.
+   * - **Internet**: The load balancing has a public IP address. The DNS domain name is parsed to the public IP address, so it can be accessed in the public network environment.
+   * 
+   * - **Intranet**: The load balancing has only a private IP address. The DNS domain name is parsed to the private IP address, so it can only be accessed in the internal network environment of the VPC where the load balancing resides.
    * 
    * @example
    * Intranet
@@ -71,7 +72,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The domain name.
+   * The DNS domain name.
    * 
    * @example
    * alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
@@ -79,10 +80,11 @@ export class ListLoadBalancersRequest extends $dara.Model {
   DNSName?: string;
   /**
    * @remarks
-   * The type of IPv6 address that is used by the ALB instance. Valid values:
+   * The IPv6 address type of the application load balancing instance. Valid values:
    * 
-   * *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
-   * *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+   * - **Internet**: The load balancing has a public IP address. The DNS domain name is parsed to the public IP address, so it can be accessed in the public network environment.
+   * 
+   * - **Intranet**: The load balancing has only a private IP address. The DNS domain name is parsed to the private IP address, so it can only be accessed in the internal network environment of the VPC where the load balancing resides.
    * 
    * @example
    * Intranet
@@ -90,10 +92,11 @@ export class ListLoadBalancersRequest extends $dara.Model {
   ipv6AddressType?: string;
   /**
    * @remarks
-   * The service status of the ALB instance. Valid values:
+   * The business status of the application load balancing instance. Valid values:
    * 
-   * *   **Abnormal**
-   * *   **Normal**
+   * - **Abnormal**: Abnormal.
+   * 
+   * - **Normal**: Normal.
    * 
    * @example
    * Normal
@@ -101,23 +104,27 @@ export class ListLoadBalancersRequest extends $dara.Model {
   loadBalancerBussinessStatus?: string;
   /**
    * @remarks
-   * The instance IDs. You can specify at most 20 ALB instance IDs.
+   * The IDs of the instances. You can specify up to 20 application load balancing instance IDs.
    */
   loadBalancerIds?: string[];
   /**
    * @remarks
-   * The instance names. You can specify at most 10 instance names.
+   * The names of the instances. You can specify up to 10 instance names.
    */
   loadBalancerNames?: string[];
   /**
    * @remarks
-   * The status of the ALB instance. Valid values:
+   * The instance status of the application load balancing instance. Valid values:
    * 
-   * *   **Inactive**: The ALB instance is disabled. The listeners do not forward traffic.
-   * *   **Active**: The ALB instance is running.
-   * *   **Provisioning**: The ALB instance is being created.
-   * *   **Configuring**: The ALB instance is being modified.
-   * *   **CreateFailed**: The system failed to create the ALB instance. In this case, you are not charged for the ALB instance. You can only delete the ALB instance. By default, the system deletes the ALB instances that are in the CreateFailed state within the last day.
+   * - **Inactive**: The instance is stopped and listeners no longer forward traffic.
+   * 
+   * - **Active**: The instance is running.
+   * 
+   * - **Provisioning**: The instance is being created.
+   * 
+   * - **Configuring**: Upgrade/Downgrade in progress.
+   * 
+   * - **CreateFailed**: The instance failed to be created. In this case, no fees are generated and the instance can only be deleted. By default, the system cleans up instances that failed to be created within the last 24 hours.
    * 
    * @example
    * Active
@@ -125,7 +132,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   loadBalancerStatus?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -133,10 +140,9 @@ export class ListLoadBalancersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * The pagination token for the next query. Valid values:
+   * - Leave this parameter empty for the first query or when no next query is required.
+   * - If a next query is required, set the value to the **NextToken** value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -144,9 +150,9 @@ export class ListLoadBalancersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The billing method of the ALB instance. Set the value to
+   * The billing method of the instance. Valid values:
    * 
-   * **PostPay**, which specifies the pay-as-you-go billing method. This is the default value.
+   * **PostPay** (default value): pay-as-you-go billing method.
    * 
    * @example
    * PostPay
@@ -162,19 +168,19 @@ export class ListLoadBalancersRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags added to the ALB instance.
+   * The instance label.
    */
   tag?: ListLoadBalancersRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC to which the ALB instance belongs. You can specify at most 10 VPC IDs.
+   * The IDs of the VPCs to which the application load balancing instances belong. You can specify up to 10 VPC IDs.
    */
   vpcIds?: string[];
   /**
    * @remarks
-   * The ID of the zone where the ALB instance is deployed.
+   * The ID of the active zone where the application load balancing instance resides.
    * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query zones.
+   * You can invoke the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the active zone information corresponding to the active zone ID.
    * 
    * @example
    * cn-hangzhou-a

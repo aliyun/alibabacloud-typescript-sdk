@@ -7,20 +7,21 @@ export class ApplyHealthCheckTemplateToServerGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * You can generate the value of this parameter on the client side. Make sure that the value is unique across different requests and can be up to 64 ASCII characters in length.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
-   * 123e4567-e89b-12d3-a456-426655440000
+   * 123e4567-e89b-12d3-a456-42665******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to only precheck the request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: Prechecks the request without creating the resource. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): Sends a normal request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -28,7 +29,7 @@ export class ApplyHealthCheckTemplateToServerGroupRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the health check template.
    * 
    * This parameter is required.
    * 
@@ -38,7 +39,7 @@ export class ApplyHealthCheckTemplateToServerGroupRequest extends $dara.Model {
   healthCheckTemplateId?: string;
   /**
    * @remarks
-   * The server group ID.
+   * The ID of the backend server group.
    * 
    * This parameter is required.
    * 

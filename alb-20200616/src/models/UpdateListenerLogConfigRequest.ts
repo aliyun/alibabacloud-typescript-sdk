@@ -7,10 +7,10 @@ export class UpdateListenerLogConfigRequestAccessLogTracingConfig extends $dara.
    * @remarks
    * Specifies whether to enable the Xtrace feature. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: yes.
+   * - **false** (default): no.
    * 
-   * > You can set this parameter to **true** only if the access log feature is enabled by specifying **AccessLogEnabled**.
+   * > You can set this parameter to **true** only when the **AccessLogEnabled** switch for the instance is turned on.
    * 
    * This parameter is required.
    * 
@@ -20,11 +20,11 @@ export class UpdateListenerLogConfigRequestAccessLogTracingConfig extends $dara.
   tracingEnabled?: boolean;
   /**
    * @remarks
-   * The sampling rate of the Xtrace feature.
+   * The Xtrace sampling rate.
    * 
-   * Valid values: **1 to 10000**.
+   * Valid values: **1** to **10000**.
    * 
-   * > This parameter takes effect only if you set **TracingEnabled** to **true**.
+   * > This parameter takes effect only when **TracingEnabled** is set to **true**.
    * 
    * @example
    * 100
@@ -32,9 +32,9 @@ export class UpdateListenerLogConfigRequestAccessLogTracingConfig extends $dara.
   tracingSample?: number;
   /**
    * @remarks
-   * The type of Xtrace. Set the value to **Zipkin**.
+   * The Xtrace type. Valid values: **Zipkin** and **OpenTelemetry**.
    * 
-   * > This parameter takes effect only if you set **TracingEnabled** to **true**.
+   * > This parameter takes effect only when **TracingEnabled** is set to **true**.
    * 
    * @example
    * Zipkin
@@ -68,12 +68,12 @@ export class UpdateListenerLogConfigRequestAccessLogTracingConfig extends $dara.
 export class UpdateListenerLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to record custom headers in the access log. Valid values:
+   * Specifies whether to record custom header fields in access logs. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: yes.
+   * - **false** (default): no.
    * 
-   * > You can set this parameter to **true** only if the access log feature is enabled by specifying **AccessLogEnabled**.
+   * > You can set this parameter to **true** only when the **AccessLogEnabled** switch for the instance is turned on.
    * 
    * @example
    * true
@@ -81,27 +81,28 @@ export class UpdateListenerLogConfigRequest extends $dara.Model {
   accessLogRecordCustomizedHeadersEnabled?: boolean;
   /**
    * @remarks
-   * The configuration information about the Xtrace feature.
+   * The Xtrace configuration.
    */
   accessLogTracingConfig?: UpdateListenerLogConfigRequestAccessLogTracingConfig;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate the value from your client and make sure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
-   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   * 5A2CFF0E-5718-45B5-9D4D-70B******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**: (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx HTTP** status code is returned and the operation is performed.
+   * - **true**: performs a dry run and does not update the log configuration of the listener. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an **HTTP_2xx** status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -109,12 +110,12 @@ export class UpdateListenerLogConfigRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the Application Load Balancer (ALB) listener.
+   * The ID of the listener for the application load balancing instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-o4u54y73wq7b******
    */
   listenerId?: string;
   static names(): { [key: string]: string } {

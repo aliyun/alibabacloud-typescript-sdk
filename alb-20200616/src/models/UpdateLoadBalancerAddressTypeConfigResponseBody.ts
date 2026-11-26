@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoadBalancerAddressTypeConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous job.
+   * The ID of the asynchronous task.
    * 
    * @example
    * 72dcd26b-f12d-4c27-b3af-18f6aed5****

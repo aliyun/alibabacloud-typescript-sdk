@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * The tag key. The key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags extend
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+   * The tag value. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * product
@@ -45,16 +45,16 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags extend
 export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status codes that indicate healthy backend servers.
+   * The list of status codes that indicate a successful health check.
    */
   healthCheckCodes?: string[];
   /**
    * @remarks
-   * The port that is used for health checks.
+   * The port used for health checks.
    * 
-   * Valid values: \\*\\* 0 to 65535\\*\\*.
+   * Valid values: **0** to **65535**.
    * 
-   * The default value is **0**, which specifies that the port of a backend server is used for health checks.
+   * Default value: **0**, which indicates that the port of the backend server is used for health checks.
    * 
    * @example
    * 80
@@ -62,26 +62,27 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks. Valid values:
+   * The domain name used for health checks. Valid values:
    * 
-   * *   **$SERVER_IP** (default): the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP address of each backend server as the domain name for health checks.
-   * *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * - **$SERVER_IP** (default): the private IP of the backend server. If you specify an IP address or leave this parameter empty, load balancing uses the private IP of each backend server as the domain name for health checks.
    * 
-   * >  This parameter takes effect only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
+   * - **domain**: The domain name must be 1 to 80 characters in length, and can contain only letters, digits, periods (.), and hyphens (-).
+   * 
+   * > This parameter takes effect only when `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
    * 
    * @example
-   * $_ip
+   * $SERVER_IP
    */
   healthCheckHost?: string;
   /**
    * @remarks
-   * The HTTP version for health checks.
+   * The HTTP version used for health checks.
    * 
    * Valid values: **HTTP 1.0** and **HTTP 1.1**.
    * 
    * Default value: **HTTP 1.1**.
    * 
-   * >  This parameter takes effect only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
+   * > This parameter takes effect only when `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
    * 
    * @example
    * HTTP 1.0
@@ -89,7 +90,7 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckHttpVersion?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds. Valid values: **1 to 50**. Default value: **2**.
+   * The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**. Default value: **2**.
    * 
    * @example
    * 5
@@ -97,13 +98,15 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The HTTP method that is used for health checks. Valid values:
+   * The health check method. Valid values:
    * 
-   * *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
-   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
-   * *   **POST**: gRPC health checks use the POST method by default.
+   * - **HEAD** (default): The default method for HTTP and HTTPS health checks.
    * 
-   * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
+   * - **GET**: If the length of the response message exceeds 8 KB, the message is truncated. However, the truncation does not affect the health check result.
+   * 
+   * - **POST**: The default method for gRPC health checks.
+   * 
+   * > This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
    * 
    * @example
    * HEAD
@@ -111,9 +114,9 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckMethod?: string;
   /**
    * @remarks
-   * The URL path that you want to use for health checks.
+   * The URL used for health checks.
    * 
-   * The URL must be 1 to 80 characters in length, and can contain letters, digits, the following special characters: - / . % ? # &, and the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * The URL must be 1 to 80 characters in length and can contain only letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), ampersands (&), and the following extended characters: `_;~!()*[]@$^:\",+`. The URL must start with a forward slash (/).
    * 
    * @example
    * /test/index.html
@@ -121,12 +124,15 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckPath?: string;
   /**
    * @remarks
-   * The protocol that is used for health checks. Valid values:
+   * The protocol used for health checks. Valid values:
    * 
-   * *   **HTTP** (default): The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy.
-   * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security because HTTPS supports data encryption.
-   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
-   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * - **HTTP** (default): sends HEAD or GET requests to perform browser access impersonation and check whether the server application is healthy.
+   * 
+   * - **HTTPS**: sends HEAD or GET requests to perform browser access impersonation and check whether the server application is healthy. (With data encryption, it is more secure than HTTP.)
+   * 
+   * - **TCP**: sends SYN handshake messages to check whether the server port is alive.
+   * 
+   * - **gRPC**: sends POST or GET requests to check whether the server application is healthy.
    * 
    * @example
    * HTTP
@@ -134,7 +140,7 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckProtocol?: string;
   /**
    * @remarks
-   * The ID of the health check template.
+   * The health check template ID.
    * 
    * @example
    * hct-bp1qjwo61pqz3ahltv****
@@ -142,9 +148,9 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckTemplateId?: string;
   /**
    * @remarks
-   * The name of the health check template.
+   * The health check template name.
    * 
-   * The name must be 2 to 128 character characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * HealthCheckTemplate1
@@ -152,9 +158,9 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckTemplateName?: string;
   /**
    * @remarks
-   * The timeout period of a health check response. If a backend Elastic Compute Service (ECS) instance does not respond within the specified timeout period, the ECS instance fails to pass the health check.
+   * The timeout period for receiving a response from a health check. If the backend ECS instance does not return a correct response within the specified timeout period, the health check is considered failed.
    * 
-   * Valid values: **1 to 300**. Unit: seconds.
+   * Valid values: **1** to **300**. Unit: seconds.
    * 
    * Default value: **5**.
    * 
@@ -164,9 +170,9 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   healthCheckTimeout?: number;
   /**
    * @remarks
-   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
+   * The number of consecutive successful health checks required to change the health check status of a backend server from **Failed** to **Successful**.
    * 
-   * Valid values: **2 to 10**.
+   * Valid values: **2** to **10**.
    * 
    * Default value: **3**.
    * 
@@ -189,9 +195,9 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
   tags?: ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags[];
   /**
    * @remarks
-   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
+   * The number of consecutive failed health checks required to change the health check status of a backend server from **Successful** to **Failed**.
    * 
-   * Valid values: **2 to 10**.
+   * Valid values: **2** to **10**.
    * 
    * Default value: **3**.
    * 
@@ -257,12 +263,12 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
 export class ListHealthCheckTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The health check templates.
+   * The list of health check templates.
    */
   healthCheckTemplates?: ListHealthCheckTemplatesResponseBodyHealthCheckTemplates[];
   /**
    * @remarks
-   * The number of entries returned per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 50
@@ -270,10 +276,9 @@ export class ListHealthCheckTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value of **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no next query is available.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -284,12 +289,12 @@ export class ListHealthCheckTemplatesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 365F4154-92F6-4AE4-92F8-7FF34B540710
+   * 365F4154-92F6-4AE4-92F8-7FF3******
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records returned for the current request.
    * 
    * @example
    * 1000

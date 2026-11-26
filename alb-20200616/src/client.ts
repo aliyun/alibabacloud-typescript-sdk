@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,7 +12,13 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Alb";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-hangzhou-finance': "alb.cn-hangzhou.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("alb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,15 +37,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds IP entries to an access control list (ACL).
+   * Adds IP entries to an access control policy group.
    * 
    * @remarks
-   *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
-   *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
-   *     *   The maximum number of IP entries that each ACL can contain: 1,000
-   * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
-   *     *   If the ACL is in the **Adding** state, the IP entries are being added.
-   *     *   If the ACL is in the **Available** state, the IP entries are added.
+   * - Each policy group can contain multiple IP address entries or CIDR block entries. The entry limits for an access control policy group are as follows: 
+   *     - Maximum number of IP address entries that can be added per account per call: 20. 
+   *     - Maximum number of entries that each access control policy group can contain: 500.
+   * - The **AddEntriesToAcl** operation is asynchronous. After you call this operation, the system returns a request ID, but the IP entries are not immediately added to the access control policy group. The addition task is still running in the background. You can call [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) to query the addition status of the IP entries:
+   *     - If the access control policy group is in the **Adding** state, the IP entries are being added.
+   *     - If the access control policy group is in the **Available** state, the IP entries are added.
    * 
    * @param request - AddEntriesToAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81,15 +88,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds IP entries to an access control list (ACL).
+   * Adds IP entries to an access control policy group.
    * 
    * @remarks
-   *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
-   *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
-   *     *   The maximum number of IP entries that each ACL can contain: 1,000
-   * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
-   *     *   If the ACL is in the **Adding** state, the IP entries are being added.
-   *     *   If the ACL is in the **Available** state, the IP entries are added.
+   * - Each policy group can contain multiple IP address entries or CIDR block entries. The entry limits for an access control policy group are as follows: 
+   *     - Maximum number of IP address entries that can be added per account per call: 20. 
+   *     - Maximum number of entries that each access control policy group can contain: 500.
+   * - The **AddEntriesToAcl** operation is asynchronous. After you call this operation, the system returns a request ID, but the IP entries are not immediately added to the access control policy group. The addition task is still running in the background. You can call [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) to query the addition status of the IP entries:
+   *     - If the access control policy group is in the **Adding** state, the IP entries are being added.
+   *     - If the access control policy group is in the **Available** state, the IP entries are added.
    * 
    * @param request - AddEntriesToAclRequest
    * @returns AddEntriesToAclResponse
@@ -103,13 +110,13 @@ export default class Client extends OpenApi {
    * Adds backend servers to a server group.
    * 
    * @remarks
-   * *AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
-   * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-   * *   If a server group is in the **Available** state, it indicates that the server group is running.
-   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
-   * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
-   * *   If a backend server is in the **Available** state, it indicates that the server is running.
+   * The **AddServersToServerGroup** operation is asynchronous. After you send the request, the system returns a request ID, but the backend servers are not immediately added. The addition task is still running in the background.
+   * 1. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the server group:
+   * - If the server group is in the **Configuring** state, the server group is being reconfigured.
+   * - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of the backend servers:
+   * - If a backend server is in the **Adding** state, the backend server is being added to the server group.
+   * - If a backend server is in the **Available** state, the backend server is running.
    * 
    * @param request - AddServersToServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -162,13 +169,13 @@ export default class Client extends OpenApi {
    * Adds backend servers to a server group.
    * 
    * @remarks
-   * *AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
-   * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-   * *   If a server group is in the **Available** state, it indicates that the server group is running.
-   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
-   * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
-   * *   If a backend server is in the **Available** state, it indicates that the server is running.
+   * The **AddServersToServerGroup** operation is asynchronous. After you send the request, the system returns a request ID, but the backend servers are not immediately added. The addition task is still running in the background.
+   * 1. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the server group:
+   * - If the server group is in the **Configuring** state, the server group is being reconfigured.
+   * - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of the backend servers:
+   * - If a backend server is in the **Adding** state, the backend server is being added to the server group.
+   * - If a backend server is in the **Available** state, the backend server is running.
    * 
    * @param request - AddServersToServerGroupRequest
    * @returns AddServersToServerGroupResponse
@@ -179,7 +186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies a health check template to a server group.
+   * Applies a health check configuration template to a backend server group to update the health check configuration of the backend server group to the template values.
    * 
    * @param request - ApplyHealthCheckTemplateToServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -222,7 +229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies a health check template to a server group.
+   * Applies a health check configuration template to a backend server group to update the health check configuration of the backend server group to the template values.
    * 
    * @param request - ApplyHealthCheckTemplateToServerGroupRequest
    * @returns ApplyHealthCheckTemplateToServerGroupResponse
@@ -233,12 +240,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates access control lists (ACLs) with a listener.
+   * Associates access control lists with a listener.
    * 
    * @remarks
-   * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
-   * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
-   * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
+   * The **AssociateAclsWithListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the ACLs are not yet associated with the listener. The association task is still running in the background. You can call [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) to query the association status of the ACLs:
+   * - If the ACL is in the **Associating** state, the ACL is being associated with the listener.
+   * - If the ACL is in the **Associated** state, the ACL is associated with the listener.
    * 
    * @param request - AssociateAclsWithListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -285,12 +292,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates access control lists (ACLs) with a listener.
+   * Associates access control lists with a listener.
    * 
    * @remarks
-   * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
-   * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
-   * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
+   * The **AssociateAclsWithListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the ACLs are not yet associated with the listener. The association task is still running in the background. You can call [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) to query the association status of the ACLs:
+   * - If the ACL is in the **Associating** state, the ACL is being associated with the listener.
+   * - If the ACL is in the **Associated** state, the ACL is associated with the listener.
    * 
    * @param request - AssociateAclsWithListenerRequest
    * @returns AssociateAclsWithListenerResponse
@@ -304,9 +311,9 @@ export default class Client extends OpenApi {
    * Associates additional certificates with a listener.
    * 
    * @remarks
-   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
-   * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
-   * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
+   * The **AssociateAdditionalCertificatesWithListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the additional certificates are not immediately associated. The association task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the association status of the additional certificates:
+   *    - If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
+   *    - If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
    * 
    * @param request - AssociateAdditionalCertificatesWithListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -352,9 +359,9 @@ export default class Client extends OpenApi {
    * Associates additional certificates with a listener.
    * 
    * @remarks
-   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
-   * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
-   * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
+   * The **AssociateAdditionalCertificatesWithListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the additional certificates are not immediately associated. The association task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the association status of the additional certificates:
+   *    - If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
+   *    - If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
    * 
    * @param request - AssociateAdditionalCertificatesWithListenerRequest
    * @returns AssociateAdditionalCertificatesWithListenerResponse
@@ -365,12 +372,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
+   * Attaches an Internet Shared Bandwidth instance to an Application Load Balancer instance.
    * 
    * @remarks
-   * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
-   * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
+   * The **AttachCommonBandwidthPackageToLoadBalancer** operation is asynchronous. After you send the request, the system returns a request ID, but the Internet Shared Bandwidth instance is not yet associated with the load balancing instance. The association task is still running in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/2254835.html) operation to query the association status of the Internet Shared Bandwidth instance:
+   * - When the load balancing instance is in the **Configuring** state, the Internet Shared Bandwidth instance is being associated.
+   * - When the load balancing instance is in the **Active** state, the Internet Shared Bandwidth instance is associated.
    * 
    * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -417,12 +424,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
+   * Attaches an Internet Shared Bandwidth instance to an Application Load Balancer instance.
    * 
    * @remarks
-   * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
-   * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
+   * The **AttachCommonBandwidthPackageToLoadBalancer** operation is asynchronous. After you send the request, the system returns a request ID, but the Internet Shared Bandwidth instance is not yet associated with the load balancing instance. The association task is still running in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/2254835.html) operation to query the association status of the Internet Shared Bandwidth instance:
+   * - When the load balancing instance is in the **Configuring** state, the Internet Shared Bandwidth instance is being associated.
+   * - When the load balancing instance is in the **Active** state, the Internet Shared Bandwidth instance is associated.
    * 
    * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
    * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
@@ -433,10 +440,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
+   * Adds the elastic IP address (EIP) or virtual IP address (VIP) of a zone back to Domain Name System (DNS) resolution.
    * 
    * @remarks
-   * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+   * This operation is supported only for Application Load Balancer (ALB) instances in static IP mode. Before you call this operation, you must have removed a zone from the ALB instance by calling the StartShiftLoadBalancerZones operation or by using the console.
    * 
    * @param request - CancelShiftLoadBalancerZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -479,10 +486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
+   * Adds the elastic IP address (EIP) or virtual IP address (VIP) of a zone back to Domain Name System (DNS) resolution.
    * 
    * @remarks
-   * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+   * This operation is supported only for Application Load Balancer (ALB) instances in static IP mode. Before you call this operation, you must have removed a zone from the ALB instance by calling the StartShiftLoadBalancerZones operation or by using the console.
    * 
    * @param request - CancelShiftLoadBalancerZonesRequest
    * @returns CancelShiftLoadBalancerZonesResponse
@@ -493,15 +500,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates AScript rules.
+   * Creates a programmable script.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
-   * ### [](#)Usage notes
-   * **CreateAScripts** an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of a script.
-   * *   If the script is in the **Creating** state, the script is being created.
-   * *   If the script is in the **Available**, the script is created.
+   * ### Before you begin
+   * - Create a Standard Edition or WAF-enhanced ALB instance. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * ### Usage notes
+   * **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID, but the programmable script is not yet created. The creation task continues in the background. Call [ListAScripts](https://help.aliyun.com/document_detail/472574.html) to query the creation status of the programmable script:
+   *    - If the programmable script is in the **Creating** state, the script is being created.
+   *    - If the programmable script is in the **Available** state, the script is created successfully.
    * 
    * @param request - CreateAScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -544,15 +551,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates AScript rules.
+   * Creates a programmable script.
    * 
    * @remarks
-   * ### [](#)Prerequisites
-   * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
-   * ### [](#)Usage notes
-   * **CreateAScripts** an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of a script.
-   * *   If the script is in the **Creating** state, the script is being created.
-   * *   If the script is in the **Available**, the script is created.
+   * ### Before you begin
+   * - Create a Standard Edition or WAF-enhanced ALB instance. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * ### Usage notes
+   * **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID, but the programmable script is not yet created. The creation task continues in the background. Call [ListAScripts](https://help.aliyun.com/document_detail/472574.html) to query the creation status of the programmable script:
+   *    - If the programmable script is in the **Creating** state, the script is being created.
+   *    - If the programmable script is in the **Available** state, the script is created successfully.
    * 
    * @param request - CreateAScriptsRequest
    * @returns CreateAScriptsResponse
@@ -563,13 +570,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL) in a region.
+   * Creates an access control list (ACL) in a specified region.
    * 
    * @remarks
-   * ## Usage notes
-   * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
-   * *   If an ACL is in the **Creating** state, the ACL is being created.
-   * *   If an ACL is in the **Available** state, the ACL is created.
+   * The **CreateAcl** operation is asynchronous. After you invoke this operation, the system returns an instance ID, but the access control policy group is not immediately created because the creation node is still running in the background. You can invoke [ListAcls](https://help.aliyun.com/document_detail/213617.html) to query the creation status of the access control policy group:
+   * - If the access control policy group is in the **Creating** state, the access control policy group is being created.
+   * - If the access control policy group is in the **Available** state, the access control policy group is created.
    * 
    * @param request - CreateAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -616,13 +622,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL) in a region.
+   * Creates an access control list (ACL) in a specified region.
    * 
    * @remarks
-   * ## Usage notes
-   * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
-   * *   If an ACL is in the **Creating** state, the ACL is being created.
-   * *   If an ACL is in the **Available** state, the ACL is created.
+   * The **CreateAcl** operation is asynchronous. After you invoke this operation, the system returns an instance ID, but the access control policy group is not immediately created because the creation node is still running in the background. You can invoke [ListAcls](https://help.aliyun.com/document_detail/213617.html) to query the creation status of the access control policy group:
+   * - If the access control policy group is in the **Creating** state, the access control policy group is being created.
+   * - If the access control policy group is in the **Available** state, the access control policy group is created.
    * 
    * @param request - CreateAclRequest
    * @returns CreateAclResponse
@@ -633,7 +638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check template in a region.
+   * Creates a health check template in a specified region.
    * 
    * @param request - CreateHealthCheckTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -724,7 +729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check template in a region.
+   * Creates a health check template in a specified region.
    * 
    * @param request - CreateHealthCheckTemplateRequest
    * @returns CreateHealthCheckTemplateResponse
@@ -738,10 +743,9 @@ export default class Client extends OpenApi {
    * Creates a listener.
    * 
    * @remarks
-   * ## Usage notes
-   * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
-   * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
-   * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
+   * The **CreateListener** operation is asynchronous. The system returns a request ID, but the HTTP, HTTPS, or QUIC listener is not yet created. The creation task is still running in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the creation status of the HTTP, HTTPS, or QUIC listener:
+   * - If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, the listener is being created.
+   * - If the HTTP, HTTPS, or QUIC listener is in the **Running** state, the listener is created.
    * 
    * @param request - CreateListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -843,10 +847,9 @@ export default class Client extends OpenApi {
    * Creates a listener.
    * 
    * @remarks
-   * ## Usage notes
-   * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
-   * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
-   * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
+   * The **CreateListener** operation is asynchronous. The system returns a request ID, but the HTTP, HTTPS, or QUIC listener is not yet created. The creation task is still running in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the creation status of the HTTP, HTTPS, or QUIC listener:
+   * - If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, the listener is being created.
+   * - If the HTTP, HTTPS, or QUIC listener is in the **Running** state, the listener is created.
    * 
    * @param request - CreateListenerRequest
    * @returns CreateListenerResponse
@@ -857,12 +860,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Application Load Balancer (ALB) instance in a region.
+   * Creates an Application Load Balancing (ALB) instance in a specified region.
    * 
    * @remarks
-   * *CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
-   * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
-   * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
+   * The **CreateLoadBalancer** operation is asynchronous. The system returns an instance ID, but the Application Load Balancing (ALB) instance is not yet created and the creation task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the creation status of the Application Load Balancing (ALB) instance:
+   * - When the Application Load Balancing (ALB) instance is in the **Provisioning** state, the instance is being created.
+   * - When the Application Load Balancing (ALB) instance is in the **Active** state, the instance is created.
    * 
    * @param request - CreateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -949,12 +952,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Application Load Balancer (ALB) instance in a region.
+   * Creates an Application Load Balancing (ALB) instance in a specified region.
    * 
    * @remarks
-   * *CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
-   * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
-   * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
+   * The **CreateLoadBalancer** operation is asynchronous. The system returns an instance ID, but the Application Load Balancing (ALB) instance is not yet created and the creation task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the creation status of the Application Load Balancing (ALB) instance:
+   * - When the Application Load Balancing (ALB) instance is in the **Provisioning** state, the instance is being created.
+   * - When the Application Load Balancing (ALB) instance is in the **Active** state, the instance is created.
    * 
    * @param request - CreateLoadBalancerRequest
    * @returns CreateLoadBalancerResponse
@@ -965,18 +968,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a forwarding rule for a listener.
+   * Creates a forwarding rule under a specified listener.
    * 
    * @remarks
-   * Take note of the following limits:
-   * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
-   * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
-   * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
-   *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
-   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
-   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   * When you call this operation to create a forwarding rule, note the following items:
+   * - When you configure the **Redirect** action, you cannot set all parameters except the **HttpCode** parameter to their default values.
+   * - When you configure multiple actions for the same forwarding rule, you must set the action type of the **Rewrite** action to **ForwardGroup**.
+   * - The **CreateRule** operation is asynchronous. After you send the request, the system returns an instance ID, but the forwarding rule is not yet created and the creation node in the background is still in progress. You can invoke the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the creation status of the forwarding rule:
+   *     - If the forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
+   *     - If the forwarding rule is in the **Available** state, the forwarding rule is created.
+   * - The maximum number of conditions (**RuleConditions**) and actions (**RuleActions**) that you can add to a forwarding rule varies based on the edition:
+   *     - Number of conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enhanced Edition.
+   *     - Number of actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enhanced Edition.
    * 
    * @param request - CreateRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1039,18 +1042,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a forwarding rule for a listener.
+   * Creates a forwarding rule under a specified listener.
    * 
    * @remarks
-   * Take note of the following limits:
-   * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
-   * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
-   * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
-   *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
-   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
-   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   * When you call this operation to create a forwarding rule, note the following items:
+   * - When you configure the **Redirect** action, you cannot set all parameters except the **HttpCode** parameter to their default values.
+   * - When you configure multiple actions for the same forwarding rule, you must set the action type of the **Rewrite** action to **ForwardGroup**.
+   * - The **CreateRule** operation is asynchronous. After you send the request, the system returns an instance ID, but the forwarding rule is not yet created and the creation node in the background is still in progress. You can invoke the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the creation status of the forwarding rule:
+   *     - If the forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
+   *     - If the forwarding rule is in the **Available** state, the forwarding rule is created.
+   * - The maximum number of conditions (**RuleConditions**) and actions (**RuleActions**) that you can add to a forwarding rule varies based on the edition:
+   *     - Number of conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enhanced Edition.
+   *     - Number of actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enhanced Edition.
    * 
    * @param request - CreateRuleRequest
    * @returns CreateRuleResponse
@@ -1061,18 +1064,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple forwarding rules at a time.
+   * Creates multiple forwarding rules.
    * 
    * @remarks
-   * When you call this operation, take note of the following limits:
-   * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
-   * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
-   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
-   *     *   If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-   *     *   If the forwarding rules are in the **Available** state, the forwarding rules are created.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-   *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
-   *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
+   * When you invoke this operation to create forwarding rules, take note of the following items:
+   * - When you configure the **Redirect** action, you cannot set all parameters except **HttpCode** to their default values.
+   * - If you configure multiple actions for the same forwarding rule, the action type of the **Rewrite** action must be set to **ForwardGroup**.
+   * - The **CreateRules** operation is asynchronous. After you send the request, the system returns an instance ID, but the forwarding rules are not yet created. The creation node is still running in the background. You can invoke the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the creation status of the forwarding rules:
+   *     - If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+   *     - If the forwarding rules are in the **Available** state, the forwarding rules are created.
+   * - A forwarding rule supports the following maximum numbers of conditions (**RuleConditions**) and actions (**RuleActions**):
+   *     - Number of conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enhanced Edition.
+   *     - Number of actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enhanced Edition.
    * 
    * @param request - CreateRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1122,18 +1125,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple forwarding rules at a time.
+   * Creates multiple forwarding rules.
    * 
    * @remarks
-   * When you call this operation, take note of the following limits:
-   * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
-   * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
-   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
-   *     *   If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-   *     *   If the forwarding rules are in the **Available** state, the forwarding rules are created.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-   *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
-   *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
+   * When you invoke this operation to create forwarding rules, take note of the following items:
+   * - When you configure the **Redirect** action, you cannot set all parameters except **HttpCode** to their default values.
+   * - If you configure multiple actions for the same forwarding rule, the action type of the **Rewrite** action must be set to **ForwardGroup**.
+   * - The **CreateRules** operation is asynchronous. After you send the request, the system returns an instance ID, but the forwarding rules are not yet created. The creation node is still running in the background. You can invoke the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the creation status of the forwarding rules:
+   *     - If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+   *     - If the forwarding rules are in the **Available** state, the forwarding rules are created.
+   * - A forwarding rule supports the following maximum numbers of conditions (**RuleConditions**) and actions (**RuleActions**):
+   *     - Number of conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enhanced Edition.
+   *     - Number of actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enhanced Edition.
    * 
    * @param request - CreateRulesRequest
    * @returns CreateRulesResponse
@@ -1144,7 +1147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom security policy in a region.
+   * Creates a custom security policy in a specified region.
    * 
    * @param request - CreateSecurityPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1199,7 +1202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom security policy in a region.
+   * Creates a custom security policy in a specified region.
    * 
    * @param request - CreateSecurityPolicyRequest
    * @returns CreateSecurityPolicyResponse
@@ -1210,12 +1213,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a server group in a region.
+   * Creates a server group in a specified region.
    * 
    * @remarks
-   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
-   * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
-   * *   If a server group is in the **Available** state, it indicates that the server group is created.
+   * The **CreateServerGroup** API operation is asynchronous. After you call this operation, the system returns a request ID, but the server group is not yet created and the creation task is still running in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the creation status of the server group:
+   * - If the server group is in the **Creating** state, the server group is being created.
+   * - If the server group is in the **Available** state, the server group is created.
    * 
    * @param request - CreateServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1318,12 +1321,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a server group in a region.
+   * Creates a server group in a specified region.
    * 
    * @remarks
-   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
-   * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
-   * *   If a server group is in the **Available** state, it indicates that the server group is created.
+   * The **CreateServerGroup** API operation is asynchronous. After you call this operation, the system returns a request ID, but the server group is not yet created and the creation task is still running in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the creation status of the server group:
+   * - If the server group is in the **Creating** state, the server group is being created.
+   * - If the server group is in the **Available** state, the server group is created.
    * 
    * @param request - CreateServerGroupRequest
    * @returns CreateServerGroupResponse
@@ -1334,12 +1337,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes AScript rules.
+   * Deletes programmable scripts.
    * 
    * @remarks
-   * *DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
-   * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
-   * *   If an AScript rule cannot be found, the AScript rule is deleted.
+   * *DeleteAScripts** is an asynchronous operation. After you call this operation, the system returns a request ID, but the programmable scripts are not immediately deleted. The deletion task continues to run in the background. You can call [ListAScripts](https://help.aliyun.com/document_detail/472574.html) to query the deletion status of the programmable scripts:
+   * - If a programmable script is in the **Deleting** state, the script is being deleted.
+   * - If the programmable script cannot be queried, the script is deleted.
    * 
    * @param request - DeleteAScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1378,12 +1381,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes AScript rules.
+   * Deletes programmable scripts.
    * 
    * @remarks
-   * *DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
-   * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
-   * *   If an AScript rule cannot be found, the AScript rule is deleted.
+   * *DeleteAScripts** is an asynchronous operation. After you call this operation, the system returns a request ID, but the programmable scripts are not immediately deleted. The deletion task continues to run in the background. You can call [ListAScripts](https://help.aliyun.com/document_detail/472574.html) to query the deletion status of the programmable scripts:
+   * - If a programmable script is in the **Deleting** state, the script is being deleted.
+   * - If the programmable script cannot be queried, the script is deleted.
    * 
    * @param request - DeleteAScriptsRequest
    * @returns DeleteAScriptsResponse
@@ -1394,12 +1397,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control list (ACL).
+   * Deletes a specified access control list.
    * 
    * @remarks
-   * *DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
-   * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
-   * *   If the ACL cannot be found, the ACL is deleted.
+   * The **DeleteAcl** API operation is asynchronous. The system returns a request ID, but the access control list (ACL) is not yet deleted and the deletion task is still running in the background. You can call [ListAcls](https://help.aliyun.com/document_detail/213617.html) to query the deletion status of the ACL:
+   * - If the ACL is in the **Deleting** state, it indicates that the ACL is being deleted.
+   * - If the status of the ACL cannot be queried, it indicates that the ACL is deleted.
    * 
    * @param request - DeleteAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1438,12 +1441,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control list (ACL).
+   * Deletes a specified access control list.
    * 
    * @remarks
-   * *DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
-   * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
-   * *   If the ACL cannot be found, the ACL is deleted.
+   * The **DeleteAcl** API operation is asynchronous. The system returns a request ID, but the access control list (ACL) is not yet deleted and the deletion task is still running in the background. You can call [ListAcls](https://help.aliyun.com/document_detail/213617.html) to query the deletion status of the ACL:
+   * - If the ACL is in the **Deleting** state, it indicates that the ACL is being deleted.
+   * - If the status of the ACL cannot be queried, it indicates that the ACL is deleted.
    * 
    * @param request - DeleteAclRequest
    * @returns DeleteAclResponse
@@ -1504,12 +1507,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a listener.
+   * Deletes a specified listener.
    * 
    * @remarks
-   * *DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
-   * *   If the listener is in the **Deleting** state, the listener is being deleted.
-   * *   If the listener cannot be found, the listener is deleted.
+   * The **DeleteListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the listener is not immediately deleted. The deletion task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the deletion status of the listener:
+   * - If the listener is in the **Deleting** state, the listener is being deleted.
+   * - If the listener cannot be queried, the listener is deleted.
    * 
    * @param request - DeleteListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1548,12 +1551,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a listener.
+   * Deletes a specified listener.
    * 
    * @remarks
-   * *DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
-   * *   If the listener is in the **Deleting** state, the listener is being deleted.
-   * *   If the listener cannot be found, the listener is deleted.
+   * The **DeleteListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the listener is not immediately deleted. The deletion task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the deletion status of the listener:
+   * - If the listener is in the **Deleting** state, the listener is being deleted.
+   * - If the listener cannot be queried, the listener is deleted.
    * 
    * @param request - DeleteListenerRequest
    * @returns DeleteListenerResponse
@@ -1564,12 +1567,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Application Load Balancer (ALB) instance.
+   * Deletes a specified load balancing instance.
    * 
    * @remarks
-   * *DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
-   * *   If an ALB instance cannot be found, the ALB instance is deleted.
+   * The **DeleteLoadBalancer** API operation is asynchronous. After you invoke this operation, the system returns a request ID, but the application load balancing instance is not immediately deleted. The deletion node is still running in the background. You can invoke [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the deletion status of the application load balancing instance:
+   * - When the application load balancing instance is in the **Deleting** state, the instance is being deleted.
+   * - When the specified application load balancing instance cannot be queried, the instance is deleted.
    * 
    * @param request - DeleteLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1612,12 +1615,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Application Load Balancer (ALB) instance.
+   * Deletes a specified load balancing instance.
    * 
    * @remarks
-   * *DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
-   * *   If an ALB instance cannot be found, the ALB instance is deleted.
+   * The **DeleteLoadBalancer** API operation is asynchronous. After you invoke this operation, the system returns a request ID, but the application load balancing instance is not immediately deleted. The deletion node is still running in the background. You can invoke [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the deletion status of the application load balancing instance:
+   * - When the application load balancing instance is in the **Deleting** state, the instance is being deleted.
+   * - When the specified application load balancing instance cannot be queried, the instance is deleted.
    * 
    * @param request - DeleteLoadBalancerRequest
    * @returns DeleteLoadBalancerResponse
@@ -1688,12 +1691,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more forwarding rules from a listener at a time.
+   * Deletes multiple forwarding rules under the same listener.
    * 
    * @remarks
-   * *DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
-   * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
-   * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
+   * The **DeleteRules** operation is asynchronous. After you call this operation, the system returns a request ID, but the forwarding rules are not immediately deleted. The deletion task is still running in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the deletion status of the forwarding rules:
+   * - If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
+   * - If the status of the forwarding rules cannot be queried, the forwarding rules are deleted.
    * 
    * @param request - DeleteRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1732,12 +1735,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more forwarding rules from a listener at a time.
+   * Deletes multiple forwarding rules under the same listener.
    * 
    * @remarks
-   * *DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
-   * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
-   * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
+   * The **DeleteRules** operation is asynchronous. After you call this operation, the system returns a request ID, but the forwarding rules are not immediately deleted. The deletion task is still running in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the deletion status of the forwarding rules:
+   * - If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
+   * - If the status of the forwarding rules cannot be queried, the forwarding rules are deleted.
    * 
    * @param request - DeleteRulesRequest
    * @returns DeleteRulesResponse
@@ -1858,7 +1861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源预留
+   * Queries the details of a Load Balancer Capacity Unit (LCU) reservation.
    * 
    * @param request - DescribeCapacityReservationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1889,7 +1892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源预留
+   * Queries the details of a Load Balancer Capacity Unit (LCU) reservation.
    * 
    * @param request - DescribeCapacityReservationRequest
    * @returns DescribeCapacityReservationResponse
@@ -1988,8 +1991,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
-   * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
-   * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
+   * - If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
+   * - If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
    * 
    * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2040,8 +2043,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
-   * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
-   * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
+   * - If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
+   * - If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
    * 
    * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
    * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
@@ -2052,7 +2055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables deletion protection for an Application Load Balancer (ALB) instance.
+   * Shuts down deletion protection for a specified load balancing instance.
    * 
    * @param request - DisableDeletionProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2091,7 +2094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables deletion protection for an Application Load Balancer (ALB) instance.
+   * Shuts down deletion protection for a specified load balancing instance.
    * 
    * @param request - DisableDeletionProtectionRequest
    * @returns DisableDeletionProtectionResponse
@@ -2102,7 +2105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the access log feature for a Application Load Balancer (ALB) instance.
+   * Performs a shutdown of access logging for a specified load balancing instance.
    * 
    * @param request - DisableLoadBalancerAccessLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2141,7 +2144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the access log feature for a Application Load Balancer (ALB) instance.
+   * Performs a shutdown of access logging for a specified load balancing instance.
    * 
    * @param request - DisableLoadBalancerAccessLogRequest
    * @returns DisableLoadBalancerAccessLogResponse
@@ -2158,13 +2161,13 @@ export default class Client extends OpenApi {
    * ### Prerequisites
    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
    * > If you set **AddressIpVersion** to **DualStack**:
-   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
-   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+   * - If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+   * - If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
    * ### Description
-   * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
-   * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
-   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
-   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+   * - After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
+   * - **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   *   - If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+   *   - If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
    * 
    * @param request - DisableLoadBalancerIpv6InternetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2209,13 +2212,13 @@ export default class Client extends OpenApi {
    * ### Prerequisites
    * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
    * > If you set **AddressIpVersion** to **DualStack**:
-   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
-   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+   * - If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+   * - If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
    * ### Description
-   * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
-   * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
-   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
-   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+   * - After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the value of **Ipv6AddressType**.
+   * - **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
+   *   - If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+   *   - If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
    * 
    * @param request - DisableLoadBalancerIpv6InternetRequest
    * @returns DisableLoadBalancerIpv6InternetResponse
@@ -2290,10 +2293,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates additional certificates from a listener.
+   * Dissociates one or more additional certificates from a listener.
    * 
    * @remarks
-   * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call [](t2324486.xdita#)to query the status of the dissociation task:
+   * - If an additional certificate is in the **Dissociating** state, the dissociation is in progress.
+   * - If an additional certificate is in the **Dissociated** state, the dissociation is complete.
    * 
    * @param request - DissociateAdditionalCertificatesFromListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2336,10 +2341,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates additional certificates from a listener.
+   * Dissociates one or more additional certificates from a listener.
    * 
    * @remarks
-   * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+   * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call [](t2324486.xdita#)to query the status of the dissociation task:
+   * - If an additional certificate is in the **Dissociating** state, the dissociation is in progress.
+   * - If an additional certificate is in the **Dissociated** state, the dissociation is complete.
    * 
    * @param request - DissociateAdditionalCertificatesFromListenerRequest
    * @returns DissociateAdditionalCertificatesFromListenerResponse
@@ -2350,7 +2357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables deletion protection for a resource.
+   * Enables deletion protection for a specified resource.
    * 
    * @param request - EnableDeletionProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2389,7 +2396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables deletion protection for a resource.
+   * Enables deletion protection for a specified resource.
    * 
    * @param request - EnableDeletionProtectionRequest
    * @returns EnableDeletionProtectionResponse
@@ -2574,7 +2581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a listener.
+   * Queries the details of a listener.
    * 
    * @param request - GetListenerAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2605,7 +2612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a listener.
+   * Queries the details of a listener.
    * 
    * @param request - GetListenerAttributeRequest
    * @returns GetListenerAttributeResponse
@@ -2994,7 +3001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries health check templates in a region.
+   * Queries the health check templates in a specified region.
    * 
    * @param request - ListHealthCheckTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3045,7 +3052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries health check templates in a region.
+   * Queries the health check templates in a specified region.
    * 
    * @param request - ListHealthCheckTemplatesRequest
    * @returns ListHealthCheckTemplatesResponse
@@ -3114,7 +3121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the listeners in a region.
+   * Queries the listeners in a specified region.
    * 
    * @param request - ListListenersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3165,7 +3172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the listeners in a region.
+   * Queries the listeners in a specified region.
    * 
    * @param request - ListListenersRequest
    * @returns ListListenersResponse
@@ -3176,7 +3183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of instances.
+   * Queries instance configurations.
    * 
    * @param request - ListLoadBalancersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3263,7 +3270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of instances.
+   * Queries instance configurations.
    * 
    * @param request - ListLoadBalancersRequest
    * @returns ListLoadBalancersResponse
@@ -3274,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the forwarding rules in a region.
+   * Queries forwarding rules in a specified region.
    * 
    * @param request - ListRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3329,7 +3336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the forwarding rules in a region.
+   * Queries forwarding rules in a specified region.
    * 
    * @param request - ListRulesRequest
    * @returns ListRulesResponse
@@ -3444,7 +3451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries servers in a server group.
+   * Queries the servers in a server group.
    * 
    * @param request - ListServerGroupServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3491,7 +3498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries servers in a server group.
+   * Queries the servers in a server group.
    * 
    * @param request - ListServerGroupServersRequest
    * @returns ListServerGroupServersResponse
@@ -3852,9 +3859,9 @@ export default class Client extends OpenApi {
    * Removes an Application Load Balancer (ALB) instance from a security group.
    * 
    * @remarks
-   *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
-   *     *   If the task is in the Succeeded state, the ALB instance is removed from the security group.
-   *     *   If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
+   * - LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
+   *   - If the task is in the Succeeded state, the ALB instance is removed from the security group.
+   *   - If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
    * 
    * @param request - LoadBalancerLeaveSecurityGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3900,9 +3907,9 @@ export default class Client extends OpenApi {
    * Removes an Application Load Balancer (ALB) instance from a security group.
    * 
    * @remarks
-   *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
-   *     *   If the task is in the Succeeded state, the ALB instance is removed from the security group.
-   *     *   If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
+   * - LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
+   *   - If the task is in the Succeeded state, the ALB instance is removed from the security group.
+   *   - If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
    * 
    * @param request - LoadBalancerLeaveSecurityGroupRequest
    * @returns LoadBalancerLeaveSecurityGroupResponse
@@ -3913,7 +3920,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改资源预留
+   * Creates or modifies a capacity reservation.
+   * 
+   * @remarks
+   * *ModifyCapacityReservation** is an asynchronous operation. The system returns a request ID, but the capacity reservation is not yet complete and the reservation task continues to run in the background. You can call DescribeCapacityReservation to query the status of the capacity reservation:
+   *    - **Pending**: The capacity reservation is in progress.
+   *    - **Provisioned**: The capacity reservation is complete.
+   *    - **Rebalancing**: The capacity reservation is being redistributed across zones.
    * 
    * @param request - ModifyCapacityReservationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3960,7 +3973,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改资源预留
+   * Creates or modifies a capacity reservation.
+   * 
+   * @remarks
+   * *ModifyCapacityReservation** is an asynchronous operation. The system returns a request ID, but the capacity reservation is not yet complete and the reservation task continues to run in the background. You can call DescribeCapacityReservation to query the status of the capacity reservation:
+   *    - **Pending**: The capacity reservation is in progress.
+   *    - **Provisioned**: The capacity reservation is complete.
+   *    - **Rebalancing**: The capacity reservation is being redistributed across zones.
    * 
    * @param request - ModifyCapacityReservationRequest
    * @returns ModifyCapacityReservationResponse
@@ -4089,12 +4108,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * *RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call [ListServerGroups](https://help.aliyun.com/document_detail/2254862.html) to query the status of a server group.
-   *     *   If the server group is in the **Configuring** state, the server group is being modified.
-   *     *   If the server group is in the **Available** state, the server group is running.
-   * 2.  You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/2254863.html) to query the status of a backend server.
-   *     *   If the backend server is in the **Removing** state, the backend server is being removed from the server group.
-   *     *   If the backend server cannot be found, the backend server is no longer in the server group.
+   * 1. You can call [ListServerGroups](https://help.aliyun.com/document_detail/2254862.html) to query the status of a server group.
+   *    - If the server group is in the **Configuring** state, the server group is being modified.
+   *    - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/2254863.html) to query the status of a backend server.
+   *    - If the backend server is in the **Removing** state, the backend server is being removed from the server group.
+   *    - If the backend server cannot be found, the backend server is no longer in the server group.
    * 
    * @param request - RemoveServersFromServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4141,12 +4160,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * *RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call [ListServerGroups](https://help.aliyun.com/document_detail/2254862.html) to query the status of a server group.
-   *     *   If the server group is in the **Configuring** state, the server group is being modified.
-   *     *   If the server group is in the **Available** state, the server group is running.
-   * 2.  You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/2254863.html) to query the status of a backend server.
-   *     *   If the backend server is in the **Removing** state, the backend server is being removed from the server group.
-   *     *   If the backend server cannot be found, the backend server is no longer in the server group.
+   * 1. You can call [ListServerGroups](https://help.aliyun.com/document_detail/2254862.html) to query the status of a server group.
+   *    - If the server group is in the **Configuring** state, the server group is being modified.
+   *    - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/2254863.html) to query the status of a backend server.
+   *    - If the backend server is in the **Removing** state, the backend server is being removed from the server group.
+   *    - If the backend server cannot be found, the backend server is no longer in the server group.
    * 
    * @param request - RemoveServersFromServerGroupRequest
    * @returns RemoveServersFromServerGroupResponse
@@ -4157,16 +4176,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces backend servers in a server group.
+   * Replaces backend servers in a backend server group.
    * 
    * @remarks
-   * *ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
-   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
-   *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
-   *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
+   * The **ReplaceServersInServerGroup** operation is asynchronous. After a request ID is returned, the backend server replacement task is still being processed in the background.
+   * 1. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group:
+   *     - If the server group is in the **Configuring** state, the server group is being modified.
+   *     - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) to query the status of a backend server:
+   *     - If the backend server is in the **Replacing** state, the server group is removing the server and adding a new server.
+   *     - If the backend server is in the **Available** state, the backend server is running.
    * 
    * @param request - ReplaceServersInServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4220,16 +4239,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces backend servers in a server group.
+   * Replaces backend servers in a backend server group.
    * 
    * @remarks
-   * *ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
-   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
-   *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
-   *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
+   * The **ReplaceServersInServerGroup** operation is asynchronous. After a request ID is returned, the backend server replacement task is still being processed in the background.
+   * 1. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group:
+   *     - If the server group is in the **Configuring** state, the server group is being modified.
+   *     - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) to query the status of a backend server:
+   *     - If the backend server is in the **Replacing** state, the server group is removing the server and adding a new server.
+   *     - If the backend server is in the **Available** state, the backend server is running.
    * 
    * @param request - ReplaceServersInServerGroupRequest
    * @returns ReplaceServersInServerGroupResponse
@@ -4240,12 +4259,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a listener.
+   * Starts the specified listener.
    * 
    * @remarks
-   * *StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
-   * *   If a listener is in the **Configuring** state, the listener is being enabled.
-   * *   If a listener is in the **Running** state, the listener is enabled.
+   * The **StartListener** API operation is asynchronous. The system returns a request ID, but the listener has not been started and the start task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the start status of the listener:
+   * - If the listener is in the **Configuring** state, the listener is being started.
+   * - If the listener is in the **Running** state, the listener is started.
    * 
    * @param request - StartListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4284,12 +4303,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a listener.
+   * Starts the specified listener.
    * 
    * @remarks
-   * *StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
-   * *   If a listener is in the **Configuring** state, the listener is being enabled.
-   * *   If a listener is in the **Running** state, the listener is enabled.
+   * The **StartListener** API operation is asynchronous. The system returns a request ID, but the listener has not been started and the start task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the start status of the listener:
+   * - If the listener is in the **Configuring** state, the listener is being started.
+   * - If the listener is in the **Running** state, the listener is started.
    * 
    * @param request - StartListenerRequest
    * @returns StartListenerResponse
@@ -4300,10 +4319,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   * Removes the EIP or VIP of a zone from DNS resolution.
    * 
    * @remarks
-   * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+   * Only ALB instances in fixed IP mode are supported.
+   * You cannot remove a zone from an ALB instance if the instance has only one zone in the Active state.
    * 
    * @param request - StartShiftLoadBalancerZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4346,10 +4366,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
+   * Removes the EIP or VIP of a zone from DNS resolution.
    * 
    * @remarks
-   * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+   * Only ALB instances in fixed IP mode are supported.
+   * You cannot remove a zone from an ALB instance if the instance has only one zone in the Active state.
    * 
    * @param request - StartShiftLoadBalancerZonesRequest
    * @returns StartShiftLoadBalancerZonesResponse
@@ -4360,12 +4381,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a listener.
+   * Stops a specified listener.
    * 
    * @remarks
-   * *StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
-   * *   If a listener is in the **Configuring** state, the listener is being disabled.
-   * *   If a listener is in the **Stopped** state, the listener is disabled.
+   * The **StopListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the listener is not immediately stopped. The stop task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the stop status of the listener:
+   * - If the listener is in the **Configuring** state, the listener is being stopped.
+   * - If the listener is in the **Stopped** state, the listener is stopped.
    * 
    * @param request - StopListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4404,12 +4425,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a listener.
+   * Stops a specified listener.
    * 
    * @remarks
-   * *StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
-   * *   If a listener is in the **Configuring** state, the listener is being disabled.
-   * *   If a listener is in the **Stopped** state, the listener is disabled.
+   * The **StopListener** operation is asynchronous. After you call this operation, the system returns a request ID, but the listener is not immediately stopped. The stop task is still running in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the stop status of the listener:
+   * - If the listener is in the **Configuring** state, the listener is being stopped.
+   * - If the listener is in the **Stopped** state, the listener is stopped.
    * 
    * @param request - StopListenerRequest
    * @returns StopListenerResponse
@@ -4528,12 +4549,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates AScript rules.
+   * Updates programmable scripts.
    * 
    * @remarks
-   * *UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
-   * *   If the rule is in the **Configuring** state, the rule is being updated.
-   * *   If the rule is in the **Available** state, the rule is updated.
+   * *UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the programmable script is not yet updated, and the update task is still running in the background. You can call [ListAScripts](https://help.aliyun.com/document_detail/472574.html) to query the update status of the programmable script:
+   *    - If the programmable script is in the **Configuring** state, the programmable script is being updated.
+   *    - If the programmable script is in the **Available** state, the programmable script is updated.
    * 
    * @param request - UpdateAScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4572,12 +4593,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates AScript rules.
+   * Updates programmable scripts.
    * 
    * @remarks
-   * *UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
-   * *   If the rule is in the **Configuring** state, the rule is being updated.
-   * *   If the rule is in the **Available** state, the rule is updated.
+   * *UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the programmable script is not yet updated, and the update task is still running in the background. You can call [ListAScripts](https://help.aliyun.com/document_detail/472574.html) to query the update status of the programmable script:
+   *    - If the programmable script is in the **Configuring** state, the programmable script is being updated.
+   *    - If the programmable script is in the **Available** state, the programmable script is updated.
    * 
    * @param request - UpdateAScriptsRequest
    * @returns UpdateAScriptsResponse
@@ -4588,7 +4609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of an access control list (ACL), such as the name.
+   * Updates the attributes of an ACL, such as its name.
    * 
    * @param request - UpdateAclAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4631,7 +4652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of an access control list (ACL), such as the name.
+   * Updates the attributes of an ACL, such as its name.
    * 
    * @param request - UpdateAclAttributeRequest
    * @returns UpdateAclAttributeResponse
@@ -4642,7 +4663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes, such as the name and protocol, of a health check template.
+   * This operation updates the attributes of a health check template, such as its name and health check protocol.
    * 
    * @param request - UpdateHealthCheckTemplateAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4729,7 +4750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes, such as the name and protocol, of a health check template.
+   * This operation updates the attributes of a health check template, such as its name and health check protocol.
    * 
    * @param request - UpdateHealthCheckTemplateAttributeRequest
    * @returns UpdateHealthCheckTemplateAttributeResponse
@@ -4740,12 +4761,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a listener, such as the name and the default action.
+   * Updates the configurations of a listener, such as the name and default actions.
    * 
    * @remarks
-   * *UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
-   * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
-   * *   If a listener is in the **Running** state, the configuration of the listener is modified.
+   * The **UpdateListenerAttribute** operation is asynchronous. After you call this operation, the system returns a request ID, but the listener configurations are not immediately updated. The update task continues to run in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the update status of the listener configurations:
+   * - If the listener is in the **Configuring** state, the listener configurations are being updated.
+   * - If the listener is in the **Running** state, the listener configurations are updated.
    * 
    * @param request - UpdateListenerAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4832,12 +4853,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a listener, such as the name and the default action.
+   * Updates the configurations of a listener, such as the name and default actions.
    * 
    * @remarks
-   * *UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
-   * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
-   * *   If a listener is in the **Running** state, the configuration of the listener is modified.
+   * The **UpdateListenerAttribute** operation is asynchronous. After you call this operation, the system returns a request ID, but the listener configurations are not immediately updated. The update task continues to run in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the update status of the listener configurations:
+   * - If the listener is in the **Configuring** state, the listener configurations are being updated.
+   * - If the listener is in the **Running** state, the listener configurations are updated.
    * 
    * @param request - UpdateListenerAttributeRequest
    * @returns UpdateListenerAttributeResponse
@@ -4848,13 +4869,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the log configuration of a listener, such as the access log configuration.
+   * Updates the log-related attributes of a listener, such as access logs.
    * 
    * @remarks
-   * *UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
-   * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
-   * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
-   * > You can update the log configuration of a listener only after you enable the access log feature.
+   * The **UpdateListenerLogConfig** operation is asynchronous. The system returns a request ID, but the log configuration of the listener is not immediately updated. The update task is still running in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the update status of the log configuration:
+   * - If the listener is in the **Configuring** state, the log configuration is being updated.
+   * - If the listener is in the **Running** state, the log configuration is updated.
+   * > You can update the log configuration of a listener only after you enable the access log feature for the instance.
    * 
    * @param request - UpdateListenerLogConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4901,13 +4922,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the log configuration of a listener, such as the access log configuration.
+   * Updates the log-related attributes of a listener, such as access logs.
    * 
    * @remarks
-   * *UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
-   * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
-   * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
-   * > You can update the log configuration of a listener only after you enable the access log feature.
+   * The **UpdateListenerLogConfig** operation is asynchronous. The system returns a request ID, but the log configuration of the listener is not immediately updated. The update task is still running in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the update status of the log configuration:
+   * - If the listener is in the **Configuring** state, the log configuration is being updated.
+   * - If the listener is in the **Running** state, the log configuration is updated.
+   * > You can update the log configuration of a listener only after you enable the access log feature for the instance.
    * 
    * @param request - UpdateListenerLogConfigRequest
    * @returns UpdateListenerLogConfigResponse
@@ -4918,16 +4939,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the network type of an Application Load Balancer (ALB) instance.
+   * Changes the network type of an Application Load Balancer (ALB) instance.
    * 
    * @remarks
-   * ## Prerequisites
-   * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
-   * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
-   * ## Usage notes
-   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
-   * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
-   * *   If an ALB instance is in the **Active** state, the network type has been changed.
+   * Before you begin:
+   * - You have created an ALB instance. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * - To change the network type of an ALB instance from private network to public network using this operation, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
+   * Usage notes:
+   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID, but the network type of the ALB instance is not yet changed. The change node continues in the background. You can invoke [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the network type change status of the ALB instance:
+   * - If the ALB instance is in the **Configuring** state, the load balancing instance network type is being changed.
+   * - If the ALB instance is in the **Active** state, the load balancing instance network type has been changed successfully.
    * 
    * @param request - UpdateLoadBalancerAddressTypeConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4978,16 +4999,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the network type of an Application Load Balancer (ALB) instance.
+   * Changes the network type of an Application Load Balancer (ALB) instance.
    * 
    * @remarks
-   * ## Prerequisites
-   * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
-   * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
-   * ## Usage notes
-   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
-   * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
-   * *   If an ALB instance is in the **Active** state, the network type has been changed.
+   * Before you begin:
+   * - You have created an ALB instance. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
+   * - To change the network type of an ALB instance from private network to public network using this operation, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
+   * Usage notes:
+   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID, but the network type of the ALB instance is not yet changed. The change node continues in the background. You can invoke [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the network type change status of the ALB instance:
+   * - If the ALB instance is in the **Configuring** state, the load balancing instance network type is being changed.
+   * - If the ALB instance is in the **Active** state, the load balancing instance network type has been changed successfully.
    * 
    * @param request - UpdateLoadBalancerAddressTypeConfigRequest
    * @returns UpdateLoadBalancerAddressTypeConfigResponse
@@ -4998,12 +5019,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+   * Updates the property of a load balancing instance, such as the name and modification protection settings.
    * 
    * @remarks
-   * *UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
-   * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
+   * The **UpdateLoadBalancerAttribute** operation is asynchronous. After you invoke this operation, the system returns a request ID, but the property of the application load balancing instance is not immediately updated. The update task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the update status of the application load balancing instance property:
+   * - When the property of the application load balancing instance is in the **Configuring** state, it indicates that the property is being updated.
+   * - When the property of the application load balancing instance is in the **Active** state, it indicates that the property is updated.
    * 
    * @param request - UpdateLoadBalancerAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5050,12 +5071,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+   * Updates the property of a load balancing instance, such as the name and modification protection settings.
    * 
    * @remarks
-   * *UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
-   * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
+   * The **UpdateLoadBalancerAttribute** operation is asynchronous. After you invoke this operation, the system returns a request ID, but the property of the application load balancing instance is not immediately updated. The update task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the update status of the application load balancing instance property:
+   * - When the property of the application load balancing instance is in the **Configuring** state, it indicates that the property is being updated.
+   * - When the property of the application load balancing instance is in the **Active** state, it indicates that the property is updated.
    * 
    * @param request - UpdateLoadBalancerAttributeRequest
    * @returns UpdateLoadBalancerAttributeResponse
@@ -5066,13 +5087,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the edition of an Application Load Balancer (ALB) instance.
+   * Changes the current load balancing edition.
    * 
    * @remarks
-   *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
-   * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
-   *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
-   *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance is modified.
+   * - ALB instances can only be upgraded from Basic Edition to Standard Edition or WAF-enhanced Edition, or downgraded from WAF-enhanced Edition to Standard Edition. Downgrading from Standard Edition or WAF-enhanced Edition to Basic Edition is not supported. For more information, see [Upgrade the feature edition of an instance](https://help.aliyun.com/document_detail/214654.html).
+   * - The **UpdateLoadBalancerEdition** operation is asynchronous. After you invoke the operation, the system returns a request ID, but the application load balancing edition has not been modified. The modification node is still running in the background. You can invoke [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the modification status of the application load balancing edition:
+   *     - If the application load balancing edition is in the **Configuring** state, the edition is being modified.
+   *     - If the application load balancing edition is in the **Active** state, the edition is successfully modified.
    * 
    * @param request - UpdateLoadBalancerEditionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5115,13 +5136,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the edition of an Application Load Balancer (ALB) instance.
+   * Changes the current load balancing edition.
    * 
    * @remarks
-   *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
-   * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
-   *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
-   *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance is modified.
+   * - ALB instances can only be upgraded from Basic Edition to Standard Edition or WAF-enhanced Edition, or downgraded from WAF-enhanced Edition to Standard Edition. Downgrading from Standard Edition or WAF-enhanced Edition to Basic Edition is not supported. For more information, see [Upgrade the feature edition of an instance](https://help.aliyun.com/document_detail/214654.html).
+   * - The **UpdateLoadBalancerEdition** operation is asynchronous. After you invoke the operation, the system returns a request ID, but the application load balancing edition has not been modified. The modification node is still running in the background. You can invoke [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the modification status of the application load balancing edition:
+   *     - If the application load balancing edition is in the **Configuring** state, the edition is being modified.
+   *     - If the application load balancing edition is in the **Active** state, the edition is successfully modified.
    * 
    * @param request - UpdateLoadBalancerEditionRequest
    * @returns UpdateLoadBalancerEditionResponse
@@ -5132,13 +5153,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the zones of an Application Load Balancer (ALB) instance.
+   * Modifies the active zone property of an application load balancing instance.
    * 
    * @remarks
-   * *UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
-   * *   If an ALB instance is in the **Active** state, the zones are modified.
-   * > You may be charged after you call UpdateLoadBalancerZones.
+   * The **UpdateLoadBalancerZones** API operation is asynchronous. After you invoke this operation, the system returns a request ID, but the active zone property of the application load balancing instance is not immediately modified. The modification node is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the modification status of the active zone property:
+   * - If the application load balancing instance is in the **Configuring** state, the active zone property is being modified.
+   * - If the application load balancing instance is in the **Active** state, the active zone property is modified.
+   * > Invoking the UpdateLoadBalancerZones operation may incur fees.
    * 
    * @param request - UpdateLoadBalancerZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5185,13 +5206,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the zones of an Application Load Balancer (ALB) instance.
+   * Modifies the active zone property of an application load balancing instance.
    * 
    * @remarks
-   * *UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
-   * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
-   * *   If an ALB instance is in the **Active** state, the zones are modified.
-   * > You may be charged after you call UpdateLoadBalancerZones.
+   * The **UpdateLoadBalancerZones** API operation is asynchronous. After you invoke this operation, the system returns a request ID, but the active zone property of the application load balancing instance is not immediately modified. The modification node is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the modification status of the active zone property:
+   * - If the application load balancing instance is in the **Configuring** state, the active zone property is being modified.
+   * - If the application load balancing instance is in the **Active** state, the active zone property is modified.
+   * > Invoking the UpdateLoadBalancerZones operation may incur fees.
    * 
    * @param request - UpdateLoadBalancerZonesRequest
    * @returns UpdateLoadBalancerZonesResponse
@@ -5202,15 +5223,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a forwarding rule, such as the match condition, action, and name.
+   * Updates the attributes of a forwarding rule, such as conditions, actions, and name.
    * 
    * @remarks
-   *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
-   *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-   *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
-   *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
+   * - **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the forwarding rule attributes are not yet updated. The update task continues to run in the background. You can call [ListRules](https://help.aliyun.com/document_detail/214379.html) to query the update status of the forwarding rule attributes:
+   *     - If the forwarding rule attributes are in the **Configuring** state, the attributes are being updated.
+   *     - If the forwarding rule attributes are in the **Available** state, the attributes are updated.
+   * - The maximum number of conditions (**RuleConditions**) and actions (**RuleActions**) that can be added to a forwarding rule is as follows:
+   *     - Conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enabled Edition.
+   *     - Actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enabled Edition.
    * 
    * @param request - UpdateRuleAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5265,15 +5286,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a forwarding rule, such as the match condition, action, and name.
+   * Updates the attributes of a forwarding rule, such as conditions, actions, and name.
    * 
    * @remarks
-   *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
-   *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-   *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
-   *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
+   * - **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the forwarding rule attributes are not yet updated. The update task continues to run in the background. You can call [ListRules](https://help.aliyun.com/document_detail/214379.html) to query the update status of the forwarding rule attributes:
+   *     - If the forwarding rule attributes are in the **Configuring** state, the attributes are being updated.
+   *     - If the forwarding rule attributes are in the **Available** state, the attributes are updated.
+   * - The maximum number of conditions (**RuleConditions**) and actions (**RuleActions**) that can be added to a forwarding rule is as follows:
+   *     - Conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enabled Edition.
+   *     - Actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enabled Edition.
    * 
    * @param request - UpdateRuleAttributeRequest
    * @returns UpdateRuleAttributeResponse
@@ -5284,15 +5305,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of forwarding rules.
+   * Updates the attributes of forwarding rules in batches.
    * 
    * @remarks
-   * *UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
-   * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-   * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
-   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   * *UpdateRulesAttribute** is an asynchronous operation. The system returns a request ID, but the forwarding rule attributes are not immediately updated. The update task continues to run in the background. You can call [ListRules](https://help.aliyun.com/document_detail/214379.html) to query the update status of the forwarding rule attributes:
+   * - If the attributes of multiple forwarding rules are in the **Configuring** state, the forwarding rule attributes are being updated in batches.
+   * - If the attributes of multiple forwarding rules are in the **Available** state, the forwarding rule attributes are successfully updated in batches.
+   * - The maximum numbers of conditions (**RuleConditions**) and actions (**RuleActions**) that can be added to a single forwarding rule are as follows:
+   *     - Conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enhanced Edition.
+   *     - Actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enhanced Edition.
    * 
    * @param request - UpdateRulesAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5338,15 +5359,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of forwarding rules.
+   * Updates the attributes of forwarding rules in batches.
    * 
    * @remarks
-   * *UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
-   * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
-   * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
-   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
-   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
-   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+   * *UpdateRulesAttribute** is an asynchronous operation. The system returns a request ID, but the forwarding rule attributes are not immediately updated. The update task continues to run in the background. You can call [ListRules](https://help.aliyun.com/document_detail/214379.html) to query the update status of the forwarding rule attributes:
+   * - If the attributes of multiple forwarding rules are in the **Configuring** state, the forwarding rule attributes are being updated in batches.
+   * - If the attributes of multiple forwarding rules are in the **Available** state, the forwarding rule attributes are successfully updated in batches.
+   * - The maximum numbers of conditions (**RuleConditions**) and actions (**RuleActions**) that can be added to a single forwarding rule are as follows:
+   *     - Conditions: 5 for Basic Edition, 10 for Standard Edition, and 10 for WAF-enhanced Edition.
+   *     - Actions: 3 for Basic Edition, 5 for Standard Edition, and 5 for WAF-enhanced Edition.
    * 
    * @param request - UpdateRulesAttributeRequest
    * @returns UpdateRulesAttributeResponse
@@ -5357,13 +5378,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+   * Updates the attributes of a security policy, such as the security protocol version and cipher suite.
    * 
    * @remarks
-   * ##
-   * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
-   * *   If a security policy is in the **Configuring** state, the security policy is being updated.
-   * *   If a security policy is in the **Available** state, the security policy is updated.
+   * ## Usage notes
+   * The **UpdateSecurityPolicyAttribute** operation is asynchronous. After you call this operation, the system returns a request ID, but the security policy attributes are not immediately updated. The update task is still running in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the update status of the security policy attributes:
+   * - If the security policy is in the **Configuring** state, the attributes are being updated.
+   * - If the security policy is in the **Available** state, the attributes are updated.
    * 
    * @param request - UpdateSecurityPolicyAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5414,13 +5435,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+   * Updates the attributes of a security policy, such as the security protocol version and cipher suite.
    * 
    * @remarks
-   * ##
-   * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
-   * *   If a security policy is in the **Configuring** state, the security policy is being updated.
-   * *   If a security policy is in the **Available** state, the security policy is updated.
+   * ## Usage notes
+   * The **UpdateSecurityPolicyAttribute** operation is asynchronous. After you call this operation, the system returns a request ID, but the security policy attributes are not immediately updated. The update task is still running in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the update status of the security policy attributes:
+   * - If the security policy is in the **Configuring** state, the attributes are being updated.
+   * - If the security policy is in the **Available** state, the attributes are updated.
    * 
    * @param request - UpdateSecurityPolicyAttributeRequest
    * @returns UpdateSecurityPolicyAttributeResponse
@@ -5431,13 +5452,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
+   * Updates the configurations of a server group, such as health checks, session persistence, name, scheduling algorithm, and health check protocol.
    * 
    * @remarks
-   * ## Description
-   * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
-   * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
-   * *   If a server group is in the **Available** state, the configuration of the server group is modified.
+   * The **UpdateServerGroupAttribute** operation is asynchronous. After you send the request, the system returns a request ID, but the server group configurations are not immediately updated. The update task runs in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the update status of the server group configurations:
+   * - If the server group configurations are in the **Configuring** state, the configurations are being updated.
+   * - If the server group configurations are in the **Available** state, the configurations are updated.
    * 
    * @param request - UpdateServerGroupAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5520,13 +5540,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
+   * Updates the configurations of a server group, such as health checks, session persistence, name, scheduling algorithm, and health check protocol.
    * 
    * @remarks
-   * ## Description
-   * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
-   * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
-   * *   If a server group is in the **Available** state, the configuration of the server group is modified.
+   * The **UpdateServerGroupAttribute** operation is asynchronous. After you send the request, the system returns a request ID, but the server group configurations are not immediately updated. The update task runs in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the update status of the server group configurations:
+   * - If the server group configurations are in the **Configuring** state, the configurations are being updated.
+   * - If the server group configurations are in the **Available** state, the configurations are updated.
    * 
    * @param request - UpdateServerGroupAttributeRequest
    * @returns UpdateServerGroupAttributeResponse
@@ -5537,16 +5556,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations, such as the backend server weight and description, of a server group.
+   * Updates the configurations of backend servers in a server group, such as weights and descriptions.
    * 
    * @remarks
-   * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
-   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
-   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+   * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the backend server configurations are not yet updated, and the update task is still running in the background.
+   * 1. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group:
+   *     - If the server group is in the **Configuring** state, the server group is being modified.
+   *     - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) to query the status of a backend server:
+   *     - If the backend server is in the **Configuring** state, the backend server is being modified.
+   *     - If the backend server is in the **Available** state, the backend server is running.
    * 
    * @param request - UpdateServerGroupServersAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5596,16 +5615,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations, such as the backend server weight and description, of a server group.
+   * Updates the configurations of backend servers in a server group, such as weights and descriptions.
    * 
    * @remarks
-   * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
-   * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
-   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
-   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
-   * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
-   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
-   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+   * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the backend server configurations are not yet updated, and the update task is still running in the background.
+   * 1. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group:
+   *     - If the server group is in the **Configuring** state, the server group is being modified.
+   *     - If the server group is in the **Available** state, the server group is running.
+   * 2. You can call [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) to query the status of a backend server:
+   *     - If the backend server is in the **Configuring** state, the backend server is being modified.
+   *     - If the backend server is in the **Available** state, the backend server is running.
    * 
    * @param request - UpdateServerGroupServersAttributeRequest
    * @returns UpdateServerGroupServersAttributeResponse

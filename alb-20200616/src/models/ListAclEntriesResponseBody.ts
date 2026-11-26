@@ -23,9 +23,11 @@ export class ListAclEntriesResponseBodyAclEntries extends $dara.Model {
    * @remarks
    * The status of the ACL entry. Valid values:
    * 
-   * *   **Adding**: The ACL entry is being added.
-   * *   **Available**: The ACL entry is added and available.
-   * *   **Removing**: The ACL entry is being removed.
+   * - **Adding**: The ACL entry is being added.
+   * 
+   * - **Available**: The ACL entry is added and available.
+   * 
+   * - **Removing**: The ACL entry is being removed.
    * 
    * @example
    * Available
@@ -74,8 +76,9 @@ export class ListAclEntriesResponseBody extends $dara.Model {
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -86,7 +89,7 @@ export class ListAclEntriesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   * CEF72CEB-54B6-4AE8-B225-F87******
    */
   requestId?: string;
   /**

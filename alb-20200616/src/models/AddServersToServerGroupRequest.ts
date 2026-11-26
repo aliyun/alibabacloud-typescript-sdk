@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddServersToServerGroupRequestServers extends $dara.Model {
   /**
    * @remarks
-   * The description of the backend server. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+   * The description of the backend server. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * test
@@ -13,9 +13,9 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
+   * The port used by the backend server. Valid values: **1** to **65535**. You can add up to 200 servers in a single call.
    * 
-   * >  This parameter is required if you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**. You do not need to set this parameter if **ServerType** is set to **Fc**.
+   * > This parameter is required when **ServerType** is set to **Ecs**, **Eni**, **Eci**, or **Ip**. This parameter is not required when **ServerType** is set to **Fc**.
    * 
    * @example
    * 80
@@ -23,12 +23,14 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Specifies whether to enable the remote IP feature. You can specify at most 200 servers in each call. Default values:
+   * Specifies whether to enable the remote IP address feature. You can add up to 200 servers in a single call. Valid values:
    * 
-   * *   **true**: enables the feature.
-   * *   **false**: disables the feature.
+   * - **true**: enables the feature.
    * 
-   * >  This parameter takes effect only when **ServerType** is set to **Ip**.
+   * - **false**: disables the feature.
+   * 
+   * 
+   * > This parameter takes effect only when **ServerType** is set to **Ip**.
    * 
    * @example
    * false
@@ -36,21 +38,25 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   remoteIpEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the server group. You can specify at most 200 servers in each call.
+   * The ID of the backend server. You can add up to 200 servers in a single call.
    * 
-   * *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
-   * *   If the server group is of the **Ip** type, set this parameter to IP addresses.
-   * *   If the server group is of the **Fc** type, set ServerId to an Alibaba Cloud Resource Name (ARN).
+   * - If the server group is of the **Instance** type, this parameter specifies the ID of an **Ecs**, **Eni**, or **Eci** resource.
+   * 
+   * - If the server group is of the **Ip** type, this parameter specifies an IP address.
+   * 
+   * - If the server group is of the **Fc** type, this parameter specifies the ARN of the Function Compute resource.
    * 
    * @example
-   * ecs-bp67acfmxazb4p****
+   * i-uf616vu8me******
    */
   serverId?: string;
   /**
    * @remarks
-   * The IP address of the backend server. You can specify at most 200 servers in each call.
+   * The specified IP address. You can add up to 200 servers in a single call.
    * 
-   * >  You do not need to set this parameter if you set **ServerType** to **Fc**.
+   * If **ServerType** is set to **Eni**, you can specify the primary or secondary private IP address of the ENI.
+   * 
+   * > This parameter is not required when **ServerType** is set to **Fc**.
    * 
    * @example
    * 192.168.1.1
@@ -58,13 +64,12 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   serverIp?: string;
   /**
    * @remarks
-   * The type of the backend server. You can specify at most 200 servers in each call. Default values:
-   * 
-   * *   **Ecs**: Elastic Compute Service (ECS) instance
-   * *   **Eni**: elastic network interface (ENI)
-   * *   **Eci**: elastic container instance
-   * *   **Ip**: IP address
-   * *   **Fc**: Function Compute
+   * The backend server type. You can add up to 200 servers each time you invoke the operation. Valid values:
+   * - **Ecs**: ECS instance.
+   * - **Eni**: elastic network interfaces (ENIs) or network interface controller (NIC).
+   * - **Eci**: Elastic Container Instance (ECI).
+   * - **Ip**: IP address.
+   * - **Fc**: Function Compute.
    * 
    * This parameter is required.
    * 
@@ -74,9 +79,9 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   serverType?: string;
   /**
    * @remarks
-   * The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server. You can specify at most 200 servers in each call.
+   * The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the weight is set to **0**, no requests are forwarded to the backend server. You can add up to 200 servers in a single call.
    * 
-   * >  You do not need to set this parameter if you set **ServerType** to **Fc**.
+   * > This parameter is not required when **ServerType** is set to **Fc**.
    * 
    * @example
    * 100
@@ -120,20 +125,19 @@ export class AddServersToServerGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF0******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: prechecks the request, but does not add a backend server to a server group. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: sends a check request and does not add the backend servers to the server group. The system checks whether the required parameters are specified, the request format, and the service limits. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. After the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -141,7 +145,7 @@ export class AddServersToServerGroupRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The server group ID.
+   * The ID of the server group.
    * 
    * This parameter is required.
    * 
@@ -151,7 +155,7 @@ export class AddServersToServerGroupRequest extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The backend servers. You can specify at most 200 servers in each call.
+   * The list of backend servers. You can add up to 200 servers in a single call.
    * 
    * This parameter is required.
    */

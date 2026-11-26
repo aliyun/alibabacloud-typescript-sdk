@@ -6,11 +6,12 @@ export class AssociateAdditionalCertificatesWithListenerRequestCertificates exte
   /**
    * @remarks
    * The ID of the certificate. Only server certificates are supported.
+   * > The certificate ID is a globally unique ID that ends with a region ID, such as 1011****-cn-hangzhou.
    * 
    * This parameter is required.
    * 
    * @example
-   * cert-123
+   * 1011****-cn-hangzhou
    */
   certificateId?: string;
   static names(): { [key: string]: string } {
@@ -37,7 +38,7 @@ export class AssociateAdditionalCertificatesWithListenerRequestCertificates exte
 export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Model {
   /**
    * @remarks
-   * The extended validation certificates that you want to add to the listener.
+   * The list of additional certificates.
    * 
    * This parameter is required.
    */
@@ -46,20 +47,21 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
-   * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+   * 5A2CFF0E-5718-45B5-9D4D-70B3F******
    */
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to only precheck the request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+   * - **true**: prechecks the request without associating the additional certificates with the HTTPS or QUIC listener. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the system returns an error. If the request passes the precheck, the system returns the `DryRunOperation` error code.
+   * 
+   * - **false** (default): sends the request. If the request passes the precheck, the system returns an HTTP `2xx` status code and performs the operation.
    * 
    * @example
    * true
@@ -67,12 +69,14 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
   dryRun?: boolean;
   /**
    * @remarks
-   * The listener ID. This parameter is supported only by HTTPS and QUIC listeners.
+   * The ID of the listener.
+   * 
+   * This parameter is valid only for HTTPS and QUIC listeners.
    * 
    * This parameter is required.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-5qnirjhpt******
    */
   listenerId?: string;
   static names(): { [key: string]: string } {

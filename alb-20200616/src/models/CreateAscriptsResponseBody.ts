@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAScriptsResponseBodyAScriptIds extends $dara.Model {
   /**
    * @remarks
-   * The AScript rule ID.
+   * The programmable script ID.
    * 
    * @example
    * as-xvq5igaa7uv6vr****
@@ -35,7 +35,7 @@ export class CreateAScriptsResponseBodyAScriptIds extends $dara.Model {
 export class CreateAScriptsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The AScript rule IDs.
+   * The list of programmable script IDs.
    */
   AScriptIds?: CreateAScriptsResponseBodyAScriptIds[];
   /**
@@ -51,7 +51,7 @@ export class CreateAScriptsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * BF0FE763-9603-558F-A55B-0F4B9A3E3C02
+   * BF0FE763-9603-558F-A55B-0F4******
    */
   requestId?: string;
   static names(): { [key: string]: string } {
