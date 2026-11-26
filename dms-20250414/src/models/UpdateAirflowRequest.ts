@@ -6,7 +6,7 @@ import { DataMountInfo } from "./DataMountInfo";
 export class UpdateAirflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique key ID of the Airflow instance.
+   * The unique key ID of Airflow.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   airflowName?: string;
   /**
    * @remarks
-   * The specification description of the Airflow instance.
+   * The specification description of Airflow.
    * 
    * @example
    * SMALL
@@ -53,7 +53,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   dataMountInfoList?: DataMountInfo[];
   /**
    * @remarks
-   * The description of the Airflow instance.
+   * The description of Airflow.
    * 
    * @example
    * test airflow
@@ -61,17 +61,38 @@ export class UpdateAirflowRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * Specifies whether to enable data lineage. For Airflow 2.x, this feature is always disabled, and the lineage specifications and number of replicas are ignored.
+   */
+  enableLineage?: boolean;
+  /**
+   * @remarks
    * Specifies whether to enable serverless workers.
    */
   enableServerless?: boolean;
   /**
    * @remarks
-   * The timeout period for a worker to exit.
+   * The timeout period for worker exit.
    * 
    * @example
    * 60
    */
   gracefulShutdownTimeout?: number;
+  /**
+   * @remarks
+   * The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+   * 
+   * @example
+   * 1
+   */
+  lineageReplicas?: number;
+  /**
+   * @remarks
+   * The merged lineage service specification, which uses the same tier as AppSpec.
+   * 
+   * @example
+   * SMALL
+   */
+  lineageSpec?: string;
   /**
    * @remarks
    * The plugin directory scanned by Airflow.
@@ -90,7 +111,7 @@ export class UpdateAirflowRequest extends $dara.Model {
   requirementFile?: string;
   /**
    * @remarks
-   * The script loaded at startup of the Airflow instance.
+   * The script loaded when the Airflow instance starts.
    * 
    * @example
    * default/startup.sh
@@ -123,8 +144,11 @@ export class UpdateAirflowRequest extends $dara.Model {
       dagsDir: 'DagsDir',
       dataMountInfoList: 'DataMountInfoList',
       description: 'Description',
+      enableLineage: 'EnableLineage',
       enableServerless: 'EnableServerless',
       gracefulShutdownTimeout: 'GracefulShutdownTimeout',
+      lineageReplicas: 'LineageReplicas',
+      lineageSpec: 'LineageSpec',
       pluginsDir: 'PluginsDir',
       requirementFile: 'RequirementFile',
       startupFile: 'StartupFile',
@@ -142,8 +166,11 @@ export class UpdateAirflowRequest extends $dara.Model {
       dagsDir: 'string',
       dataMountInfoList: { 'type': 'array', 'itemType': DataMountInfo },
       description: 'string',
+      enableLineage: 'boolean',
       enableServerless: 'boolean',
       gracefulShutdownTimeout: 'number',
+      lineageReplicas: 'number',
+      lineageSpec: 'string',
       pluginsDir: 'string',
       requirementFile: 'string',
       startupFile: 'string',

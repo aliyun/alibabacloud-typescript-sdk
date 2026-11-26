@@ -6,7 +6,7 @@ export class ListCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The custom agent type. Valid values:
-   * - Default: system built-in custom agent
+   * - Default: built-in custom agent
    * - Common: regular custom agent
    * 
    * @example
@@ -42,7 +42,7 @@ export class ListCustomAgentRequest extends $dara.Model {
    * The search keyword. Supports fuzzy search for custom agent names and descriptions.
    * 
    * @example
-   * Test agent
+   * Test Agent
    */
   searchKey?: string;
   /**

@@ -21,7 +21,7 @@ export class AddUserToDataAgentWorkspaceResponseBodyData extends $dara.Model {
   memberId?: string;
   /**
    * @remarks
-   * The name of the user\\"s role in the workspace.
+   * The name of the user\"s role in the workspace.
    * 
    * @example
    * admin

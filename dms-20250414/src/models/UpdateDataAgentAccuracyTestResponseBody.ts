@@ -40,7 +40,7 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
    * The description of the evaluation item.
    * 
    * @example
-   * Customer Agent\\"s Evaluation
+   * Customer Agent\"s Evaluation
    */
   desc?: string;
   /**
@@ -150,7 +150,7 @@ export class UpdateDataAgentAccuracyTestResponseBody extends $dara.Model {
   data?: UpdateDataAgentAccuracyTestResponseBodyData;
   /**
    * @remarks
-   * The error code returned when an exception occurs.
+   * The error code returned when an error occurs.
    * 
    * @example
    * UnknownError
@@ -158,7 +158,7 @@ export class UpdateDataAgentAccuracyTestResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned when the request fails.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -174,7 +174,7 @@ export class UpdateDataAgentAccuracyTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Specifies whether the request is successful. Valid values:
    * 
    * - **true**: The request is successful.                                 
    * - **false**: The request fails.

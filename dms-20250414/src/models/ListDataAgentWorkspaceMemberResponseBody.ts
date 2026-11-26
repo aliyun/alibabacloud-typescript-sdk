@@ -21,7 +21,7 @@ export class ListDataAgentWorkspaceMemberResponseBodyDataContent extends $dara.M
   memberId?: string;
   /**
    * @remarks
-   * The name of the user\\"s role in the workspace.
+   * The name of the user\"s role in the workspace.
    * 
    * @example
    * member
@@ -125,7 +125,7 @@ export class ListDataAgentWorkspaceMemberResponseBodyData extends $dara.Model {
    * The total number of entries.
    * 
    * @example
-   * no use
+   * 10
    */
   totalElements?: number;
   /**
@@ -133,7 +133,7 @@ export class ListDataAgentWorkspaceMemberResponseBodyData extends $dara.Model {
    * The total number of pages.
    * 
    * @example
-   * no use
+   * 1
    */
   totalPages?: number;
   static names(): { [key: string]: string } {

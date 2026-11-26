@@ -22,7 +22,7 @@ export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Mode
    * The row filter condition that must be included for the current table. If you do not specify this parameter, it is ignored. If you specify this parameter, the system checks whether the filter field is included and whether the WHERE condition meets the constraints in all SQL statements that involve this table. SQL statements that do not meet the constraints will be rejected. Pay attention to the format of the validation condition.
    * 
    * @example
-   * region = \\"east\\"
+   * region = \"east\"
    */
   requiredRowFilter?: string;
   /**
@@ -266,7 +266,7 @@ export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Mod
    * The row filter condition that must be included for the current table. If you do not specify this parameter, it is ignored. If you specify this parameter, the system checks whether the filter field is included and whether the WHERE condition meets the constraints in all SQL statements that involve this table. SQL statements that do not meet the constraints will be rejected. Pay attention to the format of the validation condition.
    * 
    * @example
-   * region = \\"east\\"
+   * region = \"east\"
    */
   requiredRowFilter?: string;
   /**

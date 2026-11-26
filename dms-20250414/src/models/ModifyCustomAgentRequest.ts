@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustomAgentRequestCallbackConfig extends $dara.Model {
   /**
    * @remarks
-   * The invoke parameters for callback tool calling.
+   * The callback tool calling parameters used to invoke the callback tool.
    * 
    * @example
    * {"ID":"test"}
@@ -13,7 +13,7 @@ export class ModifyCustomAgentRequestCallbackConfig extends $dara.Model {
   callbackArgs?: string;
   /**
    * @remarks
-   * The prompt for generating invoke parameters for callback tool calling.
+   * The prompt for generating callback tool calling parameters to invoke the callback tool.
    * 
    * @example
    * send web report to 123456@163.com
@@ -21,7 +21,7 @@ export class ModifyCustomAgentRequestCallbackConfig extends $dara.Model {
   callbackPrompt?: string;
   /**
    * @remarks
-   * The invoke timing for callback tool calling.
+   * The timing of callback tool calling to invoke the callback tool.
    * 
    * @example
    * 0
@@ -75,7 +75,7 @@ export class ModifyCustomAgentRequestCallbackConfig extends $dara.Model {
 export class ModifyCustomAgentRequestExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to prohibit appending data sources in a session.
+   * Specifies whether to disable appending data sources during the session.
    * 
    * @example
    * true
@@ -107,7 +107,7 @@ export class ModifyCustomAgentRequestExecutionConfig extends $dara.Model {
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the confirmation for generating a web report.
+   * Specifies whether to skip the web report generation confirmation.
    * 
    * @example
    * true
@@ -146,8 +146,8 @@ export class ModifyCustomAgentRequestKnowledgeConfigList extends $dara.Model {
   /**
    * @remarks
    * The access type. If you do not specify this parameter, the default value is mcp. Valid values:
-   * - mcp: Access through MCP. You must pass the McpServerId parameter.
-   * - dms_kb: Access through DMS knowledge base. You must pass the KbUuid parameter.
+   * - mcp: Access through MCP. You must specify the McpServerId parameter.
+   * - dms_kb: Access through DMS knowledge base. You must specify the KbUuid parameter.
    * 
    * @example
    * mcp
@@ -333,18 +333,18 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The specified data scope in **JSON character string format**.
-   * - General metric descriptions:
-   *   - tableFlag: true indicates that a data scope is specified.
-   *   - scope: The fixed value personal.
-   *   - personal: The parameters for file and database types.
+   * - General metric descriptions
+   *   - tableFlag: true indicates that the data scope is specified.
+   *   - scope: personal is a fixed value.
+   *   - personal: parameters for file and database types.
    * 
    * **File type**: Pass parameters in the following format:
-   * - DataSourceType: The fixed value remote_data_center.
-   * - FileId: The file ID.
-   * - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
-   * - Tables: The table names returned by the ListDataCenterTable operation.
-   * - TableIds: The table IDs returned by the ListDataCenterTable operation.
-   * - RegionId: The current region.
+   * - DataSourceType: remote_data_center is a fixed value.
+   * - FileId: the file ID.
+   * - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
+   * - Tables: the table names returned by the ListDataCenterTable operation.
+   * - TableIds: the table IDs returned by the ListDataCenterTable operation.
+   * - RegionId: the current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -365,16 +365,16 @@ export class ModifyCustomAgentRequest extends $dara.Model {
    * ```
    * 
    * **Database type**: Pass parameters in the following format:
-   * - DataSourceType: The fixed value database.
-   * - DmsInstanceId: The DMS instance ID returned by the data center operation.
-   * - DmsDatabaseId: The DMS database ID returned by the data center operation.
-   * - FileId: The instance name. **[Deprecated]**
-   * - DbName: The database name returned by the data center operation.
-   * - Database: The database name returned by the data center operation.
-   * - Tables: The table names returned by the data center operation.
-   * - TableIds: The table IDs returned by the data center operation.
-   * - Engine: The DPI engine type (mysql or postgresql).
-   * - RegionId: The current region.
+   * - DataSourceType: database is a fixed value.
+   * - DmsInstanceId: the DMS instance ID returned by the data center API.
+   * - DmsDatabaseId: the DMS database ID returned by the data center API.
+   * - FileId: **[Deprecated]** The instance name.
+   * - DbName: the database name returned by the data center API.
+   * - Database: the database name returned by the data center API.
+   * - Tables: the table names returned by the data center API.
+   * - TableIds: the table IDs returned by the data center API.
+   * - Engine: the DPI engine type, such as mysql or postgresql.
+   * - RegionId: the current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -418,7 +418,7 @@ export class ModifyCustomAgentRequest extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Test agent description
+   * Agent test description
    */
   description?: string;
   /**
@@ -429,26 +429,26 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The instructions.
-   * - Input limit: Maximum of 10,000 characters.
+   * - Input limit: up to 10,000 characters.
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
-   * 2. Segment by new and existing customers, channels, and regions to identify growth drivers and weaknesses.
-   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → pay) to locate churn points
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis to analyze trend changes and year-over-year or month-over-month fluctuations.
+   * 2. Segment by new and returning customers, channels, and regions to identify growth drivers and shortcomings.
+   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to locate churn points
    */
   instruction?: string;
   /**
    * @remarks
    * The knowledge.
-   * - Input limit: Maximum of 10,000 characters.
+   * - Input limit: up to 10,000 characters.
    * 
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both successfully paid and unpaid orders.
    * 2. Order volume is the number of valid orders placed per day.
-   * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
-   * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
+   * 3. UV (Unique Visitors) refers to the number of deduplicated users visiting the website or app.
+   * 4. Conversion rate = paid orders / UV, reflecting the traffic conversion efficiency
    */
   knowledge?: string;
   /**
@@ -466,7 +466,7 @@ export class ModifyCustomAgentRequest extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * Test agent name
+   * Agent test name
    */
   name?: string;
   /**
@@ -491,10 +491,10 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The text report format.
-   *  - Input limit: Maximum of 10,000 characters.
+   * - Input limit: up to 10,000 characters.
    * 
    * @example
-   * The text report requires that all numbers be spelled out in words instead of using Arabic numerals
+   * For the text report, do not use Arabic numerals. Convert all numbers to Chinese numerals
    */
   textReportConfig?: string;
   /**
@@ -505,10 +505,10 @@ export class ModifyCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The web report format.
-   * - Input limit: Maximum of 50,000 characters.
+   * - Input limit: up to 50,000 characters.
    * 
    * @example
-   * The web report requires that all numbers be spelled out in words instead of using Arabic numerals
+   * For the web report, do not use Arabic numerals. Convert all numbers to Chinese numerals
    */
   webReportConfig?: string;
   /**

@@ -13,7 +13,7 @@ export class DeleteAgenticVpcEndpointResponseBodyData extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The deletion status. A value of DELETING only indicates that the asynchronous deletion request is accepted, not that the deletion in the cloud is complete.
+   * The deletion status. A value of DELETING only indicates that the asynchronous deletion request is accepted, and does not indicate that the deletion in the cloud is complete.
    * 
    * @example
    * RELEASED
@@ -45,7 +45,7 @@ export class DeleteAgenticVpcEndpointResponseBodyData extends $dara.Model {
 export class DeleteAgenticVpcEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deletion acceptance result. For duplicate requests, downstream errors are retained and idempotence is not guaranteed.
+   * The deletion acceptance result. For duplicate requests, downstream errors are retained, and idempotence is not guaranteed.
    */
   data?: DeleteAgenticVpcEndpointResponseBodyData;
   /**

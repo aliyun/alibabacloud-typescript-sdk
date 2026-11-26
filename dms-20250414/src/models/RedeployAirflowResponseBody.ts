@@ -48,7 +48,7 @@ export class RedeployAirflowResponseBody extends $dara.Model {
    * The redeployment result.
    * 
    * @example
-   * {\\"Responses\\": {\\"responses\\": [{\\"Uuid\\": \\"af-63ly5o1yuf076ifrpbxpka396\\", \\"Success\\": True}]}}
+   * true
    */
   root?: boolean;
   /**

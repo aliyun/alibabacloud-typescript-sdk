@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom agent to be tested for accuracy.
+   * The ID of the custom agent that requires accuracy testing.
    * 
    * @example
    * ca-xxxxxxxxxxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]**.
    * 
    * @example
    * null
@@ -21,7 +21,7 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
   dataset?: string;
   /**
    * @remarks
-   * The data source. We recommend that you configure this in the custom agent.
+   * The data source. Configure it in the custom agent.
    * 
    * @example
    * [{"isInternal":"N","TableIds":["51***70","51***71"],"DataSourceType":"database","Database":"internal_data_employees","DmsInstanceId":"27***5","DmsDatabaseId":"71***04","Tables":["employees","salaries"],"FileId":"rm-
@@ -94,10 +94,10 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether sessions are displayed after analysis. This parameter is not supported.
+   * Specifies whether to display sessions after analysis. This feature is not supported.
    * 
    * @example
-   * null
+   * false
    */
   needDelete?: boolean;
   /**
@@ -113,7 +113,7 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
    * The workspace ID.
    * 
    * @example
-   * xxxxxxxxxxxxxxxxxxxx
+   * 1abc2de34fg56hijk7l8mnopq
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

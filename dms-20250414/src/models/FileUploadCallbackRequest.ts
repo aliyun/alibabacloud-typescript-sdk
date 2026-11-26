@@ -39,8 +39,8 @@ export class FileUploadCallbackRequest extends $dara.Model {
   filename?: string;
   /**
    * @remarks
-   * The name of the user\\"s OSS bucket.
-   * - Specify this parameter to use a file in the user\\"s OSS bucket and register the file as a data center file through the callback.
+   * The name of the user\"s OSS bucket.
+   * - Specify this parameter to use a file in the user\"s OSS bucket and register the file as a data center file through the callback.
    * 
    * @example
    * bgc-hangzhou-test-bucket

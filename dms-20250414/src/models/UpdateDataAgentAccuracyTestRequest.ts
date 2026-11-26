@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
   /**
    * @remarks
-   * The accuracy test instance ID.
+   * The instance ID of the accuracy test.
    * 
    * @example
    * at-106n4rg17gv9fxxxxxxxxxx
@@ -24,7 +24,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
    * The data source.
    * 
    * @example
-   * [{\\"DataSourceType\\":\\"database\\",\\"RegionId\\":\\"cn-hangzhou\\",\\"DmsInstanceId\\":\\"27xxxxx\\",\\"DmsDatabaseId\\":\\"752xxxxx\\",\\"Database\\":\\"employees\\",\\"Tables\\":[\\"employees\\",\\"salaries\\",\\"departments\\"]}]
+   * [{\"DataSourceType\":\"database\",\"RegionId\":\"cn-hangzhou\",\"DmsInstanceId\":\"27xxxxx\",\"DmsDatabaseId\":\"752xxxxx\",\"Database\":\"employees\",\"Tables\":[\"employees\",\"salaries\",\"departments\"]}]
    */
   dataset?: string;
   /**
@@ -96,7 +96,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
    * Specifies whether to display sessions after analysis. This parameter is currently not supported.
    * 
    * @example
-   * no use
+   * false
    */
   needDelete?: boolean;
   /**
@@ -109,7 +109,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 8wfig6l33n4f4xxxxxxxxxx

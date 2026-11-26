@@ -43,7 +43,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   customAirflowCfg?: string[];
   /**
    * @remarks
-   * The directory scanned for DAGs.
+   * The directory for scanning DAGs.
    * 
    * @example
    * default/dags
@@ -64,12 +64,17 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   deployErrorMsg?: string;
   /**
    * @remarks
-   * The description of the Airflow instance.
+   * The Airflow description.
    * 
    * @example
    * order schedule
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether data lineage is enabled.
+   */
+  enableLineage?: boolean;
   /**
    * @remarks
    * Specifies whether to enable serverless workers.
@@ -93,7 +98,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The timeout period for a worker to exit.
+   * The timeout period for worker exit.
    * 
    * @example
    * 60
@@ -101,7 +106,23 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   gracefulShutdownTimeout?: number;
   /**
    * @remarks
-   * The name of the Object Storage Service (OSS) bucket.
+   * The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+   * 
+   * @example
+   * 1
+   */
+  lineageReplicas?: number;
+  /**
+   * @remarks
+   * The merged lineage service specification, which uses the same tier as AppSpec.
+   * 
+   * @example
+   * SMALL
+   */
+  lineageSpec?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
    * 
    * @example
    * osstest
@@ -117,7 +138,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The directory scanned for Airflow plugins.
+   * The directory for scanning Airflow plugins.
    * 
    * @example
    * default/plugins
@@ -133,7 +154,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   requirementFile?: string;
   /**
    * @remarks
-   * The configurations of the installation package.
+   * The configuration of the installation package.
    * 
    * @example
    * jieba==0.42
@@ -205,7 +226,7 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone.
    * 
    * @example
    * cn-hangzhou-j
@@ -222,10 +243,13 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
       dataMountInfoList: 'DataMountInfoList',
       deployErrorMsg: 'DeployErrorMsg',
       description: 'Description',
+      enableLineage: 'EnableLineage',
       enableServerless: 'EnableServerless',
       environments: 'Environments',
       gmtCreated: 'GmtCreated',
       gracefulShutdownTimeout: 'GracefulShutdownTimeout',
+      lineageReplicas: 'LineageReplicas',
+      lineageSpec: 'LineageSpec',
       ossBucketName: 'OssBucketName',
       ossPath: 'OssPath',
       pluginsDir: 'PluginsDir',
@@ -254,10 +278,13 @@ export class UpdateAirflowResponseBodyRoot extends $dara.Model {
       dataMountInfoList: { 'type': 'array', 'itemType': DataMountInfo },
       deployErrorMsg: 'string',
       description: 'string',
+      enableLineage: 'boolean',
       enableServerless: 'boolean',
       environments: 'string',
       gmtCreated: 'string',
       gracefulShutdownTimeout: 'number',
+      lineageReplicas: 'number',
+      lineageSpec: 'string',
       ossBucketName: 'string',
       ossPath: 'string',
       pluginsDir: 'string',

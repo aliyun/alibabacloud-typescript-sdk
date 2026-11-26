@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended time range is up to one month.
+   * The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is up to one month.
    * 
    * @example
    * 1735660800
@@ -21,7 +21,7 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended time range is up to one month.
+   * The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is up to one month.
    * 
    * @example
    * 1735747200
@@ -29,7 +29,7 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The list of billing instance IDs to query.
+   * The list of billing instance IDs to be queried.
    */
   instanceIds?: string[];
   /**

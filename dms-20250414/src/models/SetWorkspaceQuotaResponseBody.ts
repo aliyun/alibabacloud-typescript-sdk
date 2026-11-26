@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetWorkspaceQuotaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The compute unit (CU) quota.
+   * The CU quota.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class SetWorkspaceQuotaResponseBodyData extends $dara.Model {
   cuQuota?: number;
   /**
    * @remarks
-   * The amount of compute unit (CU) quota used.
+   * The CU quota usage.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class SetWorkspaceQuotaResponseBodyData extends $dara.Model {
   cuQuotaUsage?: number;
   /**
    * @remarks
-   * The ID of the billing instance.
+   * The billing instance ID.
    * 
    * @example
    * i-2zehld3y1tphzctyyq7o
@@ -37,7 +37,7 @@ export class SetWorkspaceQuotaResponseBodyData extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The status of the order.
+   * The order status.
    * 
    * @example
    * Catched
@@ -45,7 +45,7 @@ export class SetWorkspaceQuotaResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The status of the instance.
+   * The instance status.
    * 
    * @example
    * Success
@@ -53,7 +53,7 @@ export class SetWorkspaceQuotaResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 20923*****7291
@@ -95,7 +95,7 @@ export class SetWorkspaceQuotaResponseBodyData extends $dara.Model {
 export class SetWorkspaceQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the access denial.
+   * The access denied details.
    * 
    * @example
    * NOT_FOUND
@@ -103,7 +103,7 @@ export class SetWorkspaceQuotaResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: SetWorkspaceQuotaResponseBodyData;
   /**
@@ -124,7 +124,7 @@ export class SetWorkspaceQuotaResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * A human-readable message about the request\\"s outcome.
+   * The log information.
    * 
    * @example
    * This record is being collected, please wait for a moment.

@@ -8,7 +8,7 @@ export class RetrieveKnowledgeBaseRequest extends $dara.Model {
    * A filter for the data, specified as a SQL `WHERE` clause.
    * 
    * @example
-   * title = \\"test\\" AND name like \\"test%\\"
+   * title = \"test\" AND name like \"test%\"
    */
   filter?: string;
   /**
@@ -76,7 +76,7 @@ export class RetrieveKnowledgeBaseRequest extends $dara.Model {
    * ```
    * 
    * @example
-   * { \\"Weight\\": { \\"alpha\\": 0.5 } }
+   * { \"Weight\": { \"alpha\": 0.5 } }
    */
   hybridSearchArgs?: string;
   /**

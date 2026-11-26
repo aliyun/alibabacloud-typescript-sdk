@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The acceleration ratio, which indicates the speed improvement brought by subtask parallelism.
+   * The acceleration ratio, which is the speedup brought by the parallel execution of subtasks.
    * 
    * @example
    * 3.8
    */
   accelerationRatio?: number;
+  /**
+   * @remarks
+   * The peak concurrency.
+   * 
+   * @example
+   * 10
+   */
+  peakConcurrency?: number;
   /**
    * @remarks
    * The number of throttled sessions.
@@ -19,6 +27,14 @@ export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
    * 8
    */
   rateLimitedSessionCount?: number;
+  /**
+   * @remarks
+   * The total queueing time for the large language model.
+   * 
+   * @example
+   * 11220
+   */
+  totalLlmQueueDuration?: number;
   /**
    * @remarks
    * The total throttling duration of all sessions.
@@ -70,7 +86,9 @@ export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accelerationRatio: 'AccelerationRatio',
+      peakConcurrency: 'PeakConcurrency',
       rateLimitedSessionCount: 'RateLimitedSessionCount',
+      totalLlmQueueDuration: 'TotalLlmQueueDuration',
       totalLlmWaitDuration: 'TotalLlmWaitDuration',
       totalSessionCount: 'TotalSessionCount',
       peakTpm: 'peakTpm',
@@ -83,7 +101,9 @@ export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accelerationRatio: 'number',
+      peakConcurrency: 'number',
       rateLimitedSessionCount: 'number',
+      totalLlmQueueDuration: 'number',
       totalLlmWaitDuration: 'number',
       totalSessionCount: 'number',
       peakTpm: 'number',
@@ -110,7 +130,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   data?: GetDataAgentTaskModelUsageResponseBodyData;
   /**
    * @remarks
-   * The error code returned when a request exception occurs.
+   * The error code, which is returned when a request exception occurs.
    * 
    * @example
    * DMS-DA-40411
@@ -118,7 +138,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message, which is returned when the call fails.
    * 
    * @example
    * UnknownError
@@ -126,7 +146,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 67E910F2-***695C
@@ -134,7 +154,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Specifies whether the request is successful. Valid values:
    * 
    * - **true**: The request is successful.
    * - **false**: The request fails.

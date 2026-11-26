@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentResponseBodyDataContentCallbackConfig extends $dara.Model {
   /**
    * @remarks
-   * The callback tool invocation parameters.
+   * The parameters to invoke the callback tool calling.
    * 
    * @example
    * {"ID":"test"}
@@ -13,18 +13,18 @@ export class ListCustomAgentResponseBodyDataContentCallbackConfig extends $dara.
   callbackArgs?: string;
   /**
    * @remarks
-   * The prompt for generating callback tool invocation parameters.
+   * The prompt for generating parameters to invoke the callback tool calling.
    * 
    * @example
-   * Invoke the send_email tool to send the web report to 123456@163.com
+   * send report to 123456@163.com
    */
   callbackPrompt?: string;
   /**
    * @remarks
-   * The timing for callback tool invocation.
+   * The timing to invoke the callback tool calling.
    * 
    * @example
-   * The web report rendering is completed
+   * 0
    */
   callbackTime?: number;
   /**
@@ -32,7 +32,7 @@ export class ListCustomAgentResponseBodyDataContentCallbackConfig extends $dara.
    * The callback tool identifier.
    * 
    * @example
-   * For example, MCP server ID (6te...g7a)
+   * Mcp serverId (6te...g7a)
    */
   toolId?: string;
   /**
@@ -75,7 +75,7 @@ export class ListCustomAgentResponseBodyDataContentCallbackConfig extends $dara.
 export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to prohibit appending data sources in the session.
+   * Specifies whether to prohibit appending data sources during the session.
    * 
    * @example
    * true
@@ -83,7 +83,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
   forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
-   * Specifies whether to prohibit user inquiries during the process.
+   * Specifies whether to disable user inquiries during the process.
    * 
    * @example
    * false
@@ -107,7 +107,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report rendering confirmation.
+   * Specifies whether to skip the confirmation for generating the web report.
    * 
    * @example
    * false
@@ -146,8 +146,8 @@ export class ListCustomAgentResponseBodyDataContentKnowledgeConfigList extends $
   /**
    * @remarks
    * The access type. Valid values:
-   * - mcp: MCP access.
-   * - dms_kb: DMS knowledge base access.
+   * - mcp: Access through MCP.
+   * - dms_kb: Access through DMS knowledge base.
    * 
    * @example
    * mcp
@@ -163,7 +163,7 @@ export class ListCustomAgentResponseBodyDataContentKnowledgeConfigList extends $
   kbUuid?: string;
   /**
    * @remarks
-   * The MCP server ID.
+   * The ID of the MCP server.
    * 
    * @example
    * nhdpt9adf6ac**********ca
@@ -275,7 +275,7 @@ export class ListCustomAgentResponseBodyDataContentScheduleTaskConfig extends $d
   query?: string;
   /**
    * @remarks
-   * The reference historical session ID.
+   * The ID of the referenced historical session.
    * 
    * @example
    * 4m24*****mg7j2v
@@ -309,9 +309,9 @@ export class ListCustomAgentResponseBodyDataContentScheduleTaskConfig extends $d
 export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The custom agent type. Valid values:
-   * - Default: The system built-in custom agent.
-   * - Common: The common custom agent.
+   * The type of the custom agent. Valid values:
+   * - Default: System-built-in custom agent.
+   * - Common: Regular custom agent.
    * 
    * @example
    * Common
@@ -319,7 +319,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud main account.
+   * The Alibaba Cloud parent account ID.
    * 
    * @example
    * 16738266********
@@ -327,7 +327,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   aliyunParentId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 20372822********
@@ -335,7 +335,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * The callback feature configuration.
+   * The callback configuration.
    */
   callbackConfig?: ListCustomAgentResponseBodyDataContentCallbackConfig;
   /**
@@ -348,7 +348,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   creatorUserName?: string;
   /**
    * @remarks
-   * The custom agent ID.
+   * The ID of the custom agent.
    * 
    * @example
    * ca-4y3ca4khkcu**********ysf
@@ -373,7 +373,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "Test table******.xlsx",
+   *     "Database" : "test******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -391,10 +391,10 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   defaultAgent?: number;
   /**
    * @remarks
-   * The custom agent description.
+   * The description of the custom agent.
    * 
    * @example
-   * Agent test description
+   * Agent description
    */
   description?: string;
   /**
@@ -433,8 +433,8 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * @example
    * Analysis framework:
    * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
-   * 2. Segment by new and existing customers, channels, and regions to identify growth sources and shortcomings.
-   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to locate churn points
+   * 2. Segment data by new and returning customers, channels, and regions to identify growth drivers and weaknesses.
+   * 3. Conduct funnel analysis based on the user behavior path (browse -> add to cart -> pay) to locate churn points
    */
   instruction?: string;
   /**
@@ -451,10 +451,10 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * 
    * @example
    * Core metric definitions:
-   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both successfully paid and unpaid orders.
-   * 2. Order volume is the number of valid daily orders.
-   * 3. UV (Unique Visitors) refers to the number of deduplicated users visiting the website or app.
-   * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
+   * 2. Order volume refers to the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
+   * 4. Conversion rate = Number of paid orders / UV, which reflects the traffic conversion efficiency
    */
   knowledge?: string;
   /**
@@ -464,7 +464,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   knowledgeConfigList?: ListCustomAgentResponseBodyDataContentKnowledgeConfigList[];
   /**
    * @remarks
-   * The knowledge semantic configuration list.
+   * The list of knowledge semantic configurations.
    */
   knowledgeSemanticConfigList?: ListCustomAgentResponseBodyDataContentKnowledgeSemanticConfigList[];
   /**
@@ -485,10 +485,10 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   modifierUserName?: string;
   /**
    * @remarks
-   * The custom agent name.
+   * The name of the custom agent.
    * 
    * @example
-   * Agent test name
+   * Sample agent name
    */
   name?: string;
   /**
@@ -509,7 +509,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   offlineTime?: string;
   /**
    * @remarks
-   * The recommended question list.
+   * The list of recommended questions.
    * - You can configure up to 10 recommended questions.
    */
   recommendQuestionList?: string[];
@@ -523,7 +523,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The reference historical session ID.
+   * The referenced historical session ID.
    * 
    * @example
    * 99crainsjnve******vynid
@@ -544,7 +544,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   scheduleTaskConfig?: ListCustomAgentResponseBodyDataContentScheduleTaskConfig;
   /**
    * @remarks
-   * The custom agent status.
+   * The status of the custom agent.
    * 
    * @example
    * RELEASED
@@ -560,7 +560,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   textReportConfig?: string;
   /**
    * @remarks
-   * The user-specified skill list.
+   * The list of user-specified skills.
    */
   userSpecifiedSkillList?: string[];
   /**
@@ -788,7 +788,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * Specified parameter Tid is not valid.

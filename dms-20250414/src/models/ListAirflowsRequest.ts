@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAirflowsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -16,7 +16,7 @@ export class ListAirflowsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The token for the next query.
    * 
    * @example
    * f056501ada12****
@@ -24,7 +24,7 @@ export class ListAirflowsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1.
+   * The current page number, starting from 1.
    * 
    * @example
    * 1
@@ -32,7 +32,7 @@ export class ListAirflowsRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of records to skip. This is used for paging.
+   * The number of records to skip for pagination.
    * 
    * @example
    * 5
@@ -40,7 +40,7 @@ export class ListAirflowsRequest extends $dara.Model {
   skip?: number;
   /**
    * @remarks
-   * The ID of the DMS workspace.
+   * The DMS workspace ID.
    * 
    * This parameter is required.
    * 

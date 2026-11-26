@@ -118,7 +118,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   isInternal?: string;
   /**
    * @remarks
-   * The name of the user\\"s OSS bucket.
+   * The name of the user\"s OSS bucket.
    * 
    * @example
    * bgc-hangzhou-test-bucket
@@ -134,7 +134,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Indicates whether the user\\"s OSS bucket is used.
+   * Indicates whether the user\"s OSS bucket is used.
    * 
    * @example
    * true

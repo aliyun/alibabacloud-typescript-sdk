@@ -290,84 +290,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple partitions for a data lakehouse table.
-   * 
-   * @param tmpReq - BatchCreateDataLakePartitionsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns BatchCreateDataLakePartitionsResponse
-   */
-  async batchCreateDataLakePartitionsWithOptions(tmpReq: $_model.BatchCreateDataLakePartitionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCreateDataLakePartitionsResponse> {
-    tmpReq.validate();
-    let request = new $_model.BatchCreateDataLakePartitionsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.partitionInputs)) {
-      request.partitionInputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionInputs, "PartitionInputs", "json");
-    }
-
-    let query = { };
-    if (!$dara.isNull(request.catalogName)) {
-      query["CatalogName"] = request.catalogName;
-    }
-
-    if (!$dara.isNull(request.dbName)) {
-      query["DbName"] = request.dbName;
-    }
-
-    if (!$dara.isNull(request.ifNotExists)) {
-      query["IfNotExists"] = request.ifNotExists;
-    }
-
-    if (!$dara.isNull(request.needResult)) {
-      query["NeedResult"] = request.needResult;
-    }
-
-    if (!$dara.isNull(request.tableName)) {
-      query["TableName"] = request.tableName;
-    }
-
-    if (!$dara.isNull(request.tid)) {
-      query["Tid"] = request.tid;
-    }
-
-    if (!$dara.isNull(request.workspaceId)) {
-      query["WorkspaceId"] = request.workspaceId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.partitionInputsShrink)) {
-      body["PartitionInputs"] = request.partitionInputsShrink;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "BatchCreateDataLakePartitions",
-      version: "2025-04-14",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.BatchCreateDataLakePartitionsResponse>(await this.callApi(params, req, runtime), new $_model.BatchCreateDataLakePartitionsResponse({}));
-  }
-
-  /**
-   * Creates multiple partitions for a data lakehouse table.
-   * 
-   * @param request - BatchCreateDataLakePartitionsRequest
-   * @returns BatchCreateDataLakePartitionsResponse
-   */
-  async batchCreateDataLakePartitions(request: $_model.BatchCreateDataLakePartitionsRequest): Promise<$_model.BatchCreateDataLakePartitionsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.batchCreateDataLakePartitionsWithOptions(request, runtime);
-  }
-
-  /**
    * CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
    * 
    * @param request - CheckDataAgentMemoryConfigRequest
@@ -688,12 +610,24 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.enableLineage)) {
+      query["EnableLineage"] = request.enableLineage;
+    }
+
     if (!$dara.isNull(request.enableServerless)) {
       query["EnableServerless"] = request.enableServerless;
     }
 
     if (!$dara.isNull(request.gracefulShutdownTimeout)) {
       query["GracefulShutdownTimeout"] = request.gracefulShutdownTimeout;
+    }
+
+    if (!$dara.isNull(request.lineageReplicas)) {
+      query["LineageReplicas"] = request.lineageReplicas;
+    }
+
+    if (!$dara.isNull(request.lineageSpec)) {
+      query["LineageSpec"] = request.lineageSpec;
     }
 
     if (!$dara.isNull(request.ossBucketName)) {
@@ -1551,7 +1485,7 @@ export default class Client extends OpenApi {
    * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
    * 
    * @remarks
-   * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+   * After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
    * 
    * @param request - DeleteAgenticVpcEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1585,7 +1519,7 @@ export default class Client extends OpenApi {
    * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
    * 
    * @remarks
-   * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+   * After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
    * 
    * @param request - DeleteAgenticVpcEndpointRequest
    * @returns DeleteAgenticVpcEndpointResponse
@@ -2330,7 +2264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed description of a custom agent based on the custom agent ID.
+   * Queries the details of a custom agent by custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2365,7 +2299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed description of a custom agent based on the custom agent ID.
+   * Queries the details of a custom agent by custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @returns DescribeCustomAgentResponse
@@ -3190,7 +3124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration and status of an Airflow instance.
+   * Queries the details of an Airflow instance.
    * 
    * @param request - GetAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3225,7 +3159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration and status of an Airflow instance.
+   * Queries the details of an Airflow instance.
    * 
    * @param request - GetAirflowRequest
    * @returns GetAirflowResponse
@@ -3457,7 +3391,7 @@ export default class Client extends OpenApi {
    * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
    * 
    * @param tmpReq - GetDataAgentTaskModelUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3517,7 +3451,7 @@ export default class Client extends OpenApi {
    * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
    * 
    * @param request - GetDataAgentTaskModelUsageRequest
    * @returns GetDataAgentTaskModelUsageResponse
@@ -3528,10 +3462,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
    * 
    * @remarks
-   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
    * 
    * @param tmpReq - GetDataAgentTaskModelUsageMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3588,10 +3522,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
    * 
    * @remarks
-   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+   * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
    * 
    * @param request - GetDataAgentTaskModelUsageMetricsRequest
    * @returns GetDataAgentTaskModelUsageMetricsResponse
@@ -7444,10 +7378,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the quota for a workspace.
+   * Sets the workspace quota.
    * 
    * @remarks
-   * Sets the quota for a specific workspace.
+   * Sets the workspace quota.
    * 
    * @param request - SetWorkspaceQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7494,10 +7428,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the quota for a workspace.
+   * Sets the workspace quota.
    * 
    * @remarks
-   * Sets the quota for a specific workspace.
+   * Sets the workspace quota.
    * 
    * @param request - SetWorkspaceQuotaRequest
    * @returns SetWorkspaceQuotaResponse
@@ -8000,12 +7934,24 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.enableLineage)) {
+      query["EnableLineage"] = request.enableLineage;
+    }
+
     if (!$dara.isNull(request.enableServerless)) {
       query["EnableServerless"] = request.enableServerless;
     }
 
     if (!$dara.isNull(request.gracefulShutdownTimeout)) {
       query["GracefulShutdownTimeout"] = request.gracefulShutdownTimeout;
+    }
+
+    if (!$dara.isNull(request.lineageReplicas)) {
+      query["LineageReplicas"] = request.lineageReplicas;
+    }
+
+    if (!$dara.isNull(request.lineageSpec)) {
+      query["LineageSpec"] = request.lineageSpec;
     }
 
     if (!$dara.isNull(request.pluginsDir)) {
@@ -8063,7 +8009,7 @@ export default class Client extends OpenApi {
    * Updates the content of an accuracy test item.
    * 
    * @remarks
-   * Updates the accuracy test item.
+   * Updates an accuracy test item.
    * 
    * @param request - UpdateDataAgentAccuracyTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8149,7 +8095,7 @@ export default class Client extends OpenApi {
    * Updates the content of an accuracy test item.
    * 
    * @remarks
-   * Updates the accuracy test item.
+   * Updates an accuracy test item.
    * 
    * @param request - UpdateDataAgentAccuracyTestRequest
    * @returns UpdateDataAgentAccuracyTestResponse

@@ -42,7 +42,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   customAirflowCfg?: string[];
   /**
    * @remarks
-   * The DAG directory that Airflow scans.
+   * The DAG directory scanned by Airflow.
    * 
    * @example
    * default/dags
@@ -66,12 +66,33 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * Specifies whether data lineage is enabled.
+   */
+  enableLineage?: boolean;
+  /**
+   * @remarks
+   * The creation time.
    * 
    * @example
    * 2025-08-12T05:46:01.000+0000
    */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+   * 
+   * @example
+   * 1
+   */
+  lineageReplicas?: number;
+  /**
+   * @remarks
+   * The merged lineage service specifications, which use the same tier as the application specifications.
+   * 
+   * @example
+   * SMALL
+   */
+  lineageSpec?: string;
   /**
    * @remarks
    * The name of the OSS bucket.
@@ -90,7 +111,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The plugin directory that Airflow scans.
+   * The plugin directory scanned by Airflow.
    * 
    * @example
    * default/plugins
@@ -106,7 +127,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The path to the Python dependencies file (requirements.txt).
+   * The configuration file for dependency packages.
    * 
    * @example
    * default/requirements.txt
@@ -114,7 +135,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   requirementFile?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-2ze9gj646bkv****
@@ -122,7 +143,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The startup script that runs before Airflow starts.
+   * The script loaded before Airflow starts.
    * 
    * @example
    * default/startup.sh
@@ -130,7 +151,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   startupFile?: string;
   /**
    * @remarks
-   * The status of the Airflow instance.
+   * The Airflow instance status.
    * 
    * @example
    * DEPLOYED
@@ -138,7 +159,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1931trfxkvf74v****
@@ -146,7 +167,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-2zevqv4obraqd5p****
@@ -162,7 +183,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   workerServerlessReplicas?: number;
   /**
    * @remarks
-   * The ID of the DMS workspace.
+   * The Data Management (DMS) workspace ID.
    * 
    * @example
    * 8630242382****
@@ -170,7 +191,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone ID in the region.
    * 
    * @example
    * cn-hangzhou-h
@@ -186,7 +207,10 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
       dagsDir: 'DagsDir',
       deployErrorMsg: 'DeployErrorMsg',
       description: 'Description',
+      enableLineage: 'EnableLineage',
       gmtCreated: 'GmtCreated',
+      lineageReplicas: 'LineageReplicas',
+      lineageSpec: 'LineageSpec',
       ossBucketName: 'OssBucketName',
       ossPath: 'OssPath',
       pluginsDir: 'PluginsDir',
@@ -213,7 +237,10 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
       dagsDir: 'string',
       deployErrorMsg: 'string',
       description: 'string',
+      enableLineage: 'boolean',
       gmtCreated: 'string',
+      lineageReplicas: 'number',
+      lineageSpec: 'string',
       ossBucketName: 'string',
       ossPath: 'string',
       pluginsDir: 'string',
@@ -245,7 +272,7 @@ export class GetAirflowResponseBodyRoot extends $dara.Model {
 export class GetAirflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * NOT_FOUND
@@ -285,16 +312,15 @@ export class GetAirflowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data details.
    */
   root?: GetAirflowResponseBodyRoot;
   /**
    * @remarks
-   * Indicates whether the request was successful. The following values are returned:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.                                 
+   * - **false**: The request fails.
    * 
    * @example
    * true

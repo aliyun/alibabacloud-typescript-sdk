@@ -45,7 +45,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The name of the user\\"s role in the workspace.
+   * The name of the user\"s role in the workspace.
    * 
    * @example
    * owner

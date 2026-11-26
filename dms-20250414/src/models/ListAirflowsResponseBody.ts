@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAirflowsResponseBodyRootList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Airflow instance.
+   * The instance ID.
    * 
    * @example
    * af-7a6ygsh80d****
@@ -21,7 +21,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   airflowName?: string;
   /**
    * @remarks
-   * The specifications of the Airflow instance.
+   * The specification of the Airflow instance.
    * 
    * @example
    * SMALL
@@ -37,12 +37,12 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The custom configuration.
+   * The custom configurations.
    */
   customAirflowCfg?: string[];
   /**
    * @remarks
-   * The DAGs folder that Airflow scans.
+   * The DAG directory scanned by Airflow.
    * 
    * @example
    * default/dags
@@ -50,7 +50,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   dagsDir?: string;
   /**
    * @remarks
-   * The error message returned when the deployment fails.
+   * The deployment error message.
    * 
    * @example
    * quota exists
@@ -66,12 +66,33 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * Indicates whether data lineage is enabled.
+   */
+  enableLineage?: boolean;
+  /**
+   * @remarks
    * The time when the Airflow instance was created.
    * 
    * @example
    * 2025-08-12T05:46:01.000+0000
    */
   gmtCreated?: string;
+  /**
+   * @remarks
+   * The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+   * 
+   * @example
+   * 1
+   */
+  lineageReplicas?: number;
+  /**
+   * @remarks
+   * The merged specification of the lineage service, which uses the same tier as the Airflow specification.
+   * 
+   * @example
+   * SMALL
+   */
+  lineageSpec?: string;
   /**
    * @remarks
    * The name of the OSS bucket.
@@ -82,7 +103,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The path in OSS.
+   * The OSS path.
    * 
    * @example
    * /airflow
@@ -90,7 +111,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The plugins folder that Airflow scans.
+   * The plugin directory scanned by Airflow.
    * 
    * @example
    * default/plugins
@@ -98,7 +119,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   pluginsDir?: string;
   /**
    * @remarks
-   * The path to the file that contains the dependencies.
+   * The file path of the dependency package.
    * 
    * @example
    * default/requirements.txt
@@ -114,7 +135,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The path to the script that is loaded when Airflow starts.
+   * The directory of scripts loaded when Airflow starts.
    * 
    * @example
    * default/startup.sh
@@ -122,7 +143,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   startupFile?: string;
   /**
    * @remarks
-   * The status of the Airflow instance.
+   * The instance status.
    * 
    * @example
    * DEPLOYED
@@ -154,7 +175,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   workerServerlessReplicas?: number;
   /**
    * @remarks
-   * The ID of the DMS workspace.
+   * The DMS workspace ID.
    * 
    * @example
    * 8630242382****
@@ -162,7 +183,7 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The ID of the zone in the region.
+   * The zone ID in the region.
    * 
    * @example
    * cn-hangzhou-h
@@ -178,7 +199,10 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
       dagsDir: 'DagsDir',
       deployErrorMsg: 'DeployErrorMsg',
       description: 'Description',
+      enableLineage: 'EnableLineage',
       gmtCreated: 'GmtCreated',
+      lineageReplicas: 'LineageReplicas',
+      lineageSpec: 'LineageSpec',
       ossBucketName: 'OssBucketName',
       ossPath: 'OssPath',
       pluginsDir: 'PluginsDir',
@@ -204,7 +228,10 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
       dagsDir: 'string',
       deployErrorMsg: 'string',
       description: 'string',
+      enableLineage: 'boolean',
       gmtCreated: 'string',
+      lineageReplicas: 'number',
+      lineageSpec: 'string',
       ossBucketName: 'string',
       ossPath: 'string',
       pluginsDir: 'string',
@@ -235,12 +262,12 @@ export class ListAirflowsResponseBodyRootList extends $dara.Model {
 export class ListAirflowsResponseBodyRoot extends $dara.Model {
   /**
    * @remarks
-   * The list of data.
+   * The data list.
    */
   list?: ListAirflowsResponseBodyRootList[];
   /**
    * @remarks
-   * The total number of matching Airflow instances.
+   * The total number of Airflow instances that meet the query conditions.
    * 
    * @example
    * 100
@@ -275,7 +302,7 @@ export class ListAirflowsResponseBodyRoot extends $dara.Model {
 export class ListAirflowsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denied details.
    * 
    * @example
    * NOT_FOUND
@@ -283,7 +310,7 @@ export class ListAirflowsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The error code. This parameter is returned when an error occurs.
+   * The error code returned when an exception occurs in the request.
    * 
    * @example
    * UnknownError
@@ -299,7 +326,7 @@ export class ListAirflowsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -315,7 +342,7 @@ export class ListAirflowsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The token for the next query.
    * 
    * @example
    * NesLoKLEdIZrKhDT7I2gS****
@@ -331,16 +358,15 @@ export class ListAirflowsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the data.
+   * The data details.
    */
   root?: ListAirflowsResponseBodyRoot;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.                                 
+   * - **false**: The request fails.
    * 
    * @example
    * true

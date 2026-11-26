@@ -41,7 +41,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The DAG directory scanned by Airflow.
+   * The directory scanned by Airflow for DAGs.
    * 
    * @example
    * default/dags
@@ -62,17 +62,38 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable Worker elasticity.
+   * Specifies whether to enable data lineage. For Airflow 2.x, this feature is always disabled, and the lineage specification and number of replicas are ignored.
+   */
+  enableLineage?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable elasticity for workers.
    */
   enableServerless?: boolean;
   /**
    * @remarks
-   * The timeout period for the Worker to gracefully shut down.
+   * The timeout period for a worker to gracefully shut down.
    * 
    * @example
    * 60
    */
   gracefulShutdownTimeout?: number;
+  /**
+   * @remarks
+   * The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+   * 
+   * @example
+   * 1
+   */
+  lineageReplicas?: number;
+  /**
+   * @remarks
+   * The specification of the lineage service. It uses the same tier as the Airflow instance specification.
+   * 
+   * @example
+   * SMALL
+   */
+  lineageSpec?: string;
   /**
    * @remarks
    * The name of the OSS bucket.
@@ -95,7 +116,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The plugin directory scanned by the Airflow instance.
+   * The directory scanned by the Airflow instance for plugins.
    * 
    * @example
    * default/plugins
@@ -103,7 +124,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   pluginsDir?: string;
   /**
    * @remarks
-   * The path of the package installation file.
+   * The path to the installation package.
    * 
    * @example
    * default/requirements.txt
@@ -121,7 +142,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The startup script of the Airflow container.
+   * The startup script for the Airflow container.
    * 
    * @example
    * default/startup.sh
@@ -139,7 +160,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * This parameter is required.
    * 
@@ -149,7 +170,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The number of extended Worker node replicas.
+   * The number of worker node extensions.
    * 
    * This parameter is required.
    * 
@@ -159,7 +180,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   workerServerlessReplicas?: number;
   /**
    * @remarks
-   * The ID of the Data Management workspace.
+   * The DMS workspace ID.
    * 
    * This parameter is required.
    * 
@@ -169,7 +190,7 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The zone ID within the region.
+   * The zone ID in the region.
    * 
    * @example
    * cn-hangzhou-h
@@ -184,8 +205,11 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
       dagsDir: 'DagsDir',
       dataMountInfoListShrink: 'DataMountInfoList',
       description: 'Description',
+      enableLineage: 'EnableLineage',
       enableServerless: 'EnableServerless',
       gracefulShutdownTimeout: 'GracefulShutdownTimeout',
+      lineageReplicas: 'LineageReplicas',
+      lineageSpec: 'LineageSpec',
       ossBucketName: 'OssBucketName',
       ossPath: 'OssPath',
       pluginsDir: 'PluginsDir',
@@ -209,8 +233,11 @@ export class CreateAirflowShrinkRequest extends $dara.Model {
       dagsDir: 'string',
       dataMountInfoListShrink: 'string',
       description: 'string',
+      enableLineage: 'boolean',
       enableServerless: 'boolean',
       gracefulShutdownTimeout: 'number',
+      lineageReplicas: 'number',
+      lineageSpec: 'string',
       ossBucketName: 'string',
       ossPath: 'string',
       pluginsDir: 'string',

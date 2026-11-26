@@ -13,6 +13,14 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
   beginTime?: number;
   /**
    * @remarks
+   * The concurrency value.
+   * 
+   * @example
+   * 10
+   */
+  concurrency?: number;
+  /**
+   * @remarks
    * The end time of the statistical interval for the time-series point. The value is a UNIX timestamp in seconds.
    * 
    * @example
@@ -21,7 +29,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * The TPM at the time-series point, which represents the number of tokens consumed in the statistical interval.
+   * The TPM of the time-series point, which is the number of tokens consumed in the statistical interval.
    * 
    * @example
    * 1200
@@ -30,6 +38,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
   static names(): { [key: string]: string } {
     return {
       beginTime: 'BeginTime',
+      concurrency: 'Concurrency',
       endTime: 'EndTime',
       tpm: 'Tpm',
     };
@@ -38,6 +47,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
   static types(): { [key: string]: any } {
     return {
       beginTime: 'number',
+      concurrency: 'number',
       endTime: 'number',
       tpm: 'number',
     };
@@ -55,7 +65,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
 export class GetDataAgentTaskModelUsageMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of time-series TPM metrics for model usage. The usage at each time point is returned in chronological order.
+   * The list of time-series metrics of TPM for model usage, which returns the usage at each time point in chronological order.
    */
   data?: GetDataAgentTaskModelUsageMetricsResponseBodyData[];
   /**

@@ -64,7 +64,7 @@ export class ListDataAgentAccuracyTestTasksResponseBodyData extends $dara.Model 
    * The status of the custom agent.
    * 
    * @example
-   * 0 PENDING,1 RUNNING,2 COMPLETED,3 STOPPED,4 FAILED
+   * 0
    */
   status?: number;
   /**

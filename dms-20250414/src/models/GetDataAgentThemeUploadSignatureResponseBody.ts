@@ -23,7 +23,7 @@ export class GetDataAgentThemeUploadSignatureResponseBodyData extends $dara.Mode
   ossCredential?: string;
   /**
    * @remarks
-   * The signature time in the format of yyyyMMdd\\"T\\"HHmmss\\"Z\\".
+   * The signature time in the format of yyyyMMdd\"T\"HHmmss\"Z\".
    * 
    * @example
    * 20260101T135341Z

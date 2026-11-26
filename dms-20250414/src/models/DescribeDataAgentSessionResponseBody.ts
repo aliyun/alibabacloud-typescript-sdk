@@ -110,8 +110,8 @@ export class DescribeDataAgentSessionResponseBodyDataCapabilities extends $dara.
   /**
    * @remarks
    * The ID of the mounted capability.
-   * - If Type is set to skill, the value indicates the skill ID.
-   * - If Type is set to dms_kb, the value indicates the knowledge base ID.
+   * - If Type is set to skill, this parameter indicates the skill ID.
+   * - If Type is set to dms_kb, this parameter indicates the knowledge base ID.
    * 
    * @example
    * kb-HZ-s3df*******ld08d
@@ -119,7 +119,7 @@ export class DescribeDataAgentSessionResponseBodyDataCapabilities extends $dara.
   id?: string;
   /**
    * @remarks
-   * The type. Valid values:
+   * The capability type. Valid values:
    * - skill: skill
    * - dms_kb: knowledge base
    * 
@@ -164,7 +164,7 @@ export class DescribeDataAgentSessionResponseBodyDataChatHistoryLocations extend
    * The OSS download URL of the session playback history.
    * 
    * @example
-   * ****
+   * https://***aliyun.com***
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -194,7 +194,7 @@ export class DescribeDataAgentSessionResponseBodyDataDataSources extends $dara.M
   /**
    * @remarks
    * The data source category. Valid values:
-   * - **CHAT**: The data source is specified in a conversation by calling the CreateDataAgentSession or SendChatMessage operation.
+   * - **CHAT**: The data source is specified in the conversation by calling the CreateDataAgentSession or SendChatMessage operation.
    * - **CUSTOM_AGENT**: The data source comes from the preset analysis data scope in a custom agent.
    * 
    * @example
@@ -238,7 +238,7 @@ export class DescribeDataAgentSessionResponseBodyDataMessages extends $dara.Mode
    * The content of the historical conversation message.
    * 
    * @example
-   * Help me check the sales of restaurants in the UK in 2022
+   * Show me the sales of restaurants in the UK in 2022
    */
   content?: string;
   /**
@@ -251,7 +251,7 @@ export class DescribeDataAgentSessionResponseBodyDataMessages extends $dara.Mode
   id?: string;
   /**
    * @remarks
-   * The send time of the historical conversation message.
+   * The time when the historical conversation message was sent.
    * 
    * @example
    * 1790650646000
@@ -295,7 +295,7 @@ export class DescribeDataAgentSessionResponseBodyDataMessages extends $dara.Mode
 export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentCallbackConfig extends $dara.Model {
   /**
    * @remarks
-   * The callback tool invocation parameters.
+   * The parameters used to invoke callback tool calling.
    * 
    * @example
    * {
@@ -305,7 +305,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentCallbackC
   callbackArgs?: string;
   /**
    * @remarks
-   * The prompt used to generate callback tool invocation parameters.
+   * The prompt used to generate the parameters to invoke callback tool calling.
    * 
    * @example
    * send web report to 123456@163.com
@@ -313,7 +313,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentCallbackC
   callbackPrompt?: string;
   /**
    * @remarks
-   * The timing for callback tool invocation.
+   * The timing to invoke callback tool calling.
    * 
    * @example
    * 0
@@ -368,12 +368,11 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecution
   /**
    * @remarks
    * The tendency of the agent to ask follow-up questions to clarify requirements. **This parameter takes effect only when SkipAskHuman is set to false and SkipPlan is set to false.** Valid values: 0 to 1.
-   * 
    * The following list describes some tendency values:
-   * - 0.0: Do not ask questions. The agent does not ask the user any questions, skips confirmation after generating a plan, and directly executes the plan.
+   * - 0.0: Do not ask questions. The agent does not ask the user questions, skips confirmation after generating the plan, and directly executes the plan.
    * - 0.1: Confirm the plan only. The agent confirms the generated plan only once and does not ask additional questions about requirements or details.
    * - 0.4: Ask questions when the task is blocked. The agent handles the task autonomously by default and asks questions only when the task cannot proceed or be completed.
-   * - 0.7: Ask questions when key criteria are uncertain. The agent proactively asks questions when there is critical ambiguity in the goals, scope, business criteria, or acceptance criteria.
+   * - 0.7: Ask questions when key criteria are uncertain. The agent proactively asks questions when critical ambiguity exists in the goals, scope, business criteria, or acceptance criteria.
    * - 1.0: Fully align throughout the process. The agent proactively clarifies requirements during planning and execution, and continuously confirms when encountering important ambiguities, assumptions, or solution branches.
    * 
    * @example
@@ -382,7 +381,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecution
   clarificationTendency?: number;
   /**
    * @remarks
-   * Indicates whether appending data sources in the session is prohibited.
+   * Specifies whether to prohibit appending data sources in the session.
    * 
    * @example
    * true
@@ -390,7 +389,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecution
   forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
-   * Indicates whether user inquiries during the process are prohibited.
+   * Specifies whether to prohibit user inquiries during the process.
    * 
    * @example
    * true
@@ -398,7 +397,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecution
   skipAskHuman?: boolean;
   /**
    * @remarks
-   * Indicates whether the plan confirmation step is skipped.
+   * Specifies whether to skip the plan confirmation step.
    * 
    * @example
    * true
@@ -406,7 +405,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecution
   skipPlan?: boolean;
   /**
    * @remarks
-   * Indicates whether all SQL confirmations are skipped.
+   * Specifies whether to skip all SQL confirmations.
    * 
    * @example
    * true
@@ -414,7 +413,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecution
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Indicates whether the confirmation for generating a web report is skipped.
+   * Specifies whether to skip the confirmation for generating web reports.
    * 
    * @example
    * true
@@ -454,9 +453,9 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecution
 export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentKnowledgeConfigList extends $dara.Model {
   /**
    * @remarks
-   * The access type. If this parameter is not specified, the default value is mcp. Valid values:
-   * - mcp: MCP access. You must specify the McpServerId parameter.
-   * - dms_kb: DMS knowledge base access. You must specify the KbUuid parameter.
+   * The access type. If you do not specify this parameter, the default value is mcp. Valid values:
+   * - mcp: Access through MCP. You must specify the McpServerId parameter.
+   * - dms_kb: Access through a DMS knowledge base. You must specify the KbUuid parameter.
    * 
    * @example
    * mcp
@@ -568,7 +567,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentKnowledge
 export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for scheduled runs.
+   * The cron expression for scheduled execution.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -576,7 +575,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentScheduleT
   cronExpression?: string;
   /**
    * @remarks
-   * The question for scheduled runs.
+   * The question for scheduled execution.
    * 
    * @example
    * Analyze the data and provide the report
@@ -618,7 +617,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentScheduleT
 export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgent extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud main account ID.
+   * The ID of the Alibaba Cloud main account.
    * 
    * @example
    * 16738266********
@@ -879,11 +878,11 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgent extends 
   /**
    * @remarks
    * The web report theme. Valid values:
-   * - default: default
-   * - journal: journal
-   * - legacy: legacy
-   * - neobrutalism: stylized
-   * - infographic: infographic
+   * - default: Default.
+   * - journal: Journal.
+   * - legacy: Legacy.
+   * - neobrutalism: Neobrutalism.
+   * - infographic: Infographic.
    * 
    * @example
    * default
@@ -1008,7 +1007,7 @@ export class DescribeDataAgentSessionResponseBodyDataPreviewCustomAgent extends 
 export class DescribeDataAgentSessionResponseBodyDataRecallResults extends $dara.Model {
   /**
    * @remarks
-   * The content of the recalled knowledge chunk.
+   * The content of the recalled knowledge block.
    * 
    * @example
    * sky is blue
@@ -1016,7 +1015,7 @@ export class DescribeDataAgentSessionResponseBodyDataRecallResults extends $dara
   content?: string;
   /**
    * @remarks
-   * The similarity score of this data entry. The scoring algorithm is related to the algorithm specified when the index is created, such as l2, ip, or cosine.
+   * The similarity score of this data entry. The scoring algorithm is related to the algorithm specified during index creation, such as l2, ip, or cosine.
    * 
    * @example
    * 0.65
@@ -1067,7 +1066,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   /**
    * @remarks
    * The usage stage of the custom agent. Valid values:
-   * - **debug**: Debug stage.
+   * - **debug**: Debugging stage.
    * - **prod**: Production stage.
    * 
    * @example
@@ -1084,7 +1083,7 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
   enableSearch?: boolean;
   /**
    * @remarks
-   * The encryption key for storing artifacts in OSS, including built-in and user OSS. This key is typically specified in CreateDataAgentSession.
+   * The encryption key for storing artifacts in OSS, including built-in and user OSS. This is typically specified in CreateDataAgentSession.
    * 
    * @example
    * ay***1Te
@@ -1133,8 +1132,10 @@ export class DescribeDataAgentSessionResponseBodyDataSessionConfig extends $dara
    * @remarks
    * The report page width.
    * 
+   * Unit: mm.
+   * 
    * @example
-   * 300mm
+   * 300
    */
   reportPageWidth?: number;
   /**
@@ -1271,7 +1272,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   messages?: DescribeDataAgentSessionResponseBodyDataMessages[];
   /**
    * @remarks
-   * The custom agent for the intelligent development session preview.
+   * The custom agent for intelligent development session preview.
    */
   previewCustomAgent?: DescribeDataAgentSessionResponseBodyDataPreviewCustomAgent;
   /**
@@ -1281,7 +1282,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
   recallResults?: DescribeDataAgentSessionResponseBodyDataRecallResults[];
   /**
    * @remarks
-   * Indicates whether the session is favorited by the current logged-on user.
+   * Indicates whether the item is favorited by the current logged-on user.
    * 
    * @example
    * true
@@ -1406,7 +1407,7 @@ export class DescribeDataAgentSessionResponseBodyData extends $dara.Model {
 export class DescribeDataAgentSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned struct.
+   * The returned data structure.
    */
   data?: DescribeDataAgentSessionResponseBodyData;
   /**

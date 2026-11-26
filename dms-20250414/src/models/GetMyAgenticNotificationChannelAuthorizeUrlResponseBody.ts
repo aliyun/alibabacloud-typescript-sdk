@@ -13,7 +13,7 @@ export class GetMyAgenticNotificationChannelAuthorizeUrlResponseBodyData extends
   authorizeUrl?: string;
   /**
    * @remarks
-   * The callback URL after the authorization is completed. You must add this URL to the redirect URL whitelist of the tenant\\"s Lark application. Otherwise, the authorization fails.
+   * The callback URL after the authorization is completed. You must add this URL to the redirect URL whitelist of the tenant\"s Lark application. Otherwise, the authorization fails.
    * 
    * @example
    * https://aig-dms-cn-hangzhou.aliyuncs.com/oauth/mobile/feishu/bind

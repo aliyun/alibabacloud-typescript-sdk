@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAirflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Airflow instance.
+   * The Airflow instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAirflowRequest extends $dara.Model {
   airflowId?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

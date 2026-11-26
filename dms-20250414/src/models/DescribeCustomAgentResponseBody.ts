@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
   /**
    * @remarks
-   * The parameters to invoke callback tool calling.
+   * The callback tool invocation parameters.
    * 
    * @example
    * {"ID":"test"}
@@ -13,7 +13,7 @@ export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Mod
   callbackArgs?: string;
   /**
    * @remarks
-   * The prompt for generating parameters to invoke callback tool calling.
+   * The prompt for generating callback tool invocation parameters.
    * 
    * @example
    * send web report to 123456@163.com
@@ -21,7 +21,7 @@ export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Mod
   callbackPrompt?: string;
   /**
    * @remarks
-   * The timing to invoke callback tool calling.
+   * The timing of callback tool invocation.
    * 
    * @example
    * 0
@@ -75,7 +75,7 @@ export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Mod
 export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to prohibit appending data sources in a session.
+   * Specifies whether to prohibit appending data sources during the session.
    * 
    * @example
    * true
@@ -107,7 +107,7 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the confirmation for drawing a web report.
+   * Specifies whether to skip the web report rendering confirmation.
    * 
    * @example
    * false
@@ -146,8 +146,8 @@ export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dar
   /**
    * @remarks
    * The access type. Valid values:
-   * - mcp: MCP access
-   * - dms_kb: DMS knowledge base access
+   * - mcp: Accessed through MCP.
+   * - dms_kb: Accessed through the DMS knowledge base.
    * 
    * @example
    * mcp
@@ -163,7 +163,7 @@ export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dar
   kbUuid?: string;
   /**
    * @remarks
-   * The MCP server ID.
+   * The ID of the MCP server.
    * 
    * @example
    * nhdpt9adf6ac**********ca
@@ -222,8 +222,8 @@ export class DescribeCustomAgentResponseBodyDataKnowledgeSemanticConfigList exte
   /**
    * @remarks
    * The knowledge semantic type. Valid values:
-   * - sql_template: SQL template
-   * - ossie_model: Ossie semantic view
+   * - sql_template: SQL template.
+   * - ossie_model: Ossie semantic view.
    * 
    * @example
    * sql_template
@@ -259,7 +259,7 @@ export class DescribeCustomAgentResponseBodyDataKnowledgeSemanticConfigList exte
 export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for time-based periodic scheduling.
+   * The cron expression for time-based scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -267,7 +267,7 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
   cronExpression?: string;
   /**
    * @remarks
-   * The question for the periodic task.
+   * The question for the scheduled task.
    * 
    * @example
    * Analyze the data and provide the report
@@ -309,9 +309,9 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
 export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The custom agent type. Valid values:
-   * - Default: system-built-in custom agent
-   * - Common: common custom agent
+   * The type of the custom agent. Valid values:
+   * - Default: The system-built-in custom agent.
+   * - Common: A common custom agent.
    * 
    * @example
    * Common
@@ -319,7 +319,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud main account.
+   * The primary Alibaba Cloud account ID.
    * 
    * @example
    * 16738266********
@@ -335,7 +335,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * The callback feature configuration.
+   * The callback configuration.
    */
   callbackConfig?: DescribeCustomAgentResponseBodyDataCallbackConfig;
   /**
@@ -391,7 +391,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   defaultAgent?: number;
   /**
    * @remarks
-   * The custom agent description.
+   * The description of the custom agent.
    * 
    * @example
    * Description for the test agent
@@ -428,7 +428,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The instructions.
+   * The instruction.
    * 
    * @example
    * Analytical framework:
@@ -440,7 +440,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   instruction?: string;
   /**
    * @remarks
-   * Specifies whether a periodic task is configured.
+   * Specifies whether a scheduled task is configured.
    * 
    * @example
    * true
@@ -487,7 +487,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   modifierUserName?: string;
   /**
    * @remarks
-   * The custom agent name.
+   * The name of the custom agent.
    * 
    * @example
    * Test agent name
@@ -495,7 +495,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The next run time of the periodic task.
+   * The next run time of the scheduled task.
    * 
    * @example
    * 1767715200
@@ -540,12 +540,12 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The periodic task configuration.
+   * The scheduled task configuration.
    */
   scheduleTaskConfig?: DescribeCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
    * @remarks
-   * The custom agent status.
+   * The status of the custom agent.
    * 
    * @example
    * RELEASED
@@ -575,11 +575,11 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The web report theme. Valid values:
-   * - default: default
-   * - journal: journal
-   * - legacy: classic
-   * - neobrutalism: stylized
-   * - infographic: infographic
+   * - default: Default.
+   * - journal: Journal.
+   * - legacy: Legacy.
+   * - neobrutalism: Neobrutalism.
+   * - infographic: Infographic.
    * 
    * @example
    * default
@@ -735,10 +735,10 @@ export class DescribeCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request is successful.                                 
-   * - **false**: The request fails.
+   * - **true**: The request was successful.                                 
+   * - **false**: The request failed.
    * 
    * @example
    * true

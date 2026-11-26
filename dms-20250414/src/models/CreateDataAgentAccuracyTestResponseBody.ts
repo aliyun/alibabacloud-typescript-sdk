@@ -40,7 +40,7 @@ export class CreateDataAgentAccuracyTestResponseBody extends $dara.Model {
   data?: CreateDataAgentAccuracyTestResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when an exception occurs.
    * 
    * @example
    * UnknownError
@@ -48,7 +48,7 @@ export class CreateDataAgentAccuracyTestResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * UnknownError
@@ -64,10 +64,10 @@ export class CreateDataAgentAccuracyTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.                                 
-   * - **false**: The request failed.
+   * - **true**: The request is successful.                                 
+   * - **false**: The request fails.
    * 
    * @example
    * true

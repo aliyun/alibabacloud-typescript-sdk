@@ -10,7 +10,7 @@ export class GetNotebookAndSubmitTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {\\"dt\\": \\"2022-10-14\\"}
+   * {\"dt\": \"2022-10-14\"}
    */
   params?: string;
   /**
@@ -28,7 +28,7 @@ export class GetNotebookAndSubmitTaskRequest extends $dara.Model {
    * The number of retries if scheduling fails.
    * 
    * @example
-   * true
+   * 10
    */
   retry?: number;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
   /**
    * @remarks
-   * The parameters to invoke the callback tool.
+   * The parameters used to invoke the callback tool.
    * 
    * @example
    * {"ID":"test"}
@@ -13,7 +13,7 @@ export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
   callbackArgs?: string;
   /**
    * @remarks
-   * The prompt for generating parameters to invoke the callback tool.
+   * The prompt used to generate parameters to invoke the callback tool.
    * 
    * @example
    * send web report to 123456@163.com
@@ -75,7 +75,7 @@ export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
 export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to prohibit appending data sources in a session.
+   * Specifies whether to prohibit appending data sources in the session.
    * 
    * @example
    * true
@@ -83,7 +83,7 @@ export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
-   * Specifies whether to prohibit user inquiries during the process.
+   * Specifies whether to disable user inquiries during the process.
    * 
    * @example
    * true
@@ -107,7 +107,7 @@ export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the confirmation for generating a web report.
+   * Specifies whether to skip the web report drawing confirmation.
    * 
    * @example
    * true
@@ -259,7 +259,7 @@ export class CreateCustomAgentResponseBodyDataKnowledgeSemanticConfigList extend
 export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for time-based scheduling.
+   * The cron expression for periodic scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -267,7 +267,7 @@ export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
   cronExpression?: string;
   /**
    * @remarks
-   * The question for the scheduled task.
+   * The query for the periodic task.
    * 
    * @example
    * Analyze this data and provide a brief report
@@ -309,7 +309,7 @@ export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
 export class CreateCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The custom agent type. Valid values:
+   * The type of the custom agent. Valid values:
    * - Default: The system-built-in custom agent.
    * - Common: The common custom agent.
    * 
@@ -319,7 +319,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud main account.
+   * The parent Alibaba Cloud account ID.
    * 
    * @example
    * 16738266********
@@ -424,14 +424,14 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
-   * 2. Segment data by new and returning customers, channels, and regions to identify growth sources and shortcomings.
-   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to identify drop-off stages
+   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis to analyze trend changes and year-over-year or month-over-month fluctuations.
+   * 2. Segment data by new and existing customers, channels, and regions to identify growth sources and shortcomings.
+   * 3. Conduct funnel analysis based on the user behavior path (browse -> add to cart -> pay) to locate churn points
    */
   instruction?: string;
   /**
    * @remarks
-   * Indicates whether a periodic task is configured.
+   * Indicates whether a scheduled task is configured.
    * 
    * @example
    * false
@@ -444,9 +444,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
-   * 2. Order volume refers to the number of valid orders placed per day.
+   * 2. Order volume is the number of valid orders placed per day.
    * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
-   * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
+   * 4. Conversion rate = Number of paid orders / UV, which reflects the traffic conversion efficiency
    */
   knowledge?: string;
   /**
@@ -485,7 +485,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The next execution time of the periodic task.
+   * The next run time of the scheduled task.
    * - Timestamp format.
    * 
    * @example
@@ -532,12 +532,12 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The periodic task configuration.
+   * The scheduled task configuration.
    */
   scheduleTaskConfig?: CreateCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
    * @remarks
-   * The custom agent status.
+   * The status of the custom agent.
    * 
    * @example
    * NEW

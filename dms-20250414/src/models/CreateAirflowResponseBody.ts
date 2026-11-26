@@ -6,7 +6,7 @@ import { DataMountInfo } from "./DataMountInfo";
 export class CreateAirflowResponseBodyRoot extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the Airflow instance.
+   * The instance ID.
    * 
    * @example
    * af-****
@@ -46,7 +46,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The custom Airflow configuration.
+   * The custom Airflow configurations.
    */
   customAirflowCfg?: string[];
   /**
@@ -64,7 +64,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   dataMountInfoList?: DataMountInfo[];
   /**
    * @remarks
-   * The error log information.
+   * The error log message.
    * 
    * @example
    * vpc not found
@@ -72,7 +72,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   deployErrorMsg?: string;
   /**
    * @remarks
-   * The description of the Airflow instance.
+   * The description of Airflow.
    * 
    * @example
    * order scheduler
@@ -80,7 +80,12 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable Worker elasticity.
+   * Specifies whether data lineage is enabled.
+   */
+  enableLineage?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable elasticity for workers.
    */
   enableServerless?: boolean;
   /**
@@ -93,12 +98,28 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The timeout period for the Worker to gracefully shut down.
+   * The timeout period for a worker to gracefully shut down.
    * 
    * @example
    * 60
    */
   gracefulShutdownTimeout?: number;
+  /**
+   * @remarks
+   * The number of replicas for the lineage service. The default value is 1 when enabled. If omitted during an update, the original value is retained.
+   * 
+   * @example
+   * 1
+   */
+  lineageReplicas?: number;
+  /**
+   * @remarks
+   * The specification of the lineage service. It uses the same tier as the Airflow instance specification.
+   * 
+   * @example
+   * SMALL
+   */
+  lineageSpec?: string;
   /**
    * @remarks
    * The name of the OSS bucket.
@@ -125,7 +146,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   pluginsDir?: string;
   /**
    * @remarks
-   * The path of the installable package.
+   * The path of the installable packages.
    * 
    * @example
    * default/requirements.txt
@@ -141,7 +162,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The file loaded when the Airflow instance starts. You can use this file to set environment variables and other configurations.
+   * The file loaded when the Airflow instance starts, which can be used to set environment variables.
    * 
    * @example
    * default/startup.sh
@@ -149,7 +170,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   startupFile?: string;
   /**
    * @remarks
-   * The instance status of the Airflow instance.
+   * The instance status.
    * 
    * @example
    * DEPLOYING
@@ -165,7 +186,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-uf63r6coyiw9o5gf****
@@ -207,9 +228,12 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
       dataMountInfoList: 'DataMountInfoList',
       deployErrorMsg: 'DeployErrorMsg',
       description: 'Description',
+      enableLineage: 'EnableLineage',
       enableServerless: 'EnableServerless',
       gmtCreated: 'GmtCreated',
       gracefulShutdownTimeout: 'GracefulShutdownTimeout',
+      lineageReplicas: 'LineageReplicas',
+      lineageSpec: 'LineageSpec',
       ossBucketName: 'OssBucketName',
       ossPath: 'OssPath',
       pluginsDir: 'PluginsDir',
@@ -237,9 +261,12 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
       dataMountInfoList: { 'type': 'array', 'itemType': DataMountInfo },
       deployErrorMsg: 'string',
       description: 'string',
+      enableLineage: 'boolean',
       enableServerless: 'boolean',
       gmtCreated: 'string',
       gracefulShutdownTimeout: 'number',
+      lineageReplicas: 'number',
+      lineageSpec: 'string',
       ossBucketName: 'string',
       ossPath: 'string',
       pluginsDir: 'string',
@@ -273,7 +300,7 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
 export class CreateAirflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    * 
    * @example
    * NOT_FOUND
@@ -297,7 +324,7 @@ export class CreateAirflowResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The log information.
+   * The log message.
    * 
    * @example
    * Successful
@@ -318,10 +345,10 @@ export class CreateAirflowResponseBody extends $dara.Model {
   root?: CreateAirflowResponseBodyRoot;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

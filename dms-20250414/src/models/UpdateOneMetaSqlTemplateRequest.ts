@@ -32,7 +32,7 @@ export class UpdateOneMetaSqlTemplateRequest extends $dara.Model {
    * The content of the SQL template.
    * 
    * @example
-   * select count(1) from sales where dt = \\"2026-08-01\\"
+   * select count(1) from sales where dt = \"2026-08-01\"
    */
   expr?: string;
   /**
