@@ -68,7 +68,7 @@ export class GetComputeJobResponseBodyData extends $dara.Model {
    * The error message.
    * 
    * @example
-   * SQL validation or compilation failed: Column \\"xxx\\" not found
+   * SQL validation or compilation failed: Column \"xxx\" not found
    */
   errorMsg?: string;
   /**

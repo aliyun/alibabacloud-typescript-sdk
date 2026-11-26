@@ -26,7 +26,7 @@ export class StartComputeJobRequest extends $dara.Model {
    * **The Flink SQL draft, which must be a self-contained and complete DDL and DML statement.**
    * 
    * @example
-   * CREATE TEMPORARY TABLE src (id BIGINT) WITH (\\"connector\\" = \\"datagen\\"); CREATE TEMPORARY TABLE sink (id BIGINT) WITH (\\"connector\\" = \\"print\\"); INSERT INTO sink SELECT id FROM src;
+   * CREATE TEMPORARY TABLE src (id BIGINT) WITH (\"connector\" = \"datagen\"); CREATE TEMPORARY TABLE sink (id BIGINT) WITH (\"connector\" = \"print\"); INSERT INTO sink SELECT id FROM src;
    */
   draftSql?: string;
   /**

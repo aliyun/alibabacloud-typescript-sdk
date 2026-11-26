@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopComputeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compute instance, excluding the region name.
+   * The ID of the computing instance, excluding the region name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StopComputeJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the compute job.
+   * The name of the computing job.
    * 
    * This parameter is required.
    * 
@@ -33,11 +33,26 @@ export class StopComputeJobRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The job stop strategy. Default value: `CANCEL` if omitted.
+   * 
+   * - `CANCEL`: Stops the job directly and skips the current savepoint.
+   * - `STOP_WITH_SAVEPOINT`: Creates a savepoint and then stops the job.
+   * - `STOP_WITH_DRAIN`: Stops the job in drain mode and creates a savepoint, triggering the output of event time windows.
+   * 
+   * Strategies with savepoints apply only to running production jobs.
+   * 
+   * @example
+   * STOP_WITH_SAVEPOINT
+   */
+  stopStrategy?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       jobName: 'JobName',
       regionId: 'RegionId',
+      stopStrategy: 'StopStrategy',
     };
   }
 
@@ -46,6 +61,7 @@ export class StopComputeJobRequest extends $dara.Model {
       instanceId: 'string',
       jobName: 'string',
       regionId: 'string',
+      stopStrategy: 'string',
     };
   }
 

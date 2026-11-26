@@ -1124,11 +1124,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a compute job in a specified region and instance.
+   * Stops a computing job in a specified region and instance.
    * 
    * @remarks
    * ## Request description
-   * - This operation stops the production or debug runtime instance of a specified compute job.
+   * - This operation stops the production or debug running instance of a specified computing job.
    * - A successful response indicates that the stop request has been accepted, but it does not mean that the job stops immediately.
    * 
    * @param request - StopComputeJobRequest
@@ -1150,6 +1150,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.stopStrategy)) {
+      query["StopStrategy"] = request.stopStrategy;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1168,11 +1172,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a compute job in a specified region and instance.
+   * Stops a computing job in a specified region and instance.
    * 
    * @remarks
    * ## Request description
-   * - This operation stops the production or debug runtime instance of a specified compute job.
+   * - This operation stops the production or debug running instance of a specified computing job.
    * - A successful response indicates that the stop request has been accepted, but it does not mean that the job stops immediately.
    * 
    * @param request - StopComputeJobRequest
