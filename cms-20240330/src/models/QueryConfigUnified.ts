@@ -82,7 +82,7 @@ export class QueryConfigUnified extends $dara.Model {
    * The query expression or Search Processing Language (SPL) statement. Recommended when the type is PROMETHEUS_SINGLE_QUERY. Optional when the type is UMODEL_METRICSET_QUERY for custom SPL. Required when the type is UMODEL_LOGSET_QUERY, where an SPL query statement must be provided and validated by the business layer.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   expr?: string;
   /**
@@ -131,7 +131,7 @@ export class QueryConfigUnified extends $dara.Model {
    * The raw V1 query JSON string returned as a fallback when the type is UNKNOWN_QUERY and parsing fails in the read path. This string includes the field values that triggered the failure, such as filter.operator=ABC. The frontend displays this field in read-only mode when it is not empty.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   legacyRaw?: string;
   /**
@@ -147,7 +147,7 @@ export class QueryConfigUnified extends $dara.Model {
    * The name of the logset when the type is UMODEL_LOGSET_QUERY.
    * 
    * @example
-   * 示例名称
+   * Sample name
    */
   logSet?: string;
   /**
@@ -155,7 +155,7 @@ export class QueryConfigUnified extends $dara.Model {
    * The measure group key. This parameter is optional when the type is APM_MULTI_QUERY and corresponds to alertMetricInput.groupKey in V1.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   measureGroupKey?: string;
   /**
@@ -207,7 +207,7 @@ export class QueryConfigUnified extends $dara.Model {
    * The CloudMonitor namespace, which is the cloud service name, when the type is CLOUD_MONITORING_QUERY.
    * 
    * @example
-   * 示例名称
+   * Sample name
    */
   namespace?: string;
   /**

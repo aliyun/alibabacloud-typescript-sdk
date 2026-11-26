@@ -20,7 +20,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 集成名
+   * Integration name
    */
   alertEventIntegrationPolicyName?: string;
   /**

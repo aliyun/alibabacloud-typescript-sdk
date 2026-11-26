@@ -16,7 +16,7 @@ export class UpdateIntegrationPolicyRequestTags extends $dara.Model {
    * The value of the tag.
    * 
    * @example
-   * [{\\"Id\\": \\"kgqie6hm\\", \\"Name\\": \\"Sheet1\\"}]
+   * [{\"Id\": \"kgqie6hm\", \"Name\": \"Sheet1\"}]
    */
   value?: string;
   static names(): { [key: string]: string } {

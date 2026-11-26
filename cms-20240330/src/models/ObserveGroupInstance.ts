@@ -5,67 +5,106 @@ import * as $dara from '@darabonba/typescript';
 export class ObserveGroupInstance extends $dara.Model {
   /**
    * @remarks
-   * 实体分类（由 entityType 适配）。
+   * The entity category adapted from entityType.
+   * 
+   * @example
+   * ecs
    */
   category?: string;
   /**
    * @remarks
-   * 监控维度键值对。
+   * The key-value pairs of the monitoring dimensions.
+   * 
+   * @example
+   * {"userId":"1234567890123456","instanceId":"i-bp1gj8wyq4fxk28k6iy2"}
    */
   dimension?: { [key: string]: string };
   /**
    * @remarks
-   * 实体域（如 acs）。
+   * The entity domain, such as acs.
+   * 
+   * @example
+   * acs
    */
   entityDomain?: string;
   /**
    * @remarks
-   * UModel 实体 ID，与实体域和类型共同标识成员。
+   * The UModel entity ID, which corresponds to the __entity_id__ field of the entity and identifies a member of the observation group together with entityDomain and entityType.
+   * 
+   * @example
+   * i-bp1gj8wyq4fxk28k6iy2
    */
   entityId?: string;
   /**
    * @remarks
-   * 实体角色，main 为主实体、related 为关联子实体。
+   * The role of the entity in the observation group. main indicates the primary entity directly matched by the management rule. related indicates the child entity managed through associations.
+   * 
+   * @example
+   * main
    */
   entityRole?: string;
   /**
    * @remarks
-   * 实体类型（如 acs.ecs.instance）。
+   * The entity type, such as acs.ecs.instance.
+   * 
+   * @example
+   * acs.ecs.instance
    */
   entityType?: string;
   /**
    * @remarks
-   * 所属观测分组 ID。
+   * The ID of the observation group to which the entity belongs.
+   * 
+   * @example
+   * og-845e0a26455f437c
    */
   groupId?: string;
   /**
    * @remarks
-   * 实例 ID。
+   * The instance ID.
+   * 
+   * @example
+   * i-bp1gj8wyq4fxk28k6iy2
    */
   instanceId?: string;
   /**
    * @remarks
-   * 实例名称。
+   * The instance name.
+   * 
+   * @example
+   * ecs-prod-01
    */
   instanceName?: string;
   /**
    * @remarks
-   * 实例所属地域 ID。
+   * The ID of the region to which the instance belongs.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * 实例所属资源组 ID。
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-acfm3gn5i6bigbi
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * 实例标签键值对。
+   * The key-value pairs of the instance tags.
+   * 
+   * @example
+   * {"env":"prod"}
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * 实例归属的用户 UID。
+   * The UID of the user that owns the instance.
+   * 
+   * @example
+   * 1234567890123456
    */
   userId?: string;
   static names(): { [key: string]: string } {

@@ -40,7 +40,7 @@ export class EventResourceForIncidentView extends $dara.Model {
    * The tags.
    * 
    * @example
-   * [{\\"value\\":\\"测试\\",\\"key\\":\\"环境\\"}]
+   * [{\"value\":\"测试\",\"key\":\"环境\"}]
    */
   tags?: string;
   static names(): { [key: string]: string } {

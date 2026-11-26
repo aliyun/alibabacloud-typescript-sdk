@@ -48,7 +48,7 @@ export class CloudMonitoringCompositeEscalationEntry extends $dara.Model {
    * The precondition.
    * 
    * @example
-   * 连续3次
+   * 3 consecutive times
    */
   preCondition?: string;
   /**

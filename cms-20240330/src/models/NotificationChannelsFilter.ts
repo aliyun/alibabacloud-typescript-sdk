@@ -8,7 +8,7 @@ export class NotificationChannelsFilter extends $dara.Model {
    * The list of notification contacts in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.contacts.
    * 
    * @example
-   * ["张三","李四"]
+   * ["Zhang San","Li Si"]
    */
   containsContacts?: string[];
   /**
@@ -40,7 +40,7 @@ export class NotificationChannelsFilter extends $dara.Model {
    * The list of notification contact groups in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.groups.
    * 
    * @example
-   * ["运维组","SRE团队"]
+   * ["O&M team","SRE team"]
    */
   containsGroups?: string[];
   /**

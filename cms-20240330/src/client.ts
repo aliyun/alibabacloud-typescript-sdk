@@ -2036,6 +2036,11 @@ export default class Client extends OpenApi {
    */
   async createServiceWithOptions(workspace: string, request: $_model.CreateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.attributes)) {
       body["attributes"] = request.attributes;
@@ -2075,6 +2080,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2113,8 +2119,14 @@ export default class Client extends OpenApi {
    */
   async createServiceObservabilityWithOptions(workspace: string, type: string, request: $_model.CreateServiceObservabilityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceObservabilityResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateServiceObservability",
@@ -3736,7 +3748,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application observability service.
+   * Deletes RUM symbol files.
+   * 
+   * @param request - DeleteRumSymbolFilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRumSymbolFilesResponse
+   */
+  async deleteRumSymbolFilesWithOptions(request: $_model.DeleteRumSymbolFilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRumSymbolFilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filePaths)) {
+      body["filePaths"] = request.filePaths;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["serviceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRumSymbolFiles",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/rum/symbolFiles/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRumSymbolFilesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRumSymbolFilesResponse({}));
+  }
+
+  /**
+   * Deletes RUM symbol files.
+   * 
+   * @param request - DeleteRumSymbolFilesRequest
+   * @returns DeleteRumSymbolFilesResponse
+   */
+  async deleteRumSymbolFiles(request: $_model.DeleteRumSymbolFilesRequest): Promise<$_model.DeleteRumSymbolFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRumSymbolFilesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Deletes the application observability service.
    * 
    * @param request - DeleteServiceRequest
    * @param headers - map
@@ -3745,8 +3810,14 @@ export default class Client extends OpenApi {
    */
   async deleteServiceWithOptions(workspace: string, serviceId: string, request: $_model.DeleteServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeleteService",
@@ -3763,7 +3834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application observability service.
+   * Deletes the application observability service.
    * 
    * @param request - DeleteServiceRequest
    * @returns DeleteServiceResponse
@@ -6102,6 +6173,217 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPrometheusViewWithOptions(prometheusViewId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the signature parameters required for uploading RUM symbol files.
+   * 
+   * @param request - GetRumSymbolFileParamsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRumSymbolFileParamsResponse
+   */
+  async getRumSymbolFileParamsWithOptions(request: $_model.GetRumSymbolFileParamsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRumSymbolFileParamsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.debugId)) {
+      body["debugId"] = request.debugId;
+    }
+
+    if (!$dara.isNull(request.fileKind)) {
+      body["fileKind"] = request.fileKind;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["serviceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRumSymbolFileParams",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/rum/symbolFile/upload/policies`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRumSymbolFileParamsResponse>(await this.callApi(params, req, runtime), new $_model.GetRumSymbolFileParamsResponse({}));
+  }
+
+  /**
+   * Retrieves the signature parameters required for uploading RUM symbol files.
+   * 
+   * @param request - GetRumSymbolFileParamsRequest
+   * @returns GetRumSymbolFileParamsResponse
+   */
+  async getRumSymbolFileParams(request: $_model.GetRumSymbolFileParamsRequest): Promise<$_model.GetRumSymbolFileParamsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRumSymbolFileParamsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the symbol files uploaded by RUM users and supports filtering by platform, file type, version, and keywords.
+   * 
+   * @param request - GetRumSymbolFilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRumSymbolFilesResponse
+   */
+  async getRumSymbolFilesWithOptions(request: $_model.GetRumSymbolFilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRumSymbolFilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactType)) {
+      body["artifactType"] = request.artifactType;
+    }
+
+    if (!$dara.isNull(request.keywords)) {
+      body["keywords"] = request.keywords;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      body["platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["serviceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRumSymbolFiles",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/rum/symbolFiles/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRumSymbolFilesResponse>(await this.callApi(params, req, runtime), new $_model.GetRumSymbolFilesResponse({}));
+  }
+
+  /**
+   * Queries the symbol files uploaded by RUM users and supports filtering by platform, file type, version, and keywords.
+   * 
+   * @param request - GetRumSymbolFilesRequest
+   * @returns GetRumSymbolFilesResponse
+   */
+  async getRumSymbolFiles(request: $_model.GetRumSymbolFilesRequest): Promise<$_model.GetRumSymbolFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRumSymbolFilesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the symbolicated stack for RUM.
+   * 
+   * @param request - GetRumSymbolicStackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRumSymbolicStackResponse
+   */
+  async getRumSymbolicStackWithOptions(request: $_model.GetRumSymbolicStackRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRumSymbolicStackResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileInfo)) {
+      body["fileInfo"] = request.fileInfo;
+    }
+
+    if (!$dara.isNull(request.images)) {
+      body["images"] = request.images;
+    }
+
+    if (!$dara.isNull(request.pid)) {
+      body["pid"] = request.pid;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["serviceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.stack)) {
+      body["stack"] = request.stack;
+    }
+
+    if (!$dara.isNull(request.stackType)) {
+      body["stackType"] = request.stackType;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRumSymbolicStack",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/rum/symbolic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRumSymbolicStackResponse>(await this.callApi(params, req, runtime), new $_model.GetRumSymbolicStackResponse({}));
+  }
+
+  /**
+   * Retrieves the symbolicated stack for RUM.
+   * 
+   * @param request - GetRumSymbolicStackRequest
+   * @returns GetRumSymbolicStackResponse
+   */
+  async getRumSymbolicStack(request: $_model.GetRumSymbolicStackRequest): Promise<$_model.GetRumSymbolicStackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRumSymbolicStackWithOptions(request, headers, runtime);
   }
 
   /**
@@ -11753,7 +12035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an application observability service.
+   * Updates the application observability service.
    * 
    * @param request - UpdateServiceRequest
    * @param headers - map
@@ -11762,6 +12044,11 @@ export default class Client extends OpenApi {
    */
   async updateServiceWithOptions(workspace: string, serviceId: string, request: $_model.UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.attributes)) {
       body["attributes"] = request.attributes;
@@ -11781,6 +12068,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -11798,7 +12086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an application observability service.
+   * Updates the application observability service.
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse

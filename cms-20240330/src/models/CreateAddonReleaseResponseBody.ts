@@ -33,7 +33,7 @@ export class CreateAddonReleaseResponseBodyReleaseConditions extends $dara.Model
    * The phase status.
    * 
    * @example
-   * {\\"phase\\": \\"Created\\", \\"executionDetails\\": [], \\"invocations\\": [], \\"latestExecError\\": {\\"message\\": \\"\\", \\"code\\": \\"\\", \\"requestId\\": \\"\\", \\"extraInfo\\": \\"\\", \\"title\\": \\"\\"}}
+   * {\"phase\": \"Created\", \"executionDetails\": [], \"invocations\": [], \"latestExecError\": {\"message\": \"\", \"code\": \"\", \"requestId\": \"\", \"extraInfo\": \"\", \"title\": \"\"}}
    */
   status?: string;
   /**

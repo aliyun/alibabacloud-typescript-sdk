@@ -17,7 +17,7 @@ export class Queries extends $dara.Model {
    * The query expression, which is PromQL for PROMETHEUS_MULTI_QUERY and SPL for SLS_MULTI_QUERY.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   expr?: string;
   /**
@@ -33,7 +33,7 @@ export class Queries extends $dara.Model {
    * The metric name for UMODEL_METRICSET_MULTI_QUERY.
    * 
    * @example
-   * 示例名称
+   * Sample name
    */
   metric?: string;
   /**
@@ -41,7 +41,7 @@ export class Queries extends $dara.Model {
    * The metric set name for UMODEL_METRICSET_MULTI_QUERY.
    * 
    * @example
-   * 示例名称
+   * Sample name
    */
   metricSet?: string;
   /**
@@ -49,7 +49,7 @@ export class Queries extends $dara.Model {
    * The query name for PROMETHEUS_MULTI_QUERY or UMODEL_METRICSET_MULTI_QUERY, such as $A or $B, which is referenced by condition triggers.
    * 
    * @example
-   * 示例名称
+   * Sample name
    */
   name?: string;
   /**

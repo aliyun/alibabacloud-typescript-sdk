@@ -55,8 +55,8 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
    *   interval: "60s"
    *   rules:
    *   - record: "node_namespace_pod:kube_pod_info:"
-   *     expr: "max(label_replace(kube_pod_info{job=\\"kubernetes-pods-kube-state-metrics\\"\\
-   *       }, \\"pod\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (node, namespace, pod, cluster)"
+   *     expr: "max(label_replace(kube_pod_info{job=\"kubernetes-pods-kube-state-metrics\"\
+   *       }, \"pod\", \"$1\", \"pod\", \"(.*)\")) by (node, namespace, pod, cluster)"
    */
   aggTaskGroupConfig?: string;
   /**
@@ -128,7 +128,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
    * The precheck configuration. By default, this parameter is not configured. The input string must be a valid JSON string.
    * 
    * @example
-   * {"policy":"skip","prometheusId":"xxx","query":"scalar(sum(count_over_time(up{job=\\"_arms/kubelet/cadvisor\\"}[15s])) / 21)","threshold":0.5,"timeout":15,"type":"promql"}
+   * {"policy":"skip","prometheusId":"xxx","query":"scalar(sum(count_over_time(up{job=\"_arms/kubelet/cadvisor\"}[15s])) / 21)","threshold":0.5,"timeout":15,"type":"promql"}
    */
   precheckString?: string;
   /**

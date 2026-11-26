@@ -53,8 +53,8 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
    *   interval: "60s"
    *   rules:
    *   - record: "node_namespace_pod:kube_pod_info:"
-   *     expr: "max(label_replace(kube_pod_info{job=\\"kubernetes-pods-kube-state-metrics\\"\\
-   *       }, \\"pod\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (node, namespace, pod, cluster)"
+   *     expr: "max(label_replace(kube_pod_info{job=\"kubernetes-pods-kube-state-metrics\"\
+   *       }, \"pod\", \"$1\", \"pod\", \"(.*)\")) by (node, namespace, pod, cluster)"
    */
   aggTaskGroupConfig?: string;
   /**

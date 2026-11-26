@@ -116,6 +116,11 @@ export class CreateServiceRequest extends $dara.Model {
    * The tag array.
    */
   tags?: CreateServiceRequestTags[];
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values: true: performs a dry run. The system checks the request but does not perform actual operations. false: sends a normal request. Default value: false.
+   */
+  dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
@@ -127,6 +132,7 @@ export class CreateServiceRequest extends $dara.Model {
       serviceStatus: 'serviceStatus',
       serviceType: 'serviceType',
       tags: 'tags',
+      dryRun: 'dryRun',
     };
   }
 
@@ -141,6 +147,7 @@ export class CreateServiceRequest extends $dara.Model {
       serviceStatus: 'string',
       serviceType: 'string',
       tags: { 'type': 'array', 'itemType': CreateServiceRequestTags },
+      dryRun: 'boolean',
     };
   }
 

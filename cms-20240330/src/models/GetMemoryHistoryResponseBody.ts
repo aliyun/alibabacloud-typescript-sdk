@@ -101,7 +101,7 @@ export class GetMemoryHistoryResponseBodyResults extends $dara.Model {
    * The old memory.
    * 
    * @example
-   * I really don\\"t like Python at all.
+   * I really don\"t like Python at all.
    */
   oldMemory?: string;
   /**

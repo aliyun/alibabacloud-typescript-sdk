@@ -17,7 +17,7 @@ export class EntityGroupBaseEntityQueries extends $dara.Model {
    * The SPL query statement.
    * 
    * @example
-   * .entity with(type=\\"acs.ecs.instance\\") | where region_id in (\\"cn-beijing\\")
+   * .entity with(type=\"acs.ecs.instance\") | where region_id in (\"cn-beijing\")
    */
   spl?: string;
   static names(): { [key: string]: string } {

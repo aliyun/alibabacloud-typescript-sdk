@@ -154,7 +154,7 @@ export class SubscriptionForModify extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试订阅
+   * Test subscription
    */
   subscriptionName?: string;
   /**

@@ -379,7 +379,7 @@ export class AlertRuleQueryQueries extends $dara.Model {
    * - For SLS_MULTI_QUERY, this field contains the SQL query statement.
    * 
    * @example
-   * sum by (rpc,acs_arms_service_id,pid,rpcType) (sum_over_time_lorc(arms_app_requests_count_ign_destid_endpoint_parent_ppid_prpc{callKind=~\\"http|rpc|custom_entry|server|consumer\\",pid=\\"gaddp9ap8q@cb005ffdf44b8ac\\",source=\\"apm\\"}[1m]))
+   * sum by (rpc,acs_arms_service_id,pid,rpcType) (sum_over_time_lorc(arms_app_requests_count_ign_destid_endpoint_parent_ppid_prpc{callKind=~\"http|rpc|custom_entry|server|consumer\",pid=\"gaddp9ap8q@cb005ffdf44b8ac\",source=\"apm\"}[1m]))
    */
   expr?: string;
   /**
@@ -554,7 +554,7 @@ export class AlertRuleQuery extends $dara.Model {
    * Applicable query type: PROMQL_QUERY. The query expression in PromQL.
    * 
    * @example
-   * sum(sum(max_over_time(kube_pod_status_phase{phase=~\\"Pending\\",job=\\"_kube-state-metrics\\"}[5m])) by (pod)) > 1000
+   * sum(sum(max_over_time(kube_pod_status_phase{phase=~\"Pending\",job=\"_kube-state-metrics\"}[5m])) by (pod)) > 1000
    */
   expr?: string;
   /**

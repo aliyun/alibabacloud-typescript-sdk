@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The extended properties.
+   * The extended attributes.
    * 
    * @example
    * {"language":"java"}
@@ -35,12 +35,18 @@ export class UpdateServiceRequest extends $dara.Model {
    * Stopped
    */
   serviceStatus?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run of the request. Valid values: true: sends a check request and does not perform the actual operation. false: sends a normal request. Default value: false.
+   */
+  dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
       description: 'description',
       displayName: 'displayName',
       serviceStatus: 'serviceStatus',
+      dryRun: 'dryRun',
     };
   }
 
@@ -50,6 +56,7 @@ export class UpdateServiceRequest extends $dara.Model {
       description: 'string',
       displayName: 'string',
       serviceStatus: 'string',
+      dryRun: 'boolean',
     };
   }
 

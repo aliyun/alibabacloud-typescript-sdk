@@ -10,7 +10,7 @@ export class ManageAlertRulesResult extends $dara.Model {
    * The V2 alert rule.
    * 
    * @example
-   * {"uuid":"cms_v2_81d01768-fee9-459f-af49-ab2704f1db2b","displayName":"drill-e2e-验证规则","enabled":true}
+   * {"uuid":"cms_v2_81d01768-fee9-459f-af49-ab2704f1db2b","displayName":"drill-e2e-verification rule","enabled":true}
    */
   alertRule?: AlertRuleV2;
   /**

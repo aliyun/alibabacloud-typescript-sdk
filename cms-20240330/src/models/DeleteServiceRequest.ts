@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteServiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run of the request. Valid values:
+   * - true: Sends a check request without making actual changes.
+   * - false: Sends a normal request.
+   * Default value: false.
+   */
+  dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'dryRun',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
     };
   }
 

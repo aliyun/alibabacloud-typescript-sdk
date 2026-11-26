@@ -16,7 +16,7 @@ export class HookExecution extends $dara.Model {
    * The execution instruction. For the prompt type, it is a prompt. For the bash type, it is a Bash script. For the python3 type, it is a Python 3 script. For the hint type, it is contextual text directly appended. Non-empty UTF-8 text must be provided for all four types.
    * 
    * @example
-   * 检查当前工具调用是否安全。
+   * Check whether the current tool call is safe.
    */
   instruction?: string;
   /**
@@ -86,7 +86,7 @@ export class Hook extends $dara.Model {
    * The description.
    * 
    * @example
-   * 检查工具调用中的命令是否安全。
+   * Check whether the commands in tool calls are safe.
    */
   description?: string;
   /**

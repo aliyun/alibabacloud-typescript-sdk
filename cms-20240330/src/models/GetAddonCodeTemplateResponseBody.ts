@@ -8,7 +8,7 @@ export class GetAddonCodeTemplateResponseBodyCodes extends $dara.Model {
    * The code template.
    * 
    * @example
-   * javascript\\nnpm install @arms/rum-miniapp --save
+   * javascript\nnpm install @arms/rum-miniapp --save
    */
   codeTemplate?: string;
   /**

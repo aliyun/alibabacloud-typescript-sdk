@@ -22,7 +22,7 @@ export class GetCloudResourceDataRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * .entity with(domain=\\"acs\\", type=\\"acs.k8s.node\\") | limit 0, 10
+   * .entity with(domain=\"acs\", type=\"acs.k8s.node\") | limit 0, 10
    */
   query?: string;
   /**

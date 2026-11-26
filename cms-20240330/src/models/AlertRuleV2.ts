@@ -35,7 +35,7 @@ export class AlertRuleV2 extends $dara.Model {
    * The business source. This parameter is read-only. Examples include managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   bizSource?: string;
   /**
@@ -48,7 +48,7 @@ export class AlertRuleV2 extends $dara.Model {
    * The content template.
    * 
    * @example
-   * 告警触发: ${metricName} 当前值 ${currentValue} 超过阈值 ${threshold}
+   * Alert triggered: the current value ${currentValue} of ${metricName} exceeds the threshold ${threshold}
    */
   contentTemplate?: string;
   /**
@@ -77,7 +77,7 @@ export class AlertRuleV2 extends $dara.Model {
    * The display name.
    * 
    * @example
-   * CPU水位告警95%
+   * CPU usage alert: 95%
    */
   displayName?: string;
   /**
@@ -152,7 +152,7 @@ export class AlertRuleV2 extends $dara.Model {
    * The partition key. This parameter is read-only and maintained by the system for rule routing and sharding.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   partitionKey?: string;
   /**
