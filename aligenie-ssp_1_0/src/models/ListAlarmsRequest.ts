@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlarmsRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
-   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
    * 
    * This parameter is required.
    * 
@@ -123,7 +123,7 @@ export class ListAlarmsRequestPayload extends $dara.Model {
 export class ListAlarmsRequestUserInfo extends $dara.Model {
   /**
    * @remarks
-   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
    * 
    * This parameter is required.
    * 

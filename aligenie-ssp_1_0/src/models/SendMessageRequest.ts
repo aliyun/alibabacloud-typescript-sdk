@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendMessageRequestUserInfo extends $dara.Model {
   /**
    * @remarks
-   * Value corresponding to the encoding type. When the encoding type is SKILLID, this value is the application\\"s Skill ID. When the encoding type is PACKAGENAME, this value is the packageName of the corresponding client app.
+   * Value corresponding to the encoding type. When the encoding type is SKILLID, this value is the application\"s Skill ID. When the encoding type is PACKAGENAME, this value is the packageName of the corresponding client app.
    * 
    * This parameter is required.
    * 

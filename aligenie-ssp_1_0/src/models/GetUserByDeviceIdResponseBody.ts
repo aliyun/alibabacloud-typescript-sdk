@@ -13,7 +13,7 @@ export class GetUserByDeviceIdResponseBodyResultUserUnionIds extends $dara.Model
   organizationId?: string;
   /**
    * @remarks
-   * The user\\"s UnionID.
+   * The user\"s UnionID.
    * 
    * @example
    * 1553*B0C3

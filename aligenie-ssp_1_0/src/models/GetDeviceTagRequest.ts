@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeviceTagRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
-   * The value corresponding to the encoding type. Enter the Project ID of the project in the Tmall Genie AI platform where the product\\"s ProductKey resides.
+   * The value corresponding to the encoding type. Enter the Project ID of the project in the Tmall Genie AI platform where the product\"s ProductKey resides.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWeatherRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
-   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
    * 
    * @example
    * 12**45
@@ -95,7 +95,7 @@ export class GetWeatherRequestPayload extends $dara.Model {
 export class GetWeatherRequestUserInfo extends $dara.Model {
   /**
    * @remarks
-   * Value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * Value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
    * 
    * @example
    * 12**45

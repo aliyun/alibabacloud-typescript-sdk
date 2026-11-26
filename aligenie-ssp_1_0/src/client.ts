@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "AliGenie";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aligenie", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -4748,6 +4752,162 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.ProgressControlHeaders({ });
     return await this.progressControlWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 推送设备全屏消息
+   * 
+   * @param tmpReq - PushDeviceRenderMessageRequest
+   * @param headers - PushDeviceRenderMessageHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushDeviceRenderMessageResponse
+   */
+  async pushDeviceRenderMessageWithOptions(tmpReq: $_model.PushDeviceRenderMessageRequest, headers: $_model.PushDeviceRenderMessageHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.PushDeviceRenderMessageResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushDeviceRenderMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!$dara.isNull(request.payloadShrink)) {
+      query["Payload"] = request.payloadShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deviceInfoShrink)) {
+      body["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PushDeviceRenderMessage",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/pushDeviceRenderMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PushDeviceRenderMessageResponse>(await this.callApi(params, req, runtime), new $_model.PushDeviceRenderMessageResponse({}));
+  }
+
+  /**
+   * 推送设备全屏消息
+   * 
+   * @param request - PushDeviceRenderMessageRequest
+   * @returns PushDeviceRenderMessageResponse
+   */
+  async pushDeviceRenderMessage(request: $_model.PushDeviceRenderMessageRequest): Promise<$_model.PushDeviceRenderMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.PushDeviceRenderMessageHeaders({ });
+    return await this.pushDeviceRenderMessageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 推送设备提醒消息
+   * 
+   * @param tmpReq - PushDeviceToastMessageRequest
+   * @param headers - PushDeviceToastMessageHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushDeviceToastMessageResponse
+   */
+  async pushDeviceToastMessageWithOptions(tmpReq: $_model.PushDeviceToastMessageRequest, headers: $_model.PushDeviceToastMessageHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.PushDeviceToastMessageResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushDeviceToastMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!$dara.isNull(request.payloadShrink)) {
+      query["Payload"] = request.payloadShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deviceInfoShrink)) {
+      body["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PushDeviceToastMessage",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/pushDeviceToastMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PushDeviceToastMessageResponse>(await this.callApi(params, req, runtime), new $_model.PushDeviceToastMessageResponse({}));
+  }
+
+  /**
+   * 推送设备提醒消息
+   * 
+   * @param request - PushDeviceToastMessageRequest
+   * @returns PushDeviceToastMessageResponse
+   */
+  async pushDeviceToastMessage(request: $_model.PushDeviceToastMessageRequest): Promise<$_model.PushDeviceToastMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.PushDeviceToastMessageHeaders({ });
+    return await this.pushDeviceToastMessageWithOptions(request, headers, runtime);
   }
 
   /**

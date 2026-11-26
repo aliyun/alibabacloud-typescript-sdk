@@ -450,7 +450,7 @@ export class UpdateAlarmRequestPayload extends $dara.Model {
 export class UpdateAlarmRequestUserInfo extends $dara.Model {
   /**
    * @remarks
-   * Value corresponding to the encoding type. If the encoding type is SKILL_ID, the value is the application\\"s Skill ID. If the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * Value corresponding to the encoding type. If the encoding type is SKILL_ID, the value is the application\"s Skill ID. If the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
    * 
    * This parameter is required.
    * 

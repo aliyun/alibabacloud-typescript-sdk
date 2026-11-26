@@ -7,7 +7,7 @@ export class ListPlayHistoryRequestDeviceInfo extends $dara.Model {
    * @remarks
    * Value corresponding to the encoding type  
    * 
-   * When the encoding type is SKILL_ID, this value is the application\\"s Skill ID.  
+   * When the encoding type is SKILL_ID, this value is the application\"s Skill ID.  
    * When the encoding type is PACKAGE_NAME, this value is the packageName of the corresponding client app.
    * 
    * This parameter is required.

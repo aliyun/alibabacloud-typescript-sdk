@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAuthCodeBindForExtRequestUserInfo extends $dara.Model {
   /**
    * @remarks
-   * Value corresponding to the encoding type. Enter the Project ID of the product\\"s project here. You can view it in the Tmall Genie AI platform console.
+   * Value corresponding to the encoding type. Enter the Project ID of the product\"s project here. You can view it in the Tmall Genie AI platform console.
    * 
    * This parameter is required.
    * 

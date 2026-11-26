@@ -7,7 +7,7 @@ export class GetCurrentPlayingItemRequestDeviceInfo extends $dara.Model {
    * @remarks
    * Value corresponding to the encoding type  
    * 
-   * When the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * When the encoding type is `SKILL_ID`, the value is the application\"s Skill ID. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
    * 
    * This parameter is required.
    * 
