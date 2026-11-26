@@ -45,11 +45,11 @@ export class CreateDBInstanceRequestAINodeSpecInfos extends $dara.Model {
 export class CreateDBInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The following limits apply:
+   * The tag key. Limits:
    * 
-   * - The tag key cannot be an empty string.
-   * - The tag key can be up to 128 characters in length.
-   * - The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * - It cannot be an empty string.
+   * - It can be up to 128 characters in length.
+   * - It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -57,11 +57,11 @@ export class CreateDBInstanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The following limits apply:
+   * The tag value. Limits:
    * 
-   * - The tag value can be an empty string.
-   * - The tag value can be up to 128 characters in length.
-   * - The tag value cannot start with `acs:`, and cannot contain `http://` or `https://`.
+   * - It can be an empty string.
+   * - It can be up to 128 characters in length.
+   * - It cannot start with `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -98,9 +98,22 @@ export class CreateDBInstanceRequest extends $dara.Model {
   AINodeSpecInfos?: CreateDBInstanceRequestAINodeSpecInfos[];
   /**
    * @remarks
-   * The backup set ID.
+   * Specifies whether to enable auto-renewal for the instance. This parameter is valid only when you create a subscription instance. Valid values:
+   * - **true**
+   * - **false**
    * 
-   * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the backup set IDs of all backup sets for the target instance.
+   * > - If you purchase the instance on a monthly basis, the auto-renewal epoch is one month.
+   * > - If you purchase the instance on a yearly basis, the auto-renewal epoch is one year.
+   * 
+   * @example
+   * true
+   */
+  autoRenew?: string;
+  /**
+   * @remarks
+   * The ID of the backup set.
+   * 
+   * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets for the target instance.
    * 
    * @example
    * 1111111111
@@ -108,7 +121,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The Serverless cache storage size. Valid values: 800 to 102400. The step size is 32 GB. Unit: GB.
+   * The cache space for Serverless mode. Valid values: 800 to 102400. Step size: 32. Unit: GB.
    * 
    * @example
    * 800
@@ -116,7 +129,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   cacheStorageSize?: string;
   /**
    * @remarks
-   * The client token used for idempotence checks. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * The client token that is used to ensure idempotence. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
@@ -124,12 +137,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to load a sample dataset after the instance is created. Valid values:
+   * Specifies whether to load the sample dataset after the instance is created. Valid values:
    * 
-   * - **true**: Load a sample dataset.
-   * - **false**: Do not load a sample dataset.
+   * - **true**: Load the sample dataset.
+   * - **false**: Do not load the sample dataset.
    * 
-   * > If you do not specify this parameter, the default value is false.
+   * > If you do not specify this parameter, the default value false is used.
    * 
    * @example
    * false
@@ -139,10 +152,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The instance edition. Valid values:
    * 
-   * - **HighAvailability**: high-availability edition.
-   * - **Basic**: basic edition.
+   * - **HighAvailability**: High-availability Edition.
+   * - **Basic**: Basic Edition.
    * 
-   * > This parameter is required when you create a storage elastic mode instance.
+   * > This parameter is required when you create an instance in the elastic storage pattern.
    * 
    * @example
    * HighAvailability
@@ -150,9 +163,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBInstanceCategory?: string;
   /**
    * @remarks
-   * The instance specifications. For more information, see the supplementary description of the DBInstanceClass parameter.
+   * The instance type. For more information, see the supplementary description of the DBInstanceClass parameter.
    * 
-   * > This parameter is required when you create a storage reservation mode instance.
+   * > This parameter is required when you create an instance in reserved storage mode.
    * 
    * @example
    * gpdb.group.segsdx1
@@ -170,7 +183,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The number of compute groups. Valid values: 2, 4, 8, 12, 16, 24, 32, 64, 96, and 128.
    * 
-   * > This parameter is required when you create a storage reservation mode instance.
+   * > This parameter is required when you create an instance in reserved storage mode.
    * 
    * @example
    * 2
@@ -180,10 +193,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The resource type of the instance. Valid values:
    * 
-   * - **StorageElastic**: storage elastic mode.
+   * - **StorageElastic**: elastic storage mode.
    * - **Serverless**: Serverless mode.
    * - **ServerlessPro**: Serverless Pro mode.
-   * - **Classic**: storage reservation mode.
+   * - **Classic**: reserved storage mode.
    * 
    * > This parameter is required.
    * 
@@ -200,8 +213,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * - single: single-zone deployment.
    * 
    * > 
-   * > - If you do not specify this parameter, the default value is single-zone deployment.
-   * > - Currently, only single-zone deployment is supported.
+   * > - If you do not specify this parameter, the default value single is used.
+   * > - Only single-zone deployment is supported.
    * 
    * @example
    * single
@@ -209,9 +222,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   deployMode?: string;
   /**
    * @remarks
-   * Indicates whether to enable Secure Sockets Layer (SSL) encryption. Valid values:
-   * - **true**: Enable SSL encryption.
-   * - **false** (default): Do not enable SSL encryption.
+   * Specifies whether to enable Secure Sockets Layer (SSL) encryption. Valid values:
+   * - **true**: enables Secure Sockets Layer (SSL) encryption.
+   * - **false**: disables Secure Sockets Layer (SSL) encryption. This is the default value.
    * 
    * @example
    * false
@@ -219,9 +232,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   enableSSL?: boolean;
   /**
    * @remarks
-   * The encryption key ID.
+   * The ID of the encryption key.
    * 
-   * > If the **EncryptionType** parameter is set to **CloudDisk**, specify the encryption key ID in the same region. Otherwise, leave this parameter empty.
+   * > If **EncryptionType** is set to **CloudDisk**, you must use this parameter to specify the ID of the encryption key in the same region. Otherwise, leave this parameter empty.
    * 
    * @example
    * 0d2470df-da7b-4786-b981-88888888****
@@ -231,8 +244,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The encryption type. Valid values:
    * 
-   * - **NULL**: Encryption is not enabled. This is the default value.
-   * - **CloudDisk**: Cloud disk encryption is enabled. Use the **EncryptionKey** parameter to specify the encryption key.
+   * - **NULL**: disables encryption. This is the default value.
+   * - **CloudDisk**: enables cloud disk encryption and specifies the key by using the **EncryptionKey** parameter.
    * 
    * > Cloud disk encryption cannot be disabled after it is enabled.
    * 
@@ -252,9 +265,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version. Valid values:
-   * - **6.0**: version 6.0.
-   * - **7.0**: version 7.0.
+   * The DPI engine version. Valid values:
+   * - **6.0**: Version 6.0.
+   * - **7.0**: Version 7.0.
    * 
    * This parameter is required.
    * 
@@ -264,9 +277,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The idle release wait time. The instance transitions to an idle state after no service traffic is detected for the specified duration. Unit: seconds. Minimum value: 60. Default value: 600.
+   * The waiting duration before the instance is released due to idleness. After the instance has no service traffic for the specified duration, it enters the idle state. Unit: seconds. Minimum value: 60. Default value: 600.
    * 
-   * > This parameter is required only for Serverless instances in automatic scheduling mode.
+   * > This parameter is required only for instances in the Serverless auto-scheduling pattern.
    * 
    * @example
    * 600
@@ -276,8 +289,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The network type of the instance. Set the value to **VPC**.
    * 
-   * > - Only VPC is supported on the public cloud.
-   * > - If you do not specify this parameter, the default value is VPC.
+   * > - Only VPCs are supported in Alibaba Cloud public cloud.
+   * > - If you do not specify this parameter, the default value VPC is used.
    * 
    * @example
    * VPC
@@ -285,24 +298,24 @@ export class CreateDBInstanceRequest extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The node specifications of compute nodes.
+   * The compute node specifications.
    * 
-   * Valid values for storage elastic mode (high-availability edition):
+   * Valid values for the High-availability Edition in the elastic storage pattern:
    * - **2C16G**
    * - **4C32G**
    * - **16C128G**
    * 
-   * Valid values for storage elastic mode (basic edition):
+   * Valid values for the Basic Edition in the elastic storage pattern:
    * - **2C8G**
    * - **4C16G**
    * - **8C32G**
    * - **16C64G**
    * 
-   * Valid values for Serverless mode:
+   * Valid values for the Serverless pattern:
    * - **4C16G**
    * - **8C32G**
    * 
-   * > This parameter is required when you create a storage elastic mode instance or a Serverless mode instance.
+   * > This parameter is required when you create an instance in the elastic storage pattern or Serverless pattern.
    * 
    * @example
    * 2C16G
@@ -310,11 +323,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
   instanceSpec?: string;
   /**
    * @remarks
-   * Specify this parameter if you want to change the master node to a MasterAI node.
+   * If you want to change the master node to a MasterAI node, specify this parameter.
    * > - This parameter and MasterCU cannot be specified at the same time.
-   * > - Only specific regions and zones support changing the master node to a MasterAI node.
-   * > - Only basic edition instances of AnalyticDB for PostgreSQL 7.0 support MasterAI nodes.
-   * > - You can view all valid values of this parameter on the specification change page for the master node.
+   * > - Changing the master node to a MasterAI node is supported only in specific regions and zones.
+   * > - MasterAI nodes are supported only for Basic Edition instances of AnalyticDB for PostgreSQL V7.0.
+   * > - You can query all possible values of this parameter on the buy page for changing the specifications of the master node.
    * 
    * @example
    * ADB.AIMedium.2
@@ -322,16 +335,16 @@ export class CreateDBInstanceRequest extends $dara.Model {
   masterAISpec?: string;
   /**
    * @remarks
-   * The master resources. Valid values: 
-   * - 2 CU 
-   * - 4 CU 
-   * - 8 CU 
-   * - 16 CU 
-   * - 32 CU 
-   * > Master resources above 8 CU incur additional fees.
+   * The resources for the master node. Valid values: 
+   * - 2 CUs 
+   * - 4 CUs 
+   * - 8 CUs 
+   * - 16 CUs 
+   * - 32 CUs 
+   * > Master resources of more than 8 CUs incur fees.
    * 
    * @example
-   * 8 CU
+   * 8
    */
   masterCU?: number;
   /**
@@ -350,8 +363,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * - **Postpaid**: pay-as-you-go.
    * - **Prepaid**: subscription.
    * 
-   * > - If you do not specify this parameter, the default value is pay-as-you-go.
-   * > - Discounts are available for subscription instances when you purchase them for one year or longer. Select a billing method based on your business requirements.
+   * > - If you do not specify this parameter, the default value Postpaid is used.
+   * > - In subscription mode, a discount is offered if you purchase resources for one year or longer. We recommend that you select a billing method based on your business requirements.
    * 
    * @example
    * Prepaid
@@ -359,7 +372,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
+   * The unit of the subscription period. Valid values:
    * - **Month**: month.
    * - **Year**: year.
    * 
@@ -383,7 +396,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * - **standard**: Standard Edition.
    * - **cost-effective**: Economy Edition.
    * 
-   * > If you do not specify this parameter, the default value is Standard Edition.
+   * > If you do not specify this parameter, the default value standard is used.
    * 
    * @example
    * standard
@@ -403,7 +416,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the enterprise resource group to which the instance belongs.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -421,14 +434,14 @@ export class CreateDBInstanceRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD cloud disk. Valid values:
+   * The performance level (PL) of the ESSD standard SSD. Valid values:
    * 
    * - **pl0**: PL0.
    * - **pl1**: PL1.
    * - **pl2**: PL2.
    * 
-   * > - This parameter takes effect only when the cloud disk storage type is ESSD cloud disk.
-   * > - If you do not specify this parameter, the default value is PL1.
+   * > - This parameter takes effect only when the disk storage type is set to ESSD standard SSD.
+   * > - If you do not specify this parameter, the default value PL1 is used.
    * 
    * @example
    * pl1
@@ -438,11 +451,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The number of compute nodes. Valid values:
    * 
-   * - Storage elastic mode (high-availability edition): 4 to 512. The value must be a multiple of 4.
-   * - Storage elastic mode (basic edition): 2 to 512. The value must be a multiple of 2.
-   * - Serverless mode: 2 to 512. The value must be a multiple of 2.
+   * - For High-availability Edition in elastic storage mode: 4 to 512. The value must be a multiple of 4.
+   * - For Basic Edition in elastic storage mode: 2 to 512. The value must be a multiple of 2.
+   * - For Serverless mode: 2 to 512. The value must be a multiple of 2.
    * 
-   * > This parameter is required when you create a storage elastic mode instance or a Serverless mode instance.
+   * > This parameter is required when you create an instance in elastic storage mode or Serverless mode.
    * 
    * @example
    * 4
@@ -450,9 +463,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   segNodeNum?: string;
   /**
    * @remarks
-   * The cloud disk storage type. Currently, only ESSD cloud disks are supported. Set the value to **cloud_essd**.
+   * The disk storage type. Only ESSD standard SSDs are supported. Set the value to **cloud_essd**.
    * 
-   * > This parameter is required when you create a storage elastic mode instance.
+   * > This parameter is required when you create an instance in the elastic storage pattern.
    * 
    * @example
    * cloud_essd
@@ -463,10 +476,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * The mode of the Serverless instance. Valid values:
    * 
    * - **Manual**: manual scheduling. This is the default value.
-   * - **Auto**: automatic scheduling.
+   * - **Auto**: auto-scheduling.
    * 
-   * > - This parameter is required only for Serverless mode instances.
-   * > - The automatic scheduling mode for AnalyticDB for PostgreSQL Serverless is in invitational preview. To use this feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?product=rds) to apply for access.
+   * > - This parameter is required only for instances in Serverless mode.
+   * > - The Serverless auto-scheduling mode of AnalyticDB for PostgreSQL is in invitational preview. To use this mode, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?product=rds) to apply for the preview qualification.
    * 
    * @example
    * Auto
@@ -474,9 +487,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   serverlessMode?: string;
   /**
    * @remarks
-   * The compute resource threshold. Valid values: 16 to 1024. The step size is 8. Unit: ACU.
+   * The threshold for compute resources. Valid values: 16 to 1024. Step size: 8. Unit: ACU.
    * 
-   * > This parameter is required only for Serverless instances in automatic scheduling mode.
+   * > This parameter is required only for instances in Serverless auto-scheduling mode.
    * 
    * @example
    * 16
@@ -484,9 +497,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   serverlessResource?: number;
   /**
    * @remarks
-   * The ID of the source instance to clone.
+   * The ID of the source instance to be cloned.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the target region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the target region, including the instance IDs.
    * 
    * @example
    * gp-bp***************
@@ -498,7 +511,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * 
    * > 
    * > - This parameter is required only for multi-zone deployment.
-   * > - The vSwitch must be in the same zone as the value specified by StandbyZoneId.
+   * > - The zone of the vSwitch in the secondary zone must be the same as the value of StandbyZoneId.
    * 
    * @example
    * vsw-bp1cpq8mr64paltkb****
@@ -506,7 +519,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   standbyVSwitchId?: string;
   /**
    * @remarks
-   * The secondary zone ID.
+   * The ID of the secondary zone.
    * 
    * > 
    * > - This parameter is required only for multi-zone deployment.
@@ -521,7 +534,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The storage capacity. Unit: GB. Valid values: <props="china">50 to 8000<props="intl">50 to 6000.
    * 
-   * > This parameter is required when you create a storage elastic mode instance.
+   * > This parameter is required when you create an instance in elastic storage mode.
    * 
    * @example
    * 200
@@ -542,9 +555,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   tag?: CreateDBInstanceRequestTag[];
   /**
    * @remarks
-   * The subscription duration. Valid values:
-   * - If **Period** is set to **Month**, valid values are 1 to 9.
-   * - If **Period** is set to **Year**, valid values are 1 to 3.
+   * The subscription period. Valid values:
+   * - Valid values when **Period** is set to **Month**: 1 to 9.
+   * - Valid values when **Period** is set to **Year**: 1 to 3.
    * 
    * > This parameter is required when you create a subscription instance.
    * 
@@ -557,7 +570,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * The VPC ID.
    * 
    * > - **VPCId** is required.
-   * > - The VPC must be in the same region as the value specified by **RegionId**.
+   * > - The region of the **VPC** must be the same as the value of **RegionId**.
    * 
    * @example
    * vpc-bp19ame5m1r3oejns****
@@ -567,8 +580,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The vSwitch ID.
    * 
-   * > - **vSwitchId** is required.
-   * > - The vSwitch must be in the same zone as the value specified by **ZoneId**.
+   * > - **VSwitchId** is required.
+   * > - The zone of the **vSwitch** must be the same as the value of **ZoneId**.
    * 
    * @example
    * vsw-bp1cpq8mr64paltkb****
@@ -576,12 +589,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * Specifies whether to enable vector engine optimization. Valid values:
-   * - **enabled**: Enable vector engine optimization.
-   * - **disabled** (default): Do not enable vector engine optimization.
+   * Specifies whether to enable vector DPI engine optimization. Valid values:
+   * - **enabled**: enables vector DPI engine optimization.
+   * - **disabled**: disables vector DPI engine optimization. This is the default value.
    * 
-   * > - For mainstream analytics, data warehousing, and real-time data warehouse scenarios, **do not enable** vector engine optimization.
-   * > - For scenarios that use the vector analysis engine for AIGC and AISearch, **enable** vector engine optimization.
+   * > - Disable vector DPI engine optimization for mainstream analytics, data warehousing, and real-time data warehousing scenarios.
+   * > - Enable vector DPI engine optimization if you use the vector analytics DPI engine for AIGC and vector retrieve scenarios.
    * 
    * @example
    * enabled
@@ -602,6 +615,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AINodeSpecInfos: 'AINodeSpecInfos',
+      autoRenew: 'AutoRenew',
       backupId: 'BackupId',
       cacheStorageSize: 'CacheStorageSize',
       clientToken: 'ClientToken',
@@ -653,6 +667,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AINodeSpecInfos: { 'type': 'array', 'itemType': CreateDBInstanceRequestAINodeSpecInfos },
+      autoRenew: 'string',
       backupId: 'string',
       cacheStorageSize: 'string',
       clientToken: 'string',

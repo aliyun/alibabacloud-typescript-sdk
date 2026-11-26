@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model {
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
   aliUid?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -29,7 +29,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
   cidrBlock?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -37,7 +37,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
   gmtCreate?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -47,8 +47,8 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
    * @remarks
    * Indicates whether the vSwitch is the default vSwitch. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -56,7 +56,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
   isDefault?: boolean;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-h
@@ -64,7 +64,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
   izNo?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * @example
    * null
@@ -72,7 +72,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
   regionNo?: string;
   /**
    * @remarks
-   * The state of the vSwitch. If **Available** is returned, the vSwitch is available.
+   * The status of the vSwitch. A value of **Available** indicates that the vSwitch is available.
    * 
    * @example
    * Available
@@ -80,7 +80,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp*******************
@@ -138,7 +138,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model
 export class DescribeRdsVSwitchsResponseBodyVSwitches extends $dara.Model {
   /**
    * @remarks
-   * Details of the vSwitch.
+   * The vSwitch information.
    */
   vSwitch?: DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch[];
   static names(): { [key: string]: string } {
@@ -168,7 +168,7 @@ export class DescribeRdsVSwitchsResponseBodyVSwitches extends $dara.Model {
 export class DescribeRdsVSwitchsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B0BA251D-6854-5A99-A964-3C**********
@@ -176,7 +176,7 @@ export class DescribeRdsVSwitchsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the vSwitches.
+   * The list of vSwitches.
    */
   vSwitches?: DescribeRdsVSwitchsResponseBodyVSwitches;
   static names(): { [key: string]: string } {

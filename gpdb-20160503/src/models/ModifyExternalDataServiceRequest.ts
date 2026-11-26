@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyExternalDataServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyExternalDataServiceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -25,7 +25,7 @@ export class ModifyExternalDataServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service description.
+   * The service description.
    * 
    * @example
    * pxf test
@@ -33,7 +33,7 @@ export class ModifyExternalDataServiceRequest extends $dara.Model {
   serviceDescription?: string;
   /**
    * @remarks
-   * Service ID.
+   * The service ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifyExternalDataServiceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Service specification (in CU), value:
+   * The service specification in CUs. Valid values:
    * 
    * - 8
    * 

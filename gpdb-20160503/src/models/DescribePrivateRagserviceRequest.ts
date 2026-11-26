@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrivateRAGServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) Interface to query the details of all AnalyticDB PostgreSQL Instances in the target region, including Instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
    * 
    * This parameter is required.
    * 

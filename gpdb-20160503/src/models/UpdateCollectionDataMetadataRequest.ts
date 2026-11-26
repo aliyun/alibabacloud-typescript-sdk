@@ -30,7 +30,7 @@ export class UpdateCollectionDataMetadataRequest extends $dara.Model {
    * Filter condition for the data to be updated, in SQL WHERE format. This field cannot be empty at the same time as the Ids field.
    * 
    * @example
-   * business_value = \\"chat_file_1\\"
+   * business_value = \"chat_file_1\"
    */
   filter?: string;
   /**

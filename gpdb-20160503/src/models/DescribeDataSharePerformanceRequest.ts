@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSharePerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2022-08-03T15:10Z
@@ -46,7 +46,7 @@ export class DescribeDataSharePerformanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2022-08-03T15:00Z

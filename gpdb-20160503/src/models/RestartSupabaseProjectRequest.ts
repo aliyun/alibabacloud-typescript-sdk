@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The Supabase project ID.
+   * The ID of the Supabase project.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RestartSupabaseProjectRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID. Specifies the region in which to query or perform the operation.
+   * The region ID. Specifies the region for the query or operation.
    * 
    * @example
    * cn-hangzhou

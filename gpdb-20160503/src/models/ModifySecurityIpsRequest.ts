@@ -64,7 +64,7 @@ export class ModifySecurityIpsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ``10.10.**.**``
+   * `10.10.**.**`
    */
   securityIPList?: string;
   static names(): { [key: string]: string } {

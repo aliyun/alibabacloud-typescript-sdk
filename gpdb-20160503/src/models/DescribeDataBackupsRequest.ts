@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup set. If you specify BackupId, the details of the backup set are returned.
+   * The ID of the backup set. If this parameter is specified, the details of the backup set are queried.
    * 
-   * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the information about all backup sets of an instance, including backup set IDs.
+   * > You can invoke the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the information about all backup sets of the target instance, including the backup set IDs.
    * 
    * @example
    * 327329803
@@ -17,10 +17,10 @@ export class DescribeDataBackupsRequest extends $dara.Model {
    * @remarks
    * The backup mode. Valid values:
    * 
-   * *   Automated
-   * *   Manual
+   * - Automated: automatic backup.
+   * - Manual: manual backup.
    * 
-   * If you do not specify this parameter, all backup sets are returned.
+   * If you do not specify this parameter, all backup modes are returned.
    * 
    * @example
    * Automated
@@ -28,12 +28,12 @@ export class DescribeDataBackupsRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The state of the backup set. Valid values:
+   * The status of the backup set. Valid values:
    * 
-   * *   Success
-   * *   Failed
+   * - Success: The backup is completed.
+   * - Failed: The backup failed.
    * 
-   * If you do not specify this parameter, all backup sets are returned.
+   * If you do not specify this parameter, backup sets in all states are returned.
    * 
    * @example
    * Success
@@ -41,9 +41,9 @@ export class DescribeDataBackupsRequest extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -55,10 +55,10 @@ export class DescribeDataBackupsRequest extends $dara.Model {
    * @remarks
    * The backup type. Valid values:
    * 
-   * *   **DATA**: full backup.
-   * *   **RESTOREPOI**: point-in-time recovery backup.
+   * - **DATA**: full backup.
+   * - **RESTOREPOI**: restorable point.
    * 
-   * If you do not specify this parameter, the backup sets of full backup are returned.
+   * If you do not specify this parameter, full backup sets are returned by default.
    * 
    * @example
    * DATA
@@ -66,7 +66,7 @@ export class DescribeDataBackupsRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * @example
    * 2011-06-01T16:00Z
@@ -74,7 +74,7 @@ export class DescribeDataBackupsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1
+   * The page number. The value must be a positive integer. Default value: 1.
    * 
    * @example
    * 1
@@ -84,9 +84,9 @@ export class DescribeDataBackupsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   30
-   * *   50
-   * *   100
+   * - 30
+   * - 50
+   * - 100
    * 
    * Default value: 30.
    * 
@@ -96,7 +96,7 @@ export class DescribeDataBackupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The start time of the query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * @example
    * 2011-06-01T15:00Z

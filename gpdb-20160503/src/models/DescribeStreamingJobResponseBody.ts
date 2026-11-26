@@ -130,7 +130,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
    *         TYPE: int
    *       FORMAT: delimited
    *       DELIMITED_OPTION:
-   *         DELIMITER: \\"|\\"
+   *         DELIMITER: \"|\"
    *     VALUE:
    *       COLUMNS:
    *       - TYPE: integer
@@ -167,7 +167,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
    *         NAME: l_comment
    *       FORMAT: delimited
    *       DELIMITED_OPTION:
-   *         DELIMITER: \\"|\\"
+   *         DELIMITER: \"|\"
    *     ERROR_LIMIT: 10
    *   OUTPUT:
    *     SCHEMA: adbpgss_test

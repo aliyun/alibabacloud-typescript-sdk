@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the client.
+   * The client address.
    * 
    * @example
    * 0.0.0.0
@@ -13,7 +13,7 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   clientAddr?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * xg_analyse
@@ -21,7 +21,7 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The progress ID.
+   * The process ID.
    * 
    * @example
    * 6164
@@ -29,7 +29,7 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   PID?: string;
   /**
    * @remarks
-   * The SQL statement of the query.
+   * The SQL text of the query.
    * 
    * @example
    * Select * from t1,t2 where t1.id=t2.id;
@@ -37,10 +37,10 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The execution duration of the query. Unit: seconds.
+   * The execution duration of the query, in seconds.
    * 
    * @example
-   * 60s
+   * 60
    */
   queryDuration?: string;
   /**
@@ -53,7 +53,7 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   queryStart?: string;
   /**
    * @remarks
-   * The session ID.
+   * The ID of the session to which the query belongs.
    * 
    * @example
    * 6612
@@ -61,10 +61,9 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   sessionID?: string;
   /**
    * @remarks
-   * Indicates whether the SQL statement is truncated. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether the SQL statement is truncated. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -72,7 +71,7 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   sqlTruncated?: string;
   /**
    * @remarks
-   * The threshold that is used to truncate the SQL statement.
+   * The truncation threshold for the SQL statement.
    * 
    * @example
    * 1024
@@ -80,10 +79,9 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   sqlTruncatedThreshold?: string;
   /**
    * @remarks
-   * The status of the asynchronous request. Valid values:
-   * 
-   * *   **running**
-   * *   **block**
+   * The execution status of the asynchronous request. Valid values:
+   * - **running**: Running.
+   * - **block**: Blocked.
    * 
    * @example
    * running
@@ -91,7 +89,7 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * testuser
@@ -144,12 +142,12 @@ export class DescribeActiveSQLRecordsResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * gp-bp***************
+   * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The queried SQL records.
+   * The query details.
    */
   queries?: DescribeActiveSQLRecordsResponseBodyQueries[];
   /**

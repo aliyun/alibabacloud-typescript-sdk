@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertCollectionDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The message.
    * 
    * @example
-   * Successful
+   * success
    */
   message?: string;
   /**
@@ -21,10 +21,9 @@ export class UpsertCollectionDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The upload status. Valid values:
+   * - **success**: The upload succeeded.
+   * - **fail**: The upload failed.
    * 
    * @example
    * success

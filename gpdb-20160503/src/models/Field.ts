@@ -6,6 +6,9 @@ export class Field extends $dara.Model {
   /**
    * @remarks
    * The Base64-encoded binary.
+   * 
+   * @example
+   * aGVsbG8=
    */
   blobValue?: string;
   /**
@@ -16,21 +19,30 @@ export class Field extends $dara.Model {
   /**
    * @remarks
    * The Double value.
+   * 
+   * @example
+   * 1.25
    */
   doubleValue?: number;
   /**
    * @remarks
-   * Indicates whether the value is null.
+   * The null status.
    */
   isNull?: boolean;
   /**
    * @remarks
    * The Long value.
+   * 
+   * @example
+   * 123456789
    */
   longValue?: number;
   /**
    * @remarks
    * The string.
+   * 
+   * @example
+   * Sample text
    */
   stringValue?: string;
   static names(): { [key: string]: string } {

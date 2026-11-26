@@ -24,12 +24,12 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   includeKnowledgeBaseResults?: boolean;
   /**
    * @remarks
-   * The knowledge retrieval parameter object. If this parameter is not specified, only chat is performed.
+   * The knowledge retrieval parameters. If this parameter is not specified, only chat is performed.
    */
   knowledgeParamsShrink?: string;
   /**
    * @remarks
-   * The large language model (LLM) call parameter object.
+   * The call parameter object for the large language model (LLM).
    * 
    * This parameter is required.
    */

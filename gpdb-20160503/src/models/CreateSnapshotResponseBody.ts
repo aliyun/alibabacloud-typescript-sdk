@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The branch ID to which the snapshot belongs.
+   * The ID of the branch to which the snapshot belongs.
    * 
    * @example
    * br-xxxx
@@ -13,7 +13,7 @@ export class CreateSnapshotResponseBody extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The LSN for the snapshot. You must specify either this parameter or SnapshotTimestamp. If this parameter is specified, the snapshot is created based on the specified LSN.
+   * The log sequence number (LSN) for the snapshot. You must specify either this parameter or SnapshotTimestamp. If specified, the snapshot is created based on this LSN.
    * 
    * @example
    * 0/3522648
@@ -29,7 +29,7 @@ export class CreateSnapshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The actual point in time corresponding to the created snapshot.
+   * The actual point in time when the snapshot was created.
    * 
    * @example
    * 2026-04-08T09:11:12Z

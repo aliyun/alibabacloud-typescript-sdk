@@ -13,7 +13,7 @@ export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The execution duration of the query. Unit: seconds.
+   * The total execution duration of the query, in seconds.
    * 
    * @example
    * 16
@@ -37,10 +37,10 @@ export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   queryID?: string;
   /**
    * @remarks
-   * The information about the operator.
+   * The operator information.
    * 
    * @example
-   * {\\"children\\":********\\"startTime\\":1660719602199}
+   * {\"children\":********\"startTime\":1660719602199}
    */
   queryPlan?: string;
   /**
@@ -61,7 +61,7 @@ export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   SQLStmt?: string;
   /**
    * @remarks
-   * The ID of the session that contains the query.
+   * The ID of the session to which the query belongs.
    * 
    * @example
    * 658****
@@ -69,15 +69,15 @@ export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   sessionID?: string;
   /**
    * @remarks
-   * The sequence of metrics.
+   * The sorting structure based on metrics.
    * 
    * @example
-   * {\\"costSort\\":******:\\"Seq Scan-9\\",\\"value\\":0.0}]}
+   * {\"costSort\":******:\"Seq Scan-9\",\"value\":0.0}]}
    */
   sortedMetrics?: string;
   /**
    * @remarks
-   * The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of the query. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1660719602199
@@ -85,10 +85,10 @@ export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The execution state of the query. Valid values:
+   * The execution status of the SQL statement. Valid values:
    * 
-   * *   **running**
-   * *   **finished**
+   * - **running**: The SQL statement is being executed.
+   * - **finished**: The execution of the SQL statement is complete.
    * 
    * @example
    * finished
@@ -96,10 +96,10 @@ export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The information about the execution plan.
+   * The query plan information.
    * 
    * @example
-   * ******
+   * Seq Scan on example_table
    */
   textPlan?: string;
   /**

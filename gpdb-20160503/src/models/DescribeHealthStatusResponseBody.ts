@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHealthStatusResponseBodyStatusAdbgpSegmentDiskUsagePercentMax extends $dara.Model {
   /**
    * @remarks
-   * The status corresponding to the maximum storage usage among all compute nodes. Valid values:
+   * The maximum storage usage status of segment nodes. Valid values:
    * 
-   * *   **critical**: The compute node storage usage is greater than or equal to 90%. In this case, the instance is locked.
-   * *   **warning**: The compute node storage usage is greater than or equal to 80% and less than 90%.
-   * *   **healthy**: The compute node storage usage is less than 80%.
+   * - **critical**: Instance storage usage is greater than or equal to 90%, and the instance will be locked.
+   * - **warning**: Instance storage usage is greater than or equal to 80% and less than 90%.
+   * - **healthy**: Instance storage usage is less than 80%, indicating a healthy storage status.
    * 
    * @example
    * healthy
@@ -17,7 +17,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbgpSegmentDiskUsagePercentM
   status?: string;
   /**
    * @remarks
-   * The metric value of maximum compute node storage usage.
+   * The metric value of the maximum storage usage of segment nodes.
    * 
    * Unit: %.
    * 
@@ -51,13 +51,13 @@ export class DescribeHealthStatusResponseBodyStatusAdbgpSegmentDiskUsagePercentM
 export class DescribeHealthStatusResponseBodyStatusAdbpgConnectionStatus extends $dara.Model {
   /**
    * @remarks
-   * The connection health status of the instance. Valid values:
+   * The connection status of the instance. Valid values:
    * 
-   * *   **critical**: The instance connection usage is greater than 95%. In this case, this metric is marked in red in the console.
-   * *   **warning**: The instance connection usage is greater than 90% and less than or equal to 95%. In this case, this metric is marked in yellow in the console.
-   * *   **healthy**: The instance connection usage is less than or equal to 90%. In this case, this metric is marked in green in the console.
+   * - **critical**: The connection usage of the instance is greater than 95%. The status is displayed in red in the console.
+   * - **warning**: The connection usage of the instance is greater than 90% and less than or equal to 95%. The status is displayed in yellow in the console.
+   * - **healthy**: The connection usage of the instance is less than or equal to 90%. The status is displayed in green in the console.
    * 
-   * >  The instance connection usage is the maximum connection usage among all the coordinator and compute nodes.
+   * > The connection usage of the instance is the maximum connection usage among all master nodes and segment nodes.
    * 
    * @example
    * healthy
@@ -65,7 +65,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgConnectionStatus extends
   status?: string;
   /**
    * @remarks
-   * The metric value of instance connection usage.
+   * The metric value of the instance connection usage, which is the maximum connection usage among all master nodes and segment nodes.
    * 
    * Unit: %.
    * 
@@ -99,13 +99,13 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgConnectionStatus extends
 export class DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus extends $dara.Model {
   /**
    * @remarks
-   * The storage status of the instance. Valid values:
+   * Instance storage status of the instance. Valid values:
    * 
-   * *   **critical**: The instance storage usage is greater than or equal to 90%. In this case, this metric is marked in red in the console and the instance is locked.
-   * *   **warning**: The instance storage usage is greater than or equal to 70% and less than 90%. In this case, this metric is marked in yellow in the console.
-   * *   **healthy**: The instance storage usage is less than 70%. In this case, this metric is marked in green in the console.
+   * - **critical**: Instance storage usage of the instance is greater than or equal to 90%. The status is displayed in red in the console, and the instance will be locked.
+   * - **warning**: Instance storage usage of the instance is greater than or equal to 70% and less than 90%. The status is displayed in yellow in the console.
+   * - **healthy**: Instance storage usage of the instance is less than 70%. The status is displayed in green in the console, indicating a healthy storage status.
    * 
-   * >  The instance storage usage is the average storage usage of all compute nodes.
+   * > Instance storage usage of the instance is the average storage usage of all segment nodes.
    * 
    * @example
    * healthy
@@ -113,7 +113,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus extends $dara
   status?: string;
   /**
    * @remarks
-   * The metric value of instance storage usage.
+   * The metric value of the instance storage usage, which is the average storage usage of all segment nodes.
    * 
    * Unit: %.
    * 
@@ -147,13 +147,13 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus extends $dara
 export class DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent extends $dara.Model {
   /**
    * @remarks
-   * The status corresponding to the storage usage of the instance. Valid values:
+   * Instance storage usage status of the instance. Valid values:
    * 
-   * *   **critical**: The instance storage usage is greater than or equal to 90%. In this case, the instance is locked.
-   * *   **warning**: The instance storage usage is greater than or equal to 70% and less than 90%.
-   * *   **healthy**: The instance storage usage is less than 70%.
+   * - **critical**: Instance storage usage of the instance is greater than or equal to 90%, and the instance will be locked.
+   * - **warning**: Instance storage usage of the instance is greater than or equal to 70% and less than 90%.
+   * - **healthy**: Instance storage usage of the instance is less than 70%, indicating a healthy storage status.
    * 
-   * >  The instance storage usage is the average storage usage of all compute nodes.
+   * > Instance storage usage of the instance is the average storage usage of all segment nodes.
    * 
    * @example
    * healthy
@@ -161,7 +161,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent extends
   status?: string;
   /**
    * @remarks
-   * The metric value of instance storage usage.
+   * The metric value of the instance storage usage, which is the average storage usage of all segment nodes.
    * 
    * Unit: %.
    * 
@@ -195,7 +195,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent extends
 export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceColdDataGb extends $dara.Model {
   /**
    * @remarks
-   * The total amount of cold data storage. Unit: GB.
+   * The total amount of cold data stored. Unit: GB.
    * 
    * @example
    * 0
@@ -225,7 +225,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceColdDataGb exten
 export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceHotDataGb extends $dara.Model {
   /**
    * @remarks
-   * The total amount of hot data storage. Unit: GB.
+   * The total amount of hot data stored. Unit: GB.
    * 
    * @example
    * 4.1
@@ -255,7 +255,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceHotDataGb extend
 export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceTotalDataGb extends $dara.Model {
   /**
    * @remarks
-   * The total amount of data storage of the instance. Unit: GB.
+   * The total amount of instance storage data. Unit: GB.
    * 
    * @example
    * 4.1
@@ -285,11 +285,11 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgInstanceTotalDataGb exte
 export class DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMax extends $dara.Model {
   /**
    * @remarks
-   * The status corresponding to the maximum storage usage of the coordinator node. Valid values:
+   * The maximum storage usage status of master nodes. Valid values:
    * 
-   * *   **critical**: The coordinator node storage usage is greater than or equal to 90%. In this case, the instance is locked.
-   * *   **warning**: The coordinator node storage usage is greater than or equal to 70% and less than 90%.
-   * *   **healthy**: The coordinator node storage usage is less than 70%.
+   * - **critical**: Instance storage usage is greater than or equal to 90%, and the instance will be locked.
+   * - **warning**: Instance storage usage is greater than or equal to 70% and less than 90%.
+   * - **healthy**: Instance storage usage is less than 70%, indicating a healthy storage status.
    * 
    * @example
    * healthy
@@ -297,7 +297,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMa
   status?: string;
   /**
    * @remarks
-   * The metric value of maximum coordinator node storage usage.
+   * The metric value of the maximum storage usage of master nodes.
    * 
    * Unit: %.
    * 
@@ -331,11 +331,11 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMa
 export class DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus extends $dara.Model {
   /**
    * @remarks
-   * The availability status of the coordinator node. Valid values:
+   * The availability status of master nodes. Valid values:
    * 
-   * *   **critical**: Both the primary and standby coordinator nodes are unavailable. In this case, this metric is marked in red in the console.
-   * *   **warning**: The primary or standby coordinator node is unavailable. In this case, this metric is marked in yellow in the console.
-   * *   **healthy**: Both the primary and standby coordinator nodes are available. In this case, this metric is marked in green in the console.
+   * - **critical**: Both the primary and secondary nodes are unavailable. The status is displayed in red in the console.
+   * - **warning**: The primary or secondary node is unavailable. The status is displayed in yellow in the console.
+   * - **healthy**: All nodes are available. The status is displayed in green in the console.
    * 
    * @example
    * healthy
@@ -343,7 +343,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus extends $da
   status?: string;
   /**
    * @remarks
-   * The metric value of coordinator node availability status. Valid values:
+   * The metric value of the availability status of master nodes. Valid values:
    * 
    * @example
    * 1
@@ -375,11 +375,11 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus extends $da
 export class DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus extends $dara.Model {
   /**
    * @remarks
-   * The availability status of compute nodes. Valid values:
+   * The availability status of segment nodes. Valid values:
    * 
-   * *   **critical**: All the primary and secondary compute nodes are unavailable. In this case, this metric is marked in red in the console.
-   * *   **warning**: Fifty percent or more than fifty percent of compute nodes are unavailable. In this case, this metric is marked in yellow in the console.
-   * *   **healthy**: All compute nodes are available. In this case, this metric is marked in green in the console.
+   * - **critical**: Both the primary and secondary nodes are unavailable. The status is displayed in red in the console.
+   * - **warning**: 50% or more of the nodes are unavailable. The status is displayed in yellow in the console.
+   * - **healthy**: All nodes are available. The status is displayed in green in the console.
    * 
    * @example
    * healthy
@@ -387,7 +387,7 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus extends $d
   status?: string;
   /**
    * @remarks
-   * The metric value of compute node availability status.
+   * The metric value of the availability status of segment nodes.
    * 
    * @example
    * 1
@@ -421,8 +421,8 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgStatus extends $dara.Mod
    * @remarks
    * The health status of the instance. Valid values:
    * 
-   * *   **critical**: The coordinator node or a compute node is unavailable. In this case, this metric is marked in red in the console.
-   * *   **healthy**: All nodes are available. In this case, this metric is marked in green in the console.
+   * - **critical**: At least one master node or segment node is unavailable. The status is displayed in red in the console.
+   * - **healthy**: All nodes are available. The status is displayed in green in the console.
    * 
    * @example
    * healthy
@@ -430,10 +430,10 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgStatus extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The metric value of instance health status. Valid values:
+   * The metric value of the instance health status. Valid values:
    * 
-   * *   **1**: healthy
-   * *   **0**: critical
+   * - **1**: healthy.
+   * - **0**: critical.
    * 
    * @example
    * 1
@@ -465,13 +465,13 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgStatus extends $dara.Mod
 export class DescribeHealthStatusResponseBodyStatusNodeMasterConnectionStatus extends $dara.Model {
   /**
    * @remarks
-   * The connection health status of the coordinator node. Valid values:
+   * The connection health status of master nodes. Valid values:
    * 
-   * *   **critical**: The coordinator node connection usage is greater than 95%. In this case, this metric is marked in red in the console.
-   * *   **warning**: The coordinator node connection usage is greater than or equal to 90% and less than 95%. In this case, this metric is marked in yellow in the console.
-   * *   **healthy**: The coordinator node connection usage is less than 90%. In this case, this metric is marked in green in the console.
+   * - **critical**: The connection usage of master nodes is greater than or equal to 95%. The status is displayed in red in the console.
+   * - **warning**: The connection usage of master nodes is greater than or equal to 90% and less than 95%. The status is displayed in yellow in the console.
+   * - **healthy**: The connection usage of master nodes is less than 90%. The status is displayed in green in the console.
    * 
-   * >  The coordinator node connection usage is the maximum connection usage of the coordinator node.
+   * > The connection usage of master nodes is the maximum connection usage among all master nodes.
    * 
    * @example
    * healthy
@@ -479,7 +479,7 @@ export class DescribeHealthStatusResponseBodyStatusNodeMasterConnectionStatus ex
   status?: string;
   /**
    * @remarks
-   * The metric value of coordinator node connection usage.
+   * The metric value of the connection usage of master nodes, which is the maximum connection usage among all master nodes.
    * 
    * Unit: %.
    * 
@@ -513,10 +513,10 @@ export class DescribeHealthStatusResponseBodyStatusNodeMasterConnectionStatus ex
 export class DescribeHealthStatusResponseBodyStatusNodeMasterStatus extends $dara.Model {
   /**
    * @remarks
-   * The health status of the coordinator node. Valid values:
+   * The health status of master nodes. Valid values:
    * 
-   * *   **critical**: The primary or standby coordinator node is unavailable. In this case, this metric is marked in red in the console.
-   * *   **healthy**: Both the primary and standby coordinator nodes are available. In this case, this metric is marked in green in the console.
+   * - **critical**: At least one primary or secondary master node is unavailable. The status is displayed in red in the console.
+   * - **healthy**: All master nodes are available. The status is displayed in green in the console.
    * 
    * @example
    * healthy
@@ -524,10 +524,10 @@ export class DescribeHealthStatusResponseBodyStatusNodeMasterStatus extends $dar
   status?: string;
   /**
    * @remarks
-   * The metric value of coordinator node health status. Valid values:
+   * The metric value of the master node health status. Valid values:
    * 
-   * *   **1**: healthy
-   * *   **0**: critical
+   * - **1**: healthy.
+   * - **0**: critical.
    * 
    * @example
    * 1
@@ -559,13 +559,13 @@ export class DescribeHealthStatusResponseBodyStatusNodeMasterStatus extends $dar
 export class DescribeHealthStatusResponseBodyStatusNodeSegmentConnectionStatus extends $dara.Model {
   /**
    * @remarks
-   * The connection health status of compute nodes. Valid values:
+   * The connection health status of segment nodes. Valid values:
    * 
-   * *   **critical**: The compute node connection usage is greater than or equal to 95%. In this case, this metric is marked in red in the console.
-   * *   **warning**: The compute node connection usage is greater than or equal to 90% and less than 95%. In this case, this metric is marked in yellow in the console.
-   * *   **healthy**: The compute node connection usage is less than 90%. In this case, this metric is marked in green in the console.
+   * - **critical**: The connection usage of segment nodes is greater than or equal to 95%. The status is displayed in red in the console.
+   * - **warning**: The connection usage of segment nodes is greater than or equal to 90% and less than 95%. The status is displayed in yellow in the console.
+   * - **healthy**: The connection usage of segment nodes is less than 90%. The status is displayed in green in the console.
    * 
-   * >  The compute node connection usage is the maximum connection usage among all compute nodes.
+   * > The connection usage of segment nodes is the maximum connection usage among all segment nodes.
    * 
    * @example
    * healthy
@@ -573,7 +573,7 @@ export class DescribeHealthStatusResponseBodyStatusNodeSegmentConnectionStatus e
   status?: string;
   /**
    * @remarks
-   * The metric value of maximum compute node connection usage.
+   * The metric value of the connection usage of segment nodes, which is the maximum connection usage among all segment nodes.
    * 
    * Unit: %.
    * 
@@ -607,13 +607,13 @@ export class DescribeHealthStatusResponseBodyStatusNodeSegmentConnectionStatus e
 export class DescribeHealthStatusResponseBodyStatusNodeSegmentDiskStatus extends $dara.Model {
   /**
    * @remarks
-   * The storage status of compute nodes. Valid values:
+   * Instance storage status of segment nodes. Valid values:
    * 
-   * *   **critical**: The compute node storage usage is greater than or equal to 90%. In this case, this metric is marked in red in the console and the instance is locked.
-   * *   **warning**: The compute node storage usage is greater than or equal to 80% and less than 90%. In this case, this metric is marked in yellow in the console.
-   * *   **healthy**: The compute node storage usage is less than 80%. In this case, this metric is marked in green in the console.
+   * - **critical**: Instance storage usage of segment nodes is greater than or equal to 90%. The status is displayed in red in the console, and the instance will be locked.
+   * - **warning**: Instance storage usage of segment nodes is greater than or equal to 80% and less than 90%. The status is displayed in yellow in the console.
+   * - **healthy**: Instance storage usage of segment nodes is less than 80%. The status is displayed in green in the console, indicating a healthy storage status.
    * 
-   * >  The compute node storage usage is the maximum storage usage among all compute nodes.
+   * > Instance storage usage of segment nodes is the maximum storage usage among all segment nodes.
    * 
    * @example
    * healthy
@@ -621,7 +621,7 @@ export class DescribeHealthStatusResponseBodyStatusNodeSegmentDiskStatus extends
   status?: string;
   /**
    * @remarks
-   * The metric value of maximum compute node storage usage.
+   * The metric value of the maximum storage usage of segment nodes.
    * 
    * Unit: %.
    * 
@@ -655,87 +655,87 @@ export class DescribeHealthStatusResponseBodyStatusNodeSegmentDiskStatus extends
 export class DescribeHealthStatusResponseBodyStatus extends $dara.Model {
   /**
    * @remarks
-   * The information of maximum compute node storage usage.
+   * The maximum storage usage of compute nodes in the instance, which is the maximum storage usage among all segment nodes in the instance.
    * 
-   * >  This parameter value is returned only for instances in elastic storage mode.
+   * > This value is returned only for instances in elastic storage mode.
    */
   adbgpSegmentDiskUsagePercentMax?: DescribeHealthStatusResponseBodyStatusAdbgpSegmentDiskUsagePercentMax;
   /**
    * @remarks
-   * The information of instance connection health status.
+   * The connection status of the instance.
    */
   adbpgConnectionStatus?: DescribeHealthStatusResponseBodyStatusAdbpgConnectionStatus;
   /**
    * @remarks
-   * The information of instance storage status.
+   * The instance storage status.
    * 
-   * >  This parameter value is returned only for instances in elastic storage mode.
+   * > This value is returned only for instances in the elastic storage pattern.
    */
   adbpgDiskStatus?: DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus;
   /**
    * @remarks
-   * The information of instance storage usage.
+   * The instance storage usage.
    * 
-   * >  This parameter value is returned only for instances in elastic storage mode.
+   * > This value is returned only for instances in the elastic storage pattern.
    */
   adbpgDiskUsagePercent?: DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent;
   /**
    * @remarks
-   * The total amount of cold data storage.
+   * The total amount of cold data stored.
    */
   adbpgInstanceColdDataGb?: DescribeHealthStatusResponseBodyStatusAdbpgInstanceColdDataGb;
   /**
    * @remarks
-   * The total amount of hot data storage.
+   * The total amount of hot data stored.
    */
   adbpgInstanceHotDataGb?: DescribeHealthStatusResponseBodyStatusAdbpgInstanceHotDataGb;
   /**
    * @remarks
-   * The total amount of data storage of the instance.
+   * The total amount of instance storage data.
    */
   adbpgInstanceTotalDataGb?: DescribeHealthStatusResponseBodyStatusAdbpgInstanceTotalDataGb;
   /**
    * @remarks
-   * The information of maximum coordinator node storage usage.
+   * The maximum storage usage of coordinator nodes in the instance, which is the maximum storage usage among all master nodes in the instance.
    * 
-   * >  This parameter value is returned only for instances in elastic storage mode.
+   * > This value is returned only for instances in elastic storage mode.
    */
   adbpgMasterDiskUsagePercentMax?: DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMax;
   /**
    * @remarks
-   * The information of coordinator node availability status.
+   * The status of coordinator nodes, namely the availability status of master nodes.
    */
   adbpgMasterStatus?: DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus;
   /**
    * @remarks
-   * The information of compute node availability status.
+   * The status of compute nodes, namely the availability status of segment nodes.
    */
   adbpgSegmentStatus?: DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus;
   /**
    * @remarks
-   * The information of instance health status.
+   * The health status of the instance.
    */
   adbpgStatus?: DescribeHealthStatusResponseBodyStatusAdbpgStatus;
   /**
    * @remarks
-   * The information of coordinator node connection health status.
+   * The connection health status of coordinator nodes, namely master nodes.
    */
   nodeMasterConnectionStatus?: DescribeHealthStatusResponseBodyStatusNodeMasterConnectionStatus;
   /**
    * @remarks
-   * The information of coordinator node health status.
+   * The health status of coordinator nodes, namely master nodes.
    */
   nodeMasterStatus?: DescribeHealthStatusResponseBodyStatusNodeMasterStatus;
   /**
    * @remarks
-   * The information of compute node connection health status.
+   * The connection health status of compute nodes, namely segment nodes.
    */
   nodeSegmentConnectionStatus?: DescribeHealthStatusResponseBodyStatusNodeSegmentConnectionStatus;
   /**
    * @remarks
-   * The information of compute node storage status.
+   * The storage status of compute nodes, namely segment nodes.
    * 
-   * >  This parameter value is returned only for instances in elastic storage mode.
+   * > This value is returned only for instances in elastic storage mode.
    */
   nodeSegmentDiskStatus?: DescribeHealthStatusResponseBodyStatusNodeSegmentDiskStatus;
   static names(): { [key: string]: string } {
@@ -835,7 +835,7 @@ export class DescribeHealthStatusResponseBodyStatus extends $dara.Model {
 export class DescribeHealthStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of instance.
+   * The instance ID.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -843,7 +843,7 @@ export class DescribeHealthStatusResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D97B4191-104D-10CE-8BC5-53**********
@@ -851,9 +851,9 @@ export class DescribeHealthStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried performance metrics. Each performance metric consists of the parameter name, status, and metric value. The metric information is returned only for the performance parameters specified by **Key**. For example, if you set **Key** to **adbpg_status**, only the metric information of **adbpg_status** is returned.
+   * The detailed performance monitoring information, which consists of the metric name, status, and metric value. Monitoring information is returned only for the metrics specified in the **Key** request parameter. For example, if the **Key** parameter contains only **adbpg_status**, only the monitoring information for **adbpg_status** is returned.
    * 
-   * For more information about performance parameters, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+   * For more information about performance metrics, see [Performance metrics](https://help.aliyun.com/document_detail/86943.html).
    * 
    * @example
    * {"node_master_connection_status":{"Status":"healthy","Value":1.6}}

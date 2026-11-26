@@ -7,9 +7,11 @@ export class ListInstanceDatabasesResponseBodyDatabases extends $dara.Model {
    * @remarks
    * The database name.
    * 
-   * *   Only contain letters, digits, and underscores (_).
-   * *   Must start with a letter.
-   * *   Up to 63 characters in length.
+   * - The name can contain only letters, digits, and underscores (_).
+   * 
+   * - The name must start with a letter.
+   * 
+   * - The name cannot exceed 63 characters in length.
    * 
    * @example
    * testdatabase
@@ -49,9 +51,9 @@ export class ListInstanceDatabasesResponseBodyDatabases extends $dara.Model {
 export class ListInstanceDatabasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including the instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -59,12 +61,12 @@ export class ListInstanceDatabasesResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The queried databases.
+   * The list of queried databases.
    */
   databases?: ListInstanceDatabasesResponseBodyDatabases[];
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521

@@ -17,7 +17,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * The content used for full-text retrieval. If this parameter is left empty, only vector retrieval is used. If this parameter is specified, both vector and full-text retrieval are used.
+   * The content used for full-text retrieval. If this parameter is left empty, only vector retrieval is used. If this parameter is not empty, both vector and full-text dual-channel retrieval are used.
    * 
    * > This parameter and the Vector parameter cannot be left empty at the same time.
    * 
@@ -37,22 +37,24 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The filter condition for the data to query, in the SQL WHERE clause format. It is an expression that returns a Boolean value (true or false). The condition can be a simple comparison operator, such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), or less than or equal to (<=). It can also be a more complex expression combined with logical operators (AND, OR, NOT), or a condition that uses keywords such as IN, BETWEEN, and LIKE.
+   * The filter condition for the data to be queried, in the SQL WHERE clause format. It is an expression that returns a Boolean value (true or false). The condition can be a simple comparison operator, such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), or less than or equal to (<=). It can also be a more complex expression combined with logical operators (AND, OR, NOT), or a condition that uses keywords such as IN, BETWEEN, and LIKE.
    * 
    * > 
    * > - For detailed syntax, refer to https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
-   * pipeline_id=\\"1yhpmo0rbn\\" AND (spu=\\"10025667796135\\" AND dept_id=\\"226\\")
+   * pipeline_id=\"1yhpmo0rbn\" AND (spu=\"10025667796135\" AND dept_id=\"226\")
    */
   filter?: string;
   /**
    * @remarks
-   * The dual-channel recall algorithm. Default value: empty (which means the vector and full-text scores are directly compared and sorting is applied). Valid values:
+   * The dual-channel recall algorithm. Default value: empty. If this parameter is left empty, the scores of vector and full-text index are directly compared and sorting is performed.
    * 
-   * - RRF: reciprocal rank fusion. A parameter k is used to control the fusion effect. For more information, see the HybridSearchArgs configuration.
-   * - Weight: weighted sorting. A parameter alpha is used to control the weight of the vector and full-text scores before sorting. For more information, see the HybridSearchArgs configuration.
-   * - Cascaded: full-text retrieval is performed first, and then vector retrieval is performed based on the results.
+   * Valid values:
+   * 
+   * - RRF: Reciprocal Rank Fusion (RRF). A parameter k is used to control the fusion effect. For more information, see the HybridSearchArgs configuration.
+   * - Weight: Weighted reranking. A parameter alpha is used to control the weight of vector and full-text index scores before reranking. For more information, see the HybridSearchArgs configuration.
+   * - Cascaded: Performs full-text retrieval first, and then performs vector retrieval based on the results.
    * 
    * @example
    * RRF
@@ -60,9 +62,9 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
   hybridSearch?: string;
   /**
    * @remarks
-   * The algorithm parameters for hybrid search. RRF and Weight are supported:
+   * The algorithm parameters for hybrid search. Currently, RRF and Weight are supported:
    * 
-   * - RRF: specifies the constant k in the score calculation formula `1/(k+rank_i)`. The value must be a positive integer greater than 1. Format:
+   * - RRF: Specifies the constant k in the score calculation formula `1/(k+rank_i)`. The value must be a positive integer greater than 1. Format:
    * ```
    * { 
    *    "RRF": {
@@ -79,11 +81,14 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
    *    }
    * }
    * ```
+   * 
+   * @example
+   * {"RRF":{"k":60}}
    */
   hybridSearchArgsShrink?: string;
   /**
    * @remarks
-   * The metadata fields to return. Default value: empty. Separate multiple fields with commas.
+   * The metadata fields to be returned. Default value: empty. Separate multiple fields with commas.
    * 
    * @example
    * title,content
@@ -92,8 +97,8 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return sparse vector data. Valid values:
-   * - **true**: returns sparse vector data.
-   * - **false**: does not return sparse vector data.
+   * - **true**: Returns sparse vector data.
+   * - **false**: Does not return sparse vector data.
    * 
    * @example
    * false
@@ -102,8 +107,8 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return dense vector data. Valid values:
-   * - **true**: returns dense vector data.
-   * - **false**: does not return dense vector data.
+   * - **true**: Returns dense vector data.
+   * - **false**: Does not return dense vector data.
    * 
    * @example
    * true
@@ -113,10 +118,10 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
    * @remarks
    * The similarity algorithm used during search. Valid values:
    * - **l2**: Euclidean distance.
-   * - **ip**: Dot product (inner product) distance.
+   * - **ip**: Inner product distance.
    * - **cosine**: Cosine similarity.
    * 
-   * > If this parameter is left empty, the algorithm specified when the index is built is used.
+   * > If this parameter is left empty, the algorithm specified during index creation is used.
    * 
    * @example
    * cosine
@@ -144,12 +149,12 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
   namespacePassword?: string;
   /**
    * @remarks
-   * The retrieval starting point during paged queries. Default value: empty. This parameter is not supported in dual-channel recall scenarios.
+   * The starting point for retrieval in a paged query. Default value: empty. This parameter is not supported in dual-channel recall scenarios.
    * 
-   * The value must be greater than or equal to 0. If this parameter is specified, the Total parameter is returned to indicate the total number of hits. This parameter is used together with TopK. For example, to retrieve chunks with chunk_id ranging from 0 to 44 with a paging size of 20, you must make three requests:
-   * - Offset=0, TopK=20 returns chunks with chunk_id ranging from 0 to 19.
-   * - Offset=20, TopK=20 returns chunks with chunk_id ranging from 20 to 39.
-   * - Offset=30, TopK=20 returns chunks with chunk_id ranging from 40 to 44.
+   * The value must be greater than or equal to 0. If this parameter is not empty, the Total parameter is returned to indicate the total number of hits. This parameter is used together with TopK. For example, to retrieve chunks with chunk_id from 0 to 44 with a paging size of 20, you need to make three requests:
+   * - Offset=0, TopK=20: returns chunks with chunk_id from 0 to 19.
+   * - Offset=20, TopK=20: returns chunks with chunk_id from 20 to 39.
+   * - Offset=30, TopK=20: returns chunks with chunk_id from 40 to 44.
    * 
    * @example
    * 0
@@ -183,7 +188,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
    * @remarks
    * Uses another relational table to filter vector data, similar to the JOIN operation.
    * 
-   * > You can set the IncludeMetadataFields parameter to return data from the relational table. For example, rds_table_name.id indicates that the id field of the relational table is returned.
+   * > You can return the data of the relational table by setting the IncludeMetadataFields parameter. For example, rds_table_name.id indicates that the id field of the relational table is returned.
    */
   relationalTableFilterShrink?: string;
   /**
@@ -203,10 +208,10 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
   topK?: number;
   /**
    * @remarks
-   * The vector data. The length must be consistent with the dimension specified in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
+   * The vector data. The length must be consistent with the dimensions specified in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
    * > 
-   * > - If SparseVector is left empty, the system uses it to retrieve only dense vector results.
-   * > - If both Vector and SparseVector are left empty, the system uses it to retrieve only full-text results.
+   * > - If SparseVector is empty, only dense vector retrieve results are returned.
+   * > - If both Vector and SparseVector are empty, only full-text retrieve results are returned.
    */
   vectorShrink?: string;
   /**

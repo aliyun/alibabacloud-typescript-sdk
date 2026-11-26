@@ -8,7 +8,7 @@ export class ModifySupabaseProjectResourceResponseBody extends $dara.Model {
    * The order ID.
    * 
    * @example
-   * *********
+   * 123456789
    */
   orderId?: string;
   /**

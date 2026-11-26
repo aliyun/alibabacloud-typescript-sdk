@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
-   * If this parameter is not specified, all lock diagnostics records that are generated after the query start time are returned. If the query start time is not specified either, all lock diagnostics records are returned.
+   * If you do not specify this parameter, no end time is set, and all lock diagnosis information after the start time is returned. If the start time is also not specified, all lock diagnosis information is returned.
    * 
    * @example
    * 2022-08-20T07:59Z
@@ -37,7 +37,7 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The keyword used to filter queries.
+   * The keyword for the query.
    * 
    * @example
    * table
@@ -45,9 +45,9 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The field used to sort lock diagnostics records and the sorting order.
+   * The sort field and sort order.
    * 
-   * Default value: `{"Field":"StartTime","Type":"Desc"}`, which indicates that lock diagnostics records are sorted by the start time in descending order. No other values are supported.
+   * Default value: `{"Field":"StartTime","Type":"Desc"}`, which indicates that the results are sorted by start time in descending order. Other sort fields and sort orders are not supported.
    * 
    * @example
    * {"Field":"StartTime","Type":"Desc"}
@@ -55,7 +55,7 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: **1**.
    * 
    * @example
    * 1
@@ -63,11 +63,10 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * The number of entries per page. Valid values:
+   * - **30**
+   * - **50**
+   * - **100**
    * 
    * Default value: **30**.
    * 
@@ -77,11 +76,11 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The filter condition on queries. Valid values:
+   * The filter condition for the query. Valid values:
    * 
-   * *   `{"Type":"maxCost","Value":"10"}`: filters the top 10 longest-waiting queries.
-   * *   `{"Type":"status","Value":"LockWaiting"}`: filters lock-waiting queries.
-   * *   `{"Type":"status","Value":"ResourceWaiting"}`: filters resource-waiting queries.
+   * - `{"Type":"maxCost","Value":"10"}`: the top 10 queries with the longest wait time.
+   * - `{"Type":"status","Value":"LockWaiting"}`: queries that are waiting for locks.
+   * - `{"Type":"status","Value":"ResourceWaiting"}`: queries that are waiting for resources.
    * 
    * This parameter is required.
    * 
@@ -91,9 +90,9 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   queryCondition?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
-   * If this parameter is not specified, all lock diagnostics records that are generated before the query end time are returned. If the query end time is not specified either, all lock diagnostics records are returned.
+   * If you do not specify this parameter, no start time is set, and all lock diagnosis information before the end time is returned. If the end time is also not specified, all lock diagnosis information is returned.
    * 
    * @example
    * 2022-08-15T06:59Z
@@ -101,7 +100,7 @@ export class DescribeWaitingSQLRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the database account. If this parameter is not specified, the lock diagnostics records of all database accounts are queried.
+   * The username. If you do not specify this parameter, the lock wait information of all users is queried.
    * 
    * @example
    * testUser

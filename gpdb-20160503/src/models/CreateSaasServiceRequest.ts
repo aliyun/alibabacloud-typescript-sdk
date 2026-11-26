@@ -14,12 +14,11 @@ export class CreateSaasServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
-   * 
-   * > - If you leave this parameter empty, a Free type is created by default.
-   * > - The subscription billing method offers discounts for purchases of one year or longer. Select a billing method as needed.
+   * > - If you do not specify this parameter, a free service is created by default.
+   * > - In subscription mode, you can get a discount if you purchase a subscription with a duration of one year or longer. Select a billing method as needed.
    * 
    * @example
    * Postpaid
@@ -27,11 +26,11 @@ export class CreateSaasServiceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the duration for which you want to purchase the resource. Valid values:
-   * - **Month**: month.
-   * - **Year**: year.
+   * The unit of the subscription duration. Valid values:
+   * - **Month**: month
+   * - **Year**: year
    * 
-   * > This parameter is required when you create a subscription instance.
+   * > This parameter is required when you create a subscription service.
    * 
    * @example
    * Month
@@ -39,7 +38,7 @@ export class CreateSaasServiceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]**
    * 
    * @example
    * deprecated
@@ -56,7 +55,6 @@ export class CreateSaasServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The service type. Valid values:
-   * 
    * - **memroy**
    * - **drama**
    * 
@@ -68,11 +66,11 @@ export class CreateSaasServiceRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The duration for which you want to purchase the resource. Valid values:
-   * - If **Period** is set to **Month**, the valid values are 1 to 11.
-   * - If **Period** is set to **Year**, the valid values are 1 to 3.
+   * The subscription duration of the purchased resource. Valid values:
+   * - If **Period** is set to **Month**, valid values are 1 to 11.
+   * - If **Period** is set to **Year**, valid values are 1 to 3.
    * 
-   * > This parameter is required when you create a subscription instance.
+   * > This parameter is required when you create a subscription service.
    * 
    * @example
    * 1

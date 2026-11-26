@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The data bloat coefficient. The bloat coefficient is calculated by using the following formula:
+   * The data bloat coefficient. The formula for calculating the bloat coefficient is as follows:
    * 
-   * Number of dead rows counted by the system / Number of live rows counted by the system.
+   * Number of dead rows counted by the system / Number of active rows counted by the system.
    * 
    * @example
    * 1.03
@@ -15,7 +15,7 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   bloatCeoff?: string;
   /**
    * @remarks
-   * The size of the bloated data, which indicates the amount of space that can be reclaimed.
+   * The size of the bloated table, which indicates the amount of space that can be released.
    * 
    * @example
    * 0.2MB
@@ -33,7 +33,7 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
    * @remarks
    * The expected table size.
    * 
-   * The expected table size is the estimated size of the table when no data bloat occurs.
+   * The expected table size is the estimated table size when no data bloat occurs.
    * 
    * @example
    * 1MB
@@ -67,9 +67,9 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
    * @remarks
    * The storage type of the table. Valid values:
    * 
-   * - **Heap Table**: heap table
-   * - **Append-Only Heap Table**: append-only heap table
-   * - **Append-Only Columnar Table**: column-oriented table
+   * - **Heap Table**: Heap table.
+   * - **Append-Only Heap Table**: Append-Only heap table.
+   * - **Append-Only Columnar Table**: Column-oriented table.
    * 
    * @example
    * Heap Table
@@ -101,7 +101,7 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   timeLastUpdated?: string;
   /**
    * @remarks
-   * The time when the table was last vacuumed. The time is displayed in UTC.
+   * The time when the table was last vacuumed (UTC).
    * 
    * @example
    * 2022-08-08T16:00:00Z
@@ -166,7 +166,7 @@ export class DescribeDBInstanceDataBloatResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * The performance metric value.
+   * The value of the performance metric.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -43,7 +43,7 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries exten
   name?: string;
   /**
    * @remarks
-   * The list of performance metric values, which consists of one or more values.
+   * The list of performance metric values. The list contains one or more values.
    */
   values?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues[];
   static names(): { [key: string]: string } {
@@ -83,7 +83,7 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeys extends $da
   name?: string;
   /**
    * @remarks
-   * The performance metric series.
+   * The series of the performance metric.
    */
   series?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries[];
   /**

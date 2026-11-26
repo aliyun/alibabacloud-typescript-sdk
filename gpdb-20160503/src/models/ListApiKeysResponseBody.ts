@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiKeysResponseBodyItemsAuthServices extends $dara.Model {
   /**
    * @remarks
-   * The service IDs.
+   * The service ID.
    * 
    * @example
    * agdb-xxxxxx
@@ -49,7 +49,7 @@ export class ListApiKeysResponseBodyItemsAuthServices extends $dara.Model {
 export class ListApiKeysResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The service IDs.
+   * The service ID.
    */
   authServices?: ListApiKeysResponseBodyItemsAuthServices[];
   /**
@@ -129,12 +129,12 @@ export class ListApiKeysResponseBodyItems extends $dara.Model {
 export class ListApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of items.
+   * The list of plans.
    */
   items?: ListApiKeysResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records to return in this request.
+   * The maximum number of records to return for the current request.
    * 
    * @example
    * 20
@@ -142,7 +142,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next paging query.
+   * The start token for the next paging query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

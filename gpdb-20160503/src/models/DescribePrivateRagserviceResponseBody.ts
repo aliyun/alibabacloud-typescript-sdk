@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrivateRAGServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * CA certificate Info. The returned OSS link, valid for 2 hours.
+   * The CA certificate information. An OSS URL is returned, which is valid for 2 hours. The CA certificate.
    * 
    * @example
    * https://oss-xxx
@@ -13,7 +13,7 @@ export class DescribePrivateRAGServiceResponseBody extends $dara.Model {
   caCert?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521

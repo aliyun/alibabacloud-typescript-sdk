@@ -41,7 +41,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The keyword used to search for error logs.
+   * The keyword in the error logs.
    * 
    * @example
    * error
@@ -51,10 +51,10 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
    * @remarks
    * The log level. Valid values:
    * 
-   * - **ALL**: displays logs of all levels.
-   * - **PANIC**: displays only panic-level logs.
-   * - **FATAL**: displays only fatal-level logs.
-   * - **ERROR**: displays only error-level logs.
+   * - **ALL**: Displays logs of all levels.
+   * - **PANIC**: Displays only panic-level logs.
+   * - **FATAL**: Displays only fatal-level logs.
+   * - **ERROR**: Displays only error-level logs.
    * 
    * @example
    * ALL

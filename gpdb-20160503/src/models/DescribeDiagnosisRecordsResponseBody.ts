@@ -13,7 +13,7 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The execution duration of the query. Unit: seconds.
+   * The total execution duration of the query. Unit: seconds.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The ID of the query. It is a unique identifier of the query.
+   * The ID of the query, which is the unique identifier of the query.
    * 
    * @example
    * 2022042612465401000000012903151998970
@@ -37,10 +37,10 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   SQLStmt?: string;
   /**
    * @remarks
-   * Indicates whether the SQL statement needs to be truncated. Valid values:
+   * Specifies whether the SQL statement is truncated. Valid values:
    * 
-   * *   **true**: The SQL statement needs to be truncated.
-   * *   **false**: The SQL statement does not need to be truncated.
+   * - **true**: The SQL statement is truncated.
+   * - **false**: The SQL statement is not truncated.
    * 
    * @example
    * false
@@ -48,7 +48,7 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   SQLTruncated?: boolean;
   /**
    * @remarks
-   * The threshold used to determine whether an SQL statement must be truncated. The value is the number of characters.
+   * The truncation threshold of the SQL statement. The value is the number of characters in the string.
    * 
    * @example
    * 5120
@@ -56,7 +56,7 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   SQLTruncatedThreshold?: number;
   /**
    * @remarks
-   * The ID of the session that contains the query.
+   * The ID of the session to which the query belongs.
    * 
    * @example
    * 50
@@ -64,7 +64,7 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   sessionID?: string;
   /**
    * @remarks
-   * The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The start time of the query. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1651877940000
@@ -72,10 +72,10 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The execution state of the query. Valid values:
+   * The execution status of the query. Valid values:
    * 
-   * *   **running**: The query is being executed.
-   * *   **finished**: The query is complete.
+   * - **running**: The query is running.
+   * - **finished**: The query is completed.
    * 
    * @example
    * finished
@@ -83,7 +83,7 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * adbpguser
@@ -131,12 +131,12 @@ export class DescribeDiagnosisRecordsResponseBodyItems extends $dara.Model {
 export class DescribeDiagnosisRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The threshold that determines whether the SQL statement must be truncated. The value is the number of characters.
+   * The list of SQL queries.
    */
   items?: DescribeDiagnosisRecordsResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -144,7 +144,7 @@ export class DescribeDiagnosisRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -152,7 +152,7 @@ export class DescribeDiagnosisRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

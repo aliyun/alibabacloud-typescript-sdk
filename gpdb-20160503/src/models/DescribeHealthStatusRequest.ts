@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHealthStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeHealthStatusRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+   * The names of performance metrics. Separate multiple metrics with commas (,). For more information, see [Performance metrics](https://help.aliyun.com/document_detail/86943.html).
    * 
    * This parameter is required.
    * 

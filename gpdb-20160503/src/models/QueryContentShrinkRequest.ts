@@ -63,7 +63,7 @@ export class QueryContentShrinkRequest extends $dara.Model {
    * > - For detailed syntax, refer to https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
-   * title = \\"test\\" AND name like \\"test%\\"
+   * title = \"test\" AND name like \"test%\"
    */
   filter?: string;
   /**

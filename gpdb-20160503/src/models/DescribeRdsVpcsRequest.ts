@@ -7,9 +7,9 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -17,10 +17,10 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
    * 
    * @example
-   * rg-bp67acfmxazb4p****
+   * null
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -28,7 +28,7 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-h

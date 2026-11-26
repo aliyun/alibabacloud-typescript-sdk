@@ -6,7 +6,7 @@ export class CreateServiceLinkedRoleRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 

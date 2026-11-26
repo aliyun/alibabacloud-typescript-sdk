@@ -25,7 +25,7 @@ export class DeleteSnapshotRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID. Specifies the region in which to query or perform the operation.
+   * The region ID. This parameter restricts the query or operation to a specific region.
    * 
    * @example
    * cn-hangzhou

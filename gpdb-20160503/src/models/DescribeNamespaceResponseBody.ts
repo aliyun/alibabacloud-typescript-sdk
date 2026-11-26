@@ -30,6 +30,9 @@ export class DescribeNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The namespace information.
+   * 
+   * @example
+   * {"key":"{}"}
    */
   namespaceInfo?: { [key: string]: string };
   /**
@@ -50,9 +53,9 @@ export class DescribeNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution status of the API operation. Valid values:
-   * - **success**: The execution is successful.
-   * - **fail**: The execution fails.
+   * The API execution status. Valid values:
+   * - **success**: The execution succeeded.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

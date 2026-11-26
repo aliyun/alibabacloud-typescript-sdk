@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelOperatorUsageResponseBodyKeysSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * The specific metric information, consisting of a timestamp and a metric value.
+   * The specific metric information, which consists of the time and the metric value.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class DescribeModelOperatorUsageResponseBodyKeysSeriesValues extends $dar
 export class DescribeModelOperatorUsageResponseBodyKeysSeries extends $dara.Model {
   /**
    * @remarks
-   * The API key ID. This value is returned only when GroupBy contains api_key.
+   * This value is returned only when GroupBy includes api_key.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class DescribeModelOperatorUsageResponseBodyKeysSeries extends $dara.Mode
   apiKeyId?: number;
   /**
    * @remarks
-   * The model name when GroupBy contains model. The api_key_id string when GroupBy contains only api_key.
+   * The model name if GroupBy includes model, or the api_key_id string if GroupBy includes only api_key.
    * 
    * @example
    * qwen3.6-plus
@@ -103,7 +103,7 @@ export class DescribeModelOperatorUsageResponseBodyKeys extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The collection of metric values.
+   * The metric value set.
    */
   series?: DescribeModelOperatorUsageResponseBodyKeysSeries[];
   /**
@@ -149,7 +149,7 @@ export class DescribeModelOperatorUsageResponseBodyKeys extends $dara.Model {
 export class DescribeModelOperatorUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. The time is in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+   * The end time of the query. The format is <i>YYYY-MM-DDThh:mmZ</i> (UTC time).
    * 
    * @example
    * 2026-06-02T00:00Z
@@ -162,7 +162,7 @@ export class DescribeModelOperatorUsageResponseBody extends $dara.Model {
   keys?: DescribeModelOperatorUsageResponseBodyKeys[];
   /**
    * @remarks
-   * The actual bucket size used, in seconds.
+   * The final bucket size used in seconds.
    * 
    * @example
    * 1
@@ -178,7 +178,7 @@ export class DescribeModelOperatorUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time is in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+   * The start time of the query. The format is <i>YYYY-MM-DDThh:mmZ</i> (UTC time).
    * 
    * @example
    * 2026-06-01T00:00Z

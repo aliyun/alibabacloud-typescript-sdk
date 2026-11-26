@@ -53,7 +53,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The branch name.
+   * The name of the branch.
    * 
    * @example
    * dev
@@ -77,7 +77,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The branch description.
+   * The description of the branch.
    * 
    * @example
    * test branch
@@ -85,7 +85,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the branch expires and is automatically deleted, in ISO 8601 UTC format.
+   * The time when the branch is automatically deleted upon expiration, in ISO 8601 UTC format.
    * 
    * @example
    * 2026-10-08T09:11:12Z
@@ -93,9 +93,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * The initialization source of the branch.
-   * 
-   * Valid values:
+   * The initialization source of the branch. Valid values:
    * - ParentData: Copies the schema and data from the parent branch. This is the default value.
    * - SchemaOnly: Copies only the schema structure.
    * 
@@ -105,7 +103,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   initSource?: string;
   /**
    * @remarks
-   * Indicates whether this is the default branch.
+   * Indicates whether the branch is the default branch.
    * 
    * @example
    * true
@@ -113,7 +111,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The parent branch ID, which specifies the parent branch of a new branch or a query condition.
+   * The ID of the parent branch, which is used to specify the parent branch for a new branch or a query condition.
    * 
    * @example
    * br-main
@@ -121,7 +119,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentBranchId?: string;
   /**
    * @remarks
-   * The parent branch name. This value is empty or displayed as - for the primary branch.
+   * The name of the parent branch. For a primary branch, this value is empty or displayed as a hyphen (-).
    * 
    * @example
    * main
@@ -129,7 +127,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
-   * The LSN of the parent branch at the time this branch was created.
+   * The LSN of the parent branch when the branch was created.
    * 
    * @example
    * 0/3522648
@@ -137,11 +135,11 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentLSN?: string;
   /**
    * @remarks
-   * The data synchronization point in time selected from the parent branch when this branch was created, in ISO 8601 UTC format.
+   * The data synchronization point in time selected when the branch was created from the parent branch, in ISO 8601 UTC format.
    * 
-   * Description:
-   * - For child branches, this value indicates the point in time of the parent branch selected during creation.
-   * - If no parent branch exists, the value 1970-01-01T00:00:00.000Z is returned.
+   * Note:
+   * - For a child branch, the point in time of the parent branch selected during creation is returned.
+   * - If the branch has no parent branch, 1970-01-01T00:00:00.000Z is returned.
    * 
    * @example
    * 2026-04-08T09:11:12Z
@@ -149,7 +147,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentTimestamp?: string;
   /**
    * @remarks
-   * The Supabase project ID that corresponds to the primary branch.
+   * The ID of the Supabase project that corresponds to the primary branch.
    * 
    * @example
    * spb-xxxx
@@ -157,7 +155,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Indicates whether branch protection is enabled. A value of true indicates that branch protection is enabled. A value of false indicates that branch protection is disabled.
+   * Indicates whether branch protection is enabled. A value of true indicates that branch protection is enabled, and a value of false indicates that branch protection is disabled.
    * 
    * @example
    * false
@@ -165,11 +163,9 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   protected?: boolean;
   /**
    * @remarks
-   * The service type.
-   * 
-   * Valid values:
-   * - Supabase: Supabase service.
-   * - Memory: Memory service.
+   * The service type. Valid values:
+   * - Supabase: Supabase service
+   * - Memory: Memory service
    * 
    * @example
    * Supabase
@@ -177,7 +173,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The Supabase project ID that corresponds to the current branch.
+   * The ID of the Supabase project that corresponds to the current branch.
    * 
    * @example
    * spb-xxxx
@@ -185,7 +181,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   spbProjectId?: string;
   /**
    * @remarks
-   * The branch status.
+   * The status of the branch.
    * 
    * @example
    * Running
@@ -193,7 +189,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of branch tags.
+   * The list of tags for the branch.
    */
   tags?: DescribeBranchResponseBodyBranchTags[];
   static names(): { [key: string]: string } {
@@ -257,7 +253,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
 export class DescribeBranchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The branch information. Each element represents a Supabase branch.
+   * The list of branches. Each element represents a Supabase branch.
    */
   branch?: DescribeBranchResponseBodyBranch;
   /**

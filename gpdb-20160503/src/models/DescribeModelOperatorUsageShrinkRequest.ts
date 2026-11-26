@@ -7,14 +7,14 @@ export class DescribeModelOperatorUsageShrinkRequest extends $dara.Model {
    * @remarks
    * The list of API key IDs. Separate multiple IDs with commas (,). If this parameter is not specified, all API key IDs under the instance ID are used by default.
    * 
-   * > The list can contain up to 50 items.
+   * > A maximum of 50 items can be included in the list.
    */
   apiKeyIdsShrink?: string;
   /**
    * @remarks
-   * The end time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+   * The end time of the query. The format is <i>YYYY-MM-DDThh:mmZ</i> (UTC time).
    * 
-   * > The end time must be later than the start time, and the interval between the start time and end time cannot exceed 7 days.
+   * > The end time must be later than the start time, and the interval between the start time and the end time cannot exceed 7 days.
    * 
    * @example
    * 2026-06-02T00:00Z
@@ -22,11 +22,11 @@ export class DescribeModelOperatorUsageShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The dimension by which to split the series. Separate multiple dimensions with commas (,). The order is not significant. Valid values:
+   * The dimension for splitting series. Separate multiple dimensions with commas (,). The order does not matter. Valid values:
    * 
-   * - model (default): splits by model.
-   * - api_key: splits by API key.
-   * - model,api_key: splits by model and API key.
+   * - model (default): Splits by model.
+   * - api_key: Splits by API key.
+   * - model,api_key: Splits by model and API key.
    * 
    * @example
    * model
@@ -36,13 +36,13 @@ export class DescribeModelOperatorUsageShrinkRequest extends $dara.Model {
    * @remarks
    * The list of metrics. Separate multiple metrics with commas (,). Valid values:
    * 
-   * - request_count: the number of requests.
-   * - success_count: the number of successful requests.
-   * - error_count: the number of failed requests.
-   * - success_rate: the request success rate.
-   * - input_token: the number of input tokens.
-   * - output_token: the number of output tokens.
-   * - total_token: the total number of tokens.
+   * - request_count: The number of requests.
+   * - success_count: The number of successful requests.
+   * - error_count: The number of failed requests.
+   * - success_rate: The request success rate.
+   * - input_token: The number of input tokens.
+   * - output_token: The number of output tokens.
+   * - total_token: The total number of tokens.
    */
   keysShrink?: string;
   /**
@@ -55,11 +55,11 @@ export class DescribeModelOperatorUsageShrinkRequest extends $dara.Model {
    * The time bucket size in seconds. Valid values: 1, 5, 15, 60, 300, and 3600.
    * 
    * >
-   * > - 1. If Period is not specified, the default value is determined by the following rules:
-   * > - - Window range ≤ 1 hour: Period = 1.
-   * > - - Window range ≤ 1 day: Period = 60.
-   * > - - Window range ≤ 7 days: Period = 60.
-   * > - 2. When Period is set to 1, the window must be ≤ 1 day.
+   * > - 1. If Period is not specified, the default value is selected based on the following rules:
+   * > - - If the time window is less than or equal to 1 hour, Period is set to 1.
+   * > - - If the time window is less than or equal to 1 day, Period is set to 60.
+   * > - - If the time window is less than or equal to 7 days, Period is set to 60.
+   * > - 2. If Period is set to 1, the time window must be less than or equal to 1 day.
    * 
    * @example
    * 1
@@ -67,9 +67,9 @@ export class DescribeModelOperatorUsageShrinkRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+   * The start time of the query. The format is <i>YYYY-MM-DDThh:mmZ</i> (UTC time).
    * 
-   * > Only metrics within the last 30 days can be queried.
+   * > You can query only metrics from the last 30 days.
    * 
    * @example
    * 2026-06-01T00:00Z

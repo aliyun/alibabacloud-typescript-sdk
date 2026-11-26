@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Ensures that repeated requests do not result in duplicate operations.
+   * The idempotency token. It ensures that duplicate requests do not execute the same operation.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,7 +13,7 @@ export class CreateSnapshotRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The LSN for the snapshot. You must specify either this parameter or SnapshotTimestamp. If this parameter is specified, the snapshot is created based on the specified LSN.
+   * The log sequence number (LSN) for the snapshot. You must specify either this parameter or SnapshotTimestamp. If specified, the snapshot is created based on this LSN.
    * 
    * @example
    * 0/3522648
@@ -21,7 +21,7 @@ export class CreateSnapshotRequest extends $dara.Model {
   lsn?: string;
   /**
    * @remarks
-   * The Supabase project ID.
+   * The ID of the Supabase project.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateSnapshotRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID. Specifies the region in which to perform the operation.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class CreateSnapshotRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The point in time for the snapshot. You must specify either this parameter or Lsn. If this parameter is specified, the snapshot is created based on the specified point in time.
+   * The point in time for the snapshot. You must specify either this parameter or Lsn. If specified, the snapshot is created based on this point in time.
    * 
    * @example
    * 2026-04-08T09:11:12Z

@@ -33,7 +33,7 @@ export class ModifyCollectionRequest extends $dara.Model {
    * 
    * Details:
    * 
-   * To add a new metadata field, set `operations[*].operator = add`. Then, use `operations[*].newMetaName` to specify the field\\"s name, `operations[*].newMetaType` for its data type, and `operations[*].fullTextRetrieval` to enable full-text retrieval for it.
+   * To add a new metadata field, set `operations[*].operator = add`. Then, use `operations[*].newMetaName` to specify the field\"s name, `operations[*].newMetaType` for its data type, and `operations[*].fullTextRetrieval` to enable full-text retrieval for it.
    * 
    * To modify an existing metadata field, set `operations[*].operator = replace`. You must specify the current field name in `operations[*].oldMetaName`. To rename the field, provide the new name in `operations[*].newMetaName`. To change its data type, provide the new type in `operations[*].newMetaType`.
    * 

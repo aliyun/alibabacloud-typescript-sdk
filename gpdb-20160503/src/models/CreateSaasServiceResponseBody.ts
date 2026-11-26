@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSaasServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
-   * *********
+   * 123456789
    */
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7565770E-7C45-462D-BA4A-8A5396F2CAD1
@@ -21,7 +21,7 @@ export class CreateSaasServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * agdb-eqxwj5tj5ojx

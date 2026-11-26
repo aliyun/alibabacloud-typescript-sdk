@@ -21,7 +21,7 @@ export class DescribeExtensionResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extension ID.
+   * The ID of the extension.
    * 
    * @example
    * 37
@@ -29,7 +29,7 @@ export class DescribeExtensionResponseBody extends $dara.Model {
   extensionId?: string;
   /**
    * @remarks
-   * The extension name.
+   * The name of the extension.
    * 
    * @example
    * zhparser
@@ -37,7 +37,7 @@ export class DescribeExtensionResponseBody extends $dara.Model {
   extensionName?: string;
   /**
    * @remarks
-   * Indicates whether an instance restart is required after you install the extension.
+   * Indicates whether the instance must be restarted to install the extension.
    * 
    * @example
    * False
@@ -45,7 +45,7 @@ export class DescribeExtensionResponseBody extends $dara.Model {
   isInstallNeedRestart?: boolean;
   /**
    * @remarks
-   * Whether it is the latest version extension.
+   * Indicates whether the extension is the latest version.
    * 
    * @example
    * True
@@ -61,7 +61,7 @@ export class DescribeExtensionResponseBody extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521

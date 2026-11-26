@@ -35,7 +35,7 @@ export class QueryKnowledgeBasesContentRequestMergeMethodArgsRrf extends $dara.M
 export class QueryKnowledgeBasesContentRequestMergeMethodArgsWeight extends $dara.Model {
   /**
    * @remarks
-   * The array of weights for each SourceCollection.
+   * The weight array for each SourceCollection.
    */
   weights?: number[];
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class QueryKnowledgeBasesContentRequestMergeMethodArgs extends $dara.Mode
 export class QueryKnowledgeBasesContentRequestRerankModel extends $dara.Model {
   /**
    * @remarks
-   * This parameter can be set when RerankModel.Name is set to qwen3-rerank. Adds a custom description for the sorting task type. You can use this parameter to guide the model to adopt different sorting strategies.
+   * This parameter can be set when RerankModel.Name is set to qwen3-rerank. Adds a custom sorting task type description. This parameter guides the model to adopt different sorting strategies.
    * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
@@ -175,7 +175,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsGraphSe
 export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsRerankModel extends $dara.Model {
   /**
    * @remarks
-   * This parameter can be set when RerankModel.Name is set to qwen3-rerank. Adds a custom description for the sorting task type. You can use this parameter to guide the model to adopt different sorting strategies.
+   * This parameter can be set when RerankModel.Name is set to qwen3-rerank. Adds a custom sorting task type description. This parameter guides the model to adopt different sorting strategies.
    * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
@@ -225,13 +225,13 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsRerankM
 export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extends $dara.Model {
   /**
    * @remarks
-   * The filter condition for the data to be queried, in the SQL WHERE clause format. It is an expression that returns a Boolean value (true or false). The condition can be a simple comparison operator such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), or less than or equal to (<=). It can also be a more complex expression combined with logical operators (AND, OR, NOT), or a condition using keywords such as IN, BETWEEN, and LIKE.
+   * The filter condition for the data to be queried, in the SQL WHERE clause format. This is an expression that returns a Boolean value (true or false). The condition can be a simple comparison operator, such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), or less than or equal to (<=). It can also be a more complex expression that combines logical operators (AND, OR, NOT), or a condition that uses keywords such as IN, BETWEEN, and LIKE.
    * 
    * > 
    * > - For detailed syntax, refer to https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
    * 
    * @example
-   * id = \\"llm-52tvykqt6u67iw73_j6ovptwjk7_file_6ce3da1f7e69495d9f491f2180c86973_11967297\\"
+   * id = \"llm-52tvykqt6u67iw73_j6ovptwjk7_file_6ce3da1f7e69495d9f491f2180c86973_11967297\"
    */
   filter?: string;
   /**
@@ -249,11 +249,13 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
   graphSearchArgs?: QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsGraphSearchArgs;
   /**
    * @remarks
-   * The multi-channel recall algorithm. Default value: empty, which means directly comparing and sorting the scores of dense vectors and full text. Valid values:
+   * The multi-channel recall algorithm. Default value: empty, which means the scores of dense vectors and full-text retrieve are directly compared and reranked.
+   * 
+   * Valid values:
    * 
    * - RRF: Reciprocal Rank Fusion. A parameter k is used to control the fusion effect. For more information, see the HybridSearchArgs configuration.
-   * - Weight: Weighted sorting. Parameters are used to control the score weights of vectors and full text before sorting. For more information, see the HybridSearchArgs configuration.
-   * - Cascaded: Full-text retrieve is performed first, followed by vector retrieve based on the full-text retrieve results.
+   * - Weight: Weighted reranking. Parameters are used to control the score weights of vectors and full-text retrieve before reranking. For more information, see the HybridSearchArgs configuration.
+   * - Cascaded: full-text retrieve is performed first, followed by vector retrieve based on the full-text retrieve results.
    * 
    * @example
    * Cascaded
@@ -261,9 +263,9 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
   hybridSearch?: string;
   /**
    * @remarks
-   * The algorithm parameters for multi-channel recall. Currently, RRF and Weight are supported. You can use HybridPathsSetting to specify the recall of dense vectors (dense), sparse vectors (sparse), and full-text index (fulltext). If this value is empty, dense vectors (dense) and full-text index (fulltext) are recalled by default.
+   * The algorithm parameters for multi-channel recall. RRF and Weight are supported. You can use HybridPathsSetting to specify the recall of dense vectors, sparse vectors, and full-text retrieve. If this value is empty, dense vectors and full-text retrieve are recalled by default.
    * 
-   * - RRF: Specifies the constant k in the score calculation formula 1/(k+rank_i). The value must be a positive integer greater than 1. Format:
+   * - RRF: Specifies the constant k in the score calculation formula `1/(k+rank_i)`. The value must be a positive integer greater than 1. Format:
    * ```
    * {
    *   "HybridPathsSetting": {
@@ -276,8 +278,8 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
    * ```
    * 
    * - Weight: 
-   *    - Dual-channel recall (HybridPathsSetting is not specified, only alpha is specified):
-   *       - Calculation formula: alpha * dense_score + (1-alpha) * fulltext_score. The alpha parameter represents the score weight of dense vectors and full-text index retrieve score. The value ranges from 0 to 1, where 0 indicates full-text index only and 1 indicates dense vectors only:
+   *    - Dual-channel recall (HybridPathsSetting is not specified, and only alpha is specified):
+   *       - Calculation formula: alpha * dense_score + (1-alpha) * fulltext_score. The alpha parameter represents the retrieve score weight of dense vectors and full-text retrieve. Valid values: 0 to 1. A value of 0 indicates full-text retrieve only, and a value of 1 indicates dense vectors only. Format:
    * ```
    * { 
    *    "Weight": {
@@ -286,7 +288,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
    * }
    * ```
    *   - Triple-channel recall pattern:
-   *      - Calculation formula: normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score. Here, dense, sparse, and fulltext represent the weights of dense vectors, sparse vectors, and full-text index, respectively. The value must be greater than or equal to 0. The system automatically performs normalization on the weights to 0 to 1 (that is, normalized_x = x / (dense + sparse + fulltext)).
+   *      - Calculation formula: normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score. The dense, sparse, and fulltext parameters represent the weights of dense vectors, sparse vectors, and full-text retrieve, respectively. Valid values: greater than or equal to 0. The system automatically performs normalization of the weights to 0 to 1 (that is, normalized_x = x / (dense + sparse + fulltext)). Format:
    * ```
    * {
    *   "HybridPathsSetting": {
@@ -299,6 +301,9 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
    *   }
    * }
    * ```
+   * 
+   * @example
+   * {"RRF":{"k":60}}
    */
   hybridSearchArgs?: { [key: string]: any };
   /**
@@ -336,7 +341,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
   orderBy?: string;
   /**
    * @remarks
-   * The recall window. If this value is not empty, the context of the retrieval results is additionally returned. The format is an array of two elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+   * The recall window. If this value is not empty, the context of the retrieval results is additionally returned. The value must be an array of two elements in the List<A, B> format, where -10 <= A <= 0 and 0 <= B <= 10.
    * > - We recommend that you use this parameter when document chunks are too small and retrieval may lose context information.
    * > - Reranking takes precedence over windowing. That is, reranking is performed before windowing.
    * 
@@ -356,7 +361,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
   rerankFactor?: number;
   /**
    * @remarks
-   * The parameters of the reranking model.
+   * The reranking model parameters.
    */
   rerankModel?: QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsRerankModel;
   /**
@@ -437,7 +442,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollection extends $dara.Mod
    * @remarks
    * The name of the document collection.
    * 
-   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view the created document collections.
+   * > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view the created document collections.
    * 
    * This parameter is required.
    * 
@@ -449,7 +454,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollection extends $dara.Mod
    * @remarks
    * The namespace.
    * 
-   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
+   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
    * 
    * @example
    * ns_cloud_index
@@ -469,7 +474,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollection extends $dara.Mod
   namespacePassword?: string;
   /**
    * @remarks
-   * The filter condition for the data to be updated, in the SQL WHERE clause format.
+   * The filter condition for the data, in the SQL WHERE clause format.
    */
   queryParams?: QueryKnowledgeBasesContentRequestSourceCollectionQueryParams;
   static names(): { [key: string]: string } {
@@ -563,7 +568,7 @@ export class QueryKnowledgeBasesContentRequest extends $dara.Model {
   rerankFactor?: number;
   /**
    * @remarks
-   * The parameters of the reranking model used to rerank the merged multi-channel results.
+   * The reranking model parameters used to rerank the merged multi-channel results.
    */
   rerankModel?: QueryKnowledgeBasesContentRequestRerankModel;
   /**
@@ -575,7 +580,7 @@ export class QueryKnowledgeBasesContentRequest extends $dara.Model {
   sourceCollection?: QueryKnowledgeBasesContentRequestSourceCollection[];
   /**
    * @remarks
-   * The number of top results to return after multi-channel recall results are merged.
+   * The number of top results to return after the multi-channel recall results are merged.
    * 
    * @example
    * 10

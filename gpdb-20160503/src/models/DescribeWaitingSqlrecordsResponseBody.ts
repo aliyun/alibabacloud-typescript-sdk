@@ -13,7 +13,7 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The ID of the process that uniquely identifies the query.
+   * The process ID, which is the unique identifier of the SQL statement for the waiting query.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   PID?: string;
   /**
    * @remarks
-   * The SQL statement of the query.
+   * The SQL text of the query.
    * 
    * @example
    * Select * from t1,t2 where t1.id=t2.id;
@@ -29,7 +29,7 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   SQLStmt?: string;
   /**
    * @remarks
-   * The ID of the session that contains the query.
+   * The ID of the session to which the query belongs.
    * 
    * @example
    * 50
@@ -37,7 +37,7 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   sessionID?: string;
   /**
    * @remarks
-   * The start time of the query. This value is in the timestamp format. Unit: milliseconds.
+   * The start time of the query. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1660902033374
@@ -45,10 +45,10 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The waiting state of the query. Valid values:
+   * The wait status of the query. Valid values:
    * 
-   * *   **LockWaiting**
-   * *   **ResourceWaiting**
+   * - **LockWaiting**: The query is waiting for a lock.
+   * - **ResourceWaiting**: The query is waiting for resources.
    * 
    * @example
    * LockWaiting
@@ -56,7 +56,7 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The database account that is used to perform the query.
+   * The user who executed the query.
    * 
    * @example
    * testUser
@@ -64,7 +64,7 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The waiting period of the query. Unit: milliseconds.
+   * The wait time of the SQL statement, in milliseconds.
    * 
    * @example
    * 26911000
@@ -108,12 +108,12 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
 export class DescribeWaitingSQLRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of lock diagnostics records.
+   * The list of queries.
    */
   items?: DescribeWaitingSQLRecordsResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribeWaitingSQLRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -129,7 +129,7 @@ export class DescribeWaitingSQLRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

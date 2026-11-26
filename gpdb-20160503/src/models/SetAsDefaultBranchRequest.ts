@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAsDefaultBranchRequest extends $dara.Model {
   /**
    * @remarks
-   * The branch ID that uniquely identifies a Supabase branch.
+   * The branch ID, which uniquely identifies a Supabase branch.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetAsDefaultBranchRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The ID of the Supabase project that corresponds to the primary branch.
+   * The ID of the Supabase project to which the main branch belongs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SetAsDefaultBranchRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID. This parameter is required when you create a primary branch. When you create a sub-branch, this parameter inherits the region of the primary branch by default.
+   * The region ID. This parameter is required when you create a main branch. When you create a child branch, it inherits the region of the main branch by default.
    * 
    * @example
    * cn-beijing

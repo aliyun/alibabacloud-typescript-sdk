@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the SSL certificate.
+   * The SSL certificate information.
    * 
    * @example
    * *.gpdbmaster.xxx.rds.aliyuncs.com
@@ -13,7 +13,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   certCommonName?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -21,7 +21,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -29,7 +29,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D5FF8636-37F6-4CE0-8002-F8734C62C686
@@ -37,7 +37,10 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether SSL encryption is enabled.
+   * Indicates whether Secure Sockets Layer (SSL) encryption is enabled. Valid values:
+   * 
+   * - **true**: SSL encryption is enabled.
+   * - **false**: SSL encryption is disabled.
    * 
    * @example
    * true

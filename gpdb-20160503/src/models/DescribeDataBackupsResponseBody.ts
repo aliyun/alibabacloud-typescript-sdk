@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The UTC time when the backup ended. The time is in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+   * The end time of the backup. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2021-12-22T12:01:43Z
@@ -13,7 +13,7 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   backupEndTime?: string;
   /**
    * @remarks
-   * The local time when the backup ended. The time is in the yyyy-MM-dd HH:mm:ss format. The time is your local time.
+   * The end time of the backup in local time.
    * 
    * @example
    * 2021-12-22 20:00:25
@@ -21,11 +21,10 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   backupEndTimeLocal?: string;
   /**
    * @remarks
-   * The method that is used to generate the backup set. Valid values:
+   * The backup method. Valid values:
    * 
-   * *   **Logical**: logical backup
-   * *   **Physical**: physical backup
-   * *   **Snapshot**: snapshot backup
+   * * **Physical**: physical backup.
+   * * **Snapshot**: snapshot backup.
    * 
    * @example
    * Physical
@@ -35,16 +34,16 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
    * @remarks
    * The backup mode.
    * 
-   * Valid values for full backup:
+   * Valid values for full backups:
    * 
-   * *   Automated: automatic backup
-   * *   Manual: manual backup
+   * - **Automated**: automatic backup performed by the system.
+   * - **Manual**: manual backup.
    * 
-   * Valid values for point-in-time backup:
+   * Valid values for restorable points:
    * 
-   * *   Automated: point-in-time backup after full backup
-   * *   Manual: manual point-in-time backup
-   * *   Period: point-in-time backup that is triggered by a backup policy
+   * - **Automated**: restorable point generated after a full backup.
+   * - **Manual**: restorable point manually triggered by the user.
+   * - **Period**: restorable point periodically triggered by the backup policy.
    * 
    * @example
    * Automated
@@ -68,7 +67,7 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   backupSize?: number;
   /**
    * @remarks
-   * The UTC time when the backup started. The time is in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+   * The start time of the backup. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2021-12-22T12:00:25Z
@@ -76,7 +75,7 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   backupStartTime?: string;
   /**
    * @remarks
-   * The local time when the backup started. The time is in the yyyy-MM-dd HH:mm:ss format. The time is your local time.
+   * The start time of the backup in local time.
    * 
    * @example
    * 2011-05-30 03:29:00
@@ -86,8 +85,8 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
    * @remarks
    * The status of the backup set. Valid values:
    * 
-   * *   Success
-   * *   Failure
+   * - **Success**: successful.
+   * - **Failure**: failed.
    * 
    * @example
    * Success
@@ -95,7 +94,7 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The name of a point-in-time backup set or the full backup set.
+   * The name of the restorable point or the full backup set.
    * 
    * @example
    * adbpgbackup_555*****_20211222200019
@@ -103,8 +102,8 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   baksetName?: string;
   /**
    * @remarks
-   * *   For full backup, this parameter indicates the point in time at which the data in the data backup file is consistent.
-   * *   For point-in-time backup, this parameter indicates that the returned point in time is a timestamp.
+   * - Full backup: the timestamp of the consistency point in time.
+   * - Restorable point: the timestamp of the restorable point in time.
    * 
    * @example
    * 1576506856
@@ -112,7 +111,7 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   consistentTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * gp-bp**************-master
@@ -120,10 +119,10 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The type of the backup. Valid values:
+   * The backup type. Valid values:
    * 
-   * *   DATA: full backup
-   * *   RESTOREPOI: point-in-time backup
+   * - **DATA**: full backup.
+   * - **RESTOREPOI**: restorable point.
    * 
    * @example
    * DATA
@@ -177,7 +176,7 @@ export class DescribeDataBackupsResponseBodyItems extends $dara.Model {
 export class DescribeDataBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The list of backup sets.
    */
   items?: DescribeDataBackupsResponseBodyItems[];
   /**
@@ -190,7 +189,7 @@ export class DescribeDataBackupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of backup sets on the current page.
    * 
    * @example
    * 1
@@ -198,7 +197,7 @@ export class DescribeDataBackupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3E387971-33A5-5019-AD7F-DC**********
@@ -206,7 +205,7 @@ export class DescribeDataBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total backup set size. Unit: Byte.
+   * The total size of the backup sets. Unit: bytes.
    * 
    * @example
    * 1111111111
@@ -214,7 +213,7 @@ export class DescribeDataBackupsResponseBody extends $dara.Model {
   totalBackupSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

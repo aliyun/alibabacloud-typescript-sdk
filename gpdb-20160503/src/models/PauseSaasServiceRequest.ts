@@ -13,7 +13,7 @@ export class PauseSaasServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * This parameter is required.
    * 

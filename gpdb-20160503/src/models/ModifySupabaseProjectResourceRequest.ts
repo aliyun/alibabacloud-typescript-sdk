@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySupabaseProjectResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The specification change type.
+   * The modification type.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ModifySupabaseProjectResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The storage size, in GB.
+   * The storage capacity. Unit: GB.
    * 
    * @example
    * 100

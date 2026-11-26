@@ -15,7 +15,7 @@ export class GetSupabaseUpdateVersionRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. Specifies the region for the query or operation.
    * 
    * @example
    * cn-hangzhou

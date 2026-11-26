@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * The client token that is used to ensure idempotence. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
@@ -15,7 +15,7 @@ export class RestartDBInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the instance.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including instance IDs.
    * 
    * This parameter is required.
    * 

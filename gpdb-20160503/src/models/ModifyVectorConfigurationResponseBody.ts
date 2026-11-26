@@ -13,9 +13,9 @@ export class ModifyVectorConfigurationResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
-   * This parameter is returned only if the request fails.
+   * This parameter is returned only when the API call fails.
    * 
    * @example
    * Failed to modify vector configuration.
@@ -31,10 +31,10 @@ export class ModifyVectorConfigurationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The API execution status. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The execution succeeded.
+   * - **false**: The execution failed.
    * 
    * @example
    * true

@@ -21,7 +21,7 @@ export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine.
    * 
    * @example
    * gpdb
@@ -29,12 +29,12 @@ export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The queried performance metrics.
+   * The list of performance metric values for the instance.
    */
   performanceKeys?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5E85244A-AB47-46A3-A3AD-5F307DCB407E

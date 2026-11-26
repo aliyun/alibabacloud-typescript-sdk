@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ModifyDBInstanceResourceGroupRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which you want to move the instance. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The ID of the destination resource group. For more information about how to obtain a resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ModifyDBInstanceResourceGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * **[Deprecated]** The ID of the resource group to which the instance currently belongs. For more information about how to obtain a resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-bp67acfmxazb4p****

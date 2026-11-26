@@ -13,7 +13,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
    * 
    * @example
    * null
@@ -21,7 +21,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
    * 
    * @example
    * null
@@ -31,8 +31,8 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
    * @remarks
    * Indicates whether the vSwitch is the default vSwitch. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The zone to which the vSwitch belongs.
    * 
    * @example
    * cn-hangzhou-i
@@ -48,7 +48,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
   izNo?: string;
   /**
    * @remarks
-   * The state of the vSwitch. If **Available** is returned, the vSwitch is available.
+   * The status of the vSwitch. A value of **Available** indicates that the vSwitch is available.
    * 
    * @example
    * Available
@@ -108,7 +108,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $dara.Model {
 export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
    * 
    * @example
    * null
@@ -116,7 +116,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
    * 
    * @example
    * null
@@ -132,7 +132,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
    * 
    * @example
    * null
@@ -140,7 +140,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
    * 
    * @example
    * null
@@ -150,8 +150,8 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
    * @remarks
    * Indicates whether the VPC is the default VPC. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true
@@ -159,7 +159,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -167,7 +167,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The state of the VPC. If **Available** is returned, the VPC is available.
+   * The status of the VPC. A value of **Available** indicates that the VPC is available.
    * 
    * @example
    * Available
@@ -175,7 +175,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The queried vSwitches.
+   * The list of vSwitches.
    */
   vSwitchs?: DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs[];
   /**
@@ -241,7 +241,7 @@ export class DescribeRdsVpcsResponseBodyVpcsVpc extends $dara.Model {
 export class DescribeRdsVpcsResponseBodyVpcs extends $dara.Model {
   /**
    * @remarks
-   * The queried VPC.
+   * The VPC information.
    */
   vpc?: DescribeRdsVpcsResponseBodyVpcsVpc[];
   static names(): { [key: string]: string } {
@@ -271,7 +271,7 @@ export class DescribeRdsVpcsResponseBodyVpcs extends $dara.Model {
 export class DescribeRdsVpcsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 53924AF0-1628-5AA2-9C95-D4**********
@@ -279,7 +279,7 @@ export class DescribeRdsVpcsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried VPCs.
+   * The list of VPCs.
    */
   vpcs?: DescribeRdsVpcsResponseBodyVpcs;
   static names(): { [key: string]: string } {

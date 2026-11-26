@@ -7,11 +7,15 @@ export class DescribeHadoopConfigsResponseBody extends $dara.Model {
    * @remarks
    * The name of the configuration file. Valid values:
    * 
-   * *   hdfs-site
-   * *   core-site
-   * *   yarn-site
-   * *   mapred-site
-   * *   hive-site
+   * - hdfs-site
+   * 
+   * - core-site
+   * 
+   * - yarn-site
+   * 
+   * - mapred-site
+   * 
+   * - hive-site
    * 
    * @example
    * hdfs-site
@@ -22,9 +26,17 @@ export class DescribeHadoopConfigsResponseBody extends $dara.Model {
    * The configuration value.
    * 
    * @example
-   * <?xml version="1.0"?>
+   * <?xml version="1.0" ?>
    * <configuration>
    *     <property>
+   *         <name>hive.exec.reducers.bytes.per.reducer</name>
+   *         <value>256000000</value>
+   *     </property>
+   *     <property>
+   *         <name>hive.stats.column.autogather</name>
+   *         <value>false</value>
+   *     </property>
+   * </configuration>
    */
   configValue?: string;
   /**

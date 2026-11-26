@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosisDimensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The names of the databases.
+   * The database names.
    */
   databases?: string[];
   /**
@@ -18,7 +18,7 @@ export class DescribeDiagnosisDimensionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The names of the database accounts.
+   * The usernames.
    */
   userNames?: string[];
   static names(): { [key: string]: string } {

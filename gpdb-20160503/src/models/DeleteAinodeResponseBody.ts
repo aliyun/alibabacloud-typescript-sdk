@@ -8,7 +8,7 @@ export class DeleteAINodeResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * *********
+   * 123456789
    */
   orderId?: string;
   /**

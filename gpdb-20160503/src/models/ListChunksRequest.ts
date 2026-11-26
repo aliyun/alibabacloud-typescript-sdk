@@ -7,7 +7,7 @@ export class ListChunksRequest extends $dara.Model {
    * @remarks
    * The name of the document collection.
    * 
-   * > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query existing document collections.
+   * > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view the created document collections.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class ListChunksRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListChunksRequest extends $dara.Model {
    * @remarks
    * The file name.
    * 
-   * > The name of a previously uploaded file. You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query the file list.
+   * > The name of the uploaded file. You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query the file list.
    * 
    * @example
    * mydoc.txt
@@ -39,20 +39,20 @@ export class ListChunksRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The filter condition for the data to query, in SQL WHERE clause format. The filter is an expression that returns a Boolean value (true or false). Conditions can be simple comparison operators such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), and less than or equal to (<=). You can also use logical operators (AND, OR, NOT) to combine more complex expressions, as well as conditions with the IN, BETWEEN, and LIKE keywords.
+   * The filter condition for the data to be queried, in the SQL WHERE clause format. It is an expression that returns a Boolean value (true or false). The condition can be a simple comparison operator, such as equal to (=), not equal to (<> or !=), greater than (>), less than (<), greater than or equal to (>=), or less than or equal to (<=). It can also be a more complex expression combined with logical operators (AND, OR, NOT), or a condition that uses keywords such as IN, BETWEEN, and LIKE.
    * 
    * > 
-   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
+   * > - For detailed syntax, refer to https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
-   * title = \\"test\\" AND name like \\"test%\\"
+   * title = \"test\" AND name like \"test%\"
    */
   filter?: string;
   /**
    * @remarks
    * Specifies whether to return vectors. Default value: false.
-   * > - **false**: Does not return vectors.
-   * > - **true**: Returns vectors.
+   * > - **false**: Vectors are not returned.
+   * > - **true**: Vectors are returned.
    * 
    * @example
    * true
@@ -62,7 +62,7 @@ export class ListChunksRequest extends $dara.Model {
    * @remarks
    * The namespace. Default value: public.
    * 
-   * > You can create a namespace by calling the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation and query the list of namespaces by calling the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation.
+   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
    * 
    * @example
    * mynamespace
@@ -71,7 +71,7 @@ export class ListChunksRequest extends $dara.Model {
   /**
    * @remarks
    * The password of the namespace.
-   * > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class ListChunksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Valid values:
+   * The number of entries per page. Valid values:
    * 
    * - **20**
    * - **50**

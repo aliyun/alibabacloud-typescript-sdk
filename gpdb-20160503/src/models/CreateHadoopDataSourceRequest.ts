@@ -15,7 +15,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The service description.
+   * The description of the data source.
    * 
    * @example
    * pxf for hdfs data source
@@ -91,7 +91,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   hadoopCoreConf?: string;
   /**
    * @remarks
-   * The external service type. Valid values:
+   * The type of the external service. Valid values:
    * - emr
    * - hadoop: self-managed Hadoop.
    * 
@@ -101,7 +101,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   hadoopCreateType?: string;
   /**
    * @remarks
-   * The addresses and hostnames of the source nodes in the Hadoop cluster in the /etc/hosts file.
+   * The IP addresses and hostnames of the source nodes in the Hadoop cluster in the /etc/hosts file.
    * 
    * @example
    * 192.168.220.128 master-1-1.c-xxx.cn-shanghai.emr.aliyuncs.com
@@ -133,14 +133,14 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
    * The content string of the Hadoop mapred-site.xml file. This parameter is required when you enable HDFS external tables.
    * 
    * @example
-   * xxxxxx
+   * <?xml version="1.0" ?>
+   * <configuration>
+   * </configuration>
    */
   mapReduceConf?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou

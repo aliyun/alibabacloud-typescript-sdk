@@ -13,7 +13,7 @@ export class DescribeAccountsRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The type of the database account that you want to query. Valid values: Super, Normal, and All. Default value: Super. If you set this parameter to Super, the information about the privileged account is returned. If you set this parameter to Normal, the information about all standard accounts is returned. If you set this parameter to All, the information about all database accounts is returned.
+   * The account type. Default value: Super, which specifies that privileged accounts are queried. If this parameter is set to Normal, standard accounts are queried. If this parameter is set to All, all accounts are queried.
    * 
    * @example
    * Super
@@ -21,9 +21,9 @@ export class DescribeAccountsRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in the target region, including instance IDs.
    * 
    * This parameter is required.
    * 

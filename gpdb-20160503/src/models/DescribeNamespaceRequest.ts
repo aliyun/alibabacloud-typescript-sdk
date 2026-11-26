@@ -39,7 +39,7 @@ export class DescribeNamespaceRequest extends $dara.Model {
    * @remarks
    * The namespace. Default value: public.
    * 
-   * > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the list.
+   * > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query the namespace list.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class DescribeNamespaceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be both empty. If both parameters are specified, this parameter takes precedence.
+   * The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be left empty at the same time. If both parameters are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

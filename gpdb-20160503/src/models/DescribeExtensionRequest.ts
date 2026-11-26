@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExtensionRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) Interface to query the details of all AnalyticDB PostgreSQL Instances in the target region, including Instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,11 +17,13 @@ export class DescribeExtensionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Database name.
+   * The name of the database.
    * 
-   * *   Only contain letters, digits, and underscores (_).
-   * *   Must start with a letter.
-   * *   Up to 63 characters in length.
+   * - It can contain only letters, digits, and underscores (_).
+   * 
+   * - It must start with a letter.
+   * 
+   * - It cannot exceed 63 characters in length.
    * 
    * This parameter is required.
    * 
@@ -31,7 +33,7 @@ export class DescribeExtensionRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The extension name.
+   * The name of the extension.
    * 
    * This parameter is required.
    * 

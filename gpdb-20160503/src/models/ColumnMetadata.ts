@@ -6,11 +6,17 @@ export class ColumnMetadata extends $dara.Model {
   /**
    * @remarks
    * The default value.
+   * 
+   * @example
+   * \"example\"::text
    */
   columnDefault?: string;
   /**
    * @remarks
    * The column description.
+   * 
+   * @example
+   * Sample column comment
    */
   comment?: string;
   /**
@@ -23,27 +29,30 @@ export class ColumnMetadata extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The case sensitivity.
+   * Indicates whether the column is case-sensitive.
    */
   isCaseSensitive?: boolean;
   /**
    * @remarks
-   * The currency value indicator.
+   * Indicates whether the column stores currency values.
    */
   isCurrency?: boolean;
   /**
    * @remarks
-   * The primary key indicator.
+   * Indicates whether the column is a primary key.
    */
   isPrimaryKey?: boolean;
   /**
    * @remarks
-   * The signed indicator.
+   * Indicates whether the column is signed.
    */
   isSigned?: boolean;
   /**
    * @remarks
    * The maximum character length.
+   * 
+   * @example
+   * 255
    */
   maxLength?: number;
   /**
@@ -56,17 +65,23 @@ export class ColumnMetadata extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The nullability.
+   * Indicates whether NULL values are allowed.
    */
   nullable?: boolean;
   /**
    * @remarks
-   * The precision of the column, which indicates the total number of digits in the integer and fractional parts of a decimal number.
+   * The column precision, which indicates the total number of digits in the integer and fractional parts of a decimal number.
+   * 
+   * @example
+   * 10
    */
   precision?: number;
   /**
    * @remarks
-   * The scale of the column, which indicates the number of digits in the fractional part of a decimal number.
+   * The column scale, which indicates the number of digits in the fractional part of a decimal number.
+   * 
+   * @example
+   * 2
    */
   scale?: number;
   /**
@@ -88,6 +103,9 @@ export class ColumnMetadata extends $dara.Model {
   /**
    * @remarks
    * The name of the base data type used by the column.
+   * 
+   * @example
+   * text
    */
   udtName?: string;
   static names(): { [key: string]: string } {

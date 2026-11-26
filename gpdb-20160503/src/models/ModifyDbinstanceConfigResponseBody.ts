@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -13,10 +13,10 @@ export class ModifyDBInstanceConfigResponseBody extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The error message returned if the operation fails.
+   * The error message. This parameter is returned only when the call fails.
    * 
    * @example
-   * \\"error message\\"
+   * \"error message\"
    */
   errorMessage?: string;
   /**
@@ -29,13 +29,13 @@ export class ModifyDBInstanceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the operation. Valid values:
+   * The modification status. Valid values:
    * 
-   * *   **0**: The operation failed.
-   * *   **1**: The operation is successful.
+   * - **0**: The modification failed.
+   * - **1**: The modification succeeded.
    * 
    * @example
-   * 1
+   * true
    */
   status?: boolean;
   static names(): { [key: string]: string } {

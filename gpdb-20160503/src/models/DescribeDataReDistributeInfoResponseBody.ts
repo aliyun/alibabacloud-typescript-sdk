@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo extends $dara.Model {
   /**
    * @remarks
-   * The execution information. If an error occurs, the error message is returned.
+   * The runtime information. If an error occurs, detailed error information is displayed.
    * 
    * @example
    * redistributing
@@ -13,7 +13,7 @@ export class DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo extend
   message?: string;
   /**
    * @remarks
-   * The progress of data redistribution. Unit: %.
+   * The data redistribution progress, in percentage.
    * 
    * @example
    * 33
@@ -45,7 +45,7 @@ export class DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo extend
   status?: string;
   /**
    * @remarks
-   * The execution type. The value **immediate** is returned, indicating immediate execution.
+   * The execution type. The value is fixed as **immediate**, which indicates immediate execution.
    * 
    * @example
    * immediate
@@ -85,7 +85,7 @@ export class DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo extend
 export class DescribeDataReDistributeInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data redistribution information.
+   * The data redistribution task information.
    */
   dataReDistributeInfo?: DescribeDataReDistributeInfoResponseBodyDataReDistributeInfo;
   /**

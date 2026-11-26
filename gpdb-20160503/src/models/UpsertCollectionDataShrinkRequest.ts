@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertCollectionDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the collection.
+   * The collection name.
+   * 
+   * > You can create a collection by calling [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) and view the list of collections by calling [ListCollections](https://help.aliyun.com/document_detail/2401503.html).
    * 
    * This parameter is required.
    * 
@@ -17,17 +19,17 @@ export class UpsertCollectionDataShrinkRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including the instance IDs.
    * 
    * @example
-   * gp-xxxxxxxxx
+   * gp-bp152460513z****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * The namespace used for tenant isolation. Default value: public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create a namespace by calling [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) and view the list of namespaces by calling [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html).
    * 
    * @example
    * mynamespace
@@ -35,7 +37,7 @@ export class UpsertCollectionDataShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * The password for the namespace.
    * 
    * This parameter is required.
    * 
@@ -48,8 +50,6 @@ export class UpsertCollectionDataShrinkRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -58,12 +58,12 @@ export class UpsertCollectionDataShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The vector data that you want to upload.
+   * The list of vector data.
    */
   rowsShrink?: string;
   /**
    * @remarks
-   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be both empty. If both parameters are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

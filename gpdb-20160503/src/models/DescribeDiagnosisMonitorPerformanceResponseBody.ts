@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends $dara.Model {
   /**
    * @remarks
-   * The execution duration of the query. Unit: milliseconds.
+   * The total execution time of the query. Unit: milliseconds.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends
   database?: string;
   /**
    * @remarks
-   * The ID of the query. It is a unique identifier of the query.
+   * The ID of the query, which is the unique identifier of the query.
    * 
    * @example
    * 2022042612465401000000012903151998970
@@ -29,7 +29,7 @@ export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends
   queryID?: string;
   /**
    * @remarks
-   * The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The start time of the query. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1651877940000
@@ -37,10 +37,10 @@ export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends
   startTime?: number;
   /**
    * @remarks
-   * The execution state of the query. Valid values:
+   * The execution status of the query. Valid values:
    * 
-   * *   **running**: The query is being executed.
-   * *   **finished**: The query is complete.
+   * - **running**: Running.
+   * - **finished**: Completed.
    * 
    * @example
    * finished
@@ -48,7 +48,7 @@ export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends
   status?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * adbpguser
@@ -88,7 +88,7 @@ export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends
 export class DescribeDiagnosisMonitorPerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of query execution.
+   * The list of SQL queries.
    */
   performances?: DescribeDiagnosisMonitorPerformanceResponseBodyPerformances[];
   /**
@@ -101,10 +101,10 @@ export class DescribeDiagnosisMonitorPerformanceResponseBody extends $dara.Model
   performancesThreshold?: number;
   /**
    * @remarks
-   * Indicates whether the queries are truncated when the number of queries exceeds the threshold. Valid values:
+   * Indicates whether the number of queries is truncated. Valid values:
    * 
-   * *   **true**: The queries are truncated.
-   * *   **false**: The queries are not truncated.
+   * - **true**: Truncated.
+   * - **false**: Not truncated.
    * 
    * @example
    * false

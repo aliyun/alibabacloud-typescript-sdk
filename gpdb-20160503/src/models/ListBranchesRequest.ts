@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBranchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return in this query.
+   * The maximum number of entries to return for the current query.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListBranchesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The cursor for paging query. You do not need to specify this parameter for the first query. For subsequent queries, use the NextToken value returned in the previous response.
+   * The cursor for the paging query. You do not need to specify this parameter for the first query. For subsequent queries, use the NextToken value returned from the previous query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -29,7 +29,7 @@ export class ListBranchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * Valid values:
    * - 10
@@ -45,7 +45,7 @@ export class ListBranchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The parent branch ID. Specifies the parent branch for a new branch or as a query filter condition.
+   * The ID of the parent branch. This parameter is used to specify the parent branch for a new branch or a query condition.
    * 
    * @example
    * br-main
@@ -53,7 +53,7 @@ export class ListBranchesRequest extends $dara.Model {
   parentBranchId?: string;
   /**
    * @remarks
-   * The region ID. This parameter is required when you create a primary branch. When you create a sub-branch, the region is inherited from the primary branch by default.
+   * The region ID. This parameter is required when you create a primary branch. When you create a child branch, the region of the primary branch is inherited by default.
    * 
    * @example
    * cn-beijing
@@ -61,7 +61,7 @@ export class ListBranchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The search keyword. Supports fuzzy search by branch ID or branch name.
+   * The search keyword. Fuzzy search by branch ID or branch name is supported.
    * 
    * @example
    * main
@@ -69,12 +69,12 @@ export class ListBranchesRequest extends $dara.Model {
   search?: string;
   /**
    * @remarks
-   * The sort field.
+   * The sorting field.
    * 
    * Valid values:
-   * - BranchName: sorts by branch name.
-   * - CreateTime: sorts by creation time.
-   * - LastRunTime: sorts by last run time.
+   * - BranchName: Sort by branch name.
+   * - CreateTime: Sort by creation time.
+   * - LastRunTime: Sort by last run time.
    * 
    * Default value: CreateTime.
    * 
@@ -84,11 +84,11 @@ export class ListBranchesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sort direction.
+   * The sorting order.
    * 
    * Valid values:
-   * - Asc: ascending order.
-   * - Desc: descending order.
+   * - Asc: Ascending order.
+   * - Desc: Descending order.
    * 
    * Default value: Desc.
    * 

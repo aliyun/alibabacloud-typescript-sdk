@@ -5,24 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBResourceGroupRequestResourceGroupItems extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the resource group to which you want to modify.
-   * 
-   * > 
-   * 
-   * *   CpuRateLimit: the percentage of CPU resources that are available for the resource group. Unit: %.
-   * 
-   * *   MemoryLimit: the percentage of memory resources that are available for the resource group. Unit: %.
-   * 
-   * *   MemorySharedQuota: the percentage of memory resources shared among transactions that are submitted to the resource group. Unit: %. Default value: 80.
-   * 
-   * *   MemorySpillRatio: the memory spill ratio for memory-intensive transactions. When the memory that is used by memory-intensive transactions reaches this value, data is spilled to disks. Unit: %. Default value: 0.
-   * 
-   * *   Concurrency: the maximum number of concurrent transactions or parallel queries that are allowed for a resource group. Default value: 20.
+   * The configuration of the resource group.
+   * > 1. CpuRateLimit: the percentage of CPU resources available to the resource group. Unit: %.
+   * > 2. MemoryLimit: the percentage of memory resources available to the resource group. Unit: %.
+   * > 3. MemorySharedQuota: the percentage of memory resources shared among transactions submitted to the resource group. Unit: %. Default value: 80.
+   * > 4. MemorySpillRatio: the memory usage threshold for memory-intensive transactions. When a transaction reaches this threshold, it spills to disk. Unit: %. Default value: 0.
+   * > 5. Concurrency: the maximum concurrency allowed for the resource group. Default value: 20.
    * 
    * This parameter is required.
    * 
    * @example
-   * {"CpuRateLimit":"10","MemoryLimit":"12","MemorySharedQuota":"20","MemorySpillRatio":"75","Concurrency":"3"}
+   * {"CpuRateLimit":10,"MemoryLimit":12,"MemorySharedQuota":20,"MemorySpillRatio":75,"Concurrency":3}
    */
   resourceGroupConfig?: string;
   /**
@@ -61,9 +54,9 @@ export class ModifyDBResourceGroupRequestResourceGroupItems extends $dara.Model 
 export class ModifyDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -74,7 +67,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The information about the resource group.
+   * The details of the resource groups.
    * 
    * This parameter is required.
    */

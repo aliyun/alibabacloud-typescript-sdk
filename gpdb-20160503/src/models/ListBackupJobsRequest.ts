@@ -7,10 +7,10 @@ export class ListBackupJobsRequest extends $dara.Model {
    * @remarks
    * The backup mode. Valid values:
    * 
-   * *   Automated
-   * *   Manual
+   * - Automated: automatic backup
+   * - Manual: manual backup
    * 
-   * If you do not specify this parameter, all backup sets are returned.
+   * If this parameter is not specified, all backup tasks are returned.
    * 
    * @example
    * Automated
@@ -18,9 +18,9 @@ export class ListBackupJobsRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including the instance IDs.
    * 
    * This parameter is required.
    * 

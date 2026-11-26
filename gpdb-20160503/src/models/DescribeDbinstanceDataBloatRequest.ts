@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceDataBloatRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
@@ -33,7 +33,7 @@ export class DescribeDBInstanceDataBloatRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: **1**.
    * 
    * @example
    * 1

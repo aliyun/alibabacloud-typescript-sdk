@@ -15,11 +15,10 @@ export class HandleActiveSQLRecordRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The type of the operation on the process ID. Valid values:
-   * 
-   * *   **0**: cancel.
-   * *   **1**: terminate.
-   * *   **2**: forcefully terminate.
+   * The operation type for the process ID. Valid values:
+   * - **0**: cancel
+   * - **1**: terminate
+   * - **2**: force terminate
    * 
    * @example
    * 0
@@ -27,7 +26,7 @@ export class HandleActiveSQLRecordRequest extends $dara.Model {
   operateType?: number;
   /**
    * @remarks
-   * The process IDs. A process ID is a unique identifier of a query.
+   * The process IDs, which are the unique identifiers of the queries.
    * 
    * This parameter is required.
    * 

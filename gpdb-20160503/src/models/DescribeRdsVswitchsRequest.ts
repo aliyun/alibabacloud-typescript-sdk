@@ -7,9 +7,9 @@ export class DescribeRdsVSwitchsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs and zone IDs.
    * 
    * @example
    * cn-hangzhou
@@ -17,10 +17,10 @@ export class DescribeRdsVSwitchsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
    * 
    * @example
-   * rg-bp67acfmxazb4p****
+   * null
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -28,13 +28,9 @@ export class DescribeRdsVSwitchsRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the instance.
-   * 
-   * > 
-   * 
-   * *   You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPC IDs.
-   * 
-   * *   This parameter must be specified.
+   * The VPC ID.
+   * > - You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query available VPC IDs.
+   * > - This parameter is required.
    * 
    * @example
    * vpc-bp*******************
@@ -42,9 +38,9 @@ export class DescribeRdsVSwitchsRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs and zone IDs.
    * 
    * @example
    * cn-hangzhou-h

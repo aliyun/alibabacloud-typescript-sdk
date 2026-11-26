@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreBranchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The branch ID that uniquely identifies a Supabase branch.
+   * The branch ID, which uniquely identifies a Supabase branch.
    * 
    * @example
    * br-xxxx

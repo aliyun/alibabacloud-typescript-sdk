@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description of the database account.
+   * The modified account description. The description must meet the following requirements:
    * 
-   * *   The description must start with a letter.
-   * *   The description cannot start with `http://` or `https://`.
-   * *   The description can contain letters, underscores (_), hyphens (-), and digits.
-   * *   The description must be 2 to 256 characters in length.
+   * - It must start with a letter or a Chinese character.
+   * - It cannot start with `http://` or `https://`.
+   * - It can contain letters, Chinese characters, underscores (_), hyphens (-), and digits.
+   * - It must be 2 to 256 characters in length.
    * 
    * @example
    * testAccoutdescribe
@@ -28,7 +28,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * The client token that is used to ensure idempotence. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
@@ -36,9 +36,9 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID of the instance.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query instance IDs of all AnalyticDB for PostgreSQL instances in the specified region.
    * 
    * This parameter is required.
    * 

@@ -18,7 +18,7 @@ export class UpsertChunksRequestTextChunks extends $dara.Model {
    * The filter condition for the data to be updated, in the format of an SQL WHERE clause.
    * 
    * @example
-   * title = \\"seagull\\"
+   * title = \"seagull\"
    */
   filter?: string;
   /**

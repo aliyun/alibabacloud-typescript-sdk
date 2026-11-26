@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to untag all tags on the instance. This parameter is only effective when TagKey.N is not set in the request. The value range is:
+   * Specifies whether to detach all tags from the instances. This parameter is valid only when TagKey.N is not specified in the request. Valid values:
    * 
    * - true
    * - false
    * 
-   * Default value: false
+   * Default value: false.
    * 
    * @example
    * false
@@ -20,7 +20,7 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Region ID, you can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Instance ID. N\\"s value range: 1~50
+   * The instance ID. Valid values of N: 1 to 50.
    * 
    * This parameter is required.
    */
@@ -39,9 +39,9 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Resource type. The value range is:
-   * - `instance`: Reserved mode instance.
-   * - `ALIYUN::GPDB::INSTANCE`: Elastic mode instance.
+   * The resource type. Valid values:
+   * - `instance`: reserved mode instance.
+   * - `ALIYUN::GPDB::INSTANCE`: elastic mode instance.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Resource tag key. N\\"s value range: 1~20
+   * The tag key of the resource. Valid values of N: 1 to 20.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

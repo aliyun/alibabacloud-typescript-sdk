@@ -81,7 +81,7 @@ export class ListSupabaseProjectTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details.
+   * The tag resource details.
    */
   tagResources?: ListSupabaseProjectTagsResponseBodyTagResources[];
   static names(): { [key: string]: string } {

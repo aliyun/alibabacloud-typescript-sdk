@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCallsFunction extends $dara.Model {
   /**
    * @remarks
-   * The arguments of the called function.
+   * The arguments for the called function.
    * 
    * @example
    * {"city":"hangzhou"}
@@ -58,7 +58,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCa
   id?: string;
   /**
    * @remarks
-   * The ordinal number of the tool invocation.
+   * The ordinal number of the tool calling invoke.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage exten
    * The document content.
    * 
    * @example
-   * The weather in Hangzhou is sunny.
+   * The weather in Hangzhou is sunny
    */
   content?: string;
   /**
@@ -122,7 +122,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage exten
   role?: string;
   /**
    * @remarks
-   * The list of tool invocation responses.
+   * The list of tool calling invoke responses.
    */
   toolCalls?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCalls[];
   static names(): { [key: string]: string } {
@@ -371,7 +371,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
    * The document content.
    * 
    * @example
-   * AnalyticDB PostgreSQL vector database.
+   * ADBPG vector database
    */
   content?: string;
   /**
@@ -384,7 +384,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   fileName?: string;
   /**
    * @remarks
-   * The public URL of the image in the query result. The default validity period is 2 hours. You can specify the validity period by using the UrlExpiration request parameter.
+   * The public URL of the query result image. The default validity period is 2 hours. You can specify the validity period by using the UrlExpiration request parameter.
    * 
    * @example
    * http://viapi-customer-pop.oss-cn-shanghai.aliyuncs.com/b4d8_207196811002111319_570c0e199f03428f812ab21fcc00dd6a
@@ -409,6 +409,9 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   /**
    * @remarks
    * The metadata.
+   * 
+   * @example
+   * {"update_time":1749348435357,"title":"example"}
    */
   metadata?: { [key: string]: any };
   /**
@@ -421,7 +424,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   rerankScore?: number;
   /**
    * @remarks
-   * The source of the retrieve results. 1 indicates AISearch, 2 indicates full-text index, and 3 indicates dual-channel recall.
+   * The source of the retrieve result. A value of 1 indicates AISearch. A value of 2 indicates full-text index. A value of 3 indicates dual-channel recall.
    * 
    * @example
    * 3
@@ -429,7 +432,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   retrievalSource?: number;
   /**
    * @remarks
-   * The similarity score of this data entry. The scoring algorithm is related to the algorithm specified when the index is created, such as l2, ip, or cosine.
+   * The similarity score of this data entry. The scoring algorithm depends on the algorithm specified during index creation, such as l2, ip, or cosine.
    * 
    * @example
    * 12
@@ -490,7 +493,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage e
    * @remarks
    * The number of tokens used for vectorization.
    * 
-   * > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
+   * > A token is the smallest unit into which input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
    * @example
    * 21
@@ -544,8 +547,8 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult extend
   /**
    * @remarks
    * The API execution status. Valid values:
-   * - **success**: The execution is successful.
-   * - **fail**: The execution fails.
+   * - **success**: The execution was successful.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success
@@ -561,7 +564,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult extend
   tokens?: number;
   /**
    * @remarks
-   * The number of tokens or entries consumed for document understanding or embedding.
+   * The number of tokens or items consumed for document understanding or embedding.
    */
   usage?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage;
   static names(): { [key: string]: string } {
@@ -639,8 +642,8 @@ export class ChatWithKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - **success**: The operation is successful.
-   * - **fail**: The operation fails.
+   * - **success**: Successful.
+   * - **fail**: Failed.
    * 
    * @example
    * success

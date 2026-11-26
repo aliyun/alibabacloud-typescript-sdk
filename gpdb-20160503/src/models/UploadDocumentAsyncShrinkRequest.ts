@@ -6,7 +6,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The size of overlapping data between consecutive chunks. The maximum value of this parameter cannot be greater than the value of the ChunkSize parameter.
-   * >  This parameter prevents context loss caused by data truncation. For example, when you upload long text, you can retain specific overlapping text content between consecutive chunks for better context understanding.
+   * > This parameter is used to prevent context loss caused by data truncation. For example, when you upload long text, you can retain specific overlapping text content between consecutive chunks to better understand the context.
    * 
    * @example
    * 50
@@ -14,7 +14,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   chunkOverlap?: number;
   /**
    * @remarks
-   * The strategy for processing large data: the size of each chunk when data is split into smaller parts. Maximum value: 2048.
+   * The strategy for processing large amounts of data: the size of each chunk when data is split into smaller parts. Maximum value: 2048.
    * 
    * @example
    * 250
@@ -23,7 +23,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the document collection.
-   * >Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query the created document collections.
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view the created document collections.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * The ID of the instance that has vector engine optimization enabled. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the target region, including instance IDs.
+   * The ID of the instance for which vector engine optimization and acceleration is enabled. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in the target region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the document loader. If you do not specify this parameter, the system automatically selects the corresponding document loader based on the file name extension in the following order. Valid values:
+   * The name of the document loader. If you do not specify this parameter, the system automatically selects the corresponding document loader in the following order based on the file name extension. Valid values:
    * *   UnstructuredHTMLLoader: .html
    * *   UnstructuredMarkdownLoader: .md
    * *   PyMuPDFLoader: .pdf
@@ -54,7 +54,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
    * *   CSVLoader: .csv
    * *   RapidOCRLoader: .png, .jpg, .jpeg, and .bmp
    * *   UnstructuredFileLoader: .eml, .msg, .rst, .txt, .docx, .epub, .odt, .pptx, and .tsv
-   * *   ADBPGLoader (paid, first 3,000 pages free): .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, .xlsm, .csv, .txt, .jpg, .jpeg, .png, .bmp, .gif, .md, .html, .epub, .mobi, and .rtf
+   * *   ADBPGLoader (paid, first 3,000 pages are free): .pdf, .doc, .docx, .ppt, .pptx, .xls, .xlsx, .xlsm, .csv, .txt, .jpg, .jpeg, .png, .bmp, .gif, .md, .html, .epub, .mobi, and .rtf
    * 
    * @example
    * PyMuPDFLoader
@@ -62,9 +62,9 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   documentLoaderName?: string;
   /**
    * @remarks
-   * Specifies whether to perform only document understanding and chunking without vectorization and storage. Default value: false.
+   * Specifies whether to only perform document understanding and chunking without vectorization and storage. Default value: false.
    * 
-   * >  You can set this parameter to true to check the chunking results and then optimize as needed.
+   * > You can set this parameter to true to check the chunking effect and then optimize it as needed.
    * 
    * @example
    * false
@@ -74,9 +74,9 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
    * @remarks
    * The file name of the document.
    * 
-   * >* The file name must include file name extension, such as .json, .md, or .pdf.
+   * >* The file name must file name extension. Examples: .json, .md, and .pdf.
    * >* Supported image file extensions include .bmp, .jpg, .jpeg, .png, and .tiff.
-   * >* You can upload images by using an archive. The archive file name must include file name extension. Supported archive extensions include .tar, .gz, and .zip.
+   * >* You can use a compressed package to upload images. The file name of the compressed package must file name extension. Supported compressed package extensions include .tar, .gz, and .zip.
    * 
    * This parameter is required.
    * 
@@ -86,9 +86,9 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The publicly accessible URL of the document.
-   * > Use the SDK to call this operation. The SDK provides a method named UploadDocumentAsyncAdvance that allows you to directly upload local files.
-   * If the URL points to an image archive, the number of images in the archive cannot exceed 100.
+   * The URL for public access to the document.
+   * > We recommend that you use an SDK to call this operation. The SDK provides a method named UploadDocumentAsyncAdvance, which allows you to directly upload local files.
+   * If the URL points to an image archive, the number of images in the current archive must not exceed 100.
    * 
    * >Notice: 
    * The maximum size of an image uploaded by using multimodal-embedding-v1 is 3 MB.
@@ -101,12 +101,15 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * The metadata. The value of this parameter must be the same as the Metadata parameter specified when you call the CreateDocumentCollection operation.
+   * The metadata. The value of this parameter must be the same as the Metadata parameter specified when the CreateDocumentCollection operation is called.
+   * 
+   * @example
+   * {"title":"mytitle","page":1}
    */
   metadataShrink?: string;
   /**
    * @remarks
-   * The namespace. Default value: public. You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query the list of namespaces.
+   * The namespace. Default value: public. You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to view the namespace list.
    * 
    * @example
    * mynamespace
@@ -114,7 +117,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace. The value is specified by the CreateNamespace operation.
+   * The password corresponding to the namespace. This value is specified when the CreateNamespace operation is called.
    * 
    * This parameter is required.
    * 
@@ -135,24 +138,24 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The separators used to split large data.
-   * > *   This is an important parameter that determines the effectiveness of data chunking. This parameter is related to the splitter specified by the TextSplitterName parameter.
+   * The separators used to split large amounts of data.
+   * > *   This is an important parameter that determines the effect of data chunking. This parameter is related to the splitter specified by the TextSplitterName parameter.
    * >*  In most cases, you do not need to specify this parameter. The server assigns separators based on the value of the TextSplitterName parameter.
    */
   separatorsShrink?: string;
   /**
    * @remarks
-   * The splitting model to use when DocumentLoaderName is set to ADBPGLoader and TextSplitterName is set to LLMSplitter. Default value: qwen3-8b.
+   * The splitting model. This parameter can be specified when ADBPGLoader is selected for DocumentLoaderName and LLMSplitter is selected for TextSplitterName. Default value: qwen3-8b.
    * > 
-   * > Currently supported splitting models:
+   * > Supported splitting models:
    * > qwq-plus, qwq-plus-latest,
    * > qwen-max, qwen-max-latest,
    * > qwen-plus, qwen-plus-latest,
    * > qwen-turbo, qwen-turbo-latest,
    * > qwen3-235b-a22b, qwen3-32b, qwen3-30b-a3b,
    * > qwen3-14b, qwen3-8b, qwen3-4b, qwen3-1.7b, qwen3-0.6b,
-   * > qwq-32b
-   * > qwen2.5-14b-instruct-1m, qwen2.5-7b-instruct-1m
+   * > qwq-32b,
+   * > qwen2.5-14b-instruct-1m, qwen2.5-7b-instruct-1m,
    * > qwen2.5-72b-instruct, qwen2.5-32b-instruct,
    * > qwen2.5-14b-instruct, qwen2.5-7b-instruct,
    * > qwen2.5-3b-instruct, qwen2.5-1.5b-instruct, qwen2.5-0.5b-instruct
@@ -163,20 +166,20 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   splitterModel?: string;
   /**
    * @remarks
-   * The name of the text splitter. Valid values:
-   * *   **ChineseRecursiveTextSplitter**: inherits from RecursiveCharacterTextSplitter and uses `["
+   * The name of the splitter. Valid values:
+   * *   **ChineseRecursiveTextSplitter**: Inherits from RecursiveCharacterTextSplitter. By default, `["
    * 
    * ","
-   * ", "。|!|?", "\\.\\s|\\!\\s|\\?\\s", ";|;\\s", ",|,\\s"]` as the default separators with regular expression matching.
-   * *   **RecursiveCharacterTextSplitter**: uses `["
+   * ", "。|!|?", "\.\s|\!\s|\?\s", ";|;\s", ",|,\s"]` is used as the separator, and regular expressions are used to match text.
+   * *   **RecursiveCharacterTextSplitter**: By default, `["
    * 
    * ", "
-   * ", " ", ""]` as the default separators. This splitter supports splitting code in languages such as C++, Go, Java, JS, PHP, Proto, Python, RST, Ruby, Rust, Scala, Swift, Markdown, LaTeX, HTML, Sol, and C Sharp.
-   * *   **SpacyTextSplitter**: uses `
+   * ", " ", ""]` is used as the separator. This splitter supports splitting code in languages such as C++, Go, Java, JS, PHP, Proto, Python, RST, Ruby, Rust, Scala, Swift, Markdown, LaTeX, HTML, Sol, and C Sharp.
+   * *   **SpacyTextSplitter**: By default, `
    * 
-   * ` as the default separator and the spaCy en_core_web_sm model. This splitter provides better splitting results.
-   * *   **MarkdownHeaderTextSplitter**: splits text in the format of [("#", "head1"), ("##", "head2"), ("###", "head3"), ("####", "head4")]. This splitter is suitable for Markdown text.
-   * *   **LLMSplitter**: uses an LLM to split text. The default model is qwen3-8b. This splitter takes effect only when ADBPGLoader is selected as the document loader.
+   * ` is used as the separator, and the en_core_web_sm model of spaCy is used. This splitter can achieve better splitting effects.
+   * *   **MarkdownHeaderTextSplitter**: Splits text in the format of `[("#", "head1"), ("##", "head2"), ("###", "head3"), ("####", "head4")]`. This splitter is suitable for Markdown text.
+   * *   **LLMSplitter**: Uses an LLM to split text. The default model is qwen3-8b. Currently, this splitter takes effect only when ADBPGLoader is selected.
    * 
    * @example
    * ChineseRecursiveTextSplitter
@@ -187,9 +190,9 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
    * Specifies whether to enable VL-enhanced content recognition for complex documents. Default value: false.
    * 
    * > 
-   * > - For complex documents with disorganized layouts and formats, enable VL-enhanced content recognition.
-   * > - After VL-enhanced content recognition is enabled, document processing takes longer.
-   * > - After VL-enhanced content recognition is enabled, images in the document cannot be stored or recalled.
+   * > - For complex documents with messy layouts and formats, we recommend that you enable VL-enhanced content recognition.
+   * > - After you enable VL-enhanced content recognition, document processing takes a longer time.
+   * > - After you enable VL-enhanced content recognition, images in the document cannot be stored or recalled.
    * 
    * @example
    * false
@@ -198,7 +201,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable title enhancement.
-   * >You can identify the title text, mark the text in the metadata, and then combine the text with the upper-level title for text enhancement.
+   * > You can identify the title text, mark the text in the metadata, and then combine the text with the previous-level title to achieve text enhancement.
    * 
    * @example
    * false

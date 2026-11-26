@@ -38,9 +38,9 @@ export class DescribeDownloadSQLLogsResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - **running**: Downloading.
-   * - **finished**: Completed.
-   * - **failed**: Download failed.
+   * - **running**: The download is in progress.
+   * - **finished**: The download is completed.
+   * - **failed**: The download failed.
    * 
    * @example
    * finished

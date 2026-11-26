@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceLinkedRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B

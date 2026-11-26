@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetBranchRequest extends $dara.Model {
   /**
    * @remarks
-   * The branch ID, which uniquely identifies a Supabase branch.
+   * The ID of the branch. This ID uniquely identifies a Supabase branch.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ResetBranchRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID. This parameter is required when you create a main branch. When you create a child branch, it inherits the region of the main branch by default.
+   * The region ID. This parameter is required when you create a main branch. When you create a child branch, the region ID of the main branch is inherited by default.
    * 
    * @example
    * cn-beijing

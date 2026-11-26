@@ -6,8 +6,7 @@ export class DeleteDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including instance IDs.
    * 
    * This parameter is required.
    * 

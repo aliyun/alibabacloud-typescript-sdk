@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of days for which data backup files are retained.
+   * The retention period of data backups in days.
    * 
    * @example
    * 7
@@ -13,10 +13,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   backupRetentionPeriod?: number;
   /**
    * @remarks
-   * Indicates whether automatic point-in-time backup is enabled. Valid values:
+   * Indicates whether automatic recovery points are enabled. Valid values:
    * 
-   * *   **true**: Automatic point-in-time backup is enabled.
-   * *   **false**: Automatic point-in-time backup is disabled.
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -24,15 +24,15 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   enableRecoveryPoint?: boolean;
   /**
    * @remarks
-   * The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid values:
+   * The backup cycle. Separate multiple values with commas (,). Valid values:
    * 
-   * *   **Monday**
-   * *   **Tuesday**
-   * *   **Wednesday**
-   * *   **Thursday**
-   * *   **Friday**
-   * *   **Saturday**
-   * *   **Sunday**
+   * - **Monday**: Monday.
+   * - **Tuesday**: Tuesday.
+   * - **Wednesday**: Wednesday.
+   * - **Thursday**: Thursday.
+   * - **Friday**: Friday.
+   * - **Saturday**: Saturday.
+   * - **Sunday**: Sunday.
    * 
    * @example
    * Wednesday,Friday
@@ -40,7 +40,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The backup time. The time is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
+   * The backup time. Format: HH:mmZ-HH:mmZ (UTC).
    * 
    * @example
    * 12:00Z-13:00Z
@@ -48,12 +48,12 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
-   * The frequency of the point-in-time backup. Valid values:
+   * The recovery point frequency. Valid values:
    * 
-   * *   **1**: per hour
-   * *   **2**: per 2 hours
-   * *   **4**: per 4 hours
-   * *   **8**: per 8 hours
+   * - **1**: Every hour.
+   * - **2**: Every two hours.
+   * - **4**: Every four hours.
+   * - **8**: Every eight hours.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   recoveryPointPeriod?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9E6B3287-A3E2-5A87-B8D8-E9**********

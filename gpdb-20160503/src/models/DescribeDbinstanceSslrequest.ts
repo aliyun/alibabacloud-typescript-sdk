@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceSSLRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
    * 
    * This parameter is required.
    * 

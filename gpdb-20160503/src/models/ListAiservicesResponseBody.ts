@@ -21,7 +21,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The internal endpoint for API debugging.
+   * The internal URL for API debugging.
    * 
    * @example
    * 192.168.0.1/api-docs
@@ -29,7 +29,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   privateApiDevUrl?: string;
   /**
    * @remarks
-   * The internal endpoint of the workbench.
+   * The internal URL of the workbench.
    * 
    * @example
    * 192.168.0.1
@@ -37,7 +37,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   privateWorkbenchUrl?: string;
   /**
    * @remarks
-   * The public endpoint for API debugging.
+   * The public URL for API debugging.
    * 
    * @example
    * 8.8.8.8/api-docs
@@ -45,7 +45,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   publicApiDevUrl?: string;
   /**
    * @remarks
-   * The public endpoint of the workbench.
+   * The public URL of the workbench.
    * 
    * @example
    * 8.8.8.8
@@ -53,7 +53,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   publicWorkbenchUrl?: string;
   /**
    * @remarks
-   * The list of IP addresses in the IP address whitelist group, separated by commas.
+   * The list of IP addresses in the IP address whitelist, separated by commas.
    * 
    * @example
    * 127.0.0.1
@@ -78,8 +78,8 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   /**
    * @remarks
    * The service status. Valid values:
-   * - deploying: being deployed
-   * - active: running
+   * - deploying: deploying
+   * - active: active
    * 
    * @example
    * active

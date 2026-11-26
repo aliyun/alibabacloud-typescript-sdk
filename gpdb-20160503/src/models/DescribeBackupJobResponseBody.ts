@@ -7,7 +7,7 @@ export class DescribeBackupJobResponseBody extends $dara.Model {
    * @remarks
    * The backup set ID.
    * 
-   * >  You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets in the instance.
+   * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets for the target instance.
    * 
    * @example
    * 1111111111
@@ -15,7 +15,7 @@ export class DescribeBackupJobResponseBody extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The backup job ID.
+   * The backup task ID.
    * 
    * @example
    * 123
@@ -24,9 +24,8 @@ export class DescribeBackupJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * 
-   * *   **Automated**
-   * *   **Manual**
+   * * **Automated**: automatic backup
+   * * **Manual**: manual backup
    * 
    * @example
    * Automated
@@ -35,11 +34,10 @@ export class DescribeBackupJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The backup status. Valid values:
-   * 
-   * *   **schedule**
-   * *   **check**
-   * *   **backup**
-   * *   **finish**
+   * * **schedule**: initializing
+   * * **check**: checking
+   * * **backup**: backing up
+   * * **finish**: completed
    * 
    * @example
    * backup
@@ -47,7 +45,7 @@ export class DescribeBackupJobResponseBody extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The progress of the backup job.
+   * The progress percentage of the backup task.
    * 
    * @example
    * 50%
@@ -63,7 +61,7 @@ export class DescribeBackupJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the backup job started. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the backup task in UTC. The format is YYYY-MM-DDThh:mm:ssZ.
    * 
    * @example
    * 2023-01-03T16:00:00Z

@@ -7,7 +7,7 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API operation to view the instance IDs of all AnalyticDB for PostgreSQL instances in the specified region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to return the recall results. Default value: false.
+   * Specifies whether to return the retrieval results. Default value: false.
    * 
    * @example
    * false
@@ -46,7 +46,7 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   promptParams?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance resides.
    * 
    * This parameter is required.
    * 

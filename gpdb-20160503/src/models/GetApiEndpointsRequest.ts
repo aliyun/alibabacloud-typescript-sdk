@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApiEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return for the current query.
+   * The maximum number of records to return in this request.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class GetApiEndpointsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

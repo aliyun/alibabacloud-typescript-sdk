@@ -7,7 +7,7 @@ export class DescribeDBInstanceDiagnosisSummaryRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeDBInstanceDiagnosisSummaryRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: **1**.
    * 
    * @example
    * 1
@@ -27,22 +27,22 @@ export class DescribeDBInstanceDiagnosisSummaryRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **20**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * - **50**
+   * - **100**
    * 
-   * Default value: **20**.
+   * Default value: **30**.
    * 
    * @example
-   * 20
+   * 30
    */
   pageSize?: number;
   /**
    * @remarks
-   * The role state of the node. It specifies whether a primary/secondary switchover occurs. Valid values:
+   * The role status of the node, which indicates whether a primary/secondary switchover has occurred. Valid values:
    * 
-   * *   **normal**: The node role is normal. No primary/secondary switchover occurs.
-   * *   **reverse**: The node role is reversed. A primary/secondary switchover occurs.
+   * - **normal**: The role status is normal, indicating that no primary/secondary switchover has occurred.
+   * - **reverse**: The role is reversed, indicating that a primary/secondary switchover has occurred.
    * 
    * @example
    * normal
@@ -50,12 +50,12 @@ export class DescribeDBInstanceDiagnosisSummaryRequest extends $dara.Model {
   rolePreferd?: string;
   /**
    * @remarks
-   * The running state of the node. Valid values:
+   * The running status of the node. Valid values:
    * 
-   * *   **UP**: The node is running.
-   * *   **DOWN**: The node is faulty.
+   * - **UP**: The node is running.
+   * - **DOWN**: The node has failed.
    * 
-   * If you do not specify this parameter, the information about nodes in all running states is returned.
+   * If you do not specify this parameter, information about nodes in all running statuses is returned.
    * 
    * @example
    * UP
@@ -63,12 +63,12 @@ export class DescribeDBInstanceDiagnosisSummaryRequest extends $dara.Model {
   startStatus?: string;
   /**
    * @remarks
-   * The data synchronization state of the node. Valid values:
+   * The synchronization status of the node. Valid values:
    * 
-   * *   **synced**: The node data is synchronized.
-   * *   **notSyncing**: The node data is not synchronized.
+   * - **synced**: The node is synchronized.
+   * - **notSyncing**: The node is not synchronized.
    * 
-   * If you do not specify this parameter, the information about nodes in all synchronization states is returned.
+   * If you do not specify this parameter, information about nodes in all synchronization statuses is returned.
    * 
    * @example
    * synced

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExternalDataServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -13,7 +13,7 @@ export class CreateExternalDataServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service ID.
+   * The service ID.
    * 
    * @example
    * 100

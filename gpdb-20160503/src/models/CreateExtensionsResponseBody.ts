@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExtensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the extension that you want to install. Multiple extension names are separated with commas (,).
+   * The extensions to install. Separate multiple extensions with commas (,).
    * 
    * @example
    * citext, dblink

@@ -17,7 +17,7 @@ export class ModifyCollectionResponseBody extends $dara.Model {
    * 
    * > - See [Data types](https://help.aliyun.com/document_detail/424383.html) for the list of supported data types.
    * >
-   * > - The \\"money\\" data type is not supported.
+   * > - The \"money\" data type is not supported.
    * 
    * @example
    * {"title":"text","content":"text","response":"int"}

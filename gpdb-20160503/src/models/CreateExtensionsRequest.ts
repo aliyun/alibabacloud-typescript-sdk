@@ -7,7 +7,7 @@ export class CreateExtensionsRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class CreateExtensionsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The name of the database in the instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class CreateExtensionsRequest extends $dara.Model {
   DBNames?: string;
   /**
    * @remarks
-   * The name of the extension that you want to install. Separate multiple extension names with commas (,).
+   * The extensions to install. Separate multiple extensions with commas (,).
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateExtensionsRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou

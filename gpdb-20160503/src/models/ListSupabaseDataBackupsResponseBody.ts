@@ -13,7 +13,7 @@ export class ListSupabaseDataBackupsResponseBodyItems extends $dara.Model {
   backupEndTime?: string;
   /**
    * @remarks
-   * The local time representation of the backup end time. Format: yyyy-MM-ddTHH:mm:ssZ. The current return value is in Beijing time (UTC+8). The trailing Z is a fixed character in the compatibility format and does not indicate the zero time zone. To parse the time in a standard format, use BackupEndTime.
+   * The local time representation of the backup end time. Format: yyyy-MM-ddTHH:mm:ssZ. The returned value is in Beijing time (UTC+8). The trailing Z is a fixed character for format compatibility and does not indicate the UTC+0 time zone. To parse the time in a standard format, use BackupEndTime.
    * 
    * @example
    * 2026-10-09T09:24:44Z
@@ -21,7 +21,9 @@ export class ListSupabaseDataBackupsResponseBodyItems extends $dara.Model {
   backupEndTimeLocal?: string;
   /**
    * @remarks
-   * The backup method. Valid values: Physical: physical backup; Snapshot: snapshot backup.
+   * The backup method. Valid values:
+   * - Physical: physical backup.
+   * - Snapshot: snapshot backup.
    * 
    * @example
    * Snapshot
@@ -31,15 +33,15 @@ export class ListSupabaseDataBackupsResponseBodyItems extends $dara.Model {
    * @remarks
    * The backup mode.
    * 
-   * Valid values for full backups:
+   * Valid values for automatic backups:
    * 
-   * - **Automated**: automatic backup performed by the system.
+   * - **Automated**: automatic system backup.
    * - **Manual**: manual backup.
    * 
    * Valid values for restorable points:
    * 
-   * - **Automated**: restorable point after a full backup.
-   * - **Manual**: restorable point manually triggered by the user.
+   * - **Automated**: restorable point after a automatic backup.
+   * - **Manual**: restorable point manually triggered by a user.
    * - **Period**: restorable point triggered periodically based on the backup policy.
    * 
    * @example
@@ -72,7 +74,7 @@ export class ListSupabaseDataBackupsResponseBodyItems extends $dara.Model {
   backupStartTime?: string;
   /**
    * @remarks
-   * The local time representation of the backup start time. Format: yyyy-MM-ddTHH:mm:ssZ. The current return value is in Beijing time (UTC+8). The trailing Z is a fixed character in the compatibility format and does not indicate the zero time zone. To parse the time in a standard format, use BackupStartTime.
+   * The local time representation of the backup start time. Format: yyyy-MM-ddTHH:mm:ssZ. The returned value is in Beijing time (UTC+8). The trailing Z is a fixed character for format compatibility and does not indicate the UTC+0 time zone. To parse the time in a standard format, use BackupStartTime.
    * 
    * @example
    * 2026-10-09T09:23:02Z
@@ -99,7 +101,7 @@ export class ListSupabaseDataBackupsResponseBodyItems extends $dara.Model {
   baksetName?: string;
   /**
    * @remarks
-   * The consistency point in time. The value is a UNIX timestamp in seconds. For a full backup, this indicates the consistency point in time of the backup. For a restorable point, this indicates the point in time to which data can be restored.
+   * The consistency point in time. The value is a UNIX timestamp in seconds. For a full backup, this parameter indicates the consistency point in time of the backup. For a restorable point, this parameter indicates the restorable point in time.
    * 
    * @example
    * 1791508983

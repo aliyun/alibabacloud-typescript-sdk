@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModifyParameterLogResponseBodyChangelogs extends $dara.Model {
   /**
    * @remarks
-   * The effective time.
+   * The effective period.
    * 
    * @example
-   * 2020-05-05T11:22:22Z
+   * 2023-01-03T17:00:00Z
    */
   effectTime?: string;
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * testkey
@@ -29,7 +29,7 @@ export class DescribeModifyParameterLogResponseBodyChangelogs extends $dara.Mode
   parameterValid?: string;
   /**
    * @remarks
-   * The original value of the parameter.
+   * The parameter value before the modification.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class DescribeModifyParameterLogResponseBodyChangelogs extends $dara.Mode
   parameterValueAfter?: string;
   /**
    * @remarks
-   * The new value of the parameter.
+   * The parameter value after the modification.
    * 
    * @example
    * 200
@@ -75,7 +75,7 @@ export class DescribeModifyParameterLogResponseBodyChangelogs extends $dara.Mode
 export class DescribeModifyParameterLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried parameter modification logs.
+   * The change history.
    */
   changelogs?: DescribeModifyParameterLogResponseBodyChangelogs[];
   /**
@@ -83,7 +83,7 @@ export class DescribeModifyParameterLogResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 7565770E-7C45-462D-BA4A-8A5396F2CAD1
+   * 4FA1F1D1-50A6-4F60-9A78-5752F2076A53
    */
   requestId?: string;
   static names(): { [key: string]: string } {

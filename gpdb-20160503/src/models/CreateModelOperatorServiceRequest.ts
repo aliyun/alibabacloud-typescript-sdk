@@ -16,8 +16,9 @@ export class CreateModelOperatorServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
+   * 
    * - PostPay: pay-as-you-go. This is the default value.
-   * - PrePay: subscription. You must also specify UsedTime and Period.
+   * - PrePay: subscription. If you set this parameter to PrePay, you must also specify UsedTime and Period.
    * 
    * @example
    * PostPay
@@ -25,7 +26,7 @@ export class CreateModelOperatorServiceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. This parameter is required when PayType is set to PrePay. Valid values: Month and Year. This parameter is used together with UsedTime and is not required for pay-as-you-go.
+   * The unit of the subscription duration. This parameter is required when PayType is set to PrePay. Valid values: Month and Year. This parameter is used together with UsedTime. This parameter is not required for pay-as-you-go services.
    * 
    * @example
    * Month
@@ -33,7 +34,7 @@ export class CreateModelOperatorServiceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The ID of the region to which the service belongs. This parameter is required and must be consistent with the request endpoint and the purchase region.
+   * The ID of the region where the service resides. This parameter is required and must be consistent with the request endpoint and the purchase region.
    * 
    * This parameter is required.
    * 
@@ -43,7 +44,7 @@ export class CreateModelOperatorServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter is required when PayType is set to PrePay. The value must be a positive integer string, and the unit is specified by Period. The actual available duration is subject to the sales configurations. This parameter is not required for pay-as-you-go.
+   * The subscription duration. This parameter is required when PayType is set to PrePay. The value must be a string of a positive integer, and the unit is specified by Period. The actual available subscription duration is subject to the sales configurations. This parameter is not required for pay-as-you-go services.
    * 
    * @example
    * 1

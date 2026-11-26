@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HandleActiveSQLRecordResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The process ID, which is a unique identifier of the query.
+   * The process ID, which is the unique identifier of the active query SQL statement.
    * 
    * @example
    * 3003925
@@ -13,10 +13,9 @@ export class HandleActiveSQLRecordResponseBodyResults extends $dara.Model {
   pid?: string;
   /**
    * @remarks
-   * Indicates whether the processing was successful. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
+   * The status of the processing result. Valid values:
+   * - **false**: The processing failed.
+   * - **true**: The processing succeeded.
    * 
    * @example
    * true
@@ -64,15 +63,15 @@ export class HandleActiveSQLRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The processing result of the active query.
+   * The processing results of the active queries.
    */
   results?: HandleActiveSQLRecordResponseBodyResults[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The execution status of the API operation. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: The execution failed.
+   * - **true**: The execution succeeded.
    * 
    * @example
    * true

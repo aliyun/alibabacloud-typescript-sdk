@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadSlowSQLRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DownloadSlowSQLRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time must be in UTC and formatted as *yyyy-MM-dd*T*HH:mm*Z. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
-   * Defaults to the current time
+   * Default value: the current time.
    * 
    * @example
    * 2024-12-04T17:00:00Z
@@ -35,7 +35,7 @@ export class DownloadSlowSQLRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The search keyword.
+   * The query keyword.
    * 
    * @example
    * SELECT
@@ -43,7 +43,7 @@ export class DownloadSlowSQLRecordsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The longest execution duration. Unit: seconds.
+   * The maximum execution duration. Unit: seconds.
    * 
    * @example
    * 600
@@ -59,7 +59,7 @@ export class DownloadSlowSQLRecordsRequest extends $dara.Model {
   minDuration?: string;
   /**
    * @remarks
-   * Sort criteria.
+   * The sorting condition.
    * 
    * @example
    * {Field: SchemaName, Type: Desc}
@@ -75,9 +75,9 @@ export class DownloadSlowSQLRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time must be in UTC and formatted as *yyyy-MM-dd*T*HH:mm*Z.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
-   * Defaults to the current time minus 5 minutes.
+   * Default value: 5 minutes before the current time.
    * 
    * @example
    * 2024-12-04T16:00:00Z
@@ -85,7 +85,7 @@ export class DownloadSlowSQLRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The database account.
+   * The database username.
    * 
    * @example
    * test_user

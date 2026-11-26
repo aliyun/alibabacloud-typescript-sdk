@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreBranchRequest extends $dara.Model {
   /**
    * @remarks
-   * The branch ID that uniquely identifies a Supabase branch.
+   * The branch ID, which uniquely identifies a Supabase branch.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RestoreBranchRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The client idempotency token that ensures the idempotence of retry requests.
+   * The client token that is used to ensure the idempotence of retry requests.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426614174000
@@ -23,7 +23,7 @@ export class RestoreBranchRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The backup branch name. If specified, automatic creation of a backup branch is performed before recovery.
+   * The name of the backup branch. If you specify this parameter, automatic creation of a backup branch is performed before you recover the branch.
    * 
    * @example
    * backup-main
@@ -31,7 +31,7 @@ export class RestoreBranchRequest extends $dara.Model {
   preserveUnderName?: string;
   /**
    * @remarks
-   * The Supabase project ID associated with the primary branch.
+   * The ID of the Supabase project to which the primary branch belongs.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class RestoreBranchRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID. This parameter is required when you create a primary branch. When you create a sub-branch, the region is inherited from the primary branch by default.
+   * The region ID. This parameter is required when you create a primary branch. When you create a child branch, the region ID of the primary branch is inherited by default.
    * 
    * @example
    * cn-beijing
@@ -49,7 +49,7 @@ export class RestoreBranchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the source branch from which to recover.
+   * The ID of the source branch for the restoration.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class RestoreBranchRequest extends $dara.Model {
   sourceBranchId?: string;
   /**
    * @remarks
-   * The LSN of the source branch to recover to.
+   * The LSN of the source branch for the restoration.
    * 
    * @example
    * 0/3522648
@@ -67,7 +67,7 @@ export class RestoreBranchRequest extends $dara.Model {
   sourceBranchLsn?: string;
   /**
    * @remarks
-   * The point in time of the source branch to recover to. The value must be within the recoverable time window.
+   * The point in time of the source branch for the restoration. The specified point in time must be within the restorable window.
    * 
    * @example
    * 2026-04-08T09:11:12Z

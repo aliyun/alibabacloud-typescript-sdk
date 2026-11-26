@@ -203,9 +203,9 @@ export class QueryKnowledgeBasesContentResponseBodyRelations extends $dara.Model
 export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
   /**
    * @remarks
-   * The number of entries used during vectorization.
+   * The number of entries used for vectorization.
    * 
-   * > An entry refers to the number of items processed when vectorizing text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
+   * > An entry refers to the number of items processed when text or images are vectorized. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
    * 
    * @example
    * 10
@@ -213,7 +213,7 @@ export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
   embeddingEntries?: string;
   /**
    * @remarks
-   * The number of tokens used during vectorization.
+   * The number of tokens used for vectorization.
    * 
    * > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
@@ -247,7 +247,7 @@ export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
 export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of tokens used during vectorization.
+   * The number of tokens used for vectorization.
    * 
    * > A token is the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
@@ -276,9 +276,9 @@ export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution status of the API operation. Valid values:
-   * - **success**: The operation is successful.
-   * - **fail**: The operation fails.
+   * The API execution status. Valid values:
+   * - **success**: The execution is successful.
+   * - **fail**: The execution fails.
    * 
    * @example
    * success

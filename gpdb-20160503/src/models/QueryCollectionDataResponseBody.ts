@@ -209,8 +209,8 @@ export class QueryCollectionDataResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - **success**: The request is successful.
-   * - **fail**: The request fails.
+   * - **success**: Successful.
+   * - **fail**: Failed.
    * 
    * @example
    * success

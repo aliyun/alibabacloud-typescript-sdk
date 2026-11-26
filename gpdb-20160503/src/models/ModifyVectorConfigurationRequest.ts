@@ -7,7 +7,7 @@ export class ModifyVectorConfigurationRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -16,13 +16,13 @@ export class ModifyVectorConfigurationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable vector engine optimization. Valid values:
+   * Specifies whether to enable the vector engine optimization configuration. Valid values:
    * 
-   * *   **enabled**
-   * *   **disabled**
+   * - **enabled**: Enables vector engine optimization.
+   * - **disabled**: Disables vector engine optimization.
    * 
-   * > *   We recommend that you **do not enable** vector engine optimization in mainstream analysis and real-time data warehousing scenarios.
-   * > *   We recommend that you **enable** vector engine optimization in AI Generated Content (AIGC) and vector retrieval scenarios that require the vector analysis engine.
+   * > - For mainstream analytics, data warehouse, and real-time data warehouse scenarios, **do not enable** vector engine optimization.
+   * - For users who use the vector analysis engine for AIGC and vector retrieval scenarios, **enable** vector engine optimization.
    * 
    * @example
    * enabled

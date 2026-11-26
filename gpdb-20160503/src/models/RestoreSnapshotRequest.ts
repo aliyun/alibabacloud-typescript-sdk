@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token. Ensures that repeated requests do not execute the same operation more than once.
+   * The idempotency token used to ensure that repeated requests do not execute the same operation.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -31,7 +31,7 @@ export class RestoreSnapshotRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID. Specifies the region in which to query or perform the operation.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class RestoreSnapshotRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the restored branch. If not specified, the backend generates a name automatically.
+   * The name of the restored branch. If you do not specify this parameter, the backend generates a name.
    * 
    * @example
    * restore_preview
@@ -47,7 +47,7 @@ export class RestoreSnapshotRequest extends $dara.Model {
   restoredBranchName?: string;
   /**
    * @remarks
-   * The snapshot LSN used for restoration.
+   * The snapshot LSN used for the restoration.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class RestoreSnapshotRequest extends $dara.Model {
   restoredLsn?: string;
   /**
    * @remarks
-   * The target branch ID. If not specified, the backend selects the target branch based on the restoration process.
+   * The target branch ID. If you do not specify this parameter, the backend selects the target branch based on the restoration process.
    * 
    * @example
    * br-main

@@ -15,7 +15,7 @@ export class DeleteBranchRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The region ID. This parameter is required when you create a primary branch. When you create a child branch, the region is inherited from the primary branch by default.
+   * The region ID. This parameter is required when you create a primary branch. When you create a child branch, it inherits the region of the primary branch by default.
    * 
    * @example
    * cn-beijing

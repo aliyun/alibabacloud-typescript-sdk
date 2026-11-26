@@ -21,7 +21,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $dara.M
   nodeAddress?: string;
   /**
    * @remarks
-   * The node group ID.
+   * The group ID.
    * 
    * @example
    * -1
@@ -53,12 +53,12 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $dara.M
   nodePort?: string;
   /**
    * @remarks
-   * The initial role of the node. Valid values:
+   * The original role of the node. Valid values:
    * 
-   * *   **primary**: primary node.
-   * *   **mirror**: secondary node.
+   * - **primary**: The primary node.
+   * - **mirror**: The mirror node.
    * 
-   * If the value of this parameter is the same as that of **NodeRole**, no primary/secondary switchover occurs. If the value of this parameter is different from that of **NodeRole**, a primary/secondary switchover occurs.
+   * If the value of this parameter is the same as the value of the **NodeRole** parameter, no role reversal (primary/secondary switchover) has occurred. If the values are different, a role reversal has occurred.
    * 
    * @example
    * primary
@@ -66,11 +66,11 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $dara.M
   nodePreferredRole?: string;
   /**
    * @remarks
-   * The data synchronization state of the node. Valid values:
+   * The data synchronization status of the node. Valid values:
    * 
-   * *   **Synced**: The node data is synchronized.
-   * *   **Not Syncing**: The node data is not synchronized.
-   * *   **No sync required**: Data synchronization is not required. This value may be returned only for the coordinator node.
+   * - **Synced**: The data is synchronized.
+   * - **Not Syncing**: The data is not synchronized.
+   * - **No sync required**: No synchronization is required. This mode applies only to coordinator nodes.
    * 
    * @example
    * Synced
@@ -80,8 +80,8 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $dara.M
    * @remarks
    * The current role of the node. Valid values:
    * 
-   * *   **primary**: primary node.
-   * *   **mirror**: secondary node.
+   * - **primary**: The primary node.
+   * - **mirror**: The mirror node.
    * 
    * @example
    * primary
@@ -89,10 +89,10 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $dara.M
   nodeRole?: string;
   /**
    * @remarks
-   * The running state of the node. Valid values:
+   * The running status of the node. Valid values:
    * 
-   * *   **UP**: The node is running.
-   * *   **DOWN**: The node is faulty.
+   * - **UP**: The node is running.
+   * - **DOWN**: The node has failed.
    * 
    * @example
    * UP
@@ -100,11 +100,11 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $dara.M
   nodeStatus?: string;
   /**
    * @remarks
-   * The type of the node. Valid values:
+   * The node type. Valid values:
    * 
-   * *   **master**: primary coordinator node.
-   * *   **slave**: standby coordinator node.
-   * *   **segment**: compute node.
+   * - **master**: The coordinator node.
+   * - **slave**: The secondary coordinator node.
+   * - **segment**: The compute node.
    * 
    * @example
    * master
@@ -154,7 +154,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $dara.M
 export class DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of abnormal nodes.
+   * The number of nodes in the abnormal state.
    * 
    * @example
    * 0
@@ -162,7 +162,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo exte
   exceptionNodeNum?: number;
   /**
    * @remarks
-   * The number of normal nodes.
+   * The number of nodes in the normal state.
    * 
    * @example
    * 2
@@ -170,7 +170,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo exte
   normalNodeNum?: number;
   /**
    * @remarks
-   * The number of nodes whose roles are reversed.
+   * The number of nodes whose roles have been switched due to a primary/secondary switchover.
    * 
    * @example
    * 0
@@ -186,7 +186,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo exte
   notSyncingNodeNum?: number;
   /**
    * @remarks
-   * The number of nodes whose roles are normal.
+   * The number of nodes with normal roles.
    * 
    * @example
    * 2
@@ -234,7 +234,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo exte
 export class DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of abnormal nodes.
+   * The number of nodes in the abnormal state.
    * 
    * @example
    * 0
@@ -242,7 +242,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo ext
   exceptionNodeNum?: number;
   /**
    * @remarks
-   * The number of normal nodes.
+   * The number of nodes in the normal state.
    * 
    * @example
    * 4
@@ -250,7 +250,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo ext
   normalNodeNum?: number;
   /**
    * @remarks
-   * The number of nodes whose roles are reversed.
+   * The number of nodes whose roles have been switched due to a primary/secondary switchover.
    * 
    * @example
    * 0
@@ -266,7 +266,7 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo ext
   notSyncingNodeNum?: number;
   /**
    * @remarks
-   * The number of nodes whose roles are normal.
+   * The number of nodes with normal roles.
    * 
    * @example
    * 4
@@ -314,17 +314,17 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo ext
 export class DescribeDBInstanceDiagnosisSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The group ID.
+   * The list of node details for the instance.
    */
   items?: DescribeDBInstanceDiagnosisSummaryResponseBodyItems[];
   /**
    * @remarks
-   * The state information about the coordinator node.
+   * The statistics information about the status of coordinator nodes.
    */
   masterStatusInfo?: DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -340,12 +340,12 @@ export class DescribeDBInstanceDiagnosisSummaryResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The state information about compute nodes.
+   * The statistics information about the status of compute nodes.
    */
   segmentStatusInfo?: DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 6

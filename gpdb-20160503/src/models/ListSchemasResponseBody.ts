@@ -39,7 +39,7 @@ export class ListSchemasResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The paging token used to start the next paged query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -56,10 +56,9 @@ export class ListSchemasResponseBody extends $dara.Model {
   schemas?: ListSchemasResponseBodySchemas;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution succeeded.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

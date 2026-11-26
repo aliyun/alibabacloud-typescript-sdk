@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * The client token that is used to ensure idempotence. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
@@ -13,9 +13,9 @@ export class DeleteDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,10 @@ export class DeleteDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
    * 
    * @example
-   * rg-bp67acfmxazb4p****
+   * null
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

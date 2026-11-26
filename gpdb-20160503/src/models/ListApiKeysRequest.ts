@@ -13,7 +13,7 @@ export class ListApiKeysRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The maximum number of records to return in this request.
+   * The maximum number of records to return for the current request.
    * 
    * @example
    * 50

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetIMVMonitorDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -15,8 +15,8 @@ export class ResetIMVMonitorDataResponseBody extends $dara.Model {
    * @remarks
    * The execution status of the API operation. Valid values:
    * 
-   * - **false**: Execution failed.
-   * - **true**: Execution succeeded.
+   * - **false**: The execution failed.
+   * - **true**: The execution succeeded.
    * 
    * @example
    * true

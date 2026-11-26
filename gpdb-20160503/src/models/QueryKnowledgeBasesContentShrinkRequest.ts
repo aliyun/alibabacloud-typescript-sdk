@@ -63,7 +63,7 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
   rerankFactor?: number;
   /**
    * @remarks
-   * The parameters of the reranking model used to rerank the merged multi-channel results.
+   * The reranking model parameters used to rerank the merged multi-channel results.
    */
   rerankModelShrink?: string;
   /**
@@ -75,7 +75,7 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
   sourceCollectionShrink?: string;
   /**
    * @remarks
-   * The number of top results to return after multi-channel recall results are merged.
+   * The number of top results to return after the multi-channel recall results are merged.
    * 
    * @example
    * 10

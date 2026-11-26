@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadDocumentAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID, which is used to check the job status or cancel the job.
+   * The job ID, which is used to check the job status or cancel the job later.
    * 
    * @example
    * 231460f8-75dc-405e-a669-0c5204887e91
@@ -29,9 +29,7 @@ export class UploadDocumentAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The creation status. Valid values:
-   * - success: The document was uploaded.
-   * - fail: The document failed to be uploaded.
+   * The creation status. Valid values: success: Successful. fail: Failed.
    * 
    * @example
    * success

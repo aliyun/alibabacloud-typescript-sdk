@@ -37,7 +37,7 @@ export class DescribeDBInstanceDataSkewResponseBodyItems extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The sequence number of the data skew case. All data skew cases are sorted by severity in descending order.
+   * The sequence number. The entries are sorted in descending order of data skew.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeDBInstanceDataSkewResponseBodyItems extends $dara.Model {
   tableSize?: string;
   /**
    * @remarks
-   * The skew ratio of the table. Valid values: 0 to 100. Unit: %. A greater value indicates that the table is more severely skewed. A smaller value indicates less impact on query performance. A value of 0 indicates no data skew.
+   * The data skew percentage of the table. Valid values: 0 to 100. Unit: %. A larger value indicates more severe data skew. A smaller value is more beneficial to the query performance of the database. A value of 0 indicates no data skew.
    * 
    * @example
    * 10.23
@@ -69,7 +69,7 @@ export class DescribeDBInstanceDataSkewResponseBodyItems extends $dara.Model {
   tableSkew?: string;
   /**
    * @remarks
-   * The time when the table was last deleted, inserted, or updated.
+   * The time when the table was last updated by a DELETE, INSERT, or UPDATE operation.
    * 
    * @example
    * 2020-09-08T20:00:00Z
@@ -115,12 +115,12 @@ export class DescribeDBInstanceDataSkewResponseBodyItems extends $dara.Model {
 export class DescribeDBInstanceDataSkewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about data skew.
+   * The list of data skew details.
    */
   items?: DescribeDBInstanceDataSkewResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -128,7 +128,7 @@ export class DescribeDBInstanceDataSkewResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -136,7 +136,7 @@ export class DescribeDBInstanceDataSkewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

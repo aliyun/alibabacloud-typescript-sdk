@@ -7,11 +7,15 @@ export class DescribeHadoopConfigsRequest extends $dara.Model {
    * @remarks
    * The name of the configuration file. Valid values:
    * 
-   * *   hdfs-site
-   * *   core-site
-   * *   yarn-site
-   * *   mapred-site
-   * *   hive-site
+   * - hdfs-site: hdfs-site.xml file
+   * 
+   * - core-site: core-site.xml file
+   * 
+   * - yarn-site: yarn-site.xml file
+   * 
+   * - mapred-site: mapred-site.xml file
+   * 
+   * - hive-site: hive-site.xml file
    * 
    * This parameter is required.
    * 
@@ -31,7 +35,7 @@ export class DescribeHadoopConfigsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The E-MapReduce (EMR) Hadoop cluster ID.
+   * The EMR instance ID.
    * 
    * This parameter is required.
    * 
@@ -41,9 +45,9 @@ export class DescribeHadoopConfigsRequest extends $dara.Model {
   emrInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou

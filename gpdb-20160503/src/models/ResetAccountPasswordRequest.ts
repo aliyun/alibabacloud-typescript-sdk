@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountPasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The name of the database account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,10 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The name of the account.
+   * The password of the database account.
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - Special characters include: `!@#$%^&*()_+-=`
+   * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -25,10 +28,9 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * Before you call this operation, make sure that the following requirements are met:
+   * The instance ID.
    * 
-   * *   The instance is in the running state.
-   * *   The instance is not locked.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the target region.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PauseSaasServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -13,7 +13,7 @@ export class PauseSaasServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * drama-123456

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadDiagnosisRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * gp-bp12ga6v69h86****
@@ -13,7 +13,7 @@ export class DownloadDiagnosisRecordsResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the download task.
+   * The download task ID.
    * 
    * @example
    * 11
@@ -21,7 +21,7 @@ export class DownloadDiagnosisRecordsResponseBody extends $dara.Model {
   downloadId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B

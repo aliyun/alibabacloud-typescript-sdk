@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSupabaseBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The interval for automatic recovery points, in minutes. A value greater than 0 indicates that automatic recovery points are enabled. A value of -1 indicates that automatic recovery points are disabled.
+   * The interval of automatic recovery points. Unit: minutes. A value greater than 0 indicates that automatic recovery points are enabled. If automatic recovery points are disabled, -1 is returned.
    * 
    * @example
    * -1
@@ -13,7 +13,7 @@ export class DescribeSupabaseBackupPolicyResponseBody extends $dara.Model {
   backupInterval?: number;
   /**
    * @remarks
-   * The retention period for data backups, in days.
+   * The data backup retention period. Unit: days.
    * 
    * @example
    * 7
@@ -44,7 +44,7 @@ export class DescribeSupabaseBackupPolicyResponseBody extends $dara.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
-   * The interval for the automatic creation of recovery points, in hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This parameter is valid only when EnableRecoveryPoint is set to true. A value of 0 is returned upon shutdown of automatic recovery points.
+   * The interval for the automatic creation of recovery points. Unit: hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This value is valid only when EnableRecoveryPoint is set to true. 0 is returned upon shutdown of automatic recovery points.
    * 
    * @example
    * 0

@@ -13,7 +13,7 @@ export class CreateModelOperatorServiceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot the request.
+   * The ID of the request. You can use the ID to locate and troubleshoot the request.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -21,7 +21,7 @@ export class CreateModelOperatorServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the model operator service corresponding to the sales order. The return of this ID does not indicate that the service has been activated. You can call ListModelOperatorServices to query the subsequent status.
+   * The ID of the model operator service that corresponds to the sales order. The return of this ID does not indicate that the service has been activated. You can call ListModelOperatorServices to query the subsequent status.
    * 
    * @example
    * adbpg-mo-123456789abc

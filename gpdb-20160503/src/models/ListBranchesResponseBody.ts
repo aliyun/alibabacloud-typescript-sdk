@@ -158,7 +158,7 @@ export class ListBranchesResponseBody extends $dara.Model {
   branches?: ListBranchesResponseBodyBranches;
   /**
    * @remarks
-   * The maximum number of records to return in this query.
+   * The maximum number of entries to return for the current query.
    * 
    * @example
    * 20
@@ -166,7 +166,7 @@ export class ListBranchesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The cursor for paging query. You do not need to specify this parameter for the first query. For subsequent queries, use the NextToken value returned in the previous response.
+   * The cursor for the paging query. You do not need to specify this parameter for the first query. For subsequent queries, use the NextToken value returned from the previous query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -182,7 +182,7 @@ export class ListBranchesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * Valid values:
    * - 10
@@ -206,7 +206,7 @@ export class ListBranchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of branches that match the query conditions.
+   * The total number of branches that meet the query conditions.
    * 
    * @example
    * 20

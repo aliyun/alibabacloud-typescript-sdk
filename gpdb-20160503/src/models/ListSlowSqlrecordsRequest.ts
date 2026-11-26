@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListSlowSQLRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * testdb01
@@ -25,9 +25,9 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time must be in UTC and formatted as *yyyy-MM-dd*T*HH:mm*Z. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
-   * Defaults to the current time.
+   * Default value: The current time.
    * 
    * @example
    * 2024-12-04T17:00:00Z
@@ -35,7 +35,7 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The search keyword.
+   * The query keyword.
    * 
    * @example
    * SELECT
@@ -43,7 +43,7 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The longest execution duration. Unit: seconds.
+   * The maximum execution duration. Unit: seconds.
    * 
    * @example
    * 600
@@ -59,27 +59,39 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   minDuration?: string;
   /**
    * @remarks
-   * Sort criteria (JSON string). {"Field":"QueryStartTime","Type":"Desc"}
+   * The sorting conditions in JSON format. Example: {"Field":"QueryStartTime","Type":"Desc"}.
    * 
-   * Field: Specifies the field to sort by.
+   * Field: the field to sort by. Valid values:
    * 
-   * *   QueryID: Query ID.
-   * *   UserName: The username.
-   * *   DBName: The name of the database.
-   * *   QueryStartTime: The start time.
-   * *   QueryEndTime: The end time.
-   * *   DurationTime: The execution duration of the query.
-   * *   Optimizer.
-   * *   LockWaitTime: The lock waiting time.
-   * *   QueueWaitTime: Time in Queue.
-   * *   CpuTimeMs: CPU time.
-   * *   MemBytes: The memory usage.
-   * *   SpillBytes: Spill File Size.
+   * - QueryID: the query ID.
    * 
-   * Type: Sort order.
+   * - UserName: the username.
    * 
-   * *   Desc: descending.
-   * *   Asc: ascending.
+   * - DBName: the database name.
+   * 
+   * - QueryStartTime: the start time.
+   * 
+   * - QueryEndTime: the end time.
+   * 
+   * - DurationTime: the execution duration.
+   * 
+   * - Optimizer: the optimizer.
+   * 
+   * - LockWaitTime: the lock wait time.
+   * 
+   * - QueueWaitTime: the queue wait time.
+   * 
+   * - CpuTimeMs: the CPU time.
+   * 
+   * - MemBytes: the memory usage.
+   * 
+   * - SpillBytes: the size of spilled files.
+   * 
+   * Type: the sorting order. Valid values:
+   * 
+   * - Desc: descending order.
+   * 
+   * - Asc: ascending order.
    * 
    * @example
    * {"Field":"QueryStartTime","Type":"Desc"}
@@ -87,7 +99,9 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be a positive integer in the range [1, 100]. Default value: 1.
+   * The page number. The value must be greater than 0 and less than or equal to 100.
+   * 
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -96,10 +110,9 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * - **50**
+   * - **100**
    * 
    * Default value: **30**.
    * 
@@ -117,9 +130,9 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time must be in UTC and formatted as yyyy-MM-ddTHH:mmZ.
+   * The start time of the query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
-   * Defaults to the current time minus 5 minutes.
+   * Default value: 5 minutes before the current time.
    * 
    * @example
    * 2024-12-04T16:00:00Z
@@ -127,7 +140,7 @@ export class ListSlowSQLRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The account name.
+   * The database username.
    * 
    * @example
    * test_user

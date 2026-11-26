@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceDataSkewRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -25,15 +25,15 @@ export class DescribeDBInstanceDataSkewRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * order by condition
+   * The sorting condition.
    * 
    * @example
-   * {Field: TableSkew, Type: Desc}
+   * {Field: TableSize, Type: Desc}
    */
   orderBy?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: **1**.
    * 
    * @example
    * 1
@@ -43,14 +43,14 @@ export class DescribeDBInstanceDataSkewRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * - **50**
+   * - **100**
    * 
    * Default value: **30**.
    * 
    * @example
-   * 20
+   * 30
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

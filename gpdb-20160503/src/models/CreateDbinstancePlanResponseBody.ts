@@ -15,10 +15,10 @@ export class CreateDBInstancePlanResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * 
-   * This parameter is returned only if the request fails.
+   * This parameter is returned only when the API operation fails.
    * 
    * @example
-   * ****
+   * Sample error message
    */
   errorMessage?: string;
   /**
@@ -39,9 +39,9 @@ export class CreateDBInstancePlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The execution status of the API operation.
    * 
-   * If the request was successful, **success** is returned. If the request failed, this parameter is not returned.
+   * If the execution is successful, **success** is returned. If the execution fails, this parameter is not returned.
    * 
    * @example
    * success

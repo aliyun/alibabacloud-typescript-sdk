@@ -7,7 +7,7 @@ export class DescribeDiagnosisSQLInfoRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class DescribeDiagnosisSQLInfoRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The query ID. It is a unique identifier of the query.
+   * The query ID, which is the unique identifier of the query.
    * 
-   * > You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/450511.html) operation to obtain query IDs.
+   * > You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/450511.html) operation to obtain the query ID.
    * 
    * This parameter is required.
    * 

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID of the instance. The instance must be in reserved storage mode.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view instance IDs of all AnalyticDB for PostgreSQL instances in the target region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The performance metric. Separate multiple values with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+   * The performance metrics. Separate multiple metrics with commas (,). For more information, see [Performance metrics](https://help.aliyun.com/document_detail/86943.html).
    * 
    * This parameter is required.
    * 
@@ -37,15 +37,15 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
    * 
    * @example
-   * rg-bp67acfmxazb4p****
+   * null
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

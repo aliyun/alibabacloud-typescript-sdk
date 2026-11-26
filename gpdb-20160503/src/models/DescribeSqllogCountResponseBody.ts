@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLLogCountResponseBodyItemsSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * None.
+   * The list of audit log statistical points. Each element contains the generation time and count of audit logs.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class DescribeSQLLogCountResponseBodyItemsSeriesValues extends $dara.Mode
 export class DescribeSQLLogCountResponseBodyItemsSeries extends $dara.Model {
   /**
    * @remarks
-   * The returned values.
+   * The return values.
    */
   values?: DescribeSQLLogCountResponseBodyItemsSeriesValues[];
   static names(): { [key: string]: string } {
@@ -73,7 +73,7 @@ export class DescribeSQLLogCountResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The set of returned values.
+   * The collection of return values.
    */
   series?: DescribeSQLLogCountResponseBodyItemsSeries[];
   static names(): { [key: string]: string } {
