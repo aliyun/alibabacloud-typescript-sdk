@@ -226,6 +226,170 @@ class Client extends openapi_core_1.default {
         return await this.batchUploadSkillsViaOssWithOptions(workspaceId, request, headers, runtime);
     }
     /**
+     * Validates in batch whether the saved tool selections match the current tool definitions of the source MCPs based on a list of virtual MCP IDs.
+     *
+     * @remarks
+     * Compares the saved tools with the current tools of the source MCPs in batch based on a list of MCP IDs. After submission, GetMcp returns the validation details of the current MCP, ListMcps returns the validation status of each MCP, and you can also use validationId to query the complete batch report. If the previous task of any MCP in the batch is in the PENDING, RUNNING, or PAUSED state, the entire batch returns 409. You can re-validate immediately after the previous task enters the desired state.
+     *
+     * @param tmpReq - BatchValidateVirtualMcpToolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchValidateVirtualMcpToolsResponse
+     */
+    async batchValidateVirtualMcpToolsWithOptions(workspaceId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.BatchValidateVirtualMcpToolsShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "BatchValidateVirtualMcpTools",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-servers/virtual-tools/validations`,
+            method: "POST",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.BatchValidateVirtualMcpToolsResponse({}));
+    }
+    /**
+     * Validates in batch whether the saved tool selections match the current tool definitions of the source MCPs based on a list of virtual MCP IDs.
+     *
+     * @remarks
+     * Compares the saved tools with the current tools of the source MCPs in batch based on a list of MCP IDs. After submission, GetMcp returns the validation details of the current MCP, ListMcps returns the validation status of each MCP, and you can also use validationId to query the complete batch report. If the previous task of any MCP in the batch is in the PENDING, RUNNING, or PAUSED state, the entire batch returns 409. You can re-validate immediately after the previous task enters the desired state.
+     *
+     * @param request - BatchValidateVirtualMcpToolsRequest
+     * @returns BatchValidateVirtualMcpToolsResponse
+     */
+    async batchValidateVirtualMcpTools(workspaceId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.batchValidateVirtualMcpToolsWithOptions(workspaceId, request, headers, runtime);
+    }
+    /**
+     * 申请知识库资产上传地址
+     *
+     * @remarks
+     * 登记资产上传会话，返回 assetId、uploadId 和实际状态；仅有效的 UPLOADING 会话返回限定其 original 对象的限时 PUT 地址。使用 PUT 上传文件二进制，不使用 JSON 或 multipart 包装，本期文件大小为 1 字节至 50 MiB。clientToken 可选；提供时，省略 assetId 将依据租户、工作空间、知识库和 clientToken 稳定派生资产 ID，便于首次响应丢失后的定位。同时省略 assetId 和 clientToken 时，每次请求创建新资产。未提供 clientToken 时按新的上传意图处理，不保证跨请求重试幂等。覆盖已有资产必须设置 overwrite=true；该参数仅授权覆盖，不强制重新导入。提供 clientToken 时，仅对该资产最近一次 Begin 保存的 token 幂等；后续 Begin（包括省略 clientToken 的请求）会替换最近请求标识。命中且规范化请求相同则复用上传会话，参数不同返回 409，包括 sourceETag 不同；token 不命中则按新的上传意图校验和受理，即使该 token 曾用于更早的上传。来源版本去重独立于 clientToken：指定稳定 assetId、overwrite=true 且提供 sourceETag 时，若来源身份及版本、导入参数和有效处理配置均未变化，即使未提供 clientToken，也可复用当前 uploadId 和加工代次；显式提供且命中最近 token 时仍要求完整规范化请求相同。复用有效 UPLOADING 会话时刷新同一对象路径的签名；复用 PENDING、PROCESSING 或 COMPLETED 会话时返回实际状态且不返回上传地址，PENDING 按相同 taskKey 补交调度，来源版本相同不表示处理完成。客户端 token 幂等命中后的失败状态只返回当前状态；新的上传意图遇到 FAILED、上传意图过期或来源、导入参数、有效处理配置变化时创建新的 uploadId、内部对象路径及加工代次。未提供 sourceETag 时不启用来源版本去重，可使用不同 clientToken 或不提供 clientToken，按新的上传意图重新导入；覆盖已有资产仍须 overwrite=true。新结果发布前仍使用旧发布版本。每个会话的原件对象仍必须禁止覆盖，签名头通过 headers 返回。完成 PUT 上传后，使用返回的 assetId 和 uploadId 调用 CompleteAssetUpload。携带 sourceETag 的 Begin 命中当前上传目标时，PENDING 会按相同 taskKey 补交调度，返回 PENDING、PROCESSING 或 COMPLETED 后无需再次上传或确认；显式提供相同 clientToken 且未传 sourceETag 的 PENDING 重放仍须重试 CompleteAssetUpload，以恢复受理结果未知的调度。
+     *
+     * @param tmpReq - BeginAssetUploadRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BeginAssetUploadResponse
+     */
+    async beginAssetUploadWithOptions(workspaceId, knowledgeBaseId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.BeginAssetUploadShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let query = {};
+        if (!$dara.isNull(request.clientToken)) {
+            query["clientToken"] = request.clientToken;
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "BeginAssetUpload",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/begin-upload`,
+            method: "POST",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.BeginAssetUploadResponse({}));
+    }
+    /**
+     * 申请知识库资产上传地址
+     *
+     * @remarks
+     * 登记资产上传会话，返回 assetId、uploadId 和实际状态；仅有效的 UPLOADING 会话返回限定其 original 对象的限时 PUT 地址。使用 PUT 上传文件二进制，不使用 JSON 或 multipart 包装，本期文件大小为 1 字节至 50 MiB。clientToken 可选；提供时，省略 assetId 将依据租户、工作空间、知识库和 clientToken 稳定派生资产 ID，便于首次响应丢失后的定位。同时省略 assetId 和 clientToken 时，每次请求创建新资产。未提供 clientToken 时按新的上传意图处理，不保证跨请求重试幂等。覆盖已有资产必须设置 overwrite=true；该参数仅授权覆盖，不强制重新导入。提供 clientToken 时，仅对该资产最近一次 Begin 保存的 token 幂等；后续 Begin（包括省略 clientToken 的请求）会替换最近请求标识。命中且规范化请求相同则复用上传会话，参数不同返回 409，包括 sourceETag 不同；token 不命中则按新的上传意图校验和受理，即使该 token 曾用于更早的上传。来源版本去重独立于 clientToken：指定稳定 assetId、overwrite=true 且提供 sourceETag 时，若来源身份及版本、导入参数和有效处理配置均未变化，即使未提供 clientToken，也可复用当前 uploadId 和加工代次；显式提供且命中最近 token 时仍要求完整规范化请求相同。复用有效 UPLOADING 会话时刷新同一对象路径的签名；复用 PENDING、PROCESSING 或 COMPLETED 会话时返回实际状态且不返回上传地址，PENDING 按相同 taskKey 补交调度，来源版本相同不表示处理完成。客户端 token 幂等命中后的失败状态只返回当前状态；新的上传意图遇到 FAILED、上传意图过期或来源、导入参数、有效处理配置变化时创建新的 uploadId、内部对象路径及加工代次。未提供 sourceETag 时不启用来源版本去重，可使用不同 clientToken 或不提供 clientToken，按新的上传意图重新导入；覆盖已有资产仍须 overwrite=true。新结果发布前仍使用旧发布版本。每个会话的原件对象仍必须禁止覆盖，签名头通过 headers 返回。完成 PUT 上传后，使用返回的 assetId 和 uploadId 调用 CompleteAssetUpload。携带 sourceETag 的 Begin 命中当前上传目标时，PENDING 会按相同 taskKey 补交调度，返回 PENDING、PROCESSING 或 COMPLETED 后无需再次上传或确认；显式提供相同 clientToken 且未传 sourceETag 的 PENDING 重放仍须重试 CompleteAssetUpload，以恢复受理结果未知的调度。
+     *
+     * @param request - BeginAssetUploadRequest
+     * @returns BeginAssetUploadResponse
+     */
+    async beginAssetUpload(workspaceId, knowledgeBaseId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.beginAssetUploadWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime);
+    }
+    /**
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @remarks
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @param tmpReq - CompleteAssetUploadRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CompleteAssetUploadResponse
+     */
+    async completeAssetUploadWithOptions(workspaceId, knowledgeBaseId, assetId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.CompleteAssetUploadShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CompleteAssetUpload",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}/complete-upload`,
+            method: "POST",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CompleteAssetUploadResponse({}));
+    }
+    /**
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @remarks
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @param request - CompleteAssetUploadRequest
+     * @returns CompleteAssetUploadResponse
+     */
+    async completeAssetUpload(workspaceId, knowledgeBaseId, assetId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.completeAssetUploadWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime);
+    }
+    /**
      * Converts an MCP service to free-edit mode.
      *
      * @remarks
@@ -762,7 +926,7 @@ class Client extends openapi_core_1.default {
         return await this.createCustomAgentWithOptions(workspaceId, request, headers, runtime);
     }
     /**
-     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     * Issues a local debugging token for a running high-code agent in a specified workspace. The latest configuration of the agent must be in effect. The workspace must have inbound access enabled for the selected network and debug routing configured. The token is valid for 1 hour from the time of issuance. After the token expires, you can call this operation again to obtain a new one.
      *
      * @param request - CreateCustomAgentDebugTokenRequest
      * @param headers - map
@@ -793,7 +957,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateCustomAgentDebugTokenResponse({}));
     }
     /**
-     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     * Issues a local debugging token for a running high-code agent in a specified workspace. The latest configuration of the agent must be in effect. The workspace must have inbound access enabled for the selected network and debug routing configured. The token is valid for 1 hour from the time of issuance. After the token expires, you can call this operation again to obtain a new one.
      *
      * @param request - CreateCustomAgentDebugTokenRequest
      * @returns CreateCustomAgentDebugTokenResponse
@@ -1306,6 +1470,64 @@ class Client extends openapi_core_1.default {
         return await this.createImageCacheWithOptions(request, headers, runtime);
     }
     /**
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @remarks
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @param tmpReq - CreateKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateKnowledgeBaseResponse
+     */
+    async createKnowledgeBaseWithOptions(workspaceId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.CreateKnowledgeBaseShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let query = {};
+        if (!$dara.isNull(request.clientToken)) {
+            query["clientToken"] = request.clientToken;
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CreateKnowledgeBase",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases`,
+            method: "POST",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeBaseResponse({}));
+    }
+    /**
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @remarks
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @param request - CreateKnowledgeBaseRequest
+     * @returns CreateKnowledgeBaseResponse
+     */
+    async createKnowledgeBase(workspaceId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.createKnowledgeBaseWithOptions(workspaceId, request, headers, runtime);
+    }
+    /**
      * Creates a managed Harness agent in a specified workspace, configures the harness, model, skills, and runtime resources, and deploys it asynchronously.
      *
      * @remarks
@@ -1424,13 +1646,13 @@ class Client extends openapi_core_1.default {
         return await this.createManagedAgentWithOptions(workspaceId, request, headers, runtime);
     }
     /**
-     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
+     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or use the query API to confirm whether the service is ready.
      *
      * @remarks
      * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
      * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
-     * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+     * The clientToken parameter does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to create a new one.
      *
      * @param tmpReq - CreateMcpRequest
      * @param headers - map
@@ -1471,13 +1693,13 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateMcpResponse({}));
     }
     /**
-     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
+     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or use the query API to confirm whether the service is ready.
      *
      * @remarks
      * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
      * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
-     * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+     * The clientToken parameter does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to create a new one.
      *
      * @param request - CreateMcpRequest
      * @returns CreateMcpResponse
@@ -2342,6 +2564,49 @@ class Client extends openapi_core_1.default {
         return await this.deleteAgentVersionWithOptions(workspaceId, agentId, agentVersion, request, headers, runtime);
     }
     /**
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @remarks
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @param request - DeleteAssetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAssetResponse
+     */
+    async deleteAssetWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime) {
+        request.validate();
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DeleteAsset",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}`,
+            method: "DELETE",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DeleteAssetResponse({}));
+    }
+    /**
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @remarks
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @param request - DeleteAssetRequest
+     * @returns DeleteAssetResponse
+     */
+    async deleteAsset(workspaceId, knowledgeBaseId, assetId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.deleteAssetWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime);
+    }
+    /**
      * Deletes a specified credential in a workspace and the ciphertext hosted in the credential service. After the deletion, agents bound to the credential can no longer obtain the credential content.
      *
      * @remarks
@@ -2731,6 +2996,49 @@ class Client extends openapi_core_1.default {
         let runtime = new $dara.RuntimeOptions({});
         let headers = {};
         return await this.deleteImageCacheWithOptions(imageId, request, headers, runtime);
+    }
+    /**
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @remarks
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteKnowledgeBaseResponse
+     */
+    async deleteKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime) {
+        request.validate();
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DeleteKnowledgeBase",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}`,
+            method: "DELETE",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeBaseResponse({}));
+    }
+    /**
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @remarks
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     * @returns DeleteKnowledgeBaseResponse
+     */
+    async deleteKnowledgeBase(workspaceId, knowledgeBaseId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.deleteKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime);
     }
     /**
      * Deletes a managed Harness agent in a specified workspace and asynchronously cleans up its platform-associated resources.
@@ -4207,6 +4515,135 @@ class Client extends openapi_core_1.default {
         return await this.getAgentVersionWithOptions(workspaceId, agentId, agentVersion, request, headers, runtime);
     }
     /**
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @remarks
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @param request - GetAssetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAssetResponse
+     */
+    async getAssetWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime) {
+        request.validate();
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "GetAsset",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetAssetResponse({}));
+    }
+    /**
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @remarks
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @param request - GetAssetRequest
+     * @returns GetAssetResponse
+     */
+    async getAsset(workspaceId, knowledgeBaseId, assetId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.getAssetWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime);
+    }
+    /**
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @remarks
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @param request - GetAssetDownloadUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAssetDownloadUrlResponse
+     */
+    async getAssetDownloadUrlWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime) {
+        request.validate();
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "GetAssetDownloadUrl",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}/download-url`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetAssetDownloadUrlResponse({}));
+    }
+    /**
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @remarks
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @param request - GetAssetDownloadUrlRequest
+     * @returns GetAssetDownloadUrlResponse
+     */
+    async getAssetDownloadUrl(workspaceId, knowledgeBaseId, assetId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.getAssetDownloadUrlWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime);
+    }
+    /**
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @remarks
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @param request - GetChunkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetChunkResponse
+     */
+    async getChunkWithOptions(workspaceId, knowledgeBaseId, assetId, chunkSeq, request, headers, runtime) {
+        request.validate();
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "GetChunk",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}/chunks/${$dara.URL.percentEncode(chunkSeq)}`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetChunkResponse({}));
+    }
+    /**
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @remarks
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @param request - GetChunkRequest
+     * @returns GetChunkResponse
+     */
+    async getChunk(workspaceId, knowledgeBaseId, assetId, chunkSeq, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.getChunkWithOptions(workspaceId, knowledgeBaseId, assetId, chunkSeq, request, headers, runtime);
+    }
+    /**
      * Queries the details of a specified credential and returns a list of agents bound to the credential. The credential content is returned in a masked format.
      *
      * @remarks
@@ -4939,6 +5376,49 @@ class Client extends openapi_core_1.default {
         let runtime = new $dara.RuntimeOptions({});
         let headers = {};
         return await this.getImageCacheWithOptions(imageId, request, headers, runtime);
+    }
+    /**
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @remarks
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @param request - GetKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetKnowledgeBaseResponse
+     */
+    async getKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime) {
+        request.validate();
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "GetKnowledgeBase",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetKnowledgeBaseResponse({}));
+    }
+    /**
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @remarks
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @param request - GetKnowledgeBaseRequest
+     * @returns GetKnowledgeBaseResponse
+     */
+    async getKnowledgeBase(workspaceId, knowledgeBaseId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.getKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime);
     }
     /**
      * Queries the latest configuration, Harness, skill versions, configuration processing status, and running instance statistics of a managed Harness agent.
@@ -5783,6 +6263,49 @@ class Client extends openapi_core_1.default {
         return await this.getUserWithOptions(workspaceId, agentCoreUserId, request, headers, runtime);
     }
     /**
+     * Queries the execution status, detailed validation report, and failure causes of an asynchronous validation task for virtual MCP tools.
+     *
+     * @remarks
+     * Queries the status, report, and failure causes of an asynchronous validation task. You can continue to query the task before it finishes. PAUSED indicates that the task is paused. COMPLETED, PARTIAL_FAILED, FAILED, and CANCELED are desired states. When you query a failed task, the API operation itself still succeeds. You can determine whether the task failed based on data.status, failureCode, and failureMessage. The validation only returns a report and does not modify the gateway tool configurations.
+     *
+     * @param request - GetVirtualMcpToolValidationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVirtualMcpToolValidationResponse
+     */
+    async getVirtualMcpToolValidationWithOptions(workspaceId, validationId, request, headers, runtime) {
+        request.validate();
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "GetVirtualMcpToolValidation",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-servers/virtual-tools/validations/${$dara.URL.percentEncode(validationId)}`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetVirtualMcpToolValidationResponse({}));
+    }
+    /**
+     * Queries the execution status, detailed validation report, and failure causes of an asynchronous validation task for virtual MCP tools.
+     *
+     * @remarks
+     * Queries the status, report, and failure causes of an asynchronous validation task. You can continue to query the task before it finishes. PAUSED indicates that the task is paused. COMPLETED, PARTIAL_FAILED, FAILED, and CANCELED are desired states. When you query a failed task, the API operation itself still succeeds. You can determine whether the task failed based on data.status, failureCode, and failureMessage. The validation only returns a report and does not modify the gateway tool configurations.
+     *
+     * @param request - GetVirtualMcpToolValidationRequest
+     * @returns GetVirtualMcpToolValidationResponse
+     */
+    async getVirtualMcpToolValidation(workspaceId, validationId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.getVirtualMcpToolValidationWithOptions(workspaceId, validationId, request, headers, runtime);
+    }
+    /**
      * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS workspace, AI Registry namespace, and current network policies.
      *
      * @remarks
@@ -6422,6 +6945,123 @@ class Client extends openapi_core_1.default {
         let runtime = new $dara.RuntimeOptions({});
         let headers = {};
         return await this.listAgentVersionsWithOptions(workspaceId, agentId, request, headers, runtime);
+    }
+    /**
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @remarks
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @param request - ListAssetsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAssetsResponse
+     */
+    async listAssetsWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.fileNamePrefix)) {
+            query["fileNamePrefix"] = request.fileNamePrefix;
+        }
+        if (!$dara.isNull(request.maxResults)) {
+            query["maxResults"] = request.maxResults;
+        }
+        if (!$dara.isNull(request.nextToken)) {
+            query["nextToken"] = request.nextToken;
+        }
+        if (!$dara.isNull(request.status)) {
+            query["status"] = request.status;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "ListAssets",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListAssetsResponse({}));
+    }
+    /**
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @remarks
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @param request - ListAssetsRequest
+     * @returns ListAssetsResponse
+     */
+    async listAssets(workspaceId, knowledgeBaseId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.listAssetsWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime);
+    }
+    /**
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @remarks
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @param request - ListChunksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChunksResponse
+     */
+    async listChunksWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.assetId)) {
+            query["assetId"] = request.assetId;
+        }
+        if (!$dara.isNull(request.enabled)) {
+            query["enabled"] = request.enabled;
+        }
+        if (!$dara.isNull(request.keyword)) {
+            query["keyword"] = request.keyword;
+        }
+        if (!$dara.isNull(request.maxResults)) {
+            query["maxResults"] = request.maxResults;
+        }
+        if (!$dara.isNull(request.nextToken)) {
+            query["nextToken"] = request.nextToken;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "ListChunks",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/chunks`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListChunksResponse({}));
+    }
+    /**
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @remarks
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @param request - ListChunksRequest
+     * @returns ListChunksResponse
+     */
+    async listChunks(workspaceId, knowledgeBaseId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.listChunksWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime);
     }
     /**
      * Queries the official and enterprise models available for the enabled QoderCLI connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates them by model ID.
@@ -7117,6 +7757,57 @@ class Client extends openapi_core_1.default {
         return await this.listImageCachesWithOptions(request, headers, runtime);
     }
     /**
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @remarks
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListKnowledgeBasesResponse
+     */
+    async listKnowledgeBasesWithOptions(workspaceId, request, headers, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.maxResults)) {
+            query["maxResults"] = request.maxResults;
+        }
+        if (!$dara.isNull(request.nextToken)) {
+            query["nextToken"] = request.nextToken;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "ListKnowledgeBases",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBasesResponse({}));
+    }
+    /**
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @remarks
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     * @returns ListKnowledgeBasesResponse
+     */
+    async listKnowledgeBases(workspaceId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.listKnowledgeBasesWithOptions(workspaceId, request, headers, runtime);
+    }
+    /**
      * Performs a paging query to retrieve the identity, harness, configuration version, and status summary of managed Harness agents in a workspace.
      *
      * @remarks
@@ -7236,6 +7927,57 @@ class Client extends openapi_core_1.default {
         return await this.listMcpMarketItemsWithOptions(workspaceId, request, headers, runtime);
     }
     /**
+     * 查询 MCP 引用
+     *
+     * @remarks
+     * 查询 MCP 引用。校验仅返回报告，不修改网关工具配置。
+     *
+     * @param request - ListMcpReferencesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMcpReferencesResponse
+     */
+    async listMcpReferencesWithOptions(workspaceId, mcpServerId, request, headers, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.maxResults)) {
+            query["maxResults"] = request.maxResults;
+        }
+        if (!$dara.isNull(request.nextToken)) {
+            query["nextToken"] = request.nextToken;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "ListMcpReferences",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}/references`,
+            method: "GET",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "json",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListMcpReferencesResponse({}));
+    }
+    /**
+     * 查询 MCP 引用
+     *
+     * @remarks
+     * 查询 MCP 引用。校验仅返回报告，不修改网关工具配置。
+     *
+     * @param request - ListMcpReferencesRequest
+     * @returns ListMcpReferencesResponse
+     */
+    async listMcpReferences(workspaceId, mcpServerId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.listMcpReferencesWithOptions(workspaceId, mcpServerId, request, headers, runtime);
+    }
+    /**
      * Queries the list of tools exposed by a specified MCP service and their input and output schemas.
      *
      * @remarks
@@ -7303,6 +8045,9 @@ class Client extends openapi_core_1.default {
         if (!$dara.isNull(request.customTag)) {
             query["customTag"] = request.customTag;
         }
+        if (!$dara.isNull(request.includeVirtualConfig)) {
+            query["includeVirtualConfig"] = request.includeVirtualConfig;
+        }
         if (!$dara.isNull(request.maxResults)) {
             query["maxResults"] = request.maxResults;
         }
@@ -7317,6 +8062,9 @@ class Client extends openapi_core_1.default {
         }
         if (!$dara.isNull(request.searchType)) {
             query["searchType"] = request.searchType;
+        }
+        if (!$dara.isNull(request.type)) {
+            query["type"] = request.type;
         }
         if (!$dara.isNull(request.usageActive)) {
             query["usageActive"] = request.usageActive;
@@ -8760,7 +9508,7 @@ class Client extends openapi_core_1.default {
      * Validates an MCP origin server.
      *
      * @remarks
-     * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+     * Validates a single direct-connect MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not provided. The server discovers them automatically, prioritizing the modern protocol and falling back to the legacy protocol only if the modern one is unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the protocol conversion compatibility of the gateway. If the direct connection protocol check passes but no capabilities are declared, the status is still SUCCESS. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration. It also sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business APIs defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation API, does not accept validation-specific headers, and does not execute tools/call. A success response from the API only indicates that the validation request has been processed. The actual origin server result is indicated by data.status.
      *
      * @param tmpReq - ProbeMcpOriginRequest
      * @param headers - map
@@ -8799,7 +9547,7 @@ class Client extends openapi_core_1.default {
      * Validates an MCP origin server.
      *
      * @remarks
-     * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+     * Validates a single direct-connect MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not provided. The server discovers them automatically, prioritizing the modern protocol and falling back to the legacy protocol only if the modern one is unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the protocol conversion compatibility of the gateway. If the direct connection protocol check passes but no capabilities are declared, the status is still SUCCESS. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration. It also sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business APIs defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation API, does not accept validation-specific headers, and does not execute tools/call. A success response from the API only indicates that the validation request has been processed. The actual origin server result is indicated by data.status.
      *
      * @param request - ProbeMcpOriginRequest
      * @returns ProbeMcpOriginResponse
@@ -9175,6 +9923,59 @@ class Client extends openapi_core_1.default {
         let runtime = new $dara.RuntimeOptions({});
         let headers = {};
         return await this.revokeMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+    }
+    /**
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @remarks
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @param tmpReq - SearchKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchKnowledgeBaseResponse
+     */
+    async searchKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.SearchKnowledgeBaseShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "SearchKnowledgeBase",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/search`,
+            method: "POST",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.SearchKnowledgeBaseResponse({}));
+    }
+    /**
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @remarks
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @param request - SearchKnowledgeBaseRequest
+     * @returns SearchKnowledgeBaseResponse
+     */
+    async searchKnowledgeBase(workspaceId, knowledgeBaseId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.searchKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime);
     }
     /**
      * Retrieves relevant memories based on the query text. Supports filtering by association scope, type, and metadata, and sets result thresholds through similarity and relevance scores. If topK is omitted or set to 0, the default value 10 is used, with a maximum of 200.
@@ -9560,6 +10361,170 @@ class Client extends openapi_core_1.default {
         let runtime = new $dara.RuntimeOptions({});
         let headers = {};
         return await this.updateAgentSpecWithOptions(workspaceId, agentSpecName, request, headers, runtime);
+    }
+    /**
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @remarks
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @param tmpReq - UpdateAssetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAssetResponse
+     */
+    async updateAssetWithOptions(workspaceId, knowledgeBaseId, assetId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.UpdateAssetShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "UpdateAsset",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}`,
+            method: "PATCH",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.UpdateAssetResponse({}));
+    }
+    /**
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @remarks
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @param request - UpdateAssetRequest
+     * @returns UpdateAssetResponse
+     */
+    async updateAsset(workspaceId, knowledgeBaseId, assetId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.updateAssetWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime);
+    }
+    /**
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @remarks
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @param tmpReq - UpdateChunkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateChunkResponse
+     */
+    async updateChunkWithOptions(workspaceId, knowledgeBaseId, assetId, chunkSeq, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.UpdateChunkShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let query = {};
+        if (!$dara.isNull(request.clientToken)) {
+            query["clientToken"] = request.clientToken;
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "UpdateChunk",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}/chunks/${$dara.URL.percentEncode(chunkSeq)}`,
+            method: "PATCH",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.UpdateChunkResponse({}));
+    }
+    /**
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @remarks
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @param request - UpdateChunkRequest
+     * @returns UpdateChunkResponse
+     */
+    async updateChunk(workspaceId, knowledgeBaseId, assetId, chunkSeq, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.updateChunkWithOptions(workspaceId, knowledgeBaseId, assetId, chunkSeq, request, headers, runtime);
+    }
+    /**
+     * 批量启停 Chunk
+     *
+     * @remarks
+     * 同步启停同一资产中 1 至 100 个 Chunk。每项必填 chunkSeq、chunkToken、enabled，序号不得重复，不支持正文。请求开始读取当前已发布结果，校验全部令牌后固定目标；已过期令牌整次返回 Chunk.VersionConflict。已有发布结果且未删除即可启停，包括 PENDING、PROCESSING、FAILED，不等待 FC。期间新结果发布不追随、不回滚，也不追加写后版本冲突；新结果不保证继承并发启停。写入允许部分成功，检查 results 和 failedCount。索引异步同步，检索可能短暂延迟。不调用 FC，不需要 clientToken 或轮询。
+     *
+     * @param tmpReq - UpdateChunksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateChunksResponse
+     */
+    async updateChunksWithOptions(workspaceId, knowledgeBaseId, assetId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.UpdateChunksShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "UpdateChunks",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}/assets/${$dara.URL.percentEncode(assetId)}/chunks`,
+            method: "PATCH",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.UpdateChunksResponse({}));
+    }
+    /**
+     * 批量启停 Chunk
+     *
+     * @remarks
+     * 同步启停同一资产中 1 至 100 个 Chunk。每项必填 chunkSeq、chunkToken、enabled，序号不得重复，不支持正文。请求开始读取当前已发布结果，校验全部令牌后固定目标；已过期令牌整次返回 Chunk.VersionConflict。已有发布结果且未删除即可启停，包括 PENDING、PROCESSING、FAILED，不等待 FC。期间新结果发布不追随、不回滚，也不追加写后版本冲突；新结果不保证继承并发启停。写入允许部分成功，检查 results 和 failedCount。索引异步同步，检索可能短暂延迟。不调用 FC，不需要 clientToken 或轮询。
+     *
+     * @param request - UpdateChunksRequest
+     * @returns UpdateChunksResponse
+     */
+    async updateChunks(workspaceId, knowledgeBaseId, assetId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.updateChunksWithOptions(workspaceId, knowledgeBaseId, assetId, request, headers, runtime);
     }
     /**
      * Updates the API key or service account key collection for an enabled QoderCLI connector. When serviceAccountKeys is submitted, the service treats it as the updated complete key collection to perform additions, renames, rotations, and deletions.
@@ -10179,6 +11144,64 @@ class Client extends openapi_core_1.default {
         return await this.updateIdentityProviderSCIMWithOptions(workspaceId, request, headers, runtime);
     }
     /**
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @remarks
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @param tmpReq - UpdateKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateKnowledgeBaseResponse
+     */
+    async updateKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, tmpReq, headers, runtime) {
+        tmpReq.validate();
+        let request = new $_model.UpdateKnowledgeBaseShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.body)) {
+            request.bodyShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+        }
+        let query = {};
+        if (!$dara.isNull(request.clientToken)) {
+            query["clientToken"] = request.clientToken;
+        }
+        let body = {};
+        if (!$dara.isNull(request.bodyShrink)) {
+            body["body"] = request.bodyShrink;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            headers: headers,
+            query: openapi_core_2.OpenApiUtil.query(query),
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "UpdateKnowledgeBase",
+            version: "2026-08-04",
+            protocol: "HTTPS",
+            pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/knowledge-bases/${$dara.URL.percentEncode(knowledgeBaseId)}`,
+            method: "PATCH",
+            authType: "AK",
+            style: "ROA",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseResponse({}));
+    }
+    /**
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @remarks
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     * @returns UpdateKnowledgeBaseResponse
+     */
+    async updateKnowledgeBase(workspaceId, knowledgeBaseId, request) {
+        let runtime = new $dara.RuntimeOptions({});
+        let headers = {};
+        return await this.updateKnowledgeBaseWithOptions(workspaceId, knowledgeBaseId, request, headers, runtime);
+    }
+    /**
      * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configuration.
      *
      * @remarks
@@ -10367,7 +11390,7 @@ class Client extends openapi_core_1.default {
         return await this.updateMcpWithOptions(workspaceId, mcpServerId, request, headers, runtime);
     }
     /**
-     * Updates the MCP parameters based on a template.
+     * Updates MCP parameters based on a template.
      *
      * @remarks
      * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
@@ -10415,7 +11438,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.UpdateMcpTemplateConfigResponse({}));
     }
     /**
-     * Updates the MCP parameters based on a template.
+     * Updates MCP parameters based on a template.
      *
      * @remarks
      * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.

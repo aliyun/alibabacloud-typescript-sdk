@@ -153,6 +153,186 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfigurati
   }
 }
 
+export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 镜像仓库密码，由服务端加密保存，查询时不返回。更新时省略该字段保留已有密码。
+   * 
+   * @example
+   * example-password
+   */
+  password?: string;
+  /**
+   * @remarks
+   * 镜像仓库用户名
+   * 
+   * @example
+   * puller
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'password',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+  /**
+   * @remarks
+   * true 表示不校验镜像仓库 TLS 证书，默认 false
+   * 
+   * @example
+   * false
+   */
+  insecure?: boolean;
+  /**
+   * @remarks
+   * Base64 编码的镜像仓库根 CA 证书，用于校验自签证书
+   * 
+   * @example
+   * LS0tLS1CRUdJTi...
+   */
+  rootCaCertBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      insecure: 'insecure',
+      rootCaCertBase64: 'rootCaCertBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insecure: 'boolean',
+      rootCaCertBase64: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 拉取镜像使用的安全组 ID
+   * 
+   * @example
+   * sg-example
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * 拉取镜像使用的交换机 ID
+   * 
+   * @example
+   * vsw-example
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * 镜像仓库所在 VPC ID
+   * 
+   * @example
+   * vpc-example
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 镜像仓库需要用户名密码认证时填写
+   */
+  authConfig?: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+  /**
+   * @remarks
+   * 镜像仓库 TLS 证书校验配置
+   */
+  certConfig?: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+  /**
+   * @remarks
+   * 镜像仓库仅在 VPC 内可访问时填写，FC 通过该网络拉取镜像
+   */
+  networkConfig?: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'authConfig',
+      certConfig: 'certConfig',
+      networkConfig: 'networkConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig,
+      certConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig,
+      networkConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig,
+    };
+  }
+
+  validate() {
+    if(this.authConfig && typeof (this.authConfig as any).validate === 'function') {
+      (this.authConfig as any).validate();
+    }
+    if(this.certConfig && typeof (this.certConfig as any).validate === 'function') {
+      (this.certConfig as any).validate();
+    }
+    if(this.networkConfig && typeof (this.networkConfig as any).validate === 'function') {
+      (this.networkConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfiguration extends $dara.Model {
   /**
    * @remarks
@@ -198,6 +378,11 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
   mcpRuntimeMode?: string;
   /**
    * @remarks
+   * 仅 ImageRegistryType 为 CUSTOM 时生效，用于配置镜像拉取认证、TLS 证书校验和私网拉取网络
+   */
+  registryConfig?: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig;
+  /**
+   * @remarks
    * The container source type. Currently fixed to CONTAINER_IMAGE.
    * 
    * @example
@@ -212,6 +397,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
       image: 'image',
       imageRegistryType: 'imageRegistryType',
       mcpRuntimeMode: 'mcpRuntimeMode',
+      registryConfig: 'registryConfig',
       sourceType: 'sourceType',
     };
   }
@@ -224,6 +410,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
       image: 'string',
       imageRegistryType: 'string',
       mcpRuntimeMode: 'string',
+      registryConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig,
       sourceType: 'string',
     };
   }
@@ -234,6 +421,9 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
     }
     if(Array.isArray(this.entrypoint)) {
       $dara.Model.validateArray(this.entrypoint);
+    }
+    if(this.registryConfig && typeof (this.registryConfig as any).validate === 'function') {
+      (this.registryConfig as any).validate();
     }
     super.validate();
   }

@@ -2,6 +2,76 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateMcpResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The currently applied revision number of the virtual MCP.
+   * 
+   * @example
+   * 1
+   */
+  appliedRevision?: number;
+  /**
+   * @remarks
+   * The ID of the MCP service updated in this request.
+   * 
+   * @example
+   * mcp-server-virtual-1
+   */
+  mcpServerId?: string;
+  /**
+   * @remarks
+   * The ID of the most recent publish task for the virtual MCP.
+   * 
+   * @example
+   * task-1234567890
+   */
+  operationTaskId?: string;
+  /**
+   * @remarks
+   * The target revision number of the virtual MCP.
+   * 
+   * @example
+   * 2
+   */
+  revision?: number;
+  /**
+   * @remarks
+   * The resource status after the update is accepted. The UPDATING status does not indicate that the update has taken effect.
+   * 
+   * @example
+   * UPDATING
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appliedRevision: 'appliedRevision',
+      mcpServerId: 'mcpServerId',
+      operationTaskId: 'operationTaskId',
+      revision: 'revision',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appliedRevision: 'number',
+      mcpServerId: 'string',
+      operationTaskId: 'string',
+      revision: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMcpResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +81,11 @@ export class UpdateMcpResponseBody extends $dara.Model {
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * For the VIRTUAL type, the update status, revision number, and publish task ID are returned. For a standard MCP, the original empty data response is retained.
+   */
+  data?: UpdateMcpResponseBodyData;
   /**
    * @remarks
    * The HTTP status code.
@@ -43,6 +118,7 @@ export class UpdateMcpResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      data: 'data',
       httpStatusCode: 'httpStatusCode',
       message: 'message',
       requestId: 'requestId',
@@ -53,6 +129,7 @@ export class UpdateMcpResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: UpdateMcpResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -61,6 +138,9 @@ export class UpdateMcpResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
     super.validate();
   }
 

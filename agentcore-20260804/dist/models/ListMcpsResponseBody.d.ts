@@ -1,4 +1,74 @@
 import * as $dara from '@darabonba/typescript';
+export declare class ListMcpsResponseBodyItemsAppliedVirtualConfigSourcesTools extends $dara.Model {
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：从源 MCP 的 ListMcpTools 或校验结果取得的定义摘要，客户端原样回传，不自行计算。仅用作手动更新校验基线，不冻结运行时 Schema。
+     *
+     * @example
+     * e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+     */
+    expectedDigest?: string;
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：源工具名称。
+     *
+     * @example
+     * get-current-time
+     */
+    name?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsAppliedVirtualConfigSources extends $dara.Model {
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：当前工作空间的源 MCP ID。
+     *
+     * @example
+     * mcp-server-source-1
+     */
+    mcpServerId?: string;
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：手动选择的工具，每个源至少一个，全部源最多 100 个。
+     */
+    tools?: ListMcpsResponseBodyItemsAppliedVirtualConfigSourcesTools[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsAppliedVirtualConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 虚拟 MCP 必填，填写 1 到 10 个不同的源 MCP。
+     */
+    sources?: ListMcpsResponseBodyItemsAppliedVirtualConfigSources[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class ListMcpsResponseBodyItemsAuthCodePackage extends $dara.Model {
     /**
      * @remarks
@@ -243,6 +313,125 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration 
         [key: string]: any;
     });
 }
+export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 镜像仓库密码，由服务端加密保存，查询时不返回。更新时省略该字段保留已有密码。
+     *
+     * @example
+     * example-password
+     */
+    password?: string;
+    /**
+     * @remarks
+     * 镜像仓库用户名
+     *
+     * @example
+     * puller
+     */
+    userName?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    /**
+     * @remarks
+     * true 表示不校验镜像仓库 TLS 证书，默认 false
+     *
+     * @example
+     * false
+     */
+    insecure?: boolean;
+    /**
+     * @remarks
+     * Base64 编码的镜像仓库根 CA 证书，用于校验自签证书
+     *
+     * @example
+     * LS0tLS1CRUdJTi...
+     */
+    rootCaCertBase64?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 拉取镜像使用的安全组 ID
+     *
+     * @example
+     * sg-example
+     */
+    securityGroupId?: string;
+    /**
+     * @remarks
+     * 拉取镜像使用的交换机 ID
+     *
+     * @example
+     * vsw-example
+     */
+    vSwitchId?: string;
+    /**
+     * @remarks
+     * 镜像仓库所在 VPC ID
+     *
+     * @example
+     * vpc-example
+     */
+    vpcId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 镜像仓库需要用户名密码认证时填写
+     */
+    authConfig?: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+    /**
+     * @remarks
+     * 镜像仓库 TLS 证书校验配置
+     */
+    certConfig?: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+    /**
+     * @remarks
+     * 镜像仓库仅在 VPC 内可访问时填写，FC 通过该网络拉取镜像
+     */
+    networkConfig?: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration extends $dara.Model {
     /**
      * @remarks
@@ -286,6 +475,11 @@ export declare class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigura
      * SELF_HOSTED
      */
     mcpRuntimeMode?: string;
+    /**
+     * @remarks
+     * 仅 ImageRegistryType 为 CUSTOM 时生效，用于配置镜像拉取认证、TLS 证书校验和私网拉取网络
+     */
+    registryConfig?: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfig;
     /**
      * @remarks
      * Currently fixed to CONTAINER_IMAGE.
@@ -1153,12 +1347,95 @@ export declare class ListMcpsResponseBodyItemsOriginProbe extends $dara.Model {
         [key: string]: any;
     });
 }
+export declare class ListMcpsResponseBodyItemsVirtualConfigSourcesTools extends $dara.Model {
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：从源 MCP 的 ListMcpTools 或校验结果取得的定义摘要，客户端原样回传，不自行计算。仅用作手动更新校验基线，不冻结运行时 Schema。
+     *
+     * @example
+     * e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+     */
+    expectedDigest?: string;
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：源工具名称。
+     *
+     * @example
+     * get-current-time
+     */
+    name?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsVirtualConfigSources extends $dara.Model {
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：当前工作空间的源 MCP ID。
+     *
+     * @example
+     * mcp-server-source-1
+     */
+    mcpServerId?: string;
+    /**
+     * @remarks
+     * 虚拟 MCP 必填：手动选择的工具，每个源至少一个，全部源最多 100 个。
+     */
+    tools?: ListMcpsResponseBodyItemsVirtualConfigSourcesTools[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListMcpsResponseBodyItemsVirtualConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 虚拟 MCP 必填，填写 1 到 10 个不同的源 MCP。
+     */
+    sources?: ListMcpsResponseBodyItemsVirtualConfigSources[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class ListMcpsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
      * The list of MCP service addresses.
      */
     addresses?: string[];
+    /**
+     * @remarks
+     * 已生效修订号。
+     *
+     * @example
+     * 1
+     */
+    appliedRevision?: number;
+    /**
+     * @remarks
+     * 仅 includeVirtualConfig=true 时返回已生效的源和工具选择。
+     */
+    appliedVirtualConfig?: ListMcpsResponseBodyItemsAppliedVirtualConfig;
     /**
      * @remarks
      * The backend authentication configuration. enabled specifies whether the configuration is enabled. directProxy specifies the custom authentication header for the direct proxy. httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
@@ -1216,6 +1493,22 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     functionName?: string;
     /**
      * @remarks
+     * 当前目标组装最近一次工具校验的 ID。
+     *
+     * @example
+     * val-1234567890
+     */
+    lastValidationId?: string;
+    /**
+     * @remarks
+     * 当前目标组装的校验状态，取值为 PENDING、RUNNING、PAUSED、COMPLETED、PARTIAL_FAILED、FAILED 或 CANCELED。批量任务完成后按当前 MCP 的结果判定 COMPLETED 或 PARTIAL_FAILED。需查看明细时调用 GetMcp。
+     *
+     * @example
+     * COMPLETED
+     */
+    lastValidationStatus?: string;
+    /**
+     * @remarks
      * The MCP source marketplace template.
      */
     marketSource?: ListMcpsResponseBodyItemsMarketSource;
@@ -1250,6 +1543,14 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     operation?: ListMcpsResponseBodyItemsOperation;
     /**
      * @remarks
+     * 最近一次虚拟 MCP 发布任务 ID，可用于查询和定位异步发布结果。
+     *
+     * @example
+     * task-1234567890
+     */
+    operationTaskId?: string;
+    /**
+     * @remarks
      * Only code deployment returns the minimal origin verification summary of the most recent task. This field is empty for direct proxy and HTTP to MCP, and queries do not trigger probing.
      */
     originProbe?: ListMcpsResponseBodyItemsOriginProbe;
@@ -1281,6 +1582,30 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     protocol?: string;
     /**
      * @remarks
+     * 只读，记录当前生效部署从 FC 读取的镜像地址及 Digest。部署仍使用 deploymentConfig.containerConfiguration.image 中的 Tag；该字段不作为部署入参。部署尚未生效或未取得镜像摘要时为空。
+     *
+     * @example
+     * registry.example.com/mcp@sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+     */
+    resolvedImageUri?: string;
+    /**
+     * @remarks
+     * 目标修订号。
+     *
+     * @example
+     * 2
+     */
+    revision?: number;
+    /**
+     * @remarks
+     * 选择的源数量。
+     *
+     * @example
+     * 2
+     */
+    sourceCount?: number;
+    /**
+     * @remarks
      * The status.
      *
      * @example
@@ -1297,12 +1622,28 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
     statusReason?: string;
     /**
      * @remarks
+     * 虚拟 MCP 发布失败的安全原因码。
+     *
+     * @example
+     * PublishFailed
+     */
+    statusReasonCode?: string;
+    /**
+     * @remarks
      * The Swagger configuration.
      *
      * @example
      * {"type":"object"}
      */
     swaggerConfig?: string;
+    /**
+     * @remarks
+     * 选择的工具数量。
+     *
+     * @example
+     * 5
+     */
+    toolCount?: number;
     /**
      * @remarks
      * The type.
@@ -1324,6 +1665,11 @@ export declare class ListMcpsResponseBodyItems extends $dara.Model {
      * Indicates whether the MCP is still subject to the usage constraints of the official template.
      */
     usageActive?: boolean;
+    /**
+     * @remarks
+     * 仅 includeVirtualConfig=true 时返回目标源和工具选择。
+     */
+    virtualConfig?: ListMcpsResponseBodyItemsVirtualConfig;
     static names(): {
         [key: string]: string;
     };

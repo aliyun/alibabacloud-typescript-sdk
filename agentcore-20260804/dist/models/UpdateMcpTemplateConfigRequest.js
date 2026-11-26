@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateMcpTemplateConfigRequest = exports.UpdateMcpTemplateConfigRequestBody = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfig = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigRuntimeConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigProxyConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigParameterTransformConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigOssMountConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigOssMountConfigurationMountPoints = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigNetworkConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfigurationMountPoints = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigMcpConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigLogConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfigurationHooks = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigCodeConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigAgentIdentityConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigAccessControl = exports.UpdateMcpTemplateConfigRequestBodyAuth = exports.UpdateMcpTemplateConfigRequestBodyAuthHttpToMcp = exports.UpdateMcpTemplateConfigRequestBodyAuthDirectProxy = void 0;
+exports.UpdateMcpTemplateConfigRequest = exports.UpdateMcpTemplateConfigRequestBody = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfig = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigRuntimeConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigProxyConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigParameterTransformConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigOssMountConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigOssMountConfigurationMountPoints = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigNetworkConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigNasConfigurationMountPoints = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigMcpConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigLogConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigHookConfigurationHooks = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfig = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigCertConfig = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigCodeConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigAgentIdentityConfiguration = exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigAccessControl = exports.UpdateMcpTemplateConfigRequestBodyAuth = exports.UpdateMcpTemplateConfigRequestBodyAuthHttpToMcp = exports.UpdateMcpTemplateConfigRequestBodyAuthDirectProxy = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class UpdateMcpTemplateConfigRequestBodyAuthDirectProxy extends $dara.Model {
@@ -177,6 +177,103 @@ class UpdateMcpTemplateConfigRequestBodyDeploymentConfigCodeConfiguration extend
     }
 }
 exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigCodeConfiguration = UpdateMcpTemplateConfigRequestBodyDeploymentConfigCodeConfiguration;
+class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    static names() {
+        return {
+            password: 'password',
+            userName: 'userName',
+        };
+    }
+    static types() {
+        return {
+            password: 'string',
+            userName: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    static names() {
+        return {
+            insecure: 'insecure',
+            rootCaCertBase64: 'rootCaCertBase64',
+        };
+    }
+    static types() {
+        return {
+            insecure: 'boolean',
+            rootCaCertBase64: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigCertConfig = UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    static names() {
+        return {
+            securityGroupId: 'securityGroupId',
+            vSwitchId: 'vSwitchId',
+            vpcId: 'vpcId',
+        };
+    }
+    static types() {
+        return {
+            securityGroupId: 'string',
+            vSwitchId: 'string',
+            vpcId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    static names() {
+        return {
+            authConfig: 'authConfig',
+            certConfig: 'certConfig',
+            networkConfig: 'networkConfig',
+        };
+    }
+    static types() {
+        return {
+            authConfig: UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigAuthConfig,
+            certConfig: UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigCertConfig,
+            networkConfig: UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig,
+        };
+    }
+    validate() {
+        if (this.authConfig && typeof this.authConfig.validate === 'function') {
+            this.authConfig.validate();
+        }
+        if (this.certConfig && typeof this.certConfig.validate === 'function') {
+            this.certConfig.validate();
+        }
+        if (this.networkConfig && typeof this.networkConfig.validate === 'function') {
+            this.networkConfig.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfig = UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfig;
 class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfiguration extends $dara.Model {
     static names() {
         return {
@@ -186,6 +283,7 @@ class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfiguration e
             image: 'image',
             imageRegistryType: 'imageRegistryType',
             mcpRuntimeMode: 'mcpRuntimeMode',
+            registryConfig: 'registryConfig',
             sourceType: 'sourceType',
         };
     }
@@ -197,6 +295,7 @@ class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfiguration e
             image: 'string',
             imageRegistryType: 'string',
             mcpRuntimeMode: 'string',
+            registryConfig: UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfigurationRegistryConfig,
             sourceType: 'string',
         };
     }
@@ -206,6 +305,9 @@ class UpdateMcpTemplateConfigRequestBodyDeploymentConfigContainerConfiguration e
         }
         if (Array.isArray(this.entrypoint)) {
             $dara.Model.validateArray(this.entrypoint);
+        }
+        if (this.registryConfig && typeof this.registryConfig.validate === 'function') {
+            this.registryConfig.validate();
         }
         super.validate();
     }

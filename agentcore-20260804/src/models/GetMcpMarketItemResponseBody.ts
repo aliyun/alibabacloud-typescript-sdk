@@ -91,7 +91,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
    * The instructions for the MCP marketplace template.
    * 
    * @example
-   * # Knowledge\\nKnowledge base query service
+   * # Knowledge\nKnowledge base query service
    */
   readme?: string;
   /**

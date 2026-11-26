@@ -63,7 +63,7 @@ export class GetIdentityProviderSyncScopeResponseBodyDataSyncScope extends $dara
   departmentIds?: string[];
   /**
    * @remarks
-   * AllAuthorized: the full authorized scope, which is restricted by the application\\"s address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
+   * AllAuthorized: the full authorized scope, which is restricted by the application\"s address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
    * 
    * @example
    * SelectedDepartments

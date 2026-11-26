@@ -103,6 +103,125 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeCon
         [key: string]: any;
     });
 }
+export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 镜像仓库密码，由服务端加密保存，查询时不返回。更新时省略该字段保留已有密码。
+     *
+     * @example
+     * example-password
+     */
+    password?: string;
+    /**
+     * @remarks
+     * 镜像仓库用户名
+     *
+     * @example
+     * puller
+     */
+    userName?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    /**
+     * @remarks
+     * true 表示不校验镜像仓库 TLS 证书，默认 false
+     *
+     * @example
+     * false
+     */
+    insecure?: boolean;
+    /**
+     * @remarks
+     * Base64 编码的镜像仓库根 CA 证书，用于校验自签证书
+     *
+     * @example
+     * LS0tLS1CRUdJTi...
+     */
+    rootCaCertBase64?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 拉取镜像使用的安全组 ID
+     *
+     * @example
+     * sg-example
+     */
+    securityGroupId?: string;
+    /**
+     * @remarks
+     * 拉取镜像使用的交换机 ID
+     *
+     * @example
+     * vsw-example
+     */
+    vSwitchId?: string;
+    /**
+     * @remarks
+     * 镜像仓库所在 VPC ID
+     *
+     * @example
+     * vpc-example
+     */
+    vpcId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    /**
+     * @remarks
+     * 镜像仓库需要用户名密码认证时填写
+     */
+    authConfig?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+    /**
+     * @remarks
+     * 镜像仓库 TLS 证书校验配置
+     */
+    certConfig?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+    /**
+     * @remarks
+     * 镜像仓库仅在 VPC 内可访问时填写，FC 通过该网络拉取镜像
+     */
+    networkConfig?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration extends $dara.Model {
     /**
      * @remarks
@@ -146,6 +265,11 @@ export declare class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContain
      * SELF_HOSTED
      */
     mcpRuntimeMode?: string;
+    /**
+     * @remarks
+     * 仅 ImageRegistryType 为 CUSTOM 时生效，用于配置镜像拉取认证、TLS 证书校验和私网拉取网络
+     */
+    registryConfig?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig;
     /**
      * @remarks
      * The container source type. Currently, the value is fixed to CONTAINER_IMAGE.

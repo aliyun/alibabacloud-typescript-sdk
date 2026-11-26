@@ -1481,7 +1481,7 @@ export class GetCustomAgentResponseBodyData extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The description of the agent\\"s purpose.
+   * The description of the agent\"s purpose.
    * 
    * @example
    * Custom agent for providing conversation services

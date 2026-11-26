@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InstallMcpMarketItemResponseBody = exports.InstallMcpMarketItemResponseBodyData = exports.InstallMcpMarketItemResponseBodyDataTemplate = exports.InstallMcpMarketItemResponseBodyDataMarketSource = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfig = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigProxyConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigOssMountConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigNetworkConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigMcpConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigLogConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigAccessControl = void 0;
+exports.InstallMcpMarketItemResponseBody = exports.InstallMcpMarketItemResponseBodyData = exports.InstallMcpMarketItemResponseBodyDataTemplate = exports.InstallMcpMarketItemResponseBodyDataMarketSource = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfig = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigProxyConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigOssMountConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigNetworkConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigMcpConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigLogConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigAccessControl = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class InstallMcpMarketItemResponseBodyDataDeploymentConfigAccessControl extends $dara.Model {
@@ -100,6 +100,103 @@ class InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfiguration exte
     }
 }
 exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfiguration = InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfiguration;
+class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    static names() {
+        return {
+            password: 'password',
+            userName: 'userName',
+        };
+    }
+    static types() {
+        return {
+            password: 'string',
+            userName: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    static names() {
+        return {
+            insecure: 'insecure',
+            rootCaCertBase64: 'rootCaCertBase64',
+        };
+    }
+    static types() {
+        return {
+            insecure: 'boolean',
+            rootCaCertBase64: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig = InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    static names() {
+        return {
+            securityGroupId: 'securityGroupId',
+            vSwitchId: 'vSwitchId',
+            vpcId: 'vpcId',
+        };
+    }
+    static types() {
+        return {
+            securityGroupId: 'string',
+            vSwitchId: 'string',
+            vpcId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    static names() {
+        return {
+            authConfig: 'authConfig',
+            certConfig: 'certConfig',
+            networkConfig: 'networkConfig',
+        };
+    }
+    static types() {
+        return {
+            authConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig,
+            certConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig,
+            networkConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig,
+        };
+    }
+    validate() {
+        if (this.authConfig && typeof this.authConfig.validate === 'function') {
+            this.authConfig.validate();
+        }
+        if (this.certConfig && typeof this.certConfig.validate === 'function') {
+            this.certConfig.validate();
+        }
+        if (this.networkConfig && typeof this.networkConfig.validate === 'function') {
+            this.networkConfig.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig = InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig;
 class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfiguration extends $dara.Model {
     static names() {
         return {
@@ -109,6 +206,7 @@ class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfiguration
             image: 'image',
             imageRegistryType: 'imageRegistryType',
             mcpRuntimeMode: 'mcpRuntimeMode',
+            registryConfig: 'registryConfig',
             sourceType: 'sourceType',
         };
     }
@@ -120,6 +218,7 @@ class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfiguration
             image: 'string',
             imageRegistryType: 'string',
             mcpRuntimeMode: 'string',
+            registryConfig: InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig,
             sourceType: 'string',
         };
     }
@@ -129,6 +228,9 @@ class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfiguration
         }
         if (Array.isArray(this.entrypoint)) {
             $dara.Model.validateArray(this.entrypoint);
+        }
+        if (this.registryConfig && typeof this.registryConfig.validate === 'function') {
+            this.registryConfig.validate();
         }
         super.validate();
     }

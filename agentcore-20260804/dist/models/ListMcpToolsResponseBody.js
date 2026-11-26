@@ -29,6 +29,7 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class ListMcpToolsResponseBodyItems extends $dara.Model {
     static names() {
         return {
+            definitionDigest: 'definitionDigest',
             inputSchema: 'inputSchema',
             outputSchema: 'outputSchema',
             toolDescription: 'toolDescription',
@@ -37,6 +38,7 @@ class ListMcpToolsResponseBodyItems extends $dara.Model {
     }
     static types() {
         return {
+            definitionDigest: 'string',
             inputSchema: 'string',
             outputSchema: 'string',
             toolDescription: 'string',

@@ -30,22 +30,26 @@ class ListMcpsRequest extends $dara.Model {
     static names() {
         return {
             customTag: 'customTag',
+            includeVirtualConfig: 'includeVirtualConfig',
             maxResults: 'maxResults',
             name: 'name',
             nextToken: 'nextToken',
             officialTag: 'officialTag',
             searchType: 'searchType',
+            type: 'type',
             usageActive: 'usageActive',
         };
     }
     static types() {
         return {
             customTag: 'string',
+            includeVirtualConfig: 'boolean',
             maxResults: 'number',
             name: 'string',
             nextToken: 'string',
             officialTag: 'string',
             searchType: 'string',
+            type: 'string',
             usageActive: 'boolean',
         };
     }

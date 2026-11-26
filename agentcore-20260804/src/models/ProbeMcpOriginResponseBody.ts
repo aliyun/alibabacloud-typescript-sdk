@@ -13,12 +13,12 @@ export class ProbeMcpOriginResponseBodyDataCoverage extends $dara.Model {
   backendMcpProtocol?: string;
   /**
    * @remarks
-   * Returns only non-sensitive names and excludes internal platform routing or network identities.
+   * The list of non-sensitive header names. Internal platform routing and network identities are excluded.
    */
   headerNames?: string[];
   /**
    * @remarks
-   * The selected HTTP method for this check. This field is empty for direct connections.
+   * The HTTP method selected for this check. This field is empty for direct connections.
    * 
    * @example
    * HEAD
@@ -26,7 +26,7 @@ export class ProbeMcpOriginResponseBodyDataCoverage extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The redacted summary of the selected HTTP path for this check. This field is empty for direct connections.
+   * The redacted summary of the HTTP path selected for this check. This field is empty for direct connections.
    * 
    * @example
    * /mcp
@@ -42,7 +42,7 @@ export class ProbeMcpOriginResponseBodyDataCoverage extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The summary of the origin server target for this check. It does not contain sensitive query parameters or credentials.
+   * The summary of the origin server target for this request. It does not contain sensitive query parameters or credentials.
    * 
    * @example
    * https://mcp.example.com/mcp
@@ -50,7 +50,7 @@ export class ProbeMcpOriginResponseBodyDataCoverage extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The origin server check before creation is fixed to false, which does not indicate that the resource is ready.
+   * This field is fixed to false for origin server checks before creation and does not indicate that the resource is ready.
    */
   viaGateway?: boolean;
   static names(): { [key: string]: string } {
@@ -92,7 +92,7 @@ export class ProbeMcpOriginResponseBodyDataCoverage extends $dara.Model {
 export class ProbeMcpOriginResponseBodyDataError extends $dara.Model {
   /**
    * @remarks
-   * Returns only bounded diagnostic codes. The original error body from the origin server is not returned.
+   * The bounded diagnostic code. The original error body from the origin server is not returned.
    * 
    * @example
    * PROBE_TIMEOUT
@@ -100,7 +100,7 @@ export class ProbeMcpOriginResponseBodyDataError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The trimmed and redacted diagnostic information. This excludes credentials or original responses.
+   * The trimmed and redacted diagnostic information. This field does not contain credentials or original responses.
    * 
    * @example
    * The probe deadline was exceeded.
@@ -108,12 +108,12 @@ export class ProbeMcpOriginResponseBodyDataError extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation is suitable for retry under a restricted policy. This does not trigger automatic retries.
+   * Specifies whether the operation is suitable for retry under a restricted policy. This field does not trigger automatic retries.
    */
   retryable?: boolean;
   /**
    * @remarks
-   * The error source, which can be MAGIC, ROUTER, NETWORK, ORIGIN, or UNKNOWN. This is determined solely based on actual evidence.
+   * The source of the error. Valid values: MAGIC, ROUTER, NETWORK, ORIGIN, or UNKNOWN. This value is determined solely based on actual evidence.
    * 
    * @example
    * UNKNOWN
@@ -159,7 +159,7 @@ export class ProbeMcpOriginResponseBodyDataError extends $dara.Model {
 export class ProbeMcpOriginResponseBodyDataHttpResult extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the target. Valid values: PASSED, FAILED, NOT_RUN, or UNKNOWN. This is judged only based on the actual target connection evidence for this check.
+   * The target connection status. Valid values: PASSED, FAILED, NOT_RUN, or UNKNOWN. It is judged only based on the actual target connection evidence for this request.
    * 
    * @example
    * PASSED
@@ -167,7 +167,7 @@ export class ProbeMcpOriginResponseBodyDataHttpResult extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The check result of the API definition. Valid values: PASSED, FAILED, or NOT_RUN. The value is NOT_RUN when no OpenAPI specification is available.
+   * The API definition check result. Valid values: PASSED, FAILED, or NOT_RUN. The value is NOT_RUN when no OpenAPI specification is available.
    * 
    * @example
    * PASSED
@@ -175,7 +175,7 @@ export class ProbeMcpOriginResponseBodyDataHttpResult extends $dara.Model {
   definitionStatus?: string;
   /**
    * @remarks
-   * The actual HTTP status code received. This is empty if the request was not executed or no response was received.
+   * The actual HTTP status code received. It is empty if the request was not executed or no response was received.
    * 
    * @example
    * 405
@@ -217,12 +217,12 @@ export class ProbeMcpOriginResponseBodyDataObservations extends $dara.Model {
   backendMcpProtocol?: string;
   /**
    * @remarks
-   * Indicates whether the origin server declares support for this combination. This is empty when there is no declaration evidence.
+   * Indicates whether the origin server declares support for this combination. This field is empty when there is no declaration evidence.
    */
   declared?: boolean;
   /**
    * @remarks
-   * The list of declared versions. It retains only the date versions actually declared by the origin server and does not infer the full set from a single negotiation.
+   * The list of declared versions. It only retains the date versions actually declared by the origin server and does not infer the full set from a single negotiation.
    */
   declaredVersions?: string[];
   /**
@@ -235,7 +235,7 @@ export class ProbeMcpOriginResponseBodyDataObservations extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The negotiated version. For legacy, it is the negotiated version. For modern, it is the selected and verified date version. This is empty when not confirmed.
+   * The actual version used. For legacy, it is the negotiated version. For modern, it is the selected and verified date version. This field is empty when unconfirmed.
    * 
    * @example
    * 2025-03-26
@@ -314,7 +314,7 @@ export class ProbeMcpOriginResponseBodyDataRecommendation extends $dara.Model {
   backendMcpProtocol?: string;
   /**
    * @remarks
-   * The actual negotiated or selected and verified origin server MCP date version in YYYY-MM-DD format. This is null when not confirmed. It only displays the origin server protocol date metadata. It can be specified during creation and modified during updates. If omitted during an update, the current value is retained. It does not control backend requests or the external protocol of the gateway.
+   * The origin server MCP date version actually negotiated or selected and verified in this request, in YYYY-MM-DD format. It is null when unconfirmed. It only displays the origin server protocol date metadata. It can be filled in during creation and modified during updates. If omitted during an update, the current value is retained. It does not control backend requests or the external protocol of the gateway.
    * 
    * @example
    * 2025-03-26
@@ -364,7 +364,7 @@ export class ProbeMcpOriginResponseBodyDataSelectedConfiguration extends $dara.M
   backendMcpProtocol?: string;
   /**
    * @remarks
-   * The actual negotiated or selected and verified origin server MCP date version in YYYY-MM-DD format. This is null when not confirmed. It only displays the origin server protocol date metadata. It can be specified during creation and modified during updates. If omitted during an update, the current value is retained. It does not control backend requests or the external protocol of the gateway.
+   * The origin server MCP date version actually negotiated or selected and verified in this request, in YYYY-MM-DD format. It is null when unconfirmed. It only displays the origin server protocol date metadata. It can be filled in during creation and modified during updates. If omitted during an update, the current value is retained. It does not control backend requests or the external protocol of the gateway.
    * 
    * @example
    * 2025-03-26
@@ -474,7 +474,7 @@ export class ProbeMcpOriginResponseBodyDataWarnings extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Explains limitations such as UNKNOWN, not executed, or truncated. This excludes credentials and original responses.
+   * The description of limitations such as UNKNOWN, not executed, or truncated. This field does not contain credentials or original responses.
    * 
    * @example
    * The tool preview limit was reached; protocol verification succeeded.
@@ -506,22 +506,22 @@ export class ProbeMcpOriginResponseBodyDataWarnings extends $dara.Model {
 export class ProbeMcpOriginResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The check coverage. It describes the target, protocol, or HTTP request conditions for this check and does not prove that the formal gateway and other APIs are available.
+   * The check coverage. It describes the target, protocol, or HTTP request conditions for this request and does not prove that the formal gateway and other APIs are available.
    */
   coverage?: ProbeMcpOriginResponseBodyDataCoverage;
   /**
    * @remarks
-   * Indicates origin server failures. This field is empty upon success. Origin server 401 errors or connection failures are not uniformly mapped to API exceptions.
+   * The origin server diagnostics. This field indicates origin server failures and is empty upon success. Origin 401 errors or connection failures are not uniformly mapped to API exceptions.
    */
   error?: ProbeMcpOriginResponseBodyDataError;
   /**
    * @remarks
-   * The HTTP check result. This is returned only for the HTTP type. The definition and actual request status are separated. This is null for direct connections. A 2xx status code only proves the success of this request and does not prove that business functions or other APIs are available.
+   * The HTTP check result. It is only returned for the HTTP type. The definition is separated from the actual request status. It is null for direct connections. A 2xx status code only proves the success of this request and does not prove that business functions or other APIs are available.
    */
   httpResult?: ProbeMcpOriginResponseBodyDataHttpResult;
   /**
    * @remarks
-   * The declared and actual test results for controlled endpoints of a single origin server. This is an empty array for the HTTP type.
+   * The declared and actual test results for a single origin server controlled endpoint. This is an empty array for the HTTP type.
    */
   observations?: ProbeMcpOriginResponseBodyDataObservations[];
   /**
@@ -542,17 +542,17 @@ export class ProbeMcpOriginResponseBodyData extends $dara.Model {
   probedAt?: string;
   /**
    * @remarks
-   * The recommended protocol combination. It only includes verified combinations that the platform can access. This is empty when no combinations are available or for the HTTP type.
+   * The recommended protocol combination. It only comes from verified combinations that the platform can access. This field is empty when no combinations are available or for the HTTP type.
    */
   recommendation?: ProbeMcpOriginResponseBodyDataRecommendation;
   /**
    * @remarks
-   * The combination actually used for tool queries. Specifying this does not mean verification passed. This is empty for the HTTP type.
+   * The combination actually used for tool queries. Filling in this field does not mean verification passed. It is empty for the HTTP type.
    */
   selectedConfiguration?: ProbeMcpOriginResponseBodyDataSelectedConfiguration;
   /**
    * @remarks
-   * The stage of the check. Valid values: AUTHORIZE, VALIDATE, RATE_LIMIT, NETWORK, NETWORK_CONTEXT, CONNECT, DISCOVER, INITIALIZE, SESSION_CHECK, TOOLS_LIST, HTTP_DEFINITION, HTTP_REQUEST, CLEANUP, EXECUTION, or COMPLETE.
+   * The current check stage. Valid values: AUTHORIZE, VALIDATE, RATE_LIMIT, NETWORK, NETWORK_CONTEXT, CONNECT, DISCOVER, INITIALIZE, SESSION_CHECK, TOOLS_LIST, HTTP_DEFINITION, HTTP_REQUEST, CLEANUP, EXECUTION, or COMPLETE.
    * 
    * @example
    * COMPLETE
@@ -560,7 +560,7 @@ export class ProbeMcpOriginResponseBodyData extends $dara.Model {
   stage?: string;
   /**
    * @remarks
-   * The check result of the origin server. Valid values: SUCCESS, PARTIAL, or FAILED. SUCCESS indicates that the protocol check passed but no capabilities were declared or no tools capability exists. A completely empty tool list also passes. PARTIAL indicates that the tool query failed or was truncated. For HTTP, PARTIAL indicates that only the definition was checked or required evidence is unknown.
+   * The check result of the origin server. Valid values: SUCCESS, PARTIAL, or FAILED. SUCCESS indicates that the protocol check passed but no capabilities were declared or the tools capability is missing. A completely empty tool list also passes. PARTIAL indicates that the tool query failed or was truncated. For HTTP, PARTIAL indicates that only the definition was checked or required evidence is unknown.
    * 
    * @example
    * SUCCESS
@@ -568,7 +568,7 @@ export class ProbeMcpOriginResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The restricted metadata list for this check. Tools are not executed. An empty array is returned if tools are not declared, the list is completely empty, or the type is HTTP. Refer to toolsStatus and toolsComplete for judgment.
+   * The list of restricted metadata for this request. Tools are not executed. An empty array is returned if tools are not declared, the list is completely empty, or it is the HTTP type. Evaluate this together with toolsStatus and toolsComplete.
    */
   tools?: ProbeMcpOriginResponseBodyDataTools[];
   /**
@@ -663,7 +663,7 @@ export class ProbeMcpOriginResponseBodyData extends $dara.Model {
 export class ProbeMcpOriginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the API operation. SUCCESS indicates that the operation completed normally. For the origin server result, see data.status.
+   * The API status code. SUCCESS indicates that the API completed normally. For the origin server result, see data.status.
    * 
    * @example
    * SUCCESS
@@ -671,7 +671,7 @@ export class ProbeMcpOriginResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The read-only, one-time, and bounded probe result. It is not persisted and is not associated with subsequently created MCPs.
+   * The read-only, one-time, and bounded probe result. It is not persisted and is not associated with any subsequently created MCP.
    */
   data?: ProbeMcpOriginResponseBodyData;
   /**
@@ -684,7 +684,7 @@ export class ProbeMcpOriginResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The processing result of the API operation, excluding the original response from the origin server.
+   * The API processing result, which does not include the original response from the origin server.
    * 
    * @example
    * success
@@ -700,7 +700,7 @@ export class ProbeMcpOriginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API operation was processed successfully. This means that authorization, parameter validation, and execution mechanisms completed normally, which does not equate to a successful origin server check.
+   * Indicates whether the API was processed successfully. This indicates that authorization, parameter checks, and execution mechanisms completed normally, but does not mean the origin server check succeeded.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

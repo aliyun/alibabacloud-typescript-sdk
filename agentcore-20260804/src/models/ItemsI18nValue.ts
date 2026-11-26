@@ -24,7 +24,7 @@ export class ItemsI18nValue extends $dara.Model {
    * The usage instructions for the MCP marketplace template in the specified language.
    * 
    * @example
-   * # Knowledge Base\\nKnowledge base query service
+   * # Knowledge Base\nKnowledge base query service
    */
   readme?: string;
   static names(): { [key: string]: string } {

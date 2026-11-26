@@ -2,6 +2,14 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListMcpToolsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
+     * 工具名称、说明和输入输出 Schema 的规范化 SHA-256 摘要。
+     *
+     * @example
+     * e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+     */
+    definitionDigest?: string;
+    /**
+     * @remarks
      * The input parameter schema of the tool.
      *
      * @example

@@ -23,9 +23,76 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListMcpsResponseBody = exports.ListMcpsResponseBodyItems = exports.ListMcpsResponseBodyItemsOriginProbe = exports.ListMcpsResponseBodyItemsOriginProbeLastResult = exports.ListMcpsResponseBodyItemsOriginProbeLastResultError = exports.ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration = exports.ListMcpsResponseBodyItemsOperation = exports.ListMcpsResponseBodyItemsOperationError = exports.ListMcpsResponseBodyItemsMarketSource = exports.ListMcpsResponseBodyItemsDeploymentConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigProxyConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigParameterTransformConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigNetworkConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAccessControl = exports.ListMcpsResponseBodyItemsAuth = exports.ListMcpsResponseBodyItemsAuthHttpToMcp = exports.ListMcpsResponseBodyItemsAuthDirectProxy = exports.ListMcpsResponseBodyItemsAuthCodePackage = void 0;
+exports.ListMcpsResponseBody = exports.ListMcpsResponseBodyItems = exports.ListMcpsResponseBodyItemsVirtualConfig = exports.ListMcpsResponseBodyItemsVirtualConfigSources = exports.ListMcpsResponseBodyItemsVirtualConfigSourcesTools = exports.ListMcpsResponseBodyItemsOriginProbe = exports.ListMcpsResponseBodyItemsOriginProbeLastResult = exports.ListMcpsResponseBodyItemsOriginProbeLastResultError = exports.ListMcpsResponseBodyItemsOriginProbeLastResultActualConfiguration = exports.ListMcpsResponseBodyItemsOperation = exports.ListMcpsResponseBodyItemsOperationError = exports.ListMcpsResponseBodyItemsMarketSource = exports.ListMcpsResponseBodyItemsDeploymentConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigProxyConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigParameterTransformConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigNetworkConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints = exports.ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigCertConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = exports.ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfiguration = exports.ListMcpsResponseBodyItemsDeploymentConfigAccessControl = exports.ListMcpsResponseBodyItemsAuth = exports.ListMcpsResponseBodyItemsAuthHttpToMcp = exports.ListMcpsResponseBodyItemsAuthDirectProxy = exports.ListMcpsResponseBodyItemsAuthCodePackage = exports.ListMcpsResponseBodyItemsAppliedVirtualConfig = exports.ListMcpsResponseBodyItemsAppliedVirtualConfigSources = exports.ListMcpsResponseBodyItemsAppliedVirtualConfigSourcesTools = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+class ListMcpsResponseBodyItemsAppliedVirtualConfigSourcesTools extends $dara.Model {
+    static names() {
+        return {
+            expectedDigest: 'expectedDigest',
+            name: 'name',
+        };
+    }
+    static types() {
+        return {
+            expectedDigest: 'string',
+            name: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsAppliedVirtualConfigSourcesTools = ListMcpsResponseBodyItemsAppliedVirtualConfigSourcesTools;
+class ListMcpsResponseBodyItemsAppliedVirtualConfigSources extends $dara.Model {
+    static names() {
+        return {
+            mcpServerId: 'mcpServerId',
+            tools: 'tools',
+        };
+    }
+    static types() {
+        return {
+            mcpServerId: 'string',
+            tools: { 'type': 'array', 'itemType': ListMcpsResponseBodyItemsAppliedVirtualConfigSourcesTools },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.tools)) {
+            $dara.Model.validateArray(this.tools);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsAppliedVirtualConfigSources = ListMcpsResponseBodyItemsAppliedVirtualConfigSources;
+class ListMcpsResponseBodyItemsAppliedVirtualConfig extends $dara.Model {
+    static names() {
+        return {
+            sources: 'sources',
+        };
+    }
+    static types() {
+        return {
+            sources: { 'type': 'array', 'itemType': ListMcpsResponseBodyItemsAppliedVirtualConfigSources },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.sources)) {
+            $dara.Model.validateArray(this.sources);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsAppliedVirtualConfig = ListMcpsResponseBodyItemsAppliedVirtualConfig;
 class ListMcpsResponseBodyItemsAuthCodePackage extends $dara.Model {
     static names() {
         return {
@@ -203,6 +270,103 @@ class ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration extends $dara.M
     }
 }
 exports.ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration = ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration;
+class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    static names() {
+        return {
+            password: 'password',
+            userName: 'userName',
+        };
+    }
+    static types() {
+        return {
+            password: 'string',
+            userName: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    static names() {
+        return {
+            insecure: 'insecure',
+            rootCaCertBase64: 'rootCaCertBase64',
+        };
+    }
+    static types() {
+        return {
+            insecure: 'boolean',
+            rootCaCertBase64: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigCertConfig = ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    static names() {
+        return {
+            securityGroupId: 'securityGroupId',
+            vSwitchId: 'vSwitchId',
+            vpcId: 'vpcId',
+        };
+    }
+    static types() {
+        return {
+            securityGroupId: 'string',
+            vSwitchId: 'string',
+            vpcId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+class ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    static names() {
+        return {
+            authConfig: 'authConfig',
+            certConfig: 'certConfig',
+            networkConfig: 'networkConfig',
+        };
+    }
+    static types() {
+        return {
+            authConfig: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigAuthConfig,
+            certConfig: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigCertConfig,
+            networkConfig: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig,
+        };
+    }
+    validate() {
+        if (this.authConfig && typeof this.authConfig.validate === 'function') {
+            this.authConfig.validate();
+        }
+        if (this.certConfig && typeof this.certConfig.validate === 'function') {
+            this.certConfig.validate();
+        }
+        if (this.networkConfig && typeof this.networkConfig.validate === 'function') {
+            this.networkConfig.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfig = ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfig;
 class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration extends $dara.Model {
     static names() {
         return {
@@ -212,6 +376,7 @@ class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration extends $d
             image: 'image',
             imageRegistryType: 'imageRegistryType',
             mcpRuntimeMode: 'mcpRuntimeMode',
+            registryConfig: 'registryConfig',
             sourceType: 'sourceType',
         };
     }
@@ -223,6 +388,7 @@ class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration extends $d
             image: 'string',
             imageRegistryType: 'string',
             mcpRuntimeMode: 'string',
+            registryConfig: ListMcpsResponseBodyItemsDeploymentConfigContainerConfigurationRegistryConfig,
             sourceType: 'string',
         };
     }
@@ -232,6 +398,9 @@ class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration extends $d
         }
         if (Array.isArray(this.entrypoint)) {
             $dara.Model.validateArray(this.entrypoint);
+        }
+        if (this.registryConfig && typeof this.registryConfig.validate === 'function') {
+            this.registryConfig.validate();
         }
         super.validate();
     }
@@ -823,10 +992,79 @@ class ListMcpsResponseBodyItemsOriginProbe extends $dara.Model {
     }
 }
 exports.ListMcpsResponseBodyItemsOriginProbe = ListMcpsResponseBodyItemsOriginProbe;
+class ListMcpsResponseBodyItemsVirtualConfigSourcesTools extends $dara.Model {
+    static names() {
+        return {
+            expectedDigest: 'expectedDigest',
+            name: 'name',
+        };
+    }
+    static types() {
+        return {
+            expectedDigest: 'string',
+            name: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsVirtualConfigSourcesTools = ListMcpsResponseBodyItemsVirtualConfigSourcesTools;
+class ListMcpsResponseBodyItemsVirtualConfigSources extends $dara.Model {
+    static names() {
+        return {
+            mcpServerId: 'mcpServerId',
+            tools: 'tools',
+        };
+    }
+    static types() {
+        return {
+            mcpServerId: 'string',
+            tools: { 'type': 'array', 'itemType': ListMcpsResponseBodyItemsVirtualConfigSourcesTools },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.tools)) {
+            $dara.Model.validateArray(this.tools);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsVirtualConfigSources = ListMcpsResponseBodyItemsVirtualConfigSources;
+class ListMcpsResponseBodyItemsVirtualConfig extends $dara.Model {
+    static names() {
+        return {
+            sources: 'sources',
+        };
+    }
+    static types() {
+        return {
+            sources: { 'type': 'array', 'itemType': ListMcpsResponseBodyItemsVirtualConfigSources },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.sources)) {
+            $dara.Model.validateArray(this.sources);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListMcpsResponseBodyItemsVirtualConfig = ListMcpsResponseBodyItemsVirtualConfig;
 class ListMcpsResponseBodyItems extends $dara.Model {
     static names() {
         return {
             addresses: 'addresses',
+            appliedRevision: 'appliedRevision',
+            appliedVirtualConfig: 'appliedVirtualConfig',
             auth: 'auth',
             backendMcpProtocol: 'backendMcpProtocol',
             createdAt: 'createdAt',
@@ -835,26 +1073,37 @@ class ListMcpsResponseBodyItems extends $dara.Model {
             description: 'description',
             endpoint: 'endpoint',
             functionName: 'functionName',
+            lastValidationId: 'lastValidationId',
+            lastValidationStatus: 'lastValidationStatus',
             marketSource: 'marketSource',
             mcpServerId: 'mcpServerId',
             name: 'name',
             officialTag: 'officialTag',
             operation: 'operation',
+            operationTaskId: 'operationTaskId',
             originProbe: 'originProbe',
             originProtocolVersion: 'originProtocolVersion',
             permissionMode: 'permissionMode',
             protocol: 'protocol',
+            resolvedImageUri: 'resolvedImageUri',
+            revision: 'revision',
+            sourceCount: 'sourceCount',
             status: 'status',
             statusReason: 'statusReason',
+            statusReasonCode: 'statusReasonCode',
             swaggerConfig: 'swaggerConfig',
+            toolCount: 'toolCount',
             type: 'type',
             updatedAt: 'updatedAt',
             usageActive: 'usageActive',
+            virtualConfig: 'virtualConfig',
         };
     }
     static types() {
         return {
             addresses: { 'type': 'array', 'itemType': 'string' },
+            appliedRevision: 'number',
+            appliedVirtualConfig: ListMcpsResponseBodyItemsAppliedVirtualConfig,
             auth: ListMcpsResponseBodyItemsAuth,
             backendMcpProtocol: 'string',
             createdAt: 'string',
@@ -863,26 +1112,38 @@ class ListMcpsResponseBodyItems extends $dara.Model {
             description: 'string',
             endpoint: 'string',
             functionName: 'string',
+            lastValidationId: 'string',
+            lastValidationStatus: 'string',
             marketSource: ListMcpsResponseBodyItemsMarketSource,
             mcpServerId: 'string',
             name: 'string',
             officialTag: 'string',
             operation: ListMcpsResponseBodyItemsOperation,
+            operationTaskId: 'string',
             originProbe: ListMcpsResponseBodyItemsOriginProbe,
             originProtocolVersion: 'string',
             permissionMode: 'string',
             protocol: 'string',
+            resolvedImageUri: 'string',
+            revision: 'number',
+            sourceCount: 'number',
             status: 'string',
             statusReason: 'string',
+            statusReasonCode: 'string',
             swaggerConfig: 'string',
+            toolCount: 'number',
             type: 'string',
             updatedAt: 'string',
             usageActive: 'boolean',
+            virtualConfig: ListMcpsResponseBodyItemsVirtualConfig,
         };
     }
     validate() {
         if (Array.isArray(this.addresses)) {
             $dara.Model.validateArray(this.addresses);
+        }
+        if (this.appliedVirtualConfig && typeof this.appliedVirtualConfig.validate === 'function') {
+            this.appliedVirtualConfig.validate();
         }
         if (this.auth && typeof this.auth.validate === 'function') {
             this.auth.validate();
@@ -901,6 +1162,9 @@ class ListMcpsResponseBodyItems extends $dara.Model {
         }
         if (this.originProbe && typeof this.originProbe.validate === 'function') {
             this.originProbe.validate();
+        }
+        if (this.virtualConfig && typeof this.virtualConfig.validate === 'function') {
+            this.virtualConfig.validate();
         }
         super.validate();
     }

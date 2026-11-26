@@ -23,13 +23,41 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateMcpResponseBody = void 0;
+exports.UpdateMcpResponseBody = exports.UpdateMcpResponseBodyData = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+class UpdateMcpResponseBodyData extends $dara.Model {
+    static names() {
+        return {
+            appliedRevision: 'appliedRevision',
+            mcpServerId: 'mcpServerId',
+            operationTaskId: 'operationTaskId',
+            revision: 'revision',
+            status: 'status',
+        };
+    }
+    static types() {
+        return {
+            appliedRevision: 'number',
+            mcpServerId: 'string',
+            operationTaskId: 'string',
+            revision: 'number',
+            status: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateMcpResponseBodyData = UpdateMcpResponseBodyData;
 class UpdateMcpResponseBody extends $dara.Model {
     static names() {
         return {
             code: 'code',
+            data: 'data',
             httpStatusCode: 'httpStatusCode',
             message: 'message',
             requestId: 'requestId',
@@ -39,6 +67,7 @@ class UpdateMcpResponseBody extends $dara.Model {
     static types() {
         return {
             code: 'string',
+            data: UpdateMcpResponseBodyData,
             httpStatusCode: 'number',
             message: 'string',
             requestId: 'string',
@@ -46,6 +75,9 @@ class UpdateMcpResponseBody extends $dara.Model {
         };
     }
     validate() {
+        if (this.data && typeof this.data.validate === 'function') {
+            this.data.validate();
+        }
         super.validate();
     }
     constructor(map) {

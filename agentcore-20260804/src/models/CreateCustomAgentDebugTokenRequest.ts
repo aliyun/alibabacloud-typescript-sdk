@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentDebugTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The network type used for local debugging. INTERNET indicates public network access. INTRANET indicates access over a virtual private cloud (VPC).
+   * The network type used for local debugging. INTERNET indicates public network access, and INTRANET indicates access over a virtual private cloud (VPC).
    * 
    * This parameter is required.
    * 

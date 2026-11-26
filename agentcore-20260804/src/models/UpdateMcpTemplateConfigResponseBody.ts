@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigAccessControl extends $dara.Model {
   /**
    * @remarks
-   * The AgentCore credential ID referenced when the mode is set to CREDENTIAL.
+   * The AgentCore credential referenced when the mode is set to CREDENTIAL.
    * 
    * @example
    * credential-id
@@ -13,7 +13,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigAccessContro
   credentialId?: string;
   /**
    * @remarks
-   * Specifies whether to enable entry access control.
+   * Specifies whether to enable ingress access control.
    */
   enabled?: boolean;
   /**
@@ -57,7 +57,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigAgentIdentit
   authorizationEnabled?: boolean;
   /**
    * @remarks
-   * The credential provider ARN.
+   * The ARN of the credential provider.
    * 
    * @example
    * acs:agentidentity:cn-hangzhou:1234567890123456:provider/example
@@ -65,7 +65,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigAgentIdentit
   credentialProviderArn?: string;
   /**
    * @remarks
-   * The credential provider type.
+   * The type of the credential provider.
    * 
    * @example
    * oauth2
@@ -73,7 +73,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigAgentIdentit
   credentialProviderType?: string;
   /**
    * @remarks
-   * Specifies whether to enable agent identity.
+   * Specifies whether to enable Agent Identity.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -114,12 +114,12 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigCodeConfigur
   codePackageToken?: string;
   /**
    * @remarks
-   * The complete startup command, passed sequentially by parameter boundaries. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
+   * The complete startup command, passed sequentially by parameter boundaries. For example, when you use supergateway to start a stdio MCP, pass supergateway, --stdio, the complete subcommand, and the remaining parameters.
    */
   command?: string[];
   /**
    * @remarks
-   * The runtime environment for the code package. Valid values: python3.13, nodejs22, and java17.
+   * The runtime environment for the code package, such as python3.13, nodejs22, or java17.
    * 
    * @example
    * python3.13
@@ -144,6 +144,186 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigCodeConfigur
   validate() {
     if(Array.isArray(this.command)) {
       $dara.Model.validateArray(this.command);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The password for the image registry. The password is encrypted and stored on the server, and is not returned in queries. Omit this field during updates to retain the existing password.
+   * 
+   * @example
+   * example-password
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The username for the image registry.
+   * 
+   * @example
+   * puller
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'password',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to skip the TLS certificate verification for the image registry. A value of true indicates that the verification is skipped. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  insecure?: boolean;
+  /**
+   * @remarks
+   * The Base64-encoded root CA certificate of the image registry, used to verify self-signed certificates.
+   * 
+   * @example
+   * LS0tLS1CRUdJTi...
+   */
+  rootCaCertBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      insecure: 'insecure',
+      rootCaCertBase64: 'rootCaCertBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insecure: 'boolean',
+      rootCaCertBase64: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the security group used to pull images.
+   * 
+   * @example
+   * sg-example
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch used to pull images.
+   * 
+   * @example
+   * vsw-example
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC where the image registry is located.
+   * 
+   * @example
+   * vpc-example
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The image registry authentication configuration. Specify this parameter when the image registry requires username and password authentication.
+   */
+  authConfig?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+  /**
+   * @remarks
+   * The TLS certificate verification configuration for the image registry.
+   */
+  certConfig?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+  /**
+   * @remarks
+   * The network configuration for pulling images. Specify this parameter when the image registry is accessible only within a VPC. Function Compute pulls images through this network.
+   */
+  networkConfig?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'authConfig',
+      certConfig: 'certConfig',
+      networkConfig: 'networkConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig,
+      certConfig: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig,
+      networkConfig: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig,
+    };
+  }
+
+  validate() {
+    if(this.authConfig && typeof (this.authConfig as any).validate === 'function') {
+      (this.authConfig as any).validate();
+    }
+    if(this.certConfig && typeof (this.certConfig as any).validate === 'function') {
+      (this.certConfig as any).validate();
+    }
+    if(this.networkConfig && typeof (this.networkConfig as any).validate === 'function') {
+      (this.networkConfig as any).validate();
     }
     super.validate();
   }
@@ -190,7 +370,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerCon
   imageRegistryType?: string;
   /**
    * @remarks
-   * The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Set this value to SELF_HOSTED.
+   * The MCP runtime mode. Custom containers must currently expose standard MCP by themselves. Set the value to SELF_HOSTED.
    * 
    * @example
    * SELF_HOSTED
@@ -198,7 +378,12 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerCon
   mcpRuntimeMode?: string;
   /**
    * @remarks
-   * The container source type. Currently, this value is fixed to CONTAINER_IMAGE.
+   * The custom image registry configuration. This configuration takes effect only when ImageRegistryType is set to CUSTOM. It is used to configure image pull authentication, TLS certificate verification, and private network pulling.
+   */
+  registryConfig?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig;
+  /**
+   * @remarks
+   * The container source type. Currently, this parameter is fixed to CONTAINER_IMAGE.
    * 
    * @example
    * CONTAINER_IMAGE
@@ -212,6 +397,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerCon
       image: 'image',
       imageRegistryType: 'imageRegistryType',
       mcpRuntimeMode: 'mcpRuntimeMode',
+      registryConfig: 'registryConfig',
       sourceType: 'sourceType',
     };
   }
@@ -224,6 +410,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerCon
       image: 'string',
       imageRegistryType: 'string',
       mcpRuntimeMode: 'string',
+      registryConfig: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig,
       sourceType: 'string',
     };
   }
@@ -234,6 +421,9 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigContainerCon
     }
     if(Array.isArray(this.entrypoint)) {
       $dara.Model.validateArray(this.entrypoint);
+    }
+    if(this.registryConfig && typeof (this.registryConfig as any).validate === 'function') {
+      (this.registryConfig as any).validate();
     }
     super.validate();
   }
@@ -257,7 +447,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigHookConfigur
    * The description of the hook.
    * 
    * @example
-   * Record MCP tool calls
+   * Log MCP tool calls
    */
   description?: string;
   /**
@@ -275,12 +465,12 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigHookConfigur
   event?: string;
   /**
    * @remarks
-   * The hook request headers.
+   * The request headers of the hook.
    */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The timeout period of the hook, in milliseconds.
+   * The timeout period in milliseconds.
    * 
    * @example
    * 3000
@@ -333,7 +523,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigHookConfigur
 export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigHookConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ordered list of hooks. Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
+   * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
    */
   hooks?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigHookConfigurationHooks[];
   static names(): { [key: string]: string } {
@@ -373,7 +563,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigLogConfigura
   enableRequestMetrics?: boolean;
   /**
    * @remarks
-   * The start rule for FC log splitting.
+   * The start rule for splitting Function Compute logs.
    * 
    * @example
    * DefaultRegex
@@ -381,7 +571,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigLogConfigura
   logBeginRule?: string;
   /**
    * @remarks
-   * The Logstore name.
+   * The name of the Logstore.
    * 
    * @example
    * mcp-logs
@@ -389,7 +579,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigLogConfigura
   logstore?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * agentcore-mcp-logs
@@ -435,7 +625,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigMcpConfigura
   endpointPath?: string;
   /**
    * @remarks
-   * The number of concurrent sessions per instance. Currently, this value is fixed to 1.
+   * The number of concurrent sessions per instance. This value is currently fixed at 1.
    * 
    * @example
    * 1
@@ -443,7 +633,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigMcpConfigura
   sessionConcurrencyPerInstance?: number;
   /**
    * @remarks
-   * The session idle timeout period in seconds. Default value: 1800.
+   * The session idle timeout in seconds. Default value: 1800.
    * 
    * @example
    * 1800
@@ -459,7 +649,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigMcpConfigura
   sessionMaxLifetimeSeconds?: number;
   /**
    * @remarks
-   * The session mode. This parameter applies only to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP themselves.
+   * Applies only to StreamableHTTP. Defaults to STATEFUL upon creation. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity and prevents the stdio gateway from enabling stateful mode. Native HTTP services must natively support stateless MCP.
    * 
    * @example
    * STATEFUL
@@ -544,7 +734,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigNasConfigura
 export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigNasConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The runtime user group ID.
+   * The ID of the runtime user group.
    * 
    * @example
    * 1000
@@ -557,7 +747,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigNasConfigura
   mountPoints?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigNasConfigurationMountPoints[];
   /**
    * @remarks
-   * The runtime user ID.
+   * The ID of the runtime user.
    * 
    * @example
    * 1000
@@ -602,7 +792,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigNetworkConfi
   networkMode?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-example
@@ -615,7 +805,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigNetworkConfi
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-example
@@ -662,7 +852,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigOssMountConf
   bucketName?: string;
   /**
    * @remarks
-   * The path of the OSS bucket.
+   * The path in the OSS bucket.
    * 
    * @example
    * /data
@@ -670,7 +860,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigOssMountConf
   bucketPath?: string;
   /**
    * @remarks
-   * The OSS service endpoint.
+   * The endpoint of the OSS service.
    * 
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com
@@ -756,7 +946,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigParameterTra
   enabled?: boolean;
   /**
    * @remarks
-   * The reserved parameter transformation and result enhancement rule set reference.
+   * The reserved reference to the parameter transformation and result enhancement rule set.
    * 
    * @example
    * rules-1
@@ -764,7 +954,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigParameterTra
   ruleSetId?: string;
   /**
    * @remarks
-   * The transformation rule version.
+   * The version of the transformation rule.
    * 
    * @example
    * 1.0
@@ -825,7 +1015,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigProxyConfigu
 export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigRuntimeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The CPU specification in cores. Default value: 0.25.
+   * The CPU specification, in cores. Default value: 0.25.
    * 
    * @example
    * 0.25
@@ -833,7 +1023,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigRuntimeConfi
   cpu?: number;
   /**
    * @remarks
-   * The temporary disk size in MB. Valid values: 512 and 10240.
+   * The ephemeral disk size, in MB. Valid values: 512 and 10240.
    * 
    * @example
    * 512
@@ -854,7 +1044,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigRuntimeConfi
   executionRoleArn?: string;
   /**
    * @remarks
-   * The number of concurrent requests per instance. Default value: 200.
+   * The maximum number of concurrent requests per instance. Default value: 200.
    * 
    * @example
    * 200
@@ -862,7 +1052,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigRuntimeConfi
   instanceConcurrency?: number;
   /**
    * @remarks
-   * The memory specification in MB. Default value: 512.
+   * The memory specification, in MB. Default value: 512.
    * 
    * @example
    * 512
@@ -878,7 +1068,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigRuntimeConfi
   port?: number;
   /**
    * @remarks
-   * The function timeout period in seconds. Default value: 300.
+   * The function timeout period, in seconds. Default value: 300.
    * 
    * @example
    * 300
@@ -925,12 +1115,12 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigRuntimeConfi
 export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfig extends $dara.Model {
   /**
    * @remarks
-   * The MCP entry access control.
+   * The MCP ingress access control.
    */
   accessControl?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigAccessControl;
   /**
    * @remarks
-   * The agent identity configuration.
+   * The Agent Identity configuration.
    */
   agentIdentityConfiguration?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfigAgentIdentityConfiguration;
   /**
@@ -1085,7 +1275,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataDeploymentConfig extends $da
 export class UpdateMcpTemplateConfigResponseBodyDataMarketSource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the MCP marketplace template.
+   * The MCP marketplace template ID.
    * 
    * @example
    * market-1
@@ -1139,7 +1329,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataTemplate extends $dara.Model
   schemaVersion?: string;
   /**
    * @remarks
-   * The template input schema, represented as a JSON Schema string.
+   * The template input schema represented as a JSON schema string.
    * 
    * @example
    * {"type":"object","properties":{"addresses":{"type":"array","items":{"type":"string"}}}}
@@ -1147,7 +1337,7 @@ export class UpdateMcpTemplateConfigResponseBodyDataTemplate extends $dara.Model
   templateInputSchema?: string;
   /**
    * @remarks
-   * Indicates whether an updated template version is available.
+   * Specifies whether a template version update is available.
    */
   updateAvailable?: boolean;
   static names(): { [key: string]: string } {
@@ -1192,15 +1382,15 @@ export class UpdateMcpTemplateConfigResponseBodyData extends $dara.Model {
   customTags?: string[];
   /**
    * @remarks
-   * The deployment configuration for a code-deployed MCP.
+   * The deployment configuration for code-deployed MCP.
    */
   deploymentConfig?: UpdateMcpTemplateConfigResponseBodyDataDeploymentConfig;
   /**
    * @remarks
-   * The description of the MCP service.
+   * The MCP service description.
    * 
    * @example
-   * MCP service used to query the knowledge base
+   * MCP service for querying the knowledge base
    */
   description?: string;
   /**
@@ -1213,7 +1403,7 @@ export class UpdateMcpTemplateConfigResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The name of the Function Compute function corresponding to the code-deployed MCP.
+   * The name of the Function Compute function corresponding to the code deployment MCP.
    * 
    * @example
    * agentcore-mcp-example
@@ -1221,7 +1411,7 @@ export class UpdateMcpTemplateConfigResponseBodyData extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The source marketplace template of the MCP.
+   * The source marketplace template for the MCP.
    */
   marketSource?: UpdateMcpTemplateConfigResponseBodyDataMarketSource;
   /**
@@ -1242,7 +1432,7 @@ export class UpdateMcpTemplateConfigResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The official usage tags, which are managed by the server.
+   * The official usage tag managed by the server.
    * 
    * @example
    * KNOWLEDGE_BASE
@@ -1266,7 +1456,7 @@ export class UpdateMcpTemplateConfigResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the current status of the MCP service.
+   * The reason for the current MCP service status.
    * 
    * @example
    * Code package deployment failed

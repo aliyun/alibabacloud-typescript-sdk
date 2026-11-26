@@ -21,7 +21,7 @@ export class CreateCustomAgentDebugTokenResponseBodyData extends $dara.Model {
   bootstrapToken?: string;
   /**
    * @remarks
-   * The network type used for the token, which is the same as the networkType parameter in the request.
+   * The network type used by the token, which is the same as the networkType parameter in the request.
    * 
    * @example
    * INTERNET
@@ -29,7 +29,7 @@ export class CreateCustomAgentDebugTokenResponseBodyData extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The fingerprint used to identify the issued token, which can be used to troubleshoot issuance records.
+   * The fingerprint used to identify the issued token. You can use the fingerprint to troubleshoot issuance records.
    * 
    * @example
    * c4f5b8813a0d
@@ -75,7 +75,7 @@ export class CreateCustomAgentDebugTokenResponseBodyData extends $dara.Model {
 export class CreateCustomAgentDebugTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. SUCCESS is returned if the call is successful.
+   * The business status code. SUCCESS is returned if the call succeeds.
    * 
    * @example
    * SUCCESS
@@ -83,7 +83,7 @@ export class CreateCustomAgentDebugTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The debug token issued in this request, the token fingerprint, and the corresponding resource and network information.
+   * The debugging token, token fingerprint, and the corresponding resource and network information issued in this request.
    */
   data?: CreateCustomAgentDebugTokenResponseBodyData;
   /**
@@ -96,7 +96,7 @@ export class CreateCustomAgentDebugTokenResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The description of the request processing result.
+   * The description of the request result.
    * 
    * @example
    * success
@@ -104,7 +104,7 @@ export class CreateCustomAgentDebugTokenResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request, which can be used for troubleshooting.
+   * The unique identifier of the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * F2B17684-703A-4F29-9D14-30C334A85162
@@ -112,7 +112,7 @@ export class CreateCustomAgentDebugTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

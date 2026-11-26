@@ -120,12 +120,12 @@ export class ProbeMcpOriginRequestBodyAuth extends $dara.Model {
   directProxy?: ProbeMcpOriginRequestBodyAuthDirectProxy;
   /**
    * @remarks
-   * Specifies whether to enable the configuration.
+   * Specifies whether to enable this configuration.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The list of backend authentication configurations for HTTP-to-MCP.
+   * The list of backend authentication configurations for HTTP to MCP.
    */
   httpToMcp?: ProbeMcpOriginRequestBodyAuthHttpToMcp[];
   static names(): { [key: string]: string } {
@@ -162,7 +162,7 @@ export class ProbeMcpOriginRequestBodyAuth extends $dara.Model {
 export class ProbeMcpOriginRequestBody extends $dara.Model {
   /**
    * @remarks
-   * A single HTTP(S) URL that reuses the addresses of the origin server used during creation. Embedded credentials, batch addresses, or protected targets are not accepted.
+   * A single HTTP(S) URL that reuses the addresses of the origin server from the creation API. Embedded credentials, multiple addresses, or protected targets are not accepted.
    * 
    * This parameter is required.
    * 
@@ -172,12 +172,12 @@ export class ProbeMcpOriginRequestBody extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * Reuses the enabled, directProxy, and httpToMcp origin server authentication fields and validations from the creation interface. When enabled is set to true, you must provide a configuration that matches the access type. codePackage or additional headers are not accepted.
+   * Reuses the enabled, directProxy, and httpToMcp origin server authentication fields and validations from the creation API. If enabled is set to true, you must provide a configuration that matches the access type. codePackage or additional headers are not accepted.
    */
   auth?: ProbeMcpOriginRequestBodyAuth;
   /**
    * @remarks
-   * Applicable only to HTTP. Reuses the JSON or YAML string semantics from the creation interface. This field is required when validating the definition. Remote documents or references are not automatically fetched.
+   * Used only for HTTP. Reuses the JSON or YAML string semantics from the creation API. This field is required when validating the definition. Remote documents or references are not automatically fetched.
    * 
    * @example
    * {"openapi":"3.0.3","info":{"title":"Inventory API","version":"1.0.0"},"paths":{"/inventory":{"get":{"operationId":"listInventory","responses":{"200":{"description":"OK"}}}}}}
@@ -185,7 +185,7 @@ export class ProbeMcpOriginRequestBody extends $dara.Model {
   swaggerConfig?: string;
   /**
    * @remarks
-   * Valid values: DIRECT_PROXY or HTTP_TO_MCP. CODE_PACKAGE is not accepted.
+   * The access type. Valid values: DIRECT_PROXY and HTTP_TO_MCP. CODE_PACKAGE is not supported.
    * 
    * This parameter is required.
    * 
@@ -226,7 +226,7 @@ export class ProbeMcpOriginRequestBody extends $dara.Model {
 export class ProbeMcpOriginRequest extends $dara.Model {
   /**
    * @remarks
-   * The scope of the origin server configuration must not exceed that of the creation interface. The control fields for this validation only restrict the validation scope and do not extend the origin server access configuration.
+   * The scope of the origin server configuration does not exceed that of the creation API. The control fields for this validation only restrict the validation scope and do not extend the origin server onboarding configuration.
    * 
    * This parameter is required.
    */

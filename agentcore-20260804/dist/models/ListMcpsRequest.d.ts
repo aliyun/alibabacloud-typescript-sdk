@@ -10,6 +10,14 @@ export declare class ListMcpsRequest extends $dara.Model {
     customTag?: string;
     /**
      * @remarks
+     * 默认 false，仅返回修订号、状态、源和工具数量。需要完整配置时使用 GetMcp，或显式设置为 true。
+     *
+     * @example
+     * false
+     */
+    includeVirtualConfig?: boolean;
+    /**
+     * @remarks
      * The maximum number of entries to return per page.
      *
      * @example
@@ -48,6 +56,14 @@ export declare class ListMcpsRequest extends $dara.Model {
      * blur
      */
     searchType?: string;
+    /**
+     * @remarks
+     * 按 MCP 类型筛选，省略时返回全部类型。
+     *
+     * @example
+     * VIRTUAL
+     */
+    type?: string;
     /**
      * @remarks
      * Specifies whether the service is still subject to official template usage constraints.

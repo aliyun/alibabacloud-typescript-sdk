@@ -23,9 +23,76 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateMcpResponseBody = exports.CreateMcpResponseBodyData = exports.CreateMcpResponseBodyDataTemplate = exports.CreateMcpResponseBodyDataOriginProbe = exports.CreateMcpResponseBodyDataOriginProbeLastResult = exports.CreateMcpResponseBodyDataOriginProbeLastResultError = exports.CreateMcpResponseBodyDataOriginProbeLastResultActualConfiguration = exports.CreateMcpResponseBodyDataOperation = exports.CreateMcpResponseBodyDataOperationError = exports.CreateMcpResponseBodyDataMarketSource = exports.CreateMcpResponseBodyDataDeploymentConfig = exports.CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigProxyConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigOssMountConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.CreateMcpResponseBodyDataDeploymentConfigNetworkConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigNasConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.CreateMcpResponseBodyDataDeploymentConfigMcpConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigLogConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigHookConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigAccessControl = exports.CreateMcpResponseBodyDataAuth = exports.CreateMcpResponseBodyDataAuthHttpToMcp = exports.CreateMcpResponseBodyDataAuthDirectProxy = exports.CreateMcpResponseBodyDataAuthCodePackage = void 0;
+exports.CreateMcpResponseBody = exports.CreateMcpResponseBodyData = exports.CreateMcpResponseBodyDataVirtualConfig = exports.CreateMcpResponseBodyDataVirtualConfigSources = exports.CreateMcpResponseBodyDataVirtualConfigSourcesTools = exports.CreateMcpResponseBodyDataTemplate = exports.CreateMcpResponseBodyDataOriginProbe = exports.CreateMcpResponseBodyDataOriginProbeLastResult = exports.CreateMcpResponseBodyDataOriginProbeLastResultError = exports.CreateMcpResponseBodyDataOriginProbeLastResultActualConfiguration = exports.CreateMcpResponseBodyDataOperation = exports.CreateMcpResponseBodyDataOperationError = exports.CreateMcpResponseBodyDataMarketSource = exports.CreateMcpResponseBodyDataDeploymentConfig = exports.CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigProxyConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigOssMountConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.CreateMcpResponseBodyDataDeploymentConfigNetworkConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigNasConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.CreateMcpResponseBodyDataDeploymentConfigMcpConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigLogConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigHookConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig = exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig = exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = exports.CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.CreateMcpResponseBodyDataDeploymentConfigAccessControl = exports.CreateMcpResponseBodyDataAuth = exports.CreateMcpResponseBodyDataAuthHttpToMcp = exports.CreateMcpResponseBodyDataAuthDirectProxy = exports.CreateMcpResponseBodyDataAuthCodePackage = exports.CreateMcpResponseBodyDataAppliedVirtualConfig = exports.CreateMcpResponseBodyDataAppliedVirtualConfigSources = exports.CreateMcpResponseBodyDataAppliedVirtualConfigSourcesTools = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+class CreateMcpResponseBodyDataAppliedVirtualConfigSourcesTools extends $dara.Model {
+    static names() {
+        return {
+            expectedDigest: 'expectedDigest',
+            name: 'name',
+        };
+    }
+    static types() {
+        return {
+            expectedDigest: 'string',
+            name: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataAppliedVirtualConfigSourcesTools = CreateMcpResponseBodyDataAppliedVirtualConfigSourcesTools;
+class CreateMcpResponseBodyDataAppliedVirtualConfigSources extends $dara.Model {
+    static names() {
+        return {
+            mcpServerId: 'mcpServerId',
+            tools: 'tools',
+        };
+    }
+    static types() {
+        return {
+            mcpServerId: 'string',
+            tools: { 'type': 'array', 'itemType': CreateMcpResponseBodyDataAppliedVirtualConfigSourcesTools },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.tools)) {
+            $dara.Model.validateArray(this.tools);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataAppliedVirtualConfigSources = CreateMcpResponseBodyDataAppliedVirtualConfigSources;
+class CreateMcpResponseBodyDataAppliedVirtualConfig extends $dara.Model {
+    static names() {
+        return {
+            sources: 'sources',
+        };
+    }
+    static types() {
+        return {
+            sources: { 'type': 'array', 'itemType': CreateMcpResponseBodyDataAppliedVirtualConfigSources },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.sources)) {
+            $dara.Model.validateArray(this.sources);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataAppliedVirtualConfig = CreateMcpResponseBodyDataAppliedVirtualConfig;
 class CreateMcpResponseBodyDataAuthCodePackage extends $dara.Model {
     static names() {
         return {
@@ -203,6 +270,103 @@ class CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration extends $dara.M
     }
 }
 exports.CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration = CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration;
+class CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    static names() {
+        return {
+            password: 'password',
+            userName: 'userName',
+        };
+    }
+    static types() {
+        return {
+            password: 'string',
+            userName: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+class CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    static names() {
+        return {
+            insecure: 'insecure',
+            rootCaCertBase64: 'rootCaCertBase64',
+        };
+    }
+    static types() {
+        return {
+            insecure: 'boolean',
+            rootCaCertBase64: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig = CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+class CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    static names() {
+        return {
+            securityGroupId: 'securityGroupId',
+            vSwitchId: 'vSwitchId',
+            vpcId: 'vpcId',
+        };
+    }
+    static types() {
+        return {
+            securityGroupId: 'string',
+            vSwitchId: 'string',
+            vpcId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+class CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    static names() {
+        return {
+            authConfig: 'authConfig',
+            certConfig: 'certConfig',
+            networkConfig: 'networkConfig',
+        };
+    }
+    static types() {
+        return {
+            authConfig: CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig,
+            certConfig: CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig,
+            networkConfig: CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig,
+        };
+    }
+    validate() {
+        if (this.authConfig && typeof this.authConfig.validate === 'function') {
+            this.authConfig.validate();
+        }
+        if (this.certConfig && typeof this.certConfig.validate === 'function') {
+            this.certConfig.validate();
+        }
+        if (this.networkConfig && typeof this.networkConfig.validate === 'function') {
+            this.networkConfig.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig = CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig;
 class CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration extends $dara.Model {
     static names() {
         return {
@@ -212,6 +376,7 @@ class CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration extends $d
             image: 'image',
             imageRegistryType: 'imageRegistryType',
             mcpRuntimeMode: 'mcpRuntimeMode',
+            registryConfig: 'registryConfig',
             sourceType: 'sourceType',
         };
     }
@@ -223,6 +388,7 @@ class CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration extends $d
             image: 'string',
             imageRegistryType: 'string',
             mcpRuntimeMode: 'string',
+            registryConfig: CreateMcpResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig,
             sourceType: 'string',
         };
     }
@@ -232,6 +398,9 @@ class CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration extends $d
         }
         if (Array.isArray(this.entrypoint)) {
             $dara.Model.validateArray(this.entrypoint);
+        }
+        if (this.registryConfig && typeof this.registryConfig.validate === 'function') {
+            this.registryConfig.validate();
         }
         super.validate();
     }
@@ -850,10 +1019,79 @@ class CreateMcpResponseBodyDataTemplate extends $dara.Model {
     }
 }
 exports.CreateMcpResponseBodyDataTemplate = CreateMcpResponseBodyDataTemplate;
+class CreateMcpResponseBodyDataVirtualConfigSourcesTools extends $dara.Model {
+    static names() {
+        return {
+            expectedDigest: 'expectedDigest',
+            name: 'name',
+        };
+    }
+    static types() {
+        return {
+            expectedDigest: 'string',
+            name: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataVirtualConfigSourcesTools = CreateMcpResponseBodyDataVirtualConfigSourcesTools;
+class CreateMcpResponseBodyDataVirtualConfigSources extends $dara.Model {
+    static names() {
+        return {
+            mcpServerId: 'mcpServerId',
+            tools: 'tools',
+        };
+    }
+    static types() {
+        return {
+            mcpServerId: 'string',
+            tools: { 'type': 'array', 'itemType': CreateMcpResponseBodyDataVirtualConfigSourcesTools },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.tools)) {
+            $dara.Model.validateArray(this.tools);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataVirtualConfigSources = CreateMcpResponseBodyDataVirtualConfigSources;
+class CreateMcpResponseBodyDataVirtualConfig extends $dara.Model {
+    static names() {
+        return {
+            sources: 'sources',
+        };
+    }
+    static types() {
+        return {
+            sources: { 'type': 'array', 'itemType': CreateMcpResponseBodyDataVirtualConfigSources },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.sources)) {
+            $dara.Model.validateArray(this.sources);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateMcpResponseBodyDataVirtualConfig = CreateMcpResponseBodyDataVirtualConfig;
 class CreateMcpResponseBodyData extends $dara.Model {
     static names() {
         return {
             addresses: 'addresses',
+            appliedRevision: 'appliedRevision',
+            appliedVirtualConfig: 'appliedVirtualConfig',
             auth: 'auth',
             backendMcpProtocol: 'backendMcpProtocol',
             customTags: 'customTags',
@@ -867,21 +1105,30 @@ class CreateMcpResponseBodyData extends $dara.Model {
             name: 'name',
             officialTag: 'officialTag',
             operation: 'operation',
+            operationTaskId: 'operationTaskId',
             originProbe: 'originProbe',
             originProtocolVersion: 'originProtocolVersion',
             permissionMode: 'permissionMode',
             protocol: 'protocol',
+            resolvedImageUri: 'resolvedImageUri',
+            revision: 'revision',
+            sourceCount: 'sourceCount',
             status: 'status',
             statusReason: 'statusReason',
+            statusReasonCode: 'statusReasonCode',
             swaggerConfig: 'swaggerConfig',
             template: 'template',
+            toolCount: 'toolCount',
             type: 'type',
             usageActive: 'usageActive',
+            virtualConfig: 'virtualConfig',
         };
     }
     static types() {
         return {
             addresses: { 'type': 'array', 'itemType': 'string' },
+            appliedRevision: 'number',
+            appliedVirtualConfig: CreateMcpResponseBodyDataAppliedVirtualConfig,
             auth: CreateMcpResponseBodyDataAuth,
             backendMcpProtocol: 'string',
             customTags: { 'type': 'array', 'itemType': 'string' },
@@ -895,21 +1142,31 @@ class CreateMcpResponseBodyData extends $dara.Model {
             name: 'string',
             officialTag: 'string',
             operation: CreateMcpResponseBodyDataOperation,
+            operationTaskId: 'string',
             originProbe: CreateMcpResponseBodyDataOriginProbe,
             originProtocolVersion: 'string',
             permissionMode: 'string',
             protocol: 'string',
+            resolvedImageUri: 'string',
+            revision: 'number',
+            sourceCount: 'number',
             status: 'string',
             statusReason: 'string',
+            statusReasonCode: 'string',
             swaggerConfig: 'string',
             template: CreateMcpResponseBodyDataTemplate,
+            toolCount: 'number',
             type: 'string',
             usageActive: 'boolean',
+            virtualConfig: CreateMcpResponseBodyDataVirtualConfig,
         };
     }
     validate() {
         if (Array.isArray(this.addresses)) {
             $dara.Model.validateArray(this.addresses);
+        }
+        if (this.appliedVirtualConfig && typeof this.appliedVirtualConfig.validate === 'function') {
+            this.appliedVirtualConfig.validate();
         }
         if (this.auth && typeof this.auth.validate === 'function') {
             this.auth.validate();
@@ -931,6 +1188,9 @@ class CreateMcpResponseBodyData extends $dara.Model {
         }
         if (this.template && typeof this.template.validate === 'function') {
             this.template.validate();
+        }
+        if (this.virtualConfig && typeof this.virtualConfig.validate === 'function') {
+            this.virtualConfig.validate();
         }
         super.validate();
     }

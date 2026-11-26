@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateMcpRequestBodyAuthCodePackage extends $dara.Model {
     /**
      * @remarks
-     * The API key used to verify MCP callers.
+     * The API key used to validate the MCP caller.
      *
      * @example
      * example-api-key
@@ -66,7 +66,7 @@ export declare class CreateMcpRequestBodyAuthHttpToMcp extends $dara.Model {
     credential?: string;
     /**
      * @remarks
-     * The authentication scheme ID.
+     * The ID of the authentication scheme.
      *
      * @example
      * mcp-1234567890abcdef
@@ -110,12 +110,12 @@ export declare class CreateMcpRequestBodyAuthHttpToMcp extends $dara.Model {
 export declare class CreateMcpRequestBodyAuth extends $dara.Model {
     /**
      * @remarks
-     * The caller API key authentication configuration for code-deployed MCP.
+     * The caller API key authentication configuration for the code package MCP.
      */
     codePackage?: CreateMcpRequestBodyAuthCodePackage;
     /**
      * @remarks
-     * The direct proxy authentication configuration.
+     * The authentication configuration for the direct proxy.
      */
     directProxy?: CreateMcpRequestBodyAuthDirectProxy;
     /**
@@ -125,7 +125,7 @@ export declare class CreateMcpRequestBodyAuth extends $dara.Model {
     enabled?: boolean;
     /**
      * @remarks
-     * The list of HTTP_TO_MCP authentication configurations.
+     * The list of authentication configurations for HTTP_TO_MCP.
      */
     httpToMcp?: CreateMcpRequestBodyAuthHttpToMcp[];
     static names(): {
@@ -142,7 +142,7 @@ export declare class CreateMcpRequestBodyAuth extends $dara.Model {
 export declare class CreateMcpRequestBodyDeploymentConfigAccessControl extends $dara.Model {
     /**
      * @remarks
-     * The ID of the AgentCore credential referenced when the mode is set to CREDENTIAL.
+     * The AgentCore Credential referenced when the mode is CREDENTIAL.
      *
      * @example
      * credential-id
@@ -150,12 +150,12 @@ export declare class CreateMcpRequestBodyDeploymentConfigAccessControl extends $
     credentialId?: string;
     /**
      * @remarks
-     * Specifies whether to enable ingress access control.
+     * Specifies whether to enable entry access control.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates authentication by using AgentCore credentials.
+     * ANONYMOUS indicates anonymous access. CREDENTIAL indicates the use of AgentCore access credentials.
      *
      * @example
      * CREDENTIAL
@@ -180,7 +180,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigAgentIdentityConfigurat
     authorizationEnabled?: boolean;
     /**
      * @remarks
-     * The credential provider ARN.
+     * The ARN of the credential provider.
      *
      * @example
      * acs:agentidentity:cn-hangzhou:1234567890123456:provider/example
@@ -188,7 +188,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigAgentIdentityConfigurat
     credentialProviderArn?: string;
     /**
      * @remarks
-     * The credential provider type.
+     * The type of the credential provider.
      *
      * @example
      * oauth2
@@ -196,7 +196,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigAgentIdentityConfigurat
     credentialProviderType?: string;
     /**
      * @remarks
-     * Specifies whether to enable agent identity.
+     * Specifies whether to enable Agent Identity.
      */
     enabled?: boolean;
     static names(): {
@@ -213,7 +213,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigAgentIdentityConfigurat
 export declare class CreateMcpRequestBodyDeploymentConfigCodeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The temporary code package token returned by GetMcpCodePackageUploadUrl. Used to create a code deployment after a presigned upload is completed. Mutually exclusive with CodePackageUrl.
+     * The temporary code package token returned by GetMcpCodePackageUploadUrl. It is used to create a code deployment after a presigned upload is completed. You must specify either this parameter or CodePackageUrl.
      *
      * @example
      * upload-token
@@ -221,7 +221,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigCodeConfiguration exten
     codePackageToken?: string;
     /**
      * @remarks
-     * The public Alibaba Cloud OSS HTTP(S) URL that can be directly passed when creating a code deployment. Mutually exclusive with CodePackageToken. Only supported by CreateMcp, not supported for update and query operations.
+     * The public Alibaba Cloud OSS HTTP(S) URL that can be directly passed when creating a code deployment. You must specify either this parameter or CodePackageToken. This parameter is only supported by CreateMcp, and is not supported for update and query operations.
      *
      * @example
      * https://example-bucket.oss-cn-hangzhou.aliyuncs.com/server.zip
@@ -234,7 +234,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigCodeConfiguration exten
     command?: string[];
     /**
      * @remarks
-     * The code package runtime: python3.13, nodejs22, or java17.
+     * The runtime of the code package. Valid values: python3.13, nodejs22, and java17.
      *
      * @example
      * python3.13
@@ -251,10 +251,129 @@ export declare class CreateMcpRequestBodyDeploymentConfigCodeConfiguration exten
         [key: string]: any;
     });
 }
+export declare class CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    /**
+     * @remarks
+     * The password for the image registry. The password is encrypted and stored on the server, and is not returned in query responses. If you omit this parameter during an update, the existing password is retained.
+     *
+     * @example
+     * example-password
+     */
+    password?: string;
+    /**
+     * @remarks
+     * The username for the image registry.
+     *
+     * @example
+     * puller
+     */
+    userName?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    /**
+     * @remarks
+     * Specifies whether to skip the verification of the TLS certificate of the image registry. A value of true indicates that the verification is skipped. Default value: false.
+     *
+     * @example
+     * false
+     */
+    insecure?: boolean;
+    /**
+     * @remarks
+     * The Base64-encoded root CA certificate of the image registry, which is used to verify self-signed certificates.
+     *
+     * @example
+     * LS0tLS1CRUdJTi...
+     */
+    rootCaCertBase64?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the security group used to pull images.
+     *
+     * @example
+     * sg-example
+     */
+    securityGroupId?: string;
+    /**
+     * @remarks
+     * The ID of the vSwitch used to pull images.
+     *
+     * @example
+     * vsw-example
+     */
+    vSwitchId?: string;
+    /**
+     * @remarks
+     * The ID of the VPC where the image registry resides.
+     *
+     * @example
+     * vpc-example
+     */
+    vpcId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    /**
+     * @remarks
+     * The authentication configuration of the image registry. Specify this parameter when the image registry requires username and password authentication.
+     */
+    authConfig?: CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+    /**
+     * @remarks
+     * The TLS certificate verification configuration of the image registry.
+     */
+    certConfig?: CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+    /**
+     * @remarks
+     * The network configuration for image pulling. Specify this parameter when the image registry is accessible only within a VPC. Function Compute pulls images through this network.
+     */
+    networkConfig?: CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class CreateMcpRequestBodyDeploymentConfigContainerConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The ACR instance ID.
+     * The ID of the ACR instance.
      *
      * @example
      * cri-example
@@ -267,12 +386,12 @@ export declare class CreateMcpRequestBodyDeploymentConfigContainerConfiguration 
     command?: string[];
     /**
      * @remarks
-     * The container entrypoint parameters.
+     * The entrypoint parameters of the container.
      */
     entrypoint?: string[];
     /**
      * @remarks
-     * The container image URL.
+     * The URL of the container image.
      *
      * @example
      * registry.cn-hangzhou.aliyuncs.com/example/mcp:1.0.0
@@ -280,7 +399,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigContainerConfiguration 
     image?: string;
     /**
      * @remarks
-     * The image registry type.
+     * The type of the image registry.
      *
      * @example
      * ACR
@@ -288,7 +407,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigContainerConfiguration 
     imageRegistryType?: string;
     /**
      * @remarks
-     * The MCP runtime mode. Custom containers currently need to expose standard MCP by themselves. Set the value to SELF_HOSTED.
+     * The MCP runtime mode. Custom containers must expose the standard MCP by themselves. Set the value to SELF_HOSTED.
      *
      * @example
      * SELF_HOSTED
@@ -296,7 +415,12 @@ export declare class CreateMcpRequestBodyDeploymentConfigContainerConfiguration 
     mcpRuntimeMode?: string;
     /**
      * @remarks
-     * The container source type. Currently fixed to CONTAINER_IMAGE.
+     * The custom image registry configuration. This parameter takes effect only when ImageRegistryType is set to CUSTOM. It is used to configure image pull authentication, TLS certificate verification, and the private network for image pulling.
+     */
+    registryConfig?: CreateMcpRequestBodyDeploymentConfigContainerConfigurationRegistryConfig;
+    /**
+     * @remarks
+     * The source type of the container. This parameter is fixed to CONTAINER_IMAGE.
      *
      * @example
      * CONTAINER_IMAGE
@@ -327,7 +451,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
      * The description of the hook.
      *
      * @example
-     * Log MCP tool invoke
+     * Record MCP tool invocation
      */
     description?: string;
     /**
@@ -345,7 +469,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
     event?: string;
     /**
      * @remarks
-     * The hook request headers.
+     * The request headers of the hook.
      */
     headers?: {
         [key: string]: string;
@@ -380,7 +504,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
 export declare class CreateMcpRequestBodyDeploymentConfigHookConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+     * The list of hooks executed in array order, including PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks.
      */
     hooks?: CreateMcpRequestBodyDeploymentConfigHookConfigurationHooks[];
     static names(): {
@@ -407,7 +531,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigLogConfiguration extend
     enableRequestMetrics?: boolean;
     /**
      * @remarks
-     * The start rule for log segmentation.
+     * The start rule for Function Compute log segmentation.
      *
      * @example
      * DefaultRegex
@@ -443,7 +567,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigLogConfiguration extend
 export declare class CreateMcpRequestBodyDeploymentConfigMcpConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The MCP endpoint path, such as /mcp or /sse.
+     * Example: /mcp or /sse.
      *
      * @example
      * /mcp
@@ -451,7 +575,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigMcpConfiguration extend
     endpointPath?: string;
     /**
      * @remarks
-     * The session concurrency per instance. Currently fixed to 1.
+     * Currently fixed at 1.
      *
      * @example
      * 1
@@ -459,7 +583,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigMcpConfiguration extend
     sessionConcurrencyPerInstance?: number;
     /**
      * @remarks
-     * The session idle timeout period in seconds. Default value: 1800.
+     * Unit: seconds. Default value: 1800.
      *
      * @example
      * 1800
@@ -467,7 +591,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigMcpConfiguration extend
     sessionIdleTimeoutSeconds?: number;
     /**
      * @remarks
-     * The maximum session lifetime in seconds. Default value: 21600.
+     * Unit: seconds. Default value: 21600.
      *
      * @example
      * 21600
@@ -475,7 +599,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigMcpConfiguration extend
     sessionMaxLifetimeSeconds?: number;
     /**
      * @remarks
-     * The session mode. Only applicable to StreamableHTTP. Default value for creation: STATEFUL. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP by themselves.
+     * Applicable only to StreamableHTTP. The default value is STATEFUL when created. If omitted during an update, the original value is retained. STATELESS disables Function Compute session affinity, and the stdio gateway does not enable stateful mode. Native HTTP services must support stateless MCP themselves.
      *
      * @example
      * STATEFUL
@@ -508,7 +632,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigNasConfigurationMountPo
     mountDir?: string;
     /**
      * @remarks
-     * The NAS server address.
+     * The service address of the NAS file system.
      *
      * @example
      * example.cn-hangzhou.nas.aliyuncs.com
@@ -528,7 +652,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigNasConfigurationMountPo
 export declare class CreateMcpRequestBodyDeploymentConfigNasConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The ID of the user group.
+     * The group ID.
      *
      * @example
      * 1000
@@ -536,7 +660,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigNasConfiguration extend
     groupId?: number;
     /**
      * @remarks
-     * The list of NAS mount points.
+     * The list of NAS mount targets.
      */
     mountPoints?: CreateMcpRequestBodyDeploymentConfigNasConfigurationMountPoints[];
     /**
@@ -634,7 +758,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigOssMountConfigurationMo
     mountDir?: string;
     /**
      * @remarks
-     * Specifies whether the mount point is read-only.
+     * Specifies whether the mount target is read-only.
      */
     readOnly?: boolean;
     static names(): {
@@ -651,7 +775,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigOssMountConfigurationMo
 export declare class CreateMcpRequestBodyDeploymentConfigOssMountConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The list of OSS mount points.
+     * The list of OSS mount targets.
      */
     mountPoints?: CreateMcpRequestBodyDeploymentConfigOssMountConfigurationMountPoints[];
     static names(): {
@@ -668,12 +792,12 @@ export declare class CreateMcpRequestBodyDeploymentConfigOssMountConfiguration e
 export declare class CreateMcpRequestBodyDeploymentConfigParameterTransformConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable parameter transformation and result enhancement.
+     * Specifies whether to enable parameter transformation and result augmentation.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * The reserved reference to the parameter transformation and result enhancement rule set.
+     * The reference to the reserved parameter transformation and result augmentation rule set.
      *
      * @example
      * rules-1
@@ -681,7 +805,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigParameterTransformConfi
     ruleSetId?: string;
     /**
      * @remarks
-     * The transformation rule version.
+     * The version of the transformation rule.
      *
      * @example
      * 1.0
@@ -718,7 +842,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigProxyConfiguration exte
 export declare class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The CPU specifications in cores. Default value: 0.25.
+     * The CPU specification. Unit: cores. Default value: 0.25.
      *
      * @example
      * 0.25
@@ -726,7 +850,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     cpu?: number;
     /**
      * @remarks
-     * The temporary disk size in MB. Valid values: 512 and 10240.
+     * The size of the ephemeral disk. Unit: MB. Valid values: 512 and 10240.
      *
      * @example
      * 512
@@ -749,7 +873,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     executionRoleArn?: string;
     /**
      * @remarks
-     * The request concurrency per instance. Default value: 200.
+     * The maximum number of concurrent requests per instance. Default value: 200.
      *
      * @example
      * 200
@@ -757,7 +881,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     instanceConcurrency?: number;
     /**
      * @remarks
-     * The memory specifications in MB. Default value: 512.
+     * The memory specification. Unit: MB. Default value: 512.
      *
      * @example
      * 512
@@ -765,7 +889,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     memory?: number;
     /**
      * @remarks
-     * The service port. Default value: 9000.
+     * Default value: 9000.
      *
      * @example
      * 9000
@@ -773,7 +897,7 @@ export declare class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     port?: number;
     /**
      * @remarks
-     * The function timeout period in seconds. Default value: 300.
+     * The timeout period of the function. Unit: seconds. Default value: 300.
      *
      * @example
      * 300
@@ -793,17 +917,17 @@ export declare class CreateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
 export declare class CreateMcpRequestBodyDeploymentConfig extends $dara.Model {
     /**
      * @remarks
-     * The MCP ingress access control configuration.
+     * The MCP entry access control configuration.
      */
     accessControl?: CreateMcpRequestBodyDeploymentConfigAccessControl;
     /**
      * @remarks
-     * The agent identity configuration.
+     * The Agent Identity configuration.
      */
     agentIdentityConfiguration?: CreateMcpRequestBodyDeploymentConfigAgentIdentityConfiguration;
     /**
      * @remarks
-     * The artifact type. Code indicates a ZIP code package, and Container indicates a custom container.
+     * The artifact type. A value of Code indicates a ZIP code package, and a value of Container indicates a custom container.
      *
      * @example
      * Code
@@ -851,7 +975,7 @@ export declare class CreateMcpRequestBodyDeploymentConfig extends $dara.Model {
     ossMountConfiguration?: CreateMcpRequestBodyDeploymentConfigOssMountConfiguration;
     /**
      * @remarks
-     * The parameter transformation and result enhancement configuration.
+     * The configuration for parameter transformation and result augmentation.
      */
     parameterTransformConfiguration?: CreateMcpRequestBodyDeploymentConfigParameterTransformConfiguration;
     /**
@@ -875,20 +999,90 @@ export declare class CreateMcpRequestBodyDeploymentConfig extends $dara.Model {
         [key: string]: any;
     });
 }
+export declare class CreateMcpRequestBodyVirtualConfigSourcesTools extends $dara.Model {
+    /**
+     * @remarks
+     * Required for virtual MCP. The definition digest obtained from the ListMcpTools operation or validation result of the source MCP. The client passes this value back as-is without calculating it. This value is used only as a baseline for manual update validation and does not freeze the runtime schema.
+     *
+     * @example
+     * e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+     */
+    expectedDigest?: string;
+    /**
+     * @remarks
+     * Required for virtual MCP. The name of the source tool.
+     *
+     * @example
+     * get-current-time
+     */
+    name?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpRequestBodyVirtualConfigSources extends $dara.Model {
+    /**
+     * @remarks
+     * Required for virtual MCP. The ID of the source MCP in the current workspace.
+     *
+     * @example
+     * mcp-server-source-1
+     */
+    mcpServerId?: string;
+    /**
+     * @remarks
+     * Required for virtual MCP. The manually selected tools. Specify at least one tool for each source, and up to 100 tools in total across all sources.
+     */
+    tools?: CreateMcpRequestBodyVirtualConfigSourcesTools[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateMcpRequestBodyVirtualConfig extends $dara.Model {
+    /**
+     * @remarks
+     * Required for virtual MCP. Specify 1 to 10 different source MCPs.
+     */
+    sources?: CreateMcpRequestBodyVirtualConfigSources[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class CreateMcpRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The list of MCP service addresses. Required when Type is DIRECT_PROXY or HTTP_TO_MCP. Do not specify when Type is CODE_PACKAGE.
+     * The list of MCP service addresses.
      */
     addresses?: string[];
     /**
      * @remarks
-     * The backend authentication configuration. When enabled is set to true: for DIRECT_PROXY, specify directProxy (name/value); for HTTP_TO_MCP, specify the httpToMcp array (each item includes id, type, and credential; for apiKey, position and name are also required), which supports multiple authentication objects where the first one is the default upstream credential; for CODE_PACKAGE, specify codePackage (headerName/apiKey) to verify MCP callers. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
+     * The backend authentication configuration. When enabled is set to true: for DIRECT_PROXY, specify directProxy (name and value); for HTTP_TO_MCP, specify the httpToMcp array (each item includes id, type, and credential; apiKey also requires position and name). Multiple authentication objects are supported, and the first one is the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of the Swagger document.
      */
     auth?: CreateMcpRequestBodyAuth;
     /**
      * @remarks
-     * Optional. Valid values: legacy and modern. This parameter is only used for DIRECT_PROXY. If omitted for direct connection, the existing default behavior is maintained and no automatic upgrade is performed. modern does not support SSE. You can use the backendMcpProtocol and protocol recommended by ProbeMcpOrigin to configure backend access, which does not limit the external protocol conversion compatibility of the gateway. No need to pass this parameter for CODE_PACKAGE; valid inputs are ignored and not saved. Function Compute session affinity is configured only based on protocol and DeploymentConfig.McpConfiguration.SessionMode, and the gateway protocol is determined by the successful probing result after Function Compute deployment. Valid values for HTTP_TO_MCP are ignored and not saved.
+     * Optional. Valid values: legacy and modern. This parameter is used only for DIRECT_PROXY. If omitted for direct proxy, the existing default behavior is maintained and no automatic upgrade is performed. The modern value does not support Server-Sent Events (SSE). You can use the backendMcpProtocol and protocol recommended by ProbeMcpOrigin to configure backend access, which does not limit the external protocol conversion compatibility of the gateway. This parameter is not required for CODE_PACKAGE. Valid inputs are ignored and not saved. Function Compute (FC) session affinity is configured only based on protocol and DeploymentConfig.McpConfiguration.SessionMode, and the gateway protocol is determined by the successful probing result after FC deployment. Valid values for HTTP_TO_MCP are ignored and not saved.
      *
      * @example
      * modern
@@ -901,7 +1095,7 @@ export declare class CreateMcpRequestBody extends $dara.Model {
     customTags?: string[];
     /**
      * @remarks
-     * The code deployment configuration. Required when Type is CODE_PACKAGE. When creating a Code artifact, you must specify either CodeConfiguration.CodePackageToken or CodePackageUrl, but not both. CodePackageUrl only supports public Alibaba Cloud OSS HTTP(S) URLs.
+     * The code deployment configuration. Required when Type is set to CODE_PACKAGE. When creating a code artifact, you must specify either CodeConfiguration.CodePackageToken or CodePackageUrl, but not both. CodePackageUrl only supports public Alibaba Cloud OSS HTTP(S) URLs.
      */
     deploymentConfig?: CreateMcpRequestBodyDeploymentConfig;
     /**
@@ -914,7 +1108,7 @@ export declare class CreateMcpRequestBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The MCP name.
+     * The name of the MCP service.
      *
      * This parameter is required.
      *
@@ -932,7 +1126,7 @@ export declare class CreateMcpRequestBody extends $dara.Model {
     originProtocolVersion?: string;
     /**
      * @remarks
-     * The access permission mode. PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+     * The access permission mode. PUBLIC indicates public access, and CONTROLLED indicates that access is controlled based on permission rules.
      *
      * @example
      * CONTROLLED
@@ -948,7 +1142,7 @@ export declare class CreateMcpRequestBody extends $dara.Model {
     protocol?: string;
     /**
      * @remarks
-     * If Type is HTTP_TO_MCP, specify this field.
+     * Specify this field if the type is HTTP_TO_MCP.
      *
      * @example
      * {"type":"object"}
@@ -964,6 +1158,11 @@ export declare class CreateMcpRequestBody extends $dara.Model {
      * DIRECT_PROXY
      */
     type?: string;
+    /**
+     * @remarks
+     * The source and tool selection for a virtual MCP. This is used only when the type is VIRTUAL. The tool list can only be updated manually.
+     */
+    virtualConfig?: CreateMcpRequestBodyVirtualConfig;
     static names(): {
         [key: string]: string;
     };

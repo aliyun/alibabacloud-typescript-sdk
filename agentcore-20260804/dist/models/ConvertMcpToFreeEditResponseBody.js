@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ConvertMcpToFreeEditResponseBody = exports.ConvertMcpToFreeEditResponseBodyData = exports.ConvertMcpToFreeEditResponseBodyDataTemplate = exports.ConvertMcpToFreeEditResponseBodyDataMarketSource = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfig = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigProxyConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNetworkConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigLogConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessControl = void 0;
+exports.ConvertMcpToFreeEditResponseBody = exports.ConvertMcpToFreeEditResponseBodyData = exports.ConvertMcpToFreeEditResponseBodyDataTemplate = exports.ConvertMcpToFreeEditResponseBodyDataMarketSource = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfig = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigProxyConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParameterTransformConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNetworkConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfigurationMountPoints = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigLogConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurationHooks = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentIdentityConfiguration = exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessControl = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessControl extends $dara.Model {
@@ -100,6 +100,103 @@ class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeConfiguration exte
     }
 }
 exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeConfiguration = ConvertMcpToFreeEditResponseBodyDataDeploymentConfigCodeConfiguration;
+class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig extends $dara.Model {
+    static names() {
+        return {
+            password: 'password',
+            userName: 'userName',
+        };
+    }
+    static types() {
+        return {
+            password: 'string',
+            userName: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig = ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig;
+class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig extends $dara.Model {
+    static names() {
+        return {
+            insecure: 'insecure',
+            rootCaCertBase64: 'rootCaCertBase64',
+        };
+    }
+    static types() {
+        return {
+            insecure: 'boolean',
+            rootCaCertBase64: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig = ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig;
+class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig extends $dara.Model {
+    static names() {
+        return {
+            securityGroupId: 'securityGroupId',
+            vSwitchId: 'vSwitchId',
+            vpcId: 'vpcId',
+        };
+    }
+    static types() {
+        return {
+            securityGroupId: 'string',
+            vSwitchId: 'string',
+            vpcId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig = ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig;
+class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig extends $dara.Model {
+    static names() {
+        return {
+            authConfig: 'authConfig',
+            certConfig: 'certConfig',
+            networkConfig: 'networkConfig',
+        };
+    }
+    static types() {
+        return {
+            authConfig: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigAuthConfig,
+            certConfig: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigCertConfig,
+            networkConfig: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfigNetworkConfig,
+        };
+    }
+    validate() {
+        if (this.authConfig && typeof this.authConfig.validate === 'function') {
+            this.authConfig.validate();
+        }
+        if (this.certConfig && typeof this.certConfig.validate === 'function') {
+            this.certConfig.validate();
+        }
+        if (this.networkConfig && typeof this.networkConfig.validate === 'function') {
+            this.networkConfig.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig = ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig;
 class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration extends $dara.Model {
     static names() {
         return {
@@ -109,6 +206,7 @@ class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration
             image: 'image',
             imageRegistryType: 'imageRegistryType',
             mcpRuntimeMode: 'mcpRuntimeMode',
+            registryConfig: 'registryConfig',
             sourceType: 'sourceType',
         };
     }
@@ -120,6 +218,7 @@ class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration
             image: 'string',
             imageRegistryType: 'string',
             mcpRuntimeMode: 'string',
+            registryConfig: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfigurationRegistryConfig,
             sourceType: 'string',
         };
     }
@@ -129,6 +228,9 @@ class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfiguration
         }
         if (Array.isArray(this.entrypoint)) {
             $dara.Model.validateArray(this.entrypoint);
+        }
+        if (this.registryConfig && typeof this.registryConfig.validate === 'function') {
+            this.registryConfig.validate();
         }
         super.validate();
     }

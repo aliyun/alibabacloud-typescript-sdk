@@ -1,0 +1,498 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetAssetResponseBodyDataChunkConfigurationPreprocessRules extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove URLs and email addresses during parsing.
+   * 
+   * @example
+   * false
+   */
+  removeUrlsAndEmails?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to replace consecutive spaces, line breaks, and tabs with a single space.
+   * 
+   * @example
+   * true
+   */
+  replaceConsecutiveWhitespace?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      removeUrlsAndEmails: 'removeUrlsAndEmails',
+      replaceConsecutiveWhitespace: 'replaceConsecutiveWhitespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      removeUrlsAndEmails: 'boolean',
+      replaceConsecutiveWhitespace: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetResponseBodyDataChunkConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * Required when the strategy is BY_HEADING. The value ranges from 1 to 6. Headings at or above this level are used as boundaries. Deeper headings are retained in the body text. Overlong sections fall back to paragraph or sentence splitting. Documents without headings fall back to intelligent splitting. This parameter is ignored for other strategies and is validated by the backend based on the strategy.
+   * 
+   * @example
+   * 2
+   */
+  headingLevel?: number;
+  /**
+   * @remarks
+   * The value ranges from 1 to 6000 characters. It follows the character length metric of EB and is not the number of tokens. If omitted, the server-side default value is used.
+   * 
+   * @example
+   * 512
+   */
+  maxChunkSize?: number;
+  /**
+   * @remarks
+   * Effective only when the strategy is BY_LENGTH. The unit is characters, and the default value is 0. The valid value must be greater than or equal to 0 and less than the effective maxChunkSize. The total length after overlapping must not exceed the maximum chunk size. This parameter is ignored for other strategies and is validated by the backend based on the strategy.
+   * 
+   * @example
+   * 40
+   */
+  overlapSize?: number;
+  /**
+   * @remarks
+   * The text preprocessing rules applied before splitting.
+   */
+  preprocessRules?: GetAssetResponseBodyDataChunkConfigurationPreprocessRules;
+  /**
+   * @remarks
+   * Required and non-empty when the strategy is BY_SEPARATOR. It matches the literal string as a whole and does not use regular expressions. This parameter is ignored for other strategies.
+   * 
+   * @example
+   * \n\n
+   */
+  separator?: string;
+  /**
+   * @remarks
+   * The saved chunking strategy. AUTO indicates automatic chunking, and BY_SEPARATOR indicates chunking by separator. BY_LENGTH and BY_HEADING are returned only for backward compatibility with historical configurations. Only AUTO and BY_SEPARATOR are accepted when creating or updating configurations in the current phase.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AUTO
+   */
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headingLevel: 'headingLevel',
+      maxChunkSize: 'maxChunkSize',
+      overlapSize: 'overlapSize',
+      preprocessRules: 'preprocessRules',
+      separator: 'separator',
+      strategy: 'strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headingLevel: 'number',
+      maxChunkSize: 'number',
+      overlapSize: 'number',
+      preprocessRules: GetAssetResponseBodyDataChunkConfigurationPreprocessRules,
+      separator: 'string',
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(this.preprocessRules && typeof (this.preprocessRules as any).validate === 'function') {
+      (this.preprocessRules as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetResponseBodyDataLastError extends $dara.Model {
+  /**
+   * @remarks
+   * The stable product error code. It does not return internal task identifiers, stacks, or storage addresses.
+   * 
+   * @example
+   * ProcessingFailed
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The redacted error summary that can be displayed to users.
+   * 
+   * @example
+   * File parsing failed
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetResponseBodyDataMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The field name declared in metadataSchema. It must not be duplicated in the same request. Fixed value and system variable fields are generated by the server and do not accept customer overrides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * department
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The string parsed according to the schema type. If omitted or null during upload, no value is assigned and the value is populated by the schema. In the UpdateAsset operation, omitting the field, specifying a null value, or providing an empty string deletes the key. Unsubmitted keys remain unchanged. The DATETIME type accepts ISO 8601 with a time zone, yyyy-MM-dd HH:mm:ss, or yyyy-MM-dd.
+   * 
+   * @example
+   * engineering
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The stable ID of the asset. You can specify this ID when creating an asset. If assetId is not specified but clientToken is provided, the platform stably derives the ID based on the resource scope and clientToken. If neither is provided, a new asset is created for each request. Setting overwrite=true registers a new upload session for the same asset, and the previously published version remains in use until the new result is published.
+   * 
+   * @example
+   * asset-001
+   */
+  assetId?: string;
+  /**
+   * @remarks
+   * The effective chunking configuration used for processing this asset. Explicitly uploaded configurations take precedence over the knowledge base default values. Subsequent modifications to the knowledge base configuration do not change this snapshot.
+   */
+  chunkConfiguration?: GetAssetResponseBodyDataChunkConfiguration;
+  /**
+   * @remarks
+   * The total number of chunks in the currently published result. This value is 0 before the first publication. During re-chunking or editing, it still counts the published result.
+   * 
+   * @example
+   * 20
+   */
+  chunkCount?: number;
+  /**
+   * @remarks
+   * The MIME type of the uploaded original file for this asset.
+   * 
+   * @example
+   * application/pdf
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * The creation time in ISO 8601 UTC format.
+   * 
+   * @example
+   * 2026-10-27T02:00:00Z
+   */
+  createdAt?: string;
+  /**
+   * @remarks
+   * Specifies whether the asset is enabled. If disabled, the asset is excluded from regular viewing, retrieval, and downloading. Management APIs remain subject to management permissions.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The file name of the currently uploaded original file. Modifying the display name does not change this value.
+   * 
+   * @example
+   * guide.pdf
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * The ID of the knowledge base to which the asset belongs.
+   * 
+   * @example
+   * kb-001
+   */
+  knowledgeBaseId?: string;
+  /**
+   * @remarks
+   * The redacted error of the current upload or processing. It does not contain internal credentials, paths, or run identifiers.
+   */
+  lastError?: GetAssetResponseBodyDataLastError;
+  /**
+   * @remarks
+   * The complete list of effective metadata key-value pairs, including constants and system variable results. Patches involving retrieval projection do not overwrite old effective values before the new result is published.
+   * 
+   * @example
+   * [{"key":"department","value":"engineering"}]
+   */
+  metadata?: GetAssetResponseBodyDataMetadata[];
+  /**
+   * @remarks
+   * The default name is the uploaded file name. You can modify the display name by calling UpdateAsset.
+   * 
+   * @example
+   * guide.pdf
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Indicates whether the published result is available. The value is true if a published version exists and the asset is neither disabled nor deleted. The value may still be true if re-chunking or editing fails, and is false if the first processing fails.
+   * 
+   * @example
+   * true
+   */
+  publishedResultAvailable?: boolean;
+  /**
+   * @remarks
+   * The size of the current original file in bytes. This value is not returned before the upload is confirmed. After confirmation, the actual size verified by the OSS HEAD request is returned.
+   * 
+   * @example
+   * 102400
+   */
+  sizeBytes?: number;
+  /**
+   * @remarks
+   * The last modification time of the source file in UTC epoch milliseconds. This value is not returned if it is not provided.
+   * 
+   * @example
+   * 1793066400000
+   */
+  sourceModifiedTime?: number;
+  /**
+   * @remarks
+   * The import channel of the asset, such as UPLOAD or OSS. This is recorded by the platform based on the trusted access path and is not used to grant access permissions.
+   * 
+   * @example
+   * UPLOAD
+   */
+  sourceType?: string;
+  /**
+   * @remarks
+   * The URI of the original source. This is used only for tracing. It does not grant download authorization and does not trigger server-side fetching.
+   * 
+   * @example
+   * oss://source-bucket/path/guide.pdf
+   */
+  sourceUri?: string;
+  /**
+   * @remarks
+   * The current upload or processing status of the document. Upload, rebuild, and chunk body editing are all polled through GetAsset. PENDING indicates waiting for processing, PROCESSING indicates processing in progress, COMPLETED indicates that publication is finished, and FAILED indicates final failure and returns lastError. This does not represent the result of a specific historical request. No readable result is available if the first processing fails. During overwrite upload, rebuild, or editing, and after failure, the published result remains readable if the enabled and deletion statuses allow it.
+   * 
+   * @example
+   * PROCESSING
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The creation time in ISO 8601 UTC format.
+   * 
+   * @example
+   * 2026-10-27T02:05:00Z
+   */
+  updatedAt?: string;
+  /**
+   * @remarks
+   * The workspace to which the asset belongs.
+   * 
+   * @example
+   * ws-001
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetId: 'assetId',
+      chunkConfiguration: 'chunkConfiguration',
+      chunkCount: 'chunkCount',
+      contentType: 'contentType',
+      createdAt: 'createdAt',
+      enabled: 'enabled',
+      fileName: 'fileName',
+      knowledgeBaseId: 'knowledgeBaseId',
+      lastError: 'lastError',
+      metadata: 'metadata',
+      name: 'name',
+      publishedResultAvailable: 'publishedResultAvailable',
+      sizeBytes: 'sizeBytes',
+      sourceModifiedTime: 'sourceModifiedTime',
+      sourceType: 'sourceType',
+      sourceUri: 'sourceUri',
+      status: 'status',
+      updatedAt: 'updatedAt',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetId: 'string',
+      chunkConfiguration: GetAssetResponseBodyDataChunkConfiguration,
+      chunkCount: 'number',
+      contentType: 'string',
+      createdAt: 'string',
+      enabled: 'boolean',
+      fileName: 'string',
+      knowledgeBaseId: 'string',
+      lastError: GetAssetResponseBodyDataLastError,
+      metadata: { 'type': 'array', 'itemType': GetAssetResponseBodyDataMetadata },
+      name: 'string',
+      publishedResultAvailable: 'boolean',
+      sizeBytes: 'number',
+      sourceModifiedTime: 'number',
+      sourceType: 'string',
+      sourceUri: 'string',
+      status: 'string',
+      updatedAt: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.chunkConfiguration && typeof (this.chunkConfiguration as any).validate === 'function') {
+      (this.chunkConfiguration as any).validate();
+    }
+    if(this.lastError && typeof (this.lastError as any).validate === 'function') {
+      (this.lastError as any).validate();
+    }
+    if(Array.isArray(this.metadata)) {
+      $dara.Model.validateArray(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAssetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The stable result code.
+   * 
+   * @example
+   * SUCCESS
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The asset management properties, original file name, source, number of chunks, metadata, asset-level chunking configuration snapshot, and the current status, lastError, and publishedResultAvailable. This does not include chunkUpdate or clientToken.
+   */
+  data?: GetAssetResponseBodyData;
+  /**
+   * @remarks
+   * The actual HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The description of the redacted result.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request trace ID.
+   * 
+   * @example
+   * 01A00000-0000-0000-0000-000000000001
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAssetResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
