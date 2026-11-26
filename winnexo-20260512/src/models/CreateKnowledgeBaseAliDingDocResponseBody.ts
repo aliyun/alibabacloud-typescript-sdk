@@ -21,7 +21,7 @@ export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The public URL of the document (echoes the input parameter).
+   * The public URL of the document. This value is echoed from the request parameter.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -45,7 +45,7 @@ export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name.
+   * The image name.
    * 
    * @example
    * p-toolset-b8a1de80-e9f5-49f3-8a12-873d378889c6
@@ -77,16 +77,16 @@ export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The refund status. Query this field to confirm the refund status during processing. Valid values:
-   * - SUCCESS: All refunds are successful.
-   * - FAIL: The refund failed.
+   * The refund status. If the refund is in progress, you must query and confirm the refund status. Valid values:
+   * - SUCCESS: Succeeded.
+   * - FAIL: Failed.
    * - WAIT_PAY: Waiting for refund.
-   * - EXPIRE: The refund has expired.
-   * - PAYING: The refund is being processed.
-   * - TERMINATE: The refund is terminated.
+   * - EXPIRE: Expired.
+   * - PAYING: Refunding.
+   * - TERMINATE: Terminated.
    * 
    * @example
-   * {\\"observedGeneration\\": 7, \\"servicesInstances\\": {}, \\"observedTime\\": \\"2025-12-17T11:57:07Z\\", \\"servicesWithPendingChanges\\": [], \\"latestEnvironmentDeploymentName\\": \\"manual-1765972627273-k7GZvr\\"}
+   * {\"observedGeneration\": 7, \"servicesInstances\": {}, \"observedTime\": \"2025-12-17T11:57:07Z\", \"servicesWithPendingChanges\": [], \"latestEnvironmentDeploymentName\": \"manual-1765972627273-k7GZvr\"}
    */
   status?: string;
   static names(): { [key: string]: string } {

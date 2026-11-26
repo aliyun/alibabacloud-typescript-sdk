@@ -29,10 +29,10 @@ export class ListBillingResponseBodyList extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The cost source type.
+   * The type of the cost source.
    * 
    * @example
-   * string_value
+   * ["STANDARD"]
    */
   costSource?: string[];
   /**
@@ -40,12 +40,12 @@ export class ListBillingResponseBodyList extends $dara.Model {
    * The display name of the cost source.
    * 
    * @example
-   * string_value
+   * ["Standard Edition"]
    */
   costSourceDisplayName?: string[];
   /**
    * @remarks
-   * The end timestamp, in milliseconds.
+   * The end timestamp in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -53,7 +53,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The entry object ID.
+   * The ID of the entry object.
    * 
    * @example
    * exampleEntryObjectId
@@ -69,7 +69,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   entryObjectType?: string;
   /**
    * @remarks
-   * Indicates whether the bill is a shadow bill.
+   * Specifies whether the bill is a shadow bill.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   isShadow?: boolean;
   /**
    * @remarks
-   * The operation type.
+   * The search term rewrite configuration.
    * 
    * @example
    * string_value
@@ -85,7 +85,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The display name of the operation.
+   * The display name of the action.
    * 
    * @example
    * string_value
@@ -93,7 +93,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   operationDisplayName?: string;
   /**
    * @remarks
-   * The start timestamp, in milliseconds.
+   * The start timestamp in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -101,7 +101,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The node status. Running is returned upon submission.
+   * The task status. A status of Running is returned immediately after the task is submitted.
    * 
    * @example
    * READY
@@ -117,7 +117,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   statusDisplayName?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -209,12 +209,12 @@ export class ListBillingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the bills.
+   * The details of the link enhancement rule.
    */
   list?: ListBillingResponseBodyList[];
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * successful
@@ -246,7 +246,7 @@ export class ListBillingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of Logtail pipeline configurations in the current project.
    * 
    * @example
    * 1

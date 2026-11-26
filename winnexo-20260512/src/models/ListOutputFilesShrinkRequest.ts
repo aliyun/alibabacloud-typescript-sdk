@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListOutputFilesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business ID used for exact filtering. The length is 1 to 128 characters. This ID is derived from file registrations or the businessId of associated workflow instances.
+   * The platform application token issued by the console. If provided, the operation is executed with the identity of the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The business ID used for exact filtering. The length is 1 to 128 characters. This value is derived from the businessId of file registrations or associated workflow instances.
    * 
    * @example
    * REQ-20261012-001
@@ -13,7 +21,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The ID of the collaboration workspace. The length is 1 to 64 characters. This parameter is optional. If not specified, the personal outputs of the current user are queried. If specified, the real-time permissions of the workspace members and source resources are verified.
+   * The ID of the collaboration workspace. The length is 1 to 64 characters. If this parameter is not provided, the personal outputs of the current user are queried. If provided, the real-time permissions of the workspace members and source resources are verified.
    * 
    * @example
    * cg_123e4567-e89b-42d3-a456-426614174001
@@ -21,7 +29,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The output detail type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
+   * The type of the output detail. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
    * 
    * @example
    * document
@@ -32,12 +40,12 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
    * The keyword used to match the output title or detail name.
    * 
    * @example
-   * Quarterly business
+   * Quarterly operations
    */
   keyword?: string;
   /**
    * @remarks
-   * The name of the digital employee (operating object). Filters results by name.
+   * The name of the digital employee used for filtering.
    * 
    * @example
    * Business Analysis Assistant
@@ -45,7 +53,23 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1. Default value: 1.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The page number, starting from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -53,7 +77,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of items per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -69,7 +93,7 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Specifies whether to display only the outputs and output details that have sharing enabled.
+   * Specifies whether to display only shared outputs and output details.
    * 
    * @example
    * False
@@ -77,12 +101,12 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   sharedOnly?: boolean;
   /**
    * @remarks
-   * The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registrations or the variables.tags of associated instances.
+   * The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from the variables.tags of file registrations or associated instances.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The ID of the current execution used to exactly filter outputs.
+   * The execution ID used to exactly filter the outputs of the current execution.
    * 
    * @example
    * exampleExecutionId
@@ -98,11 +122,14 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       bizId: 'bizId',
       collaborationGroupId: 'collaborationGroupId',
       itemType: 'itemType',
       keyword: 'keyword',
       operatingObjectName: 'operatingObjectName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       sessionId: 'sessionId',
@@ -115,11 +142,14 @@ export class ListOutputFilesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       bizId: 'string',
       collaborationGroupId: 'string',
       itemType: 'string',
       keyword: 'string',
       operatingObjectName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       sessionId: 'string',

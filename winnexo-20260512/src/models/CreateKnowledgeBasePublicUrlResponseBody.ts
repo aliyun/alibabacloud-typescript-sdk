@@ -13,7 +13,7 @@ export class CreateKnowledgeBasePublicUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the destination folder in the enterprise knowledge base that was specified in the request.
+   * The ID of the requested target directory in the enterprise knowledge base.
    * 
    * @example
    * dir_tenant_child
@@ -29,7 +29,7 @@ export class CreateKnowledgeBasePublicUrlResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The error description. This value is empty if the request is successful.
+   * The error message. This parameter is empty if the request is successful.
    * 
    * @example
    * The requested resource does not exist
@@ -37,15 +37,15 @@ export class CreateKnowledgeBasePublicUrlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
    * @example
-   * Project Plan
+   * Project plan
    */
   name?: string;
   /**
    * @remarks
-   * The submitted public web page URL.
+   * The URL of the submitted public web page.
    * 
    * @example
    * https://example.com
@@ -53,7 +53,7 @@ export class CreateKnowledgeBasePublicUrlResponseBody extends $dara.Model {
   originalUrl?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -61,7 +61,7 @@ export class CreateKnowledgeBasePublicUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource scope. The value is fixed to TENANT.
+   * The scope of the resource. The value is fixed to TENANT.
    * 
    * @example
    * TENANT
@@ -77,7 +77,7 @@ export class CreateKnowledgeBasePublicUrlResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The resource status. A value of RUNNING indicates that the request has been accepted but the crawling and parsing are not yet complete.
+   * The status of the resource. A value of RUNNING indicates that the request is accepted but the crawling and parsing are not completed.
    * 
    * @example
    * RUNNING

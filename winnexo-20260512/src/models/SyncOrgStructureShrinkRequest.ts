@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SyncOrgStructureShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The enterprise identifier. This value must match the corpId returned by listAvailableConfigs.
    * 
    * This parameter is required.
@@ -25,6 +33,22 @@ export class SyncOrgStructureShrinkRequest extends $dara.Model {
    * The member list. This parameter is required when syncMembers is set to true.
    */
   membersShrink?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The platform type. Valid values: saml, oauth2, or custom.
@@ -61,9 +85,12 @@ export class SyncOrgStructureShrinkRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       corpId: 'corpId',
       departmentsShrink: 'departments',
       membersShrink: 'members',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       platformType: 'platformType',
       ssoSettingsId: 'ssoSettingsId',
       syncMembers: 'syncMembers',
@@ -73,9 +100,12 @@ export class SyncOrgStructureShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       corpId: 'string',
       departmentsShrink: 'string',
       membersShrink: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       platformType: 'string',
       ssoSettingsId: 'string',
       syncMembers: 'boolean',

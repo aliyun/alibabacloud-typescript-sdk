@@ -13,10 +13,10 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   creatorId?: number;
   /**
    * @remarks
-   * The creator name.
+   * The creator.
    * 
    * @example
-   * John Doe
+   * Zhang San
    */
   creatorName?: string;
   /**
@@ -24,7 +24,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
    * The description of the to-do card type.
    * 
    * @example
-   * Product materials and user guides
+   * Product materials and instructions
    */
   description?: string;
   /**
@@ -61,7 +61,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
    * The file name.
    * 
    * @example
-   * ProductKnowledgeBase
+   * Product knowledge base
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -123,7 +123,7 @@ export class ListUserVisibleKnowledgeBasesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result list.
+   * The list of results.
    * Maximum size:
    * 	50
    */
@@ -138,7 +138,7 @@ export class ListUserVisibleKnowledgeBasesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

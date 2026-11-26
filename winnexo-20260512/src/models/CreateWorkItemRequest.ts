@@ -97,15 +97,23 @@ export class CreateWorkItemRequest extends $dara.Model {
   acceptanceCriteria?: string;
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is performed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The stable references of the input attachments.
    * 
    * @example
-   * example
+   * [{"resourceKind":"FILE","resourceId":"file_9401","refUrl":"https://files.winnexo.aliyun.com/report.md","title":"Sales Report","contentType":"text/markdown","sizeBytes":2048}]
    */
   attachments?: CreateWorkItemRequestAttachments[];
   /**
    * @remarks
-   * The ID of the collaboration workspace.
+   * The ID of the collaboration space.
    * 
    * This parameter is required.
    * 
@@ -118,7 +126,7 @@ export class CreateWorkItemRequest extends $dara.Model {
    * The list of user IDs of the collaborators.
    * 
    * @example
-   * example
+   * [10001,10002]
    */
   collaboratorUserIds?: number[];
   /**
@@ -139,7 +147,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the work item. Only WORKFLOW is supported.
+   * The type of the work item. Only WORKFLOW is accepted.
    * 
    * This parameter is required.
    * 
@@ -149,7 +157,23 @@ export class CreateWorkItemRequest extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * The user ID of the owner. If this parameter is not specified, the ID of the caller is used.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The user ID of the owner. If not specified, the caller is used as the owner.
    * 
    * @example
    * 1
@@ -165,7 +189,7 @@ export class CreateWorkItemRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -186,18 +210,21 @@ export class CreateWorkItemRequest extends $dara.Model {
    * The list of IDs of the bound workflow templates.
    * 
    * @example
-   * example
+   * ["tpl_9401","tpl_9402"]
    */
   workflowTemplateIds?: string[];
   static names(): { [key: string]: string } {
     return {
       acceptanceCriteria: 'acceptanceCriteria',
+      appToken: 'appToken',
       attachments: 'attachments',
       collaborationGroupId: 'collaborationGroupId',
       collaboratorUserIds: 'collaboratorUserIds',
       conversationId: 'conversationId',
       description: 'description',
       itemType: 'itemType',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       ownerUserId: 'ownerUserId',
       priority: 'priority',
       tenantId: 'tenantId',
@@ -209,12 +236,15 @@ export class CreateWorkItemRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptanceCriteria: 'string',
+      appToken: 'string',
       attachments: { 'type': 'array', 'itemType': CreateWorkItemRequestAttachments },
       collaborationGroupId: 'string',
       collaboratorUserIds: { 'type': 'array', 'itemType': 'number' },
       conversationId: 'string',
       description: 'string',
       itemType: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       ownerUserId: 'number',
       priority: 'string',
       tenantId: 'string',

@@ -30,6 +30,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the account is activated. Valid values:
+   * 
    * - 1: Activated.
    * - 0: Not activated.
    * 
@@ -47,7 +48,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   lastLoginTime?: string;
   /**
    * @remarks
-   * The list of new system role codes. This is a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
+   * The list of new system role codes. This list fully replaces the existing roles and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
    * 
    * @example
    * ["APPLICATION_USER"]
@@ -113,7 +114,7 @@ export class ListUsersResponseBody extends $dara.Model {
   items?: ListUsersResponseBodyItems[];
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * ok

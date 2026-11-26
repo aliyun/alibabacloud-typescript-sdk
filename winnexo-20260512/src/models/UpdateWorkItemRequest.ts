@@ -97,6 +97,14 @@ export class UpdateWorkItemRequest extends $dara.Model {
   acceptanceCriteria?: string;
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The stable references for the attachments.
    * 
    * @example
@@ -147,6 +155,22 @@ export class UpdateWorkItemRequest extends $dara.Model {
    * 3
    */
   expectedVersion?: number;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The user ID of the owner. If not specified, the user ID of the caller is used.
@@ -202,12 +226,15 @@ export class UpdateWorkItemRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptanceCriteria: 'acceptanceCriteria',
+      appToken: 'appToken',
       attachments: 'attachments',
       collaborationGroupId: 'collaborationGroupId',
       collaboratorUserIds: 'collaboratorUserIds',
       conversationId: 'conversationId',
       description: 'description',
       expectedVersion: 'expectedVersion',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       ownerUserId: 'ownerUserId',
       priority: 'priority',
       tenantId: 'tenantId',
@@ -220,12 +247,15 @@ export class UpdateWorkItemRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptanceCriteria: 'string',
+      appToken: 'string',
       attachments: { 'type': 'array', 'itemType': UpdateWorkItemRequestAttachments },
       collaborationGroupId: 'string',
       collaboratorUserIds: { 'type': 'array', 'itemType': 'number' },
       conversationId: 'string',
       description: 'string',
       expectedVersion: 'number',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       ownerUserId: 'number',
       priority: 'string',
       tenantId: 'string',

@@ -37,7 +37,7 @@ export class QuerySourceUsageSummaryResponseBody extends $dara.Model {
   retrievalCount?: number;
   /**
    * @remarks
-   * The deduplicated count of sources that have retrieval events.
+   * The deduplicated number of sources with retrieval events.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class QuerySourceUsageSummaryResponseBody extends $dara.Model {
   usageCount?: number;
   /**
    * @remarks
-   * The deduplicated count of sources that have usage events.
+   * The deduplicated number of sources with usage events.
    * 
    * @example
    * 2

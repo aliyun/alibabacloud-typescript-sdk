@@ -5,15 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The write action. Valid values:
-   * - SAVE: Saves the template as a draft without taking effect, allowing node names and executors to be left empty.
-   * - SUBMIT: Requires complete nodes, and saves and submits the template as the only effective version.
-   * Default value: SUBMIT.
+   * The write action. Valid values: SAVE (saves the template as a draft without taking effect, and allows node names and executors to be left empty) and SUBMIT (requires complete nodes, and saves and submits the template as the only effective version). Default value: SUBMIT.
    * 
    * @example
    * SUBMIT
    */
   action?: string;
+  /**
+   * @remarks
+   * The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
   /**
    * @remarks
    * The collaboration workspace ID.
@@ -31,12 +36,28 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {"name":"Customer Complaint Handling Process","schemaVersion":2,"steps":[{"stepId":"collect","sortOrder":1,"name":"Collect Customer Information"}]}
+   * {"name":"Customer Complaint Handling Process","schemaVersion":2,"steps":[{"stepId":"collect","sortOrder":1,"name":"Collect Customer Information","specification":[{"type":"text","content":"Collect Customer Information"}],"executorType":"MEMBER","executorUserId":10086}],"edges":[]}
    */
   definitionShrink?: string;
   /**
    * @remarks
-   * The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If not specified, the system falls back to the current effective version.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If not specified, the current effective version is used as the fallback.
    * 
    * @example
    * v1
@@ -79,8 +100,11 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       action: 'action',
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       definitionShrink: 'definition',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       sourceVersion: 'sourceVersion',
       templateId: 'templateId',
       tenantId: 'tenantId',
@@ -92,8 +116,11 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       action: 'string',
+      appToken: 'string',
       collaborationGroupId: 'string',
       definitionShrink: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       sourceVersion: 'string',
       templateId: 'string',
       tenantId: 'string',

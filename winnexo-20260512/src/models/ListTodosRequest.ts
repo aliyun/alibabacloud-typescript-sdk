@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListTodosRequest extends $dara.Model {
   /**
    * @remarks
-   * The collaboration workspace ID. This is an optional filter. If not specified, items from all workspaces are returned.
+   * The platform application token issued by the console. If specified, the operation is performed as the user identified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The collaboration workspace ID. This is an optional filter. If not specified, all workspaces are included.
    * 
    * @example
    * cg_123
@@ -37,6 +45,22 @@ export class ListTodosRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
    * The page number. This parameter is ignored if nextToken is specified.
    * 
    * @example
@@ -53,18 +77,18 @@ export class ListTodosRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The priority filter. Valid values: HIGH, MEDIUM, and LOW.
+   * The priority filter. Valid values: HIGH, MEDIUM, LOW.
    * 
    * @example
-   * HIGH
+   * ["HIGH","MEDIUM"]
    */
   priorities?: string[];
   /**
    * @remarks
-   * The read status filter. Valid values: UNREAD and READ. The status is determined by the readAt field of the assignee.
+   * The read status filter. Valid values: UNREAD, READ. The status is determined by the readAt time of the assignee.
    * 
    * @example
-   * UNREAD
+   * ["UNREAD","READ"]
    */
   readStatus?: string[];
   /**
@@ -77,18 +101,18 @@ export class ListTodosRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The to-do type filter. Valid values: WORKFLOW and OPEN_API.
+   * The to-do type filter. Valid values: WORKFLOW, OPEN_API.
    * 
    * @example
-   * WORKFLOW
+   * ["WORKFLOW","OPEN_API"]
    */
   sourceTypes?: string[];
   /**
    * @remarks
-   * The to-do status filter. Valid values: PENDING, COMPLETED, and CANCELLED.
+   * The to-do status filter. Valid values: PENDING, COMPLETED, CANCELLED.
    * 
    * @example
-   * PENDING
+   * ["PENDING","COMPLETED"]
    */
   statuses?: string[];
   /**
@@ -101,10 +125,13 @@ export class ListTodosRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       keyword: 'keyword',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       priorities: 'priorities',
@@ -118,10 +145,13 @@ export class ListTodosRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       collaborationGroupId: 'string',
       keyword: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       priorities: { 'type': 'array', 'itemType': 'string' },

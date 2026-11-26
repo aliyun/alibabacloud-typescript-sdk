@@ -5,12 +5,36 @@ import * as $dara from '@darabonba/typescript';
 export class RecommendNextActionsRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The extraction instruction.
    * 
    * @example
    * Only recommend next steps related to data analysis
    */
   customPrompt?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The output type: `conversation/skill/task`.
@@ -47,7 +71,10 @@ export class RecommendNextActionsRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       customPrompt: 'customPrompt',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       outputType: 'outputType',
       recentMessageCount: 'recentMessageCount',
       sessionId: 'sessionId',
@@ -57,7 +84,10 @@ export class RecommendNextActionsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       customPrompt: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       outputType: 'string',
       recentMessageCount: 'number',
       sessionId: 'string',

@@ -242,7 +242,7 @@ export class GetSkillResponseBody extends $dara.Model {
    * The list of tags, resolved by i18n.
    * 
    * @example
-   * ["[{\\\\\\"value\\\\\\":\\\\\\"dataworks#0#1#33935#176145#T3_26059405665#94046932754\\\\\\",\\\\\\"key\\\\\\":\\\\\\"dataworksTag\\\\\\"}]"]
+   * ["[{\\\"value\\\":\\\"dataworks#0#1#33935#176145#T3_26059405665#94046932754\\\",\\\"key\\\":\\\"dataworksTag\\\"}]"]
    */
   tags?: string[];
   /**

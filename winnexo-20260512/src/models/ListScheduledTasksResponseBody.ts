@@ -13,6 +13,14 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   abnormalReason?: string;
   /**
    * @remarks
+   * 任务 AUTO 偏好：none=默认、performance=效果优先、credit=成本优先
+   * 
+   * @example
+   * none
+   */
+  autoPreference?: string;
+  /**
+   * @remarks
    * Indicates whether the current caller can delete the task. This is valid only for the task creator and group owner. For personal tasks, the value is always true.
    * 
    * @example
@@ -190,6 +198,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       abnormalReason: 'abnormalReason',
+      autoPreference: 'autoPreference',
       canDelete: 'canDelete',
       canEdit: 'canEdit',
       canExecute: 'canExecute',
@@ -218,6 +227,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       abnormalReason: 'string',
+      autoPreference: 'string',
       canDelete: 'boolean',
       canEdit: 'boolean',
       canExecute: 'boolean',

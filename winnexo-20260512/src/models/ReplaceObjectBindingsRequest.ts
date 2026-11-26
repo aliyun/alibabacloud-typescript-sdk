@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceObjectBindingsRequestObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * The semantic graph name to which the binding object belongs (object_id is unique within this graph. Required).
+   * The name of the semantic graph to which the bound object belongs. The object_id must be unique within this graph. This parameter is required.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ReplaceObjectBindingsRequestObjectBindings extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * The binding object ID.
+   * The ID of the bound object.
    * 
    * @example
    * exampleObjectId
@@ -21,7 +21,7 @@ export class ReplaceObjectBindingsRequestObjectBindings extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The binding object type (such as customer or project).
+   * The object type to attach, such as customer or project.
    * 
    * @example
    * string_value
@@ -55,14 +55,38 @@ export class ReplaceObjectBindingsRequestObjectBindings extends $dara.Model {
 export class ReplaceObjectBindingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The new list of object bindings (full replacement. Pass an empty list to clear all bindings).
+   * The platform application token issued by the console. If specified, the operation is executed as the user identified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The new list of object bindings for full replacement. Passing an empty list clears all bindings.
    * 
    * This parameter is required.
    */
   objectBindings?: ReplaceObjectBindingsRequestObjectBindings[];
   /**
    * @remarks
-   * The ID of the personal FILE data source to be replaced (unique within the tenant).
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The ID of the personal FILE data source to be replaced, which is unique within the tenant.
    * 
    * This parameter is required.
    * 
@@ -72,7 +96,7 @@ export class ReplaceObjectBindingsRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. Pass it explicitly through winnexo-cli using --tenant-id.
+   * The tenant ID. This is a common parameter and is explicitly passed by winnexo-cli through the --tenant-id option.
    * 
    * @example
    * 10000
@@ -80,7 +104,10 @@ export class ReplaceObjectBindingsRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       objectBindings: 'objectBindings',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       sourceId: 'sourceId',
       tenantId: 'tenantId',
     };
@@ -88,7 +115,10 @@ export class ReplaceObjectBindingsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       objectBindings: { 'type': 'array', 'itemType': ReplaceObjectBindingsRequestObjectBindings },
+      opsUserCode: 'string',
+      opsUserId: 'string',
       sourceId: 'string',
       tenantId: 'string',
     };

@@ -21,7 +21,7 @@ export class ResetPasswordResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

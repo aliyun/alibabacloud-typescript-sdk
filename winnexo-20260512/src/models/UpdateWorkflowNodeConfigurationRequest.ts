@@ -49,6 +49,14 @@ export class UpdateWorkflowNodeConfigurationRequestExecutor extends $dara.Model 
 export class UpdateWorkflowNodeConfigurationRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The ID of the collaboration workspace.
    * 
    * This parameter is required.
@@ -105,6 +113,22 @@ export class UpdateWorkflowNodeConfigurationRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
    * The list of user IDs for the node owners. The value must be a non-empty array of positive integers. If this parameter is omitted, the current value is retained. If this parameter is set to null, the default value is restored.
    * 
    * @example
@@ -121,12 +145,15 @@ export class UpdateWorkflowNodeConfigurationRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       executor: 'executor',
       expectedVersion: 'expectedVersion',
       instanceId: 'instanceId',
       model: 'model',
       nodeId: 'nodeId',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       responsibleUserIds: 'responsibleUserIds',
       tenantId: 'tenantId',
     };
@@ -134,12 +161,15 @@ export class UpdateWorkflowNodeConfigurationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       collaborationGroupId: 'string',
       executor: UpdateWorkflowNodeConfigurationRequestExecutor,
       expectedVersion: 'number',
       instanceId: 'string',
       model: 'string',
       nodeId: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       responsibleUserIds: { 'type': 'array', 'itemType': 'number' },
       tenantId: 'string',
     };

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceObjectBindingsResponseBodyObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * The semantic graph name to which the binding object belongs (object_id is unique within this graph. Required).
+   * The name of the semantic graph to which the bound object belongs. The object_id is unique within this graph. This field is required.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ReplaceObjectBindingsResponseBodyObjectBindings extends $dara.Model
   graphName?: string;
   /**
    * @remarks
-   * The binding object ID.
+   * The ID of the bound object.
    * 
    * @example
    * exampleObjectId
@@ -21,7 +21,7 @@ export class ReplaceObjectBindingsResponseBodyObjectBindings extends $dara.Model
   objectId?: string;
   /**
    * @remarks
-   * The binding object type (such as customer or project).
+   * The object type to attach, such as customer or project.
    * 
    * @example
    * string_value
@@ -63,7 +63,7 @@ export class ReplaceObjectBindingsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * successful
@@ -84,7 +84,7 @@ export class ReplaceObjectBindingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the personal FILE data source to be replaced (unique within the tenant).
+   * The ID of the personal FILE data source to be replaced, which is unique within the tenant.
    * 
    * @example
    * exampleSourceId

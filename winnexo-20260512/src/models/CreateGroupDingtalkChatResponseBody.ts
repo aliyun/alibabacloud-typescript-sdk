@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupDingtalkChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The session ID, typically used for JSSDK.
+   * The chat ID, which is generally used for JSSDK.
    * 
    * @example
    * cidxxxxxxxx
@@ -56,7 +56,7 @@ export class CreateGroupDingtalkChatResponseBody extends $dara.Model {
    * The image name.
    * 
    * @example
-   * CustomerProjectGroup
+   * Customer project group
    */
   name?: string;
   /**
@@ -77,7 +77,7 @@ export class CreateGroupDingtalkChatResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The data source ID (unique within the tenant).
+   * The data source ID, which is unique within the tenant.
    * 
    * @example
    * exampleSourceId

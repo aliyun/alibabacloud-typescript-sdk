@@ -114,7 +114,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
    * The list of attachments.
    * 
    * @example
-   * example
+   * [{"attachmentId":"example","contentType":"example","refUrl":"example","resourceId":"example","resourceKind":"example","sizeBytes":1,"title":"example"}]
    */
   attachments?: SetWorkItemPinnedResponseBodyAttachments[];
   /**
@@ -127,7 +127,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * Specifies whether the caller can delete the work item.
+   * Indicates whether the caller can delete the work item.
    * 
    * @example
    * false
@@ -135,7 +135,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * Specifies whether the caller can manage the work item.
+   * Indicates whether the caller can manage the work item.
    * 
    * @example
    * false
@@ -143,7 +143,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   canManage?: boolean;
   /**
    * @remarks
-   * Specifies whether the visibility scope can be adjusted independently.
+   * Indicates whether the visibility scope can be adjusted independently.
    * 
    * @example
    * false
@@ -151,7 +151,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   canManageVisibility?: boolean;
   /**
    * @remarks
-   * Specifies whether the caller can rename the work item.
+   * Indicates whether the caller can rename the work item.
    * 
    * @example
    * false
@@ -178,7 +178,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
    * The list of user IDs of the collaborators.
    * 
    * @example
-   * example
+   * [10001]
    */
   collaboratorUserIds?: number[];
   /**
@@ -191,7 +191,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time (ISO 8601 format).
+   * The creation time, in ISO 8601 format.
    * 
    * @example
    * example
@@ -279,7 +279,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * The time when the work item last entered the processing state (ISO 8601 format).
+   * The time when the work item last entered the processing state, in ISO 8601 format.
    * 
    * @example
    * example
@@ -287,7 +287,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   lastProcessingAt?: string;
   /**
    * @remarks
-   * Specifies whether the topic is a free exploration topic during the compatibility period.
+   * Indicates whether the topic is a free exploration topic during the compatibility period.
    * 
    * @example
    * false
@@ -298,7 +298,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
    * The list of user IDs of the visible members.
    * 
    * @example
-   * example
+   * [10001]
    */
   memberUserIds?: number[];
   /**
@@ -311,7 +311,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The modification time (ISO 8601 format).
+   * The modification time, in ISO 8601 format.
    * 
    * @example
    * example
@@ -415,7 +415,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The time zone when the task is triggered.
+   * The time zone when the task was triggered.
    * 
    * @example
    * example
@@ -423,7 +423,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   triggerTimezone?: string;
   /**
    * @remarks
-   * The trigger time of the task (ISO 8601 format).
+   * The time when the task was triggered, in ISO 8601 format.
    * 
    * @example
    * example
@@ -463,7 +463,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
   workItemId?: string;
   /**
    * @remarks
-   * The four-state projection of the workflow status.
+   * The workflow status projection (four states).
    * 
    * @example
    * example
@@ -474,7 +474,7 @@ export class SetWorkItemPinnedResponseBody extends $dara.Model {
    * The list of IDs of the bound workflow templates.
    * 
    * @example
-   * example
+   * ["tpl_example"]
    */
   workflowTemplateIds?: string[];
   static names(): { [key: string]: string } {

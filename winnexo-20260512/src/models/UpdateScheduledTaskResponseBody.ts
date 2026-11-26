@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScheduledTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of 200 indicates success. A value of a backend error code such as ERR.* or InvalidParameter.* indicates failure.
+   * The business status code. A value of 200 indicates success. A backend error code such as ERR.* or InvalidParameter.* indicates failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateScheduledTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This parameter is empty when the request is successful.
+   * The error description. This parameter is empty if the request is successful.
    * 
    * @example
    * ok
@@ -29,7 +29,7 @@ export class UpdateScheduledTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The task ID returned in the response.
    * 
    * @example
    * exampleTaskId
@@ -37,7 +37,7 @@ export class UpdateScheduledTaskResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Specifies whether an actual update is performed.
+   * Specifies whether an update is actually performed.
    * 
    * @example
    * true

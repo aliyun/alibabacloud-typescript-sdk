@@ -13,7 +13,7 @@ export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The bound directory ID. This value is echoed back if provided in the request body. The value is null if the default root directory is used.
+   * The bound directory ID. If this parameter is passed in the request body, the value is echoed back. If the default root directory is used, the value is null.
    * 
    * @example
    * exampleDirectoryId
@@ -29,7 +29,7 @@ export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * successful
@@ -53,7 +53,7 @@ export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource scope. The value is fixed to PERSONAL.
+   * The resource scope. This value is fixed to PERSONAL.
    * 
    * @example
    * user_info projects pull_requests hook gists emails
@@ -61,7 +61,7 @@ export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The unique ID on the business system side, which is the business ID.
+   * The unique identifier on the business system side, which is the business ID.
    * 
    * @example
    * 8
@@ -69,10 +69,10 @@ export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The resource status. The initial status during the creation process is typically PENDING. If the on_create process fails, the status is FAILED.
+   * The resource status. The initial status in the creation pipeline is mostly PENDING. If the on_create operation fails, the status is FAILED.
    * 
    * @example
-   * {\\"observedGeneration\\": 4, \\"servicesInstances\\": {}, \\"observedTime\\": \\"2025-10-31T03:48:27Z\\", \\"servicesWithPendingChanges\\": [], \\"latestEnvironmentDeploymentName\\": \\"manual-1761882507097-Eu1vIP\\"}
+   * {\"observedGeneration\": 4, \"servicesInstances\": {}, \"observedTime\": \"2025-10-31T03:48:27Z\", \"servicesWithPendingChanges\": [], \"latestEnvironmentDeploymentName\": \"manual-1761882507097-Eu1vIP\"}
    */
   status?: string;
   static names(): { [key: string]: string } {

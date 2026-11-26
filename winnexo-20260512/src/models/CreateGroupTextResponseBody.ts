@@ -13,7 +13,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * dir_example
@@ -37,7 +37,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * The current zone list is illegal.
@@ -45,10 +45,10 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The image name.
+   * The mirror name.
    * 
    * @example
-   * ProjectResources
+   * Project materials
    */
   name?: string;
   /**
@@ -69,7 +69,7 @@ export class CreateGroupTextResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The unique identifier on the business system side, that is, the business ID.
+   * The unique identifier on the business system side, which is the business ID.
    * 
    * @example
    * example

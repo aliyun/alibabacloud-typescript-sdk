@@ -45,7 +45,7 @@ export class CreateGroupFeishuDocResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * The current zone list is illegal.
@@ -53,10 +53,10 @@ export class CreateGroupFeishuDocResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The image name.
+   * The mirror name.
    * 
    * @example
-   * ProjectPlan
+   * Project plan
    */
   name?: string;
   /**
@@ -86,9 +86,9 @@ export class CreateGroupFeishuDocResponseBody extends $dara.Model {
   /**
    * @remarks
    * The signing status. Valid values:
-   * - CREATED: Created but not signed.
-   * - SUCCESS: Signed successfully.
-   * - STOP: Terminated.
+   * - CREATED: created but not signed
+   * - SUCCESS: signed successfully
+   * - STOP: terminated
    * 
    * @example
    * RUNNING

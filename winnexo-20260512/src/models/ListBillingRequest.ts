@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListBillingRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique business identifier. When bizType is set to LibraryChat, bizId specifies the document library ID.
+   * The platform application token issued by the console. If you specify this parameter, the request is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The unique identifier of the business. When bizType is set to LibraryChat, bizId refers to the ID of the document library.
    * 
    * @example
    * exampleBizId
@@ -13,7 +21,7 @@ export class ListBillingRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The business type. Currently supported values: model Q&A (LlmChat) and document library Q&A (LibraryChat).
+   * The business type. Valid values: LlmChat (model Q&A) and LibraryChat (document library Q&A).
    * 
    * @example
    * string_value
@@ -21,7 +29,7 @@ export class ListBillingRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The actual end timestamp of the live stream, in milliseconds.
+   * The actual end timestamp of the live stream. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -29,7 +37,7 @@ export class ListBillingRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to filter out bills with zero credit consumption. Default value: true (filter out).
+   * Specifies whether to filter out bills with zero credit consumption. Default value: true.
    * 
    * @example
    * true
@@ -37,17 +45,31 @@ export class ListBillingRequest extends $dara.Model {
   ignoreZero?: boolean;
   /**
    * @remarks
-   * The operation type. Valid values:
-   * 
-   * - start: indicates node creation. This is the default value. In most cases, you do not need to explicitly set this value.
-   * - stop: stops a real-time meeting node. This value corresponds to the creation of a real-time meeting. After the meeting ends, set this value to stop and trigger the call. This value is used in real-time meeting scenarios.
-   * 
-   * > Note: When ending a real-time recording, make sure to set this parameter to stop.
+   * The operation item. Valid values:
+   * - start: indicates the creation of a task. This is the default value and usually does not need to be explicitly specified.
+   * - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting and is set to stop to trigger a call after the meeting ends. This value is used in real-time meeting scenarios.
+   * Note: When you end a real-time recording, you must set this parameter to stop.
    * 
    * @example
    * string_value
    */
   operation?: string;
+  /**
+   * @remarks
+   * The code of the proxy user, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The ID of the proxy user, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The current page number.
@@ -66,7 +88,7 @@ export class ListBillingRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query start time. The value is a UNIX timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -74,7 +96,7 @@ export class ListBillingRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The node status. Running is returned upon submission.
+   * The task status. A status of Running is returned immediately after the task is submitted.
    * 
    * @example
    * READY
@@ -82,7 +104,7 @@ export class ListBillingRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass this parameter explicitly by using --tenant-id.
+   * The tenant ID. This is a common parameter. For winnexo-cli, this parameter is explicitly passed by using --tenant-id.
    * 
    * @example
    * 10000
@@ -90,7 +112,7 @@ export class ListBillingRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The user ID (WINNEXO platform user ID, optional filter).
+   * The user ID, which is the WINNEXO platform user ID. This parameter is optional for filtering.
    * 
    * @example
    * 1
@@ -98,11 +120,14 @@ export class ListBillingRequest extends $dara.Model {
   wnUserId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       bizId: 'bizId',
       bizType: 'bizType',
       endTime: 'endTime',
       ignoreZero: 'ignoreZero',
       operation: 'operation',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       startTime: 'startTime',
@@ -114,11 +139,14 @@ export class ListBillingRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       bizId: 'string',
       bizType: 'string',
       endTime: 'string',
       ignoreZero: 'boolean',
       operation: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       startTime: 'string',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchRemoveOperatingObjectFavoritesResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the object is subscribed after the operation.
+   * Indicates whether the object is favorited after the operation.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBodyResults extends $dar
   isFavorited?: boolean;
   /**
    * @remarks
-   * The aligned object ID: target ID or KR ID.
+   * The ID of the aligned object, which is the target ID or KR ID.
    * 
    * @example
    * exampleObjectId
@@ -21,7 +21,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBodyResults extends $dar
   objectId?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed.
+   * Indicates whether the request has been processed.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBody extends $dara.Model
   graphName?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * ok
@@ -87,7 +87,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBody extends $dara.Model
   objectType?: string;
   /**
    * @remarks
-   * The digital employee name (operating object name, optional).
+   * The digital worker name, which is the name of the operating object. This parameter is optional.
    * 
    * @example
    * string_value
@@ -95,7 +95,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBody extends $dara.Model
   operatingObjectName?: string;
   /**
    * @remarks
-   * The number of remaining subscribed objects within the precise scope.
+   * The number of remaining favorited objects within the exact scope.
    * 
    * @example
    * 0
@@ -103,7 +103,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBody extends $dara.Model
   remainingCount?: number;
   /**
    * @remarks
-   * The number of physical subscription records that are actually deleted.
+   * The number of physical favorite records that are actually deleted.
    * 
    * @example
    * 2
@@ -127,7 +127,7 @@ export class BatchRemoveOperatingObjectFavoritesResponseBody extends $dara.Model
   requestedCount?: number;
   /**
    * @remarks
-   * The relationships between internal and external DingTalk users that failed to be created.
+   * The internal and external DingTalk user relationships that failed to be created.
    */
   results?: BatchRemoveOperatingObjectFavoritesResponseBodyResults[];
   static names(): { [key: string]: string } {

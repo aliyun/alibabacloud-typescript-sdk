@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The display name.
    * 
    * This parameter is required.
@@ -13,6 +21,22 @@ export class CreateUserRequest extends $dara.Model {
    * string_value
    */
   displayName?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The Base64-encoded password ciphertext encrypted by using RSA-OAEP-SHA256. This parameter is required and cannot be empty.
@@ -59,7 +83,10 @@ export class CreateUserRequest extends $dara.Model {
   wnAccountId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       displayName: 'displayName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       passwordEncrypted: 'passwordEncrypted',
       roleCodes: 'roleCodes',
       ssoProvider: 'ssoProvider',
@@ -70,7 +97,10 @@ export class CreateUserRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       displayName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       passwordEncrypted: 'string',
       roleCodes: { 'type': 'array', 'itemType': 'string' },
       ssoProvider: 'string',

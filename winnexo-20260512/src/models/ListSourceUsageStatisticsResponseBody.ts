@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSourceUsageStatisticsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time of the most recent reporting and ingestion within the filtered range.
+   * The most recent reporting and ingestion time within the filtered range.
    * 
    * @example
    * 2024-10-02 11:20:09
@@ -21,7 +21,7 @@ export class ListSourceUsageStatisticsResponseBodyItems extends $dara.Model {
   retrievalCount?: number;
   /**
    * @remarks
-   * The ID of the data source, which is unique within the tenant.
+   * The data source ID, which is unique within the tenant.
    * 
    * @example
    * 8
@@ -29,7 +29,7 @@ export class ListSourceUsageStatisticsResponseBodyItems extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * test123
@@ -109,7 +109,7 @@ export class ListSourceUsageStatisticsResponseBody extends $dara.Model {
   items?: ListSourceUsageStatisticsResponseBodyItems[];
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * The requested resource does not exist

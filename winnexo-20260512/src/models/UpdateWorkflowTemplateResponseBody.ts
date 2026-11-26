@@ -29,9 +29,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerAgentName?: string;
   /**
    * @remarks
-   * The owner type. Valid values:
-   * - MEMBER: Human.
-   * - AGENT: Agent.
+   * The owner type. Valid values: MEMBER (human) and AGENT (agent).
    * 
    * @example
    * MEMBER
@@ -47,7 +45,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * Specifies whether to manually review the output. Default value: false. This feature can only be enabled for digital workers, and review to-do items are automatically sent to the owner.
+   * Specifies whether to manually review the deliverables. Default value: false. This can be enabled only for digital workers. Review tasks are automatically sent to the owner.
    * 
    * @example
    * false
@@ -58,7 +56,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
    * The list of reviewer user IDs.
    * 
    * @example
-   * example
+   * [10001]
    */
   reviewerUserIds?: number[];
   /**
@@ -74,15 +72,15 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
    * The step processing instructions.
    * 
    * @example
-   * Collect customer information and submit it to the owner for review
+   * Collect customer information and submit it to the person in charge for review
    */
   specification?: string;
   /**
    * @remarks
-   * The ordered fragment array. Supports text, mention, skill, app, files, and web_search. Preserves reference identities and order.
+   * The ordered array of segments. Supports text, mention, skill, app, files, and web_search. Preserves reference identities and order.
    * 
    * @example
-   * [{"type":"text","text":"Collect customer information"}]
+   * [{"type":"text","content":"Collect Customer Information"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -231,7 +229,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The template structure version. The current value is 2, which is independent of the business version vN.
+   * The schema version of the template. The current value is 2, which is independent of the business version vN.
    * 
    * @example
    * 2
@@ -271,9 +269,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   versionDescription?: string;
   /**
    * @remarks
-   * The version status. Valid values:
-   * - DRAFT: Draft.
-   * - SUBMITTED: Submitted.
+   * The version status. Valid values: DRAFT and SUBMITTED.
    * 
    * @example
    * SUBMITTED

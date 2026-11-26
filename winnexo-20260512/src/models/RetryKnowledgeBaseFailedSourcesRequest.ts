@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class RetryKnowledgeBaseFailedSourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The ID of the enterprise knowledge base directory. Failed resources in subdirectories are recursively included.
    * 
    * This parameter is required.
@@ -15,6 +23,22 @@ export class RetryKnowledgeBaseFailedSourcesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
    * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
    * 
    * @example
@@ -23,14 +47,20 @@ export class RetryKnowledgeBaseFailedSourcesRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       directoryId: 'directoryId',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       tenantId: 'tenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       directoryId: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       tenantId: 'string',
     };
   }

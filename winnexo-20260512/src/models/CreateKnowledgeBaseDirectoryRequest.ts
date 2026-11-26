@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeBaseDirectoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The description of the AI assistant.
    * 
    * @example
@@ -23,6 +31,22 @@ export class CreateKnowledgeBaseDirectoryRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
    * The directory ID.
    * 
    * @example
@@ -39,8 +63,11 @@ export class CreateKnowledgeBaseDirectoryRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       description: 'description',
       name: 'name',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       parentDirectoryId: 'parentDirectoryId',
       tenantId: 'tenantId',
     };
@@ -48,8 +75,11 @@ export class CreateKnowledgeBaseDirectoryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       description: 'string',
       name: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       parentDirectoryId: 'string',
       tenantId: 'string',
     };

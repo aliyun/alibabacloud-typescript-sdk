@@ -13,7 +13,7 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * ok
@@ -24,12 +24,12 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
    * The image name.
    * 
    * @example
-   * Project resource
+   * Project material
    */
   name?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request ID.
    * 
    * @example
    * C474BFC7-7B11-5D92-971E-74AA82EC495B
@@ -53,7 +53,7 @@ export class UpdateGroupSourceContentResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The task running status.
+   * The task execution status.
    * 
    * @example
    * example

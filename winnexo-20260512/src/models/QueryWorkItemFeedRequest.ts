@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWorkItemFeedRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The business status filter (seven states).
    * 
    * @example
@@ -45,6 +53,22 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
    * example
    */
   keyword?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100.
@@ -95,11 +119,14 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
   view?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       businessStatuses: 'businessStatuses',
       collaborationGroupId: 'collaborationGroupId',
       cursor: 'cursor',
       itemTypes: 'itemTypes',
       keyword: 'keyword',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       pageSize: 'pageSize',
       priorities: 'priorities',
       scope: 'scope',
@@ -111,11 +138,14 @@ export class QueryWorkItemFeedRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       businessStatuses: { 'type': 'array', 'itemType': 'string' },
       collaborationGroupId: 'string',
       cursor: 'string',
       itemTypes: { 'type': 'array', 'itemType': 'string' },
       keyword: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       pageSize: 'number',
       priorities: { 'type': 'array', 'itemType': 'string' },
       scope: 'string',

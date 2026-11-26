@@ -243,7 +243,7 @@ export class GenerateWorkflowTemplateDraftResponseBody extends $dara.Model {
    * The generated non-persistent template draft.
    * 
    * @example
-   * {\\"schemaVersion\\":2,\\"steps\\":[]}
+   * {\"schemaVersion\":2,\"steps\":[]}
    */
   draft?: GenerateWorkflowTemplateDraftResponseBodyDraft;
   /**

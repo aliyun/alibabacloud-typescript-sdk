@@ -13,15 +13,15 @@ export class UpdateGroupDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The folder description.
+   * The directory description.
    * 
    * @example
-   * Project description
+   * Project Description
    */
   description?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * dir_example
@@ -29,7 +29,7 @@ export class UpdateGroupDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The folder type. The value is fixed as GROUP.
+   * The directory type. The value is fixed as GROUP.
    * 
    * @example
    * GROUP
@@ -37,7 +37,7 @@ export class UpdateGroupDirectoryResponseBody extends $dara.Model {
   directoryType?: string;
   /**
    * @remarks
-   * The ID of the collaborative share.
+   * The ID of the collaboration workspace.
    * 
    * @example
    * group_example
@@ -45,7 +45,7 @@ export class UpdateGroupDirectoryResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the internal root folder in the collaborative share. This folder cannot be modified.
+   * The ID of the internal root directory in the collaboration workspace. This directory cannot be modified.
    * 
    * @example
    * dir_root
@@ -61,7 +61,7 @@ export class UpdateGroupDirectoryResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The folder name.
+   * The directory name.
    * 
    * @example
    * Project Materials
@@ -69,7 +69,7 @@ export class UpdateGroupDirectoryResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parent folder ID.
+   * The ID of the parent directory.
    * 
    * @example
    * dir_parent
@@ -77,7 +77,7 @@ export class UpdateGroupDirectoryResponseBody extends $dara.Model {
   parentDirectoryId?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

@@ -82,7 +82,7 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
    * The ordered array of fragments. Supported types include text, mention, skill, app, files, and web_search. The referenced identities and order are preserved.
    * 
    * @example
-   * [{\\"type\\":\\"text\\",\\"text\\":\\"Collect customer information\\"}]
+   * [{\"type\":\"text\",\"text\":\"Collect customer information\"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**

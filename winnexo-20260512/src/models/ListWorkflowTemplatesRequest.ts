@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is performed as the user identified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The ID of the collaboration space.
    * 
    * This parameter is required.
@@ -31,12 +39,28 @@ export class ListWorkflowTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Obtain the token from the nextToken value in the previous response. This parameter takes precedence over page if both are specified.
+   * The pagination token. Use the nextToken value returned in the previous response. This parameter takes precedence over page if both are specified.
    * 
    * @example
    * tok_9401
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The page number. This parameter is ignored if nextToken is specified.
@@ -63,10 +87,13 @@ export class ListWorkflowTemplatesRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       keyword: 'keyword',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       tenantId: 'tenantId',
@@ -75,10 +102,13 @@ export class ListWorkflowTemplatesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       collaborationGroupId: 'string',
       keyword: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       tenantId: 'string',

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalFileRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If this parameter is passed, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The pipeline description.
    * 
    * @example
@@ -13,7 +21,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,7 +29,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The file name extension (optional, such as pdf or docx).
+   * The file name extension, such as pdf or docx. This parameter is optional.
    * 
    * @example
    * string_value
@@ -55,7 +63,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * The file record ID (optional, corresponding to settings.file_record_id).
+   * The file record ID, which corresponds to settings.file_record_id. This parameter is optional.
    * 
    * @example
    * exampleFileRecordId
@@ -73,7 +81,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the digital employee (operating object name, optional).
+   * The name of the digital employee, which is the name of the operating object. This parameter is optional.
    * 
    * @example
    * string_value
@@ -81,10 +89,26 @@ export class CreatePersonalFileRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
    * The list of resource tag JSON strings.
    * 
    * @example
-   * ["Important","File"]
+   * ["Important", "File"]
    */
   sourceTags?: string;
   /**
@@ -97,6 +121,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       description: 'description',
       directoryId: 'directoryId',
       fileExt: 'fileExt',
@@ -106,6 +131,8 @@ export class CreatePersonalFileRequest extends $dara.Model {
       fileRecordId: 'fileRecordId',
       name: 'name',
       operatingObjectName: 'operatingObjectName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       sourceTags: 'sourceTags',
       tenantId: 'tenantId',
     };
@@ -113,6 +140,7 @@ export class CreatePersonalFileRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       description: 'string',
       directoryId: 'string',
       fileExt: 'string',
@@ -122,6 +150,8 @@ export class CreatePersonalFileRequest extends $dara.Model {
       fileRecordId: 'string',
       name: 'string',
       operatingObjectName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       sourceTags: 'string',
       tenantId: 'string',
     };

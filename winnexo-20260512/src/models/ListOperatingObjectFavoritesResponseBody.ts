@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperatingObjectFavoritesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The to-do card type description.
+   * The description of the to-do card type.
    * 
    * @example
    * Sample description
@@ -13,7 +13,7 @@ export class ListOperatingObjectFavoritesResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The follow time. The value is a Unix timestamp in seconds.
+   * The subscription time, which is a UNIX timestamp in seconds.
    * 
    * @example
    * 1787822400
@@ -21,7 +21,7 @@ export class ListOperatingObjectFavoritesResponseBodyItems extends $dara.Model {
   followedAt?: number;
   /**
    * @remarks
-   * The graph name.
+   * The name of the graph.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListOperatingObjectFavoritesResponseBodyItems extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * The ID of the recommended item. The value can be a **feedId** or a micro-application ID.
+   * The ID of the recommended item, which can be a **feedId** or a mini-app ID.
    * 
    * @example
    * 2676
@@ -37,7 +37,7 @@ export class ListOperatingObjectFavoritesResponseBodyItems extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The object name.
+   * The name of the object.
    * 
    * @example
    * 469ac312-403c-41fb-aae3-de5260e30906
@@ -45,7 +45,7 @@ export class ListOperatingObjectFavoritesResponseBodyItems extends $dara.Model {
   objectName?: string;
   /**
    * @remarks
-   * The bound object type, such as customer or project.
+   * The object type of the attached object, such as customer or project.
    * 
    * @example
    * table
@@ -93,7 +93,7 @@ export class ListOperatingObjectFavoritesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The graph name. Call listGraphs to retrieve available graphs.
+   * The name of the graph. You can call the listGraphs operation to obtain the graph name.
    * 
    * @example
    * crm
@@ -101,7 +101,7 @@ export class ListOperatingObjectFavoritesResponseBody extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * Indicates whether more pages are available.
+   * Indicates whether more pages exist.
    * 
    * @example
    * true
@@ -109,12 +109,12 @@ export class ListOperatingObjectFavoritesResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The MCP card list.
+   * The list of MCP cards.
    */
   items?: ListOperatingObjectFavoritesResponseBodyItems[];
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * successful
@@ -138,7 +138,7 @@ export class ListOperatingObjectFavoritesResponseBody extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The digital employee name (operating object name).
+   * The name of the digital worker, which is the name of the operating object.
    * 
    * @example
    * customer_assistant
@@ -146,7 +146,7 @@ export class ListOperatingObjectFavoritesResponseBody extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 100
@@ -154,7 +154,7 @@ export class ListOperatingObjectFavoritesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request trace ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -162,7 +162,7 @@ export class ListOperatingObjectFavoritesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of results.
+   * The total number of Logtail pipeline configurations in the current project.
    * 
    * @example
    * 1001

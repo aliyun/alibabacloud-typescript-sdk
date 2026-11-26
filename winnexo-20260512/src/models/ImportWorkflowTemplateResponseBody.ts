@@ -16,7 +16,7 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
    * The step name.
    * 
    * @example
-   * Customer Complaint Handling Process
+   * Customer complaint handling process
    */
   name?: string;
   /**
@@ -31,9 +31,9 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
    * @remarks
    * The owner type. Valid values:
    * 
-   * - **USER**: User. This is the default value.
+   * - **USER**: User type. This is the default value.
    * 
-   * - **APP**: App.
+   * - **APP**: Application type.
    * 
    * @example
    * MEMBER
@@ -49,7 +49,7 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * Specifies whether to manually review the output. By default, this feature is disabled. It can be enabled only for digital employees. Review to-do items are automatically sent to the person in charge.
+   * Specifies whether to manually review the deliverables. By default, this feature is disabled. It can be enabled only for digital employees. Review tasks are automatically sent to the person in charge.
    * 
    * @example
    * false
@@ -57,10 +57,10 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   reviewOutput?: boolean;
   /**
    * @remarks
-   * The list of user IDs for the reviewers. This field is valid only for digital employee executor steps and is always empty for member executor steps.
+   * The list of user IDs of the persons in charge. This parameter is valid only for digital employee executor steps and is always empty for member executor steps.
    * 
    * @example
-   * example
+   * [10001]
    */
   reviewerUserIds?: number[];
   /**
@@ -73,7 +73,7 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   sortOrder?: number;
   /**
    * @remarks
-   * The processing instructions for the step.
+   * The step processing instructions.
    * 
    * @example
    * Collect customer information and submit it to the person in charge for review
@@ -81,10 +81,10 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   specification?: string;
   /**
    * @remarks
-   * The ordered array of segments. Supported types include text, mention, skill, app, files, and web_search. The reference identities and order are preserved.
+   * The ordered array of fragments, which supports text, mention, skill, app, files, and web_search. The referenced identities and order are preserved.
    * 
    * @example
-   * [{\\"type\\":\\"text\\",\\"text\\":\\"Collect customer information\\"}]
+   * [{"type":"text","content":"Collect customer information"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -169,7 +169,7 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The node dependency edges. Each item contains from and to fields that reference stable step IDs. An explicit empty array indicates no dependencies.
+   * A node dependency edge, where from is the stepId of the predecessor node and to is the stepId of the successor node.
    * 
    * @example
    * [{"from":"collect","to":"deliver"}]
@@ -177,7 +177,7 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
   edges?: { [key: string]: any }[];
   /**
    * @remarks
-   * The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items. This field is empty because an import always creates a v1 draft.
+   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items. The value is empty for imported templates because a v1 draft is created by default.
    * 
    * @example
    * v1
@@ -201,7 +201,7 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The optional canvas layout, indexed by step ID. This field only affects the display and does not determine dependencies.
+   * The optional canvas layout, indexed by stepId. This parameter only affects the display and does not determine dependencies.
    * 
    * @example
    * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
@@ -220,12 +220,12 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Customer Complaint Handling Process
+   * Customer complaint handling process
    */
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -233,7 +233,7 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The schema version of the template. The current value is 2, which is independent of the business version vN.
+   * The template structure version. The current value is 2, which is independent of the business version vN.
    * 
    * @example
    * 2
@@ -244,7 +244,7 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The ordered steps.
    * 
    * @example
-   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"Collect customer information\\"}]
+   * [{"stepId":"collect","sortOrder":1,"name":"Collect customer information"}]
    */
   steps?: ImportWorkflowTemplateResponseBodySteps[];
   /**

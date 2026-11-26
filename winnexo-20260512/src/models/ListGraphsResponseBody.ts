@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGraphsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The business description of the knowledge graph. An empty string is returned if not configured.
+   * The business description of the graph. This is an empty string if not configured.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListGraphsResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The knowledge graph name.
+   * The graph name.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListGraphsResponseBodyItems extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * Indicates whether this is the default group.
+   * Specifies whether it is the default group.
    * 
    * This parameter is required.
    * 
@@ -88,7 +88,7 @@ export class ListGraphsResponseBody extends $dara.Model {
   items?: ListGraphsResponseBodyItems[];
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * successful

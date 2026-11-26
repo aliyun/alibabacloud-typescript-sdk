@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySourceUsageSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group to which the resource belongs, such as cg_101. If you specify this parameter, a group workspace task is created, and the caller must be a valid group member. If you leave this parameter empty, a personal task is created.
+   * The platform application token issued by the console. If specified, the request is executed as the user identified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The ID of the collaboration group to which the resource belongs, such as cg_101. If specified, a group workspace task is created, and the caller must be a valid group member. If left empty, a personal task is created.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -26,14 +34,30 @@ export class QuerySourceUsageSummaryRequest extends $dara.Model {
    * The event type.
    * 
    * @example
-   * UserOperator
+   * ALL
    */
   eventType?: string;
   /**
    * @remarks
-   * The ID of the knowledge base folder.
+   * The IDs of the knowledge base folders.
    */
   knowledgeBaseIds?: string[];
+  /**
+   * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The role scope type. Valid values:
@@ -43,12 +67,12 @@ export class QuerySourceUsageSummaryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Report perspective: TENANT for enterprise knowledge, GROUP for a single workspace, and ALL_GROUPS for all workspaces of the current tenant (platform super administrator only). Valid values: TENANT, GROUP, and ALL_GROUPS
+   * TENANT
    */
   scopeType?: string;
   /**
    * @remarks
-   * The source ID.
+   * The source IDs.
    */
   sourceIds?: string[];
   /**
@@ -56,7 +80,7 @@ export class QuerySourceUsageSummaryRequest extends $dara.Model {
    * The resume channel source.
    * 
    * @example
-   * The name of the source
+   * Source name content
    */
   sourceName?: string;
   /**
@@ -71,7 +95,7 @@ export class QuerySourceUsageSummaryRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The tenant ID, which is a common parameter. If you use winnexo-cli, pass this parameter explicitly by using --tenant-id.
+   * The tenant ID. This is a common parameter. For winnexo-cli, this parameter is explicitly passed by using --tenant-id.
    * 
    * @example
    * 10000
@@ -79,10 +103,13 @@ export class QuerySourceUsageSummaryRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       endTime: 'endTime',
       eventType: 'eventType',
       knowledgeBaseIds: 'knowledgeBaseIds',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       scopeType: 'scopeType',
       sourceIds: 'sourceIds',
       sourceName: 'sourceName',
@@ -93,10 +120,13 @@ export class QuerySourceUsageSummaryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       collaborationGroupId: 'string',
       endTime: 'string',
       eventType: 'string',
       knowledgeBaseIds: { 'type': 'array', 'itemType': 'string' },
+      opsUserCode: 'string',
+      opsUserId: 'string',
       scopeType: 'string',
       sourceIds: { 'type': 'array', 'itemType': 'string' },
       sourceName: 'string',

@@ -13,6 +13,14 @@ export class ListUsersRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * Specifies whether the account is activated. Valid values:
    * - **true**: Activated.
    * - **false**: Not activated.
@@ -23,12 +31,28 @@ export class ListUsersRequest extends $dara.Model {
   isActive?: boolean;
   /**
    * @remarks
-   * The keyword for product search. Fuzzy match is supported.
+   * The keyword for searching products. Fuzzy match is supported.
    * 
    * @example
    * Sample keyword
    */
   keyword?: string;
+  /**
+   * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The page number.
@@ -49,7 +73,7 @@ export class ListUsersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of new system role codes. This is a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
+   * The list of new system role codes. This list fully replaces the existing roles and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
    * 
    * @example
    * ["string_value"]
@@ -57,7 +81,7 @@ export class ListUsersRequest extends $dara.Model {
   roleCodes?: string[];
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. winnexo-cli explicitly passes this parameter by using --tenant-id.
+   * The tenant ID. This is a common parameter and is explicitly passed by using the --tenant-id option in winnexo-cli.
    * 
    * @example
    * 10000
@@ -66,8 +90,11 @@ export class ListUsersRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountIds: 'accountIds',
+      appToken: 'appToken',
       isActive: 'isActive',
       keyword: 'keyword',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       roleCodes: 'roleCodes',
@@ -78,8 +105,11 @@ export class ListUsersRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountIds: { 'type': 'array', 'itemType': 'string' },
+      appToken: 'string',
       isActive: 'boolean',
       keyword: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       roleCodes: { 'type': 'array', 'itemType': 'string' },

@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The DingTalk group chat session ID.
+   * The platform application token issued by the console. If provided, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The ID of the DingTalk group chat session.
    * 
    * This parameter is required.
    * 
@@ -15,10 +23,10 @@ export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * The group chat name.
+   * The name of the group chat.
    * 
    * @example
-   * CustomerProjectGroup
+   * Customer project group
    */
   chatName?: string;
   /**
@@ -49,15 +57,15 @@ export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
   historyStartTime?: string;
   /**
    * @remarks
-   * The meeting notes content (optional). This participates in auxiliary analysis.
+   * The content of meeting notes (optional), which is used for auxiliary analysis.
    * 
    * @example
-   * Focus on identifying customer demands and to-do items
+   * Focus on identifying customer requirements and to-do items
    */
   notes?: string;
   /**
    * @remarks
-   * The digital employee name (operating object name, optional).
+   * The name of the digital employee (the name of the operating object, optional).
    * 
    * @example
    * my-agent
@@ -65,15 +73,31 @@ export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The resource tags (optional, a JSON string list such as ["tagA","tagB"]).
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
    * 
    * @example
-   * ["Customer","GroupChat"]
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The resource tags (optional). The value is a JSON string list, such as ["tagA","tagB"].
+   * 
+   * @example
+   * ["Customer","Group chat"]
    */
   sourceTags?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. The winnexo-cli passes this value explicitly by using --tenant-id.
+   * The tenant ID. This is a common parameter and is explicitly passed by using the --tenant-id option in winnexo-cli.
    * 
    * @example
    * 10000
@@ -86,6 +110,7 @@ export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
   updateFrequencyShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       chatId: 'chatId',
       chatName: 'chatName',
       description: 'description',
@@ -93,6 +118,8 @@ export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
       historyStartTime: 'historyStartTime',
       notes: 'notes',
       operatingObjectName: 'operatingObjectName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       sourceTags: 'sourceTags',
       tenantId: 'tenantId',
       updateFrequencyShrink: 'updateFrequency',
@@ -101,6 +128,7 @@ export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       chatId: 'string',
       chatName: 'string',
       description: 'string',
@@ -108,6 +136,8 @@ export class CreatePersonalAliDingChatShrinkRequest extends $dara.Model {
       historyStartTime: 'string',
       notes: 'string',
       operatingObjectName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       sourceTags: 'string',
       tenantId: 'string',
       updateFrequencyShrink: 'string',

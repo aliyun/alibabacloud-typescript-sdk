@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   /**
    * @remarks
-   * The ID of the attachment.
+   * The attachment ID.
    * 
    * @example
    * example
@@ -21,7 +21,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The access URL of the attachment.
+   * The access endpoint of the attachment (prefixed with an OpenAPI 302 redirect).
    * 
    * @example
    * example
@@ -53,7 +53,7 @@ export class ListWorkItemsResponseBodyItemsAttachments extends $dara.Model {
   sizeBytes?: number;
   /**
    * @remarks
-   * The title of the attachment.
+   * The attachment title.
    * 
    * @example
    * example
@@ -114,12 +114,12 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
    * The list of input attachments.
    * 
    * @example
-   * example
+   * [{"attachmentId":"example","contentType":"example","refUrl":"example","resourceId":"example","resourceKind":"example","sizeBytes":1,"title":"example"}]
    */
   attachments?: ListWorkItemsResponseBodyItemsAttachments[];
   /**
    * @remarks
-   * The business status.
+   * The business status (seven states).
    * 
    * @example
    * PROCESSING
@@ -159,7 +159,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   canRename?: boolean;
   /**
    * @remarks
-   * The ID of the collaboration workspace.
+   * The collaboration space ID.
    * 
    * @example
    * example
@@ -170,7 +170,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
    * The list of user IDs of the collaborators.
    * 
    * @example
-   * example
+   * [10001]
    */
   collaboratorUserIds?: number[];
   /**
@@ -183,7 +183,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time in ISO 8601 format.
+   * The creation time (ISO 8601).
    * 
    * @example
    * example
@@ -207,7 +207,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   creationType?: string;
   /**
    * @remarks
-   * The ID of the current physical plan.
+   * The current physical plan ID.
    * 
    * @example
    * example
@@ -223,7 +223,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentRevision?: number;
   /**
    * @remarks
-   * The ID of the current run.
+   * The current run ID.
    * 
    * @example
    * example
@@ -231,7 +231,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentRunId?: string;
   /**
    * @remarks
-   * The sequence number of the current run.
+   * The current run sequence number.
    * 
    * @example
    * 1
@@ -239,7 +239,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   currentRunSeq?: number;
   /**
    * @remarks
-   * The name of the current step.
+   * The current step name.
    * 
    * @example
    * example
@@ -255,7 +255,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The version of the input snapshot.
+   * The input snapshot version.
    * 
    * @example
    * 1
@@ -263,7 +263,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   inputVersion?: number;
   /**
    * @remarks
-   * The type of the work item.
+   * The work item type.
    * 
    * @example
    * WORKFLOW
@@ -271,7 +271,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * The time when the item last entered the processing state in ISO 8601 format.
+   * The time when the item last entered the processing state (ISO 8601).
    * 
    * @example
    * example
@@ -290,12 +290,12 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
    * The list of user IDs of visible members.
    * 
    * @example
-   * example
+   * [10001]
    */
   memberUserIds?: number[];
   /**
    * @remarks
-   * The modification time in ISO 8601 format.
+   * The modification time (ISO 8601).
    * 
    * @example
    * example
@@ -311,7 +311,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * Indicates whether the item is pinned by the caller.
+   * The personal pin status for the caller.
    * 
    * @example
    * false
@@ -391,7 +391,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The time zone when the task is triggered.
+   * The trigger time zone of the task.
    * 
    * @example
    * example
@@ -399,7 +399,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   triggerTimezone?: string;
   /**
    * @remarks
-   * The trigger time of the task in ISO 8601 format.
+   * The trigger time of the task (ISO 8601).
    * 
    * @example
    * example
@@ -431,7 +431,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   visibilitySource?: string;
   /**
    * @remarks
-   * The ID of the work item.
+   * The work item ID.
    * 
    * @example
    * example
@@ -439,7 +439,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
   workItemId?: string;
   /**
    * @remarks
-   * The workflow status projection.
+   * The workflow status projection (four states).
    * 
    * @example
    * example
@@ -450,7 +450,7 @@ export class ListWorkItemsResponseBodyItems extends $dara.Model {
    * The list of IDs of the bound workflow templates.
    * 
    * @example
-   * example
+   * ["tpl_example"]
    */
   workflowTemplateIds?: string[];
   static names(): { [key: string]: string } {
@@ -596,12 +596,12 @@ export class ListWorkItemsResponseBody extends $dara.Model {
    * The list of work items on the current page.
    * 
    * @example
-   * example
+   * [{"acceptanceCriteria":"example","appliedStatusVersion":1,"attachments":[{"attachmentId":"example","contentType":"example","refUrl":"example","resourceId":"example","resourceKind":"example","sizeBytes":1,"title":"example"}],"businessStatus":"PROCESSING","canDelete":false,"canManage":false,"canManageVisibility":false,"canRename":false,"collaborationGroupId":"example","collaboratorUserIds":[10001],"conversationId":"example","createdAt":"example","createdByUserId":1,"creationType":"DEFAULT","currentPlanId":"example","currentRevision":1,"currentRunId":"example","currentRunSeq":1,"currentStepName":"example","description":"example","inputVersion":1,"itemType":"WORKFLOW","lastProcessingAt":"example","legacyTopic":false,"memberUserIds":[10001],"modifiedAt":"example","ownerUserId":1,"pinned":false,"priority":"HIGH","progressCompleted":1,"progressTotal":1,"sourceExecutionId":"example","sourceTaskId":"example","sourceTaskName":"example","sourceTriggerKey":"example","sourceType":"example","title":"example","triggerTimezone":"example","triggeredAt":"example","version":1,"visibility":"example","visibilitySource":"SELF","workItemId":"example","workflowStatus":"example","workflowTemplateIds":["tpl_example"]}]
    */
   items?: ListWorkItemsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of items returned per page in the current request.
+   * The maximum number of items returned per page for this request.
    * 
    * @example
    * 1
@@ -609,7 +609,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * The requested resource does not exist
@@ -641,7 +641,7 @@ export class ListWorkItemsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

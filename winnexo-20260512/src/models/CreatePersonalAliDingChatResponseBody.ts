@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalAliDingChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The DingTalk group chat session ID.
+   * The ID of the DingTalk group chat session.
    * 
    * @example
    * cidxxxxxxxx
@@ -48,12 +48,12 @@ export class CreatePersonalAliDingChatResponseBody extends $dara.Model {
    * The skill name.
    * 
    * @example
-   * CustomerProjectGroup
+   * Customer project group
    */
   name?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -69,7 +69,7 @@ export class CreatePersonalAliDingChatResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The original project ID.
+   * The source project ID.
    * 
    * @example
    * exampleSourceId
@@ -78,10 +78,10 @@ export class CreatePersonalAliDingChatResponseBody extends $dara.Model {
   /**
    * @remarks
    * The call status. Valid values:
-   * - **PENDING**: Waiting for acknowledgment.
-   * - **SUCCESS**: Succeeded.
+   * - **PENDING**: Awaiting acknowledgment.
+   * - **SUCCESS**: Success.
    * - **FAILED**: Failed.
-   * - **TIMEOUT**: Timed out.
+   * - **TIMEOUT**: Timeout.
    * 
    * @example
    * PENDING

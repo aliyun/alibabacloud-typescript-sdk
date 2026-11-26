@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListCollaborationGroupMembersRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The collaboration workspace ID.
    * 
    * This parameter is required.
@@ -23,7 +31,23 @@ export class ListCollaborationGroupMembersRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -47,8 +71,11 @@ export class ListCollaborationGroupMembersRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       keyword: 'keyword',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       tenantId: 'tenantId',
@@ -57,8 +84,11 @@ export class ListCollaborationGroupMembersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       collaborationGroupId: 'string',
       keyword: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       tenantId: 'string',

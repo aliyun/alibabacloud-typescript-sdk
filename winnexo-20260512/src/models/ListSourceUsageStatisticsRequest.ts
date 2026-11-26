@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListSourceUsageStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group to which the resource belongs, such as cg_101. If you specify this parameter, a group workspace task is created, and the caller must be a valid group member. If you leave this parameter empty, a personal task is created.
+   * The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The ID of the collaboration group to which the resource belongs, such as cg_101. If specified, a group workspace task is created, and the caller must be a valid group member. If left empty, a personal task is created.
    * 
    * @example
    * 1112
@@ -26,17 +34,33 @@ export class ListSourceUsageStatisticsRequest extends $dara.Model {
    * The event type.
    * 
    * @example
-   * HealthCheck
+   * ALL
    */
   eventType?: string;
   /**
    * @remarks
-   * The root IDs of the enterprise knowledge bases, which are available only for TENANT. The knowledge bases are filtered based on current directory bindings, not historical ownership. Maximum number of items: 100.
+   * The root IDs of enterprise knowledge bases, available only for TENANT. The IDs are filtered based on current directory bindings rather than historical ownership. A maximum of 100 items are supported.
    * 
    * @example
    * ["kb_9401"]
    */
   knowledgeBaseIds?: string[];
+  /**
+   * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The current page number.
@@ -55,12 +79,12 @@ export class ListSourceUsageStatisticsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The report perspective. Valid values: TENANT (enterprise knowledge), GROUP (a single workspace), and ALL_GROUPS (all workspaces of the current tenant, only for platform super administrators).
+   * The report perspective. Valid values: TENANT for enterprise knowledge, GROUP for a single workspace, and ALL_GROUPS for all workspaces of the current tenant (available only to platform super administrators).
    * 
    * This parameter is required.
    * 
    * @example
-   * Report perspective: TENANT for enterprise knowledge, GROUP for a single workspace, ALL_GROUPS for all workspaces of the current tenant (platform super administrator only). Valid values: TENANT, GROUP, ALL_GROUPS
+   * TENANT
    */
   scopeType?: string;
   /**
@@ -68,20 +92,20 @@ export class ListSourceUsageStatisticsRequest extends $dara.Model {
    * The content of the sort clause.
    * 
    * @example
-   * 1
+   * retrievalCount
    */
   sortBy?: string;
   /**
    * @remarks
-   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC. The values are case-insensitive.
+   * Specifies the sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC. The values are case-insensitive.
    * 
    * @example
-   * asc
+   * ASC
    */
   sortOrder?: string;
   /**
    * @remarks
-   * The IDs of the associated sources.
+   * The associated source IDs.
    * 
    * @example
    * ["src_9401"]
@@ -115,10 +139,13 @@ export class ListSourceUsageStatisticsRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       endTime: 'endTime',
       eventType: 'eventType',
       knowledgeBaseIds: 'knowledgeBaseIds',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       scopeType: 'scopeType',
@@ -133,10 +160,13 @@ export class ListSourceUsageStatisticsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       collaborationGroupId: 'string',
       endTime: 'string',
       eventType: 'string',
       knowledgeBaseIds: { 'type': 'array', 'itemType': 'string' },
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       scopeType: 'string',

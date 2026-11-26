@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCollaborationGroupsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration space.
+   * The collaboration space ID.
    * 
    * @example
    * cg_9401
@@ -24,12 +24,12 @@ export class ListCollaborationGroupsResponseBodyItems extends $dara.Model {
    * The name of the space.
    * 
    * @example
-   * Workflow To-Do Test
+   * Workflow To-do Test
    */
   name?: string;
   /**
    * @remarks
-   * The status of the space. Currently, only ACTIVE is returned.
+   * The space status. Currently, only ACTIVE is returned.
    * 
    * @example
    * ACTIVE
@@ -81,10 +81,10 @@ export class ListCollaborationGroupsResponseBody extends $dara.Model {
   items?: ListCollaborationGroupsResponseBodyItems[];
   /**
    * @remarks
-   * The common error message.
+   * The common error description.
    * 
    * @example
-   * You do not have permissions to access tenant 2147483647 because the user does not belong to the tenant
+   * Access denied to tenant 2147483647. The user does not belong to this tenant
    */
   message?: string;
   /**
@@ -97,7 +97,7 @@ export class ListCollaborationGroupsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries on the current page.
    * 
    * @example
    * 20
@@ -105,7 +105,7 @@ export class ListCollaborationGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * c9cf6cb3-3f5c-4994-a8a1-c93379a6f5cf

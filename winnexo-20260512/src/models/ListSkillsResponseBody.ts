@@ -29,7 +29,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   executeMode?: string;
   /**
    * @remarks
-   * Indicates whether the skill is globally accessible.
+   * Specifies whether global access is allowed.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   globalAccess?: boolean;
   /**
    * @remarks
-   * Indicates whether unpublished draft modifications exist.
+   * Specifies whether unpublished draft modifications exist.
    * 
    * @example
    * true
@@ -48,12 +48,12 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
    * The file name.
    * 
    * @example
-   * SampleName.pdf
+   * Sample name.pdf
    */
   name?: string;
   /**
    * @remarks
-   * The skill code that is actually executed.
+   * The code of the skill that is actually executed.
    * 
    * @example
    * string_value
@@ -77,7 +77,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The task status. Running is returned upon submission.
+   * The task status. Running is returned immediately after submission.
    * 
    * @example
    * READY
@@ -85,10 +85,10 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The keys.
+   * The key.
    * 
    * @example
-   * string_value
+   * ["None"]
    */
   tags?: string[];
   /**
@@ -187,7 +187,7 @@ export class ListSkillsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
+   * The number of entries per page in the returned results. Default value: 20. Minimum value: 1. Maximum value: 50.
    * 
    * @example
    * 10
@@ -203,7 +203,7 @@ export class ListSkillsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 1

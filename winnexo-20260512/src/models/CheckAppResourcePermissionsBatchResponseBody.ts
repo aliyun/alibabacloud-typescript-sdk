@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the user has the required permissions.
+   * Indicates whether the user has the permission.
    * 
    * @example
    * true
@@ -16,12 +16,12 @@ export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.M
    * The target permission.
    * 
    * @example
-   * APP/VIEW
+   * VIEW
    */
   permission?: string;
   /**
    * @remarks
-   * The dot-separated resource key whose first segment is the application key.
+   * The dot-separated resource key. The first segment is the APP application key.
    * 
    * @example
    * app.demo.resource_1
@@ -81,7 +81,7 @@ export class CheckAppResourcePermissionsBatchResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

@@ -148,6 +148,22 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
 export class GetChatSessionResponseBodySession extends $dara.Model {
   /**
    * @remarks
+   * 会话归档状态 ACTIVE/ARCHIVING/ARCHIVED
+   * 
+   * @example
+   * ACTIVE
+   */
+  conversationArchiveStatus?: string;
+  /**
+   * @remarks
+   * 会话归档完成时间戳（秒）
+   * 
+   * @example
+   * 1735689600
+   */
+  conversationArchivedTime?: number;
+  /**
+   * @remarks
    * The creation time.
    * 
    * @example
@@ -228,6 +244,8 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {
+      conversationArchiveStatus: 'conversationArchiveStatus',
+      conversationArchivedTime: 'conversationArchivedTime',
       createdAt: 'createdAt',
       id: 'id',
       isExpired: 'isExpired',
@@ -243,6 +261,8 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      conversationArchiveStatus: 'string',
+      conversationArchivedTime: 'number',
       createdAt: 'number',
       id: 'string',
       isExpired: 'boolean',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTenantDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The business status code. A value of 200 indicates success. If the request fails, a specific business error code is returned.
    * 
    * @example
    * 200
@@ -13,95 +13,95 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The description of the to-do card type.
+   * The description of the created directory. If no description is set, the value is empty.
    * 
    * @example
-   * Sample description
+   * Team product materials and operation guides
    */
   description?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The business ID of the newly created directory. You can use this ID to read or update the knowledge base configuration for standard enterprise root directories.
    * 
    * This parameter is required.
    * 
    * @example
-   * exampleDirectoryId
+   * kb-example
    */
   directoryId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the directory was created. The value is a UNIX timestamp in seconds.
    * 
    * @example
-   * 1
+   * 1699000000
    */
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the directory was last modified. The value is a UNIX timestamp in seconds.
    * 
    * @example
-   * 1
+   * 1699000010
    */
   gmtModified?: number;
   /**
    * @remarks
-   * The tenant folder ID.
+   * The internal primary key of the directory. You can use this key as the parentId when you create a subdirectory. This key is different from the business ID directoryId.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 1001
    */
   id?: number;
   /**
    * @remarks
-   * The description of the status code.
+   * The response message. The value is success if the request is successful. If the request fails, this parameter describes the cause of the error.
    * 
    * @example
-   * successful
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * The name.
+   * The name of the created directory.
    * 
    * This parameter is required.
    * 
    * @example
-   * SampleName.pdf
+   * Product knowledge base
    */
   name?: string;
   /**
    * @remarks
-   * The name of the digital employee (the operating object name, optional).
+   * The legacy single digital employee association field. You cannot use this field to replace the mode and association list returned by GetKnowledgeBaseConfiguration.
    * 
    * @example
-   * string_value
+   * opt_1
    */
   operatingObjectName?: string;
   /**
    * @remarks
-   * The ID of the parent node.
+   * The internal primary key of the parent directory. This value is empty for enterprise root directories.
    * 
    * @example
-   * 1
+   * 1001
    */
   parentId?: number;
   /**
    * @remarks
-   * The path of the node.
+   * The path of the created directory.
    * 
    * This parameter is required.
    * 
    * @example
-   * https://example.com/oss/file.pdf
+   * /Product knowledge base
    */
   path?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID. You can use this ID to troubleshoot issues related to this call.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -109,7 +109,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the tenant for which the operation takes effect.
+   * The ID of the tenant to which the directory belongs.
    * 
    * This parameter is required.
    * 
@@ -119,12 +119,12 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The user ID of the creator.
+   * The ID of the platform user who created the directory.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 10001
    */
   userId?: number;
   static names(): { [key: string]: string } {

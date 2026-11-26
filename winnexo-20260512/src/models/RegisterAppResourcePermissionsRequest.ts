@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Model {
   /**
    * @remarks
-   * The principal ID. Omit this parameter for ALL_USERS.
+   * The principal ID. This parameter is omitted for ALL_USERS.
    * 
    * @example
    * 10086
@@ -13,7 +13,7 @@ export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Mo
   granteeId?: string;
   /**
    * @remarks
-   * The tenant to which the cross-tenant USER belongs.
+   * The tenant to which the cross-tenant user belongs.
    * 
    * @example
    * 10000
@@ -57,7 +57,7 @@ export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Mo
 export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   /**
    * @remarks
-   * The expiration time with a time zone. If omitted, the permissions never expire.
+   * The expiration time with time zone. If omitted, the permissions never expire.
    * 
    * @example
    * 2026-12-31T23:59:59+08:00
@@ -79,7 +79,7 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   permissions?: string[];
   /**
    * @remarks
-   * The dot-separated resource key with the first segment as the APP application key.
+   * The dot-separated resource key with the application key as the first segment.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The resource type. Fixed to APP_RESOURCE.
+   * The resource type. Set the value to APP_RESOURCE.
    * 
    * This parameter is required.
    * 
@@ -135,11 +135,35 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
 export class RegisterAppResourcePermissionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The batch authorization item.
    * 
    * This parameter is required.
    */
   items?: RegisterAppResourcePermissionsRequestItems[];
+  /**
+   * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The batch authorization item.
@@ -158,7 +182,10 @@ export class RegisterAppResourcePermissionsRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       items: 'items',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       resourceTenantId: 'resourceTenantId',
       tenantId: 'tenantId',
     };
@@ -166,7 +193,10 @@ export class RegisterAppResourcePermissionsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       items: { 'type': 'array', 'itemType': RegisterAppResourcePermissionsRequestItems },
+      opsUserCode: 'string',
+      opsUserId: 'string',
       resourceTenantId: 'string',
       tenantId: 'string',
     };

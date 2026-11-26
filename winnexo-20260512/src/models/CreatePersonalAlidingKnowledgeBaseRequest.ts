@@ -85,6 +85,14 @@ export class CreatePersonalAlidingKnowledgeBaseRequestSyncConfig extends $dara.M
 export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The directory ID.
    * 
    * @example
@@ -124,6 +132,22 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
    * The list of resource tag JSON strings applied to all child sources created during knowledge base synchronization.
    * 
    * @example
@@ -145,11 +169,14 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       directoryId: 'directoryId',
       kbName: 'kbName',
       kbUrl: 'kbUrl',
       objectBindings: 'objectBindings',
       operatingObjectName: 'operatingObjectName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       sourceTags: 'sourceTags',
       syncConfig: 'syncConfig',
       tenantId: 'tenantId',
@@ -158,11 +185,14 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       directoryId: 'string',
       kbName: 'string',
       kbUrl: 'string',
       objectBindings: { 'type': 'array', 'itemType': CreatePersonalAlidingKnowledgeBaseRequestObjectBindings },
       operatingObjectName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       sourceTags: 'string',
       syncConfig: CreatePersonalAlidingKnowledgeBaseRequestSyncConfig,
       tenantId: 'string',

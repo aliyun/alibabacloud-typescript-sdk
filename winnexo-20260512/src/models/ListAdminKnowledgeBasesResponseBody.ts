@@ -29,7 +29,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   objectName?: string;
   /**
    * @remarks
-   * The object type, such as customer. This field has a value when type is set to mention.
+   * The object type, such as customer. This parameter has a value only when type is set to mention.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   objectType?: string;
   /**
    * @remarks
-   * The display name of the object type (such as "Customer"), parsed from the graph schema. The value is null when the cache is missed.
+   * The display name of the object type, such as Customer. This name is parsed from the graph schema. If the cache is missing, the value is null.
    * 
    * @example
    * string_value
@@ -107,7 +107,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time.
    * 
    * @example
    * 1
@@ -115,7 +115,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The ID of the data item. When tabId and orgId are the same, itemId uniquely identifies a data item. The maximum length is 128 characters.
+   * The ID of the data item. When tabId and orgId are the same, itemId uniquely identifies a data item. The length cannot exceed 128 characters.
    * 
    * @example
    * exampleItemId
@@ -123,7 +123,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The data type (group, user, or role).
+   * The data type, such as group, user, or role.
    * 
    * @example
    * string_value
@@ -144,7 +144,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   objectBindings?: ListAdminKnowledgeBasesResponseBodyItemsObjectBindings[];
   /**
    * @remarks
-   * The number of resources with the FAILED status. This field is returned only in the top-level knowledge base directory list.
+   * The number of resources in the FAILED state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -152,7 +152,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceFailedCount?: number;
   /**
    * @remarks
-   * The knowledge base source type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
+   * The ownership type of the knowledge base. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * string_value
@@ -160,7 +160,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceKind?: string;
   /**
    * @remarks
-   * The number of resources with the READY status. This field is returned only in the top-level knowledge base directory list.
+   * The number of resources in the READY state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -168,7 +168,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceReadyCount?: number;
   /**
    * @remarks
-   * The resource status. This field has a value when itemType is set to resource.
+   * The resource status. This parameter has a value only when itemType is set to resource.
    * 
    * @example
    * string_value
@@ -176,7 +176,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceStatus?: string;
   /**
    * @remarks
-   * The total number of resources in the directory and its subdirectories. This field is returned only in the top-level knowledge base directory list.
+   * The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -274,7 +274,7 @@ export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -290,7 +290,7 @@ export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The maximum number of entries returned in this request.
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 1

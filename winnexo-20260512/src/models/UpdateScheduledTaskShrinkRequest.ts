@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the task is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The AUTO preference. Valid values: none (default), performance (performance first), and credit (cost first). If omitted or set to null, the current value is retained. If set to an empty string, the value is reset to none. For fixed models, this parameter can be saved but does not take effect.
+   * 
+   * @example
+   * credit
+   */
+  autoPreference?: string;
+  /**
+   * @remarks
    * The description.
    */
   descriptionShrink?: string;
@@ -26,7 +42,7 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   isOpen?: boolean;
   /**
    * @remarks
-   * The execution model tier. If this parameter is not specified, the model tier is not updated.
+   * The execution model tier. If not specified, the model tier is not updated.
    * 
    * @example
    * quick
@@ -42,7 +58,23 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output conversation mode. If this parameter is omitted, the current configuration is retained.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The output conversation mode. If not specified, the current configuration is retained.
    * 
    * @example
    * SAME_CONVERSATION
@@ -70,7 +102,7 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -83,7 +115,7 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   triggerConfigShrink?: string;
   /**
    * @remarks
-   * The visibility scope adjustment for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If this parameter is not specified, the visibility scope is not updated. This field is ignored for personal tasks.
+   * The visibility scope for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If not specified, the visibility scope is not updated. This parameter is ignored for personal tasks.
    * 
    * @example
    * COLLABORATIVE
@@ -91,7 +123,7 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The full replacement list of collaborators. This parameter takes effect only when visibility is set to COLLABORATIVE. When the visibility is changed from COLLABORATIVE to another value, the list is cleared. A maximum of 1,000 members are supported. If this parameter is not specified, the members are not updated. You do not need to specify the task creator and group creator because they are covered by the authentication layer. This field is ignored for personal tasks.
+   * The full replacement list of collaborators. This parameter takes effect only when visibility is set to COLLABORATIVE. A maximum of 1,000 members can be specified. If the visibility is changed from COLLABORATIVE to another value, the list is cleared. If not specified, the members are not updated. The task creator and group creator do not need to be specified because they are covered by the authentication layer. This parameter is ignored for personal tasks.
    * 
    * @example
    * ["10001"]
@@ -99,11 +131,15 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   visibleMemberUserIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
+      autoPreference: 'autoPreference',
       descriptionShrink: 'description',
       digitalEmployeeNameShrink: 'digitalEmployeeName',
       isOpen: 'isOpen',
       model: 'model',
       name: 'name',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       outputMode: 'outputMode',
       segmentsShrink: 'segments',
       taskDetailShrink: 'taskDetail',
@@ -117,11 +153,15 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
+      autoPreference: 'string',
       descriptionShrink: 'string',
       digitalEmployeeNameShrink: 'string',
       isOpen: 'boolean',
       model: 'string',
       name: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       outputMode: 'string',
       segmentsShrink: 'string',
       taskDetailShrink: 'string',

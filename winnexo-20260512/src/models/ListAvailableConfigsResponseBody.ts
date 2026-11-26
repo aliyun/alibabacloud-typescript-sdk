@@ -29,7 +29,7 @@ export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
   platformType?: string;
   /**
    * @remarks
-   * The SSO configuration ID. This parameter has a value only for SAML, OAuth2, and WeCom types. The value is null for the custom type.
+   * The SSO configuration ID. This field has a value only for SAML, OAuth2, and WeCom, and is null for custom.
    * 
    * @example
    * exampleSsoSettingsId
@@ -37,7 +37,7 @@ export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
   ssoSettingsId?: string;
   /**
    * @remarks
-   * The SSO configuration name. This parameter has a value only for SAML, OAuth2, and WeCom types. The value is null for the custom type.
+   * The SSO configuration name. This field has a value only for SAML, OAuth2, and WeCom, and is null for custom.
    * 
    * @example
    * string_value
@@ -88,7 +88,7 @@ export class ListAvailableConfigsResponseBody extends $dara.Model {
   configs?: ListAvailableConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * ok

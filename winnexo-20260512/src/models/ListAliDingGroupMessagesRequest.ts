@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListAliDingGroupMessagesRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The session ID, typically used for JSSDK.
    * 
    * This parameter is required.
@@ -24,6 +32,22 @@ export class ListAliDingGroupMessagesRequest extends $dara.Model {
    * newer
    */
   direction?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The number of entries per page.
@@ -52,8 +76,11 @@ export class ListAliDingGroupMessagesRequest extends $dara.Model {
   time?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       chatId: 'chatId',
       direction: 'direction',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       pageSize: 'pageSize',
       tenantId: 'tenantId',
       time: 'time',
@@ -62,8 +89,11 @@ export class ListAliDingGroupMessagesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       chatId: 'string',
       direction: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       pageSize: 'number',
       tenantId: 'string',
       time: 'string',

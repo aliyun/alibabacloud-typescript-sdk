@@ -13,7 +13,7 @@ export class CreatePersonalFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -37,7 +37,7 @@ export class CreatePersonalFileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The updated filter view name.
+   * The updated name of the filtered view.
    * 
    * @example
    * ha-cn-36z45q4xg06_qrs
@@ -53,9 +53,7 @@ export class CreatePersonalFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The export scope. Valid values:
-   * - ALL: all.
-   * - SELECT: selected rows.
+   * The export scope. Valid values: ALL: all data. SELECT: selected rows.
    * 
    * @example
    * read:user,read:repo,write:repo,read:org,read:group

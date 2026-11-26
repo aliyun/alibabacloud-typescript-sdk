@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeBaseAliDingDocRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is performed as the user specified by `opsUserId` or `opsUserCode`.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The description of the alias.
    * 
    * @example
@@ -21,7 +29,7 @@ export class CreateKnowledgeBaseAliDingDocRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The publicly accessible URL of the AliDing online document.
+   * The public access URL of the AliDing online document.
    * 
    * This parameter is required.
    * 
@@ -31,7 +39,7 @@ export class CreateKnowledgeBaseAliDingDocRequest extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * Not supported. This parameter is ignored.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * exampleKnowledgeId
@@ -49,7 +57,7 @@ export class CreateKnowledgeBaseAliDingDocRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The digital employee name (operating object name, optional).
+   * The name of the digital employee, which is the name of the operating object. This parameter is optional.
    * 
    * @example
    * string_value
@@ -57,7 +65,23 @@ export class CreateKnowledgeBaseAliDingDocRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The resource tags (optional, a JSON string list, such as ["tagA","tagB"]).
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as `source_uid`.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as `winnexo_uid`.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The resource tags. This parameter is optional and accepts a JSON string array, such as `["tagA","tagB"]`.
    * 
    * @example
    * string_value
@@ -73,12 +97,15 @@ export class CreateKnowledgeBaseAliDingDocRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       description: 'description',
       directoryId: 'directoryId',
       filePublicUrl: 'filePublicUrl',
       knowledgeId: 'knowledgeId',
       name: 'name',
       operatingObjectName: 'operatingObjectName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       sourceTags: 'sourceTags',
       tenantId: 'tenantId',
     };
@@ -86,12 +113,15 @@ export class CreateKnowledgeBaseAliDingDocRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       description: 'string',
       directoryId: 'string',
       filePublicUrl: 'string',
       knowledgeId: 'string',
       name: 'string',
       operatingObjectName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       sourceTags: 'string',
       tenantId: 'string',
     };

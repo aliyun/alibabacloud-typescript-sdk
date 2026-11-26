@@ -205,7 +205,7 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The object ID. This parameter has a value when the object is specified by using the @ symbol.
+   * The object ID. This parameter has a value when the object is specified by using @.
    * 
    * @example
    * exampleObjectId
@@ -367,7 +367,7 @@ export class UpdateScheduledTaskRequestTaskDetail extends $dara.Model {
   relatedSkills?: UpdateScheduledTaskRequestTaskDetailRelatedSkills[];
   /**
    * @remarks
-   * The task understanding description refined by the large language model (LLM).
+   * The task understanding description refined by the LLM.
    * 
    * @example
    * string_value
@@ -436,7 +436,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   deliveryMethod?: string;
   /**
    * @remarks
-   * Specifies whether to push notifications to the channel. Default value: false.
+   * Specifies whether to push notifications to this channel. Default value: false.
    * 
    * @example
    * true
@@ -460,7 +460,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   operatingObjectName?: string;
   /**
    * @remarks
-   * The recipient. Only self is supported.
+   * The receiver type. Currently, only self is supported.
    * 
    * @example
    * string_value
@@ -502,7 +502,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
 export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression. This parameter is required when trigger_mode is set to scheduled. Example: 00 09 * * *.
+   * The cron expression. This parameter is required when trigger_mode is set to scheduled. Example: \"00 09 * * *\".
    * 
    * @example
    * string_value
@@ -518,7 +518,7 @@ export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The list of task push channels. If the list is empty or no channel is enabled, no push notification is sent.
+   * The list of task push channels. If this list is empty or no channel is enabled, no push notification is sent.
    */
   pushConfig?: UpdateScheduledTaskRequestTriggerConfigPushConfig[];
   /**
@@ -574,6 +574,22 @@ export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
 export class UpdateScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the task is executed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The AUTO preference. Valid values: none (default), performance (performance first), and credit (cost first). If omitted or set to null, the current value is retained. If set to an empty string, the value is reset to none. For fixed models, this parameter can be saved but does not take effect.
+   * 
+   * @example
+   * credit
+   */
+  autoPreference?: string;
+  /**
+   * @remarks
    * The description.
    */
   description?: UpdateScheduledTaskRequestDescription[];
@@ -595,7 +611,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   isOpen?: boolean;
   /**
    * @remarks
-   * The execution model tier. If this parameter is not specified, the model tier is not updated.
+   * The execution model tier. If not specified, the model tier is not updated.
    * 
    * @example
    * quick
@@ -611,7 +627,23 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output conversation mode. If this parameter is omitted, the current configuration is retained.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The output conversation mode. If not specified, the current configuration is retained.
    * 
    * @example
    * SAME_CONVERSATION
@@ -639,7 +671,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -652,7 +684,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   triggerConfig?: UpdateScheduledTaskRequestTriggerConfig;
   /**
    * @remarks
-   * The visibility scope adjustment for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If this parameter is not specified, the visibility scope is not updated. This field is ignored for personal tasks.
+   * The visibility scope for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If not specified, the visibility scope is not updated. This parameter is ignored for personal tasks.
    * 
    * @example
    * COLLABORATIVE
@@ -660,7 +692,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The full replacement list of collaborators. This parameter takes effect only when visibility is set to COLLABORATIVE. When the visibility is changed from COLLABORATIVE to another value, the list is cleared. A maximum of 1,000 members are supported. If this parameter is not specified, the members are not updated. You do not need to specify the task creator and group creator because they are covered by the authentication layer. This field is ignored for personal tasks.
+   * The full replacement list of collaborators. This parameter takes effect only when visibility is set to COLLABORATIVE. A maximum of 1,000 members can be specified. If the visibility is changed from COLLABORATIVE to another value, the list is cleared. If not specified, the members are not updated. The task creator and group creator do not need to be specified because they are covered by the authentication layer. This parameter is ignored for personal tasks.
    * 
    * @example
    * ["10001"]
@@ -668,11 +700,15 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   visibleMemberUserIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
+      autoPreference: 'autoPreference',
       description: 'description',
       digitalEmployeeName: 'digitalEmployeeName',
       isOpen: 'isOpen',
       model: 'model',
       name: 'name',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       outputMode: 'outputMode',
       segments: 'segments',
       taskDetail: 'taskDetail',
@@ -686,11 +722,15 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
+      autoPreference: 'string',
       description: { 'type': 'array', 'itemType': UpdateScheduledTaskRequestDescription },
       digitalEmployeeName: { 'type': 'array', 'itemType': 'string' },
       isOpen: 'boolean',
       model: 'string',
       name: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       outputMode: 'string',
       segments: { 'type': 'array', 'itemType': UpdateScheduledTaskRequestSegments },
       taskDetail: UpdateScheduledTaskRequestTaskDetail,

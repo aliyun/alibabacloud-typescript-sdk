@@ -13,7 +13,7 @@ export class CreateGroupPublicUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The ID of the folder.
    * 
    * @example
    * exampleDirectoryId
@@ -29,7 +29,7 @@ export class CreateGroupPublicUrlResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The project group ID.
+   * The ID of the project group.
    * 
    * @example
    * group_delivery
@@ -45,7 +45,7 @@ export class CreateGroupPublicUrlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The knowledge base name.
+   * The name of the knowledge base.
    * 
    * @example
    * p-toolset-80a4520e-b35c-4e8b-acf7-3a01c7307522
@@ -61,7 +61,7 @@ export class CreateGroupPublicUrlResponseBody extends $dara.Model {
   originalUrl?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -69,7 +69,7 @@ export class CreateGroupPublicUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The permission scope.
+   * The scope of permissions.
    * 
    * @example
    * PERSONAL
@@ -77,7 +77,7 @@ export class CreateGroupPublicUrlResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The source ID.
+   * The ID of the source.
    * 
    * @example
    * exampleSourceId
@@ -85,12 +85,12 @@ export class CreateGroupPublicUrlResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The refund status. If a refund is in progress, query to confirm the refund status. Valid values:
-   * - SUCCESS: All succeeded.
+   * The refund status. If a refund is in progress, you must query and confirm the refund status. Valid values:
+   * - SUCCESS: All operations succeeded.
    * - FAIL: Failed.
    * - WAIT_PAY: Waiting for refund.
    * - EXPIRE: Expired.
-   * - PAYING: Refund in progress.
+   * - PAYING: Refunding.
    * - TERMINATE: Refund terminated.
    * 
    * @example

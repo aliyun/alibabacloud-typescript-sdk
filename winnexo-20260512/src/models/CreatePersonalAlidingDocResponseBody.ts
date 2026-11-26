@@ -85,7 +85,7 @@ export class CreatePersonalAlidingDocResponseBody extends $dara.Model {
    * - **TIMEOUT**: Timed out.
    * 
    * @example
-   * {\\"servicesInstances\\": {}, \\"servicesWithPendingChanges\\": []}
+   * {\"servicesInstances\": {}, \"servicesWithPendingChanges\": []}
    */
   status?: string;
   static names(): { [key: string]: string } {

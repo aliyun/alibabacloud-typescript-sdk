@@ -21,7 +21,7 @@ export class CreateWorkItemResponseBodyAttachments extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The access URL of the attachment, prefixed with an OpenAPI 302 redirect.
+   * The access URL of the attachment (OpenAPI 302 front end).
    * 
    * @example
    * example
@@ -45,7 +45,7 @@ export class CreateWorkItemResponseBodyAttachments extends $dara.Model {
   resourceKind?: string;
   /**
    * @remarks
-   * The size of the attachment in bytes.
+   * The attachment size in bytes.
    * 
    * @example
    * 1
@@ -114,12 +114,12 @@ export class CreateWorkItemResponseBody extends $dara.Model {
    * The list of input attachments.
    * 
    * @example
-   * example
+   * [{"resourceKind":"FILE","resourceId":"file_9401","refUrl":"https://files.winnexo.aliyun.com/report.md","title":"Sales Report","contentType":"text/markdown","sizeBytes":2048}]
    */
   attachments?: CreateWorkItemResponseBodyAttachments[];
   /**
    * @remarks
-   * The business status.
+   * The business status in the seven-state model.
    * 
    * @example
    * PROCESSING
@@ -143,7 +143,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   canManage?: boolean;
   /**
    * @remarks
-   * Indicates whether the visibility scope can be adjusted independently.
+   * Indicates whether the caller can independently adjust the visibility scope.
    * 
    * @example
    * false
@@ -167,7 +167,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The collaboration workspace ID.
+   * The collaboration space ID.
    * 
    * @example
    * example
@@ -178,7 +178,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
    * The list of user IDs of the collaborators.
    * 
    * @example
-   * example
+   * [10001,10002]
    */
   collaboratorUserIds?: number[];
   /**
@@ -191,7 +191,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time, in ISO 8601 format.
+   * The time when the item was created (ISO 8601).
    * 
    * @example
    * example
@@ -279,7 +279,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * The time when the item last entered the processing state, in ISO 8601 format.
+   * The time when the item last entered the processing state (ISO 8601).
    * 
    * @example
    * example
@@ -295,10 +295,10 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   legacyTopic?: boolean;
   /**
    * @remarks
-   * The list of user IDs for visible members.
+   * The list of user IDs of members who can view the item.
    * 
    * @example
-   * example
+   * [10001,10002]
    */
   memberUserIds?: number[];
   /**
@@ -311,7 +311,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The modification time, in ISO 8601 format.
+   * The time when the item was last modified (ISO 8601).
    * 
    * @example
    * example
@@ -327,7 +327,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * Indicates whether the item is pinned by the caller.
+   * Indicates whether the item is pinned to the top by the caller.
    * 
    * @example
    * false
@@ -359,7 +359,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   progressTotal?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -367,7 +367,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution ID of the task.
+   * The task execution ID.
    * 
    * @example
    * example
@@ -375,7 +375,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   sourceExecutionId?: string;
   /**
    * @remarks
-   * The source ID of the task.
+   * The task source ID.
    * 
    * @example
    * example
@@ -383,7 +383,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   sourceTaskId?: string;
   /**
    * @remarks
-   * The source name of the task.
+   * The task source name.
    * 
    * @example
    * example
@@ -391,7 +391,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   sourceTaskName?: string;
   /**
    * @remarks
-   * The trigger key of the task.
+   * The task trigger key.
    * 
    * @example
    * example
@@ -399,7 +399,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   sourceTriggerKey?: string;
   /**
    * @remarks
-   * The source type of the task.
+   * The task source type.
    * 
    * @example
    * example
@@ -415,7 +415,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The time zone when the task is triggered.
+   * The task trigger time zone.
    * 
    * @example
    * example
@@ -423,7 +423,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   triggerTimezone?: string;
   /**
    * @remarks
-   * The trigger time of the task, in ISO 8601 format.
+   * The time when the task was triggered (ISO 8601).
    * 
    * @example
    * example
@@ -431,7 +431,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   triggeredAt?: string;
   /**
    * @remarks
-   * The optimistic version number.
+   * The optimistic locking version number.
    * 
    * @example
    * 1
@@ -463,7 +463,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
   workItemId?: string;
   /**
    * @remarks
-   * The four-state workflow status projection.
+   * The workflow status projection in the four-state model.
    * 
    * @example
    * example
@@ -474,7 +474,7 @@ export class CreateWorkItemResponseBody extends $dara.Model {
    * The list of IDs of the bound workflow templates.
    * 
    * @example
-   * example
+   * ["tpl_9401","tpl_9402"]
    */
   workflowTemplateIds?: string[];
   static names(): { [key: string]: string } {

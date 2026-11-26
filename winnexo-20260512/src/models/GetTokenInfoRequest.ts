@@ -13,7 +13,7 @@ export class GetTokenInfoRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the target user (WINNEXO platform user ID). If left empty, the operation is performed on the caller. Administrators can specify another user\\"s ID to perform the operation on their behalf.
+   * The ID of the target user (WINNEXO platform user ID). If left empty, the operation is performed on the caller. Administrators can specify another user\"s ID to perform the operation on their behalf.
    * 
    * @example
    * 1

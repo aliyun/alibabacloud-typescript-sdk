@@ -598,6 +598,22 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
 export class CreateScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * AUTO 偏好：none=默认、performance=效果优先、credit=成本优先；创建缺省为 none，固定模型可保存但不生效
+   * 
+   * @example
+   * performance
+   */
+  autoPreference?: string;
+  /**
+   * @remarks
    * The ID of the associated collaboration group (such as cg_101). If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
    * 
    * @example
@@ -643,6 +659,22 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * Sample name.pdf
    */
   name?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The output conversation mode. Default value: NEW_CONVERSATION.
@@ -692,12 +724,16 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   visibleMemberUserIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
+      autoPreference: 'autoPreference',
       collaborationGroupId: 'collaborationGroupId',
       description: 'description',
       digitalEmployeeName: 'digitalEmployeeName',
       isOpen: 'isOpen',
       model: 'model',
       name: 'name',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       outputMode: 'outputMode',
       segments: 'segments',
       taskDetail: 'taskDetail',
@@ -710,12 +746,16 @@ export class CreateScheduledTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
+      autoPreference: 'string',
       collaborationGroupId: 'string',
       description: { 'type': 'array', 'itemType': CreateScheduledTaskRequestDescription },
       digitalEmployeeName: { 'type': 'array', 'itemType': 'string' },
       isOpen: 'boolean',
       model: 'string',
       name: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       outputMode: 'string',
       segments: { 'type': 'array', 'itemType': CreateScheduledTaskRequestSegments },
       taskDetail: CreateScheduledTaskRequestTaskDetail,

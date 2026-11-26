@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCollaborationGroupMembersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The display name. This field is empty if the display name is not set.
+   * The display name. This field is empty if not set.
    * 
    * @example
    * TEST001
@@ -13,7 +13,7 @@ export class ListCollaborationGroupMembersResponseBodyItems extends $dara.Model 
   displayName?: string;
   /**
    * @remarks
-   * The enabling status of the tenant account. Only active members are returned, so this value is always true. This field does not indicate the HR employment status.
+   * The enabling status of the tenant account. Only active members are returned, so this value is always true. It does not represent the employment status.
    * 
    * @example
    * true
@@ -84,7 +84,7 @@ export class ListCollaborationGroupMembersResponseBody extends $dara.Model {
    * The common error description.
    * 
    * @example
-   * You do not have permissions to access tenant 2147483647 because the user does not belong to the tenant
+   * No permission to access tenant 2147483647. The user does not belong to this tenant
    */
   message?: string;
   /**
@@ -105,7 +105,7 @@ export class ListCollaborationGroupMembersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * c9cf6cb3-3f5c-4994-a8a1-c93379a6f5cf

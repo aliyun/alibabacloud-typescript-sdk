@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdminKnowledgeBasesRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If this parameter is passed, the operation is performed as the user specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The directory ID.
    * 
    * @example
@@ -13,15 +21,31 @@ export class ListAdminKnowledgeBasesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The keyword for fuzzy search on form component data.
+   * The keyword for fuzzy search of component data in the form.
    * 
    * @example
-   * SampleKeyword
+   * Sample keyword
    */
   keyword?: string;
   /**
    * @remarks
-   * The page number. Default value: 1. Pages start from page 1.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -37,11 +61,11 @@ export class ListAdminKnowledgeBasesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which the results are sorted. Valid values:
+   * The field by which to sort the returned results. Valid values:
    * 
-   * - event_time: the event creation time.
-   * - event_execute_start_time: the event execution time.
-   * - event_execute_finish_time: the event completion time.
+   * - event_time: the event creation time
+   * - event_execute_start_time: the event execution start time
+   * - event_execute_finish_time: the event execution finish time
    * 
    * @example
    * name
@@ -49,7 +73,7 @@ export class ListAdminKnowledgeBasesRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
+   * The sort order. This parameter takes effect only when the sort field is specified. Valid values: ASC and DESC. The values are case-insensitive.
    * 
    * @example
    * asc
@@ -57,15 +81,15 @@ export class ListAdminKnowledgeBasesRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * The list of source types.
+   * The list of service source types.
    * 
    * @example
-   * string_value
+   * ["K8S,SAE_K8S_SERVICE,FC3,VIP,DNS,AI,AGENT,CloudFlow,MSE_NACOS"]
    */
   sourceTypes?: string[];
   /**
    * @remarks
-   * The tenant ID to which the task belongs.
+   * The ID of the tenant to which the task belongs.
    * 
    * @example
    * 10000
@@ -73,8 +97,11 @@ export class ListAdminKnowledgeBasesRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       directoryId: 'directoryId',
       keyword: 'keyword',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       sortField: 'sortField',
@@ -86,8 +113,11 @@ export class ListAdminKnowledgeBasesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       directoryId: 'string',
       keyword: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       sortField: 'string',

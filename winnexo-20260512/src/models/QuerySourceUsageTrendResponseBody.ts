@@ -8,7 +8,7 @@ export class QuerySourceUsageTrendResponseBodyTrend extends $dara.Model {
    * The start time of the natural bucket with the selected time zone. The first bucket may start earlier than the startTime.
    * 
    * @example
-   * The start time of the natural bucket with the selected time zone. The first bucket may start earlier than the startTime
+   * Start time of the natural bucket with the selected time zone. The first bucket may start earlier than the startTime
    */
   bucketStart?: string;
   /**
@@ -37,7 +37,7 @@ export class QuerySourceUsageTrendResponseBodyTrend extends $dara.Model {
   sourceCount?: number;
   /**
    * @remarks
-   * The number of times used in agents.
+   * The number of times used by the agent.
    * 
    * @example
    * 2
@@ -101,7 +101,7 @@ export class QuerySourceUsageTrendResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

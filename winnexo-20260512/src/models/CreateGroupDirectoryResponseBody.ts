@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * SUCCESS indicates success. In failure cases, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
+   * SUCCESS indicates success. For failures, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
    * 
    * @example
    * 200
@@ -16,12 +16,12 @@ export class CreateGroupDirectoryResponseBody extends $dara.Model {
    * The description of the AI assistant.
    * 
    * @example
-   * ProjectDescription
+   * Project Description
    */
   description?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * dir_example
@@ -29,7 +29,7 @@ export class CreateGroupDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The folder type.
+   * The directory type.
    * 
    * @example
    * GROUP
@@ -45,7 +45,7 @@ export class CreateGroupDirectoryResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The root folder ID of the knowledge base.
+   * The knowledge base root directory ID.
    * 
    * @example
    * dir_root
@@ -53,7 +53,7 @@ export class CreateGroupDirectoryResponseBody extends $dara.Model {
   kbRootDirectoryId?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * The current zone list is illegal.
@@ -64,12 +64,12 @@ export class CreateGroupDirectoryResponseBody extends $dara.Model {
    * The name of the worksheet.
    * 
    * @example
-   * ProjectFiles
+   * Project Materials
    */
   name?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * dir_parent

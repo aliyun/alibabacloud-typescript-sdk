@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySourceUsageTrendShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group to which the resource belongs, such as cg_101. If this parameter is specified, a group workspace task is created, and the caller must be a valid group member. If this parameter is left empty, a personal task is created.
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The ID of the associated collaboration group, such as cg_101. If you specify this parameter, a group workspace task is created, and the caller must be a valid group member. If you leave this parameter empty, a personal task is created.
    * 
    * @example
    * example
@@ -26,15 +34,15 @@ export class QuerySourceUsageTrendShrinkRequest extends $dara.Model {
    * The event type.
    * 
    * @example
-   * MAIN
+   * ALL
    */
   eventType?: string;
   /**
    * @remarks
-   * The aggregation granularity. Valid values: hourly and daily.
+   * The trend aggregation granularity. Valid values: DAY (daily), WEEK (weekly), and MONTH (monthly).
    * 
    * @example
-   * daily
+   * DAY
    */
   granularity?: string;
   /**
@@ -47,6 +55,22 @@ export class QuerySourceUsageTrendShrinkRequest extends $dara.Model {
   knowledgeBaseIdsShrink?: string;
   /**
    * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
    * The role scope type. Valid values:
    * - **ALL_VISIBLE**: All members.
    * - **PART_VISIBLE**: Partial members.
@@ -54,7 +78,7 @@ export class QuerySourceUsageTrendShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Report perspective: TENANT for enterprise knowledge, GROUP for a single workspace, ALL_GROUPS for all workspaces of the current tenant (platform super administrator only). Valid values: TENANT, GROUP, and ALL_GROUPS
+   * TENANT
    */
   scopeType?: string;
   /**
@@ -70,7 +94,7 @@ export class QuerySourceUsageTrendShrinkRequest extends $dara.Model {
    * The resume channel source.
    * 
    * @example
-   * The naming content of the source
+   * Naming content of the source
    */
   sourceName?: string;
   /**
@@ -101,11 +125,14 @@ export class QuerySourceUsageTrendShrinkRequest extends $dara.Model {
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       collaborationGroupId: 'collaborationGroupId',
       endTime: 'endTime',
       eventType: 'eventType',
       granularity: 'granularity',
       knowledgeBaseIdsShrink: 'knowledgeBaseIds',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       scopeType: 'scopeType',
       sourceIdsShrink: 'sourceIds',
       sourceName: 'sourceName',
@@ -117,11 +144,14 @@ export class QuerySourceUsageTrendShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       collaborationGroupId: 'string',
       endTime: 'string',
       eventType: 'string',
       granularity: 'string',
       knowledgeBaseIdsShrink: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       scopeType: 'string',
       sourceIdsShrink: 'string',
       sourceName: 'string',

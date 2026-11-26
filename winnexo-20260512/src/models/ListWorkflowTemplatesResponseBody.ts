@@ -21,7 +21,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   effectiveVersion?: string;
   /**
    * @remarks
-   * The last modification time in ISO 8601 format.
+   * The time of the last modification in ISO 8601 format.
    * 
    * @example
    * 2026-11-05T08:00:00Z
@@ -37,7 +37,9 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * The status of the latest version. Valid values: DRAFT (draft, indicating unsubmitted edits exist) and SUBMITTED (submitted).
+   * The status of the latest version. Valid values:
+   * - DRAFT: The draft has uncommitted edits.
+   * - SUBMITTED: The version is submitted.
    * 
    * @example
    * DRAFT
@@ -48,7 +50,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
    * The name of the template.
    * 
    * @example
-   * Customer complaint handling process
+   * Customer Complaint Handling Process
    */
   name?: string;
   /**
@@ -133,7 +135,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether more data exists.
+   * Indicates whether more data is available.
    * 
    * @example
    * false
@@ -144,12 +146,12 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
    * The list of template summaries on the current page.
    * 
    * @example
-   * [{"description":"Standard process for handling customer complaints","effectiveVersion":"v1","gmtModified":"2026-11-05T08:00:00Z","latestVersion":"v2","latestVersionStatus":"DRAFT","name":"Customer complaint handling process","ownerCount":1,"reviewStepCount":1,"stepCount":1,"templateId":"tpl_9401"}]
+   * [{"description":"Standard process for handling customer complaints","effectiveVersion":"v1","gmtModified":"2026-11-05T08:00:00Z","latestVersion":"v2","latestVersionStatus":"DRAFT","name":"Customer Complaint Handling Process","ownerCount":1,"reviewStepCount":1,"stepCount":1,"templateId":"tpl_9401"}]
    */
   items?: ListWorkflowTemplatesResponseBodyItems[];
   /**
    * @remarks
-   * The effective maximum number of entries to return per page in the current request.
+   * The effective maximum number of entries to return per page for the current request.
    * 
    * @example
    * 1
@@ -165,7 +167,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. An empty string is returned if no more data exists.
+   * The pagination token for the next page. An empty string is returned if no more data is available.
    * 
    * @example
    * tok_9401
@@ -189,7 +191,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -197,7 +199,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the filter conditions.
+   * The total number of visible items under the filter conditions.
    * 
    * @example
    * 1

@@ -75,7 +75,7 @@ export class CreatePersonalAliDingMeetingResponseBody extends $dara.Model {
    * - STOP: Terminated.
    * 
    * @example
-   * {\\"observedGeneration\\": 2, \\"servicesInstances\\": {}, \\"observedTime\\": \\"2026-03-05T16:00:09Z\\", \\"servicesWithPendingChanges\\": [], \\"latestEnvironmentDeploymentName\\": \\"manual-1772726409137-lmvsqr\\"}
+   * {\"observedGeneration\": 2, \"servicesInstances\": {}, \"observedTime\": \"2026-03-05T16:00:09Z\", \"servicesWithPendingChanges\": [], \"latestEnvironmentDeploymentName\": \"manual-1772726409137-lmvsqr\"}
    */
   status?: string;
   static names(): { [key: string]: string } {

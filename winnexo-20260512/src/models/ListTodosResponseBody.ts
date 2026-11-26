@@ -13,7 +13,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   assigneeCount?: number;
   /**
    * @remarks
-   * The completion time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
+   * The completion time in UTC+8. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -32,12 +32,12 @@ export class ListTodosResponseBodyItems extends $dara.Model {
    * The name of the user who completed the item. This field is empty if the item is not completed.
    * 
    * @example
-   * John Doe
+   * Zhang San
    */
   completedByUserName?: string;
   /**
    * @remarks
-   * The creation time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
+   * The creation time in UTC+8. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -45,7 +45,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
+   * The last modification time in UTC+8. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -53,7 +53,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the caller has read the item.
+   * Specifies whether the caller has read the item.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   isRead?: boolean;
   /**
    * @remarks
-   * The message ID of the assistant that sent the to-do item. This field is empty if there is no conversation source.
+   * The ID of the assistant message that generated the to-do item. This field is empty if there is no conversation source.
    * 
    * @example
    * msg-1
@@ -80,7 +80,7 @@ export class ListTodosResponseBodyItems extends $dara.Model {
    * The list display status for the caller.
    * 
    * @example
-   * TODO
+   * DONE
    */
   myDisplayState?: string;
   /**
@@ -106,10 +106,10 @@ export class ListTodosResponseBodyItems extends $dara.Model {
   questionSummaries?: string[];
   /**
    * @remarks
-   * The source context. This context is passed through as-is during creation.
+   * The source context. This is passed through as-is during creation.
    * 
    * @example
-   * source=openapi
+   * {"source":"openapi"}
    */
   sourceContext?: { [key: string]: any };
   /**
@@ -216,7 +216,7 @@ export class ListTodosResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether more data is available.
+   * Specifies whether more data is available.
    * 
    * @example
    * false
@@ -229,7 +229,7 @@ export class ListTodosResponseBody extends $dara.Model {
   items?: ListTodosResponseBodyItems[];
   /**
    * @remarks
-   * The effective maximum number of entries to return per page for the current request.
+   * The effective maximum number of entries returned per page for this request.
    * 
    * @example
    * 20
@@ -245,7 +245,7 @@ export class ListTodosResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This field is an empty string if no more data is available.
+   * The pagination token for the next page. This is an empty string if no more data is available.
    * 
    * @example
    * example

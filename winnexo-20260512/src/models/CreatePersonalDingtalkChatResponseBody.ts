@@ -21,7 +21,7 @@ export class CreatePersonalDingtalkChatResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The directory ID.
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -48,7 +48,7 @@ export class CreatePersonalDingtalkChatResponseBody extends $dara.Model {
    * The name of the AI assistant.
    * 
    * @example
-   * CustomerProjectGroup
+   * Customer Project Group
    */
   name?: string;
   /**
@@ -69,7 +69,7 @@ export class CreatePersonalDingtalkChatResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The source ID.
+   * The source project ID.
    * 
    * @example
    * exampleSourceId
@@ -77,7 +77,7 @@ export class CreatePersonalDingtalkChatResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The task running status.
+   * The running status of the task.
    * 
    * @example
    * PENDING

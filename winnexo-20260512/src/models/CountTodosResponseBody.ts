@@ -21,7 +21,7 @@ export class CountTodosResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of pending items with the primary status of PENDING.
+   * The number of pending items with the PENDING primary status.
    * 
    * @example
    * 3

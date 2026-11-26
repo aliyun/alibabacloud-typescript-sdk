@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupPublicUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The platform application token issued by the console. If specified, the operation is performed as the user identified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The description of the AI assistant.
    * 
    * @example
@@ -13,7 +21,7 @@ export class CreateGroupPublicUrlRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The ID of the folder.
    * 
    * @example
    * dir_tenant_kb_child
@@ -21,7 +29,7 @@ export class CreateGroupPublicUrlRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The project group ID.
+   * The ID of the project group.
    * 
    * This parameter is required.
    * 
@@ -31,28 +39,44 @@ export class CreateGroupPublicUrlRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name.
+   * The name of the resource.
    * 
    * @example
-   * Enterprise Policy
+   * Corporate Policy
    */
   name?: string;
   /**
    * @remarks
-   * The meeting notes content. This parameter is optional. The notes participate in auxiliary analysis.
+   * The content of the meeting notes. This parameter is optional and is used for auxiliary analysis.
    * 
    * @example
-   * Extract applicable scope and key clauses
+   * Extract the applicable scope and key terms
    */
   notes?: string;
   /**
    * @remarks
-   * The name of the digital employee (monitored object name). This parameter is optional.
+   * The name of the digital employee. This parameter is optional.
    * 
    * @example
    * customer_assistant
    */
   operatingObjectName?: string;
+  /**
+   * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The URL of the web page.
@@ -65,15 +89,15 @@ export class CreateGroupPublicUrlRequest extends $dara.Model {
   originalUrl?: string;
   /**
    * @remarks
-   * The resource labels. This parameter is optional. Specify a JSON string list, such as ["tagA","tagB"].
+   * The resource tags. This parameter is optional. Specify a JSON array of strings, such as ["tagA","tagB"].
    * 
    * @example
-   * ["Important","Meeting"]
+   * ["Important", "Meeting"]
    */
   sourceTags?: string;
   /**
    * @remarks
-   * The tenant ID that takes effect.
+   * The ID of the tenant where the operation takes effect.
    * 
    * @example
    * 10000
@@ -81,12 +105,15 @@ export class CreateGroupPublicUrlRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       description: 'description',
       directoryId: 'directoryId',
       groupId: 'groupId',
       name: 'name',
       notes: 'notes',
       operatingObjectName: 'operatingObjectName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       originalUrl: 'originalUrl',
       sourceTags: 'sourceTags',
       tenantId: 'tenantId',
@@ -95,12 +122,15 @@ export class CreateGroupPublicUrlRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       description: 'string',
       directoryId: 'string',
       groupId: 'string',
       name: 'string',
       notes: 'string',
       operatingObjectName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       originalUrl: 'string',
       sourceTags: 'string',
       tenantId: 'string',

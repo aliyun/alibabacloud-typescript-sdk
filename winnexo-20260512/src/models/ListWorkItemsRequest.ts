@@ -5,15 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The business statuses used for filtering.
+   * The platform application token issued by the console. If specified, the operation is executed as the user specified by opsUserId or opsUserCode.
    * 
    * @example
-   * example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The business status filter, which supports seven states.
+   * 
+   * @example
+   * ["PROCESSING"]
    */
   businessStatuses?: string[];
   /**
    * @remarks
-   * The ID of the collaboration workspace.
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -23,10 +31,10 @@ export class ListWorkItemsRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The work item types used for filtering.
+   * The work item type filter.
    * 
    * @example
-   * example
+   * ["WORKFLOW"]
    */
   itemTypes?: string[];
   /**
@@ -47,12 +55,28 @@ export class ListWorkItemsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Obtain the token from the nextToken parameter in the previous response. This parameter takes precedence over page if both are specified.
+   * The pagination token, which is obtained from the nextToken value returned in the previous response. This parameter takes precedence over page if both are specified.
    * 
    * @example
    * example
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The page number. This parameter is ignored if nextToken is specified.
@@ -71,15 +95,15 @@ export class ListWorkItemsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The priorities used for filtering.
+   * The priority filter.
    * 
    * @example
-   * example
+   * ["HIGH"]
    */
   priorities?: string[];
   /**
    * @remarks
-   * The personal scope used for filtering.
+   * The personal scope filter.
    * 
    * @example
    * ASSIGNED_TO_ME
@@ -95,12 +119,15 @@ export class ListWorkItemsRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       businessStatuses: 'businessStatuses',
       collaborationGroupId: 'collaborationGroupId',
       itemTypes: 'itemTypes',
       keyword: 'keyword',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       priorities: 'priorities',
@@ -111,12 +138,15 @@ export class ListWorkItemsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       businessStatuses: { 'type': 'array', 'itemType': 'string' },
       collaborationGroupId: 'string',
       itemTypes: { 'type': 'array', 'itemType': 'string' },
       keyword: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       priorities: { 'type': 'array', 'itemType': 'string' },

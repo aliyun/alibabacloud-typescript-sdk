@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   /**
    * @remarks
-   * The action time in UTC+8. This field is empty if the item is not processed.
+   * The time when the item was processed (UTC+8). This field is empty if the item is unprocessed.
    * 
    * @example
    * 2026-10-16T10:30:00+08:00
@@ -29,7 +29,7 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
   assigneeUserId?: string;
   /**
    * @remarks
-   * The read time in UTC+8. This field is empty if the item is unread.
+   * The time when the item was read (UTC+8). This field is empty if the item is unread.
    * 
    * @example
    * 2026-10-12 10:01:00
@@ -85,15 +85,15 @@ export class GetTodoDetailResponseBodyAssignees extends $dara.Model {
 export class GetTodoDetailResponseBodyQuestionsOptions extends $dara.Model {
   /**
    * @remarks
-   * The supplementary description of the option.
+   * The additional description for the option.
    * 
    * @example
-   * Supplementary description of the option
+   * Additional description for the option
    */
   description?: string;
   /**
    * @remarks
-   * The option text (reference key).
+   * The option text, which serves as a reference key.
    * 
    * @example
    * Approve
@@ -143,7 +143,7 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   allowCustom?: boolean;
   /**
    * @remarks
-   * The text for the custom input field.
+   * The text for the custom input item.
    * 
    * @example
    * Other
@@ -183,7 +183,7 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The options. This field is required for choice questions.
+   * The options, which are required for choice questions.
    */
   options?: GetTodoDetailResponseBodyQuestionsOptions[];
   /**
@@ -196,7 +196,7 @@ export class GetTodoDetailResponseBodyQuestions extends $dara.Model {
   placeholder?: string;
   /**
    * @remarks
-   * The question text (reference key).
+   * The question text, which serves as a reference key.
    * 
    * @example
    * Whether to approve
@@ -268,10 +268,10 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   assignees?: GetTodoDetailResponseBodyAssignees[];
   /**
    * @remarks
-   * The attachment policy. Attachments are not stored in the database in the current version.
+   * The attachment policy. In the current version, attachments are not stored in the database.
    * 
    * @example
-   * allowUpload=true
+   * {"allowAttachments":"true","maxFilesPerQuestion":"20","maxFilesTotal":"50","maxFileSizeBytes":"52428800","acceptTypes":[]}
    */
   attachmentPolicy?: { [key: string]: any };
   /**
@@ -284,7 +284,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The completion time in UTC+8 (YYYY-MM-DD HH:mm:ss).
+   * The completion time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -308,7 +308,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   completedByUserName?: string;
   /**
    * @remarks
-   * The creation time in UTC+8 (YYYY-MM-DD HH:mm:ss).
+   * The creation time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -316,7 +316,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time in UTC+8 (YYYY-MM-DD HH:mm:ss).
+   * The last modification time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
    * 
    * @example
    * 2026-10-12 10:00:00
@@ -348,7 +348,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The action status of the caller as the assignee.
+   * The action status of the caller as an assignee.
    * 
    * @example
    * PENDING
@@ -359,15 +359,15 @@ export class GetTodoDetailResponseBody extends $dara.Model {
    * The list display status for the caller.
    * 
    * @example
-   * TODO
+   * DONE
    */
   myDisplayState?: string;
   /**
    * @remarks
-   * The permissions of the caller, such as canSubmit and canTransfer.
+   * The permissions of the caller. Valid values: canSubmit and canTransfer.
    * 
    * @example
-   * APP/VIEW=true
+   * {"canSubmit":"true","canTransfer":"false"}
    */
   myPermissions?: { [key: string]: any };
   /**
@@ -380,7 +380,7 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The list of questions (structured projection).
+   * The structured list of questions.
    */
   questions?: GetTodoDetailResponseBodyQuestions[];
   /**
@@ -393,18 +393,18 @@ export class GetTodoDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response content in JSONB format as-is. Defaults to an empty object if not submitted.
+   * The response content in JSONB format, passed through as-is. Defaults to an empty object if not submitted.
    * 
    * @example
-   * result=Approved
+   * {"answers":[{"question":"Whether to approve","answer":["Approve"]}]}
    */
   resultPayload?: { [key: string]: any };
   /**
    * @remarks
-   * The source context. This context is passed through as-is during creation.
+   * The source context, which is passed through as-is during creation.
    * 
    * @example
-   * source=openapi
+   * {"source":"openapi"}
    */
   sourceContext?: { [key: string]: any };
   /**

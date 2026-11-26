@@ -184,7 +184,7 @@ export class DeleteWorkflowTemplateVersionResponseBody extends $dara.Model {
    * All remaining versions after deletion, sorted in descending order by version number.
    * 
    * @example
-   * example
+   * [{"createdByUserId":1,"description":"Automatically generate weekly reports","gmtCreate":"2026-10-19T10:00:00+08:00","gmtModified":"2026-10-19T10:00:00+08:00","gmtSubmitted":"2026-10-19T10:00:00+08:00","isEffective":false,"name":"example","sourceVersion":"v1","status":"DRAFT","stepCount":3,"submittedByUserId":1,"updatedByUserId":1,"version":"v2","versionDescription":"Add a review step"}]
    */
   items?: DeleteWorkflowTemplateVersionResponseBodyItems[];
   /**

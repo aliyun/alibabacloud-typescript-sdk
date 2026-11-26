@@ -29,7 +29,7 @@ export class CreateConversationResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * The current zone list is illegal.
@@ -37,7 +37,7 @@ export class CreateConversationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A reserved field for extension purposes.
+   * The reserved field for extension purposes.
    * 
    * @example
    * {"source":"openapi"}
@@ -53,7 +53,7 @@ export class CreateConversationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The appointment title.
+   * The title of the scheduled meeting.
    * 
    * @example
    * Incident RCA: alert-0885feb7-3d4b-4da5-90f0-0119dfbbf555:up0shc25tp0kueo0afeobvhk81

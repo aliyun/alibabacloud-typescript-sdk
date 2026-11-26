@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListAliDingMinutesRequest extends $dara.Model {
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The cursor for the paged query. Set this parameter to 0 for the first request. For subsequent requests, set this parameter to the **nextCursor** value returned in the previous response. For more information about paging, see the response parameters.
    * 
    * @example
@@ -21,6 +29,22 @@ export class ListAliDingMinutesRequest extends $dara.Model {
    * 2026-09-08T23:59:59+08:00
    */
   endTime?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The number of entries per page.
@@ -49,8 +73,11 @@ export class ListAliDingMinutesRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       cursor: 'cursor',
       endTime: 'endTime',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       pageSize: 'pageSize',
       startTime: 'startTime',
       tenantId: 'tenantId',
@@ -59,8 +86,11 @@ export class ListAliDingMinutesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       cursor: 'string',
       endTime: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       pageSize: 'number',
       startTime: 'string',
       tenantId: 'string',

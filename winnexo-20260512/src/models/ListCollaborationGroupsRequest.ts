@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListCollaborationGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword. This parameter is optional and can contain up to 256 characters.
+   * The platform application token issued by the console. If specified, the operation is executed with the user identity specified by opsUserId or opsUserCode.
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The search keyword. This parameter is optional and can be up to 256 characters in length.
    * 
    * @example
    * Workflow
@@ -13,7 +21,23 @@ export class ListCollaborationGroupsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The proxy user code, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The proxy user ID, which is the WINNEXO platform user ID. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
+  /**
+   * @remarks
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -29,7 +53,7 @@ export class ListCollaborationGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tenant ID. If you do not specify this parameter, the default tenant of the caller is used.
+   * The tenant ID. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10001
@@ -37,7 +61,10 @@ export class ListCollaborationGroupsRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       keyword: 'keyword',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       page: 'page',
       pageSize: 'pageSize',
       tenantId: 'tenantId',
@@ -46,7 +73,10 @@ export class ListCollaborationGroupsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       keyword: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       page: 'number',
       pageSize: 'number',
       tenantId: 'string',

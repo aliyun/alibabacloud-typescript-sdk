@@ -5,15 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGraphInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The business description of the knowledge graph. If not configured, the value is an empty string.
+   * The application token issued by the console. If you specify this parameter, the operation is performed as the user specified by opsUserId or opsUserCode.
    * 
    * @example
-   * Customer domain knowledge graph
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
+   * The business description of the graph. If this parameter is not specified, the value is an empty string.
+   * 
+   * @example
+   * Customer domain semantic graph
    */
   businessProfile?: string;
   /**
    * @remarks
-   * The display name of the knowledge graph.
+   * The display name.
    * 
    * @example
    * CRM Graph
@@ -21,7 +29,7 @@ export class UpdateGraphInfoRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The name of the knowledge graph.
+   * The name of the graph.
    * 
    * This parameter is required.
    * 
@@ -29,6 +37,22 @@ export class UpdateGraphInfoRequest extends $dara.Model {
    * crm_graph
    */
   graphName?: string;
+  /**
+   * @remarks
+   * The code of the proxy user, which is unique within the tenant. This parameter is used only when the application credential is configured as source_uid.
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * The ID of the proxy user, which is the user ID on the WINNEXO platform. This parameter is used only when the application credential is configured as winnexo_uid.
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The tenant ID.
@@ -39,18 +63,24 @@ export class UpdateGraphInfoRequest extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      appToken: 'appToken',
       businessProfile: 'businessProfile',
       displayName: 'displayName',
       graphName: 'graphName',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       tenantId: 'tenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appToken: 'string',
       businessProfile: 'string',
       displayName: 'string',
       graphName: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       tenantId: 'string',
     };
   }

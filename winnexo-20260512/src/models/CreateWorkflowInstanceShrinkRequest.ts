@@ -15,6 +15,14 @@ export class CreateWorkflowInstanceShrinkRequest extends $dara.Model {
   acceptanceCriteria?: string;
   /**
    * @remarks
+   * 平台应用 Token（控制台签发）。传入后将以 opsUserId 或 opsUserCode 指定的用户身份执行
+   * 
+   * @example
+   * wn_app_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  appToken?: string;
+  /**
+   * @remarks
    * The unique requirement ID in the workspace. Repeated requests are idempotent.
    * 
    * This parameter is required.
@@ -41,6 +49,22 @@ export class CreateWorkflowInstanceShrinkRequest extends $dara.Model {
    * External Initiator Zhang San
    */
   initiator?: string;
+  /**
+   * @remarks
+   * 代理用户编码（租户内唯一），仅当应用凭证配置为 source_uid 时使用
+   * 
+   * @example
+   * alice
+   */
+  opsUserCode?: string;
+  /**
+   * @remarks
+   * 代理用户ID（WINNEXO 平台用户ID），仅当应用凭证配置为 winnexo_uid 时使用
+   * 
+   * @example
+   * 10001
+   */
+  opsUserId?: string;
   /**
    * @remarks
    * The work item priority.
@@ -88,9 +112,12 @@ export class CreateWorkflowInstanceShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptanceCriteria: 'acceptanceCriteria',
+      appToken: 'appToken',
       businessId: 'businessId',
       collaborationGroupId: 'collaborationGroupId',
       initiator: 'initiator',
+      opsUserCode: 'opsUserCode',
+      opsUserId: 'opsUserId',
       priority: 'priority',
       templateId: 'templateId',
       tenantId: 'tenantId',
@@ -102,9 +129,12 @@ export class CreateWorkflowInstanceShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptanceCriteria: 'string',
+      appToken: 'string',
       businessId: 'string',
       collaborationGroupId: 'string',
       initiator: 'string',
+      opsUserCode: 'string',
+      opsUserId: 'string',
       priority: 'string',
       templateId: 'string',
       tenantId: 'string',

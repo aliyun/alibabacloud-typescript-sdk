@@ -638,6 +638,22 @@ export class GetNodeDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
+   * 会话归档状态 ACTIVE/ARCHIVING/ARCHIVED
+   * 
+   * @example
+   * ACTIVE
+   */
+  conversationArchiveStatus?: string;
+  /**
+   * @remarks
+   * 会话归档完成时间戳（秒）
+   * 
+   * @example
+   * 1735689600
+   */
+  conversationArchivedTime?: number;
+  /**
+   * @remarks
    * The node conversation ID. This parameter is empty if no conversation is created.
    * 
    * @example
@@ -770,6 +786,8 @@ export class GetNodeDetailResponseBody extends $dara.Model {
       artifacts: 'artifacts',
       attemptSeq: 'attemptSeq',
       code: 'code',
+      conversationArchiveStatus: 'conversationArchiveStatus',
+      conversationArchivedTime: 'conversationArchivedTime',
       conversationId: 'conversationId',
       conversationWritable: 'conversationWritable',
       handler: 'handler',
@@ -795,6 +813,8 @@ export class GetNodeDetailResponseBody extends $dara.Model {
       artifacts: { 'type': 'array', 'itemType': GetNodeDetailResponseBodyArtifacts },
       attemptSeq: 'number',
       code: 'string',
+      conversationArchiveStatus: 'string',
+      conversationArchivedTime: 'number',
       conversationId: 'string',
       conversationWritable: 'boolean',
       handler: 'string',

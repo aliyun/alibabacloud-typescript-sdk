@@ -80,7 +80,7 @@ export class CreatePersonalTextResponseBody extends $dara.Model {
    * - 4: Rejected.
    * 
    * @example
-   * {\\"observedGeneration\\": 4, \\"servicesInstances\\": {}, \\"observedTime\\": \\"2025-10-31T03:48:27Z\\", \\"servicesWithPendingChanges\\": [], \\"latestEnvironmentDeploymentName\\": \\"manual-1761882507097-Eu1vIP\\"}
+   * {\"observedGeneration\": 4, \"servicesInstances\": {}, \"observedTime\": \"2025-10-31T03:48:27Z\", \"servicesWithPendingChanges\": [], \"latestEnvironmentDeploymentName\": \"manual-1761882507097-Eu1vIP\"}
    */
   status?: string;
   static names(): { [key: string]: string } {

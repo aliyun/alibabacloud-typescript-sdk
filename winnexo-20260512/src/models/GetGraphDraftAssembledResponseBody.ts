@@ -50,7 +50,7 @@ export class GetGraphDraftAssembledResponseBody extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * objects:\\n  - name: customer\\n
+   * objects:\n  - name: customer\n
    */
   yamlEdit?: string;
   static names(): { [key: string]: string } {

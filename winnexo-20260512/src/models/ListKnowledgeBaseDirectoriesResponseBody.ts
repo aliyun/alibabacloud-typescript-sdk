@@ -16,12 +16,12 @@ export class ListKnowledgeBaseDirectoriesResponseBody extends $dara.Model {
    * The directory titles.
    * 
    * @example
-   * string_value
+   * ["Directory 1"]
    */
   directories?: any[];
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * ok
