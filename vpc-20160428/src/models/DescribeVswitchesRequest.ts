@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
    * 
    * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -15,7 +15,7 @@ export class DescribeVSwitchesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
    * 
    * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -51,7 +51,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to only precheck the request. Valid values:
    * - **true**: The system prechecks the request without creating resources. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * - **false** (default): The system sends a normal request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * - **false** (default): The system sends a normal request. If the request passes the precheck, the system returns an HTTP 2xx status code and performs the operation.
    * 
    * @example
    * true
@@ -77,8 +77,8 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to query the IPv6 single-stack vSwitches in the specified region. Valid values:
-   * - true: Queries the IPv6 single-stack vSwitches in the specified region.
-   * - false: Does not query the IPv6 single-stack vSwitches in the specified region.
+   * - **true**: Queries the IPv6 single-stack vSwitches in the specified region.
+   * - **false**: Does not query the IPv6 single-stack vSwitches in the specified region.
    * 
    * If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
    * 
@@ -115,7 +115,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -166,7 +166,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
    * @remarks
    * The name of the vSwitch.
    * 
-   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * vSwitch
@@ -174,7 +174,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vSwitchName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the resource ownership.
+   * The Alibaba Cloud account ID for resource ownership.
    * 
    * @example
    * 2546073170691****

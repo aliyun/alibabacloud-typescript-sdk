@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrafficMirrorSessionRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
    * 
    * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -15,7 +15,7 @@ export class CreateTrafficMirrorSessionRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
    * 
    * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -90,7 +90,7 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
    * The length of the original mirrored packet, excluding the length of the VXLAN packet. Default value: **1500**. Valid values: **64** to **8500**. Unit: bytes.
    * - The value of this parameter affects the length of the packet received by the traffic mirror destination. For more information, see the mirrored packet length and MTU limits in [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
    * 
-   * - This parameter is available only in specific regions. For more information, see the description of the mirrored packet length parameter in [Create and manage traffic mirroring](https://help.aliyun.com/document_detail/207514.html).
+   * - This parameter is available only in specific regions. For more information, see the description of the mirrored packet length parameter in [Create and manage traffic mirrors](https://help.aliyun.com/document_detail/207514.html).
    * 
    * @example
    * 1500
@@ -147,7 +147,7 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
    * @remarks
    * The description of the traffic mirror session.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is a trafficmirrorsession.
@@ -157,7 +157,7 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
    * @remarks
    * The name of the traffic mirror session.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -165,7 +165,7 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
   trafficMirrorSessionName?: string;
   /**
    * @remarks
-   * The instance ID of the traffic mirror source. Currently, network interface controllers (NICs) are supported as traffic mirror sources. The default value of **N** is **1**, which means that you can add only one traffic mirror source to a traffic mirror session.
+   * The instance ID of the traffic mirror source. Currently, elastic network interface controllers (NICs) are supported as traffic mirror sources. The default value of **N** is **1**, which means that you can add only one traffic mirror source to a traffic mirror session.
    * 
    * This parameter is required.
    * 
@@ -175,7 +175,7 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
   trafficMirrorSourceIds?: string[];
   /**
    * @remarks
-   * The instance ID of the traffic mirror destination. Currently, network interface controllers (NICs) and internal-facing SLB instances are supported as traffic mirror destinations.
+   * The instance ID of the traffic mirror destination. Currently, elastic network interface controllers (NICs) and internal-facing SLB instances are supported as traffic mirror destinations.
    * 
    * This parameter is required.
    * 
@@ -187,9 +187,9 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
    * @remarks
    * The type of the traffic mirror destination. Valid values:
    * 
-   * - **NetworkInterface**: network interface controllers (NICs).
+   * - **NetworkInterface**: elastic network interface controller (NIC).
    * 
-   * - **SLB**: internal-facing SLB instances.
+   * - **SLB**: internal-facing SLB instance.
    * 
    * This parameter is required.
    * 
@@ -201,7 +201,7 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
    * @remarks
    * The VXLAN network identifier (VNI) that is used to distinguish different mirrored data. Valid values: **0** to **16777215**.
    * 
-   * You can use the VNI to distinguish the mirrored data of different sessions at the traffic mirror destination. You can specify a custom VNI or let the system randomly allocate the value. If you want the system to randomly allocate the VNI, do not specify this parameter.
+   * You can use the VNI to distinguish the mirrored data of different sessions at the traffic mirror destination. You can specify a custom VNI or let the system randomly allocate a VNI. If you want the system to randomly allocate a VNI, do not specify this parameter.
    * 
    * @example
    * 1

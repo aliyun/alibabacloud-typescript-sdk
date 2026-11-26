@@ -56,7 +56,7 @@ export class GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult extends $dara
    *     - **lossRate**: The packet loss rate when the source IP address accesses the destination IP address.
    * 
    * @example
-   * {\\"targetIp\\":\\"192.168.0.1\\",\\"srcIp\\":\\"192.168.1.1\\",\\"rtt\\":-1.0,\\"lossRate\\":100.0}
+   * {\"targetIp\":\"192.168.0.1\",\"srcIp\":\"192.168.1.1\",\"rtt\":-1.0,\"lossRate\":100.0}
    */
   diagnoseResultDescription?: string;
   /**

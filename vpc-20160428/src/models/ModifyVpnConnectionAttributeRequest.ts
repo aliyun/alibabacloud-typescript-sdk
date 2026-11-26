@@ -144,7 +144,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
    * @remarks
    * The pre-shared key used for authentication between the tunnel and the peer.
    * 
-   * - The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ```~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``` It cannot contain spaces.
+   * - The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ```~!`@#$%^&*()_-+={}[]|;:\",.<>/?``` It cannot contain spaces.
    * 
    * - If you do not specify a pre-shared key, the system randomly generates a 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the automatically generated pre-shared key.     
    * 
@@ -532,7 +532,7 @@ export class ModifyVpnConnectionAttributeRequest extends $dara.Model {
    *            
    * - **IkeConfig.Psk**: The pre-shared key used for authentication between the VPN gateway and the data center.
    * 
-   *     - The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ```~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``` It cannot contain spaces.
+   *     - The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ```~!`@#$%^&*()_-+={}[]|;:\",.<>/?``` It cannot contain spaces.
    *     - If you do not specify a pre-shared key, the system randomly generates a 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the automatically generated pre-shared key.
    *     > The pre-shared key on the IPsec-VPN connection side must be the same as the authentication key on the data center side. Otherwise, the connection between the data center and the VPN gateway cannot be established. 
    * 

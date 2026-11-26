@@ -74,7 +74,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   companyLocalizedName?: string;
   /**
    * @remarks
-   * The name of the organization that requires the Express Connect circuit deployment.
+   * The name of the enterprise that requires the Express Connect circuit.
    * 
    * @example
    * test1234
@@ -82,7 +82,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   companyName?: string;
   /**
    * @remarks
-   * The time when the construction starts. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the construction team enters the site. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-02-26T08:00:00Z
@@ -114,7 +114,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   lineCode?: string;
   /**
    * @remarks
-   * The cable label in the data center building.
+   * The cable label in the data center.
    * 
    * @example
    * bbb222
@@ -130,11 +130,11 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   lineSPContactInfo?: string;
   /**
    * @remarks
-   * The telecommunications service provider. Valid values:
-   * - **中国电信**
-   * - **中国联通**
-   * - **中国移动**
-   * - **中国其他**
+   * The carrier. Valid values:
+   * - **China Telecom**.
+   * - **China Unicom**.
+   * - **China Mobile**.
+   * - **Other carriers in China**.
    * 
    * @example
    * 中国其他
@@ -164,7 +164,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   PMInfo?: DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOATypePMInfo;
   /**
    * @remarks
-   * The construction company.
+   * The construction company that enters the site.
    * 
    * @example
    * ctcu
@@ -174,12 +174,12 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
    * @remarks
    * The status of the LOA. Valid values:
    * 
-   * - **Applying**: The LOA application is being processed.
+   * - **Applying**: The LOA application is in progress.
    * - **Accept**: The LOA application is approved.
    * - **Available**: The LOA is available.
    * - **Rejected**: The LOA application is rejected.
-   * - **Completing**: The circuit is under construction.
-   * - **Complete**: The circuit construction is complete.
+   * - **Completing**: The Express Connect circuit is under construction.
+   * - **Complete**: The construction of the Express Connect circuit is completed.
    * - **Deleted**: The LOA is deleted.
    * 
    * @example

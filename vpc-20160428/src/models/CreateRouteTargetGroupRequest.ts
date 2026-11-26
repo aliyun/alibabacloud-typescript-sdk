@@ -134,6 +134,12 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
    * Active-Standby
    */
   configMode?: string;
+  dryRun?: boolean;
+  /**
+   * @example
+   * IPv4
+   */
+  ipVersion?: string;
   /**
    * @remarks
    * The region ID of the route target group. You can call the DescribeRegions operation to query the most recent region list.
@@ -203,6 +209,8 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       configMode: 'ConfigMode',
+      dryRun: 'DryRun',
+      ipVersion: 'IpVersion',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       routeTargetGroupDescription: 'RouteTargetGroupDescription',
@@ -217,6 +225,8 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
     return {
       clientToken: 'string',
       configMode: 'string',
+      dryRun: 'boolean',
+      ipVersion: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       routeTargetGroupDescription: 'string',

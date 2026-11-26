@@ -97,7 +97,7 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
    *    - **false**: Not supported.
    * 
    * @example
-   * {\\"description\\":\\"forwarding1.7.22\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"BGPSupport\\":\\"true\\",\\"IDaaSNewVersion\\":\\"true\\"}
+   * {\"description\":\"forwarding1.7.22\",\"VisuallySsl\":\"true\",\"PbrPriority\":\"true\",\"BGPSupport\":\"true\",\"IDaaSNewVersion\":\"true\"}
    */
   tag?: string;
   /**

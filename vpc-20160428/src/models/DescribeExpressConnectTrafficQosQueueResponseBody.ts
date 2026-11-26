@@ -8,9 +8,6 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
    * The destination IP address IPv4 CIDR block for traffic matching in the QoS rule.
    * 
    * > You cannot specify this parameter together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
-   * 
-   * @example
-   * ``1.1.**.**``/24
    */
   dstCidr?: string;
   /**
@@ -176,9 +173,6 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
    * The source IPv4 CIDR block for traffic matching in the QoS rule.
    * 
    * > You cannot specify this parameter together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
-   * 
-   * @example
-   * ``1.1.**.**``/24
    */
   srcCidr?: string;
   /**

@@ -15,9 +15,9 @@ export class RemoveGlobalAccelerationInstanceIpRequest extends $dara.Model {
   globalAccelerationInstanceId?: string;
   /**
    * @remarks
-   * The ID of the EIP instance. 
+   * The ID of the EIP. 
    * 
-   * You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/36018.html) operation to query the EIP instance ID.
+   * You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/36018.html) operation to query the EIP ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class RemoveGlobalAccelerationInstanceIpRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the Internet Shared Bandwidth instance is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region where the Internet Shared Bandwidth instance is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

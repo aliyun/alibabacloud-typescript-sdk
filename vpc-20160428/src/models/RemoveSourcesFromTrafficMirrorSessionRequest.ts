@@ -7,9 +7,9 @@ export class RemoveSourcesFromTrafficMirrorSessionRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
+   * You can use the client to generate the value, and you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -17,11 +17,11 @@ export class RemoveSourcesFromTrafficMirrorSessionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run on the request. Valid values:
    * 
-   * - **true**: performs a dry run without removing the traffic mirror sources. The system checks the required parameters, request format, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * - **true**: performs a dry run and does not remove the traffic mirror sources. The system checks whether the required parameters are specified, the request format, and the limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): sends the request. After the request passes the check, the traffic mirror sources are removed.
+   * - **false** (default): sends a normal request and removes the traffic mirror sources if the request passes the check.
    * 
    * @example
    * false
@@ -31,7 +31,7 @@ export class RemoveSourcesFromTrafficMirrorSessionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the traffic mirror session. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+   * The region ID of the traffic mirror session. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class RemoveSourcesFromTrafficMirrorSessionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The instance ID of the traffic mirror session from which you want to delete traffic mirror sources.
+   * The instance ID of the traffic mirror session from which you want to delete the traffic mirror sources.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class RemoveSourcesFromTrafficMirrorSessionRequest extends $dara.Model {
   trafficMirrorSessionId?: string;
   /**
    * @remarks
-   * The instance ID of the traffic mirror source that you want to delete. The maximum value of **N** is **10**.
+   * The instance IDs of the traffic mirror sources that you want to delete. The maximum value of **N** is **10**.
    * 
    * This parameter is required.
    * 

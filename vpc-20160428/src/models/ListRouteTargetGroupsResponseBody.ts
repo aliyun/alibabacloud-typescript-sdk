@@ -150,6 +150,14 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPv4
+   */
+  ipVersion?: string;
+  /**
+   * @remarks
    * The region ID of the VPC to which the route target group belongs.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
@@ -229,6 +237,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
     return {
       configMode: 'ConfigMode',
       createTime: 'CreateTime',
+      ipVersion: 'IpVersion',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       routeTargetGroupDescription: 'RouteTargetGroupDescription',
@@ -245,6 +254,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
     return {
       configMode: 'string',
       createTime: 'string',
+      ipVersion: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       routeTargetGroupDescription: 'string',

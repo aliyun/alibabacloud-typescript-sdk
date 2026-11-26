@@ -16,7 +16,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
    * The cloud-side IP address used to connect the Smart Access Gateway (SAG) device to Alibaba Cloud.
    * 
    * @example
-   * ``172.16.**.**``
+   * `172.16.**.**`
    */
   ceIp?: string;
   /**
@@ -52,7 +52,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
    * The local IP address of the Smart Access Gateway (SAG) device used to connect to Alibaba Cloud.
    * 
    * @example
-   * ``10.10.**.**``
+   * `10.10.**.**`
    */
   peIp?: string;
   /**

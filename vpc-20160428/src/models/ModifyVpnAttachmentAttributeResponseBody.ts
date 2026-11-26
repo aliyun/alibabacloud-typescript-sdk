@@ -281,6 +281,9 @@ export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationT
    * @remarks
    * The negotiation mode of the IKE version. Valid values:
    * 
+   * - **main**: main mode. This mode ensures high security during negotiation.
+   * - **aggressive**: aggressive mode. This mode features fast negotiation and a high success rate.
+   * 
    * @example
    * main
    */
@@ -435,6 +438,11 @@ export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecification 
    * @remarks
    * Indicates whether the DPD feature is enabled for the tunnel.
    * 
+   * Valid values:
+   * 
+   * - **true**: enabled.
+   * - **false**: disabled.
+   * 
    * @example
    * true
    */
@@ -442,6 +450,11 @@ export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecification 
   /**
    * @remarks
    * Indicates whether the NAT traversal feature is enabled for the tunnel.
+   * 
+   * Valid values:
+   * 
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -458,6 +471,11 @@ export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecification 
   /**
    * @remarks
    * The role of the tunnel.
+   * 
+   * Valid values:
+   * 
+   * - **master**: The tunnel is the master tunnel.
+   * - **slave**: The tunnel is the backup tunnel.
    * 
    * @example
    * master
@@ -496,6 +514,9 @@ export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecification 
   /**
    * @remarks
    * The creation order of the tunnel.
+   * 
+   * - **1**: the first tunnel.
+   * - **2**: the second tunnel.
    * 
    * @example
    * 1
@@ -568,6 +589,11 @@ export class ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck extends $dar
   /**
    * @remarks
    * Indicates whether the health check feature is enabled for the IPsec-VPN connection.
+   * 
+   * Valid values:
+   * 
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -644,6 +670,11 @@ export class ModifyVpnAttachmentAttributeResponseBodyVpnBgpConfig extends $dara.
    * @remarks
    * Indicates whether the BGP feature is enabled for the IPsec-VPN connection.
    * 
+   * Valid values:
+   * 
+   * - **true**: enabled.
+   * - **false**: disabled.
+   * 
    * @example
    * true
    */
@@ -683,6 +714,12 @@ export class ModifyVpnAttachmentAttributeResponseBodyVpnBgpConfig extends $dara.
   /**
    * @remarks
    * The BGP negotiation status.
+   * 
+   * Valid values:
+   * 
+   * - **success**: normal.
+   * 
+   * - **false**: abnormal.
    * 
    * @example
    * false
@@ -742,6 +779,12 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $dara.Model {
    * @remarks
    * The type of resource associated with the IPsec-VPN connection.
    * 
+   * Valid values:
+   * 
+   * - **CEN**: The IPsec-VPN connection is attached to a transit router instance.
+   * - **VPNGW**: The IPsec-VPN connection is attached to a VPN gateway instance.
+   * - **NO_ASSOCIATED**: The IPsec-VPN connection is not attached to any resource.
+   * 
    * @example
    * CEN
    */
@@ -775,6 +818,11 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the IPsec-VPN connection configuration takes effect immediately.
+   * 
+   * Valid values:
+   * 
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false
@@ -852,6 +900,11 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The network type of the IPsec-VPN connection.
+   * 
+   * Valid values:
+   * 
+   * - **public**: public network.
+   * - **private**: private network.
    * 
    * @example
    * public

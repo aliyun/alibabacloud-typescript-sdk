@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpnAttachmentRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. It cannot be an empty string.
+   * The tag key. This value cannot be an empty string.
    * 
    * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -21,7 +21,7 @@ export class CreateVpnAttachmentRequestTags extends $dara.Model {
    * 
    * The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * Each tag key is paired with a tag value. You can specify up to 20 tag values at a time.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -53,9 +53,7 @@ export class CreateVpnAttachmentRequestTags extends $dara.Model {
 export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig extends $dara.Model {
   /**
    * @remarks
-   * The autonomous system number on the Alibaba Cloud side of the tunnel. Valid values: **1** to **4294967295**. Default value: **45104**.
-   * 
-   * > We recommend that you use a private autonomous system number to establish a BGP connection with Alibaba Cloud. For the range of private autonomous system numbers, refer to relevant documentation.
+   * The autonomous system number (ASN) on the Alibaba Cloud side of the tunnel. Valid values: **1** to **4294967295**. Default value: **45104**.
    * 
    * @example
    * 65530
@@ -63,7 +61,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig
   localAsn?: number;
   /**
    * @remarks
-   * The BGP IP address on the Alibaba Cloud side of the tunnel. This IP address must be within the BGP CIDR block.
+   * The BGP address on the Alibaba Cloud side of the tunnel. The address is an IP address within the BGP CIDR block.
    * 
    * @example
    * 169.254.10.1
@@ -71,9 +69,9 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig
   localBgpIp?: string;
   /**
    * @remarks
-   * The BGP CIDR block of the tunnel. The CIDR block must be a block with a mask length of 30 within the 169.254.0.0/16 CIDR block. It cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
+   * The BGP CIDR block of the tunnel. The CIDR block must fall within 169.254.0.0/16 and have a mask length of 30. The CIDR block cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
    * 
-   * > The CIDR blocks of the two tunnels under the same IPsec-VPN connection cannot be the same.
+   * > The tunnel CIDR blocks of two tunnels under the same IPsec-VPN connection must be different.
    * 
    * @example
    * 169.254.10.0/30
@@ -107,7 +105,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig
 export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm for Phase 1 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **sha1**.
+   * The authentication algorithm for Phase 1 negotiation. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **sha1**.
    * 
    * @example
    * sha1
@@ -115,7 +113,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm for Phase 1 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
+   * The encryption algorithm for Phase 1 negotiation. Valid values: **aes**, **aes192**, **aes256**, **des**, or **3des**. Default value: **aes**.
    * 
    * @example
    * aes
@@ -123,7 +121,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The SA lifecycle for Phase 1 negotiations. Unit: seconds.
+   * The lifetime of the Security Association (SA) negotiated during Phase 1. Unit: seconds.
    * 
    * Valid values: **0** to **86400**. Default value: **86400**.
    * 
@@ -133,10 +131,10 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeLifetime?: number;
   /**
    * @remarks
-   * The negotiation mode of the IKE version. Valid values: **main** and **aggressive**. Default value: **main**.   
+   * The negotiation mode of the IKE version. Valid values: **main** or **aggressive**. Default value: **main**.
    * 
    * - **main**: Main mode. The negotiation process is highly secure.
-   * - **aggressive**: Aggressive mode. The negotiation process is fast and has a high success rate.
+   * - **aggressive**: Aggressive mode. Negotiation is fast and has a high success rate.
    * 
    * @example
    * main
@@ -144,8 +142,9 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeMode?: string;
   /**
    * @remarks
-   * The Diffie-Hellman key exchange algorithm for Phase 1 negotiations. Default value: **group2**.   
-   * Valid values: **group1**, **group2**, **group5**, and **group14**.
+   * The Diffie-Hellman key exchange algorithm used in the first-phase negotiation. Default value: **group2**.
+   * 
+   * Valid values: **group1**, **group2**, **group5**, **group14**.
    * 
    * @example
    * group2
@@ -153,9 +152,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikePfs?: string;
   /**
    * @remarks
-   * The version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev2**.
-   * 
-   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios with multiple CIDR blocks.
+   * The version of the IKE protocol. Valid values: **ikev1** or **ikev2**. Default value: **ikev2**.
    * 
    * @example
    * ikev2
@@ -163,9 +160,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier on the Alibaba Cloud side of the tunnel, which is used for Phase 1 negotiations. It can be up to 100 characters in length and cannot contain spaces. Default value: the IP address of the tunnel.
-   * 
-   * **LocalId** supports the FQDN format. If you use the FQDN format, we recommend that you set the negotiation mode to **aggressive**.
+   * The identifier on the Alibaba Cloud side of the tunnel, used for Phase 1 negotiation. The value can be up to 100 characters in length and cannot contain spaces. The default value is the IP address of the tunnel.
    * 
    * @example
    * 47.XX.XX.1
@@ -173,13 +168,13 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   localId?: string;
   /**
    * @remarks
-   * The pre-shared key used for authentication between the tunnel and the peer.
+   * The pre-shared key, which is used for identity authentication between the tunnel and the tunnel peer.
    * 
-   * - The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ```~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``` It cannot contain spaces.
+   * - The key must be 1 to 100 characters in length and can contain digits, uppercase letters, lowercase letters, and the following characters: ```~!\`@#$%^&*()_-+={}[]|;:\",.<>/?``` It cannot contain spaces.
    * 
-   * - If you do not specify a pre-shared key, the system randomly generates a 16-character string as the pre-shared key. You can call the [DescribeVpnAttachments](https://help.aliyun.com/document_detail/2526939.html) operation to query the automatically generated pre-shared key.     
+   * - If you do not specify a pre-shared key, the system randomly generates a 16-character string as the pre-shared key. You can call the [DescribeVpnAttachments](https://help.aliyun.com/document_detail/2526939.html) operation to query the pre-shared key automatically generated by the system.
    * 
-   * > The pre-shared key of the tunnel must be the same as that of the peer. Otherwise, the system cannot establish the tunnel.
+   * > The pre-shared keys of the tunnel and the tunnel peer must be the same. Otherwise, the tunnel cannot be established.
    * 
    * @example
    * 123456****
@@ -187,9 +182,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
   psk?: string;
   /**
    * @remarks
-   * The identifier of the peer of the tunnel, which is used for Phase 1 negotiations. It can be up to 100 characters in length and cannot contain spaces. Default value: the IP address of the customer gateway associated with the tunnel.
-   * 
-   * **RemoteId** supports the FQDN format. If you use the FQDN format, we recommend that you set the negotiation mode to **aggressive**.
+   * The identifier of the tunnel peer, used for Phase 1 negotiation. The value can be up to 100 characters in length and cannot contain spaces. The default value is the IP address of the customer gateway associated with the tunnel.
    * 
    * @example
    * 47.XX.XX.2
@@ -235,9 +228,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig
 export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm for Phase 2 negotiations.
-   * 
-   * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **sha1**.
+   * The authentication algorithm for Phase 2 negotiation.
    * 
    * @example
    * sha1
@@ -245,7 +236,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConf
   ipsecAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm for Phase 2 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
+   * The encryption algorithm for Phase 2 negotiation. Valid values: **aes**, **aes192**, **aes256**, **des**, or **3des**. Default value: **aes**.
    * 
    * @example
    * aes
@@ -253,7 +244,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConf
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The SA lifecycle for Phase 2 negotiations. Unit: seconds.
+   * The lifetime of the SA negotiated in Phase 2. Unit: seconds.
    * 
    * Valid values: **0** to **86400**. Default value: **86400**.
    * 
@@ -263,9 +254,9 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConf
   ipsecLifetime?: number;
   /**
    * @remarks
-   * The Diffie-Hellman key exchange algorithm for Phase 2 negotiations. Default value: **group2**.   
+   * The Diffie-Hellman key exchange algorithm used in the second phase of negotiation. Default value: **group2**.
    * 
-   * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
+   * Valid values: **disabled**, **group1**, **group2**, **group5**, **group14**.
    * 
    * @example
    * group2
@@ -303,19 +294,17 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecification extends $dara.
    * @remarks
    * The ID of the customer gateway associated with the tunnel.
    * 
-   * > This parameter is required when you create an IPsec-VPN connection in dual-tunnel mode.
-   * 
    * @example
    * cgw-p0w2jemrcj5u61un8****
    */
   customerGatewayId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the dead peer detection (DPD) feature for the tunnel. Valid values:
+   * Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
    * 
-   * - **true** (default): Enable the DPD feature. The IPsec initiator sends DPD packets to check whether the peer device is alive. If no valid response is received within the specified time, the peer is considered offline. The IPsec initiator then deletes the ISAKMP SA and the corresponding IPsec SA, and the secure tunnel is also deleted.
+   * - **true** (default): Enables the DPD feature. The IPsec initiator sends DPD packets to check whether the peer device is alive. If no correct response is received within the specified period of time, the peer is considered disconnected. The ISAKMP SA and the corresponding IPsec SA are deleted, and the security tunnel is also deleted.
    * 
-   * - **false**: Disable the DPD feature. The IPsec initiator does not send DPD probe packets.
+   * - **false**: Disables the DPD feature. The IPsec initiator does not send DPD packets.
    * 
    * @example
    * true
@@ -323,11 +312,11 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecification extends $dara.
   enableDpd?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the NAT traversal feature for the tunnel. Valid values:
+   * Specifies whether to enable NAT traversal for the tunnel. Valid values:
    * 
-   * - **true** (default): Enable the NAT traversal feature. After this feature is enabled, the IKE negotiation process skips the verification of UDP port numbers and discovers NAT gateway devices in the tunnel.
+   * - **true** (default): Enables NAT traversal. After NAT traversal is enabled, the IKE negotiation process skips UDP port number verification and can discover NAT gateway devices in the tunnel.
    * 
-   * - **false**: Disable the NAT traversal feature.
+   * - **false**: Disables NAT traversal.
    * 
    * @example
    * true
@@ -335,22 +324,22 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecification extends $dara.
   enableNatTraversal?: boolean;
   /**
    * @remarks
-   * The BGP configurations for the tunnel.
+   * Adds BGP configurations for the tunnel.
    * 
-   * > You must configure this parameter after you enable the BGP feature for the IPsec-VPN connection (that is, after you set **EnableTunnelsBgp** to **true**).
+   * > Configure this parameter after you enable BGP for the IPsec-VPN connection (by setting **EnableTunnelsBgp** to **true**).
    */
   tunnelBgpConfig?: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig;
   /**
    * @remarks
-   * The configurations for Phase 1 negotiations.
+   * The Phase 1 negotiation configuration.
    */
   tunnelIkeConfig?: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig;
   /**
    * @remarks
-   * The creation sequence of the tunnel.
+   * The creation order of the tunnel.
    * 
-   * - **1**: The first tunnel.
-   * - **2**: The second tunnel.
+   * - **1**: the first tunnel.
+   * - **2**: the second tunnel.
    * 
    * @example
    * 1
@@ -358,7 +347,7 @@ export class CreateVpnAttachmentRequestTunnelOptionsSpecification extends $dara.
   tunnelIndex?: number;
   /**
    * @remarks
-   * The configurations for Phase 2 negotiations.
+   * The Phase 2 negotiation configuration.
    */
   tunnelIpsecConfig?: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConfig;
   static names(): { [key: string]: string } {
@@ -408,9 +397,9 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * Specifies whether to automatically configure routes. Valid values:
    * 
-   * - **true** (default): Automatically configure routes.
+   * - **true** (default): Automatically configures routes.
    * 
-   * - **false**: Do not automatically configure routes.
+   * - **false**: Does not automatically configure routes.
    * 
    * @example
    * true
@@ -420,22 +409,22 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * This parameter is supported when you create an IPsec-VPN connection in single-tunnel mode.
    * 
-   * BGP configurations:
+   * BGP configuration:
    * 
-   * - **BgpConfig.EnableBgp**: Specifies whether to enable the BGP feature. Valid values: **true** and **false** (default).
+   * - **BgpConfig.EnableBgp**: specifies whether to enable BGP. Valid values: **true** or **false** (default).
    * 
-   * - **BgpConfig.LocalAsn**: The autonomous system number on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
+   * - **BgpConfig.LocalAsn**: the autonomous system number (ASN) on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
    * 
-   *     You can enter the autonomous system number in the two-byte format: first 16 bits.second 16 bits. Each part is entered in decimal format.
+   *     You can enter the ASN in the two-segment format: the first 16 bits.the last 16 bits. Each segment is entered in decimal notation.
    * 
-   *     For example, if you enter 123.456, the autonomous system number is calculated as follows: 123 × 65536 + 456 = 8061384.
+   *     For example, if you enter 123.456, the ASN is 123×65536+456=8061384.
    * 
-   * - **BgpConfig.TunnelCidr**: The CIDR block of the IPsec tunnel. The CIDR block must be a block with a mask length of 30 within the 169.254.0.0/16 CIDR block. It cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
+   * - **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must be a /30 subnet within 169.254.0.0/16 and cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
    * 
-   * - **LocalBgpIp**: The BGP IP address on the Alibaba Cloud side. This IP address must be within the CIDR block of the IPsec tunnel. 
+   * - **LocalBgpIp**: the BGP IP address on the Alibaba Cloud side. This address must be an IP address within the IPsec tunnel CIDR block.
    * 
-   * > - Before you add BGP configurations, we recommend that you understand the working mechanism and limits of the BGP dynamic routing feature. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/445767.html).
-   * > - We recommend that you use a private autonomous system number to establish a BGP connection with Alibaba Cloud. For the range of private autonomous system numbers, refer to relevant documentation.
+   * > - Before you configure BGP, we recommend that you familiarize yourself with how BGP dynamic routing works and its limits. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/445767.html).
+   * > - Use a private ASN to establish a BGP connection with Alibaba Cloud. Refer to the relevant documentation for the private ASN range.
    * 
    * @example
    * {"EnableBgp":"true","LocalAsn":"45104","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
@@ -445,9 +434,9 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -455,9 +444,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the customer gateway.
-   * 
-   * > This parameter is required only when you create an IPsec-VPN connection in single-tunnel mode.
+   * The customer gateway ID.
    * 
    * @example
    * cgw-p0w2jemrcj5u61un8****
@@ -465,10 +452,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   customerGatewayId?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck the request. Valid values:
-   * 
-   * - **true**: Prechecks the request without creating the IPsec-VPN connection. The system checks whether required parameters are set, the request format, and service limits. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * - **false** (default): Sends the request. If the request passes the precheck, the IPsec-VPN connection is created.
+   * Specifies whether to perform a dry run. Valid values:
    * 
    * @example
    * false
@@ -476,10 +460,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether the configurations of the IPsec-VPN connection take effect immediately. Valid values:
-   * 
-   * - **true**: Yes. The system immediately starts IPsec negotiations after the configurations are completed.
-   * - **false** (default): No. The system starts IPsec negotiations only when traffic is detected.
+   * Specifies whether the configuration of the IPsec-VPN connection takes effect immediately. Valid values:
    * 
    * @example
    * false
@@ -489,11 +470,11 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * This parameter is supported when you create an IPsec-VPN connection in single-tunnel mode.
    * 
-   * Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
+   * Specifies whether to enable the Dead Peer Detection (DPD) feature. Valid values:
    * 
-   * - **true** (default): Enable the DPD feature. The IPsec initiator sends DPD packets to check whether the peer device is alive. If no valid response is received within the specified time, the peer is considered offline. The IPsec initiator then deletes the ISAKMP SA and the corresponding IPsec SA, and the secure tunnel is also deleted.
+   * - **true** (default): Enables the DPD feature. The IPsec initiator sends DPD packets to check whether the peer device is alive. If no correct response is received within the specified period of time, the peer is considered disconnected. The ISAKMP SA and the corresponding IPsec SA are deleted, and the security tunnel is also deleted.
    * 
-   * - **false**: Disable the DPD feature. The IPsec initiator does not send DPD probe packets.
+   * - **false**: Disables the DPD feature. The IPsec initiator does not send DPD probe packets.
    * 
    * @example
    * true
@@ -503,11 +484,11 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * This parameter is supported when you create an IPsec-VPN connection in single-tunnel mode.
    * 
-   * Specifies whether to enable the NAT traversal feature. Valid values:
+   * Specifies whether to enable NAT traversal. Valid values:
    * 
-   * - **true** (default): Enable the NAT traversal feature. After this feature is enabled, the IKE negotiation process skips the verification of UDP port numbers and discovers NAT gateway devices in the VPN tunnel.
+   * - **true** (default): Enables NAT traversal. After NAT traversal is enabled, the IKE negotiation process skips UDP port number verification and can discover NAT gateway devices in the VPN tunnel.
    * 
-   * - **false**: Disable the NAT traversal feature.
+   * - **false**: Disables NAT traversal.
    * 
    * @example
    * true
@@ -515,11 +496,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   enableNatTraversal?: boolean;
   /**
    * @remarks
-   * This parameter is supported when you create an IPsec-VPN connection in dual-tunnel mode.
-   * 
-   * Specifies whether to enable the BGP feature for the tunnels. Valid values: **true** and **false** (default).
-   * 
-   * > Before you add BGP configurations, we recommend that you understand the working mechanism and limits of the BGP dynamic routing feature. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/445767.html).
+   * This parameter is supported when you create a dual-tunnel IPsec-VPN connection.
    * 
    * @example
    * false
@@ -527,24 +504,7 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   enableTunnelsBgp?: boolean;
   /**
    * @remarks
-   * This parameter is supported when you create an IPsec-VPN connection in single-tunnel mode.
-   * 
-   * Health check configurations:
-   * 
-   * - **HealthCheckConfig.enable**: Specifies whether to enable health checks. Valid values: **true** and **false** (default).
-   * 
-   * - **HealthCheckConfig.dip**: The destination IP address for health checks. Enter the IP address of the data center that can be accessed from the VPC through the IPsec-VPN connection.
-   * 
-   * - **HealthCheckConfig.sip**: The source IP address for health checks. Enter the IP address on the VPC side that can be accessed from the data center through the IPsec-VPN connection.
-   * 
-   * - **HealthCheckConfig.interval**: The retry interval for health checks. Unit: seconds. Default value: **3**.
-   * 
-   * - **HealthCheckConfig.retry**: The maximum number of health check retries. Default value: **3**.
-   * 
-   * - **HealthCheckConfig.Policy**: Specifies whether to revoke published routes when a health check fails. Valid values:
-   * 
-   *      - **revoke_route** (default): Revoke published routes.
-   *      - **reserve_route**: Do not revoke published routes.
+   * This parameter is supported when you create a single-tunnel IPsec-VPN connection.
    * 
    * @example
    * {"enable":"true","dip":"192.168.1.1","sip":"10.1.1.1","interval":"3","retry":"3","Policy": "revoke_route"}
@@ -554,30 +514,30 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * This parameter is supported when you create an IPsec-VPN connection in single-tunnel mode.
    * 
-   * Configurations for Phase 1 negotiations:
+   * Phase 1 negotiation configuration:
    *            
-   * - **IkeConfig.Psk**: The pre-shared key used for authentication between the VPN gateway and the data center.
+   * - **IkeConfig.Psk**: The pre-shared key, which is used for identity authentication between the VPN gateway and the on-premises data center.
    * 
-   *     - The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ```~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``` It cannot contain spaces.
-   *     - If you do not specify a pre-shared key, the system randomly generates a string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the automatically generated pre-shared key.
+   *     - The key must be 1 to 100 characters in length and can contain digits, uppercase letters, lowercase letters, and the following characters: ```~!`@#$%^&*()_-+={}[]|;:\",.<>/?``` The key cannot contain spaces.
+   *     - If you do not specify a pre-shared key, the system generates a random string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
    * 
-   *     > The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, the connection between the data center and the VPN gateway cannot be established.
+   *     > The pre-shared key on the IPsec-VPN connection side must be the same as the authentication key on the on-premises data center side. Otherwise, the connection between the on-premises data center and the VPN gateway cannot be established.
    * 
-   * - **IkeConfig.IkeVersion**: The version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.   
+   * - **IkeConfig.IkeVersion**: The version of the IKE protocol. Valid values: **ikev1** or **ikev2**. Default value: **ikev1**.   
    * 
-   * - **IkeConfig.IkeMode**: The negotiation mode. Valid values: **main** and **aggressive**. Default value: **main**.   
+   * - **IkeConfig.IkeMode**: The negotiation mode. Valid values: **main** or **aggressive**. Default value: **main**.   
    * 
-   * - **IkeConfig.IkeEncAlg**: The encryption algorithm for Phase 1 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.   
+   * - **IkeConfig.IkeEncAlg**: The encryption algorithm used in Phase 1 negotiation. Valid values: **aes**, **aes192**, **aes256**, **des**, or **3des**. Default value: **aes**.   
    * 
-   * - **IkeConfig.IkeAuthAlg**: The authentication algorithm for Phase 1 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.   
+   * - **IkeConfig.IkeAuthAlg**: The authentication algorithm used in Phase 1 negotiation. Valid values: **md5**, **sha1**, **sha256**, **sha384**, or **sha512**. Default value: **md5**.   
    * 
-   * - **IkeConfig.IkePfs**: The Diffie-Hellman key exchange algorithm for Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.   
+   * - **IkeConfig.IkePfs**: The Diffie-Hellman key exchange algorithm used in Phase 1 negotiation. Valid values: **group1**, **group2**, **group5**, or **group14**. Default value: **group2**.   
    * 
-   * - **IkeConfig.IkeLifetime**: The SA lifecycle for Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.   
+   * - **IkeConfig.IkeLifetime**: The lifetime of the SA generated in Phase 1 negotiation. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.   
    * 
-   * - **IkeConfig.LocalId**: The identifier of the IPsec-VPN connection on the Alibaba Cloud side. It can be up to 100 characters in length and cannot contain spaces. Default value: empty.
+   * - **IkeConfig.LocalId**: The identifier on the Alibaba Cloud side of the IPsec-VPN connection. The identifier can be up to 100 characters in length and cannot contain spaces. Default value: empty.
    * 
-   * - **IkeConfig.RemoteId**: The identifier of the IPsec-VPN connection on the data center side. It can be up to 100 characters in length and cannot contain spaces. Default value: the IP address of the customer gateway.
+   * - **IkeConfig.RemoteId**: The identifier on the on-premises data center side of the IPsec-VPN connection. The identifier can be up to 100 characters in length and cannot contain spaces. Default value: the IP address of the customer gateway.
    * 
    * @example
    * {"Psk":"1234****","IkeVersion":"ikev1","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400,"LocalId":"47.XX.XX.1","RemoteId":"47.XX.XX.2"}
@@ -587,15 +547,15 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * This parameter is supported when you create an IPsec-VPN connection in single-tunnel mode.
    * 
-   * Configurations for Phase 2 negotiations: 
+   * The Phase 2 negotiation configuration: 
    * 
-   * - **IpsecConfig.IpsecEncAlg**: The encryption algorithm for Phase 2 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.   
+   * - **IpsecConfig.IpsecEncAlg**: The encryption algorithm used in Phase 2 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, or **3des**. Default value: **aes**.   
    * 
-   * - **IpsecConfig.IpsecAuthAlg**: The authentication algorithm for Phase 2 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.   
+   * - **IpsecConfig. IpsecAuthAlg**: The authentication algorithm used in Phase 2 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, **sha512**. Default value: **md5**.   
    * 
-   * - **IpsecConfig.IpsecPfs**: The Diffie-Hellman key exchange algorithm for Phase 2 negotiations. Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.   
+   * - **IpsecConfig. IpsecPfs**: The Diffie-Hellman key exchange algorithm used in Phase 2 negotiations. Valid values: **disabled**, **group1**, **group2**, **group5**, or **group14**. Default value: **group2**.   
    * 
-   * - **IpsecConfig.IpsecLifetime**: The SA lifecycle for Phase 2 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+   * - **IpsecConfig. IpsecLifetime**: The lifetime of the SA established in Phase 2 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
    * 
    * @example
    * {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
@@ -603,14 +563,14 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   ipsecConfig?: string;
   /**
    * @remarks
-   * The CIDR block on the VPC side that needs to communicate with the data center. This parameter is used for Phase 2 negotiations.
+   * The CIDR block on the VPC side that needs to communicate with the on-premises data center. This is used for Phase 2 negotiation.
    * 
    * Separate multiple CIDR blocks with commas (,). Example: 192.168.1.0/24,192.168.2.0/24.
    * 
-   * Routing modes of the IPsec-VPN connection:
+   * Description of IPsec-VPN connection routing modes:
    * 
    * - If both **LocalSubnet** and **RemoteSubnet** are set to 0.0.0.0/0, the destination routing mode is used.
-   * - If both **LocalSubnet** and **RemoteSubnet** are set to specific CIDR blocks, the traffic-based routing mode is used.
+   * - If both **LocalSubnet** and **RemoteSubnet** are set to specific CIDR blocks, the protected data flow mode is used.
    * 
    * This parameter is required.
    * 
@@ -622,8 +582,6 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * The name of the IPsec-VPN connection.
    * 
-   * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
-   * 
    * @example
    * nametest
    */
@@ -631,8 +589,6 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   /**
    * @remarks
    * The network type of the IPsec-VPN connection. Valid values:
-   * - **public** (default): Internet. The IPsec-VPN connection establishes an encrypted communication channel over the Internet.
-   * - **private**: Private network. The IPsec-VPN connection establishes an encrypted communication channel over a private network.
    * 
    * @example
    * public
@@ -655,22 +611,20 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * The CA certificate of the peer.
    * 
-   * > This parameter does not take effect at the moment.
-   * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
    */
   remoteCaCert?: string;
   /**
    * @remarks
-   * The CIDR block on the data center side that needs to communicate with the VPC. This parameter is used for Phase 2 negotiations.
+   * The CIDR block of the on-premises data center that needs to communicate with the VPC. This is used for Phase 2 negotiation.
    * 
    * Separate multiple CIDR blocks with commas (,). Example: 192.168.3.0/24,192.168.4.0/24.
    * 
-   * Routing modes of the IPsec-VPN connection:
+   * Description of the routing mode for the IPsec-VPN connection:
    * 
    * - If both **LocalSubnet** and **RemoteSubnet** are set to 0.0.0.0/0, the destination routing mode is used.
-   * - If both **LocalSubnet** and **RemoteSubnet** are set to specific CIDR blocks, the traffic-based routing mode is used.
+   * - If both **LocalSubnet** and **RemoteSubnet** are set to specific CIDR blocks, the protected data flow mode is used.
    * 
    * This parameter is required.
    * 
@@ -693,16 +647,12 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of tags to be added to the IPsec-VPN connection.
-   * 
-   * You can add up to 20 tags to an IPsec-VPN connection at a time.
+   * The list of tags to add to the IPsec-VPN connection.
    */
   tags?: CreateVpnAttachmentRequestTags[];
   /**
    * @remarks
    * The bandwidth specification of a single VPN tunnel. Valid values:
-   * - **Standard** (default): Standard type. The default bandwidth is 1 Gbit/s.
-   * - **Large**: Large type. The default bandwidth is 3 Gbit/s.
    * 
    * @example
    * Standard
@@ -710,10 +660,10 @@ export class CreateVpnAttachmentRequest extends $dara.Model {
   tunnelBandwidth?: string;
   /**
    * @remarks
-   * The tunnel configurations.
+   * Configures tunnels.
    * 
-   * - This parameter and its sub-parameters are supported when you create an IPsec-VPN connection in dual-tunnel mode.
-   * - When you create an IPsec-VPN connection in dual-tunnel mode, you must add two tunnels to the IPsec-VPN connection to ensure link redundancy. You can add only two tunnels to an IPsec-VPN connection.
+   * - When you create a dual-tunnel IPsec-VPN connection, you can configure the parameters in the **TunnelOptionsSpecification** array.
+   * - When you create a dual-tunnel IPsec-VPN connection, you must add two tunnels to the IPsec-VPN connection to ensure link redundancy. Only two tunnels can be added to an IPsec-VPN connection.
    * 
    * **if can be null:**
    * true

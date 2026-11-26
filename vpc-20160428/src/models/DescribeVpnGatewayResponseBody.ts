@@ -447,7 +447,7 @@ export class DescribeVpnGatewayResponseBody extends $dara.Model {
    *     - **false**: not supported.
    * 
    * @example
-   * {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"Forwarding 1.3.24\\",\\"VpnVersion\\":\\"v1.2.4\\",\\"IDaaSNewVersion\\":\\"true\\"}
+   * {\"VpnEnableBgp\":\"true\",\"VisuallySsl\":\"true\",\"PbrPriority\":\"true\",\"VpnNewImage\":\"true\",\"description\":\"Forwarding 1.3.24\",\"VpnVersion\":\"v1.2.4\",\"IDaaSNewVersion\":\"true\"}
    */
   tag?: string;
   tags?: DescribeVpnGatewayResponseBodyTags;

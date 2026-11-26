@@ -2,10 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyNatGatewayAttributeRequestIpv6Config extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable IPv6. Valid values:
+   * 
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
+   * 
+   * @example
+   * false
+   */
+  ipv6Enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Enabled: 'Ipv6Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyNatGatewayAttributeRequestLogDelivery extends $dara.Model {
   /**
    * @remarks
-   * The session log delivery type. Valid values: **sls**, which indicates Simple Log Service.
+   * The destination type for session logs. Valid value: **sls**, which indicates Simple Log Service.
    * 
    * @example
    * sls
@@ -13,7 +47,7 @@ export class ModifyNatGatewayAttributeRequestLogDelivery extends $dara.Model {
   logDeliveryType?: string;
   /**
    * @remarks
-   * The session log delivery destination. Valid values: acs:log:${regionName}:${projectOwnerAliUid}:project/${projectName}/logstore/${logstoreName}.
+   * The destination address for session logs. Format: acs:log:${regionName}:${projectOwnerAliUid}:project/${projectName}/logstore/${logstoreName}.
    * 
    * @example
    * acs:log:cn-hangzhou:0000:project/nat_session_log_project/logstore/session_log_test
@@ -55,12 +89,12 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The EIP attach pattern of the NAT gateway. Valid values: You can leave this parameter empty. If you specify a value, only **NAT** is allowed, which indicates the standard EIP attach pattern.
+   * The EIP attach mode of the NAT gateway. Valid values: Leave this parameter empty or set it to **NAT**, which indicates the standard EIP mode.
    * 
    * 
-   * > - You can only change the pattern from **MULTI_BINDED** to **NAT**. You cannot change the pattern from **NAT** to **MULTI_BINDED**. For more information about the **MULTI_BINDED** pattern, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
-   * - During the EIP attach pattern switchover procedure, network connectivity may experience a transient connection at the second level (the duration of the transient connection increases with the number of EIPs. Currently, configuration changes are supported for NAT gateways with up to five EIPs attached), so execute the switchover operation during off-peak hours.
-   * - After the EIP attach pattern is changed to **NAT**, the Internet NAT gateway becomes compatible with the IPv4 gateway. However, when you attach a public EIP, a private IP address in the vSwitch where the NAT gateway resides is occupied. Ensure that the vSwitch has sufficient private IP addresses. If no available private IP address exists in the vSwitch, you cannot attach a new EIP.
+   * > - You can only change the mode from **MULTI_BINDED** to **NAT**. You cannot change the mode from **NAT** to **MULTI_BINDED**. For more information about the **MULTI_BINDED** mode, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
+   * - During the EIP attach mode switch procedure, network connectivity may experience a transient connection that lasts for a few seconds (the duration of the transient connection increases with the number of EIPs. Currently, configuration changes are supported only for NAT gateways with up to five EIPs attached). We recommend that you execute the switch operation during off-peak hours.
+   * - After the EIP attach mode is changed to **NAT**, the Internet NAT gateway becomes compatible with the IPv4 gateway. However, attaching a public EIP consumes a private IP address from the vSwitch where the NAT gateway resides. Ensure that the vSwitch has sufficient private IP addresses. If no idle private IP address is available in the vSwitch, you cannot attach new EIPs.
    * 
    * @example
    * NAT
@@ -70,9 +104,9 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the session log feature. Valid values:
    * 
-   * - **true**: enables the session log feature.
+   * - **true**: The session log feature is enabled.
    * 
-   * - **false**: disables the session log feature.
+   * - **false**: The session log feature is disabled.
    * 
    * @example
    * true
@@ -82,13 +116,18 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable ICMP echo reply. Valid values:
    * 
-   * - **true** (default): enables ICMP echo reply.
-   * - **false**: disables ICMP echo reply.
+   * - **true** (default): Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
    */
   icmpReplyEnabled?: boolean;
+  /**
+   * @remarks
+   * The IPv6 configuration.
+   */
+  ipv6Config?: ModifyNatGatewayAttributeRequestIpv6Config;
   /**
    * @remarks
    * The session log configuration.
@@ -136,6 +175,7 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
       eipBindMode: 'EipBindMode',
       enableSessionLog: 'EnableSessionLog',
       icmpReplyEnabled: 'IcmpReplyEnabled',
+      ipv6Config: 'Ipv6Config',
       logDelivery: 'LogDelivery',
       name: 'Name',
       natGatewayId: 'NatGatewayId',
@@ -153,6 +193,7 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
       eipBindMode: 'string',
       enableSessionLog: 'boolean',
       icmpReplyEnabled: 'boolean',
+      ipv6Config: ModifyNatGatewayAttributeRequestIpv6Config,
       logDelivery: ModifyNatGatewayAttributeRequestLogDelivery,
       name: 'string',
       natGatewayId: 'string',
@@ -165,6 +206,9 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.ipv6Config && typeof (this.ipv6Config as any).validate === 'function') {
+      (this.ipv6Config as any).validate();
+    }
     if(this.logDelivery && typeof (this.logDelivery as any).validate === 'function') {
       (this.logDelivery as any).validate();
     }

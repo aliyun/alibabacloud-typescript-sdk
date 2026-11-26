@@ -190,6 +190,29 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList ex
   }
 }
 
+export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpv6Config extends $dara.Model {
+  ipv6Enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Enabled: 'Ipv6Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPrivateInfo extends $dara.Model {
   eniInstanceId?: string;
   eniType?: string;
@@ -198,6 +221,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPriva
   maxSessionEstablishRate?: number;
   maxSessionQuota?: number;
   privateIpAddress?: string;
+  privateIpv6Address?: string;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -208,6 +232,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPriva
       maxSessionEstablishRate: 'MaxSessionEstablishRate',
       maxSessionQuota: 'MaxSessionQuota',
       privateIpAddress: 'PrivateIpAddress',
+      privateIpv6Address: 'PrivateIpv6Address',
       vswitchId: 'VswitchId',
     };
   }
@@ -221,6 +246,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPriva
       maxSessionEstablishRate: 'number',
       maxSessionQuota: 'number',
       privateIpAddress: 'string',
+      privateIpv6Address: 'string',
       vswitchId: 'string',
     };
   }
@@ -335,6 +361,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
   internetChargeType?: string;
   ipLists?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists;
   ipPrefixList?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList;
+  ipv6Config?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpv6Config;
   name?: string;
   natGatewayId?: string;
   natGatewayPrivateInfo?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPrivateInfo;
@@ -370,6 +397,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
       internetChargeType: 'InternetChargeType',
       ipLists: 'IpLists',
       ipPrefixList: 'IpPrefixList',
+      ipv6Config: 'Ipv6Config',
       name: 'Name',
       natGatewayId: 'NatGatewayId',
       natGatewayPrivateInfo: 'NatGatewayPrivateInfo',
@@ -408,6 +436,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
       internetChargeType: 'string',
       ipLists: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists,
       ipPrefixList: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList,
+      ipv6Config: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpv6Config,
       name: 'string',
       natGatewayId: 'string',
       natGatewayPrivateInfo: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPrivateInfo,
@@ -441,6 +470,9 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
     }
     if(this.ipPrefixList && typeof (this.ipPrefixList as any).validate === 'function') {
       (this.ipPrefixList as any).validate();
+    }
+    if(this.ipv6Config && typeof (this.ipv6Config as any).validate === 'function') {
+      (this.ipv6Config as any).validate();
     }
     if(this.natGatewayPrivateInfo && typeof (this.natGatewayPrivateInfo as any).validate === 'function') {
       (this.natGatewayPrivateInfo as any).validate();
@@ -513,7 +545,7 @@ export class DescribeNatGatewaysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of NAT gateways queried.
+   * The total number of NAT gateways returned.
    * 
    * @example
    * 1

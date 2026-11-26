@@ -7,7 +7,7 @@ export class AddSourcesToTrafficMirrorSessionRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, and you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+   * You can generate the parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
@@ -17,11 +17,11 @@ export class AddSourcesToTrafficMirrorSessionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck the request. Valid values:
+   * Specifies whether to perform a dry run on the request. Valid values:
    * 
-   * - **true**: prechecks the request without adding the traffic mirror sources. The system checks whether the required parameters are specified, the request format, and the limits. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **true**: performs a dry run and does not add the traffic mirror sources. The system checks whether the required parameters are specified, the request format is valid, and the limits are met. If the request fails the dry run, the system returns an error. If the request passes the dry run, the system returns the `DryRunOperation` error code.
    * 
-   * - **false** (default): sends the request. After the request passes the precheck, the traffic mirror sources are added.
+   * - **false** (default): sends a normal request. If the request passes the dry run, the system adds the traffic mirror sources.
    * 
    * @example
    * false
@@ -47,7 +47,7 @@ export class AddSourcesToTrafficMirrorSessionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The instance ID of the traffic mirror session to which you want to add traffic mirror sources.
+   * The instance ID of the traffic mirror session for which you want to add traffic mirror sources.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class AddSourcesToTrafficMirrorSessionRequest extends $dara.Model {
   trafficMirrorSessionId?: string;
   /**
    * @remarks
-   * The instance IDs of the traffic mirror sources that you want to add. Currently, elastic network interfaces (ENIs) are supported as traffic mirror sources. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
+   * The instance IDs of the traffic mirror sources that you want to add. Currently, only elastic network interfaces (ENIs) are supported as traffic mirror sources. The default value of **N** is **1**, which indicates that only one traffic mirror source can be added to a traffic mirror session.
    * 
    * This parameter is required.
    * 

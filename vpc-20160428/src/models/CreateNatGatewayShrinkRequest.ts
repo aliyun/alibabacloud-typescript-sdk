@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatGatewayShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can use the Tag.N.Key format when you call API operations. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * The tag key. To specify a tag key in an API request, use the Tag.N.Key format, where N ranges from 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length, and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class CreateNatGatewayShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can use the Tag.N.Value format when you call API operations. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * The tag value. To specify a tag value in an API request, use the Tag.N.Value format, where N ranges from 1 to 20. The tag value cannot be an empty string. It can be up to 128 characters in length, and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -104,10 +104,10 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The EIP binding mode of the NAT gateway. Valid values:
-   * - **MULTI_BINDED** (default): multi-EIP NIC-visible mode.
-   * - **NAT**: NAT mode, which is compatible with IPv4 gateways.
-   *   > When the EIP binding mode of the NAT gateway is set to NAT mode, the EIP occupies a private IP address of the vSwitch to which the NAT gateway belongs. Make sure that the vSwitch has sufficient private IP addresses. If the vSwitch to which the NAT gateway belongs does not have available idle private IP addresses, you cannot bind new EIPs. When the EIP binding mode of the NAT gateway is set to NAT mode, the NAT gateway supports a maximum of 50 EIPs.
+   * The EIP attach mode of the NAT gateway. Valid values:
+   * - **MULTI_BINDED** (default): multi-EIP to network interface controller (NIC) mode.
+   * - **NAT**: standard mode, which is compatible with IPv4 gateways.
+   *   > If the EIP attach mode of the NAT gateway is set to the standard mode, the EIP occupies a private IP address of the vSwitch to which the NAT gateway belongs. Make sure that the vSwitch has sufficient private IP addresses. If the vSwitch does not have available idle private IP addresses, you cannot attach new EIPs. In the standard mode, a NAT gateway supports up to 50 EIPs.
    * 
    * @example
    * MULTI_BINDED
@@ -130,7 +130,7 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
    * 
    * **PostPaid** (default): pay-as-you-go.
    *           
-   * For more information, see [Internet NAT gateway billing](https://help.aliyun.com/document_detail/48126.html) and [VPC NAT gateway billing](https://help.aliyun.com/document_detail/270913.html).
+   * For more information, see [Billing of Internet NAT gateways](https://help.aliyun.com/document_detail/48126.html) and [Billing of VPC NAT gateways](https://help.aliyun.com/document_detail/270913.html).
    * 
    * @example
    * PostPaid
@@ -146,7 +146,7 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The IP prefix CIDR block that is used to create NAT IP addresses in batches. Use an unallocated reserved CIDR block in the vSwitch to which the NAT gateway belongs.
+   * The IP prefix CIDR block that is used to create NAT IP addresses in batches. Specify an unallocated reserved CIDR block in the vSwitch to which the NAT gateway belongs.
    * > This parameter takes effect only for VPC NAT gateways.
    * 
    * @example
@@ -155,9 +155,14 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
   ipv4Prefix?: string;
   /**
    * @remarks
+   * The IPv6 configuration.
+   */
+  ipv6ConfigShrink?: string;
+  /**
+   * @remarks
    * The name of the NAT gateway.
    * 
-   * The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character, and can contain digits, underscores (_), and hyphens (-).
+   * The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and can contain digits, underscores (_), and hyphens (-).
    * 
    * If you do not specify this parameter, the system generates a default name for the NAT gateway.
    * 
@@ -167,7 +172,7 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The private IP address that is allocated to the NAT gateway. Use an unallocated IP address in the vSwitch CIDR block of the NAT gateway. If this parameter is left empty, an IP address is randomly allocated.
+   * The private IP address that is occupied by the NAT gateway. Specify an unallocated IP address from the vSwitch CIDR block to which the NAT gateway belongs. If this parameter is left empty, the system randomly allocates an IP address.
    * > This parameter takes effect only for VPC NAT gateways.
    * 
    * @example
@@ -298,6 +303,7 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
       instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       ipv4Prefix: 'Ipv4Prefix',
+      ipv6ConfigShrink: 'Ipv6Config',
       name: 'Name',
       natIp: 'NatIp',
       natType: 'NatType',
@@ -330,6 +336,7 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
       instanceChargeType: 'string',
       internetChargeType: 'string',
       ipv4Prefix: 'string',
+      ipv6ConfigShrink: 'string',
       name: 'string',
       natIp: 'string',
       natType: 'string',

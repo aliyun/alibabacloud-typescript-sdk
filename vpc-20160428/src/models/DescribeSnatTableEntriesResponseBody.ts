@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry extends $dara.Model {
   eipAffinity?: string;
+  matchType?: string;
   natGatewayId?: string;
   networkInterfaceId?: string;
   snatEntryId?: string;
@@ -13,9 +14,11 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
   sourceCIDR?: string;
   sourceVSwitchId?: string;
   status?: string;
+  tunnelIndex?: string;
   static names(): { [key: string]: string } {
     return {
       eipAffinity: 'EipAffinity',
+      matchType: 'MatchType',
       natGatewayId: 'NatGatewayId',
       networkInterfaceId: 'NetworkInterfaceId',
       snatEntryId: 'SnatEntryId',
@@ -25,12 +28,14 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
       sourceCIDR: 'SourceCIDR',
       sourceVSwitchId: 'SourceVSwitchId',
       status: 'Status',
+      tunnelIndex: 'TunnelIndex',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       eipAffinity: 'string',
+      matchType: 'string',
       natGatewayId: 'string',
       networkInterfaceId: 'string',
       snatEntryId: 'string',
@@ -40,6 +45,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
       sourceCIDR: 'string',
       sourceVSwitchId: 'string',
       status: 'string',
+      tunnelIndex: 'string',
     };
   }
 

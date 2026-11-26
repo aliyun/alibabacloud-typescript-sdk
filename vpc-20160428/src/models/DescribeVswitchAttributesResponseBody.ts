@@ -132,6 +132,11 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    */
   description?: string;
   /**
+   * @example
+   * false
+   */
+  enableDns64?: boolean;
+  /**
    * @remarks
    * Specifies whether the IPv6 CIDR block is enabled and configured for the vSwitch. Valid values:
    * - **true**: Enabled.
@@ -273,6 +278,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
       cidrBlock: 'CidrBlock',
       creationTime: 'CreationTime',
       description: 'Description',
+      enableDns64: 'EnableDns64',
       enabledIpv6: 'EnabledIpv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6Only: 'Ipv6Only',
@@ -298,6 +304,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
       cidrBlock: 'string',
       creationTime: 'string',
       description: 'string',
+      enableDns64: 'boolean',
       enabledIpv6: 'boolean',
       ipv6CidrBlock: 'string',
       ipv6Only: 'boolean',

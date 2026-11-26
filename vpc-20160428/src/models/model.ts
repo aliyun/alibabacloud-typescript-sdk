@@ -22,6 +22,7 @@ export { CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList 
 export { CreateIpv4GatewayRequestTag } from './CreateIpv4gatewayRequest';
 export { CreateIpv6GatewayRequestTag } from './CreateIpv6gatewayRequest';
 export { CreateNatGatewayRequestAccessMode } from './CreateNatGatewayRequest';
+export { CreateNatGatewayRequestIpv6Config } from './CreateNatGatewayRequest';
 export { CreateNatGatewayRequestTag } from './CreateNatGatewayRequest';
 export { CreateNatGatewayShrinkRequestTag } from './CreateNatGatewayShrinkRequest';
 export { CreateNatGatewayResponseBodyForwardTableIds } from './CreateNatGatewayResponseBody';
@@ -199,6 +200,7 @@ export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpListsIpList } fro
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixListIpPrefixList } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList } from './DescribeNatGatewaysResponseBody';
+export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpv6Config } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPrivateInfo } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewaySnatTableIds } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTagsTag } from './DescribeNatGatewaysResponseBody';
@@ -405,6 +407,7 @@ export { GetNatGatewayAttributeResponseBodyDeletionProtectionInfo } from './GetN
 export { GetNatGatewayAttributeResponseBodyForwardTable } from './GetNatGatewayAttributeResponseBody';
 export { GetNatGatewayAttributeResponseBodyFullNatTable } from './GetNatGatewayAttributeResponseBody';
 export { GetNatGatewayAttributeResponseBodyIpList } from './GetNatGatewayAttributeResponseBody';
+export { GetNatGatewayAttributeResponseBodyIpv6Config } from './GetNatGatewayAttributeResponseBody';
 export { GetNatGatewayAttributeResponseBodyLogDelivery } from './GetNatGatewayAttributeResponseBody';
 export { GetNatGatewayAttributeResponseBodyPrivateInfo } from './GetNatGatewayAttributeResponseBody';
 export { GetNatGatewayAttributeResponseBodySnatTable } from './GetNatGatewayAttributeResponseBody';
@@ -479,6 +482,7 @@ export { ListVpcPublishedRouteEntriesResponseBodyRouteEntries } from './ListVpcP
 export { ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations } from './ListVpnCertificateAssociationsResponseBody';
 export { ModifyExpressConnectTrafficQosRequestAddInstanceList } from './ModifyExpressConnectTrafficQosRequest';
 export { ModifyExpressConnectTrafficQosRequestRemoveInstanceList } from './ModifyExpressConnectTrafficQosRequest';
+export { ModifyNatGatewayAttributeRequestIpv6Config } from './ModifyNatGatewayAttributeRequest';
 export { ModifyNatGatewayAttributeRequestLogDelivery } from './ModifyNatGatewayAttributeRequest';
 export { ModifyNatGatewayCapacityReservationRequestNatGatewayCapacity } from './ModifyNatGatewayCapacityReservationRequest';
 export { ModifyNatGatewayCapacityReservationResponseBodyCapacityReservationStatus } from './ModifyNatGatewayCapacityReservationResponseBody';

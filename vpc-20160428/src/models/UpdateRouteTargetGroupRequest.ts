@@ -72,6 +72,12 @@ export class UpdateRouteTargetGroupRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  dryRun?: boolean;
+  /**
+   * @example
+   * IPv4
+   */
+  ipVersion?: string;
   /**
    * @remarks
    * The region ID of the route target group instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
@@ -125,6 +131,8 @@ export class UpdateRouteTargetGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipVersion: 'IpVersion',
       regionId: 'RegionId',
       routeTargetGroupDescription: 'RouteTargetGroupDescription',
       routeTargetGroupId: 'RouteTargetGroupId',
@@ -136,6 +144,8 @@ export class UpdateRouteTargetGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
+      ipVersion: 'string',
       regionId: 'string',
       routeTargetGroupDescription: 'string',
       routeTargetGroupId: 'string',

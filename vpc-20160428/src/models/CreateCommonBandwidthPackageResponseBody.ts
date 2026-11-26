@@ -13,7 +13,7 @@ export class CreateCommonBandwidthPackageResponseBody extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * FF39F653-033E-4CD9-9EDF-3CCA5A71FBC3
@@ -21,7 +21,7 @@ export class CreateCommonBandwidthPackageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmxazdjdhd****

@@ -13,6 +13,7 @@ export class ModifyVSwitchAttributeRequest extends $dara.Model {
    * This is my vswitch.
    */
   description?: string;
+  enableDns64?: boolean;
   /**
    * @remarks
    * Specifies whether to enable IPv6 for the vSwitch. Valid values:
@@ -88,6 +89,7 @@ export class ModifyVSwitchAttributeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      enableDns64: 'EnableDns64',
       enableIPv6: 'EnableIPv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6CidrMask: 'Ipv6CidrMask',
@@ -105,6 +107,7 @@ export class ModifyVSwitchAttributeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      enableDns64: 'boolean',
       enableIPv6: 'boolean',
       ipv6CidrBlock: 'number',
       ipv6CidrMask: 'number',

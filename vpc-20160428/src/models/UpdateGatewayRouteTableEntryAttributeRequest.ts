@@ -7,7 +7,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can generate the parameter value on your client. Make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
@@ -27,7 +27,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route entry in the gateway route table.
+   * The destination CIDR block of the route in the gateway route table.
    * 
    * This parameter is required.
    * 
@@ -37,9 +37,9 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck the request. Valid values:
-   * - **true**: prechecks the request without modifying the gateway route table. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the gateway route table is modified.
+   * Specifies whether to perform a dry run. Valid values:
+   * - **true**: performs a dry run and does not modify the gateway route table. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the gateway route table is modified.
    * 
    * @example
    * false
@@ -47,7 +47,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the gateway route table that you want to modify.
+   * The ID of the gateway route table to be modified.
    * 
    * @example
    * vtb-5ts0ohchwkp3dydt2****
@@ -55,7 +55,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   gatewayRouteTableId?: string;
   /**
    * @remarks
-   * The ID of the gateway route table that you want to modify.
+   * The ID of the gateway route table to be modified.
    * 
    * @example
    * vtb-5ts0ohchwkp3dydt2****
@@ -73,13 +73,13 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The instance ID of the next hop that you want to modify.
+   * The instance ID of the next hop to be modified.
    * 
    * - If **NextHopType** is set to **Instance**, **NextHopId** is the ID of the ECS instance.
-   * - If **NextHopType** is set to **NetworkInterface**, **NextHopId** is the ID of the ENI.
+   * - If **NextHopType** is set to **NetworkInterface**, **NextHopId** is the ID of the elastic network interface controller (NIC) instance.
    * - If **NextHopType** is set to **Local**, **NextHopId** is empty, which indicates local.
    * 
-   * > If the next hop type of the route is **Instance** or **NetworkInterface** and you want to modify the next hop, you must first change **NextHopType** to **Local**, and then change **NextHopType** back to **Instance** or **NetworkInterface** before modifying the specific **NextHopId**. You cannot directly change the next hop from one ENI or ECS instance to another ENI or ECS instance.
+   * > To modify the next hop of a route whose next hop type is **Instance** or **NetworkInterface**, you must first change **NextHopType** to **Local**, and then change **NextHopType** back to **Instance** or **NetworkInterface** and specify a new **NextHopId**. You cannot directly change the next hop to other elastic network interface controllers (NICs) or ECS instances.
    * 
    * @example
    * i-bp18xq9yguxoxe7m****
@@ -87,10 +87,10 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The next hop type of the route that you want to modify. Valid values:
+   * The next hop type of the route to be modified. Valid values:
    * 
-   * - **Instance**: ECS instance.
-   * - **NetworkInterface**: elastic network interface (ENI).
+   * - **Instance**: an ECS instance.
+   * - **NetworkInterface**: an elastic network interface controller (NIC) instance.
    * 
    * - **Local**: local.
    * 
@@ -104,9 +104,9 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the gateway route table that you want to modify.
+   * The region ID of the gateway route table to be modified.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

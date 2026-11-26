@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePhysicalConnectionLOARequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
-   * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,8 +15,8 @@ export class DescribePhysicalConnectionLOARequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the Express Connect circuit instance.
-   * > The Express Connect circuit instance ID is obtained through the Alibaba Cloud Express Connect circuit access application process. For more information, refer to the Express Connect circuit access documentation.
+   * Instance ID of the Express Connect circuit.
+   * > You must obtain instance ID of the Express Connect circuit through the Alibaba Cloud Express Connect connection application process. For more information, see the Express Connect connection documentation.
    * 
    * This parameter is required.
    * 
@@ -30,9 +28,7 @@ export class DescribePhysicalConnectionLOARequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Express Connect circuit.
-   * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * The region ID where the Express Connect circuit is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

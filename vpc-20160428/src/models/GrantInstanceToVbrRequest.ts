@@ -48,7 +48,7 @@ export class GrantInstanceToVbrRequest extends $dara.Model {
   vbrInstanceIds?: string[];
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the VBR instance to be authorized. This account must be different from the caller\\"s account. You cannot specify the caller\\"s own account ID. This operation is used for cross-account authorization.
+   * The ID of the Alibaba Cloud account that owns the VBR instance to be authorized. This account must be different from the caller\"s account. You cannot specify the caller\"s own account ID. This operation is used for cross-account authorization.
    * 
    * This parameter is required.
    * 

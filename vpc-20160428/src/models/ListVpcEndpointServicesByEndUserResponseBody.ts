@@ -8,7 +8,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
    * The default access policy.
    * 
    * @example
-   * {   \\"Version\\" : \\"1\\",   \\"Statement\\" : [ {     \\"Effect\\" : \\"Allow\\",     \\"Action\\" : \\"*\\",     \\"Principal\\" : \\"*\\",     \\"Resource\\" : \\"*\\"   } ] }
+   * {   \"Version\" : \"1\",   \"Statement\" : [ {     \"Effect\" : \"Allow\",     \"Action\" : \"*\",     \"Principal\" : \"*\",     \"Resource\" : \"*\"   } ] }
    */
   defaultPolicyDocument?: string;
   /**

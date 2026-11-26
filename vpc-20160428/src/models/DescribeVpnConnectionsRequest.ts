@@ -19,6 +19,10 @@ export class DescribeVpnConnectionsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
+   * The tag value can be up to 128 characters in length and can be an empty string. The tag value cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each tag key corresponds to a tag value. You can specify up to 20 tag values at a time.
+   * 
    * @example
    * TagValue
    */
@@ -96,6 +100,8 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   /**
    * @remarks
    * The list of tags bound to the IPsec-VPN connection.
+   * 
+   * You can specify up to 20 tags at a time.
    */
   tag?: DescribeVpnConnectionsRequestTag[];
   /**

@@ -52,6 +52,11 @@ export class ListRouteTargetGroupsRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * IPv4
+   */
+  ipVersion?: string;
+  /**
    * @remarks
    * The number of entries to return on each page. Valid values: **1** to **50**. Default value: **50**.
    * 
@@ -114,6 +119,7 @@ export class ListRouteTargetGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      ipVersion: 'IpVersion',
       maxResults: 'MaxResults',
       memberId: 'MemberId',
       nextToken: 'NextToken',
@@ -128,6 +134,7 @@ export class ListRouteTargetGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      ipVersion: 'string',
       maxResults: 'number',
       memberId: 'string',
       nextToken: 'string',

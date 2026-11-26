@@ -148,6 +148,14 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPv4
+   */
+  ipVersion?: string;
+  /**
+   * @remarks
    * The ID of the region where the VPC to which the route target group belongs is deployed. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
@@ -233,6 +241,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
     return {
       configMode: 'ConfigMode',
       createTime: 'CreateTime',
+      ipVersion: 'IpVersion',
       regionId: 'RegionId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
@@ -250,6 +259,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
     return {
       configMode: 'string',
       createTime: 'string',
+      ipVersion: 'string',
       regionId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',

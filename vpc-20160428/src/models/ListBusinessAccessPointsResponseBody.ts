@@ -76,7 +76,7 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
    * The name of the Express Connect circuit access point.
    * 
    * @example
-   * 杭州-萧山-B
+   * Hangzhou-Xiaoshan-B
    */
   accessPointName?: string;
   /**

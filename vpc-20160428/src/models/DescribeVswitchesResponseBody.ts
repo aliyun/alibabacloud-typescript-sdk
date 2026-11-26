@@ -85,6 +85,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
   cidrBlock?: string;
   creationTime?: string;
   description?: string;
+  enableDns64?: boolean;
   enabledIpv6?: boolean;
   ipv6CidrBlock?: string;
   isDefault?: boolean;
@@ -105,6 +106,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
       cidrBlock: 'CidrBlock',
       creationTime: 'CreationTime',
       description: 'Description',
+      enableDns64: 'EnableDns64',
       enabledIpv6: 'EnabledIpv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       isDefault: 'IsDefault',
@@ -128,6 +130,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
       cidrBlock: 'string',
       creationTime: 'string',
       description: 'string',
+      enableDns64: 'boolean',
       enabledIpv6: 'boolean',
       ipv6CidrBlock: 'string',
       isDefault: 'boolean',

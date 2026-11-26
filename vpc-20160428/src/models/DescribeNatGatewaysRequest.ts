@@ -62,9 +62,9 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
    * @remarks
    * Specifies whether to only perform a dry run for this request. Valid values:
    * 
-   * - **true**: performs a dry run on the request without querying the resource status. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **true**: performs a dry run for the request without querying the resource status. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): sends a Normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the resource status is queried.
+   * - **false** (default): sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the resource status is queried.
    * 
    * @example
    * false
@@ -76,7 +76,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
    * 
    * <props="china">
    * - **PostPaid**: pay-as-you-go.
-   * - **PrePaid**: subscription. This billing method is no longer available for new purchases.
+   * - **PrePaid**: subscription. The subscription billing method is no longer available for new purchases.
    * 
    * 
    * <props="intl">The billing method of the NAT gateway. Valid value: **PostPaid** (pay-as-you-go).
@@ -134,7 +134,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 1
@@ -181,15 +181,15 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the NAT gateway. Valid values:
-   * - **Creating**: Creating a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Creating** state until the creation is complete.
+   * - **Creating**: The NAT gateway is being created. Creating a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Creating** state until it is created.
    * 
    * - **Available**: The NAT gateway is created and running. This is a stable state.
    * 
-   * - **Modifying**: Upgrading or downgrading a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Modifying** state until the modification is complete.
+   * - **Modifying**: The NAT gateway is being modified. Modifying a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Modifying** state until it is modified.
    * 
-   * - **Deleting**: Deleting a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Deleting** state until the deletion is complete.
+   * - **Deleting**: The NAT gateway is being deleted. Deleting a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Deleting** state until it is deleted.
    * 
-   * - **Converting**: Upgrading a standard NAT gateway to an enhanced NAT gateway is an asynchronous operation. The NAT gateway remains in the **Converting** state until the upgrade is complete.
+   * - **Converting**: The standard NAT gateway is being upgraded to an enhanced NAT gateway. This is an asynchronous operation. The NAT gateway remains in the **Converting** state until the upgrade is complete.
    * 
    * @example
    * Available
@@ -202,7 +202,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   tag?: DescribeNatGatewaysRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the NAT gateway belongs.
+   * The ID of the VPC to which the NAT gateway belongs.
    * 
    * @example
    * vpc-bp15zckdt37pq72z****

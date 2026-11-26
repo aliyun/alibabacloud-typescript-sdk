@@ -59,6 +59,7 @@ export class DeleteRouteTargetGroupRequest extends $dara.Model {
    * d7d24a21-f4ba-4454-9173-b3****
    */
   clientToken?: string;
+  dryRun?: boolean;
   forceDelete?: boolean;
   /**
    * @remarks
@@ -90,6 +91,7 @@ export class DeleteRouteTargetGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       forceDelete: 'ForceDelete',
       regionId: 'RegionId',
       routeTargetGroupId: 'RouteTargetGroupId',
@@ -100,6 +102,7 @@ export class DeleteRouteTargetGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       forceDelete: 'boolean',
       regionId: 'string',
       routeTargetGroupId: 'string',

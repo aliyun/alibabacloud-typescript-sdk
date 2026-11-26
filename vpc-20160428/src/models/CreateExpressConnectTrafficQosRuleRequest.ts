@@ -20,9 +20,6 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * The IPv4 CIDR block of the destination IP address for the traffic to be matched by the QoS rule.
    * 
    * > You cannot specify this parameter together with the **SrcIPv6Cidr** or **DstIPv6Cidr** parameter.
-   * 
-   * @example
-   * ``1.1.**.**``/24
    */
   dstCidr?: string;
   /**
@@ -203,9 +200,6 @@ export class CreateExpressConnectTrafficQosRuleRequest extends $dara.Model {
    * The source IPv4 CIDR block to be matched by the QoS rule.
    * 
    * > You cannot specify this parameter together with the **SrcIPv6Cidr** or **DstIPv6Cidr** parameter.
-   * 
-   * @example
-   * ``1.1.**.**``/24
    */
   srcCidr?: string;
   /**
