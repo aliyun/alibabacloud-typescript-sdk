@@ -43,7 +43,7 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
    * The text content corresponding to the audio.
    * 
    * @example
-   * Tian\\"anmen
+   * Tian\"anmen
    */
   text?: string;
   static names(): { [key: string]: string } {

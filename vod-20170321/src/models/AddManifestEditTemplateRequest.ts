@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddManifestEditTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the template. Spaces are allowed.
+   * The name of the template. Spaces are supported.
    * 
    * This parameter is required.
    * 

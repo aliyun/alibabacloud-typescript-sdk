@@ -43,7 +43,7 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
    * The detailed template configuration, in JSON format. For more information about the data structure, see [SnapshotTemplateConfig](https://help.aliyun.com/document_detail/98618.html).
    * 
    * @example
-   * {\\"SnapshotConfig\\":{\\"Count\\":10,\\"SpecifiedOffsetTime\\":0,\\"Interval\\":1},\\"SnapshotType\\":\\"NormalSnapshot\\"}
+   * {\"SnapshotConfig\":{\"Count\":10,\"SpecifiedOffsetTime\":0,\"Interval\":1},\"SnapshotType\":\"NormalSnapshot\"}
    */
   templateConfig?: string;
   /**

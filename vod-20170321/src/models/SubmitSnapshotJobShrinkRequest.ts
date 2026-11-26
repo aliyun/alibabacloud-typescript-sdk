@@ -69,7 +69,7 @@ export class SubmitSnapshotJobShrinkRequest extends $dara.Model {
    * The sprite configuration. If this parameter is not empty, a sprite is generated. For more information about the parameter structure, see [SpriteSnapshotConfig](https://help.aliyun.com/document_detail/86952.html).
    * 
    * @example
-   * {\\"CellWidth\\": 120, \\"CellHeight\\": 68, \\"Columns\\": 3,\\"Lines\\": 10, \\"Padding\\": 20, \\"Margin\\": 50}
+   * {\"CellWidth\": 120, \"CellHeight\": 68, \"Columns\": 3,\"Lines\": 10, \"Padding\": 20, \"Margin\": 50}
    */
   spriteSnapshotConfig?: string;
   /**

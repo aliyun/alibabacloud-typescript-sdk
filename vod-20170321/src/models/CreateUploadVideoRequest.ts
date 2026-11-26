@@ -57,7 +57,7 @@ export class CreateUploadVideoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * D:\\video_01.mp4
+   * D:\video_01.mp4
    */
   fileName?: string;
   /**

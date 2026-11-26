@@ -78,7 +78,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
    * The timeline of the online editing project. TimelineIn and TimelineOut indicate the in-point and out-point of a media clip on the timeline, in seconds, accurate to four decimal places.
    * 
    * @example
-   * {\\"TimelineIn\\":0,\\"TimelineOut\\":9.42}
+   * {\"TimelineIn\":0,\"TimelineOut\":9.42}
    */
   timeline?: string;
   /**

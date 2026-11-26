@@ -13,7 +13,7 @@ export class ListManifestEditTemplateResponseBodyTemplateList extends $dara.Mode
   appId?: string;
   /**
    * @remarks
-   * The creation time. The time follows the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The creation time. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2026-04-10T08:00:00Z
@@ -21,7 +21,7 @@ export class ListManifestEditTemplateResponseBodyTemplateList extends $dara.Mode
   creationTime?: string;
   /**
    * @remarks
-   * The modification time. The time follows the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The modification time. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2026-04-10T08:00:00Z
@@ -37,7 +37,7 @@ export class ListManifestEditTemplateResponseBodyTemplateList extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The template status. A value of **1** indicates enabled, and a value of **0** indicates disabled.
+   * The status of the template. Valid values: **1**: enabled. **0**: disabled.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListManifestEditTemplateResponseBodyTemplateList extends $dara.Mode
   status?: number;
   /**
    * @remarks
-   * The ManifestEdit template ID.
+   * The ID of the ManifestEdit template.
    * 
    * @example
    * 9c6581d59240de5e258ffa4c71a3e01b
@@ -93,7 +93,7 @@ export class ListManifestEditTemplateResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position returned by the current call. An empty value indicates that all data has been retrieved.
+   * The position to which the current call returns. An empty value indicates that all data has been retrieved.
    * 
    * This parameter is required.
    * 
@@ -103,7 +103,7 @@ export class ListManifestEditTemplateResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****
@@ -116,7 +116,7 @@ export class ListManifestEditTemplateResponseBody extends $dara.Model {
   templateList?: ListManifestEditTemplateResponseBodyTemplateList[];
   /**
    * @remarks
-   * The total number of entries that meet the current request conditions. This parameter is optional and is not returned by default.
+   * The total number of entries that meet the query conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 5

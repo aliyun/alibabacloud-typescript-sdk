@@ -69,7 +69,7 @@ export class CreateUploadImageRequest extends $dara.Model {
    * > The address can exclude the file name extension. If the address includes a file name extension that is different from the one specified by `ImageExt`, the value of `ImageExt` prevails.
    * 
    * @example
-   * D:\\picture_01
+   * D:\picture_01
    */
   originalFileName?: string;
   /**

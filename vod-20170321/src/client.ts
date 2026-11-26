@@ -350,7 +350,7 @@ export default class Client extends OpenApi {
    * ## Request description
    * - The `Name` parameter is required and must pass the `COMPLEX_STRING_SPACE_ALLOWED` format validation.
    * - Other parameters are optional, but if provided, they must meet the corresponding format requirements.
-   * - The encryption type `EncryptType` supports a combination of multiple encryption methods. For more information, see the valid values.
+   * - The `EncryptType` parameter supports a combination of multiple encryption methods. For more information, refer to the valid values.
    * - When HLS encryption is used, `EncryptConfig` must include information such as `DecryptKeyUri`, `KeyServiceType`, `CipherText`, and `MasterKeyId`.
    * 
    * @param request - AddManifestEditTemplateRequest
@@ -392,7 +392,7 @@ export default class Client extends OpenApi {
    * ## Request description
    * - The `Name` parameter is required and must pass the `COMPLEX_STRING_SPACE_ALLOWED` format validation.
    * - Other parameters are optional, but if provided, they must meet the corresponding format requirements.
-   * - The encryption type `EncryptType` supports a combination of multiple encryption methods. For more information, see the valid values.
+   * - The `EncryptType` parameter supports a combination of multiple encryption methods. For more information, refer to the valid values.
    * - When HLS encryption is used, `EncryptConfig` must include information such as `DecryptKeyUri`, `KeyServiceType`, `CipherText`, and `MasterKeyId`.
    * 
    * @param request - AddManifestEditTemplateRequest
@@ -401,6 +401,76 @@ export default class Client extends OpenApi {
   async addManifestEditTemplate(request: $_model.AddManifestEditTemplateRequest): Promise<$_model.AddManifestEditTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addManifestEditTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建MediaConvert模版组
+   * 
+   * @remarks
+   * - 传入**Name**时创建新的转码模板组；传入**TranscodeTemplateGroupId**时向指定的转码模板组追加转码模板配置，已有模板与新增模板总数不能超过20个。
+   * - 追加模式下不支持传入**GroupConfig**，组级配置变更请调用UpdateMediaConvertTemplateGroup接口。
+   * - 创建转码模板组需要正常可用的存储地址；若没有可用的存储地址，模板创建会失败（您可以在**视频点播控制台 > 配置管理 > 媒资管理配置 > 存储管理**中，激活**点播系统bucket**获取可用的存储地址）。
+   * - 本接口的单用户QPS限制为5次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+   * 
+   * @param request - AddMediaConvertTemplateGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMediaConvertTemplateGroupResponse
+   */
+  async addMediaConvertTemplateGroupWithOptions(request: $_model.AddMediaConvertTemplateGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddMediaConvertTemplateGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.groupConfig)) {
+      query["GroupConfig"] = request.groupConfig;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.transcodeTemplateGroupId)) {
+      query["TranscodeTemplateGroupId"] = request.transcodeTemplateGroupId;
+    }
+
+    if (!$dara.isNull(request.transcodeTemplateList)) {
+      query["TranscodeTemplateList"] = request.transcodeTemplateList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddMediaConvertTemplateGroup",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddMediaConvertTemplateGroupResponse>(await this.callApi(params, req, runtime), new $_model.AddMediaConvertTemplateGroupResponse({}));
+  }
+
+  /**
+   * 创建MediaConvert模版组
+   * 
+   * @remarks
+   * - 传入**Name**时创建新的转码模板组；传入**TranscodeTemplateGroupId**时向指定的转码模板组追加转码模板配置，已有模板与新增模板总数不能超过20个。
+   * - 追加模式下不支持传入**GroupConfig**，组级配置变更请调用UpdateMediaConvertTemplateGroup接口。
+   * - 创建转码模板组需要正常可用的存储地址；若没有可用的存储地址，模板创建会失败（您可以在**视频点播控制台 > 配置管理 > 媒资管理配置 > 存储管理**中，激活**点播系统bucket**获取可用的存储地址）。
+   * - 本接口的单用户QPS限制为5次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+   * 
+   * @param request - AddMediaConvertTemplateGroupRequest
+   * @returns AddMediaConvertTemplateGroupResponse
+   */
+  async addMediaConvertTemplateGroup(request: $_model.AddMediaConvertTemplateGroupRequest): Promise<$_model.AddMediaConvertTemplateGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addMediaConvertTemplateGroupWithOptions(request, runtime);
   }
 
   /**
@@ -2153,8 +2223,8 @@ export default class Client extends OpenApi {
    * Deletes a specified ManifestEdit track orchestration template.
    * 
    * @remarks
-   * - After deletion, the template and its track configurations cannot be recovered. Submitted jobs are not affected, but resubmitting a SubmitEditMediaManifestJob job with the deleted template ID will fail.
-   * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline will also be cleared (preset templates are not affected).
+   * - After the template is deleted, the template and its track configurations cannot be recovered. Submitted tasks are not affected. However, submitting a SubmitEditMediaManifestJob task by using the deleted template ID will fail.
+   * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline are also cleared (preset templates are not affected).
    * 
    * @param request - DeleteManifestEditTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2188,8 +2258,8 @@ export default class Client extends OpenApi {
    * Deletes a specified ManifestEdit track orchestration template.
    * 
    * @remarks
-   * - After deletion, the template and its track configurations cannot be recovered. Submitted jobs are not affected, but resubmitting a SubmitEditMediaManifestJob job with the deleted template ID will fail.
-   * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline will also be cleared (preset templates are not affected).
+   * - After the template is deleted, the template and its track configurations cannot be recovered. Submitted tasks are not affected. However, submitting a SubmitEditMediaManifestJob task by using the deleted template ID will fail.
+   * - The custom transcoding template configurations associated with the template in the MediaConvert pipeline are also cleared (preset templates are not affected).
    * 
    * @param request - DeleteManifestEditTemplateRequest
    * @returns DeleteManifestEditTemplateResponse
@@ -2197,6 +2267,68 @@ export default class Client extends OpenApi {
   async deleteManifestEditTemplate(request: $_model.DeleteManifestEditTemplateRequest): Promise<$_model.DeleteManifestEditTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteManifestEditTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除 MediaConvert 模板组
+   * 
+   * @remarks
+   * - **ForceDelGroup**取值为**true**（默认值）时删除整个转码模板组；取值为**false**时，需通过**TranscodeTemplateIdList**指定要删除的转码模板。
+   * - 逐模板删除时不允许删除组内最后一个转码模板；如需删除整个模板组，请使用默认的ForceDelGroup。
+   * - 删除请求同步返回，MediaConvert链路侧的模板清理异步执行。
+   * - 本接口的单用户QPS限制为5次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+   * 
+   * @param request - DeleteMediaConvertTemplateGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaConvertTemplateGroupResponse
+   */
+  async deleteMediaConvertTemplateGroupWithOptions(request: $_model.DeleteMediaConvertTemplateGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMediaConvertTemplateGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.forceDelGroup)) {
+      query["ForceDelGroup"] = request.forceDelGroup;
+    }
+
+    if (!$dara.isNull(request.transcodeTemplateGroupId)) {
+      query["TranscodeTemplateGroupId"] = request.transcodeTemplateGroupId;
+    }
+
+    if (!$dara.isNull(request.transcodeTemplateIdList)) {
+      query["TranscodeTemplateIdList"] = request.transcodeTemplateIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMediaConvertTemplateGroup",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMediaConvertTemplateGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMediaConvertTemplateGroupResponse({}));
+  }
+
+  /**
+   * 删除 MediaConvert 模板组
+   * 
+   * @remarks
+   * - **ForceDelGroup**取值为**true**（默认值）时删除整个转码模板组；取值为**false**时，需通过**TranscodeTemplateIdList**指定要删除的转码模板。
+   * - 逐模板删除时不允许删除组内最后一个转码模板；如需删除整个模板组，请使用默认的ForceDelGroup。
+   * - 删除请求同步返回，MediaConvert链路侧的模板清理异步执行。
+   * - 本接口的单用户QPS限制为5次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+   * 
+   * @param request - DeleteMediaConvertTemplateGroupRequest
+   * @returns DeleteMediaConvertTemplateGroupResponse
+   */
+  async deleteMediaConvertTemplateGroup(request: $_model.DeleteMediaConvertTemplateGroupRequest): Promise<$_model.DeleteMediaConvertTemplateGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMediaConvertTemplateGroupWithOptions(request, runtime);
   }
 
   /**
@@ -7412,6 +7544,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configuration details of a specified MediaConvert (MC) transcoding template group, including the group information and the list of transcoding templates.
+   * 
+   * @remarks
+   * - You can only query custom transcoding template groups created by calling AddMediaConvertTemplateGroup for the MC link. If you query a template group that does not exist or is not part of the MC link, the InvalidTranscodeTemplateGroup.NotFound error is returned.
+   * - The queries per second (QPS) limit per user for this API operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * 
+   * @param request - GetMediaConvertTemplateGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaConvertTemplateGroupResponse
+   */
+  async getMediaConvertTemplateGroupWithOptions(request: $_model.GetMediaConvertTemplateGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMediaConvertTemplateGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.transcodeTemplateGroupId)) {
+      query["TranscodeTemplateGroupId"] = request.transcodeTemplateGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaConvertTemplateGroup",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMediaConvertTemplateGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetMediaConvertTemplateGroupResponse({}));
+  }
+
+  /**
+   * Queries the configuration details of a specified MediaConvert (MC) transcoding template group, including the group information and the list of transcoding templates.
+   * 
+   * @remarks
+   * - You can only query custom transcoding template groups created by calling AddMediaConvertTemplateGroup for the MC link. If you query a template group that does not exist or is not part of the MC link, the InvalidTranscodeTemplateGroup.NotFound error is returned.
+   * - The queries per second (QPS) limit per user for this API operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * 
+   * @param request - GetMediaConvertTemplateGroupRequest
+   * @returns GetMediaConvertTemplateGroupResponse
+   */
+  async getMediaConvertTemplateGroup(request: $_model.GetMediaConvertTemplateGroupRequest): Promise<$_model.GetMediaConvertTemplateGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaConvertTemplateGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves media fingerprint results. After a media fingerprint job is complete, you can call this operation to query the results in real time.
    * 
    * @remarks
@@ -8944,7 +9126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the created ManifestEdit track orchestration templates by paging.
+   * Queries the list of created ManifestEdit track orchestration templates by paging.
    * 
    * @param request - ListManifestEditTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8979,7 +9161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the created ManifestEdit track orchestration templates by paging.
+   * Queries the list of created ManifestEdit track orchestration templates by paging.
    * 
    * @param request - ListManifestEditTemplateRequest
    * @returns ListManifestEditTemplateResponse
@@ -8987,6 +9169,62 @@ export default class Client extends OpenApi {
   async listManifestEditTemplate(request: $_model.ListManifestEditTemplateRequest): Promise<$_model.ListManifestEditTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listManifestEditTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of custom transcoding template groups for the MediaConvert (MC) pipeline by using paging.
+   * 
+   * @remarks
+   * - Only custom transcoding template groups for the MC pipeline created by calling AddMediaConvertTemplateGroup under the current account (with an optional application specified) are returned. Preset template groups are not included.
+   * - Results are sorted in ascending order by creation time. Pagination is implemented by using MaxResults and NextToken.
+   * - The queries per second (QPS) limit per user for this operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+   * 
+   * @param request - ListMediaConvertTemplateGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaConvertTemplateGroupResponse
+   */
+  async listMediaConvertTemplateGroupWithOptions(request: $_model.ListMediaConvertTemplateGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMediaConvertTemplateGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMediaConvertTemplateGroup",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMediaConvertTemplateGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListMediaConvertTemplateGroupResponse({}));
+  }
+
+  /**
+   * Queries a list of custom transcoding template groups for the MediaConvert (MC) pipeline by using paging.
+   * 
+   * @remarks
+   * - Only custom transcoding template groups for the MC pipeline created by calling AddMediaConvertTemplateGroup under the current account (with an optional application specified) are returned. Preset template groups are not included.
+   * - Results are sorted in ascending order by creation time. Pagination is implemented by using MaxResults and NextToken.
+   * - The queries per second (QPS) limit per user for this operation is 15. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+   * 
+   * @param request - ListMediaConvertTemplateGroupRequest
+   * @returns ListMediaConvertTemplateGroupResponse
+   */
+  async listMediaConvertTemplateGroup(request: $_model.ListMediaConvertTemplateGroupRequest): Promise<$_model.ListMediaConvertTemplateGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMediaConvertTemplateGroupWithOptions(request, runtime);
   }
 
   /**
@@ -11160,11 +11398,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - This API operation incrementally edits the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
-   * - `VideoId` and `JobId` are required parameters used for authentication isolation and consistency verification.
+   * - This API operation is used to incrementally edit the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
+   * - `VideoId` and `JobId` are required parameters for authentication isolation and consistency verification.
    * - You can specify `TemplateId` to apply a predefined manifest editing template.
-   * - This operation supports appending, removing, and replacing audio, subtitle, and video tracks.
-   * - The `OutputConfig` parameter specifies the storage location of the edited manifest.
+   * - It supports appending, removing, and replacing audio, subtitle, and video tracks.
+   * - The output configuration `OutputConfig` specifies the storage location of the edited manifest.
    * - You can pass custom data in `UserData` as pass-through information.
    * 
    * @param request - SubmitEditMediaManifestJobRequest
@@ -11232,11 +11470,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - This API operation incrementally edits the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
-   * - `VideoId` and `JobId` are required parameters used for authentication isolation and consistency verification.
+   * - This API operation is used to incrementally edit the manifest of an existing HLS/DASH AUTO stream (definition=7) without re-transcoding.
+   * - `VideoId` and `JobId` are required parameters for authentication isolation and consistency verification.
    * - You can specify `TemplateId` to apply a predefined manifest editing template.
-   * - This operation supports appending, removing, and replacing audio, subtitle, and video tracks.
-   * - The `OutputConfig` parameter specifies the storage location of the edited manifest.
+   * - It supports appending, removing, and replacing audio, subtitle, and video tracks.
+   * - The output configuration `OutputConfig` specifies the storage location of the edited manifest.
    * - You can pass custom data in `UserData` as pass-through information.
    * 
    * @param request - SubmitEditMediaManifestJobRequest

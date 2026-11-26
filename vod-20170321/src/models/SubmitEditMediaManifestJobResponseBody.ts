@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitEditMediaManifestJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The manifest editing task ID, which is the MediaConvert pipeline task ID.
+   * The ID of the manifest editing task, which is the MediaConvert pipeline task ID.
    * 
    * @example
    * 93e154cb83e54b7a0f1236f847f4****

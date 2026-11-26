@@ -53,7 +53,7 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
    * > The file name extension is optional. If a file name extension is included and it is different from the file name extension specified in MediaExt, the value of MediaExt prevails.
    * 
    * @example
-   * D:\\test.png
+   * D:\test.png
    */
   fileName?: string;
   /**
