@@ -16,7 +16,7 @@ export class UpdateRuleResponseBody extends $dara.Model {
    * The response data.
    * 
    * @example
-   * xxx
+   * 100
    */
   data?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
+   * The result code. A value of **200** indicates success, and other values indicate failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The AgentId of the task.
+   * The ID of the agent for the task.
    * 
    * @example
    * 12
@@ -21,7 +21,7 @@ export class CreateAgentResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The error message, if any.
+   * The error message. This field is returned if an error occurs.
    * 
    * @example
    * successful
@@ -37,7 +37,9 @@ export class CreateAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
+   * Specifies whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

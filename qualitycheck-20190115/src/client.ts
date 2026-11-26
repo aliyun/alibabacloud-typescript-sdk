@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Qualitycheck";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("qualitycheck", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -174,7 +178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs tag categorization.
+   * Analyzes tags.
    * 
    * @param request - AnalyzeLabelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -209,7 +213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs tag categorization.
+   * Analyzes tags.
    * 
    * @param request - AnalyzeLabelRequest
    * @returns AnalyzeLabelResponse
@@ -615,6 +619,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建HTTP回调事件配置
+   * 
+   * @param request - CreateHttpEventConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHttpEventConfigResponse
+   */
+  async createHttpEventConfigWithOptions(request: $_model.CreateHttpEventConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHttpEventConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHttpEventConfig",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHttpEventConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateHttpEventConfigResponse({}));
+  }
+
+  /**
+   * 创建HTTP回调事件配置
+   * 
+   * @param request - CreateHttpEventConfigRequest
+   * @returns CreateHttpEventConfigResponse
+   */
+  async createHttpEventConfig(request: $_model.CreateHttpEventConfigRequest): Promise<$_model.CreateHttpEventConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHttpEventConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a label mining task.
    * 
    * @param request - CreateMiningTaskRequest
@@ -818,7 +868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a label node.
+   * Creates a tag node.
    * 
    * @param request - CreateTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -853,7 +903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a label node.
+   * Creates a tag node.
    * 
    * @param request - CreateTagRequest
    * @returns CreateTagResponse
@@ -1146,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a hotword group.
+   * Deletes a hot word group.
    * 
    * @param request - DeleteAsrVocabRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1181,7 +1231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a hotword group.
+   * Deletes a hot word group.
    * 
    * @param request - DeleteAsrVocabRequest
    * @returns DeleteAsrVocabResponse
@@ -1381,6 +1431,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the HTTP callback event configuration.
+   * 
+   * @param request - DeleteHttpEventConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHttpEventConfigResponse
+   */
+  async deleteHttpEventConfigWithOptions(request: $_model.DeleteHttpEventConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHttpEventConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHttpEventConfig",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHttpEventConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHttpEventConfigResponse({}));
+  }
+
+  /**
+   * Deletes the HTTP callback event configuration.
+   * 
+   * @param request - DeleteHttpEventConfigRequest
+   * @returns DeleteHttpEventConfigResponse
+   */
+  async deleteHttpEventConfig(request: $_model.DeleteHttpEventConfigRequest): Promise<$_model.DeleteHttpEventConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHttpEventConfigWithOptions(request, runtime);
+  }
+
+  /**
    * You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
    * 
    * @param request - DeleteQualityCheckSchemeRequest
@@ -1427,7 +1523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
+   * Deletes a quality check rule. Corresponds to the frontend feature location: Quality check rule configuration - Delete. Corresponds to the Apsara Stack URL: ip:port/api/client/DeleteRule.json.
    * 
    * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
    * 
@@ -1474,7 +1570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
+   * Deletes a quality check rule. Corresponds to the frontend feature location: Quality check rule configuration - Delete. Corresponds to the Apsara Stack URL: ip:port/api/client/DeleteRule.json.
    * 
    * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
    * 
@@ -2065,8 +2161,7 @@ export default class Client extends OpenApi {
    * Retrieves the task result of an agent node.
    * 
    * @remarks
-   * Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
-   * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
+   * You can query data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), as well as data for dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query the data by task ID or time range. By default, the response of this operation returns only a subset of parameters. You can use the requiredFields request parameter to specify the fields to be returned.
    * 
    * @param request - GetAgentTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2104,8 +2199,7 @@ export default class Client extends OpenApi {
    * Retrieves the task result of an agent node.
    * 
    * @remarks
-   * Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
-   * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
+   * You can query data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), as well as data for dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query the data by task ID or time range. By default, the response of this operation returns only a subset of parameters. You can use the requiredFields request parameter to specify the fields to be returned.
    * 
    * @param request - GetAgentTaskResultRequest
    * @returns GetAgentTaskResultResponse
@@ -2254,7 +2348,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the results of tag categorization analysis.
+   * 获取HTTP回调事件配置
+   * 
+   * @param request - GetHttpEventConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHttpEventConfigResponse
+   */
+  async getHttpEventConfigWithOptions(request: $_model.GetHttpEventConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetHttpEventConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetHttpEventConfig",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetHttpEventConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetHttpEventConfigResponse({}));
+  }
+
+  /**
+   * 获取HTTP回调事件配置
+   * 
+   * @param request - GetHttpEventConfigRequest
+   * @returns GetHttpEventConfigResponse
+   */
+  async getHttpEventConfig(request: $_model.GetHttpEventConfigRequest): Promise<$_model.GetHttpEventConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getHttpEventConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries tag analysis results.
    * 
    * @param request - GetLabelAnalysisResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2289,7 +2429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the results of tag categorization analysis.
+   * Queries tag analysis results.
    * 
    * @param request - GetLabelAnalysisResultRequest
    * @returns GetLabelAnalysisResultResponse
@@ -2484,10 +2624,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+   * Queries quality check results. Some results are returned only when explicitly specified by the requiredFields request parameter. Set the region to China (Hangzhou) (cn-hangzhou).
    * 
    * @remarks
-   * You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
+   * Queries data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), and data of dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query data by task ID or time range. By default, the response includes only a subset of parameters. You can use the requiredFields request parameter to specify the fields to return.
    * 
    * @param request - GetResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2522,10 +2662,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+   * Queries quality check results. Some results are returned only when explicitly specified by the requiredFields request parameter. Set the region to China (Hangzhou) (cn-hangzhou).
    * 
    * @remarks
-   * You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
+   * Queries data uploaded by calling [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), and data of dataset quality check tasks submitted by calling [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query data by task ID or time range. By default, the response includes only a subset of parameters. You can use the requiredFields request parameter to specify the fields to return.
    * 
    * @param request - GetResultRequest
    * @returns GetResultResponse
@@ -2536,7 +2676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
+   * Retrieves the quality check result details of a specified file for review. The details include the transcribed text, recording URL, and information about matched check items. You can use this information to listen to the recording, view the transcribed text, and locate the matched check items to review the file.
    * 
    * @param request - GetResultToReviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2571,7 +2711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
+   * Retrieves the quality check result details of a specified file for review. The details include the transcribed text, recording URL, and information about matched check items. You can use this information to listen to the recording, view the transcribed text, and locate the matched check items to review the file.
    * 
    * @param request - GetResultToReviewRequest
    * @returns GetResultToReviewResponse
@@ -3027,7 +3167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration that is specified by its ID.
+   * Retrieves the specified configuration by ID.
    * 
    * @deprecated OpenAPI GetSkillGroupConfig is deprecated
    * 
@@ -3064,7 +3204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration that is specified by its ID.
+   * Retrieves the specified configuration by ID.
    * 
    * @deprecated OpenAPI GetSkillGroupConfig is deprecated
    * 
@@ -3129,7 +3269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a label node.
+   * Queries the details of a tag node.
    * 
    * @param request - GetTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3164,7 +3304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a label node.
+   * Queries the details of a tag node.
    * 
    * @param request - GetTagRequest
    * @returns GetTagResponse
@@ -3324,7 +3464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists AI analysis assistant tasks.
+   * Lists the tasks of the AI analysis assistant.
    * 
    * @param request - ListAgentMJobInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3359,7 +3499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists AI analysis assistant tasks.
+   * Lists the tasks of the AI analysis assistant.
    * 
    * @param request - ListAgentMJobInfoRequest
    * @returns ListAgentMJobInfoResponse
@@ -3564,7 +3704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
+   * Corresponds to the frontend feature location: Quality Inspection Rule Configuration - List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
    * 
    * @param request - ListRulesV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3701,7 +3841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
+   * Corresponds to the frontend feature location: Quality Inspection Rule Configuration - List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
    * 
    * @param request - ListRulesV4Request
    * @returns ListRulesV4Response
@@ -3712,7 +3852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
+   * Corresponds to the frontend feature location: Task Management. Apsara Stack URL: ip:port/api/task/ListSchemeTaskInfo.json.
    * 
    * @param request - ListSchemeTaskConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3747,7 +3887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
+   * Corresponds to the frontend feature location: Task Management. Apsara Stack URL: ip:port/api/task/ListSchemeTaskInfo.json.
    * 
    * @param request - ListSchemeTaskConfigRequest
    * @returns ListSchemeTaskConfigResponse
@@ -3860,7 +4000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of label nodes.
+   * Queries the list of tag nodes.
    * 
    * @param request - ListTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3895,7 +4035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of label nodes.
+   * Queries the list of tag nodes.
    * 
    * @param request - ListTagRequest
    * @returns ListTagResponse
@@ -4136,7 +4276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
+   * Corresponds to the frontend feature location: Quality Check Plan Management - Task Results - Session Groups - Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSessionGroup.json.
    * 
    * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
    * 
@@ -4173,7 +4313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
+   * Corresponds to the frontend feature location: Quality Check Plan Management - Task Results - Session Groups - Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSessionGroup.json.
    * 
    * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
    * 
@@ -4187,7 +4327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
+   * Invokes a large language model in the Message protocol format to obtain analysis results. The API supports standard HTTP and HTTP Server-Sent Events (SSE) protocols. You can select a protocol based on your requirements.
    * 
    * @param tmpReq - RunCompletionMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4246,7 +4386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
+   * Invokes a large language model in the Message protocol format to obtain analysis results. The API supports standard HTTP and HTTP Server-Sent Events (SSE) protocols. You can select a protocol based on your requirements.
    * 
    * @param tmpReq - RunCompletionMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4291,7 +4431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
+   * Invokes a large language model in the Message protocol format to obtain analysis results. The API supports standard HTTP and HTTP Server-Sent Events (SSE) protocols. You can select a protocol based on your requirements.
    * 
    * @param request - RunCompletionMessageRequest
    * @returns RunCompletionMessageResponse
@@ -4399,7 +4539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new dataset quality check task.
+   * Creates a dataset quality inspection task.
    * 
    * @param request - SubmitQualityCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4434,7 +4574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new dataset quality check task.
+   * Creates a dataset quality inspection task.
    * 
    * @param request - SubmitQualityCheckTaskRequest
    * @returns SubmitQualityCheckTaskResponse
@@ -4445,10 +4585,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save review results. This is only supported by the legacy Smart Conversation Analysis.
+   * Saves review results. This operation is supported only for legacy intelligent dialogue analysis.
    * 
    * @remarks
-   * You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+   * Manually reviews files that have completed quality inspection. After the review is complete, call this operation to save the review results. This allows you to manually verify whether the rules identified as hits by the system are actual hits or false positives. You can refer to the file review feature in the console. For more information, see [File review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
    * 
    * @param request - SubmitReviewInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4483,10 +4623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save review results. This is only supported by the legacy Smart Conversation Analysis.
+   * Saves review results. This operation is supported only for legacy intelligent dialogue analysis.
    * 
    * @remarks
-   * You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+   * Manually reviews files that have completed quality inspection. After the review is complete, call this operation to save the review results. This allows you to manually verify whether the rules identified as hits by the system are actual hits or false positives. You can refer to the file review feature in the console. For more information, see [File review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
    * 
    * @param request - SubmitReviewInfoRequest
    * @returns SubmitReviewInfoResponse
@@ -4617,7 +4757,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 测试HTTP回调事件配置
+   * 
+   * @param request - TestHttpEventConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TestHttpEventConfigResponse
+   */
+  async testHttpEventConfigWithOptions(request: $_model.TestHttpEventConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TestHttpEventConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TestHttpEventConfig",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TestHttpEventConfigResponse>(await this.callApi(params, req, runtime), new $_model.TestHttpEventConfigResponse({}));
+  }
+
+  /**
+   * 测试HTTP回调事件配置
+   * 
+   * @param request - TestHttpEventConfigRequest
+   * @returns TestHttpEventConfigResponse
+   */
+  async testHttpEventConfig(request: $_model.TestHttpEventConfigRequest): Promise<$_model.TestHttpEventConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.testHttpEventConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
+   * 
+   * @deprecated OpenAPI TestRuleV4 is deprecated
    * 
    * @param request - TestRuleV4Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4654,9 +4842,12 @@ export default class Client extends OpenApi {
   /**
    * Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
    * 
+   * @deprecated OpenAPI TestRuleV4 is deprecated
+   * 
    * @param request - TestRuleV4Request
    * @returns TestRuleV4Response
    */
+  // Deprecated
   async testRuleV4(request: $_model.TestRuleV4Request): Promise<$_model.TestRuleV4Response> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.testRuleV4WithOptions(request, runtime);
@@ -4755,7 +4946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
+   * Updates the check type for a quality inspection scheme. Frontend location: Quality Inspection Scheme Management > Create or Edit Quality Inspection Task > Edit icon next to the quality inspection dimension name. Apsara Stack URL: ip:port/api/qcs/UpdateCheckTypeToScheme.json.
    * 
    * @param request - UpdateCheckTypeToSchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4790,7 +4981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
+   * Updates the check type for a quality inspection scheme. Frontend location: Quality Inspection Scheme Management > Create or Edit Quality Inspection Task > Edit icon next to the quality inspection dimension name. Apsara Stack URL: ip:port/api/qcs/UpdateCheckTypeToScheme.json.
    * 
    * @param request - UpdateCheckTypeToSchemeRequest
    * @returns UpdateCheckTypeToSchemeResponse
@@ -4798,6 +4989,52 @@ export default class Client extends OpenApi {
   async updateCheckTypeToScheme(request: $_model.UpdateCheckTypeToSchemeRequest): Promise<$_model.UpdateCheckTypeToSchemeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCheckTypeToSchemeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改HTTP回调事件配置
+   * 
+   * @param request - UpdateHttpEventConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateHttpEventConfigResponse
+   */
+  async updateHttpEventConfigWithOptions(request: $_model.UpdateHttpEventConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHttpEventConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateHttpEventConfig",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateHttpEventConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateHttpEventConfigResponse({}));
+  }
+
+  /**
+   * 修改HTTP回调事件配置
+   * 
+   * @param request - UpdateHttpEventConfigRequest
+   * @returns UpdateHttpEventConfigResponse
+   */
+  async updateHttpEventConfig(request: $_model.UpdateHttpEventConfigRequest): Promise<$_model.UpdateHttpEventConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateHttpEventConfigWithOptions(request, runtime);
   }
 
   /**
@@ -5262,7 +5499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a label node.
+   * Updates a tag node.
    * 
    * @param request - UpdateTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5297,7 +5534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a label node.
+   * Updates a tag node.
    * 
    * @param request - UpdateTagRequest
    * @returns UpdateTagResponse
@@ -5498,30 +5735,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads offline voice quality inspection data (recording session files). This operation is applicable to hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Call Center (CCC), requiring no development. You can enable one-click push of call data to SCA. Scenario 2: Integrates with your own call center system. Each time the call center generates a recording, it pushes the recording to SCA for analysis.
+   * Uploads offline voice quality inspection data (recorded session files) for hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Cloud Call Center (CCC) without the need for development, allowing you to push call data to Smart Conversation Analysis (SCA) with a single click. Scenario 2: Integrates with a self-managed call center system, where each generated recording is pushed to SCA for analysis.
    * 
    * @remarks
-   * ### Process description
-   * Call the API to upload audio quality inspection => Convert the recording file to text => Separate roles in the text based on the specified channel splitting method (distinguish between agent and customer) => Analyze using quality inspection rules => Quality inspection complete.
+   * ### Workflow
+   * Call the API to upload audio for quality inspection => Convert the audio file to text => Separate the text into roles (agent and customer) based on the specified track splitting method => Analyze the text by using quality inspection rules => Complete the quality inspection.
    * ### Task execution efficiency
-   * The speed of task execution depends on the speed of converting the recording file to text. Ideally, a 5-minute recording file can be transcribed within 2 minutes. However, when the transcription service has many queued tasks, there will be a queuing wait time. Generally, transcription completes within 6 hours, except for bulk uploads of large-scale data (more than 500 hours of recordings uploaded within 30 minutes). After transcription is complete, quality inspection analysis takes only milliseconds.
-   * ### Recording file URL requirements
-   * - Supports single-channel/dual-channel WAV and MP3 format recording files. The file size must be less than 512 MB.
-   * - The URL must be an HTTP-accessible URL address. Local file submission is not supported. The recording file access permissions must be set to public.
-   * - The URL can only use domain names, not IP addresses. The URL cannot contain spaces. Avoid using Chinese characters.
-   * - After converting the recording to text, the system deletes the downloaded recording file and does not retain a copy.
-   * - If your recording URL has an access expiration period (for example, the recording is stored in Alibaba Cloud OSS and you specified an expiration period when generating the recording URL through OSS), set the expiration period to at least 12 hours, or 24 hours if possible. This is because file transcription takes time and occasional queuing may occur. If the queuing time is long, the recording is downloaded only when transcription begins. This prevents the recording URL from expiring before the download.
-   * - After quality inspection analysis is complete, the recording is still played using the URL you provided when reviewing files in the console. Ensure that the URL remains active long-term. Otherwise, the recording cannot be played.
-   * ### Role separation description
-   * After the recording is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. You need to perform role separation based on certain rules. The accuracy of role separation is critical because the rules used for quality inspection analysis often have role detection restrictions (a rule only checks the agent or the customer). If role separation is incorrect, the accuracy of quality inspection results is significantly affected.
-   * Recording files are typically divided into two types: single-channel (mono) and dual-channel (stereo):
-   * - Single-channel recording: The voices of both the agent and customer are stored on one channel. After the recording file is converted to text, the system uses a built-in algorithm to distinguish between two roles. By setting a list of keywords that the agent is likely to say, the system analyzes the transcribed text sentence by sentence from top to bottom. When a sentence matches a keyword, the role of that sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the unpredictability of conversation content (for example, cross-talk between two roles or both people speaking simultaneously), role separation for single-channel recordings cannot be guaranteed to be 100% accurate. Save recording files as dual-channel recordings whenever possible.
-   * - Dual-channel recording: The voices of the agent and customer are stored on two separate channels. Even if the conversation overlaps, the recording-to-text conversion can accurately distinguish between the two. Specify the agent and customer by using the serviceChannel and clientChannel request parameters.
-   * ### Retrieve quality inspection analysis results
-   * Because recording file recognition is not real-time, you need to asynchronously retrieve quality inspection analysis results. The following three methods are available:
-   * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After receiving a message, invoke the GetResult operation to retrieve detailed results. (Recommended)
-   * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task is complete. After receiving the callback, invoke the GetResult operation to retrieve detailed results.
-   * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the `getResult` operation to asynchronously retrieve results. Check whether the `status` in the response parameters indicates completion. Do not set the polling interval too short. Analysis normally completes within a few minutes. Set the polling interval to 30 seconds or more. (Not recommended)
+   * The execution speed of a task depends on the speed of converting the audio file to text. Ideally, a 5-minute audio file can be transcribed within 2 minutes. However, if the file transcription service has a large queue, a waiting time is required. Generally, the transcription is completed within 6 hours, except when a large amount of data is uploaded at a time (more than 500 hours of audio uploaded within half an hour). After the transcription is completed, the quality inspection analysis is performed in milliseconds.
+   * ### Requirements for audio file URLs
+   * - Supports single-track or dual-track audio files in WAV or MP3 format. The file size must be less than 512 MB.
+   * - The URL must be accessible over HTTP. Committing local files is not supported. The access permissions of the audio file must be public.
+   * - The URL must contain only a domain name, not an IP address. The URL cannot contain spaces. Avoid using Chinese characters in the URL.
+   * - After the audio is converted to text, the system deletes the downloaded audio file and does not retain a copy.
+   * - If your audio URL has an expiration time, for example, the audio is stored in Alibaba Cloud OSS and an expiration time is specified when the URL is generated, we recommend that you set the expiration time to at least 12 hours, or preferably set the expiration time in Settings to 24 hours if conditions permit. This is because file transcription takes time and may occasionally be queued. If the queue is long, the audio is downloaded only when the transcription starts. A longer expiration time prevents the URL from expiring before the audio is downloaded.
+   * - After the quality inspection analysis is completed, the URL you provided is still used to play the audio when you review the file in the console. Therefore, you must ensure that the URL remains active for a long time. Otherwise, the audio cannot be played.
+   * ### Role separation
+   * After the audio is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. Therefore, you must separate the roles based on specific rules. The accuracy of role separation is crucial because the rules used for quality inspection analysis often have role restrictions (that is, a rule only checks the agent or the customer). Incorrect role separation greatly affects the accuracy of the quality inspection results.
+   * Audio files are generally divided into single-track (mono) and dual-track (dual-channel/stereo) types:
+   * - Single-track audio: The voices of the agent and the customer are stored on a single track. After the audio file is converted to text, the system uses a built-in algorithm to separate the conversation into two roles. You can set a list of keywords that the agent may say. The system analyzes the transcribed text sentence by sentence from top to bottom. If a sentence hits a keyword, the role of the sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the uncontrollability of the conversation content (for example, the two roles may interrupt each other or speak at the same time), role separation for single-track audio cannot be 100% accurate. We strongly recommend that you save audio files as dual-track audio.
+   * - Dual-track audio: The voices of the agent and the customer are stored on two separate tracks. Even if the conversation overlaps, the system can accurately distinguish the roles when the audio is converted to text. You can specify the agent and the customer by using the serviceChannel and clientChannel request parameters.
+   * ### Obtain quality inspection analysis results
+   * Because audio file recognition is not real-time, you must obtain the quality inspection analysis results asynchronously. You can use one of the following three methods to obtain the results:
+   * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to obtain the detailed results. (Recommended)
+   * - Callback: Specify callbackUrl in the request parameters. After the node is completed, the system initiates a callback. After you receive the callback, call the GetResult operation to obtain the detailed results.
+   * - Polling: The operation returns a node ID (taskId). You can use the taskId to poll the `getResult` operation to asynchronously obtain the results and check whether the `status` response parameter indicates completion. We recommend that you do not set the polling interval too short. Normally, the analysis is completed within a few minutes. We recommend that you set the polling interval to 30 seconds or more. (Not recommended)
    * 
    * @param request - UploadAudioDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5556,30 +5793,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads offline voice quality inspection data (recording session files). This operation is applicable to hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Call Center (CCC), requiring no development. You can enable one-click push of call data to SCA. Scenario 2: Integrates with your own call center system. Each time the call center generates a recording, it pushes the recording to SCA for analysis.
+   * Uploads offline voice quality inspection data (recorded session files) for hotline agent scenarios. Scenario 1: Natively integrates with Alibaba Cloud Cloud Call Center (CCC) without the need for development, allowing you to push call data to Smart Conversation Analysis (SCA) with a single click. Scenario 2: Integrates with a self-managed call center system, where each generated recording is pushed to SCA for analysis.
    * 
    * @remarks
-   * ### Process description
-   * Call the API to upload audio quality inspection => Convert the recording file to text => Separate roles in the text based on the specified channel splitting method (distinguish between agent and customer) => Analyze using quality inspection rules => Quality inspection complete.
+   * ### Workflow
+   * Call the API to upload audio for quality inspection => Convert the audio file to text => Separate the text into roles (agent and customer) based on the specified track splitting method => Analyze the text by using quality inspection rules => Complete the quality inspection.
    * ### Task execution efficiency
-   * The speed of task execution depends on the speed of converting the recording file to text. Ideally, a 5-minute recording file can be transcribed within 2 minutes. However, when the transcription service has many queued tasks, there will be a queuing wait time. Generally, transcription completes within 6 hours, except for bulk uploads of large-scale data (more than 500 hours of recordings uploaded within 30 minutes). After transcription is complete, quality inspection analysis takes only milliseconds.
-   * ### Recording file URL requirements
-   * - Supports single-channel/dual-channel WAV and MP3 format recording files. The file size must be less than 512 MB.
-   * - The URL must be an HTTP-accessible URL address. Local file submission is not supported. The recording file access permissions must be set to public.
-   * - The URL can only use domain names, not IP addresses. The URL cannot contain spaces. Avoid using Chinese characters.
-   * - After converting the recording to text, the system deletes the downloaded recording file and does not retain a copy.
-   * - If your recording URL has an access expiration period (for example, the recording is stored in Alibaba Cloud OSS and you specified an expiration period when generating the recording URL through OSS), set the expiration period to at least 12 hours, or 24 hours if possible. This is because file transcription takes time and occasional queuing may occur. If the queuing time is long, the recording is downloaded only when transcription begins. This prevents the recording URL from expiring before the download.
-   * - After quality inspection analysis is complete, the recording is still played using the URL you provided when reviewing files in the console. Ensure that the URL remains active long-term. Otherwise, the recording cannot be played.
-   * ### Role separation description
-   * After the recording is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. You need to perform role separation based on certain rules. The accuracy of role separation is critical because the rules used for quality inspection analysis often have role detection restrictions (a rule only checks the agent or the customer). If role separation is incorrect, the accuracy of quality inspection results is significantly affected.
-   * Recording files are typically divided into two types: single-channel (mono) and dual-channel (stereo):
-   * - Single-channel recording: The voices of both the agent and customer are stored on one channel. After the recording file is converted to text, the system uses a built-in algorithm to distinguish between two roles. By setting a list of keywords that the agent is likely to say, the system analyzes the transcribed text sentence by sentence from top to bottom. When a sentence matches a keyword, the role of that sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the unpredictability of conversation content (for example, cross-talk between two roles or both people speaking simultaneously), role separation for single-channel recordings cannot be guaranteed to be 100% accurate. Save recording files as dual-channel recordings whenever possible.
-   * - Dual-channel recording: The voices of the agent and customer are stored on two separate channels. Even if the conversation overlaps, the recording-to-text conversion can accurately distinguish between the two. Specify the agent and customer by using the serviceChannel and clientChannel request parameters.
-   * ### Retrieve quality inspection analysis results
-   * Because recording file recognition is not real-time, you need to asynchronously retrieve quality inspection analysis results. The following three methods are available:
-   * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After receiving a message, invoke the GetResult operation to retrieve detailed results. (Recommended)
-   * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task is complete. After receiving the callback, invoke the GetResult operation to retrieve detailed results.
-   * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the `getResult` operation to asynchronously retrieve results. Check whether the `status` in the response parameters indicates completion. Do not set the polling interval too short. Analysis normally completes within a few minutes. Set the polling interval to 30 seconds or more. (Not recommended)
+   * The execution speed of a task depends on the speed of converting the audio file to text. Ideally, a 5-minute audio file can be transcribed within 2 minutes. However, if the file transcription service has a large queue, a waiting time is required. Generally, the transcription is completed within 6 hours, except when a large amount of data is uploaded at a time (more than 500 hours of audio uploaded within half an hour). After the transcription is completed, the quality inspection analysis is performed in milliseconds.
+   * ### Requirements for audio file URLs
+   * - Supports single-track or dual-track audio files in WAV or MP3 format. The file size must be less than 512 MB.
+   * - The URL must be accessible over HTTP. Committing local files is not supported. The access permissions of the audio file must be public.
+   * - The URL must contain only a domain name, not an IP address. The URL cannot contain spaces. Avoid using Chinese characters in the URL.
+   * - After the audio is converted to text, the system deletes the downloaded audio file and does not retain a copy.
+   * - If your audio URL has an expiration time, for example, the audio is stored in Alibaba Cloud OSS and an expiration time is specified when the URL is generated, we recommend that you set the expiration time to at least 12 hours, or preferably set the expiration time in Settings to 24 hours if conditions permit. This is because file transcription takes time and may occasionally be queued. If the queue is long, the audio is downloaded only when the transcription starts. A longer expiration time prevents the URL from expiring before the audio is downloaded.
+   * - After the quality inspection analysis is completed, the URL you provided is still used to play the audio when you review the file in the console. Therefore, you must ensure that the URL remains active for a long time. Otherwise, the audio cannot be played.
+   * ### Role separation
+   * After the audio is converted to text, the system automatically separates the text into two conversation roles. However, the system cannot determine which role is the agent and which is the customer. Therefore, you must separate the roles based on specific rules. The accuracy of role separation is crucial because the rules used for quality inspection analysis often have role restrictions (that is, a rule only checks the agent or the customer). Incorrect role separation greatly affects the accuracy of the quality inspection results.
+   * Audio files are generally divided into single-track (mono) and dual-track (dual-channel/stereo) types:
+   * - Single-track audio: The voices of the agent and the customer are stored on a single track. After the audio file is converted to text, the system uses a built-in algorithm to separate the conversation into two roles. You can set a list of keywords that the agent may say. The system analyzes the transcribed text sentence by sentence from top to bottom. If a sentence hits a keyword, the role of the sentence is determined to be the agent, and the other role is the customer. For details, see recognizeRoleDataSetId and serviceChannelKeywords in the request parameters. Due to the uncontrollability of the conversation content (for example, the two roles may interrupt each other or speak at the same time), role separation for single-track audio cannot be 100% accurate. We strongly recommend that you save audio files as dual-track audio.
+   * - Dual-track audio: The voices of the agent and the customer are stored on two separate tracks. Even if the conversation overlaps, the system can accurately distinguish the roles when the audio is converted to text. You can specify the agent and the customer by using the serviceChannel and clientChannel request parameters.
+   * ### Obtain quality inspection analysis results
+   * Because audio file recognition is not real-time, you must obtain the quality inspection analysis results asynchronously. You can use one of the following three methods to obtain the results:
+   * - Message notification: For details, see [MSMQ](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to obtain the detailed results. (Recommended)
+   * - Callback: Specify callbackUrl in the request parameters. After the node is completed, the system initiates a callback. After you receive the callback, call the GetResult operation to obtain the detailed results.
+   * - Polling: The operation returns a node ID (taskId). You can use the taskId to poll the `getResult` operation to asynchronously obtain the results and check whether the `status` response parameter indicates completion. We recommend that you do not set the polling interval too short. Normally, the analysis is completed within a few minutes. We recommend that you set the polling interval to 30 seconds or more. (Not recommended)
    * 
    * @param request - UploadAudioDataRequest
    * @returns UploadAudioDataResponse
@@ -5653,12 +5890,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real-time text-based quality inspection.
+   * Performs real-time quality inspection on text.
    * 
    * @remarks
-   * Pushes text data in a specific format to SCA for real-time quality inspection analysis based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one role finishes one or more sentences, providing higher real-time performance. Notes:
-   * - If the pushed text is a single sentence from one role, some operators in the rules become ineffective due to the lack of conversation context, such as context repetition check, interruption check, and call silence check.
-   * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query quality inspection results through APIs.
+   * Pushes text data to be inspected in a specific format to SCA, performs real-time quality inspection and analysis on the text data based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which usually uploads the complete conversation text after a conversation ends, real-time text quality inspection can push the text to SCA for analysis after a role finishes speaking one or more sentences, providing higher real-time performance. Special notes:
+   * - If the pushed text is a single sentence from a role, some operators in the rules, such as context repetition check, interruption check, and call silence check, will become invalid due to the lack of conversation context.
+   * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query the quality inspection results through the API.
    * 
    * @param request - UploadDataSyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5693,12 +5930,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real-time text-based quality inspection.
+   * Performs real-time quality inspection on text.
    * 
    * @remarks
-   * Pushes text data in a specific format to SCA for real-time quality inspection analysis based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which typically uploads the complete conversation text after a conversation ends, real-time text quality inspection allows you to push text to SCA for analysis after one role finishes one or more sentences, providing higher real-time performance. Notes:
-   * - If the pushed text is a single sentence from one role, some operators in the rules become ineffective due to the lack of conversation context, such as context repetition check, interruption check, and call silence check.
-   * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query quality inspection results through APIs.
+   * Pushes text data to be inspected in a specific format to SCA, performs real-time quality inspection and analysis on the text data based on user-specified rules, and synchronously returns the analysis results. Compared with uploaded text quality inspection, which usually uploads the complete conversation text after a conversation ends, real-time text quality inspection can push the text to SCA for analysis after a role finishes speaking one or more sentences, providing higher real-time performance. Special notes:
+   * - If the pushed text is a single sentence from a role, some operators in the rules, such as context repetition check, interruption check, and call silence check, will become invalid due to the lack of conversation context.
+   * - Real-time quality inspection synchronously returns analysis results. SCA does not save call records, so you cannot query the quality inspection results through the API.
    * 
    * @param request - UploadDataSyncRequest
    * @returns UploadDataSyncResponse

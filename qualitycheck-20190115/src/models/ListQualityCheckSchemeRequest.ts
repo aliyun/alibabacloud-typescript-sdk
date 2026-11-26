@@ -5,18 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityCheckSchemeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseMe agent.
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The complete JSON string. For more information, see the details that follow.
+   * The complete JSON string. For details, see the following information.
    * 
    * This parameter is required.
    * 
    * @example
    * {
-   *       "name": "质检方案A"
+   *       "name": "Quality Check Scheme A"
    * }
    */
   jsonStr?: string;

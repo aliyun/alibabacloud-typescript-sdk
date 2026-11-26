@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetLabelAnalysisResultResponseBodyDataTagListChildrenChildrenChildrenChildren extends $dara.Model {
   /**
    * @remarks
-   * The description of the tag analysis.
+   * The tag analysis description.
    * 
    * @example
-   * 当前层级未命中有效标签
+   * No valid tag was matched at the current level
    */
   remarks?: string;
   /**
@@ -16,7 +16,7 @@ export class GetLabelAnalysisResultResponseBodyDataTagListChildrenChildrenChildr
    * The tag name.
    * 
    * @example
-   * 无效会话
+   * Invalid session
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -50,10 +50,10 @@ export class GetLabelAnalysisResultResponseBodyDataTagListChildrenChildrenChildr
   children?: GetLabelAnalysisResultResponseBodyDataTagListChildrenChildrenChildrenChildren[];
   /**
    * @remarks
-   * The description of the tag analysis.
+   * The tag analysis description.
    * 
    * @example
-   * 用户在千问内通过高德打车支付17元失败，转支付宝后变原价；客服围绕支付失败与余额、实名认证、授权绑定进行排查。问题发生在千问调用高德打车场景，属千问×高德。
+   * The user failed to pay 17 CNY for an Amap ride-hailing service within Qwen. After switching to Alipay, the price changed to the original price. Customer service investigated the payment failure, balance, real-name verification, and authorization binding. The issue occurred in the scenario where Qwen calls the Amap ride-hailing service, which belongs to Qwen × Amap
    */
   remarks?: string;
   /**
@@ -61,7 +61,7 @@ export class GetLabelAnalysisResultResponseBodyDataTagListChildrenChildrenChildr
    * The tag name.
    * 
    * @example
-   * 千问×高德
+   * Qwen × Amap
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -100,10 +100,10 @@ export class GetLabelAnalysisResultResponseBodyDataTagListChildrenChildren exten
   children?: GetLabelAnalysisResultResponseBodyDataTagListChildrenChildrenChildren[];
   /**
    * @remarks
-   * The description of the tag analysis.
+   * The tag analysis description.
    * 
    * @example
-   * 用户在千问内通过高德打车支付17元失败，转支付宝后变原价；客服围绕支付失败与余额、实名认证、授权绑定进行排查。问题发生在千问调用高德打车场景，属千问×高德。
+   * The user failed to pay 17 CNY for an Amap ride-hailing service within Qwen. After switching to Alipay, the price changed to the original price. Customer service investigated the payment failure, balance, real-name verification, and authorization binding. The issue occurred in the scenario where Qwen calls the Amap ride-hailing service, which belongs to Qwen × Amap
    */
   remarks?: string;
   /**
@@ -111,7 +111,7 @@ export class GetLabelAnalysisResultResponseBodyDataTagListChildrenChildren exten
    * The tag name.
    * 
    * @example
-   * 千问×高德
+   * Qwen × Amap
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -150,10 +150,10 @@ export class GetLabelAnalysisResultResponseBodyDataTagListChildren extends $dara
   children?: GetLabelAnalysisResultResponseBodyDataTagListChildrenChildren[];
   /**
    * @remarks
-   * The description of the tag analysis.
+   * The tag analysis description.
    * 
    * @example
-   * 用户在千问内通过高德打车支付17元失败，转支付宝后变原价；客服围绕支付失败与余额、实名认证、授权绑定进行排查。问题发生在千问调用高德打车场景，属千问×高德。
+   * The user failed to pay 17 CNY for an Amap ride-hailing service within Qwen. After switching to Alipay, the price changed to the original price. Customer service investigated the payment failure, balance, real-name verification, and authorization binding. The issue occurred in the scenario where Qwen calls the Amap ride-hailing service, which belongs to Qwen × Amap
    */
   remarks?: string;
   /**
@@ -161,7 +161,7 @@ export class GetLabelAnalysisResultResponseBodyDataTagListChildren extends $dara
    * The tag name.
    * 
    * @example
-   * 千问×高德
+   * Qwen × Amap
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -200,10 +200,10 @@ export class GetLabelAnalysisResultResponseBodyDataTagList extends $dara.Model {
   children?: GetLabelAnalysisResultResponseBodyDataTagListChildren[];
   /**
    * @remarks
-   * The description of the tag analysis.
+   * The tag analysis description.
    * 
    * @example
-   * 用户在千问内通过高德打车支付17元失败，转支付宝后变原价；客服围绕支付失败与余额、实名认证、授权绑定进行排查。问题发生在千问调用高德打车场景，属千问×高德。
+   * The user failed to pay 17 CNY for an Amap ride-hailing service within Qwen. After switching to Alipay, the price changed to the original price. Customer service investigated the payment failure, balance, real-name verification, and authorization binding. The issue occurred in the scenario where Qwen calls the Amap ride-hailing service, which belongs to Qwen × Amap
    */
   remarks?: string;
   /**
@@ -211,7 +211,7 @@ export class GetLabelAnalysisResultResponseBodyDataTagList extends $dara.Model {
    * The tag name.
    * 
    * @example
-   * 千问×高德
+   * Qwen × Amap
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -245,7 +245,7 @@ export class GetLabelAnalysisResultResponseBodyDataTagList extends $dara.Model {
 export class GetLabelAnalysisResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of input tokens accumulated during this task.
+   * The total number of input tokens for this task.
    * 
    * @example
    * 7371
@@ -253,7 +253,7 @@ export class GetLabelAnalysisResultResponseBodyData extends $dara.Model {
   inputTokens?: number;
   /**
    * @remarks
-   * The total number of output tokens accumulated during this task.
+   * The total number of output tokens for this task.
    * 
    * @example
    * 355
@@ -266,7 +266,7 @@ export class GetLabelAnalysisResultResponseBodyData extends $dara.Model {
   tagList?: GetLabelAnalysisResultResponseBodyDataTagList[];
   /**
    * @remarks
-   * The total number of tokens accumulated during this task.
+   * The total number of tokens for this task.
    * 
    * @example
    * 7726
@@ -274,7 +274,7 @@ export class GetLabelAnalysisResultResponseBodyData extends $dara.Model {
   totalTokens?: number;
   /**
    * @remarks
-   * The total number of Qwen-Plus model calls accumulated during this task.
+   * The total number of times the Qwen-Plus model was called for this task.
    * 
    * @example
    * 4
@@ -282,7 +282,7 @@ export class GetLabelAnalysisResultResponseBodyData extends $dara.Model {
   tyxmPlusCount?: number;
   /**
    * @remarks
-   * The total number of Qwen-Turbo model calls accumulated during this task.
+   * The total number of times the Qwen-Turbo model was called for this task.
    * 
    * @example
    * 0
@@ -325,7 +325,7 @@ export class GetLabelAnalysisResultResponseBodyData extends $dara.Model {
 export class GetLabelAnalysisResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -333,12 +333,12 @@ export class GetLabelAnalysisResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   data?: GetLabelAnalysisResultResponseBodyData;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned when an error occurs.
    * 
    * @example
    * successful
@@ -354,9 +354,7 @@ export class GetLabelAnalysisResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * true

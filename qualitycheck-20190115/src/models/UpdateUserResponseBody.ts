@@ -29,7 +29,7 @@ export class UpdateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the request succeeded. Use this field to determine if the request succeeded: \\`true\\` for success; \\`false\\`/\\`null\\` for failure.
+   * Indicates if the request succeeded. Use this field to determine if the request succeeded: \`true\` for success; \`false\`/\`null\` for failure.
    * 
    * @example
    * true

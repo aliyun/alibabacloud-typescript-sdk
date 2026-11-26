@@ -60,7 +60,7 @@ export class GetRulesCountListResponseBody extends $dara.Model {
    * Business type. This field has no practical meaning and can be ignored.
    * 
    * @example
-   * 忽略
+   * 0
    */
   businessType?: number;
   /**

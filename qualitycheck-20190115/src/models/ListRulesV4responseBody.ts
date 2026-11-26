@@ -6,15 +6,15 @@ import { RuleCountInfo } from "./RuleCountInfo";
 export class ListRulesV4ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Business type. This field has no practical use. Ignore it.
+   * The business type. This parameter has no practical meaning and can be ignored.
    * 
    * @example
-   * 无
+   * None
    */
   businessType?: number;
   /**
    * @remarks
-   * Result code. **200** means success. Any other value means failure. Callers can use this field to identify the cause of failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can determine the cause of the failure based on this parameter.
    * 
    * @example
    * 200
@@ -22,7 +22,7 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 219
@@ -30,7 +30,7 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 10
@@ -38,12 +38,12 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Response data.
+   * The returned results.
    */
   data?: RuleCountInfo[];
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -51,7 +51,7 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error details if the request failed. Returns **successful** if the request succeeded.
+   * The error details when an error occurs, or **successful** when the request is successful.
    * 
    * @example
    * successful
@@ -59,12 +59,12 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Error details if the request failed. Use this field when multiple messages are returned.
+   * The error details when an error occurs. This parameter is used when multiple messages are returned.
    */
   messages?: string[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of rows per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -80,7 +80,7 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 96138D8D-8D26-4E41-BFF4-77AED1088BBD
@@ -88,7 +88,7 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Callers can use this field to determine success: true means success. **false** or **null** means failure.
+   * Indicates whether the request is successful. You can determine whether the request is successful based on this parameter. A value of **true** indicates success. A value of **false** or **null** indicates failure.
    * 
    * @example
    * true
@@ -96,7 +96,7 @@ export class ListRulesV4ResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of data entries.
    * 
    * @example
    * 219

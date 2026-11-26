@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTagRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the business space.
+   * The workspace ID.
    * 
    * @example
    * 123456
@@ -13,7 +13,7 @@ export class GetTagRequest extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The complete JSON string. For more information, see the following detailed information.
+   * The complete JSON string. For more information, see the following details.
    * 
    * @example
    * “”

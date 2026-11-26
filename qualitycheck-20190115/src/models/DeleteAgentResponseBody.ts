@@ -16,12 +16,12 @@ export class DeleteAgentResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * 无
+   * None
    */
   data?: boolean;
   /**
    * @remarks
-   * The error message, if any.
+   * The error message returned if an error occurs.
    * 
    * @example
    * successful
@@ -37,7 +37,7 @@ export class DeleteAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true: The request was successful. false/null: The request failed.
+   * Indicates whether the request is successful. A value of true indicates success. A value of false or null indicates failure.
    * 
    * @example
    * true

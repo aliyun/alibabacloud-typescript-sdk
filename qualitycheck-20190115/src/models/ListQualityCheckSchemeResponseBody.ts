@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityCheckSchemeResponseBodyDataRuleListRules extends $dara.Model {
   /**
    * @remarks
-   * The quality check dimension to which the item belongs.
+   * The quality check dimension to which the rule belongs.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class ListQualityCheckSchemeResponseBodyDataRuleListRules extends $dara.M
    * The name of the check item.
    * 
    * @example
-   * 测试规则
+   * Test rule
    */
   name?: string;
   /**
@@ -29,7 +29,7 @@ export class ListQualityCheckSchemeResponseBodyDataRuleListRules extends $dara.M
   rid?: number;
   /**
    * @remarks
-   * Indicates whether to calculate a score. Valid values: 1 (no score) and 3 (score).
+   * Specifies whether the score is calculated. Valid values: 1: not calculated; 3: calculated.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListQualityCheckSchemeResponseBodyDataRuleListRules extends $dara.M
   scoreNum?: number;
   /**
    * @remarks
-   * The scoring type. Valid values: 0 (Points are added or deducted each time the rule is triggered) and 1 (A one-time score is given when the rule is triggered).
+   * The scoring type. Valid values: 0: add or deduct points after the rule is triggered; 1: award a one-time score after the rule is triggered.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class ListQualityCheckSchemeResponseBodyDataRuleListRules extends $dara.M
   scoreNumType?: number;
   /**
    * @remarks
-   * The scoring method. Valid values: 1 (add points) and 3 (deduct points).
+   * The score adjustment type. Valid values: 1: add points; 3: deduct points.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListQualityCheckSchemeResponseBodyDataRuleListRules extends $dara.M
   scoreType?: number;
   /**
    * @remarks
-   * The application scenario of the check item. Valid values: 10 (common check item) and 11 (SOP flow check item).
+   * The common scenarios of the check item. Valid values: 10: common check item. 11: SOP flow check item.
    * 
    * @example
    * 10
@@ -105,7 +105,7 @@ export class ListQualityCheckSchemeResponseBodyDataRuleListRules extends $dara.M
 export class ListQualityCheckSchemeResponseBodyDataRuleList extends $dara.Model {
   /**
    * @remarks
-   * The rule information. This parameter is reserved for future use. Currently, only one rule is returned.
+   * The rule information. Only one rule is included here and reserved for future extensions.
    */
   rules?: ListQualityCheckSchemeResponseBodyDataRuleListRules[];
   static names(): { [key: string]: string } {
@@ -138,7 +138,7 @@ export class ListQualityCheckSchemeResponseBodyDataSchemeCheckTypeList extends $
    * The name of the quality check dimension.
    * 
    * @example
-   * 服务规范性检测
+   * Service compliance check
    */
   checkName?: string;
   /**
@@ -151,7 +151,7 @@ export class ListQualityCheckSchemeResponseBodyDataSchemeCheckTypeList extends $
   checkType?: number;
   /**
    * @remarks
-   * The enabled status. Valid values: 0 (disabled) and 1 (enabled).
+   * The enable status. Valid values: 0: disabled; 1: enabled.
    * 
    * @example
    * 1
@@ -167,7 +167,7 @@ export class ListQualityCheckSchemeResponseBodyDataSchemeCheckTypeList extends $
   score?: number;
   /**
    * @remarks
-   * An internal parameter. You can ignore this parameter.
+   * An internal field. Ignore this field.
    * 
    * @example
    * 10
@@ -205,7 +205,7 @@ export class ListQualityCheckSchemeResponseBodyDataSchemeCheckTypeList extends $
 export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the scheme was created.
+   * The creation time.
    * 
    * @example
    * 2022-05-10T09:34Z
@@ -216,12 +216,12 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
    * The name of the creator.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   createUserName?: string;
   /**
    * @remarks
-   * The data type of the quality check scheme. Valid values: 0 (text) and 1 (audio).
+   * The data type of the quality check scheme. Valid values: 0: text; 1: audio.
    * 
    * @example
    * 1
@@ -232,7 +232,7 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * 售前使用
+   * Pre-sales use
    */
   description?: string;
   /**
@@ -263,7 +263,7 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
   schemeId?: number;
   /**
    * @remarks
-   * The status of the quality check scheme. Valid values: 0 (deleted), 1 (published), 2 (unpublished), and 3 (updated but not published).
+   * The status of the quality check scheme. Valid values: 0: deleted; 1: published; 2: unpublished; 3: updated and unpublished.
    * 
    * @example
    * 1
@@ -271,7 +271,7 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the quality check scheme template. Valid values: 1 (built-in) and 2 (user-defined).
+   * The type of the quality check scheme template. Valid values: 1: built-in; 2: custom.
    * 
    * @example
    * 1
@@ -279,7 +279,7 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
   templateType?: number;
   /**
    * @remarks
-   * The type of the quality check scheme. Valid values: 0 (built-in) and 1 (user-defined).
+   * The type of the quality check scheme. Valid values: 0: built-in; 1: custom.
    * 
    * @example
    * 1
@@ -287,7 +287,7 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The time when the scheme was last updated.
+   * The update time.
    * 
    * @example
    * 2022-05-10T10:34Z
@@ -295,10 +295,10 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The name of the user who last updated the scheme.
+   * The name of the updater.
    * 
    * @example
-   * 李四
+   * Li Si
    */
   updateUserName?: string;
   /**
@@ -365,7 +365,7 @@ export class ListQualityCheckSchemeResponseBodyData extends $dara.Model {
 export class ListQualityCheckSchemeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of **200** indicates success. Other values indicate a failure. Use this code to identify the cause of the failure.
+   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -386,7 +386,7 @@ export class ListQualityCheckSchemeResponseBody extends $dara.Model {
   data?: ListQualityCheckSchemeResponseBodyData[];
   /**
    * @remarks
-   * The returned message. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
+   * The error message returned when an error occurs. The value is successful when the request is successful.
    * 
    * @example
    * successful
@@ -394,7 +394,7 @@ export class ListQualityCheckSchemeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -418,15 +418,15 @@ export class ListQualityCheckSchemeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An internal parameter. You can ignore this parameter.
+   * An internal field. Ignore this field.
    * 
    * @example
-   * XXX
+   * Deprecated field
    */
   resultCountId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of true indicates success. A value of **false** or **null** indicates failure.
+   * Indicates whether the request is successful. **true** indicates that the request is successful. **false** or **null** indicates that the request fails.
    * 
    * @example
    * true

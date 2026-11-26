@@ -356,7 +356,7 @@ export class GetNextResultToVerifyResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Indicates whether manual verification has been performed. Possible values: \\`false\\`: Not yet verified; \\`true\\`: Already verified.
+   * Indicates whether manual verification has been performed. Possible values: \`false\`: Not yet verified; \`true\`: Already verified.
    * 
    * @example
    * true
@@ -436,7 +436,7 @@ export class GetNextResultToVerifyResponseBody extends $dara.Model {
   data?: GetNextResultToVerifyResponseBodyData;
   /**
    * @remarks
-   * Error details if an error occurs. If successful, the value is \\"successful\\".
+   * Error details if an error occurs. If successful, the value is \"successful\".
    * 
    * @example
    * successful
@@ -452,7 +452,7 @@ export class GetNextResultToVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. The caller can determine if the request was successful using this field: \\`true\\` indicates success; \\`false\\`/\\`null\\` indicates failure.
+   * Indicates whether the request was successful. The caller can determine if the request was successful using this field: \`true\` indicates success; \`false\`/\`null\` indicates failure.
    * 
    * @example
    * true

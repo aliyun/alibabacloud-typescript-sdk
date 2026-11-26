@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLabelAnalysisResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space ID.
+   * The workspace ID.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class GetLabelAnalysisResultRequest extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The complete JSON string. For more information, see the following detailed description.
+   * The complete JSON string. For details, see the following information.
    * 
    * @example
    * “”

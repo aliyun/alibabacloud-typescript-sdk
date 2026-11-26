@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class RevertAssignedSessionGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseMeAgent.
+   * The business workspace ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * For more information, see the description of the request parameters.
+   * For more information, see the supplementary description of request parameters.
    * 
    * @example
    * {"isSchemeData":1,"forceRevertSessionGroup":true,"sessionGroupIdList":["1"]}

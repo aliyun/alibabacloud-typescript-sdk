@@ -54,7 +54,7 @@ export class ListRulesResponseBodyData extends $dara.Model {
   ruleType?: number;
   /**
    * @remarks
-   * The type value of the rule\\"s rule type.
+   * The type value of the rule\"s rule type.
    * 
    * @example
    * 1
@@ -62,7 +62,7 @@ export class ListRulesResponseBodyData extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The name of the rule\\"s rule type.
+   * The name of the rule\"s rule type.
    * 
    * @example
    * 服务规范

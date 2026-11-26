@@ -721,6 +721,55 @@ export class GetResultToReviewResponseBodyDataManualScoreInfoList extends $dara.
   }
 }
 
+export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewErrorRuleReviewErrorRule extends $dara.Model {
+  rid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      rid: 'Rid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewErrorRule extends $dara.Model {
+  reviewErrorRule?: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewErrorRuleReviewErrorRule[];
+  static names(): { [key: string]: string } {
+    return {
+      reviewErrorRule: 'reviewErrorRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewErrorRule: { 'type': 'array', 'itemType': GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewErrorRuleReviewErrorRule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reviewErrorRule)) {
+      $dara.Model.validateArray(this.reviewErrorRule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRuleReviewRightRule extends $dara.Model {
   rid?: number;
   ruleName?: string;
@@ -779,6 +828,7 @@ export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistory ext
   oldScore?: number;
   operator?: number;
   operatorName?: string;
+  reviewErrorRule?: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewErrorRule;
   reviewManagerType?: string;
   reviewResult?: number;
   reviewRightRule?: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule;
@@ -793,6 +843,7 @@ export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistory ext
       oldScore: 'OldScore',
       operator: 'Operator',
       operatorName: 'OperatorName',
+      reviewErrorRule: 'ReviewErrorRule',
       reviewManagerType: 'ReviewManagerType',
       reviewResult: 'ReviewResult',
       reviewRightRule: 'ReviewRightRule',
@@ -810,6 +861,7 @@ export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistory ext
       oldScore: 'number',
       operator: 'number',
       operatorName: 'string',
+      reviewErrorRule: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewErrorRule,
       reviewManagerType: 'string',
       reviewResult: 'number',
       reviewRightRule: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule,
@@ -821,6 +873,9 @@ export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistory ext
   }
 
   validate() {
+    if(this.reviewErrorRule && typeof (this.reviewErrorRule as any).validate === 'function') {
+      (this.reviewErrorRule as any).validate();
+    }
     if(this.reviewRightRule && typeof (this.reviewRightRule as any).validate === 'function') {
       (this.reviewRightRule as any).validate();
     }
@@ -942,7 +997,15 @@ export class GetResultToReviewResponseBodyDataReviewTypeIdList extends $dara.Mod
 export class GetResultToReviewResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Protocol used in the audio URL. Possible values: http, https.
+   * The manual review score.
+   * 
+   * @example
+   * 100
+   */
+  artificialScore?: number;
+  /**
+   * @remarks
+   * The protocol of the audio URL. Valid values: http and https.
    * 
    * @example
    * https
@@ -950,7 +1013,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   audioScheme?: string;
   /**
    * @remarks
-   * Audio URL without the protocol prefix (http\\:// or https\\://). Combine with AudioScheme to form the full URL.
+   * The audio URL, excluding http:// and https://. This value and AudioScheme form the complete URL.
    * 
    * @example
    * sca-ccc-test.oss-cn-beijing.aliyuncs.com/xxxxx
@@ -958,16 +1021,16 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   audioURL?: string;
   /**
    * @remarks
-   * Review comments.
+   * The review comments.
    * 
    * @example
-   * xxx
+   * Approved
    */
   comments?: string;
   dialogues?: GetResultToReviewResponseBodyDataDialogues;
   /**
    * @remarks
-   * File ID.
+   * The file ID.
    * 
    * @example
    * e790e6c919d84b82b64ee*****
@@ -975,7 +1038,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * File name.
+   * The file name.
    * 
    * @example
    * xxx.wav
@@ -987,7 +1050,18 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   reviewTypeIdList?: GetResultToReviewResponseBodyDataReviewTypeIdList;
   /**
    * @remarks
-   * Current task status. 0: incomplete. 1: complete. Use this field to check completion. Any other value indicates an error.
+   * The automated check score.
+   * 
+   * @example
+   * 100
+   */
+  smartCheckScore?: number;
+  /**
+   * @remarks
+   * The current status of the task. Valid values:
+   * - 0: The task is not completed.
+   * - 1: The task is completed.
+   * You can use this field to determine whether the task is completed. Any other value indicates an error.
    * 
    * @example
    * 1
@@ -995,7 +1069,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Quality inspection score.
+   * The quality inspection score.
    * 
    * @example
    * 99
@@ -1003,7 +1077,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   totalScore?: number;
   /**
    * @remarks
-   * File ID.
+   * The file ID.
    * 
    * @example
    * 6fa76916-3ce6-45d8-ac64-01b7f31***
@@ -1011,6 +1085,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
   vid?: string;
   static names(): { [key: string]: string } {
     return {
+      artificialScore: 'ArtificialScore',
       audioScheme: 'AudioScheme',
       audioURL: 'AudioURL',
       comments: 'Comments',
@@ -1021,6 +1096,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
       manualScoreInfoList: 'ManualScoreInfoList',
       reviewHistoryList: 'ReviewHistoryList',
       reviewTypeIdList: 'ReviewTypeIdList',
+      smartCheckScore: 'SmartCheckScore',
       status: 'Status',
       totalScore: 'TotalScore',
       vid: 'Vid',
@@ -1029,6 +1105,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artificialScore: 'number',
       audioScheme: 'string',
       audioURL: 'string',
       comments: 'string',
@@ -1039,6 +1116,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
       manualScoreInfoList: GetResultToReviewResponseBodyDataManualScoreInfoList,
       reviewHistoryList: GetResultToReviewResponseBodyDataReviewHistoryList,
       reviewTypeIdList: GetResultToReviewResponseBodyDataReviewTypeIdList,
+      smartCheckScore: 'number',
       status: 'number',
       totalScore: 'number',
       vid: 'string',
@@ -1072,7 +1150,7 @@ export class GetResultToReviewResponseBodyData extends $dara.Model {
 export class GetResultToReviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result code. **200** means success. Any other value means failure. Use this field to identify the cause.
+   * The result code. A value of **200** indicates success, and any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -1080,12 +1158,12 @@ export class GetResultToReviewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Detailed response data.
+   * The detailed response data.
    */
   data?: GetResultToReviewResponseBodyData;
   /**
    * @remarks
-   * Error details if the call fails. Returns **successful** on success.
+   * The error details when an error occurs, or **successful** when the request is successful.
    * 
    * @example
    * successful
@@ -1093,7 +1171,7 @@ export class GetResultToReviewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 82C91484-B2D5-4D2A-A21F-A6D73F4***
@@ -1101,7 +1179,7 @@ export class GetResultToReviewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. true means success. **false** or **null** means failure.
+   * Indicates whether the request is successful. **true** indicates success, and **false** or **null** indicates failure.
    * 
    * @example
    * true

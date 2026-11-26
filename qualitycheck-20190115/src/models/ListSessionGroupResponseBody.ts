@@ -334,7 +334,7 @@ export class ListSessionGroupResponseBodyMessages extends $dara.Model {
 export class ListSessionGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of \\`200\\` indicates that the request was successful. Other values indicate that the request failed.
+   * The result code. A value of \`200\` indicates that the request was successful. Other values indicate that the request failed.
    * 
    * @example
    * 200
@@ -370,12 +370,12 @@ export class ListSessionGroupResponseBody extends $dara.Model {
    * The data marker. To retrieve more than 10,000 records, include the LastDataId from the previous response in the next request.
    * 
    * @example
-   * xxx
+   * 1000
    */
   lastDataId?: string;
   /**
    * @remarks
-   * The error details if the request fails. \\`successful\\` is returned if the request is successful.
+   * The error details if the request fails. \`successful\` is returned if the request is successful.
    * 
    * @example
    * successful
@@ -416,7 +416,7 @@ export class ListSessionGroupResponseBody extends $dara.Model {
   resultCountId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of \\`true\\` indicates that the request was successful. A value of \\`false\\` or \\`null\\` indicates that the request failed.
+   * Indicates whether the request was successful. A value of \`true\` indicates that the request was successful. A value of \`false\` or \`null\` indicates that the request failed.
    * 
    * @example
    * true

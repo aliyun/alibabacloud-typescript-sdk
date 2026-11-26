@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * Whether to delete the rule even if it is associated with a quality check task.
+   * Specifies whether to delete the rule even if it is associated with a quality check task.
    * 
    * @example
    * true
@@ -18,7 +21,7 @@ export class DeleteRuleRequest extends $dara.Model {
   forceDelete?: boolean;
   /**
    * @remarks
-   * Indicates whether this is the new version of quality check. 0: old version. 1: new version. Default is 1.
+   * Specifies whether to use the new version of quality check. Valid values: 0: Legacy quality check. 1: New version quality check. Default value: 1.
    * 
    * @example
    * 1
@@ -26,7 +29,7 @@ export class DeleteRuleRequest extends $dara.Model {
   isSchemeData?: number;
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * This parameter is required.
    * 

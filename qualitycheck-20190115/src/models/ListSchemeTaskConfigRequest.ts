@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListSchemeTaskConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * baseMeAgentId
+   * The ID of the business workspace.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The request parameter JSON. For details, see the supplementary description of request parameters.
+   * The input JSON string. For more information, see the supplementary description of request parameters.
    * 
    * @example
    * {"pageNumber":1,"pageSize":10,"sourceDataType":"1"}

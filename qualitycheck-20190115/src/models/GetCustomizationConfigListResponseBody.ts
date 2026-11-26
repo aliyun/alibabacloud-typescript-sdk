@@ -81,7 +81,7 @@ export class GetCustomizationConfigListResponseBody extends $dara.Model {
   data?: GetCustomizationConfigListResponseBodyData;
   /**
    * @remarks
-   * If an error occurs, this field contains error details. If the request succeeds, the value is \\`successful\\`.
+   * If an error occurs, this field contains error details. If the request succeeds, the value is \`successful\`.
    * 
    * @example
    * successful
@@ -97,7 +97,7 @@ export class GetCustomizationConfigListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Use this field to check the request status. A value of \\`true\\` means success. A value of \\`false\\` or \\`null\\` means failure.
+   * Indicates whether the request succeeded. Use this field to check the request status. A value of \`true\` means success. A value of \`false\` or \`null\` means failure.
    * 
    * @example
    * true

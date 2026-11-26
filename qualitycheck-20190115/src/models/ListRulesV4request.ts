@@ -5,36 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class ListRulesV4Request extends $dara.Model {
   /**
    * @remarks
-   * Workspace ID.
+   * The ID of the business workspace.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * Name of the business that owns the rule.
+   * The name of the business to which the rule belongs.
    * 
    * @example
-   * 所有业务
+   * All businesses
    */
   businessName?: string;
   /**
    * @remarks
-   * Top-level business category.
+   * The major business category.
    * 
    * @example
-   * 无
+   * None
    */
   businessRange?: number;
   /**
    * @remarks
-   * Category name.
+   * The category name.
    * 
    * @example
-   * 分类名称A
+   * Category name A
    */
   categoryName?: string;
   /**
    * @remarks
-   * Whether to count the total number of items.
+   * Specifies whether to count the total number of entries.
    * 
    * @example
    * false
@@ -42,7 +45,7 @@ export class ListRulesV4Request extends $dara.Model {
   countTotal?: boolean;
   /**
    * @remarks
-   * ID of the rule creator. Same as CreateUserId. Specify one only.
+   * The ID of the rule creator. This parameter is equivalent to CreateUserId. Specify only one of them.
    * 
    * @example
    * 1
@@ -50,7 +53,7 @@ export class ListRulesV4Request extends $dara.Model {
   createEmpid?: string;
   /**
    * @remarks
-   * ID of the rule creator. Same as CreateEmpId. Specify one only.
+   * The ID of the rule creator. This parameter is equivalent to CreateEmpid. Specify only one of them.
    * 
    * @example
    * 1
@@ -58,7 +61,7 @@ export class ListRulesV4Request extends $dara.Model {
   createUserId?: number;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -66,7 +69,7 @@ export class ListRulesV4Request extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Filter by creation time (right boundary).
+   * The end time for filtering by creation time.
    * 
    * @example
    * 2021-11-29 19:11:09
@@ -74,7 +77,7 @@ export class ListRulesV4Request extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * ID of the rule updater. Same as UpdateUserId. Specify one only.
+   * The ID of the rule updater. This parameter is equivalent to UpdateUserId. Specify only one of them.
    * 
    * @example
    * 1
@@ -82,7 +85,7 @@ export class ListRulesV4Request extends $dara.Model {
   lastUpdateEmpid?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -90,7 +93,7 @@ export class ListRulesV4Request extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -98,12 +101,12 @@ export class ListRulesV4Request extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Required fields.
+   * The required fields.
    */
   requireInfos?: string[];
   /**
    * @remarks
-   * Search by rule ID.
+   * The rule ID to search for.
    * 
    * @example
    * 895EAD5312634F5AA708E3B3FA79662E
@@ -111,7 +114,7 @@ export class ListRulesV4Request extends $dara.Model {
   rid?: number;
   /**
    * @remarks
-   * Search by rule ID or rule name.
+   * The rule ID or rule name to search for.
    * 
    * @example
    * xx
@@ -119,7 +122,7 @@ export class ListRulesV4Request extends $dara.Model {
   ruleIdOrRuleName?: string;
   /**
    * @remarks
-   * Scoring type.
+   * The scoring type.
    * 
    * @example
    * 1
@@ -127,7 +130,7 @@ export class ListRulesV4Request extends $dara.Model {
   ruleScoreSingleType?: number;
   /**
    * @remarks
-   * Rule category.
+   * The rule category.
    * 
    * @example
    * 1
@@ -135,7 +138,7 @@ export class ListRulesV4Request extends $dara.Model {
   ruleType?: number;
   /**
    * @remarks
-   * Quality inspection scheme ID.
+   * The ID of the quality inspection plan.
    * 
    * @example
    * 1000000090
@@ -143,7 +146,7 @@ export class ListRulesV4Request extends $dara.Model {
   schemeId?: number;
   /**
    * @remarks
-   * Source type.
+   * The source type.
    * 
    * @example
    * 0
@@ -151,7 +154,7 @@ export class ListRulesV4Request extends $dara.Model {
   sourceType?: number;
   /**
    * @remarks
-   * Filter by creation time (left boundary).
+   * The start time for filtering by creation time.
    * 
    * @example
    * 2021-11-29 18:11:09
@@ -159,16 +162,23 @@ export class ListRulesV4Request extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Rule status.
+   * The rule status.
    * 
    * @example
    * 2
    */
   status?: number;
+  /**
+   * @remarks
+   * The rule type.
+   * 
+   * @example
+   * 21
+   */
   targetType?: string;
   /**
    * @remarks
-   * Type value of the rule category that the rule belongs to.
+   * The type value of the rule type to which the rule belongs.
    * 
    * @example
    * 1
@@ -176,15 +186,15 @@ export class ListRulesV4Request extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * Name of the rule category that the rule belongs to.
+   * The name of the rule type to which the rule belongs.
    * 
    * @example
-   * 所有类型
+   * All types
    */
   typeName?: string;
   /**
    * @remarks
-   * Filter by update time (right boundary).
+   * The end time for filtering by update time.
    * 
    * @example
    * 2021-11-29 18:11:09
@@ -192,7 +202,7 @@ export class ListRulesV4Request extends $dara.Model {
   updateEndTime?: string;
   /**
    * @remarks
-   * Filter by update time (left boundary).
+   * The start time for filtering by update time.
    * 
    * @example
    * 2021-11-29 16:11:09
@@ -200,7 +210,7 @@ export class ListRulesV4Request extends $dara.Model {
   updateStartTime?: string;
   /**
    * @remarks
-   * ID of the rule updater. Same as LastUpdateEmpId. Specify one only.
+   * The ID of the rule updater. This parameter is equivalent to LastUpdateEmpid. Specify only one of them.
    * 
    * @example
    * 1

@@ -21,7 +21,7 @@ export class CreateWarningConfigResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Error details when an error occurs. Returns \\"successful\\" on success.
+   * Error details when an error occurs. Returns \"successful\" on success.
    * 
    * @example
    * successful

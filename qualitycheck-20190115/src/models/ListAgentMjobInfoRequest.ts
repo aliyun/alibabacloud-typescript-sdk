@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentMJobInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space ID.
+   * The workspace ID.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class ListAgentMJobInfoRequest extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The complete JSON string. For more information, see the following detailed information.
+   * The complete JSON string. For more information, see the following details.
    * 
    * @example
    * {}

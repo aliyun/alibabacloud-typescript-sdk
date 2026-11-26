@@ -21,7 +21,7 @@ export class DeleteCheckTypeToSchemeResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message returned. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
+   * The message returned. If the request is successful, \`successful\` is returned. If the request fails, an error message is returned.
    * 
    * @example
    * successful

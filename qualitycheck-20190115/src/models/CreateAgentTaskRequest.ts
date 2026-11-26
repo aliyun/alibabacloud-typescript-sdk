@@ -16,7 +16,7 @@ export class CreateAgentTaskRequest extends $dara.Model {
    * The complete **JSON string** information. For details, see the following sections.
    * 
    * @example
-   * {\\"\\":\\"\\"}
+   * {\"\":\"\"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

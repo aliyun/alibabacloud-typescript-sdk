@@ -109,11 +109,9 @@ export class GetSkillGroupConfigResponseBodyDataRuleList extends $dara.Model {
 export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to perform a full-text quality check after the real-time quality check is complete. Valid values:
-   * 
-   * - 1: yes
-   * 
-   * - 0: no
+   * Specifies whether to perform full-text quality check after the real-time quality check ends. Valid values:
+   * - 1: Perform full-text quality check.
+   * - 0: Do not perform full-text quality check.
    * 
    * @example
    * 1
@@ -121,7 +119,7 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   allContentQualityCheck?: number;
   /**
    * @remarks
-   * The ID of the rule used for the full-text quality check.
+   * The quality check rule IDs for full-text quality check.
    * 
    * @example
    * 223
@@ -130,7 +128,7 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   allRuleList?: GetSkillGroupConfigResponseBodyDataAllRuleList;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time.
    * 
    * @example
    * 2020-12-01T15:12Z
@@ -146,10 +144,10 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * This is an internal parameter. You can ignore it.
+   * An internal field. Ignore this field.
    * 
    * @example
-   * xxx
+   * Deprecated field
    */
   instanceId?: string;
   /**
@@ -165,7 +163,7 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
    * The language model name.
    * 
    * @example
-   * xxx
+   * General model
    */
   modelName?: string;
   /**
@@ -173,16 +171,14 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
    * The configuration name.
    * 
    * @example
-   * xxx
+   * General configuration
    */
   name?: string;
   /**
    * @remarks
    * The quality check type. Valid values:
-   * 
-   * - 0: offline
-   * 
-   * - 1: real-time
+   * - 0: Offline quality check.
+   * - 1: Real-time quality check.
    * 
    * @example
    * 0
@@ -199,7 +195,7 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   ruleList?: GetSkillGroupConfigResponseBodyDataRuleList;
   /**
    * @remarks
-   * The source of the skill group. The value is fixed at 0.
+   * The source of the skill group. The value is fixed to 0.
    * 
    * @example
    * 0
@@ -218,12 +214,14 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
    * The skill group name.
    * 
    * @example
-   * xxx
+   * General skill group
    */
   skillGroupName?: string;
   /**
    * @remarks
-   * The status of the configuration. Valid values: 0 (disabled) and 1 (enabled).
+   * The enabling status. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 0
@@ -231,7 +229,9 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The configuration type. Valid values: 1 (custom configuration) and 0 (built-in configuration).
+   * The configuration type. Valid values:
+   * - 1: Custom configuration.
+   * - 0: Built-in system configuration.
    * 
    * @example
    * 1
@@ -239,7 +239,7 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The time when the configuration was last updated.
+   * The update time.
    * 
    * @example
    * 2020-12-01T19:28Z
@@ -247,7 +247,7 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The hotword ID.
+   * The hot word ID.
    * 
    * @example
    * 123
@@ -255,7 +255,7 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
   vocabId?: number;
   /**
    * @remarks
-   * The hotword name.
+   * The hot word name.
    * 
    * @example
    * test
@@ -329,9 +329,9 @@ export class GetSkillGroupConfigResponseBodyData extends $dara.Model {
 export class GetSkillGroupConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of **200** indicates a successful response.
+   * The result code. A value of **200** indicates success.
    * 
-   * > Other values indicate a failed response. You can use this field to identify the cause of the failure.
+   * > Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -339,12 +339,12 @@ export class GetSkillGroupConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the skill group rule configuration.
+   * The list of skill group rule configuration details.
    */
   data?: GetSkillGroupConfigResponseBodyData;
   /**
    * @remarks
-   * The response message. If the request is successful, a value of **successful** is returned. If the request fails, an error message is returned.
+   * The error details when an error occurs, or **successful** when the request is successful.
    * 
    * @example
    * successful
@@ -360,13 +360,12 @@ export class GetSkillGroupConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
-   * The caller can use this field to determine whether the request was successful:
+   * You can use this field to determine whether the request is successful:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - false or **null**: The request failed.
+   * - **true**: The request is successful.
+   * - **false/null**: The request failed.
    * 
    * @example
    * true

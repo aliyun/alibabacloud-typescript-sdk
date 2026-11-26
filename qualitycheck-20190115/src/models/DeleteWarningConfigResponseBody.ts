@@ -13,7 +13,7 @@ export class DeleteWarningConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * If the request fails, this field provides the error details. If the request is successful, the value is \\`successful\\`.
+   * If the request fails, this field provides the error details. If the request is successful, the value is \`successful\`.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class DeleteWarningConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
+   * Indicates whether the request was successful. A value of \`true\` indicates success. A value of \`false\` or \`null\` indicates failure.
    * 
    * @example
    * true

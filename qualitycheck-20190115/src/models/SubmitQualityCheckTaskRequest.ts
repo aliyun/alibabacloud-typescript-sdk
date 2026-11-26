@@ -5,17 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitQualityCheckTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Workspace ID.
+   * baseMeAgentId
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The complete JSON string. For details, see the following sections.
+   * The complete JSON string. For details, see the following information.
    * 
    * This parameter is required.
    * 
    * @example
-   * "{"jobName":"任务 2020-03-19 14:16:55","jobType":0,"jsonStr":{"dataSetIds":[123**],"modeCustomizationId":"046db35352904c5dbb0564****","ruleIds":[185**,185**],"vocabId":"0f0cd63546c747bcb306bb05***"}}"
+   * "{"jobName":"Task 2020-03-19 14:16:55","jobType":0,"jsonStr":{"dataSetIds":[123**],"modeCustomizationId":"046db35352904c5dbb0564****","ruleIds":[185**,185**],"vocabId":"0f0cd63546c747bcb306bb05***"}}"
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

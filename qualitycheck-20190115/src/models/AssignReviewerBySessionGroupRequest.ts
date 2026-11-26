@@ -6,6 +6,9 @@ export class AssignReviewerBySessionGroupRequest extends $dara.Model {
   /**
    * @remarks
    * Workspace ID
+   * 
+   * @example
+   * 12345
    */
   baseMeAgentId?: number;
   /**

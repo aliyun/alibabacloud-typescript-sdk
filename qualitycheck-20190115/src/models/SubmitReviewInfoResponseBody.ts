@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitReviewInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. 200 indicates success.
+   * The result code. A value of 200 indicates success.
    * 
-   * > If the value is different, it indicates failure. Callers can use this field to determine the cause of failure.
+   * > If the value is not 200, the request failed. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -15,7 +15,7 @@ export class SubmitReviewInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returns the quality inspection score after review upon successful saving.
+   * The quality inspection score after the review. This field is returned when the review results are saved.
    * 
    * @example
    * 95
@@ -23,7 +23,7 @@ export class SubmitReviewInfoResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Indicates error details on failure, or **successful** on success.
+   * The error details when an error occurs. The value is **successful** when the request is successful.
    * 
    * @example
    * successful
@@ -31,7 +31,7 @@ export class SubmitReviewInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 9987D326-83D9-4A42-B9A5-0B27F9B40539
@@ -39,13 +39,12 @@ export class SubmitReviewInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
-   * Callers can use this field to determine if the request was successful:
+   * You can use this field to determine whether the request is successful:
    * 
-   * - true indicates success
-   * 
-   * - false/null indicates failure
+   * - true: The request is successful.
+   * - false or null: The request failed.
    * 
    * @example
    * true

@@ -6,6 +6,9 @@ export class UpdateAsrVocabRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the workspace.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**

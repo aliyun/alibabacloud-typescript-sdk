@@ -97,7 +97,7 @@ export class GetQualityCheckSchemeResponseBodyData extends $dara.Model {
    * The username of the creator.
    * 
    * @example
-   * xxx
+   * zhangsan
    */
   createUserName?: string;
   /**
@@ -129,7 +129,7 @@ export class GetQualityCheckSchemeResponseBodyData extends $dara.Model {
    * The name of the quality check plan.
    * 
    * @example
-   * xxx
+   * 示例质检方案
    */
   name?: string;
   /**
@@ -200,7 +200,7 @@ export class GetQualityCheckSchemeResponseBodyData extends $dara.Model {
    * The username of the user who last updated the plan.
    * 
    * @example
-   * xxx
+   * lisi
    */
   updateUserName?: string;
   /**

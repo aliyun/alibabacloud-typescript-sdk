@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentTaskResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 123456
@@ -16,7 +16,7 @@ export class GetAgentTaskResultRequest extends $dara.Model {
    * The complete JSON string. For more information, see the following details.
    * 
    * @example
-   * {\\"vid\\":\\"sip-11-1766561862.293393\\",\\"taskId\\":\\"20251224-D3B32484-2D53-5B53-A618-483A7941029E\\"}
+   * {\"vid\":\"sip-11-1766561862.293393\",\"taskId\":\"20251224-D3B32484-2D53-5B53-A618-483A7941029E\"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

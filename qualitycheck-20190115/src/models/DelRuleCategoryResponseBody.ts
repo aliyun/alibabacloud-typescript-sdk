@@ -59,7 +59,7 @@ export class DelRuleCategoryResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * xxx
+   * 4B0A8DCD-0DDF-5E80-8B9C-0A2F68B3403B
    */
   requestId?: string;
   /**

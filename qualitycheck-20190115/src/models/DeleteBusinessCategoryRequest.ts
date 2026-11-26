@@ -6,6 +6,9 @@ export class DeleteBusinessCategoryRequest extends $dara.Model {
   /**
    * @remarks
    * The workspace ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**

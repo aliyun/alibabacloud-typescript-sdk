@@ -5,15 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCheckTypeToSchemeRequest extends $dara.Model {
   /**
    * @remarks
-   * The baseMeAgentId.
+   * The workspace ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * Input parameter in JSON format. For more information, see the request parameters.
+   * The JSON string of the request parameters. For more information, see the supplementary description of request parameters.
    * 
    * @example
-   * {"schemeId":"187","checkName":"服务规范性检测2","sourceScore":20,"checkType":0}
+   * {"schemeId":"187","checkName":"Service compliance check 2","sourceScore":20,"checkType":0}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

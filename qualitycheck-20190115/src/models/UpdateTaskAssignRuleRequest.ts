@@ -6,6 +6,9 @@ export class UpdateTaskAssignRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The workspace ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**

@@ -3,11 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JudgeNodeMetaDescExpressionMetaDesc extends $dara.Model {
+  /**
+   * @remarks
+   * **[Deprecated]**
+   * 
+   * @example
+   * **[Deprecated]**
+   */
   leftFieldType?: number;
+  /**
+   * @remarks
+   * **[Deprecated]**
+   * 
+   * @example
+   * **[Deprecated]**
+   */
   leftOperand?: string;
+  /**
+   * @remarks
+   * **[Deprecated]**
+   * 
+   * @example
+   * **[Deprecated]**
+   */
   operator?: string;
+  /**
+   * @remarks
+   * **[Deprecated]**
+   * 
+   * @example
+   * **[Deprecated]**
+   */
   rightFieldType?: number;
+  /**
+   * @remarks
+   * **[Deprecated]**
+   * 
+   * @example
+   * **[Deprecated]**
+   */
   rightOperand?: string;
+  /**
+   * @remarks
+   * **[Deprecated]**
+   * 
+   * @example
+   * **[Deprecated]**
+   */
   roundingMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,24 +85,28 @@ export class JudgeNodeMetaDescExpressionMetaDesc extends $dara.Model {
 export class JudgeNodeMetaDesc extends $dara.Model {
   /**
    * @remarks
-   * Actual value
+   * The actual value. **[Deprecated]**
    * 
    * @example
-   * xx
+   * **[Deprecated]**
    */
   actualValue?: string;
   /**
    * @remarks
-   * Data type
+   * The data type.
    * 
    * @example
    * 1
    */
   dataType?: number;
+  /**
+   * @remarks
+   * **[Deprecated]**
+   */
   expressionMetaDesc?: JudgeNodeMetaDescExpressionMetaDesc;
   /**
    * @remarks
-   * System field
+   * The system field.
    * 
    * @example
    * remark1
@@ -68,7 +114,7 @@ export class JudgeNodeMetaDesc extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * Field data source type: 1: System predefined field. 2: Quality inspection field for passed parameters.
+   * The field data source type. 1: System predefined field. 2: Parameter-passed quality inspection field.
    * 
    * @example
    * 1
@@ -76,7 +122,7 @@ export class JudgeNodeMetaDesc extends $dara.Model {
   fieldType?: number;
   /**
    * @remarks
-   * Expression
+   * The logical expression.
    * 
    * @example
    * 1
@@ -84,10 +130,10 @@ export class JudgeNodeMetaDesc extends $dara.Model {
   symbol?: number;
   /**
    * @remarks
-   * Preset value
+   * The preset value. **[Deprecated]**
    * 
    * @example
-   * xxx
+   * **[Deprecated]**
    */
   value?: string;
   static names(): { [key: string]: string } {

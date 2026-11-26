@@ -216,7 +216,7 @@ export class ConditionBasicInfo extends $dara.Model {
    * Condition name
    * 
    * @example
-   * xx
+   * 示例条件
    */
   name?: string;
   /**

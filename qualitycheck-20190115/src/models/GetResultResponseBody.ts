@@ -1522,7 +1522,7 @@ export class GetResultResponseBodyData extends $dara.Model {
 export class GetResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result code. `200` indicates success. Any other value indicates failure. Use this field to identify the cause of failure.
+   * The result code. A value of **200** indicates success, and any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -1530,7 +1530,7 @@ export class GetResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -1539,7 +1539,7 @@ export class GetResultResponseBody extends $dara.Model {
   data?: GetResultResponseBodyData;
   /**
    * @remarks
-   * Error details if the request failed. Returns successful if the request succeeded.
+   * The error message. If an error occurs, this field displays the error details. If the request is successful, the value is successful.
    * 
    * @example
    * successful
@@ -1547,7 +1547,7 @@ export class GetResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -1555,7 +1555,7 @@ export class GetResultResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -1563,7 +1563,7 @@ export class GetResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Unique request ID.
+   * The request ID.
    * 
    * @example
    * 3CEA0495-341B-4482-9AD9-8191EF4***
@@ -1571,7 +1571,7 @@ export class GetResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Reserved field. Ignore this field.
+   * The reserved field. This field is currently unused and can be ignored.
    * 
    * @example
    * XXX
@@ -1579,7 +1579,9 @@ export class GetResultResponseBody extends $dara.Model {
   resultCountId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. A value of true means success. A value of false or null means failure.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false or null: The request failed.
    * 
    * @example
    * true

@@ -4,9 +4,37 @@ import { JudgeNodeMetaDesc } from "./JudgeNodeMetaDesc";
 
 
 export class OperatorBasicInfoParamDimensions extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Checks whether impolite or non-standard opening remarks are used in customer service conversations, which affects service professionalism
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The quality check dimensions.
+   * 
+   * @example
+   * Inappropriate opening remarks
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The exclusion condition.
+   * 
+   * @example
+   * Customer service representatives must use the official standard dialect during service
+   */
   excludeCondition?: string;
+  /**
+   * @remarks
+   * The hit condition.
+   * 
+   * @example
+   * Non-standard and impolite greetings such as "Hey" appear at the beginning of the conversation
+   */
   includeCondition?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,7 +66,7 @@ export class OperatorBasicInfoParamDimensions extends $dara.Model {
 export class OperatorBasicInfoParam extends $dara.Model {
   /**
    * @remarks
-   * The threshold for answer hits.
+   * The answer hit threshold.
    * 
    * @example
    * 90
@@ -47,11 +75,14 @@ export class OperatorBasicInfoParam extends $dara.Model {
   /**
    * @remarks
    * The Ant model information.
+   * 
+   * @example
+   * model
    */
   antModelInfo?: { [key: string]: string };
   /**
    * @remarks
-   * For speech rate detection: specifies whether to calculate the average speech rate for the entire dialogue. The default is \\`false\\`.
+   * Specifies whether to calculate the average speech rate for the entire conversation during speech rate detection. Default value: false.
    * 
    * @example
    * true
@@ -59,7 +90,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   average?: boolean;
   /**
    * @remarks
-   * For the duration operator: the start type for the duration calculation. The calculation can start from the beginning of the recording or the beginning of a specific sentence.
+   * The start type for duration calculation in the duration operator. Specifies whether the calculation starts from the beginning of the recording or the beginning of a specific dialogue.
    * 
    * @example
    * 1
@@ -67,7 +98,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   beginType?: string;
   /**
    * @remarks
-   * The robot ID.
+   * The bot ID.
    * 
    * @example
    * chatbot-cn-xxx
@@ -75,7 +106,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * Specifies whether the matching is case-sensitive.
+   * Specifies whether the match is case-sensitive.
    * 
    * @example
    * true
@@ -86,12 +117,12 @@ export class OperatorBasicInfoParam extends $dara.Model {
    * The knowledge category path.
    * 
    * @example
-   * xx
+   * Deprecated field
    */
   categoryPathCode?: string;
   /**
    * @remarks
-   * For silence detection: specifies whether to check the first sentence.
+   * Specifies whether to check the first sentence for silence detection.
    * 
    * @example
    * true
@@ -99,10 +130,8 @@ export class OperatorBasicInfoParam extends $dara.Model {
   checkFirstSentence?: boolean;
   /**
    * @remarks
-   * The detection method. The default is 1.
-   * 
-   * - 1: Energy fluctuation between contiguous sentences.
-   * 
+   * The check type. Default value: 1. Valid values:
+   * - 1: Energy fluctuation between adjacent sentences.
    * - 2: Maximum energy span.
    * 
    * @example
@@ -111,7 +140,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * The comparison operator. Valid values are \\`gt\\` (greater than) and \\`lt\\` (less than).
+   * The comparison operator. Valid values: gt: Greater than. lt: Less than.
    * 
    * @example
    * gt
@@ -119,7 +148,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   compareOperator?: string;
   /**
    * @remarks
-   * Specifies whether to match a single sentence.
+   * Specifies whether single-sentence matching is enabled.
    * 
    * @example
    * true
@@ -127,12 +156,12 @@ export class OperatorBasicInfoParam extends $dara.Model {
   contextChatMatch?: boolean;
   /**
    * @remarks
-   * Parameters for the recording-related operator.
+   * The operator parameters for call variables.
    */
   customerParam?: JudgeNodeMetaDesc;
   /**
    * @remarks
-   * For the interruption operator: the delay duration.
+   * The delay duration for the barge-in operator.
    * 
    * @example
    * 10
@@ -140,16 +169,20 @@ export class OperatorBasicInfoParam extends $dara.Model {
   delayTime?: number;
   /**
    * @remarks
-   * Used for the time interval operator. If set to \\`true\\`, the target sentence is not included in the calculation if it is spoken by the same role as the current sentence.
+   * Used for the time interval operator to determine the time interval. If set to true, the target sentence is excluded from the calculation if it is spoken by the same role as the current sentence.
    * 
    * @example
    * true
    */
   differentRole?: boolean;
+  /**
+   * @remarks
+   * The quality check dimensions.
+   */
   dimensions?: OperatorBasicInfoParamDimensions[];
   /**
    * @remarks
-   * For the duration operator: the end type for the duration calculation. The calculation can end at the end of the recording or the end of a specific sentence.
+   * The end type for duration calculation in the duration operator. Specifies whether the calculation ends at the end of the recording or the end of a specific dialogue.
    * 
    * @example
    * 2
@@ -157,12 +190,12 @@ export class OperatorBasicInfoParam extends $dara.Model {
   endType?: string;
   /**
    * @remarks
-   * For the contextual repetition operator: the dialogues to exclude.
+   * The dialogues excluded from the context repetition operator.
    */
   excludes?: string[];
   /**
    * @remarks
-   * For the contextual repetition operator: checks for repetitions within the \\`from\\` number of sentences before the current sentence. A value of \\`0\\` indicates all preceding sentences.
+   * The number of preceding sentences to check for repetition in the context repetition operator. A value of 0 indicates all preceding sentences.
    * 
    * @example
    * 0
@@ -170,16 +203,23 @@ export class OperatorBasicInfoParam extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * Used for the time interval operator. Specifies whether to calculate the time interval by subtracting the end time of the target sentence from the end time of the current sentence.
+   * Used for the time interval operator to determine the time interval. Specifies whether the time interval is calculated by subtracting the end time of the target sentence from the end time of the current sentence.
    * 
    * @example
    * true
    */
   fromEnd?: boolean;
+  /**
+   * @remarks
+   * The hit condition.
+   * 
+   * @example
+   * Hit condition
+   */
   hitCondition?: string;
   /**
    * @remarks
-   * For the contextual repetition operator: the number of repetitions.
+   * The number of repetitions for the context repetition operator.
    * 
    * @example
    * 2
@@ -187,7 +227,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   hitTime?: number;
   /**
    * @remarks
-   * The effective sentences. \\`true\\` indicates a single sentence. \\`false\\` indicates multiple sentences.
+   * Specifies whether the rule applies to a single sentence or multiple sentences. Valid values: true: A single sentence. false: Multiple sentences.
    * 
    * @example
    * true
@@ -195,7 +235,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   inSentence?: boolean;
   /**
    * @remarks
-   * The start of the interval.
+   * The start of the interval range.
    * 
    * @example
    * 1
@@ -203,7 +243,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The end of the interval.
+   * The end of the interval range.
    * 
    * @example
    * 2
@@ -235,12 +275,12 @@ export class OperatorBasicInfoParam extends $dara.Model {
    * The knowledge information.
    * 
    * @example
-   * 下单
+   * Place an order
    */
   knowledgeInfo?: string;
   /**
    * @remarks
-   * The number of sentences after a question is hit within which to detect the answer.
+   * The number of sentences within which the answer is detected after a question is hit.
    * 
    * @example
    * 1
@@ -256,30 +296,46 @@ export class OperatorBasicInfoParam extends $dara.Model {
   knowledgeTargetId?: string;
   /**
    * @remarks
-   * The name of the knowledge category or knowledge.
+   * The knowledge category name or knowledge name.
    * 
    * @example
-   * 订单
+   * Order
    */
   knowledgeTargetName?: string;
   /**
    * @remarks
-   * 0: Category. 1: Knowledge.
+   * The knowledge target type. Valid values:
+   * - 0: Category.
+   * - 1: Knowledge.
    * 
    * @example
    * 1
    */
   knowledgeTargetType?: number;
+  /**
+   * @remarks
+   * **[Deprecated]** This field is deprecated.
+   * 
+   * @example
+   * Deprecated field
+   */
   knowledges?: string;
   /**
    * @remarks
    * The LGF sentences.
    */
   lgfSentences?: string[];
+  /**
+   * @remarks
+   * The large language model code.
+   * 
+   * @example
+   * TYXM_PLUS
+   */
   llmModelCode?: string;
   /**
    * @remarks
-   * The change in energy value. The default is 3. The range is 1 to 9.
+   * The emotion change value. Default value: 3. Valid values: 1 to 9.
    * 
    * @example
    * 3
@@ -295,7 +351,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   minWordSize?: number;
   /**
    * @remarks
-   * \\`true\\` indicates that the two contiguous sentences from different roles are used. \\`false\\` indicates that the first sentence from each role is used to compare the response time. The default is \\`false\\`.
+   * Specifies whether to use adjacent sentences spoken by different roles. Valid values: true: Uses adjacent sentences spoken by different roles. false: Uses the first sentences spoken by different roles to compare the response time. This is the default value.
    * 
    * @example
    * true
@@ -303,23 +359,23 @@ export class OperatorBasicInfoParam extends $dara.Model {
   nearDialogue?: boolean;
   /**
    * @remarks
-   * The regular expression to exclude.
+   * The excluded regular expression.
    * 
    * @example
-   * 优秀.*
+   * Excellent.*
    */
   notRegex?: string;
   /**
    * @remarks
-   * The statement.
+   * The phrase.
    * 
    * @example
-   * 你好，请问
+   * Hello, may I ask
    */
   phrase?: string;
   /**
    * @remarks
-   * The variable required for foreign-related properties.
+   * The variable required for external properties.
    * 
    * @example
    * xx
@@ -340,7 +396,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   pvalues?: string[];
   /**
    * @remarks
-   * The threshold for question hits.
+   * The question hit threshold.
    * 
    * @example
    * 90
@@ -356,17 +412,24 @@ export class OperatorBasicInfoParam extends $dara.Model {
    * The regular expression.
    * 
    * @example
-   * 质疑.*
+   * Question.*
    */
   regex?: string;
   /**
    * @remarks
-   * The role used in the operator. This parameter is currently used for the contextual repetition operator in conjunction with \\`Target_role\\`.
+   * The role used in the operator. Currently used for the context repetition operator and used together with target_role.
    * 
    * @example
    * 1
    */
   roleId?: number;
+  /**
+   * @remarks
+   * The scene name.
+   * 
+   * @example
+   * Polite language detection
+   */
   sceneName?: string;
   /**
    * @remarks
@@ -386,17 +449,20 @@ export class OperatorBasicInfoParam extends $dara.Model {
   similarityThreshold?: number;
   /**
    * @remarks
-   * Similar questions.
+   * The similar questions.
    */
   similarlySentences?: string[];
   /**
    * @remarks
    * The synonyms.
+   * 
+   * @example
+   * Deprecated field
    */
   synonyms?: { [key: string]: string[] };
   /**
    * @remarks
-   * The target sentence, specified as the number of sentences before the current one. If set to 0, the time interval is calculated as the end time of the current sentence minus its start time.
+   * Specifies the number of sentences before the current sentence to use as the target sentence. If the value is 0, the time interval is calculated by subtracting the start time of the current sentence from its end time.
    * 
    * @example
    * 1
@@ -404,10 +470,10 @@ export class OperatorBasicInfoParam extends $dara.Model {
   target?: number;
   /**
    * @remarks
-   * Used for the repetition operator. If the current sentence matches the regular expression, the matched part is searched for in the sentences spoken by the specified \\`Target_role\\` that appear before the current sentence.
+   * Used for the repetition operator. If the current sentence matches the regular expression, the matched part is searched in the preceding sentences spoken by the role specified by target_role.
    * 
    * @example
-   * 客服
+   * Agent
    */
   targetRole?: string;
   /**
@@ -420,7 +486,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * Specifies whether to use the EAS algorithm.
+   * Specifies whether the EAS algorithm is used.
    * 
    * @example
    * true
@@ -428,7 +494,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   useEasAlgorithm?: boolean;
   /**
    * @remarks
-   * Used for the speech rate operator. The speech rate value per unit of time. It determines whether the speech rate of the current sentence exceeds the specified value. The time unit depends on the time units of the \\`start\\` and \\`end\\` parameters.
+   * Used for the speech rate operator. Specifies the speech rate value per unit of time to determine whether the speech rate of the current sentence exceeds the specified value. The time unit depends on the time units of the passed start and end parameters.
    * 
    * @example
    * 111
@@ -436,7 +502,7 @@ export class OperatorBasicInfoParam extends $dara.Model {
   velocity?: number;
   /**
    * @remarks
-   * Used for the speech rate operator. The speech rate value per minute. It determines whether the speech rate of the current sentence exceeds the specified value.
+   * Used for the speech rate operator. Specifies the speech rate value per minute to determine whether the speech rate of the current sentence exceeds the specified value.
    * 
    * @example
    * 1
@@ -626,7 +692,7 @@ export class OperatorBasicInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID. This can be the primary key ID or an ID generated by the frontend.
+   * The primary key ID or the frontend-generated ID.
    * 
    * @example
    * a
@@ -639,11 +705,9 @@ export class OperatorBasicInfo extends $dara.Model {
   param?: OperatorBasicInfoParam;
   /**
    * @remarks
-   * The quality check type:
-   * 
-   * - 0: Offline check
-   * 
-   * - 1: Real-time check
+   * The quality check type. Valid values:
+   * - 0: Offline quality check.
+   * - 1: Real-time quality check.
    * 
    * @example
    * 0
@@ -651,7 +715,7 @@ export class OperatorBasicInfo extends $dara.Model {
   qualityCheckType?: number;
   /**
    * @remarks
-   * The operator category.
+   * The operator type.
    * 
    * @example
    * HIT_ANY_KEYWORDS

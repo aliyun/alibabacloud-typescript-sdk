@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class RunCompletionMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of messages that form the conversation history and the current prompt.
+   * The list of messages in the model request.
    */
   messagesShrink?: string;
   /**
    * @remarks
-   * The model specification to use. Valid values: `TYXM_PLUS` and `TYXM_TURBO`.
+   * The model specification. Valid values: TYXM_PLUS and TYXM_TURBO.
    * 
    * @example
    * TYXM_PLUS
@@ -18,7 +18,7 @@ export class RunCompletionMessageShrinkRequest extends $dara.Model {
   modelCode?: string;
   /**
    * @remarks
-   * Specifies whether to stream the response using Server-Sent Events (SSE). If `true`, the response is streamed. Defaults to `false`.
+   * Specifies whether to enable Server-Sent Events (SSE) responses. Default value: false.
    * 
    * @example
    * true

@@ -5,6 +5,13 @@ import { SchemeCheckType } from "./SchemeCheckType";
 
 
 export class RuleInfoPreqRule extends $dara.Model {
+  /**
+   * @remarks
+   * The prerequisite rule ID.
+   * 
+   * @example
+   * 1
+   */
   rid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,7 +37,7 @@ export class RuleInfoPreqRule extends $dara.Model {
 export class RuleInfo extends $dara.Model {
   /**
    * @remarks
-   * The review option. This parameter is used for compatibility with the v4.0 protocol. Valid values: `1` (Manual review) and `3` (Automatic review).
+   * The review option. Valid values: 1: no automatic review. 3: automatic review. This field is used for 4.0 protocol compatibility.
    * 
    * @example
    * 1
@@ -38,12 +45,12 @@ export class RuleInfo extends $dara.Model {
   autoReview?: number;
   /**
    * @remarks
-   * A list of business category names.
+   * The list of business category names.
    */
   businessCategoryNameList?: string[];
   /**
    * @remarks
-   * The check type. Valid values: `0` (Service compliance check), `1` (Service attitude check), `2` (Service professionalism check), `3` (Customer attitude check), and `4` (Service process correctness check).
+   * The check type. Valid values: 0: Service standard check. 1: Service attitude check. 2: Service professionalism check. 3: Customer attitude check. 4: Service process correctness check.
    * 
    * @example
    * 3
@@ -51,15 +58,15 @@ export class RuleInfo extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * Remarks on the rule.
+   * The comments.
    * 
    * @example
-   * 违规
+   * Violation
    */
   comments?: string;
   /**
    * @remarks
-   * The configuration type. This parameter is used for compatibility with the v4.0 protocol. Valid values: `1` (Simple condition configuration) and `2` (Advanced configuration). Default: `1`.
+   * The configuration type. This parameter is dedicated to the version 4.0 protocol. Valid values: 1: Simple condition configuration. 2: Advanced configuration. Default value: 1.
    * 
    * @example
    * 1
@@ -70,7 +77,7 @@ export class RuleInfo extends $dara.Model {
    * The name of the creator.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   createEmpName?: string;
   /**
@@ -83,7 +90,7 @@ export class RuleInfo extends $dara.Model {
   createEmpid?: string;
   /**
    * @remarks
-   * The creation time. This value is a Unix timestamp in milliseconds.
+   * The creation time.
    * 
    * @example
    * 1641277321000
@@ -91,7 +98,7 @@ export class RuleInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether editing the rule is denied. Valid values: `1` (denied), `0` or `null` (allowed).
+   * The edit permission. Valid values: 1: Editing is denied. 0 or null: Editing is allowed.
    * 
    * @example
    * 1
@@ -99,12 +106,12 @@ export class RuleInfo extends $dara.Model {
   deny?: number;
   /**
    * @remarks
-   * A list of test dialogues.
+   * The test script.
    */
   dialogues?: RuleTestDialogue[];
   /**
    * @remarks
-   * Indicates whether the rule is in effect. Valid values: `0` (No) and `1` (Yes).
+   * The effective status. Valid values: 0: Not effective. 1: Effective.
    * 
    * @example
    * 1
@@ -112,7 +119,7 @@ export class RuleInfo extends $dara.Model {
   effective?: number;
   /**
    * @remarks
-   * The effective end time of the rule.
+   * The effective end time.
    * 
    * @example
    * OperationMode
@@ -120,7 +127,7 @@ export class RuleInfo extends $dara.Model {
   effectiveEndTime?: string;
   /**
    * @remarks
-   * The effective start time of the rule.
+   * The effective start time.
    * 
    * @example
    * OperationMode
@@ -128,7 +135,7 @@ export class RuleInfo extends $dara.Model {
   effectiveStartTime?: string;
   /**
    * @remarks
-   * The end time. This value is a Unix timestamp in milliseconds.
+   * The end time.
    * 
    * @example
    * 1641277321000
@@ -144,7 +151,7 @@ export class RuleInfo extends $dara.Model {
   externalProperty?: number;
   /**
    * @remarks
-   * Indicates whether the rule is effective throughout its lifecycle. Valid values: `0` (No) and `1` (Yes).
+   * The full lifecycle effective status. Valid values: 0: No. 1: Yes.
    * 
    * @example
    * 1
@@ -152,7 +159,7 @@ export class RuleInfo extends $dara.Model {
   fullCycle?: number;
   /**
    * @remarks
-   * The graph flow.
+   * The graph flow canvas.
    * 
    * @example
    * {}
@@ -160,7 +167,7 @@ export class RuleInfo extends $dara.Model {
   graphFlow?: any;
   /**
    * @remarks
-   * Indicates whether the rule is deleted.
+   * The deletion status.
    * 
    * @example
    * 1
@@ -168,7 +175,7 @@ export class RuleInfo extends $dara.Model {
   isDelete?: number;
   /**
    * @remarks
-   * Indicates whether the rule is online.
+   * The online status.
    * 
    * @example
    * 1
@@ -176,7 +183,7 @@ export class RuleInfo extends $dara.Model {
   isOnline?: number;
   /**
    * @remarks
-   * The conditional expression, such as `a&&b`.
+   * The conditional expression, such as a&&b.
    * 
    * @example
    * a&&b
@@ -184,15 +191,15 @@ export class RuleInfo extends $dara.Model {
   lambda?: string;
   /**
    * @remarks
-   * The name of the employee who last updated the rule.
+   * The name of the last updater.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastUpdateEmpName?: string;
   /**
    * @remarks
-   * The ID of the employee who last updated the rule.
+   * The employee ID of the last updater.
    * 
    * @example
    * 1
@@ -200,7 +207,7 @@ export class RuleInfo extends $dara.Model {
   lastUpdateEmpid?: string;
   /**
    * @remarks
-   * The last update time. This value is a Unix timestamp in milliseconds.
+   * The last update time.
    * 
    * @example
    * 1641277321000
@@ -208,7 +215,7 @@ export class RuleInfo extends $dara.Model {
   lastUpdateTime?: string;
   /**
    * @remarks
-   * The severity level of the rule. Valid values: `0` (Severe violation), `1` (Moderate violation), and `2` (Minor violation).
+   * The rule level. Valid values: 0: Severe violation. 1: Moderate violation. 2: Minor violation.
    * 
    * @example
    * 1
@@ -216,7 +223,7 @@ export class RuleInfo extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * Indicates whether the conditions are met.
+   * The fulfillment status.
    * 
    * @example
    * 1
@@ -224,7 +231,7 @@ export class RuleInfo extends $dara.Model {
   meet?: number;
   /**
    * @remarks
-   * Indicates whether the rule has been modified within the quality check scheme.
+   * Specifies whether the rule is modified in the quality inspection scheme.
    * 
    * @example
    * 1
@@ -235,7 +242,7 @@ export class RuleInfo extends $dara.Model {
    * The rule name.
    * 
    * @example
-   * 开头语规则
+   * Greeting rule
    */
   name?: string;
   /**
@@ -246,10 +253,14 @@ export class RuleInfo extends $dara.Model {
    * 1
    */
   operationMode?: number;
+  /**
+   * @remarks
+   * The prerequisite rule.
+   */
   preqRule?: RuleInfoPreqRule;
   /**
    * @remarks
-   * The quality check type. This parameter is used for compatibility with the v4.0 protocol. Valid values: `0` (offline quality check) and `1` (real-time quality check).
+   * The quality check type. This parameter is used for compatibility with version 4.0 logic. Valid values: 0: Offline quality check. 1: Real-time quality check.
    * 
    * @example
    * 1
@@ -265,15 +276,15 @@ export class RuleInfo extends $dara.Model {
   rid?: string;
   /**
    * @remarks
-   * The name of the rule category.
+   * The rule category name.
    * 
    * @example
-   * 正向规则
+   * Positive rule
    */
   ruleCategoryName?: string;
   /**
    * @remarks
-   * Specifies whether to score the rule. This parameter is used for compatibility with the v4.0 protocol. Valid values: `1` (Do not score) and `3` (Score).
+   * Specifies whether to calculate the score. Valid values: 1: no scoring. 3: scoring. This field is used for 4.0 protocol compatibility.
    * 
    * @example
    * 3
@@ -281,7 +292,7 @@ export class RuleInfo extends $dara.Model {
   ruleScoreType?: number;
   /**
    * @remarks
-   * The rule type. This parameter is used for compatibility with the v4.0 protocol. Valid values: `0` (Default) and `1` (User-created).
+   * The rule type. Valid values: 0: default. 1: user-created. This field is used for 4.0 logic compatibility.
    * 
    * @example
    * 1
@@ -294,7 +305,7 @@ export class RuleInfo extends $dara.Model {
   schemeCheckType?: SchemeCheckType;
   /**
    * @remarks
-   * The ID of the quality check scheme to which the rule belongs.
+   * The ID of the associated quality check scheme.
    * 
    * @example
    * 1
@@ -305,7 +316,7 @@ export class RuleInfo extends $dara.Model {
    * The name of the quality check scheme.
    * 
    * @example
-   * 通用方案
+   * General scheme
    */
   schemeName?: string;
   /**
@@ -318,7 +329,7 @@ export class RuleInfo extends $dara.Model {
   schemeRuleMappingId?: number;
   /**
    * @remarks
-   * Indicates whether the scoring item is deleted. A deleted item may be displayed as grayed out.
+   * The deletion status of the scoring item, which is used to gray out the item when it is deleted.
    * 
    * @example
    * true
@@ -326,7 +337,7 @@ export class RuleInfo extends $dara.Model {
   scoreDeleted?: boolean;
   /**
    * @remarks
-   * The ID of the main scoring item.
+   * The score category ID.
    * 
    * @example
    * 1
@@ -337,7 +348,7 @@ export class RuleInfo extends $dara.Model {
    * The name of the main scoring item.
    * 
    * @example
-   * 违规
+   * Violation
    */
   scoreName?: string;
   /**
@@ -350,7 +361,7 @@ export class RuleInfo extends $dara.Model {
   scoreNum?: number;
   /**
    * @remarks
-   * The scoring method. This parameter is used for compatibility with the v4.0 protocol. Valid values: `0` (Add/deduct points when the rule is triggered) and `1` (Assign a one-time score when the rule is triggered).
+   * The score calculation type. This parameter is dedicated to the version 4.0 protocol. Valid values: 0: Add or deduct points after the rule is triggered. 1: Award a one-time score after the rule is triggered.
    * 
    * @example
    * 1
@@ -358,7 +369,7 @@ export class RuleInfo extends $dara.Model {
   scoreNumType?: number;
   /**
    * @remarks
-   * The scoring trigger. Valid values: `0` (Score when a node is hit).
+   * The score rule hit type. Valid values: 0: Score is calculated when a node is hit.
    * 
    * @example
    * 0
@@ -366,7 +377,7 @@ export class RuleInfo extends $dara.Model {
   scoreRuleHitType?: number;
   /**
    * @remarks
-   * The ID of the scoring subitem.
+   * The sub-item ID.
    * 
    * @example
    * 1
@@ -374,7 +385,7 @@ export class RuleInfo extends $dara.Model {
   scoreSubId?: number;
   /**
    * @remarks
-   * The name of the scoring subitem.
+   * The sub-scoring item.
    * 
    * @example
    * 1
@@ -382,7 +393,7 @@ export class RuleInfo extends $dara.Model {
   scoreSubName?: string;
   /**
    * @remarks
-   * Indicates whether to add or deduct points.
+   * The score adjustment type.
    * 
    * @example
    * 1
@@ -390,7 +401,7 @@ export class RuleInfo extends $dara.Model {
   scoreType?: number;
   /**
    * @remarks
-   * The sort order of the rule in the quality check dimension.
+   * The sort order within the quality inspection dimension.
    * 
    * @example
    * 1
@@ -398,7 +409,7 @@ export class RuleInfo extends $dara.Model {
   sortIndex?: number;
   /**
    * @remarks
-   * The start time. This value is a Unix timestamp in milliseconds.
+   * The start time.
    * 
    * @example
    * 1641277321000
@@ -406,7 +417,7 @@ export class RuleInfo extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the rule.
+   * The rule status.
    * 
    * @example
    * 1
@@ -414,7 +425,7 @@ export class RuleInfo extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The rule category. This parameter is used for compatibility with the v4.0 protocol. Valid values: `10` (General rule for quality check schemes) and `11` (Flow rule for quality check schemes).
+   * The rule category. This parameter is dedicated to the version 4.0 protocol. Valid values: 10: General rule for quality check scheme. 11: Process rule for quality check scheme.
    * 
    * @example
    * 10
@@ -422,7 +433,7 @@ export class RuleInfo extends $dara.Model {
   targetType?: number;
   /**
    * @remarks
-   * The ID of the flowchart.
+   * The flow canvas ID.
    * 
    * @example
    * 111111111
@@ -430,7 +441,7 @@ export class RuleInfo extends $dara.Model {
   taskFlowId?: number;
   /**
    * @remarks
-   * The type of the flowchart. This parameter is deprecated. The default value is `1`.
+   * **[Deprecated]** The task flow type. Default value: -1.
    * 
    * @example
    * 1
@@ -438,12 +449,12 @@ export class RuleInfo extends $dara.Model {
   taskFlowType?: number;
   /**
    * @remarks
-   * A list of triggers.
+   * The list of trigger conditions.
    */
   triggers?: string[];
   /**
    * @remarks
-   * The rule category. This parameter is used for compatibility with the v4.0 protocol. Valid values: `2` (Public opinion monitoring) and `3` (Business).
+   * The rule category. Valid values: 2: public opinion monitoring. 3: business. This field is used for 4.0 logic compatibility.
    * 
    * @example
    * 2
@@ -451,7 +462,7 @@ export class RuleInfo extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The weight of the rule.
+   * The weight.
    * 
    * @example
    * 1

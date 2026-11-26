@@ -6,6 +6,9 @@ export class UpdateWarningConfigRequest extends $dara.Model {
   /**
    * @remarks
    * workspace ID
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**

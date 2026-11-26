@@ -13,7 +13,7 @@ export class AddRuleV4Request extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * Specifies whether to copy the rule. Set this to \\`true\\` to copy the rule.
+   * Specifies whether to copy the rule. Set this to \`true\` to copy the rule.
    * 
    * @example
    * false

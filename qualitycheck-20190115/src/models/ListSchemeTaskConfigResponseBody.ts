@@ -422,7 +422,7 @@ export class ListSchemeTaskConfigResponseBodyMessages extends $dara.Model {
 export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result code. **200** indicates success. Other values indicate failure. Callers can use this field to determine the cause of failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can determine the cause of the failure based on this field.
    * 
    * @example
    * 200
@@ -430,7 +430,7 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Total entries.
+   * The total number of entries.
    * 
    * @example
    * 22
@@ -438,7 +438,7 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -447,7 +447,7 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   data?: ListSchemeTaskConfigResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -455,15 +455,15 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * This field marks the data. When querying more than 10,000 entries using GetResult, include the \\`lastDataId\\` of the last entry from the previous query in each request parameter.
+   * The identifier of the current data record. When you use the GetResult operation to query more than 10,000 data records, you must include the lastDataId value of the last data record from the previous query result in the request parameters of each subsequent request.
    * 
    * @example
-   * xxx
+   * 1000
    */
   lastDataId?: string;
   /**
    * @remarks
-   * Provides error details on failure. For success, it is **successful**.
+   * The error details when an error occurs, or **successful** when the request is successful.
    * 
    * @example
    * successful
@@ -472,7 +472,7 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   messages?: ListSchemeTaskConfigResponseBodyMessages;
   /**
    * @remarks
-   * Current page.
+   * The current page.
    * 
    * @example
    * 1
@@ -480,7 +480,7 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Entries displayed per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -488,7 +488,7 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 4B0A8DCD-0DDF-5E80-8B9C-0A2F68B3403B
@@ -496,15 +496,15 @@ export class ListSchemeTaskConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Internal field. Ignore it.
+   * An internal field. Ignore this field.
    * 
    * @example
-   * 忽略
+   * Ignore
    */
   resultCountId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Callers can use this field to determine if the request succeeded: \\`true\\` for success, \\`false\\`/\\`null\\` for failure.
+   * Indicates whether the request is successful. You can determine whether the request is successful based on this field. A value of true indicates success, and a value of false or null indicates failure.
    * 
    * @example
    * true

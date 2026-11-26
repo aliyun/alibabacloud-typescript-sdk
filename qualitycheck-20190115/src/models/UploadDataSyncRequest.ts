@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UploadDataSyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space ID.
+   * The ID of the business workspace.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * A JSON string that contains all custom parameters for this operation. For more information, see the **jsonStr property description** below.
+   * The jsonStr parameter is a JSON string that contains all custom parameters for this API operation. For details, see the **jsonStr property description** below.
    * 
    * This parameter is required.
    * 

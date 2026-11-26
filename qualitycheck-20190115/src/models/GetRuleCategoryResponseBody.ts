@@ -69,7 +69,7 @@ export class GetRuleCategoryResponseBody extends $dara.Model {
   data?: GetRuleCategoryResponseBodyData;
   /**
    * @remarks
-   * If an error occurs, this field provides error details. If the call is successful, the value is \\`successful\\`.
+   * If an error occurs, this field provides error details. If the call is successful, the value is \`successful\`.
    * 
    * @example
    * successful
@@ -85,7 +85,7 @@ export class GetRuleCategoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of \\`true\\` indicates success. A value of \\`false\\` or \\`null\\` indicates failure.
+   * Indicates whether the call was successful. A value of \`true\` indicates success. A value of \`false\` or \`null\` indicates failure.
    * 
    * @example
    * true

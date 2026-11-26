@@ -31,7 +31,7 @@ export class AddRuleV4ResponseBodyMessages extends $dara.Model {
 export class AddRuleV4ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. \\`**200**\\` indicates that the request was successful. Other values indicate that the request failed. You can use this parameter to identify the cause of a failure.
+   * The result code. \`**200**\` indicates that the request was successful. Other values indicate that the request failed. You can use this parameter to identify the cause of a failure.
    * 
    * @example
    * 200
@@ -42,7 +42,7 @@ export class AddRuleV4ResponseBody extends $dara.Model {
    * The ID of the new rule.
    * 
    * @example
-   * 无
+   * 82546
    */
   data?: number;
   /**
@@ -72,7 +72,7 @@ export class AddRuleV4ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. \\`true\\`: The request was successful. \\`false\\` or \\`null\\`: The request failed.
+   * Indicates whether the request was successful. \`true\`: The request was successful. \`false\` or \`null\`: The request failed.
    * 
    * @example
    * true

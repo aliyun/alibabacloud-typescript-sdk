@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResultToReviewRequest extends $dara.Model {
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 12345
@@ -13,12 +13,12 @@ export class GetResultToReviewRequest extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * Full JSON string. See the detailed description below.
+   * The complete JSON string. For more information, see the following details.
    * 
    * This parameter is required.
    * 
    * @example
-   * {"taskId":"任务ID",“ fileId”:"文件ID"}
+   * {"taskId":"Task ID","fileId":"File ID"}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

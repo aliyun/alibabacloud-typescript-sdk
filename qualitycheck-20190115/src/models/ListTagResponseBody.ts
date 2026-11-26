@@ -13,7 +13,7 @@ export class ListTagResponseBodyData extends $dara.Model {
   childCount?: number;
   /**
    * @remarks
-   * The time when the label was created.
+   * The time when the tag was created.
    * 
    * @example
    * 1748428991000
@@ -21,10 +21,10 @@ export class ListTagResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The label description.
+   * The tag description.
    * 
    * @example
-   * 用于归集售后服务相关的所有意图与 FAQ
+   * Used to collect all intents and FAQs related to after-sales service
    */
   description?: string;
   /**
@@ -37,7 +37,7 @@ export class ListTagResponseBodyData extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The time when the label was last modified.
+   * The time when the tag was last modified.
    * 
    * @example
    * 1748428991000
@@ -45,15 +45,15 @@ export class ListTagResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The label name.
+   * The tag name.
    * 
    * @example
-   * 售后问题
+   * After-sales issues
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the parent label node.
+   * The ID of the parent tag node.
    * 
    * @example
    * -1
@@ -66,7 +66,7 @@ export class ListTagResponseBodyData extends $dara.Model {
   path?: string[];
   /**
    * @remarks
-   * The label ID.
+   * The tag ID.
    * 
    * @example
    * 128
@@ -115,7 +115,7 @@ export class ListTagResponseBodyData extends $dara.Model {
 export class ListTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -144,7 +144,7 @@ export class ListTagResponseBody extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The error message, if any.
+   * The error message returned if an error occurs.
    * 
    * @example
    * successful
@@ -168,7 +168,7 @@ export class ListTagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. true: The call was successful. false: The call failed.
+   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
    * 
    * @example
    * true
@@ -176,7 +176,7 @@ export class ListTagResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records that meet the conditions.
+   * The total number of records that meet the query conditions.
    * 
    * @example
    * 12

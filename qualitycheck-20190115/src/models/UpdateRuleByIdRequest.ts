@@ -6,6 +6,9 @@ export class UpdateRuleByIdRequest extends $dara.Model {
   /**
    * @remarks
    * Workspace ID
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
@@ -31,7 +34,7 @@ export class UpdateRuleByIdRequest extends $dara.Model {
    * Returns the IDs and names of quality inspection schemes associated with this rule.
    * 
    * @example
-   * 1
+   * true
    */
   returnRelatedSchemes?: boolean;
   /**

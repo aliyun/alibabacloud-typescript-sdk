@@ -81,7 +81,7 @@ export class RuleCountInfo extends $dara.Model {
   deny?: number;
   /**
    * @remarks
-   * Indicates if the rule is active. \\`0\\`: No. \\`1\\`: Yes.
+   * Indicates if the rule is active. \`0\`: No. \`1\`: Yes.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class RuleCountInfo extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Indicates if the rule is active for the entire lifecycle. \\`0\\`: No. \\`1\\`: Yes.
+   * Indicates if the rule is active for the entire lifecycle. \`0\`: No. \`1\`: Yes.
    * 
    * @example
    * 1
@@ -293,7 +293,7 @@ export class RuleCountInfo extends $dara.Model {
   rid?: number;
   /**
    * @remarks
-   * The scoring type. \\`8\\`: No score is set.
+   * The scoring type. \`8\`: No score is set.
    * 
    * @example
    * 1

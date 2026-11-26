@@ -6,6 +6,9 @@ export class DeleteQualityCheckSchemeRequest extends $dara.Model {
   /**
    * @remarks
    * Workspace ID
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**

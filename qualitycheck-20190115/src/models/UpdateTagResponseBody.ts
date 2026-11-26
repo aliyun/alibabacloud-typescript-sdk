@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTagResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the label node was created.
+   * The time when the tag node was created.
    * 
    * @example
    * 1748428991000
@@ -13,15 +13,15 @@ export class UpdateTagResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The label description.
+   * The tag description.
    * 
    * @example
-   * 涵盖退款、退货、维修、咨询等售后链路
+   * Covers after-sales processes such as refunds, returns, repairs, and consultations
    */
   description?: string;
   /**
    * @remarks
-   * The time when the label node was last modified.
+   * The time when the tag node was last modified.
    * 
    * @example
    * 1748431368000
@@ -29,15 +29,15 @@ export class UpdateTagResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The label name.
+   * The tag name.
    * 
    * @example
-   * 售后服务
+   * After-sales service
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the parent label node.
+   * The ID of the parent tag node.
    * 
    * @example
    * -1
@@ -45,7 +45,7 @@ export class UpdateTagResponseBodyData extends $dara.Model {
   parentTagId?: number;
   /**
    * @remarks
-   * The label ID.
+   * The tag ID.
    * 
    * @example
    * 128
@@ -85,7 +85,7 @@ export class UpdateTagResponseBodyData extends $dara.Model {
 export class UpdateTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+   * The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200

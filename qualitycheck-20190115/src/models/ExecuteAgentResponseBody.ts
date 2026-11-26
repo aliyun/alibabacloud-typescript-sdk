@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * If streaming output is used, this value is null during generation. When generation is complete, the value is stop if the generation ended due to a stop token.
+   * The reason why the generation finished. For streaming output, this field is null during generation. If the generation stops due to a stop token, the value is stop.
    * 
    * @example
    * stop
@@ -40,7 +40,7 @@ export class ExecuteAgentResponseBodyData extends $dara.Model {
    * The result returned by the large language model.
    * 
    * @example
-   * 这段对话似乎是客服与客户之间关于一个服务或产品的讨论，但具体内容难以明确理解，因为对话中的言语比较零散和抽象。
+   * This conversation appears to be a discussion between a customer service representative and a customer about a service or product, but the specific content is difficult to understand clearly because the language in the conversation is relatively fragmented and abstract
    */
   text?: string;
   /**
@@ -53,7 +53,7 @@ export class ExecuteAgentResponseBodyData extends $dara.Model {
   totalTokens?: number;
   /**
    * @remarks
-   * The number of times the plus model was used.
+   * The number of times the plus model is used.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ExecuteAgentResponseBodyData extends $dara.Model {
   tyxmPlusCount?: string;
   /**
    * @remarks
-   * The number of times the turbo model was used.
+   * The number of times the turbo model is used.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class ExecuteAgentResponseBodyData extends $dara.Model {
 export class ExecuteAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates success.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -113,7 +113,7 @@ export class ExecuteAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: ExecuteAgentResponseBodyData;
   /**
@@ -134,7 +134,7 @@ export class ExecuteAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. The caller can use this field to determine whether the request was successful. Valid values: **true**: The request was successful. **false/null**: The request failed.
+   * Indicates whether the request is successful. You can use this field to determine the request result. **true** indicates success. **false** or **null** indicates failure.
    * 
    * @example
    * true

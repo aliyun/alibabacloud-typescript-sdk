@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AnalyzeLabelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+   * The result code. A value of **200** indicates success, whereas other values indicate failure. You can determine the cause of the failure based on this field.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class AnalyzeLabelResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message, if any.
+   * The error message returned if an error occurs.
    * 
    * @example
    * successful
@@ -37,7 +37,9 @@ export class AnalyzeLabelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. true: The call was successful. false: The call failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

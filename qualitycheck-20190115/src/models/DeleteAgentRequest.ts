@@ -13,10 +13,10 @@ export class DeleteAgentRequest extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * A JSON-formatted string. For more information about the complete JSON string, see the following details.
+   * The JSON-formatted string. For the complete JSON string information, see the following details.
    * 
    * @example
-   * {\\"id\\":486}
+   * {\"id\":486}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

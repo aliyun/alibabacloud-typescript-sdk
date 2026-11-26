@@ -6,7 +6,7 @@ import { ConditionBasicInfo } from "./ConditionBasicInfo";
 export class GraphFlowNodeNextNodes extends $dara.Model {
   /**
    * @remarks
-   * Quality check dimension
+   * The quality check dimension.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * Flow branch priority. A smaller value indicates higher priority.
+   * The flow branch priority. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * Lambda expression for the next hop.
+   * The Lambda expression for the next hop.
    * 
    * @example
    * a
@@ -30,7 +30,7 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
   lambda?: string;
   /**
    * @remarks
-   * Conditional branch name.
+   * The conditional branch name.
    * 
    * @example
    * a
@@ -38,7 +38,7 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Next node ID.
+   * The subsequent node ID.
    * 
    * @example
    * 31533
@@ -46,7 +46,7 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
   nextNodeId?: number;
   /**
    * @remarks
-   * Operators to follow.
+   * The monitored operators.
    */
   triggers?: string[];
   static names(): { [key: string]: string } {
@@ -86,7 +86,8 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
 export class GraphFlowNodeProperties extends $dara.Model {
   /**
    * @remarks
-   * 1: Do not auto-review.
+   * The auto review setting. Valid values:
+   * - 1: Disables automatic review.
    * 
    * @example
    * 1
@@ -94,7 +95,7 @@ export class GraphFlowNodeProperties extends $dara.Model {
   autoReview?: number;
   /**
    * @remarks
-   * Enable branch judgment.
+   * Specifies whether branch judgment is enabled.
    * 
    * @example
    * true
@@ -102,7 +103,7 @@ export class GraphFlowNodeProperties extends $dara.Model {
   branchJudge?: boolean;
   /**
    * @remarks
-   * Maximum N sentences to check.
+   * The maximum number of sentences to check.
    * 
    * @example
    * 1
@@ -110,7 +111,7 @@ export class GraphFlowNodeProperties extends $dara.Model {
   checkMoreSize?: number;
   /**
    * @remarks
-   * Quality check dimension
+   * The quality check dimension.
    * 
    * @example
    * 1
@@ -118,7 +119,7 @@ export class GraphFlowNodeProperties extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * General operator logic.
+   * The common operator logic.
    * 
    * @example
    * a
@@ -126,15 +127,15 @@ export class GraphFlowNodeProperties extends $dara.Model {
   lambda?: string;
   /**
    * @remarks
-   * Role when the type is \\`single\\`.
+   * The role when the type is single.
    * 
    * @example
-   * 客户
+   * Customer
    */
   role?: string;
   /**
    * @remarks
-   * Is scored.
+   * Specifies whether scoring is enabled.
    * 
    * @example
    * 1
@@ -142,12 +143,15 @@ export class GraphFlowNodeProperties extends $dara.Model {
   ruleScoreType?: number;
   /**
    * @remarks
-   * Indicates expression when the type is \\`single\\`.
+   * Indicates whether expression is enabled when the type is single.
+   * 
+   * @example
+   * Deprecated field
    */
   sayType?: string;
   /**
    * @remarks
-   * Score value
+   * The score value.
    * 
    * @example
    * 1
@@ -155,7 +159,9 @@ export class GraphFlowNodeProperties extends $dara.Model {
   scoreNum?: number;
   /**
    * @remarks
-   * 0: Add or deduct points after the rule is triggered; 1: Score once after the rule is triggered.
+   * The score number type. Valid values:
+   * - 0: Adds or deducts points after the rule is triggered.
+   * - 1: Assigns a one-time score after the rule is triggered.
    * 
    * @example
    * 1
@@ -163,7 +169,8 @@ export class GraphFlowNodeProperties extends $dara.Model {
   scoreNumType?: number;
   /**
    * @remarks
-   * 0: Score when the node is hit.
+   * The score rule hit type. Valid values:
+   * - 0: Scores when the node is hit.
    * 
    * @example
    * 0
@@ -171,7 +178,10 @@ export class GraphFlowNodeProperties extends $dara.Model {
   scoreRuleHitType?: number;
   /**
    * @remarks
-   * 1: Add points; 3: Deduct points; default is 1.
+   * The score type. Valid values:
+   * - 1: Adds points.
+   * - 3: Deducts points.
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -179,15 +189,15 @@ export class GraphFlowNodeProperties extends $dara.Model {
   scoreType?: number;
   /**
    * @remarks
-   * Operators to follow.
+   * The monitored operators.
    */
   triggers?: string[];
   /**
    * @remarks
-   * Property type
+   * The property type.
    * 
    * @example
-   * xx
+   * Deprecated field
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -243,12 +253,12 @@ export class GraphFlowNodeProperties extends $dara.Model {
 export class GraphFlowNode extends $dara.Model {
   /**
    * @remarks
-   * Operator information.
+   * The operator information.
    */
   conditions?: ConditionBasicInfo[];
   /**
    * @remarks
-   * Used for frontend display.
+   * The content for frontend display.
    * 
    * @example
    * {}
@@ -256,7 +266,7 @@ export class GraphFlowNode extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * 1
@@ -264,7 +274,7 @@ export class GraphFlowNode extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Index
+   * The index.
    * 
    * @example
    * 1
@@ -272,20 +282,20 @@ export class GraphFlowNode extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * Node name
+   * The node name.
    * 
    * @example
-   * 开始节点
+   * Start node
    */
   name?: string;
   /**
    * @remarks
-   * Child nodes
+   * The child nodes.
    */
   nextNodes?: GraphFlowNodeNextNodes[];
   /**
    * @remarks
-   * Node Type
+   * The node type.
    * 
    * @example
    * startNode
@@ -293,12 +303,12 @@ export class GraphFlowNode extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * Node properties
+   * The node properties.
    */
   properties?: GraphFlowNodeProperties;
   /**
    * @remarks
-   * Rule ID. \\`rid\\` is empty if the rule is not persisted. If the rule is persisted, \\`rid\\` equals \\`ID\\`.
+   * The rule ID. If the rule is not saved to the database, the value is empty. If the rule is saved, the value equals the ID.
    * 
    * @example
    * 1
@@ -306,7 +316,7 @@ export class GraphFlowNode extends $dara.Model {
   rid?: number;
   /**
    * @remarks
-   * Whether to use operator matching or legacy matching.
+   * Specifies whether to use operator matching or legacy matching.
    * 
    * @example
    * true

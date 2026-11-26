@@ -141,7 +141,7 @@ export class RuleTestDialogue extends $dara.Model {
    * Conversation Name
    * 
    * @example
-   * xx
+   * 示例对话
    */
   name?: string;
   /**

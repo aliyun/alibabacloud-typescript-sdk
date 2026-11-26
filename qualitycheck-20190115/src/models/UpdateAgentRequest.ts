@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The business space ID.
+   * The workspace ID.
    * 
    * @example
    * 12345

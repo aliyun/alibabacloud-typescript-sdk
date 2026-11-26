@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitQualityCheckTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result code. **200** indicates success. Any other value indicates failure. Use this field to determine the cause of failure.
+   * The result code. A value of **200** indicates success, and other values indicate failure. You can determine the cause of the failure based on this field.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class SubmitQualityCheckTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Task ID.
+   * The ID of the task.
    * 
    * @example
    * F6C2B68F-2311-4495-82AC-DAE86C9****
@@ -21,7 +21,7 @@ export class SubmitQualityCheckTaskResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Error details if the request failed. Returns "successful" on success.
+   * The error details when an error occurs, or successful when the request is successful.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class SubmitQualityCheckTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 00A044A2-D59B-4104-96BA-84060AE8345F
@@ -37,7 +37,7 @@ export class SubmitQualityCheckTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. true means success. false or null means failure.
+   * Indicates whether the request is successful. You can determine whether the request is successful based on this field. A value of true indicates success, and a value of false or null indicates failure.
    * 
    * @example
    * true

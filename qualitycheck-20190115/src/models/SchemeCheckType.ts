@@ -8,7 +8,7 @@ export class SchemeCheckTypeSchemeScoreInfoList extends $dara.Model {
    * Rule Name
    * 
    * @example
-   * xx
+   * 示例规则
    */
   name?: string;
   /**
@@ -64,7 +64,7 @@ export class SchemeCheckTypeSchemeScoreInfoList extends $dara.Model {
    * Flow name
    * 
    * @example
-   * xx
+   * 示例流程
    */
   taskFlowName?: string;
   static names(): { [key: string]: string } {
@@ -108,7 +108,7 @@ export class SchemeCheckTypeTaskFlowScoreInfoListSchemeScoreInfoList extends $da
    * Rule Name
    * 
    * @example
-   * xx
+   * 示例规则
    */
   name?: string;
   /**
@@ -164,7 +164,7 @@ export class SchemeCheckTypeTaskFlowScoreInfoListSchemeScoreInfoList extends $da
    * flow name
    * 
    * @example
-   * xx
+   * 示例流程
    */
   taskFlowName?: string;
   static names(): { [key: string]: string } {
@@ -221,12 +221,12 @@ export class SchemeCheckTypeTaskFlowScoreInfoList extends $dara.Model {
    * flow name
    * 
    * @example
-   * xx
+   * 示例流程
    */
   taskFlowName?: string;
   /**
    * @remarks
-   * \\"Flow version: 0: tree, 1: graph\\"
+   * \"Flow version: 0: tree, 1: graph\"
    * 
    * @example
    * 1

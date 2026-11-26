@@ -21,7 +21,7 @@ export class UpdateAgentResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error message, if any.
+   * The error message returned if an error occurs.
    * 
    * @example
    * successful
@@ -37,9 +37,7 @@ export class UpdateAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. The caller can use this field to determine whether the request was successful. Valid values:
-   * - true: The request was successful.
-   * - false/null: The request failed.
+   * Indicates whether the request is successful. A value of true indicates success, and a value of false or null indicates failure.
    * 
    * @example
    * true

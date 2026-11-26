@@ -31,7 +31,7 @@ export class RevertAssignedSessionGroupResponseBodyMessages extends $dara.Model 
 export class RevertAssignedSessionGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Other values indicate failure. Use this code to identify the cause of a failed request.
+   * The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -47,7 +47,7 @@ export class RevertAssignedSessionGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * If the request fails, this parameter provides error details. If the request succeeds, the value is \\`successful\\`.
+   * The error message. If an error occurs, this field returns the error details. If the request is successful, this field returns "successful".
    * 
    * @example
    * successful
@@ -64,13 +64,10 @@ export class RevertAssignedSessionGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful. You can use this field to determine whether the request is successful:
    * 
-   * The caller can use this field to determine whether the request succeeded.
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - false or **null**: The request failed.
+   * - **true**: The request is successful.
+   * - **false/null**: The request fails.
    * 
    * @example
    * true

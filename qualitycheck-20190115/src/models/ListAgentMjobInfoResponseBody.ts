@@ -29,7 +29,7 @@ export class ListAgentMJobInfoResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The error message, if an error occurs.
+   * The error message returned if an error occurs.
    * 
    * @example
    * successful
@@ -38,12 +38,11 @@ export class ListAgentMJobInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * 
    * - queing: The task is queued.
    * - readyAnalysis: The task is pending analysis.
    * - running: The task is running.
    * - error: The task failed.
-   * - finish: The task is complete.
+   * - finish: The task is completed.
    * - fileUploadUser: The user-specified file is uploaded.
    * - fileUploadSystem: The system-generated file is uploaded.
    * - expired: The task has expired.
@@ -62,7 +61,7 @@ export class ListAgentMJobInfoResponseBodyData extends $dara.Model {
   taskEndTime?: string;
   /**
    * @remarks
-   * The scheduled task ID.
+   * The ID of the scheduled task.
    * 
    * @example
    * 20250728-8B43DF47-24DB-1CED-8D74-2AB204187D45
@@ -127,7 +126,7 @@ export class ListAgentMJobInfoResponseBody extends $dara.Model {
   data?: ListAgentMJobInfoResponseBodyData[];
   /**
    * @remarks
-   * The error message, if an error occurs.
+   * The error message returned if an error occurs.
    * 
    * @example
    * successful
@@ -143,10 +142,7 @@ export class ListAgentMJobInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * - false/null: The request failed.
+   * Indicates whether the request was successful. A value of true indicates success, and a value of false or null indicates failure.
    * 
    * @example
    * true

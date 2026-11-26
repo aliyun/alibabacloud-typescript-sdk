@@ -6,6 +6,9 @@ export class GetRuleByIdRequest extends $dara.Model {
   /**
    * @remarks
    * The business space ID.
+   * 
+   * @example
+   * 123456
    */
   baseMeAgentId?: number;
   /**
