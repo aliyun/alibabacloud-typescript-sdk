@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListImageCachesRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key of the image cache.
+   * 
    * @example
    * imc
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value of the image cache.
+   * 
    * @example
    * test
    */
@@ -37,24 +43,42 @@ export class ListImageCachesRequestTags extends $dara.Model {
 }
 
 export class ListImageCachesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The container image.
+   * 
+   * @example
+   * egs-registry.cn-hangzhou.cr.aliyuncs.com/egs/vllm:0.9.0.1-pytorch2.7-cu128-20250612
+   */
   image?: string;
   /**
+   * @remarks
+   * The name of the image cache.
+   * 
    * @example
    * my-imc
    */
   imageCacheName?: string;
   /**
+   * @remarks
+   * The maximum number of results to return for a single request.
+   * 
    * @example
    * 30
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
+   * 
    * @example
    * AAAAAdDWBF*****
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,15 +86,25 @@ export class ListImageCachesRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-aekzh43v*****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The cache status of the image cache.
+   * 
    * @example
    * Ready
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the image cache. You can specify up to 20 tags.
+   */
   tags?: ListImageCachesRequestTags[];
   static names(): { [key: string]: string } {
     return {

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "acc";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "acc.aliyuncs.com",
@@ -68,7 +72,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建镜像缓存
+   * Creates an image cache to accelerate the pulling of container images when creating ACS pods.
    * 
    * @param tmpReq - CreateImageCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89,6 +93,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.enableBaseImageCacheMatch)) {
+      query["EnableBaseImageCacheMatch"] = request.enableBaseImageCacheMatch;
     }
 
     if (!$dara.isNull(request.imageCacheName)) {
@@ -123,6 +131,10 @@ export default class Client extends OpenApi {
       query["Tags"] = request.tags;
     }
 
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -141,7 +153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建镜像缓存
+   * Creates an image cache to accelerate the pulling of container images when creating ACS pods.
    * 
    * @param request - CreateImageCacheRequest
    * @returns CreateImageCacheResponse
@@ -152,7 +164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除镜像缓存
+   * Deletes an image cache.
    * 
    * @param request - DeleteImageCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -191,7 +203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除镜像缓存
+   * Deletes an image cache.
    * 
    * @param request - DeleteImageCacheRequest
    * @returns DeleteImageCacheResponse
@@ -202,7 +214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像缓存
+   * Queries the details of an image cache.
    * 
    * @param request - GetImageCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -237,7 +249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像缓存
+   * Queries the details of an image cache.
    * 
    * @param request - GetImageCacheRequest
    * @returns GetImageCacheResponse
@@ -248,7 +260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像缓存
+   * Queries the details of image caches.
    * 
    * @param request - ListImageCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -307,7 +319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询镜像缓存
+   * Queries the details of image caches.
    * 
    * @param request - ListImageCachesRequest
    * @returns ListImageCachesResponse

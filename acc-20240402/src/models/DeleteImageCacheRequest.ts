@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteImageCacheRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to force delete the image cache. Default value: `false`.
+   * 
    * @example
    * false
    */
   force?: boolean;
   /**
    * @remarks
+   * The image cache ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DeleteImageCacheRequest extends $dara.Model {
   imageCacheId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateImageCacheShrinkRequestAcrRegistryInfos extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ACR Enterprise instance.
+   * 
    * @example
    * cri-nwj395hgf6f*****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region to which the ACR Enterprise instance belongs.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -38,26 +44,43 @@ export class CreateImageCacheShrinkRequestAcrRegistryInfos extends $dara.Model {
 
 export class CreateImageCacheShrinkRequestImageRegistryCredentials extends $dara.Model {
   /**
+   * @remarks
+   * The password of the image registry.
+   * 
    * @example
    * mypassword
    */
   password?: string;
   /**
+   * @remarks
+   * The address of the image registry without the http:// or https:// prefix.
+   * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
    */
   server?: string;
   /**
+   * @remarks
+   * Specifies whether to skip certificate verification when you create an image cache by using images from a self-managed image registry that uses a self-signed certificate to prevent image pull failures caused by certificate verification failures.
+   * Default value: `false`.
+   * 
    * @example
    * false
    */
   skipCertVerification?: boolean;
   /**
+   * @remarks
+   * Specifies whether the service uses the HTTP protocol to pull images to prevent image pull failures caused by protocol mismatches.
+   * Default value: `false`.
+   * 
    * @example
    * false
    */
   usePlainHttp?: boolean;
   /**
+   * @remarks
+   * The username of the image registry.
+   * 
    * @example
    * myusername
    */
@@ -93,11 +116,17 @@ export class CreateImageCacheShrinkRequestImageRegistryCredentials extends $dara
 
 export class CreateImageCacheShrinkRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key of the image cache.
+   * 
    * @example
    * imc
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value of the image cache.
+   * 
    * @example
    * test
    */
@@ -126,34 +155,68 @@ export class CreateImageCacheShrinkRequestTags extends $dara.Model {
 }
 
 export class CreateImageCacheShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ACR Enterprise instance information.
+   */
   acrRegistryInfos?: CreateImageCacheShrinkRequestAcrRegistryInfos[];
   /**
+   * @remarks
+   * The idempotency token.
+   * 
    * @example
-   * *****
+   * 7f3a2c18-6c47-4eb7-a6bb-8432a394a620
    */
   clientToken?: string;
   /**
    * @remarks
+   * Specifies whether to enable base image cache matching. Default value: `false`.
+   * 
+   * @example
+   * false
+   */
+  enableBaseImageCacheMatch?: boolean;
+  /**
+   * @remarks
+   * The name of the image cache.
+   * 
    * This parameter is required.
    * 
    * @example
    * my-imc
    */
   imageCacheName?: string;
+  /**
+   * @remarks
+   * The credentials of the image registry.
+   */
   imageRegistryCredentials?: CreateImageCacheShrinkRequestImageRegistryCredentials[];
   /**
    * @remarks
+   * The container images used to create the image cache. Currently, only one image is supported.
+   * 
    * This parameter is required.
    */
   images?: string[];
   /**
    * @remarks
+   * The network configurations for pulling images when creating the image cache.
+   * 
    * This parameter is required.
    */
   networkConfigShrink?: string;
+  /**
+   * @remarks
+   * The platform type of the image cache. Valid values: linux/amd64 and windows/amd64. Default value: linux/amd64.
+   * 
+   * @example
+   * windows/amd64
+   */
   platform?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -161,15 +224,31 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-aekzh43v*****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the image cache. You can specify up to 20 tags.
+   */
   tags?: CreateImageCacheShrinkRequestTags[];
+  /**
+   * @remarks
+   * The type of the image cache. Valid values: `General` and `Base`. Default value: `General`.
+   * 
+   * @example
+   * General
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       acrRegistryInfos: 'AcrRegistryInfos',
       clientToken: 'ClientToken',
+      enableBaseImageCacheMatch: 'EnableBaseImageCacheMatch',
       imageCacheName: 'ImageCacheName',
       imageRegistryCredentials: 'ImageRegistryCredentials',
       images: 'Images',
@@ -178,6 +257,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
+      type: 'Type',
     };
   }
 
@@ -185,6 +265,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
     return {
       acrRegistryInfos: { 'type': 'array', 'itemType': CreateImageCacheShrinkRequestAcrRegistryInfos },
       clientToken: 'string',
+      enableBaseImageCacheMatch: 'boolean',
       imageCacheName: 'string',
       imageRegistryCredentials: { 'type': 'array', 'itemType': CreateImageCacheShrinkRequestImageRegistryCredentials },
       images: { 'type': 'array', 'itemType': 'string' },
@@ -193,6 +274,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': CreateImageCacheShrinkRequestTags },
+      type: 'string',
     };
   }
 

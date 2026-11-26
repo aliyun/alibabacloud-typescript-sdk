@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageCacheRequest extends $dara.Model {
   /**
    * @remarks
+   * The image cache ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetImageCacheRequest extends $dara.Model {
   imageCacheId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
