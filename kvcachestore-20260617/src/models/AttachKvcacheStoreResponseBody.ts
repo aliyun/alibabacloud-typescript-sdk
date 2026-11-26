@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
   /**
    * @remarks
-   * The error code returned upon failure. This value is null upon success.
+   * The error code returned when the operation fails. This parameter is null when the operation succeeds.
    * 
    * @example
    * InvalidStatus.OperationDenied
@@ -13,7 +13,7 @@ export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned upon failure. This value is null upon success.
+   * The error message returned when the operation fails. This parameter is null when the operation succeeds.
    * 
    * @example
    * The operation is not allowed for instance in ATTACHED status.
@@ -29,11 +29,7 @@ export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The operation result. Valid values:
-   * - ATTACHING: The request has been accepted and the asynchronous mount is in progress.
-   * - ATTACHED: Idempotent. The mount is already complete.
-   * - Success: The synchronous verification passed and the asynchronous operation is complete.
-   * - Failed: The operation failed.
+   * The operation result. Valid values: ATTACHING (the request is accepted and the asynchronous mounting is in progress), ATTACHED (idempotent: the mounting is complete), Success (synchronous verification passed and asynchronous mounting is complete), and Failed (the operation failed).
    * 
    * @example
    * ATTACHING
@@ -41,7 +37,7 @@ export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The VSC ID on the compute side.
+   * The ID of the VSC on the compute side.
    * 
    * @example
    * vsc-001
@@ -84,7 +80,7 @@ export class AttachKVCacheStoreResponseBody extends $dara.Model {
   attachResults?: AttachKVCacheStoreResponseBodyAttachResults[];
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the call is successful.
+   * The request ID. This ID is returned regardless of whether the API call is successful.
    * 
    * @example
    * F7BEF1E2-7E56-5BF1-8E36-77A51C5812F1

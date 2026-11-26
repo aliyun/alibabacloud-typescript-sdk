@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the operation fails. This parameter is null if the operation succeeds.
+   * The error code returned when the operation fails. This field is null when the operation succeeds.
    * 
    * @example
    * KVCacheInstance.NotAttached
@@ -13,7 +13,7 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the operation fails. This parameter is null if the operation succeeds.
+   * The error message returned when the operation fails. This field is null when the operation succeeds.
    * 
    * @example
    * The KVCacheInstance is not in ATTACHED status.
@@ -29,7 +29,7 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values: DETACHING (the request is accepted and the detachment is in progress; this value is also returned for idempotent calls), Success (synchronous verification is passed and the asynchronous operation is complete), and Failed (the operation failed).
+   * The operation result. Valid values: DETACHING (the request is accepted and the asynchronous unmount operation is in progress; this value is also returned for idempotent calls), Success (synchronous verification passed and asynchronous operation completed), and Failed (the operation failed).
    * 
    * @example
    * DETACHING
@@ -37,7 +37,7 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The VSC ID on the compute side.
+   * The ID of the VSC on the compute side.
    * 
    * @example
    * vsc-001
@@ -75,12 +75,12 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
 export class DetachKVCacheStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of detachment results.
+   * The list of unmount results.
    */
   detachResults?: DetachKVCacheStoreResponseBodyDetachResults[];
   /**
    * @remarks
-   * The request ID. This ID is returned regardless of whether the operation is successful.
+   * The request ID. This ID is returned regardless of whether the API call succeeds.
    * 
    * @example
    * B127704C-ECB1-5B0A-AA9C-8F394A6F179F

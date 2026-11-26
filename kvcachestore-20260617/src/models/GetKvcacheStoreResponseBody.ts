@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKVCacheStoreResponseBodyKvCacheStoreTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource.
+   * The key of the tag.
    * 
    * @example
    * ac-cus-tag-6
@@ -13,7 +13,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStoreTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the resource.
+   * The value of the tag.
    * 
    * @example
    * advanced
@@ -45,7 +45,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStoreTags extends $dara.Model {
 export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity in GiB.
+   * The storage capacity, in GiB.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The creation time in ISO 8601 format.
+   * The time when the instance was created. The time follows the ISO 8601 standard.
    * 
    * @example
    * 2026-06-18T10:00:00Z
@@ -61,7 +61,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
    * production kvcachestore
@@ -69,10 +69,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extra status information. Valid values:
-   * - CapacityExpanding: The capacity is being expanded.
-   * - CapacityExpandSuccess: The capacity expansion succeeded.
-   * - CapacityExpandFail: The capacity expansion failed.
+   * The extra status information. Valid values: CapacityExpanding, CapacityExpandSuccess, and CapacityExpandFail.
    * 
    * @example
    * CapacityExpanding
@@ -80,7 +77,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   extraStatus?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster number.
    * 
    * @example
    * default
@@ -88,7 +85,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * kvcs-xxxxx
@@ -96,7 +93,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use ListKVCacheInstanceAttachInfo.
+   * The ID of the file system-level mount point. The mount point is shared by instances in the same file system. For more information, call the ListKVCacheInstanceAttachInfo operation.
    * 
    * @example
    * mp-xxxxx
@@ -104,7 +101,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   mountPointId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * production-instance
@@ -112,9 +109,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The payment type. Valid values:
-   * - PREPAY: subscription.
-   * - POSTPAY: pay-as-you-go.
+   * The billing method. Valid values: PREPAY and POSTPAY.
    * 
    * @example
    * POSTPAY
@@ -130,7 +125,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekzrwkxbdvkctq
@@ -138,13 +133,7 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance status. Valid values:
-   * - Creating: The instance is being created.
-   * - Available: The instance is available.
-   * - InUse: The instance is in use.
-   * - Stopping: The instance is being stopped.
-   * - Stopped: The instance is stopped.
-   * - Deleting: The instance is being deleted.
+   * The instance status. Valid values: Creating, Available, InUse, Stopping, Stopped, and Deleting.
    * 
    * @example
    * AVAILABLE
@@ -152,13 +141,12 @@ export class GetKVCacheStoreResponseBodyKvCacheStore extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of resource tags.
+   * The tags of the resource.
    */
   tags?: GetKVCacheStoreResponseBodyKvCacheStoreTags[];
   /**
    * @remarks
-   * The instance type. Valid values:
-   * - kvcs: KVCacheStore (CPFS).
+   * The instance type, such as kvcs (KVCacheStore, CPFS).
    * 
    * @example
    * kvcs
@@ -232,7 +220,7 @@ export class GetKVCacheStoreResponseBody extends $dara.Model {
   kvCacheStore?: GetKVCacheStoreResponseBodyKvCacheStore;
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the call is successful.
+   * The ID of the request. The request ID is returned regardless of whether the call is successful.
    * 
    * @example
    * 019FB5E9-F9E8-52F5-9C56-2CDF479CBEB2

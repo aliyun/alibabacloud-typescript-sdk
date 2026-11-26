@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKVCacheStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * The KvCacheStore instance ID. Only instances in the following states can be deleted: Available and Stopped. Instances in other states cannot be deleted.
+   * The KVCacheStore instance ID. Only instances in the Available or Stopped state can be deleted. Instances in other states cannot be deleted.
    * 
    * This parameter is required.
    * 

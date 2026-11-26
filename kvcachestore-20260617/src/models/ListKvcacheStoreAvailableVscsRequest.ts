@@ -25,9 +25,7 @@ export class ListKVCacheStoreAvailableVscsRequestArns extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The role type. Valid values:
-   * - service
-   * - user
+   * The role type. Valid values: service and user.
    * 
    * This parameter is required.
    * 
@@ -63,7 +61,7 @@ export class ListKVCacheStoreAvailableVscsRequestArns extends $dara.Model {
 export class ListKVCacheStoreAvailableVscsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cross-account authorization role chain, used for cross-account VSC queries in ECS or EFLO scenarios.
+   * The cross-account authorization role chain, which is used to query VSCs across accounts in ECS or EFLO scenarios.
    */
   arns?: ListKVCacheStoreAvailableVscsRequestArns[];
   /**
@@ -78,9 +76,7 @@ export class ListKVCacheStoreAvailableVscsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The compute instance type. Valid values:
-   * - ECS
-   * - EFLO
+   * The compute instance type. Valid values: ECS and EFLO.
    * 
    * This parameter is required.
    * 

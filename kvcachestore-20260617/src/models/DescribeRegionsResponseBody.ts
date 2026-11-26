@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The localized name of the region.
+   * The local name of the region.
    * 
    * @example
    * cn-hangzhou
@@ -55,12 +55,12 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of regions.
+   * The regions.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The request ID. The request ID is returned regardless of whether the API call is successful.
+   * The request ID. A request ID is returned regardless of whether the API call is successful.
    * 
    * @example
    * 019F6DDC-3845-542D-8E2C-60C4CC733BBD

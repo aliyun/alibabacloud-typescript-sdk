@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Model {
   /**
    * @remarks
-   * The time of the last attach operation in ISO 8601 format. If the instance is not attached, the value is null.
+   * The time of the last attachment. The time follows the ISO 8601 standard. If the instance is not attached, the value is null.
    * 
    * @example
    * 2026-06-20T08:30:00Z
@@ -13,7 +13,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   attachedAt?: string;
   /**
    * @remarks
-   * The capacity of the file system in GiB.
+   * The capacity of the file system. Unit: GiB.
    * 
    * @example
    * 100
@@ -21,7 +21,15 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   capacity?: number;
   /**
    * @remarks
-   * The ID of the compute resource, which is the ECS instance ID or the Lingjun compute node ID.
+   * The serial number (SN) of the NVMe channel disk. This value is returned only when protocol is set to nvme and the channel is bound in the current round. If other protocols are used or the channel is not bound, the value is null.
+   * 
+   * @example
+   * kvaaaaaaaaaaaaaaaa
+   */
+  controlSn?: string;
+  /**
+   * @remarks
+   * The ID of the compute resource, such as the ECS instance ID or the Lingjun compute node ID.
    * 
    * @example
    * i-hdsagtg61h2hf21
@@ -45,6 +53,22 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   mountPointId?: string;
   /**
    * @remarks
+   * The NGUID of the KVCacheStore data disk. This value is returned only when protocol is set to nvme and the NGUID is generated for the instance. If other protocols are used or the NGUID is missing, the value is null.
+   * 
+   * @example
+   * 00000000-0000-0000-0000-000000000001
+   */
+  nguid?: string;
+  /**
+   * @remarks
+   * The access channel protocol of the instance. Valid values: vsc (VSC channel) and nvme (TDC NVMe channel).
+   * 
+   * @example
+   * nvme
+   */
+  protocol?: string;
+  /**
+   * @remarks
    * The region where the instance is deployed.
    * 
    * @example
@@ -53,7 +77,7 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The attach status. Valid values: Attaching, Attached, and Detaching. After the instance is detached, the record is deleted and not returned.
+   * The attachment status. Valid values: Attaching, Attached, and Detaching. After an instance is detached, the record is deleted and not returned.
    * 
    * @example
    * Attached
@@ -87,9 +111,12 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
     return {
       attachedAt: 'AttachedAt',
       capacity: 'Capacity',
+      controlSn: 'ControlSn',
       instanceId: 'InstanceId',
       kvcsId: 'KvcsId',
       mountPointId: 'MountPointId',
+      nguid: 'Nguid',
+      protocol: 'Protocol',
       regionId: 'RegionId',
       status: 'Status',
       type: 'Type',
@@ -102,9 +129,12 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
     return {
       attachedAt: 'string',
       capacity: 'number',
+      controlSn: 'string',
       instanceId: 'string',
       kvcsId: 'string',
       mountPointId: 'string',
+      nguid: 'string',
+      protocol: 'string',
       regionId: 'string',
       status: 'string',
       type: 'string',
@@ -125,12 +155,12 @@ export class ListKVCacheStoreAttachInfoResponseBodyAttachInfos extends $dara.Mod
 export class ListKVCacheStoreAttachInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of mount records.
+   * The list of attachment information.
    */
   attachInfos?: ListKVCacheStoreAttachInfoResponseBodyAttachInfos[];
   /**
    * @remarks
-   * The query token, which is used to query the next batch of data.
+   * The pagination token. It is used to query the next batch of data.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3NUkN7qf+fcWj7joK8M6tU
@@ -154,7 +184,7 @@ export class ListKVCacheStoreAttachInfoResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID. This ID is returned regardless of whether the call is successful.
+   * The request ID. The request ID is returned regardless of whether the call is successful.
    * 
    * @example
    * B127704C-ECB1-5B0A-AA9C-8F394A6F179F
@@ -162,7 +192,7 @@ export class ListKVCacheStoreAttachInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned for a paging query.
+   * The total number of entries returned for the paged query.
    * 
    * @example
    * 2

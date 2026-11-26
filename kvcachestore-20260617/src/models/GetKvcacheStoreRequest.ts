@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKVCacheStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * The KvCacheStore instance ID.
+   * The ID of the KvCacheStore instance.
    * 
    * This parameter is required.
    * 

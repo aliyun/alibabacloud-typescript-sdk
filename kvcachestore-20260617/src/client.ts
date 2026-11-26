@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Kvcachestore";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("kvcachestore", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,11 +34,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Mounts KVCacheInstance resources to the virtualization side in batches.
+   * Mounts multiple KVCache instances to the virtualization side.
    * 
    * @remarks
-   * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
-   * * The KVCacheStore must be in the Available or InUse state before it can be mounted.
+   * This operation is asynchronous. A return value of Attaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query the mount records. When the record status changes to Attached, the mounting is complete.
+   * * The KVCacheStore must be in the Available or InUse state to be mounted.
    * 
    * @param request - AttachKVCacheStoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81,11 +85,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Mounts KVCacheInstance resources to the virtualization side in batches.
+   * Mounts multiple KVCache instances to the virtualization side.
    * 
    * @remarks
-   * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
-   * * The KVCacheStore must be in the Available or InUse state before it can be mounted.
+   * This operation is asynchronous. A return value of Attaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query the mount records. When the record status changes to Attached, the mounting is complete.
+   * * The KVCacheStore must be in the Available or InUse state to be mounted.
    * 
    * @param request - AttachKVCacheStoreRequest
    * @returns AttachKVCacheStoreResponse
@@ -96,12 +100,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a KVCacheInstance instance.
+   * Creates a KVCacheInstance.
    * 
    * @remarks
-   * This is an asynchronous operation. After the request is successful, the KVCacheStore enters the Creating state. You can call GetKVCacheStore or ListKVCacheStores to query the KVCacheStore status. The KVCacheStore is available after the status changes to Available.
-   * * To ensure idempotency in case of network exceptions, use ClientToken. If you call this operation with the same ClientToken and the same request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
-   * * When a KVCacheStore is created, an order is generated at the same time. The OrderId is returned in the response. You can view the order in the Expenses and Costs console. For more information, see View and manage orders.
+   * This operation is asynchronous. After a successful response is returned, the KVCacheStore enters the Creating state. You can call the GetKVCacheStore or ListKVCacheStores operation to query the status of the KVCacheStore. The KVCacheStore becomes available after its status changes to Available.
+   * * Use ClientToken to ensure request idempotence in case of network exceptions. If you make repeated calls with the same ClientToken and request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
+   * * Creating a KVCacheStore synchronously generates an order. The operation returns an OrderId. You can view the order in the Expenses and Costs console. For more information, see View and manage orders.
    * 
    * @param request - CreateKVCacheStoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -168,12 +172,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a KVCacheInstance instance.
+   * Creates a KVCacheInstance.
    * 
    * @remarks
-   * This is an asynchronous operation. After the request is successful, the KVCacheStore enters the Creating state. You can call GetKVCacheStore or ListKVCacheStores to query the KVCacheStore status. The KVCacheStore is available after the status changes to Available.
-   * * To ensure idempotency in case of network exceptions, use ClientToken. If you call this operation with the same ClientToken and the same request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
-   * * When a KVCacheStore is created, an order is generated at the same time. The OrderId is returned in the response. You can view the order in the Expenses and Costs console. For more information, see View and manage orders.
+   * This operation is asynchronous. After a successful response is returned, the KVCacheStore enters the Creating state. You can call the GetKVCacheStore or ListKVCacheStores operation to query the status of the KVCacheStore. The KVCacheStore becomes available after its status changes to Available.
+   * * Use ClientToken to ensure request idempotence in case of network exceptions. If you make repeated calls with the same ClientToken and request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
+   * * Creating a KVCacheStore synchronously generates an order. The operation returns an OrderId. You can view the order in the Expenses and Costs console. For more information, see View and manage orders.
    * 
    * @param request - CreateKVCacheStoreRequest
    * @returns CreateKVCacheStoreResponse
@@ -187,8 +191,8 @@ export default class Client extends OpenApi {
    * Deletes a KVCacheInstance instance.
    * 
    * @remarks
-   * The delete operation is irreversible. Data in the KVCacheStore will be erased and cannot be recovered. Proceed with caution.
-   * * Billing stops after the deletion begins.
+   * The delete operation is irreversible. Data in the KVCacheStore will be cleared and cannot be recovered. Proceed with caution.
+   * * Billing stops after the deletion process starts.
    * * The KVCacheStore to be deleted cannot be in the Creating state.
    * * The KVCacheStore to be deleted cannot have mount records in the Attaching or Attached state.
    * 
@@ -228,8 +232,8 @@ export default class Client extends OpenApi {
    * Deletes a KVCacheInstance instance.
    * 
    * @remarks
-   * The delete operation is irreversible. Data in the KVCacheStore will be erased and cannot be recovered. Proceed with caution.
-   * * Billing stops after the deletion begins.
+   * The delete operation is irreversible. Data in the KVCacheStore will be cleared and cannot be recovered. Proceed with caution.
+   * * Billing stops after the deletion process starts.
    * * The KVCacheStore to be deleted cannot be in the Creating state.
    * * The KVCacheStore to be deleted cannot have mount records in the Attaching or Attached state.
    * 
@@ -242,7 +246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of regions where KVCacheStore is activated.
+   * Queries the regions where KVCacheStore is available.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -273,7 +277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of regions where KVCacheStore is activated.
+   * Queries the regions where KVCacheStore is available.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -326,10 +330,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches multiple KVCache instances from the virtualization side.
+   * Unmounts multiple KVCache instances from the virtualization stack.
    * 
    * @remarks
-   * This operation is asynchronous. A return value of Detaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query attachment records. If no record is found for the specified KvcsId and VscId, the detachment is complete.
+   * This operation is asynchronous. A return value of Detaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query mount records. If no record is found for the specified KvcsId and VscId, the unmount operation is complete.
    * 
    * @param request - DetachKVCacheStoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -368,10 +372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches multiple KVCache instances from the virtualization side.
+   * Unmounts multiple KVCache instances from the virtualization stack.
    * 
    * @remarks
-   * This operation is asynchronous. A return value of Detaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query attachment records. If no record is found for the specified KvcsId and VscId, the detachment is complete.
+   * This operation is asynchronous. A return value of Detaching indicates that the request is accepted. Call ListKVCacheStoreAttachInfo to query mount records. If no record is found for the specified KvcsId and VscId, the unmount operation is complete.
    * 
    * @param request - DetachKVCacheStoreRequest
    * @returns DetachKVCacheStoreResponse
@@ -428,13 +432,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mount information of KVCache instances in batches.
+   * Queries the attachment information of multiple KVCache instances.
    * 
    * @remarks
    * This operation has no status restrictions on KVCacheStore. If a KVCacheStore is in the Creating state, an empty list is returned.
-   * * A KVCacheStore can be mounted to multiple VSCs. Multiple mount records may be returned for each KVCacheStore.
-   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single call.
-   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are provided, cursor-based pagination takes precedence.
+   * * A KVCacheStore can be attached to multiple VSCs. Multiple attachment records may be returned for each KVCacheStore.
+   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
    * 
    * @param request - ListKVCacheStoreAttachInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -489,13 +493,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the mount information of KVCache instances in batches.
+   * Queries the attachment information of multiple KVCache instances.
    * 
    * @remarks
    * This operation has no status restrictions on KVCacheStore. If a KVCacheStore is in the Creating state, an empty list is returned.
-   * * A KVCacheStore can be mounted to multiple VSCs. Multiple mount records may be returned for each KVCacheStore.
-   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single call.
-   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are provided, cursor-based pagination takes precedence.
+   * * A KVCacheStore can be attached to multiple VSCs. Multiple attachment records may be returned for each KVCacheStore.
+   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
    * 
    * @param request - ListKVCacheStoreAttachInfoRequest
    * @returns ListKVCacheStoreAttachInfoResponse
@@ -506,10 +510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available HpnZones for a specified KVCacheStore instance.
+   * Queries the list of available HpnZones for a specified KVCacheStore instance.
    * 
    * @remarks
-   * This operation queries available HpnZones by KVCacheStore instance. It is used to query optional HPN cluster IDs before scaling or migrating a KVCacheStore instance.
+   * This operation queries available HpnZones for a KVCacheStore instance. Use this operation to query optional HPN cluster IDs before you scale out or migrate a KVCacheStore instance.
    * 
    * @param request - ListKVCacheStoreAvailableHpnZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -544,10 +548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available HpnZones for a specified KVCacheStore instance.
+   * Queries the list of available HpnZones for a specified KVCacheStore instance.
    * 
    * @remarks
-   * This operation queries available HpnZones by KVCacheStore instance. It is used to query optional HPN cluster IDs before scaling or migrating a KVCacheStore instance.
+   * This operation queries available HpnZones for a KVCacheStore instance. Use this operation to query optional HPN cluster IDs before you scale out or migrate a KVCacheStore instance.
    * 
    * @param request - ListKVCacheStoreAvailableHpnZonesRequest
    * @returns ListKVCacheStoreAvailableHpnZonesResponse
@@ -558,7 +562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+   * Queries the available VSC resources associated with a specified KVCacheStore instance.
    * 
    * @param request - ListKVCacheStoreAvailableVscsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -605,7 +609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+   * Queries the available VSC resources associated with a specified KVCacheStore instance.
    * 
    * @param request - ListKVCacheStoreAvailableVscsRequest
    * @returns ListKVCacheStoreAvailableVscsResponse
@@ -616,10 +620,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of KVCacheInstance instances.
+   * Queries a list of KVCache instances.
    * 
    * @remarks
-   * Two pagination methods are supported: page number-based pagination (PageNumber + PageSize) and cursor-based pagination (NextToken + MaxResults). If both are specified, page number-based pagination takes precedence.
+   * Supports two pagination methods: page number pagination (PageNumber + PageSize) and cursor pagination (NextToken + MaxResults). If both are provided, page number pagination takes precedence.
    * 
    * @param request - ListKVCacheStoresRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -682,10 +686,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of KVCacheInstance instances.
+   * Queries a list of KVCache instances.
    * 
    * @remarks
-   * Two pagination methods are supported: page number-based pagination (PageNumber + PageSize) and cursor-based pagination (NextToken + MaxResults). If both are specified, page number-based pagination takes precedence.
+   * Supports two pagination methods: page number pagination (PageNumber + PageSize) and cursor pagination (NextToken + MaxResults). If both are provided, page number pagination takes precedence.
    * 
    * @param request - ListKVCacheStoresRequest
    * @returns ListKVCacheStoresResponse
@@ -699,8 +703,8 @@ export default class Client extends OpenApi {
    * Modifies the attributes of a KVCacheStore.
    * 
    * @remarks
-   * Supports modifying Name, Description, and Capacity. The cluster number (HpnZone) cannot be modified after creation.
-   * * Modifying Capacity triggers a specification change order, and the operation returns an OrderId. Modifying only Name or Description does not generate an order.
+   * You can modify the Name, Description, and Capacity. The cluster ID (HpnZone) cannot be modified after creation.
+   * * Modifying the Capacity triggers a specification change order, and the API returns an OrderId. Modifying only the Name or Description does not generate an order.
    * 
    * @param request - UpdateKVCacheStoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -758,8 +762,8 @@ export default class Client extends OpenApi {
    * Modifies the attributes of a KVCacheStore.
    * 
    * @remarks
-   * Supports modifying Name, Description, and Capacity. The cluster number (HpnZone) cannot be modified after creation.
-   * * Modifying Capacity triggers a specification change order, and the operation returns an OrderId. Modifying only Name or Description does not generate an order.
+   * You can modify the Name, Description, and Capacity. The cluster ID (HpnZone) cannot be modified after creation.
+   * * Modifying the Capacity triggers a specification change order, and the API returns an OrderId. Modifying only the Name or Description does not generate an order.
    * 
    * @param request - UpdateKVCacheStoreRequest
    * @returns UpdateKVCacheStoreResponse

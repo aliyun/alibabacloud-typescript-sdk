@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKVCacheStoresRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of KvcsId values. Separate multiple IDs with commas (,). A maximum of 100 IDs can be specified.
+   * The list of KvcsIds. Separate multiple IDs with commas. You can specify up to 100 IDs.
    * 
    * @example
    * kvcs-87djda131
@@ -13,7 +13,7 @@ export class ListKVCacheStoresRequest extends $dara.Model {
   kvcsIds?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for cursor-based pagination. Default value: 10. Maximum value: 100. This parameter is used together with NextToken.
+   * The maximum number of entries per page for cursor pagination. Default value: 10. Maximum value: 100. This parameter is used together with NextToken.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListKVCacheStoresRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The instance name used for filtering. Prefix matching is supported.
+   * The instance name filter for prefix matching.
    * 
    * @example
    * obj-detect
@@ -29,7 +29,7 @@ export class ListKVCacheStoresRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Do not specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response. This parameter and PageNumber are mutually exclusive.
+   * The pagination cursor. Do not specify this parameter for the first query. For subsequent queries, use the NextToken value returned from the previous request. This parameter and PageNumber are mutually exclusive.
    * 
    * @example
    * a24c3a9cc8e6da77b10cffc4c93c7922e0b5e8707e68181f
@@ -63,7 +63,7 @@ export class ListKVCacheStoresRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instance status used for filtering. Valid values: Creating, Available, InUse, Stopping, Stopped, and Deleting.
+   * The instance status filter. Valid values: Creating, Available, InUse, Stopping, Stopped, and Deleting.
    * 
    * @example
    * Available

@@ -40,7 +40,7 @@ export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones exten
   availableHpnZones?: ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZonesAvailableHpnZones[];
   /**
    * @remarks
-   * The ID of the KVCacheStore instance.
+   * The KVCacheStore instance ID.
    * 
    * @example
    * kvcs-xxxxx
@@ -85,7 +85,7 @@ export class ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones exten
 export class ListKVCacheStoreAvailableHpnZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of available HpnZones for instances.
+   * The list of available HpnZones for the instances.
    */
   instanceHpnZones?: ListKVCacheStoreAvailableHpnZonesResponseBodyInstanceHpnZones[];
   /**

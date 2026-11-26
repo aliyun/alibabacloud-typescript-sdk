@@ -45,7 +45,7 @@ export class ListKVCacheStoresResponseBodyKVCacheStoresTags extends $dara.Model 
 export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity, in GiB.
+   * The storage capacity. Unit: GiB.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The creation time in ISO 8601 format.
+   * The time when the instance was created. The time follows the ISO 8601 standard.
    * 
    * @example
    * 2026-06-18T10:00:00Z
@@ -93,7 +93,7 @@ export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use the ListKVCacheInstanceAttachInfo operation.
+   * The file system-level mount point ID. This mount point is shared by instances within the same file system. For more information, call the ListKVCacheInstanceAttachInfo operation.
    * 
    * @example
    * mp-xxxxx
@@ -109,7 +109,7 @@ export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The payment type. Valid values: PREPAY and POSTPAY.
+   * The billing method. Valid values: PREPAY and POSTPAY.
    * 
    * @example
    * POSTPAY
@@ -146,7 +146,7 @@ export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
   tags?: ListKVCacheStoresResponseBodyKVCacheStoresTags[];
   /**
    * @remarks
-   * The instance type. Valid values: kvcs (KVCacheStore, CPFS).
+   * The instance type. Valid value: kvcs (KVCacheStore, CPFS).
    * 
    * @example
    * preview
@@ -215,12 +215,12 @@ export class ListKVCacheStoresResponseBodyKVCacheStores extends $dara.Model {
 export class ListKVCacheStoresResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of KVCacheStore instances. Each element contains the following parameters: KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
+   * The list of KVCacheStores. Each element contains sub-parameters such as KvcsId, Name, Status, ExtraStatus, RegionId, ZoneId, HpnZone, Type, Capacity, PaymentType, MountPointId, CreateTime, and Description.
    */
   KVCacheStores?: ListKVCacheStoresResponseBodyKVCacheStores[];
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries returned per pagination request.
    * 
    * @example
    * 10
@@ -228,7 +228,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty when no more data is available. This parameter is valid only for cursor-based pagination.
+   * The cursor for the next page. If no more data is available, this parameter is empty. This parameter is valid only when cursor pagination is used.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -236,7 +236,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number. This parameter is valid only for page number-based pagination.
+   * The current page number. This parameter is valid only when page number pagination is used.
    * 
    * @example
    * 1
@@ -244,7 +244,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. This parameter is valid only for page number-based pagination.
+   * The number of entries per page. This parameter is valid only when page number pagination is used.
    * 
    * @example
    * 10
@@ -252,7 +252,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of pages. This parameter is returned only for page number-based pagination.
+   * The total number of pages. This parameter is returned only when page number pagination is used.
    * 
    * @example
    * 1
@@ -260,7 +260,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   pageTotal?: number;
   /**
    * @remarks
-   * The request ID. A request ID is returned regardless of whether the call is successful.
+   * The request ID. This ID is returned regardless of whether the API call is successful.
    * 
    * @example
    * 56AC37CD-388E-5D21-951B-C50D16D8E812
@@ -268,7 +268,7 @@ export class ListKVCacheStoresResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances. This parameter is returned only for page number-based pagination. For cursor-based pagination, the value is -1.
+   * The total number of instances. This parameter is returned only when page number pagination is used. If cursor pagination is used, the value is -1.
    * 
    * @example
    * 10

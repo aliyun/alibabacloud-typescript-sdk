@@ -13,7 +13,7 @@ export class UpdateKVCacheStoreResponseBody extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The specification change order ID. Returned only when Capacity is modified.
+   * The specification change order ID. This parameter is returned only when the Capacity is modified.
    * 
    * @example
    * order-xxxxx
@@ -21,7 +21,7 @@ export class UpdateKVCacheStoreResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID. The request ID is returned regardless of whether the operation is successful.
+   * The request ID. The request ID is returned regardless of whether the API call is successful.
    * 
    * @example
    * 6AA27F1A-A62C-59C3-BCC7-D1DFA4E7EEA0
