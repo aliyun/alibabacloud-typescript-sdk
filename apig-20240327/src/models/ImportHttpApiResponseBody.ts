@@ -9,7 +9,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureComponents extends $d
    * The error message.
    * 
    * @example
-   * Invalid data structure definition
+   * Incorrect data structure definition
    */
   errorMessage?: string;
   /**
@@ -136,7 +136,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $dara.Model {
   /**
    * @remarks
-   * The action to perform after the dry run.
+   * The action to be performed after the dry run.
    * - Create: Create.
    * - Update: Update.
    * 
@@ -178,7 +178,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $dara.Model {
   /**
    * @remarks
-   * The action to perform after the dry run.
+   * The action to be performed after the dry run.
    * - Create: Create.
    * - Update: Update.
    * 
@@ -280,7 +280,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
-   * The error messages. If the error messages are not empty, the API cannot be imported successfully.
+   * The error messages. If this field is not empty, the API cannot be imported successfully.
    */
   errorMessages?: string[];
   /**
@@ -328,7 +328,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   successRoutes?: ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes[];
   /**
    * @remarks
-   * The warning messages. If the warning messages are not empty, some operations or data structures may fail to import.
+   * The warning messages. If this field is not empty, some operations or data structures may fail to import.
    */
   warningMessages?: string[];
   static names(): { [key: string]: string } {
@@ -400,7 +400,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
 export class ImportHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The dry run result.
+   * The dry run results.
    */
   dryRunInfo?: ImportHttpApiResponseBodyDataDryRunInfo;
   /**

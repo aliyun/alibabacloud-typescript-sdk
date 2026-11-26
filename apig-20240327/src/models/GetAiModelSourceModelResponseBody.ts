@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiModelSourceModelResponseBodyDataAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The invocation path of the model.
+   * The call path of the model.
    * 
    * @example
    * /v1/chat/completions
@@ -13,7 +13,7 @@ export class GetAiModelSourceModelResponseBodyDataAvailablePaths extends $dara.M
   path?: string;
   /**
    * @remarks
-   * The protocol type used by the invocation path.
+   * The protocol type used for the call path.
    * 
    * @example
    * OpenAI/v1
@@ -45,7 +45,7 @@ export class GetAiModelSourceModelResponseBodyDataAvailablePaths extends $dara.M
 export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   /**
    * @remarks
-   * The number of credits per million cached input tokens. This is a non-negative number. A value of 0 indicates free of charge.
+   * The number of credits per million cache-hit input tokens. The value must be a non-negative number. A value of 0 indicates that the cached input is free of charge.
    * 
    * @example
    * 0.1
@@ -53,7 +53,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The number of credits per million input tokens. This is a non-negative number. A value of 0 indicates free of charge.
+   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The number of credits per million output tokens. This is a non-negative number. A value of 0 indicates free of charge.
+   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   outputCost?: number;
   /**
    * @remarks
-   * The pricing method. Valid values: fixed: fixed credit pricing.
+   * The pricing method. Valid values: fixed: Fixed credit pricing.
    * 
    * @example
    * fixed
@@ -175,22 +175,25 @@ export class GetAiModelSourceModelResponseBodyDataMeta extends $dara.Model {
 export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The protocols and invocation paths supported by the model.
+   * The protocols and call paths supported by the model.
    */
   availablePaths?: GetAiModelSourceModelResponseBodyDataAvailablePaths[];
   /**
+   * @remarks
+   * The full name used to call the model, in the format of valid call name prefix of the model source/model name. If the model source uses the default prefix, the prefix is the provider identifier.
+   * 
    * @example
    * qwen-prod/qwen-plus
    */
   callName?: string;
   /**
    * @remarks
-   * The credit pricing configuration of the model.
+   * The credit pricing configuration for the model.
    */
   credit?: GetAiModelSourceModelResponseBodyDataCredit;
   /**
    * @remarks
-   * The set of capabilities declared for the model. The key is the capability name and the value indicates whether the capability is supported.
+   * The set of capabilities declared by the model. The key is the capability name, and the value indicates whether the capability is supported.
    * 
    * @example
    * {"nativeStreaming":true}
@@ -211,7 +214,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   meta?: GetAiModelSourceModelResponseBodyDataMeta;
   /**
    * @remarks
-   * The model identifier. For standard models, use the source model card ID. For logical model entries, use the vm- prefix.
+   * The model identifier. For standard models, use the source model card ID. For logical model entries, use the vm- identifier.
    * 
    * @example
    * msc-d00000000000000000000
@@ -235,7 +238,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   modelProvider?: string;
   /**
    * @remarks
-   * The model source ID. Use the modelSourceId returned by the CreateAiModelSource operation.
+   * The model source ID, which is the modelSourceId returned by CreateAiModelSource.
    * 
    * @example
    * ms-d00000000000000000000
@@ -251,7 +254,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceName?: string;
   /**
    * @remarks
-   * The current version of the associated model source.
+   * The current version of the model source to which the model belongs.
    * 
    * @example
    * 1
@@ -267,7 +270,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   pricingStatus?: string;
   /**
    * @remarks
-   * The ID of the actual AI service that is bound to the model source.
+   * The ID of the actual AI service bound to the model source.
    * 
    * @example
    * svc-d00000000000000000000
@@ -283,7 +286,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time of the last business update, in RFC 3339 format and the UTC time zone.
+   * The time of the last business update, in RFC 3339 format and UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -365,7 +368,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
 export class GetAiModelSourceModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Returns Ok for success and a specific business error code for failure.
+   * The response status code. Ok indicates success, and a specific business error code indicates failure.
    * 
    * @example
    * Ok
@@ -373,7 +376,7 @@ export class GetAiModelSourceModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by operations on models in a source.
+   * The business result returned for the AI model in the model source.
    */
   data?: GetAiModelSourceModelResponseBodyData;
   /**

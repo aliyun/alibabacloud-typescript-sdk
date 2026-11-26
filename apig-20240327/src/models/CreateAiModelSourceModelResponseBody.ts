@@ -45,7 +45,7 @@ export class CreateAiModelSourceModelResponseBodyDataAvailablePaths extends $dar
 export class CreateAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   /**
    * @remarks
-   * The number of credits per million input tokens that hit the cache. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
+   * The number of credits per million cached input tokens. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
    * 
    * @example
    * 0.1
@@ -179,13 +179,16 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
    */
   availablePaths?: CreateAiModelSourceModelResponseBodyDataAvailablePaths[];
   /**
+   * @remarks
+   * The full name used to invoke the model, in the format of valid invocation name prefix of the model source/model name. If the model source uses the default prefix, the prefix is the provider identifier.
+   * 
    * @example
    * qwen-prod/qwen-plus
    */
   callName?: string;
   /**
    * @remarks
-   * The credit pricing configuration of the model.
+   * The credit pricing configuration for the model.
    */
   credit?: CreateAiModelSourceModelResponseBodyDataCredit;
   /**
@@ -211,7 +214,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   meta?: CreateAiModelSourceModelResponseBodyDataMeta;
   /**
    * @remarks
-   * The model identifier. Standard models use the source model card ID, and logical model entries use the vm- prefix.
+   * The model identifier. A standard model uses the source model card ID, and a logical model entry uses the vm- prefix.
    * 
    * @example
    * msc-d00000000000000000000
@@ -235,7 +238,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelProvider?: string;
   /**
    * @remarks
-   * The ID of the model source. Use the modelSourceId returned by the CreateAiModelSource operation.
+   * The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
    * 
    * @example
    * ms-d00000000000000000000
@@ -251,7 +254,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceName?: string;
   /**
    * @remarks
-   * The current version of the model source to which the model belongs.
+   * The current version of the associated model source.
    * 
    * @example
    * 1
@@ -259,7 +262,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceVersion?: number;
   /**
    * @remarks
-   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version has not been synchronized. A value of Ready indicates that the current version has been synchronized.
+   * The synchronization status of the model pricing configuration. Valid values: Pending (the current version is not synchronized) and Ready (synchronized).
    * 
    * @example
    * Ready
@@ -275,7 +278,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The source of the model asset. A value of user indicates a user model, and a value of builtin indicates a system built-in model.
+   * The source of the model asset. Valid values: user (user model) and builtin (system built-in model).
    * 
    * @example
    * user
@@ -283,7 +286,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time of the last business update. The time is in RFC 3339 format and in the UTC time zone.
+   * The time of the last business update, in RFC 3339 format and the UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -291,7 +294,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object. It is used for conditional validation during update or deletion.
+   * The current version of the object, which is used for conditional validation during updates or deletions.
    * 
    * @example
    * 1
@@ -365,7 +368,7 @@ export class CreateAiModelSourceModelResponseBodyData extends $dara.Model {
 export class CreateAiModelSourceModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. A value of Ok indicates success. If the request fails, a specific business error code is returned.
+   * The response status code. A value of Ok indicates success. A specific business error code is returned upon failure.
    * 
    * @example
    * Ok
@@ -373,12 +376,12 @@ export class CreateAiModelSourceModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by the operation on the AI model in the model source.
+   * The business result returned by the operation on the AI model in the source.
    */
   data?: CreateAiModelSourceModelResponseBodyData;
   /**
    * @remarks
-   * The response message that describes the request processing result.
+   * The response message, which describes the request processing result.
    * 
    * @example
    * success
@@ -386,7 +389,7 @@ export class CreateAiModelSourceModelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. It is generated by the system and used to trace the call.
+   * The request ID, which is generated by the system to trace the call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

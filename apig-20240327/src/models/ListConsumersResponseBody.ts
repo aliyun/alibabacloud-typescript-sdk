@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumersResponseBodyDataExpirationSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of unexpired consumers with a remaining validity period of no more than seven days, including those that are manually disabled.
+   * The number of unexpired consumers with a remaining validity period of seven days or less, including those that are manually disabled.
    * 
    * @example
    * 1
@@ -93,12 +93,20 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
   expireAt?: number;
   /**
    * @remarks
-   * The validity status. Valid values: Permanent, InEffect, AboutToExpire, and Expired. The status is accurate to the second. A remaining time of exactly seven days is classified as AboutToExpire, and an exact expiration time is classified as Expired.
+   * The expiration status. Valid values: Permanent, InEffect, AboutToExpire, and Expired. The status is accurate to the second. A remaining validity period of exactly seven days is classified as AboutToExpire, and an expired status is classified as Expired.
    * 
    * @example
    * InEffect
    */
   expireStatus?: string;
+  /**
+   * @remarks
+   * The saved extended information of the consumer.
+   * 
+   * @example
+   * partner-a
+   */
+  extInfo?: string;
   /**
    * @remarks
    * The consumer name.
@@ -124,6 +132,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
       enable: 'enable',
       expireAt: 'expireAt',
       expireStatus: 'expireStatus',
+      extInfo: 'extInfo',
       name: 'name',
       updateTimestamp: 'updateTimestamp',
     };
@@ -138,6 +147,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
       enable: 'boolean',
       expireAt: 'number',
       expireStatus: 'string',
+      extInfo: 'string',
       name: 'string',
       updateTimestamp: 'number',
     };
@@ -155,7 +165,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
 export class ListConsumersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The expiration reminder count for all consumers under the same account and gateway type. This count is not affected by name filters, status filters, or pagination. This field is returned only when includeExpirationSummary is set to true.
+   * The count of expiration reminders for all consumers under the same account and gateway type. This count is not affected by name, status filters, or pagination. This field is returned only when includeExpirationSummary is set to true.
    */
   expirationSummary?: ListConsumersResponseBodyDataExpirationSummary;
   /**

@@ -15,7 +15,7 @@ export class ListAiModelSourcesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The search keyword used to match resources by name or identifier.
+   * The query keyword used to match resources by name or identifier.
    * 
    * @example
    * beta
@@ -23,7 +23,7 @@ export class ListAiModelSourcesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of results to return per page. Valid values: 1 to 100. This parameter is required. Do not use pageNumber or pageSize for token-based pagination.
+   * The maximum number of results per page. Valid values: 1 to 100. This parameter is required. Token-based pagination does not use pageNumber or pageSize.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListAiModelSourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned from the previous page. Omit this parameter for the first page. The token is empty or omitted on the last page.
+   * The query position returned from the previous page. Omit this parameter for the first page. For the last page, this parameter is empty or omitted.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==

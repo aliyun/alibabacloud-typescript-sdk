@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAiModelSourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The prefix used when calling the model. You can set this prefix starting from the first model source. If this parameter is omitted or contains only whitespace, the provider identifier is used. A custom prefix must be 1 to 32 characters in length, start with a lowercase letter or a digit, and can contain lowercase letters, digits, hyphens (-), underscores (_), and periods (.). The value aigw is reserved. If the prefix is already in use when you create a model source within the same instance, the Conflict.AiModelSourceCallNamePrefixInUse error is returned. The prefix cannot be modified after creation.
+   * 
    * @example
    * qwen-prod
    */
@@ -40,7 +43,7 @@ export class CreateAiModelSourceRequest extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The ID of the AI service bound to the model source.
+   * The ID of the actual AI service bound to the model source.
    * 
    * This parameter is required.
    * 

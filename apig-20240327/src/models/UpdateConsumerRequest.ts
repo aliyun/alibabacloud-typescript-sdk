@@ -8,7 +8,7 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 export class UpdateConsumerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of AK/SK identity authentication configurations.
+   * The list of AccessKey pair identity authentication configurations.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
@@ -34,7 +34,7 @@ export class UpdateConsumerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the consumer.
+   * Specifies whether the consumer is enabled.
    * 
    * @example
    * false
@@ -42,7 +42,7 @@ export class UpdateConsumerRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the consumer after renewal. This parameter can be set to true only when renew=true. The default value is false, which retains the current enabled or disabled state and does not implicitly enable a manually disabled consumer.
+   * Specifies whether to enable the consumer after renewal. This parameter can be set to true only when renew=true. The default value is false, which retains the current enabled or disabled status and does not implicitly enable a manually disabled consumer.
    * 
    * @example
    * false
@@ -50,7 +50,7 @@ export class UpdateConsumerRequest extends $dara.Model {
   enableAfterRenewal?: boolean;
   /**
    * @remarks
-   * The expiration time of the consumer, in UTC UNIX seconds. It must be a positive integer and later than the current time. If this parameter is not specified, the original value is retained. This parameter cannot be set at the same time as clearExpireAt=true. If renew=true, the value must be later than the original unexpired expiration time. If the configuration is saved but fails to be delivered, a retry with the original expiration time is allowed, but shortening the expiration time is still prohibited.
+   * The expiration time of the consumer, in UTC UNIX seconds. The value must be a positive integer and later than the current time. If this parameter is not specified, the original value is retained. This parameter cannot be set at the same time as clearExpireAt=true. If renew=true, the value must also be later than the original expiration time that has not expired. If the configuration is saved but fails to be delivered, retries with the original expiration time are allowed, but shortening the expiration time is still prohibited.
    * 
    * @example
    * 1893456000
@@ -58,12 +58,20 @@ export class UpdateConsumerRequest extends $dara.Model {
   expireAt?: number;
   /**
    * @remarks
+   * The extended information of the consumer. The value is saved as a raw string and can be up to 65,535 UTF-8 bytes in length. If this parameter is omitted or set to null, the original value is retained. An empty string clears the value.
+   * 
+   * @example
+   * partner-a
+   */
+  extInfo?: string;
+  /**
+   * @remarks
    * The JWT identity authentication configuration.
    */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**
    * @remarks
-   * Specifies whether to only renew the consumer. If this parameter is set to true, only the validity period is updated and the consumer is explicitly enabled at the same time. The latest credentials, description, and authorizations on the server are retained. You must set expireAt or clearExpireAt=true, and you cannot specify identity configurations or description. The default value is false, which retains the original consumer update semantics.
+   * Specifies whether to only renew the consumer. If this parameter is set to true, only the validity period is updated and the consumer is explicitly enabled at the same time. The latest credentials, description, and authorizations on the server are retained. You must set expireAt or clearExpireAt=true, and cannot include identity configurations or description. The default value is false, which retains the original consumer update semantics.
    * 
    * @example
    * false
@@ -78,6 +86,7 @@ export class UpdateConsumerRequest extends $dara.Model {
       enable: 'enable',
       enableAfterRenewal: 'enableAfterRenewal',
       expireAt: 'expireAt',
+      extInfo: 'extInfo',
       jwtIdentityConfig: 'jwtIdentityConfig',
       renew: 'renew',
     };
@@ -92,6 +101,7 @@ export class UpdateConsumerRequest extends $dara.Model {
       enable: 'boolean',
       enableAfterRenewal: 'boolean',
       expireAt: 'number',
+      extInfo: 'string',
       jwtIdentityConfig: JwtIdentityConfig,
       renew: 'boolean',
     };

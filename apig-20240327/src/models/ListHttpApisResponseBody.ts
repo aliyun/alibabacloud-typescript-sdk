@@ -74,7 +74,7 @@ export class ListHttpApisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The API list.
+   * The list of APIs.
    */
   data?: ListHttpApisResponseBodyData;
   /**
@@ -87,7 +87,7 @@ export class ListHttpApisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

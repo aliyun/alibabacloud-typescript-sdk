@@ -23,7 +23,7 @@ export class UpdateAiModelSourceRequest extends $dara.Model {
   expectedVersion?: number;
   /**
    * @remarks
-   * The ID of the actual AI service bound to the model source.
+   * The ID of the actual AI service that is bound to the model source.
    * 
    * @example
    * svc-d00000000000000000000

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AiBasicGuardrailConfig } from "./AiBasicGuardrailConfig";
 import { AiCacheConfig } from "./AiCacheConfig";
 import { AiFallbackConfig } from "./AiFallbackConfig";
 import { AiNetworkSearchConfig } from "./AiNetworkSearchConfig";
@@ -13,7 +14,7 @@ import { HttpApiPolicyReference } from "./HttpApiPolicyReference";
 export class HttpApiPolicyConfigsSemanticRouterConfig extends $dara.Model {
   /**
    * @remarks
-   * The timeout period, in milliseconds.
+   * The timeout period in milliseconds.
    * 
    * @example
    * 2000
@@ -43,6 +44,17 @@ export class HttpApiPolicyConfigsSemanticRouterConfig extends $dara.Model {
 export class HttpApiPolicyConfigs extends $dara.Model {
   /**
    * @remarks
+   * The optional configuration object used exclusively for the AiBasicGuardrail policy, at the same level as the enable field of the policy item. The display field indicates read-only display eligibility. The responseEnabled field controls Detection and Response, and the responseMode field only processes asynchronous requests. If an update omits response fields or the configuration object, the previously saved values are retained. If no saved values exist, Detection and Response is enabled by default without declaring a response pattern. To simply enable or disable protection, modify the outer enable field while retaining other required API parameters. You do not need to resubmit this object.
+   * 
+   * @example
+   * {"responseEnabled":true}
+   * 
+   * **if can be null:**
+   * true
+   */
+  aiBasicGuardrailConfig?: AiBasicGuardrailConfig;
+  /**
+   * @remarks
    * The AI cache configuration.
    * 
    * **if can be null:**
@@ -67,7 +79,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiNetworkSearchConfig?: AiNetworkSearchConfig;
   /**
    * @remarks
-   * The AI security protection configuration.
+   * The AI security Protection Settings.
    * 
    * **if can be null:**
    * false
@@ -83,7 +95,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiStatisticsConfig?: AiStatisticsConfig;
   /**
    * @remarks
-   * The AI token rate limiting configuration.
+   * The AI token rate limit configuration.
    * 
    * **if can be null:**
    * false
@@ -101,7 +113,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiToolSelectionConfig?: AiToolSelectionConfig;
   /**
    * @remarks
-   * Indicates whether the feature is enabled.
+   * Specifies whether it is enabled.
    * 
    * @example
    * false
@@ -109,7 +121,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The read-only compatible reference. GetHttpApi returns the policyId and policyAttachmentId for ModelAPI AiTokenRateLimit. This field must be stripped before write-path persistence and is not used as a bind or unbind instruction.
+   * The read-only compatibility reference. GetHttpApi returns the policyId or policyAttachmentId for the ModelAPI AiTokenRateLimit. This reference must be removed before persistence in the write path and must not be used as a bind or unbind instruction.
    * 
    * **if can be null:**
    * true
@@ -125,7 +137,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   semanticRouterConfig?: HttpApiPolicyConfigsSemanticRouterConfig;
   /**
    * @remarks
-   * The policy template type.
+   * The policy templatetype.
    * 
    * @example
    * K8S
@@ -133,6 +145,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      aiBasicGuardrailConfig: 'aiBasicGuardrailConfig',
       aiCacheConfig: 'aiCacheConfig',
       aiFallbackConfig: 'aiFallbackConfig',
       aiNetworkSearchConfig: 'aiNetworkSearchConfig',
@@ -149,6 +162,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiBasicGuardrailConfig: AiBasicGuardrailConfig,
       aiCacheConfig: AiCacheConfig,
       aiFallbackConfig: AiFallbackConfig,
       aiNetworkSearchConfig: AiNetworkSearchConfig,
@@ -164,6 +178,9 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   }
 
   validate() {
+    if(this.aiBasicGuardrailConfig && typeof (this.aiBasicGuardrailConfig as any).validate === 'function') {
+      (this.aiBasicGuardrailConfig as any).validate();
+    }
     if(this.aiCacheConfig && typeof (this.aiCacheConfig as any).validate === 'function') {
       (this.aiCacheConfig as any).validate();
     }

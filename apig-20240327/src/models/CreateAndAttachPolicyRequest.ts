@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndAttachPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of target resource IDs to attach.
+   * The list of target resource IDs to mount.
    * 
    * This parameter is required.
    */
   attachResourceIds?: string[];
   /**
    * @remarks
-   * The type of the target resource to attach.
+   * The type of the target resource to mount.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class CreateAndAttachPolicyRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The policy name. This parameter is required when className is set to IpAccessControl, JWTAuth, OIDCAuth, or ExternalZAuth, and must be unique within the same gateway instance specified by gatewayId under the current account. If the name duplicates an existing policy, a PolicyExisted error is returned. When you retry after receiving this error, you must use a new name. Resubmitting the same name will always fail. For other className values such as RateLimit, Timeout, Retry, ServiceTls, and AiProxy, this parameter is optional, used only for display purposes, and can be omitted.
+   * The policy name. This parameter is required when className is set to IpAccessControl, JWTAuth, OIDCAuth, or ExternalZAuth, and must be unique within the same gateway instance (gatewayId) under the current account. If the name duplicates an existing policy, a PolicyExisted error is returned. When you retry after receiving this error, you must specify a new name. Resubmitting the same name will always fail. For other className values (such as RateLimit, Timeout, Retry, ServiceTls, and AiProxy), this parameter is optional and used only for display purposes.
    * 
    * @example
    * my-fallback-policy

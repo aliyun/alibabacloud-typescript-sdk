@@ -1055,7 +1055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AI model in a model source.
+   * Creates an AI model in a source.
    * 
    * @param request - CreateAiModelSourceModelRequest
    * @param headers - map
@@ -1114,7 +1114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AI model in a model source.
+   * Creates an AI model in a source.
    * 
    * @param request - CreateAiModelSourceModelRequest
    * @returns CreateAiModelSourceModelResponse
@@ -1289,6 +1289,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.expireAt)) {
       body["expireAt"] = request.expireAt;
+    }
+
+    if (!$dara.isNull(request.extInfo)) {
+      body["extInfo"] = request.extInfo;
     }
 
     if (!$dara.isNull(request.gatewayType)) {
@@ -5224,7 +5228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries AI models in a source.
+   * Queries an AI model in a model source.
    * 
    * @param request - GetAiModelSourceModelRequest
    * @param headers - map
@@ -5251,7 +5255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries AI models in a source.
+   * Queries an AI model in a model source.
    * 
    * @param request - GetAiModelSourceModelRequest
    * @returns GetAiModelSourceModelResponse
@@ -5519,7 +5523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves consumer authorization rules.
+   * Retrieves a consumer authorization rule.
    * 
    * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
    * 
@@ -5546,7 +5550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves consumer authorization rules.
+   * Retrieves a consumer authorization rule.
    * 
    * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
    * @returns GetConsumerAuthorizationRuleResponse
@@ -6366,7 +6370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the HTTP API information.
+   * Retrieves HTTP API information.
    * 
    * @param request - GetHttpApiRequest
    * @param headers - map
@@ -6399,7 +6403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the HTTP API information.
+   * Retrieves HTTP API information.
    * 
    * @param request - GetHttpApiRequest
    * @returns GetHttpApiResponse
@@ -6411,7 +6415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the API operation information.
+   * Retrieves API operation information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6436,7 +6440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the API operation information.
+   * Retrieves API operation information.
    * @returns GetHttpApiOperationResponse
    */
   async getHttpApiOperation(httpApiId: string, operationId: string): Promise<$_model.GetHttpApiOperationResponse> {
@@ -7966,7 +7970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of standalone AI model sources.
+   * Queries a list of independent AI model sources.
    * 
    * @param request - ListAiModelSourcesRequest
    * @param headers - map
@@ -8015,7 +8019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of standalone AI model sources.
+   * Queries a list of independent AI model sources.
    * 
    * @param request - ListAiModelSourcesRequest
    * @returns ListAiModelSourcesResponse
@@ -9960,7 +9964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of HTTP APIs.
+   * Retrieves a list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @param headers - map
@@ -10057,7 +10061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of HTTP APIs.
+   * Retrieves a list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @returns ListHttpApisResponse
@@ -10387,7 +10391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of model APIs.
+   * Queries model APIs.
    * 
    * @param request - ListModelApisRequest
    * @param headers - map
@@ -10444,7 +10448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of model APIs.
+   * Queries model APIs.
    * 
    * @param request - ListModelApisRequest
    * @returns ListModelApisResponse
@@ -10597,7 +10601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plugin mounts.
+   * Retrieves the plugin mount list.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @param headers - map
@@ -10662,7 +10666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plugin mounts.
+   * Retrieves the plugin mount list.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @returns ListPluginAttachmentsResponse
@@ -12267,7 +12271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries consumer authorization rules.
+   * Queries the list of consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -12352,7 +12356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries consumer authorization rules.
+   * Queries the list of consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @returns QueryConsumerAuthorizationRulesResponse
@@ -13343,7 +13347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an AI model in a source.
+   * Updates an AI model in a model source.
    * 
    * @param request - UpdateAiModelSourceModelRequest
    * @param headers - map
@@ -13396,7 +13400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an AI model in a source.
+   * Updates an AI model in a model source.
    * 
    * @param request - UpdateAiModelSourceModelRequest
    * @returns UpdateAiModelSourceModelResponse
@@ -13607,6 +13611,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.expireAt)) {
       body["expireAt"] = request.expireAt;
+    }
+
+    if (!$dara.isNull(request.extInfo)) {
+      body["extInfo"] = request.extInfo;
     }
 
     if (!$dara.isNull(request.jwtIdentityConfig)) {

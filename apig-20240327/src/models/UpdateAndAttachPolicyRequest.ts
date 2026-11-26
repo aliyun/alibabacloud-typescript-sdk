@@ -13,7 +13,6 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The mount point types supported by the policy. Valid values:
-   * 
    * - HttpApi: HTTP API
    * - Operation: operation of the HTTP API
    * - GatewayRoute: gateway route

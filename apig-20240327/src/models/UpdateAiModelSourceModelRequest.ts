@@ -53,7 +53,7 @@ export class UpdateAiModelSourceModelRequestCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that input is free of charge.
+   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class UpdateAiModelSourceModelRequestCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that output is free of charge.
+   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
    * 
    * @example
    * 2

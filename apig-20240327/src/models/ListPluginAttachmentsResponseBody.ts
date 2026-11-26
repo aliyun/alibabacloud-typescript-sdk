@@ -9,7 +9,7 @@ import { ResourceInfo } from "./ResourceInfo";
 export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The type of the plugin mount resource. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
+   * The plugin mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
    * 
    * @example
    * GatewayRoute
@@ -35,7 +35,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The ID of the plugin mount.
+   * The plugin mount ID.
    * 
    * @example
    * pa-d0j9t5em1hkncrlo51mg
@@ -43,7 +43,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginAttachmentId?: string;
   /**
    * @remarks
-   * The plugin class information.
+   * The plugin type information.
    */
   pluginClassInfo?: PluginClassInfo;
   /**
@@ -64,7 +64,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The mounted resource information.
+   * The mount resource information.
    */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {

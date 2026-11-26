@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAiModelSourcesResponseBodyDataItems extends $dara.Model {
   /**
+   * @remarks
+   * The valid invoke name prefix for the model source. You can specify this prefix during model creation. By default, the provider identity is used. This prefix cannot be modified after creation.
+   * 
    * @example
    * qwen-prod
    */
@@ -34,7 +37,7 @@ export class ListAiModelSourcesResponseBodyDataItems extends $dara.Model {
   modelCount?: number;
   /**
    * @remarks
-   * The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
+   * The model source ID. Use the modelSourceId returned by CreateAiModelSource.
    * 
    * @example
    * ms-d00000000000000000000
@@ -66,7 +69,7 @@ export class ListAiModelSourcesResponseBodyDataItems extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object, which is used for conditional checks during updates or deletions.
+   * The current version of the object, which is used for conditional validation during updates or deletions.
    * 
    * @example
    * 1
@@ -125,7 +128,7 @@ export class ListAiModelSourcesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned from the previous page. Do not specify this parameter when you query the first page.
+   * The pagination token returned from the previous page. Do not pass this parameter when querying the first page.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -172,7 +175,7 @@ export class ListAiModelSourcesResponseBodyData extends $dara.Model {
 export class ListAiModelSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. The value is Ok for successful requests, or a specific business error code for failed requests.
+   * The response status code. A value of Ok indicates success. A specific business error code indicates failure.
    * 
    * @example
    * Ok

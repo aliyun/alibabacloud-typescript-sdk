@@ -5,12 +5,13 @@ import { HttpApiDeployConfig } from "./HttpApiDeployConfig";
 import { HttpApiMockContract } from "./HttpApiMockContract";
 import { HttpApiRequestContract } from "./HttpApiRequestContract";
 import { HttpApiResponseContract } from "./HttpApiResponseContract";
+import { HttpApiSystemParameters } from "./HttpApiSystemParameters";
 
 
 export class HttpApiOperationInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication configuration.
+   * The permission authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
@@ -23,7 +24,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The backend service deployment information for the operation.
+   * The API operation backend service deployment information.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
@@ -44,7 +45,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The operation method.
+   * The API operation method.
    * 
    * @example
    * GET
@@ -52,12 +53,12 @@ export class HttpApiOperationInfo extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The operation mock parameter settings.
+   * The API operation mock parameter settings.
    */
   mock?: HttpApiMockContract;
   /**
    * @remarks
-   * The operation name.
+   * The API operation name.
    * 
    * @example
    * GetUserInfo
@@ -65,7 +66,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The operation ID.
+   * The API operation ID.
    * 
    * @example
    * op-xxx
@@ -73,7 +74,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The operation path.
+   * The API operation path.
    * 
    * @example
    * /user/123
@@ -81,22 +82,27 @@ export class HttpApiOperationInfo extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The operation request parameter definition.
+   * The API operation request parameter definition.
    */
   request?: HttpApiRequestContract;
   /**
    * @remarks
-   * The operation response parameter definition.
+   * The API operation response parameter definition.
    */
   response?: HttpApiResponseContract;
   /**
    * @remarks
-   * The publish status of the operation on the gateway.
+   * The publish status of the API operation on the gateway.
    * 
    * @example
    * Deployed
    */
   status?: string;
+  /**
+   * @remarks
+   * Maps the system parameters of the current API operation to backend request headers or query parameters. Each source can be configured only once across the two locations.
+   */
+  systemParameters?: HttpApiSystemParameters;
   static names(): { [key: string]: string } {
     return {
       authConfig: 'authConfig',
@@ -112,6 +118,7 @@ export class HttpApiOperationInfo extends $dara.Model {
       request: 'request',
       response: 'response',
       status: 'status',
+      systemParameters: 'systemParameters',
     };
   }
 
@@ -130,6 +137,7 @@ export class HttpApiOperationInfo extends $dara.Model {
       request: HttpApiRequestContract,
       response: HttpApiResponseContract,
       status: 'string',
+      systemParameters: HttpApiSystemParameters,
     };
   }
 
@@ -148,6 +156,9 @@ export class HttpApiOperationInfo extends $dara.Model {
     }
     if(this.response && typeof (this.response as any).validate === 'function') {
       (this.response as any).validate();
+    }
+    if(this.systemParameters && typeof (this.systemParameters as any).validate === 'function') {
+      (this.systemParameters as any).validate();
     }
     super.validate();
   }

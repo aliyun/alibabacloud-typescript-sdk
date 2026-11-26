@@ -28,7 +28,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The parent mounted resource information.
+   * The parent attached resource information.
    */
   parentResourceInfo?: ParentResourceInfo;
   /**
@@ -54,7 +54,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * The plugin ID.
+   * The ID of the plugin.
    * 
    * @example
    * pl-cvo8ub6m1hkvgv03r3k0
@@ -62,7 +62,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The list of mounted resource information.
+   * The list of attached resource information.
    */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {

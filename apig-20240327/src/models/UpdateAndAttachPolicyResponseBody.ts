@@ -21,7 +21,7 @@ export class UpdateAndAttachPolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call chain.
+   * The request ID used to trace the API call chain.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

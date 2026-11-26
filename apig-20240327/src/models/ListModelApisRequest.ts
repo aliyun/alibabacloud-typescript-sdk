@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelApisRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway instance ID used to filter results.
+   * The gateway instance ID used for filtering.
    * 
    * @example
    * gw-d00000000000000000000
@@ -13,7 +13,7 @@ export class ListModelApisRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Specifies whether to return legacy model APIs created by scenario. If this parameter is omitted or set to false, only APIs created by selecting a model are returned. If this parameter is set to true, APIs created by both methods are returned on the same page, excluding common HTTP, MCP, or Agent APIs.
+   * Specifies whether to return legacy model APIs created by scenario. If omitted or set to false, only APIs created by selecting a model are returned. If set to true, APIs created by both methods are returned on the same page, excluding common HTTP, MCP, or Agent APIs.
    */
   includeLegacy?: boolean;
   /**
@@ -50,7 +50,7 @@ export class ListModelApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group used to filter results.
+   * The ID of the resource group used for filtering.
    * 
    * @example
    * rg-acf0000000000000000

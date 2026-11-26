@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * The validity status filter. Valid values: Permanent, InEffect, AboutToExpire, and Expired. You can specify multiple values separated by commas to form a union. If this parameter is not specified, all statuses are included and intersected with the name and display status filters.
+   * The expiration status filter. Valid values: Permanent, InEffect, AboutToExpire, and Expired. You can specify multiple values separated by commas to form a union. If this parameter is not specified, all statuses are included, and the result is intersected with the name and display status filters.
    * 
    * @example
    * Expired,AboutToExpire
@@ -13,7 +13,7 @@ export class ListConsumersRequest extends $dara.Model {
   expireStatus?: string;
   /**
    * @remarks
-   * The gateway type used for filtering. Currently, **AI** and **API** gateway types are supported.
+   * The gateway type filter. Currently, **AI** and **API** gateway types are supported.
    * 
    * @example
    * AI
@@ -21,7 +21,7 @@ export class ListConsumersRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Specifies whether to return the full expiration reminder count. Default value: false. The statistical scope is limited only by the current account and gatewayType.
+   * Specifies whether to return the total count of expiration reminders. Default value: false. The statistical scope is limited only by the current account and gatewayType.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListConsumersRequest extends $dara.Model {
   includeExpirationSummary?: boolean;
   /**
    * @remarks
-   * The keyword used for fuzzy search by API name.
+   * The keyword used to perform a fuzzy search by API name.
    * 
    * @example
    * UI-test
@@ -53,7 +53,11 @@ export class ListConsumersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The display status filter. Valid values: Enabled (enabled and not expired), Disabled (disabled regardless of expiration), and Expired (enabled and expired). If this parameter is not specified, all statuses are included and intersected with other filter conditions.
+   * The display status filter. Valid values:
+   * - Enabled: Enabled and not expired.
+   * - Disabled: Disabled, regardless of whether it has expired.
+   * - Expired: Enabled and expired.
+   * If this parameter is not specified, all statuses are included, and the result is intersected with other filter conditions.
    * 
    * @example
    * Enabled

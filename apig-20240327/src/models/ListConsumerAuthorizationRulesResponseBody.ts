@@ -21,7 +21,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the consumer.
+   * The consumer ID.
    * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
@@ -79,7 +79,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * 2351944
@@ -87,7 +87,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * HttpApiRoute
@@ -171,7 +171,7 @@ export class ListConsumerAuthorizationRulesResponseBodyData extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
