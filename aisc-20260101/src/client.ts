@@ -928,8 +928,16 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!$dara.isNull(request.onlyRunning)) {
+      query["OnlyRunning"] = request.onlyRunning;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.rootTaskId)) {

@@ -11,6 +11,14 @@ export { ListAIAgentEventResponseBodyData } from './ListAiagentEventResponseBody
 export { ListAIAgentEventResponseBodyPageInfo } from './ListAiagentEventResponseBody';
 export { ListAttackTargetsResponseBodyData } from './ListAttackTargetsResponseBody';
 export { ListScanTasksByTargetResponseBodyData } from './ListScanTasksByTargetResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultAssetScan } from './ListSubTasksResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultHealthCheck } from './ListSubTasksResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMcpCheck } from './ListSubTasksResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMemoryCheck } from './ListSubTasksResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSessionCheck } from './ListSubTasksResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSkillCheck } from './ListSubTasksResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultVulScan } from './ListSubTasksResponseBody';
+export { ListSubTasksResponseBodyDataTaskResultMessageFullCheckResult } from './ListSubTasksResponseBody';
 export { ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfigDetail } from './ListSubTasksResponseBody';
 export { ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfig } from './ListSubTasksResponseBody';
 export { ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetailResult } from './ListSubTasksResponseBody';

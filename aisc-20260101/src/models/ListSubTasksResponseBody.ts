@@ -2,6 +2,516 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultAssetScan extends $dara.Model {
+  /**
+   * @remarks
+   * The result description of the check item, such as the cause of failure, the cause of skipping, or the ID of the delivered policy.
+   * 
+   * @example
+   * dispatched
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The progress percentage of the check item. Valid values: 0 to 100. This field is not used in the current version.
+   * 
+   * @example
+   * 100
+   */
+  percent?: number;
+  /**
+   * @remarks
+   * The status of the check item. Valid values: init, running, success, failed, timeout, and skipped.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the policy corresponding to the check item. This field is used only by health check items.
+   * 
+   * @example
+   * 1001
+   */
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      percent: 'Percent',
+      status: 'Status',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      percent: 'number',
+      status: 'string',
+      strategyId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultHealthCheck extends $dara.Model {
+  /**
+   * @remarks
+   * The result description of the check item, such as the cause of failure, the cause of skipping, or the ID of the delivered policy.
+   * 
+   * @example
+   * strategyId=1001
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The progress percentage of the check item. Valid values: 0 to 100. This field is not used in the current version.
+   * 
+   * @example
+   * 100
+   */
+  percent?: number;
+  /**
+   * @remarks
+   * The status of the check item. Valid values: init, running, success, failed, timeout, and skipped.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the policy corresponding to the check item. This field is used only by health check items.
+   * 
+   * @example
+   * 1001
+   */
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      percent: 'Percent',
+      status: 'Status',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      percent: 'number',
+      status: 'string',
+      strategyId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMcpCheck extends $dara.Model {
+  /**
+   * @remarks
+   * The result description of the check item, such as the cause of failure, the cause of skipping, or the ID of the delivered policy.
+   * 
+   * @example
+   * mcp check task created, detector not implemented yet
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The progress percentage of the check item. Valid values: 0 to 100. This field is not used in the current version.
+   * 
+   * @example
+   * 100
+   */
+  percent?: number;
+  /**
+   * @remarks
+   * The status of the check item. Valid values: init, running, success, failed, timeout, and skipped.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the policy corresponding to the check item. This field is used only by health check items.
+   * 
+   * @example
+   * 1001
+   */
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      percent: 'Percent',
+      status: 'Status',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      percent: 'number',
+      status: 'string',
+      strategyId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMemoryCheck extends $dara.Model {
+  /**
+   * @remarks
+   * The result description of the check item, such as the cause of failure, the cause of skipping, or the ID of the delivered policy.
+   * 
+   * @example
+   * memory check task created, detector not implemented yet
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The progress percentage of the check item. Valid values: 0 to 100. This field is not used in the current version.
+   * 
+   * @example
+   * 100
+   */
+  percent?: number;
+  /**
+   * @remarks
+   * The status of the check item. Valid values: init, running, success, failed, timeout, and skipped.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the policy corresponding to the check item. This field is used only by health check items.
+   * 
+   * @example
+   * 1001
+   */
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      percent: 'Percent',
+      status: 'Status',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      percent: 'number',
+      status: 'string',
+      strategyId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSessionCheck extends $dara.Model {
+  /**
+   * @remarks
+   * The result description of the check item, such as the cause of failure, the cause of skipping, or the ID of the delivered policy.
+   * 
+   * @example
+   * session check task created, detector not implemented yet
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The progress percentage of the check item. Valid values: 0 to 100. This field is not used in the current version.
+   * 
+   * @example
+   * 100
+   */
+  percent?: number;
+  /**
+   * @remarks
+   * The status of the check item. Valid values: init, running, success, failed, timeout, and skipped.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the policy corresponding to the check item. This field is used only by health check items.
+   * 
+   * @example
+   * 1001
+   */
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      percent: 'Percent',
+      status: 'Status',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      percent: 'number',
+      status: 'string',
+      strategyId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSkillCheck extends $dara.Model {
+  /**
+   * @remarks
+   * The result description of the check item, such as the cause of failure, the cause of skipping, or the ID of the delivered policy.
+   * 
+   * @example
+   * dispatched
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The progress percentage of the check item. Valid values: 0 to 100. This field is not used in the current version.
+   * 
+   * @example
+   * 100
+   */
+  percent?: number;
+  /**
+   * @remarks
+   * The status of the check item. Valid values: init, running, success, failed, timeout, and skipped.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the policy corresponding to the check item. This field is used only by health check items.
+   * 
+   * @example
+   * 1001
+   */
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      percent: 'Percent',
+      status: 'Status',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      percent: 'number',
+      status: 'string',
+      strategyId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultVulScan extends $dara.Model {
+  /**
+   * @remarks
+   * The result description of the check item, such as the cause of failure, the cause of skipping, or the ID of the delivered policy.
+   * 
+   * @example
+   * submitted
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The progress percentage of the check item. Valid values: 0 to 100. This field is not used in the current version.
+   * 
+   * @example
+   * 100
+   */
+  percent?: number;
+  /**
+   * @remarks
+   * The status of the check item. Valid values: init, running, success, failed, timeout, and skipped.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the policy corresponding to the check item. This field is used only by health check items.
+   * 
+   * @example
+   * 1001
+   */
+  strategyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      percent: 'Percent',
+      status: 'Status',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      percent: 'number',
+      status: 'string',
+      strategyId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubTasksResponseBodyDataTaskResultMessageFullCheckResult extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the asset scanning check item.
+   */
+  assetScan?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultAssetScan;
+  /**
+   * @remarks
+   * The result of the health check item.
+   */
+  healthCheck?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultHealthCheck;
+  /**
+   * @remarks
+   * The result of the MCP check item. If the detector is not connected, the result defaults to success.
+   */
+  mcpCheck?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMcpCheck;
+  /**
+   * @remarks
+   * The result of the memory check item. If the detector is not connected, the result defaults to success.
+   */
+  memoryCheck?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMemoryCheck;
+  /**
+   * @remarks
+   * The result of the session check item. If the detector is not connected, the result defaults to success.
+   */
+  sessionCheck?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSessionCheck;
+  /**
+   * @remarks
+   * The result of the Skill file check item.
+   */
+  skillCheck?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSkillCheck;
+  /**
+   * @remarks
+   * The result of the vulnerability scanning check item.
+   */
+  vulScan?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultVulScan;
+  static names(): { [key: string]: string } {
+    return {
+      assetScan: 'AssetScan',
+      healthCheck: 'HealthCheck',
+      mcpCheck: 'McpCheck',
+      memoryCheck: 'MemoryCheck',
+      sessionCheck: 'SessionCheck',
+      skillCheck: 'SkillCheck',
+      vulScan: 'VulScan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetScan: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultAssetScan,
+      healthCheck: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultHealthCheck,
+      mcpCheck: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMcpCheck,
+      memoryCheck: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultMemoryCheck,
+      sessionCheck: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSessionCheck,
+      skillCheck: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultSkillCheck,
+      vulScan: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResultVulScan,
+    };
+  }
+
+  validate() {
+    if(this.assetScan && typeof (this.assetScan as any).validate === 'function') {
+      (this.assetScan as any).validate();
+    }
+    if(this.healthCheck && typeof (this.healthCheck as any).validate === 'function') {
+      (this.healthCheck as any).validate();
+    }
+    if(this.mcpCheck && typeof (this.mcpCheck as any).validate === 'function') {
+      (this.mcpCheck as any).validate();
+    }
+    if(this.memoryCheck && typeof (this.memoryCheck as any).validate === 'function') {
+      (this.memoryCheck as any).validate();
+    }
+    if(this.sessionCheck && typeof (this.sessionCheck as any).validate === 'function') {
+      (this.sessionCheck as any).validate();
+    }
+    if(this.skillCheck && typeof (this.skillCheck as any).validate === 'function') {
+      (this.skillCheck as any).validate();
+    }
+    if(this.vulScan && typeof (this.vulScan as any).validate === 'function') {
+      (this.vulScan as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfigDetail extends $dara.Model {
   /**
    * @remarks
@@ -383,7 +893,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExt extends $dara.Model {
   /**
    * @remarks
-   * The configuration detection risk.
+   * The configuration check risk.
    */
   config?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfig;
   /**
@@ -443,7 +953,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of file detection risks.
+   * The list of file check risks.
    */
   ext?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExt;
   /**
@@ -456,7 +966,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   path?: string;
   /**
    * @remarks
-   * The detection result type. Valid values:
+   * The type of the check result. Valid values:
    * - **0**: No risk.
    * - **1**: Risk detected.
    * 
@@ -495,7 +1005,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResult extends $dara.Model {
   /**
    * @remarks
-   * The file detection risk information.
+   * The file check risk information.
    */
   riskInfo?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfo[];
   static names(): { [key: string]: string } {
@@ -525,22 +1035,32 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResult exten
 export class ListSubTasksResponseBodyDataTaskResultMessage extends $dara.Model {
   /**
    * @remarks
-   * The skill check task result.
+   * The check results of the comprehensive health check task, which provides the status and description for each check item.
+   */
+  fullCheckResult?: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResult;
+  /**
+   * @remarks
+   * The Skill check task result.
    */
   skillCheckResult?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResult;
   static names(): { [key: string]: string } {
     return {
+      fullCheckResult: 'FullCheckResult',
       skillCheckResult: 'SkillCheckResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fullCheckResult: ListSubTasksResponseBodyDataTaskResultMessageFullCheckResult,
       skillCheckResult: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResult,
     };
   }
 
   validate() {
+    if(this.fullCheckResult && typeof (this.fullCheckResult as any).validate === 'function') {
+      (this.fullCheckResult as any).validate();
+    }
     if(this.skillCheckResult && typeof (this.skillCheckResult as any).validate === 'function') {
       (this.skillCheckResult as any).validate();
     }
@@ -555,12 +1075,36 @@ export class ListSubTasksResponseBodyDataTaskResultMessage extends $dara.Model {
 export class ListSubTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The display name of the agent. It is parsed from the application information based on the target of the subtask. This field is empty if the application record is missing.
+   * 
+   * @example
+   * agent-01
+   */
+  agentName?: string;
+  /**
+   * @remarks
    * The hash value of the uploaded file.
    * 
    * @example
    * 03d1f08455e965cac0351eaa59256fd9
    */
   fileHash?: string;
+  /**
+   * @remarks
+   * The millisecond-level timestamp when the subtask finishes execution. This field is empty if the subtask has not finished.
+   * 
+   * @example
+   * 1764036120000
+   */
+  gmtTaskFinished?: number;
+  /**
+   * @remarks
+   * The millisecond-level timestamp when the subtask starts execution. This field is empty if the subtask has not started.
+   * 
+   * @example
+   * 1764036000000
+   */
+  gmtTaskStart?: number;
   /**
    * @remarks
    * The task ID.
@@ -592,7 +1136,10 @@ export class ListSubTasksResponseBodyData extends $dara.Model {
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      agentName: 'AgentName',
       fileHash: 'FileHash',
+      gmtTaskFinished: 'GmtTaskFinished',
+      gmtTaskStart: 'GmtTaskStart',
       id: 'Id',
       target: 'Target',
       taskResultMessage: 'TaskResultMessage',
@@ -602,7 +1149,10 @@ export class ListSubTasksResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentName: 'string',
       fileHash: 'string',
+      gmtTaskFinished: 'number',
+      gmtTaskStart: 'number',
       id: 'number',
       target: 'string',
       taskResultMessage: ListSubTasksResponseBodyDataTaskResultMessage,
@@ -625,7 +1175,7 @@ export class ListSubTasksResponseBodyData extends $dara.Model {
 export class ListSubTasksResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries displayed on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 1
@@ -641,7 +1191,7 @@ export class ListSubTasksResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -695,7 +1245,7 @@ export class ListSubTasksResponseBody extends $dara.Model {
   pageInfo?: ListSubTasksResponseBodyPageInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9FDE3D6F-26BD-5937-B0E5-8F47962B****

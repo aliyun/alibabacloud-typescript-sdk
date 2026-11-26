@@ -8,7 +8,7 @@ export class GetAttackTargetResponseBodyData extends $dara.Model {
    * The advanced connection configuration (JSON character string). For common fields and provider configuration templates, refer to the ConnectionConfig parameter of CreateAttackTarget.
    * 
    * @example
-   * {\\"httpMethod\\":\\"POST\\",\\"authType\\":\\"bearer\\",\\"timeoutMs\\":30000,\\"requestTemplate\\":\\"{\\\\\\"input\\\\\\":{\\\\\\"prompt\\\\\\":\\\\\\"{{prompt}}\\\\\\"},\\\\\\"parameters\\\\\\":{\\\\\\"incremental_output\\\\\\":true},\\\\\\"debug\\\\\\":{}}\\",\\"messageJsonPath\\":\\"$.output.text\\",\\"requestHeaders\\":\\"{\\\\\\"X-DashScope-SSE\\\\\\": \\\\\\"enable\\\\\\" }\\",\\"stream\\":true,\\"customAuthHeaderName\\":\\"\\"}
+   * {\"httpMethod\":\"POST\",\"authType\":\"bearer\",\"timeoutMs\":30000,\"requestTemplate\":\"{\\\"input\\\":{\\\"prompt\\\":\\\"{{prompt}}\\\"},\\\"parameters\\\":{\\\"incremental_output\\\":true},\\\"debug\\\":{}}\",\"messageJsonPath\":\"$.output.text\",\"requestHeaders\":\"{\\\"X-DashScope-SSE\\\": \\\"enable\\\" }\",\"stream\":true,\"customAuthHeaderName\":\"\"}
    */
   connectionConfig?: string;
   /**
