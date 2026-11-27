@@ -7,7 +7,7 @@ export class CreateResourceGroupRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * k1
@@ -17,7 +17,7 @@ export class CreateResourceGroupRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * v1
@@ -49,6 +49,14 @@ export class CreateResourceGroupRequestTag extends $dara.Model {
 export class CreateResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The client token.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
    * The display name of the resource group.
    * 
    * The name must be 1 to 50 characters in length.
@@ -61,9 +69,14 @@ export class CreateResourceGroupRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
+   * Specifies whether to perform a dry run.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The unique identifier of the resource group.
    * 
-   * The identifier must be 2 to 50 characters in length and can contain letters, digits, and hyphens (-). It must start with a letter.
+   * The name must be 2 to 50 characters in length and can contain letters, digits, and hyphens (-). It must start with a letter.
    * 
    * This parameter is required.
    * 
@@ -78,7 +91,9 @@ export class CreateResourceGroupRequest extends $dara.Model {
   tag?: CreateResourceGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       displayName: 'DisplayName',
+      dryRun: 'DryRun',
       name: 'Name',
       tag: 'Tag',
     };
@@ -86,7 +101,9 @@ export class CreateResourceGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       displayName: 'string',
+      dryRun: 'boolean',
       name: 'string',
       tag: { 'type': 'array', 'itemType': CreateResourceGroupRequestTag },
     };

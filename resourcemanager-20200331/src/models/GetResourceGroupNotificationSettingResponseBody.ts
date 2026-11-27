@@ -13,7 +13,7 @@ export class GetResourceGroupNotificationSettingResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether group event notification is enabled.
+   * Indicates whether resource group event notification is enabled.
    * 
    * @example
    * true

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAutoGroupingConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable existing associated resources to follow the group transfer task. Valid values:
+   * Specifies whether to transfer existing associated resources along with the group transfer task. Valid values:
    * 
-   * - false: Existing associated resources do not follow the group transfer task.
-   * - true: Existing associated resources follow the group transfer task.
+   * - false: Existing associated resources are not transferred along with the group transfer task.
+   * - true: Existing associated resources are transferred along with the group transfer task.
    * 
    * @example
    * false

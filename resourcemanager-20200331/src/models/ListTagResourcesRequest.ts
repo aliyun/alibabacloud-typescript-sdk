@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -55,7 +55,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -63,17 +63,17 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource group ID or resource directory member ID. This parameter is used as a filter condition.
+   * The ID of the resource group or the ID of the resource directory member. This parameter is used as a filter condition for the query.
    * 
-   * > To query the tags that are attached to a resource directory member, you must specify both `ResourceId` and `ResourceType`, and set `ResourceType` to `Account`.
+   * > When you query the tags bound to a resource directory member, you must specify both `ResourceId` and `ResourceType`, and set `ResourceType` to `Account`.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. This parameter is used as a filter condition. Valid values:
+   * The resource type. This parameter is used as a filter condition for the query. Valid values:
    * 
-   * - ResourceGroup (default): queries the tags of a resource group.
-   * - Account: queries the tags of a resource directory member.
+   * - ResourceGroup (default): Queries the tags of resource groups.
+   * - Account: Queries the tags of resource directory members.
    * 
    * @example
    * ResourceGroup
@@ -81,7 +81,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags. This parameter is used as a filter condition.
+   * The tags. This parameter is used as a filter condition for the query.
    * 
    * You can specify up to 20 tags.
    */

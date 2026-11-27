@@ -117,7 +117,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The time when the resource group was created (UTC).
+   * The time when the resource group was created. The time is displayed in UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -133,7 +133,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-9gLOoK****
@@ -154,7 +154,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * 
    * - Creating: The resource group is being created.
    * - OK: The resource group is created.
-   * - PendingDelete: The resource group is waiting to be deleted.
+   * - PendingDelete: The resource group is pending deletion.
    * 
    * @example
    * OK
@@ -205,7 +205,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
 export class GetResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF5189484043

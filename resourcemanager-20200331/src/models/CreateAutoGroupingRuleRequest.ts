@@ -8,7 +8,7 @@ export class CreateAutoGroupingRuleRequestRuleContents extends $dara.Model {
    * The scope condition for automatic allocation. Specifies the scope of resources to be automatically allocated.
    * 
    * @example
-   * {"children":[{"desired":"{\\"env\\":\\"online\\", \\"project\\":\\"A\\"}","featurePath":"$.tags","featureSource":"RESOURCE","operator":"TagMatchAll"}],"operator":"and"}
+   * {"children":[{"desired":"{\"env\":\"online\", \"project\":\"A\"}","featurePath":"$.tags","featureSource":"RESOURCE","operator":"TagMatchAll"}],"operator":"and"}
    */
   autoGroupingScopeCondition?: string;
   /**

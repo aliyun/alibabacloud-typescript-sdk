@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceGroupCapabilityRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource type.
-   * 
-   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * The resource type. You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -15,9 +13,7 @@ export class ListResourceGroupCapabilityRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The cloud service ID.
-   * 
-   * You can obtain the cloud service ID from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * The cloud service ID. You can obtain the cloud service ID from the **Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs

@@ -15,11 +15,11 @@ export class DetachControlPolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The ID of the target node. Valid values:
+   * The target node. Valid values:
    * 
-   * - Root ID: detaches the control policy from the Root resource folder.
-   * - Resource folder ID: detaches the control policy from a resource folder.
-   * - Member ID: detaches the control policy from a member.
+   * - Root ID: Dissociates the control policy from the Root folder.
+   * - Folder ID: Dissociates the control policy from a folder.
+   * - Member ID: Dissociates the control policy from a member.
    * 
    * This parameter is required.
    * 

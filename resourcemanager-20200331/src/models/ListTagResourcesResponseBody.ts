@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The resource group ID or resource directory member ID.
+   * The ID of the resource group or the ID of the resource directory member.
    * 
    * @example
    * rg-aekz6bre2uq****
@@ -68,10 +68,10 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the `NextToken` parameter is returned for the next query. Valid values:
+   * The token used to start the next query. Valid values:
    * 
-   * - If `NextToken` is empty, which is displayed as `"NextToken": ""`, no next query exists.
-   * - If `NextToken` is returned with a value, the value is the token that is used to start the next query.
+   * - If `NextToken` is empty, which means `"NextToken": ""`, no more results are available.
+   * - If `NextToken` has a value, the value is the token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -87,7 +87,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

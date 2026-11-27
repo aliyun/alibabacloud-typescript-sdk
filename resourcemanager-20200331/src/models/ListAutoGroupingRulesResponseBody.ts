@@ -8,7 +8,7 @@ export class ListAutoGroupingRulesResponseBodyRulesRuleContents extends $dara.Mo
    * The automatic group transfer scope condition, which specifies the scope of resources to be automatically transferred to a group.
    * 
    * @example
-   * {"children":[{"desired":"{\\"env\\":\\"online\\", \\"project\\":\\"A\\"}","featurePath":"$.tags","featureSource":"RESOURCE","operator":"TagMatchAll"}],"operator":"and"}
+   * {"children":[{"desired":"{\"env\":\"online\", \"project\":\"A\"}","featurePath":"$.tags","featureSource":"RESOURCE","operator":"TagMatchAll"}],"operator":"and"}
    */
   autoGroupingScopeCondition?: string;
   /**

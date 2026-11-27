@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceGroupAdminSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to set the resource group creator as the resource group administrator.
+   * Specifies whether to set the creator of the resource group as the resource group administrator.
    * 
    * This parameter is required.
    * 

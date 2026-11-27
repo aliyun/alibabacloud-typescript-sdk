@@ -58,7 +58,7 @@ export class ListAccountsForParentRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Minimum value: 1. Default value: 1.
+   * Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -76,7 +76,7 @@ export class ListAccountsForParentRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource folder.
+   * The ID of the folder.
    * 
    * @example
    * fd-bVaRIG****
@@ -94,7 +94,7 @@ export class ListAccountsForParentRequest extends $dara.Model {
   queryKeyword?: string;
   /**
    * @remarks
-   * The tags used to filter member accounts.
+   * The tags used to filter results.
    */
   tag?: ListAccountsForParentRequestTag[];
   static names(): { [key: string]: string } {

@@ -7,8 +7,8 @@ export class SetMemberDeletionPermissionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable or disable the member deletion permission. Valid values:
    * 
-   * - Enabled: enables the member deletion permission.
-   * - Disabled: disables the member deletion permission.
+   * - Enabled: Enabled.
+   * - Disabled: Disabled.
    * 
    * This parameter is required.
    * 

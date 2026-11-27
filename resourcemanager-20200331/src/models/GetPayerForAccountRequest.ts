@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPayerForAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member account.
+   * The ID of the member accounts.
    * 
    * This parameter is required.
    * 

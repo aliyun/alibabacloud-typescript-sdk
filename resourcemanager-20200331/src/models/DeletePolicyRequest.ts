@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Policy Name of the access policy.
-   * 
-   * Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
+   * Policy Name of the access policy. Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
    * 
    * This parameter is required.
    * 

@@ -7,7 +7,7 @@ export class GetResourceGroupResourceCountsRequestResourceTypes extends $dara.Mo
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Resource type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -17,7 +17,7 @@ export class GetResourceGroupResourceCountsRequestResourceTypes extends $dara.Mo
    * @remarks
    * The cloud service code.
    * 
-   * You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Cloud service code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -50,7 +50,7 @@ export class GetResourceGroupResourceCountsRequest extends $dara.Model {
   /**
    * @remarks
    * The grouping dimension for resource count statistics.
-   * > Specify a grouping dimension. If you do not specify a grouping dimension, the response is empty.
+   * > Specify a grouping dimension. If you do not specify this parameter, the returned result is empty.
    * 
    * @example
    * ResourceGroupId
@@ -58,9 +58,9 @@ export class GetResourceGroupResourceCountsRequest extends $dara.Model {
   groupByKey?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
-   * You can call [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) to obtain the resource group ID.
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) operation to obtain the resource group ID.
    * 
    * @example
    * rg-9gLOoK****
@@ -68,7 +68,7 @@ export class GetResourceGroupResourceCountsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The region to which the resource belongs.
+   * The region where the resource resides.
    * 
    * @example
    * cn-shanghai

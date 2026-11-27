@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveResourcesRequestResources extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the resource.
+   * The ID of the region to which the resource belongs.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class MoveResourcesRequestResources extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * i-23v38****
@@ -23,7 +23,7 @@ export class MoveResourcesRequestResources extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * You can obtain the value from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Resource type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -31,9 +31,9 @@ export class MoveResourcesRequestResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The cloud service code.
+   * The code of the cloud service.
    * 
-   * You can obtain the value from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Cloud service code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -79,9 +79,9 @@ export class MoveResourcesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of resources to move.
+   * The list of resources to be transferred.
    * 
-   * > A maximum of 10 resources can be moved at a time. Move resources in batches if you have more than 10.
+   * > You can transfer up to 10 resources at a time. To transfer more resources, transfer them in batches.
    * 
    * This parameter is required.
    */

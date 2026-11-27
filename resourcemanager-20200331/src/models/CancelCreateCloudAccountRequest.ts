@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCreateCloudAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The account record ID.
+   * The ID of the account record.
    * 
    * This parameter is required.
    * 

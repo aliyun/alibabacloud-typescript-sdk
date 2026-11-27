@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The label key.
+   * The tag key.
    * 
-   * The key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+   * The key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * k1
@@ -15,9 +15,9 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The tag value.
    * 
-   * The value can be up to 128 characters in length and cannot start with `acs:`, or contain `http://` or `https://`.
+   * The value can be up to 128 characters in length. It cannot start with `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * v1
@@ -49,7 +49,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group or the ID of the resource directory member account.
+   * The ID of the resource group or the member of the resource directory.
    * 
    * You can specify up to 50 IDs.
    * 
@@ -60,10 +60,10 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * - ResourceGroup (default): attaches labels to resource groups.
-   * - Account: attaches labels to member accounts of a resource directory.
+   * - ResourceGroup (default): Attaches tags to a resource group.
+   * - Account: Attaches tags to a member of a resource directory.
    * 
-   * > This parameter is required when you attach labels to member accounts of a resource directory.
+   * > This parameter is required when you attach tags to a member of a resource directory.
    * 
    * @example
    * ResourceGroup
@@ -71,9 +71,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The labels.
+   * The tags.
    * 
-   * You can attach up to 20 labels.
+   * You can attach up to 20 tags.
    * 
    * This parameter is required.
    */

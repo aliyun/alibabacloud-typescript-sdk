@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "ResourceManager";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("resourcemanager", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,11 +34,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Accepts an invitation by the invited Alibaba Cloud account by calling AcceptHandshake.
+   * Accepts an invitation for an invited Alibaba Cloud account.
    * 
    * @remarks
-   * After the invited Alibaba Cloud account successfully joins a resource directory, the account becomes a member of the resource directory. The resource directory uses the name of the invited Alibaba Cloud account as the display name and account name of the member by default.
-   * This topic provides an example on how the invited Alibaba Cloud account `177242285274****` accepts an invitation from the resource directory `rd-3G****`. The handshake ID is `h-Ih8IuPfvV0t0****`.
+   * After an invited Alibaba Cloud account successfully joins a resource directory, it becomes a member of the resource directory. By default, the resource directory uses the name of the invited Alibaba Cloud account as the member name and account name of the member. This topic provides an example where the invited Alibaba Cloud account `177242285274****` accepts an invitation from the resource directory `rd-3G****`. The invitation ID is `h-Ih8IuPfvV0t0****`.
    * 
    * @param request - AcceptHandshakeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,11 +68,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Accepts an invitation by the invited Alibaba Cloud account by calling AcceptHandshake.
+   * Accepts an invitation for an invited Alibaba Cloud account.
    * 
    * @remarks
-   * After the invited Alibaba Cloud account successfully joins a resource directory, the account becomes a member of the resource directory. The resource directory uses the name of the invited Alibaba Cloud account as the display name and account name of the member by default.
-   * This topic provides an example on how the invited Alibaba Cloud account `177242285274****` accepts an invitation from the resource directory `rd-3G****`. The handshake ID is `h-Ih8IuPfvV0t0****`.
+   * After an invited Alibaba Cloud account successfully joins a resource directory, it becomes a member of the resource directory. By default, the resource directory uses the name of the invited Alibaba Cloud account as the member name and account name of the member. This topic provides an example where the invited Alibaba Cloud account `177242285274****` accepts an invitation from the resource directory `rd-3G****`. The invitation ID is `h-Ih8IuPfvV0t0****`.
    * 
    * @param request - AcceptHandshakeRequest
    * @returns AcceptHandshakeResponse
@@ -80,14 +82,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a control policy to a specified target.
+   * Attaches a control policy.
    * 
    * @remarks
-   * After the control policy is attached, the resource folder or member immediately becomes subject to the control policy. Make sure that the result of the attach operation is as expected to avoid affecting your business.
-   * The system attaches the system policy FullAliyunAccess to resource folders and members by default.
-   * A control policy takes effect on the entire node to which it is attached. A control policy attached to a parent resource folder also takes effect on its child resource folders and members.
-   * Each node (resource folder or member) can have a maximum of 10 control policies attached.
-   * This topic provides an example on how to attach the custom policy `cp-jExXAqIYkwHN****` to the resource folder `fd-ZDNPiT****`.
+   * After a control policy is attached, the folder or member is immediately governed by the control policy. Make sure that the attach operation produces the expected results to avoid disrupting your business.
+   * By default, the system attaches the system policy FullAliyunAccess to folders and members.
+   * A control policy takes effect on all nodes under the node to which it is attached. For example, a control policy attached to a parent folder also takes effect on its child folders and members.
+   * You can attach a maximum of 10 control policies to each node (folder or member).
+   * This topic provides an example on how to attach the custom policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
    * 
    * @param request - AttachControlPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -122,14 +124,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a control policy to a specified target.
+   * Attaches a control policy.
    * 
    * @remarks
-   * After the control policy is attached, the resource folder or member immediately becomes subject to the control policy. Make sure that the result of the attach operation is as expected to avoid affecting your business.
-   * The system attaches the system policy FullAliyunAccess to resource folders and members by default.
-   * A control policy takes effect on the entire node to which it is attached. A control policy attached to a parent resource folder also takes effect on its child resource folders and members.
-   * Each node (resource folder or member) can have a maximum of 10 control policies attached.
-   * This topic provides an example on how to attach the custom policy `cp-jExXAqIYkwHN****` to the resource folder `fd-ZDNPiT****`.
+   * After a control policy is attached, the folder or member is immediately governed by the control policy. Make sure that the attach operation produces the expected results to avoid disrupting your business.
+   * By default, the system attaches the system policy FullAliyunAccess to folders and members.
+   * A control policy takes effect on all nodes under the node to which it is attached. For example, a control policy attached to a parent folder also takes effect on its child folders and members.
+   * You can attach a maximum of 10 control policies to each node (folder or member).
+   * This topic provides an example on how to attach the custom policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
    * 
    * @param request - AttachControlPolicyRequest
    * @returns AttachControlPolicyResponse
@@ -140,7 +142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes AttachPolicy to add an access policy to an authorization object (a Resource Access Management (RAM) user, RAM user group, or RAM role), which is authorization. After the authorization is complete, the authorized object obtains access permissions on resources within the specified resource group or Alibaba Cloud account.
+   * Invokes AttachPolicy to add an access policy to a principal (a Resource Access Management (RAM) user, RAM user group, or RAM role) for authorization. After the authorization is complete, the principal obtains access permissions to resources in the specified resource group or Alibaba Cloud account.
    * 
    * @param request - AttachPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -187,7 +189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes AttachPolicy to add an access policy to an authorization object (a Resource Access Management (RAM) user, RAM user group, or RAM role), which is authorization. After the authorization is complete, the authorized object obtains access permissions on resources within the specified resource group or Alibaba Cloud account.
+   * Invokes AttachPolicy to add an access policy to a principal (a Resource Access Management (RAM) user, RAM user group, or RAM role) for authorization. After the authorization is complete, the principal obtains access permissions to resources in the specified resource group or Alibaba Cloud account.
    * 
    * @param request - AttachPolicyRequest
    * @returns AttachPolicyResponse
@@ -198,12 +200,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a secure phone number for a member of the resource account type.
+   * Invokes BindSecureMobilePhone to configure the secure phone number Settings for a member of the resource account type.
    * 
    * @remarks
-   * This API operation is used only to set a secure phone number for a resource account for the first time. It cannot be used to modify an existing secure phone number.
-   * To ensure that the system can record the specific author of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
-   * This topic provides an example of how to set a secure phone number for the member `138660628348****`.
+   * This API operation is used only to set the secure secure phone number for a resource account for the first time. You cannot use this operation to modify an existing secure secure phone number.
+   * To ensure that the system can record the specific operator of management operations, call this API operation as a Resource Access Management (RAM) user or RAM role that has the AliyunResourceDirectoryFullAccess permission under the management account.
+   * This topic provides an example on how to set the secure secure phone number for the member `138660628348****`.
    * 
    * @param request - BindSecureMobilePhoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -242,12 +244,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a secure phone number for a member of the resource account type.
+   * Invokes BindSecureMobilePhone to configure the secure phone number Settings for a member of the resource account type.
    * 
    * @remarks
-   * This API operation is used only to set a secure phone number for a resource account for the first time. It cannot be used to modify an existing secure phone number.
-   * To ensure that the system can record the specific author of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
-   * This topic provides an example of how to set a secure phone number for the member `138660628348****`.
+   * This API operation is used only to set the secure secure phone number for a resource account for the first time. You cannot use this operation to modify an existing secure secure phone number.
+   * To ensure that the system can record the specific operator of management operations, call this API operation as a Resource Access Management (RAM) user or RAM role that has the AliyunResourceDirectoryFullAccess permission under the management account.
+   * This topic provides an example on how to set the secure secure phone number for the member `138660628348****`.
    * 
    * @param request - BindSecureMobilePhoneRequest
    * @returns BindSecureMobilePhoneResponse
@@ -258,7 +260,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the modification of a member account email address.
+   * Cancels the modification of a member email address.
+   * 
+   * @remarks
+   * 调用前，目标成员需存在待验证的邮箱修改记录，否则返回 404 EntityNotExists.EmailModifyRecord。邮箱修改记录可通过 ChangeAccountEmail 发起。
+   * 目标成员处于删除中状态时，相关操作会返回 409 NotSupportedOperation.DeletingAccount，请等待删除流程结束或先取消删除。
    * 
    * @param request - CancelChangeAccountEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -289,7 +295,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the modification of a member account email address.
+   * Cancels the modification of a member email address.
+   * 
+   * @remarks
+   * 调用前，目标成员需存在待验证的邮箱修改记录，否则返回 404 EntityNotExists.EmailModifyRecord。邮箱修改记录可通过 ChangeAccountEmail 发起。
+   * 目标成员处于删除中状态时，相关操作会返回 409 NotSupportedOperation.DeletingAccount，请等待删除流程结束或先取消删除。
    * 
    * @param request - CancelChangeAccountEmailRequest
    * @returns CancelChangeAccountEmailResponse
@@ -300,7 +310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the creation of a member of the cloud account type in a resource directory.
+   * Cancels the creation of a cloud account member in a resource directory.
    * 
    * @param request - CancelCreateCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -331,7 +341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the creation of a member of the cloud account type in a resource directory.
+   * Cancels the creation of a cloud account member in a resource directory.
    * 
    * @param request - CancelCreateCloudAccountRequest
    * @returns CancelCreateCloudAccountResponse
@@ -342,10 +352,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a handshake.
+   * Cancels an invitation.
    * 
    * @remarks
-   * This topic provides an example on how to cancel the handshake whose ID is `h-ycm4rp****`.
+   * This topic provides an example of canceling an invitation with the ID `h-ycm4rp****`.
    * 
    * @param request - CancelHandshakeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -376,10 +386,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a handshake.
+   * Cancels an invitation.
    * 
    * @remarks
-   * This topic provides an example on how to cancel the handshake whose ID is `h-ycm4rp****`.
+   * This topic provides an example of canceling an invitation with the ID `h-ycm4rp****`.
    * 
    * @param request - CancelHandshakeRequest
    * @returns CancelHandshakeResponse
@@ -390,7 +400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the upgrade of a resource directory resource account to an Alibaba Cloud account.
+   * Cancels the upgrade of a resource account to a cloud account.
    * 
    * @param request - CancelPromoteResourceAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,7 +431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the upgrade of a resource directory resource account to an Alibaba Cloud account.
+   * Cancels the upgrade of a resource account to a cloud account.
    * 
    * @param request - CancelPromoteResourceAccountRequest
    * @returns CancelPromoteResourceAccountResponse
@@ -432,7 +442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the email address of a member account by calling ChangeAccountEmail.
+   * Modifies the email address of a member.
    * 
    * @param request - ChangeAccountEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -467,7 +477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the email address of a member account by calling ChangeAccountEmail.
+   * Modifies the email address of a member.
    * 
    * @param request - ChangeAccountEmailRequest
    * @returns ChangeAccountEmailResponse
@@ -478,10 +488,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls CheckAccountDelete to perform a member account deletion check task.
+   * Executes a member deletion check task.
    * 
    * @remarks
-   * Before deleting a member account, call this API to perform a pre-deletion condition check on the target member account.
+   * Before you delete a member, call this API to check the deletion conditions for the target member.
    * 
    * @param request - CheckAccountDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -512,10 +522,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls CheckAccountDelete to perform a member account deletion check task.
+   * Executes a member deletion check task.
    * 
    * @remarks
-   * Before deleting a member account, call this API to perform a pre-deletion condition check on the target member account.
+   * Before you delete a member, call this API to check the deletion conditions for the target member.
    * 
    * @param request - CheckAccountDeleteRequest
    * @returns CheckAccountDeleteResponse
@@ -898,10 +908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a member of the resource account type by calling CreateResourceAccount.
+   * Creates a member of the resource account type.
    * 
    * @remarks
-   * In a resource directory, a member serves as a resource container and is a resource grouping unit. A member typically represents a project or application. Resources in each member are physically isolated from resources in other members.
+   * In a resource directory, a member serves as a resource container and a resource grouping unit. Members typically represent projects or applications. Resources in each member are physically isolated from resources in other members.
    * 
    * @param request - CreateResourceAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -952,10 +962,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a member of the resource account type by calling CreateResourceAccount.
+   * Creates a member of the resource account type.
    * 
    * @remarks
-   * In a resource directory, a member serves as a resource container and is a resource grouping unit. A member typically represents a project or application. Resources in each member are physically isolated from resources in other members.
+   * In a resource directory, a member serves as a resource container and a resource grouping unit. Members typically represent projects or applications. Resources in each member are physically isolated from resources in other members.
    * 
    * @param request - CreateResourceAccountRequest
    * @returns CreateResourceAccountResponse
@@ -969,7 +979,7 @@ export default class Client extends OpenApi {
    * Creates a resource group.
    * 
    * @remarks
-   * > You can create a maximum of 30 resource groups within an Alibaba Cloud account.
+   * > You can create a maximum of 30 resource groups under an Alibaba Cloud account.
    * 
    * @param request - CreateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -978,8 +988,16 @@ export default class Client extends OpenApi {
   async createResourceGroupWithOptions(request: $_model.CreateResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -1011,7 +1029,7 @@ export default class Client extends OpenApi {
    * Creates a resource group.
    * 
    * @remarks
-   * > You can create a maximum of 30 resource groups within an Alibaba Cloud account.
+   * > You can create a maximum of 30 resource groups under an Alibaba Cloud account.
    * 
    * @param request - CreateResourceGroupRequest
    * @returns CreateResourceGroupResponse
@@ -1168,11 +1186,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a member of the resource account type by calling DeleteAccount.
+   * Deletes a member of the resource account type.
    * 
    * @remarks
-   * Before deleting a member, call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) to perform a pre-deletion check on the member. Only members that meet the deletion conditions can be successfully deleted by calling DeleteAccount.
-   * After you successfully submit a member deletion request, you can call [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) to query the deletion status. Once a member is deleted, all resources and data in the member are deleted. You can no longer log on to or use the member, and the data cannot be recovered. Proceed with caution. For more information about member deletion, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
+   * Before you delete a member, call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) to check the deletion conditions for the member. You can successfully delete a member by calling DeleteAccount only if the member meets the deletion conditions.
+   * After you successfully submit a member deletion request, you can call [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) to query the deletion status. Once a member is deleted, all resources and data in the member are deleted. You cannot log on to or use the member again, and the data cannot be recovered. Proceed with caution. For more information about member deletion, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
    * 
    * @param tmpReq - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1213,11 +1231,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a member of the resource account type by calling DeleteAccount.
+   * Deletes a member of the resource account type.
    * 
    * @remarks
-   * Before deleting a member, call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) to perform a pre-deletion check on the member. Only members that meet the deletion conditions can be successfully deleted by calling DeleteAccount.
-   * After you successfully submit a member deletion request, you can call [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) to query the deletion status. Once a member is deleted, all resources and data in the member are deleted. You can no longer log on to or use the member, and the data cannot be recovered. Proceed with caution. For more information about member deletion, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
+   * Before you delete a member, call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) to check the deletion conditions for the member. You can successfully delete a member by calling DeleteAccount only if the member meets the deletion conditions.
+   * After you successfully submit a member deletion request, you can call [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) to query the deletion status. Once a member is deleted, all resources and data in the member are deleted. You cannot log on to or use the member again, and the data cannot be recovered. Proceed with caution. For more information about member deletion, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -1228,7 +1246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an automatic group transfer rule.
+   * Deletes an auto-grouping rule.
    * 
    * @param request - DeleteAutoGroupingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1259,7 +1277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an automatic group transfer rule.
+   * Deletes an auto-grouping rule.
    * 
    * @param request - DeleteAutoGroupingRuleRequest
    * @returns DeleteAutoGroupingRuleResponse
@@ -1273,8 +1291,8 @@ export default class Client extends OpenApi {
    * Deletes a custom control policy.
    * 
    * @remarks
-   * To delete a custom control policy that is attached to a resource folder or member accounts, invoke [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) to detach the policy first.
-   * This topic provides an example on how to delete the custom control policy cp-SImPt8GCEwiq****.
+   * If a custom control policy is attached to resource folders or member accounts, you must invoke [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) to detach it before you can delete it.
+   * This topic provides an example of deleting the custom control policy `cp-SImPt8GCEwiq****`.
    * 
    * @param request - DeleteControlPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1308,8 +1326,8 @@ export default class Client extends OpenApi {
    * Deletes a custom control policy.
    * 
    * @remarks
-   * To delete a custom control policy that is attached to a resource folder or member accounts, invoke [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) to detach the policy first.
-   * This topic provides an example on how to delete the custom control policy cp-SImPt8GCEwiq****.
+   * If a custom control policy is attached to resource folders or member accounts, you must invoke [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) to detach it before you can delete it.
+   * This topic provides an example of deleting the custom control policy `cp-SImPt8GCEwiq****`.
    * 
    * @param request - DeleteControlPolicyRequest
    * @returns DeleteControlPolicyResponse
@@ -1323,7 +1341,7 @@ export default class Client extends OpenApi {
    * Deletes a folder.
    * 
    * @remarks
-   * > Before deleting a folder, make sure that the folder does not contain any member accounts or subfolders.
+   * > Before deleting a folder, ensure that the folder contains no members or subfolders.
    * 
    * @param request - DeleteFolderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1357,7 +1375,7 @@ export default class Client extends OpenApi {
    * Deletes a folder.
    * 
    * @remarks
-   * > Before deleting a folder, make sure that the folder does not contain any member accounts or subfolders.
+   * > Before deleting a folder, ensure that the folder contains no members or subfolders.
    * 
    * @param request - DeleteFolderRequest
    * @returns DeleteFolderResponse
@@ -1371,8 +1389,8 @@ export default class Client extends OpenApi {
    * Deletes a specified access policy.
    * 
    * @remarks
-   * > - Before deleting an access policy, delete all non-default versions of the policy. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
-   * > - Before deleting an access policy, make sure that the policy is not referenced, meaning it is not attached to any Resource Access Management (RAM) user, user group, or RAM role. For information about how to remove an authorization, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+   * > - Before deleting an access policy, you must delete all non-default versions of the policy. For more information about how to delete an access policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+   * > - Before deleting an access policy, ensure that the policy is not referenced (that is, not granted to Resource Access Management (RAM) users, user groups, or RAM roles). For more information about how to remove authorization, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
    * 
    * @param request - DeletePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1406,8 +1424,8 @@ export default class Client extends OpenApi {
    * Deletes a specified access policy.
    * 
    * @remarks
-   * > - Before deleting an access policy, delete all non-default versions of the policy. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
-   * > - Before deleting an access policy, make sure that the policy is not referenced, meaning it is not attached to any Resource Access Management (RAM) user, user group, or RAM role. For information about how to remove an authorization, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+   * > - Before deleting an access policy, you must delete all non-default versions of the policy. For more information about how to delete an access policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+   * > - Before deleting an access policy, ensure that the policy is not referenced (that is, not granted to Resource Access Management (RAM) users, user groups, or RAM roles). For more information about how to remove authorization, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
    * 
    * @param request - DeletePolicyRequest
    * @returns DeletePolicyResponse
@@ -1418,7 +1436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a version of an access policy.
+   * Deletes an access policy version.
    * 
    * @remarks
    * > The default version of an access policy cannot be deleted.
@@ -1456,7 +1474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a version of an access policy.
+   * Deletes an access policy version.
    * 
    * @remarks
    * > The default version of an access policy cannot be deleted.
@@ -1473,7 +1491,7 @@ export default class Client extends OpenApi {
    * Deletes a resource group.
    * 
    * @remarks
-   * > Before you delete a resource group, delete all resources in the resource group.
+   * > Before deleting a resource group, delete the resources in the resource group.
    * 
    * @param request - DeleteResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1482,6 +1500,14 @@ export default class Client extends OpenApi {
   async deleteResourceGroupWithOptions(request: $_model.DeleteResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -1507,7 +1533,7 @@ export default class Client extends OpenApi {
    * Deletes a resource group.
    * 
    * @remarks
-   * > Before you delete a resource group, delete all resources in the resource group.
+   * > Before deleting a resource group, delete the resources in the resource group.
    * 
    * @param request - DeleteResourceGroupRequest
    * @returns DeleteResourceGroupResponse
@@ -1602,10 +1628,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DeregisterDelegatedAdministrator operation to remove the delegated administrator account of a trusted service.
+   * Removes the delegated administrator account for a trusted service.
    * 
    * @remarks
-   * > If the delegated administrator account being removed has historical management tasks in the trusted service, the removal may affect the normal use of the trusted service. Carefully consider the potential impact before performing the removal.
+   * > If the delegated administrator account to be removed has historical management tasks in the trusted service, the removal operation may affect the normal use of the trusted service. Carefully consider the potential impact before removing the account.
    * 
    * @param request - DeregisterDelegatedAdministratorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1640,10 +1666,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DeregisterDelegatedAdministrator operation to remove the delegated administrator account of a trusted service.
+   * Removes the delegated administrator account for a trusted service.
    * 
    * @remarks
-   * > If the delegated administrator account being removed has historical management tasks in the trusted service, the removal may affect the normal use of the trusted service. Carefully consider the potential impact before performing the removal.
+   * > If the delegated administrator account to be removed has historical management tasks in the trusted service, the removal operation may affect the normal use of the trusted service. Carefully consider the potential impact before removing the account.
    * 
    * @param request - DeregisterDelegatedAdministratorRequest
    * @returns DeregisterDelegatedAdministratorResponse
@@ -1654,12 +1680,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Closes a resource directory by calling DestroyResourceDirectory. This operation is irreversible. Proceed with caution.
+   * Closes the resource directory. This operation is irreversible. Proceed with caution.
    * 
    * @remarks
-   * Before closing a resource directory, make sure that you have completed the following operations:
-   * - All members in the resource directory have been removed. For information about how to remove a member, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
-   * - All folders except the Root folder in the resource directory have been deleted. For information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
+   * Before closing the resource directory, ensure that the following operations are completed:
+   * - All members in the resource directory have been removed. For more information about how to remove a member, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
+   * - All folders except the Root folder in the resource directory have been deleted. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DestroyResourceDirectoryResponse
@@ -1681,12 +1707,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Closes a resource directory by calling DestroyResourceDirectory. This operation is irreversible. Proceed with caution.
+   * Closes the resource directory. This operation is irreversible. Proceed with caution.
    * 
    * @remarks
-   * Before closing a resource directory, make sure that you have completed the following operations:
-   * - All members in the resource directory have been removed. For information about how to remove a member, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
-   * - All folders except the Root folder in the resource directory have been deleted. For information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
+   * Before closing the resource directory, ensure that the following operations are completed:
+   * - All members in the resource directory have been removed. For more information about how to remove a member, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
+   * - All folders except the Root folder in the resource directory have been deleted. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
    * @returns DestroyResourceDirectoryResponse
    */
   async destroyResourceDirectory(): Promise<$_model.DestroyResourceDirectoryResponse> {
@@ -1695,12 +1721,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a control policy from a resource folder or member.
+   * Dissociates a control policy.
    * 
    * @remarks
-   * After the control policy is detached, the resource folder or member that was previously associated with the policy immediately loses the governance enforced by the policy. Make sure that the result of the detach operation is as expected to avoid impact on your business.
-   * Both system policies and custom control policies can be detached. However, the last control policy associated with a resource folder or member cannot be detached.
-   * This topic provides an example on how to detach the custom policy `cp-jExXAqIYkwHN****` from the resource folder `fd-ZDNPiT****`.
+   * After the dissociation succeeds, the folder or member immediately loses the governance applied by the control policy. Make sure that the dissociation produces the expected results to avoid affecting your business.
+   * Both system policies and custom control policies can be dissociated. However, you cannot dissociate the last control policy associated with a folder or member.
+   * This topic provides an example to show how to dissociate the custom policy cp-jExXAqIYkwHN**** from the folder fd-ZDNPiT****.
    * 
    * @param request - DetachControlPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1735,12 +1761,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a control policy from a resource folder or member.
+   * Dissociates a control policy.
    * 
    * @remarks
-   * After the control policy is detached, the resource folder or member that was previously associated with the policy immediately loses the governance enforced by the policy. Make sure that the result of the detach operation is as expected to avoid impact on your business.
-   * Both system policies and custom control policies can be detached. However, the last control policy associated with a resource folder or member cannot be detached.
-   * This topic provides an example on how to detach the custom policy `cp-jExXAqIYkwHN****` from the resource folder `fd-ZDNPiT****`.
+   * After the dissociation succeeds, the folder or member immediately loses the governance applied by the control policy. Make sure that the dissociation produces the expected results to avoid affecting your business.
+   * Both system policies and custom control policies can be dissociated. However, you cannot dissociate the last control policy associated with a folder or member.
+   * This topic provides an example to show how to dissociate the custom policy cp-jExXAqIYkwHN**** from the folder fd-ZDNPiT****.
    * 
    * @param request - DetachControlPolicyRequest
    * @returns DetachControlPolicyResponse
@@ -1751,7 +1777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches an access policy from a specified identity. After the policy is detached, the identity loses the permissions to manage resources in the specified resource group or Alibaba Cloud account.
+   * Removes a specified access policy from a specified object. After the authorization is removed, the object loses permissions to operate on resources in the current resource group or account.
    * 
    * @param request - DetachPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1798,7 +1824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches an access policy from a specified identity. After the policy is detached, the identity loses the permissions to manage resources in the specified resource group or Alibaba Cloud account.
+   * Removes a specified access policy from a specified object. After the authorization is removed, the object loses permissions to operate on resources in the current resource group or account.
    * 
    * @param request - DetachPolicyRequest
    * @returns DetachPolicyResponse
@@ -1809,7 +1835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the attached-resource allocation feature for associated resources.
+   * Disables the associated resource transfer feature.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableAssociatedTransferResponse
@@ -1831,7 +1857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the attached-resource allocation feature for associated resources.
+   * Disables the associated resource transfer feature.
    * @returns DisableAssociatedTransferResponse
    */
   async disableAssociatedTransfer(): Promise<$_model.DisableAssociatedTransferResponse> {
@@ -1840,7 +1866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables automatic resource group transfer. After this feature is disabled, the custom condition rules and attached-resource transfer rules that have been configured are deleted. The resource groups of existing resources are not affected. If needed, you can re-enable this feature 1 minute after disabling it.
+   * Disables automatic resource grouping. After the automatic grouping feature is disabled, configured custom condition rules and follow-grouping rules for associated resources are deleted, but the resource groups of existing resources remain unaffected. If needed, you can re-enable this feature 1 minute after disabling it.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableAutoGroupingResponse
@@ -1862,7 +1888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables automatic resource group transfer. After this feature is disabled, the custom condition rules and attached-resource transfer rules that have been configured are deleted. The resource groups of existing resources are not affected. If needed, you can re-enable this feature 1 minute after disabling it.
+   * Disables automatic resource grouping. After the automatic grouping feature is disabled, configured custom condition rules and follow-grouping rules for associated resources are deleted, but the resource groups of existing resources remain unaffected. If needed, you can re-enable this feature 1 minute after disabling it.
    * @returns DisableAutoGroupingResponse
    */
   async disableAutoGrouping(): Promise<$_model.DisableAutoGroupingResponse> {
@@ -1874,8 +1900,8 @@ export default class Client extends OpenApi {
    * Disables the control policy feature.
    * 
    * @remarks
-   * After you disable the control policy feature, all control policies that are attached to resource folders and member accounts are automatically detached. However, the control policies are not deleted. They cannot be attached to any target nodes.
-   * > Disabling the control policy feature affects the permissions of resource folders and member accounts in the entire resource directory. Proceed with caution.
+   * After you disable the control policy feature, all control policies attached to folders and member accounts are automatically detached. The control policies are not deleted, but they can no longer be attached to any target nodes.
+   * > Disabling the control policy feature affects the permissions of folders and member accounts in the entire resource directory. Proceed with caution.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableControlPolicyResponse
@@ -1900,8 +1926,8 @@ export default class Client extends OpenApi {
    * Disables the control policy feature.
    * 
    * @remarks
-   * After you disable the control policy feature, all control policies that are attached to resource folders and member accounts are automatically detached. However, the control policies are not deleted. They cannot be attached to any target nodes.
-   * > Disabling the control policy feature affects the permissions of resource folders and member accounts in the entire resource directory. Proceed with caution.
+   * After you disable the control policy feature, all control policies attached to folders and member accounts are automatically detached. The control policies are not deleted, but they can no longer be attached to any target nodes.
+   * > Disabling the control policy feature affects the permissions of folders and member accounts in the entire resource directory. Proceed with caution.
    * @returns DisableControlPolicyResponse
    */
   async disableControlPolicy(): Promise<$_model.DisableControlPolicyResponse> {
@@ -1941,7 +1967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the attached-resource allocation feature for resource group transfers.
+   * Enables the associated resource group transfer feature.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableAssociatedTransferResponse
@@ -1963,7 +1989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the attached-resource allocation feature for resource group transfers.
+   * Enables the associated resource group transfer feature.
    * @returns EnableAssociatedTransferResponse
    */
   async enableAssociatedTransfer(): Promise<$_model.EnableAssociatedTransferResponse> {
@@ -1972,7 +1998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables automatic grouping. After automatic grouping is enabled, you can create, update, delete, and query automatic grouping rules.
+   * Enables automatic grouping. After you enable this feature, you can create, update, delete, and query automatic grouping rules.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableAutoGroupingResponse
@@ -1994,7 +2020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables automatic grouping. After automatic grouping is enabled, you can create, update, delete, and query automatic grouping rules.
+   * Enables automatic grouping. After you enable this feature, you can create, update, delete, and query automatic grouping rules.
    * @returns EnableAutoGroupingResponse
    */
   async enableAutoGrouping(): Promise<$_model.EnableAutoGroupingResponse> {
@@ -2003,10 +2029,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the control policy feature by calling EnableControlPolicy.
+   * Enables the control policy feature.
    * 
    * @remarks
-   * A resource directory control policy is an access control policy based on the resource structure (resource folders or member accounts). It allows you to centrally manage the access permissions border for resource access at each level of the resource directory and establish overall or localized access control principles for your enterprise. Control policies define only the access permissions border and do not actually grant permissions. You must also set permissions by using Resource Access Management (RAM) in a member account before the corresponding identity can have access permissions to resources. For more information, see [Overview of control policies](https://help.aliyun.com/document_detail/178671.html).
+   * A control policy in Resource Directory is an access control policy based on the resource structure (folders or member accounts). It allows you to manage permission boundaries for resource access across all levels of the resource directory in a unified manner and establish enterprise-wide or specific access control principles. Control policies only define permission boundaries and do not grant permissions. You must also configure permissions in the Resource Access Management (RAM) Settings of a member account before the corresponding identity has access permissions to resources. For more information, see [Control policy overview](https://help.aliyun.com/document_detail/178671.html).
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableControlPolicyResponse
@@ -2028,10 +2054,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the control policy feature by calling EnableControlPolicy.
+   * Enables the control policy feature.
    * 
    * @remarks
-   * A resource directory control policy is an access control policy based on the resource structure (resource folders or member accounts). It allows you to centrally manage the access permissions border for resource access at each level of the resource directory and establish overall or localized access control principles for your enterprise. Control policies define only the access permissions border and do not actually grant permissions. You must also set permissions by using Resource Access Management (RAM) in a member account before the corresponding identity can have access permissions to resources. For more information, see [Overview of control policies](https://help.aliyun.com/document_detail/178671.html).
+   * A control policy in Resource Directory is an access control policy based on the resource structure (folders or member accounts). It allows you to manage permission boundaries for resource access across all levels of the resource directory in a unified manner and establish enterprise-wide or specific access control principles. Control policies only define permission boundaries and do not grant permissions. You must also configure permissions in the Resource Access Management (RAM) Settings of a member account before the corresponding identity has access permissions to resources. For more information, see [Control policy overview](https://help.aliyun.com/document_detail/178671.html).
    * @returns EnableControlPolicyResponse
    */
   async enableControlPolicy(): Promise<$_model.EnableControlPolicyResponse> {
@@ -2102,7 +2128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables resource group event notifications by calling EnableResourceGroupNotification.
+   * Enables event notifications for resource groups.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableResourceGroupNotificationResponse
@@ -2124,7 +2150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables resource group event notifications by calling EnableResourceGroupNotification.
+   * Enables event notifications for resource groups.
    * @returns EnableResourceGroupNotificationResponse
    */
   async enableResourceGroupNotification(): Promise<$_model.EnableResourceGroupNotificationResponse> {
@@ -2179,11 +2205,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a member deletion check by calling GetAccountDeletionCheckResult.
+   * Queries the member deletion check result.
    * 
    * @remarks
-   * After you call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) to perform a member deletion check task, you can call GetAccountDeletionCheckResult to query the result of the member deletion check. If the deletion check requirements are met, the member account can be deleted. Otherwise, manually handle the non-compliant items until all requirements are met.
-   * This topic provides an example on how to query the deletion check result of the member account `179855839641****` that you want to delete. The response shows that the member account does not meet the deletion requirements.
+   * After you call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) to execute a member deletion check task, you can call GetAccountDeletionCheckResult to query the result of the member deletion check. If the member meets the deletion check requirements, the member can be deleted. Otherwise, manually handle the non-compliant items until the requirements are met.
+   * This topic provides an example to query the deletion check result of the member `179855839641****` to be deleted. The returned result shows that the member does not meet the deletion requirements.
    * 
    * @param request - GetAccountDeletionCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2214,11 +2240,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a member deletion check by calling GetAccountDeletionCheckResult.
+   * Queries the member deletion check result.
    * 
    * @remarks
-   * After you call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) to perform a member deletion check task, you can call GetAccountDeletionCheckResult to query the result of the member deletion check. If the deletion check requirements are met, the member account can be deleted. Otherwise, manually handle the non-compliant items until all requirements are met.
-   * This topic provides an example on how to query the deletion check result of the member account `179855839641****` that you want to delete. The response shows that the member account does not meet the deletion requirements.
+   * After you call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) to execute a member deletion check task, you can call GetAccountDeletionCheckResult to query the result of the member deletion check. If the member meets the deletion check requirements, the member can be deleted. Otherwise, manually handle the non-compliant items until the requirements are met.
+   * This topic provides an example to query the deletion check result of the member `179855839641****` to be deleted. The returned result shows that the member does not meet the deletion requirements.
    * 
    * @param request - GetAccountDeletionCheckResultRequest
    * @returns GetAccountDeletionCheckResultResponse
@@ -2319,7 +2345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of automatic resource group transfer settings by calling GetAutoGroupingStatus.
+   * Queries the status of automatic grouping settings.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAutoGroupingStatusResponse
@@ -2341,7 +2367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of automatic resource group transfer settings by calling GetAutoGroupingStatus.
+   * Queries the status of automatic grouping settings.
    * @returns GetAutoGroupingStatusResponse
    */
   async getAutoGroupingStatus(): Promise<$_model.GetAutoGroupingStatusResponse> {
@@ -2475,10 +2501,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves handshake information by calling GetHandshake.
+   * Retrieves the invitation information.
    * 
    * @remarks
-   * This topic provides an example on how to retrieve the information about the handshake whose ID is `h-ycm4rp****`.
+   * This topic provides an example of retrieving the invitation information for the invitation whose ID is `h-ycm4rp****`.
    * 
    * @param request - GetHandshakeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2509,10 +2535,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves handshake information by calling GetHandshake.
+   * Retrieves the invitation information.
    * 
    * @remarks
-   * This topic provides an example on how to retrieve the information about the handshake whose ID is `h-ycm4rp****`.
+   * This topic provides an example of retrieving the invitation information for the invitation whose ID is `h-ycm4rp****`.
    * 
    * @param request - GetHandshakeRequest
    * @returns GetHandshakeResponse
@@ -2523,7 +2549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the billing account information of a member account by calling GetPayerForAccount.
+   * Retrieves the billing account information of a member.
    * 
    * @param request - GetPayerForAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2554,7 +2580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the billing account information of a member account by calling GetPayerForAccount.
+   * Retrieves the billing account information of a member.
    * 
    * @param request - GetPayerForAccountRequest
    * @returns GetPayerForAccountResponse
@@ -2665,10 +2691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries resource directory information. When called by a management account, returns the details of the resource directory created by the management account. When called by a member, returns the details of the resource directory to which the member belongs.
+   * Retrieves the information about a resource directory. When called by a management account, the operation returns the details of the resource directory enabled by the management account. When called by a member, the operation returns the details of the resource directory to which the member belongs.
    * 
    * @remarks
-   * This topic provides an example of how to use a management account to query the details of the resource directory created by the management account.
+   * This topic provides an example on how to query the details of a resource directory enabled by a management account.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceDirectoryResponse
@@ -2690,10 +2716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries resource directory information. When called by a management account, returns the details of the resource directory created by the management account. When called by a member, returns the details of the resource directory to which the member belongs.
+   * Retrieves the information about a resource directory. When called by a management account, the operation returns the details of the resource directory enabled by the management account. When called by a member, the operation returns the details of the resource directory to which the member belongs.
    * 
    * @remarks
-   * This topic provides an example of how to use a management account to query the details of the resource directory created by the management account.
+   * This topic provides an example on how to query the details of a resource directory enabled by a management account.
    * @returns GetResourceDirectoryResponse
    */
   async getResourceDirectory(): Promise<$_model.GetResourceDirectoryResponse> {
@@ -2748,7 +2774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the administrator settings of a resource group.
+   * Queries the resource group administrator settings.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceGroupAdminSettingResponse
@@ -2770,7 +2796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the administrator settings of a resource group.
+   * Queries the resource group administrator settings.
    * @returns GetResourceGroupAdminSettingResponse
    */
   async getResourceGroupAdminSetting(): Promise<$_model.GetResourceGroupAdminSettingResponse> {
@@ -2779,7 +2805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the notification settings of a resource group by calling GetResourceGroupNotificationSetting.
+   * Queries the notification settings of a resource group.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceGroupNotificationSettingResponse
@@ -2801,7 +2827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the notification settings of a resource group by calling GetResourceGroupNotificationSetting.
+   * Queries the notification settings of a resource group.
    * @returns GetResourceGroupNotificationSettingResponse
    */
   async getResourceGroupNotificationSetting(): Promise<$_model.GetResourceGroupNotificationSettingResponse> {
@@ -2910,7 +2936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a task that deletes a service-linked role.
+   * Retrieves the status of a task that deletes a service-linked role.
    * 
    * @param request - GetServiceLinkedRoleDeletionStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2941,7 +2967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a task that deletes a service-linked role.
+   * Retrieves the status of a task that deletes a service-linked role.
    * 
    * @param request - GetServiceLinkedRoleDeletionStatusRequest
    * @returns GetServiceLinkedRoleDeletionStatusResponse
@@ -2994,7 +3020,7 @@ export default class Client extends OpenApi {
    * Invites an external account to join a resource directory.
    * 
    * @remarks
-   * This topic provides an example on how to invite the external account `someone@example.com` to join a resource directory.
+   * This topic provides an example of inviting an external account `someone@example.com` to join a resource directory.
    * 
    * @param request - InviteAccountToResourceDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3040,7 +3066,7 @@ export default class Client extends OpenApi {
    * Invites an external account to join a resource directory.
    * 
    * @remarks
-   * This topic provides an example on how to invite the external account `someone@example.com` to join a resource directory.
+   * This topic provides an example of inviting an external account `someone@example.com` to join a resource directory.
    * 
    * @param request - InviteAccountToResourceDirectoryRequest
    * @returns InviteAccountToResourceDirectoryResponse
@@ -3051,10 +3077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all member accounts in a resource directory by calling ListAccounts.
+   * Queries all member accounts in a resource directory.
    * 
    * @remarks
-   * The management account of the resource directory and the delegated administrator accounts of trusted services can call this operation.
+   * The management account of the resource directory and the delegated administrator account of a trusted service can call this operation.
    * 
    * @param request - ListAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3097,10 +3123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all member accounts in a resource directory by calling ListAccounts.
+   * Queries all member accounts in a resource directory.
    * 
    * @remarks
-   * The management account of the resource directory and the delegated administrator accounts of trusted services can call this operation.
+   * The management account of the resource directory and the delegated administrator account of a trusted service can call this operation.
    * 
    * @param request - ListAccountsRequest
    * @returns ListAccountsResponse
@@ -3111,7 +3137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of member accounts in a resource folder by calling ListAccountsForParent.
+   * Queries the members in a folder.
    * 
    * @param request - ListAccountsForParentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3162,7 +3188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of member accounts in a resource folder by calling ListAccountsForParent.
+   * Queries the members in a folder.
    * 
    * @param request - ListAccountsForParentRequest
    * @returns ListAccountsForParentResponse
@@ -3215,7 +3241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the settings of the associated resource group transfer feature.
+   * Retrieves the associated transfer settings.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAssociatedTransferSettingResponse
@@ -3237,7 +3263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the settings of the associated resource group transfer feature.
+   * Retrieves the associated transfer settings.
    * @returns ListAssociatedTransferSettingResponse
    */
   async listAssociatedTransferSetting(): Promise<$_model.ListAssociatedTransferSettingResponse> {
@@ -3484,7 +3510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of delegated administrator accounts for a trusted service.
+   * Queries the delegated administrator accounts for a trusted service.
    * 
    * @param request - ListDelegatedAdministratorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3523,7 +3549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of delegated administrator accounts for a trusted service.
+   * Queries the delegated administrator accounts for a trusted service.
    * 
    * @param request - ListDelegatedAdministratorsRequest
    * @returns ListDelegatedAdministratorsResponse
@@ -3534,7 +3560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trusted services for which a specified member is set as a delegated administrator account.
+   * Queries the trusted services for which a specified member is configured as a delegated administrator account.
    * 
    * @param request - ListDelegatedServicesForAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3565,7 +3591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trusted services for which a specified member is set as a delegated administrator account.
+   * Queries the trusted services for which a specified member is configured as a delegated administrator account.
    * 
    * @param request - ListDelegatedServicesForAccountRequest
    * @returns ListDelegatedServicesForAccountResponse
@@ -3636,10 +3662,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the invitation records under the current account.
+   * Queries the invitation records for the current account.
    * 
    * @remarks
-   * This topic provides an example on how to query the invitation records of the current management account `172841235500****`.
+   * This topic provides an example of querying the invitation records for the current management account `172841235500****`.
    * 
    * @param request - ListHandshakesForAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3674,10 +3700,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the invitation records under the current account.
+   * Queries the invitation records for the current account.
    * 
    * @remarks
-   * This topic provides an example on how to query the invitation records of the current management account `172841235500****`.
+   * This topic provides an example of querying the invitation records for the current management account `172841235500****`.
    * 
    * @param request - ListHandshakesForAccountRequest
    * @returns ListHandshakesForAccountResponse
@@ -3916,7 +3942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the capability items of resource groups.
+   * Lists the capabilities of resource groups.
    * 
    * @param request - ListResourceGroupCapabilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3955,7 +3981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the capability items of resource groups.
+   * Lists the capabilities of resource groups.
    * 
    * @param request - ListResourceGroupCapabilityRequest
    * @returns ListResourceGroupCapabilityResponse
@@ -3966,10 +3992,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of resource groups.
+   * Queries a list of resource groups.
    * 
    * @remarks
-   * You can call this operation to query all resource groups under the current account. You can also filter resource groups by resource group status, resource group ID, resource group identifier, or resource group display name.
+   * You can call this operation to query all resource groups within the current account. You can also query specific resource groups by resource group status, resource group ID, resource group identifier, or resource group display name.
    * 
    * @param request - ListResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4032,10 +4058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of resource groups.
+   * Queries a list of resource groups.
    * 
    * @remarks
-   * You can call this operation to query all resource groups under the current account. You can also filter resource groups by resource group status, resource group ID, resource group identifier, or resource group display name.
+   * You can call this operation to query all resource groups within the current account. You can also query specific resource groups by resource group status, resource group ID, resource group identifier, or resource group display name.
    * 
    * @param request - ListResourceGroupsRequest
    * @returns ListResourceGroupsResponse
@@ -4046,7 +4072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists resource groups along with user authorization details.
+   * Queries resource groups and user authorization details.
    * 
    * @param request - ListResourceGroupsWithAuthDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4113,7 +4139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists resource groups along with user authorization details.
+   * Queries resource groups and user authorization details.
    * 
    * @param request - ListResourceGroupsWithAuthDetailsRequest
    * @returns ListResourceGroupsWithAuthDetailsResponse
@@ -4254,7 +4280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag key list of resource directory member accounts by calling ListTagKeys.
+   * Queries the tag keys of resource directory members.
    * 
    * @param request - ListTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4297,7 +4323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag key list of resource directory member accounts by calling ListTagKeys.
+   * Queries the tag keys of resource directory members.
    * 
    * @param request - ListTagKeysRequest
    * @returns ListTagKeysResponse
@@ -4308,7 +4334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are attached to a resource group or a resource directory member.
+   * Queries the tags bound to resource groups or resource directory members.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4355,7 +4381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are attached to a resource group or a resource directory member.
+   * Queries the tags bound to resource groups or resource directory members.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -4366,11 +4392,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of a specified tag key by calling ListTagValues.
+   * Queries the tag values for a specified tag key.
    * 
    * @remarks
    * ### Usage notes
-   * This topic provides an example on how to query the tag values of the tag key k1. The response shows that the tag value corresponding to the tag key k1 is v1.
+   * This topic provides an example to query the tag values for the tag key k1. The response shows that the tag value for the tag key k1 is v1.
    * 
    * @param request - ListTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4417,11 +4443,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of a specified tag key by calling ListTagValues.
+   * Queries the tag values for a specified tag key.
    * 
    * @remarks
    * ### Usage notes
-   * This topic provides an example on how to query the tag values of the tag key k1. The response shows that the tag value corresponding to the tag key k1 is v1.
+   * This topic provides an example to query the tag values for the tag key k1. The response shows that the tag value for the tag key k1 is v1.
    * 
    * @param request - ListTagValuesRequest
    * @returns ListTagValuesResponse
@@ -4433,6 +4459,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the nodes to which a control policy is attached.
+   * 
+   * @remarks
+   * 调用本接口前，请先开启管控策略功能（EnableControlPolicy），可通过 GetControlPolicyEnablementStatus 确认状态为 Enabled（已开启）。功能未开启时，管控策略无法绑定到任何节点。
    * 
    * @param request - ListTargetAttachmentsForControlPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4472,6 +4501,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the nodes to which a control policy is attached.
+   * 
+   * @remarks
+   * 调用本接口前，请先开启管控策略功能（EnableControlPolicy），可通过 GetControlPolicyEnablementStatus 确认状态为 Enabled（已开启）。功能未开启时，管控策略无法绑定到任何节点。
    * 
    * @param request - ListTargetAttachmentsForControlPolicyRequest
    * @returns ListTargetAttachmentsForControlPolicyResponse
@@ -4654,11 +4686,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls MoveResources to move resources from one resource group to another.
+   * Moves resources from one resource group to another.
    * 
    * @remarks
-   * Supports batch transfer of resources across regions, cloud services, and resource groups.
-   * For cloud services that support resource group transfer, see the **API** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can transfer resources in batches across regions, cloud services, and resource groups.
+   * For cloud services that support resource groups, see the **API** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @param request - MoveResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4693,11 +4725,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls MoveResources to move resources from one resource group to another.
+   * Moves resources from one resource group to another.
    * 
    * @remarks
-   * Supports batch transfer of resources across regions, cloud services, and resource groups.
-   * For cloud services that support resource group transfer, see the **API** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can transfer resources in batches across regions, cloud services, and resource groups.
+   * For cloud services that support resource groups, see the **API** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @param request - MoveResourcesRequest
    * @returns MoveResourcesResponse
@@ -4709,6 +4741,9 @@ export default class Client extends OpenApi {
 
   /**
    * Upgrades a resource account to an Alibaba Cloud account. This is an asynchronous operation.
+   * 
+   * @remarks
+   * 本接口仅支持升级资源账号类型的成员；成员类型或状态不匹配时返回 409 AccountTypeOrStatusMismatch，成员处于删除中状态时不支持升级。
    * 
    * @param request - PromoteResourceAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4745,6 +4780,9 @@ export default class Client extends OpenApi {
   /**
    * Upgrades a resource account to an Alibaba Cloud account. This is an asynchronous operation.
    * 
+   * @remarks
+   * 本接口仅支持升级资源账号类型的成员；成员类型或状态不匹配时返回 409 AccountTypeOrStatusMismatch，成员处于删除中状态时不支持升级。
+   * 
    * @param request - PromoteResourceAccountRequest
    * @returns PromoteResourceAccountResponse
    */
@@ -4754,14 +4792,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a member account in a resource directory as a delegated administrator account for a trusted service.
+   * Invokes RegisterDelegatedAdministrator to configure the Settings of member accounts in a resource folder as delegated administrators for a trusted service.
    * 
    * @remarks
-   * After the settings are complete, the delegated administrator account is granted authorization to access the organizational information of the resource directory, which provides visibility into the organization members and structure. The delegated administrator account executes service-related management operations on behalf of the management account in the specified trusted service.
+   * After the Settings are applied, the delegated administrator account receives authorization to access the organization information of the resource folder, which provides visibility into the organization members and structure. The delegated administrator account executes service-related management operations on behalf of the management account of the resource folder in the specified trusted service.
    * Limits:
-   * - Only some trusted services support the delegated administrator feature. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
-   * - Only the management account of the resource directory and authorized Resource Access Management (RAM) users and RAM roles under the management account can invoke this API operation.
-   * - The maximum number of delegated administrator accounts that can be added is defined by each trusted service.
+   * - Only specific trusted services support the delegated administrator feature. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+   * - Only the management account of the resource folder and its authorized Resource Access Management (RAM) users and RAM roles can invoke this API.
+   * - The maximum number of delegated administrator accounts that can be added for a trusted service is defined by the trusted service.
    * 
    * @param request - RegisterDelegatedAdministratorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4796,14 +4834,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a member account in a resource directory as a delegated administrator account for a trusted service.
+   * Invokes RegisterDelegatedAdministrator to configure the Settings of member accounts in a resource folder as delegated administrators for a trusted service.
    * 
    * @remarks
-   * After the settings are complete, the delegated administrator account is granted authorization to access the organizational information of the resource directory, which provides visibility into the organization members and structure. The delegated administrator account executes service-related management operations on behalf of the management account in the specified trusted service.
+   * After the Settings are applied, the delegated administrator account receives authorization to access the organization information of the resource folder, which provides visibility into the organization members and structure. The delegated administrator account executes service-related management operations on behalf of the management account of the resource folder in the specified trusted service.
    * Limits:
-   * - Only some trusted services support the delegated administrator feature. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
-   * - Only the management account of the resource directory and authorized Resource Access Management (RAM) users and RAM roles under the management account can invoke this API operation.
-   * - The maximum number of delegated administrator accounts that can be added is defined by each trusted service.
+   * - Only specific trusted services support the delegated administrator feature. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+   * - Only the management account of the resource folder and its authorized Resource Access Management (RAM) users and RAM roles can invoke this API.
+   * - The maximum number of delegated administrator accounts that can be added for a trusted service is defined by the trusted service.
    * 
    * @param request - RegisterDelegatedAdministratorRequest
    * @returns RegisterDelegatedAdministratorResponse
@@ -4814,7 +4852,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a member of the cloud account type. After the member is removed, it exists as an independent Alibaba Cloud account and is no longer managed by the management account of the resource directory.
+   * Removes a member of the cloud account type. After removal, the member exists as an independent Alibaba Cloud account and is no longer managed by the management account of the resource directory.
+   * 
+   * @remarks
+   * 本接口仅适用于云账号类型的成员。资源账号类型的成员不能通过本接口移除，需通过 DeleteAccount 删除。
+   * 移除前需确认该账号未被可信服务使用；被可信服务使用时返回 409 Deny.TrustedService，请先将该账号从可信服务中解除使用。
+   * 成员类型或状态不匹配时返回 409 AccountTypeOrStatusMismatch。
+   * 若目标云账号是可信服务的委派管理员，需先调用 DeregisterDelegatedAdministrator 移除其委派管理员身份，否则无法移除。
    * 
    * @param request - RemoveCloudAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4845,7 +4889,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a member of the cloud account type. After the member is removed, it exists as an independent Alibaba Cloud account and is no longer managed by the management account of the resource directory.
+   * Removes a member of the cloud account type. After removal, the member exists as an independent Alibaba Cloud account and is no longer managed by the management account of the resource directory.
+   * 
+   * @remarks
+   * 本接口仅适用于云账号类型的成员。资源账号类型的成员不能通过本接口移除，需通过 DeleteAccount 删除。
+   * 移除前需确认该账号未被可信服务使用；被可信服务使用时返回 409 Deny.TrustedService，请先将该账号从可信服务中解除使用。
+   * 成员类型或状态不匹配时返回 409 AccountTypeOrStatusMismatch。
+   * 若目标云账号是可信服务的委派管理员，需先调用 DeregisterDelegatedAdministrator 移除其委派管理员身份，否则无法移除。
    * 
    * @param request - RemoveCloudAccountRequest
    * @returns RemoveCloudAccountResponse
@@ -4940,7 +4990,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resends the confirmation email for changing the email address of a member account.
+   * Resends the confirmation email for changing the email address of a member.
+   * 
+   * @remarks
+   * 调用前，目标成员需存在待验证的邮箱修改记录，否则返回 404 EntityNotExists.EmailModifyRecord。邮箱修改记录可通过 ChangeAccountEmail 发起。
    * 
    * @param request - RetryChangeAccountEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4971,7 +5024,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resends the confirmation email for changing the email address of a member account.
+   * Resends the confirmation email for changing the email address of a member.
+   * 
+   * @remarks
+   * 调用前，目标成员需存在待验证的邮箱修改记录，否则返回 404 EntityNotExists.EmailModifyRecord。邮箱修改记录可通过 ChangeAccountEmail 发起。
    * 
    * @param request - RetryChangeAccountEmailRequest
    * @returns RetryChangeAccountEmailResponse
@@ -5034,7 +5090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a verification code to the secure phone number of a new management account when you call SendVerificationCodeForEnableRD to enable a resource directory by creating a new management account.
+   * Sends a verification code to the secure phone number of a new management account when you enable a resource directory by creating a new management account.
    * 
    * @remarks
    * Each Alibaba Cloud account can send up to 100 verification codes per day.
@@ -5068,7 +5124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a verification code to the secure phone number of a new management account when you call SendVerificationCodeForEnableRD to enable a resource directory by creating a new management account.
+   * Sends a verification code to the secure phone number of a new management account when you enable a resource directory by creating a new management account.
    * 
    * @remarks
    * Each Alibaba Cloud account can send up to 100 verification codes per day.
@@ -5128,7 +5184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the member deletion permission by calling SetMemberDeletionPermission.
+   * Enables or disables the member deletion permission.
    * 
    * @remarks
    * You can delete members of the resource account type only after the member deletion permission is enabled.
@@ -5162,7 +5218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the member deletion permission by calling SetMemberDeletionPermission.
+   * Enables or disables the member deletion permission.
    * 
    * @remarks
    * You can delete members of the resource account type only after the member deletion permission is enabled.
@@ -5176,7 +5232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches labels to resource groups or member accounts of a resource directory.
+   * Attaches tags to a resource group or a member of a resource directory.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5215,7 +5271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches labels to resource groups or member accounts of a resource directory.
+   * Attaches tags to a resource group or a member of a resource directory.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -5226,7 +5282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds tags from resource groups or resource directory members.
+   * Removes tags from resource groups or members of a resource directory.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5269,7 +5325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds tags from resource groups or resource directory members.
+   * Removes tags from resource groups or members of a resource directory.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -5280,13 +5336,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a member or switches the member type by calling UpdateAccount.
+   * Modifies the name of a member or switches the member type.
    * 
    * @remarks
    * ### Before you begin
-   * - To ensure that the system can record the specific operator of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
-   * - For the conditions that must be met to switch a resource account to a cloud account, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
-   * - For the conditions that must be met to switch a cloud account to a resource account, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
+   * - To ensure that the system can record the specific operator of management operations, call this API as a Resource Access Management (RAM) user or RAM role that has the resource directory management permissions (AliyunResourceDirectoryFullAccess) under the management account.
+   * - For the conditions that must be met when switching a resource account to a cloud account, refer to [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
+   * - For the conditions that must be met when switching a cloud account to a resource account, refer to [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
    * 
    * @param request - UpdateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5325,13 +5381,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a member or switches the member type by calling UpdateAccount.
+   * Modifies the name of a member or switches the member type.
    * 
    * @remarks
    * ### Before you begin
-   * - To ensure that the system can record the specific operator of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
-   * - For the conditions that must be met to switch a resource account to a cloud account, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
-   * - For the conditions that must be met to switch a cloud account to a resource account, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
+   * - To ensure that the system can record the specific operator of management operations, call this API as a Resource Access Management (RAM) user or RAM role that has the resource directory management permissions (AliyunResourceDirectoryFullAccess) under the management account.
+   * - For the conditions that must be met when switching a resource account to a cloud account, refer to [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
+   * - For the conditions that must be met when switching a cloud account to a resource account, refer to [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
    * 
    * @param request - UpdateAccountRequest
    * @returns UpdateAccountResponse
@@ -5394,7 +5450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls UpdateAutoGroupingConfig to update the automatic group transfer settings. Currently, only the setting for whether to enable existing associated resources to follow the group transfer task is supported.
+   * Updates the automatic group transfer settings. Currently, you can only specify whether to transfer existing associated resources along with the group transfer task.
    * 
    * @param request - UpdateAutoGroupingConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5425,7 +5481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls UpdateAutoGroupingConfig to update the automatic group transfer settings. Currently, only the setting for whether to enable existing associated resources to follow the group transfer task is supported.
+   * Updates the automatic group transfer settings. Currently, you can only specify whether to transfer existing associated resources along with the group transfer task.
    * 
    * @param request - UpdateAutoGroupingConfigRequest
    * @returns UpdateAutoGroupingConfigResponse
@@ -5628,7 +5684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the display name of a resource group.
+   * Updates the display name of a resource group.
    * 
    * @param request - UpdateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5663,7 +5719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the display name of a resource group.
+   * Updates the display name of a resource group.
    * 
    * @param request - UpdateResourceGroupRequest
    * @returns UpdateResourceGroupResponse
@@ -5674,7 +5730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the administrator settings of a resource group by calling UpdateResourceGroupAdminSetting.
+   * Updates the administrator settings of a resource group.
    * 
    * @param request - UpdateResourceGroupAdminSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5705,7 +5761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the administrator settings of a resource group by calling UpdateResourceGroupAdminSetting.
+   * Updates the administrator settings of a resource group.
    * 
    * @param request - UpdateResourceGroupAdminSettingRequest
    * @returns UpdateResourceGroupAdminSettingResponse

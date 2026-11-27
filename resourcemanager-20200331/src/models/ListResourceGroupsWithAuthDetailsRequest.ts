@@ -7,7 +7,7 @@ export class ListResourceGroupsWithAuthDetailsRequestResourceTypes extends $dara
    * @remarks
    * The resource type.
    * 
-   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -15,9 +15,9 @@ export class ListResourceGroupsWithAuthDetailsRequestResourceTypes extends $dara
   resourceTypeCode?: string;
   /**
    * @remarks
-   * The cloud service code.
+   * The code of the cloud service.
    * 
-   * You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * You can obtain the value from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -89,7 +89,7 @@ export class ListResourceGroupsWithAuthDetailsRequestTag extends $dara.Model {
 export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
+   * The display name of the resource group, which is used as a filter condition for the query. Fuzzy match is supported.
    * 
    * The name can be up to 50 characters in length.
    * 
@@ -101,10 +101,10 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return tag information. Valid values:
    * 
-   * - false (default): Does not return tag information.
+   * - false: does not return tag information. This is the default value.
    * 
-   * - true: Returns tag information.
-   * > If you specify tag-based filter conditions, tag information is always returned regardless of the value of `IncludeTags`.
+   * - true: returns tag information.
+   * > When you specify a tag filter condition, tag information is returned regardless of the value of `IncludeTags`.
    * 
    * @example
    * true
@@ -112,9 +112,9 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   includeTags?: boolean;
   /**
    * @remarks
-   * The unique identifier of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
+   * The unique identifier of the resource group, which is used as a filter condition for the query. Fuzzy match is supported.
    * 
-   * The identifier can be up to 50 characters in length and can contain letters, digits, and hyphens (-).
+   * The identifier can be up to 50 characters in length, and can contain letters, digits, and hyphens (-).
    * 
    * @example
    * prod-rg
@@ -130,7 +130,7 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -138,7 +138,7 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of resource group IDs.
+   * The IDs of the resource groups.
    */
   resourceGroupIds?: string[];
   /**
@@ -151,16 +151,16 @@ export class ListResourceGroupsWithAuthDetailsRequest extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The list of resource types.
+   * The resource types.
    */
   resourceTypes?: ListResourceGroupsWithAuthDetailsRequestResourceTypes[];
   /**
    * @remarks
-   * The status of the resource group. This parameter is used as a filter condition. Valid values:
+   * The status of the resource group, which is used as a filter condition for the query. Valid values:
    * 
-   * - Creating: Being created.
-   * - OK: Created.
-   * - PendingDelete: Pending deletion.
+   * - Creating: The resource group is being created.
+   * - OK: The resource group is created.
+   * - PendingDelete: The resource group is pending deletion.
    * 
    * @example
    * OK

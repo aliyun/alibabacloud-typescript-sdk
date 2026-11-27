@@ -46,7 +46,7 @@ export class ListAccountsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return tag information. Valid values:
-   * - false (default): does not return tag information.
+   * - false: does not return tag information. This is the default value.
    * - true: returns tag information.
    * 
    * @example
@@ -55,9 +55,7 @@ export class ListAccountsRequest extends $dara.Model {
   includeTags?: boolean;
   /**
    * @remarks
-   * The page number.
-   * 
-   * Minimum value: 1. Default value: 1.
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -65,9 +63,7 @@ export class ListAccountsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -75,7 +71,7 @@ export class ListAccountsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tags used to filter member accounts.
+   * The tags used to filter results.
    */
   tag?: ListAccountsRequestTag[];
   static names(): { [key: string]: string } {

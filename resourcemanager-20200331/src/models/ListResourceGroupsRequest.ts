@@ -45,9 +45,9 @@ export class ListResourceGroupsRequestTag extends $dara.Model {
 export class ListResourceGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
+   * The display name of the resource group, used as a filter condition for the query. Fuzzy match is supported.
    * 
-   * The value cannot exceed 50 characters in length.
+   * The value can be up to 50 characters in length.
    * 
    * @example
    * my-project
@@ -60,7 +60,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
    * - false (default): Tag information is not returned.
    * 
    * - true: Tag information is returned.
-   * > If you specify tag-based filter conditions, tag information is always returned regardless of the value of IncludeTags.
+   * > If you specify a tag filter condition, tag information is returned regardless of the value of IncludeTags.
    * 
    * @example
    * false
@@ -68,9 +68,9 @@ export class ListResourceGroupsRequest extends $dara.Model {
   includeTags?: boolean;
   /**
    * @remarks
-   * The unique identifier of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
+   * The unique identifier of the resource group, used as a filter condition for the query. Fuzzy match is supported.
    * 
-   * The value cannot exceed 50 characters in length and can contain letters, digits, and hyphens (-).
+   * The value can be up to 50 characters in length and can contain letters, digits, and hyphens (-).
    * 
    * @example
    * my-project
@@ -80,7 +80,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Minimum value: 1. Default value: 1.
+   * Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -98,11 +98,11 @@ export class ListResourceGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID. This parameter is used as a filter condition.
+   * The ID of the resource group, used as a filter condition for the query.
    * 
-   * The value cannot exceed 18 characters in length and must start with `rg-`.
+   * The value can be up to 18 characters in length and must start with rg-.
    * 
-   * > This parameter has been incorporated into the ResourceGroupIds parameter. If you set both ResourceGroupId and ResourceGroupIds, the value of ResourceGroupIds takes precedence.
+   * > This parameter is incorporated into the ResourceGroupIds parameter. If you specify both ResourceGroupId and ResourceGroupIds, ResourceGroupIds takes precedence.
    * 
    * @example
    * rg-9gLOoK****
@@ -110,16 +110,16 @@ export class ListResourceGroupsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of resource group IDs. This parameter is used as a filter condition.
+   * The list of resource group IDs, used as filter conditions for the query.
    * 
    * You can specify up to 100 resource group IDs.
    * 
-   * > If you set both ResourceGroupId and ResourceGroupIds, the value of ResourceGroupIds takes precedence.
+   * > If you specify both ResourceGroupId and ResourceGroupIds, ResourceGroupIds takes precedence.
    */
   resourceGroupIds?: string[];
   /**
    * @remarks
-   * The resource group status. This parameter is used as a filter condition. Valid values:
+   * The status of the resource group, used as a filter condition for the query. Valid values:
    * 
    * - Creating: The resource group is being created.
    * - OK: The resource group is created.
@@ -131,7 +131,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags. This parameter is used as a filter condition.
+   * The tags, used as filter conditions for the query.
    * 
    * You can specify up to 20 tags.
    */

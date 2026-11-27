@@ -7,8 +7,8 @@ export class GetResourceGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return tag information. Valid values:
    * 
-   * - false (default): does not return tag information.
-   * - true: returns tag information.
+   * - false (default): Tag information is not returned.
+   * - true: Tag information is returned.
    * 
    * @example
    * true
@@ -16,9 +16,9 @@ export class GetResourceGroupRequest extends $dara.Model {
   includeTags?: boolean;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
-   * You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group IDs.
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the ID of the resource group.
    * 
    * This parameter is required.
    * 

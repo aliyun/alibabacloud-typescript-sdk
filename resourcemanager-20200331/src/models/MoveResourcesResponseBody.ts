@@ -7,7 +7,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
    * @remarks
    * The error code.
    * 
-   * > This parameter is returned only when the resource transfer fails.
+   * > This parameter is returned when the resource transfer fails.
    * 
    * @example
    * NoPermission
@@ -16,7 +16,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   /**
    * @remarks
    * The error message.
-   * > This parameter is returned only when the resource transfer fails.
+   * > This parameter is returned when the resource transfer fails.
    * 
    * @example
    * No permission
@@ -24,7 +24,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The ID of the region to which the resource belongs.
    * 
    * @example
    * cn-hangzhou
@@ -32,7 +32,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C00B89D3-3247-11DE-95D8-A7C01FB0AB4F
@@ -40,7 +40,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * i-23v38****
@@ -56,7 +56,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The cloud service code.
+   * The code of the cloud service.
    * 
    * @example
    * ecs
@@ -111,7 +111,7 @@ export class MoveResourcesResponseBodyResponses extends $dara.Model {
 export class MoveResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C00B89D3-3247-11DE-95D8-A7C01FB0AB4F

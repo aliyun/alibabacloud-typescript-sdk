@@ -21,7 +21,7 @@ export class GetResourceGroupResourceCountsResponseBodyResourceCounts extends $d
   groupByKey?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-9gLOoK****
@@ -55,7 +55,7 @@ export class GetResourceGroupResourceCountsResponseBodyResourceCounts extends $d
 export class GetResourceGroupResourceCountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE

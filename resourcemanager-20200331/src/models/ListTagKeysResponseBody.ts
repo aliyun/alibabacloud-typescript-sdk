@@ -35,9 +35,8 @@ export class ListTagKeysResponseBodyTags extends $dara.Model {
 export class ListTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a next query token is available. Valid values:
-   * 
-   * - If NextToken is empty, that is, `"NextToken": ""`, no additional results exist.
+   * Indicates whether a token for the next query is available based on the NextToken value. Valid values:
+   * - If NextToken is empty, such as `"NextToken": ""`, no more results are available.
    * - If NextToken has a value, the value is the token for the next query.
    * 
    * @example

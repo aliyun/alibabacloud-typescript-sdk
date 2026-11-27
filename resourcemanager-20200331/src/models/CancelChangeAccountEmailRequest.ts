@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelChangeAccountEmailRequest extends $dara.Model {
   /**
    * @remarks
-   * The member account ID.
+   * The member ID.
    * 
    * This parameter is required.
    * 

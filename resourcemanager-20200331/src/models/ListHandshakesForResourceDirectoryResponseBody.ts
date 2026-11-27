@@ -93,7 +93,7 @@ export class ListHandshakesForResourceDirectoryResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10

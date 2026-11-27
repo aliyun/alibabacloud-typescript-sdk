@@ -13,10 +13,10 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The trust policy of the role.
+   * The trust policy content of the role.
    * 
    * @example
-   * {\\"Statement\\":[{\\"Action\\":\\"sts:AssumeRole\\",\\"Effect\\":\\"Allow\\",\\"Principal\\":{\\"Service\\":[\\"polardb.aliyuncs.com\\"]}}],\\"Version\\":\\"1\\"}
+   * {\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"polardb.aliyuncs.com\"]}}],\"Version\":\"1\"}
    */
   assumeRolePolicyDocument?: string;
   /**
@@ -37,7 +37,7 @@ export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the role is a service-linked role. Valid values:
+   * Specifies whether the role is a service-linked role. Valid values:
    * 
    * - true: The role is a service-linked role.
    * - false: The role is not a service-linked role.

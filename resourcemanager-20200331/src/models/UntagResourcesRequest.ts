@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to unbind all tags from the specified resource group or resource directory member. Valid values:
+   * Specifies whether to remove all tags from the specified resource group or member of a resource directory. Valid values:
    * - false (default): No.
    * - true: Yes.
    * 
@@ -15,7 +15,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The ID of the resource group or resource directory member.
+   * The ID of the resource group or the member of the resource directory.
    * 
    * You can specify up to 50 IDs.
    * 
@@ -26,10 +26,10 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * - ResourceGroup (default): Unbinds tags from a resource group.
-   * - Account: Unbinds tags from a resource directory member.
+   * - ResourceGroup (default): Removes tags from resource groups.
+   * - Account: Removes tags from members of a resource directory.
    * 
-   * > This parameter is required when you unbind tags from a resource directory member.
+   * > This parameter is required when you remove tags from members of a resource directory.
    * 
    * @example
    * ResourceGroup
@@ -39,9 +39,9 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * You can unbind up to 20 tag keys.
+   * You can remove up to 20 tag keys.
    * 
-   * > If the `All` parameter for unbinding all tags is set to `true`, you do not need to specify tag keys.
+   * > If the All parameter is set to true to remove all tags, you do not need to specify tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

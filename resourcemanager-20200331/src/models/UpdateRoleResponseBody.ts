@@ -16,7 +16,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
    * The trust policy of the RAM role.
    * 
    * @example
-   * { \\"Statement\\": [ { \\"Action\\": \\"sts:AssumeRole\\", \\"Effect\\": \\"Allow\\", \\"Principal\\": { \\"RAM\\": \\"acs:ram::12345678901234****:root\\" } } ], \\"Version\\": \\"1\\" }
+   * { \"Statement\": [ { \"Action\": \"sts:AssumeRole\", \"Effect\": \"Allow\", \"Principal\": { \"RAM\": \"acs:ram::12345678901234****:root\" } } ], \"Version\": \"1\" }
    */
   assumeRolePolicyDocument?: string;
   /**

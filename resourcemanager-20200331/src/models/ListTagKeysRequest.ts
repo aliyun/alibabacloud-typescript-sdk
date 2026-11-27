@@ -13,9 +13,7 @@ export class ListTagKeysRequest extends $dara.Model {
   keyFilter?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a single request.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -23,7 +21,7 @@ export class ListTagKeysRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query.
+   * The token for the next query.
    * 
    * @example
    * TGlzdFJlc291cm****
@@ -31,9 +29,7 @@ export class ListTagKeysRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource type.
-   * 
-   * Set this parameter to Account, which indicates a member account of a resource directory.
+   * The resource type. Valid value: Account, which indicates a member of the resource directory.
    * 
    * This parameter is required.
    * 

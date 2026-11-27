@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DetachPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Policy Name of the access policy.
+   * The policy name.
    * 
-   * Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
+   * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class DetachPolicyRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The name of the object from which you want to detach the policy.
+   * The name of the principal.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class DetachPolicyRequest extends $dara.Model {
   principalName?: string;
   /**
    * @remarks
-   * The authorization object type. Valid values:
+   * The object type of the principal to which the authorization is granted. Valid values:
    * 
    * - IMSUser: Resource Access Management (RAM) user.
    * - IMSGroup: RAM user group.
@@ -54,9 +54,7 @@ export class DetachPolicyRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The ID of the resource group or the ID of the Alibaba Cloud account that owns the resource group.
-   * 
-   * Specifies the resource group or Alibaba Cloud account from which to detach the policy.
+   * The ID of the resource group or the ID of the Alibaba Cloud account to which the resource group belongs. Specifies the resource group or account from which to remove the authorization.
    * 
    * This parameter is required.
    * 

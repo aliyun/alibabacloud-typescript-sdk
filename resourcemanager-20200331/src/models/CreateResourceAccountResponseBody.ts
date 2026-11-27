@@ -13,7 +13,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the account.
+   * The account name.
    * 
    * @example
    * alice@rd-3g****.aliyunid.com
@@ -37,10 +37,10 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The method used by the member to join the resource directory. Valid values:
+   * The method by which the member joined. Valid values:
    * 
-   * - invited: invited.
-   * - created: created.
+   * - invited: The member is invited.
+   * - created: The member is created.
    * 
    * @example
    * created
@@ -48,7 +48,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   joinMethod?: string;
   /**
    * @remarks
-   * The time when the member joined the resource directory (UTC).
+   * The time when the member joined. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-31T03:37:39.456Z
@@ -56,7 +56,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   joinTime?: string;
   /**
    * @remarks
-   * The time when the member was last modified (UTC).
+   * The time when the member was modified. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-31T03:37:39.456Z
@@ -72,7 +72,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The join status of the member. The value CreateSuccess indicates that the member is created.
+   * The join status of the member. A value of CreateSuccess indicates that the member is created.
    * 
    * @example
    * CreateSuccess
@@ -80,7 +80,7 @@ export class CreateResourceAccountResponseBodyAccount extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the member. The value ResourceAccount indicates a resource account.
+   * The type of the member. A value of ResourceAccount indicates a resource account.
    * 
    * @example
    * ResourceAccount

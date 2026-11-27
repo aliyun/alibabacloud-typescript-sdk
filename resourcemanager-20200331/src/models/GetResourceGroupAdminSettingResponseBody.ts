@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceGroupAdminSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the resource group creator is set as the resource group administrator.
+   * Indicates whether the creator of the resource group is set as the resource group administrator.
    * 
    * @example
    * true

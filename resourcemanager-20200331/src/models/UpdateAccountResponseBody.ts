@@ -37,10 +37,10 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The method used by the member to join the resource directory. Valid values:
+   * The method by which the member joined the resource directory. Valid values:
    * 
-   * - invited: invited.
-   * - created: created.
+   * - invited: Invited.
+   * - created: Created.
    * 
    * @example
    * created
@@ -48,7 +48,7 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   joinMethod?: string;
   /**
    * @remarks
-   * The time when the member joined the resource directory (UTC).
+   * The time when the member joined the resource directory. The time is displayed in UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -56,7 +56,7 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   joinTime?: string;
   /**
    * @remarks
-   * The time when the member was last modified (UTC).
+   * The time when the member was modified. The time is displayed in UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -72,7 +72,7 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The join status of the member. Valid values:
+   * The status of the member joining the resource directory. Valid values:
    * 
    * - CreateSuccess: Created.
    * - InviteSuccess: Invited.
@@ -87,8 +87,8 @@ export class UpdateAccountResponseBodyAccount extends $dara.Model {
    * @remarks
    * The type of the member. Valid values:
    * 
-   * - CloudAccount: cloud account.
-   * - ResourceAccount: resource account.
+   * - CloudAccount: Cloud account.
+   * - ResourceAccount: Resource account.
    * 
    * @example
    * ResourceAccount

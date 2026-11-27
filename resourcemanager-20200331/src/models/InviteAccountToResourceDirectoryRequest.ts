@@ -45,9 +45,7 @@ export class InviteAccountToResourceDirectoryRequestTag extends $dara.Model {
 export class InviteAccountToResourceDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
-   * 
-   * Maximum length: 1024 characters.
+   * The note. The note can be up to 1,024 characters in length.
    * 
    * @example
    * Welcome to join
@@ -60,7 +58,7 @@ export class InviteAccountToResourceDirectoryRequest extends $dara.Model {
   tag?: InviteAccountToResourceDirectoryRequestTag[];
   /**
    * @remarks
-   * The ID or logon email address of the account that is invited.
+   * The ID or logon email address of the invited account.
    * 
    * This parameter is required.
    * 
@@ -70,10 +68,10 @@ export class InviteAccountToResourceDirectoryRequest extends $dara.Model {
   targetEntity?: string;
   /**
    * @remarks
-   * The type of the account that is invited. Valid values:
+   * The type of the invited account. Valid values:
    * 
    * - Account: account ID.
-   * - Email: logon email address of the account.
+   * - Email: logon email address.
    * 
    * This parameter is required.
    * 

@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the handshake (UTC).
+   * The time when the invitation was created. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-06T02:15:40Z
@@ -15,7 +15,7 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the handshake (UTC).
+   * The expiration time of the invitation. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-20T02:15:40Z
@@ -23,7 +23,7 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The handshake ID.
+   * The invitation ID.
    * 
    * @example
    * h-Ih8IuPfvV0t0****
@@ -47,7 +47,7 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   masterAccountName?: string;
   /**
    * @remarks
-   * The modification time of the handshake (UTC).
+   * The time when the invitation was modified. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-06T02:16:40Z
@@ -55,15 +55,15 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The remarks.
+   * The note.
    * 
    * @example
-   * Welcome to join us
+   * Welcome to join
    */
   note?: string;
   /**
    * @remarks
-   * The resource directory ID.
+   * The ID of the resource directory.
    * 
    * @example
    * rd-3G****
@@ -71,13 +71,13 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   resourceDirectoryId?: string;
   /**
    * @remarks
-   * The status of the handshake. Valid values:
+   * The invitation status. Valid values:
    * 
-   * - Pending: waiting for confirmation.
-   * - Accepted: accepted.
-   * - Cancelled: canceled.
-   * - Declined: rejected.
-   * - Expired: expired.
+   * - Pending: pending confirmation
+   * - Accepted: accepted
+   * - Cancelled: canceled
+   * - Declined: declined
+   * - Expired: expired
    * 
    * @example
    * Accepted
@@ -85,7 +85,7 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID or logon email address of the invited account.
+   * The Alibaba Cloud account ID or logon mailbox of the invited Alibaba Cloud account.
    * 
    * @example
    * 177242285274****
@@ -95,8 +95,8 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
    * @remarks
    * The type of the invited Alibaba Cloud account. Valid values:
    * 
-   * - Account: Alibaba Cloud account ID.
-   * - Email: logon email address of the Alibaba Cloud account.
+   * - Account: the Alibaba Cloud account ID
+   * - Email: the logon mailbox of the Alibaba Cloud account
    * 
    * @example
    * Account
@@ -146,7 +146,7 @@ export class AcceptHandshakeResponseBodyHandshake extends $dara.Model {
 export class AcceptHandshakeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The handshake information.
+   * The invitation information.
    */
   handshake?: AcceptHandshakeResponseBodyHandshake;
   /**

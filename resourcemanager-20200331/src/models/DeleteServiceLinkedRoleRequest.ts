@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceLinkedRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The role name.
+   * The name of the role.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelHandshakeRequest extends $dara.Model {
   /**
    * @remarks
-   * The handshake ID.
+   * The invitation ID.
    * 
    * This parameter is required.
    * 

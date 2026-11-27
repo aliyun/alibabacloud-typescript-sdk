@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryChangeAccountEmailRequest extends $dara.Model {
   /**
    * @remarks
-   * The member account ID.
+   * The ID of the member.
    * 
    * This parameter is required.
    * 

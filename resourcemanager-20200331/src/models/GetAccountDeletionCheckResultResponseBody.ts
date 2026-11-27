@@ -13,7 +13,7 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
   checkId?: string;
   /**
    * @remarks
-   * The service name of the cloud service to which the check item belongs.
+   * The service name to which the check item belongs.
    * 
    * @example
    * Container Service
@@ -24,7 +24,7 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
    * The description of the check item.
    * 
    * @example
-   * Cloud service instances are running. Submit a ticket to contact customer service for assistance
+   * Cloud service instances are running. Contact customer service and submit a ticket
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -63,7 +63,7 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
   checkId?: string;
   /**
    * @remarks
-   * The service name of the cloud service to which the check item belongs.
+   * The service name to which the check item belongs.
    * 
    * @example
    * Enterprise finance
@@ -105,16 +105,16 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
 export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo extends $dara.Model {
   /**
    * @remarks
-   * The check items that you can choose to abandon and proceed with the member deletion.
+   * The check items that you can choose to bypass to continue the member deletion.
    * 
    * > This parameter may be returned when AllowDelete is set to true.
    */
   abandonableChecks?: GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks[];
   /**
    * @remarks
-   * Indicates whether the member account can be deleted. Valid values:
-   * - true: The member account can be deleted.
-   * - false: The member account cannot be deleted.
+   * Specifies whether the member can be deleted. Valid values:
+   * - true: The member can be deleted.
+   * - false: The member cannot be deleted.
    * 
    * @example
    * false
@@ -122,8 +122,8 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
   allowDelete?: string;
   /**
    * @remarks
-   * The reasons why the member account cannot be deleted.
-   * > This parameter is returned only when AllowDelete is set to false.
+   * The reason why the member cannot be deleted.
+   * > This parameter is returned when AllowDelete is set to false.
    */
   notAllowReason?: GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason[];
   /**
@@ -173,7 +173,7 @@ export class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResult
 export class GetAccountDeletionCheckResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the member deletion check.
+   * The member deletion check result.
    */
   accountDeletionCheckResultInfo?: GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo;
   /**

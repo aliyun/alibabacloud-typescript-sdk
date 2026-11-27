@@ -135,7 +135,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -152,7 +152,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   resourceGroups?: ListResourceGroupsResponseBodyResourceGroups;
   /**
    * @remarks
-   * The total number of entries that match the conditional request parameter criteria.
+   * The total number of entries that match the conditional request parameters.
    * 
    * @example
    * 2

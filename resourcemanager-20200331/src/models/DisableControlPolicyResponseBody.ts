@@ -7,10 +7,10 @@ export class DisableControlPolicyResponseBody extends $dara.Model {
    * @remarks
    * The status of the control policy feature. Valid values:
    * 
-   * - Enabled: The control policy feature is enabled.
-   * - PendingEnable: The control policy feature is being enabled.
-   * - Disabled: The control policy feature is disabled.
-   * - PendingDisable: The control policy feature is being disabled.
+   * - Enabled: The feature is enabled.
+   * - PendingEnable: The feature is being enabled.
+   * - Disabled: The feature is disabled.
+   * - PendingDisable: The feature is being disabled.
    * 
    * @example
    * PendingDisable

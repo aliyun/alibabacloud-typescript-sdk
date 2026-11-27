@@ -81,7 +81,7 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-9gLOoK****
@@ -100,9 +100,9 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * @remarks
    * The status of the resource group. Valid values:
    * 
-   * - Creating: Being created.
-   * - OK: Created.
-   * - PendingDelete: Pending deletion.
+   * - Creating: The resource group is being created.
+   * - OK: The resource group is created.
+   * - PendingDelete: The resource group is pending deletion.
    * 
    * @example
    * PendingDelete

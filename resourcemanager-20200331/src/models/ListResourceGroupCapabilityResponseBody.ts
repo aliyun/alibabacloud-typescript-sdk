@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.Model {
   /**
    * @remarks
-   * The resource center resource type code.
+   * The Resource Center resource type code.
    * 
    * @example
    * ACS::ECS::Instance
@@ -13,9 +13,7 @@ export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.M
   resourceCenterResourceType?: string;
   /**
    * @remarks
-   * The resource type.
-   * 
-   * You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * The resource type. You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * instance
@@ -23,9 +21,7 @@ export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.M
   resourceType?: string;
   /**
    * @remarks
-   * The cloud service code.
-   * 
-   * You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+   * The cloud service code. You can obtain the cloud service code from the **Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
    * 
    * @example
    * ecs
@@ -69,7 +65,7 @@ export class ListResourceGroupCapabilityResponseBodyCapabilities extends $dara.M
 export class ListResourceGroupCapabilityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of capability items.
+   * The list of capabilities.
    */
   capabilities?: ListResourceGroupCapabilityResponseBodyCapabilities[];
   /**

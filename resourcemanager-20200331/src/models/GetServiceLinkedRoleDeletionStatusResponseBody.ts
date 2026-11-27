@@ -86,7 +86,7 @@ export class GetServiceLinkedRoleDeletionStatusResponseBodyReasonRoleUsages exte
 export class GetServiceLinkedRoleDeletionStatusResponseBodyReason extends $dara.Model {
   /**
    * @remarks
-   * The error message.
+   * The failure message.
    * 
    * @example
    * Service-Linked Role acs:ram::196813227629****:role/aliyunserviceroleforhdr cannot be deleted as it is in use by hdr.aliyuncs.com.
@@ -122,12 +122,12 @@ export class GetServiceLinkedRoleDeletionStatusResponseBodyReason extends $dara.
 export class GetServiceLinkedRoleDeletionStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The reason why the deletion task failed.
+   * The reason for the deletion task failure.
    */
   reason?: GetServiceLinkedRoleDeletionStatusResponseBodyReason;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 07194EB1-DB50-4513-A51D-99B30D635AEF
@@ -135,9 +135,8 @@ export class GetServiceLinkedRoleDeletionStatusResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * 
-   * - SUCCEEDED: The deletion was successful.
+   * The status of the task. Valid values:
+   * - SUCCEEDED: The deletion succeeded.
    * - IN_PROGRESS: The deletion is in progress.
    * - FAILED: The deletion failed.
    * - NOT_STARTED: The deletion has not started.

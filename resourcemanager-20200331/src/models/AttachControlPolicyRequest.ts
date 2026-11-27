@@ -17,9 +17,9 @@ export class AttachControlPolicyRequest extends $dara.Model {
    * @remarks
    * The target node. Valid values:
    * 
-   * - Root ID: attaches the control policy to the Root resource folder.
-   * - Resource folder ID: attaches the control policy to a resource folder.
-   * - Member ID: attaches the control policy to a member.
+   * - Root ID: Attaches the control policy to the Root folder.
+   * - Folder ID: Attaches the control policy to a folder.
+   * - Member ID: Attaches the control policy to a member.
    * 
    * This parameter is required.
    * 

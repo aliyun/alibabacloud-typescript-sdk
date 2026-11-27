@@ -56,7 +56,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
    * The content of the access policy that specifies one or more entities entrusted to assume the role.
    * 
    * @example
-   * { \\"Statement\\": [ { \\"Action\\": \\"sts:AssumeRole\\", \\"Effect\\": \\"Allow\\", \\"Principal\\": { \\"RAM\\": \\"acs:ram::12345678901234****:root\\" } } ], \\"Version\\": \\"1\\" }
+   * { \"Statement\": [ { \"Action\": \"sts:AssumeRole\", \"Effect\": \"Allow\", \"Principal\": { \"RAM\": \"acs:ram::12345678901234****:root\" } } ], \"Version\": \"1\" }
    */
   assumeRolePolicyDocument?: string;
   /**

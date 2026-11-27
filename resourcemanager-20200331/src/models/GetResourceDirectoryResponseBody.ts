@@ -8,9 +8,9 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
    * The status of the control policy. Valid values:
    * 
    * - Enabled: Enabled.
-   * - PendingEnable: Being enabled.
+   * - PendingEnable: Enabling.
    * - Disabled: Disabled.
-   * - PendingDisable: Being disabled.
+   * - PendingDisable: Disabling.
    * 
    * @example
    * Enabled
@@ -18,7 +18,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
   controlPolicyStatus?: string;
   /**
    * @remarks
-   * The time when the resource directory was created. The time is displayed in UTC in RFC 3339 format, indicated by Z.
+   * The time when the resource directory was enabled. The time is in the RFC 3339 UTC format, where Z indicates UTC.
    * 
    * @example
    * 2019-02-18T15:32:10.473Z
@@ -26,10 +26,10 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The real-name verification information of the member.
+   * The real-name information of the member.
    * 
    * @example
-   * ***有限公司
+   * *** Co., Ltd
    */
   identityInformation?: string;
   /**
@@ -50,8 +50,8 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Mod
   masterAccountName?: string;
   /**
    * @remarks
-   * Indicates whether member deletion is enabled. Valid values:
-   * - Enabled: Enabled. You can call [DeleteAccount](https://help.aliyun.com/document_detail/311546.html) to delete members of the resource account type.
+   * Specifies whether member deletion permission is enabled. Valid values:
+   * - Enabled: Enabled. You can call the [DeleteAccount](https://help.aliyun.com/document_detail/311546.html) operation to delete members of the resource account type.
    * - Disabled: Disabled. You cannot delete members of the resource account type.
    * 
    * @example

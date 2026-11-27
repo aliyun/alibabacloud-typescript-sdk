@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindSecureMobilePhoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The member ID.
+   * The ID of the member.
    * 
    * This parameter is required.
    * 
@@ -15,18 +15,18 @@ export class BindSecureMobilePhoneRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The secure phone number.
+   * The secure secure phone number.
    * 
-   * The phone number must be the same as the one that you specified when you called [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) to authenticate and obtain the verification code.
+   * The secure phone number must be the same as the one specified when you call the [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) operation to obtain the verification code.
    * 
-   * Format: <Country code>-<Phone number>.
+   * Format: `<Country code>-<Secure phone number>`.
    * 
    * <props="china">
-   * > Only the Chinese mainland phone numbers in the `86-<Phone number>` format are supported.
+   * > Only secure phone numbers in the Chinese mainland in the `86-<Secure phone number>` format are supported.
    * 
    * 
    * <props="intl">
-   * > The Chinese mainland phone numbers in the `86-<Phone number>` format are not supported.
+   * > Secure phone numbers in the Chinese mainland in the `86-<Secure phone number>` format are not supported.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class BindSecureMobilePhoneRequest extends $dara.Model {
    * @remarks
    * The verification code.
    * 
-   * You can call [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) to obtain the verification code.
+   * You can call the [SendVerificationCodeForBindSecureMobilePhone](https://help.aliyun.com/document_detail/372556.html) operation to obtain the verification code.
    * 
    * This parameter is required.
    * 

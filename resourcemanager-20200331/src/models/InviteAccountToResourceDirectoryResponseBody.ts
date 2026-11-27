@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the invitation (UTC).
+   * The time when the invitation was created. The time is displayed in UTC.
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -13,7 +13,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the invitation (UTC).
+   * The expiration time of the invitation. The time is displayed in UTC.
    * 
    * @example
    * 2018-08-24T09:55:41Z
@@ -45,7 +45,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   masterAccountName?: string;
   /**
    * @remarks
-   * The modification time of the invitation (UTC).
+   * The time when the invitation was modified. The time is displayed in UTC.
    * 
    * @example
    * 2018-08-10T09:55:41Z
@@ -53,7 +53,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   modifyTime?: string;
   /**
    * @remarks
-   * The remarks.
+   * The note.
    * 
    * @example
    * Welcome to join
@@ -71,11 +71,11 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
    * @remarks
    * The status of the invitation. Valid values:
    * 
-   * - Pending: Waiting for confirmation.
-   * - Accepted: Accepted.
-   * - Cancelled: Canceled.
-   * - Declined: Rejected.
-   * - Expired: Expired.
+   * - Pending: pending confirmation.
+   * - Accepted: accepted.
+   * - Cancelled: canceled.
+   * - Declined: declined.
+   * - Expired: timed out.
    * 
    * @example
    * Pending
@@ -83,7 +83,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
   status?: string;
   /**
    * @remarks
-   * The ID or logon email address of the account that is invited.
+   * The ID or logon email address of the invited account.
    * 
    * @example
    * someone@example.com
@@ -94,7 +94,7 @@ export class InviteAccountToResourceDirectoryResponseBodyHandshake extends $dara
    * The type of the invited account. Valid values:
    * 
    * - Account: account ID.
-   * - Email: logon email address of the account.
+   * - Email: logon email address.
    * 
    * @example
    * Email

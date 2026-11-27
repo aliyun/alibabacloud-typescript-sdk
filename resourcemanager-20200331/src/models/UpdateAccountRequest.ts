@@ -17,10 +17,10 @@ export class UpdateAccountRequest extends $dara.Model {
    * @remarks
    * The new type of the member. Valid values:
    * 
-   * - ResourceAccount: switches the specified cloud account to a resource account.
-   * - CloudAccount: switches the specified resource account to a cloud account.
+   * - ResourceAccount: Switches the specified cloud account to a resource account.
+   * - CloudAccount: Switches the specified resource account to a cloud account.
    * 
-   * > Set either NewDisplayName or NewAccountType. You cannot set both of them at the same time.
+   * > You can specify either `NewDisplayName` or `NewAccountType`, but not both.
    * 
    * @example
    * ResourceAccount
@@ -29,7 +29,7 @@ export class UpdateAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The new name of the member.
-   * > Set either NewDisplayName or NewAccountType. You cannot set both of them at the same time.
+   * > You can specify either `NewDisplayName` or `NewAccountType`, but not both.
    * 
    * @example
    * admin

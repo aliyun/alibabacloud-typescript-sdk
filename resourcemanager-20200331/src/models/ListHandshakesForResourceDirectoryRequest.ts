@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHandshakesForResourceDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
-   * 
-   * Minimum value: 1. Default value: 1.
+   * The page number. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -15,9 +13,7 @@ export class ListHandshakesForResourceDirectoryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
-   * Valid values: 1 to 100. Default value: 10.
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10

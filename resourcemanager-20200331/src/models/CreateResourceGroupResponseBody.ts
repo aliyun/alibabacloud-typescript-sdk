@@ -65,7 +65,7 @@ export class CreateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The time when the resource group was created (UTC).
+   * The time when the resource group was created. The time is displayed in UTC.
    * 
    * @example
    * 2021-06-05T14:39:13+08:00
@@ -99,8 +99,8 @@ export class CreateResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
    * The status of the resource group. Valid values:
-   * - Creating: Being created.
-   * - OK: Created.
+   * - Creating: The resource group is being created.
+   * - OK: The resource group is created.
    * 
    * @example
    * Creating

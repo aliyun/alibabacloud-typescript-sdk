@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagValuesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in a single request.
+   * The maximum number of entries to return for a single request.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -15,7 +15,7 @@ export class ListTagValuesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * TGlzdFJlc291cm****
@@ -25,7 +25,8 @@ export class ListTagValuesRequest extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * Set the value to Account, which indicates a member of a resource directory.
+   * Valid values:
+   * - Account: members of a resource directory.
    * 
    * This parameter is required.
    * 
@@ -35,7 +36,7 @@ export class ListTagValuesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key that is used as a filter condition for the query.
+   * The tag key used as a filter for the query.
    * 
    * This parameter is required.
    * 
@@ -45,7 +46,7 @@ export class ListTagValuesRequest extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value for fuzzy match.
+   * The tag value for fuzzy search.
    * 
    * @example
    * v1

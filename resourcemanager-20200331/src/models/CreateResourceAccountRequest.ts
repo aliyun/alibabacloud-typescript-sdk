@@ -47,15 +47,15 @@ export class CreateResourceAccountRequest extends $dara.Model {
    * @remarks
    * The prefix of the account name. If you leave this parameter empty, the system randomly generates a prefix.
    * 
-   * <props="china">Length: 2 to 50 characters.
+   * <props="china">The length ranges from 2 to 50 characters.
    * 
-   * <props="intl">Length: 2 to 37 characters.
+   * <props="intl">The length ranges from 2 to 37 characters.
    * 
-   * Format: Can contain letters, digits, and special characters `_.-`. Must start and end with a letter or digit. Consecutive special characters `_.-` are not allowed.
+   * Format: The prefix can contain letters, digits, and special characters such as underscores (_), periods (.), and hyphens (-). It must start and end with a letter or a digit, and cannot contain consecutive special characters.
    * 
-   * The full account name is in the format of <AccountNamePrefix>@<ResourceDirectoryId>.aliyunid.com. Example: `alice@rd-3G****.aliyunid.com`.
+   * The format of the complete account name is <AccountNamePrefix>@<ResourceDirectoryId>.aliyunid.com. Example: alice@rd-3G****.aliyunid.com.
    * 
-   * The account name must be unique within the resource directory.
+   * The account name must be unique in the resource directory.
    * 
    * @example
    * alice
@@ -65,11 +65,11 @@ export class CreateResourceAccountRequest extends $dara.Model {
    * @remarks
    * The display name of the member.
    * 
-   * Length: 2 to 50 characters.
+   * The name must be 2 to 50 characters in length.
    * 
-   * Format: Can contain letters, digits, underscores (_), periods (.), hyphens (-), and spaces.
+   * Format: The name can contain Chinese characters, letters, digits, underscores (_), periods (.), hyphens (-), and spaces.
    * 
-   * The display name must be unique within the resource directory.
+   * The display name must be unique in the resource directory.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class CreateResourceAccountRequest extends $dara.Model {
   parentFolderId?: string;
   /**
    * @remarks
-   * The ID of the billing account. If you leave this parameter empty, the newly created member pays for its own resource consumption.
+   * The ID of the settlement account. If you leave this parameter empty, the newly created member pays its own bills.
    * 
    * @example
    * 12323344****
@@ -97,10 +97,10 @@ export class CreateResourceAccountRequest extends $dara.Model {
    * @remarks
    * The identity type of the member. Valid values:
    * 
-   * - resell (default): reseller account. The created member automatically establishes a reseller relationship with your distributor. You must use the management account to pay for the new member.
-   * - non_resell: non-reseller account. The created member is a regular Alibaba Cloud account that has no relationship with your current distributor. This account purchases resources directly from Alibaba Cloud and pays for its own resource consumption.
+   * - resell: reseller account. This is the default value. The created member automatically establishes a reseller relationship with your reseller. You must use the management account to pay for the new member.
+   * - non_resell: non-reseller account. The created member is a regular Alibaba Cloud account and has no relationship with your current reseller. The account purchases resources directly from Alibaba Cloud and pays its own bills.
    * 
-   * > This parameter is supported only for China site (Chinese mainland) distributor customers.
+   * > This parameter is supported only for reseller customers on the international site.
    * 
    * @example
    * resell

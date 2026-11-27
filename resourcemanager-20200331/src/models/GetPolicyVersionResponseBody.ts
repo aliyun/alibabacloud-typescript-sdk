@@ -24,7 +24,7 @@ export class GetPolicyVersionResponseBodyPolicyVersion extends $dara.Model {
    * The content of the access policy.
    * 
    * @example
-   * { \\"Statement\\": [{ \\"Action\\": [\\"oss:*\\"], \\"Effect\\": \\"Allow\\", \\"Resource\\": [\\"acs:oss:*:*:*\\"]}], \\"Version\\": \\"1\\"}
+   * { \"Statement\": [{ \"Action\": [\"oss:*\"], \"Effect\": \"Allow\", \"Resource\": [\"acs:oss:*:*:*\"]}], \"Version\": \"1\"}
    */
   policyDocument?: string;
   /**
