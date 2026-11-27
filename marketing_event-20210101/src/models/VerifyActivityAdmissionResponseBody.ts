@@ -8,6 +8,16 @@ export class VerifyActivityAdmissionResponseBodyData extends $dara.Model {
   address?: string;
   admissionDate?: string;
   allowedDates?: string[];
+  /**
+   * @example
+   * 定邀-现场嘉宾
+   */
+  channelName?: string;
+  /**
+   * @example
+   * ["VIP", "思辨场"]
+   */
+  customerLabels?: string[];
   decision?: string;
   endTime?: string;
   maskedIdCardNo?: string;
@@ -23,6 +33,8 @@ export class VerifyActivityAdmissionResponseBodyData extends $dara.Model {
       address: 'Address',
       admissionDate: 'AdmissionDate',
       allowedDates: 'AllowedDates',
+      channelName: 'ChannelName',
+      customerLabels: 'CustomerLabels',
       decision: 'Decision',
       endTime: 'EndTime',
       maskedIdCardNo: 'MaskedIdCardNo',
@@ -41,6 +53,8 @@ export class VerifyActivityAdmissionResponseBodyData extends $dara.Model {
       address: 'string',
       admissionDate: 'string',
       allowedDates: { 'type': 'array', 'itemType': 'string' },
+      channelName: 'string',
+      customerLabels: { 'type': 'array', 'itemType': 'string' },
       decision: 'string',
       endTime: 'string',
       maskedIdCardNo: 'string',
@@ -55,6 +69,9 @@ export class VerifyActivityAdmissionResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.allowedDates)) {
       $dara.Model.validateArray(this.allowedDates);
+    }
+    if(Array.isArray(this.customerLabels)) {
+      $dara.Model.validateArray(this.customerLabels);
     }
     super.validate();
   }
