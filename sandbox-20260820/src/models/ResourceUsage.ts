@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResourceUsageGroupsItemsBuckets extends $dara.Model {
   /**
    * @remarks
-   * The end time of this usage statistics period, exclusive.
+   * The end time of the usage statistics for this bucket, exclusive.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResourceUsageGroupsItemsBuckets extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The cumulative usage within this time period. The unit is specified by unit.
+   * The accumulated usage during this time bucket. The unit is specified in the unit field.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ResourceUsageGroupsItemsBuckets extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * The start time of this usage statistics period, inclusive.
+   * The start time of the usage statistics for this bucket, inclusive.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class ResourceUsageGroupsItemsBuckets extends $dara.Model {
 export class ResourceUsageGroupsItems extends $dara.Model {
   /**
    * @remarks
-   * The hourly or daily usage arranged in chronological order. Only time periods with records are returned. This field is omitted when granularity is set to All.
+   * The hourly or daily time buckets with usage data, returned in chronological order. An empty array is returned if no buckets are available. This field is omitted if the granularity is All.
    * 
    * @example
    * [{"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T01:00:00Z","quantity":3600},{"startTime":"2026-11-05T01:00:00Z","endTime":"2026-11-05T02:00:00Z","quantity":1800}]
@@ -69,7 +69,7 @@ export class ResourceUsageGroupsItems extends $dara.Model {
   buckets?: ResourceUsageGroupsItemsBuckets[];
   /**
    * @remarks
-   * The cumulative usage of this usage item over the entire query interval. This field is omitted if there are no usage records for the item within the interval.
+   * The accumulated usage for the entire query interval. This field is omitted if no accumulated value is available. A value of 0 indicates that the accumulated usage is zero.
    * 
    * @example
    * 5400
@@ -77,7 +77,7 @@ export class ResourceUsageGroupsItems extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * The unit of usage. The unit is CoreSecond for CPU, and GiBSecond for memory and cloud disks.
+   * The unit of usage. The unit is CoreSecond for CPU, and GiBSecond for memory and disks.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class ResourceUsageGroupsItems extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cpuActive
+   * activeVCPU
    */
   usageName?: string;
   static names(): { [key: string]: string } {
@@ -128,7 +128,7 @@ export class ResourceUsageGroupsItems extends $dara.Model {
 export class ResourceUsageGroups extends $dara.Model {
   /**
    * @remarks
-   * The team, template, or sandbox version corresponding to the usage of this group.
+   * The team, template, snapshot, or sandbox version corresponding to the usage in this group.
    * 
    * This parameter is required.
    * 
@@ -138,12 +138,12 @@ export class ResourceUsageGroups extends $dara.Model {
   dimensions?: { [key: string]: string };
   /**
    * @remarks
-   * The query result for each requested usage item in this group.
+   * The query results for each requested usage item in this group.
    * 
    * This parameter is required.
    * 
    * @example
-   * [{"usageName":"cpuActive","unit":"CoreSecond","total":5400,"buckets":[{"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T01:00:00Z","quantity":3600},{"startTime":"2026-11-05T01:00:00Z","endTime":"2026-11-05T02:00:00Z","quantity":1800}]}]
+   * [{"usageName":"activeVCPU","unit":"CoreSecond","total":5400,"buckets":[{"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T01:00:00Z","quantity":3600},{"startTime":"2026-11-05T01:00:00Z","endTime":"2026-11-05T02:00:00Z","quantity":1800}]}]
    */
   items?: ResourceUsageGroupsItems[];
   static names(): { [key: string]: string } {
@@ -198,7 +198,7 @@ export class ResourceUsage extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The grouping key used for this query. An empty array is returned when no grouping is applied.
+   * The grouping keys used for this query. This is an empty array if no grouping is applied.
    * 
    * This parameter is required.
    * 
@@ -208,12 +208,12 @@ export class ResourceUsage extends $dara.Model {
   groupBy?: string[];
   /**
    * @remarks
-   * The usage for each group. If no grouping is applied, the usage for the entire query range is returned. An empty array is returned if there are no usage records within the query range.
+   * The usage for each group. If no grouping is applied, the usage is aggregated across the entire query range. An empty array is returned if no matching groups are found.
    * 
    * This parameter is required.
    * 
    * @example
-   * [{"dimensions":{"teamID":"70d1c834-0333-58d8-97ac-5336eb9179eb"},"items":[{"usageName":"cpuActive","unit":"CoreSecond","total":5400,"buckets":[{"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T01:00:00Z","quantity":3600},{"startTime":"2026-11-05T01:00:00Z","endTime":"2026-11-05T02:00:00Z","quantity":1800}]}]}]
+   * [{"dimensions":{"teamID":"70d1c834-0333-58d8-97ac-5336eb9179eb"},"items":[{"usageName":"activeVCPU","unit":"CoreSecond","total":5400,"buckets":[{"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T01:00:00Z","quantity":3600},{"startTime":"2026-11-05T01:00:00Z","endTime":"2026-11-05T02:00:00Z","quantity":1800}]}]}]
    */
   groups?: ResourceUsageGroups[];
   /**

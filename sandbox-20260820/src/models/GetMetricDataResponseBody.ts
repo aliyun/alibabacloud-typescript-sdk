@@ -6,7 +6,7 @@ import { MetricData } from "./MetricData";
 export class GetMetricDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. If the request fails, the corresponding error code is returned.
+   * The response code. 200 indicates success. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * 200
@@ -22,7 +22,7 @@ export class GetMetricDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The query results of each metric, along with the corresponding time and grouping information.
+   * The query results for each metric. Metrics ending with QuotaRatio return a percentage from 0 to 100. For example, 25 indicates 25%.
    * 
    * @example
    * {"period":60,"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T00:02:00Z","groupBy":["teamID"],"results":[{"metricName":"cpuUsedCores","unit":"Core","series":[{"dimensions":{"teamID":"70d1c834-0333-58d8-97ac-5336eb9179eb"},"points":[{"timestamp":"2026-11-05T00:00:00Z","value":0.25},{"timestamp":"2026-11-05T00:01:00Z","value":0.5}]}]}]}

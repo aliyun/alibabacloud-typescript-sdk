@@ -6,7 +6,7 @@ import { ResourceUsage } from "./ResourceUsage";
 export class GetResourceUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value is 200 if the request is successful. If the request fails, the value is the corresponding error code.
+   * The response code. The value is 200 for a successful request, or the corresponding error code for a failed request.
    * 
    * @example
    * 200
@@ -30,10 +30,10 @@ export class GetResourceUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The usage results for the query period and each group.
+   * The usage results for the query interval and each group.
    * 
    * @example
-   * {"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T02:00:00Z","granularity":"Hour","groupBy":["teamID"],"groups":[{"dimensions":{"teamID":"70d1c834-0333-58d8-97ac-5336eb9179eb"},"items":[{"usageName":"cpuActive","unit":"CoreSecond","total":5400,"buckets":[{"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T01:00:00Z","quantity":3600},{"startTime":"2026-11-05T01:00:00Z","endTime":"2026-11-05T02:00:00Z","quantity":1800}]}]}]}
+   * {"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T02:00:00Z","granularity":"Hour","groupBy":["teamID"],"groups":[{"dimensions":{"teamID":"70d1c834-0333-58d8-97ac-5336eb9179eb"},"items":[{"usageName":"activeVCPU","unit":"CoreSecond","total":5400,"buckets":[{"startTime":"2026-11-05T00:00:00Z","endTime":"2026-11-05T01:00:00Z","quantity":3600},{"startTime":"2026-11-05T01:00:00Z","endTime":"2026-11-05T02:00:00Z","quantity":1800}]}]}]}
    */
   resourceUsage?: ResourceUsage;
   static names(): { [key: string]: string } {

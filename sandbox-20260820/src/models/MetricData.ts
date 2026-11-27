@@ -49,7 +49,7 @@ export class MetricDataResultsSeriesPoints extends $dara.Model {
 export class MetricDataResultsSeries extends $dara.Model {
   /**
    * @remarks
-   * The team, template, or other grouping values for this series.
+   * The team, template, or other grouping values corresponding to this series.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class MetricDataResultsSeries extends $dara.Model {
   dimensions?: { [key: string]: string };
   /**
    * @remarks
-   * The data points in chronological order. Only times with metric values are listed.
+   * The data points arranged in chronological order, listing only the times when metric values are available.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class MetricDataResultsSeries extends $dara.Model {
 export class MetricDataResults extends $dara.Model {
   /**
    * @remarks
-   * The name of the metric in the request.
+   * The name of the metric corresponding to the request.
    * 
    * This parameter is required.
    * 
@@ -109,7 +109,7 @@ export class MetricDataResults extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The time series for the metric. An empty array is returned if no data points exist.
+   * The time series for the metric. An empty array is returned if there are no data points.
    * 
    * This parameter is required.
    * 
@@ -166,7 +166,7 @@ export class MetricData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The grouping keys used for this query. An empty array is returned if no grouping is applied.
+   * The group keys used for this query. An empty array is returned if no grouping is applied.
    * 
    * This parameter is required.
    * 
@@ -186,7 +186,7 @@ export class MetricData extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The result for each requested metric.
+   * The result corresponding to each requested metric.
    * 
    * This parameter is required.
    * 

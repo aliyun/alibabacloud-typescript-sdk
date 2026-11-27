@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceUsageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. This time is exclusive. Specify the time on the hour in UTC. The latest allowed time is the start of the current hour. You can query data for a maximum of 7 days at a time. The end time must be later than the start time.
+   * The end time of the query. This time is exclusive. Specify a full hour in UTC. The latest allowed time is the start of the current hour. You can query a maximum of 7 days at a time. The end time must be later than the start time.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,7 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The granularity at which usage data is aggregated. Valid values:
-   * - All: Aggregates the cumulative usage over the entire query period.
-   * - Hour: Aggregates the usage by hour.
-   * - Day: Aggregates the usage every 24 hours starting from the startTime. The last period may be less than 24 hours.
+   * The granularity for aggregating usage. Set to All to view the cumulative usage for the entire query interval. Set to Hour to view hourly usage. Set to Day to aggregate usage every 24 hours from the start time. The last interval can be less than 24 hours.
    * 
    * This parameter is required.
    * 
@@ -28,7 +25,7 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The keys used to group the results. You can specify any combination of teamID, templateID, and sandboxPlan. Each key can be specified only once. If you do not specify this parameter, the results are aggregated over the entire query scope.
+   * Specifies the keys by which to group the results. You can use any combination of teamID, templateID, snapshotID, and sandboxPlan. Each key can be specified only once. If this parameter is not specified, the results are aggregated for the entire query range. If you group by snapshotID, only the usage associated with snapshots is returned.
    * 
    * @example
    * ["teamID"]
@@ -36,7 +33,7 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
   groupByShrink?: string;
   /**
    * @remarks
-   * The sandbox edition to query. Valid values: eco, std, pro, and ent.
+   * The sandbox plan to query. Valid values: eco, std, pro, and ent.
    * 
    * @example
    * pro
@@ -44,7 +41,15 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
   sandboxPlan?: string;
   /**
    * @remarks
-   * The start time of the query. This time is inclusive. Specify the time on the hour in UTC, such as 00:00 UTC.
+   * The ID of the snapshot for which you want to query historical usage.
+   * 
+   * @example
+   * 550e8400-e29b-41d4-a716-446655440000
+   */
+  snapshotID?: string;
+  /**
+   * @remarks
+   * The start time of the query. This time is inclusive. Specify a full hour in UTC, such as 00:00 UTC.
    * 
    * This parameter is required.
    * 
@@ -54,7 +59,7 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the team to query. If you do not specify this parameter, the usage of the current account is queried.
+   * Specifies the team ID. Required when querying by team. If this parameter is omitted, the usage of the current account is queried.
    * 
    * @example
    * 70d1c834-0333-58d8-97ac-5336eb9179eb
@@ -70,12 +75,12 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
   templateID?: string;
   /**
    * @remarks
-   * The usage items to query. You can specify 1 to 6 different usage items in a single request. CPU usage items include cpuActive and cpuIdle. Memory usage items include memoryActive and memoryIdle. Disk usage items include disk and diskDeepSleep. The disk item includes the usage of deep sleep disks.
+   * Specifies 1 to 8 different usage item names for each request. For available usage items, refer to the resource usage metrics catalog.
    * 
    * This parameter is required.
    * 
    * @example
-   * ["cpuActive"]
+   * ["activeVCPU"]
    */
   usageNamesShrink?: string;
   static names(): { [key: string]: string } {
@@ -84,6 +89,7 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
       granularity: 'granularity',
       groupByShrink: 'groupBy',
       sandboxPlan: 'sandboxPlan',
+      snapshotID: 'snapshotID',
       startTime: 'startTime',
       teamID: 'teamID',
       templateID: 'templateID',
@@ -97,6 +103,7 @@ export class GetResourceUsageShrinkRequest extends $dara.Model {
       granularity: 'string',
       groupByShrink: 'string',
       sandboxPlan: 'string',
+      snapshotID: 'string',
       startTime: 'string',
       teamID: 'string',
       templateID: 'string',

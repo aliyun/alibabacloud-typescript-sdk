@@ -866,7 +866,7 @@ export default class Client extends OpenApi {
    * Queries monitoring metrics.
    * 
    * @remarks
-   * Retrieves monitoring metrics at a specific point in time or queries metric trends over a period of time. You can filter queries by account, team, template, or sandbox.
+   * Queries monitoring metrics at a specific point in time or retrieves trends over a period of time. You can query metrics by account, team, template, or sandbox. Each metric returns up to 200 time series, and a single request queries up to 100,000 nominal data points.
    * 
    * @param tmpReq - GetMetricDataRequest
    * @param headers - map
@@ -948,7 +948,7 @@ export default class Client extends OpenApi {
    * Queries monitoring metrics.
    * 
    * @remarks
-   * Retrieves monitoring metrics at a specific point in time or queries metric trends over a period of time. You can filter queries by account, team, template, or sandbox.
+   * Queries monitoring metrics at a specific point in time or retrieves trends over a period of time. You can query metrics by account, team, template, or sandbox. Each metric returns up to 200 time series, and a single request queries up to 100,000 nominal data points.
    * 
    * @param request - GetMetricDataRequest
    * @returns GetMetricDataResponse
@@ -963,7 +963,7 @@ export default class Client extends OpenApi {
    * Queries resource usage.
    * 
    * @remarks
-   * Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+   * Queries the CPU, memory, and disk usage within a specified time range, including the disk usage of template caches and snapshots. You can view the cumulative usage for the interval, hourly usage, or daily usage. You can also group the results by team, template, snapshot, or sandbox plan.
    * 
    * @param tmpReq - GetResourceUsageRequest
    * @param headers - map
@@ -997,6 +997,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sandboxPlan)) {
       query["sandboxPlan"] = request.sandboxPlan;
+    }
+
+    if (!$dara.isNull(request.snapshotID)) {
+      query["snapshotID"] = request.snapshotID;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -1037,7 +1041,7 @@ export default class Client extends OpenApi {
    * Queries resource usage.
    * 
    * @remarks
-   * Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+   * Queries the CPU, memory, and disk usage within a specified time range, including the disk usage of template caches and snapshots. You can view the cumulative usage for the interval, hourly usage, or daily usage. You can also group the results by team, template, snapshot, or sandbox plan.
    * 
    * @param request - GetResourceUsageRequest
    * @returns GetResourceUsageResponse
