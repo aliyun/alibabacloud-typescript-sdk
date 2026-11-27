@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the operation fails. This field is null when the operation succeeds.
+   * The error code returned when the operation fails. This parameter is null when the operation succeeds.
    * 
    * @example
    * KVCacheInstance.NotAttached
@@ -13,12 +13,20 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the operation fails. This field is null when the operation succeeds.
+   * The error message returned when the operation fails. This parameter is null when the operation succeeds.
    * 
    * @example
    * The KVCacheInstance is not in ATTACHED status.
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the compute instance.
+   * 
+   * @example
+   * i-hdska8721321
+   */
+  instanceId?: string;
   /**
    * @remarks
    * KVCacheStore KvcsId
@@ -29,7 +37,10 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The operation result. Valid values: DETACHING (the request is accepted and the asynchronous unmount operation is in progress; this value is also returned for idempotent calls), Success (synchronous verification passed and asynchronous operation completed), and Failed (the operation failed).
+   * The operation result. Valid values:
+   * - DETACHING: The request is accepted and the asynchronous detach operation is in progress. This value is also returned for idempotent calls.
+   * - Success: The synchronous verification is passed and the asynchronous operation is complete.
+   * - Failed: The operation failed.
    * 
    * @example
    * DETACHING
@@ -47,6 +58,7 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
     return {
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      instanceId: 'InstanceId',
       kvcsId: 'KvcsId',
       status: 'Status',
       vscId: 'VscId',
@@ -57,6 +69,7 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
     return {
       errorCode: 'string',
       errorMessage: 'string',
+      instanceId: 'string',
       kvcsId: 'string',
       status: 'string',
       vscId: 'string',
@@ -75,12 +88,12 @@ export class DetachKVCacheStoreResponseBodyDetachResults extends $dara.Model {
 export class DetachKVCacheStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of unmount results.
+   * The list of detach results.
    */
   detachResults?: DetachKVCacheStoreResponseBodyDetachResults[];
   /**
    * @remarks
-   * The request ID. This ID is returned regardless of whether the API call succeeds.
+   * The request ID. This ID is returned regardless of whether the operation is successful.
    * 
    * @example
    * B127704C-ECB1-5B0A-AA9C-8F394A6F179F

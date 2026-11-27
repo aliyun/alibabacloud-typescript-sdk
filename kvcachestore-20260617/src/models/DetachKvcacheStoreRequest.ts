@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DetachKVCacheStoreRequestResourceIds extends $dara.Model {
   /**
    * @remarks
+   * The ID of the compute instance.
+   * 
+   * @example
+   * i-hdska8721321
+   */
+  instanceId?: string;
+  /**
+   * @remarks
    * KVCacheStore KvcsId
    * 
    * This parameter is required.
@@ -17,14 +25,13 @@ export class DetachKVCacheStoreRequestResourceIds extends $dara.Model {
    * @remarks
    * The ID of the VSC on the compute side.
    * 
-   * This parameter is required.
-   * 
    * @example
    * vsc-uf6cpove22nrjnpenwkyal
    */
   vscId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       kvcsId: 'KvcsId',
       vscId: 'VscId',
     };
@@ -32,6 +39,7 @@ export class DetachKVCacheStoreRequestResourceIds extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       kvcsId: 'string',
       vscId: 'string',
     };
@@ -57,7 +65,7 @@ export class DetachKVCacheStoreRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The region ID. Example: cn-hangzhou.
+   * The region ID, such as cn-hangzhou.
    * 
    * This parameter is required.
    * 
@@ -67,7 +75,7 @@ export class DetachKVCacheStoreRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resources to unmount. You can specify up to 100 resources.
+   * The list of resources to detach. You can specify up to 100 resources.
    * 
    * This parameter is required.
    */

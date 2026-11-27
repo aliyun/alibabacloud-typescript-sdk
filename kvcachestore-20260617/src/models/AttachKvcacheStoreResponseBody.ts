@@ -29,7 +29,7 @@ export class AttachKVCacheStoreResponseBodyAttachResults extends $dara.Model {
   kvcsId?: string;
   /**
    * @remarks
-   * The operation result. Valid values: ATTACHING (the request is accepted and the asynchronous mounting is in progress), ATTACHED (idempotent: the mounting is complete), Success (synchronous verification passed and asynchronous mounting is complete), and Failed (the operation failed).
+   * The operation result. Valid values: ATTACHING (the request is accepted and the asynchronous mounting is in progress), ATTACHED (idempotent: the mounting is already complete), Success (synchronous verification passed and asynchronous mounting is complete), and Failed (the operation failed).
    * 
    * @example
    * ATTACHING
@@ -80,7 +80,7 @@ export class AttachKVCacheStoreResponseBody extends $dara.Model {
   attachResults?: AttachKVCacheStoreResponseBodyAttachResults[];
   /**
    * @remarks
-   * The request ID. This ID is returned regardless of whether the API call is successful.
+   * The request ID. This ID is returned regardless of whether the API call succeeds.
    * 
    * @example
    * F7BEF1E2-7E56-5BF1-8E36-77A51C5812F1
